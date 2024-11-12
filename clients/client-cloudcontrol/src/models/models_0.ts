@@ -10,7 +10,7 @@ import { CloudControlServiceException as __BaseException } from "./CloudControlS
 export class AlreadyExistsException extends __BaseException {
   readonly name: "AlreadyExistsException" = "AlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -108,7 +108,7 @@ export interface ProgressEvent {
    * <p>The name of the resource type used in the operation.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The primary identifier for the resource.</p>
@@ -118,7 +118,7 @@ export interface ProgressEvent {
    *          </note>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 
   /**
    * <p>The unique token representing this resource operation request.</p>
@@ -126,13 +126,13 @@ export interface ProgressEvent {
    *       request.</p>
    * @public
    */
-  RequestToken?: string;
+  RequestToken?: string | undefined;
 
   /**
    * <p>The resource operation type.</p>
    * @public
    */
-  Operation?: Operation;
+  Operation?: Operation | undefined;
 
   /**
    * <p>The current status of the resource operation request.</p>
@@ -166,26 +166,26 @@ export interface ProgressEvent {
    *          </ul>
    * @public
    */
-  OperationStatus?: OperationStatus;
+  OperationStatus?: OperationStatus | undefined;
 
   /**
    * <p>When the resource operation request was initiated.</p>
    * @public
    */
-  EventTime?: Date;
+  EventTime?: Date | undefined;
 
   /**
    * <p>A JSON string containing the resource model, consisting of each resource property and its
    *       current value.</p>
    * @public
    */
-  ResourceModel?: string;
+  ResourceModel?: string | undefined;
 
   /**
    * <p>Any message explaining the current status.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>For requests with a status of <code>FAILED</code>, the associated error code.</p>
@@ -193,13 +193,13 @@ export interface ProgressEvent {
    *         Line Interface User Guide for Extension Development</i>.</p>
    * @public
    */
-  ErrorCode?: HandlerErrorCode;
+  ErrorCode?: HandlerErrorCode | undefined;
 
   /**
    * <p>When to next request the status of this resource operation request.</p>
    * @public
    */
-  RetryAfter?: Date;
+  RetryAfter?: Date | undefined;
 }
 
 /**
@@ -212,7 +212,7 @@ export interface CancelResourceRequestOutput {
    *         <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    * @public
    */
-  ProgressEvent?: ProgressEvent;
+  ProgressEvent?: ProgressEvent | undefined;
 }
 
 /**
@@ -222,7 +222,7 @@ export interface CancelResourceRequestOutput {
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -244,7 +244,7 @@ export class ConcurrentModificationException extends __BaseException {
 export class RequestTokenNotFoundException extends __BaseException {
   readonly name: "RequestTokenNotFoundException" = "RequestTokenNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -268,7 +268,7 @@ export class RequestTokenNotFoundException extends __BaseException {
 export class ClientTokenConflictException extends __BaseException {
   readonly name: "ClientTokenConflictException" = "ClientTokenConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -290,7 +290,7 @@ export class ClientTokenConflictException extends __BaseException {
 export class ConcurrentOperationException extends __BaseException {
   readonly name: "ConcurrentOperationException" = "ConcurrentOperationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -321,7 +321,7 @@ export interface CreateResourceInput {
    *                                      uses the default version.</p>
    * @public
    */
-  TypeVersionId?: string;
+  TypeVersionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -339,7 +339,7 @@ export interface CreateResourceInput {
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>A unique identifier to ensure the idempotency of the resource request. As a
@@ -355,7 +355,7 @@ export interface CreateResourceInput {
    *                                      Guide</i>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Structured data format representing the desired state of the resource, consisting of that
@@ -392,7 +392,7 @@ export interface CreateResourceOutput {
    *         <code>ProgressEvent</code> returned by <code>CreateResource</code>.</p>
    * @public
    */
-  ProgressEvent?: ProgressEvent;
+  ProgressEvent?: ProgressEvent | undefined;
 }
 
 /**
@@ -403,7 +403,7 @@ export interface CreateResourceOutput {
 export class GeneralServiceException extends __BaseException {
   readonly name: "GeneralServiceException" = "GeneralServiceException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -426,7 +426,7 @@ export class GeneralServiceException extends __BaseException {
 export class HandlerFailureException extends __BaseException {
   readonly name: "HandlerFailureException" = "HandlerFailureException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -449,7 +449,7 @@ export class HandlerFailureException extends __BaseException {
 export class HandlerInternalFailureException extends __BaseException {
   readonly name: "HandlerInternalFailureException" = "HandlerInternalFailureException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -472,7 +472,7 @@ export class HandlerInternalFailureException extends __BaseException {
 export class InvalidCredentialsException extends __BaseException {
   readonly name: "InvalidCredentialsException" = "InvalidCredentialsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -495,7 +495,7 @@ export class InvalidCredentialsException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -518,7 +518,7 @@ export class InvalidRequestException extends __BaseException {
 export class NetworkFailureException extends __BaseException {
   readonly name: "NetworkFailureException" = "NetworkFailureException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -541,7 +541,7 @@ export class NetworkFailureException extends __BaseException {
 export class NotStabilizedException extends __BaseException {
   readonly name: "NotStabilizedException" = "NotStabilizedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -564,7 +564,7 @@ export class NotStabilizedException extends __BaseException {
 export class NotUpdatableException extends __BaseException {
   readonly name: "NotUpdatableException" = "NotUpdatableException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -588,7 +588,7 @@ export class NotUpdatableException extends __BaseException {
 export class PrivateTypeException extends __BaseException {
   readonly name: "PrivateTypeException" = "PrivateTypeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -612,7 +612,7 @@ export class PrivateTypeException extends __BaseException {
 export class ResourceConflictException extends __BaseException {
   readonly name: "ResourceConflictException" = "ResourceConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -634,7 +634,7 @@ export class ResourceConflictException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -657,7 +657,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceInternalErrorException extends __BaseException {
   readonly name: "ServiceInternalErrorException" = "ServiceInternalErrorException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -680,7 +680,7 @@ export class ServiceInternalErrorException extends __BaseException {
 export class ServiceLimitExceededException extends __BaseException {
   readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -702,7 +702,7 @@ export class ServiceLimitExceededException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -724,7 +724,7 @@ export class ThrottlingException extends __BaseException {
 export class TypeNotFoundException extends __BaseException {
   readonly name: "TypeNotFoundException" = "TypeNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -746,7 +746,7 @@ export class TypeNotFoundException extends __BaseException {
 export class UnsupportedActionException extends __BaseException {
   readonly name: "UnsupportedActionException" = "UnsupportedActionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -777,7 +777,7 @@ export interface DeleteResourceInput {
    *                                      uses the default version.</p>
    * @public
    */
-  TypeVersionId?: string;
+  TypeVersionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -795,7 +795,7 @@ export interface DeleteResourceInput {
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>A unique identifier to ensure the idempotency of the resource request. As a
@@ -811,7 +811,7 @@ export interface DeleteResourceInput {
    *                                      Guide</i>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The identifier for the resource.</p>
@@ -842,7 +842,7 @@ export interface DeleteResourceOutput {
    *         <code>ProgressEvent</code> returned by <code>DeleteResource</code>.</p>
    * @public
    */
-  ProgressEvent?: ProgressEvent;
+  ProgressEvent?: ProgressEvent | undefined;
 }
 
 /**
@@ -861,7 +861,7 @@ export interface GetResourceInput {
    *                                      uses the default version.</p>
    * @public
    */
-  TypeVersionId?: string;
+  TypeVersionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -879,7 +879,7 @@ export interface GetResourceInput {
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The identifier for the resource.</p>
@@ -910,13 +910,13 @@ export interface ResourceDescription {
    *         resources</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 
   /**
    * <p>A list of the resource properties and their current values.</p>
    * @public
    */
-  Properties?: string;
+  Properties?: string | undefined;
 }
 
 /**
@@ -927,13 +927,13 @@ export interface GetResourceOutput {
    * <p>The name of the resource type.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>Represents information about a provisioned resource.</p>
    * @public
    */
-  ResourceDescription?: ResourceDescription;
+  ResourceDescription?: ResourceDescription | undefined;
 }
 
 /**
@@ -957,7 +957,7 @@ export interface GetResourceRequestStatusOutput {
    * <p>Represents the current status of the resource operation request.</p>
    * @public
    */
-  ProgressEvent?: ProgressEvent;
+  ProgressEvent?: ProgressEvent | undefined;
 }
 
 /**
@@ -969,7 +969,7 @@ export interface ResourceRequestStatusFilter {
    * <p>The operation types to include in the filter.</p>
    * @public
    */
-  Operations?: Operation[];
+  Operations?: Operation[] | undefined;
 
   /**
    * <p>The operation statuses to include in the filter.</p>
@@ -1002,7 +1002,7 @@ export interface ResourceRequestStatusFilter {
    *          </ul>
    * @public
    */
-  OperationStatuses?: OperationStatus[];
+  OperationStatuses?: OperationStatus[] | undefined;
 }
 
 /**
@@ -1017,7 +1017,7 @@ export interface ListResourceRequestsInput {
    *          <p>The default is <code>20</code>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results,
@@ -1028,13 +1028,13 @@ export interface ListResourceRequestsInput {
    *                                    <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The filter criteria to apply to the requests returned.</p>
    * @public
    */
-  ResourceRequestStatusFilter?: ResourceRequestStatusFilter;
+  ResourceRequestStatusFilter?: ResourceRequestStatusFilter | undefined;
 }
 
 /**
@@ -1045,7 +1045,7 @@ export interface ListResourceRequestsOutput {
    * <p>The requests that match the specified filter criteria.</p>
    * @public
    */
-  ResourceRequestStatusSummaries?: ProgressEvent[];
+  ResourceRequestStatusSummaries?: ProgressEvent[] | undefined;
 
   /**
    * <p>If the request doesn't return all of the remaining results,
@@ -1055,7 +1055,7 @@ export interface ListResourceRequestsOutput {
    *                                     <code>NextToken</code> is set to null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1074,7 +1074,7 @@ export interface ListResourcesInput {
    *                                      uses the default version.</p>
    * @public
    */
-  TypeVersionId?: string;
+  TypeVersionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -1092,7 +1092,7 @@ export interface ListResourcesInput {
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results,
@@ -1103,19 +1103,19 @@ export interface ListResourcesInput {
    *                                    <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Reserved.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The resource model to use to select the resources to return.</p>
    * @public
    */
-  ResourceModel?: string;
+  ResourceModel?: string | undefined;
 }
 
 /**
@@ -1126,14 +1126,14 @@ export interface ListResourcesOutput {
    * <p>The name of the resource type.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>Information about the specified resources, including primary identifier and resource
    *       model.</p>
    * @public
    */
-  ResourceDescriptions?: ResourceDescription[];
+  ResourceDescriptions?: ResourceDescription[] | undefined;
 
   /**
    * <p>If the request doesn't return all of the remaining results,
@@ -1143,7 +1143,7 @@ export interface ListResourcesOutput {
    *                                     <code>NextToken</code> is set to null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1162,7 +1162,7 @@ export interface UpdateResourceInput {
    *                                      uses the default version.</p>
    * @public
    */
-  TypeVersionId?: string;
+  TypeVersionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management
@@ -1180,7 +1180,7 @@ export interface UpdateResourceInput {
    *                                     credentials</a> in the <i>Amazon Web Services Cloud Control API User Guide</i>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>A unique identifier to ensure the idempotency of the resource request. As a
@@ -1196,7 +1196,7 @@ export interface UpdateResourceInput {
    *                                      Guide</i>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The identifier for the resource.</p>
@@ -1234,7 +1234,7 @@ export interface UpdateResourceOutput {
    *       request.</p>
    * @public
    */
-  ProgressEvent?: ProgressEvent;
+  ProgressEvent?: ProgressEvent | undefined;
 }
 
 /**

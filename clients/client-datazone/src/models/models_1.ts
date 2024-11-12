@@ -108,14 +108,14 @@ export interface LakeFormationConfiguration {
    *          Data Lake using AWS Lake Formation hybrid access mode.</p>
    * @public
    */
-  locationRegistrationRole?: string;
+  locationRegistrationRole?: string | undefined;
 
   /**
    * <p>Specifies certain Amazon S3 locations if you do not want Amazon DataZone to
    *          automatically register them in hybrid mode. </p>
    * @public
    */
-  locationRegistrationExcludeS3Locations?: string[];
+  locationRegistrationExcludeS3Locations?: string[] | undefined;
 }
 
 /**
@@ -179,43 +179,43 @@ export interface GetEnvironmentBlueprintConfigurationOutput {
    * <p>The ARN of the provisioning role with which this blueprint is created.</p>
    * @public
    */
-  provisioningRoleArn?: string;
+  provisioningRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of the manage access role with which this blueprint is created.</p>
    * @public
    */
-  manageAccessRoleArn?: string;
+  manageAccessRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services regions in which this blueprint is enabled.</p>
    * @public
    */
-  enabledRegions?: string[];
+  enabledRegions?: string[] | undefined;
 
   /**
    * <p>The regional parameters of the blueprint.</p>
    * @public
    */
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The timestamp of when this blueprint was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when this blueprint was upated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
    * @public
    */
-  provisioningConfigurations?: ProvisioningConfiguration[];
+  provisioningConfigurations?: ProvisioningConfiguration[] | undefined;
 }
 
 /**
@@ -237,7 +237,7 @@ export interface ListEnvironmentBlueprintConfigurationsInput {
    *          configurations.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of blueprint configurations is greater than the default value for the
@@ -249,7 +249,7 @@ export interface ListEnvironmentBlueprintConfigurationsInput {
    *          configurations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -274,44 +274,44 @@ export interface EnvironmentBlueprintConfigurationItem {
    *          configuration.</p>
    * @public
    */
-  provisioningRoleArn?: string;
+  provisioningRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of the manage access role specified in the environment blueprint
    *          configuration.</p>
    * @public
    */
-  manageAccessRoleArn?: string;
+  manageAccessRoleArn?: string | undefined;
 
   /**
    * <p>The enabled Amazon Web Services Regions specified in a blueprint configuration.</p>
    * @public
    */
-  enabledRegions?: string[];
+  enabledRegions?: string[] | undefined;
 
   /**
    * <p>The regional parameters of the environment blueprint.</p>
    * @public
    */
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The timestamp of when an environment blueprint was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the environment blueprint was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
    * @public
    */
-  provisioningConfigurations?: ProvisioningConfiguration[];
+  provisioningConfigurations?: ProvisioningConfiguration[] | undefined;
 }
 
 /**
@@ -322,7 +322,7 @@ export interface ListEnvironmentBlueprintConfigurationsOutput {
    * <p>The results of the <code>ListEnvironmentBlueprintConfigurations</code> action.</p>
    * @public
    */
-  items?: EnvironmentBlueprintConfigurationItem[];
+  items?: EnvironmentBlueprintConfigurationItem[] | undefined;
 
   /**
    * <p>When the number of blueprint configurations is greater than the default value for the
@@ -334,7 +334,7 @@ export interface ListEnvironmentBlueprintConfigurationsOutput {
    *          configurations.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -357,13 +357,13 @@ export interface PutEnvironmentBlueprintConfigurationInput {
    * <p>The ARN of the provisioning role.</p>
    * @public
    */
-  provisioningRoleArn?: string;
+  provisioningRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of the manage access role.</p>
    * @public
    */
-  manageAccessRoleArn?: string;
+  manageAccessRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the enabled Amazon Web Services Regions.</p>
@@ -375,13 +375,13 @@ export interface PutEnvironmentBlueprintConfigurationInput {
    * <p>The regional parameters in the environment blueprint.</p>
    * @public
    */
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
    * @public
    */
-  provisioningConfigurations?: ProvisioningConfiguration[];
+  provisioningConfigurations?: ProvisioningConfiguration[] | undefined;
 }
 
 /**
@@ -404,43 +404,43 @@ export interface PutEnvironmentBlueprintConfigurationOutput {
    * <p>The ARN of the provisioning role.</p>
    * @public
    */
-  provisioningRoleArn?: string;
+  provisioningRoleArn?: string | undefined;
 
   /**
    * <p>The ARN of the manage access role.</p>
    * @public
    */
-  manageAccessRoleArn?: string;
+  manageAccessRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the enabled Amazon Web Services Regions.</p>
    * @public
    */
-  enabledRegions?: string[];
+  enabledRegions?: string[] | undefined;
 
   /**
    * <p>The regional parameters in the environment blueprint.</p>
    * @public
    */
-  regionalParameters?: Record<string, Record<string, string>>;
+  regionalParameters?: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The timestamp of when the environment blueprint was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the environment blueprint was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The provisioning configuration of a blueprint.</p>
    * @public
    */
-  provisioningConfigurations?: ProvisioningConfiguration[];
+  provisioningConfigurations?: ProvisioningConfiguration[] | undefined;
 }
 
 /**
@@ -485,7 +485,7 @@ export interface GetFormTypeInput {
    * <p>The revision of this metadata form type.</p>
    * @public
    */
-  revision?: string;
+  revision?: string | undefined;
 }
 
 /**
@@ -538,50 +538,50 @@ export interface GetFormTypeOutput {
    * <p>The ID of the project that owns this metadata form type.</p>
    * @public
    */
-  owningProjectId?: string;
+  owningProjectId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon DataZone domain in which the metadata form type was originally
    *          created.</p>
    * @public
    */
-  originDomainId?: string;
+  originDomainId?: string | undefined;
 
   /**
    * <p>The ID of the project in which this metadata form type was originally created.</p>
    * @public
    */
-  originProjectId?: string;
+  originProjectId?: string | undefined;
 
   /**
    * <p>The status of the metadata form type.</p>
    * @public
    */
-  status?: FormTypeStatus;
+  status?: FormTypeStatus | undefined;
 
   /**
    * <p>The timestamp of when this metadata form type was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who created this metadata form type.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The description of the metadata form type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The imports of the metadata form type.</p>
    * @public
    */
-  imports?: Import[];
+  imports?: Import[] | undefined;
 }
 
 /**
@@ -638,7 +638,7 @@ export interface GetEnvironmentOutput {
    * <p>The ID of the environment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The ID of the Amazon DataZone domain where the environment exists.</p>
@@ -656,13 +656,13 @@ export interface GetEnvironmentOutput {
    * <p>The timestamp of when the environment was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when this environment was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The name of the environment.</p>
@@ -674,25 +674,25 @@ export interface GetEnvironmentOutput {
    * <p>The description of the environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ID of the environment profile with which the environment is created.</p>
    * @public
    */
-  environmentProfileId?: string;
+  environmentProfileId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account where the environment exists.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services region where the environment exists.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The provider of this Amazon DataZone environment.</p>
@@ -704,55 +704,55 @@ export interface GetEnvironmentOutput {
    * <p>The provisioned resources of this Amazon DataZone environment.</p>
    * @public
    */
-  provisionedResources?: Resource[];
+  provisionedResources?: Resource[] | undefined;
 
   /**
    * <p>The status of this Amazon DataZone environment.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The actions of the environment.</p>
    * @public
    */
-  environmentActions?: ConfigurableEnvironmentAction[];
+  environmentActions?: ConfigurableEnvironmentAction[] | undefined;
 
   /**
    * <p>The business glossary terms that can be used in this environment.</p>
    * @public
    */
-  glossaryTerms?: string[];
+  glossaryTerms?: string[] | undefined;
 
   /**
    * <p>The user parameters of this Amazon DataZone environment.</p>
    * @public
    */
-  userParameters?: CustomParameter[];
+  userParameters?: CustomParameter[] | undefined;
 
   /**
    * <p>The details of the last deployment of the environment.</p>
    * @public
    */
-  lastDeployment?: Deployment;
+  lastDeployment?: Deployment | undefined;
 
   /**
    * <p>The provisioning properties of this Amazon DataZone environment.</p>
    * @public
    */
-  provisioningProperties?: ProvisioningProperties;
+  provisioningProperties?: ProvisioningProperties | undefined;
 
   /**
    * <p>The deployment properties of the environment.</p>
    * @public
    */
-  deploymentProperties?: DeploymentProperties;
+  deploymentProperties?: DeploymentProperties | undefined;
 
   /**
    * <p>The blueprint with which the environment is created.</p>
    * @public
    */
-  environmentBlueprintId?: string;
+  environmentBlueprintId?: string | undefined;
 }
 
 /**
@@ -817,7 +817,7 @@ export interface GetEnvironmentActionOutput {
    * <p>The description of the environment action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -857,7 +857,7 @@ export interface GetEnvironmentBlueprintOutput {
    * <p>The description of this Amazon DataZone blueprint.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The provider of this Amazon DataZone blueprint.</p>
@@ -875,31 +875,31 @@ export interface GetEnvironmentBlueprintOutput {
    * <p>The deployment properties of this Amazon DataZone blueprint.</p>
    * @public
    */
-  deploymentProperties?: DeploymentProperties;
+  deploymentProperties?: DeploymentProperties | undefined;
 
   /**
    * <p>The user parameters of this blueprint.</p>
    * @public
    */
-  userParameters?: CustomParameter[];
+  userParameters?: CustomParameter[] | undefined;
 
   /**
    * <p>The glossary terms attached to this Amazon DataZone blueprint.</p>
    * @public
    */
-  glossaryTerms?: string[];
+  glossaryTerms?: string[] | undefined;
 
   /**
    * <p>A timestamp of when this blueprint was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when this blueprint was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -928,25 +928,25 @@ export interface GetEnvironmentCredentialsOutput {
    * <p>The access key ID of the environment.</p>
    * @public
    */
-  accessKeyId?: string;
+  accessKeyId?: string | undefined;
 
   /**
    * <p>The secret access key of the environment credentials.</p>
    * @public
    */
-  secretAccessKey?: string;
+  secretAccessKey?: string | undefined;
 
   /**
    * <p>The session token of the environment credentials.</p>
    * @public
    */
-  sessionToken?: string;
+  sessionToken?: string | undefined;
 
   /**
    * <p>The expiration timestamp of the environment credentials.</p>
    * @public
    */
-  expiration?: Date;
+  expiration?: Date | undefined;
 }
 
 /**
@@ -986,13 +986,13 @@ export interface GetEnvironmentProfileOutput {
    * <p>The ID of the Amazon Web Services account where this environment profile exists.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services region where this environment profile exists.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The Amazon DataZone user who created this environment profile.</p>
@@ -1004,13 +1004,13 @@ export interface GetEnvironmentProfileOutput {
    * <p>The timestamp of when this environment profile was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when this environment profile was upated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The name of the environment profile.</p>
@@ -1022,7 +1022,7 @@ export interface GetEnvironmentProfileOutput {
    * <p>The description of the environment profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ID of the blueprint with which this environment profile is created.</p>
@@ -1034,13 +1034,13 @@ export interface GetEnvironmentProfileOutput {
    * <p>The ID of the Amazon DataZone project in which this environment profile is created.</p>
    * @public
    */
-  projectId?: string;
+  projectId?: string | undefined;
 
   /**
    * <p>The user parameters of the environment profile.</p>
    * @public
    */
-  userParameters?: CustomParameter[];
+  userParameters?: CustomParameter[] | undefined;
 }
 
 /**
@@ -1068,25 +1068,25 @@ export interface GetGroupProfileOutput {
    * <p>The identifier of the Amazon DataZone domain in which the group profile exists.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The identifier of the group profile.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The identifier of the group profile.</p>
    * @public
    */
-  status?: GroupProfileStatus;
+  status?: GroupProfileStatus | undefined;
 
   /**
    * <p>The name of the group for which the specified group profile exists.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 }
 
 /**
@@ -1108,7 +1108,7 @@ export interface GetIamPortalLoginUrlOutput {
    * <p>The data portal URL of the specified Amazon DataZone domain.</p>
    * @public
    */
-  authCodeUrl?: string;
+  authCodeUrl?: string | undefined;
 
   /**
    * <p>The ID of the user profile.</p>
@@ -1141,7 +1141,7 @@ export interface GetLineageNodeInput {
    * <p>The event time stamp for which you want to get the data lineage node.</p>
    * @public
    */
-  eventTimestamp?: Date;
+  eventTimestamp?: Date | undefined;
 }
 
 /**
@@ -1153,13 +1153,13 @@ export interface LineageNodeReference {
    * <p>The ID of the data lineage node.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The event timestamp of the data lineage node.</p>
    * @public
    */
-  eventTimestamp?: Date;
+  eventTimestamp?: Date | undefined;
 }
 
 /**
@@ -1176,37 +1176,37 @@ export interface GetLineageNodeOutput {
    * <p>The name of the data lineage node.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the data lineage node.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The timestamp at which the data lineage node was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The user who created the data lineage node.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The timestamp at which the data lineage node was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The user who updated the data lineage node.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The ID of the data lineage node.</p>
@@ -1224,37 +1224,37 @@ export interface GetLineageNodeOutput {
    * <p>The revision type of the specified data lineage node.</p>
    * @public
    */
-  typeRevision?: string;
+  typeRevision?: string | undefined;
 
   /**
    * <p>The source identifier of the data lineage node.</p>
    * @public
    */
-  sourceIdentifier?: string;
+  sourceIdentifier?: string | undefined;
 
   /**
    * <p>The timestamp of the event described in the data lineage node.</p>
    * @public
    */
-  eventTimestamp?: Date;
+  eventTimestamp?: Date | undefined;
 
   /**
    * <p>The metadata of the specified data lineage node.</p>
    * @public
    */
-  formsOutput?: FormOutput[];
+  formsOutput?: FormOutput[] | undefined;
 
   /**
    * <p>The upstream nodes of the specified data lineage node.</p>
    * @public
    */
-  upstreamNodes?: LineageNodeReference[];
+  upstreamNodes?: LineageNodeReference[] | undefined;
 
   /**
    * <p>The downsteam nodes of the specified data lineage node.</p>
    * @public
    */
-  downstreamNodes?: LineageNodeReference[];
+  downstreamNodes?: LineageNodeReference[] | undefined;
 }
 
 /**
@@ -1300,20 +1300,20 @@ export interface GetProjectOutput {
    * <p>The description of the project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the project.</p>
    * @public
    */
-  projectStatus?: ProjectStatus;
+  projectStatus?: ProjectStatus | undefined;
 
   /**
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
    * @public
    */
-  failureReasons?: ProjectDeletionError[];
+  failureReasons?: ProjectDeletionError[] | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the project.</p>
@@ -1325,25 +1325,25 @@ export interface GetProjectOutput {
    * <p>The timestamp of when the project was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the project was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The business glossary terms that can be used in the project.</p>
    * @public
    */
-  glossaryTerms?: string[];
+  glossaryTerms?: string[] | undefined;
 
   /**
    * <p>The ID of the domain unit.</p>
    * @public
    */
-  domainUnitId?: string;
+  domainUnitId?: string | undefined;
 }
 
 /**
@@ -1383,7 +1383,7 @@ export interface GetSubscriptionOutput {
    * <p>The Amazon DataZone user who updated the subscription.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The ID of the Amazon DataZone domain in which the subscription exists.</p>
@@ -1425,13 +1425,13 @@ export interface GetSubscriptionOutput {
    * <p>The ID of the subscription request.</p>
    * @public
    */
-  subscriptionRequestId?: string;
+  subscriptionRequestId?: string | undefined;
 
   /**
    * <p>The retain permissions of the subscription.</p>
    * @public
    */
-  retainPermissions?: boolean;
+  retainPermissions?: boolean | undefined;
 }
 
 /**
@@ -1471,7 +1471,7 @@ export interface GetSubscriptionGrantOutput {
    * <p>The Amazon DataZone user who updated the subscription grant.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The ID of the Amazon DataZone domain in which the subscription grant exists.</p>
@@ -1513,7 +1513,7 @@ export interface GetSubscriptionGrantOutput {
    * <p>The assets for which the subscription grant is created.</p>
    * @public
    */
-  assets?: SubscribedAsset[];
+  assets?: SubscribedAsset[] | undefined;
 
   /**
    * @deprecated
@@ -1521,7 +1521,7 @@ export interface GetSubscriptionGrantOutput {
    * <p>The identifier of the subscription.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 }
 
 /**
@@ -1562,7 +1562,7 @@ export interface GetSubscriptionRequestDetailsOutput {
    * <p>The Amazon DataZone user who updated the subscription request.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The Amazon DataZone domain of the subscription request.</p>
@@ -1610,13 +1610,13 @@ export interface GetSubscriptionRequestDetailsOutput {
    * <p>The identifier of the Amazon DataZone user who reviewed the subscription request.</p>
    * @public
    */
-  reviewerId?: string;
+  reviewerId?: string | undefined;
 
   /**
    * <p>The decision comment of the subscription request.</p>
    * @public
    */
-  decisionComment?: string;
+  decisionComment?: string | undefined;
 }
 
 /**
@@ -1698,7 +1698,7 @@ export interface GetSubscriptionTargetOutput {
    * <p>The Amazon DataZone user who updated the subscription target.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The timestamp of when the subscription target was created.</p>
@@ -1710,7 +1710,7 @@ export interface GetSubscriptionTargetOutput {
    * <p>The timestamp of when the subscription target was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The manage access role with which the subscription target was created.</p>
@@ -1794,7 +1794,7 @@ export interface TimeSeriesDataPointFormOutput {
    * <p>The revision type of the time series data points form.</p>
    * @public
    */
-  typeRevision?: string;
+  typeRevision?: string | undefined;
 
   /**
    * <p>The timestamp of the time series data points form.</p>
@@ -1806,13 +1806,13 @@ export interface TimeSeriesDataPointFormOutput {
    * <p>The content of the time series data points form.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 
   /**
    * <p>The ID of the time series data points form.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -1824,31 +1824,31 @@ export interface GetTimeSeriesDataPointOutput {
    *          get.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The ID of the asset for which you want to get the data point.</p>
    * @public
    */
-  entityId?: string;
+  entityId?: string | undefined;
 
   /**
    * <p>The type of the asset for which you want to get the data point.</p>
    * @public
    */
-  entityType?: TimeSeriesEntityType;
+  entityType?: TimeSeriesEntityType | undefined;
 
   /**
    * <p>The name of the time series form that houses the data point that you want to get.</p>
    * @public
    */
-  formName?: string;
+  formName?: string | undefined;
 
   /**
    * <p>The time series form that houses the data point that you want to get.</p>
    * @public
    */
-  form?: TimeSeriesDataPointFormOutput;
+  form?: TimeSeriesDataPointFormOutput | undefined;
 }
 
 /**
@@ -1871,7 +1871,7 @@ export interface GetUserProfileInput {
    * <p>The type of the user profile.</p>
    * @public
    */
-  type?: UserProfileType;
+  type?: UserProfileType | undefined;
 }
 
 /**
@@ -1883,31 +1883,31 @@ export interface GetUserProfileOutput {
    *          profile.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The identifier of the user profile.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The type of the user profile.</p>
    * @public
    */
-  type?: UserProfileType;
+  type?: UserProfileType | undefined;
 
   /**
    * <p>The status of the user profile.</p>
    * @public
    */
-  status?: UserProfileStatus;
+  status?: UserProfileStatus | undefined;
 
   /**
    * <p>The details of the user profile in Amazon DataZone.</p>
    * @public
    */
-  details?: UserProfileDetails;
+  details?: UserProfileDetails | undefined;
 }
 
 /**
@@ -1981,7 +1981,7 @@ export interface GetGlossaryOutput {
    * <p>The description of the business glossary.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the business glossary.</p>
@@ -1993,25 +1993,25 @@ export interface GetGlossaryOutput {
    * <p>The timestamp of when this business glossary was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who created this business glossary.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The timestamp of when the business glossary was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who updated the business glossary.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 }
 
 /**
@@ -2035,26 +2035,26 @@ export interface UpdateGlossaryInput {
    * <p>The name to be updated as part of the <code>UpdateGlossary</code> action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description to be updated as part of the <code>UpdateGlossary</code> action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
    * @public
    */
-  status?: GlossaryStatus;
+  status?: GlossaryStatus | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2090,13 +2090,13 @@ export interface UpdateGlossaryOutput {
    * <p>The description to be updated as part of the <code>UpdateGlossary</code> action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status to be updated as part of the <code>UpdateGlossary</code> action.</p>
    * @public
    */
-  status?: GlossaryStatus;
+  status?: GlossaryStatus | undefined;
 }
 
 /**
@@ -2170,19 +2170,19 @@ export interface GetGlossaryTermOutput {
    * <p>The short decription of the business glossary term.</p>
    * @public
    */
-  shortDescription?: string;
+  shortDescription?: string | undefined;
 
   /**
    * <p>The long description of the business glossary term.</p>
    * @public
    */
-  longDescription?: string;
+  longDescription?: string | undefined;
 
   /**
    * <p>The relations of the business glossary term.</p>
    * @public
    */
-  termRelations?: TermRelations;
+  termRelations?: TermRelations | undefined;
 
   /**
    * <p>The status of the business glossary term.</p>
@@ -2194,25 +2194,25 @@ export interface GetGlossaryTermOutput {
    * <p>The timestamp of when the business glossary term was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the business glossary.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The timestamp of when the business glossary term was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who updated the business glossary term.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 }
 
 /**
@@ -2230,7 +2230,7 @@ export interface UpdateGlossaryTermInput {
    * <p>The identifier of the business glossary in which a term is to be updated.</p>
    * @public
    */
-  glossaryIdentifier?: string;
+  glossaryIdentifier?: string | undefined;
 
   /**
    * <p>The identifier of the business glossary term that is to be updated.</p>
@@ -2242,34 +2242,34 @@ export interface UpdateGlossaryTermInput {
    * <p>The name to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The short description to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
    * @public
    */
-  shortDescription?: string;
+  shortDescription?: string | undefined;
 
   /**
    * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
    * @public
    */
-  longDescription?: string;
+  longDescription?: string | undefined;
 
   /**
    * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
    * @public
    */
-  termRelations?: TermRelations;
+  termRelations?: TermRelations | undefined;
 
   /**
    * <p>The status to be updated as part of the <code>UpdateGlossaryTerm</code> action.</p>
    * @public
    */
-  status?: GlossaryTermStatus;
+  status?: GlossaryTermStatus | undefined;
 }
 
 /**
@@ -2312,21 +2312,21 @@ export interface UpdateGlossaryTermOutput {
    *          action.</p>
    * @public
    */
-  shortDescription?: string;
+  shortDescription?: string | undefined;
 
   /**
    * <p>The long description to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
    * @public
    */
-  longDescription?: string;
+  longDescription?: string | undefined;
 
   /**
    * <p>The term relations to be updated as part of the <code>UpdateGlossaryTerm</code>
    *          action.</p>
    * @public
    */
-  termRelations?: TermRelations;
+  termRelations?: TermRelations | undefined;
 }
 
 /**
@@ -2349,7 +2349,7 @@ export interface ListAssetFiltersInput {
    * <p>The status of the asset filter.</p>
    * @public
    */
-  status?: FilterStatus;
+  status?: FilterStatus | undefined;
 
   /**
    * <p>When the number of asset filters is greater than the default value for the
@@ -2360,7 +2360,7 @@ export interface ListAssetFiltersInput {
    *          list the next set of asset filters.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of asset filters to return in a single call to
@@ -2370,7 +2370,7 @@ export interface ListAssetFiltersInput {
    *          next set of asset filters.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2392,7 +2392,7 @@ export interface ListAssetFiltersOutput {
    *          list the next set of asset filters.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2420,7 +2420,7 @@ export interface ListAssetRevisionsInput {
    *          list the next set of revisions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of revisions to return in a single call to
@@ -2430,7 +2430,7 @@ export interface ListAssetRevisionsInput {
    *          next set of revisions.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2441,7 +2441,7 @@ export interface ListAssetRevisionsOutput {
    * <p>The results of the <code>ListAssetRevisions</code> action.</p>
    * @public
    */
-  items?: AssetRevision[];
+  items?: AssetRevision[] | undefined;
 
   /**
    * <p>When the number of revisions is greater than the default value for the
@@ -2452,7 +2452,7 @@ export interface ListAssetRevisionsOutput {
    *          list the next set of revisions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2480,7 +2480,7 @@ export interface ListDataProductRevisionsInput {
    *          revisions.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of data product revisions is greater than the default value for the
@@ -2492,7 +2492,7 @@ export interface ListDataProductRevisionsInput {
    *          revisions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2515,7 +2515,7 @@ export interface ListDataProductRevisionsOutput {
    *          revisions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2539,7 +2539,7 @@ export interface ListDataSourceRunActivitiesInput {
    * <p>The status of the data source run.</p>
    * @public
    */
-  status?: DataAssetActivityStatus;
+  status?: DataAssetActivityStatus | undefined;
 
   /**
    * <p>When the number of activities is greater than the default value for the
@@ -2550,7 +2550,7 @@ export interface ListDataSourceRunActivitiesInput {
    *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of activities to return in a single call to
@@ -2560,7 +2560,7 @@ export interface ListDataSourceRunActivitiesInput {
    *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2582,7 +2582,7 @@ export interface ListDataSourceRunActivitiesOutput {
    *             <code>ListDataSourceRunActivities</code> to list the next set of activities.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2615,7 +2615,7 @@ export interface ListEntityOwnersInput {
    *          of entities.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of entities is greater than the default value for the
@@ -2626,7 +2626,7 @@ export interface ListEntityOwnersInput {
    *          list the next set of entities.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2638,7 +2638,7 @@ export interface OwnerGroupPropertiesOutput {
    * <p>The ID of the domain unit owners group.</p>
    * @public
    */
-  groupId?: string;
+  groupId?: string | undefined;
 }
 
 /**
@@ -2650,7 +2650,7 @@ export interface OwnerUserPropertiesOutput {
    * <p>The ID of the owner user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 }
 
 /**
@@ -2727,7 +2727,7 @@ export interface ListEntityOwnersOutput {
    *          list the next set of entities.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2755,7 +2755,7 @@ export interface ListEnvironmentActionsInput {
    *          to list the next set of environment actions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of environment actions to return in a single call to
@@ -2765,7 +2765,7 @@ export interface ListEnvironmentActionsInput {
    *             <code>ListEnvironmentActions</code> to list the next set of environment actions.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2809,7 +2809,7 @@ export interface EnvironmentActionSummary {
    * <p>The environment action description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2820,7 +2820,7 @@ export interface ListEnvironmentActionsOutput {
    * <p>The results of <code>ListEnvironmentActions</code>.</p>
    * @public
    */
-  items?: EnvironmentActionSummary[];
+  items?: EnvironmentActionSummary[] | undefined;
 
   /**
    * <p>When the number of environment actions is greater than the default value for the
@@ -2831,7 +2831,7 @@ export interface ListEnvironmentActionsOutput {
    *          to list the next set of environment actions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2852,7 +2852,7 @@ export interface ListEnvironmentBlueprintsInput {
    *             <code>ListEnvironmentBlueprints</code> to list the next set of blueprints.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of blueprints in the environment is greater than the default value for
@@ -2863,19 +2863,19 @@ export interface ListEnvironmentBlueprintsInput {
    *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The name of the Amazon DataZone environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Specifies whether the environment blueprint is managed by Amazon DataZone.</p>
    * @public
    */
-  managed?: boolean;
+  managed?: boolean | undefined;
 }
 
 /**
@@ -2899,7 +2899,7 @@ export interface EnvironmentBlueprintSummary {
    * <p>The description of a blueprint.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The provider of the blueprint.</p>
@@ -2917,13 +2917,13 @@ export interface EnvironmentBlueprintSummary {
    * <p>The timestamp of when an environment blueprint was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the blueprint was enabled.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -2945,7 +2945,7 @@ export interface ListEnvironmentBlueprintsOutput {
    *             <code>ListEnvironmentBlueprints</code>to list the next set of blueprints.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2963,32 +2963,32 @@ export interface ListEnvironmentProfilesInput {
    *          profiles.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services region where you want to list environment profiles.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The identifier of the blueprint that was used to create the environment profiles that
    *          you want to list.</p>
    * @public
    */
-  environmentBlueprintIdentifier?: string;
+  environmentBlueprintIdentifier?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone project.</p>
    * @public
    */
-  projectIdentifier?: string;
+  projectIdentifier?: string | undefined;
 
   /**
    * <p/>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>When the number of environment profiles is greater than the default value for the
@@ -3000,7 +3000,7 @@ export interface ListEnvironmentProfilesInput {
    *          profiles.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of environment profiles to return in a single call to
@@ -3011,7 +3011,7 @@ export interface ListEnvironmentProfilesInput {
    *          profiles.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3035,13 +3035,13 @@ export interface EnvironmentProfileSummary {
    * <p>The identifier of an Amazon Web Services account in which an environment profile exists.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which an environment profile exists.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the environment profile.</p>
@@ -3053,13 +3053,13 @@ export interface EnvironmentProfileSummary {
    * <p>The timestamp of when an environment profile was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the environment profile was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The name of the environment profile.</p>
@@ -3071,7 +3071,7 @@ export interface EnvironmentProfileSummary {
    * <p>The description of the environment profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The identifier of a blueprint with which an environment profile is created.</p>
@@ -3083,7 +3083,7 @@ export interface EnvironmentProfileSummary {
    * <p>The identifier of a project in which an environment profile exists.</p>
    * @public
    */
-  projectId?: string;
+  projectId?: string | undefined;
 }
 
 /**
@@ -3106,7 +3106,7 @@ export interface ListEnvironmentProfilesOutput {
    *          profiles.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3124,19 +3124,19 @@ export interface ListEnvironmentsInput {
    *          environments.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The status of the environments that you want to list.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The Amazon Web Services region where you want to list environments.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone project.</p>
@@ -3148,25 +3148,25 @@ export interface ListEnvironmentsInput {
    * <p>The identifier of the environment profile.</p>
    * @public
    */
-  environmentProfileIdentifier?: string;
+  environmentProfileIdentifier?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone blueprint.</p>
    * @public
    */
-  environmentBlueprintIdentifier?: string;
+  environmentBlueprintIdentifier?: string | undefined;
 
   /**
    * <p>The provider of the environment.</p>
    * @public
    */
-  provider?: string;
+  provider?: string | undefined;
 
   /**
    * <p>The name of the environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The maximum number of environments to return in a single call to
@@ -3176,7 +3176,7 @@ export interface ListEnvironmentsInput {
    *          next set of environments.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of environments is greater than the default value for the
@@ -3187,7 +3187,7 @@ export interface ListEnvironmentsInput {
    *          list the next set of environments.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3205,7 +3205,7 @@ export interface EnvironmentSummary {
    * <p>The identifier of the environment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which the environment exists.</p>
@@ -3223,13 +3223,13 @@ export interface EnvironmentSummary {
    * <p>The timestamp of when the environment was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the environment was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The name of the environment.</p>
@@ -3241,25 +3241,25 @@ export interface EnvironmentSummary {
    * <p>The description of the environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The identifier of the environment profile with which the environment was created.</p>
    * @public
    */
-  environmentProfileId?: string;
+  environmentProfileId?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account in which an environment exists.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which an environment exists.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The provider of the environment.</p>
@@ -3271,7 +3271,7 @@ export interface EnvironmentSummary {
    * <p>The status of the environment.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 }
 
 /**
@@ -3293,7 +3293,7 @@ export interface ListEnvironmentsOutput {
    *          list the next set of environments.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3338,7 +3338,7 @@ export interface GetListingInput {
    * <p>The revision of the listing.</p>
    * @public
    */
-  listingRevision?: string;
+  listingRevision?: string | undefined;
 }
 
 /**
@@ -3422,49 +3422,49 @@ export interface GetListingOutput {
    * <p>The timestamp of when the listing was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the listing was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the listing.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The Amazon DataZone user who updated the listing.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The details of a listing.</p>
    * @public
    */
-  item?: ListingItem;
+  item?: ListingItem | undefined;
 
   /**
    * <p>The name of the listing.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the listing.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the listing.</p>
    * @public
    */
-  status?: ListingStatus;
+  status?: ListingStatus | undefined;
 }
 
 /**
@@ -3513,7 +3513,7 @@ export interface ListLineageNodeHistoryInput {
    *          subsequent call to ListLineageNodeHistory to list the next set of items.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of history items is greater than the default value for the MaxResults
@@ -3523,7 +3523,7 @@ export interface ListLineageNodeHistoryInput {
    *          items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The ID of the data lineage node whose history you want to list.</p>
@@ -3538,27 +3538,27 @@ export interface ListLineageNodeHistoryInput {
    *          neighbors only.</p>
    * @public
    */
-  direction?: EdgeDirection;
+  direction?: EdgeDirection | undefined;
 
   /**
    * <p>Specifies whether the action is to return data lineage node history from the time after
    *          the event timestamp.</p>
    * @public
    */
-  eventTimestampGTE?: Date;
+  eventTimestampGTE?: Date | undefined;
 
   /**
    * <p>Specifies whether the action is to return data lineage node history from the time prior
    *          of the event timestamp.</p>
    * @public
    */
-  eventTimestampLTE?: Date;
+  eventTimestampLTE?: Date | undefined;
 
   /**
    * <p>The order by which you want data lineage node history to be sorted.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -3576,37 +3576,37 @@ export interface LineageNodeSummary {
    * <p>The name of the data lineage node.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the data lineage node.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The timestamp at which the data lineage node was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The user who created the data lineage node.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The timestamp at which the data lineage node was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The user who updated the data lineage node.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The ID of the data lineage node.</p>
@@ -3624,19 +3624,19 @@ export interface LineageNodeSummary {
    * <p>The type of the revision of the data lineage node.</p>
    * @public
    */
-  typeRevision?: string;
+  typeRevision?: string | undefined;
 
   /**
    * <p>The alternate ID of the data lineage node.</p>
    * @public
    */
-  sourceIdentifier?: string;
+  sourceIdentifier?: string | undefined;
 
   /**
    * <p>The event timestamp of the data lineage node.</p>
    * @public
    */
-  eventTimestamp?: Date;
+  eventTimestamp?: Date | undefined;
 }
 
 /**
@@ -3647,7 +3647,7 @@ export interface ListLineageNodeHistoryOutput {
    * <p>The nodes returned by the ListLineageNodeHistory action.</p>
    * @public
    */
-  nodes?: LineageNodeSummary[];
+  nodes?: LineageNodeSummary[] | undefined;
 
   /**
    * <p>When the number of history items is greater than the default value for the MaxResults
@@ -3657,7 +3657,7 @@ export interface ListLineageNodeHistoryOutput {
    *          items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3708,25 +3708,25 @@ export interface ListNotificationsInput {
    * <p>The time after which you want to list notifications.</p>
    * @public
    */
-  afterTimestamp?: Date;
+  afterTimestamp?: Date | undefined;
 
   /**
    * <p>The time before which you want to list notifications.</p>
    * @public
    */
-  beforeTimestamp?: Date;
+  beforeTimestamp?: Date | undefined;
 
   /**
    * <p>The subjects of notifications.</p>
    * @public
    */
-  subjects?: string[];
+  subjects?: string[] | undefined;
 
   /**
    * <p>The task status of notifications.</p>
    * @public
    */
-  taskStatus?: TaskStatus;
+  taskStatus?: TaskStatus | undefined;
 
   /**
    * <p>The maximum number of notifications to return in a single call to
@@ -3736,7 +3736,7 @@ export interface ListNotificationsInput {
    *          next set of notifications.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of notifications is greater than the default value for the
@@ -3747,7 +3747,7 @@ export interface ListNotificationsInput {
    *          list the next set of notifications.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3784,7 +3784,7 @@ export interface NotificationResource {
    * <p>The name of the resource mentioned in a notification.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -3873,7 +3873,7 @@ export interface NotificationOutput {
    * <p>The status included in the notification.</p>
    * @public
    */
-  status?: TaskStatus;
+  status?: TaskStatus | undefined;
 
   /**
    * <p>The action link included in the notification.</p>
@@ -3897,7 +3897,7 @@ export interface NotificationOutput {
    * <p>The metadata included in the notification.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -3908,7 +3908,7 @@ export interface ListNotificationsOutput {
    * <p>The results of the <code>ListNotifications</code> action.</p>
    * @public
    */
-  notifications?: NotificationOutput[];
+  notifications?: NotificationOutput[] | undefined;
 
   /**
    * <p>When the number of notifications is greater than the default value for the
@@ -3919,7 +3919,7 @@ export interface ListNotificationsOutput {
    *          list the next set of notifications.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3958,7 +3958,7 @@ export interface ListPolicyGrantsInput {
    *          grants.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of grants is greater than the default value for the
@@ -3969,7 +3969,7 @@ export interface ListPolicyGrantsInput {
    *          grants.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3981,25 +3981,25 @@ export interface PolicyGrantMember {
    * <p>The principal of the policy grant member.</p>
    * @public
    */
-  principal?: PolicyGrantPrincipal;
+  principal?: PolicyGrantPrincipal | undefined;
 
   /**
    * <p>The details of the policy grant member.</p>
    * @public
    */
-  detail?: PolicyGrantDetail;
+  detail?: PolicyGrantDetail | undefined;
 
   /**
    * <p>Specifies the timestamp at which policy grant member was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Specifies the user who created the policy grant member.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 }
 
 /**
@@ -4021,7 +4021,7 @@ export interface ListPolicyGrantsOutput {
    *          grants.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4058,13 +4058,13 @@ export interface ListProjectMembershipsInput {
    * <p>The method by which you want to sort the project memberships.</p>
    * @public
    */
-  sortBy?: SortFieldProject;
+  sortBy?: SortFieldProject | undefined;
 
   /**
    * <p>The sort order of the project memberships.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p>When the number of memberships is greater than the default value for the
@@ -4075,7 +4075,7 @@ export interface ListProjectMembershipsInput {
    *          to list the next set of memberships.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of memberships to return in a single call to
@@ -4085,7 +4085,7 @@ export interface ListProjectMembershipsInput {
    *             <code>ListProjectMemberships</code> to list the next set of memberships.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4201,7 +4201,7 @@ export interface ListProjectMembershipsOutput {
    *          to list the next set of memberships.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4218,19 +4218,19 @@ export interface ListProjectsInput {
    * <p>The identifier of the Amazon DataZone user.</p>
    * @public
    */
-  userIdentifier?: string;
+  userIdentifier?: string | undefined;
 
   /**
    * <p>The identifier of a group.</p>
    * @public
    */
-  groupIdentifier?: string;
+  groupIdentifier?: string | undefined;
 
   /**
    * <p>The name of the project.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>When the number of projects is greater than the default value for the
@@ -4241,7 +4241,7 @@ export interface ListProjectsInput {
    *          the next set of projects.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of projects to return in a single call to <code>ListProjects</code>.
@@ -4251,7 +4251,7 @@ export interface ListProjectsInput {
    *          projects.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -4281,20 +4281,20 @@ export interface ProjectSummary {
    * <p>The description of a project.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the project.</p>
    * @public
    */
-  projectStatus?: ProjectStatus;
+  projectStatus?: ProjectStatus | undefined;
 
   /**
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
    * @public
    */
-  failureReasons?: ProjectDeletionError[];
+  failureReasons?: ProjectDeletionError[] | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the project.</p>
@@ -4306,19 +4306,19 @@ export interface ProjectSummary {
    * <p>The timestamp of when a project was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the project was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The ID of the domain unit.</p>
    * @public
    */
-  domainUnitId?: string;
+  domainUnitId?: string | undefined;
 }
 
 /**
@@ -4329,7 +4329,7 @@ export interface ListProjectsOutput {
    * <p>The results of the <code>ListProjects</code> action.</p>
    * @public
    */
-  items?: ProjectSummary[];
+  items?: ProjectSummary[] | undefined;
 
   /**
    * <p>When the number of projects is greater than the default value for the
@@ -4340,7 +4340,7 @@ export interface ListProjectsOutput {
    *          the next set of projects.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4371,43 +4371,43 @@ export interface ListSubscriptionGrantsInput {
    * <p>The identifier of the Amazon DataZone environment.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The identifier of the subscription target.</p>
    * @public
    */
-  subscriptionTargetId?: string;
+  subscriptionTargetId?: string | undefined;
 
   /**
    * <p>The identifier of the subscribed listing.</p>
    * @public
    */
-  subscribedListingId?: string;
+  subscribedListingId?: string | undefined;
 
   /**
    * <p>The identifier of the subscription.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 
   /**
    * <p>The ID of the owning project of the subscription grants.</p>
    * @public
    */
-  owningProjectId?: string;
+  owningProjectId?: string | undefined;
 
   /**
    * <p>Specifies the way of sorting the results of this action.</p>
    * @public
    */
-  sortBy?: SortKey;
+  sortBy?: SortKey | undefined;
 
   /**
    * <p>Specifies the sort order of this action.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of subscription grants to return in a single call to
@@ -4417,7 +4417,7 @@ export interface ListSubscriptionGrantsInput {
    *             <code>ListSubscriptionGrants</code> to list the next set of subscription grants.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of subscription grants is greater than the default value for the
@@ -4428,7 +4428,7 @@ export interface ListSubscriptionGrantsInput {
    *          to list the next set of subscription grants.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4452,7 +4452,7 @@ export interface SubscriptionGrantSummary {
    * <p>The Amazon DataZone user who updated the subscription grant.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which a subscription grant exists.</p>
@@ -4494,7 +4494,7 @@ export interface SubscriptionGrantSummary {
    * <p>The assets included in the subscription grant.</p>
    * @public
    */
-  assets?: SubscribedAsset[];
+  assets?: SubscribedAsset[] | undefined;
 
   /**
    * @deprecated
@@ -4502,7 +4502,7 @@ export interface SubscriptionGrantSummary {
    * <p>The ID of the subscription.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 }
 
 /**
@@ -4524,7 +4524,7 @@ export interface ListSubscriptionGrantsOutput {
    *          to list the next set of subscription grants.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4545,37 +4545,37 @@ export interface ListSubscriptionRequestsInput {
    *          </note>
    * @public
    */
-  status?: SubscriptionRequestStatus;
+  status?: SubscriptionRequestStatus | undefined;
 
   /**
    * <p>The identifier of the subscribed listing.</p>
    * @public
    */
-  subscribedListingId?: string;
+  subscribedListingId?: string | undefined;
 
   /**
    * <p>The identifier of the project for the subscription requests.</p>
    * @public
    */
-  owningProjectId?: string;
+  owningProjectId?: string | undefined;
 
   /**
    * <p>The identifier of the subscription request approver's project.</p>
    * @public
    */
-  approverProjectId?: string;
+  approverProjectId?: string | undefined;
 
   /**
    * <p>Specifies the way to sort the results of this action.</p>
    * @public
    */
-  sortBy?: SortKey;
+  sortBy?: SortKey | undefined;
 
   /**
    * <p>Specifies the sort order for the results of this action.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of subscription requests to return in a single call to
@@ -4586,7 +4586,7 @@ export interface ListSubscriptionRequestsInput {
    *          requests.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of subscription requests is greater than the default value for the
@@ -4598,7 +4598,7 @@ export interface ListSubscriptionRequestsInput {
    *          requests.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4622,7 +4622,7 @@ export interface SubscriptionRequestSummary {
    * <p>The identifier of the Amazon DataZone user who updated the subscription request.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which a subscription request exists.</p>
@@ -4670,13 +4670,13 @@ export interface SubscriptionRequestSummary {
    * <p>The identifier of the subscription request reviewer.</p>
    * @public
    */
-  reviewerId?: string;
+  reviewerId?: string | undefined;
 
   /**
    * <p>The decision comment of the subscription request.</p>
    * @public
    */
-  decisionComment?: string;
+  decisionComment?: string | undefined;
 }
 
 /**
@@ -4699,7 +4699,7 @@ export interface ListSubscriptionRequestsOutput {
    *          requests.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4717,7 +4717,7 @@ export interface ListSubscriptionsInput {
    *          list.</p>
    * @public
    */
-  subscriptionRequestIdentifier?: string;
+  subscriptionRequestIdentifier?: string | undefined;
 
   /**
    * <p>The status of the subscriptions that you want to list.</p>
@@ -4727,38 +4727,38 @@ export interface ListSubscriptionsInput {
    *          </note>
    * @public
    */
-  status?: SubscriptionStatus;
+  status?: SubscriptionStatus | undefined;
 
   /**
    * <p>The identifier of the subscribed listing for the subscriptions that you want to
    *          list.</p>
    * @public
    */
-  subscribedListingId?: string;
+  subscribedListingId?: string | undefined;
 
   /**
    * <p>The identifier of the owning project.</p>
    * @public
    */
-  owningProjectId?: string;
+  owningProjectId?: string | undefined;
 
   /**
    * <p>The identifier of the project for the subscription's approver.</p>
    * @public
    */
-  approverProjectId?: string;
+  approverProjectId?: string | undefined;
 
   /**
    * <p>Specifies the way in which the results of this action are to be sorted.</p>
    * @public
    */
-  sortBy?: SortKey;
+  sortBy?: SortKey | undefined;
 
   /**
    * <p>Specifies the sort order for the results of this action.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of subscriptions to return in a single call to
@@ -4768,7 +4768,7 @@ export interface ListSubscriptionsInput {
    *          next set of Subscriptions. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of subscriptions is greater than the default value for the
@@ -4779,7 +4779,7 @@ export interface ListSubscriptionsInput {
    *          list the next set of subscriptions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4803,7 +4803,7 @@ export interface SubscriptionSummary {
    * <p>The Amazon DataZone user who updated the subscription.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which a subscription exists.</p>
@@ -4845,13 +4845,13 @@ export interface SubscriptionSummary {
    * <p>The identifier of the subscription request for the subscription.</p>
    * @public
    */
-  subscriptionRequestId?: string;
+  subscriptionRequestId?: string | undefined;
 
   /**
    * <p>The retain permissions included in the subscription.</p>
    * @public
    */
-  retainPermissions?: boolean;
+  retainPermissions?: boolean | undefined;
 }
 
 /**
@@ -4873,7 +4873,7 @@ export interface ListSubscriptionsOutput {
    *          list the next set of subscriptions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4897,13 +4897,13 @@ export interface ListSubscriptionTargetsInput {
    * <p>Specifies the way in which the results of this action are to be sorted.</p>
    * @public
    */
-  sortBy?: SortKey;
+  sortBy?: SortKey | undefined;
 
   /**
    * <p>Specifies the sort order for the results of this action.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of subscription targets to return in a single call to
@@ -4914,7 +4914,7 @@ export interface ListSubscriptionTargetsInput {
    *       </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of subscription targets is greater than the default value for the
@@ -4926,7 +4926,7 @@ export interface ListSubscriptionTargetsInput {
    *          targets.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4986,7 +4986,7 @@ export interface SubscriptionTargetSummary {
    * <p>The Amazon DataZone user who updated the subscription target.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The timestamp of when the subscription target was created.</p>
@@ -4998,7 +4998,7 @@ export interface SubscriptionTargetSummary {
    * <p>The timestamp of when the subscription target was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The manage access role specified in the subscription target.</p>
@@ -5045,7 +5045,7 @@ export interface ListSubscriptionTargetsOutput {
    *          targets.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5067,7 +5067,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags of the specified resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5103,13 +5103,13 @@ export interface ListTimeSeriesDataPointsInput {
    * <p>The timestamp at which the data points that you want to list started.</p>
    * @public
    */
-  startedAt?: Date;
+  startedAt?: Date | undefined;
 
   /**
    * <p>The timestamp at which the data points that you wanted to list ended.</p>
    * @public
    */
-  endedAt?: Date;
+  endedAt?: Date | undefined;
 
   /**
    * <p>When the number of data points is greater than the default value for the MaxResults
@@ -5119,7 +5119,7 @@ export interface ListTimeSeriesDataPointsInput {
    *          of data points.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of data points to return in a single call to
@@ -5128,7 +5128,7 @@ export interface ListTimeSeriesDataPointsInput {
    *          subsequent call to ListTimeSeriesDataPoints to list the next set of data points.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5139,7 +5139,7 @@ export interface ListTimeSeriesDataPointsOutput {
    * <p>The results of the ListTimeSeriesDataPoints action. </p>
    * @public
    */
-  items?: TimeSeriesDataPointSummaryFormOutput[];
+  items?: TimeSeriesDataPointSummaryFormOutput[] | undefined;
 
   /**
    * <p>When the number of data points is greater than the default value for the MaxResults
@@ -5149,7 +5149,7 @@ export interface ListTimeSeriesDataPointsOutput {
    *          of data points.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5223,7 +5223,7 @@ export interface MetadataGenerationRunTarget {
    * <p>The revision of the asset for which metadata was generated.</p>
    * @public
    */
-  revision?: string;
+  revision?: string | undefined;
 }
 
 /**
@@ -5260,31 +5260,31 @@ export interface GetMetadataGenerationRunOutput {
    * <p>The asset for which you're generating metadata.</p>
    * @public
    */
-  target?: MetadataGenerationRunTarget;
+  target?: MetadataGenerationRunTarget | undefined;
 
   /**
    * <p>The status of the metadata generation run.</p>
    * @public
    */
-  status?: MetadataGenerationRunStatus;
+  status?: MetadataGenerationRunStatus | undefined;
 
   /**
    * <p>The type of metadata generation run.</p>
    * @public
    */
-  type?: MetadataGenerationRunType;
+  type?: MetadataGenerationRunType | undefined;
 
   /**
    * <p>The timestamp of when the metadata generation run was start.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who started the metadata generation run.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The ID of the project that owns the assets for which you're running metadata
@@ -5309,13 +5309,13 @@ export interface ListMetadataGenerationRunsInput {
    * <p>The status of the metadata generation runs.</p>
    * @public
    */
-  status?: MetadataGenerationRunStatus;
+  status?: MetadataGenerationRunStatus | undefined;
 
   /**
    * <p>The type of the metadata generation runs.</p>
    * @public
    */
-  type?: MetadataGenerationRunType;
+  type?: MetadataGenerationRunType | undefined;
 
   /**
    * <p>When the number of metadata generation runs is greater than the default value for the
@@ -5325,7 +5325,7 @@ export interface ListMetadataGenerationRunsInput {
    *          ListMetadataGenerationRuns to list the next set of revisions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of metadata generation runs to return in a single call to
@@ -5335,7 +5335,7 @@ export interface ListMetadataGenerationRunsInput {
    *          revisions.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5360,31 +5360,31 @@ export interface MetadataGenerationRunItem {
    * <p>The asset for which metadata was generated.</p>
    * @public
    */
-  target?: MetadataGenerationRunTarget;
+  target?: MetadataGenerationRunTarget | undefined;
 
   /**
    * <p>The status of the metadata generation run.</p>
    * @public
    */
-  status?: MetadataGenerationRunStatus;
+  status?: MetadataGenerationRunStatus | undefined;
 
   /**
    * <p>The type of the metadata generation run.</p>
    * @public
    */
-  type?: MetadataGenerationRunType;
+  type?: MetadataGenerationRunType | undefined;
 
   /**
    * <p>The timestamp at which the metadata generation run was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The user who created the metadata generation run.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The ID of the project that owns the asset for which the metadata generation was
@@ -5402,7 +5402,7 @@ export interface ListMetadataGenerationRunsOutput {
    * <p>The results of the ListMetadataGenerationRuns action.</p>
    * @public
    */
-  items?: MetadataGenerationRunItem[];
+  items?: MetadataGenerationRunItem[] | undefined;
 
   /**
    * <p>When the number of metadata generation runs is greater than the default value for the
@@ -5412,7 +5412,7 @@ export interface ListMetadataGenerationRunsOutput {
    *          ListMetadataGenerationRuns to list the next set of revisions.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5443,7 +5443,7 @@ export interface StartMetadataGenerationRunInput {
    *          automatically populated if not provided.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The ID of the project that owns the asset for which you want to start a metadata
@@ -5474,32 +5474,32 @@ export interface StartMetadataGenerationRunOutput {
    * <p>The status of the metadata generation run.</p>
    * @public
    */
-  status?: MetadataGenerationRunStatus;
+  status?: MetadataGenerationRunStatus | undefined;
 
   /**
    * <p>The type of the metadata generation run.</p>
    * @public
    */
-  type?: MetadataGenerationRunType;
+  type?: MetadataGenerationRunType | undefined;
 
   /**
    * <p>The timestamp at which the metadata generation run was started.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The ID of the user who started the metadata generation run.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The ID of the project that owns the asset for which the metadata generation run was
    *          started.</p>
    * @public
    */
-  owningProjectId?: string;
+  owningProjectId?: string | undefined;
 }
 
 /**
@@ -5524,7 +5524,7 @@ export interface PostLineageEventInput {
    *          request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5553,7 +5553,7 @@ export interface TimeSeriesDataPointFormInput {
    * <p>The revision type of the time series data points form.</p>
    * @public
    */
-  typeRevision?: string;
+  typeRevision?: string | undefined;
 
   /**
    * <p>The timestamp of the time series data points form.</p>
@@ -5565,7 +5565,7 @@ export interface TimeSeriesDataPointFormInput {
    * <p>The content of the time series data points form.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 }
 
 /**
@@ -5602,7 +5602,7 @@ export interface PostTimeSeriesDataPointsInput {
    *          request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5614,25 +5614,25 @@ export interface PostTimeSeriesDataPointsOutput {
    *          points.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The ID of the asset for which you want to post time series data points.</p>
    * @public
    */
-  entityId?: string;
+  entityId?: string | undefined;
 
   /**
    * <p>The type of the asset for which you want to post data points.</p>
    * @public
    */
-  entityType?: TimeSeriesEntityType;
+  entityType?: TimeSeriesEntityType | undefined;
 
   /**
    * <p>The forms that contain the data points that you have posted.</p>
    * @public
    */
-  forms?: TimeSeriesDataPointFormOutput[];
+  forms?: TimeSeriesDataPointFormOutput[] | undefined;
 }
 
 /**
@@ -5651,7 +5651,7 @@ export interface RejectChoice {
    * <p>Specifies the the automatically generated business metadata that can be rejected.</p>
    * @public
    */
-  predictionChoices?: number[];
+  predictionChoices?: number[] | undefined;
 }
 
 /**
@@ -5677,14 +5677,14 @@ export interface RejectRule {
    * <p>Specifies whether you want to reject the top prediction for all targets or none.</p>
    * @public
    */
-  rule?: RejectRuleBehavior;
+  rule?: RejectRuleBehavior | undefined;
 
   /**
    * <p>The confidence score that specifies the condition at which a prediction can be
    *          rejected.</p>
    * @public
    */
-  threshold?: number;
+  threshold?: number | undefined;
 }
 
 /**
@@ -5707,27 +5707,27 @@ export interface RejectPredictionsInput {
    * <p>The revision that is to be made to the asset.</p>
    * @public
    */
-  revision?: string;
+  revision?: string | undefined;
 
   /**
    * <p>Specifies the rule (or the conditions) under which a prediction can be rejected.</p>
    * @public
    */
-  rejectRule?: RejectRule;
+  rejectRule?: RejectRule | undefined;
 
   /**
    * <p>Specifies the prediction (aka, the automatically generated piece of metadata) and the
    *          target (for example, a column name) that can be rejected.</p>
    * @public
    */
-  rejectChoices?: RejectChoice[];
+  rejectChoices?: RejectChoice[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
    *          request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5774,7 +5774,7 @@ export interface RejectSubscriptionRequestInput {
    * <p>The decision comment of the rejected subscription request.</p>
    * @public
    */
-  decisionComment?: string;
+  decisionComment?: string | undefined;
 }
 
 /**
@@ -5797,7 +5797,7 @@ export interface RejectSubscriptionRequestOutput {
    * <p>The Amazon DataZone user who updated the subscription request.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which the subscription request was
@@ -5846,13 +5846,13 @@ export interface RejectSubscriptionRequestOutput {
    * <p>The identifier of the subscription request reviewer.</p>
    * @public
    */
-  reviewerId?: string;
+  reviewerId?: string | undefined;
 
   /**
    * <p>The decision comment of the rejected subscription request.</p>
    * @public
    */
-  decisionComment?: string;
+  decisionComment?: string | undefined;
 }
 
 /**
@@ -5888,7 +5888,7 @@ export interface RemoveEntityOwnerInput {
    *          request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5935,7 +5935,7 @@ export interface RemovePolicyGrantInput {
    *          request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5963,7 +5963,7 @@ export interface RevokeSubscriptionInput {
    * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
    * @public
    */
-  retainPermissions?: boolean;
+  retainPermissions?: boolean | undefined;
 }
 
 /**
@@ -5986,7 +5986,7 @@ export interface RevokeSubscriptionOutput {
    * <p>The Amazon DataZone user who revoked the subscription.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain where you want to revoke a subscription.</p>
@@ -6028,13 +6028,13 @@ export interface RevokeSubscriptionOutput {
    * <p>The identifier of the subscription request for the revoked subscription.</p>
    * @public
    */
-  subscriptionRequestId?: string;
+  subscriptionRequestId?: string | undefined;
 
   /**
    * <p>Specifies whether permissions are retained when the subscription is revoked.</p>
    * @public
    */
-  retainPermissions?: boolean;
+  retainPermissions?: boolean | undefined;
 }
 
 /**
@@ -6113,7 +6113,7 @@ export interface SearchSort {
    * <p>The order detail of the wya to sort search results.</p>
    * @public
    */
-  order?: SortOrder;
+  order?: SortOrder | undefined;
 }
 
 /**
@@ -6149,7 +6149,7 @@ export interface GlossaryItem {
    * <p>The business glossary description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The business glossary status.</p>
@@ -6161,25 +6161,25 @@ export interface GlossaryItem {
    * <p>The timestamp of when the glossary was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the glossary.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The timestamp of when the business glossary was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who updated the business glossary.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 }
 
 /**
@@ -6215,19 +6215,19 @@ export interface GlossaryTermItem {
    * <p>The short description of the business glossary term.</p>
    * @public
    */
-  shortDescription?: string;
+  shortDescription?: string | undefined;
 
   /**
    * <p>The long description of the business glossary term.</p>
    * @public
    */
-  longDescription?: string;
+  longDescription?: string | undefined;
 
   /**
    * <p>The relations of the business glossary term.</p>
    * @public
    */
-  termRelations?: TermRelations;
+  termRelations?: TermRelations | undefined;
 
   /**
    * <p>The status of the business glossary term.</p>
@@ -6239,25 +6239,25 @@ export interface GlossaryTermItem {
    * <p>The timestamp of when a business glossary term was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the business glossary.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The timestamp of when a business glossary term was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who updated the business glossary term.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 }
 
 /**
@@ -6359,7 +6359,7 @@ export interface SearchOutput {
    * <p>The results of the <code>Search</code> action.</p>
    * @public
    */
-  items?: SearchInventoryResultItem[];
+  items?: SearchInventoryResultItem[] | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -6369,13 +6369,13 @@ export interface SearchOutput {
    *          value in a subsequent call to <code>Search</code> to list the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Total number of search results.</p>
    * @public
    */
-  totalMatchCount?: number;
+  totalMatchCount?: number | undefined;
 }
 
 /**
@@ -6413,7 +6413,7 @@ export interface SearchGroupProfilesInput {
    * <p>Specifies the text for which to search.</p>
    * @public
    */
-  searchText?: string;
+  searchText?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call to
@@ -6423,7 +6423,7 @@ export interface SearchGroupProfilesInput {
    *          next set of results. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -6434,7 +6434,7 @@ export interface SearchGroupProfilesInput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6446,25 +6446,25 @@ export interface GroupProfileSummary {
    * <p>The ID of the Amazon DataZone domain of a group profile.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The ID of a group profile.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status of a group profile.</p>
    * @public
    */
-  status?: GroupProfileStatus;
+  status?: GroupProfileStatus | undefined;
 
   /**
    * <p>The group name of a group profile.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 }
 
 /**
@@ -6475,7 +6475,7 @@ export interface SearchGroupProfilesOutput {
    * <p>The results of the <code>SearchGroupProfiles</code> action.</p>
    * @public
    */
-  items?: GroupProfileSummary[];
+  items?: GroupProfileSummary[] | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -6486,7 +6486,7 @@ export interface SearchGroupProfilesOutput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6553,7 +6553,7 @@ export interface SearchListingsOutput {
    * <p>The results of the <code>SearchListings</code> action.</p>
    * @public
    */
-  items?: SearchResultItem[];
+  items?: SearchResultItem[] | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -6564,13 +6564,13 @@ export interface SearchListingsOutput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Total number of search results.</p>
    * @public
    */
-  totalMatchCount?: number;
+  totalMatchCount?: number | undefined;
 }
 
 /**
@@ -6615,56 +6615,56 @@ export interface FormTypeData {
    * <p>The model of the form type.</p>
    * @public
    */
-  model?: Model;
+  model?: Model | undefined;
 
   /**
    * <p>The status of the form type.</p>
    * @public
    */
-  status?: FormTypeStatus;
+  status?: FormTypeStatus | undefined;
 
   /**
    * <p>The identifier of the project that owns the form type.</p>
    * @public
    */
-  owningProjectId?: string;
+  owningProjectId?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which the form type was originally
    *          created.</p>
    * @public
    */
-  originDomainId?: string;
+  originDomainId?: string | undefined;
 
   /**
    * <p>The identifier of the project in which the form type was originally created.</p>
    * @public
    */
-  originProjectId?: string;
+  originProjectId?: string | undefined;
 
   /**
    * <p>The timestamp of when the metadata form type was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The Amazon DataZone user who created teh metadata form type.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The description of the metadata form type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The imports specified in the form type.</p>
    * @public
    */
-  imports?: Import[];
+  imports?: Import[] | undefined;
 }
 
 /**
@@ -6682,37 +6682,37 @@ export interface LineageNodeTypeItem {
    * <p>The name of the data lineage node type.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the data lineage node type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The timestamp at which the data lineage node type was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The user who created the data lineage node type.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The timestamp at which the data lineage node type was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The user who updated the data lineage node type.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The revision of the data lineage node type.</p>
@@ -6807,7 +6807,7 @@ export interface SearchTypesOutput {
    * <p>The results of the <code>SearchTypes</code> action.</p>
    * @public
    */
-  items?: SearchTypesResultItem[];
+  items?: SearchTypesResultItem[] | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -6818,13 +6818,13 @@ export interface SearchTypesOutput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Total number of search results.</p>
    * @public
    */
-  totalMatchCount?: number;
+  totalMatchCount?: number | undefined;
 }
 
 /**
@@ -6864,7 +6864,7 @@ export interface SearchUserProfilesInput {
    * <p>Specifies the text for which to search.</p>
    * @public
    */
-  searchText?: string;
+  searchText?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call to
@@ -6874,7 +6874,7 @@ export interface SearchUserProfilesInput {
    *          set of results. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -6885,7 +6885,7 @@ export interface SearchUserProfilesInput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6897,31 +6897,31 @@ export interface UserProfileSummary {
    * <p>The ID of the Amazon DataZone domain of the user profile.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The ID of the user profile.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The type of the user profile.</p>
    * @public
    */
-  type?: UserProfileType;
+  type?: UserProfileType | undefined;
 
   /**
    * <p>The status of the user profile.</p>
    * @public
    */
-  status?: UserProfileStatus;
+  status?: UserProfileStatus | undefined;
 
   /**
    * <p>The details of the user profile.</p>
    * @public
    */
-  details?: UserProfileDetails;
+  details?: UserProfileDetails | undefined;
 }
 
 /**
@@ -6932,7 +6932,7 @@ export interface SearchUserProfilesOutput {
    * <p>The results of the <code>SearchUserProfiles</code> action.</p>
    * @public
    */
-  items?: UserProfileSummary[];
+  items?: UserProfileSummary[] | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -6943,7 +6943,7 @@ export interface SearchUserProfilesOutput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7010,21 +7010,21 @@ export interface UpdateEnvironmentInput {
    * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
    * @public
    */
-  glossaryTerms?: string[];
+  glossaryTerms?: string[] | undefined;
 }
 
 /**
@@ -7041,7 +7041,7 @@ export interface UpdateEnvironmentOutput {
    * <p>The identifier of the environment that is to be updated.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The identifier of the domain in which the environment is to be updated.</p>
@@ -7059,13 +7059,13 @@ export interface UpdateEnvironmentOutput {
    * <p>The timestamp of when the environment was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the environment was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The name to be updated as part of the <code>UpdateEnvironment</code> action.</p>
@@ -7078,26 +7078,26 @@ export interface UpdateEnvironmentOutput {
    *          action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The profile identifier of the environment.</p>
    * @public
    */
-  environmentProfileId?: string;
+  environmentProfileId?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account in which the environment is to be
    *          updated.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which the environment is updated.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The provider identifier of the environment.</p>
@@ -7110,60 +7110,60 @@ export interface UpdateEnvironmentOutput {
    *          action.</p>
    * @public
    */
-  provisionedResources?: Resource[];
+  provisionedResources?: Resource[] | undefined;
 
   /**
    * <p>The status to be updated as part of the <code>UpdateEnvironment</code> action.</p>
    * @public
    */
-  status?: EnvironmentStatus;
+  status?: EnvironmentStatus | undefined;
 
   /**
    * <p>The environment actions to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
    * @public
    */
-  environmentActions?: ConfigurableEnvironmentAction[];
+  environmentActions?: ConfigurableEnvironmentAction[] | undefined;
 
   /**
    * <p>The glossary terms to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
    * @public
    */
-  glossaryTerms?: string[];
+  glossaryTerms?: string[] | undefined;
 
   /**
    * <p>The user parameters to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
    * @public
    */
-  userParameters?: CustomParameter[];
+  userParameters?: CustomParameter[] | undefined;
 
   /**
    * <p>The last deployment of the environment.</p>
    * @public
    */
-  lastDeployment?: Deployment;
+  lastDeployment?: Deployment | undefined;
 
   /**
    * <p>The provisioning properties to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
    * @public
    */
-  provisioningProperties?: ProvisioningProperties;
+  provisioningProperties?: ProvisioningProperties | undefined;
 
   /**
    * <p>The deployment properties to be updated as part of the <code>UpdateEnvironment</code>
    *          action.</p>
    * @public
    */
-  deploymentProperties?: DeploymentProperties;
+  deploymentProperties?: DeploymentProperties | undefined;
 
   /**
    * <p>The blueprint identifier of the environment.</p>
    * @public
    */
-  environmentBlueprintId?: string;
+  environmentBlueprintId?: string | undefined;
 }
 
 /**
@@ -7192,19 +7192,19 @@ export interface UpdateEnvironmentActionInput {
    * <p>The parameters of the environment action.</p>
    * @public
    */
-  parameters?: ActionParameters;
+  parameters?: ActionParameters | undefined;
 
   /**
    * <p>The name of the environment action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the environment action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -7245,7 +7245,7 @@ export interface UpdateEnvironmentActionOutput {
    * <p>The description of the environment action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -7270,35 +7270,35 @@ export interface UpdateEnvironmentProfileInput {
    *          action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
    * @public
    */
-  userParameters?: EnvironmentParameter[];
+  userParameters?: EnvironmentParameter[] | undefined;
 
   /**
    * <p>The Amazon Web Services account in which a specified environment profile is to be
    *          udpated.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which a specified environment profile is to be
    *          updated.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 }
 
 /**
@@ -7323,14 +7323,14 @@ export interface UpdateEnvironmentProfileOutput {
    *          udpated.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which a specified environment profile is to be
    *          updated.</p>
    * @public
    */
-  awsAccountRegion?: string;
+  awsAccountRegion?: string | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the environment profile.</p>
@@ -7342,13 +7342,13 @@ export interface UpdateEnvironmentProfileOutput {
    * <p>The timestamp of when the environment profile was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the environment profile was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The name to be updated as part of the <code>UpdateEnvironmentProfile</code>
@@ -7362,7 +7362,7 @@ export interface UpdateEnvironmentProfileOutput {
    *          action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The identifier of the blueprint of the environment profile that is to be updated.</p>
@@ -7374,14 +7374,14 @@ export interface UpdateEnvironmentProfileOutput {
    * <p>The identifier of the project of the environment profile that is to be updated.</p>
    * @public
    */
-  projectId?: string;
+  projectId?: string | undefined;
 
   /**
    * <p>The user parameters to be updated as part of the <code>UpdateEnvironmentProfile</code>
    *          action.</p>
    * @public
    */
-  userParameters?: CustomParameter[];
+  userParameters?: CustomParameter[] | undefined;
 }
 
 /**
@@ -7415,25 +7415,25 @@ export interface UpdateGroupProfileOutput {
    * <p>The identifier of the Amazon DataZone domain in which a group profile is updated.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The identifier of the group profile that is updated.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status of the group profile that is updated.</p>
    * @public
    */
-  status?: GroupProfileStatus;
+  status?: GroupProfileStatus | undefined;
 
   /**
    * <p>The name of the group profile that is updated.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 }
 
 /**
@@ -7456,20 +7456,20 @@ export interface UpdateProjectInput {
    * <p>The name to be updated as part of the <code>UpdateProject</code> action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description to be updated as part of the <code>UpdateProject</code> action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The glossary terms to be updated as part of the <code>UpdateProject</code>
    *          action.</p>
    * @public
    */
-  glossaryTerms?: string[];
+  glossaryTerms?: string[] | undefined;
 }
 
 /**
@@ -7498,20 +7498,20 @@ export interface UpdateProjectOutput {
    * <p>The description of the project that is to be updated.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the project.</p>
    * @public
    */
-  projectStatus?: ProjectStatus;
+  projectStatus?: ProjectStatus | undefined;
 
   /**
    * <p>Specifies the error message that is returned if the operation cannot be successfully
    *          completed.</p>
    * @public
    */
-  failureReasons?: ProjectDeletionError[];
+  failureReasons?: ProjectDeletionError[] | undefined;
 
   /**
    * <p>The Amazon DataZone user who created the project.</p>
@@ -7523,25 +7523,25 @@ export interface UpdateProjectOutput {
    * <p>The timestamp of when the project was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the project was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The glossary terms of the project that are to be updated.</p>
    * @public
    */
-  glossaryTerms?: string[];
+  glossaryTerms?: string[] | undefined;
 
   /**
    * <p>The ID of the domain unit.</p>
    * @public
    */
-  domainUnitId?: string;
+  domainUnitId?: string | undefined;
 }
 
 /**
@@ -7580,14 +7580,14 @@ export interface UpdateSubscriptionGrantStatusInput {
    *          completed.</p>
    * @public
    */
-  failureCause?: FailureCause;
+  failureCause?: FailureCause | undefined;
 
   /**
    * <p>The target name to be updated as part of the <code>UpdateSubscriptionGrantStatus</code>
    *          action.</p>
    * @public
    */
-  targetName?: string;
+  targetName?: string | undefined;
 }
 
 /**
@@ -7610,7 +7610,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
    * <p>The Amazon DataZone user who updated the subscription grant status.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which a subscription grant status is to be
@@ -7656,7 +7656,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
    * <p>The details of the asset for which the subscription grant is created.</p>
    * @public
    */
-  assets?: SubscribedAsset[];
+  assets?: SubscribedAsset[] | undefined;
 
   /**
    * @deprecated
@@ -7664,7 +7664,7 @@ export interface UpdateSubscriptionGrantStatusOutput {
    * <p>The identifier of the subscription.</p>
    * @public
    */
-  subscriptionId?: string;
+  subscriptionId?: string | undefined;
 }
 
 /**
@@ -7711,7 +7711,7 @@ export interface UpdateSubscriptionRequestOutput {
    * <p>The Amazon DataZone user who updated the subscription request.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon DataZone domain in which a subscription request is to be
@@ -7760,13 +7760,13 @@ export interface UpdateSubscriptionRequestOutput {
    * <p>The identifier of the Amazon DataZone user who reviews the subscription request.</p>
    * @public
    */
-  reviewerId?: string;
+  reviewerId?: string | undefined;
 
   /**
    * <p>The decision comment of the <code>UpdateSubscriptionRequest</code> action.</p>
    * @public
    */
-  decisionComment?: string;
+  decisionComment?: string | undefined;
 }
 
 /**
@@ -7798,42 +7798,42 @@ export interface UpdateSubscriptionTargetInput {
    *          action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The authorized principals to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
-  authorizedPrincipals?: string[];
+  authorizedPrincipals?: string[] | undefined;
 
   /**
    * <p>The applicable asset types to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
-  applicableAssetTypes?: string[];
+  applicableAssetTypes?: string[] | undefined;
 
   /**
    * <p>The configuration to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
    * @public
    */
-  subscriptionTargetConfig?: SubscriptionTargetForm[];
+  subscriptionTargetConfig?: SubscriptionTargetForm[] | undefined;
 
   /**
    * <p>The manage access role to be updated as part of the
    *             <code>UpdateSubscriptionTarget</code> action.</p>
    * @public
    */
-  manageAccessRole?: string;
+  manageAccessRole?: string | undefined;
 
   /**
    * <p>The provider to be updated as part of the <code>UpdateSubscriptionTarget</code>
    *          action.</p>
    * @public
    */
-  provider?: string;
+  provider?: string | undefined;
 }
 
 /**
@@ -7897,7 +7897,7 @@ export interface UpdateSubscriptionTargetOutput {
    * <p>The Amazon DataZone user who updated the subscription target.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The timestamp of when a subscription target was created.</p>
@@ -7909,7 +7909,7 @@ export interface UpdateSubscriptionTargetOutput {
    * <p>The timestamp of when the subscription target was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The manage access role to be updated as part of the
@@ -7960,7 +7960,7 @@ export interface UpdateUserProfileInput {
    * <p>The type of the user profile that are to be updated.</p>
    * @public
    */
-  type?: UserProfileType;
+  type?: UserProfileType | undefined;
 
   /**
    * <p>The status of the user profile that are to be updated.</p>
@@ -7977,31 +7977,31 @@ export interface UpdateUserProfileOutput {
    * <p>The identifier of the Amazon DataZone domain in which a user profile is updated.</p>
    * @public
    */
-  domainId?: string;
+  domainId?: string | undefined;
 
   /**
    * <p>The identifier of the user profile.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The type of the user profile.</p>
    * @public
    */
-  type?: UserProfileType;
+  type?: UserProfileType | undefined;
 
   /**
    * <p>The status of the user profile.</p>
    * @public
    */
-  status?: UserProfileStatus;
+  status?: UserProfileStatus | undefined;
 
   /**
    * <p>The details of the user profile in Amazon DataZone.</p>
    * @public
    */
-  details?: UserProfileDetails;
+  details?: UserProfileDetails | undefined;
 }
 
 /**
@@ -8163,7 +8163,7 @@ export interface RowFilterConfiguration {
    * <p>Specifies whether the row filter is sensitive.</p>
    * @public
    */
-  sensitive?: boolean;
+  sensitive?: boolean | undefined;
 }
 
 /**
@@ -8180,7 +8180,7 @@ export interface SearchInput {
    * <p>The identifier of the owning project specified for the search.</p>
    * @public
    */
-  owningProjectIdentifier?: string;
+  owningProjectIdentifier?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call to <code>Search</code>. When
@@ -8189,7 +8189,7 @@ export interface SearchInput {
    *          to <code>Search</code> to list the next set of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -8199,7 +8199,7 @@ export interface SearchInput {
    *          value in a subsequent call to <code>Search</code> to list the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The scope of the search.</p>
@@ -8211,31 +8211,31 @@ export interface SearchInput {
    * <p>Specifies the text for which to search.</p>
    * @public
    */
-  searchText?: string;
+  searchText?: string | undefined;
 
   /**
    * <p>The details of the search.</p>
    * @public
    */
-  searchIn?: SearchInItem[];
+  searchIn?: SearchInItem[] | undefined;
 
   /**
    * <p>Specifies the search filters.</p>
    * @public
    */
-  filters?: FilterClause;
+  filters?: FilterClause | undefined;
 
   /**
    * <p>Specifies the way in which the search results are to be sorted.</p>
    * @public
    */
-  sort?: SearchSort;
+  sort?: SearchSort | undefined;
 
   /**
    * <p>Specifies additional attributes for the <code>Search</code> action.</p>
    * @public
    */
-  additionalAttributes?: SearchOutputAdditionalAttribute[];
+  additionalAttributes?: SearchOutputAdditionalAttribute[] | undefined;
 }
 
 /**
@@ -8252,13 +8252,13 @@ export interface SearchListingsInput {
    * <p>Specifies the text for which to search.</p>
    * @public
    */
-  searchText?: string;
+  searchText?: string | undefined;
 
   /**
    * <p>The details of the search.</p>
    * @public
    */
-  searchIn?: SearchInItem[];
+  searchIn?: SearchInItem[] | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call to <code>SearchListings</code>.
@@ -8268,7 +8268,7 @@ export interface SearchListingsInput {
    *          results. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -8279,25 +8279,25 @@ export interface SearchListingsInput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the filters for the search of listings.</p>
    * @public
    */
-  filters?: FilterClause;
+  filters?: FilterClause | undefined;
 
   /**
    * <p>Specifies the way for sorting the search results.</p>
    * @public
    */
-  sort?: SearchSort;
+  sort?: SearchSort | undefined;
 
   /**
    * <p>Specifies additional attributes for the search.</p>
    * @public
    */
-  additionalAttributes?: SearchOutputAdditionalAttribute[];
+  additionalAttributes?: SearchOutputAdditionalAttribute[] | undefined;
 }
 
 /**
@@ -8319,7 +8319,7 @@ export interface SearchTypesInput {
    *       </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>When the number of results is greater than the default value for the
@@ -8330,7 +8330,7 @@ export interface SearchTypesInput {
    *          results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the scope of the search for types.</p>
@@ -8342,25 +8342,25 @@ export interface SearchTypesInput {
    * <p>Specifies the text for which to search.</p>
    * @public
    */
-  searchText?: string;
+  searchText?: string | undefined;
 
   /**
    * <p>The details of the search.</p>
    * @public
    */
-  searchIn?: SearchInItem[];
+  searchIn?: SearchInItem[] | undefined;
 
   /**
    * <p>The filters for the <code>SearchTypes</code> action.</p>
    * @public
    */
-  filters?: FilterClause;
+  filters?: FilterClause | undefined;
 
   /**
    * <p>The specifies the way to sort the <code>SearchTypes</code> results.</p>
    * @public
    */
-  sort?: SearchSort;
+  sort?: SearchSort | undefined;
 
   /**
    * <p>Specifies whether the search is managed.</p>
@@ -8450,7 +8450,7 @@ export interface CreateAssetFilterInput {
    * <p>The description of the asset filter.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The configuration of the asset filter.</p>
@@ -8463,7 +8463,7 @@ export interface CreateAssetFilterInput {
    *          request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -8498,13 +8498,13 @@ export interface CreateAssetFilterOutput {
    * <p>The description of the asset filter.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the asset filter.</p>
    * @public
    */
-  status?: FilterStatus;
+  status?: FilterStatus | undefined;
 
   /**
    * <p>The configuration of the asset filter.</p>
@@ -8516,26 +8516,26 @@ export interface CreateAssetFilterOutput {
    * <p>The timestamp at which the asset filter was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The error message that is displayed if the asset filter is not created
    *          successfully.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The column names in the asset filter.</p>
    * @public
    */
-  effectiveColumnNames?: string[];
+  effectiveColumnNames?: string[] | undefined;
 
   /**
    * <p>The row filter in the asset filter.</p>
    * @public
    */
-  effectiveRowFilter?: string;
+  effectiveRowFilter?: string | undefined;
 }
 
 /**
@@ -8570,13 +8570,13 @@ export interface GetAssetFilterOutput {
    * <p>The description of the asset filter.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the asset filter.</p>
    * @public
    */
-  status?: FilterStatus;
+  status?: FilterStatus | undefined;
 
   /**
    * <p>The configuration of the asset filter.</p>
@@ -8588,25 +8588,25 @@ export interface GetAssetFilterOutput {
    * <p>The timestamp at which the asset filter was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The error message that is displayed if the action does not complete successfully.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The column names of the asset filter.</p>
    * @public
    */
-  effectiveColumnNames?: string[];
+  effectiveColumnNames?: string[] | undefined;
 
   /**
    * <p>The row filter of the asset filter.</p>
    * @public
    */
-  effectiveRowFilter?: string;
+  effectiveRowFilter?: string | undefined;
 }
 
 /**
@@ -8635,19 +8635,19 @@ export interface UpdateAssetFilterInput {
    * <p>The name of the asset filter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the asset filter.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The configuration of the asset filter.</p>
    * @public
    */
-  configuration?: AssetFilterConfiguration;
+  configuration?: AssetFilterConfiguration | undefined;
 }
 
 /**
@@ -8682,13 +8682,13 @@ export interface UpdateAssetFilterOutput {
    * <p>The description of the asset filter.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the asset filter.</p>
    * @public
    */
-  status?: FilterStatus;
+  status?: FilterStatus | undefined;
 
   /**
    * <p>The configuration of the asset filter.</p>
@@ -8700,25 +8700,25 @@ export interface UpdateAssetFilterOutput {
    * <p>The timestamp at which the asset filter was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The error message that is displayed if the action is not completed successfully.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The column names of the asset filter.</p>
    * @public
    */
-  effectiveColumnNames?: string[];
+  effectiveColumnNames?: string[] | undefined;
 
   /**
    * <p>The row filter of the asset filter.</p>
    * @public
    */
-  effectiveRowFilter?: string;
+  effectiveRowFilter?: string | undefined;
 }
 
 /**

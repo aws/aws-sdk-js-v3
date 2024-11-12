@@ -20,13 +20,13 @@ export interface AccountAggregationSource {
    * 			regions.</p>
    * @public
    */
-  AllAwsRegions?: boolean;
+  AllAwsRegions?: boolean | undefined;
 
   /**
    * <p>The source regions being aggregated.</p>
    * @public
    */
-  AwsRegions?: string[];
+  AwsRegions?: string[] | undefined;
 }
 
 /**
@@ -41,13 +41,13 @@ export interface ComplianceContributorCount {
    * 			the current compliance of the item.</p>
    * @public
    */
-  CappedCount?: number;
+  CappedCount?: number | undefined;
 
   /**
    * <p>Indicates whether the maximum count is reached.</p>
    * @public
    */
-  CapExceeded?: boolean;
+  CapExceeded?: boolean | undefined;
 }
 
 /**
@@ -90,7 +90,7 @@ export interface Compliance {
    * 				<code>Compliance</code> data type.</p>
    * @public
    */
-  ComplianceType?: ComplianceType;
+  ComplianceType?: ComplianceType | undefined;
 
   /**
    * <p>The number of Amazon Web Services resources or Config rules that cause a
@@ -98,7 +98,7 @@ export interface Compliance {
    * 			number.</p>
    * @public
    */
-  ComplianceContributorCount?: ComplianceContributorCount;
+  ComplianceContributorCount?: ComplianceContributorCount | undefined;
 }
 
 /**
@@ -114,7 +114,7 @@ export interface AggregateComplianceByConfigRule {
    * <p>The name of the Config rule.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 
   /**
    * <p>Indicates whether an Amazon Web Services resource or Config rule is
@@ -122,19 +122,19 @@ export interface AggregateComplianceByConfigRule {
    * 			compliance.</p>
    * @public
    */
-  Compliance?: Compliance;
+  Compliance?: Compliance | undefined;
 
   /**
    * <p>The 12-digit account ID of the source account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The source region from where the data is aggregated.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 }
 
 /**
@@ -166,25 +166,25 @@ export interface AggregateConformancePackCompliance {
    * <p>The compliance status of the conformance pack.</p>
    * @public
    */
-  ComplianceType?: ConformancePackComplianceType;
+  ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
    * <p>The number of compliant Config Rules.</p>
    * @public
    */
-  CompliantRuleCount?: number;
+  CompliantRuleCount?: number | undefined;
 
   /**
    * <p>The number of noncompliant Config Rules.</p>
    * @public
    */
-  NonCompliantRuleCount?: number;
+  NonCompliantRuleCount?: number | undefined;
 
   /**
    * <p>Total number of compliant rules, noncompliant rules, and the rules that do not have any applicable resources to evaluate upon resulting in insufficient data.</p>
    * @public
    */
-  TotalRuleCount?: number;
+  TotalRuleCount?: number | undefined;
 }
 
 /**
@@ -200,25 +200,25 @@ export interface AggregateComplianceByConformancePack {
    * <p>The name of the conformance pack.</p>
    * @public
    */
-  ConformancePackName?: string;
+  ConformancePackName?: string | undefined;
 
   /**
    * <p>The compliance status of the conformance pack.</p>
    * @public
    */
-  Compliance?: AggregateConformancePackCompliance;
+  Compliance?: AggregateConformancePackCompliance | undefined;
 
   /**
    * <p>The 12-digit Amazon Web Services account ID of the source account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The source Amazon Web Services Region from where the data is aggregated.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 }
 
 /**
@@ -233,7 +233,7 @@ export interface ComplianceSummary {
    * 			resources.</p>
    * @public
    */
-  CompliantResourceCount?: ComplianceContributorCount;
+  CompliantResourceCount?: ComplianceContributorCount | undefined;
 
   /**
    * <p>The number of Config rules or Amazon Web Services resources that are
@@ -241,14 +241,14 @@ export interface ComplianceSummary {
    * 			resources.</p>
    * @public
    */
-  NonCompliantResourceCount?: ComplianceContributorCount;
+  NonCompliantResourceCount?: ComplianceContributorCount | undefined;
 
   /**
    * <p>The time that Config created the compliance
    * 			summary.</p>
    * @public
    */
-  ComplianceSummaryTimestamp?: Date;
+  ComplianceSummaryTimestamp?: Date | undefined;
 }
 
 /**
@@ -262,14 +262,14 @@ export interface AggregateComplianceCount {
    * 			value.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The number of compliant and noncompliant Config
    * 			rules.</p>
    * @public
    */
-  ComplianceSummary?: ComplianceSummary;
+  ComplianceSummary?: ComplianceSummary | undefined;
 }
 
 /**
@@ -281,13 +281,13 @@ export interface AggregateConformancePackComplianceCount {
    * <p>Number of compliant conformance packs.</p>
    * @public
    */
-  CompliantConformancePackCount?: number;
+  CompliantConformancePackCount?: number | undefined;
 
   /**
    * <p>Number of noncompliant conformance packs.</p>
    * @public
    */
-  NonCompliantConformancePackCount?: number;
+  NonCompliantConformancePackCount?: number | undefined;
 }
 
 /**
@@ -299,25 +299,25 @@ export interface AggregateConformancePackComplianceFilters {
    * <p>The name of the conformance pack.</p>
    * @public
    */
-  ConformancePackName?: string;
+  ConformancePackName?: string | undefined;
 
   /**
    * <p>The compliance status of the conformance pack.</p>
    * @public
    */
-  ComplianceType?: ConformancePackComplianceType;
+  ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
    * <p>The 12-digit Amazon Web Services account ID of the source account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The source Amazon Web Services Region from where the data is aggregated.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 }
 
 /**
@@ -329,13 +329,13 @@ export interface AggregateConformancePackComplianceSummary {
    * <p>Returns an <code>AggregateConformancePackComplianceCount</code> object. </p>
    * @public
    */
-  ComplianceSummary?: AggregateConformancePackComplianceCount;
+  ComplianceSummary?: AggregateConformancePackComplianceCount | undefined;
 
   /**
    * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 }
 
 /**
@@ -347,13 +347,13 @@ export interface AggregateConformancePackComplianceSummaryFilters {
    * <p>The 12-digit Amazon Web Services account ID of the source account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The source Amazon Web Services Region from where the data is aggregated.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 }
 
 /**
@@ -410,19 +410,19 @@ export interface AggregatedSourceStatus {
    * <p>The source account ID or an organization.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The source account or an organization.</p>
    * @public
    */
-  SourceType?: AggregatedSourceType;
+  SourceType?: AggregatedSourceType | undefined;
 
   /**
    * <p>The region authorized to collect aggregated data.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 
   /**
    * <p>Filters the last updated status type.</p>
@@ -442,27 +442,27 @@ export interface AggregatedSourceStatus {
    *          </ul>
    * @public
    */
-  LastUpdateStatus?: AggregatedSourceStatusType;
+  LastUpdateStatus?: AggregatedSourceStatusType | undefined;
 
   /**
    * <p>The time of the last update.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 
   /**
    * <p>The error code that Config returned when the source account
    * 			aggregation last failed.</p>
    * @public
    */
-  LastErrorCode?: string;
+  LastErrorCode?: string | undefined;
 
   /**
    * <p>The message indicating that the source account aggregation
    * 			failed due to an error.</p>
    * @public
    */
-  LastErrorMessage?: string;
+  LastErrorMessage?: string | undefined;
 }
 
 /**
@@ -491,25 +491,25 @@ export interface EvaluationResultQualifier {
    * 			evaluation.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ID of the evaluated Amazon Web Services resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    * @public
    */
-  EvaluationMode?: EvaluationMode;
+  EvaluationMode?: EvaluationMode | undefined;
 }
 
 /**
@@ -522,7 +522,7 @@ export interface EvaluationResultIdentifier {
    * 			and provides the type and ID of the evaluated resource.</p>
    * @public
    */
-  EvaluationResultQualifier?: EvaluationResultQualifier;
+  EvaluationResultQualifier?: EvaluationResultQualifier | undefined;
 
   /**
    * <p>The time of the event that triggered the evaluation of your Amazon Web Services
@@ -531,13 +531,13 @@ export interface EvaluationResultIdentifier {
    * 			event triggered the evaluation.</p>
    * @public
    */
-  OrderingTimestamp?: Date;
+  OrderingTimestamp?: Date | undefined;
 
   /**
    * <p>A Unique ID for an evaluation result.</p>
    * @public
    */
-  ResourceEvaluationId?: string;
+  ResourceEvaluationId?: string | undefined;
 }
 
 /**
@@ -552,7 +552,7 @@ export interface AggregateEvaluationResult {
    * <p>Uniquely identifies the evaluation result.</p>
    * @public
    */
-  EvaluationResultIdentifier?: EvaluationResultIdentifier;
+  EvaluationResultIdentifier?: EvaluationResultIdentifier | undefined;
 
   /**
    * <p>The resource compliance status.</p>
@@ -562,40 +562,40 @@ export interface AggregateEvaluationResult {
    * 			value.</p>
    * @public
    */
-  ComplianceType?: ComplianceType;
+  ComplianceType?: ComplianceType | undefined;
 
   /**
    * <p>The time when Config recorded the aggregate evaluation
    * 			result.</p>
    * @public
    */
-  ResultRecordedTime?: Date;
+  ResultRecordedTime?: Date | undefined;
 
   /**
    * <p>The time when the Config rule evaluated the Amazon Web Services
    * 			resource.</p>
    * @public
    */
-  ConfigRuleInvokedTime?: Date;
+  ConfigRuleInvokedTime?: Date | undefined;
 
   /**
    * <p>Supplementary information about how the agrregate evaluation
    * 			determined the compliance.</p>
    * @public
    */
-  Annotation?: string;
+  Annotation?: string | undefined;
 
   /**
    * <p>The 12-digit account ID of the source account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The source region from where the data is aggregated.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 }
 
 /**
@@ -1050,7 +1050,7 @@ export interface AggregateResourceIdentifier {
    * <p>The name of the Amazon Web Services resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 }
 
 /**
@@ -1064,27 +1064,27 @@ export interface AggregationAuthorization {
    * 			object.</p>
    * @public
    */
-  AggregationAuthorizationArn?: string;
+  AggregationAuthorizationArn?: string | undefined;
 
   /**
    * <p>The 12-digit account ID of the account authorized to aggregate
    * 			data.</p>
    * @public
    */
-  AuthorizedAccountId?: string;
+  AuthorizedAccountId?: string | undefined;
 
   /**
    * <p>The region authorized to collect aggregated data.</p>
    * @public
    */
-  AuthorizedAwsRegion?: string;
+  AuthorizedAwsRegion?: string | undefined;
 
   /**
    * <p>The time stamp when the aggregation authorization was
    * 			created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -1127,19 +1127,19 @@ export interface BaseConfigurationItem {
    * <p>The version number of the resource configuration.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The 12-digit Amazon Web Services account ID associated with the resource.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The time when the recording of configuration changes was initiated for the resource.</p>
    * @public
    */
-  configurationItemCaptureTime?: Date;
+  configurationItemCaptureTime?: Date | undefined;
 
   /**
    * <p>The configuration item status. Valid values include:</p>
@@ -1162,62 +1162,62 @@ export interface BaseConfigurationItem {
    *          </ul>
    * @public
    */
-  configurationItemStatus?: ConfigurationItemStatus;
+  configurationItemStatus?: ConfigurationItemStatus | undefined;
 
   /**
    * <p>An identifier that indicates the ordering of the configuration
    * 			items of a resource.</p>
    * @public
    */
-  configurationStateId?: string;
+  configurationStateId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource.</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The ID of the resource (for example., sg-xxxxxx).</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The custom name of the resource, if available.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>The region where the resource resides.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>The Availability Zone associated with the resource.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The time stamp when the resource was created.</p>
    * @public
    */
-  resourceCreationTime?: Date;
+  resourceCreationTime?: Date | undefined;
 
   /**
    * <p>The description of the resource configuration.</p>
    * @public
    */
-  configuration?: string;
+  configuration?: string | undefined;
 
   /**
    * <p>Configuration attributes that Config returns for certain
@@ -1225,13 +1225,13 @@ export interface BaseConfigurationItem {
    * 			configuration parameter.</p>
    * @public
    */
-  supplementaryConfiguration?: Record<string, string>;
+  supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
    * @public
    */
-  recordingFrequency?: RecordingFrequency;
+  recordingFrequency?: RecordingFrequency | undefined;
 
   /**
    * <p>The time when configuration changes for the resource were delivered.</p>
@@ -1243,7 +1243,7 @@ export interface BaseConfigurationItem {
    *          </note>
    * @public
    */
-  configurationItemDeliveryTime?: Date;
+  configurationItemDeliveryTime?: Date | undefined;
 }
 
 /**
@@ -1271,13 +1271,13 @@ export interface BatchGetAggregateResourceConfigResponse {
    * <p>A list that contains the current configuration of one or more resources.</p>
    * @public
    */
-  BaseConfigurationItems?: BaseConfigurationItem[];
+  BaseConfigurationItems?: BaseConfigurationItem[] | undefined;
 
   /**
    * <p>A list of resource identifiers that were not processed with current scope. The list is empty if all the resources are processed.</p>
    * @public
    */
-  UnprocessedResourceIdentifiers?: AggregateResourceIdentifier[];
+  UnprocessedResourceIdentifiers?: AggregateResourceIdentifier[] | undefined;
 }
 
 /**
@@ -1363,7 +1363,7 @@ export interface BatchGetResourceConfigResponse {
    * 			resources.</p>
    * @public
    */
-  baseConfigurationItems?: BaseConfigurationItem[];
+  baseConfigurationItems?: BaseConfigurationItem[] | undefined;
 
   /**
    * <p>A list of resource keys that were not processed with the
@@ -1375,7 +1375,7 @@ export interface BatchGetResourceConfigResponse {
    * 			empty unprocessedResourceKeys list. </p>
    * @public
    */
-  unprocessedResourceKeys?: ResourceKey[];
+  unprocessedResourceKeys?: ResourceKey[] | undefined;
 }
 
 /**
@@ -1426,13 +1426,13 @@ export interface ComplianceByConfigRule {
    * <p>The name of the Config rule.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 
   /**
    * <p>Indicates whether the Config rule is compliant.</p>
    * @public
    */
-  Compliance?: Compliance;
+  Compliance?: Compliance | undefined;
 }
 
 /**
@@ -1448,19 +1448,19 @@ export interface ComplianceByResource {
    * <p>The type of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>Indicates whether the Amazon Web Services resource complies with all of the Config rules that evaluated it.</p>
    * @public
    */
-  Compliance?: Compliance;
+  Compliance?: Compliance | undefined;
 }
 
 /**
@@ -1474,14 +1474,14 @@ export interface ComplianceSummaryByResourceType {
    * <p>The type of Amazon Web Services resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The number of Amazon Web Services resources that are compliant or noncompliant,
    * 			up to a maximum of 100 for each.</p>
    * @public
    */
-  ComplianceSummary?: ComplianceSummary;
+  ComplianceSummary?: ComplianceSummary | undefined;
 }
 
 /**
@@ -1511,37 +1511,37 @@ export interface ConfigExportDeliveryInfo {
    * <p>Status of the last attempted delivery.</p>
    * @public
    */
-  lastStatus?: DeliveryStatus;
+  lastStatus?: DeliveryStatus | undefined;
 
   /**
    * <p>The error code from the last attempted delivery.</p>
    * @public
    */
-  lastErrorCode?: string;
+  lastErrorCode?: string | undefined;
 
   /**
    * <p>The error message from the last attempted delivery.</p>
    * @public
    */
-  lastErrorMessage?: string;
+  lastErrorMessage?: string | undefined;
 
   /**
    * <p>The time of the last attempted delivery.</p>
    * @public
    */
-  lastAttemptTime?: Date;
+  lastAttemptTime?: Date | undefined;
 
   /**
    * <p>The time of the last successful delivery.</p>
    * @public
    */
-  lastSuccessfulTime?: Date;
+  lastSuccessfulTime?: Date | undefined;
 
   /**
    * <p>The time that the next delivery occurs.</p>
    * @public
    */
-  nextDeliveryTime?: Date;
+  nextDeliveryTime?: Date | undefined;
 }
 
 /**
@@ -1569,7 +1569,7 @@ export interface EvaluationModeConfiguration {
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    * @public
    */
-  Mode?: EvaluationMode;
+  Mode?: EvaluationMode | undefined;
 }
 
 /**
@@ -1607,14 +1607,14 @@ export interface Scope {
    * 			<code>ComplianceResourceId</code>.</p>
    * @public
    */
-  ComplianceResourceTypes?: string[];
+  ComplianceResourceTypes?: string[] | undefined;
 
   /**
    * <p>The tag key that is applied to only those Amazon Web Services resources that
    * 			you want to trigger an evaluation for the rule.</p>
    * @public
    */
-  TagKey?: string;
+  TagKey?: string | undefined;
 
   /**
    * <p>The tag value applied to only those Amazon Web Services resources that you want
@@ -1623,7 +1623,7 @@ export interface Scope {
    * 				<code>TagKey</code>.</p>
    * @public
    */
-  TagValue?: string;
+  TagValue?: string | undefined;
 
   /**
    * <p>The ID of the only Amazon Web Services resource that you want to trigger an
@@ -1632,7 +1632,7 @@ export interface Scope {
    * 			<code>ComplianceResourceTypes</code>.</p>
    * @public
    */
-  ComplianceResourceId?: string;
+  ComplianceResourceId?: string | undefined;
 }
 
 /**
@@ -1660,7 +1660,7 @@ export interface CustomPolicyDetails {
    * <p>The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is <code>false</code>.</p>
    * @public
    */
-  EnableDebugLogDelivery?: boolean;
+  EnableDebugLogDelivery?: boolean | undefined;
 }
 
 /**
@@ -1721,7 +1721,7 @@ export interface SourceDetail {
    * 			Config to evaluate your Amazon Web Services resources.</p>
    * @public
    */
-  EventSource?: EventSource;
+  EventSource?: EventSource | undefined;
 
   /**
    * <p>The type of notification that triggers Config to run an
@@ -1762,7 +1762,7 @@ export interface SourceDetail {
    * 				<code>OversizedConfigurationItemChangeNotification</code>.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
    * <p>The frequency at which you want Config to run evaluations
@@ -1783,7 +1783,7 @@ export interface SourceDetail {
    *          </note>
    * @public
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 }
 
 /**
@@ -1811,20 +1811,20 @@ export interface Source {
    *          <p>For Config Custom Policy rules, this field will be ignored.</p>
    * @public
    */
-  SourceIdentifier?: string;
+  SourceIdentifier?: string | undefined;
 
   /**
    * <p>Provides the source and the message types that cause Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
    *          <p>If the owner is set to <code>CUSTOM_POLICY</code>, the only acceptable values for the Config rule trigger message type are <code>ConfigurationItemChangeNotification</code> and <code>OversizedConfigurationItemChangeNotification</code>.</p>
    * @public
    */
-  SourceDetails?: SourceDetail[];
+  SourceDetails?: SourceDetail[] | undefined;
 
   /**
    * <p>Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to <code>CUSTOM_POLICY</code>.</p>
    * @public
    */
-  CustomPolicyDetails?: CustomPolicyDetails;
+  CustomPolicyDetails?: CustomPolicyDetails | undefined;
 }
 
 /**
@@ -1858,27 +1858,27 @@ export interface ConfigRule {
    * 			required if you are adding a new rule.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Config
    * 			rule.</p>
    * @public
    */
-  ConfigRuleArn?: string;
+  ConfigRuleArn?: string | undefined;
 
   /**
    * <p>The ID of the Config rule.</p>
    * @public
    */
-  ConfigRuleId?: string;
+  ConfigRuleId?: string | undefined;
 
   /**
    * <p>The description that you provide for the Config
    * 			rule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Defines which resources can trigger an evaluation for the rule.
@@ -1893,7 +1893,7 @@ export interface ConfigRule {
    *          </note>
    * @public
    */
-  Scope?: Scope;
+  Scope?: Scope | undefined;
 
   /**
    * <p>Provides the rule owner (<code>Amazon Web Services</code> for managed rules, <code>CUSTOM_POLICY</code> for Custom Policy rules, and <code>CUSTOM_LAMBDA</code> for Custom Lambda rules), the rule identifier,
@@ -1908,7 +1908,7 @@ export interface ConfigRule {
    * 			Lambda function.</p>
    * @public
    */
-  InputParameters?: string;
+  InputParameters?: string | undefined;
 
   /**
    * <p>The maximum frequency with which Config runs evaluations
@@ -1932,7 +1932,7 @@ export interface ConfigRule {
    *          </note>
    * @public
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
    * <p>Indicates whether the Config rule is active or is currently
@@ -1953,7 +1953,7 @@ export interface ConfigRule {
    * 			erased and are no longer available.</p>
    * @public
    */
-  ConfigRuleState?: ConfigRuleState;
+  ConfigRuleState?: ConfigRuleState | undefined;
 
   /**
    * <p>Service principal name of the service that created the
@@ -1965,13 +1965,13 @@ export interface ConfigRule {
    *          </note>
    * @public
    */
-  CreatedBy?: string;
+  CreatedBy?: string | undefined;
 
   /**
    * <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
    * @public
    */
-  EvaluationModes?: EvaluationModeConfiguration[];
+  EvaluationModes?: EvaluationModeConfiguration[] | undefined;
 }
 
 /**
@@ -1984,7 +1984,7 @@ export interface ConfigRuleComplianceFilters {
    * <p>The name of the Config rule.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 
   /**
    * <p>The rule compliance status.</p>
@@ -1994,21 +1994,21 @@ export interface ConfigRuleComplianceFilters {
    * 				<code>INSUFFICIENT_DATA</code> values.</p>
    * @public
    */
-  ComplianceType?: ComplianceType;
+  ComplianceType?: ComplianceType | undefined;
 
   /**
    * <p>The 12-digit account ID of the source account.
    * 			</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The source region where the data is aggregated.
    * 			</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 }
 
 /**
@@ -2021,13 +2021,13 @@ export interface ConfigRuleComplianceSummaryFilters {
    * <p>The 12-digit account ID of the source account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The source region where the data is aggregated.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 }
 
 /**
@@ -2058,74 +2058,74 @@ export interface ConfigRuleEvaluationStatus {
    * <p>The name of the Config rule.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Config
    * 			rule.</p>
    * @public
    */
-  ConfigRuleArn?: string;
+  ConfigRuleArn?: string | undefined;
 
   /**
    * <p>The ID of the Config rule.</p>
    * @public
    */
-  ConfigRuleId?: string;
+  ConfigRuleId?: string | undefined;
 
   /**
    * <p>The time that Config last successfully invoked the Config rule to evaluate your Amazon Web Services resources.</p>
    * @public
    */
-  LastSuccessfulInvocationTime?: Date;
+  LastSuccessfulInvocationTime?: Date | undefined;
 
   /**
    * <p>The time that Config last failed to invoke the Config
    * 			rule to evaluate your Amazon Web Services resources.</p>
    * @public
    */
-  LastFailedInvocationTime?: Date;
+  LastFailedInvocationTime?: Date | undefined;
 
   /**
    * <p>The time that Config last successfully evaluated your Amazon Web Services
    * 			resources against the rule.</p>
    * @public
    */
-  LastSuccessfulEvaluationTime?: Date;
+  LastSuccessfulEvaluationTime?: Date | undefined;
 
   /**
    * <p>The time that Config last failed to evaluate your Amazon Web Services
    * 			resources against the rule.</p>
    * @public
    */
-  LastFailedEvaluationTime?: Date;
+  LastFailedEvaluationTime?: Date | undefined;
 
   /**
    * <p>The time that you first activated the Config
    * 			rule.</p>
    * @public
    */
-  FirstActivatedTime?: Date;
+  FirstActivatedTime?: Date | undefined;
 
   /**
    * <p>The time that you last turned off the Config rule.</p>
    * @public
    */
-  LastDeactivatedTime?: Date;
+  LastDeactivatedTime?: Date | undefined;
 
   /**
    * <p>The error code that Config returned when the rule last
    * 			failed.</p>
    * @public
    */
-  LastErrorCode?: string;
+  LastErrorCode?: string | undefined;
 
   /**
    * <p>The error message that Config returned when the rule last
    * 			failed.</p>
    * @public
    */
-  LastErrorMessage?: string;
+  LastErrorMessage?: string | undefined;
 
   /**
    * <p>Indicates whether Config has evaluated your resources
@@ -2145,26 +2145,26 @@ export interface ConfigRuleEvaluationStatus {
    *          </ul>
    * @public
    */
-  FirstEvaluationStarted?: boolean;
+  FirstEvaluationStarted?: boolean | undefined;
 
   /**
    * <p>The status of the last attempted delivery of a debug log for your Config Custom Policy rules. Either <code>Successful</code> or <code>Failed</code>.</p>
    * @public
    */
-  LastDebugLogDeliveryStatus?: string;
+  LastDebugLogDeliveryStatus?: string | undefined;
 
   /**
    * <p>The reason Config was not able to deliver a debug log. This is for the last
    * 			failed attempt to retrieve a debug log for your Config Custom Policy rules.</p>
    * @public
    */
-  LastDebugLogDeliveryStatusReason?: string;
+  LastDebugLogDeliveryStatusReason?: string | undefined;
 
   /**
    * <p>The time Config last attempted to deliver a debug log for your Config Custom Policy rules.</p>
    * @public
    */
-  LastDebugLogDeliveryTime?: Date;
+  LastDebugLogDeliveryTime?: Date | undefined;
 }
 
 /**
@@ -2228,7 +2228,7 @@ export interface ConfigSnapshotDeliveryProperties {
    * 			snapshots.</p>
    * @public
    */
-  deliveryFrequency?: MaximumExecutionFrequency;
+  deliveryFrequency?: MaximumExecutionFrequency | undefined;
 }
 
 /**
@@ -2245,25 +2245,25 @@ export interface ConfigStreamDeliveryInfo {
    * 			delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>
    * @public
    */
-  lastStatus?: DeliveryStatus;
+  lastStatus?: DeliveryStatus | undefined;
 
   /**
    * <p>The error code from the last attempted delivery.</p>
    * @public
    */
-  lastErrorCode?: string;
+  lastErrorCode?: string | undefined;
 
   /**
    * <p>The error message from the last attempted delivery.</p>
    * @public
    */
-  lastErrorMessage?: string;
+  lastErrorMessage?: string | undefined;
 
   /**
    * <p>The time from the last status change.</p>
    * @public
    */
-  lastStatusChangeTime?: Date;
+  lastStatusChangeTime?: Date | undefined;
 }
 
 /**
@@ -2283,14 +2283,14 @@ export interface OrganizationAggregationSource {
    * <p>The source regions being aggregated.</p>
    * @public
    */
-  AwsRegions?: string[];
+  AwsRegions?: string[] | undefined;
 
   /**
    * <p>If true, aggregate existing Config regions and future
    * 			regions.</p>
    * @public
    */
-  AllAwsRegions?: boolean;
+  AllAwsRegions?: boolean | undefined;
 }
 
 /**
@@ -2304,46 +2304,46 @@ export interface ConfigurationAggregator {
    * <p>The name of the aggregator.</p>
    * @public
    */
-  ConfigurationAggregatorName?: string;
+  ConfigurationAggregatorName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the aggregator.</p>
    * @public
    */
-  ConfigurationAggregatorArn?: string;
+  ConfigurationAggregatorArn?: string | undefined;
 
   /**
    * <p>Provides a list of source accounts and regions to be
    * 			aggregated.</p>
    * @public
    */
-  AccountAggregationSources?: AccountAggregationSource[];
+  AccountAggregationSources?: AccountAggregationSource[] | undefined;
 
   /**
    * <p>Provides an organization and list of regions to be
    * 			aggregated.</p>
    * @public
    */
-  OrganizationAggregationSource?: OrganizationAggregationSource;
+  OrganizationAggregationSource?: OrganizationAggregationSource | undefined;
 
   /**
    * <p>The time stamp when the configuration aggregator was
    * 			created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time of the last update.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Amazon Web Services service that created the configuration aggregator.</p>
    * @public
    */
-  CreatedBy?: string;
+  CreatedBy?: string | undefined;
 }
 
 /**
@@ -2356,27 +2356,27 @@ export interface Relationship {
    * <p>The resource type of the related resource.</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The ID of the related resource (for example,
    * 				<code>sg-xxxxxx</code>).</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The custom name of the related resource, if
    * 			available.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>The type of relationship with the related resource.</p>
    * @public
    */
-  relationshipName?: string;
+  relationshipName?: string | undefined;
 }
 
 /**
@@ -2389,21 +2389,21 @@ export interface ConfigurationItem {
    * <p>The version number of the resource configuration.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The 12-digit Amazon Web Services account ID associated with the
    * 			resource.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The time when the recording of configuration changes was
    * 			initiated for the resource.</p>
    * @public
    */
-  configurationItemCaptureTime?: Date;
+  configurationItemCaptureTime?: Date | undefined;
 
   /**
    * <p>The configuration item status. Valid values include:</p>
@@ -2426,14 +2426,14 @@ export interface ConfigurationItem {
    *          </ul>
    * @public
    */
-  configurationItemStatus?: ConfigurationItemStatus;
+  configurationItemStatus?: ConfigurationItemStatus | undefined;
 
   /**
    * <p>An identifier that indicates the ordering of the configuration
    * 			items of a resource.</p>
    * @public
    */
-  configurationStateId?: string;
+  configurationStateId?: string | undefined;
 
   /**
    * <p>Unique MD5 hash that represents the configuration item's
@@ -2443,57 +2443,57 @@ export interface ConfigurationItem {
    * 			resource.</p>
    * @public
    */
-  configurationItemMD5Hash?: string;
+  configurationItemMD5Hash?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) associated with the resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource.</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The ID of the resource (for example,
    * 			<code>sg-xxxxxx</code>).</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The custom name of the resource, if available.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>The region where the resource resides.</p>
    * @public
    */
-  awsRegion?: string;
+  awsRegion?: string | undefined;
 
   /**
    * <p>The Availability Zone associated with the resource.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The time stamp when the resource was created.</p>
    * @public
    */
-  resourceCreationTime?: Date;
+  resourceCreationTime?: Date | undefined;
 
   /**
    * <p>A mapping of key value tags associated with the
    * 			resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A list of CloudTrail event IDs.</p>
@@ -2505,19 +2505,19 @@ export interface ConfigurationItem {
    * 			You can access the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html">LookupEvents API</a> in the <i>CloudTrail API Reference</i> to retrieve the events for the resource.</p>
    * @public
    */
-  relatedEvents?: string[];
+  relatedEvents?: string[] | undefined;
 
   /**
    * <p>A list of related Amazon Web Services resources.</p>
    * @public
    */
-  relationships?: Relationship[];
+  relationships?: Relationship[] | undefined;
 
   /**
    * <p>The description of the resource configuration.</p>
    * @public
    */
-  configuration?: string;
+  configuration?: string | undefined;
 
   /**
    * <p>Configuration attributes that Config returns for certain
@@ -2525,13 +2525,13 @@ export interface ConfigurationItem {
    * 				<code>configuration</code> parameter.</p>
    * @public
    */
-  supplementaryConfiguration?: Record<string, string>;
+  supplementaryConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
    * @public
    */
-  recordingFrequency?: RecordingFrequency;
+  recordingFrequency?: RecordingFrequency | undefined;
 
   /**
    * <p>The time when configuration changes for the resource were delivered.</p>
@@ -2543,7 +2543,7 @@ export interface ConfigurationItem {
    *          </note>
    * @public
    */
-  configurationItemDeliveryTime?: Date;
+  configurationItemDeliveryTime?: Date | undefined;
 }
 
 /**
@@ -2598,7 +2598,7 @@ export interface ExclusionByResourceTypes {
    * 			recorder.</p>
    * @public
    */
-  resourceTypes?: ResourceType[];
+  resourceTypes?: ResourceType[] | undefined;
 }
 
 /**
@@ -2697,7 +2697,7 @@ export interface RecordingStrategy {
    *          </note>
    * @public
    */
-  useOnly?: RecordingStrategyType;
+  useOnly?: RecordingStrategyType | undefined;
 }
 
 /**
@@ -2745,7 +2745,7 @@ export interface RecordingGroup {
    *          </note>
    * @public
    */
-  allSupported?: boolean;
+  allSupported?: boolean | undefined;
 
   /**
    * <p>This option is a bundle which only applies to the global IAM resource types:
@@ -2827,7 +2827,7 @@ export interface RecordingGroup {
    *          </note>
    * @public
    */
-  includeGlobalResourceTypes?: boolean;
+  includeGlobalResourceTypes?: boolean | undefined;
 
   /**
    * <p>A comma-separated list that specifies which resource types Config
@@ -2859,7 +2859,7 @@ export interface RecordingGroup {
    *          </note>
    * @public
    */
-  resourceTypes?: ResourceType[];
+  resourceTypes?: ResourceType[] | undefined;
 
   /**
    * <p>An object that specifies how Config excludes resource types from being recorded by the configuration recorder.</p>
@@ -2871,7 +2871,7 @@ export interface RecordingGroup {
    *          </note>
    * @public
    */
-  exclusionByResourceTypes?: ExclusionByResourceTypes;
+  exclusionByResourceTypes?: ExclusionByResourceTypes | undefined;
 
   /**
    * <p>An object that specifies the recording strategy for the configuration recorder.</p>
@@ -2942,7 +2942,7 @@ export interface RecordingGroup {
    *          </note>
    * @public
    */
-  recordingStrategy?: RecordingStrategy;
+  recordingStrategy?: RecordingStrategy | undefined;
 }
 
 /**
@@ -2954,7 +2954,7 @@ export interface RecordingModeOverride {
    * <p>A description that you provide for the override.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A comma-separated list that specifies which resource types Config
@@ -3056,7 +3056,7 @@ export interface RecordingMode {
    * 			The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
    * @public
    */
-  recordingModeOverrides?: RecordingModeOverride[];
+  recordingModeOverrides?: RecordingModeOverride[] | undefined;
 }
 
 /**
@@ -3075,7 +3075,7 @@ export interface ConfigurationRecorder {
    *          </note>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the IAM role assumed by Config and used by the configuration recorder.</p>
@@ -3103,7 +3103,7 @@ export interface ConfigurationRecorder {
    *          </note>
    * @public
    */
-  roleARN?: string;
+  roleARN?: string | undefined;
 
   /**
    * <p>Specifies which resource types Config
@@ -3125,7 +3125,7 @@ export interface ConfigurationRecorder {
    *          </note>
    * @public
    */
-  recordingGroup?: RecordingGroup;
+  recordingGroup?: RecordingGroup | undefined;
 
   /**
    * <p>Specifies the default recording frequency that Config uses to record configuration changes.
@@ -3147,7 +3147,7 @@ export interface ConfigurationRecorder {
    *          <p>You can also override the recording frequency for specific resource types.</p>
    * @public
    */
-  recordingMode?: RecordingMode;
+  recordingMode?: RecordingMode | undefined;
 }
 
 /**
@@ -3177,50 +3177,50 @@ export interface ConfigurationRecorderStatus {
    * <p>The name of the configuration recorder.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The time the recorder was last started.</p>
    * @public
    */
-  lastStartTime?: Date;
+  lastStartTime?: Date | undefined;
 
   /**
    * <p>The time the recorder was last stopped.</p>
    * @public
    */
-  lastStopTime?: Date;
+  lastStopTime?: Date | undefined;
 
   /**
    * <p>Specifies whether or not the recorder is currently
    * 			recording.</p>
    * @public
    */
-  recording?: boolean;
+  recording?: boolean | undefined;
 
   /**
    * <p>The status of the latest recording event processed by the recorder.</p>
    * @public
    */
-  lastStatus?: RecorderStatus;
+  lastStatus?: RecorderStatus | undefined;
 
   /**
    * <p>The latest error code from when the recorder last failed.</p>
    * @public
    */
-  lastErrorCode?: string;
+  lastErrorCode?: string | undefined;
 
   /**
    * <p>The latest error message from when the recorder last failed.</p>
    * @public
    */
-  lastErrorMessage?: string;
+  lastErrorMessage?: string | undefined;
 
   /**
    * <p>The time of the latest change in status of an recording event processed by the recorder.</p>
    * @public
    */
-  lastStatusChangeTime?: Date;
+  lastStatusChangeTime?: Date | undefined;
 }
 
 /**
@@ -3232,14 +3232,14 @@ export interface ConformancePackComplianceFilters {
    * <p>Filters the results by Config rule names.</p>
    * @public
    */
-  ConfigRuleNames?: string[];
+  ConfigRuleNames?: string[] | undefined;
 
   /**
    * <p>Filters the results by compliance.</p>
    *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    * @public
    */
-  ComplianceType?: ConformancePackComplianceType;
+  ComplianceType?: ConformancePackComplianceType | undefined;
 }
 
 /**
@@ -3253,19 +3253,19 @@ export interface ConformancePackComplianceScore {
    * <p>Compliance score for the conformance pack. Conformance packs with no evaluation results will have a compliance score of <code>INSUFFICIENT_DATA</code>.</p>
    * @public
    */
-  Score?: string;
+  Score?: string | undefined;
 
   /**
    * <p>The name of the conformance pack.</p>
    * @public
    */
-  ConformancePackName?: string;
+  ConformancePackName?: string | undefined;
 
   /**
    * <p>The time that the conformance pack compliance score was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -3339,7 +3339,7 @@ export interface TemplateSSMDocumentDetails {
    *          </note>
    * @public
    */
-  DocumentVersion?: string;
+  DocumentVersion?: string | undefined;
 }
 
 /**
@@ -3372,7 +3372,7 @@ export interface ConformancePackDetail {
    *          </note>
    * @public
    */
-  DeliveryS3Bucket?: string;
+  DeliveryS3Bucket?: string | undefined;
 
   /**
    * <p>The prefix for the Amazon S3 bucket.</p>
@@ -3381,31 +3381,31 @@ export interface ConformancePackDetail {
    *          </note>
    * @public
    */
-  DeliveryS3KeyPrefix?: string;
+  DeliveryS3KeyPrefix?: string | undefined;
 
   /**
    * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
    * @public
    */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
+  ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
    * <p>The last time a conformation pack update was requested. </p>
    * @public
    */
-  LastUpdateRequestedTime?: Date;
+  LastUpdateRequestedTime?: Date | undefined;
 
   /**
    * <p>The Amazon Web Services service that created the conformance pack.</p>
    * @public
    */
-  CreatedBy?: string;
+  CreatedBy?: string | undefined;
 
   /**
    * <p>An object that contains the name or Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
    * @public
    */
-  TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails;
+  TemplateSSMDocumentDetails?: TemplateSSMDocumentDetails | undefined;
 }
 
 /**
@@ -3417,20 +3417,20 @@ export interface ConformancePackEvaluationFilters {
    * <p>Filters the results by Config rule names.</p>
    * @public
    */
-  ConfigRuleNames?: string[];
+  ConfigRuleNames?: string[] | undefined;
 
   /**
    * <p>Filters the results by compliance.</p>
    *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    * @public
    */
-  ComplianceType?: ConformancePackComplianceType;
+  ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
    * <p>Filters the results by the resource type (for example, <code>"AWS::EC2::Instance"</code>). </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Filters the results by resource IDs.</p>
@@ -3439,7 +3439,7 @@ export interface ConformancePackEvaluationFilters {
    *          </note>
    * @public
    */
-  ResourceIds?: string[];
+  ResourceIds?: string[] | undefined;
 }
 
 /**
@@ -3475,7 +3475,7 @@ export interface ConformancePackEvaluationResult {
    * <p>Supplementary information about how the evaluation determined the compliance. </p>
    * @public
    */
-  Annotation?: string;
+  Annotation?: string | undefined;
 }
 
 /**
@@ -3487,20 +3487,20 @@ export interface ConformancePackRuleCompliance {
    * <p>Name of the Config rule.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 
   /**
    * <p>Compliance of the Config rule.</p>
    * @public
    */
-  ComplianceType?: ConformancePackComplianceType;
+  ComplianceType?: ConformancePackComplianceType | undefined;
 
   /**
    * <p>Controls for the conformance pack. A control is a process to prevent or detect problems while meeting objectives.
    * 			A control can align with a specific compliance regime or map to internal controls defined by an organization.</p>
    * @public
    */
-  Controls?: string[];
+  Controls?: string[] | undefined;
 }
 
 /**
@@ -3577,7 +3577,7 @@ export interface ConformancePackStatusDetail {
    * <p>The reason of conformance pack creation failure.</p>
    * @public
    */
-  ConformancePackStatusReason?: string;
+  ConformancePackStatusReason?: string | undefined;
 
   /**
    * <p>Last time when conformation pack creation and update was requested.</p>
@@ -3589,7 +3589,7 @@ export interface ConformancePackStatusDetail {
    * <p>Last time when conformation pack creation and update was successful.</p>
    * @public
    */
-  LastUpdateCompletedTime?: Date;
+  LastUpdateCompletedTime?: Date | undefined;
 }
 
 /**
@@ -4014,7 +4014,7 @@ export interface DeleteRemediationConfigurationRequest {
    * <p>The type of a resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 }
 
 /**
@@ -4113,13 +4113,13 @@ export interface RemediationExceptionResourceKey {
    * <p>The type of a resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ID of the resource (for example., sg-xxxxxx).</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 }
 
 /**
@@ -4148,13 +4148,13 @@ export interface FailedDeleteRemediationExceptionsBatch {
    * <p>Returns a failure message for delete remediation exception. For example, Config creates an exception due to an internal error.</p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 
   /**
    * <p>Returns remediation exception resource key object of the failed items.</p>
    * @public
    */
-  FailedItems?: RemediationExceptionResourceKey[];
+  FailedItems?: RemediationExceptionResourceKey[] | undefined;
 }
 
 /**
@@ -4165,7 +4165,7 @@ export interface DeleteRemediationExceptionsResponse {
    * <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
    * @public
    */
-  FailedBatches?: FailedDeleteRemediationExceptionsBatch[];
+  FailedBatches?: FailedDeleteRemediationExceptionsBatch[] | undefined;
 }
 
 /**
@@ -4316,7 +4316,7 @@ export interface DeliverConfigSnapshotResponse {
    * <p>The ID of the snapshot that is being created.</p>
    * @public
    */
-  configSnapshotId?: string;
+  configSnapshotId?: string | undefined;
 }
 
 /**
@@ -4334,7 +4334,7 @@ export interface DeliveryChannel {
    * 			create a delivery channel that has the desired name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket to which Config delivers
@@ -4344,20 +4344,20 @@ export interface DeliveryChannel {
    * 			Developer Guide</i>.</p>
    * @public
    */
-  s3BucketName?: string;
+  s3BucketName?: string | undefined;
 
   /**
    * <p>The prefix for the specified Amazon S3 bucket.</p>
    * @public
    */
-  s3KeyPrefix?: string;
+  s3KeyPrefix?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS ) KMS key (KMS key) used to encrypt objects delivered by Config.
    * 			Must belong to the same Region as the destination S3 bucket.</p>
    * @public
    */
-  s3KmsKeyArn?: string;
+  s3KmsKeyArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which
@@ -4369,14 +4369,14 @@ export interface DeliveryChannel {
    * 			Developer Guide</i>.</p>
    * @public
    */
-  snsTopicARN?: string;
+  snsTopicARN?: string | undefined;
 
   /**
    * <p>The options for how often Config delivers configuration
    * 			snapshots to the Amazon S3 bucket.</p>
    * @public
    */
-  configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties;
+  configSnapshotDeliveryProperties?: ConfigSnapshotDeliveryProperties | undefined;
 }
 
 /**
@@ -4390,21 +4390,21 @@ export interface DeliveryChannelStatus {
    * <p>The name of the delivery channel.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A list containing the status of the delivery of the snapshot to
    * 			the specified Amazon S3 bucket.</p>
    * @public
    */
-  configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo;
+  configSnapshotDeliveryInfo?: ConfigExportDeliveryInfo | undefined;
 
   /**
    * <p>A list that contains the status of the delivery of the
    * 			configuration history to the specified Amazon S3 bucket.</p>
    * @public
    */
-  configHistoryDeliveryInfo?: ConfigExportDeliveryInfo;
+  configHistoryDeliveryInfo?: ConfigExportDeliveryInfo | undefined;
 
   /**
    * <p>A list containing the status of the delivery of the
@@ -4412,7 +4412,7 @@ export interface DeliveryChannelStatus {
    * 			topic.</p>
    * @public
    */
-  configStreamDeliveryInfo?: ConfigStreamDeliveryInfo;
+  configStreamDeliveryInfo?: ConfigStreamDeliveryInfo | undefined;
 }
 
 /**
@@ -4430,7 +4430,7 @@ export interface DescribeAggregateComplianceByConfigRulesRequest {
    * 		</p>
    * @public
    */
-  Filters?: ConfigRuleComplianceFilters;
+  Filters?: ConfigRuleComplianceFilters | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -4439,14 +4439,14 @@ export interface DescribeAggregateComplianceByConfigRulesRequest {
    * 			If you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4458,14 +4458,14 @@ export interface DescribeAggregateComplianceByConfigRulesResponse {
    * 			object.</p>
    * @public
    */
-  AggregateComplianceByConfigRules?: AggregateComplianceByConfigRule[];
+  AggregateComplianceByConfigRules?: AggregateComplianceByConfigRule[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4524,19 +4524,19 @@ export interface DescribeAggregateComplianceByConformancePacksRequest {
    * <p>Filters the result by <code>AggregateConformancePackComplianceFilters</code> object.</p>
    * @public
    */
-  Filters?: AggregateConformancePackComplianceFilters;
+  Filters?: AggregateConformancePackComplianceFilters | undefined;
 
   /**
    * <p>The maximum number of conformance packs compliance details returned on each page. The default is maximum. If you specify 0, Config uses the default. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4547,13 +4547,13 @@ export interface DescribeAggregateComplianceByConformancePacksResponse {
    * <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
    * @public
    */
-  AggregateComplianceByConformancePacks?: AggregateComplianceByConformancePack[];
+  AggregateComplianceByConformancePacks?: AggregateComplianceByConformancePack[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4566,14 +4566,14 @@ export interface DescribeAggregationAuthorizationsRequest {
    * 			the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4585,14 +4585,14 @@ export interface DescribeAggregationAuthorizationsResponse {
    * 			accounts and regions.</p>
    * @public
    */
-  AggregationAuthorizations?: AggregationAuthorization[];
+  AggregationAuthorizations?: AggregationAuthorization[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4605,13 +4605,13 @@ export interface DescribeComplianceByConfigRuleRequest {
    * 			by rule.</p>
    * @public
    */
-  ConfigRuleNames?: string[];
+  ConfigRuleNames?: string[] | undefined;
 
   /**
    * <p>Filters the results by compliance.</p>
    * @public
    */
-  ComplianceTypes?: ComplianceType[];
+  ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -4619,7 +4619,7 @@ export interface DescribeComplianceByConfigRuleRequest {
    * 			response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4632,14 +4632,14 @@ export interface DescribeComplianceByConfigRuleResponse {
    * 			compliant.</p>
    * @public
    */
-  ComplianceByConfigRules?: ComplianceByConfigRule[];
+  ComplianceByConfigRules?: ComplianceByConfigRule[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4654,7 +4654,7 @@ export interface DescribeComplianceByResourceRequest {
    * 			specifying <code>AWS::::Account</code>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services resource for which you want compliance
@@ -4663,13 +4663,13 @@ export interface DescribeComplianceByResourceRequest {
    * 				<code>ResourceType</code>.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>Filters the results by compliance.</p>
    * @public
    */
-  ComplianceTypes?: ComplianceType[];
+  ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -4677,7 +4677,7 @@ export interface DescribeComplianceByResourceRequest {
    * 			you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -4685,7 +4685,7 @@ export interface DescribeComplianceByResourceRequest {
    * 			response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4698,14 +4698,14 @@ export interface DescribeComplianceByResourceResponse {
    * 			of the Config rules that evaluate it.</p>
    * @public
    */
-  ComplianceByResources?: ComplianceByResource[];
+  ComplianceByResources?: ComplianceByResource[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4720,7 +4720,7 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
    * 			use.</p>
    * @public
    */
-  ConfigRuleNames?: string[];
+  ConfigRuleNames?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -4728,7 +4728,7 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
    * 			response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of rule evaluation results that you want
@@ -4740,7 +4740,7 @@ export interface DescribeConfigRuleEvaluationStatusRequest {
    * 				Reference Guide</i>.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4752,14 +4752,14 @@ export interface DescribeConfigRuleEvaluationStatusResponse {
    * <p>Status information about your Config managed rules.</p>
    * @public
    */
-  ConfigRulesEvaluationStatus?: ConfigRuleEvaluationStatus[];
+  ConfigRulesEvaluationStatus?: ConfigRuleEvaluationStatus[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4774,7 +4774,7 @@ export interface DescribeConfigRulesFilters {
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    * @public
    */
-  EvaluationMode?: EvaluationMode;
+  EvaluationMode?: EvaluationMode | undefined;
 }
 
 /**
@@ -4788,7 +4788,7 @@ export interface DescribeConfigRulesRequest {
    * 			your rules.</p>
    * @public
    */
-  ConfigRuleNames?: string[];
+  ConfigRuleNames?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -4796,7 +4796,7 @@ export interface DescribeConfigRulesRequest {
    * 			response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules,
@@ -4805,7 +4805,7 @@ export interface DescribeConfigRulesRequest {
    *             </a> in the <i>Config Developer Guide</i>.</p>
    * @public
    */
-  Filters?: DescribeConfigRulesFilters;
+  Filters?: DescribeConfigRulesFilters | undefined;
 }
 
 /**
@@ -4817,14 +4817,14 @@ export interface DescribeConfigRulesResponse {
    * <p>The details about your Config rules.</p>
    * @public
    */
-  ConfigRules?: ConfigRule[];
+  ConfigRules?: ConfigRule[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4835,14 +4835,14 @@ export interface DescribeConfigurationAggregatorsRequest {
    * <p>The name of the configuration aggregators.</p>
    * @public
    */
-  ConfigurationAggregatorNames?: string[];
+  ConfigurationAggregatorNames?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of configuration aggregators returned on
@@ -4850,7 +4850,7 @@ export interface DescribeConfigurationAggregatorsRequest {
    * 			the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4861,14 +4861,14 @@ export interface DescribeConfigurationAggregatorsResponse {
    * <p>Returns a ConfigurationAggregators object.</p>
    * @public
    */
-  ConfigurationAggregators?: ConfigurationAggregator[];
+  ConfigurationAggregators?: ConfigurationAggregator[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4899,14 +4899,14 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
    *          </ul>
    * @public
    */
-  UpdateStatus?: AggregatedSourceStatusType[];
+  UpdateStatus?: AggregatedSourceStatusType[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of AggregatorSourceStatus returned on each
@@ -4914,7 +4914,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
    * 			default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4926,14 +4926,14 @@ export interface DescribeConfigurationAggregatorSourcesStatusResponse {
    * 			</p>
    * @public
    */
-  AggregatedSourceStatusList?: AggregatedSourceStatus[];
+  AggregatedSourceStatusList?: AggregatedSourceStatus[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4945,7 +4945,7 @@ export interface DescribeConfigurationRecordersRequest {
    * <p>A list of configuration recorder names.</p>
    * @public
    */
-  ConfigurationRecorderNames?: string[];
+  ConfigurationRecorderNames?: string[] | undefined;
 }
 
 /**
@@ -4958,7 +4958,7 @@ export interface DescribeConfigurationRecordersResponse {
    * 			configuration recorders.</p>
    * @public
    */
-  ConfigurationRecorders?: ConfigurationRecorder[];
+  ConfigurationRecorders?: ConfigurationRecorder[] | undefined;
 }
 
 /**
@@ -4973,7 +4973,7 @@ export interface DescribeConfigurationRecorderStatusRequest {
    * 			configuration recorders associated with the account.</p>
    * @public
    */
-  ConfigurationRecorderNames?: string[];
+  ConfigurationRecorderNames?: string[] | undefined;
 }
 
 /**
@@ -4987,7 +4987,7 @@ export interface DescribeConfigurationRecorderStatusResponse {
    * 			recorders.</p>
    * @public
    */
-  ConfigurationRecordersStatus?: ConfigurationRecorderStatus[];
+  ConfigurationRecordersStatus?: ConfigurationRecorderStatus[] | undefined;
 }
 
 /**
@@ -5004,19 +5004,19 @@ export interface DescribeConformancePackComplianceRequest {
    * <p>A <code>ConformancePackComplianceFilters</code> object.</p>
    * @public
    */
-  Filters?: ConformancePackComplianceFilters;
+  Filters?: ConformancePackComplianceFilters | undefined;
 
   /**
    * <p>The maximum number of Config rules within a conformance pack are returned on each page.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5039,7 +5039,7 @@ export interface DescribeConformancePackComplianceResponse {
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5070,19 +5070,19 @@ export interface DescribeConformancePacksRequest {
    * <p>Comma-separated list of conformance pack names for which you want details. If you do not specify any names, Config returns details for all your conformance packs. </p>
    * @public
    */
-  ConformancePackNames?: string[];
+  ConformancePackNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of conformance packs returned on each page.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5093,13 +5093,13 @@ export interface DescribeConformancePacksResponse {
    * <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
    * @public
    */
-  ConformancePackDetails?: ConformancePackDetail[];
+  ConformancePackDetails?: ConformancePackDetail[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5110,19 +5110,19 @@ export interface DescribeConformancePackStatusRequest {
    * <p>Comma-separated list of conformance pack names.</p>
    * @public
    */
-  ConformancePackNames?: string[];
+  ConformancePackNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of conformance packs status returned on each page.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5133,13 +5133,13 @@ export interface DescribeConformancePackStatusResponse {
    * <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
    * @public
    */
-  ConformancePackStatusDetails?: ConformancePackStatusDetail[];
+  ConformancePackStatusDetails?: ConformancePackStatusDetail[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5152,7 +5152,7 @@ export interface DescribeDeliveryChannelsRequest {
    * <p>A list of delivery channel names.</p>
    * @public
    */
-  DeliveryChannelNames?: string[];
+  DeliveryChannelNames?: string[] | undefined;
 }
 
 /**
@@ -5166,7 +5166,7 @@ export interface DescribeDeliveryChannelsResponse {
    * 			channel.</p>
    * @public
    */
-  DeliveryChannels?: DeliveryChannel[];
+  DeliveryChannels?: DeliveryChannel[] | undefined;
 }
 
 /**
@@ -5179,7 +5179,7 @@ export interface DescribeDeliveryChannelStatusRequest {
    * <p>A list of delivery channel names.</p>
    * @public
    */
-  DeliveryChannelNames?: string[];
+  DeliveryChannelNames?: string[] | undefined;
 }
 
 /**
@@ -5192,7 +5192,7 @@ export interface DescribeDeliveryChannelStatusResponse {
    * 			channel.</p>
    * @public
    */
-  DeliveryChannelsStatus?: DeliveryChannelStatus[];
+  DeliveryChannelsStatus?: DeliveryChannelStatus[] | undefined;
 }
 
 /**
@@ -5203,19 +5203,19 @@ export interface DescribeOrganizationConfigRulesRequest {
    * <p>The names of organization Config rules for which you want details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
    * @public
    */
-  OrganizationConfigRuleNames?: string[];
+  OrganizationConfigRuleNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of organization Config rules returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5245,7 +5245,7 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    * <p>The description that you provide for your organization Config Custom Policy rule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of notification that triggers Config to run an evaluation for a rule.
@@ -5264,13 +5264,13 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    *          </ul>
    * @public
    */
-  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[];
+  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[] | undefined;
 
   /**
    * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
    * @public
    */
-  InputParameters?: string;
+  InputParameters?: string | undefined;
 
   /**
    * <p>The maximum frequency with which Config runs evaluations for a rule. Your
@@ -5278,44 +5278,44 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
    * @public
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
    * <p>The type of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceTypesScope?: string[];
+  ResourceTypesScope?: string[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceIdScope?: string;
+  ResourceIdScope?: string | undefined;
 
   /**
    * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
    * @public
    */
-  TagKeyScope?: string;
+  TagKeyScope?: string | undefined;
 
   /**
    * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
    * @public
    */
-  TagValueScope?: string;
+  TagValueScope?: string | undefined;
 
   /**
    * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
    * 			Repository</a>.</p>
    * @public
    */
-  PolicyRuntime?: string;
+  PolicyRuntime?: string | undefined;
 
   /**
    * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
    * @public
    */
-  DebugLogDeliveryAccounts?: string[];
+  DebugLogDeliveryAccounts?: string[] | undefined;
 }
 
 /**
@@ -5345,7 +5345,7 @@ export interface OrganizationCustomRuleMetadata {
    * <p>The description that you provide for your organization Config rule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The lambda function ARN.</p>
@@ -5378,7 +5378,7 @@ export interface OrganizationCustomRuleMetadata {
    * <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
    * @public
    */
-  InputParameters?: string;
+  InputParameters?: string | undefined;
 
   /**
    * <p>The maximum frequency with which Config runs evaluations for a rule.
@@ -5389,33 +5389,33 @@ export interface OrganizationCustomRuleMetadata {
    *          </note>
    * @public
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
    * <p>The type of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceTypesScope?: string[];
+  ResourceTypesScope?: string[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceIdScope?: string;
+  ResourceIdScope?: string | undefined;
 
   /**
    * <p>One part of a key-value pair that make up a tag.
    * 			A key is a general label that acts like a category for more specific tag values. </p>
    * @public
    */
-  TagKeyScope?: string;
+  TagKeyScope?: string | undefined;
 
   /**
    * <p>The optional part of a key-value pair that make up a tag.
    * 			A value acts as a descriptor within a tag category (key). </p>
    * @public
    */
-  TagValueScope?: string;
+  TagValueScope?: string | undefined;
 }
 
 /**
@@ -5428,7 +5428,7 @@ export interface OrganizationManagedRuleMetadata {
    * <p>The description that you provide for your organization Config rule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>For organization config managed rules, a predefined identifier from a
@@ -5442,7 +5442,7 @@ export interface OrganizationManagedRuleMetadata {
    * <p>A string, in JSON format, that is passed to your organization Config rule Lambda function.</p>
    * @public
    */
-  InputParameters?: string;
+  InputParameters?: string | undefined;
 
   /**
    * <p>The maximum frequency with which Config runs evaluations for a rule. This is for an Config managed rule that is triggered at a periodic frequency.</p>
@@ -5452,33 +5452,33 @@ export interface OrganizationManagedRuleMetadata {
    *          </note>
    * @public
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | undefined;
 
   /**
    * <p>The type of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceTypesScope?: string[];
+  ResourceTypesScope?: string[] | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
    * @public
    */
-  ResourceIdScope?: string;
+  ResourceIdScope?: string | undefined;
 
   /**
    * <p>One part of a key-value pair that make up a tag.
    * 			A key is a general label that acts like a category for more specific tag values. </p>
    * @public
    */
-  TagKeyScope?: string;
+  TagKeyScope?: string | undefined;
 
   /**
    * <p>The optional part of a key-value pair that make up a tag.
    * 			A value acts as a descriptor within a tag category (key).</p>
    * @public
    */
-  TagValueScope?: string;
+  TagValueScope?: string | undefined;
 }
 
 /**
@@ -5502,25 +5502,25 @@ export interface OrganizationConfigRule {
    * <p>An <code>OrganizationManagedRuleMetadata</code> object.</p>
    * @public
    */
-  OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata;
+  OrganizationManagedRuleMetadata?: OrganizationManagedRuleMetadata | undefined;
 
   /**
    * <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
    * @public
    */
-  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata;
+  OrganizationCustomRuleMetadata?: OrganizationCustomRuleMetadata | undefined;
 
   /**
    * <p>A comma-separated list of accounts excluded from organization Config rule.</p>
    * @public
    */
-  ExcludedAccounts?: string[];
+  ExcludedAccounts?: string[] | undefined;
 
   /**
    * <p>The timestamp of the last update.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 
   /**
    * <p>An
@@ -5529,7 +5529,7 @@ export interface OrganizationConfigRule {
    * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
    * @public
    */
-  OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadataNoPolicy;
+  OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadataNoPolicy | undefined;
 }
 
 /**
@@ -5540,13 +5540,13 @@ export interface DescribeOrganizationConfigRulesResponse {
    * <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
    * @public
    */
-  OrganizationConfigRules?: OrganizationConfigRule[];
+  OrganizationConfigRules?: OrganizationConfigRule[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5557,19 +5557,19 @@ export interface DescribeOrganizationConfigRuleStatusesRequest {
    * <p>The names of organization Config rules for which you want status details. If you do not specify any names, Config returns details for all your organization Config rules.</p>
    * @public
    */
-  OrganizationConfigRuleNames?: string[];
+  OrganizationConfigRuleNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of <code>OrganizationConfigRuleStatuses</code> returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5656,19 +5656,19 @@ export interface OrganizationConfigRuleStatus {
    * <p>An error code that is returned when organization Config rule creation or deletion has failed.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>An error message indicating that organization Config rule creation or deletion failed due to an error.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The timestamp of the last update.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 }
 
 /**
@@ -5679,13 +5679,13 @@ export interface DescribeOrganizationConfigRuleStatusesResponse {
    * <p>A list of <code>OrganizationConfigRuleStatus</code> objects.</p>
    * @public
    */
-  OrganizationConfigRuleStatuses?: OrganizationConfigRuleStatus[];
+  OrganizationConfigRuleStatuses?: OrganizationConfigRuleStatus[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5696,21 +5696,21 @@ export interface DescribeOrganizationConformancePacksRequest {
    * <p>The name that you assign to an organization conformance pack.</p>
    * @public
    */
-  OrganizationConformancePackNames?: string[];
+  OrganizationConformancePackNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of organization config packs returned on each page. If you do no specify a
    * 			number, Config uses the default. The default is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
    * 			paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5737,7 +5737,7 @@ export interface OrganizationConformancePack {
    *          </note>
    * @public
    */
-  DeliveryS3Bucket?: string;
+  DeliveryS3Bucket?: string | undefined;
 
   /**
    * <p>Any folder structure you want to add to an Amazon S3 bucket.</p>
@@ -5746,19 +5746,19 @@ export interface OrganizationConformancePack {
    *          </note>
    * @public
    */
-  DeliveryS3KeyPrefix?: string;
+  DeliveryS3KeyPrefix?: string | undefined;
 
   /**
    * <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
    * @public
    */
-  ConformancePackInputParameters?: ConformancePackInputParameter[];
+  ConformancePackInputParameters?: ConformancePackInputParameter[] | undefined;
 
   /**
    * <p>A comma-separated list of accounts excluded from organization conformance pack.</p>
    * @public
    */
-  ExcludedAccounts?: string[];
+  ExcludedAccounts?: string[] | undefined;
 
   /**
    * <p>Last time when organization conformation pack was updated.</p>
@@ -5775,14 +5775,14 @@ export interface DescribeOrganizationConformancePacksResponse {
    * <p>Returns a list of OrganizationConformancePacks objects.</p>
    * @public
    */
-  OrganizationConformancePacks?: OrganizationConformancePack[];
+  OrganizationConformancePacks?: OrganizationConformancePack[] | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a
    * 			paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5794,20 +5794,20 @@ export interface DescribeOrganizationConformancePackStatusesRequest {
    * 			If you do not specify any names, Config returns details for all your organization conformance packs. </p>
    * @public
    */
-  OrganizationConformancePackNames?: string[];
+  OrganizationConformancePackNames?: string[] | undefined;
 
   /**
    * <p>The maximum number of OrganizationConformancePackStatuses returned on each page.
    * 			If you do no specify a number, Config uses the default. The default is 100. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5900,19 +5900,19 @@ export interface OrganizationConformancePackStatus {
    * <p>An error code that is returned when organization conformance pack creation or deletion has failed in a member account. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>An error message indicating that organization conformance pack creation or deletion failed due to an error. </p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The timestamp of the last update.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 }
 
 /**
@@ -5923,13 +5923,13 @@ export interface DescribeOrganizationConformancePackStatusesResponse {
    * <p>A list of <code>OrganizationConformancePackStatus</code> objects. </p>
    * @public
    */
-  OrganizationConformancePackStatuses?: OrganizationConformancePackStatus[];
+  OrganizationConformancePackStatuses?: OrganizationConformancePackStatus[] | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5942,14 +5942,14 @@ export interface DescribePendingAggregationRequestsRequest {
    * 			default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5964,13 +5964,13 @@ export interface PendingAggregationRequest {
    * 			data.</p>
    * @public
    */
-  RequesterAccountId?: string;
+  RequesterAccountId?: string | undefined;
 
   /**
    * <p>The region requesting to aggregate data. </p>
    * @public
    */
-  RequesterAwsRegion?: string;
+  RequesterAwsRegion?: string | undefined;
 }
 
 /**
@@ -5981,14 +5981,14 @@ export interface DescribePendingAggregationRequestsResponse {
    * <p>Returns a PendingAggregationRequests object.</p>
    * @public
    */
-  PendingAggregationRequests?: PendingAggregationRequest[];
+  PendingAggregationRequests?: PendingAggregationRequest[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6011,7 +6011,7 @@ export interface SsmControls {
    * <p>The maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. You can specify a percentage, such as 10%. The default value is 10. </p>
    * @public
    */
-  ConcurrentExecutionRatePercentage?: number;
+  ConcurrentExecutionRatePercentage?: number | undefined;
 
   /**
    * <p>The percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule.
@@ -6019,7 +6019,7 @@ export interface SsmControls {
    * 			For example, if you set the ErrorPercentage to 40% for 10 non-compliant resources, then SSM stops running the automations when the fifth error is received. </p>
    * @public
    */
-  ErrorPercentage?: number;
+  ErrorPercentage?: number | undefined;
 }
 
 /**
@@ -6031,7 +6031,7 @@ export interface ExecutionControls {
    * <p>A SsmControls object.</p>
    * @public
    */
-  SsmControls?: SsmControls;
+  SsmControls?: SsmControls | undefined;
 }
 
 /**
@@ -6080,13 +6080,13 @@ export interface RemediationParameterValue {
    * <p>The value is dynamic and changes at run-time.</p>
    * @public
    */
-  ResourceValue?: ResourceValue;
+  ResourceValue?: ResourceValue | undefined;
 
   /**
    * <p>The value is static and does not change at run-time.</p>
    * @public
    */
-  StaticValue?: StaticValue;
+  StaticValue?: StaticValue | undefined;
 }
 
 /**
@@ -6133,31 +6133,31 @@ export interface RemediationConfiguration {
    *          </note>
    * @public
    */
-  TargetVersion?: string;
+  TargetVersion?: string | undefined;
 
   /**
    * <p>An object of the RemediationParameterValue.</p>
    * @public
    */
-  Parameters?: Record<string, RemediationParameterValue>;
+  Parameters?: Record<string, RemediationParameterValue> | undefined;
 
   /**
    * <p>The type of a resource. </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The remediation is triggered automatically.</p>
    * @public
    */
-  Automatic?: boolean;
+  Automatic?: boolean | undefined;
 
   /**
    * <p>An ExecutionControls object.</p>
    * @public
    */
-  ExecutionControls?: ExecutionControls;
+  ExecutionControls?: ExecutionControls | undefined;
 
   /**
    * <p>The maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.</p>
@@ -6166,7 +6166,7 @@ export interface RemediationConfiguration {
    * 			Config will put a RemediationException on your behalf for the failing resource after the 5th failed attempt within 50 seconds.</p>
    * @public
    */
-  MaximumAutomaticAttempts?: number;
+  MaximumAutomaticAttempts?: number | undefined;
 
   /**
    * <p>Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts.
@@ -6177,19 +6177,19 @@ export interface RemediationConfiguration {
    * 			Config will run auto-remediations 5 times within 50 seconds before adding a remediation exception to the resource.</p>
    * @public
    */
-  RetryAttemptSeconds?: number;
+  RetryAttemptSeconds?: number | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of remediation configuration.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Name of the service that owns the service-linked rule, if applicable.</p>
    * @public
    */
-  CreatedByService?: string;
+  CreatedByService?: string | undefined;
 }
 
 /**
@@ -6200,7 +6200,7 @@ export interface DescribeRemediationConfigurationsResponse {
    * <p>Returns a remediation configuration object.</p>
    * @public
    */
-  RemediationConfigurations?: RemediationConfiguration[];
+  RemediationConfigurations?: RemediationConfiguration[] | undefined;
 }
 
 /**
@@ -6217,19 +6217,19 @@ export interface DescribeRemediationExceptionsRequest {
    * <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys. </p>
    * @public
    */
-  ResourceKeys?: RemediationExceptionResourceKey[];
+  ResourceKeys?: RemediationExceptionResourceKey[] | undefined;
 
   /**
    * <p>The maximum number of RemediationExceptionResourceKey returned on each page. The default is 25. If you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6259,13 +6259,13 @@ export interface RemediationException {
    * <p>An explanation of an remediation exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The time when the remediation exception will be deleted.</p>
    * @public
    */
-  ExpirationTime?: Date;
+  ExpirationTime?: Date | undefined;
 }
 
 /**
@@ -6276,13 +6276,13 @@ export interface DescribeRemediationExceptionsResponse {
    * <p>Returns a list of remediation exception objects.</p>
    * @public
    */
-  RemediationExceptions?: RemediationException[];
+  RemediationExceptions?: RemediationException[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6299,19 +6299,19 @@ export interface DescribeRemediationExecutionStatusRequest {
    * <p>A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID. </p>
    * @public
    */
-  ResourceKeys?: ResourceKey[];
+  ResourceKeys?: ResourceKey[] | undefined;
 
   /**
    * <p>The maximum number of RemediationExecutionStatuses returned on each page. The default is maximum. If you specify 0, Config uses the default. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6355,31 +6355,31 @@ export interface RemediationExecutionStep {
    * <p>The details of the step.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The valid status of the step.</p>
    * @public
    */
-  State?: RemediationExecutionStepState;
+  State?: RemediationExecutionStepState | undefined;
 
   /**
    * <p>An error message if the step was interrupted during execution.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The time when the step started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time when the step stopped.</p>
    * @public
    */
-  StopTime?: Date;
+  StopTime?: Date | undefined;
 }
 
 /**
@@ -6392,31 +6392,31 @@ export interface RemediationExecutionStatus {
    * 			the resource type and resource ID.</p>
    * @public
    */
-  ResourceKey?: ResourceKey;
+  ResourceKey?: ResourceKey | undefined;
 
   /**
    * <p>ENUM of the values.</p>
    * @public
    */
-  State?: RemediationExecutionState;
+  State?: RemediationExecutionState | undefined;
 
   /**
    * <p>Details of every step.</p>
    * @public
    */
-  StepDetails?: RemediationExecutionStep[];
+  StepDetails?: RemediationExecutionStep[] | undefined;
 
   /**
    * <p>Start time when the remediation was executed.</p>
    * @public
    */
-  InvocationTime?: Date;
+  InvocationTime?: Date | undefined;
 
   /**
    * <p>The time when the remediation execution was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -6427,13 +6427,13 @@ export interface DescribeRemediationExecutionStatusResponse {
    * <p>Returns a list of remediation execution statuses objects.</p>
    * @public
    */
-  RemediationExecutionStatuses?: RemediationExecutionStatus[];
+  RemediationExecutionStatuses?: RemediationExecutionStatus[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6450,7 +6450,7 @@ export interface DescribeRetentionConfigurationsRequest {
    *          </note>
    * @public
    */
-  RetentionConfigurationNames?: string[];
+  RetentionConfigurationNames?: string[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -6458,7 +6458,7 @@ export interface DescribeRetentionConfigurationsRequest {
    * 			response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6490,7 +6490,7 @@ export interface DescribeRetentionConfigurationsResponse {
    * <p>Returns a retention configuration object.</p>
    * @public
    */
-  RetentionConfigurations?: RetentionConfiguration[];
+  RetentionConfigurations?: RetentionConfiguration[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -6498,7 +6498,7 @@ export interface DescribeRetentionConfigurationsResponse {
    * 			response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6541,7 +6541,7 @@ export interface Evaluation {
    * 			the compliance.</p>
    * @public
    */
-  Annotation?: string;
+  Annotation?: string | undefined;
 
   /**
    * <p>The time of the event in Config that triggered the
@@ -6564,7 +6564,7 @@ export interface EvaluationContext {
    * <p>A unique EvaluationContextIdentifier ID for an EvaluationContext.</p>
    * @public
    */
-  EvaluationContextIdentifier?: string;
+  EvaluationContextIdentifier?: string | undefined;
 }
 
 /**
@@ -6578,7 +6578,7 @@ export interface EvaluationResult {
    * <p>Uniquely identifies the evaluation result.</p>
    * @public
    */
-  EvaluationResultIdentifier?: EvaluationResultIdentifier;
+  EvaluationResultIdentifier?: EvaluationResultIdentifier | undefined;
 
   /**
    * <p>Indicates whether the Amazon Web Services resource complies with the Config
@@ -6590,35 +6590,35 @@ export interface EvaluationResult {
    * 			for the <code>EvaluationResult</code> data type.</p>
    * @public
    */
-  ComplianceType?: ComplianceType;
+  ComplianceType?: ComplianceType | undefined;
 
   /**
    * <p>The time when Config recorded the evaluation
    * 			result.</p>
    * @public
    */
-  ResultRecordedTime?: Date;
+  ResultRecordedTime?: Date | undefined;
 
   /**
    * <p>The time when the Config rule evaluated the Amazon Web Services
    * 			resource.</p>
    * @public
    */
-  ConfigRuleInvokedTime?: Date;
+  ConfigRuleInvokedTime?: Date | undefined;
 
   /**
    * <p>Supplementary information about how the evaluation determined
    * 			the compliance.</p>
    * @public
    */
-  Annotation?: string;
+  Annotation?: string | undefined;
 
   /**
    * <p>An encrypted token that associates an evaluation with an Config rule. The token identifies the rule, the Amazon Web Services resource being
    * 			evaluated, and the event that triggered the evaluation.</p>
    * @public
    */
-  ResultToken?: string;
+  ResultToken?: string | undefined;
 }
 
 /**
@@ -6651,7 +6651,7 @@ export interface EvaluationStatus {
    * <p>An explanation for failed execution status.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -6681,7 +6681,7 @@ export interface ExternalEvaluation {
    * <p>Supplementary information about the reason of compliance. For example, this task was completed on a specific date.</p>
    * @public
    */
-  Annotation?: string;
+  Annotation?: string | undefined;
 
   /**
    * <p>The time when the compliance was recorded. </p>
@@ -6699,13 +6699,13 @@ export interface FailedRemediationBatch {
    * <p>Returns a failure message. For example, the resource is already compliant.</p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 
   /**
    * <p>Returns remediation configurations of the failed items.</p>
    * @public
    */
-  FailedItems?: RemediationConfiguration[];
+  FailedItems?: RemediationConfiguration[] | undefined;
 }
 
 /**
@@ -6717,13 +6717,13 @@ export interface FailedRemediationExceptionBatch {
    * <p>Returns a failure message. For example, the auto-remediation has failed.</p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 
   /**
    * <p>Returns remediation exception resource key object of the failed items.</p>
    * @public
    */
-  FailedItems?: RemediationException[];
+  FailedItems?: RemediationException[] | undefined;
 }
 
 /**
@@ -6735,7 +6735,7 @@ export interface FieldInfo {
    * <p>Name of the field.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -6779,7 +6779,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
    *          </note>
    * @public
    */
-  ComplianceType?: ComplianceType;
+  ComplianceType?: ComplianceType | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -6787,14 +6787,14 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
    * 			you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6805,14 +6805,14 @@ export interface GetAggregateComplianceDetailsByConfigRuleResponse {
    * <p>Returns an AggregateEvaluationResults object.</p>
    * @public
    */
-  AggregateEvaluationResults?: AggregateEvaluationResult[];
+  AggregateEvaluationResults?: AggregateEvaluationResult[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6830,13 +6830,13 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
    * 			ConfigRuleComplianceSummaryFilters object.</p>
    * @public
    */
-  Filters?: ConfigRuleComplianceSummaryFilters;
+  Filters?: ConfigRuleComplianceSummaryFilters | undefined;
 
   /**
    * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
    * @public
    */
-  GroupByKey?: ConfigRuleComplianceSummaryGroupKey;
+  GroupByKey?: ConfigRuleComplianceSummaryGroupKey | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -6844,14 +6844,14 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
    * 			If you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6862,20 +6862,20 @@ export interface GetAggregateConfigRuleComplianceSummaryResponse {
    * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
    * @public
    */
-  GroupByKey?: string;
+  GroupByKey?: string | undefined;
 
   /**
    * <p>Returns a list of AggregateComplianceCounts object.</p>
    * @public
    */
-  AggregateComplianceCounts?: AggregateComplianceCount[];
+  AggregateComplianceCounts?: AggregateComplianceCount[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use
    * 			to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6892,25 +6892,25 @@ export interface GetAggregateConformancePackComplianceSummaryRequest {
    * <p>Filters the results based on the <code>AggregateConformancePackComplianceSummaryFilters</code> object.</p>
    * @public
    */
-  Filters?: AggregateConformancePackComplianceSummaryFilters;
+  Filters?: AggregateConformancePackComplianceSummaryFilters | undefined;
 
   /**
    * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
    * @public
    */
-  GroupByKey?: AggregateConformancePackComplianceSummaryGroupKey;
+  GroupByKey?: AggregateConformancePackComplianceSummaryGroupKey | undefined;
 
   /**
    * <p>The maximum number of results returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6921,19 +6921,19 @@ export interface GetAggregateConformancePackComplianceSummaryResponse {
    * <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
    * @public
    */
-  AggregateConformancePackComplianceSummaries?: AggregateConformancePackComplianceSummary[];
+  AggregateConformancePackComplianceSummaries?: AggregateConformancePackComplianceSummary[] | undefined;
 
   /**
    * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
    * @public
    */
-  GroupByKey?: string;
+  GroupByKey?: string | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6945,19 +6945,19 @@ export interface ResourceCountFilters {
    * <p>The type of the Amazon Web Services resource.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
 
   /**
    * <p>The 12-digit ID of the account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The region where the account is located.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -6989,25 +6989,25 @@ export interface GetAggregateDiscoveredResourceCountsRequest {
    * <p>Filters the results based on the <code>ResourceCountFilters</code> object.</p>
    * @public
    */
-  Filters?: ResourceCountFilters;
+  Filters?: ResourceCountFilters | undefined;
 
   /**
    * <p>The key to group the resource counts.</p>
    * @public
    */
-  GroupByKey?: ResourceCountGroupKey;
+  GroupByKey?: ResourceCountGroupKey | undefined;
 
   /**
    * <p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7042,19 +7042,19 @@ export interface GetAggregateDiscoveredResourceCountsResponse {
    * <p>The key passed into the request object. If <code>GroupByKey</code> is not provided, the result will be empty.</p>
    * @public
    */
-  GroupByKey?: string;
+  GroupByKey?: string | undefined;
 
   /**
    * <p>Returns a list of GroupedResourceCount objects.</p>
    * @public
    */
-  GroupedResourceCounts?: GroupedResourceCount[];
+  GroupedResourceCounts?: GroupedResourceCount[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7082,7 +7082,7 @@ export interface GetAggregateResourceConfigResponse {
    * <p>Returns a <code>ConfigurationItem</code> object.</p>
    * @public
    */
-  ConfigurationItem?: ConfigurationItem;
+  ConfigurationItem?: ConfigurationItem | undefined;
 }
 
 /**
@@ -7144,7 +7144,7 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    * @public
    */
-  ComplianceTypes?: ComplianceType[];
+  ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page.
@@ -7152,7 +7152,7 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    * 			you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -7160,7 +7160,7 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    * 			response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7173,14 +7173,14 @@ export interface GetComplianceDetailsByConfigRuleResponse {
    * 			Config rule.</p>
    * @public
    */
-  EvaluationResults?: EvaluationResult[];
+  EvaluationResults?: EvaluationResult[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7193,14 +7193,14 @@ export interface GetComplianceDetailsByResourceRequest {
    * 			information.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services resource for which you want compliance
    * 			information.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>Filters the results by compliance.</p>
@@ -7208,7 +7208,7 @@ export interface GetComplianceDetailsByResourceRequest {
    *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    * @public
    */
-  ComplianceTypes?: ComplianceType[];
+  ComplianceTypes?: ComplianceType[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -7216,7 +7216,7 @@ export interface GetComplianceDetailsByResourceRequest {
    * 			response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results. </p>
@@ -7225,7 +7225,7 @@ export interface GetComplianceDetailsByResourceRequest {
    *          </note>
    * @public
    */
-  ResourceEvaluationId?: string;
+  ResourceEvaluationId?: string | undefined;
 }
 
 /**
@@ -7237,14 +7237,14 @@ export interface GetComplianceDetailsByResourceResponse {
    * <p>Indicates whether the specified Amazon Web Services resource complies each Config rule.</p>
    * @public
    */
-  EvaluationResults?: EvaluationResult[];
+  EvaluationResults?: EvaluationResult[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7258,7 +7258,7 @@ export interface GetComplianceSummaryByConfigRuleResponse {
    * 			each.</p>
    * @public
    */
-  ComplianceSummary?: ComplianceSummary;
+  ComplianceSummary?: ComplianceSummary | undefined;
 }
 
 /**
@@ -7276,7 +7276,7 @@ export interface GetComplianceSummaryByResourceTypeRequest {
    * 				<code>AWS::::Account</code>.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 }
 
 /**
@@ -7291,7 +7291,7 @@ export interface GetComplianceSummaryByResourceTypeResponse {
    * 			maximum number returned is 100.</p>
    * @public
    */
-  ComplianceSummariesByResourceType?: ComplianceSummaryByResourceType[];
+  ComplianceSummariesByResourceType?: ComplianceSummaryByResourceType[] | undefined;
 }
 
 /**
@@ -7308,19 +7308,19 @@ export interface GetConformancePackComplianceDetailsRequest {
    * <p>A <code>ConformancePackEvaluationFilters</code> object.</p>
    * @public
    */
-  Filters?: ConformancePackEvaluationFilters;
+  Filters?: ConformancePackEvaluationFilters | undefined;
 
   /**
    * <p>The maximum number of evaluation results returned on each page. If you do no specify a number, Config uses the default. The default is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7337,13 +7337,13 @@ export interface GetConformancePackComplianceDetailsResponse {
    * <p>Returns a list of <code>ConformancePackEvaluationResult</code> objects.</p>
    * @public
    */
-  ConformancePackRuleEvaluationResults?: ConformancePackEvaluationResult[];
+  ConformancePackRuleEvaluationResults?: ConformancePackEvaluationResult[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7360,13 +7360,13 @@ export interface GetConformancePackComplianceSummaryRequest {
    * <p>The maximum number of conformance packs returned on each page.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7377,13 +7377,13 @@ export interface GetConformancePackComplianceSummaryResponse {
    * <p>A list of <code>ConformancePackComplianceSummary</code> objects. </p>
    * @public
    */
-  ConformancePackComplianceSummaryList?: ConformancePackComplianceSummary[];
+  ConformancePackComplianceSummaryList?: ConformancePackComplianceSummary[] | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7394,7 +7394,7 @@ export interface GetCustomRulePolicyRequest {
    * <p>The name of your Config Custom Policy rule.</p>
    * @public
    */
-  ConfigRuleName?: string;
+  ConfigRuleName?: string | undefined;
 }
 
 /**
@@ -7405,7 +7405,7 @@ export interface GetCustomRulePolicyResponse {
    * <p>The policy definition containing the logic for your Config Custom Policy rule.</p>
    * @public
    */
-  PolicyText?: string;
+  PolicyText?: string | undefined;
 }
 
 /**
@@ -7428,7 +7428,7 @@ export interface GetDiscoveredResourceCountsRequest {
    *          </note>
    * @public
    */
-  resourceTypes?: string[];
+  resourceTypes?: string[] | undefined;
 
   /**
    * <p>The maximum number of <a>ResourceCount</a> objects
@@ -7437,7 +7437,7 @@ export interface GetDiscoveredResourceCountsRequest {
    * 			default.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -7445,7 +7445,7 @@ export interface GetDiscoveredResourceCountsRequest {
    * 			response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7459,13 +7459,13 @@ export interface ResourceCount {
    * 				<code>"AWS::EC2::Instance"</code>).</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The number of resources.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 }
 
 /**
@@ -7501,21 +7501,21 @@ export interface GetDiscoveredResourceCountsResponse {
    *          </ol>
    * @public
    */
-  totalDiscoveredResources?: number;
+  totalDiscoveredResources?: number | undefined;
 
   /**
    * <p>The list of <code>ResourceCount</code> objects. Each object is
    * 			listed in descending order by the number of resources.</p>
    * @public
    */
-  resourceCounts?: ResourceCount[];
+  resourceCounts?: ResourceCount[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7548,7 +7548,7 @@ export interface StatusDetailFilters {
    * <p>The 12-digit account ID of the member account within an organization.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Indicates deployment status for Config rule in the member account.
@@ -7597,7 +7597,7 @@ export interface StatusDetailFilters {
    *          </ul>
    * @public
    */
-  MemberAccountRuleStatus?: MemberAccountRuleStatus;
+  MemberAccountRuleStatus?: MemberAccountRuleStatus | undefined;
 }
 
 /**
@@ -7614,19 +7614,19 @@ export interface GetOrganizationConfigRuleDetailedStatusRequest {
    * <p>A <code>StatusDetailFilters</code> object.</p>
    * @public
    */
-  Filters?: StatusDetailFilters;
+  Filters?: StatusDetailFilters | undefined;
 
   /**
    * <p>The maximum number of <code>OrganizationConfigRuleDetailedStatus</code> returned on each page. If you do not specify a number, Config uses the default. The default is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7699,19 +7699,19 @@ export interface MemberAccountStatus {
    * <p>An error code that is returned when Config rule creation or deletion failed in the member account.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>An error message indicating that Config rule account creation or deletion has failed due to an error in the member account.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The timestamp of the last status update.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 }
 
 /**
@@ -7722,13 +7722,13 @@ export interface GetOrganizationConfigRuleDetailedStatusResponse {
    * <p>A list of <code>MemberAccountStatus</code> objects.</p>
    * @public
    */
-  OrganizationConfigRuleDetailedStatus?: MemberAccountStatus[];
+  OrganizationConfigRuleDetailedStatus?: MemberAccountStatus[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7762,7 +7762,7 @@ export interface OrganizationResourceDetailedStatusFilters {
    * <p>The 12-digit account ID of the member account within an organization.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Indicates deployment status for conformance pack in a member account.
@@ -7811,7 +7811,7 @@ export interface OrganizationResourceDetailedStatusFilters {
    *          </ul>
    * @public
    */
-  Status?: OrganizationResourceDetailedStatus;
+  Status?: OrganizationResourceDetailedStatus | undefined;
 }
 
 /**
@@ -7828,20 +7828,20 @@ export interface GetOrganizationConformancePackDetailedStatusRequest {
    * <p>An <code>OrganizationResourceDetailedStatusFilters</code> object.</p>
    * @public
    */
-  Filters?: OrganizationResourceDetailedStatusFilters;
+  Filters?: OrganizationResourceDetailedStatusFilters | undefined;
 
   /**
    * <p>The maximum number of <code>OrganizationConformancePackDetailedStatuses</code> returned on each page.
    * 			If you do not specify a number, Config uses the default. The default is 100. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7917,20 +7917,20 @@ export interface OrganizationConformancePackDetailedStatus {
    * 			deletion failed in the member account. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>An error message indicating that conformance pack account creation or deletion
    * 			has failed due to an error in the member account. </p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The timestamp of the last status update.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 }
 
 /**
@@ -7941,13 +7941,13 @@ export interface GetOrganizationConformancePackDetailedStatusResponse {
    * <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects. </p>
    * @public
    */
-  OrganizationConformancePackDetailedStatuses?: OrganizationConformancePackDetailedStatus[];
+  OrganizationConformancePackDetailedStatuses?: OrganizationConformancePackDetailedStatus[] | undefined;
 
   /**
    * <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7969,7 +7969,7 @@ export interface GetOrganizationCustomRulePolicyResponse {
    * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
    * @public
    */
-  PolicyText?: string;
+  PolicyText?: string | undefined;
 }
 
 /**
@@ -7996,7 +7996,7 @@ export interface GetResourceConfigHistoryRequest {
    * 			current time is taken.</p>
    * @public
    */
-  laterTime?: Date;
+  laterTime?: Date | undefined;
 
   /**
    * <p>The chronologically earliest time in the time range for which the history requested. If not
@@ -8005,7 +8005,7 @@ export interface GetResourceConfigHistoryRequest {
    * 			recorded.</p>
    * @public
    */
-  earlierTime?: Date;
+  earlierTime?: Date | undefined;
 
   /**
    * <p>The chronological order for configuration items listed. By
@@ -8013,7 +8013,7 @@ export interface GetResourceConfigHistoryRequest {
    * 			order.</p>
    * @public
    */
-  chronologicalOrder?: ChronologicalOrder;
+  chronologicalOrder?: ChronologicalOrder | undefined;
 
   /**
    * <p>The maximum number of configuration items returned on each
@@ -8021,7 +8021,7 @@ export interface GetResourceConfigHistoryRequest {
    * 			100. If you specify 0, Config uses the default.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -8029,7 +8029,7 @@ export interface GetResourceConfigHistoryRequest {
    * 			response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8043,14 +8043,14 @@ export interface GetResourceConfigHistoryResponse {
    * 			resources.</p>
    * @public
    */
-  configurationItems?: ConfigurationItem[];
+  configurationItems?: ConfigurationItem[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8133,7 +8133,7 @@ export interface ResourceDetails {
    *          </note>
    * @public
    */
-  ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType;
+  ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType | undefined;
 }
 
 /**
@@ -8144,43 +8144,43 @@ export interface GetResourceEvaluationSummaryResponse {
    * <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
    * @public
    */
-  ResourceEvaluationId?: string;
+  ResourceEvaluationId?: string | undefined;
 
   /**
    * <p>Lists results of the mode that you requested to retrieve the resource evaluation summary. The valid values are Detective or Proactive.</p>
    * @public
    */
-  EvaluationMode?: EvaluationMode;
+  EvaluationMode?: EvaluationMode | undefined;
 
   /**
    * <p>Returns an <code>EvaluationStatus</code> object.</p>
    * @public
    */
-  EvaluationStatus?: EvaluationStatus;
+  EvaluationStatus?: EvaluationStatus | undefined;
 
   /**
    * <p>The start timestamp when Config rule starts evaluating compliance for the provided resource details.</p>
    * @public
    */
-  EvaluationStartTimestamp?: Date;
+  EvaluationStartTimestamp?: Date | undefined;
 
   /**
    * <p>The compliance status of the resource evaluation summary.</p>
    * @public
    */
-  Compliance?: ComplianceType;
+  Compliance?: ComplianceType | undefined;
 
   /**
    * <p>Returns an <code>EvaluationContext</code> object.</p>
    * @public
    */
-  EvaluationContext?: EvaluationContext;
+  EvaluationContext?: EvaluationContext | undefined;
 
   /**
    * <p>Returns a <code>ResourceDetails</code> object.</p>
    * @public
    */
-  ResourceDetails?: ResourceDetails;
+  ResourceDetails?: ResourceDetails | undefined;
 }
 
 /**
@@ -8203,13 +8203,13 @@ export interface StoredQuery {
    * <p>The ID of the query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
    * @public
    */
-  QueryArn?: string;
+  QueryArn?: string | undefined;
 
   /**
    * <p>The name of the query.</p>
@@ -8221,7 +8221,7 @@ export interface StoredQuery {
    * <p>A unique description for the query.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The expression of the query. For example, <code>SELECT
@@ -8234,7 +8234,7 @@ export interface StoredQuery {
    *          </p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 }
 
 /**
@@ -8245,7 +8245,7 @@ export interface GetStoredQueryResponse {
    * <p>Returns a <code>StoredQuery</code> object.</p>
    * @public
    */
-  StoredQuery?: StoredQuery;
+  StoredQuery?: StoredQuery | undefined;
 }
 
 /**
@@ -8527,25 +8527,25 @@ export interface ResourceFilters {
    * <p>The 12-digit source account ID.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The source region.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -8568,19 +8568,19 @@ export interface ListAggregateDiscoveredResourcesRequest {
    * <p>Filters the results based on the <code>ResourceFilters</code> object.</p>
    * @public
    */
-  Filters?: ResourceFilters;
+  Filters?: ResourceFilters | undefined;
 
   /**
    * <p>The maximum number of resource identifiers returned on each page. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8591,13 +8591,13 @@ export interface ListAggregateDiscoveredResourcesResponse {
    * <p>Returns a list of <code>ResourceIdentifiers</code> objects.</p>
    * @public
    */
-  ResourceIdentifiers?: AggregateResourceIdentifier[];
+  ResourceIdentifiers?: AggregateResourceIdentifier[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8635,7 +8635,7 @@ export interface ListConformancePackComplianceScoresRequest {
    * <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
    * @public
    */
-  Filters?: ConformancePackComplianceScoresFilters;
+  Filters?: ConformancePackComplianceScoresFilters | undefined;
 
   /**
    * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
@@ -8643,7 +8643,7 @@ export interface ListConformancePackComplianceScoresRequest {
    *          <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
@@ -8651,19 +8651,19 @@ export interface ListConformancePackComplianceScoresRequest {
    * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
    * @public
    */
-  SortBy?: SortBy;
+  SortBy?: SortBy | undefined;
 
   /**
    * <p>The maximum number of conformance pack compliance scores returned on each page.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for the next set of conformance pack compliance scores.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8674,7 +8674,7 @@ export interface ListConformancePackComplianceScoresResponse {
    * <p>The <code>nextToken</code> string that you can use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
@@ -8701,7 +8701,7 @@ export interface ListDiscoveredResourcesRequest {
    * 			discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
    * @public
    */
-  resourceIds?: string[];
+  resourceIds?: string[] | undefined;
 
   /**
    * <p>The custom name of only those resources that you want Config to list in the response. If you do not specify this
@@ -8709,7 +8709,7 @@ export interface ListDiscoveredResourcesRequest {
    * 			it has discovered.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>The maximum number of resource identifiers returned on each
@@ -8717,14 +8717,14 @@ export interface ListDiscoveredResourcesRequest {
    * 			100. If you specify 0, Config uses the default.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>Specifies whether Config includes deleted resources in the
    * 			results. By default, deleted resources are not included.</p>
    * @public
    */
-  includeDeletedResources?: boolean;
+  includeDeletedResources?: boolean | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page
@@ -8732,7 +8732,7 @@ export interface ListDiscoveredResourcesRequest {
    * 			response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8745,26 +8745,26 @@ export interface ResourceIdentifier {
    * <p>The type of resource.</p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * <p>The ID of the resource (for example,
    * 			<code>sg-xxxxxx</code>).</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The custom name of the resource (if available).</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * <p>The time that the resource was deleted.</p>
    * @public
    */
-  resourceDeletionTime?: Date;
+  resourceDeletionTime?: Date | undefined;
 }
 
 /**
@@ -8777,14 +8777,14 @@ export interface ListDiscoveredResourcesResponse {
    * 			custom resource name.</p>
    * @public
    */
-  resourceIdentifiers?: ResourceIdentifier[];
+  resourceIdentifiers?: ResourceIdentifier[] | undefined;
 
   /**
    * <p>The string that you use in a subsequent request to get the next
    * 			page of results in a paginated response.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8796,13 +8796,13 @@ export interface TimeWindow {
    * <p>The start time of an execution.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end time of an execution. The end time must be after the start date.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 }
 
 /**
@@ -8817,19 +8817,19 @@ export interface ResourceEvaluationFilters {
    *          </important>
    * @public
    */
-  EvaluationMode?: EvaluationMode;
+  EvaluationMode?: EvaluationMode | undefined;
 
   /**
    * <p>Returns a <code>TimeWindow</code> object.</p>
    * @public
    */
-  TimeWindow?: TimeWindow;
+  TimeWindow?: TimeWindow | undefined;
 
   /**
    * <p>Filters evaluations for a given infrastructure deployment. For example: CFN Stack.</p>
    * @public
    */
-  EvaluationContextIdentifier?: string;
+  EvaluationContextIdentifier?: string | undefined;
 }
 
 /**
@@ -8840,20 +8840,20 @@ export interface ListResourceEvaluationsRequest {
    * <p>Returns a <code>ResourceEvaluationFilters</code> object.</p>
    * @public
    */
-  Filters?: ResourceEvaluationFilters;
+  Filters?: ResourceEvaluationFilters | undefined;
 
   /**
    * <p>The maximum number of evaluations returned on each page. The default is 10.
    * 			You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8865,19 +8865,19 @@ export interface ResourceEvaluation {
    * <p>The ResourceEvaluationId of a evaluation.</p>
    * @public
    */
-  ResourceEvaluationId?: string;
+  ResourceEvaluationId?: string | undefined;
 
   /**
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    * @public
    */
-  EvaluationMode?: EvaluationMode;
+  EvaluationMode?: EvaluationMode | undefined;
 
   /**
    * <p>The starting time of an execution.</p>
    * @public
    */
-  EvaluationStartTimestamp?: Date;
+  EvaluationStartTimestamp?: Date | undefined;
 }
 
 /**
@@ -8888,13 +8888,13 @@ export interface ListResourceEvaluationsResponse {
    * <p>Returns a <code>ResourceEvaluations</code> object.</p>
    * @public
    */
-  ResourceEvaluations?: ResourceEvaluation[];
+  ResourceEvaluations?: ResourceEvaluation[] | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8905,13 +8905,13 @@ export interface ListStoredQueriesRequest {
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8941,7 +8941,7 @@ export interface StoredQueryMetadata {
    * <p>A unique description for the query.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -8952,7 +8952,7 @@ export interface ListStoredQueriesResponse {
    * <p>A list of <code>StoredQueryMetadata</code> objects.</p>
    * @public
    */
-  StoredQueryMetadata?: StoredQueryMetadata[];
+  StoredQueryMetadata?: StoredQueryMetadata[] | undefined;
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token.
@@ -8960,7 +8960,7 @@ export interface ListStoredQueriesResponse {
    * 			If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8977,11 +8977,11 @@ export interface ListTagsForResourceRequest {
    * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, Config uses the default. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }

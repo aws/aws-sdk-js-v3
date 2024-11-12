@@ -29,7 +29,7 @@
     "@aws-sdk/util-format-url": "*",
     "@smithy/middleware-endpoint": "^3.2.1",
     "@smithy/protocol-http": "^4.1.5",
-    "@smithy/signature-v4": "^4.2.0",
+    "@smithy/signature-v4": "^4.2.1",
     "@smithy/smithy-client": "^3.4.2",
     "@smithy/types": "^3.6.0",
     "tslib": "^2.6.2"

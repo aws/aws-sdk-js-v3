@@ -11,7 +11,7 @@ import { SageMakerRuntimeServiceException as __BaseException } from "./SageMaker
 export class InternalDependencyException extends __BaseException {
   readonly name: "InternalDependencyException" = "InternalDependencyException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -33,7 +33,7 @@ export class InternalDependencyException extends __BaseException {
 export class InternalFailure extends __BaseException {
   readonly name: "InternalFailure" = "InternalFailure";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -72,13 +72,13 @@ export interface InvokeEndpointInput {
    * <p>The MIME type of the input data in the request body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The desired MIME type of the inference response from the model container.</p>
    * @public
    */
-  Accept?: string;
+  Accept?: string | undefined;
 
   /**
    * <p>Provides additional information about a request for an inference submitted to a model
@@ -97,13 +97,13 @@ export interface InvokeEndpointInput {
    *         Python SDK. </p>
    * @public
    */
-  CustomAttributes?: string;
+  CustomAttributes?: string | undefined;
 
   /**
    * <p>The model to request for inference when invoking a multi-model endpoint.</p>
    * @public
    */
-  TargetModel?: string;
+  TargetModel?: string | undefined;
 
   /**
    * <p>Specify the production variant to send the inference request to when invoking an
@@ -115,14 +115,14 @@ export interface InvokeEndpointInput {
    *          </p>
    * @public
    */
-  TargetVariant?: string;
+  TargetVariant?: string | undefined;
 
   /**
    * <p>If the endpoint hosts multiple containers and is configured to use direct invocation,
    *         this parameter specifies the host name of the container to invoke.</p>
    * @public
    */
-  TargetContainerHostname?: string;
+  TargetContainerHostname?: string | undefined;
 
   /**
    * <p>If you provide a value, it is added to the captured data when you enable data capture
@@ -130,7 +130,7 @@ export interface InvokeEndpointInput {
    *             Data</a>.</p>
    * @public
    */
-  InferenceId?: string;
+  InferenceId?: string | undefined;
 
   /**
    * <p>An optional JMESPath expression used to override the <code>EnableExplanations</code>
@@ -138,14 +138,14 @@ export interface InvokeEndpointInput {
    *         </p>
    * @public
    */
-  EnableExplanations?: string;
+  EnableExplanations?: string | undefined;
 
   /**
    * <p>If the endpoint hosts one or more inference components, this parameter specifies the
    *             name of inference component to invoke.</p>
    * @public
    */
-  InferenceComponentName?: string;
+  InferenceComponentName?: string | undefined;
 
   /**
    * <p>Creates a stateful session or identifies an existing one. You can do one of the
@@ -167,7 +167,7 @@ export interface InvokeEndpointInput {
    *             parameter. For any subsequent request where you specify that session ID, SageMaker routes the request to the same instance that supports the session.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 }
 
 /**
@@ -189,13 +189,13 @@ export interface InvokeEndpointOutput {
    * <p>The MIME type of the inference returned from the model container.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Identifies the production variant that was invoked.</p>
    * @public
    */
-  InvokedProductionVariant?: string;
+  InvokedProductionVariant?: string | undefined;
 
   /**
    * <p>Provides additional information in the response about the inference returned by a
@@ -216,20 +216,20 @@ export interface InvokeEndpointOutput {
    *         Python SDK.</p>
    * @public
    */
-  CustomAttributes?: string;
+  CustomAttributes?: string | undefined;
 
   /**
    * <p>If you created a stateful session with your request, the ID and expiration time that
    *             the model assigns to that session.</p>
    * @public
    */
-  NewSessionId?: string;
+  NewSessionId?: string | undefined;
 
   /**
    * <p>If you closed a stateful session with your request, the ID of that session.</p>
    * @public
    */
-  ClosedSessionId?: string;
+  ClosedSessionId?: string | undefined;
 }
 
 /**
@@ -240,24 +240,24 @@ export interface InvokeEndpointOutput {
 export class ModelError extends __BaseException {
   readonly name: "ModelError" = "ModelError";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p> Original status code. </p>
    * @public
    */
-  OriginalStatusCode?: number;
+  OriginalStatusCode?: number | undefined;
 
   /**
    * <p> Original message. </p>
    * @public
    */
-  OriginalMessage?: string;
+  OriginalMessage?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the log stream. </p>
    * @public
    */
-  LogStreamArn?: string;
+  LogStreamArn?: string | undefined;
   /**
    * @internal
    */
@@ -284,7 +284,7 @@ export class ModelError extends __BaseException {
 export class ModelNotReadyException extends __BaseException {
   readonly name: "ModelNotReadyException" = "ModelNotReadyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -306,7 +306,7 @@ export class ModelNotReadyException extends __BaseException {
 export class ServiceUnavailable extends __BaseException {
   readonly name: "ServiceUnavailable" = "ServiceUnavailable";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -328,7 +328,7 @@ export class ServiceUnavailable extends __BaseException {
 export class ValidationError extends __BaseException {
   readonly name: "ValidationError" = "ValidationError";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -358,13 +358,13 @@ export interface InvokeEndpointAsyncInput {
    * <p>The MIME type of the input data in the request body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The desired MIME type of the inference response from the model container.</p>
    * @public
    */
-  Accept?: string;
+  Accept?: string | undefined;
 
   /**
    * <p>Provides additional information about a request for an inference submitted to a model
@@ -383,14 +383,14 @@ export interface InvokeEndpointAsyncInput {
    *         Python SDK. </p>
    * @public
    */
-  CustomAttributes?: string;
+  CustomAttributes?: string | undefined;
 
   /**
    * <p>The identifier for the inference request. Amazon SageMaker will generate an
    *             identifier for you if none is specified. </p>
    * @public
    */
-  InferenceId?: string;
+  InferenceId?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI where the inference request payload is stored.</p>
@@ -403,14 +403,14 @@ export interface InvokeEndpointAsyncInput {
    *             The default is 6 hours, or 21,600 seconds.</p>
    * @public
    */
-  RequestTTLSeconds?: number;
+  RequestTTLSeconds?: number | undefined;
 
   /**
    * <p>Maximum amount of time in seconds a request can be processed before it is marked as
    *             expired. The default is 15 minutes, or 900 seconds.</p>
    * @public
    */
-  InvocationTimeoutSeconds?: number;
+  InvocationTimeoutSeconds?: number | undefined;
 }
 
 /**
@@ -423,20 +423,20 @@ export interface InvokeEndpointAsyncOutput {
    *             an identifier for you if you do not specify one.</p>
    * @public
    */
-  InferenceId?: string;
+  InferenceId?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI where the inference response payload is stored.</p>
    * @public
    */
-  OutputLocation?: string;
+  OutputLocation?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI where the inference failure response payload is
    *             stored.</p>
    * @public
    */
-  FailureLocation?: string;
+  FailureLocation?: string | undefined;
 }
 
 /**
@@ -446,7 +446,7 @@ export interface InvokeEndpointAsyncOutput {
 export class InternalStreamFailure extends __BaseException {
   readonly name: "InternalStreamFailure" = "InternalStreamFailure";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -485,13 +485,13 @@ export interface InvokeEndpointWithResponseStreamInput {
    * <p>The MIME type of the input data in the request body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The desired MIME type of the inference response from the model container.</p>
    * @public
    */
-  Accept?: string;
+  Accept?: string | undefined;
 
   /**
    * <p>Provides additional information about a request for an inference submitted to a model
@@ -510,7 +510,7 @@ export interface InvokeEndpointWithResponseStreamInput {
    *         Python SDK. </p>
    * @public
    */
-  CustomAttributes?: string;
+  CustomAttributes?: string | undefined;
 
   /**
    * <p>Specify the production variant to send the inference request to when invoking an
@@ -522,27 +522,27 @@ export interface InvokeEndpointWithResponseStreamInput {
    *          </p>
    * @public
    */
-  TargetVariant?: string;
+  TargetVariant?: string | undefined;
 
   /**
    * <p>If the endpoint hosts multiple containers and is configured to use direct invocation,
    *         this parameter specifies the host name of the container to invoke.</p>
    * @public
    */
-  TargetContainerHostname?: string;
+  TargetContainerHostname?: string | undefined;
 
   /**
    * <p>An identifier that you assign to your request.</p>
    * @public
    */
-  InferenceId?: string;
+  InferenceId?: string | undefined;
 
   /**
    * <p>If the endpoint hosts one or more inference components, this parameter specifies the
    *             name of inference component to invoke for a streaming response.</p>
    * @public
    */
-  InferenceComponentName?: string;
+  InferenceComponentName?: string | undefined;
 
   /**
    * <p>The ID of a stateful session to handle your request.</p>
@@ -556,7 +556,7 @@ export interface InvokeEndpointWithResponseStreamInput {
    *             response parameter.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 }
 
 /**
@@ -578,7 +578,7 @@ export interface InvokeEndpointWithResponseStreamInput {
 export class ModelStreamError extends __BaseException {
   readonly name: "ModelStreamError" = "ModelStreamError";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>This error can have the following error codes:</p>
    *          <dl>
@@ -595,7 +595,7 @@ export class ModelStreamError extends __BaseException {
    *          </dl>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
   /**
    * @internal
    */
@@ -622,7 +622,7 @@ export interface PayloadPart {
    * <p>A blob that contains part of the response for your streaming inference request.</p>
    * @public
    */
-  Bytes?: Uint8Array;
+  Bytes?: Uint8Array | undefined;
 }
 
 /**
@@ -727,13 +727,13 @@ export interface InvokeEndpointWithResponseStreamOutput {
    * <p>The MIME type of the inference returned from the model container.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Identifies the production variant that was invoked.</p>
    * @public
    */
-  InvokedProductionVariant?: string;
+  InvokedProductionVariant?: string | undefined;
 
   /**
    * <p>Provides additional information in the response about the inference returned by a
@@ -754,7 +754,7 @@ export interface InvokeEndpointWithResponseStreamOutput {
    *         Python SDK.</p>
    * @public
    */
-  CustomAttributes?: string;
+  CustomAttributes?: string | undefined;
 }
 
 /**

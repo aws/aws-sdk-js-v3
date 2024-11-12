@@ -84,31 +84,31 @@ export interface TaskRunProperties {
    * <p>The type of task run.</p>
    * @public
    */
-  TaskType?: TaskType;
+  TaskType?: TaskType | undefined;
 
   /**
    * <p>The configuration properties for an importing labels task run.</p>
    * @public
    */
-  ImportLabelsTaskRunProperties?: ImportLabelsTaskRunProperties;
+  ImportLabelsTaskRunProperties?: ImportLabelsTaskRunProperties | undefined;
 
   /**
    * <p>The configuration properties for an exporting labels task run.</p>
    * @public
    */
-  ExportLabelsTaskRunProperties?: ExportLabelsTaskRunProperties;
+  ExportLabelsTaskRunProperties?: ExportLabelsTaskRunProperties | undefined;
 
   /**
    * <p>The configuration properties for a labeling set generation task run.</p>
    * @public
    */
-  LabelingSetGenerationTaskRunProperties?: LabelingSetGenerationTaskRunProperties;
+  LabelingSetGenerationTaskRunProperties?: LabelingSetGenerationTaskRunProperties | undefined;
 
   /**
    * <p>The configuration properties for a find matches task run.</p>
    * @public
    */
-  FindMatchesTaskRunProperties?: FindMatchesTaskRunProperties;
+  FindMatchesTaskRunProperties?: FindMatchesTaskRunProperties | undefined;
 }
 
 /**
@@ -119,61 +119,61 @@ export interface GetMLTaskRunResponse {
    * <p>The unique identifier of the task run.</p>
    * @public
    */
-  TransformId?: string;
+  TransformId?: string | undefined;
 
   /**
    * <p>The unique run identifier associated with this run.</p>
    * @public
    */
-  TaskRunId?: string;
+  TaskRunId?: string | undefined;
 
   /**
    * <p>The status for this task run.</p>
    * @public
    */
-  Status?: TaskStatusType;
+  Status?: TaskStatusType | undefined;
 
   /**
    * <p>The names of the log groups that are associated with the task run.</p>
    * @public
    */
-  LogGroupName?: string;
+  LogGroupName?: string | undefined;
 
   /**
    * <p>The list of properties that are associated with the task run.</p>
    * @public
    */
-  Properties?: TaskRunProperties;
+  Properties?: TaskRunProperties | undefined;
 
   /**
    * <p>The error strings that are associated with the task run.</p>
    * @public
    */
-  ErrorString?: string;
+  ErrorString?: string | undefined;
 
   /**
    * <p>The date and time when this task run started.</p>
    * @public
    */
-  StartedOn?: Date;
+  StartedOn?: Date | undefined;
 
   /**
    * <p>The date and time when this task run was last modified.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 
   /**
    * <p>The date and time when this task run was completed.</p>
    * @public
    */
-  CompletedOn?: Date;
+  CompletedOn?: Date | undefined;
 
   /**
    * <p>The amount of time (in seconds) that the task run consumed resources.</p>
    * @public
    */
-  ExecutionTime?: number;
+  ExecutionTime?: number | undefined;
 }
 
 /**
@@ -186,25 +186,25 @@ export interface TaskRunFilterCriteria {
    * <p>The type of task run.</p>
    * @public
    */
-  TaskRunType?: TaskType;
+  TaskRunType?: TaskType | undefined;
 
   /**
    * <p>The current status of the task run.</p>
    * @public
    */
-  Status?: TaskStatusType;
+  Status?: TaskStatusType | undefined;
 
   /**
    * <p>Filter on task runs started before this date.</p>
    * @public
    */
-  StartedBefore?: Date;
+  StartedBefore?: Date | undefined;
 
   /**
    * <p>Filter on task runs started after this date.</p>
    * @public
    */
-  StartedAfter?: Date;
+  StartedAfter?: Date | undefined;
 }
 
 /**
@@ -271,25 +271,25 @@ export interface GetMLTaskRunsRequest {
    * <p>A token for pagination of the results. The default is empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The filter criteria, in the <code>TaskRunFilterCriteria</code> structure, for the task run.</p>
    * @public
    */
-  Filter?: TaskRunFilterCriteria;
+  Filter?: TaskRunFilterCriteria | undefined;
 
   /**
    * <p>The sorting criteria, in the <code>TaskRunSortCriteria</code> structure, for the task run.</p>
    * @public
    */
-  Sort?: TaskRunSortCriteria;
+  Sort?: TaskRunSortCriteria | undefined;
 }
 
 /**
@@ -301,61 +301,61 @@ export interface TaskRun {
    * <p>The unique identifier for the transform.</p>
    * @public
    */
-  TransformId?: string;
+  TransformId?: string | undefined;
 
   /**
    * <p>The unique identifier for this task run.</p>
    * @public
    */
-  TaskRunId?: string;
+  TaskRunId?: string | undefined;
 
   /**
    * <p>The current status of the requested task run.</p>
    * @public
    */
-  Status?: TaskStatusType;
+  Status?: TaskStatusType | undefined;
 
   /**
    * <p>The names of the log group for secure logging, associated with this task run.</p>
    * @public
    */
-  LogGroupName?: string;
+  LogGroupName?: string | undefined;
 
   /**
    * <p>Specifies configuration properties associated with this task run.</p>
    * @public
    */
-  Properties?: TaskRunProperties;
+  Properties?: TaskRunProperties | undefined;
 
   /**
    * <p>The list of error strings associated with this task run.</p>
    * @public
    */
-  ErrorString?: string;
+  ErrorString?: string | undefined;
 
   /**
    * <p>The date and time that this task run started.</p>
    * @public
    */
-  StartedOn?: Date;
+  StartedOn?: Date | undefined;
 
   /**
    * <p>The last point in time that the requested task run was updated.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 
   /**
    * <p>The last point in time that the requested task run was completed.</p>
    * @public
    */
-  CompletedOn?: Date;
+  CompletedOn?: Date | undefined;
 
   /**
    * <p>The amount of time (in seconds) that the task run consumed resources.</p>
    * @public
    */
-  ExecutionTime?: number;
+  ExecutionTime?: number | undefined;
 }
 
 /**
@@ -366,13 +366,13 @@ export interface GetMLTaskRunsResponse {
    * <p>A list of task runs that are associated with the transform.</p>
    * @public
    */
-  TaskRuns?: TaskRun[];
+  TaskRuns?: TaskRun[] | undefined;
 
   /**
    * <p>A pagination token, if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -397,13 +397,13 @@ export interface ColumnImportance {
    * <p>The name of a column.</p>
    * @public
    */
-  ColumnName?: string;
+  ColumnName?: string | undefined;
 
   /**
    * <p>The column importance score for the column, as a decimal.</p>
    * @public
    */
-  Importance?: number;
+  Importance?: number | undefined;
 }
 
 /**
@@ -416,27 +416,27 @@ export interface ConfusionMatrix {
    * <p>The number of matches in the data that the transform correctly found, in the confusion matrix for your transform.</p>
    * @public
    */
-  NumTruePositives?: number;
+  NumTruePositives?: number | undefined;
 
   /**
    * <p>The number of nonmatches in the data that the transform incorrectly classified as a match,
    *       in the confusion matrix for your transform.</p>
    * @public
    */
-  NumFalsePositives?: number;
+  NumFalsePositives?: number | undefined;
 
   /**
    * <p>The number of nonmatches in the data that the transform correctly rejected, in the
    *       confusion matrix for your transform.</p>
    * @public
    */
-  NumTrueNegatives?: number;
+  NumTrueNegatives?: number | undefined;
 
   /**
    * <p>The number of matches in the data that the transform didn't find, in the confusion matrix for your transform.</p>
    * @public
    */
-  NumFalseNegatives?: number;
+  NumFalseNegatives?: number | undefined;
 }
 
 /**
@@ -454,14 +454,14 @@ export interface FindMatchesMetrics {
    *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
    * @public
    */
-  AreaUnderPRCurve?: number;
+  AreaUnderPRCurve?: number | undefined;
 
   /**
    * <p>The precision metric indicates when often your transform is correct when it predicts a match. Specifically, it measures how well the transform finds true positives from the total true positives possible.</p>
    *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
    * @public
    */
-  Precision?: number;
+  Precision?: number | undefined;
 
   /**
    * <p>The recall metric indicates that for an actual match, how often your transform predicts
@@ -470,27 +470,27 @@ export interface FindMatchesMetrics {
    *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
    * @public
    */
-  Recall?: number;
+  Recall?: number | undefined;
 
   /**
    * <p>The maximum F1 metric indicates the transform's accuracy between 0 and 1, where 1 is the best accuracy.</p>
    *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/F1_score">F1 score</a> in Wikipedia.</p>
    * @public
    */
-  F1?: number;
+  F1?: number | undefined;
 
   /**
    * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
    *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
    * @public
    */
-  ConfusionMatrix?: ConfusionMatrix;
+  ConfusionMatrix?: ConfusionMatrix | undefined;
 
   /**
    * <p>A list of <code>ColumnImportance</code> structures containing column importance metrics, sorted in order of descending importance.</p>
    * @public
    */
-  ColumnImportances?: ColumnImportance[];
+  ColumnImportances?: ColumnImportance[] | undefined;
 }
 
 /**
@@ -508,7 +508,7 @@ export interface EvaluationMetrics {
    * <p>The evaluation metrics for the find matches algorithm.</p>
    * @public
    */
-  FindMatchesMetrics?: FindMatchesMetrics;
+  FindMatchesMetrics?: FindMatchesMetrics | undefined;
 }
 
 /**
@@ -521,13 +521,13 @@ export interface SchemaColumn {
    * <p>The name of the column.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of data in the column.</p>
    * @public
    */
-  DataType?: string;
+  DataType?: string | undefined;
 }
 
 /**
@@ -554,81 +554,81 @@ export interface GetMLTransformResponse {
    *       created.</p>
    * @public
    */
-  TransformId?: string;
+  TransformId?: string | undefined;
 
   /**
    * <p>The unique name given to the transform when it was created.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the transform.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    * @public
    */
-  Status?: TransformStatusType;
+  Status?: TransformStatusType | undefined;
 
   /**
    * <p>The date and time when the transform was created.</p>
    * @public
    */
-  CreatedOn?: Date;
+  CreatedOn?: Date | undefined;
 
   /**
    * <p>The date and time when the transform was last modified.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 
   /**
    * <p>A list of Glue table definitions used by the transform.</p>
    * @public
    */
-  InputRecordTables?: GlueTable[];
+  InputRecordTables?: GlueTable[] | undefined;
 
   /**
    * <p>The configuration parameters that are specific to the algorithm used.</p>
    * @public
    */
-  Parameters?: TransformParameters;
+  Parameters?: TransformParameters | undefined;
 
   /**
    * <p>The latest evaluation metrics.</p>
    * @public
    */
-  EvaluationMetrics?: EvaluationMetrics;
+  EvaluationMetrics?: EvaluationMetrics | undefined;
 
   /**
    * <p>The number of labels available for this transform.</p>
    * @public
    */
-  LabelCount?: number;
+  LabelCount?: number | undefined;
 
   /**
    * <p>The <code>Map<Column, Type></code> object that represents the schema that this
    *       transform accepts. Has an upper bound of 100 columns.</p>
    * @public
    */
-  Schema?: SchemaColumn[];
+  Schema?: SchemaColumn[] | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required
    *       permissions.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
    * @public
    */
-  GlueVersion?: string;
+  GlueVersion?: string | undefined;
 
   /**
    * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
@@ -638,7 +638,7 @@ export interface GetMLTransformResponse {
    *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
@@ -655,31 +655,31 @@ export interface GetMLTransformResponse {
    *          </ul>
    * @public
    */
-  WorkerType?: WorkerType;
+  WorkerType?: WorkerType | undefined;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The timeout for a task run for this transform in minutes. This is the maximum time that a task run for this transform can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>The maximum number of times to retry a task for this transform after a task run fails.</p>
    * @public
    */
-  MaxRetries?: number;
+  MaxRetries?: number | undefined;
 
   /**
    * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
    * @public
    */
-  TransformEncryption?: TransformEncryption;
+  TransformEncryption?: TransformEncryption | undefined;
 }
 
 /**
@@ -691,50 +691,50 @@ export interface TransformFilterCriteria {
    * <p>A unique transform name that is used to filter the machine learning transforms.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of machine learning transform that is used to filter the machine learning
    *       transforms.</p>
    * @public
    */
-  TransformType?: TransformType;
+  TransformType?: TransformType | undefined;
 
   /**
    * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    * @public
    */
-  Status?: TransformStatusType;
+  Status?: TransformStatusType | undefined;
 
   /**
    * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
    * @public
    */
-  GlueVersion?: string;
+  GlueVersion?: string | undefined;
 
   /**
    * <p>The time and date before which the transforms were created.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>The time and date after which the transforms were created.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>Filter on transforms last modified before this date.</p>
    * @public
    */
-  LastModifiedBefore?: Date;
+  LastModifiedBefore?: Date | undefined;
 
   /**
    * <p>Filter on transforms last modified after this date.</p>
    * @public
    */
-  LastModifiedAfter?: Date;
+  LastModifiedAfter?: Date | undefined;
 
   /**
    * <p>Filters on datasets with a specific schema. The <code>Map<Column, Type></code>
@@ -743,7 +743,7 @@ export interface TransformFilterCriteria {
    *       such as an integer or string. Has an upper bound of 100 columns.</p>
    * @public
    */
-  Schema?: SchemaColumn[];
+  Schema?: SchemaColumn[] | undefined;
 }
 
 /**
@@ -791,25 +791,25 @@ export interface GetMLTransformsRequest {
    * <p>A paginated token to offset the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The filter transformation criteria.</p>
    * @public
    */
-  Filter?: TransformFilterCriteria;
+  Filter?: TransformFilterCriteria | undefined;
 
   /**
    * <p>The sorting criteria.</p>
    * @public
    */
-  Sort?: TransformSortCriteria;
+  Sort?: TransformSortCriteria | undefined;
 }
 
 /**
@@ -822,45 +822,45 @@ export interface MLTransform {
    *       guaranteed to be unique and does not change.</p>
    * @public
    */
-  TransformId?: string;
+  TransformId?: string | undefined;
 
   /**
    * <p>A user-defined name for the machine learning transform. Names are not guaranteed unique
    *       and can be changed at any time.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A user-defined, long-form description text for the machine learning transform.
    *       Descriptions are not guaranteed to be unique and can be changed at any time.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The current status of the machine learning transform.</p>
    * @public
    */
-  Status?: TransformStatusType;
+  Status?: TransformStatusType | undefined;
 
   /**
    * <p>A timestamp. The time and date that this machine learning transform was created.</p>
    * @public
    */
-  CreatedOn?: Date;
+  CreatedOn?: Date | undefined;
 
   /**
    * <p>A timestamp. The last point in time when this machine learning transform was modified.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 
   /**
    * <p>A list of Glue table definitions used by the transform.</p>
    * @public
    */
-  InputRecordTables?: GlueTable[];
+  InputRecordTables?: GlueTable[] | undefined;
 
   /**
    * <p>A <code>TransformParameters</code> object. You can use parameters to tune (customize) the
@@ -868,26 +868,26 @@ export interface MLTransform {
    *       preference on various tradeoffs (such as precious vs. recall, or accuracy vs. cost).</p>
    * @public
    */
-  Parameters?: TransformParameters;
+  Parameters?: TransformParameters | undefined;
 
   /**
    * <p>An <code>EvaluationMetrics</code> object. Evaluation metrics provide an estimate of the quality of your machine learning transform.</p>
    * @public
    */
-  EvaluationMetrics?: EvaluationMetrics;
+  EvaluationMetrics?: EvaluationMetrics | undefined;
 
   /**
    * <p>A count identifier for the labeling files generated by Glue for this transform. As you create a better transform, you can iteratively download, label, and upload the labeling file.</p>
    * @public
    */
-  LabelCount?: number;
+  LabelCount?: number | undefined;
 
   /**
    * <p>A map of key-value pairs representing the columns and data types that this transform can
    *       run against. Has an upper bound of 100 columns.</p>
    * @public
    */
-  Schema?: SchemaColumn[];
+  Schema?: SchemaColumn[] | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both Glue service role permissions to Glue resources, and Amazon S3 permissions required by the transform. </p>
@@ -901,13 +901,13 @@ export interface MLTransform {
    *          </ul>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>This value determines which version of Glue this machine learning transform is compatible with. Glue 1.0 is recommended for most customers. If the value is not set, the Glue compatibility defaults to Glue 0.9.  For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/release-notes.html#release-notes-versions">Glue Versions</a> in the developer guide.</p>
    * @public
    */
-  GlueVersion?: string;
+  GlueVersion?: string | undefined;
 
   /**
    * <p>The number of Glue data processing units (DPUs) that are allocated to task runs for this transform. You can allocate from 2 to 100 DPUs; the default is 10. A DPU is a relative measure of
@@ -934,7 +934,7 @@ export interface MLTransform {
    *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when a task of this transform runs. Accepts a value of Standard, G.1X, or G.2X.</p>
@@ -968,33 +968,33 @@ export interface MLTransform {
    *          </ul>
    * @public
    */
-  WorkerType?: WorkerType;
+  WorkerType?: WorkerType | undefined;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
    *          <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The timeout in minutes of the machine learning transform.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>The maximum number of times to retry after an <code>MLTaskRun</code> of the machine
    *       learning transform fails.</p>
    * @public
    */
-  MaxRetries?: number;
+  MaxRetries?: number | undefined;
 
   /**
    * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
    * @public
    */
-  TransformEncryption?: TransformEncryption;
+  TransformEncryption?: TransformEncryption | undefined;
 }
 
 /**
@@ -1011,7 +1011,7 @@ export interface GetMLTransformsResponse {
    * <p>A pagination token, if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1023,7 +1023,7 @@ export interface GetPartitionRequest {
    *       the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database where the partition resides.</p>
@@ -1053,7 +1053,7 @@ export interface GetPartitionResponse {
    *       object.</p>
    * @public
    */
-  Partition?: Partition;
+  Partition?: Partition | undefined;
 }
 
 /**
@@ -1064,7 +1064,7 @@ export interface GetPartitionIndexesRequest {
    * <p>The catalog ID where the table resides.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>Specifies the name of a database from which you want to retrieve partition indexes.</p>
@@ -1082,7 +1082,7 @@ export interface GetPartitionIndexesRequest {
    * <p>A continuation token, included if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1129,13 +1129,13 @@ export interface BackfillError {
    * <p>The error code for an error that occurred when registering partition indexes for an existing table.</p>
    * @public
    */
-  Code?: BackfillErrorCode;
+  Code?: BackfillErrorCode | undefined;
 
   /**
    * <p>A list of a limited number of partitions in the response.</p>
    * @public
    */
-  Partitions?: PartitionValueList[];
+  Partitions?: PartitionValueList[] | undefined;
 }
 
 /**
@@ -1214,7 +1214,7 @@ export interface PartitionIndexDescriptor {
    * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
    * @public
    */
-  BackfillErrors?: BackfillError[];
+  BackfillErrors?: BackfillError[] | undefined;
 }
 
 /**
@@ -1225,13 +1225,13 @@ export interface GetPartitionIndexesResponse {
    * <p>A list of index descriptors.</p>
    * @public
    */
-  PartitionIndexDescriptorList?: PartitionIndexDescriptor[];
+  PartitionIndexDescriptorList?: PartitionIndexDescriptor[] | undefined;
 
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1263,7 +1263,7 @@ export interface GetPartitionsRequest {
    *       the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database where the partitions reside.</p>
@@ -1385,44 +1385,44 @@ export interface GetPartitionsRequest {
    *             <i>Sample API Call</i>: </p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>A continuation token, if this is not the first call to retrieve
    *       these partitions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The segment of the table's partitions to scan in this request.</p>
    * @public
    */
-  Segment?: Segment;
+  Segment?: Segment | undefined;
 
   /**
    * <p>The maximum number of partitions to return in a single response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>When true, specifies not returning the partition column schema. Useful when you are interested only in other partition attributes such as partition values or location. This approach avoids the problem of a large response by not returning duplicate data.</p>
    * @public
    */
-  ExcludeColumnSchema?: boolean;
+  ExcludeColumnSchema?: boolean | undefined;
 
   /**
    * <p>The transaction ID at which to read the partition contents.</p>
    * @public
    */
-  TransactionId?: string;
+  TransactionId?: string | undefined;
 
   /**
    * <p>The time as of when to read the partition contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
    * @public
    */
-  QueryAsOfTime?: Date;
+  QueryAsOfTime?: Date | undefined;
 }
 
 /**
@@ -1433,14 +1433,14 @@ export interface GetPartitionsResponse {
    * <p>A list of requested partitions.</p>
    * @public
    */
-  Partitions?: Partition[];
+  Partitions?: Partition[] | undefined;
 
   /**
    * <p>A continuation token, if the returned list of partitions does not include the last
    *       one.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1463,19 +1463,19 @@ export interface GetPlanRequest {
    * <p>The target tables.</p>
    * @public
    */
-  Sinks?: CatalogEntry[];
+  Sinks?: CatalogEntry[] | undefined;
 
   /**
    * <p>The parameters for the mapping.</p>
    * @public
    */
-  Location?: Location;
+  Location?: Location | undefined;
 
   /**
    * <p>The programming language of the code to perform the mapping.</p>
    * @public
    */
-  Language?: Language;
+  Language?: Language | undefined;
 
   /**
    * <p>A map to hold additional optional key-value parameters.</p>
@@ -1491,7 +1491,7 @@ export interface GetPlanRequest {
    *          </ul>
    * @public
    */
-  AdditionalPlanOptionsMap?: Record<string, string>;
+  AdditionalPlanOptionsMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -1502,13 +1502,13 @@ export interface GetPlanResponse {
    * <p>A Python script to perform the mapping.</p>
    * @public
    */
-  PythonScript?: string;
+  PythonScript?: string | undefined;
 
   /**
    * <p>The Scala code to perform the mapping.</p>
    * @public
    */
-  ScalaCode?: string;
+  ScalaCode?: string | undefined;
 }
 
 /**
@@ -1530,37 +1530,37 @@ export interface GetRegistryResponse {
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>A description of the registry.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the registry.</p>
    * @public
    */
-  Status?: RegistryStatus;
+  Status?: RegistryStatus | undefined;
 
   /**
    * <p>The date and time the registry was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>The date and time the registry was updated.</p>
    * @public
    */
-  UpdatedTime?: string;
+  UpdatedTime?: string | undefined;
 }
 
 /**
@@ -1571,13 +1571,13 @@ export interface GetResourcePoliciesRequest {
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1589,25 +1589,25 @@ export interface GluePolicy {
    * <p>Contains the requested policy document, in JSON format.</p>
    * @public
    */
-  PolicyInJson?: string;
+  PolicyInJson?: string | undefined;
 
   /**
    * <p>Contains the hash value associated with this policy.</p>
    * @public
    */
-  PolicyHash?: string;
+  PolicyHash?: string | undefined;
 
   /**
    * <p>The date and time at which the policy was created.</p>
    * @public
    */
-  CreateTime?: Date;
+  CreateTime?: Date | undefined;
 
   /**
    * <p>The date and time at which the policy was last updated.</p>
    * @public
    */
-  UpdateTime?: Date;
+  UpdateTime?: Date | undefined;
 }
 
 /**
@@ -1618,13 +1618,13 @@ export interface GetResourcePoliciesResponse {
    * <p>A list of the individual resource policies and the account-level resource policy.</p>
    * @public
    */
-  GetResourcePoliciesResponseList?: GluePolicy[];
+  GetResourcePoliciesResponseList?: GluePolicy[] | undefined;
 
   /**
    * <p>A continuation token, if the returned list does not contain the last resource policy available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1638,7 +1638,7 @@ export interface GetResourcePolicyRequest {
    *     </p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 }
 
 /**
@@ -1649,25 +1649,25 @@ export interface GetResourcePolicyResponse {
    * <p>Contains the requested policy document, in JSON format.</p>
    * @public
    */
-  PolicyInJson?: string;
+  PolicyInJson?: string | undefined;
 
   /**
    * <p>Contains the hash value associated with this policy.</p>
    * @public
    */
-  PolicyHash?: string;
+  PolicyHash?: string | undefined;
 
   /**
    * <p>The date and time at which the policy was created.</p>
    * @public
    */
-  CreateTime?: Date;
+  CreateTime?: Date | undefined;
 
   /**
    * <p>The date and time at which the policy was last updated.</p>
    * @public
    */
-  UpdateTime?: Date;
+  UpdateTime?: Date | undefined;
 }
 
 /**
@@ -1697,79 +1697,79 @@ export interface GetSchemaResponse {
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>A description of schema if specified when created</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    * @public
    */
-  DataFormat?: DataFormat;
+  DataFormat?: DataFormat | undefined;
 
   /**
    * <p>The compatibility mode of the schema.</p>
    * @public
    */
-  Compatibility?: Compatibility;
+  Compatibility?: Compatibility | undefined;
 
   /**
    * <p>The version number of the checkpoint (the last time the compatibility mode was changed).</p>
    * @public
    */
-  SchemaCheckpoint?: number;
+  SchemaCheckpoint?: number | undefined;
 
   /**
    * <p>The latest version of the schema associated with the returned schema definition.</p>
    * @public
    */
-  LatestSchemaVersion?: number;
+  LatestSchemaVersion?: number | undefined;
 
   /**
    * <p>The next version of the schema associated with the returned schema definition.</p>
    * @public
    */
-  NextSchemaVersion?: number;
+  NextSchemaVersion?: number | undefined;
 
   /**
    * <p>The status of the schema.</p>
    * @public
    */
-  SchemaStatus?: SchemaStatus;
+  SchemaStatus?: SchemaStatus | undefined;
 
   /**
    * <p>The date and time the schema was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>The date and time the schema was updated.</p>
    * @public
    */
-  UpdatedTime?: string;
+  UpdatedTime?: string | undefined;
 }
 
 /**
@@ -1805,31 +1805,31 @@ export interface GetSchemaByDefinitionResponse {
    * <p>The schema ID of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    * @public
    */
-  DataFormat?: DataFormat;
+  DataFormat?: DataFormat | undefined;
 
   /**
    * <p>The status of the schema version.</p>
    * @public
    */
-  Status?: SchemaVersionStatus;
+  Status?: SchemaVersionStatus | undefined;
 
   /**
    * <p>The date and time the schema was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 }
 
 /**
@@ -1841,13 +1841,13 @@ export interface SchemaVersionNumber {
    * <p>The latest version available for the schema.</p>
    * @public
    */
-  LatestVersion?: boolean;
+  LatestVersion?: boolean | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 }
 
 /**
@@ -1866,19 +1866,19 @@ export interface GetSchemaVersionInput {
    *          </ul>
    * @public
    */
-  SchemaId?: SchemaId;
+  SchemaId?: SchemaId | undefined;
 
   /**
    * <p>The <code>SchemaVersionId</code> of the schema version. This field is required for fetching by schema ID. Either this or the <code>SchemaId</code> wrapper has to be provided.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  SchemaVersionNumber?: SchemaVersionNumber;
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
 }
 
 /**
@@ -1889,43 +1889,43 @@ export interface GetSchemaVersionResponse {
    * <p>The <code>SchemaVersionId</code> of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The schema definition for the schema ID.</p>
    * @public
    */
-  SchemaDefinition?: string;
+  SchemaDefinition?: string | undefined;
 
   /**
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    * @public
    */
-  DataFormat?: DataFormat;
+  DataFormat?: DataFormat | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The status of the schema version. </p>
    * @public
    */
-  Status?: SchemaVersionStatus;
+  Status?: SchemaVersionStatus | undefined;
 
   /**
    * <p>The date and time the schema version was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 }
 
 /**
@@ -1986,7 +1986,7 @@ export interface GetSchemaVersionsDiffResponse {
    * <p>The difference between schemas as a string in JsonPatch format.</p>
    * @public
    */
-  Diff?: string;
+  Diff?: string | undefined;
 }
 
 /**
@@ -2009,19 +2009,19 @@ export interface SecurityConfiguration {
    * <p>The name of the security configuration.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The time at which this security configuration was created.</p>
    * @public
    */
-  CreatedTimeStamp?: Date;
+  CreatedTimeStamp?: Date | undefined;
 
   /**
    * <p>The encryption configuration associated with this security configuration.</p>
    * @public
    */
-  EncryptionConfiguration?: EncryptionConfiguration;
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -2032,7 +2032,7 @@ export interface GetSecurityConfigurationResponse {
    * <p>The requested security configuration.</p>
    * @public
    */
-  SecurityConfiguration?: SecurityConfiguration;
+  SecurityConfiguration?: SecurityConfiguration | undefined;
 }
 
 /**
@@ -2043,13 +2043,13 @@ export interface GetSecurityConfigurationsRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2060,14 +2060,14 @@ export interface GetSecurityConfigurationsResponse {
    * <p>A list of security configurations.</p>
    * @public
    */
-  SecurityConfigurations?: SecurityConfiguration[];
+  SecurityConfigurations?: SecurityConfiguration[] | undefined;
 
   /**
    * <p>A continuation token, if there are more security
    *       configurations to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2084,7 +2084,7 @@ export interface GetSessionRequest {
    * <p>The origin of the request. </p>
    * @public
    */
-  RequestOrigin?: string;
+  RequestOrigin?: string | undefined;
 }
 
 /**
@@ -2095,7 +2095,7 @@ export interface GetSessionResponse {
    * <p>The session object is returned in the response.</p>
    * @public
    */
-  Session?: Session;
+  Session?: Session | undefined;
 }
 
 /**
@@ -2118,7 +2118,7 @@ export interface GetStatementRequest {
    * <p>The origin of the request.</p>
    * @public
    */
-  RequestOrigin?: string;
+  RequestOrigin?: string | undefined;
 }
 
 /**
@@ -2130,7 +2130,7 @@ export interface StatementOutputData {
    * <p>The code execution output in text format.</p>
    * @public
    */
-  TextPlain?: string;
+  TextPlain?: string | undefined;
 }
 
 /**
@@ -2160,37 +2160,37 @@ export interface StatementOutput {
    * <p>The code execution output.</p>
    * @public
    */
-  Data?: StatementOutputData;
+  Data?: StatementOutputData | undefined;
 
   /**
    * <p>The execution count of the output.</p>
    * @public
    */
-  ExecutionCount?: number;
+  ExecutionCount?: number | undefined;
 
   /**
    * <p>The status of the code execution output.</p>
    * @public
    */
-  Status?: StatementState;
+  Status?: StatementState | undefined;
 
   /**
    * <p>The name of the error in the output.</p>
    * @public
    */
-  ErrorName?: string;
+  ErrorName?: string | undefined;
 
   /**
    * <p>The error value of the output.</p>
    * @public
    */
-  ErrorValue?: string;
+  ErrorValue?: string | undefined;
 
   /**
    * <p>The traceback of the output.</p>
    * @public
    */
-  Traceback?: string[];
+  Traceback?: string[] | undefined;
 }
 
 /**
@@ -2202,43 +2202,43 @@ export interface Statement {
    * <p>The ID of the statement.</p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p>The execution code of the statement.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The state while request is actioned.</p>
    * @public
    */
-  State?: StatementState;
+  State?: StatementState | undefined;
 
   /**
    * <p>The output in JSON.</p>
    * @public
    */
-  Output?: StatementOutput;
+  Output?: StatementOutput | undefined;
 
   /**
    * <p>The code execution progress.</p>
    * @public
    */
-  Progress?: number;
+  Progress?: number | undefined;
 
   /**
    * <p>The unix time and date that the job definition was started.</p>
    * @public
    */
-  StartedOn?: number;
+  StartedOn?: number | undefined;
 
   /**
    * <p>The unix time and date that the job definition was completed.</p>
    * @public
    */
-  CompletedOn?: number;
+  CompletedOn?: number | undefined;
 }
 
 /**
@@ -2249,7 +2249,7 @@ export interface GetStatementResponse {
    * <p>Returns the statement.</p>
    * @public
    */
-  Statement?: Statement;
+  Statement?: Statement | undefined;
 }
 
 /**
@@ -2261,7 +2261,7 @@ export interface GetTableRequest {
    *       ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the database in the catalog in which the table resides.
@@ -2281,19 +2281,19 @@ export interface GetTableRequest {
    * <p>The transaction ID at which to read the table contents. </p>
    * @public
    */
-  TransactionId?: string;
+  TransactionId?: string | undefined;
 
   /**
    * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
    * @public
    */
-  QueryAsOfTime?: Date;
+  QueryAsOfTime?: Date | undefined;
 
   /**
    * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
    * @public
    */
-  IncludeStatusDetails?: boolean;
+  IncludeStatusDetails?: boolean | undefined;
 }
 
 /**
@@ -2305,19 +2305,19 @@ export interface FederatedTable {
    * <p>A unique identifier for the federated table.</p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 
   /**
    * <p>A unique identifier for the federated database.</p>
    * @public
    */
-  DatabaseIdentifier?: string;
+  DatabaseIdentifier?: string | undefined;
 
   /**
    * <p>The name of the connection to the external metastore.</p>
    * @public
    */
-  ConnectionName?: string;
+  ConnectionName?: string | undefined;
 }
 
 /**
@@ -2360,37 +2360,37 @@ export interface ViewValidation {
    * <p>The dialect of the query engine.</p>
    * @public
    */
-  Dialect?: ViewDialect;
+  Dialect?: ViewDialect | undefined;
 
   /**
    * <p>The version of the dialect of the query engine. For example, 3.0.0.</p>
    * @public
    */
-  DialectVersion?: string;
+  DialectVersion?: string | undefined;
 
   /**
    * <p>The <code>SELECT</code> query that defines the view, as provided by the customer.</p>
    * @public
    */
-  ViewValidationText?: string;
+  ViewValidationText?: string | undefined;
 
   /**
    * <p>The time of the last update.</p>
    * @public
    */
-  UpdateTime?: Date;
+  UpdateTime?: Date | undefined;
 
   /**
    * <p>The state of the validation.</p>
    * @public
    */
-  State?: ResourceState;
+  State?: ResourceState | undefined;
 
   /**
    * <p>An error associated with the validation.</p>
    * @public
    */
-  Error?: ErrorDetail;
+  Error?: ErrorDetail | undefined;
 }
 
 /**
@@ -2402,19 +2402,19 @@ export interface ViewRepresentation {
    * <p>The dialect of the query engine.</p>
    * @public
    */
-  Dialect?: ViewDialect;
+  Dialect?: ViewDialect | undefined;
 
   /**
    * <p>The version of the dialect of the query engine. For example, 3.0.0.</p>
    * @public
    */
-  DialectVersion?: string;
+  DialectVersion?: string | undefined;
 
   /**
    * <p>The <code>SELECT</code> query provided by the customer during <code>CREATE VIEW DDL</code>. This SQL is not used during a query on a view (<code>ViewExpandedText</code> is used instead). <code>ViewOriginalText</code> is used for cases like <code>SHOW CREATE VIEW</code> where users want to see the original DDL command that created the view.</p>
    * @public
    */
-  ViewOriginalText?: string;
+  ViewOriginalText?: string | undefined;
 
   /**
    * <p>The expanded SQL for the view. This SQL is used by engines while processing a query on a view. Engines may perform operations during view creation to transform <code>ViewOriginalText</code> to <code>ViewExpandedText</code>. For example:</p>
@@ -2426,19 +2426,19 @@ export interface ViewRepresentation {
    *          </ul>
    * @public
    */
-  ViewExpandedText?: string;
+  ViewExpandedText?: string | undefined;
 
   /**
    * <p>The name of the connection to be used to validate the specific representation of the view.</p>
    * @public
    */
-  ValidationConnection?: string;
+  ValidationConnection?: string | undefined;
 
   /**
    * <p>Dialects marked as stale are no longer valid and must be updated before they can be queried in their respective query engines.</p>
    * @public
    */
-  IsStale?: boolean;
+  IsStale?: boolean | undefined;
 }
 
 /**
@@ -2450,25 +2450,25 @@ export interface ViewDefinition {
    * <p>You can set this flag as true to instruct the engine not to push user-provided operations into the logical plan of the view during query planning. However, setting this flag does not guarantee that the engine will comply. Refer to the engine's documentation to understand the guarantees provided, if any.</p>
    * @public
    */
-  IsProtected?: boolean;
+  IsProtected?: boolean | undefined;
 
   /**
    * <p>The definer of a view in SQL.</p>
    * @public
    */
-  Definer?: string;
+  Definer?: string | undefined;
 
   /**
    * <p>A list of table Amazon Resource Names (ARNs).</p>
    * @public
    */
-  SubObjects?: string[];
+  SubObjects?: string[] | undefined;
 
   /**
    * <p>A list of representations.</p>
    * @public
    */
-  Representations?: ViewRepresentation[];
+  Representations?: ViewRepresentation[] | undefined;
 }
 
 /**
@@ -2508,25 +2508,25 @@ export interface GetTableOptimizerResponse {
    * <p>The Catalog ID of the table.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the database in the catalog in which the table resides.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The optimizer associated with the specified table.</p>
    * @public
    */
-  TableOptimizer?: TableOptimizer;
+  TableOptimizer?: TableOptimizer | undefined;
 }
 
 /**
@@ -2552,7 +2552,7 @@ export interface GetTablesRequest {
    *       ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The database in the catalog whose tables to list. For Hive
@@ -2566,37 +2566,37 @@ export interface GetTablesRequest {
    *       whose names match the pattern are returned.</p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>A continuation token, included if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of tables to return in a single response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The transaction ID at which to read the table contents.</p>
    * @public
    */
-  TransactionId?: string;
+  TransactionId?: string | undefined;
 
   /**
    * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
    * @public
    */
-  QueryAsOfTime?: Date;
+  QueryAsOfTime?: Date | undefined;
 
   /**
    * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
    * @public
    */
-  IncludeStatusDetails?: boolean;
+  IncludeStatusDetails?: boolean | undefined;
 
   /**
    * <p> Specifies the table fields returned by the <code>GetTables</code> call. This parameter doesn’t accept an empty list. The request must include <code>NAME</code>.</p>
@@ -2613,7 +2613,7 @@ export interface GetTablesRequest {
    *          </ul>
    * @public
    */
-  AttributesToGet?: TableAttributes[];
+  AttributesToGet?: TableAttributes[] | undefined;
 }
 
 /**
@@ -2625,7 +2625,7 @@ export interface GetTableVersionRequest {
    *       ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The database in the catalog in which the table resides. For Hive
@@ -2645,7 +2645,7 @@ export interface GetTableVersionRequest {
    * <p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -2657,7 +2657,7 @@ export interface GetTableVersionsRequest {
    *       ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The database in the catalog in which the table resides. For Hive
@@ -2677,13 +2677,13 @@ export interface GetTableVersionsRequest {
    * <p>A continuation token, if this is not the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of table versions to return in one response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2705,7 +2705,7 @@ export interface GetTagsResponse {
    * <p>The requested tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2727,7 +2727,7 @@ export interface GetTriggerResponse {
    * <p>The requested trigger definition.</p>
    * @public
    */
-  Trigger?: Trigger;
+  Trigger?: Trigger | undefined;
 }
 
 /**
@@ -2738,20 +2738,20 @@ export interface GetTriggersRequest {
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The name of the job to retrieve triggers for. The trigger that can start this job is
    *       returned, and if there is no such trigger, all triggers are returned.</p>
    * @public
    */
-  DependentJobName?: string;
+  DependentJobName?: string | undefined;
 
   /**
    * <p>The maximum size of the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2762,14 +2762,14 @@ export interface GetTriggersResponse {
    * <p>A list of triggers for the specified job.</p>
    * @public
    */
-  Triggers?: Trigger[];
+  Triggers?: Trigger[] | undefined;
 
   /**
    * <p>A continuation token, if not all the requested triggers
    *       have yet been returned.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2781,31 +2781,31 @@ export interface QuerySessionContext {
    * <p>A unique identifier generated by the query engine for the query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>A timestamp provided by the query engine for when the query started.</p>
    * @public
    */
-  QueryStartTime?: Date;
+  QueryStartTime?: Date | undefined;
 
   /**
    * <p>An identifier string for the consumer cluster.</p>
    * @public
    */
-  ClusterId?: string;
+  ClusterId?: string | undefined;
 
   /**
    * <p>A cryptographically generated query identifier generated by Glue or Lake Formation.</p>
    * @public
    */
-  QueryAuthorizationId?: string;
+  QueryAuthorizationId?: string | undefined;
 
   /**
    * <p>An opaque string-string map passed by the query engine.</p>
    * @public
    */
-  AdditionalContext?: Record<string, string>;
+  AdditionalContext?: Record<string, string> | undefined;
 }
 
 /**
@@ -2832,7 +2832,7 @@ export interface GetUnfilteredPartitionMetadataRequest {
    * <p>Specified only if the base tables belong to a different Amazon Web Services Region.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The catalog ID where the partition resides.</p>
@@ -2862,7 +2862,7 @@ export interface GetUnfilteredPartitionMetadataRequest {
    * <p>A structure containing Lake Formation audit context information.</p>
    * @public
    */
-  AuditContext?: AuditContext;
+  AuditContext?: AuditContext | undefined;
 
   /**
    * <p>(Required) A list of supported permission types. </p>
@@ -2874,7 +2874,7 @@ export interface GetUnfilteredPartitionMetadataRequest {
    * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
    * @public
    */
-  QuerySessionContext?: QuerySessionContext;
+  QuerySessionContext?: QuerySessionContext | undefined;
 }
 
 /**
@@ -2885,20 +2885,20 @@ export interface GetUnfilteredPartitionMetadataResponse {
    * <p>A Partition object containing the partition metadata.</p>
    * @public
    */
-  Partition?: Partition;
+  Partition?: Partition | undefined;
 
   /**
    * <p>A list of column names that the user has been granted access to.</p>
    * @public
    */
-  AuthorizedColumns?: string[];
+  AuthorizedColumns?: string[] | undefined;
 
   /**
    * <p>A Boolean value that indicates whether the partition location is registered
    *           with Lake Formation.</p>
    * @public
    */
-  IsRegisteredWithLakeFormation?: boolean;
+  IsRegisteredWithLakeFormation?: boolean | undefined;
 }
 
 /**
@@ -2913,7 +2913,7 @@ export class PermissionTypeMismatchException extends __BaseException {
    *           and the permissions defined on the target table.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2936,7 +2936,7 @@ export interface GetUnfilteredPartitionsMetadataRequest {
    * <p>Specified only if the base tables belong to a different Amazon Web Services Region.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The ID of the Data Catalog where the partitions in question reside. If none is provided,
@@ -3060,13 +3060,13 @@ export interface GetUnfilteredPartitionsMetadataRequest {
    *          <p>If an type is encountered that is not valid, an exception is thrown. </p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>A structure containing Lake Formation audit context information.</p>
    * @public
    */
-  AuditContext?: AuditContext;
+  AuditContext?: AuditContext | undefined;
 
   /**
    * <p>A list of supported permission types. </p>
@@ -3079,25 +3079,25 @@ export interface GetUnfilteredPartitionsMetadataRequest {
    *       these partitions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The segment of the table's partitions to scan in this request.</p>
    * @public
    */
-  Segment?: Segment;
+  Segment?: Segment | undefined;
 
   /**
    * <p>The maximum number of partitions to return in a single response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
    * @public
    */
-  QuerySessionContext?: QuerySessionContext;
+  QuerySessionContext?: QuerySessionContext | undefined;
 }
 
 /**
@@ -3109,19 +3109,19 @@ export interface UnfilteredPartition {
    * <p>The partition object.</p>
    * @public
    */
-  Partition?: Partition;
+  Partition?: Partition | undefined;
 
   /**
    * <p>The list of columns the user has permissions to access.</p>
    * @public
    */
-  AuthorizedColumns?: string[];
+  AuthorizedColumns?: string[] | undefined;
 
   /**
    * <p>A Boolean value indicating that the partition location is registered with Lake Formation.</p>
    * @public
    */
-  IsRegisteredWithLakeFormation?: boolean;
+  IsRegisteredWithLakeFormation?: boolean | undefined;
 }
 
 /**
@@ -3132,14 +3132,14 @@ export interface GetUnfilteredPartitionsMetadataResponse {
    * <p>A list of requested partitions.</p>
    * @public
    */
-  UnfilteredPartitions?: UnfilteredPartition[];
+  UnfilteredPartitions?: UnfilteredPartition[] | undefined;
 
   /**
    * <p>A continuation token, if the returned list of partitions does not include the last
    *       one.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3151,13 +3151,13 @@ export interface SupportedDialect {
    * <p>The dialect of the query engine.</p>
    * @public
    */
-  Dialect?: ViewDialect;
+  Dialect?: ViewDialect | undefined;
 
   /**
    * <p>The version of the dialect of the query engine. For example, 3.0.0.</p>
    * @public
    */
-  DialectVersion?: string;
+  DialectVersion?: string | undefined;
 }
 
 /**
@@ -3168,7 +3168,7 @@ export interface GetUnfilteredTableMetadataRequest {
    * <p>Specified only if the base tables belong to a different Amazon Web Services Region.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The catalog ID where the table resides.</p>
@@ -3192,7 +3192,7 @@ export interface GetUnfilteredTableMetadataRequest {
    * <p>A structure containing Lake Formation audit context information.</p>
    * @public
    */
-  AuditContext?: AuditContext;
+  AuditContext?: AuditContext | undefined;
 
   /**
    * <p>Indicates the level of filtering a third-party analytical engine is capable of enforcing when calling the <code>GetUnfilteredTableMetadata</code> API operation. Accepted values are:</p>
@@ -3224,31 +3224,31 @@ export interface GetUnfilteredTableMetadataRequest {
    * <p>The resource ARN of the view.</p>
    * @public
    */
-  ParentResourceArn?: string;
+  ParentResourceArn?: string | undefined;
 
   /**
    * <p>The resource ARN of the root view in a chain of nested views.</p>
    * @public
    */
-  RootResourceArn?: string;
+  RootResourceArn?: string | undefined;
 
   /**
    * <p>A structure specifying the dialect and dialect version used by the query engine.</p>
    * @public
    */
-  SupportedDialect?: SupportedDialect;
+  SupportedDialect?: SupportedDialect | undefined;
 
   /**
    * <p>The Lake Formation data permissions of the caller on the table. Used to authorize the call when no view context is found.</p>
    * @public
    */
-  Permissions?: Permission[];
+  Permissions?: Permission[] | undefined;
 
   /**
    * <p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>
    * @public
    */
-  QuerySessionContext?: QuerySessionContext;
+  QuerySessionContext?: QuerySessionContext | undefined;
 }
 
 /**
@@ -3260,13 +3260,13 @@ export interface ColumnRowFilter {
    * <p>A string containing the name of the column.</p>
    * @public
    */
-  ColumnName?: string;
+  ColumnName?: string | undefined;
 
   /**
    * <p>A string containing the row-level filter expression.</p>
    * @public
    */
-  RowFilterExpression?: string;
+  RowFilterExpression?: string | undefined;
 }
 
 /**
@@ -3288,31 +3288,31 @@ export interface GetUsageProfileResponse {
    * <p>The name of the usage profile.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the usage profile.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A <code>ProfileConfiguration</code> object specifying the job and session values for the profile.</p>
    * @public
    */
-  Configuration?: ProfileConfiguration;
+  Configuration?: ProfileConfiguration | undefined;
 
   /**
    * <p>The date and time when the usage profile was created.</p>
    * @public
    */
-  CreatedOn?: Date;
+  CreatedOn?: Date | undefined;
 
   /**
    * <p>The date and time when the usage profile was last modified.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 }
 
 /**
@@ -3324,7 +3324,7 @@ export interface GetUserDefinedFunctionRequest {
    *       provided, the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database where the function is located.</p>
@@ -3349,49 +3349,49 @@ export interface UserDefinedFunction {
    * <p>The name of the function.</p>
    * @public
    */
-  FunctionName?: string;
+  FunctionName?: string | undefined;
 
   /**
    * <p>The name of the catalog database that contains the function.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The Java class that contains the function code.</p>
    * @public
    */
-  ClassName?: string;
+  ClassName?: string | undefined;
 
   /**
    * <p>The owner of the function.</p>
    * @public
    */
-  OwnerName?: string;
+  OwnerName?: string | undefined;
 
   /**
    * <p>The owner type.</p>
    * @public
    */
-  OwnerType?: PrincipalType;
+  OwnerType?: PrincipalType | undefined;
 
   /**
    * <p>The time at which the function was created.</p>
    * @public
    */
-  CreateTime?: Date;
+  CreateTime?: Date | undefined;
 
   /**
    * <p>The resource URIs for the function.</p>
    * @public
    */
-  ResourceUris?: ResourceUri[];
+  ResourceUris?: ResourceUri[] | undefined;
 
   /**
    * <p>The ID of the Data Catalog in which the function resides.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 }
 
 /**
@@ -3402,7 +3402,7 @@ export interface GetUserDefinedFunctionResponse {
    * <p>The requested function definition.</p>
    * @public
    */
-  UserDefinedFunction?: UserDefinedFunction;
+  UserDefinedFunction?: UserDefinedFunction | undefined;
 }
 
 /**
@@ -3414,14 +3414,14 @@ export interface GetUserDefinedFunctionsRequest {
    *       provided, the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database where the functions are located. If none is provided, functions from all the
    *       databases across the catalog will be returned.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>An optional function-name pattern string that filters the function
@@ -3434,13 +3434,13 @@ export interface GetUserDefinedFunctionsRequest {
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of functions to return in one response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3451,14 +3451,14 @@ export interface GetUserDefinedFunctionsResponse {
    * <p>A list of requested function definitions.</p>
    * @public
    */
-  UserDefinedFunctions?: UserDefinedFunction[];
+  UserDefinedFunctions?: UserDefinedFunction[] | undefined;
 
   /**
    * <p>A continuation token, if the list of functions returned does
    *       not include the last requested function.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3475,7 +3475,7 @@ export interface GetWorkflowRequest {
    * <p>Specifies whether to include a graph when returning the workflow resource metadata.</p>
    * @public
    */
-  IncludeGraph?: boolean;
+  IncludeGraph?: boolean | undefined;
 }
 
 /**
@@ -3486,7 +3486,7 @@ export interface GetWorkflowResponse {
    * <p>The resource metadata for the workflow.</p>
    * @public
    */
-  Workflow?: Workflow;
+  Workflow?: Workflow | undefined;
 }
 
 /**
@@ -3509,7 +3509,7 @@ export interface GetWorkflowRunRequest {
    * <p>Specifies whether to include the workflow graph in response or not.</p>
    * @public
    */
-  IncludeGraph?: boolean;
+  IncludeGraph?: boolean | undefined;
 }
 
 /**
@@ -3520,7 +3520,7 @@ export interface GetWorkflowRunResponse {
    * <p>The requested workflow run metadata.</p>
    * @public
    */
-  Run?: WorkflowRun;
+  Run?: WorkflowRun | undefined;
 }
 
 /**
@@ -3548,7 +3548,7 @@ export interface GetWorkflowRunPropertiesResponse {
    * <p>The workflow run properties which were set during the specified run.</p>
    * @public
    */
-  RunProperties?: Record<string, string>;
+  RunProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -3565,19 +3565,19 @@ export interface GetWorkflowRunsRequest {
    * <p>Specifies whether to include the workflow graph in response or not.</p>
    * @public
    */
-  IncludeGraph?: boolean;
+  IncludeGraph?: boolean | undefined;
 
   /**
    * <p>The maximum size of the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of workflow runs to be included in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3588,13 +3588,13 @@ export interface GetWorkflowRunsResponse {
    * <p>A list of workflow run metadata objects.</p>
    * @public
    */
-  Runs?: WorkflowRun[];
+  Runs?: WorkflowRun[] | undefined;
 
   /**
    * <p>A continuation token, if not all requested workflow runs have been returned.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3605,7 +3605,7 @@ export interface ImportCatalogToGlueRequest {
    * <p>The ID of the catalog to import. Currently, this should be the Amazon Web Services account ID.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 }
 
 /**
@@ -3621,19 +3621,19 @@ export interface ListBlueprintsRequest {
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters the list by an Amazon Web Services resource tag.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3644,13 +3644,13 @@ export interface ListBlueprintsResponse {
    * <p>List of names of blueprints in the account.</p>
    * @public
    */
-  Blueprints?: string[];
+  Blueprints?: string[] | undefined;
 
   /**
    * <p>A continuation token, if not all blueprint names have been returned.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3661,13 +3661,13 @@ export interface ListColumnStatisticsTaskRunsRequest {
    * <p>The maximum size of the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3678,13 +3678,13 @@ export interface ListColumnStatisticsTaskRunsResponse {
    * <p>A list of column statistics task run IDs.</p>
    * @public
    */
-  ColumnStatisticsTaskRunIds?: string[];
+  ColumnStatisticsTaskRunIds?: string[] | undefined;
 
   /**
    * <p>A continuation token, if not all task run IDs have yet been returned.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3695,19 +3695,19 @@ export interface ListCrawlersRequest {
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies to return only these tagged resources.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3718,14 +3718,14 @@ export interface ListCrawlersResponse {
    * <p>The names of all crawlers in the account, or the crawlers with the specified tags.</p>
    * @public
    */
-  CrawlerNames?: string[];
+  CrawlerNames?: string[] | undefined;
 
   /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3790,7 +3790,7 @@ export interface CrawlsFilter {
    *          </ul>
    * @public
    */
-  FieldName?: FieldName;
+  FieldName?: FieldName | undefined;
 
   /**
    * <p>A defined comparator that operates on the value. The available operators are:</p>
@@ -3822,13 +3822,13 @@ export interface CrawlsFilter {
    *          </ul>
    * @public
    */
-  FilterOperator?: FilterOperator;
+  FilterOperator?: FilterOperator | undefined;
 
   /**
    * <p>The value provided for comparison on the crawl field. </p>
    * @public
    */
-  FieldValue?: string;
+  FieldValue?: string | undefined;
 }
 
 /**
@@ -3845,19 +3845,19 @@ export interface ListCrawlsRequest {
    * <p>The maximum number of results to return. The default is 20, and maximum is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters the crawls by the criteria you specify in a list of <code>CrawlsFilter</code> objects.</p>
    * @public
    */
-  Filters?: CrawlsFilter[];
+  Filters?: CrawlsFilter[] | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3885,61 +3885,61 @@ export interface CrawlerHistory {
    * <p>A UUID identifier for each crawl.</p>
    * @public
    */
-  CrawlId?: string;
+  CrawlId?: string | undefined;
 
   /**
    * <p>The state of the crawl.</p>
    * @public
    */
-  State?: CrawlerHistoryState;
+  State?: CrawlerHistoryState | undefined;
 
   /**
    * <p>The date and time on which the crawl started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The date and time on which the crawl ended.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>A run summary for the specific crawl in JSON. Contains the catalog tables and partitions that were added, updated, or deleted.</p>
    * @public
    */
-  Summary?: string;
+  Summary?: string | undefined;
 
   /**
    * <p>If an error occurred, the error message associated with the crawl.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The log group associated with the crawl.</p>
    * @public
    */
-  LogGroup?: string;
+  LogGroup?: string | undefined;
 
   /**
    * <p>The log stream associated with the crawl.</p>
    * @public
    */
-  LogStream?: string;
+  LogStream?: string | undefined;
 
   /**
    * <p>The prefix for a CloudWatch message about this crawl.</p>
    * @public
    */
-  MessagePrefix?: string;
+  MessagePrefix?: string | undefined;
 
   /**
    * <p>The number of data processing units (DPU) used in hours for the crawl.</p>
    * @public
    */
-  DPUHour?: number;
+  DPUHour?: number | undefined;
 }
 
 /**
@@ -3950,13 +3950,13 @@ export interface ListCrawlsResponse {
    * <p>A list of <code>CrawlerHistory</code> objects representing the crawl runs that meet your criteria.</p>
    * @public
    */
-  Crawls?: CrawlerHistory[];
+  Crawls?: CrawlerHistory[] | undefined;
 
   /**
    * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3967,19 +3967,19 @@ export interface ListCustomEntityTypesRequest {
    * <p>A paginated token to offset the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A list of key-value pair tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3990,13 +3990,13 @@ export interface ListCustomEntityTypesResponse {
    * <p>A list of <code>CustomEntityType</code> objects representing custom patterns.</p>
    * @public
    */
-  CustomEntityTypes?: CustomEntityType[];
+  CustomEntityTypes?: CustomEntityType[] | undefined;
 
   /**
    * <p>A pagination token, if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4008,31 +4008,31 @@ export interface DataQualityResultFilterCriteria {
    * <p>Filter results by the specified data source. For example, retrieving all results for an Glue table.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>Filter results by the specified job name.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>Filter results by the specified job run ID.</p>
    * @public
    */
-  JobRunId?: string;
+  JobRunId?: string | undefined;
 
   /**
    * <p>Filter results by runs that started after this time.</p>
    * @public
    */
-  StartedAfter?: Date;
+  StartedAfter?: Date | undefined;
 
   /**
    * <p>Filter results by runs that started before this time.</p>
    * @public
    */
-  StartedBefore?: Date;
+  StartedBefore?: Date | undefined;
 }
 
 /**
@@ -4043,19 +4043,19 @@ export interface ListDataQualityResultsRequest {
    * <p>The filter criteria.</p>
    * @public
    */
-  Filter?: DataQualityResultFilterCriteria;
+  Filter?: DataQualityResultFilterCriteria | undefined;
 
   /**
    * <p>A paginated token to offset the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4067,31 +4067,31 @@ export interface DataQualityResultDescription {
    * <p>The unique result ID for this data quality result.</p>
    * @public
    */
-  ResultId?: string;
+  ResultId?: string | undefined;
 
   /**
    * <p>The table name associated with the data quality result.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>The job name associated with the data quality result.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The job run ID associated with the data quality result.</p>
    * @public
    */
-  JobRunId?: string;
+  JobRunId?: string | undefined;
 
   /**
    * <p>The time that the run started for this data quality result.</p>
    * @public
    */
-  StartedOn?: Date;
+  StartedOn?: Date | undefined;
 }
 
 /**
@@ -4108,7 +4108,7 @@ export interface ListDataQualityResultsResponse {
    * <p>A pagination token, if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4126,13 +4126,13 @@ export interface DataQualityRuleRecommendationRunFilter {
    * <p>Filter based on time for results started before provided time.</p>
    * @public
    */
-  StartedBefore?: Date;
+  StartedBefore?: Date | undefined;
 
   /**
    * <p>Filter based on time for results started after provided time.</p>
    * @public
    */
-  StartedAfter?: Date;
+  StartedAfter?: Date | undefined;
 }
 
 /**
@@ -4143,19 +4143,19 @@ export interface ListDataQualityRuleRecommendationRunsRequest {
    * <p>The filter criteria.</p>
    * @public
    */
-  Filter?: DataQualityRuleRecommendationRunFilter;
+  Filter?: DataQualityRuleRecommendationRunFilter | undefined;
 
   /**
    * <p>A paginated token to offset the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4167,25 +4167,25 @@ export interface DataQualityRuleRecommendationRunDescription {
    * <p>The unique run identifier associated with this run.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 
   /**
    * <p>The status for this run.</p>
    * @public
    */
-  Status?: TaskStatusType;
+  Status?: TaskStatusType | undefined;
 
   /**
    * <p>The date and time when this run started.</p>
    * @public
    */
-  StartedOn?: Date;
+  StartedOn?: Date | undefined;
 
   /**
    * <p>The data source (Glue table) associated with the recommendation run.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 }
 
 /**
@@ -4196,13 +4196,13 @@ export interface ListDataQualityRuleRecommendationRunsResponse {
    * <p>A list of <code>DataQualityRuleRecommendationRunDescription</code> objects.</p>
    * @public
    */
-  Runs?: DataQualityRuleRecommendationRunDescription[];
+  Runs?: DataQualityRuleRecommendationRunDescription[] | undefined;
 
   /**
    * <p>A pagination token, if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4220,13 +4220,13 @@ export interface DataQualityRulesetEvaluationRunFilter {
    * <p>Filter results by runs that started before this time.</p>
    * @public
    */
-  StartedBefore?: Date;
+  StartedBefore?: Date | undefined;
 
   /**
    * <p>Filter results by runs that started after this time.</p>
    * @public
    */
-  StartedAfter?: Date;
+  StartedAfter?: Date | undefined;
 }
 
 /**
@@ -4237,19 +4237,19 @@ export interface ListDataQualityRulesetEvaluationRunsRequest {
    * <p>The filter criteria.</p>
    * @public
    */
-  Filter?: DataQualityRulesetEvaluationRunFilter;
+  Filter?: DataQualityRulesetEvaluationRunFilter | undefined;
 
   /**
    * <p>A paginated token to offset the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4261,25 +4261,25 @@ export interface DataQualityRulesetEvaluationRunDescription {
    * <p>The unique run identifier associated with this run.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 
   /**
    * <p>The status for this run.</p>
    * @public
    */
-  Status?: TaskStatusType;
+  Status?: TaskStatusType | undefined;
 
   /**
    * <p>The date and time when the run started.</p>
    * @public
    */
-  StartedOn?: Date;
+  StartedOn?: Date | undefined;
 
   /**
    * <p>The data source (an Glue table) associated with the run.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 }
 
 /**
@@ -4290,13 +4290,13 @@ export interface ListDataQualityRulesetEvaluationRunsResponse {
    * <p>A list of <code>DataQualityRulesetEvaluationRunDescription</code> objects representing data quality ruleset runs.</p>
    * @public
    */
-  Runs?: DataQualityRulesetEvaluationRunDescription[];
+  Runs?: DataQualityRulesetEvaluationRunDescription[] | undefined;
 
   /**
    * <p>A pagination token, if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4308,43 +4308,43 @@ export interface DataQualityRulesetFilterCriteria {
    * <p>The name of the ruleset filter criteria.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the ruleset filter criteria.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Filter on rulesets created before this date.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>Filter on rulesets created after this date.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>Filter on rulesets last modified before this date.</p>
    * @public
    */
-  LastModifiedBefore?: Date;
+  LastModifiedBefore?: Date | undefined;
 
   /**
    * <p>Filter on rulesets last modified after this date.</p>
    * @public
    */
-  LastModifiedAfter?: Date;
+  LastModifiedAfter?: Date | undefined;
 
   /**
    * <p>The name and database name of the target table.</p>
    * @public
    */
-  TargetTable?: DataQualityTargetTable;
+  TargetTable?: DataQualityTargetTable | undefined;
 }
 
 /**
@@ -4355,25 +4355,25 @@ export interface ListDataQualityRulesetsRequest {
    * <p>A paginated token to offset the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The filter criteria. </p>
    * @public
    */
-  Filter?: DataQualityRulesetFilterCriteria;
+  Filter?: DataQualityRulesetFilterCriteria | undefined;
 
   /**
    * <p>A list of key-value pair tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4385,43 +4385,43 @@ export interface DataQualityRulesetListDetails {
    * <p>The name of the data quality ruleset.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the data quality ruleset.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time the data quality ruleset was created.</p>
    * @public
    */
-  CreatedOn?: Date;
+  CreatedOn?: Date | undefined;
 
   /**
    * <p>The date and time the data quality ruleset was last modified.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 
   /**
    * <p>An object representing an Glue table.</p>
    * @public
    */
-  TargetTable?: DataQualityTargetTable;
+  TargetTable?: DataQualityTargetTable | undefined;
 
   /**
    * <p>When a ruleset was created from a recommendation run, this run ID is generated to link the two together.</p>
    * @public
    */
-  RecommendationRunId?: string;
+  RecommendationRunId?: string | undefined;
 
   /**
    * <p>The number of rules in the ruleset.</p>
    * @public
    */
-  RuleCount?: number;
+  RuleCount?: number | undefined;
 }
 
 /**
@@ -4432,13 +4432,13 @@ export interface ListDataQualityRulesetsResponse {
    * <p>A paginated list of rulesets for the specified list of Glue tables.</p>
    * @public
    */
-  Rulesets?: DataQualityRulesetListDetails[];
+  Rulesets?: DataQualityRulesetListDetails[] | undefined;
 
   /**
    * <p>A pagination token, if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4450,13 +4450,13 @@ export interface TimestampFilter {
    * <p>The timestamp before which statistics should be included in the results.</p>
    * @public
    */
-  RecordedBefore?: Date;
+  RecordedBefore?: Date | undefined;
 
   /**
    * <p>The timestamp after which statistics should be included in the results.</p>
    * @public
    */
-  RecordedAfter?: Date;
+  RecordedAfter?: Date | undefined;
 }
 
 /**
@@ -4467,31 +4467,31 @@ export interface ListDataQualityStatisticAnnotationsRequest {
    * <p>The Statistic ID.</p>
    * @public
    */
-  StatisticId?: string;
+  StatisticId?: string | undefined;
 
   /**
    * <p>The Profile ID.</p>
    * @public
    */
-  ProfileId?: string;
+  ProfileId?: string | undefined;
 
   /**
    * <p>A timestamp filter.</p>
    * @public
    */
-  TimestampFilter?: TimestampFilter;
+  TimestampFilter?: TimestampFilter | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A pagination token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4502,13 +4502,13 @@ export interface ListDataQualityStatisticAnnotationsResponse {
    * <p>A list of <code>StatisticAnnotation</code> applied to the Statistic</p>
    * @public
    */
-  Annotations?: StatisticAnnotation[];
+  Annotations?: StatisticAnnotation[] | undefined;
 
   /**
    * <p>A pagination token to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4519,31 +4519,31 @@ export interface ListDataQualityStatisticsRequest {
    * <p>The Statistic ID.</p>
    * @public
    */
-  StatisticId?: string;
+  StatisticId?: string | undefined;
 
   /**
    * <p>The Profile ID.</p>
    * @public
    */
-  ProfileId?: string;
+  ProfileId?: string | undefined;
 
   /**
    * <p>A timestamp filter.</p>
    * @public
    */
-  TimestampFilter?: TimestampFilter;
+  TimestampFilter?: TimestampFilter | undefined;
 
   /**
    * <p>The maximum number of results to return in this request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A pagination token to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4570,13 +4570,13 @@ export interface RunIdentifier {
    * <p>The Run ID.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 
   /**
    * <p>The Job Run ID.</p>
    * @public
    */
-  JobRunId?: string;
+  JobRunId?: string | undefined;
 }
 
 /**
@@ -4588,68 +4588,68 @@ export interface StatisticSummary {
    * <p>The Statistic ID.</p>
    * @public
    */
-  StatisticId?: string;
+  StatisticId?: string | undefined;
 
   /**
    * <p>The Profile ID.</p>
    * @public
    */
-  ProfileId?: string;
+  ProfileId?: string | undefined;
 
   /**
    * <p>The Run Identifier</p>
    * @public
    */
-  RunIdentifier?: RunIdentifier;
+  RunIdentifier?: RunIdentifier | undefined;
 
   /**
    * <p>The name of the statistic.</p>
    * @public
    */
-  StatisticName?: string;
+  StatisticName?: string | undefined;
 
   /**
    * <p>The value of the statistic.</p>
    * @public
    */
-  DoubleValue?: number;
+  DoubleValue?: number | undefined;
 
   /**
    * <p>The evaluation level of the statistic. Possible values: <code>Dataset</code>, <code>Column</code>, <code>Multicolumn</code>.</p>
    * @public
    */
-  EvaluationLevel?: StatisticEvaluationLevel;
+  EvaluationLevel?: StatisticEvaluationLevel | undefined;
 
   /**
    * <p>The list of columns referenced by the statistic.</p>
    * @public
    */
-  ColumnsReferenced?: string[];
+  ColumnsReferenced?: string[] | undefined;
 
   /**
    * <p>The list of datasets referenced by the statistic.</p>
    * @public
    */
-  ReferencedDatasets?: string[];
+  ReferencedDatasets?: string[] | undefined;
 
   /**
    * <p>A <code>StatisticPropertiesMap</code>, which contains a <code>NameString</code> and <code>DescriptionString</code>
    *          </p>
    * @public
    */
-  StatisticProperties?: Record<string, string>;
+  StatisticProperties?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp when the statistic was recorded.</p>
    * @public
    */
-  RecordedOn?: Date;
+  RecordedOn?: Date | undefined;
 
   /**
    * <p>The inclusion annotation for the statistic.</p>
    * @public
    */
-  InclusionAnnotation?: TimestampedInclusionAnnotation;
+  InclusionAnnotation?: TimestampedInclusionAnnotation | undefined;
 }
 
 /**
@@ -4660,13 +4660,13 @@ export interface ListDataQualityStatisticsResponse {
    * <p>A <code>StatisticSummaryList</code>.</p>
    * @public
    */
-  Statistics?: StatisticSummary[];
+  Statistics?: StatisticSummary[] | undefined;
 
   /**
    * <p>A pagination token to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4677,19 +4677,19 @@ export interface ListDevEndpointsRequest {
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies to return only these tagged resources.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4701,14 +4701,14 @@ export interface ListDevEndpointsResponse {
    *         <code>DevEndpoint</code>s with the specified tags.</p>
    * @public
    */
-  DevEndpointNames?: string[];
+  DevEndpointNames?: string[] | undefined;
 
   /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4719,19 +4719,19 @@ export interface ListJobsRequest {
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies to return only these tagged resources.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4742,14 +4742,14 @@ export interface ListJobsResponse {
    * <p>The names of all jobs in the account, or the jobs with the specified tags.</p>
    * @public
    */
-  JobNames?: string[];
+  JobNames?: string[] | undefined;
 
   /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4760,31 +4760,31 @@ export interface ListMLTransformsRequest {
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A <code>TransformFilterCriteria</code> used to filter the machine learning transforms.</p>
    * @public
    */
-  Filter?: TransformFilterCriteria;
+  Filter?: TransformFilterCriteria | undefined;
 
   /**
    * <p>A <code>TransformSortCriteria</code> used to sort the machine learning transforms.</p>
    * @public
    */
-  Sort?: TransformSortCriteria;
+  Sort?: TransformSortCriteria | undefined;
 
   /**
    * <p>Specifies to return only these tagged resources.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4803,7 +4803,7 @@ export interface ListMLTransformsResponse {
    *       last metric available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4814,13 +4814,13 @@ export interface ListRegistriesInput {
    * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4832,37 +4832,37 @@ export interface RegistryListItem {
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the registry.</p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>A description of the registry.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the registry.</p>
    * @public
    */
-  Status?: RegistryStatus;
+  Status?: RegistryStatus | undefined;
 
   /**
    * <p>The data the registry was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>The date the registry was updated.</p>
    * @public
    */
-  UpdatedTime?: string;
+  UpdatedTime?: string | undefined;
 }
 
 /**
@@ -4873,13 +4873,13 @@ export interface ListRegistriesResponse {
    * <p>An array of <code>RegistryDetailedListItem</code> objects containing minimal details of each registry.</p>
    * @public
    */
-  Registries?: RegistryListItem[];
+  Registries?: RegistryListItem[] | undefined;
 
   /**
    * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4890,19 +4890,19 @@ export interface ListSchemasInput {
    * <p>A wrapper structure that may contain the registry name and Amazon Resource Name (ARN).</p>
    * @public
    */
-  RegistryId?: RegistryId;
+  RegistryId?: RegistryId | undefined;
 
   /**
    * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4914,43 +4914,43 @@ export interface SchemaListItem {
    * <p>the name of the registry where the schema resides.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>A description for the schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the schema.</p>
    * @public
    */
-  SchemaStatus?: SchemaStatus;
+  SchemaStatus?: SchemaStatus | undefined;
 
   /**
    * <p>The date and time that a schema was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>The date and time that a schema was updated.</p>
    * @public
    */
-  UpdatedTime?: string;
+  UpdatedTime?: string | undefined;
 }
 
 /**
@@ -4961,13 +4961,13 @@ export interface ListSchemasResponse {
    * <p>An array of <code>SchemaListItem</code> objects containing details of each schema.</p>
    * @public
    */
-  Schemas?: SchemaListItem[];
+  Schemas?: SchemaListItem[] | undefined;
 
   /**
    * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4992,13 +4992,13 @@ export interface ListSchemaVersionsInput {
    * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5010,31 +5010,31 @@ export interface SchemaVersionListItem {
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The status of the schema version.</p>
    * @public
    */
-  Status?: SchemaVersionStatus;
+  Status?: SchemaVersionStatus | undefined;
 
   /**
    * <p>The date and time the schema version was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 }
 
 /**
@@ -5045,13 +5045,13 @@ export interface ListSchemaVersionsResponse {
    * <p>An array of <code>SchemaVersionList</code> objects containing details of each schema version.</p>
    * @public
    */
-  Schemas?: SchemaVersionListItem[];
+  Schemas?: SchemaVersionListItem[] | undefined;
 
   /**
    * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5062,25 +5062,25 @@ export interface ListSessionsRequest {
    * <p>The token for the next set of results, or null if there are no more result. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Tags belonging to the session. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The origin of the request. </p>
    * @public
    */
-  RequestOrigin?: string;
+  RequestOrigin?: string | undefined;
 }
 
 /**
@@ -5091,19 +5091,19 @@ export interface ListSessionsResponse {
    * <p>Returns the ID of the session. </p>
    * @public
    */
-  Ids?: string[];
+  Ids?: string[] | undefined;
 
   /**
    * <p>Returns the session object. </p>
    * @public
    */
-  Sessions?: Session[];
+  Sessions?: Session[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more result. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5120,13 +5120,13 @@ export interface ListStatementsRequest {
    * <p>The origin of the request to list statements.</p>
    * @public
    */
-  RequestOrigin?: string;
+  RequestOrigin?: string | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5137,13 +5137,13 @@ export interface ListStatementsResponse {
    * <p>Returns the list of statements.</p>
    * @public
    */
-  Statements?: Statement[];
+  Statements?: Statement[] | undefined;
 
   /**
    * <p>A continuation token, if not all statements have yet been returned.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5178,13 +5178,13 @@ export interface ListTableOptimizerRunsRequest {
    * <p>The maximum number of optimizer runs to return on each call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5195,31 +5195,31 @@ export interface ListTableOptimizerRunsResponse {
    * <p>The Catalog ID of the table.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the database in the catalog in which the table resides.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>A continuation token for paginating the returned list of optimizer runs, returned if the current segment of the list is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of the optimizer runs associated with a table.</p>
    * @public
    */
-  TableOptimizerRuns?: TableOptimizerRun[];
+  TableOptimizerRuns?: TableOptimizerRun[] | undefined;
 }
 
 /**
@@ -5230,26 +5230,26 @@ export interface ListTriggersRequest {
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The name of the job for which to retrieve triggers. The trigger that can start this job
    *       is returned. If there is no such trigger, all triggers are returned.</p>
    * @public
    */
-  DependentJobName?: string;
+  DependentJobName?: string | undefined;
 
   /**
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies to return only these tagged resources.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5260,14 +5260,14 @@ export interface ListTriggersResponse {
    * <p>The names of all triggers in the account, or the triggers with the specified tags.</p>
    * @public
    */
-  TriggerNames?: string[];
+  TriggerNames?: string[] | undefined;
 
   /**
    * <p>A continuation token, if the returned list does not contain the
    *       last metric available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5278,13 +5278,13 @@ export interface ListUsageProfilesRequest {
    * <p>A continuation token, included if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of usage profiles to return in a single response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5296,25 +5296,25 @@ export interface UsageProfileDefinition {
    * <p>The name of the usage profile.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the usage profile.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time when the usage profile was created.</p>
    * @public
    */
-  CreatedOn?: Date;
+  CreatedOn?: Date | undefined;
 
   /**
    * <p>The date and time when the usage profile was last modified.</p>
    * @public
    */
-  LastModifiedOn?: Date;
+  LastModifiedOn?: Date | undefined;
 }
 
 /**
@@ -5325,13 +5325,13 @@ export interface ListUsageProfilesResponse {
    * <p>A list of usage profile (<code>UsageProfileDefinition</code>) objects.</p>
    * @public
    */
-  Profiles?: UsageProfileDefinition[];
+  Profiles?: UsageProfileDefinition[] | undefined;
 
   /**
    * <p>A continuation token, present if the current list segment is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5342,13 +5342,13 @@ export interface ListWorkflowsRequest {
    * <p>A continuation token, if this is a continuation request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum size of a list to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5359,13 +5359,13 @@ export interface ListWorkflowsResponse {
    * <p>List of names of workflows in the account.</p>
    * @public
    */
-  Workflows?: string[];
+  Workflows?: string[] | undefined;
 
   /**
    * <p>A continuation token, if not all workflow names have been returned.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5377,7 +5377,7 @@ export interface PutDataCatalogEncryptionSettingsRequest {
    *       Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The security configuration to set.</p>
@@ -5457,7 +5457,7 @@ export interface PutResourcePolicyRequest {
    * <p>Do not use. For internal use only.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The hash value returned when the previous policy was set using
@@ -5465,7 +5465,7 @@ export interface PutResourcePolicyRequest {
    *       policy. Do not use this parameter if no previous policy has been set.</p>
    * @public
    */
-  PolicyHashCondition?: string;
+  PolicyHashCondition?: string | undefined;
 
   /**
    * <p>A value of <code>MUST_EXIST</code> is used to update a policy. A value of
@@ -5473,7 +5473,7 @@ export interface PutResourcePolicyRequest {
    *       null value is used, the call does not depend on the existence of a policy.</p>
    * @public
    */
-  PolicyExistsCondition?: ExistCondition;
+  PolicyExistsCondition?: ExistCondition | undefined;
 
   /**
    * <p>If <code>'TRUE'</code>, indicates that you are using both methods to grant cross-account
@@ -5491,7 +5491,7 @@ export interface PutResourcePolicyRequest {
    *       grant cross-account access, otherwise the call fails. Default is 'FALSE'.</p>
    * @public
    */
-  EnableHybrid?: EnableHybridValues;
+  EnableHybrid?: EnableHybridValues | undefined;
 }
 
 /**
@@ -5504,7 +5504,7 @@ export interface PutResourcePolicyResponse {
    *       this policy.</p>
    * @public
    */
-  PolicyHash?: string;
+  PolicyHash?: string | undefined;
 }
 
 /**
@@ -5516,13 +5516,13 @@ export interface MetadataKeyValuePair {
    * <p>A metadata key.</p>
    * @public
    */
-  MetadataKey?: string;
+  MetadataKey?: string | undefined;
 
   /**
    * <p>A metadata key’s corresponding value.</p>
    * @public
    */
-  MetadataValue?: string;
+  MetadataValue?: string | undefined;
 }
 
 /**
@@ -5533,19 +5533,19 @@ export interface PutSchemaVersionMetadataInput {
    * <p>The unique ID for the schema.</p>
    * @public
    */
-  SchemaId?: SchemaId;
+  SchemaId?: SchemaId | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  SchemaVersionNumber?: SchemaVersionNumber;
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
 
   /**
    * <p>The unique version ID of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The metadata key's corresponding value.</p>
@@ -5562,49 +5562,49 @@ export interface PutSchemaVersionMetadataResponse {
    * <p>The Amazon Resource Name (ARN) for the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name for the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The name for the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The latest version of the schema.</p>
    * @public
    */
-  LatestVersion?: boolean;
+  LatestVersion?: boolean | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The unique version ID of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The metadata key.</p>
    * @public
    */
-  MetadataKey?: string;
+  MetadataKey?: string | undefined;
 
   /**
    * <p>The value of the metadata key.</p>
    * @public
    */
-  MetadataValue?: string;
+  MetadataValue?: string | undefined;
 }
 
 /**
@@ -5643,37 +5643,37 @@ export interface QuerySchemaVersionMetadataInput {
    * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
    * @public
    */
-  SchemaId?: SchemaId;
+  SchemaId?: SchemaId | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  SchemaVersionNumber?: SchemaVersionNumber;
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
 
   /**
    * <p>The unique version ID of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>Search key-value pairs for metadata, if they are not provided all the metadata information will be fetched.</p>
    * @public
    */
-  MetadataList?: MetadataKeyValuePair[];
+  MetadataList?: MetadataKeyValuePair[] | undefined;
 
   /**
    * <p>Maximum number of results required per page. If the value is not supplied, this will be defaulted to 25 per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A continuation token, if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5685,13 +5685,13 @@ export interface OtherMetadataValueListItem {
    * <p>The metadata key’s corresponding value for the other metadata belonging to the same metadata key.</p>
    * @public
    */
-  MetadataValue?: string;
+  MetadataValue?: string | undefined;
 
   /**
    * <p>The time at which the entry was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 }
 
 /**
@@ -5703,19 +5703,19 @@ export interface MetadataInfo {
    * <p>The metadata key’s corresponding value.</p>
    * @public
    */
-  MetadataValue?: string;
+  MetadataValue?: string | undefined;
 
   /**
    * <p>The time at which the entry was created.</p>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>Other metadata belonging to the same metadata key.</p>
    * @public
    */
-  OtherMetadataValueList?: OtherMetadataValueListItem[];
+  OtherMetadataValueList?: OtherMetadataValueListItem[] | undefined;
 }
 
 /**
@@ -5726,19 +5726,19 @@ export interface QuerySchemaVersionMetadataResponse {
    * <p>A map of a metadata key and associated values.</p>
    * @public
    */
-  MetadataInfoMap?: Record<string, MetadataInfo>;
+  MetadataInfoMap?: Record<string, MetadataInfo> | undefined;
 
   /**
    * <p>The unique version ID of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>A continuation token for paginating the returned list of tokens, returned if the current segment of the list is not the last.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5774,19 +5774,19 @@ export interface RegisterSchemaVersionResponse {
    * <p>The unique ID that represents the version of this schema.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The version of this schema (for sync flow only, in case this is the first version).</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The status of the schema version.</p>
    * @public
    */
-  Status?: SchemaVersionStatus;
+  Status?: SchemaVersionStatus | undefined;
 }
 
 /**
@@ -5797,19 +5797,19 @@ export interface RemoveSchemaVersionMetadataInput {
    * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
    * @public
    */
-  SchemaId?: SchemaId;
+  SchemaId?: SchemaId | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  SchemaVersionNumber?: SchemaVersionNumber;
+  SchemaVersionNumber?: SchemaVersionNumber | undefined;
 
   /**
    * <p>The unique version ID of the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The value of the metadata key.</p>
@@ -5826,49 +5826,49 @@ export interface RemoveSchemaVersionMetadataResponse {
    * <p>The Amazon Resource Name (ARN) of the schema.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the schema.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The name of the registry.</p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 
   /**
    * <p>The latest version of the schema.</p>
    * @public
    */
-  LatestVersion?: boolean;
+  LatestVersion?: boolean | undefined;
 
   /**
    * <p>The version number of the schema.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The version ID for the schema version.</p>
    * @public
    */
-  SchemaVersionId?: string;
+  SchemaVersionId?: string | undefined;
 
   /**
    * <p>The metadata key.</p>
    * @public
    */
-  MetadataKey?: string;
+  MetadataKey?: string | undefined;
 
   /**
    * <p>The value of the metadata key.</p>
    * @public
    */
-  MetadataValue?: string;
+  MetadataValue?: string | undefined;
 }
 
 /**
@@ -5885,7 +5885,7 @@ export interface ResetJobBookmarkRequest {
    * <p>The unique run identifier associated with this job run.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 }
 
 /**
@@ -5896,7 +5896,7 @@ export interface ResetJobBookmarkResponse {
    * <p>The reset bookmark entry.</p>
    * @public
    */
-  JobBookmarkEntry?: JobBookmarkEntry;
+  JobBookmarkEntry?: JobBookmarkEntry | undefined;
 }
 
 /**
@@ -5910,7 +5910,7 @@ export class ConcurrentRunsExceededException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5936,7 +5936,7 @@ export class IllegalWorkflowStateException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5982,13 +5982,13 @@ export interface ResumeWorkflowRunResponse {
    * <p>The new ID assigned to the resumed workflow run. Each resume of a workflow run will have a new run ID.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 
   /**
    * <p>A list of the node IDs for the nodes that were actually restarted.</p>
    * @public
    */
-  NodeIds?: string[];
+  NodeIds?: string[] | undefined;
 }
 
 /**
@@ -6011,7 +6011,7 @@ export interface RunStatementRequest {
    * <p>The origin of the request.</p>
    * @public
    */
-  RequestOrigin?: string;
+  RequestOrigin?: string | undefined;
 }
 
 /**
@@ -6022,7 +6022,7 @@ export interface RunStatementResponse {
    * <p>Returns the Id of the statement that was run.</p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 }
 
 /**
@@ -6051,19 +6051,19 @@ export interface PropertyPredicate {
    * <p>The key of the property.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of the property.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The comparator used to compare this property to others.</p>
    * @public
    */
-  Comparator?: Comparator;
+  Comparator?: Comparator | undefined;
 }
 
 /**
@@ -6089,13 +6089,13 @@ export interface SortCriterion {
    * <p>The name of the field on which to sort.</p>
    * @public
    */
-  FieldName?: string;
+  FieldName?: string | undefined;
 
   /**
    * <p>An ascending or descending sort.</p>
    * @public
    */
-  Sort?: Sort;
+  Sort?: Sort | undefined;
 }
 
 /**
@@ -6108,39 +6108,39 @@ export interface SearchTablesRequest {
    *             </code>.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>A continuation token, included if this is a continuation call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
    *          <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
    * @public
    */
-  Filters?: PropertyPredicate[];
+  Filters?: PropertyPredicate[] | undefined;
 
   /**
    * <p>A string used for a text search.</p>
    *          <p>Specifying a value in quotes filters based on an exact match to the value.</p>
    * @public
    */
-  SearchText?: string;
+  SearchText?: string | undefined;
 
   /**
    * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
    * @public
    */
-  SortCriteria?: SortCriterion[];
+  SortCriteria?: SortCriterion[] | undefined;
 
   /**
    * <p>The maximum number of tables to return in a single response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
@@ -6154,13 +6154,13 @@ export interface SearchTablesRequest {
    *          </ul>
    * @public
    */
-  ResourceShareType?: ResourceShareType;
+  ResourceShareType?: ResourceShareType | undefined;
 
   /**
    * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
    * @public
    */
-  IncludeStatusDetails?: boolean;
+  IncludeStatusDetails?: boolean | undefined;
 }
 
 /**
@@ -6174,7 +6174,7 @@ export class IllegalBlueprintStateException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6203,7 +6203,7 @@ export interface StartBlueprintRunRequest {
    * <p>Specifies the parameters as a <code>BlueprintParameters</code> object.</p>
    * @public
    */
-  Parameters?: string;
+  Parameters?: string | undefined;
 
   /**
    * <p>Specifies the IAM role used to create the workflow.</p>
@@ -6220,7 +6220,7 @@ export interface StartBlueprintRunResponse {
    * <p>The run ID for this blueprint run.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 }
 
 /**
@@ -6243,7 +6243,7 @@ export interface StartColumnStatisticsTaskRunRequest {
    * <p>A list of the column names to generate statistics. If none is supplied, all column names for the table will be used by default.</p>
    * @public
    */
-  ColumnNameList?: string[];
+  ColumnNameList?: string[] | undefined;
 
   /**
    * <p>The IAM role that the service assumes to generate statistics.</p>
@@ -6255,19 +6255,19 @@ export interface StartColumnStatisticsTaskRunRequest {
    * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
    * @public
    */
-  SampleSize?: number;
+  SampleSize?: number | undefined;
 
   /**
    * <p>The ID of the Data Catalog where the table reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogID?: string;
+  CatalogID?: string | undefined;
 
   /**
    * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
    * @public
    */
-  SecurityConfiguration?: string;
+  SecurityConfiguration?: string | undefined;
 }
 
 /**
@@ -6278,7 +6278,7 @@ export interface StartColumnStatisticsTaskRunResponse {
    * <p>The identifier for the column statistics task run.</p>
    * @public
    */
-  ColumnStatisticsTaskRunId?: string;
+  ColumnStatisticsTaskRunId?: string | undefined;
 }
 
 /**
@@ -6330,7 +6330,7 @@ export class NoScheduleException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6356,7 +6356,7 @@ export class SchedulerRunningException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6407,31 +6407,31 @@ export interface StartDataQualityRuleRecommendationRunRequest {
    * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>A name for the ruleset.</p>
    * @public
    */
-  CreatedRulesetName?: string;
+  CreatedRulesetName?: string | undefined;
 
   /**
    * <p>The name of the security configuration created with the data quality encryption option.</p>
    * @public
    */
-  DataQualitySecurityConfiguration?: string;
+  DataQualitySecurityConfiguration?: string | undefined;
 
   /**
    * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -6442,7 +6442,7 @@ export interface StartDataQualityRuleRecommendationRunResponse {
    * <p>The unique run identifier associated with this run.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 }
 
 /**
@@ -6465,25 +6465,25 @@ export interface StartDataQualityRulesetEvaluationRunRequest {
    * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Additional run options you can specify for an evaluation run.</p>
    * @public
    */
-  AdditionalRunOptions?: DataQualityEvaluationRunAdditionalRunOptions;
+  AdditionalRunOptions?: DataQualityEvaluationRunAdditionalRunOptions | undefined;
 
   /**
    * <p>A list of ruleset names.</p>
@@ -6495,7 +6495,7 @@ export interface StartDataQualityRulesetEvaluationRunRequest {
    * <p>A map of reference strings to additional data sources you can specify for an evaluation run.</p>
    * @public
    */
-  AdditionalDataSources?: Record<string, DataSource>;
+  AdditionalDataSources?: Record<string, DataSource> | undefined;
 }
 
 /**
@@ -6506,7 +6506,7 @@ export interface StartDataQualityRulesetEvaluationRunResponse {
    * <p>The unique run identifier associated with this run.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 }
 
 /**
@@ -6534,7 +6534,7 @@ export interface StartExportLabelsTaskRunResponse {
    * <p>The unique identifier for the task run.</p>
    * @public
    */
-  TaskRunId?: string;
+  TaskRunId?: string | undefined;
 }
 
 /**
@@ -6558,7 +6558,7 @@ export interface StartImportLabelsTaskRunRequest {
    * <p>Indicates whether to overwrite your existing labels.</p>
    * @public
    */
-  ReplaceAllLabels?: boolean;
+  ReplaceAllLabels?: boolean | undefined;
 }
 
 /**
@@ -6569,7 +6569,7 @@ export interface StartImportLabelsTaskRunResponse {
    * <p>The unique identifier for the task run.</p>
    * @public
    */
-  TaskRunId?: string;
+  TaskRunId?: string | undefined;
 }
 
 /**
@@ -6587,13 +6587,13 @@ export interface StartJobRunRequest {
    *          <p>A value of true means job run queuing is enabled for the job run. If false or not populated, the job run will not be considered for queueing.</p>
    * @public
    */
-  JobRunQueuingEnabled?: boolean;
+  JobRunQueuingEnabled?: boolean | undefined;
 
   /**
    * <p>The ID of a previous <code>JobRun</code> to retry.</p>
    * @public
    */
-  JobRunId?: string;
+  JobRunId?: string | undefined;
 
   /**
    * <p>The job arguments associated with this run. For this job run, they replace the default
@@ -6611,7 +6611,7 @@ export interface StartJobRunRequest {
    *       job parameters in Ray jobs</a> in the developer guide.</p>
    * @public
    */
-  Arguments?: Record<string, string>;
+  Arguments?: Record<string, string> | undefined;
 
   /**
    * @deprecated
@@ -6624,7 +6624,7 @@ export interface StartJobRunRequest {
    *         pricing page</a>.</p>
    * @public
    */
-  AllocatedCapacity?: number;
+  AllocatedCapacity?: number | undefined;
 
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
@@ -6632,7 +6632,7 @@ export interface StartJobRunRequest {
    *          <p>Streaming jobs must have timeout values less than 7 days or 10080 minutes. When the value is left blank, the job will be restarted after 7 days based if you have not setup a maintenance window. If you have setup maintenance window, it will be restarted during the maintenance window after 7 days.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of
@@ -6659,20 +6659,20 @@ export interface StartJobRunRequest {
    *          </ul>
    * @public
    */
-  MaxCapacity?: number;
+  MaxCapacity?: number | undefined;
 
   /**
    * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this job
    *       run.</p>
    * @public
    */
-  SecurityConfiguration?: string;
+  SecurityConfiguration?: string | undefined;
 
   /**
    * <p>Specifies configuration properties of a job run notification.</p>
    * @public
    */
-  NotificationProperty?: NotificationProperty;
+  NotificationProperty?: NotificationProperty | undefined;
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of
@@ -6699,13 +6699,13 @@ export interface StartJobRunRequest {
    *          </ul>
    * @public
    */
-  WorkerType?: WorkerType;
+  WorkerType?: WorkerType | undefined;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a job runs.</p>
    * @public
    */
-  NumberOfWorkers?: number;
+  NumberOfWorkers?: number | undefined;
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
@@ -6713,7 +6713,7 @@ export interface StartJobRunRequest {
    *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    * @public
    */
-  ExecutionClass?: ExecutionClass;
+  ExecutionClass?: ExecutionClass | undefined;
 }
 
 /**
@@ -6724,7 +6724,7 @@ export interface StartJobRunResponse {
    * <p>The ID assigned to this job run.</p>
    * @public
    */
-  JobRunId?: string;
+  JobRunId?: string | undefined;
 }
 
 /**
@@ -6738,7 +6738,7 @@ export class MLTransformNotReadyException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6772,7 +6772,7 @@ export interface StartMLEvaluationTaskRunResponse {
    * <p>The unique identifier associated with this run.</p>
    * @public
    */
-  TaskRunId?: string;
+  TaskRunId?: string | undefined;
 }
 
 /**
@@ -6801,7 +6801,7 @@ export interface StartMLLabelingSetGenerationTaskRunResponse {
    * <p>The unique run identifier that is associated with this task run.</p>
    * @public
    */
-  TaskRunId?: string;
+  TaskRunId?: string | undefined;
 }
 
 /**
@@ -6823,7 +6823,7 @@ export interface StartTriggerResponse {
    * <p>The name of the trigger that was started.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -6840,7 +6840,7 @@ export interface StartWorkflowRunRequest {
    * <p>The workflow run properties for the new workflow run.</p>
    * @public
    */
-  RunProperties?: Record<string, string>;
+  RunProperties?: Record<string, string> | undefined;
 }
 
 /**
@@ -6851,7 +6851,7 @@ export interface StartWorkflowRunResponse {
    * <p>An Id for the new run.</p>
    * @public
    */
-  RunId?: string;
+  RunId?: string | undefined;
 }
 
 /**
@@ -6865,7 +6865,7 @@ export class ColumnStatisticsTaskNotRunningException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6891,7 +6891,7 @@ export class ColumnStatisticsTaskStoppingException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6961,7 +6961,7 @@ export class CrawlerNotRunningException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6987,7 +6987,7 @@ export class CrawlerStoppingException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7029,7 +7029,7 @@ export class SchedulerNotRunningException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7074,7 +7074,7 @@ export interface StopSessionRequest {
    * <p>The origin of the request.</p>
    * @public
    */
-  RequestOrigin?: string;
+  RequestOrigin?: string | undefined;
 }
 
 /**
@@ -7085,7 +7085,7 @@ export interface StopSessionResponse {
    * <p>Returns the Id of the stopped session.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -7107,7 +7107,7 @@ export interface StopTriggerResponse {
    * <p>The name of the trigger that was stopped.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -7189,7 +7189,7 @@ export interface TestConnectionInput {
    * <p>A structure containing the authentication configuration in the TestConnection request. Required for a connection to Salesforce using OAuth authentication.</p>
    * @public
    */
-  AuthenticationConfiguration?: AuthenticationConfigurationInput;
+  AuthenticationConfiguration?: AuthenticationConfigurationInput | undefined;
 }
 
 /**
@@ -7200,13 +7200,13 @@ export interface TestConnectionRequest {
    * <p>Optional. The name of the connection to test. If only name is provided, the operation will get the connection and use that for testing.</p>
    * @public
    */
-  ConnectionName?: string;
+  ConnectionName?: string | undefined;
 
   /**
    * <p>A structure that is used to specify testing a connection to a service.</p>
    * @public
    */
-  TestConnectionInput?: TestConnectionInput;
+  TestConnectionInput?: TestConnectionInput | undefined;
 }
 
 /**
@@ -7250,7 +7250,7 @@ export interface UpdateBlueprintRequest {
    * <p>A description of the blueprint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specifies a path in Amazon S3 where the blueprint is published.</p>
@@ -7267,7 +7267,7 @@ export interface UpdateBlueprintResponse {
    * <p>Returns the name of the blueprint that was updated.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -7285,56 +7285,56 @@ export interface UpdateCsvClassifierRequest {
    * <p>A custom symbol to denote what separates each column entry in the row.</p>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>A custom symbol to denote what combines content into a single column value. It must be
    *       different from the column delimiter.</p>
    * @public
    */
-  QuoteSymbol?: string;
+  QuoteSymbol?: string | undefined;
 
   /**
    * <p>Indicates whether the CSV file contains a header.</p>
    * @public
    */
-  ContainsHeader?: CsvHeaderOption;
+  ContainsHeader?: CsvHeaderOption | undefined;
 
   /**
    * <p>A list of strings representing column names.</p>
    * @public
    */
-  Header?: string[];
+  Header?: string[] | undefined;
 
   /**
    * <p>Specifies not to trim values before identifying the type of column values. The default value is true.</p>
    * @public
    */
-  DisableValueTrimming?: boolean;
+  DisableValueTrimming?: boolean | undefined;
 
   /**
    * <p>Enables the processing of files that contain only one column.</p>
    * @public
    */
-  AllowSingleColumn?: boolean;
+  AllowSingleColumn?: boolean | undefined;
 
   /**
    * <p>Specifies the configuration of custom datatypes.</p>
    * @public
    */
-  CustomDatatypeConfigured?: boolean;
+  CustomDatatypeConfigured?: boolean | undefined;
 
   /**
    * <p>Specifies a list of supported custom datatypes.</p>
    * @public
    */
-  CustomDatatypes?: string[];
+  CustomDatatypes?: string[] | undefined;
 
   /**
    * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
    * @public
    */
-  Serde?: CsvSerdeOption;
+  Serde?: CsvSerdeOption | undefined;
 }
 
 /**
@@ -7354,19 +7354,19 @@ export interface UpdateGrokClassifierRequest {
    *       Amazon CloudWatch Logs, and so on.</p>
    * @public
    */
-  Classification?: string;
+  Classification?: string | undefined;
 
   /**
    * <p>The grok pattern used by this classifier.</p>
    * @public
    */
-  GrokPattern?: string;
+  GrokPattern?: string | undefined;
 
   /**
    * <p>Optional custom grok patterns used by this classifier.</p>
    * @public
    */
-  CustomPatterns?: string;
+  CustomPatterns?: string | undefined;
 }
 
 /**
@@ -7385,7 +7385,7 @@ export interface UpdateJsonClassifierRequest {
    *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
    * @public
    */
-  JsonPath?: string;
+  JsonPath?: string | undefined;
 }
 
 /**
@@ -7403,7 +7403,7 @@ export interface UpdateXMLClassifierRequest {
    * <p>An identifier of the data format that the classifier matches.</p>
    * @public
    */
-  Classification?: string;
+  Classification?: string | undefined;
 
   /**
    * <p>The XML tag designating the element that contains each record in an XML document being
@@ -7413,7 +7413,7 @@ export interface UpdateXMLClassifierRequest {
    *         <code><row item_a="A" item_b="B" /></code> is not).</p>
    * @public
    */
-  RowTag?: string;
+  RowTag?: string | undefined;
 }
 
 /**
@@ -7424,25 +7424,25 @@ export interface UpdateClassifierRequest {
    * <p>A <code>GrokClassifier</code> object with updated fields.</p>
    * @public
    */
-  GrokClassifier?: UpdateGrokClassifierRequest;
+  GrokClassifier?: UpdateGrokClassifierRequest | undefined;
 
   /**
    * <p>An <code>XMLClassifier</code> object with updated fields.</p>
    * @public
    */
-  XMLClassifier?: UpdateXMLClassifierRequest;
+  XMLClassifier?: UpdateXMLClassifierRequest | undefined;
 
   /**
    * <p>A <code>JsonClassifier</code> object with updated fields.</p>
    * @public
    */
-  JsonClassifier?: UpdateJsonClassifierRequest;
+  JsonClassifier?: UpdateJsonClassifierRequest | undefined;
 
   /**
    * <p>A <code>CsvClassifier</code> object with updated fields.</p>
    * @public
    */
-  CsvClassifier?: UpdateCsvClassifierRequest;
+  CsvClassifier?: UpdateCsvClassifierRequest | undefined;
 }
 
 /**
@@ -7461,7 +7461,7 @@ export class VersionMismatchException extends __BaseException {
    * <p>A message describing the problem.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7485,7 +7485,7 @@ export interface UpdateColumnStatisticsForPartitionRequest {
    *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database where the partitions reside.</p>
@@ -7521,13 +7521,13 @@ export interface ColumnStatisticsError {
    * <p>The <code>ColumnStatistics</code> of the column.</p>
    * @public
    */
-  ColumnStatistics?: ColumnStatistics;
+  ColumnStatistics?: ColumnStatistics | undefined;
 
   /**
    * <p>An error message with the reason for the failure of an operation.</p>
    * @public
    */
-  Error?: ErrorDetail;
+  Error?: ErrorDetail | undefined;
 }
 
 /**
@@ -7538,7 +7538,7 @@ export interface UpdateColumnStatisticsForPartitionResponse {
    * <p>Error occurred during updating column statistics data.</p>
    * @public
    */
-  Errors?: ColumnStatisticsError[];
+  Errors?: ColumnStatisticsError[] | undefined;
 }
 
 /**
@@ -7550,7 +7550,7 @@ export interface UpdateColumnStatisticsForTableRequest {
    *       If none is supplied, the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the catalog database where the partitions reside.</p>
@@ -7579,7 +7579,7 @@ export interface UpdateColumnStatisticsForTableResponse {
    * <p>List of ColumnStatisticsErrors.</p>
    * @public
    */
-  Errors?: ColumnStatisticsError[];
+  Errors?: ColumnStatisticsError[] | undefined;
 }
 
 /**
@@ -7602,37 +7602,37 @@ export interface UpdateColumnStatisticsTaskSettingsRequest {
    * <p>The role used for running the column statistics.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>A schedule for running the column statistics, specified in CRON syntax.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 
   /**
    * <p>A list of column names for which to run statistics.</p>
    * @public
    */
-  ColumnNameList?: string[];
+  ColumnNameList?: string[] | undefined;
 
   /**
    * <p>The percentage of data to sample.</p>
    * @public
    */
-  SampleSize?: number;
+  SampleSize?: number | undefined;
 
   /**
    * <p>The ID of the Data Catalog in which the database resides.</p>
    * @public
    */
-  CatalogID?: string;
+  CatalogID?: string | undefined;
 
   /**
    * <p>Name of the security configuration that is used to encrypt CloudWatch logs.</p>
    * @public
    */
-  SecurityConfiguration?: string;
+  SecurityConfiguration?: string | undefined;
 }
 
 /**
@@ -7649,7 +7649,7 @@ export interface UpdateConnectionRequest {
    *       account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the connection definition to update.</p>
@@ -7685,26 +7685,26 @@ export interface UpdateCrawlerRequest {
    *       to access customer resources.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>The Glue database where results are stored, such as:
    *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>A description of the new crawler.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A list of targets to crawl.</p>
    * @public
    */
-  Targets?: CrawlerTargets;
+  Targets?: CrawlerTargets | undefined;
 
   /**
    * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
@@ -7712,7 +7712,7 @@ export interface UpdateCrawlerRequest {
    *       <code>cron(15 12 * * ? *)</code>.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 
   /**
    * <p>A list of custom classifiers that the user
@@ -7721,37 +7721,37 @@ export interface UpdateCrawlerRequest {
    *       for a given classification.</p>
    * @public
    */
-  Classifiers?: string[];
+  Classifiers?: string[] | undefined;
 
   /**
    * <p>The table prefix used for catalog tables that are created.</p>
    * @public
    */
-  TablePrefix?: string;
+  TablePrefix?: string | undefined;
 
   /**
    * <p>The policy for the crawler's update and deletion behavior.</p>
    * @public
    */
-  SchemaChangePolicy?: SchemaChangePolicy;
+  SchemaChangePolicy?: SchemaChangePolicy | undefined;
 
   /**
    * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
    * @public
    */
-  RecrawlPolicy?: RecrawlPolicy;
+  RecrawlPolicy?: RecrawlPolicy | undefined;
 
   /**
    * <p>Specifies data lineage configuration settings for the crawler.</p>
    * @public
    */
-  LineageConfiguration?: LineageConfiguration;
+  LineageConfiguration?: LineageConfiguration | undefined;
 
   /**
    * <p>Specifies Lake Formation configuration settings for the crawler.</p>
    * @public
    */
-  LakeFormationConfiguration?: LakeFormationConfiguration;
+  LakeFormationConfiguration?: LakeFormationConfiguration | undefined;
 
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users
@@ -7759,14 +7759,14 @@ export interface UpdateCrawlerRequest {
    *         For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Setting crawler configuration options</a>.</p>
    * @public
    */
-  Configuration?: string;
+  Configuration?: string | undefined;
 
   /**
    * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
    *       crawler.</p>
    * @public
    */
-  CrawlerSecurityConfiguration?: string;
+  CrawlerSecurityConfiguration?: string | undefined;
 }
 
 /**
@@ -7790,7 +7790,7 @@ export interface UpdateCrawlerScheduleRequest {
    *       <code>cron(15 12 * * ? *)</code>.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 }
 
 /**
@@ -7807,7 +7807,7 @@ export interface UpdateDatabaseRequest {
    *       the Amazon Web Services account ID is used by default.</p>
    * @public
    */
-  CatalogId?: string;
+  CatalogId?: string | undefined;
 
   /**
    * <p>The name of the database to update in the catalog. For Hive
@@ -7843,13 +7843,13 @@ export interface UpdateDataQualityRulesetRequest {
    * <p>A description of the ruleset.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
    * @public
    */
-  Ruleset?: string;
+  Ruleset?: string | undefined;
 }
 
 /**
@@ -7860,19 +7860,19 @@ export interface UpdateDataQualityRulesetResponse {
    * <p>The name of the data quality ruleset.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the ruleset.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
    * @public
    */
-  Ruleset?: string;
+  Ruleset?: string | undefined;
 }
 
 /**
@@ -7891,7 +7891,7 @@ export interface DevEndpointCustomLibraries {
    *          </note>
    * @public
    */
-  ExtraPythonLibsS3Path?: string;
+  ExtraPythonLibsS3Path?: string | undefined;
 
   /**
    * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
@@ -7901,7 +7901,7 @@ export interface DevEndpointCustomLibraries {
    *          </note>
    * @public
    */
-  ExtraJarsS3Path?: string;
+  ExtraJarsS3Path?: string | undefined;
 }
 
 /**

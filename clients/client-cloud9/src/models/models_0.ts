@@ -10,8 +10,8 @@ import { Cloud9ServiceException as __BaseException } from "./Cloud9ServiceExcept
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -34,8 +34,8 @@ export class BadRequestException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -102,7 +102,7 @@ export interface CreateEnvironmentEC2Request {
    * <p>The description of the environment to create.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive string that helps Cloud9 to ensure this operation completes no
@@ -111,7 +111,7 @@ export interface CreateEnvironmentEC2Request {
    *         <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The type of instance to connect to the environment (for example,
@@ -125,7 +125,7 @@ export interface CreateEnvironmentEC2Request {
    *       instance.</p>
    * @public
    */
-  subnetId?: string;
+  subnetId?: string | undefined;
 
   /**
    * <p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.
@@ -193,7 +193,7 @@ export interface CreateEnvironmentEC2Request {
    *       last been used.</p>
    * @public
    */
-  automaticStopTimeMinutes?: number;
+  automaticStopTimeMinutes?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any
@@ -201,14 +201,14 @@ export interface CreateEnvironmentEC2Request {
    *       creator.</p>
    * @public
    */
-  ownerArn?: string;
+  ownerArn?: string | undefined;
 
   /**
    * <p>An array of key-value pairs that will be associated with the new Cloud9 development
    *       environment.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The connection type used for connecting to an Amazon EC2 environment. Valid values are
@@ -218,13 +218,13 @@ export interface CreateEnvironmentEC2Request {
    *         Amazon EC2 Systems Manager</a> in the <i>Cloud9 User Guide</i>.</p>
    * @public
    */
-  connectionType?: ConnectionType;
+  connectionType?: ConnectionType | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  dryRun?: boolean;
+  dryRun?: boolean | undefined;
 }
 
 /**
@@ -235,7 +235,7 @@ export interface CreateEnvironmentEC2Result {
    * <p>The ID of the environment that was created.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 }
 
 /**
@@ -245,8 +245,8 @@ export interface CreateEnvironmentEC2Result {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -269,8 +269,8 @@ export class ForbiddenException extends __BaseException {
 export class InternalServerErrorException extends __BaseException {
   readonly name: "InternalServerErrorException" = "InternalServerErrorException";
   readonly $fault: "server" = "server";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -293,8 +293,8 @@ export class InternalServerErrorException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -317,8 +317,8 @@ export class LimitExceededException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -341,8 +341,8 @@ export class NotFoundException extends __BaseException {
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -470,7 +470,7 @@ export interface EnvironmentMember {
    *       environment.</p>
    * @public
    */
-  lastAccess?: Date;
+  lastAccess?: Date | undefined;
 }
 
 /**
@@ -533,13 +533,13 @@ export interface DescribeEnvironmentMembershipsRequest {
    *       returned.</p>
    * @public
    */
-  userArn?: string;
+  userArn?: string | undefined;
 
   /**
    * <p>The ID of the environment to get environment member information about.</p>
    * @public
    */
-  environmentId?: string;
+  environmentId?: string | undefined;
 
   /**
    * <p>The type of environment member permissions to get information about. Available values
@@ -561,7 +561,7 @@ export interface DescribeEnvironmentMembershipsRequest {
    *          <p>If no value is specified, information about all environment members are returned.</p>
    * @public
    */
-  permissions?: Permissions[];
+  permissions?: Permissions[] | undefined;
 
   /**
    * <p>During a previous call, if there are more than 25 items in the list, only the first 25
@@ -571,13 +571,13 @@ export interface DescribeEnvironmentMembershipsRequest {
    *       subsequent next token that is returned, until no more next tokens are returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of environment members to get information about.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -588,7 +588,7 @@ export interface DescribeEnvironmentMembershipsResult {
    * <p>Information about the environment members for the environment.</p>
    * @public
    */
-  memberships?: EnvironmentMember[];
+  memberships?: EnvironmentMember[] | undefined;
 
   /**
    * <p>If there are more than 25 items in the list, only the first 25 items are returned, along
@@ -596,7 +596,7 @@ export interface DescribeEnvironmentMembershipsResult {
    *       in the list, call this operation again, adding the next token to the call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -659,20 +659,20 @@ export interface EnvironmentLifecycle {
    *          </ul>
    * @public
    */
-  status?: EnvironmentLifecycleStatus;
+  status?: EnvironmentLifecycleStatus | undefined;
 
   /**
    * <p>Any informational message about the lifecycle state of the environment.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>If the environment failed to delete, the Amazon Resource Name (ARN) of the related Amazon Web Services
    *       resource.</p>
    * @public
    */
-  failureResource?: string;
+  failureResource?: string | undefined;
 }
 
 /**
@@ -721,19 +721,19 @@ export interface Environment {
    * <p>The ID of the environment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description for the environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The type of environment. Valid values include the following:</p>
@@ -756,7 +756,7 @@ export interface Environment {
    *       is selected by default.</p>
    * @public
    */
-  connectionType?: ConnectionType;
+  connectionType?: ConnectionType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
@@ -774,7 +774,7 @@ export interface Environment {
    * <p>The state of the environment in its creation or deletion lifecycle.</p>
    * @public
    */
-  lifecycle?: EnvironmentLifecycle;
+  lifecycle?: EnvironmentLifecycle | undefined;
 
   /**
    * <p>Describes the status of Amazon Web Services managed temporary credentials for the Cloud9 environment.
@@ -833,7 +833,7 @@ export interface Environment {
    *          </ul>
    * @public
    */
-  managedCredentialsStatus?: ManagedCredentialsStatus;
+  managedCredentialsStatus?: ManagedCredentialsStatus | undefined;
 }
 
 /**
@@ -844,7 +844,7 @@ export interface DescribeEnvironmentsResult {
    * <p>Information about the environments that are returned.</p>
    * @public
    */
-  environments?: Environment[];
+  environments?: Environment[] | undefined;
 }
 
 /**
@@ -936,13 +936,13 @@ export interface ListEnvironmentsRequest {
    *       subsequent next token that is returned, until no more next tokens are returned.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of environments to get identifiers for.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -955,13 +955,13 @@ export interface ListEnvironmentsResult {
    *       in the list, call this operation again, adding the next token to the call.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of environment identifiers.</p>
    * @public
    */
-  environmentIds?: string[];
+  environmentIds?: string[] | undefined;
 }
 
 /**
@@ -984,7 +984,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags associated with the Cloud9 development environment.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -994,8 +994,8 @@ export interface ListTagsForResourceResponse {
 export class ConcurrentAccessException extends __BaseException {
   readonly name: "ConcurrentAccessException" = "ConcurrentAccessException";
   readonly $fault: "client" = "client";
-  className?: string;
-  code?: number;
+  className?: string | undefined;
+  code?: number | undefined;
   /**
    * @internal
    */
@@ -1086,13 +1086,13 @@ export interface UpdateEnvironmentRequest {
    * <p>A replacement name for the environment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Any new or replacement description for the environment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Allows the environment owner to turn on or turn off the Amazon Web Services managed temporary
@@ -1115,7 +1115,7 @@ export interface UpdateEnvironmentRequest {
    *          </note>
    * @public
    */
-  managedCredentialsAction?: ManagedCredentialsAction;
+  managedCredentialsAction?: ManagedCredentialsAction | undefined;
 }
 
 /**
@@ -1167,7 +1167,7 @@ export interface UpdateEnvironmentMembershipResult {
    * <p>Information about the environment member whose settings were changed.</p>
    * @public
    */
-  membership?: EnvironmentMember;
+  membership?: EnvironmentMember | undefined;
 }
 
 /**

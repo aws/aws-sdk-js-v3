@@ -16,7 +16,7 @@ export interface AdvancedBackupSetting {
    *          <p>Valid values: <code>EC2</code>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Specifies the backup option for a selected resource. This option is only available for
@@ -32,7 +32,7 @@ export interface AdvancedBackupSetting {
    *             Backup</a>.</p>
    * @public
    */
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Record<string, string> | undefined;
 }
 
 /**
@@ -57,31 +57,31 @@ export type AggregationPeriod = (typeof AggregationPeriod)[keyof typeof Aggregat
 export class AlreadyExistsException extends __BaseException {
   readonly name: "AlreadyExistsException" = "AlreadyExistsException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -111,28 +111,28 @@ export interface RecoveryPointCreator {
    * <p>Uniquely identifies a backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>Version IDs are unique, randomly generated, Unicode, UTF-8 encoded strings that are at
    *          most 1,024 bytes long. They cannot be edited.</p>
    * @public
    */
-  BackupPlanVersion?: string;
+  BackupPlanVersion?: string | undefined;
 
   /**
    * <p>Uniquely identifies a rule used to schedule the backup of a selection of
    *          resources.</p>
    * @public
    */
-  BackupRuleId?: string;
+  BackupRuleId?: string | undefined;
 }
 
 /**
@@ -165,13 +165,13 @@ export interface BackupJob {
    * <p>The account ID that owns the backup job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    * @public
    */
-  BackupJobId?: string;
+  BackupJobId?: string | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -179,28 +179,28 @@ export interface BackupJob {
    *          Region where they are created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
    *          resource type.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The date and time a backup job is created, in Unix format and Coordinated Universal Time
@@ -208,7 +208,7 @@ export interface BackupJob {
    *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time a job to create a backup job is completed, in Unix format and
@@ -217,32 +217,32 @@ export interface BackupJob {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  CompletionDate?: Date;
+  CompletionDate?: Date | undefined;
 
   /**
    * <p>The current state of a backup job.</p>
    * @public
    */
-  State?: BackupJobState;
+  State?: BackupJobState | undefined;
 
   /**
    * <p>A detailed message explaining the status of the job to back up a resource.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Contains an estimated percentage complete of a job at the time the job status was
    *          queried.</p>
    * @public
    */
-  PercentDone?: string;
+  PercentDone?: string | undefined;
 
   /**
    * <p>The size, in bytes, of a backup.</p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point. IAM roles other
@@ -252,7 +252,7 @@ export interface BackupJob {
    *          strings lack permissions to perform backup jobs.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>Contains identifying information about the creation of a backup job, including the
@@ -260,7 +260,7 @@ export interface BackupJob {
    *          and <code>BackupRuleId</code> of the backup plan used to create it.</p>
    * @public
    */
-  CreatedBy?: RecoveryPointCreator;
+  CreatedBy?: RecoveryPointCreator | undefined;
 
   /**
    * <p>The date and time a job to back up resources is expected to be completed, in Unix format
@@ -269,7 +269,7 @@ export interface BackupJob {
    *          26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  ExpectedCompletionDate?: Date;
+  ExpectedCompletionDate?: Date | undefined;
 
   /**
    * <p>Specifies the time in Unix format and Coordinated Universal Time (UTC) when a backup job
@@ -280,21 +280,21 @@ export interface BackupJob {
    *          represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  StartBy?: Date;
+  StartBy?: Date | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For Windows Volume Shadow Copy Service (VSS) backups, the only
    *          supported resource type is Amazon EC2.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The size in bytes transferred to a backup vault at the time that the job status was
    *          queried.</p>
    * @public
    */
-  BytesTransferred?: number;
+  BytesTransferred?: number | undefined;
 
   /**
    * <p>Specifies the backup option for a selected resource. This option is only available for
@@ -305,13 +305,13 @@ export interface BackupJob {
    *          invalid option, you get an <code>InvalidParameterValueException</code> exception.</p>
    * @public
    */
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Record<string, string> | undefined;
 
   /**
    * <p>Represents the type of backup for a backup job.</p>
    * @public
    */
-  BackupType?: string;
+  BackupType?: string | undefined;
 
   /**
    * <p>This uniquely identifies a request to Backup
@@ -319,28 +319,28 @@ export interface BackupJob {
    *          parent (composite) job ID.</p>
    * @public
    */
-  ParentJobId?: string;
+  ParentJobId?: string | undefined;
 
   /**
    * <p>This is a boolean value indicating this is
    *          a parent (composite) backup job.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 
   /**
    * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The date on which the backup
    *          job was initiated.</p>
    * @public
    */
-  InitiationDate?: Date;
+  InitiationDate?: Date | undefined;
 
   /**
    * <p>This parameter is the job count for the specified
@@ -356,7 +356,7 @@ export interface BackupJob {
    *          for all message categories and returns the sum.</p>
    * @public
    */
-  MessageCategory?: string;
+  MessageCategory?: string | undefined;
 }
 
 /**
@@ -395,20 +395,20 @@ export interface BackupJobSummary {
    * <p>The Amazon Web Services Regions within the job summary.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The account ID that owns the jobs within the summary.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>This value is job count for jobs
    *          with the specified state.</p>
    * @public
    */
-  State?: BackupJobStatus;
+  State?: BackupJobStatus | undefined;
 
   /**
    * <p>This value is the job count for the specified resource type.
@@ -416,7 +416,7 @@ export interface BackupJobSummary {
    *          strings for supported resource types.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>This parameter is the job count for the specified
@@ -431,13 +431,13 @@ export interface BackupJobSummary {
    *          for all message categories and returns the sum.</p>
    * @public
    */
-  MessageCategory?: string;
+  MessageCategory?: string | undefined;
 
   /**
    * <p>The value as a number of jobs in a job summary.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The value of time in number format of a job start time.</p>
@@ -446,7 +446,7 @@ export interface BackupJobSummary {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The value of time in number format of a job end time.</p>
@@ -455,7 +455,7 @@ export interface BackupJobSummary {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 }
 
 /**
@@ -478,21 +478,21 @@ export interface Lifecycle {
    *          storage.</p>
    * @public
    */
-  MoveToColdStorageAfterDays?: number;
+  MoveToColdStorageAfterDays?: number | undefined;
 
   /**
    * <p>The number of days after creation that a recovery point is deleted. This value must be
    *          at least 90 days after the number of days specified in <code>MoveToColdStorageAfterDays</code>.</p>
    * @public
    */
-  DeleteAfterDays?: number;
+  DeleteAfterDays?: number | undefined;
 
   /**
    * <p>If the value is true, your backup plan transitions supported resources to
    *          archive (cold) storage tier in accordance with your lifecycle settings.</p>
    * @public
    */
-  OptInToArchiveForSupportedResources?: boolean;
+  OptInToArchiveForSupportedResources?: boolean | undefined;
 }
 
 /**
@@ -514,7 +514,7 @@ export interface CopyAction {
    *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for
@@ -554,7 +554,7 @@ export interface BackupRule {
    *          preceding link and scroll down the page.</p>
    * @public
    */
-  ScheduleExpression?: string;
+  ScheduleExpression?: string | undefined;
 
   /**
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
@@ -569,14 +569,14 @@ export interface BackupRule {
    *          changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>
    * @public
    */
-  StartWindowMinutes?: number;
+  StartWindowMinutes?: number | undefined;
 
   /**
    * <p>A value in minutes after a backup job is successfully started before it must be
    *          completed or it will be canceled by Backup. This value is optional.</p>
    * @public
    */
-  CompletionWindowMinutes?: number;
+  CompletionWindowMinutes?: number | undefined;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -590,42 +590,42 @@ export interface BackupRule {
    *          by resource</a> table. Backup ignores this expression for other resource types.</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 
   /**
    * <p>The tags that are assigned to resources that are associated
    *          with this rule when restored from backup.</p>
    * @public
    */
-  RecoveryPointTags?: Record<string, string>;
+  RecoveryPointTags?: Record<string, string> | undefined;
 
   /**
    * <p>Uniquely identifies a rule that is used to schedule the backup of a selection of
    *          resources.</p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy
    *          operation.</p>
    * @public
    */
-  CopyActions?: CopyAction[];
+  CopyActions?: CopyAction[] | undefined;
 
   /**
    * <p>Specifies whether Backup creates continuous backups. True causes Backup to create continuous backups capable of point-in-time restore (PITR). False
    *          (or not specified) causes Backup to create snapshot backups.</p>
    * @public
    */
-  EnableContinuousBackup?: boolean;
+  EnableContinuousBackup?: boolean | undefined;
 
   /**
    * <p>The timezone in which the schedule expression is set. By default,
    *          ScheduleExpressions are in UTC. You can modify this to a specified timezone.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 }
 
 /**
@@ -656,7 +656,7 @@ export interface BackupPlan {
    * <p>Contains a list of <code>BackupOptions</code> for each resource type.</p>
    * @public
    */
-  AdvancedBackupSettings?: AdvancedBackupSetting[];
+  AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
 }
 
 /**
@@ -684,7 +684,7 @@ export interface BackupRuleInput {
    *          job.</p>
    * @public
    */
-  ScheduleExpression?: string;
+  ScheduleExpression?: string | undefined;
 
   /**
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
@@ -700,14 +700,14 @@ export interface BackupRuleInput {
    *          changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>
    * @public
    */
-  StartWindowMinutes?: number;
+  StartWindowMinutes?: number | undefined;
 
   /**
    * <p>A value in minutes after a backup job is successfully started before it must be
    *          completed or it will be canceled by Backup. This value is optional.</p>
    * @public
    */
-  CompletionWindowMinutes?: number;
+  CompletionWindowMinutes?: number | undefined;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -722,34 +722,34 @@ export interface BackupRuleInput {
    *          <p>This parameter has a maximum value of 100 years (36,500 days).</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 
   /**
    * <p>The tags to assign to the resources.</p>
    * @public
    */
-  RecoveryPointTags?: Record<string, string>;
+  RecoveryPointTags?: Record<string, string> | undefined;
 
   /**
    * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy
    *          operation.</p>
    * @public
    */
-  CopyActions?: CopyAction[];
+  CopyActions?: CopyAction[] | undefined;
 
   /**
    * <p>Specifies whether Backup creates continuous backups. True causes Backup to create continuous backups capable of point-in-time restore (PITR). False
    *          (or not specified) causes Backup to create snapshot backups.</p>
    * @public
    */
-  EnableContinuousBackup?: boolean;
+  EnableContinuousBackup?: boolean | undefined;
 
   /**
    * <p>The timezone in which the schedule expression is set. By default,
    *          ScheduleExpressions are in UTC. You can modify this to a specified timezone.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 }
 
 /**
@@ -778,7 +778,7 @@ export interface BackupPlanInput {
    *          are only available for Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
    * @public
    */
-  AdvancedBackupSettings?: AdvancedBackupSetting[];
+  AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
 }
 
 /**
@@ -791,13 +791,13 @@ export interface BackupPlansListMember {
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>Uniquely identifies a backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>The date and time a resource backup plan is created, in Unix format and Coordinated
@@ -806,7 +806,7 @@ export interface BackupPlansListMember {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time a backup plan is deleted, in Unix format and Coordinated Universal
@@ -815,20 +815,20 @@ export interface BackupPlansListMember {
    *          AM.</p>
    * @public
    */
-  DeletionDate?: Date;
+  DeletionDate?: Date | undefined;
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version IDs cannot be edited.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The display name of a saved backup plan.</p>
    * @public
    */
-  BackupPlanName?: string;
+  BackupPlanName?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
@@ -836,7 +836,7 @@ export interface BackupPlansListMember {
    *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The last time this backup plan was run. A date and time, in
@@ -845,13 +845,13 @@ export interface BackupPlansListMember {
    *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastExecutionDate?: Date;
+  LastExecutionDate?: Date | undefined;
 
   /**
    * <p>Contains a list of <code>BackupOptions</code> for a resource type.</p>
    * @public
    */
-  AdvancedBackupSettings?: AdvancedBackupSetting[];
+  AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
 }
 
 /**
@@ -863,13 +863,13 @@ export interface BackupPlanTemplatesListMember {
    * <p>Uniquely identifies a stored backup plan template.</p>
    * @public
    */
-  BackupPlanTemplateId?: string;
+  BackupPlanTemplateId?: string | undefined;
 
   /**
    * <p>The optional display name of a backup plan template.</p>
    * @public
    */
-  BackupPlanTemplateName?: string;
+  BackupPlanTemplateName?: string | undefined;
 }
 
 /**
@@ -885,14 +885,14 @@ export interface ConditionParameter {
    *          Accounting</code>, <code>Department</code> is the key.</p>
    * @public
    */
-  ConditionKey?: string;
+  ConditionKey?: string | undefined;
 
   /**
    * <p>The value in a key-value pair. For example, in the tag <code>Department:
    *             Accounting</code>, <code>Accounting</code> is the value.</p>
    * @public
    */
-  ConditionValue?: string;
+  ConditionValue?: string | undefined;
 }
 
 /**
@@ -906,14 +906,14 @@ export interface Conditions {
    *          with the same value. Also called "exact matching."</p>
    * @public
    */
-  StringEquals?: ConditionParameter[];
+  StringEquals?: ConditionParameter[] | undefined;
 
   /**
    * <p>Filters the values of your tagged resources for only those resources that you tagged
    *          that do not have the same value. Also called "negated matching."</p>
    * @public
    */
-  StringNotEquals?: ConditionParameter[];
+  StringNotEquals?: ConditionParameter[] | undefined;
 
   /**
    * <p>Filters the values of your tagged resources for matching tag values with the use of a
@@ -921,14 +921,14 @@ export interface Conditions {
    *          tag value "production".</p>
    * @public
    */
-  StringLike?: ConditionParameter[];
+  StringLike?: ConditionParameter[] | undefined;
 
   /**
    * <p>Filters the values of your tagged resources for non-matching tag values with the use of
    *          a wildcard character (*) anywhere in the string.</p>
    * @public
    */
-  StringNotLike?: ConditionParameter[];
+  StringNotLike?: ConditionParameter[] | undefined;
 }
 
 /**
@@ -1009,7 +1009,7 @@ export interface BackupSelection {
    *          <p>If you specify multiple ARNs, the resources much match any of the ARNs (OR logic).</p>
    * @public
    */
-  Resources?: string[];
+  Resources?: string[] | undefined;
 
   /**
    * <p>The conditions that you define to assign resources to your backup plans using tags. For example,
@@ -1019,7 +1019,7 @@ export interface BackupSelection {
    *          <p>If you specify multiple conditions, the resources much match any of the conditions (OR logic).</p>
    * @public
    */
-  ListOfTags?: Condition[];
+  ListOfTags?: Condition[] | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources to exclude from a backup plan. The maximum number
@@ -1029,7 +1029,7 @@ export interface BackupSelection {
    *          resource selection using tags.</p>
    * @public
    */
-  NotResources?: string[];
+  NotResources?: string[] | undefined;
 
   /**
    * <p>The conditions that you define to assign resources to your backup plans using tags. For example,
@@ -1041,7 +1041,7 @@ export interface BackupSelection {
    *          <p>If you specify multiple conditions, the resources much match all conditions (AND logic).</p>
    * @public
    */
-  Conditions?: Conditions;
+  Conditions?: Conditions | undefined;
 }
 
 /**
@@ -1053,19 +1053,19 @@ export interface BackupSelectionsListMember {
    * <p>Uniquely identifies a request to assign a set of resources to a backup plan.</p>
    * @public
    */
-  SelectionId?: string;
+  SelectionId?: string | undefined;
 
   /**
    * <p>The display name of a resource selection document.</p>
    * @public
    */
-  SelectionName?: string;
+  SelectionName?: string | undefined;
 
   /**
    * <p>Uniquely identifies a backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>The date and time a backup plan is created, in Unix format and Coordinated Universal
@@ -1074,7 +1074,7 @@ export interface BackupSelectionsListMember {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
@@ -1082,14 +1082,14 @@ export interface BackupSelectionsListMember {
    *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>Specifies the IAM role Amazon Resource Name (ARN) to create the target recovery point;
    *          for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 }
 
 /**
@@ -1161,26 +1161,26 @@ export interface BackupVaultListMember {
    *          Region where they are created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The type of vault in which the described recovery point is stored.</p>
    * @public
    */
-  VaultType?: VaultType;
+  VaultType?: VaultType | undefined;
 
   /**
    * <p>The current state of the vault.</p>
    * @public
    */
-  VaultState?: VaultState;
+  VaultState?: VaultState | undefined;
 
   /**
    * <p>The date and time a resource backup is created, in Unix format and Coordinated Universal
@@ -1189,7 +1189,7 @@ export interface BackupVaultListMember {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>A server-side encryption key you can specify to encrypt your backups from services
@@ -1204,7 +1204,7 @@ export interface BackupVaultListMember {
    *          </p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
@@ -1212,13 +1212,13 @@ export interface BackupVaultListMember {
    *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The number of recovery points that are stored in a backup vault.</p>
    * @public
    */
-  NumberOfRecoveryPoints?: number;
+  NumberOfRecoveryPoints?: number | undefined;
 
   /**
    * <p>A Boolean value that indicates whether Backup Vault Lock applies to the
@@ -1226,7 +1226,7 @@ export interface BackupVaultListMember {
    *          operations on the recovery points in the selected vault.</p>
    * @public
    */
-  Locked?: boolean;
+  Locked?: boolean | undefined;
 
   /**
    * <p>The Backup Vault Lock setting that specifies the minimum retention period
@@ -1240,7 +1240,7 @@ export interface BackupVaultListMember {
    *          affected.</p>
    * @public
    */
-  MinRetentionDays?: number;
+  MinRetentionDays?: number | undefined;
 
   /**
    * <p>The Backup Vault Lock setting that specifies the maximum retention period
@@ -1255,7 +1255,7 @@ export interface BackupVaultListMember {
    *          affected.</p>
    * @public
    */
-  MaxRetentionDays?: number;
+  MaxRetentionDays?: number | undefined;
 
   /**
    * <p>The date and time when Backup Vault Lock configuration becomes immutable,
@@ -1267,7 +1267,7 @@ export interface BackupVaultListMember {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  LockDate?: Date;
+  LockDate?: Date | undefined;
 }
 
 /**
@@ -1289,13 +1289,13 @@ export interface CalculatedLifecycle {
    * <p>A timestamp that specifies when to transition a recovery point to cold storage.</p>
    * @public
    */
-  MoveToColdStorageAt?: Date;
+  MoveToColdStorageAt?: Date | undefined;
 
   /**
    * <p>A timestamp that specifies when to delete a recovery point.</p>
    * @public
    */
-  DeleteAt?: Date;
+  DeleteAt?: Date | undefined;
 }
 
 /**
@@ -1318,7 +1318,7 @@ export interface CancelLegalHoldInput {
    * <p>The integer amount, in days, after which to remove legal hold.</p>
    * @public
    */
-  RetainRecordInDays?: number;
+  RetainRecordInDays?: number | undefined;
 }
 
 /**
@@ -1334,19 +1334,19 @@ export interface CancelLegalHoldOutput {}
 export class InvalidParameterValueException extends __BaseException {
   readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -1372,19 +1372,19 @@ export class InvalidParameterValueException extends __BaseException {
 export class InvalidResourceStateException extends __BaseException {
   readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -1409,19 +1409,19 @@ export class InvalidResourceStateException extends __BaseException {
 export class MissingParameterValueException extends __BaseException {
   readonly name: "MissingParameterValueException" = "MissingParameterValueException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -1446,19 +1446,19 @@ export class MissingParameterValueException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -1483,19 +1483,19 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -1521,19 +1521,19 @@ export class ServiceUnavailableException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -1563,13 +1563,13 @@ export interface ControlInputParameter {
    * <p>The name of a parameter, for example, <code>BackupPlanFrequency</code>.</p>
    * @public
    */
-  ParameterName?: string;
+  ParameterName?: string | undefined;
 
   /**
    * <p>The value of parameter, for example, <code>hourly</code>.</p>
    * @public
    */
-  ParameterValue?: string;
+  ParameterValue?: string | undefined;
 }
 
 /**
@@ -1591,14 +1591,14 @@ export interface ControlScope {
    *          contain.</p>
    * @public
    */
-  ComplianceResourceIds?: string[];
+  ComplianceResourceIds?: string[] | undefined;
 
   /**
    * <p>Describes whether the control scope includes one or more types of resources, such as
    *             <code>EFS</code> or <code>RDS</code>.</p>
    * @public
    */
-  ComplianceResourceTypes?: string[];
+  ComplianceResourceTypes?: string[] | undefined;
 
   /**
    * <p>The tag key-value pair applied to those Amazon Web Services resources that you want to
@@ -1610,7 +1610,7 @@ export interface ControlScope {
    *             <code>[\{"Key":"string","Value":"string"\}]</code>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1639,41 +1639,41 @@ export interface CopyJob {
    * <p>The account ID that owns the copy job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Uniquely identifies a copy job.</p>
    * @public
    */
-  CopyJobId?: string;
+  CopyJobId?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a source copy vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>. </p>
    * @public
    */
-  SourceBackupVaultArn?: string;
+  SourceBackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a source recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  SourceRecoveryPointArn?: string;
+  SourceRecoveryPointArn?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a destination copy vault; for
    *          example, <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  DestinationBackupVaultArn?: string;
+  DestinationBackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a destination recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  DestinationRecoveryPointArn?: string;
+  DestinationRecoveryPointArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store
@@ -1681,7 +1681,7 @@ export interface CopyJob {
    *          database.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The date and time a copy job is created, in Unix format and Coordinated Universal Time
@@ -1689,7 +1689,7 @@ export interface CopyJob {
    *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time a copy job is completed, in Unix format and Coordinated Universal Time
@@ -1697,45 +1697,45 @@ export interface CopyJob {
    *          the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  CompletionDate?: Date;
+  CompletionDate?: Date | undefined;
 
   /**
    * <p>The current state of a copy job.</p>
    * @public
    */
-  State?: CopyJobState;
+  State?: CopyJobState | undefined;
 
   /**
    * <p>A detailed message explaining the status of the job to copy a resource.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The size, in bytes, of a copy job.</p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>Specifies the IAM role ARN used to copy the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>Contains information about the backup plan and rule that Backup used to
    *          initiate the recovery point backup.</p>
    * @public
    */
-  CreatedBy?: RecoveryPointCreator;
+  CreatedBy?: RecoveryPointCreator | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>This uniquely identifies a request to Backup
@@ -1743,14 +1743,14 @@ export interface CopyJob {
    *          parent (composite) job ID.</p>
    * @public
    */
-  ParentJobId?: string;
+  ParentJobId?: string | undefined;
 
   /**
    * <p>This is a boolean value indicating this is
    *          a parent (composite) copy job.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 
   /**
    * <p>The identifier of a resource within a composite group, such as
@@ -1760,27 +1760,27 @@ export interface CopyJob {
    *             logical ID</a> within a stack.</p>
    * @public
    */
-  CompositeMemberIdentifier?: string;
+  CompositeMemberIdentifier?: string | undefined;
 
   /**
    * <p>The number of child (nested) copy jobs.</p>
    * @public
    */
-  NumberOfChildJobs?: number;
+  NumberOfChildJobs?: number | undefined;
 
   /**
    * <p>This returns the statistics of the included
    *          child (nested) copy jobs.</p>
    * @public
    */
-  ChildJobsInState?: Partial<Record<CopyJobState, number>>;
+  ChildJobsInState?: Partial<Record<CopyJobState, number>> | undefined;
 
   /**
    * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>This parameter is the job count for the specified
@@ -1796,7 +1796,7 @@ export interface CopyJob {
    *          for all message categories and returns the sum</p>
    * @public
    */
-  MessageCategory?: string;
+  MessageCategory?: string | undefined;
 }
 
 /**
@@ -1835,20 +1835,20 @@ export interface CopyJobSummary {
    * <p>The Amazon Web Services Regions within the job summary.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The account ID that owns the jobs within the summary.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>This value is job count for jobs
    *          with the specified state.</p>
    * @public
    */
-  State?: CopyJobStatus;
+  State?: CopyJobStatus | undefined;
 
   /**
    * <p>This value is the job count for the specified resource type.
@@ -1856,7 +1856,7 @@ export interface CopyJobSummary {
    *          strings for supported resource types</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>This parameter is the job count for the specified
@@ -1871,13 +1871,13 @@ export interface CopyJobSummary {
    *          for all message categories and returns the sum.</p>
    * @public
    */
-  MessageCategory?: string;
+  MessageCategory?: string | undefined;
 
   /**
    * <p>The value as a number of jobs in a job summary.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The value of time in number format of a job start time.</p>
@@ -1886,7 +1886,7 @@ export interface CopyJobSummary {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The value of time in number format of a job end time.</p>
@@ -1895,7 +1895,7 @@ export interface CopyJobSummary {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 }
 
 /**
@@ -1913,7 +1913,7 @@ export interface CreateBackupPlanInput {
    * <p>The tags to assign to the backup plan.</p>
    * @public
    */
-  BackupPlanTags?: Record<string, string>;
+  BackupPlanTags?: Record<string, string> | undefined;
 
   /**
    * <p>Identifies the request and allows failed requests to be retried without the risk of
@@ -1922,7 +1922,7 @@ export interface CreateBackupPlanInput {
    *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 }
 
 /**
@@ -1933,14 +1933,14 @@ export interface CreateBackupPlanOutput {
    * <p>The ID of the backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>The date and time that a backup plan is created, in Unix format and Coordinated
@@ -1949,21 +1949,21 @@ export interface CreateBackupPlanOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. They cannot be edited.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The settings for a resource type. This option is only
    *          available for Windows Volume Shadow Copy Service (VSS) backup jobs.</p>
    * @public
    */
-  AdvancedBackupSettings?: AdvancedBackupSetting[];
+  AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
 }
 
 /**
@@ -1974,19 +1974,19 @@ export interface CreateBackupPlanOutput {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -2026,7 +2026,7 @@ export interface CreateBackupSelectionInput {
    *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 }
 
 /**
@@ -2038,13 +2038,13 @@ export interface CreateBackupSelectionOutput {
    *          plan.</p>
    * @public
    */
-  SelectionId?: string;
+  SelectionId?: string | undefined;
 
   /**
    * <p>The ID of the backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>The date and time a backup selection is created, in Unix format and Coordinated
@@ -2053,7 +2053,7 @@ export interface CreateBackupSelectionOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 }
 
 /**
@@ -2072,14 +2072,14 @@ export interface CreateBackupVaultInput {
    * <p>The tags to assign to the backup vault.</p>
    * @public
    */
-  BackupVaultTags?: Record<string, string>;
+  BackupVaultTags?: Record<string, string> | undefined;
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
@@ -2087,7 +2087,7 @@ export interface CreateBackupVaultInput {
    *          <p>If used, this parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 }
 
 /**
@@ -2100,14 +2100,14 @@ export interface CreateBackupVaultOutput {
    *          created. They consist of lowercase letters, numbers, and hyphens.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The date and time a backup vault is created, in Unix format and Coordinated Universal
@@ -2116,7 +2116,7 @@ export interface CreateBackupVaultOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 }
 
 /**
@@ -2135,7 +2135,7 @@ export interface FrameworkControl {
    * <p>The name/value pairs.</p>
    * @public
    */
-  ControlInputParameters?: ControlInputParameter[];
+  ControlInputParameters?: ControlInputParameter[] | undefined;
 
   /**
    * <p>The scope of a control. The control scope defines what the control will evaluate. Three
@@ -2146,7 +2146,7 @@ export interface FrameworkControl {
    *          </p>
    * @public
    */
-  ControlScope?: ControlScope;
+  ControlScope?: ControlScope | undefined;
 }
 
 /**
@@ -2165,7 +2165,7 @@ export interface CreateFrameworkInput {
    * <p>An optional description of the framework with a maximum of 1,024 characters.</p>
    * @public
    */
-  FrameworkDescription?: string;
+  FrameworkDescription?: string | undefined;
 
   /**
    * <p>The controls that make up the framework. Each control in the list has a name,
@@ -2180,13 +2180,13 @@ export interface CreateFrameworkInput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>The tags to assign to the framework.</p>
    * @public
    */
-  FrameworkTags?: Record<string, string>;
+  FrameworkTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2199,14 +2199,14 @@ export interface CreateFrameworkOutput {
    *          underscores (_).</p>
    * @public
    */
-  FrameworkName?: string;
+  FrameworkName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  FrameworkArn?: string;
+  FrameworkArn?: string | undefined;
 }
 
 /**
@@ -2251,14 +2251,14 @@ export interface RecoveryPointSelection {
    *          recovery points are contained.</p>
    * @public
    */
-  VaultNames?: string[];
+  VaultNames?: string[] | undefined;
 
   /**
    * <p>These are the resources included in the resource selection
    *          (including type of resources and vaults).</p>
    * @public
    */
-  ResourceIdentifiers?: string[];
+  ResourceIdentifiers?: string[] | undefined;
 
   /**
    * <p>This is a resource filter containing FromDate: DateTime
@@ -2271,7 +2271,7 @@ export interface RecoveryPointSelection {
    *          26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  DateRange?: DateRange;
+  DateRange?: DateRange | undefined;
 }
 
 /**
@@ -2296,13 +2296,13 @@ export interface CreateLegalHoldInput {
    *          same idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>The criteria to assign a set of resources, such as resource types or backup vaults.</p>
    * @public
    */
-  RecoveryPointSelection?: RecoveryPointSelection;
+  RecoveryPointSelection?: RecoveryPointSelection | undefined;
 
   /**
    * <p>Optional tags to include. A tag is a key-value pair you can use to manage,
@@ -2310,7 +2310,7 @@ export interface CreateLegalHoldInput {
    *          numbers, spaces, and the following characters: + - = . _ : /. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2337,43 +2337,43 @@ export interface CreateLegalHoldOutput {
    * <p>The title of the legal hold.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>The status of the legal hold.</p>
    * @public
    */
-  Status?: LegalHoldStatus;
+  Status?: LegalHoldStatus | undefined;
 
   /**
    * <p>The description of the legal hold.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the legal hold.</p>
    * @public
    */
-  LegalHoldId?: string;
+  LegalHoldId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the legal hold.</p>
    * @public
    */
-  LegalHoldArn?: string;
+  LegalHoldArn?: string | undefined;
 
   /**
    * <p>The time when the legal hold was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The criteria to assign to a set of resources, such as resource types or backup vaults.</p>
    * @public
    */
-  RecoveryPointSelection?: RecoveryPointSelection;
+  RecoveryPointSelection?: RecoveryPointSelection | undefined;
 }
 
 /**
@@ -2392,7 +2392,7 @@ export interface CreateLogicallyAirGappedBackupVaultInput {
    * <p>The tags to assign to the vault.</p>
    * @public
    */
-  BackupVaultTags?: Record<string, string>;
+  BackupVaultTags?: Record<string, string> | undefined;
 
   /**
    * <p>The ID of the creation request.</p>
@@ -2400,7 +2400,7 @@ export interface CreateLogicallyAirGappedBackupVaultInput {
    *          1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>This setting specifies the minimum retention period
@@ -2427,13 +2427,13 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
    *          them and the Region where they are created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the vault.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The date and time when the vault was created.</p>
@@ -2442,13 +2442,13 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The current state of the vault.</p>
    * @public
    */
-  VaultState?: VaultState;
+  VaultState?: VaultState | undefined;
 }
 
 /**
@@ -2459,19 +2459,19 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -2508,14 +2508,14 @@ export interface ReportDeliveryChannel {
    *          If not specified, there is no prefix.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
    * <p>The format of your reports: <code>CSV</code>, <code>JSON</code>, or both. If
    *          not specified, the default format is <code>CSV</code>.</p>
    * @public
    */
-  Formats?: string[];
+  Formats?: string[] | undefined;
 }
 
 /**
@@ -2538,33 +2538,33 @@ export interface ReportSetting {
    * <p>The Amazon Resource Names (ARNs) of the frameworks a report covers.</p>
    * @public
    */
-  FrameworkArns?: string[];
+  FrameworkArns?: string[] | undefined;
 
   /**
    * <p>The number of frameworks a report covers.</p>
    * @public
    */
-  NumberOfFrameworks?: number;
+  NumberOfFrameworks?: number | undefined;
 
   /**
    * <p>These are the accounts to be included in the report.</p>
    *          <p>Use string value of <code>ROOT</code> to include all organizational units.</p>
    * @public
    */
-  Accounts?: string[];
+  Accounts?: string[] | undefined;
 
   /**
    * <p>These are the Organizational Units to be included in the report.</p>
    * @public
    */
-  OrganizationUnits?: string[];
+  OrganizationUnits?: string[] | undefined;
 
   /**
    * <p>These are the Regions to be included in the report.</p>
    *          <p>Use the wildcard as the string value to include all Regions.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -2583,7 +2583,7 @@ export interface CreateReportPlanInput {
    * <p>An optional description of the report plan with a maximum of 1,024 characters.</p>
    * @public
    */
-  ReportPlanDescription?: string;
+  ReportPlanDescription?: string | undefined;
 
   /**
    * <p>A structure that contains information about where and how to deliver your reports,
@@ -2611,7 +2611,7 @@ export interface CreateReportPlanInput {
    * <p>The tags to assign to the report plan.</p>
    * @public
    */
-  ReportPlanTags?: Record<string, string>;
+  ReportPlanTags?: Record<string, string> | undefined;
 
   /**
    * <p>A customer-chosen string that you can use to distinguish between otherwise identical
@@ -2619,7 +2619,7 @@ export interface CreateReportPlanInput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -2630,14 +2630,14 @@ export interface CreateReportPlanOutput {
    * <p>The unique name of the report plan.</p>
    * @public
    */
-  ReportPlanName?: string;
+  ReportPlanName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  ReportPlanArn?: string;
+  ReportPlanArn?: string | undefined;
 
   /**
    * <p>The date and time a backup vault is created, in Unix format and Coordinated Universal
@@ -2646,7 +2646,7 @@ export interface CreateReportPlanOutput {
    *          AM.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -2717,14 +2717,14 @@ export interface RestoreTestingRecoveryPointSelection {
    *          "RANDOM_WITHIN_WINDOW"</p>
    * @public
    */
-  Algorithm?: RestoreTestingRecoveryPointSelectionAlgorithm;
+  Algorithm?: RestoreTestingRecoveryPointSelectionAlgorithm | undefined;
 
   /**
    * <p>Accepted values include specific ARNs or list of selectors.
    *          Defaults to empty list if not listed.</p>
    * @public
    */
-  ExcludeVaults?: string[];
+  ExcludeVaults?: string[] | undefined;
 
   /**
    * <p>Accepted values include wildcard ["*"] or by specific ARNs or
@@ -2733,7 +2733,7 @@ export interface RestoreTestingRecoveryPointSelection {
    *          ["arn:aws:backup:*:*:backup-vault:asdf-*", ...]</p>
    * @public
    */
-  IncludeVaults?: string[];
+  IncludeVaults?: string[] | undefined;
 
   /**
    * <p>These are the types of recovery points.</p>
@@ -2744,13 +2744,13 @@ export interface RestoreTestingRecoveryPointSelection {
    *          for <code>Algorithm</code>.</p>
    * @public
    */
-  RecoveryPointTypes?: RestoreTestingRecoveryPointType[];
+  RecoveryPointTypes?: RestoreTestingRecoveryPointType[] | undefined;
 
   /**
    * <p>Accepted values are integers from 1 to 365.</p>
    * @public
    */
-  SelectionWindowDays?: number;
+  SelectionWindowDays?: number | undefined;
 }
 
 /**
@@ -2813,7 +2813,7 @@ export interface RestoreTestingPlanForCreate {
    *          You can modify this to a specified timezone.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 
   /**
    * <p>Defaults to 24 hours.</p>
@@ -2824,7 +2824,7 @@ export interface RestoreTestingPlanForCreate {
    *          (one week).</p>
    * @public
    */
-  StartWindowHours?: number;
+  StartWindowHours?: number | undefined;
 }
 
 /**
@@ -2838,7 +2838,7 @@ export interface CreateRestoreTestingPlanInput {
    *          parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>A restore testing plan must contain a unique <code>RestoreTestingPlanName</code> string
@@ -2856,7 +2856,7 @@ export interface CreateRestoreTestingPlanInput {
    * <p>The tags to assign to the restore testing plan.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2930,7 +2930,7 @@ export interface ProtectedResourceConditions {
    *          Also called "exact matching."</p>
    * @public
    */
-  StringEquals?: KeyValue[];
+  StringEquals?: KeyValue[] | undefined;
 
   /**
    * <p>Filters the values of your tagged resources for only
@@ -2938,7 +2938,7 @@ export interface ProtectedResourceConditions {
    *          Also called "negated matching."</p>
    * @public
    */
-  StringNotEquals?: KeyValue[];
+  StringNotEquals?: KeyValue[] | undefined;
 }
 
 /**
@@ -2986,7 +2986,7 @@ export interface RestoreTestingSelectionForCreate {
    *          but not both.</p>
    * @public
    */
-  ProtectedResourceArns?: string[];
+  ProtectedResourceArns?: string[] | undefined;
 
   /**
    * <p>If you have included the wildcard in ProtectedResourceArns,
@@ -2995,7 +2995,7 @@ export interface RestoreTestingSelectionForCreate {
    *             value: "YYYY" \}]</code>.</p>
    * @public
    */
-  ProtectedResourceConditions?: ProtectedResourceConditions;
+  ProtectedResourceConditions?: ProtectedResourceConditions | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource included in a restore
@@ -3056,7 +3056,7 @@ export interface RestoreTestingSelectionForCreate {
    *             inferred metadata</a>.</p>
    * @public
    */
-  RestoreMetadataOverrides?: Record<string, string>;
+  RestoreMetadataOverrides?: Record<string, string> | undefined;
 
   /**
    * <p>The unique name of the restore testing selection
@@ -3071,7 +3071,7 @@ export interface RestoreTestingSelectionForCreate {
    *          specified retention period, whichever comes first.</p>
    * @public
    */
-  ValidationWindowHours?: number;
+  ValidationWindowHours?: number | undefined;
 }
 
 /**
@@ -3085,7 +3085,7 @@ export interface CreateRestoreTestingSelectionInput {
    *          1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>Input the restore testing plan name that was returned from the
@@ -3170,14 +3170,14 @@ export interface DeleteBackupPlanOutput {
    * <p>Uniquely identifies a backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>The date and time a backup plan is deleted, in Unix format and Coordinated Universal
@@ -3186,14 +3186,14 @@ export interface DeleteBackupPlanOutput {
    *          AM.</p>
    * @public
    */
-  DeletionDate?: Date;
+  DeletionDate?: Date | undefined;
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version IDs cannot be edited.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -3345,19 +3345,19 @@ export interface DeleteRestoreTestingSelectionInput {
 export class DependencyFailureException extends __BaseException {
   readonly name: "DependencyFailureException" = "DependencyFailureException";
   readonly $fault: "server" = "server";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p></p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Context?: string;
+  Context?: string | undefined;
   /**
    * @internal
    */
@@ -3394,13 +3394,13 @@ export interface DescribeBackupJobOutput {
    * <p>Returns the account ID that owns the backup job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    * @public
    */
-  BackupJobId?: string;
+  BackupJobId?: string | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -3408,28 +3408,28 @@ export interface DescribeBackupJobOutput {
    *          Region where they are created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a saved resource. The format of the ARN depends on the
    *          resource type.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The date and time that a backup job is created, in Unix format and Coordinated Universal
@@ -3438,7 +3438,7 @@ export interface DescribeBackupJobOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time that a job to create a backup job is completed, in Unix format and
@@ -3447,39 +3447,39 @@ export interface DescribeBackupJobOutput {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  CompletionDate?: Date;
+  CompletionDate?: Date | undefined;
 
   /**
    * <p>The current state of a backup job.</p>
    * @public
    */
-  State?: BackupJobState;
+  State?: BackupJobState | undefined;
 
   /**
    * <p>A detailed message explaining the status of the job to back up a resource.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Contains an estimated percentage that is complete of a job at the time the job status
    *          was queried.</p>
    * @public
    */
-  PercentDone?: string;
+  PercentDone?: string | undefined;
 
   /**
    * <p>The size, in bytes, of a backup.</p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>Contains identifying information about the creation of a backup job, including the
@@ -3487,20 +3487,20 @@ export interface DescribeBackupJobOutput {
    *          and <code>BackupRuleId</code> of the backup plan that is used to create it.</p>
    * @public
    */
-  CreatedBy?: RecoveryPointCreator;
+  CreatedBy?: RecoveryPointCreator | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The size in bytes transferred to a backup vault at the time that the job status was
    *          queried.</p>
    * @public
    */
-  BytesTransferred?: number;
+  BytesTransferred?: number | undefined;
 
   /**
    * <p>The date and time that a job to back up resources is expected to be completed, in Unix
@@ -3509,7 +3509,7 @@ export interface DescribeBackupJobOutput {
    *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  ExpectedCompletionDate?: Date;
+  ExpectedCompletionDate?: Date | undefined;
 
   /**
    * <p>Specifies the time in Unix format and Coordinated Universal Time (UTC) when a backup job
@@ -3520,13 +3520,13 @@ export interface DescribeBackupJobOutput {
    *          represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  StartBy?: Date;
+  StartBy?: Date | undefined;
 
   /**
    * <p>Represents the options specified as part of backup plan or on-demand backup job.</p>
    * @public
    */
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Record<string, string> | undefined;
 
   /**
    * <p>Represents the actual backup type selected for a backup job. For example, if a
@@ -3535,44 +3535,44 @@ export interface DescribeBackupJobOutput {
    *          empty, then the backup type was a regular backup.</p>
    * @public
    */
-  BackupType?: string;
+  BackupType?: string | undefined;
 
   /**
    * <p>This returns the parent (composite) resource backup job ID.</p>
    * @public
    */
-  ParentJobId?: string;
+  ParentJobId?: string | undefined;
 
   /**
    * <p>This returns the boolean value that a backup job is a parent (composite) job.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 
   /**
    * <p>This returns the number of child (nested) backup jobs.</p>
    * @public
    */
-  NumberOfChildJobs?: number;
+  NumberOfChildJobs?: number | undefined;
 
   /**
    * <p>This returns the statistics of the included child (nested) backup jobs.</p>
    * @public
    */
-  ChildJobsInState?: Partial<Record<BackupJobState, number>>;
+  ChildJobsInState?: Partial<Record<BackupJobState, number>> | undefined;
 
   /**
    * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The date a backup job was initiated.</p>
    * @public
    */
-  InitiationDate?: Date;
+  InitiationDate?: Date | undefined;
 
   /**
    * <p>The job count for the specified
@@ -3582,7 +3582,7 @@ export interface DescribeBackupJobOutput {
    *          for a list of accepted MessageCategory strings.</p>
    * @public
    */
-  MessageCategory?: string;
+  MessageCategory?: string | undefined;
 }
 
 /**
@@ -3601,7 +3601,7 @@ export interface DescribeBackupVaultInput {
    * <p>The account ID of the specified backup vault.</p>
    * @public
    */
-  BackupVaultAccountId?: string;
+  BackupVaultAccountId?: string | undefined;
 }
 
 /**
@@ -3614,33 +3614,33 @@ export interface DescribeBackupVaultOutput {
    *          created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The type of vault described.</p>
    * @public
    */
-  VaultType?: VaultType;
+  VaultType?: VaultType | undefined;
 
   /**
    * <p>The current state of the vault.-></p>
    * @public
    */
-  VaultState?: VaultState;
+  VaultState?: VaultState | undefined;
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The date and time that a backup vault is created, in Unix format and Coordinated
@@ -3649,7 +3649,7 @@ export interface DescribeBackupVaultOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
@@ -3657,13 +3657,13 @@ export interface DescribeBackupVaultOutput {
    *          parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The number of recovery points that are stored in a backup vault.</p>
    * @public
    */
-  NumberOfRecoveryPoints?: number;
+  NumberOfRecoveryPoints?: number | undefined;
 
   /**
    * <p>A Boolean that indicates whether Backup Vault Lock is currently protecting
@@ -3671,7 +3671,7 @@ export interface DescribeBackupVaultOutput {
    *          operations on the recovery points stored in the vault to fail.</p>
    * @public
    */
-  Locked?: boolean;
+  Locked?: boolean | undefined;
 
   /**
    * <p>The Backup Vault Lock setting that specifies the minimum retention period
@@ -3685,7 +3685,7 @@ export interface DescribeBackupVaultOutput {
    *          affected.</p>
    * @public
    */
-  MinRetentionDays?: number;
+  MinRetentionDays?: number | undefined;
 
   /**
    * <p>The Backup Vault Lock setting that specifies the maximum retention period
@@ -3700,7 +3700,7 @@ export interface DescribeBackupVaultOutput {
    *          affected.</p>
    * @public
    */
-  MaxRetentionDays?: number;
+  MaxRetentionDays?: number | undefined;
 
   /**
    * <p>The date and time when Backup Vault Lock configuration cannot be changed or
@@ -3713,7 +3713,7 @@ export interface DescribeBackupVaultOutput {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  LockDate?: Date;
+  LockDate?: Date | undefined;
 }
 
 /**
@@ -3735,7 +3735,7 @@ export interface DescribeCopyJobOutput {
    * <p>Contains detailed information about a copy job.</p>
    * @public
    */
-  CopyJob?: CopyJob;
+  CopyJob?: CopyJob | undefined;
 }
 
 /**
@@ -3757,27 +3757,27 @@ export interface DescribeFrameworkOutput {
    * <p>The unique name of a framework.</p>
    * @public
    */
-  FrameworkName?: string;
+  FrameworkName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  FrameworkArn?: string;
+  FrameworkArn?: string | undefined;
 
   /**
    * <p>An optional description of the framework.</p>
    * @public
    */
-  FrameworkDescription?: string;
+  FrameworkDescription?: string | undefined;
 
   /**
    * <p>The controls that make up the framework. Each control in the list has a name,
    *          input parameters, and scope.</p>
    * @public
    */
-  FrameworkControls?: FrameworkControl[];
+  FrameworkControls?: FrameworkControl[] | undefined;
 
   /**
    * <p>The date and time that a framework is created, in ISO 8601 representation. The value of <code>CreationTime</code> is accurate to milliseconds. For example,
@@ -3785,7 +3785,7 @@ export interface DescribeFrameworkOutput {
    *          UTC.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The deployment status of a framework. The statuses are:</p>
@@ -3795,7 +3795,7 @@ export interface DescribeFrameworkOutput {
    *          </p>
    * @public
    */
-  DeploymentStatus?: string;
+  DeploymentStatus?: string | undefined;
 
   /**
    * <p>A framework consists of one or more controls. Each control governs a resource, such as
@@ -3825,7 +3825,7 @@ export interface DescribeFrameworkOutput {
    *          </ul>
    * @public
    */
-  FrameworkStatus?: string;
+  FrameworkStatus?: string | undefined;
 
   /**
    * <p>A customer-chosen string that you can use to distinguish between otherwise identical
@@ -3833,7 +3833,7 @@ export interface DescribeFrameworkOutput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -3849,7 +3849,7 @@ export interface DescribeGlobalSettingsOutput {
    * <p>The status of the flag <code>isCrossAccountBackupEnabled</code>.</p>
    * @public
    */
-  GlobalSettings?: Record<string, string>;
+  GlobalSettings?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time that the flag <code>isCrossAccountBackupEnabled</code> was last
@@ -3858,7 +3858,7 @@ export interface DescribeGlobalSettingsOutput {
    *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 }
 
 /**
@@ -3882,14 +3882,14 @@ export interface DescribeProtectedResourceOutput {
    *          resource type.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource saved as a recovery point; for example, an
    *             Amazon EBS volume or an Amazon RDS database.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The date and time that a resource was last backed up, in Unix format and Coordinated
@@ -3898,45 +3898,45 @@ export interface DescribeProtectedResourceOutput {
    *          AM.</p>
    * @public
    */
-  LastBackupTime?: Date;
+  LastBackupTime?: Date | undefined;
 
   /**
    * <p>The name of the resource that belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the backup vault
    *          that contains the most recent backup recovery point.</p>
    * @public
    */
-  LastBackupVaultArn?: string;
+  LastBackupVaultArn?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the most recent
    *          recovery point.</p>
    * @public
    */
-  LastRecoveryPointArn?: string;
+  LastRecoveryPointArn?: string | undefined;
 
   /**
    * <p>The time, in minutes, that the most recent restore job took to complete.</p>
    * @public
    */
-  LatestRestoreExecutionTimeMinutes?: number;
+  LatestRestoreExecutionTimeMinutes?: number | undefined;
 
   /**
    * <p>The creation date of the most recent restore job.</p>
    * @public
    */
-  LatestRestoreJobCreationDate?: Date;
+  LatestRestoreJobCreationDate?: Date | undefined;
 
   /**
    * <p>The date the most recent recovery point was created.</p>
    * @public
    */
-  LatestRestoreRecoveryPointCreationDate?: Date;
+  LatestRestoreRecoveryPointCreationDate?: Date | undefined;
 }
 
 /**
@@ -3962,7 +3962,7 @@ export interface DescribeRecoveryPointInput {
    * <p>The account ID of the specified backup vault.</p>
    * @public
    */
-  BackupVaultAccountId?: string;
+  BackupVaultAccountId?: string | undefined;
 }
 
 /**
@@ -4005,7 +4005,7 @@ export interface DescribeRecoveryPointOutput {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -4013,14 +4013,14 @@ export interface DescribeRecoveryPointOutput {
    *          created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies the source vault where the
@@ -4030,21 +4030,21 @@ export interface DescribeRecoveryPointOutput {
    *             <code>null</code>.</p>
    * @public
    */
-  SourceBackupVaultArn?: string;
+  SourceBackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a saved resource. The format of the ARN depends on the
    *          resource type.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource to save as a recovery point; for example, an
    *             Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Contains identifying information about the creation of a recovery point, including the
@@ -4052,14 +4052,14 @@ export interface DescribeRecoveryPointOutput {
    *          and <code>BackupRuleId</code> of the backup plan used to create it.</p>
    * @public
    */
-  CreatedBy?: RecoveryPointCreator;
+  CreatedBy?: RecoveryPointCreator | undefined;
 
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>A status code specifying the state of the recovery point.</p>
@@ -4090,13 +4090,13 @@ export interface DescribeRecoveryPointOutput {
    *          refer to the recovery point status and check SAP HANA for details.</p>
    * @public
    */
-  Status?: RecoveryPointStatus;
+  Status?: RecoveryPointStatus | undefined;
 
   /**
    * <p>A status message explaining the status of the recovery point.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The date and time that a recovery point is created, in Unix format and Coordinated
@@ -4105,7 +4105,7 @@ export interface DescribeRecoveryPointOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time that a job to create a recovery point is completed, in Unix format and
@@ -4114,20 +4114,20 @@ export interface DescribeRecoveryPointOutput {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  CompletionDate?: Date;
+  CompletionDate?: Date | undefined;
 
   /**
    * <p>The size, in bytes, of a backup.</p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
    *             <code>MoveToColdStorageAt</code> timestamps.</p>
    * @public
    */
-  CalculatedLifecycle?: CalculatedLifecycle;
+  CalculatedLifecycle?: CalculatedLifecycle | undefined;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -4141,28 +4141,28 @@ export interface DescribeRecoveryPointOutput {
    *          availability by resource</a> table. Backup ignores this expression for other resource types.</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 
   /**
    * <p>The server-side encryption key used to protect your backups; for example,
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
    *          encrypted, or <code>FALSE</code> if the recovery point is not encrypted.</p>
    * @public
    */
-  IsEncrypted?: boolean;
+  IsEncrypted?: boolean | undefined;
 
   /**
    * <p>Specifies the storage class of the recovery point. Valid values are <code>WARM</code> or
    *             <code>COLD</code>.</p>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>The date and time that a recovery point was last restored, in Unix format and
@@ -4171,14 +4171,14 @@ export interface DescribeRecoveryPointOutput {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  LastRestoreTime?: Date;
+  LastRestoreTime?: Date | undefined;
 
   /**
    * <p>This is an ARN that uniquely identifies a parent (composite) recovery point; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  ParentRecoveryPointArn?: string;
+  ParentRecoveryPointArn?: string | undefined;
 
   /**
    * <p>The identifier of a resource within a composite group, such as
@@ -4187,25 +4187,25 @@ export interface DescribeRecoveryPointOutput {
    *             logical ID</a> within a stack.</p>
    * @public
    */
-  CompositeMemberIdentifier?: string;
+  CompositeMemberIdentifier?: string | undefined;
 
   /**
    * <p>This returns the boolean value that a recovery point is a parent (composite) job.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 
   /**
    * <p>The name of the resource that belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The type of vault in which the described recovery point is stored.</p>
    * @public
    */
-  VaultType?: VaultType;
+  VaultType?: VaultType | undefined;
 }
 
 /**
@@ -4221,7 +4221,7 @@ export interface DescribeRegionSettingsOutput {
    * <p>The services along with the opt-in preferences in the Region.</p>
    * @public
    */
-  ResourceTypeOptInPreference?: Record<string, boolean>;
+  ResourceTypeOptInPreference?: Record<string, boolean> | undefined;
 
   /**
    * <p>Returns whether Backup fully manages the backups for a resource type.</p>
@@ -4234,7 +4234,7 @@ export interface DescribeRegionSettingsOutput {
    *             Backup's advanced DynamoDB backup features</a>.</p>
    * @public
    */
-  ResourceTypeManagementPreference?: Record<string, boolean>;
+  ResourceTypeManagementPreference?: Record<string, boolean> | undefined;
 }
 
 /**
@@ -4258,13 +4258,13 @@ export interface ReportDestination {
    * <p>The unique name of the Amazon S3 bucket that receives your reports.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>The object key that uniquely identifies your reports in your S3 bucket.</p>
    * @public
    */
-  S3Keys?: string[];
+  S3Keys?: string[] | undefined;
 }
 
 /**
@@ -4278,14 +4278,14 @@ export interface ReportJob {
    *          string that is at most 1,024 bytes long. Report job IDs cannot be edited.</p>
    * @public
    */
-  ReportJobId?: string;
+  ReportJobId?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  ReportPlanArn?: string;
+  ReportPlanArn?: string | undefined;
 
   /**
    * <p>Identifies the report template for the report. Reports are built using a report
@@ -4296,7 +4296,7 @@ export interface ReportJob {
    *          </p>
    * @public
    */
-  ReportTemplate?: string;
+  ReportTemplate?: string | undefined;
 
   /**
    * <p>The date and time that a report job is created, in Unix format and Coordinated Universal
@@ -4305,7 +4305,7 @@ export interface ReportJob {
    *          AM.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The date and time that a report job is completed, in Unix format and Coordinated
@@ -4314,7 +4314,7 @@ export interface ReportJob {
    *          AM.</p>
    * @public
    */
-  CompletionTime?: Date;
+  CompletionTime?: Date | undefined;
 
   /**
    * <p>The status of a report job. The statuses are:</p>
@@ -4327,20 +4327,20 @@ export interface ReportJob {
    *             <code>StatusMessage</code> for the reason.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>A message explaining the status of the report job.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The S3 bucket name and S3 keys for the destination where the report job publishes the
    *          report.</p>
    * @public
    */
-  ReportDestination?: ReportDestination;
+  ReportDestination?: ReportDestination | undefined;
 }
 
 /**
@@ -4353,7 +4353,7 @@ export interface DescribeReportJobOutput {
    *          status, and status message.</p>
    * @public
    */
-  ReportJob?: ReportJob;
+  ReportJob?: ReportJob | undefined;
 }
 
 /**
@@ -4377,7 +4377,7 @@ export interface ReportPlan {
    *          depends on the resource type.</p>
    * @public
    */
-  ReportPlanArn?: string;
+  ReportPlanArn?: string | undefined;
 
   /**
    * <p>The unique name of the report plan. This name is between 1 and 256 characters starting
@@ -4385,13 +4385,13 @@ export interface ReportPlan {
    *          (_).</p>
    * @public
    */
-  ReportPlanName?: string;
+  ReportPlanName?: string | undefined;
 
   /**
    * <p>An optional description of the report plan with a maximum 1,024 characters.</p>
    * @public
    */
-  ReportPlanDescription?: string;
+  ReportPlanDescription?: string | undefined;
 
   /**
    * <p>Identifies the report template for the report. Reports are built using a report
@@ -4405,14 +4405,14 @@ export interface ReportPlan {
    *          coverage by Amazon Web Services Regions and frameworks.</p>
    * @public
    */
-  ReportSetting?: ReportSetting;
+  ReportSetting?: ReportSetting | undefined;
 
   /**
    * <p>Contains information about where and how to deliver your reports, specifically your
    *             Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</p>
    * @public
    */
-  ReportDeliveryChannel?: ReportDeliveryChannel;
+  ReportDeliveryChannel?: ReportDeliveryChannel | undefined;
 
   /**
    * <p>The deployment status of a report plan. The statuses are:</p>
@@ -4422,7 +4422,7 @@ export interface ReportPlan {
    *          </p>
    * @public
    */
-  DeploymentStatus?: string;
+  DeploymentStatus?: string | undefined;
 
   /**
    * <p>The date and time that a report plan is created, in Unix format and Coordinated
@@ -4431,7 +4431,7 @@ export interface ReportPlan {
    *          AM.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The date and time that a report job associated with this report plan last attempted to
@@ -4440,7 +4440,7 @@ export interface ReportPlan {
    *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastAttemptedExecutionTime?: Date;
+  LastAttemptedExecutionTime?: Date | undefined;
 
   /**
    * <p>The date and time that a report job associated with this report plan last successfully
@@ -4449,7 +4449,7 @@ export interface ReportPlan {
    *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastSuccessfulExecutionTime?: Date;
+  LastSuccessfulExecutionTime?: Date | undefined;
 }
 
 /**
@@ -4463,7 +4463,7 @@ export interface DescribeReportPlanOutput {
    *          times.</p>
    * @public
    */
-  ReportPlan?: ReportPlan;
+  ReportPlan?: ReportPlan | undefined;
 }
 
 /**
@@ -4488,7 +4488,7 @@ export interface RestoreJobCreator {
    *          a restore testing plan.</p>
    * @public
    */
-  RestoreTestingPlanArn?: string;
+  RestoreTestingPlanArn?: string | undefined;
 }
 
 /**
@@ -4547,20 +4547,20 @@ export interface DescribeRestoreJobOutput {
    * <p>Returns the account ID that owns the restore job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
    * @public
    */
-  RestoreJobId?: string;
+  RestoreJobId?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The date and time that a restore job is created, in Unix format and Coordinated
@@ -4569,7 +4569,7 @@ export interface DescribeRestoreJobOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time that a job to restore a recovery point is completed, in Unix format
@@ -4578,47 +4578,47 @@ export interface DescribeRestoreJobOutput {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  CompletionDate?: Date;
+  CompletionDate?: Date | undefined;
 
   /**
    * <p>Status code specifying the state of the job that is initiated by Backup to
    *          restore a recovery point.</p>
    * @public
    */
-  Status?: RestoreJobStatus;
+  Status?: RestoreJobStatus | undefined;
 
   /**
    * <p>A message showing the status of a job to restore a recovery point.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Contains an estimated percentage that is complete of a job at the time the job status
    *          was queried.</p>
    * @public
    */
-  PercentDone?: string;
+  PercentDone?: string | undefined;
 
   /**
    * <p>The size, in bytes, of the restored resource.</p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>The amount of time in minutes that a job restoring a recovery point is expected to
    *          take.</p>
    * @public
    */
-  ExpectedCompletionTimeMinutes?: number;
+  ExpectedCompletionTimeMinutes?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource that
@@ -4627,50 +4627,50 @@ export interface DescribeRestoreJobOutput {
    *          resource.</p>
    * @public
    */
-  CreatedResourceArn?: string;
+  CreatedResourceArn?: string | undefined;
 
   /**
    * <p>Returns metadata associated with a restore job listed by resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The creation date of the recovery point made by the specifed restore job.</p>
    * @public
    */
-  RecoveryPointCreationDate?: Date;
+  RecoveryPointCreationDate?: Date | undefined;
 
   /**
    * <p>Contains identifying information about the creation of a restore job.</p>
    * @public
    */
-  CreatedBy?: RestoreJobCreator;
+  CreatedBy?: RestoreJobCreator | undefined;
 
   /**
    * <p>The status of validation run on the indicated
    *          restore job.</p>
    * @public
    */
-  ValidationStatus?: RestoreValidationStatus;
+  ValidationStatus?: RestoreValidationStatus | undefined;
 
   /**
    * <p>The status message.</p>
    * @public
    */
-  ValidationStatusMessage?: string;
+  ValidationStatusMessage?: string | undefined;
 
   /**
    * <p>The status of the data generated by the restore test.</p>
    * @public
    */
-  DeletionStatus?: RestoreDeletionStatus;
+  DeletionStatus?: RestoreDeletionStatus | undefined;
 
   /**
    * <p>This describes the restore job deletion status.</p>
    * @public
    */
-  DeletionStatusMessage?: string;
+  DeletionStatusMessage?: string | undefined;
 }
 
 /**
@@ -4737,7 +4737,7 @@ export interface ExportBackupPlanTemplateOutput {
    *          </note>
    * @public
    */
-  BackupPlanTemplateJson?: string;
+  BackupPlanTemplateJson?: string | undefined;
 }
 
 /**
@@ -4755,7 +4755,7 @@ export interface GetBackupPlanInput {
    *          long. Version IDs cannot be edited.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -4767,34 +4767,34 @@ export interface GetBackupPlanOutput {
    *          more sets of <code>Rules</code>.</p>
    * @public
    */
-  BackupPlan?: BackupPlan;
+  BackupPlan?: BackupPlan | undefined;
 
   /**
    * <p>Uniquely identifies a backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version IDs cannot be edited.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
    *          without the risk of running the operation twice. </p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The date and time that a backup plan is created, in Unix format and Coordinated
@@ -4803,7 +4803,7 @@ export interface GetBackupPlanOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time that a backup plan is deleted, in Unix format and Coordinated
@@ -4812,7 +4812,7 @@ export interface GetBackupPlanOutput {
    *          AM.</p>
    * @public
    */
-  DeletionDate?: Date;
+  DeletionDate?: Date | undefined;
 
   /**
    * <p>The last time this backup plan was run. A date and time,
@@ -4821,14 +4821,14 @@ export interface GetBackupPlanOutput {
    *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastExecutionDate?: Date;
+  LastExecutionDate?: Date | undefined;
 
   /**
    * <p>Contains a list of <code>BackupOptions</code> for each resource type. The list is
    *          populated only if the advanced option is set for the backup plan.</p>
    * @public
    */
-  AdvancedBackupSettings?: AdvancedBackupSetting[];
+  AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
 }
 
 /**
@@ -4851,7 +4851,7 @@ export interface GetBackupPlanFromJSONOutput {
    *          more sets of <code>Rules</code>.</p>
    * @public
    */
-  BackupPlan?: BackupPlan;
+  BackupPlan?: BackupPlan | undefined;
 }
 
 /**
@@ -4874,7 +4874,7 @@ export interface GetBackupPlanFromTemplateOutput {
    *          rules, and backup vault of the plan.</p>
    * @public
    */
-  BackupPlanDocument?: BackupPlan;
+  BackupPlanDocument?: BackupPlan | undefined;
 }
 
 /**
@@ -4903,20 +4903,20 @@ export interface GetBackupSelectionOutput {
    * <p>Specifies the body of a request to assign a set of resources to a backup plan.</p>
    * @public
    */
-  BackupSelection?: BackupSelection;
+  BackupSelection?: BackupSelection | undefined;
 
   /**
    * <p>Uniquely identifies the body of a request to assign a set of resources to a backup
    *          plan.</p>
    * @public
    */
-  SelectionId?: string;
+  SelectionId?: string | undefined;
 
   /**
    * <p>Uniquely identifies a backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>The date and time a backup selection is created, in Unix format and Coordinated
@@ -4925,14 +4925,14 @@ export interface GetBackupSelectionOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
    *          without the risk of running the operation twice.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 }
 
 /**
@@ -4958,20 +4958,20 @@ export interface GetBackupVaultAccessPolicyOutput {
    *          created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The backup vault access policy document in JSON format.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -4997,28 +4997,28 @@ export interface GetBackupVaultNotificationsOutput {
    *          created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies an Amazon Simple Notification Service (Amazon SNS)
    *          topic; for example, <code>arn:aws:sns:us-west-2:111122223333:MyTopic</code>.</p>
    * @public
    */
-  SNSTopicArn?: string;
+  SNSTopicArn?: string | undefined;
 
   /**
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    * @public
    */
-  BackupVaultEvents?: BackupVaultEvent[];
+  BackupVaultEvents?: BackupVaultEvent[] | undefined;
 }
 
 /**
@@ -5040,62 +5040,62 @@ export interface GetLegalHoldOutput {
    * <p>The title of the legal hold.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>The status of the legal hold.</p>
    * @public
    */
-  Status?: LegalHoldStatus;
+  Status?: LegalHoldStatus | undefined;
 
   /**
    * <p>The description of the legal hold.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The reason for removing the legal hold.</p>
    * @public
    */
-  CancelDescription?: string;
+  CancelDescription?: string | undefined;
 
   /**
    * <p>The ID of the legal hold.</p>
    * @public
    */
-  LegalHoldId?: string;
+  LegalHoldId?: string | undefined;
 
   /**
    * <p>The framework ARN for the specified legal hold. The format
    *          of the ARN depends on the resource type.</p>
    * @public
    */
-  LegalHoldArn?: string;
+  LegalHoldArn?: string | undefined;
 
   /**
    * <p>The time when the legal hold was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The time when the legal hold was cancelled.</p>
    * @public
    */
-  CancellationDate?: Date;
+  CancellationDate?: Date | undefined;
 
   /**
    * <p>The date and time until which the legal hold record is retained.</p>
    * @public
    */
-  RetainRecordUntil?: Date;
+  RetainRecordUntil?: Date | undefined;
 
   /**
    * <p>The criteria to assign a set of resources, such as resource types or backup vaults.</p>
    * @public
    */
-  RecoveryPointSelection?: RecoveryPointSelection;
+  RecoveryPointSelection?: RecoveryPointSelection | undefined;
 }
 
 /**
@@ -5121,7 +5121,7 @@ export interface GetRecoveryPointRestoreMetadataInput {
    * <p>The account ID of the specified backup vault.</p>
    * @public
    */
-  BackupVaultAccountId?: string;
+  BackupVaultAccountId?: string | undefined;
 }
 
 /**
@@ -5133,14 +5133,14 @@ export interface GetRecoveryPointRestoreMetadataOutput {
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The set of metadata key-value pairs that describe the original configuration of the
@@ -5148,13 +5148,13 @@ export interface GetRecoveryPointRestoreMetadataOutput {
    *          restored.</p>
    * @public
    */
-  RestoreMetadata?: Record<string, string>;
+  RestoreMetadata?: Record<string, string> | undefined;
 
   /**
    * <p>The resource type of the recovery point.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 }
 
 /**
@@ -5176,13 +5176,13 @@ export interface GetRestoreJobMetadataOutput {
    * <p>This is a unique identifier of a restore job within Backup.</p>
    * @public
    */
-  RestoreJobId?: string;
+  RestoreJobId?: string | undefined;
 
   /**
    * <p>This contains the metadata of the specified backup job.</p>
    * @public
    */
-  Metadata?: Record<string, string>;
+  Metadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -5193,7 +5193,7 @@ export interface GetRestoreTestingInferredMetadataInput {
    * <p>The account ID of the specified backup vault.</p>
    * @public
    */
-  BackupVaultAccountId?: string;
+  BackupVaultAccountId?: string | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup
@@ -5261,7 +5261,7 @@ export interface RestoreTestingPlanForGet {
    *             contain 1 to 50 alphanumeric or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The last time a restore test was run with the specified
@@ -5272,7 +5272,7 @@ export interface RestoreTestingPlanForGet {
    *          January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastExecutionTime?: Date;
+  LastExecutionTime?: Date | undefined;
 
   /**
    * <p>The date and time that the restore testing plan was updated.
@@ -5282,7 +5282,7 @@ export interface RestoreTestingPlanForGet {
    *          January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 
   /**
    * <p>The specified criteria to assign a set of resources, such as
@@ -5317,7 +5317,7 @@ export interface RestoreTestingPlanForGet {
    *          You can modify this to a specified timezone.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 
   /**
    * <p>Defaults to 24 hours.</p>
@@ -5328,7 +5328,7 @@ export interface RestoreTestingPlanForGet {
    *          (one week).</p>
    * @public
    */
-  StartWindowHours?: number;
+  StartWindowHours?: number | undefined;
 }
 
 /**
@@ -5385,7 +5385,7 @@ export interface RestoreTestingSelectionForGet {
    *          or '-_.' characters.</p>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that
@@ -5402,7 +5402,7 @@ export interface RestoreTestingSelectionForGet {
    *          but not both.</p>
    * @public
    */
-  ProtectedResourceArns?: string[];
+  ProtectedResourceArns?: string[] | undefined;
 
   /**
    * <p>In a resource testing selection, this parameter filters by
@@ -5410,7 +5410,7 @@ export interface RestoreTestingSelectionForGet {
    *          <code>StringNotEquals</code>.</p>
    * @public
    */
-  ProtectedResourceConditions?: ProtectedResourceConditions;
+  ProtectedResourceConditions?: ProtectedResourceConditions | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource included in a resource
@@ -5429,7 +5429,7 @@ export interface RestoreTestingSelectionForGet {
    *          inferred metadata</a>.</p>
    * @public
    */
-  RestoreMetadataOverrides?: Record<string, string>;
+  RestoreMetadataOverrides?: Record<string, string> | undefined;
 
   /**
    * <p>The RestoreTestingPlanName is a unique string that is the name
@@ -5451,7 +5451,7 @@ export interface RestoreTestingSelectionForGet {
    *          specified retention period, whichever comes first.</p>
    * @public
    */
-  ValidationWindowHours?: number;
+  ValidationWindowHours?: number | undefined;
 }
 
 /**
@@ -5540,7 +5540,7 @@ export interface GetSupportedResourceTypesOutput {
    *          </ul>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 }
 
 /**
@@ -5554,20 +5554,20 @@ export interface ListBackupJobsInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Returns only backup jobs that match the specified resource Amazon Resource Name
    *          (ARN).</p>
    * @public
    */
-  ByResourceArn?: string;
+  ByResourceArn?: string | undefined;
 
   /**
    * <p>Returns only backup jobs that are in the specified state.</p>
@@ -5583,7 +5583,7 @@ export interface ListBackupJobsInput {
    *          <p>GET /backup-jobs/?messageCategory=SUCCESS&state=COMPLETED</p>
    * @public
    */
-  ByState?: BackupJobState;
+  ByState?: BackupJobState | undefined;
 
   /**
    * <p>Returns only backup jobs that will be stored in the specified backup vault. Backup
@@ -5591,19 +5591,19 @@ export interface ListBackupJobsInput {
    *             Amazon Web Services Region where they are created.</p>
    * @public
    */
-  ByBackupVaultName?: string;
+  ByBackupVaultName?: string | undefined;
 
   /**
    * <p>Returns only backup jobs that were created before the specified date.</p>
    * @public
    */
-  ByCreatedBefore?: Date;
+  ByCreatedBefore?: Date | undefined;
 
   /**
    * <p>Returns only backup jobs that were created after the specified date.</p>
    * @public
    */
-  ByCreatedAfter?: Date;
+  ByCreatedAfter?: Date | undefined;
 
   /**
    * <p>Returns only backup jobs for the specified resources:</p>
@@ -5676,7 +5676,7 @@ export interface ListBackupJobsInput {
    *          </ul>
    * @public
    */
-  ByResourceType?: string;
+  ByResourceType?: string | undefined;
 
   /**
    * <p>The account ID to list the jobs from. Returns only backup jobs associated with the
@@ -5685,27 +5685,27 @@ export interface ListBackupJobsInput {
    *          all jobs across the organization.</p>
    * @public
    */
-  ByAccountId?: string;
+  ByAccountId?: string | undefined;
 
   /**
    * <p>Returns only backup jobs completed after a date expressed in Unix format and Coordinated
    *          Universal Time (UTC).</p>
    * @public
    */
-  ByCompleteAfter?: Date;
+  ByCompleteAfter?: Date | undefined;
 
   /**
    * <p>Returns only backup jobs completed before a date expressed in Unix format and
    *          Coordinated Universal Time (UTC).</p>
    * @public
    */
-  ByCompleteBefore?: Date;
+  ByCompleteBefore?: Date | undefined;
 
   /**
    * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
    * @public
    */
-  ByParentJobId?: string;
+  ByParentJobId?: string | undefined;
 
   /**
    * <p>This is an optional parameter that can be used to
@@ -5722,7 +5722,7 @@ export interface ListBackupJobsInput {
    *             for all message categories and returns the sum.</p>
    * @public
    */
-  ByMessageCategory?: string;
+  ByMessageCategory?: string | undefined;
 }
 
 /**
@@ -5734,7 +5734,7 @@ export interface ListBackupJobsOutput {
    *          format.</p>
    * @public
    */
-  BackupJobs?: BackupJob[];
+  BackupJobs?: BackupJob[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -5743,7 +5743,7 @@ export interface ListBackupJobsOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5764,7 +5764,7 @@ export interface ListBackupJobSummariesInput {
    *          then returns the sum.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>This parameter returns the job count for jobs with the specified state.</p>
@@ -5785,7 +5785,7 @@ export interface ListBackupJobSummariesInput {
    *          /audit/backup-job-summaries?AggregationPeriod=FOURTEEN_DAYS&MessageCategory=SUCCESS&State=COMPLETED</p>
    * @public
    */
-  State?: BackupJobStatus;
+  State?: BackupJobStatus | undefined;
 
   /**
    * <p>Returns the job count for the specified resource type.
@@ -5798,7 +5798,7 @@ export interface ListBackupJobSummariesInput {
    *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>This parameter returns the job count for the specified
@@ -5813,7 +5813,7 @@ export interface ListBackupJobSummariesInput {
    *          for all message categories and returns the sum.</p>
    * @public
    */
-  MessageCategory?: string;
+  MessageCategory?: string | undefined;
 
   /**
    * <p>The period for the returned results.</p>
@@ -5833,7 +5833,7 @@ export interface ListBackupJobSummariesInput {
    *          </ul>
    * @public
    */
-  AggregationPeriod?: AggregationPeriod;
+  AggregationPeriod?: AggregationPeriod | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
@@ -5841,7 +5841,7 @@ export interface ListBackupJobSummariesInput {
    *          1 to 500.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -5850,7 +5850,7 @@ export interface ListBackupJobSummariesInput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5861,7 +5861,7 @@ export interface ListBackupJobSummariesOutput {
    * <p>The summary information.</p>
    * @public
    */
-  BackupJobSummaries?: BackupJobSummary[];
+  BackupJobSummaries?: BackupJobSummary[] | undefined;
 
   /**
    * <p>The period for the returned results.</p>
@@ -5881,7 +5881,7 @@ export interface ListBackupJobSummariesOutput {
    *          </ul>
    * @public
    */
-  AggregationPeriod?: string;
+  AggregationPeriod?: string | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -5890,7 +5890,7 @@ export interface ListBackupJobSummariesOutput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5904,20 +5904,20 @@ export interface ListBackupPlansInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A Boolean value with a default value of <code>FALSE</code> that returns deleted backup
    *          plans when set to <code>TRUE</code>.</p>
    * @public
    */
-  IncludeDeleted?: boolean;
+  IncludeDeleted?: boolean | undefined;
 }
 
 /**
@@ -5931,13 +5931,13 @@ export interface ListBackupPlansOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Information about the backup plans.</p>
    * @public
    */
-  BackupPlansList?: BackupPlansListMember[];
+  BackupPlansList?: BackupPlansListMember[] | undefined;
 }
 
 /**
@@ -5951,13 +5951,13 @@ export interface ListBackupPlanTemplatesInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5971,13 +5971,13 @@ export interface ListBackupPlanTemplatesOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of template list items containing metadata about your saved templates.</p>
    * @public
    */
-  BackupPlanTemplatesList?: BackupPlanTemplatesListMember[];
+  BackupPlanTemplatesList?: BackupPlanTemplatesListMember[] | undefined;
 }
 
 /**
@@ -5997,13 +5997,13 @@ export interface ListBackupPlanVersionsInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6017,13 +6017,13 @@ export interface ListBackupPlanVersionsOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of version list items containing metadata about your backup plans.</p>
    * @public
    */
-  BackupPlanVersionsList?: BackupPlansListMember[];
+  BackupPlanVersionsList?: BackupPlansListMember[] | undefined;
 }
 
 /**
@@ -6043,13 +6043,13 @@ export interface ListBackupSelectionsInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6063,14 +6063,14 @@ export interface ListBackupSelectionsOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of backup selection list items containing metadata about each resource in the
    *          list.</p>
    * @public
    */
-  BackupSelectionsList?: BackupSelectionsListMember[];
+  BackupSelectionsList?: BackupSelectionsListMember[] | undefined;
 }
 
 /**
@@ -6081,13 +6081,13 @@ export interface ListBackupVaultsInput {
    * <p>This parameter will sort the list of vaults by vault type.</p>
    * @public
    */
-  ByVaultType?: VaultType;
+  ByVaultType?: VaultType | undefined;
 
   /**
    * <p>This parameter will sort the list of vaults by shared vaults.</p>
    * @public
    */
-  ByShared?: boolean;
+  ByShared?: boolean | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -6096,13 +6096,13 @@ export interface ListBackupVaultsInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6115,7 +6115,7 @@ export interface ListBackupVaultsOutput {
    *          encryption information if the resources saved in the backup vault are encrypted.</p>
    * @public
    */
-  BackupVaultList?: BackupVaultListMember[];
+  BackupVaultList?: BackupVaultListMember[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -6124,7 +6124,7 @@ export interface ListBackupVaultsOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6137,38 +6137,38 @@ export interface ListCopyJobsInput {
    *          your list starting at the location pointed to by the next token. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Returns only copy jobs that match the specified resource Amazon Resource Name (ARN).
    *       </p>
    * @public
    */
-  ByResourceArn?: string;
+  ByResourceArn?: string | undefined;
 
   /**
    * <p>Returns only copy jobs that are in the specified state.</p>
    * @public
    */
-  ByState?: CopyJobState;
+  ByState?: CopyJobState | undefined;
 
   /**
    * <p>Returns only copy jobs that were created before the specified date.</p>
    * @public
    */
-  ByCreatedBefore?: Date;
+  ByCreatedBefore?: Date | undefined;
 
   /**
    * <p>Returns only copy jobs that were created after the specified date.</p>
    * @public
    */
-  ByCreatedAfter?: Date;
+  ByCreatedAfter?: Date | undefined;
 
   /**
    * <p>Returns only backup jobs for the specified resources:</p>
@@ -6241,7 +6241,7 @@ export interface ListCopyJobsInput {
    *          </ul>
    * @public
    */
-  ByResourceType?: string;
+  ByResourceType?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a source backup vault to copy
@@ -6249,34 +6249,34 @@ export interface ListCopyJobsInput {
    *       </p>
    * @public
    */
-  ByDestinationVaultArn?: string;
+  ByDestinationVaultArn?: string | undefined;
 
   /**
    * <p>The account ID to list the jobs from. Returns only copy jobs associated with the
    *          specified account ID.</p>
    * @public
    */
-  ByAccountId?: string;
+  ByAccountId?: string | undefined;
 
   /**
    * <p>Returns only copy jobs completed before a date expressed in Unix format and Coordinated
    *          Universal Time (UTC).</p>
    * @public
    */
-  ByCompleteBefore?: Date;
+  ByCompleteBefore?: Date | undefined;
 
   /**
    * <p>Returns only copy jobs completed after a date expressed in Unix format and Coordinated
    *          Universal Time (UTC).</p>
    * @public
    */
-  ByCompleteAfter?: Date;
+  ByCompleteAfter?: Date | undefined;
 
   /**
    * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
    * @public
    */
-  ByParentJobId?: string;
+  ByParentJobId?: string | undefined;
 
   /**
    * <p>This is an optional parameter that can be used to
@@ -6294,7 +6294,7 @@ export interface ListCopyJobsInput {
    *             for all message categories and returns the sum.</p>
    * @public
    */
-  ByMessageCategory?: string;
+  ByMessageCategory?: string | undefined;
 }
 
 /**
@@ -6306,7 +6306,7 @@ export interface ListCopyJobsOutput {
    *       </p>
    * @public
    */
-  CopyJobs?: CopyJob[];
+  CopyJobs?: CopyJob[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -6314,7 +6314,7 @@ export interface ListCopyJobsOutput {
    *          your list starting at the location pointed to by the next token. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6335,7 +6335,7 @@ export interface ListCopyJobSummariesInput {
    *          then returns the sum.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>This parameter returns the job count for jobs
@@ -6346,7 +6346,7 @@ export interface ListCopyJobSummariesInput {
    *          for all states and returns the sum.</p>
    * @public
    */
-  State?: CopyJobStatus;
+  State?: CopyJobStatus | undefined;
 
   /**
    * <p>Returns the job count for the specified resource type.
@@ -6359,7 +6359,7 @@ export interface ListCopyJobSummariesInput {
    *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>This parameter returns the job count for the specified
@@ -6374,7 +6374,7 @@ export interface ListCopyJobSummariesInput {
    *          for all message categories and returns the sum.</p>
    * @public
    */
-  MessageCategory?: string;
+  MessageCategory?: string | undefined;
 
   /**
    * <p>The period for the returned results.</p>
@@ -6394,7 +6394,7 @@ export interface ListCopyJobSummariesInput {
    *          </ul>
    * @public
    */
-  AggregationPeriod?: AggregationPeriod;
+  AggregationPeriod?: AggregationPeriod | undefined;
 
   /**
    * <p>This parameter sets the maximum number of items
@@ -6403,7 +6403,7 @@ export interface ListCopyJobSummariesInput {
    *          1 to 500.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -6412,7 +6412,7 @@ export interface ListCopyJobSummariesInput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6425,7 +6425,7 @@ export interface ListCopyJobSummariesOutput {
    *          StartTime, EndTime, and Count of included jobs.</p>
    * @public
    */
-  CopyJobSummaries?: CopyJobSummary[];
+  CopyJobSummaries?: CopyJobSummary[] | undefined;
 
   /**
    * <p>The period for the returned results.</p>
@@ -6445,7 +6445,7 @@ export interface ListCopyJobSummariesOutput {
    *          </ul>
    * @public
    */
-  AggregationPeriod?: string;
+  AggregationPeriod?: string | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -6454,7 +6454,7 @@ export interface ListCopyJobSummariesOutput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6466,14 +6466,14 @@ export interface ListFrameworksInput {
    *          return 1 MB of data.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6488,26 +6488,26 @@ export interface Framework {
    *          a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>
    * @public
    */
-  FrameworkName?: string;
+  FrameworkName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  FrameworkArn?: string;
+  FrameworkArn?: string | undefined;
 
   /**
    * <p>An optional description of the framework with a maximum 1,024 characters.</p>
    * @public
    */
-  FrameworkDescription?: string;
+  FrameworkDescription?: string | undefined;
 
   /**
    * <p>The number of controls contained by the framework.</p>
    * @public
    */
-  NumberOfControls?: number;
+  NumberOfControls?: number | undefined;
 
   /**
    * <p>The date and time that a framework is created, in ISO 8601 representation.
@@ -6516,7 +6516,7 @@ export interface Framework {
    *           UTC.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The deployment status of a framework. The statuses are:</p>
@@ -6526,7 +6526,7 @@ export interface Framework {
    *          </p>
    * @public
    */
-  DeploymentStatus?: string;
+  DeploymentStatus?: string | undefined;
 }
 
 /**
@@ -6539,14 +6539,14 @@ export interface ListFrameworksOutput {
    *          status.</p>
    * @public
    */
-  Frameworks?: Framework[];
+  Frameworks?: Framework[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6560,13 +6560,13 @@ export interface ListLegalHoldsInput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of resource list items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6585,44 +6585,44 @@ export interface LegalHold {
    * <p>The title of a legal hold.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>The status of the legal hold.</p>
    * @public
    */
-  Status?: LegalHoldStatus;
+  Status?: LegalHoldStatus | undefined;
 
   /**
    * <p>The description of a legal hold.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the legal hold.</p>
    * @public
    */
-  LegalHoldId?: string;
+  LegalHoldId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the legal hold; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  LegalHoldArn?: string;
+  LegalHoldArn?: string | undefined;
 
   /**
    * <p>The time when the legal hold was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The time when the legal hold was cancelled.</p>
    * @public
    */
-  CancellationDate?: Date;
+  CancellationDate?: Date | undefined;
 }
 
 /**
@@ -6636,13 +6636,13 @@ export interface ListLegalHoldsOutput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>This is an array of returned legal holds, both active and previous.</p>
    * @public
    */
-  LegalHolds?: LegalHold[];
+  LegalHolds?: LegalHold[] | undefined;
 }
 
 /**
@@ -6656,13 +6656,13 @@ export interface ListProtectedResourcesInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6675,7 +6675,7 @@ export interface ProtectedResource {
    *          depends on the resource type.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For
@@ -6683,7 +6683,7 @@ export interface ProtectedResource {
    *             Amazon EC2.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The date and time a resource was last backed up, in Unix format and Coordinated
@@ -6692,28 +6692,28 @@ export interface ProtectedResource {
    *          AM.</p>
    * @public
    */
-  LastBackupTime?: Date;
+  LastBackupTime?: Date | undefined;
 
   /**
    * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the backup vault
    *          that contains the most recent backup recovery point.</p>
    * @public
    */
-  LastBackupVaultArn?: string;
+  LastBackupVaultArn?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the most
    *          recent recovery point.</p>
    * @public
    */
-  LastRecoveryPointArn?: string;
+  LastRecoveryPointArn?: string | undefined;
 }
 
 /**
@@ -6726,7 +6726,7 @@ export interface ListProtectedResourcesOutput {
    *          type.</p>
    * @public
    */
-  Results?: ProtectedResource[];
+  Results?: ProtectedResource[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -6735,7 +6735,7 @@ export interface ListProtectedResourcesOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6752,7 +6752,7 @@ export interface ListProtectedResourcesByBackupVaultInput {
    * <p>The list of protected resources by backup vault within the vault(s) you specify by account ID.</p>
    * @public
    */
-  BackupVaultAccountId?: string;
+  BackupVaultAccountId?: string | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -6761,13 +6761,13 @@ export interface ListProtectedResourcesByBackupVaultInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6778,7 +6778,7 @@ export interface ListProtectedResourcesByBackupVaultOutput {
    * <p>These are the results returned for the request ListProtectedResourcesByBackupVault.</p>
    * @public
    */
-  Results?: ProtectedResource[];
+  Results?: ProtectedResource[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -6787,7 +6787,7 @@ export interface ListProtectedResourcesByBackupVaultOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6810,7 +6810,7 @@ export interface ListRecoveryPointsByBackupVaultInput {
    * <p>This parameter will sort the list of recovery points by account ID.</p>
    * @public
    */
-  BackupVaultAccountId?: string;
+  BackupVaultAccountId?: string | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -6819,20 +6819,20 @@ export interface ListRecoveryPointsByBackupVaultInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Returns only recovery points that match the specified resource Amazon Resource Name
    *          (ARN).</p>
    * @public
    */
-  ByResourceArn?: string;
+  ByResourceArn?: string | undefined;
 
   /**
    * <p>Returns only recovery points that match the specified resource type(s):</p>
@@ -6905,32 +6905,32 @@ export interface ListRecoveryPointsByBackupVaultInput {
    *          </ul>
    * @public
    */
-  ByResourceType?: string;
+  ByResourceType?: string | undefined;
 
   /**
    * <p>Returns only recovery points that match the specified backup plan ID.</p>
    * @public
    */
-  ByBackupPlanId?: string;
+  ByBackupPlanId?: string | undefined;
 
   /**
    * <p>Returns only recovery points that were created before the specified timestamp.</p>
    * @public
    */
-  ByCreatedBefore?: Date;
+  ByCreatedBefore?: Date | undefined;
 
   /**
    * <p>Returns only recovery points that were created after the specified timestamp.</p>
    * @public
    */
-  ByCreatedAfter?: Date;
+  ByCreatedAfter?: Date | undefined;
 
   /**
    * <p>This returns only recovery points that match the specified parent (composite)
    *          recovery point Amazon Resource Name (ARN).</p>
    * @public
    */
-  ByParentRecoveryPointArn?: string;
+  ByParentRecoveryPointArn?: string | undefined;
 }
 
 /**
@@ -6943,7 +6943,7 @@ export interface RecoveryPointByBackupVault {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -6951,28 +6951,28 @@ export interface RecoveryPointByBackupVault {
    *          Region where they are created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>The backup vault where the recovery point was originally copied from. If the recovery
    *          point is restored to the same account this value will be <code>null</code>.</p>
    * @public
    */
-  SourceBackupVaultArn?: string;
+  SourceBackupVaultArn?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
    *          resource type.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The type of Amazon Web Services resource saved as a recovery point; for example, an
@@ -6980,7 +6980,7 @@ export interface RecoveryPointByBackupVault {
    *          supported resource type is Amazon EC2.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Contains identifying information about the creation of a recovery point, including the
@@ -6988,26 +6988,26 @@ export interface RecoveryPointByBackupVault {
    *          and <code>BackupRuleId</code> of the backup plan that is used to create it.</p>
    * @public
    */
-  CreatedBy?: RecoveryPointCreator;
+  CreatedBy?: RecoveryPointCreator | undefined;
 
   /**
    * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>A status code specifying the state of the recovery point.</p>
    * @public
    */
-  Status?: RecoveryPointStatus;
+  Status?: RecoveryPointStatus | undefined;
 
   /**
    * <p>A message explaining the current status of the recovery point.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The date and time a recovery point is created, in Unix format and Coordinated Universal
@@ -7016,7 +7016,7 @@ export interface RecoveryPointByBackupVault {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time a job to restore a recovery point is completed, in Unix format and
@@ -7025,20 +7025,20 @@ export interface RecoveryPointByBackupVault {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  CompletionDate?: Date;
+  CompletionDate?: Date | undefined;
 
   /**
    * <p>The size, in bytes, of a backup.</p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
    *             <code>MoveToColdStorageAt</code> timestamps.</p>
    * @public
    */
-  CalculatedLifecycle?: CalculatedLifecycle;
+  CalculatedLifecycle?: CalculatedLifecycle | undefined;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -7053,21 +7053,21 @@ export interface RecoveryPointByBackupVault {
    *          other resource types.</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
    *          encrypted, or <code>FALSE</code> if the recovery point is not encrypted.</p>
    * @public
    */
-  IsEncrypted?: boolean;
+  IsEncrypted?: boolean | undefined;
 
   /**
    * <p>The date and time a recovery point was last restored, in Unix format and Coordinated
@@ -7076,14 +7076,14 @@ export interface RecoveryPointByBackupVault {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  LastRestoreTime?: Date;
+  LastRestoreTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the parent (composite)
    *          recovery point.</p>
    * @public
    */
-  ParentRecoveryPointArn?: string;
+  ParentRecoveryPointArn?: string | undefined;
 
   /**
    * <p>The identifier of a resource within a composite group, such as
@@ -7093,27 +7093,27 @@ export interface RecoveryPointByBackupVault {
    *             logical ID</a> within a stack.</p>
    * @public
    */
-  CompositeMemberIdentifier?: string;
+  CompositeMemberIdentifier?: string | undefined;
 
   /**
    * <p>This is a boolean value indicating this is
    *          a parent (composite) recovery point.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 
   /**
    * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The type of vault in which the described recovery point is stored.</p>
    * @public
    */
-  VaultType?: VaultType;
+  VaultType?: VaultType | undefined;
 }
 
 /**
@@ -7127,14 +7127,14 @@ export interface ListRecoveryPointsByBackupVaultOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of objects that contain detailed information about recovery points saved in a
    *          backup vault.</p>
    * @public
    */
-  RecoveryPoints?: RecoveryPointByBackupVault[];
+  RecoveryPoints?: RecoveryPointByBackupVault[] | undefined;
 }
 
 /**
@@ -7154,13 +7154,13 @@ export interface ListRecoveryPointsByLegalHoldInput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of resource list items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -7176,28 +7176,28 @@ export interface RecoveryPointMember {
    *          recovery point.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies
    *          a saved resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services resource type that is saved as
    *       a recovery point.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the backup vault
    *          (the logical container in which backups are stored).</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 }
 
 /**
@@ -7208,13 +7208,13 @@ export interface ListRecoveryPointsByLegalHoldOutput {
    * <p>The recovery points.</p>
    * @public
    */
-  RecoveryPoints?: RecoveryPointMember[];
+  RecoveryPoints?: RecoveryPointMember[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7235,7 +7235,7 @@ export interface ListRecoveryPointsByResourceInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
@@ -7244,7 +7244,7 @@ export interface ListRecoveryPointsByResourceInput {
    *          </note>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>This attribute filters recovery points based on ownership.</p>
@@ -7256,7 +7256,7 @@ export interface ListRecoveryPointsByResourceInput {
    *          <p>Type: Boolean</p>
    * @public
    */
-  ManagedByAWSBackupOnly?: boolean;
+  ManagedByAWSBackupOnly?: boolean | undefined;
 }
 
 /**
@@ -7269,7 +7269,7 @@ export interface RecoveryPointByResource {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The date and time a recovery point is created, in Unix format and Coordinated Universal
@@ -7278,32 +7278,32 @@ export interface RecoveryPointByResource {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>A status code specifying the state of the recovery point.</p>
    * @public
    */
-  Status?: RecoveryPointStatus;
+  Status?: RecoveryPointStatus | undefined;
 
   /**
    * <p>A message explaining the current status of the recovery point.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    * @public
    */
-  EncryptionKeyArn?: string;
+  EncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The size, in bytes, of a backup.</p>
    * @public
    */
-  BackupSizeBytes?: number;
+  BackupSizeBytes?: number | undefined;
 
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
@@ -7311,35 +7311,35 @@ export interface RecoveryPointByResource {
    *          Region where they are created.</p>
    * @public
    */
-  BackupVaultName?: string;
+  BackupVaultName?: string | undefined;
 
   /**
    * <p>This is a boolean value indicating this is
    *          a parent (composite) recovery point.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the parent (composite)
    *          recovery point.</p>
    * @public
    */
-  ParentRecoveryPointArn?: string;
+  ParentRecoveryPointArn?: string | undefined;
 
   /**
    * <p>The non-unique name of the resource that
    *          belongs to the specified backup.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The type of vault in which the described recovery point is
    *          stored.</p>
    * @public
    */
-  VaultType?: VaultType;
+  VaultType?: VaultType | undefined;
 }
 
 /**
@@ -7353,7 +7353,7 @@ export interface ListRecoveryPointsByResourceOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of objects that contain detailed information about recovery points of the
@@ -7364,7 +7364,7 @@ export interface ListRecoveryPointsByResourceOutput {
    *          </note>
    * @public
    */
-  RecoveryPoints?: RecoveryPointByResource[];
+  RecoveryPoints?: RecoveryPointByResource[] | undefined;
 }
 
 /**
@@ -7375,7 +7375,7 @@ export interface ListReportJobsInput {
    * <p>Returns only report jobs with the specified report plan name.</p>
    * @public
    */
-  ByReportPlanName?: string;
+  ByReportPlanName?: string | undefined;
 
   /**
    * <p>Returns only report jobs that were created before the date and time specified in Unix
@@ -7383,7 +7383,7 @@ export interface ListReportJobsInput {
    *          Friday, January 26, 2018 12:11:30 AM.</p>
    * @public
    */
-  ByCreationBefore?: Date;
+  ByCreationBefore?: Date | undefined;
 
   /**
    * <p>Returns only report jobs that were created after the date and time specified in Unix
@@ -7391,7 +7391,7 @@ export interface ListReportJobsInput {
    *          Friday, January 26, 2018 12:11:30 AM.</p>
    * @public
    */
-  ByCreationAfter?: Date;
+  ByCreationAfter?: Date | undefined;
 
   /**
    * <p>Returns only report jobs that are in the specified status. The statuses are:</p>
@@ -7400,21 +7400,21 @@ export interface ListReportJobsInput {
    *          </p>
    * @public
    */
-  ByStatus?: string;
+  ByStatus?: string | undefined;
 
   /**
    * <p>The number of desired results from 1 to 1000. Optional. If unspecified, the query will
    *          return 1 MB of data.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7425,14 +7425,14 @@ export interface ListReportJobsOutput {
    * <p>Details about your report jobs in JSON format.</p>
    * @public
    */
-  ReportJobs?: ReportJob[];
+  ReportJobs?: ReportJob[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7444,14 +7444,14 @@ export interface ListReportPlansInput {
    *          return 1 MB of data.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7465,14 +7465,14 @@ export interface ListReportPlansOutput {
    *          successfully ran.</p>
    * @public
    */
-  ReportPlans?: ReportPlan[];
+  ReportPlans?: ReportPlan[] | undefined;
 
   /**
    * <p>An identifier that was returned from the previous call to this operation, which can be
    *          used to return the next set of items in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7486,20 +7486,20 @@ export interface ListRestoreJobsInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The account ID to list the jobs from. Returns only restore jobs associated with the
    *          specified account ID.</p>
    * @public
    */
-  ByAccountId?: string;
+  ByAccountId?: string | undefined;
 
   /**
    * <p>Include this parameter to return only restore jobs for the specified resources:</p>
@@ -7572,46 +7572,46 @@ export interface ListRestoreJobsInput {
    *          </ul>
    * @public
    */
-  ByResourceType?: string;
+  ByResourceType?: string | undefined;
 
   /**
    * <p>Returns only restore jobs that were created before the specified date.</p>
    * @public
    */
-  ByCreatedBefore?: Date;
+  ByCreatedBefore?: Date | undefined;
 
   /**
    * <p>Returns only restore jobs that were created after the specified date.</p>
    * @public
    */
-  ByCreatedAfter?: Date;
+  ByCreatedAfter?: Date | undefined;
 
   /**
    * <p>Returns only restore jobs associated with the specified job status.</p>
    * @public
    */
-  ByStatus?: RestoreJobStatus;
+  ByStatus?: RestoreJobStatus | undefined;
 
   /**
    * <p>Returns only copy jobs completed before a date expressed in Unix format and Coordinated
    *          Universal Time (UTC).</p>
    * @public
    */
-  ByCompleteBefore?: Date;
+  ByCompleteBefore?: Date | undefined;
 
   /**
    * <p>Returns only copy jobs completed after a date expressed in Unix format and Coordinated
    *          Universal Time (UTC).</p>
    * @public
    */
-  ByCompleteAfter?: Date;
+  ByCompleteAfter?: Date | undefined;
 
   /**
    * <p>This returns only restore testing jobs that match the
    *          specified resource Amazon Resource Name (ARN).</p>
    * @public
    */
-  ByRestoreTestingPlanArn?: string;
+  ByRestoreTestingPlanArn?: string | undefined;
 }
 
 /**
@@ -7623,20 +7623,20 @@ export interface RestoreJobsListMember {
    * <p>The account ID that owns the restore job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Uniquely identifies the job that restores a recovery point.</p>
    * @public
    */
-  RestoreJobId?: string;
+  RestoreJobId?: string | undefined;
 
   /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The date and time a restore job is created, in Unix format and Coordinated Universal
@@ -7645,7 +7645,7 @@ export interface RestoreJobsListMember {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The date and time a job to restore a recovery point is completed, in Unix format and
@@ -7654,54 +7654,54 @@ export interface RestoreJobsListMember {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  CompletionDate?: Date;
+  CompletionDate?: Date | undefined;
 
   /**
    * <p>A status code specifying the state of the job initiated by Backup to restore
    *          a recovery point.</p>
    * @public
    */
-  Status?: RestoreJobStatus;
+  Status?: RestoreJobStatus | undefined;
 
   /**
    * <p>A detailed message explaining the status of the job to restore a recovery point.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Contains an estimated percentage complete of a job at the time the job status was
    *          queried.</p>
    * @public
    */
-  PercentDone?: string;
+  PercentDone?: string | undefined;
 
   /**
    * <p>The size, in bytes, of the restored resource.</p>
    * @public
    */
-  BackupSizeInBytes?: number;
+  BackupSizeInBytes?: number | undefined;
 
   /**
    * <p>The IAM role ARN used to create the target recovery point; for example,
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>The amount of time in minutes that a job restoring a recovery point is expected to
    *          take.</p>
    * @public
    */
-  ExpectedCompletionTimeMinutes?: number;
+  ExpectedCompletionTimeMinutes?: number | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  CreatedResourceArn?: string;
+  CreatedResourceArn?: string | undefined;
 
   /**
    * <p>The resource type of the listed restore jobs; for example, an Amazon Elastic Block Store
@@ -7710,34 +7710,34 @@ export interface RestoreJobsListMember {
    *             Amazon EC2.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The date on which a recovery point was created.</p>
    * @public
    */
-  RecoveryPointCreationDate?: Date;
+  RecoveryPointCreationDate?: Date | undefined;
 
   /**
    * <p>Contains identifying information about the creation
    *          of a restore job.</p>
    * @public
    */
-  CreatedBy?: RestoreJobCreator;
+  CreatedBy?: RestoreJobCreator | undefined;
 
   /**
    * <p>The status of validation run on the indicated
    *          restore job.</p>
    * @public
    */
-  ValidationStatus?: RestoreValidationStatus;
+  ValidationStatus?: RestoreValidationStatus | undefined;
 
   /**
    * <p>This describes the status of validation run on the
    *          indicated restore job.</p>
    * @public
    */
-  ValidationStatusMessage?: string;
+  ValidationStatusMessage?: string | undefined;
 
   /**
    * <p>This notes the status of the data generated by the restore
@@ -7745,13 +7745,13 @@ export interface RestoreJobsListMember {
    *          or <code>Successful</code>.</p>
    * @public
    */
-  DeletionStatus?: RestoreDeletionStatus;
+  DeletionStatus?: RestoreDeletionStatus | undefined;
 
   /**
    * <p>This describes the restore job deletion status.</p>
    * @public
    */
-  DeletionStatusMessage?: string;
+  DeletionStatusMessage?: string | undefined;
 }
 
 /**
@@ -7763,7 +7763,7 @@ export interface ListRestoreJobsOutput {
    *          resources.</p>
    * @public
    */
-  RestoreJobs?: RestoreJobsListMember[];
+  RestoreJobs?: RestoreJobsListMember[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -7772,7 +7772,7 @@ export interface ListRestoreJobsOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7790,19 +7790,19 @@ export interface ListRestoreJobsByProtectedResourceInput {
    * <p>Returns only restore jobs associated with the specified job status.</p>
    * @public
    */
-  ByStatus?: RestoreJobStatus;
+  ByStatus?: RestoreJobStatus | undefined;
 
   /**
    * <p>Returns only restore jobs of recovery points that were created after the specified date.</p>
    * @public
    */
-  ByRecoveryPointCreationDateAfter?: Date;
+  ByRecoveryPointCreationDateAfter?: Date | undefined;
 
   /**
    * <p>Returns only restore jobs of recovery points that were created before the specified date.</p>
    * @public
    */
-  ByRecoveryPointCreationDateBefore?: Date;
+  ByRecoveryPointCreationDateBefore?: Date | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example,
@@ -7811,13 +7811,13 @@ export interface ListRestoreJobsByProtectedResourceInput {
    *          starting at the location pointed to by the next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -7829,7 +7829,7 @@ export interface ListRestoreJobsByProtectedResourceOutput {
    *          jobs to restore saved resources.></p>
    * @public
    */
-  RestoreJobs?: RestoreJobsListMember[];
+  RestoreJobs?: RestoreJobsListMember[] | undefined;
 
   /**
    * <p>The next item following a partial list of returned items. For example,
@@ -7838,7 +7838,7 @@ export interface ListRestoreJobsByProtectedResourceOutput {
    *          at the location pointed to by the next token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7879,7 +7879,7 @@ export interface ListRestoreJobSummariesInput {
    *          then returns the sum.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>This parameter returns the job count for jobs
@@ -7890,7 +7890,7 @@ export interface ListRestoreJobSummariesInput {
    *          for all states and returns the sum.</p>
    * @public
    */
-  State?: RestoreJobState;
+  State?: RestoreJobState | undefined;
 
   /**
    * <p>Returns the job count for the specified resource type.
@@ -7903,7 +7903,7 @@ export interface ListRestoreJobSummariesInput {
    *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The period for the returned results.</p>
@@ -7923,7 +7923,7 @@ export interface ListRestoreJobSummariesInput {
    *          </ul>
    * @public
    */
-  AggregationPeriod?: AggregationPeriod;
+  AggregationPeriod?: AggregationPeriod | undefined;
 
   /**
    * <p>This parameter sets the maximum number of items
@@ -7932,7 +7932,7 @@ export interface ListRestoreJobSummariesInput {
    *          1 to 500.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -7941,7 +7941,7 @@ export interface ListRestoreJobSummariesInput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7957,20 +7957,20 @@ export interface RestoreJobSummary {
    * <p>The Amazon Web Services Regions within the job summary.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The account ID that owns the jobs within the summary.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>This value is job count for jobs
    *          with the specified state.</p>
    * @public
    */
-  State?: RestoreJobState;
+  State?: RestoreJobState | undefined;
 
   /**
    * <p>This value is the job count for the specified resource type.
@@ -7978,13 +7978,13 @@ export interface RestoreJobSummary {
    *          strings for supported resource types.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The value as a number of jobs in a job summary.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The value of time in number format of a job start time.</p>
@@ -7993,7 +7993,7 @@ export interface RestoreJobSummary {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The value of time in number format of a job end time.</p>
@@ -8002,7 +8002,7 @@ export interface RestoreJobSummary {
    *          12:11:30.087 AM.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 }
 
 /**
@@ -8015,7 +8015,7 @@ export interface ListRestoreJobSummariesOutput {
    *          StartTime, EndTime, and Count of included jobs.</p>
    * @public
    */
-  RestoreJobSummaries?: RestoreJobSummary[];
+  RestoreJobSummaries?: RestoreJobSummary[] | undefined;
 
   /**
    * <p>The period for the returned results.</p>
@@ -8035,7 +8035,7 @@ export interface ListRestoreJobSummariesOutput {
    *          </ul>
    * @public
    */
-  AggregationPeriod?: string;
+  AggregationPeriod?: string | undefined;
 
   /**
    * <p>The next item following a partial list of returned resources. For example, if a request
@@ -8044,7 +8044,7 @@ export interface ListRestoreJobSummariesOutput {
    *          next token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8055,7 +8055,7 @@ export interface ListRestoreTestingPlansInput {
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned items.
@@ -8064,7 +8064,7 @@ export interface ListRestoreTestingPlansInput {
    *          in your list starting at the location pointed to by the nexttoken.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8091,7 +8091,7 @@ export interface RestoreTestingPlanForList {
    *          January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastExecutionTime?: Date;
+  LastExecutionTime?: Date | undefined;
 
   /**
    * <p>The date and time that the restore testing plan was updated.
@@ -8101,7 +8101,7 @@ export interface RestoreTestingPlanForList {
    *          Friday, January 26, 2018 12:11:30.087 AM.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifiesa
@@ -8129,7 +8129,7 @@ export interface RestoreTestingPlanForList {
    *          You can modify this to a specified timezone.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 
   /**
    * <p>Defaults to 24 hours.</p>
@@ -8139,7 +8139,7 @@ export interface RestoreTestingPlanForList {
    *             has a maximum value of 168 hours (one week).</p>
    * @public
    */
-  StartWindowHours?: number;
+  StartWindowHours?: number | undefined;
 }
 
 /**
@@ -8153,7 +8153,7 @@ export interface ListRestoreTestingPlansOutput {
    *          in your list starting at the location pointed to by the nexttoken.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>This is a returned list of restore testing plans.</p>
@@ -8170,7 +8170,7 @@ export interface ListRestoreTestingSelectionsInput {
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The next item following a partial list of returned items.
@@ -8179,7 +8179,7 @@ export interface ListRestoreTestingSelectionsInput {
    *          in your list starting at the location pointed to by the nexttoken.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Returns restore testing selections by the specified restore testing
@@ -8243,7 +8243,7 @@ export interface RestoreTestingSelectionForList {
    *          0 and 168 (the hourly equivalent of seven days).</p>
    * @public
    */
-  ValidationWindowHours?: number;
+  ValidationWindowHours?: number | undefined;
 }
 
 /**
@@ -8257,7 +8257,7 @@ export interface ListRestoreTestingSelectionsOutput {
    *          starting at the location pointed to by the nexttoken.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The returned restore testing selections associated with the
@@ -8286,13 +8286,13 @@ export interface ListTagsInput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8306,13 +8306,13 @@ export interface ListTagsOutput {
    *          token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Information about the tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -8331,7 +8331,7 @@ export interface PutBackupVaultAccessPolicyInput {
    * <p>The backup vault access policy document in JSON format.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -8362,7 +8362,7 @@ export interface PutBackupVaultLockConfigurationInput {
    *          Vault Lock are not affected.</p>
    * @public
    */
-  MinRetentionDays?: number;
+  MinRetentionDays?: number | undefined;
 
   /**
    * <p>The Backup Vault Lock configuration that specifies the maximum retention
@@ -8382,7 +8382,7 @@ export interface PutBackupVaultLockConfigurationInput {
    *          Vault Lock are not affected.</p>
    * @public
    */
-  MaxRetentionDays?: number;
+  MaxRetentionDays?: number | undefined;
 
   /**
    * <p>The Backup Vault Lock configuration that specifies the number of days before
@@ -8400,7 +8400,7 @@ export interface PutBackupVaultLockConfigurationInput {
    *          using <code>PutBackupVaultLockConfiguration</code> at any time.</p>
    * @public
    */
-  ChangeableForDays?: number;
+  ChangeableForDays?: number | undefined;
 }
 
 /**
@@ -8483,7 +8483,7 @@ export interface PutRestoreValidationResultInput {
    *          describe the validation status for the restore test validation.</p>
    * @public
    */
-  ValidationStatusMessage?: string;
+  ValidationStatusMessage?: string | undefined;
 }
 
 /**
@@ -8518,7 +8518,7 @@ export interface StartBackupJobInput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>A value in minutes after a backup is scheduled before a job will be canceled if it
@@ -8534,7 +8534,7 @@ export interface StartBackupJobInput {
    *          changes to <code>EXPIRED</code> (which is expected to occur when the start window time is over).</p>
    * @public
    */
-  StartWindowMinutes?: number;
+  StartWindowMinutes?: number | undefined;
 
   /**
    * <p>A value in minutes during which a successfully started backup must complete, or else
@@ -8545,7 +8545,7 @@ export interface StartBackupJobInput {
    *          100 years (52,560,000 minutes).</p>
    * @public
    */
-  CompleteWindowMinutes?: number;
+  CompleteWindowMinutes?: number | undefined;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -8561,13 +8561,13 @@ export interface StartBackupJobInput {
    *          <p>This parameter has a maximum value of 100 years (36,500 days).</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 
   /**
    * <p>The tags to assign to the resources.</p>
    * @public
    */
-  RecoveryPointTags?: Record<string, string>;
+  RecoveryPointTags?: Record<string, string> | undefined;
 
   /**
    * <p>The backup option for a selected resource. This option is only available for
@@ -8578,7 +8578,7 @@ export interface StartBackupJobInput {
    *          <code>WindowsVSS</code> option is not enabled by default.</p>
    * @public
    */
-  BackupOptions?: Record<string, string>;
+  BackupOptions?: Record<string, string> | undefined;
 }
 
 /**
@@ -8589,7 +8589,7 @@ export interface StartBackupJobOutput {
    * <p>Uniquely identifies a request to Backup to back up a resource.</p>
    * @public
    */
-  BackupJobId?: string;
+  BackupJobId?: string | undefined;
 
   /**
    * <p>
@@ -8600,7 +8600,7 @@ export interface StartBackupJobOutput {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The date and time that a backup job is created, in Unix format and Coordinated Universal
@@ -8609,14 +8609,14 @@ export interface StartBackupJobOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>This is a returned boolean value indicating this is a parent (composite)
    *          backup job.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 }
 
 /**
@@ -8659,7 +8659,7 @@ export interface StartCopyJobInput {
    *          token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>Specifies the time period, in days, before a recovery point transitions to cold storage
@@ -8675,7 +8675,7 @@ export interface StartCopyJobInput {
    *          specify -1 for <code>MoveToColdStorageAfterDays</code> and <code>DeleteAfterDays</code>.</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 }
 
 /**
@@ -8686,7 +8686,7 @@ export interface StartCopyJobOutput {
    * <p>Uniquely identifies a copy job.</p>
    * @public
    */
-  CopyJobId?: string;
+  CopyJobId?: string | undefined;
 
   /**
    * <p>The date and time that a copy job is created, in Unix format and Coordinated Universal
@@ -8695,14 +8695,14 @@ export interface StartCopyJobOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>This is a returned boolean value indicating this is a parent (composite)
    *          copy job.</p>
    * @public
    */
-  IsParent?: boolean;
+  IsParent?: boolean | undefined;
 }
 
 /**
@@ -8721,7 +8721,7 @@ export interface StartReportJobInput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -8733,7 +8733,7 @@ export interface StartReportJobOutput {
    *          string that is at most 1,024 bytes long. The report job ID cannot be edited.</p>
    * @public
    */
-  ReportJobId?: string;
+  ReportJobId?: string | undefined;
 }
 
 /**
@@ -8843,7 +8843,7 @@ export interface StartRestoreJobInput {
    *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>A customer-chosen string that you can use to distinguish between otherwise identical
@@ -8851,7 +8851,7 @@ export interface StartRestoreJobInput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>Starts a job to restore a recovery point for one of the following resources:</p>
@@ -8919,7 +8919,7 @@ export interface StartRestoreJobInput {
    *          </ul>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>This is an optional parameter. If this equals <code>True</code>, tags included in the backup
@@ -8927,7 +8927,7 @@ export interface StartRestoreJobInput {
    *          <p>This can only be applied to backups created through Backup.</p>
    * @public
    */
-  CopySourceTagsToRestoredResource?: boolean;
+  CopySourceTagsToRestoredResource?: boolean | undefined;
 }
 
 /**
@@ -8938,7 +8938,7 @@ export interface StartRestoreJobOutput {
    * <p>Uniquely identifies the job that restores a recovery point.</p>
    * @public
    */
-  RestoreJobId?: string;
+  RestoreJobId?: string | undefined;
 }
 
 /**
@@ -9026,14 +9026,14 @@ export interface UpdateBackupPlanOutput {
    * <p>Uniquely identifies a backup plan.</p>
    * @public
    */
-  BackupPlanId?: string;
+  BackupPlanId?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    * @public
    */
-  BackupPlanArn?: string;
+  BackupPlanArn?: string | undefined;
 
   /**
    * <p>The date and time a backup plan is created, in Unix format and Coordinated Universal
@@ -9042,20 +9042,20 @@ export interface UpdateBackupPlanOutput {
    *          AM.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version Ids cannot be edited.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Contains a list of <code>BackupOptions</code> for each resource type.</p>
    * @public
    */
-  AdvancedBackupSettings?: AdvancedBackupSetting[];
+  AdvancedBackupSettings?: AdvancedBackupSetting[] | undefined;
 }
 
 /**
@@ -9073,14 +9073,14 @@ export interface UpdateFrameworkInput {
    * <p>An optional description of the framework with a maximum 1,024 characters.</p>
    * @public
    */
-  FrameworkDescription?: string;
+  FrameworkDescription?: string | undefined;
 
   /**
    * <p>The controls that make up the framework. Each control in the list has a name,
    *          input parameters, and scope.</p>
    * @public
    */
-  FrameworkControls?: FrameworkControl[];
+  FrameworkControls?: FrameworkControl[] | undefined;
 
   /**
    * <p>A customer-chosen string that you can use to distinguish between otherwise identical
@@ -9088,7 +9088,7 @@ export interface UpdateFrameworkInput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -9100,14 +9100,14 @@ export interface UpdateFrameworkOutput {
    *          a letter, and consisting of letters (a-z, A-Z), numbers (0-9), and underscores (_).</p>
    * @public
    */
-  FrameworkName?: string;
+  FrameworkName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  FrameworkArn?: string;
+  FrameworkArn?: string | undefined;
 
   /**
    * <p>The date and time that a framework is created, in ISO 8601 representation. The value of <code>CreationTime</code> is accurate to milliseconds. For example,
@@ -9115,7 +9115,7 @@ export interface UpdateFrameworkOutput {
    *          UTC.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -9128,7 +9128,7 @@ export interface UpdateGlobalSettingsInput {
    *             --region us-west-2</code>.</p>
    * @public
    */
-  GlobalSettings?: Record<string, string>;
+  GlobalSettings?: Record<string, string> | undefined;
 }
 
 /**
@@ -9160,7 +9160,7 @@ export interface UpdateRecoveryPointLifecycleInput {
    *          after a backup has been transitioned to cold. </p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 }
 
 /**
@@ -9172,14 +9172,14 @@ export interface UpdateRecoveryPointLifecycleOutput {
    *          <code>arn:aws:backup:us-east-1:123456789012:backup-vault:aBackupVault</code>.</p>
    * @public
    */
-  BackupVaultArn?: string;
+  BackupVaultArn?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    * @public
    */
-  RecoveryPointArn?: string;
+  RecoveryPointArn?: string | undefined;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -9193,14 +9193,14 @@ export interface UpdateRecoveryPointLifecycleOutput {
    *          by resource</a> table. Backup ignores this expression for other resource types.</p>
    * @public
    */
-  Lifecycle?: Lifecycle;
+  Lifecycle?: Lifecycle | undefined;
 
   /**
    * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
    *             <code>MoveToColdStorageAt</code> timestamps.</p>
    * @public
    */
-  CalculatedLifecycle?: CalculatedLifecycle;
+  CalculatedLifecycle?: CalculatedLifecycle | undefined;
 }
 
 /**
@@ -9218,7 +9218,7 @@ export interface UpdateRegionSettingsInput {
    *          tag condition. Service opt-in settings are disregarded in this situation.</p>
    * @public
    */
-  ResourceTypeOptInPreference?: Record<string, boolean>;
+  ResourceTypeOptInPreference?: Record<string, boolean> | undefined;
 
   /**
    * <p>Enables or disables full Backup management of backups for a resource type.
@@ -9227,7 +9227,7 @@ export interface UpdateRegionSettingsInput {
    *          procedure to <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/advanced-ddb-backup.html#advanced-ddb-backup-enable-cli"> enable advanced DynamoDB backup programmatically</a>.</p>
    * @public
    */
-  ResourceTypeManagementPreference?: Record<string, boolean>;
+  ResourceTypeManagementPreference?: Record<string, boolean> | undefined;
 }
 
 /**
@@ -9246,14 +9246,14 @@ export interface UpdateReportPlanInput {
    * <p>An optional description of the report plan with a maximum 1,024 characters.</p>
    * @public
    */
-  ReportPlanDescription?: string;
+  ReportPlanDescription?: string | undefined;
 
   /**
    * <p>The information about where to deliver your reports, specifically
    *          your Amazon S3 bucket name, S3 key prefix, and the formats of your reports.</p>
    * @public
    */
-  ReportDeliveryChannel?: ReportDeliveryChannel;
+  ReportDeliveryChannel?: ReportDeliveryChannel | undefined;
 
   /**
    * <p>The report template for the report. Reports are built using a report
@@ -9267,7 +9267,7 @@ export interface UpdateReportPlanInput {
    *          coverage by Amazon Web Services Regions and frameworks.</p>
    * @public
    */
-  ReportSetting?: ReportSetting;
+  ReportSetting?: ReportSetting | undefined;
 
   /**
    * <p>A customer-chosen string that you can use to distinguish between otherwise identical
@@ -9275,7 +9275,7 @@ export interface UpdateReportPlanInput {
    *          idempotency token results in a success message with no action taken.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -9286,14 +9286,14 @@ export interface UpdateReportPlanOutput {
    * <p>The unique name of the report plan.</p>
    * @public
    */
-  ReportPlanName?: string;
+  ReportPlanName?: string | undefined;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
    *          depends on the resource type.</p>
    * @public
    */
-  ReportPlanArn?: string;
+  ReportPlanArn?: string | undefined;
 
   /**
    * <p>The date and time that a report plan is created, in Unix format and Coordinated
@@ -9302,7 +9302,7 @@ export interface UpdateReportPlanOutput {
    *          AM.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -9318,14 +9318,14 @@ export interface RestoreTestingPlanForUpdate {
    *          list if not listed).</p>
    * @public
    */
-  RecoveryPointSelection?: RestoreTestingRecoveryPointSelection;
+  RecoveryPointSelection?: RestoreTestingRecoveryPointSelection | undefined;
 
   /**
    * <p>A CRON expression in specified timezone when a restore
    *          testing plan is executed.</p>
    * @public
    */
-  ScheduleExpression?: string;
+  ScheduleExpression?: string | undefined;
 
   /**
    * <p>Optional. This is the timezone in which the schedule
@@ -9333,7 +9333,7 @@ export interface RestoreTestingPlanForUpdate {
    *          You can modify this to a specified timezone.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 
   /**
    * <p>Defaults to 24 hours.</p>
@@ -9343,7 +9343,7 @@ export interface RestoreTestingPlanForUpdate {
    *          maximum value of 168 hours (one week).</p>
    * @public
    */
-  StartWindowHours?: number;
+  StartWindowHours?: number | undefined;
 }
 
 /**
@@ -9406,7 +9406,7 @@ export interface RestoreTestingSelectionForUpdate {
    *          <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 
   /**
    * <p>You can include a list of specific ARNs, such as
@@ -9415,14 +9415,14 @@ export interface RestoreTestingSelectionForUpdate {
    *          but not both.</p>
    * @public
    */
-  ProtectedResourceArns?: string[];
+  ProtectedResourceArns?: string[] | undefined;
 
   /**
    * <p>The conditions that you define for resources in
    *          your restore testing plan using tags.</p>
    * @public
    */
-  ProtectedResourceConditions?: ProtectedResourceConditions;
+  ProtectedResourceConditions?: ProtectedResourceConditions | undefined;
 
   /**
    * <p>You can override certain restore metadata keys by including the parameter
@@ -9432,7 +9432,7 @@ export interface RestoreTestingSelectionForUpdate {
    *          inferred metadata</a>.</p>
    * @public
    */
-  RestoreMetadataOverrides?: Record<string, string>;
+  RestoreMetadataOverrides?: Record<string, string> | undefined;
 
   /**
    * <p>This value represents the time, in hours, data is retained after
@@ -9441,7 +9441,7 @@ export interface RestoreTestingSelectionForUpdate {
    *          0 and 168 (the hourly equivalent of seven days).</p>
    * @public
    */
-  ValidationWindowHours?: number;
+  ValidationWindowHours?: number | undefined;
 }
 
 /**

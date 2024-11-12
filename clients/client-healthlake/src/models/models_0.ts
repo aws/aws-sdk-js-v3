@@ -10,7 +10,7 @@ import { HealthLakeServiceException as __BaseException } from "./HealthLakeServi
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -60,7 +60,7 @@ export type CmkType = (typeof CmkType)[keyof typeof CmkType];
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -103,7 +103,7 @@ export interface IdentityProviderConfiguration {
    * <p>If you enabled fine-grained authorization when you created the data store.</p>
    * @public
    */
-  FineGrainedAuthorizationEnabled?: boolean;
+  FineGrainedAuthorizationEnabled?: boolean | undefined;
 
   /**
    * <p>The JSON metadata elements that you want to use in your identity provider configuration. Required elements are listed based on the launch specification of the SMART application. For more information on all possible elements, see <a href="https://build.fhir.org/ig/HL7/smart-app-launch/conformance.html#metadata">Metadata</a> in SMART's App Launch specification.</p>
@@ -119,13 +119,13 @@ export interface IdentityProviderConfiguration {
    *             <code>code_challenge_methods_supported</code>: An array of strings of supported PKCE code challenge methods. You must include the <code>S256</code> method in the array of PKCE code challenge methods.</p>
    * @public
    */
-  Metadata?: string;
+  Metadata?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function that you want to use to decode the access token created by the authorization server.</p>
    * @public
    */
-  IdpLambdaArn?: string;
+  IdpLambdaArn?: string | undefined;
 }
 
 /**
@@ -174,7 +174,7 @@ export interface KmsEncryptionConfig {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -225,7 +225,7 @@ export interface CreateFHIRDatastoreRequest {
    * <p>The user generated name for the data store.</p>
    * @public
    */
-  DatastoreName?: string;
+  DatastoreName?: string | undefined;
 
   /**
    * <p>The FHIR version of the data store. The only supported version is R4.</p>
@@ -239,20 +239,20 @@ export interface CreateFHIRDatastoreRequest {
    *          </p>
    * @public
    */
-  SseConfiguration?: SseConfiguration;
+  SseConfiguration?: SseConfiguration | undefined;
 
   /**
    * <p>Optional parameter to preload data upon creation of the data store. Currently, the only
    *          supported preloaded data is synthetic data generated from Synthea.</p>
    * @public
    */
-  PreloadDataConfig?: PreloadDataConfig;
+  PreloadDataConfig?: PreloadDataConfig | undefined;
 
   /**
    * <p>Optional user provided token used for ensuring idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>
@@ -260,13 +260,13 @@ export interface CreateFHIRDatastoreRequest {
    *          </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The configuration of the identity provider that you want to use for your data store.</p>
    * @public
    */
-  IdentityProviderConfiguration?: IdentityProviderConfiguration;
+  IdentityProviderConfiguration?: IdentityProviderConfiguration | undefined;
 }
 
 /**
@@ -324,7 +324,7 @@ export interface CreateFHIRDatastoreResponse {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -346,7 +346,7 @@ export class InternalServerException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -368,7 +368,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -392,27 +392,27 @@ export interface DatastoreFilter {
    * <p>Allows the user to filter data store results by name.</p>
    * @public
    */
-  DatastoreName?: string;
+  DatastoreName?: string | undefined;
 
   /**
    * <p>Allows the user to filter data store results by status.</p>
    * @public
    */
-  DatastoreStatus?: DatastoreStatus;
+  DatastoreStatus?: DatastoreStatus | undefined;
 
   /**
    * <p>A filter that allows the user to set cutoff dates for records. All data stores created
    *          before the specified date will be included in the results. </p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>A filter that allows the user to set cutoff dates for records. All data stores created
    *          after the specified date will be included in the results.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 }
 
 /**
@@ -438,13 +438,13 @@ export interface ErrorCause {
    * <p>The text of the error message.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The error category of the create/delete data store operation. Possible statuses are RETRYABLE_ERROR or NON_RETRYABLE_ERROR.</p>
    * @public
    */
-  ErrorCategory?: ErrorCategory;
+  ErrorCategory?: ErrorCategory | undefined;
 }
 
 /**
@@ -468,7 +468,7 @@ export interface DatastoreProperties {
    * <p>The user-generated name for the data store.</p>
    * @public
    */
-  DatastoreName?: string;
+  DatastoreName?: string | undefined;
 
   /**
    * <p>The status of the data store.</p>
@@ -480,7 +480,7 @@ export interface DatastoreProperties {
    * <p>The time that a data store was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The FHIR version. Only R4 version data is supported.</p>
@@ -500,25 +500,25 @@ export interface DatastoreProperties {
    *       </p>
    * @public
    */
-  SseConfiguration?: SseConfiguration;
+  SseConfiguration?: SseConfiguration | undefined;
 
   /**
    * <p>The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.</p>
    * @public
    */
-  PreloadDataConfig?: PreloadDataConfig;
+  PreloadDataConfig?: PreloadDataConfig | undefined;
 
   /**
    * <p>The identity provider that you selected when you created the data store.</p>
    * @public
    */
-  IdentityProviderConfiguration?: IdentityProviderConfiguration;
+  IdentityProviderConfiguration?: IdentityProviderConfiguration | undefined;
 
   /**
    * <p>The error cause for the current data store operation.</p>
    * @public
    */
-  ErrorCause?: ErrorCause;
+  ErrorCause?: ErrorCause | undefined;
 }
 
 /**
@@ -569,7 +569,7 @@ export interface DeleteFHIRDatastoreResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -724,7 +724,7 @@ export interface ExportJobProperties {
    * <p>The user generated name for an export job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The status of a FHIR export job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED, or FAILED.</p>
@@ -742,7 +742,7 @@ export interface ExportJobProperties {
    * <p>The time an export job completed.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The AWS generated ID for the data store from which files are being exported for an export job.</p>
@@ -760,13 +760,13 @@ export interface ExportJobProperties {
    * <p>The Amazon Resource Name used during the initiation of the job.</p>
    * @public
    */
-  DataAccessRoleArn?: string;
+  DataAccessRoleArn?: string | undefined;
 
   /**
    * <p>An explanation of any errors that may have occurred during the export job.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -844,49 +844,49 @@ export interface JobProgressReport {
    * <p>The number of files scanned from input S3 bucket.</p>
    * @public
    */
-  TotalNumberOfScannedFiles?: number;
+  TotalNumberOfScannedFiles?: number | undefined;
 
   /**
    * <p>The size (in MB) of the files scanned from the input S3 bucket.</p>
    * @public
    */
-  TotalSizeOfScannedFilesInMB?: number;
+  TotalSizeOfScannedFilesInMB?: number | undefined;
 
   /**
    * <p>The number of files imported so far.</p>
    * @public
    */
-  TotalNumberOfImportedFiles?: number;
+  TotalNumberOfImportedFiles?: number | undefined;
 
   /**
    * <p>The number of resources scanned from the input S3 bucket.</p>
    * @public
    */
-  TotalNumberOfResourcesScanned?: number;
+  TotalNumberOfResourcesScanned?: number | undefined;
 
   /**
    * <p>The number of resources imported so far.</p>
    * @public
    */
-  TotalNumberOfResourcesImported?: number;
+  TotalNumberOfResourcesImported?: number | undefined;
 
   /**
    * <p>The number of resources that failed due to customer error.</p>
    * @public
    */
-  TotalNumberOfResourcesWithCustomerError?: number;
+  TotalNumberOfResourcesWithCustomerError?: number | undefined;
 
   /**
    * <p>The number of files that failed to be read from the input S3 bucket due to customer error.</p>
    * @public
    */
-  TotalNumberOfFilesReadWithCustomerError?: number;
+  TotalNumberOfFilesReadWithCustomerError?: number | undefined;
 
   /**
    * <p>The throughput (in MB/sec) of the import job.</p>
    * @public
    */
-  Throughput?: number;
+  Throughput?: number | undefined;
 }
 
 /**
@@ -904,7 +904,7 @@ export interface ImportJobProperties {
    * <p>The user-generated name for an Import job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The job status for an Import job. Possible statuses are SUBMITTED, IN_PROGRESS, COMPLETED_WITH_ERRORS, COMPLETED, FAILED.</p>
@@ -922,7 +922,7 @@ export interface ImportJobProperties {
    * <p>The time that the Import job was completed.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The datastore id used when the Import job was created. </p>
@@ -940,25 +940,25 @@ export interface ImportJobProperties {
    * <p>The output data configuration that was supplied when the export job was created.</p>
    * @public
    */
-  JobOutputDataConfig?: OutputDataConfig;
+  JobOutputDataConfig?: OutputDataConfig | undefined;
 
   /**
    * <p>Displays the progress of the import job, including total resources scanned, total resources ingested, and total size of data ingested.</p>
    * @public
    */
-  JobProgressReport?: JobProgressReport;
+  JobProgressReport?: JobProgressReport | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that gives AWS HealthLake access to your input data.</p>
    * @public
    */
-  DataAccessRoleArn?: string;
+  DataAccessRoleArn?: string | undefined;
 
   /**
    * <p>An explanation of any errors that may have occurred during the FHIR import job. </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -980,19 +980,19 @@ export interface ListFHIRDatastoresRequest {
    * <p>Lists all filters associated with a FHIR data store request.</p>
    * @public
    */
-  Filter?: DatastoreFilter;
+  Filter?: DatastoreFilter | undefined;
 
   /**
    * <p>Fetches the next page of data stores when results are paginated.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of data stores returned in a single page of a ListFHIRDatastoresRequest call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1009,7 +1009,7 @@ export interface ListFHIRDatastoresResponse {
    * <p>Pagination token that can be used to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1030,7 +1030,7 @@ export interface ListFHIRExportJobsRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -1038,7 +1038,7 @@ export interface ListFHIRExportJobsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -1046,7 +1046,7 @@ export interface ListFHIRExportJobsRequest {
    *          </p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>
@@ -1054,7 +1054,7 @@ export interface ListFHIRExportJobsRequest {
    *          </p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>
@@ -1062,7 +1062,7 @@ export interface ListFHIRExportJobsRequest {
    *          </p>
    * @public
    */
-  SubmittedBefore?: Date;
+  SubmittedBefore?: Date | undefined;
 
   /**
    * <p>
@@ -1070,7 +1070,7 @@ export interface ListFHIRExportJobsRequest {
    *          </p>
    * @public
    */
-  SubmittedAfter?: Date;
+  SubmittedAfter?: Date | undefined;
 }
 
 /**
@@ -1091,7 +1091,7 @@ export interface ListFHIRExportJobsResponse {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1112,7 +1112,7 @@ export interface ListFHIRImportJobsRequest {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -1120,7 +1120,7 @@ export interface ListFHIRImportJobsRequest {
    *          </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -1128,7 +1128,7 @@ export interface ListFHIRImportJobsRequest {
    *          </p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>
@@ -1136,7 +1136,7 @@ export interface ListFHIRImportJobsRequest {
    *          </p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>
@@ -1144,7 +1144,7 @@ export interface ListFHIRImportJobsRequest {
    *          </p>
    * @public
    */
-  SubmittedBefore?: Date;
+  SubmittedBefore?: Date | undefined;
 
   /**
    * <p>
@@ -1152,7 +1152,7 @@ export interface ListFHIRImportJobsRequest {
    *          </p>
    * @public
    */
-  SubmittedAfter?: Date;
+  SubmittedAfter?: Date | undefined;
 }
 
 /**
@@ -1173,7 +1173,7 @@ export interface ListFHIRImportJobsResponse {
    *          </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1199,7 +1199,7 @@ export interface ListTagsForResourceResponse {
    *          </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1210,7 +1210,7 @@ export interface StartFHIRExportJobRequest {
    * <p>The user generated name for an export job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The output data configuration that was supplied when the export job was created.</p>
@@ -1234,7 +1234,7 @@ export interface StartFHIRExportJobRequest {
    * <p>An optional user provided token used for ensuring idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1257,7 +1257,7 @@ export interface StartFHIRExportJobResponse {
    * <p>The AWS generated ID for the data store from which files are being exported for an export job.</p>
    * @public
    */
-  DatastoreId?: string;
+  DatastoreId?: string | undefined;
 }
 
 /**
@@ -1268,7 +1268,7 @@ export interface StartFHIRImportJobRequest {
    * <p>The name of the FHIR Import job in the StartFHIRImport job request.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The input properties of the FHIR Import job in the StartFHIRImport job request.</p>
@@ -1298,7 +1298,7 @@ export interface StartFHIRImportJobRequest {
    * <p>Optional user provided token used for ensuring idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1321,7 +1321,7 @@ export interface StartFHIRImportJobResponse {
    * <p>The AWS-generated data store ID.</p>
    * @public
    */
-  DatastoreId?: string;
+  DatastoreId?: string | undefined;
 }
 
 /**

@@ -46,13 +46,13 @@ export interface Approval {
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    * @public
    */
-  userArn?: string;
+  userArn?: string | undefined;
 
   /**
    * <p>The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.</p>
    * @public
    */
-  approvalState?: ApprovalState;
+  approvalState?: ApprovalState | undefined;
 }
 
 /**
@@ -64,13 +64,13 @@ export interface OriginApprovalRuleTemplate {
    * <p>The ID of the template that created the approval rule.</p>
    * @public
    */
-  approvalRuleTemplateId?: string;
+  approvalRuleTemplateId?: string | undefined;
 
   /**
    * <p>The name of the template that created the approval rule.</p>
    * @public
    */
-  approvalRuleTemplateName?: string;
+  approvalRuleTemplateName?: string | undefined;
 }
 
 /**
@@ -82,49 +82,49 @@ export interface ApprovalRule {
    * <p>The system-generated ID of the approval rule.</p>
    * @public
    */
-  approvalRuleId?: string;
+  approvalRuleId?: string | undefined;
 
   /**
    * <p>The name of the approval rule.</p>
    * @public
    */
-  approvalRuleName?: string;
+  approvalRuleName?: string | undefined;
 
   /**
    * <p>The content of the approval rule.</p>
    * @public
    */
-  approvalRuleContent?: string;
+  approvalRuleContent?: string | undefined;
 
   /**
    * <p>The SHA-256 hash signature for the content of the approval rule.</p>
    * @public
    */
-  ruleContentSha256?: string;
+  ruleContentSha256?: string | undefined;
 
   /**
    * <p>The date the approval rule was most recently changed, in timestamp format.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The date the approval rule was created, in timestamp format.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule.</p>
    * @public
    */
-  lastModifiedUser?: string;
+  lastModifiedUser?: string | undefined;
 
   /**
    * <p>The approval rule template used to create the rule.</p>
    * @public
    */
-  originApprovalRuleTemplate?: OriginApprovalRuleTemplate;
+  originApprovalRuleTemplate?: OriginApprovalRuleTemplate | undefined;
 }
 
 /**
@@ -176,19 +176,19 @@ export interface ApprovalRuleEventMetadata {
    * <p>The name of the approval rule.</p>
    * @public
    */
-  approvalRuleName?: string;
+  approvalRuleName?: string | undefined;
 
   /**
    * <p>The system-generated ID of the approval rule.</p>
    * @public
    */
-  approvalRuleId?: string;
+  approvalRuleId?: string | undefined;
 
   /**
    * <p>The content of the approval rule.</p>
    * @public
    */
-  approvalRuleContent?: string;
+  approvalRuleContent?: string | undefined;
 }
 
 /**
@@ -255,13 +255,13 @@ export interface ApprovalRuleOverriddenEventMetadata {
    * <p>The revision ID of the pull request when the override event occurred.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The status of the override event.</p>
    * @public
    */
-  overrideStatus?: OverrideStatus;
+  overrideStatus?: OverrideStatus | undefined;
 }
 
 /**
@@ -273,49 +273,49 @@ export interface ApprovalRuleTemplate {
    * <p>The system-generated ID of the approval rule template.</p>
    * @public
    */
-  approvalRuleTemplateId?: string;
+  approvalRuleTemplateId?: string | undefined;
 
   /**
    * <p>The name of the approval rule template.</p>
    * @public
    */
-  approvalRuleTemplateName?: string;
+  approvalRuleTemplateName?: string | undefined;
 
   /**
    * <p>The description of the approval rule template.</p>
    * @public
    */
-  approvalRuleTemplateDescription?: string;
+  approvalRuleTemplateDescription?: string | undefined;
 
   /**
    * <p>The content of the approval rule template.</p>
    * @public
    */
-  approvalRuleTemplateContent?: string;
+  approvalRuleTemplateContent?: string | undefined;
 
   /**
    * <p>The SHA-256 hash signature for the content of the approval rule template.</p>
    * @public
    */
-  ruleContentSha256?: string;
+  ruleContentSha256?: string | undefined;
 
   /**
    * <p>The date the approval rule template was most recently changed, in timestamp format.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The date the approval rule template was created, in timestamp format.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.</p>
    * @public
    */
-  lastModifiedUser?: string;
+  lastModifiedUser?: string | undefined;
 }
 
 /**
@@ -431,13 +431,13 @@ export interface ApprovalStateChangedEventMetadata {
    * <p>The revision ID of the pull request when the approval state changed.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The approval status for the pull request.</p>
    * @public
    */
-  approvalStatus?: ApprovalState;
+  approvalStatus?: ApprovalState | undefined;
 }
 
 /**
@@ -735,19 +735,19 @@ export interface BatchAssociateApprovalRuleTemplateWithRepositoriesError {
    * <p>The name of the repository where the association was not made.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>An error code that specifies whether the repository name was not valid or not found.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>An error message that provides details about why the repository name was not found or not valid.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -888,19 +888,19 @@ export interface BatchDescribeMergeConflictsInput {
    * <p>The maximum number of merge hunks to include in the output.</p>
    * @public
    */
-  maxMergeHunks?: number;
+  maxMergeHunks?: number | undefined;
 
   /**
    * <p>The maximum number of files to include in the output.</p>
    * @public
    */
-  maxConflictFiles?: number;
+  maxConflictFiles?: number | undefined;
 
   /**
    * <p>The path of the target files used to describe the conflicts. If not specified, the default is all conflict files.</p>
    * @public
    */
-  filePaths?: string[];
+  filePaths?: string[] | undefined;
 
   /**
    * <p>The level of conflict detail to use. If unspecified, the default FILE_LEVEL is used,
@@ -909,7 +909,7 @@ export interface BatchDescribeMergeConflictsInput {
    *             both branches has differences on the same line.</p>
    * @public
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
@@ -917,14 +917,14 @@ export interface BatchDescribeMergeConflictsInput {
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    * @public
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -951,19 +951,19 @@ export interface FileModes {
    * <p>The file mode of a file in the source of a merge or pull request.</p>
    * @public
    */
-  source?: FileModeTypeEnum;
+  source?: FileModeTypeEnum | undefined;
 
   /**
    * <p>The file mode of a file in the destination of a merge or pull request.</p>
    * @public
    */
-  destination?: FileModeTypeEnum;
+  destination?: FileModeTypeEnum | undefined;
 
   /**
    * <p>The file mode of a file in the base of a merge or pull request.</p>
    * @public
    */
-  base?: FileModeTypeEnum;
+  base?: FileModeTypeEnum | undefined;
 }
 
 /**
@@ -975,19 +975,19 @@ export interface FileSizes {
    * <p>The  size of a file in the source of a merge or pull request.</p>
    * @public
    */
-  source?: number;
+  source?: number | undefined;
 
   /**
    * <p>The size of a file in the destination of a merge or pull request.</p>
    * @public
    */
-  destination?: number;
+  destination?: number | undefined;
 
   /**
    * <p>The size of a file in the base of a merge or pull request.</p>
    * @public
    */
-  base?: number;
+  base?: number | undefined;
 }
 
 /**
@@ -999,19 +999,19 @@ export interface IsBinaryFile {
    * <p>The binary or non-binary status of file in the source of a merge or pull request.</p>
    * @public
    */
-  source?: boolean;
+  source?: boolean | undefined;
 
   /**
    * <p>The binary or non-binary status of a file in the destination of a merge or pull request.</p>
    * @public
    */
-  destination?: boolean;
+  destination?: boolean | undefined;
 
   /**
    * <p>The binary or non-binary status of a file in the base of a merge or pull request.</p>
    * @public
    */
-  base?: boolean;
+  base?: boolean | undefined;
 }
 
 /**
@@ -1039,13 +1039,13 @@ export interface MergeOperations {
    *             request.</p>
    * @public
    */
-  source?: ChangeTypeEnum;
+  source?: ChangeTypeEnum | undefined;
 
   /**
    * <p>The operation on a file in the destination of a merge or pull request.</p>
    * @public
    */
-  destination?: ChangeTypeEnum;
+  destination?: ChangeTypeEnum | undefined;
 }
 
 /**
@@ -1073,19 +1073,19 @@ export interface ObjectTypes {
    * <p>The type of the object in the source branch.</p>
    * @public
    */
-  source?: ObjectTypeEnum;
+  source?: ObjectTypeEnum | undefined;
 
   /**
    * <p>The type of the object in the destination branch.</p>
    * @public
    */
-  destination?: ObjectTypeEnum;
+  destination?: ObjectTypeEnum | undefined;
 
   /**
    * <p>The type of the object in the base commit of the merge.</p>
    * @public
    */
-  base?: ObjectTypeEnum;
+  base?: ObjectTypeEnum | undefined;
 }
 
 /**
@@ -1097,61 +1097,61 @@ export interface ConflictMetadata {
    * <p>The path of the file that contains conflicts.</p>
    * @public
    */
-  filePath?: string;
+  filePath?: string | undefined;
 
   /**
    * <p>The file sizes of the file in the source, destination, and base of the merge.</p>
    * @public
    */
-  fileSizes?: FileSizes;
+  fileSizes?: FileSizes | undefined;
 
   /**
    * <p>The file modes of the file in the source, destination, and base of the merge.</p>
    * @public
    */
-  fileModes?: FileModes;
+  fileModes?: FileModes | undefined;
 
   /**
    * <p>Information about any object type conflicts in a merge operation.</p>
    * @public
    */
-  objectTypes?: ObjectTypes;
+  objectTypes?: ObjectTypes | undefined;
 
   /**
    * <p>The number of conflicts, including both hunk conflicts and metadata conflicts.</p>
    * @public
    */
-  numberOfConflicts?: number;
+  numberOfConflicts?: number | undefined;
 
   /**
    * <p>A boolean value (true or false) indicating whether the file is binary or textual in the source, destination, and base of the merge.</p>
    * @public
    */
-  isBinaryFile?: IsBinaryFile;
+  isBinaryFile?: IsBinaryFile | undefined;
 
   /**
    * <p>A boolean value indicating whether there are conflicts in the content of a file.</p>
    * @public
    */
-  contentConflict?: boolean;
+  contentConflict?: boolean | undefined;
 
   /**
    * <p>A boolean value indicating whether there are conflicts in the file mode of a file.</p>
    * @public
    */
-  fileModeConflict?: boolean;
+  fileModeConflict?: boolean | undefined;
 
   /**
    * <p>A boolean value (true or false) indicating whether there are conflicts between the branches in the object type of a file, folder, or submodule.</p>
    * @public
    */
-  objectTypeConflict?: boolean;
+  objectTypeConflict?: boolean | undefined;
 
   /**
    * <p>Whether an add, modify, or delete operation caused the conflict between the source and destination of the merge.</p>
    * @public
    */
-  mergeOperations?: MergeOperations;
+  mergeOperations?: MergeOperations | undefined;
 }
 
 /**
@@ -1163,20 +1163,20 @@ export interface MergeHunkDetail {
    * <p>The start position of the hunk in the merge result.</p>
    * @public
    */
-  startLine?: number;
+  startLine?: number | undefined;
 
   /**
    * <p>The end position of the hunk in the merge result.</p>
    * @public
    */
-  endLine?: number;
+  endLine?: number | undefined;
 
   /**
    * <p>The base-64 encoded content of the hunk merged region that might contain a
    *             conflict.</p>
    * @public
    */
-  hunkContent?: string;
+  hunkContent?: string | undefined;
 }
 
 /**
@@ -1192,25 +1192,25 @@ export interface MergeHunk {
    *             conflict. File mode conflicts in a merge do not set this to true.</p>
    * @public
    */
-  isConflict?: boolean;
+  isConflict?: boolean | undefined;
 
   /**
    * <p>Information about the merge hunk in the source of a merge or pull request.</p>
    * @public
    */
-  source?: MergeHunkDetail;
+  source?: MergeHunkDetail | undefined;
 
   /**
    * <p>Information about the merge hunk in the destination of a merge or pull request.</p>
    * @public
    */
-  destination?: MergeHunkDetail;
+  destination?: MergeHunkDetail | undefined;
 
   /**
    * <p>Information about the merge hunk in the base of a merge or pull request.</p>
    * @public
    */
-  base?: MergeHunkDetail;
+  base?: MergeHunkDetail | undefined;
 }
 
 /**
@@ -1222,13 +1222,13 @@ export interface Conflict {
    * <p>Metadata about a conflict in a merge operation.</p>
    * @public
    */
-  conflictMetadata?: ConflictMetadata;
+  conflictMetadata?: ConflictMetadata | undefined;
 
   /**
    * <p>A list of hunks that contain the differences between files or lines causing the conflict.</p>
    * @public
    */
-  mergeHunks?: MergeHunk[];
+  mergeHunks?: MergeHunk[] | undefined;
 }
 
 /**
@@ -1269,13 +1269,13 @@ export interface BatchDescribeMergeConflictsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of any errors returned while describing the merge conflicts for each file.</p>
    * @public
    */
-  errors?: BatchDescribeMergeConflictsError[];
+  errors?: BatchDescribeMergeConflictsError[] | undefined;
 
   /**
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
@@ -1293,7 +1293,7 @@ export interface BatchDescribeMergeConflictsOutput {
    * <p>The commit ID of the merge base.</p>
    * @public
    */
-  baseCommitId?: string;
+  baseCommitId?: string | undefined;
 }
 
 /**
@@ -1587,20 +1587,20 @@ export interface BatchDisassociateApprovalRuleTemplateFromRepositoriesError {
    * <p>The name of the repository where the association with the template was not able to be removed.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>An error code that specifies whether the repository name was not valid or not
    *             found.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>An error message that provides details about why the repository name was either not found or not valid.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1651,19 +1651,19 @@ export interface UserInfo {
    * <p>The name of the user who made the specified commit.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The email address associated with the user who made the commit, if any.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>The date when the specified commit was commited, in timestamp format with GMT offset.</p>
    * @public
    */
-  date?: string;
+  date?: string | undefined;
 }
 
 /**
@@ -1675,25 +1675,25 @@ export interface Commit {
    * <p>The full SHA ID of the specified commit. </p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 
   /**
    * <p>Tree information for the specified commit.</p>
    * @public
    */
-  treeId?: string;
+  treeId?: string | undefined;
 
   /**
    * <p>A list of parent commits for the specified commit. Each parent commit ID is the full commit ID.</p>
    * @public
    */
-  parents?: string[];
+  parents?: string[] | undefined;
 
   /**
    * <p>The commit message associated with the specified commit.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Information about the author of the specified commit. Information includes
@@ -1701,7 +1701,7 @@ export interface Commit {
    *             in Git.</p>
    * @public
    */
-  author?: UserInfo;
+  author?: UserInfo | undefined;
 
   /**
    * <p>Information about the person who committed the specified commit, also known as the committer. Information includes
@@ -1712,13 +1712,13 @@ export interface Commit {
    *             by Scott Chacon and Ben Straub.</p>
    * @public
    */
-  committer?: UserInfo;
+  committer?: UserInfo | undefined;
 
   /**
    * <p>Any other data associated with the specified commit.</p>
    * @public
    */
-  additionalData?: string;
+  additionalData?: string | undefined;
 }
 
 /**
@@ -1730,19 +1730,19 @@ export interface BatchGetCommitsError {
    * <p>A commit ID that either could not be found or was not in a valid format.</p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 
   /**
    * <p>An error code that specifies whether the commit ID was not valid or not found.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>An error message that provides detail about why the commit ID either was not found or was not valid.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1753,7 +1753,7 @@ export interface BatchGetCommitsOutput {
    * <p>An array of commit data type objects, each of which contains information about a specified commit.</p>
    * @public
    */
-  commits?: Commit[];
+  commits?: Commit[] | undefined;
 
   /**
    * <p>Returns any commit IDs for which information could not be found. For example, if one
@@ -1761,7 +1761,7 @@ export interface BatchGetCommitsOutput {
    *             repository, the ID returns an error object with more information.</p>
    * @public
    */
-  errors?: BatchGetCommitsError[];
+  errors?: BatchGetCommitsError[] | undefined;
 }
 
 /**
@@ -1847,25 +1847,25 @@ export interface BatchGetRepositoriesError {
    * <p>The ID of a repository that either could not be found or was not in a valid state.</p>
    * @public
    */
-  repositoryId?: string;
+  repositoryId?: string | undefined;
 
   /**
    * <p>The name of a repository that either could not be found or was not in a valid state.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>An error code that specifies the type of failure.</p>
    * @public
    */
-  errorCode?: BatchGetRepositoriesErrorCodeEnum;
+  errorCode?: BatchGetRepositoriesErrorCodeEnum | undefined;
 
   /**
    * <p>An error message that provides detail about why the repository either was not found or was not in a valid state.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1877,67 +1877,67 @@ export interface RepositoryMetadata {
    * <p>The ID of the Amazon Web Services account associated with the repository.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The ID of the repository.</p>
    * @public
    */
-  repositoryId?: string;
+  repositoryId?: string | undefined;
 
   /**
    * <p>The repository's name.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>A comment or description about the repository.</p>
    * @public
    */
-  repositoryDescription?: string;
+  repositoryDescription?: string | undefined;
 
   /**
    * <p>The repository's default branch name.</p>
    * @public
    */
-  defaultBranch?: string;
+  defaultBranch?: string | undefined;
 
   /**
    * <p>The date and time the repository was last modified, in timestamp format.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The date and time the repository was created, in timestamp format.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The URL to use for cloning the repository over HTTPS.</p>
    * @public
    */
-  cloneUrlHttp?: string;
+  cloneUrlHttp?: string | undefined;
 
   /**
    * <p>The URL to use for cloning the repository over SSH.</p>
    * @public
    */
-  cloneUrlSsh?: string;
+  cloneUrlSsh?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the repository.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the Key Management Service encryption key used to encrypt and decrypt the repository.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1949,19 +1949,19 @@ export interface BatchGetRepositoriesOutput {
    * <p>A list of repositories returned by the batch get repositories operation.</p>
    * @public
    */
-  repositories?: RepositoryMetadata[];
+  repositories?: RepositoryMetadata[] | undefined;
 
   /**
    * <p>Returns a list of repository names for which information could not be found.</p>
    * @public
    */
-  repositoriesNotFound?: string[];
+  repositoriesNotFound?: string[] | undefined;
 
   /**
    * <p>Returns information about any errors returned when attempting to retrieve information about the repositories.</p>
    * @public
    */
-  errors?: BatchGetRepositoriesError[];
+  errors?: BatchGetRepositoriesError[] | undefined;
 }
 
 /**
@@ -2033,13 +2033,13 @@ export interface BlobMetadata {
    * <p>The full ID of the blob.</p>
    * @public
    */
-  blobId?: string;
+  blobId?: string | undefined;
 
   /**
    * <p>The path to the blob and associated file name, if any.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The file mode permissions of the blob. File mode permission codes include:</p>
@@ -2063,7 +2063,7 @@ export interface BlobMetadata {
    *          </ul>
    * @public
    */
-  mode?: string;
+  mode?: string | undefined;
 }
 
 /**
@@ -2095,13 +2095,13 @@ export interface BranchInfo {
    * <p>The name of the branch.</p>
    * @public
    */
-  branchName?: string;
+  branchName?: string | undefined;
 
   /**
    * <p>The ID of the last commit made to the branch.</p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 }
 
 /**
@@ -2299,7 +2299,7 @@ export interface CreateApprovalRuleTemplateInput {
    *             repositories.</p>
    * @public
    */
-  approvalRuleTemplateDescription?: string;
+  approvalRuleTemplateDescription?: string | undefined;
 }
 
 /**
@@ -2506,7 +2506,7 @@ export interface SourceFileSpecifier {
    * <p>Whether to remove the source file from the parent commit.</p>
    * @public
    */
-  isMove?: boolean;
+  isMove?: boolean | undefined;
 }
 
 /**
@@ -2524,20 +2524,20 @@ export interface PutFileEntry {
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    * @public
    */
-  fileMode?: FileModeTypeEnum;
+  fileMode?: FileModeTypeEnum | undefined;
 
   /**
    * <p>The content of the file, if a source file is not specified.</p>
    * @public
    */
-  fileContent?: Uint8Array;
+  fileContent?: Uint8Array | undefined;
 
   /**
    * <p>The name and full path of the file that contains the changes you want to make as part of the commit,
    *         if you are not providing the file content directly.</p>
    * @public
    */
-  sourceFile?: SourceFileSpecifier;
+  sourceFile?: SourceFileSpecifier | undefined;
 }
 
 /**
@@ -2579,27 +2579,27 @@ export interface CreateCommitInput {
    *             is an empty repository.</p>
    * @public
    */
-  parentCommitId?: string;
+  parentCommitId?: string | undefined;
 
   /**
    * <p>The name of the author who created the commit. This information is used as both the
    *             author and committer for the commit.</p>
    * @public
    */
-  authorName?: string;
+  authorName?: string | undefined;
 
   /**
    * <p>The email address of the person who created the commit.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>The commit message you want to include in the commit. Commit messages are limited to
    *             256 KB. If no message is specified, a default message is used.</p>
    * @public
    */
-  commitMessage?: string;
+  commitMessage?: string | undefined;
 
   /**
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
@@ -2607,25 +2607,25 @@ export interface CreateCommitInput {
    *             The default is false.</p>
    * @public
    */
-  keepEmptyFolders?: boolean;
+  keepEmptyFolders?: boolean | undefined;
 
   /**
    * <p>The files to add or update in this commit.</p>
    * @public
    */
-  putFiles?: PutFileEntry[];
+  putFiles?: PutFileEntry[] | undefined;
 
   /**
    * <p>The files to delete in this commit. These files still exist in earlier commits.</p>
    * @public
    */
-  deleteFiles?: DeleteFileEntry[];
+  deleteFiles?: DeleteFileEntry[] | undefined;
 
   /**
    * <p>The file modes to update for files in this commit.</p>
    * @public
    */
-  setFileModes?: SetFileModeEntry[];
+  setFileModes?: SetFileModeEntry[] | undefined;
 }
 
 /**
@@ -2638,19 +2638,19 @@ export interface FileMetadata {
    *             file.</p>
    * @public
    */
-  absolutePath?: string;
+  absolutePath?: string | undefined;
 
   /**
    * <p>The blob ID that contains the file information.</p>
    * @public
    */
-  blobId?: string;
+  blobId?: string | undefined;
 
   /**
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    * @public
    */
-  fileMode?: FileModeTypeEnum;
+  fileMode?: FileModeTypeEnum | undefined;
 }
 
 /**
@@ -2661,31 +2661,31 @@ export interface CreateCommitOutput {
    * <p>The full commit ID of the commit that contains your committed file changes.</p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 
   /**
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the commited file changes.</p>
    * @public
    */
-  treeId?: string;
+  treeId?: string | undefined;
 
   /**
    * <p>The files added as part of the committed file changes.</p>
    * @public
    */
-  filesAdded?: FileMetadata[];
+  filesAdded?: FileMetadata[] | undefined;
 
   /**
    * <p>The files updated as part of the commited file changes.</p>
    * @public
    */
-  filesUpdated?: FileMetadata[];
+  filesUpdated?: FileMetadata[] | undefined;
 
   /**
    * <p>The files deleted as part of the committed file changes.</p>
    * @public
    */
-  filesDeleted?: FileMetadata[];
+  filesDeleted?: FileMetadata[] | undefined;
 }
 
 /**
@@ -3228,7 +3228,7 @@ export interface Target {
    *             the destination branch.</p>
    * @public
    */
-  destinationReference?: string;
+  destinationReference?: string | undefined;
 }
 
 /**
@@ -3246,7 +3246,7 @@ export interface CreatePullRequestInput {
    * <p>A description of the pull request.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The targets for the pull request, including the source of the code to be reviewed (the
@@ -3267,7 +3267,7 @@ export interface CreatePullRequestInput {
    *          </note>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -3293,25 +3293,25 @@ export interface MergeMetadata {
    * <p>A Boolean value indicating whether the merge has been made.</p>
    * @public
    */
-  isMerged?: boolean;
+  isMerged?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who merged the branches.</p>
    * @public
    */
-  mergedBy?: string;
+  mergedBy?: string | undefined;
 
   /**
    * <p>The commit ID for the merge commit, if any.</p>
    * @public
    */
-  mergeCommitId?: string;
+  mergeCommitId?: string | undefined;
 
   /**
    * <p>The merge strategy used in the merge.</p>
    * @public
    */
-  mergeOption?: MergeOptionTypeEnum;
+  mergeOption?: MergeOptionTypeEnum | undefined;
 }
 
 /**
@@ -3323,26 +3323,26 @@ export interface PullRequestTarget {
    * <p>The name of the repository that contains the pull request source and destination branches.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The branch of the repository that contains the changes for the pull request. Also known as the source branch.</p>
    * @public
    */
-  sourceReference?: string;
+  sourceReference?: string | undefined;
 
   /**
    * <p>The branch of the repository where the pull request changes are merged. Also known as
    *             the destination branch. </p>
    * @public
    */
-  destinationReference?: string;
+  destinationReference?: string | undefined;
 
   /**
    * <p>The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.</p>
    * @public
    */
-  destinationCommit?: string;
+  destinationCommit?: string | undefined;
 
   /**
    * <p>The full commit ID of the tip of the source branch used to create the pull request. If
@@ -3350,19 +3350,19 @@ export interface PullRequestTarget {
    *             ID changes to reflect the new tip of the branch.</p>
    * @public
    */
-  sourceCommit?: string;
+  sourceCommit?: string | undefined;
 
   /**
    * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
    * @public
    */
-  mergeBase?: string;
+  mergeBase?: string | undefined;
 
   /**
    * <p>Returns metadata about the state of the merge, including whether the merge has been made.</p>
    * @public
    */
-  mergeMetadata?: MergeMetadata;
+  mergeMetadata?: MergeMetadata | undefined;
 }
 
 /**
@@ -3374,50 +3374,50 @@ export interface PullRequest {
    * <p>The system-generated ID of the pull request. </p>
    * @public
    */
-  pullRequestId?: string;
+  pullRequestId?: string | undefined;
 
   /**
    * <p>The user-defined title of the pull request. This title is displayed in the list of
    *             pull requests to other repository users.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The user-defined description of the pull request. This description can be used to clarify what should be reviewed and other details of the request.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The day and time of the last user or system activity on the pull request, in timestamp format.</p>
    * @public
    */
-  lastActivityDate?: Date;
+  lastActivityDate?: Date | undefined;
 
   /**
    * <p>The date and time the pull request was originally created, in timestamp format.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The status of the pull request. Pull request status can only change from <code>OPEN</code> to <code>CLOSED</code>.</p>
    * @public
    */
-  pullRequestStatus?: PullRequestStatusEnum;
+  pullRequestStatus?: PullRequestStatusEnum | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user who created the pull request.</p>
    * @public
    */
-  authorArn?: string;
+  authorArn?: string | undefined;
 
   /**
    * <p>The targets of the pull request, including the source branch and destination branch for the pull request.</p>
    * @public
    */
-  pullRequestTargets?: PullRequestTarget[];
+  pullRequestTargets?: PullRequestTarget[] | undefined;
 
   /**
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
@@ -3426,19 +3426,19 @@ export interface PullRequest {
    *             initial request that used that token.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The system-generated revision ID for the pull request.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The approval rules applied to the pull request.</p>
    * @public
    */
-  approvalRules?: ApprovalRule[];
+  approvalRules?: ApprovalRule[] | undefined;
 }
 
 /**
@@ -4023,13 +4023,13 @@ export interface CreateRepositoryInput {
    *          </note>
    * @public
    */
-  repositoryDescription?: string;
+  repositoryDescription?: string | undefined;
 
   /**
    * <p>One or more tag key-value pairs to use when tagging this repository.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The ID of the encryption key. You can view the ID of an encryption key in the KMS console, or use the KMS APIs to
@@ -4039,7 +4039,7 @@ export interface CreateRepositoryInput {
    *          <p>If no key is specified, the default <code>aws/codecommit</code> Amazon Web Services managed key is used.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -4051,7 +4051,7 @@ export interface CreateRepositoryOutput {
    * <p>Information about the newly created repository.</p>
    * @public
    */
-  repositoryMetadata?: RepositoryMetadata;
+  repositoryMetadata?: RepositoryMetadata | undefined;
 }
 
 /**
@@ -4312,13 +4312,13 @@ export interface ReplaceContentEntry {
    * <p>The base-64 encoded content to use when the replacement type is USE_NEW_CONTENT.</p>
    * @public
    */
-  content?: Uint8Array;
+  content?: Uint8Array | undefined;
 
   /**
    * <p>The file mode to apply during conflict resoltion.</p>
    * @public
    */
-  fileMode?: FileModeTypeEnum;
+  fileMode?: FileModeTypeEnum | undefined;
 }
 
 /**
@@ -4331,19 +4331,19 @@ export interface ConflictResolution {
    * <p>Files to have content replaced as part of the merge conflict resolution.</p>
    * @public
    */
-  replaceContents?: ReplaceContentEntry[];
+  replaceContents?: ReplaceContentEntry[] | undefined;
 
   /**
    * <p>Files to be deleted as part of the merge conflict resolution.</p>
    * @public
    */
-  deleteFiles?: DeleteFileEntry[];
+  deleteFiles?: DeleteFileEntry[] | undefined;
 
   /**
    * <p>File modes that are set as part of the merge conflict resolution.</p>
    * @public
    */
-  setFileModes?: SetFileModeEntry[];
+  setFileModes?: SetFileModeEntry[] | undefined;
 }
 
 /**
@@ -4383,7 +4383,7 @@ export interface CreateUnreferencedMergeCommitInput {
    *             both branches has differences on the same line.</p>
    * @public
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
@@ -4391,26 +4391,26 @@ export interface CreateUnreferencedMergeCommitInput {
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    * @public
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
 
   /**
    * <p>The name of the author who created the unreferenced commit. This information is used
    *             as both the author and committer for the commit.</p>
    * @public
    */
-  authorName?: string;
+  authorName?: string | undefined;
 
   /**
    * <p>The email address for the person who created the unreferenced commit.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>The commit message for the unreferenced commit.</p>
    * @public
    */
-  commitMessage?: string;
+  commitMessage?: string | undefined;
 
   /**
    * <p>If the commit contains deletions, whether to keep a folder or folder structure if the
@@ -4418,14 +4418,14 @@ export interface CreateUnreferencedMergeCommitInput {
    *             created for empty folders. The default is false.</p>
    * @public
    */
-  keepEmptyFolders?: boolean;
+  keepEmptyFolders?: boolean | undefined;
 
   /**
    * <p>If AUTOMERGE is the conflict resolution strategy, a list of inputs to use when
    *             resolving conflicts during a merge.</p>
    * @public
    */
-  conflictResolution?: ConflictResolution;
+  conflictResolution?: ConflictResolution | undefined;
 }
 
 /**
@@ -4436,13 +4436,13 @@ export interface CreateUnreferencedMergeCommitOutput {
    * <p>The full commit ID of the commit that contains your merge results.</p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 
   /**
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the merge results.</p>
    * @public
    */
-  treeId?: string;
+  treeId?: string | undefined;
 }
 
 /**
@@ -4676,7 +4676,7 @@ export interface DeleteBranchOutput {
    * <p>Information about the branch deleted by the operation, including the branch name and the commit ID that was the tip of the branch.</p>
    * @public
    */
-  deletedBranch?: BranchInfo;
+  deletedBranch?: BranchInfo | undefined;
 }
 
 /**
@@ -4761,43 +4761,43 @@ export interface Comment {
    * <p>The system-generated comment ID.</p>
    * @public
    */
-  commentId?: string;
+  commentId?: string | undefined;
 
   /**
    * <p>The content of the comment.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 
   /**
    * <p>The ID of the comment for which this comment is a reply, if any.</p>
    * @public
    */
-  inReplyTo?: string;
+  inReplyTo?: string | undefined;
 
   /**
    * <p>The date and time the comment was created, in timestamp format.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date and time the comment was most recently modified, in timestamp format.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the person who posted the comment.</p>
    * @public
    */
-  authorArn?: string;
+  authorArn?: string | undefined;
 
   /**
    * <p>A Boolean value indicating whether the comment has been deleted.</p>
    * @public
    */
-  deleted?: boolean;
+  deleted?: boolean | undefined;
 
   /**
    * <p>A unique, client-generated idempotency token that, when provided in a request, ensures
@@ -4806,19 +4806,19 @@ export interface Comment {
    *             initial request that used that token.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The emoji reactions to a comment, if any, submitted by the user whose credentials are associated with the call to the API.</p>
    * @public
    */
-  callerReactions?: string[];
+  callerReactions?: string[] | undefined;
 
   /**
    * <p>A string to integer map that represents the number of individual users who have responded to a comment with the specified reactions.</p>
    * @public
    */
-  reactionCounts?: Record<string, number>;
+  reactionCounts?: Record<string, number> | undefined;
 }
 
 /**
@@ -4829,7 +4829,7 @@ export interface DeleteCommentContentOutput {
    * <p>Information about the comment you just deleted.</p>
    * @public
    */
-  comment?: Comment;
+  comment?: Comment | undefined;
 }
 
 /**
@@ -4892,28 +4892,28 @@ export interface DeleteFileInput {
    *             last file in dir4 also deletes the empty folders dir4, dir3, and dir2.</p>
    * @public
    */
-  keepEmptyFolders?: boolean;
+  keepEmptyFolders?: boolean | undefined;
 
   /**
    * <p>The commit message you want to include as part of deleting the file. Commit messages
    *             are limited to 256 KB. If no message is specified, a default message is used.</p>
    * @public
    */
-  commitMessage?: string;
+  commitMessage?: string | undefined;
 
   /**
    * <p>The name of the author of the commit that deletes the file. If no name is specified,
    *             the user's ARN is used as the author name and committer name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The email address for the commit that deletes the file. If no email address is
    *             specified, the email address is left blank.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 }
 
 /**
@@ -4999,7 +4999,7 @@ export interface DeleteRepositoryOutput {
    * <p>The ID of the repository that was deleted.</p>
    * @public
    */
-  repositoryId?: string;
+  repositoryId?: string | undefined;
 }
 
 /**
@@ -5036,7 +5036,7 @@ export interface DescribeMergeConflictsInput {
    * <p>The maximum number of merge hunks to include in the output.</p>
    * @public
    */
-  maxMergeHunks?: number;
+  maxMergeHunks?: number | undefined;
 
   /**
    * <p>The path of the target files used to describe the conflicts. </p>
@@ -5051,7 +5051,7 @@ export interface DescribeMergeConflictsInput {
    *             both branches has differences on the same line.</p>
    * @public
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
@@ -5059,14 +5059,14 @@ export interface DescribeMergeConflictsInput {
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    * @public
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5089,7 +5089,7 @@ export interface DescribeMergeConflictsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
@@ -5107,7 +5107,7 @@ export interface DescribeMergeConflictsOutput {
    * <p>The commit ID of the merge base.</p>
    * @public
    */
-  baseCommitId?: string;
+  baseCommitId?: string | undefined;
 }
 
 /**
@@ -5145,7 +5145,7 @@ export interface DescribePullRequestEventsInput {
    * <p>Optional. The pull request event type about which you want to return information.</p>
    * @public
    */
-  pullRequestEventType?: PullRequestEventType;
+  pullRequestEventType?: PullRequestEventType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
@@ -5153,21 +5153,21 @@ export interface DescribePullRequestEventsInput {
    *             pull request.</p>
    * @public
    */
-  actorArn?: string;
+  actorArn?: string | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.
    *             The default is 100 events, which is also the maximum number of events that can be returned in a result.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5179,25 +5179,25 @@ export interface PullRequestCreatedEventMetadata {
    * <p>The name of the repository where the pull request was created.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The commit ID on the source branch used when the pull request was created.</p>
    * @public
    */
-  sourceCommitId?: string;
+  sourceCommitId?: string | undefined;
 
   /**
    * <p>The commit ID of the tip of the branch specified as the destination branch when the pull request was created.</p>
    * @public
    */
-  destinationCommitId?: string;
+  destinationCommitId?: string | undefined;
 
   /**
    * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
    * @public
    */
-  mergeBase?: string;
+  mergeBase?: string | undefined;
 }
 
 /**
@@ -5209,19 +5209,19 @@ export interface PullRequestMergedStateChangedEventMetadata {
    * <p>The name of the repository where the pull request was created.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The name of the branch that the pull request is merged into.</p>
    * @public
    */
-  destinationReference?: string;
+  destinationReference?: string | undefined;
 
   /**
    * <p>Information about the merge state change event.</p>
    * @public
    */
-  mergeMetadata?: MergeMetadata;
+  mergeMetadata?: MergeMetadata | undefined;
 }
 
 /**
@@ -5233,25 +5233,25 @@ export interface PullRequestSourceReferenceUpdatedEventMetadata {
    * <p>The name of the repository where the pull request was updated.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was updated.</p>
    * @public
    */
-  beforeCommitId?: string;
+  beforeCommitId?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the pull request was updated.</p>
    * @public
    */
-  afterCommitId?: string;
+  afterCommitId?: string | undefined;
 
   /**
    * <p>The commit ID of the most recent commit that the source branch and the destination branch have in common.</p>
    * @public
    */
-  mergeBase?: string;
+  mergeBase?: string | undefined;
 }
 
 /**
@@ -5263,7 +5263,7 @@ export interface PullRequestStatusChangedEventMetadata {
    * <p>The changed status of the pull request.</p>
    * @public
    */
-  pullRequestStatus?: PullRequestStatusEnum;
+  pullRequestStatus?: PullRequestStatusEnum | undefined;
 }
 
 /**
@@ -5275,13 +5275,13 @@ export interface PullRequestEvent {
    * <p>The system-generated ID of the pull request.</p>
    * @public
    */
-  pullRequestId?: string;
+  pullRequestId?: string | undefined;
 
   /**
    * <p>The day and time of the pull request event, in timestamp format.</p>
    * @public
    */
-  eventDate?: Date;
+  eventDate?: Date | undefined;
 
   /**
    * <p>The type of the pull request event (for example, a status change event
@@ -5289,7 +5289,7 @@ export interface PullRequestEvent {
    *             (PULL_REQUEST_SOURCE_REFERENCE_UPDATED)).</p>
    * @public
    */
-  pullRequestEventType?: PullRequestEventType;
+  pullRequestEventType?: PullRequestEventType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user whose actions resulted in the event.
@@ -5297,49 +5297,49 @@ export interface PullRequestEvent {
    *             pull request.</p>
    * @public
    */
-  actorArn?: string;
+  actorArn?: string | undefined;
 
   /**
    * <p>Information about the source and destination branches for the pull request.</p>
    * @public
    */
-  pullRequestCreatedEventMetadata?: PullRequestCreatedEventMetadata;
+  pullRequestCreatedEventMetadata?: PullRequestCreatedEventMetadata | undefined;
 
   /**
    * <p>Information about the change in status for the pull request event.</p>
    * @public
    */
-  pullRequestStatusChangedEventMetadata?: PullRequestStatusChangedEventMetadata;
+  pullRequestStatusChangedEventMetadata?: PullRequestStatusChangedEventMetadata | undefined;
 
   /**
    * <p>Information about the updated source branch for the pull request event. </p>
    * @public
    */
-  pullRequestSourceReferenceUpdatedEventMetadata?: PullRequestSourceReferenceUpdatedEventMetadata;
+  pullRequestSourceReferenceUpdatedEventMetadata?: PullRequestSourceReferenceUpdatedEventMetadata | undefined;
 
   /**
    * <p>Information about the change in mergability state for the pull request event.</p>
    * @public
    */
-  pullRequestMergedStateChangedEventMetadata?: PullRequestMergedStateChangedEventMetadata;
+  pullRequestMergedStateChangedEventMetadata?: PullRequestMergedStateChangedEventMetadata | undefined;
 
   /**
    * <p>Information about a pull request event.</p>
    * @public
    */
-  approvalRuleEventMetadata?: ApprovalRuleEventMetadata;
+  approvalRuleEventMetadata?: ApprovalRuleEventMetadata | undefined;
 
   /**
    * <p>Information about an approval state change for a pull request.</p>
    * @public
    */
-  approvalStateChangedEventMetadata?: ApprovalStateChangedEventMetadata;
+  approvalStateChangedEventMetadata?: ApprovalStateChangedEventMetadata | undefined;
 
   /**
    * <p>Information about an approval rule override event for a pull request.</p>
    * @public
    */
-  approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata;
+  approvalRuleOverriddenEventMetadata?: ApprovalRuleOverriddenEventMetadata | undefined;
 }
 
 /**
@@ -5356,7 +5356,7 @@ export interface DescribePullRequestEventsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5465,25 +5465,25 @@ export interface Evaluation {
    * <p>Whether the state of the pull request is approved.</p>
    * @public
    */
-  approved?: boolean;
+  approved?: boolean | undefined;
 
   /**
    * <p>Whether the approval rule requirements for the pull request have been overridden and no longer need to be met.</p>
    * @public
    */
-  overridden?: boolean;
+  overridden?: boolean | undefined;
 
   /**
    * <p>The names of the approval rules that have had their conditions met.</p>
    * @public
    */
-  approvalRulesSatisfied?: string[];
+  approvalRulesSatisfied?: string[] | undefined;
 
   /**
    * <p>The names of the approval rules that have not had their conditions met.</p>
    * @public
    */
-  approvalRulesNotSatisfied?: string[];
+  approvalRulesNotSatisfied?: string[] | undefined;
 }
 
 /**
@@ -5660,13 +5660,13 @@ export interface GetBranchInput {
    * <p>The name of the repository that contains the branch for which you want to retrieve information.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The name of the branch for which you want to retrieve information.</p>
    * @public
    */
-  branchName?: string;
+  branchName?: string | undefined;
 }
 
 /**
@@ -5678,7 +5678,7 @@ export interface GetBranchOutput {
    * <p>The name of the branch.</p>
    * @public
    */
-  branch?: BranchInfo;
+  branch?: BranchInfo | undefined;
 }
 
 /**
@@ -5701,7 +5701,7 @@ export interface GetCommentOutput {
    * <p>The contents of the comment.</p>
    * @public
    */
-  comment?: Comment;
+  comment?: Comment | undefined;
 }
 
 /**
@@ -5718,19 +5718,19 @@ export interface GetCommentReactionsInput {
    * <p>Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.</p>
    * @public
    */
-  reactionUserArn?: string;
+  reactionUserArn?: string | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.  The default is the same as the allowed maximum, 1,000.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5742,19 +5742,19 @@ export interface ReactionValueFormats {
    * <p>The Emoji Version 1.0 graphic of the reaction. These graphics are interpreted slightly differently on different operating systems.</p>
    * @public
    */
-  emoji?: string;
+  emoji?: string | undefined;
 
   /**
    * <p>The emoji short code for the reaction. Short codes are interpreted slightly differently on different operating systems. </p>
    * @public
    */
-  shortCode?: string;
+  shortCode?: string | undefined;
 
   /**
    * <p>The Unicode codepoint for the reaction.</p>
    * @public
    */
-  unicode?: string;
+  unicode?: string | undefined;
 }
 
 /**
@@ -5766,20 +5766,20 @@ export interface ReactionForComment {
    * <p>The reaction for a specified comment.</p>
    * @public
    */
-  reaction?: ReactionValueFormats;
+  reaction?: ReactionValueFormats | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of users who have provided reactions to the comment.</p>
    * @public
    */
-  reactionUsers?: string[];
+  reactionUsers?: string[] | undefined;
 
   /**
    * <p>A numerical count of users who reacted with the specified emoji whose identities have been subsequently deleted
    *             from IAM. While these IAM users or roles no longer exist, the reactions might still appear in total reaction counts.</p>
    * @public
    */
-  reactionsFromDeletedUsersCount?: number;
+  reactionsFromDeletedUsersCount?: number | undefined;
 }
 
 /**
@@ -5796,7 +5796,7 @@ export interface GetCommentReactionsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5834,7 +5834,7 @@ export interface GetCommentsForComparedCommitInput {
    *             commit.</p>
    * @public
    */
-  beforeCommitId?: string;
+  beforeCommitId?: string | undefined;
 
   /**
    * <p>To establish the directionality of the comparison, the full commit ID of the after
@@ -5847,14 +5847,14 @@ export interface GetCommentsForComparedCommitInput {
    * <p>An enumeration token that when provided in a request, returns the next batch of the results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results. The
    *             default is 100 comments, but you can configure up to 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5880,20 +5880,20 @@ export interface Location {
    * <p>The name of the file being compared, including its extension and subdirectory, if any.</p>
    * @public
    */
-  filePath?: string;
+  filePath?: string | undefined;
 
   /**
    * <p>The position of a change in a compared file, in line number format.</p>
    * @public
    */
-  filePosition?: number;
+  filePosition?: number | undefined;
 
   /**
    * <p>In a comparison of commits or a pull request, whether the change is in the before or
    *             after of that comparison.</p>
    * @public
    */
-  relativeFileVersion?: RelativeFileVersionEnum;
+  relativeFileVersion?: RelativeFileVersionEnum | undefined;
 }
 
 /**
@@ -5905,32 +5905,32 @@ export interface CommentsForComparedCommit {
    * <p>The name of the repository that contains the compared commits.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit used to establish the before of the
    *             comparison.</p>
    * @public
    */
-  beforeCommitId?: string;
+  beforeCommitId?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit used to establish the after of the comparison.</p>
    * @public
    */
-  afterCommitId?: string;
+  afterCommitId?: string | undefined;
 
   /**
    * <p>The full blob ID of the commit used to establish the before of the comparison.</p>
    * @public
    */
-  beforeBlobId?: string;
+  beforeBlobId?: string | undefined;
 
   /**
    * <p>The full blob ID of the commit used to establish the after of the comparison.</p>
    * @public
    */
-  afterBlobId?: string;
+  afterBlobId?: string | undefined;
 
   /**
    * <p>Location information about the comment on the comparison, including the file name,
@@ -5938,14 +5938,14 @@ export interface CommentsForComparedCommit {
    *             AFTER.</p>
    * @public
    */
-  location?: Location;
+  location?: Location | undefined;
 
   /**
    * <p>An array of comment objects. Each comment object contains information about a comment on the comparison
    *          between commits.</p>
    * @public
    */
-  comments?: Comment[];
+  comments?: Comment[] | undefined;
 }
 
 /**
@@ -5956,13 +5956,13 @@ export interface GetCommentsForComparedCommitOutput {
    * <p>A list of comment objects on the compared commit.</p>
    * @public
    */
-  commentsForComparedCommitData?: CommentsForComparedCommit[];
+  commentsForComparedCommitData?: CommentsForComparedCommit[] | undefined;
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5980,35 +5980,35 @@ export interface GetCommentsForPullRequestInput {
    *             <code>beforeCommitId</code> and <code>afterCommitId</code> are included.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit in the destination branch that was the tip of the branch at the time the pull request was created. Requirement is conditional:
    *             <code>beforeCommitId</code> must be specified when <code>repositoryName</code> is included.</p>
    * @public
    */
-  beforeCommitId?: string;
+  beforeCommitId?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit in the source branch that was the tip of the branch at the time the comment was made. Requirement is conditional:
    *             <code>afterCommitId</code> must be specified when <code>repositoryName</code> is included.</p>
    * @public
    */
-  afterCommitId?: string;
+  afterCommitId?: string | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results. The default is 100 comments.
    *             You can return up to 500 comments with a single request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6020,13 +6020,13 @@ export interface CommentsForPullRequest {
    * <p>The system-generated ID of the pull request.</p>
    * @public
    */
-  pullRequestId?: string;
+  pullRequestId?: string | undefined;
 
   /**
    * <p>The name of the repository that contains the pull request.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit that was the tip of the destination branch when the
@@ -6034,26 +6034,26 @@ export interface CommentsForPullRequest {
    *             branch when and if you merge the source branch into the destination branch.</p>
    * @public
    */
-  beforeCommitId?: string;
+  beforeCommitId?: string | undefined;
 
   /**
    * <p>The full commit ID of the commit that was the tip of the source branch at the time the
    *             comment was made. </p>
    * @public
    */
-  afterCommitId?: string;
+  afterCommitId?: string | undefined;
 
   /**
    * <p>The full blob ID of the file on which you want to comment on the destination commit.</p>
    * @public
    */
-  beforeBlobId?: string;
+  beforeBlobId?: string | undefined;
 
   /**
    * <p>The full blob ID of the file on which you want to comment on the source commit.</p>
    * @public
    */
-  afterBlobId?: string;
+  afterBlobId?: string | undefined;
 
   /**
    * <p>Location information about the comment on the pull request, including the file name,
@@ -6061,13 +6061,13 @@ export interface CommentsForPullRequest {
    *             (destination branch) or AFTER (source branch).</p>
    * @public
    */
-  location?: Location;
+  location?: Location | undefined;
 
   /**
    * <p>An array of comment objects. Each comment object contains information about a comment on the pull request.</p>
    * @public
    */
-  comments?: Comment[];
+  comments?: Comment[] | undefined;
 }
 
 /**
@@ -6078,13 +6078,13 @@ export interface GetCommentsForPullRequestOutput {
    * <p>An array of comment objects on the pull request.</p>
    * @public
    */
-  commentsForPullRequestData?: CommentsForPullRequest[];
+  commentsForPullRequestData?: CommentsForPullRequest[] | undefined;
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6175,7 +6175,7 @@ export interface GetDifferencesInput {
    *             with <code>maxResults</code>.</p>
    * @public
    */
-  beforeCommitSpecifier?: string;
+  beforeCommitSpecifier?: string | undefined;
 
   /**
    * <p>The branch, tag, HEAD, or other fully qualified reference used to identify a commit.</p>
@@ -6190,7 +6190,7 @@ export interface GetDifferencesInput {
    *             are shown for all paths.</p>
    * @public
    */
-  beforePath?: string;
+  beforePath?: string | undefined;
 
   /**
    * <p>The file path in which to check differences. Limits the results to this path. Can also
@@ -6198,20 +6198,20 @@ export interface GetDifferencesInput {
    *             specified, differences are shown for all paths.</p>
    * @public
    */
-  afterPath?: string;
+  afterPath?: string | undefined;
 
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6224,20 +6224,20 @@ export interface Difference {
    *             the file mode permission code, and the path.</p>
    * @public
    */
-  beforeBlob?: BlobMetadata;
+  beforeBlob?: BlobMetadata | undefined;
 
   /**
    * <p>Information about an <code>afterBlob</code> data type object, including the ID,
    *             the file mode permission code, and the path.</p>
    * @public
    */
-  afterBlob?: BlobMetadata;
+  afterBlob?: BlobMetadata | undefined;
 
   /**
    * <p>Whether the change type of the difference is an addition (A), deletion (D), or modification (M).</p>
    * @public
    */
-  changeType?: ChangeTypeEnum;
+  changeType?: ChangeTypeEnum | undefined;
 }
 
 /**
@@ -6249,13 +6249,13 @@ export interface GetDifferencesOutput {
    *             the difference is added, modified, or deleted (A, D, M).</p>
    * @public
    */
-  differences?: Difference[];
+  differences?: Difference[] | undefined;
 
   /**
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6294,7 +6294,7 @@ export interface GetFileInput {
    *             refs/heads/main. If none is provided, the head commit is used.</p>
    * @public
    */
-  commitSpecifier?: string;
+  commitSpecifier?: string | undefined;
 
   /**
    * <p>The fully qualified path to the file, including the full name and extension of the
@@ -6390,7 +6390,7 @@ export interface GetFolderInput {
    *             returned as it exists in the HEAD commit.</p>
    * @public
    */
-  commitSpecifier?: string;
+  commitSpecifier?: string | undefined;
 
   /**
    * <p>The fully qualified path to the folder whose contents are returned, including the
@@ -6410,25 +6410,25 @@ export interface File {
    * <p>The blob ID that contains the file information.</p>
    * @public
    */
-  blobId?: string;
+  blobId?: string | undefined;
 
   /**
    * <p>The fully qualified path to the file in the repository.</p>
    * @public
    */
-  absolutePath?: string;
+  absolutePath?: string | undefined;
 
   /**
    * <p>The relative path of the file from the folder where the query originated.</p>
    * @public
    */
-  relativePath?: string;
+  relativePath?: string | undefined;
 
   /**
    * <p>The extrapolated file mode permissions for the file. Valid values include EXECUTABLE and NORMAL.</p>
    * @public
    */
-  fileMode?: FileModeTypeEnum;
+  fileMode?: FileModeTypeEnum | undefined;
 }
 
 /**
@@ -6440,19 +6440,19 @@ export interface Folder {
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
    * @public
    */
-  treeId?: string;
+  treeId?: string | undefined;
 
   /**
    * <p>The fully qualified path of the folder in the repository.</p>
    * @public
    */
-  absolutePath?: string;
+  absolutePath?: string | undefined;
 
   /**
    * <p>The relative path of the specified folder from the folder where the query originated.</p>
    * @public
    */
-  relativePath?: string;
+  relativePath?: string | undefined;
 }
 
 /**
@@ -6464,19 +6464,19 @@ export interface SubModule {
    * <p>The commit ID that contains the reference to the submodule.</p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 
   /**
    * <p>The fully qualified path to the folder that contains the reference to the submodule.</p>
    * @public
    */
-  absolutePath?: string;
+  absolutePath?: string | undefined;
 
   /**
    * <p>The relative path of the submodule from the folder where the query originated.</p>
    * @public
    */
-  relativePath?: string;
+  relativePath?: string | undefined;
 }
 
 /**
@@ -6488,25 +6488,25 @@ export interface SymbolicLink {
    * <p>The blob ID that contains the information about the symbolic link.</p>
    * @public
    */
-  blobId?: string;
+  blobId?: string | undefined;
 
   /**
    * <p>The fully qualified path to the folder that contains the symbolic link.</p>
    * @public
    */
-  absolutePath?: string;
+  absolutePath?: string | undefined;
 
   /**
    * <p>The relative path of the symbolic link from the folder where the query originated.</p>
    * @public
    */
-  relativePath?: string;
+  relativePath?: string | undefined;
 
   /**
    * <p>The file mode permissions of the blob that cotains information about the symbolic link.</p>
    * @public
    */
-  fileMode?: FileModeTypeEnum;
+  fileMode?: FileModeTypeEnum | undefined;
 }
 
 /**
@@ -6530,32 +6530,32 @@ export interface GetFolderOutput {
    * <p>The full SHA-1 pointer of the tree information for the commit that contains the folder.</p>
    * @public
    */
-  treeId?: string;
+  treeId?: string | undefined;
 
   /**
    * <p>The list of folders that exist under the specified folder, if any.</p>
    * @public
    */
-  subFolders?: Folder[];
+  subFolders?: Folder[] | undefined;
 
   /**
    * <p>The list of files in the specified folder, if any.</p>
    * @public
    */
-  files?: File[];
+  files?: File[] | undefined;
 
   /**
    * <p>The list of symbolic links to other files and folders in the specified folder, if
    *             any.</p>
    * @public
    */
-  symbolicLinks?: SymbolicLink[];
+  symbolicLinks?: SymbolicLink[] | undefined;
 
   /**
    * <p>The list of submodules in the specified folder, if any.</p>
    * @public
    */
-  subModules?: SubModule[];
+  subModules?: SubModule[] | undefined;
 }
 
 /**
@@ -6589,7 +6589,7 @@ export interface GetMergeCommitInput {
    *             both branches has differences on the same line.</p>
    * @public
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
@@ -6597,7 +6597,7 @@ export interface GetMergeCommitInput {
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    * @public
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
 }
 
 /**
@@ -6608,19 +6608,19 @@ export interface GetMergeCommitOutput {
    * <p>The commit ID of the source commit specifier that was used in the merge evaluation.</p>
    * @public
    */
-  sourceCommitId?: string;
+  sourceCommitId?: string | undefined;
 
   /**
    * <p>The commit ID of the destination commit specifier that was used in the merge evaluation.</p>
    * @public
    */
-  destinationCommitId?: string;
+  destinationCommitId?: string | undefined;
 
   /**
    * <p>The commit ID of the merge base.</p>
    * @public
    */
-  baseCommitId?: string;
+  baseCommitId?: string | undefined;
 
   /**
    * <p>The commit ID for the merge commit created when the source branch was merged into the
@@ -6628,7 +6628,7 @@ export interface GetMergeCommitOutput {
    *             commit.</p>
    * @public
    */
-  mergedCommitId?: string;
+  mergedCommitId?: string | undefined;
 }
 
 /**
@@ -6668,13 +6668,13 @@ export interface GetMergeConflictsInput {
    *             both branches has differences on the same line.</p>
    * @public
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
 
   /**
    * <p>The maximum number of files to include in the output.</p>
    * @public
    */
-  maxConflictFiles?: number;
+  maxConflictFiles?: number | undefined;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
@@ -6682,14 +6682,14 @@ export interface GetMergeConflictsInput {
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    * @public
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
 
   /**
    * <p>An enumeration token that, when provided in a request, returns the next batch of the
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6718,7 +6718,7 @@ export interface GetMergeConflictsOutput {
    * <p>The commit ID of the merge base.</p>
    * @public
    */
-  baseCommitId?: string;
+  baseCommitId?: string | undefined;
 
   /**
    * <p>A list of metadata for any conflicting files. If the specified merge strategy is
@@ -6731,7 +6731,7 @@ export interface GetMergeConflictsOutput {
    * <p>An enumeration token that can be used in a request to return the next batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6805,7 +6805,7 @@ export interface GetMergeOptionsInput {
    *             both branches has differences on the same line.</p>
    * @public
    */
-  conflictDetailLevel?: ConflictDetailLevelTypeEnum;
+  conflictDetailLevel?: ConflictDetailLevelTypeEnum | undefined;
 
   /**
    * <p>Specifies which branch to use when resolving conflicts, or whether to attempt
@@ -6813,7 +6813,7 @@ export interface GetMergeOptionsInput {
    *             conflicts to be resolved manually before the merge operation is successful.</p>
    * @public
    */
-  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum;
+  conflictResolutionStrategy?: ConflictResolutionStrategyTypeEnum | undefined;
 }
 
 /**
@@ -6892,7 +6892,7 @@ export interface GetPullRequestApprovalStatesOutput {
    * <p>Information about users who have approved the pull request.</p>
    * @public
    */
-  approvals?: Approval[];
+  approvals?: Approval[] | undefined;
 }
 
 /**
@@ -6922,13 +6922,13 @@ export interface GetPullRequestOverrideStateOutput {
    * <p>A Boolean value that indicates whether a pull request has had its rules set aside (TRUE) or whether all approval rules still apply (FALSE).</p>
    * @public
    */
-  overridden?: boolean;
+  overridden?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user or identity that overrode the rules and their requirements for the pull request.</p>
    * @public
    */
-  overrider?: string;
+  overrider?: string | undefined;
 }
 
 /**
@@ -6952,7 +6952,7 @@ export interface GetRepositoryOutput {
    * <p>Information about the repository.</p>
    * @public
    */
-  repositoryMetadata?: RepositoryMetadata;
+  repositoryMetadata?: RepositoryMetadata | undefined;
 }
 
 /**
@@ -7011,7 +7011,7 @@ export interface RepositoryTrigger {
    *             the target of the trigger.</p>
    * @public
    */
-  customData?: string;
+  customData?: string | undefined;
 
   /**
    * <p>The branches to be included in the trigger configuration. If you specify an empty
@@ -7021,7 +7021,7 @@ export interface RepositoryTrigger {
    *          </note>
    * @public
    */
-  branches?: string[];
+  branches?: string[] | undefined;
 
   /**
    * <p>The repository events that cause the trigger to run actions in another service, such
@@ -7045,13 +7045,13 @@ export interface GetRepositoryTriggersOutput {
    * <p>The system-generated unique ID for the trigger.</p>
    * @public
    */
-  configurationId?: string;
+  configurationId?: string | undefined;
 
   /**
    * <p>The JSON block of configuration information for each trigger.</p>
    * @public
    */
-  triggers?: RepositoryTrigger[];
+  triggers?: RepositoryTrigger[] | undefined;
 }
 
 /**
@@ -7063,13 +7063,13 @@ export interface ListApprovalRuleTemplatesInput {
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -7080,13 +7080,13 @@ export interface ListApprovalRuleTemplatesOutput {
    * <p>The names of all the approval rule templates found in the Amazon Web Services Region for your Amazon Web Services account.</p>
    * @public
    */
-  approvalRuleTemplateNames?: string[];
+  approvalRuleTemplateNames?: string[] | undefined;
 
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7104,13 +7104,13 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryInput {
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -7121,13 +7121,13 @@ export interface ListAssociatedApprovalRuleTemplatesForRepositoryOutput {
    * <p>The names of all approval rule templates associated with the repository.</p>
    * @public
    */
-  approvalRuleTemplateNames?: string[];
+  approvalRuleTemplateNames?: string[] | undefined;
 
   /**
    * <p>An enumeration token that allows the operation to batch the next results of the operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7145,7 +7145,7 @@ export interface ListBranchesInput {
    * <p>An enumeration token that allows the operation to batch the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7157,13 +7157,13 @@ export interface ListBranchesOutput {
    * <p>The list of branch names.</p>
    * @public
    */
-  branches?: string[];
+  branches?: string[] | undefined;
 
   /**
    * <p>An enumeration token that returns the batch of the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7182,7 +7182,7 @@ export interface ListFileCommitHistoryRequest {
    *             <code>refs/heads/main</code>. If none is provided, the head commit is used.</p>
    * @public
    */
-  commitSpecifier?: string;
+  commitSpecifier?: string | undefined;
 
   /**
    * <p>The full path of the file whose history you want to retrieve, including the name of the file.</p>
@@ -7194,11 +7194,11 @@ export interface ListFileCommitHistoryRequest {
    * <p>A non-zero, non-negative integer used to limit the number of returned results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>An enumeration token that allows the operation to batch the results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }

@@ -38,7 +38,7 @@ export interface UpdateUserProfileRequest {
    * <p>A collection of settings.</p>
    * @public
    */
-  UserSettings?: UserSettings;
+  UserSettings?: UserSettings | undefined;
 }
 
 /**
@@ -49,7 +49,7 @@ export interface UpdateUserProfileResponse {
    * <p>The user profile Amazon Resource Name (ARN).</p>
    * @public
    */
-  UserProfileArn?: string;
+  UserProfileArn?: string | undefined;
 }
 
 /**
@@ -69,20 +69,20 @@ export interface UpdateWorkforceRequest {
    *          <p>Maximum: Ten CIDR values</p>
    * @public
    */
-  SourceIpConfig?: SourceIpConfig;
+  SourceIpConfig?: SourceIpConfig | undefined;
 
   /**
    * <p>Use this parameter to update your OIDC Identity Provider (IdP)
    *       configuration for a workforce made using your own IdP.</p>
    * @public
    */
-  OidcConfig?: OidcConfig;
+  OidcConfig?: OidcConfig | undefined;
 
   /**
    * <p>Use this parameter to update your VPC configuration for a workforce.</p>
    * @public
    */
-  WorkforceVpcConfig?: WorkforceVpcConfigRequest;
+  WorkforceVpcConfig?: WorkforceVpcConfigRequest | undefined;
 }
 
 /**
@@ -131,25 +131,25 @@ export interface UpdateWorkteamRequest {
    *             associated with the work team you update. </p>
    * @public
    */
-  MemberDefinitions?: MemberDefinition[];
+  MemberDefinitions?: MemberDefinition[] | undefined;
 
   /**
    * <p>An updated description for the work team.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Configures SNS topic notifications for available or expiring work items</p>
    * @public
    */
-  NotificationConfiguration?: NotificationConfiguration;
+  NotificationConfiguration?: NotificationConfiguration | undefined;
 
   /**
    * <p>Use this optional parameter to constrain access to an Amazon S3 resource based on the IP address using supported IAM global condition keys. The Amazon S3 resource is accessed in the worker portal using a Amazon S3 presigned URL.</p>
    * @public
    */
-  WorkerAccessConfiguration?: WorkerAccessConfiguration;
+  WorkerAccessConfiguration?: WorkerAccessConfiguration | undefined;
 }
 
 /**
@@ -196,19 +196,19 @@ export interface SearchExpression {
    * <p>A list of filter objects.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>A list of nested filter objects.</p>
    * @public
    */
-  NestedFilters?: NestedFilters[];
+  NestedFilters?: NestedFilters[] | undefined;
 
   /**
    * <p>A list of search expression objects.</p>
    * @public
    */
-  SubExpressions?: SearchExpression[];
+  SubExpressions?: SearchExpression[] | undefined;
 
   /**
    * <p>A Boolean operator used to evaluate the search expression. If you want every
@@ -218,7 +218,7 @@ export interface SearchExpression {
    *       value is <code>And</code>.</p>
    * @public
    */
-  Operator?: BooleanOperator;
+  Operator?: BooleanOperator | undefined;
 }
 
 /**
@@ -239,21 +239,21 @@ export interface SearchRequest {
    *       <code>SearchExpression</code> object is 50.</p>
    * @public
    */
-  SearchExpression?: SearchExpression;
+  SearchExpression?: SearchExpression | undefined;
 
   /**
    * <p>The name of the resource property used to sort the <code>SearchResults</code>. The
    *       default is <code>LastModifiedTime</code>.</p>
    * @public
    */
-  SortBy?: string;
+  SortBy?: string | undefined;
 
   /**
    * <p>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code> or
    *       <code>Descending</code>. The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SearchSortOrder;
+  SortOrder?: SearchSortOrder | undefined;
 
   /**
    * <p>If more than <code>MaxResults</code> resources match the specified
@@ -262,13 +262,13 @@ export interface SearchRequest {
    *       <code>SearchRequest</code> to continue retrieving results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -283,7 +283,7 @@ export interface SearchRequest {
    *     </p>
    * @public
    */
-  CrossAccountFilterOption?: CrossAccountFilterOption;
+  CrossAccountFilterOption?: CrossAccountFilterOption | undefined;
 
   /**
    * <p>
@@ -291,7 +291,7 @@ export interface SearchRequest {
    *     </p>
    * @public
    */
-  VisibilityConditions?: VisibilityConditions[];
+  VisibilityConditions?: VisibilityConditions[] | undefined;
 }
 
 /**

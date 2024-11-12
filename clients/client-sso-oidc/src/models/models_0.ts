@@ -15,14 +15,14 @@ export class AccessDeniedException extends __BaseException {
    *       For this exception the value will be <code>access_denied</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -51,14 +51,14 @@ export class AuthorizationPendingException extends __BaseException {
    *       For this exception the value will be <code>authorization_pending</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -110,7 +110,7 @@ export interface CreateTokenRequest {
    *       <a>StartDeviceAuthorization</a> API.</p>
    * @public
    */
-  deviceCode?: string;
+  deviceCode?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Authorization Code grant type. The short-term code is
@@ -118,7 +118,7 @@ export interface CreateTokenRequest {
    *       <a>CreateToken</a> API.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Refresh Token grant type. This token is used to
@@ -128,7 +128,7 @@ export interface CreateTokenRequest {
    *       OIDC API Reference</a>.</p>
    * @public
    */
-  refreshToken?: string;
+  refreshToken?: string | undefined;
 
   /**
    * <p>The list of scopes for which authorization is requested. The access token that is issued
@@ -137,7 +137,7 @@ export interface CreateTokenRequest {
    *       <a>RegisterClient</a>.</p>
    * @public
    */
-  scope?: string[];
+  scope?: string[] | undefined;
 
   /**
    * <p>Used only when calling this API for the Authorization Code grant type. This value specifies
@@ -145,7 +145,7 @@ export interface CreateTokenRequest {
    *         code.</p>
    * @public
    */
-  redirectUri?: string;
+  redirectUri?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Authorization Code grant type. This value is generated
@@ -153,7 +153,7 @@ export interface CreateTokenRequest {
    *       authorization time.</p>
    * @public
    */
-  codeVerifier?: string;
+  codeVerifier?: string | undefined;
 }
 
 /**
@@ -164,20 +164,20 @@ export interface CreateTokenResponse {
    * <p>A bearer token to access Amazon Web Services accounts and applications assigned to a user.</p>
    * @public
    */
-  accessToken?: string;
+  accessToken?: string | undefined;
 
   /**
    * <p>Used to notify the client that the returned token is an access token. The supported token
    *       type is <code>Bearer</code>.</p>
    * @public
    */
-  tokenType?: string;
+  tokenType?: string | undefined;
 
   /**
    * <p>Indicates the time in seconds when an access token will expire.</p>
    * @public
    */
-  expiresIn?: number;
+  expiresIn?: number | undefined;
 
   /**
    * <p>A token that, if present, can be used to refresh a previously issued access token that
@@ -188,7 +188,7 @@ export interface CreateTokenResponse {
    *         OIDC API Reference</a>.</p>
    * @public
    */
-  refreshToken?: string;
+  refreshToken?: string | undefined;
 
   /**
    * <p>The <code>idToken</code> is not implemented or supported. For more information about the
@@ -199,7 +199,7 @@ export interface CreateTokenResponse {
    *       </p>
    * @public
    */
-  idToken?: string;
+  idToken?: string | undefined;
 }
 
 /**
@@ -214,14 +214,14 @@ export class ExpiredTokenException extends __BaseException {
    *       For this exception the value will be <code>expired_token</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -250,14 +250,14 @@ export class InternalServerException extends __BaseException {
    *       For this exception the value will be <code>server_error</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -287,14 +287,14 @@ export class InvalidClientException extends __BaseException {
    *       For this exception the value will be <code>invalid_client</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -323,14 +323,14 @@ export class InvalidGrantException extends __BaseException {
    *       For this exception the value will be <code>invalid_grant</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -359,14 +359,14 @@ export class InvalidRequestException extends __BaseException {
    *       For this exception the value will be <code>invalid_request</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -394,14 +394,14 @@ export class InvalidScopeException extends __BaseException {
    *       For this exception the value will be <code>invalid_scope</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -430,14 +430,14 @@ export class SlowDownException extends __BaseException {
    *       For this exception the value will be <code>slow_down</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -466,14 +466,14 @@ export class UnauthorizedClientException extends __BaseException {
    *       For this exception the value will be <code>unauthorized_client</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -501,14 +501,14 @@ export class UnsupportedGrantTypeException extends __BaseException {
    *       For this exception the value will be <code>unsupported_grant_type</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -558,7 +558,7 @@ export interface CreateTokenWithIAMRequest {
    *         application.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Refresh Token grant type. This token is used to
@@ -568,7 +568,7 @@ export interface CreateTokenWithIAMRequest {
    *       OIDC API Reference</a>.</p>
    * @public
    */
-  refreshToken?: string;
+  refreshToken?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the JWT Bearer grant type. This value specifies the JSON
@@ -576,7 +576,7 @@ export interface CreateTokenWithIAMRequest {
    *       configure the JWT Bearer GrantOptions for the application.</p>
    * @public
    */
-  assertion?: string;
+  assertion?: string | undefined;
 
   /**
    * <p>The list of scopes for which authorization is requested. The access token that is issued
@@ -585,7 +585,7 @@ export interface CreateTokenWithIAMRequest {
    *       <code>openid</code>, <code>aws</code>, <code>sts:identity_context</code>.</p>
    * @public
    */
-  scope?: string[];
+  scope?: string[] | undefined;
 
   /**
    * <p>Used only when calling this API for the Authorization Code grant type. This value specifies
@@ -593,7 +593,7 @@ export interface CreateTokenWithIAMRequest {
    *       </p>
    * @public
    */
-  redirectUri?: string;
+  redirectUri?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Token Exchange grant type. This value specifies
@@ -602,7 +602,7 @@ export interface CreateTokenWithIAMRequest {
    *       that indicate the requested application as a target audience.</p>
    * @public
    */
-  subjectToken?: string;
+  subjectToken?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Token Exchange grant type. This value specifies
@@ -612,7 +612,7 @@ export interface CreateTokenWithIAMRequest {
    *          </p>
    * @public
    */
-  subjectTokenType?: string;
+  subjectTokenType?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Token Exchange grant type. This value specifies
@@ -623,7 +623,7 @@ export interface CreateTokenWithIAMRequest {
    *          </p>
    * @public
    */
-  requestedTokenType?: string;
+  requestedTokenType?: string | undefined;
 
   /**
    * <p>Used only when calling this API for the Authorization Code grant type. This value is generated
@@ -631,7 +631,7 @@ export interface CreateTokenWithIAMRequest {
    *       authorization time.</p>
    * @public
    */
-  codeVerifier?: string;
+  codeVerifier?: string | undefined;
 }
 
 /**
@@ -642,20 +642,20 @@ export interface CreateTokenWithIAMResponse {
    * <p>A bearer token to access Amazon Web Services accounts and applications assigned to a user.</p>
    * @public
    */
-  accessToken?: string;
+  accessToken?: string | undefined;
 
   /**
    * <p>Used to notify the requester that the returned token is an access token. The supported
    *       token type is <code>Bearer</code>.</p>
    * @public
    */
-  tokenType?: string;
+  tokenType?: string | undefined;
 
   /**
    * <p>Indicates the time in seconds when an access token will expire.</p>
    * @public
    */
-  expiresIn?: number;
+  expiresIn?: number | undefined;
 
   /**
    * <p>A token that, if present, can be used to refresh a previously issued access token that
@@ -666,14 +666,14 @@ export interface CreateTokenWithIAMResponse {
    *         OIDC API Reference</a>.</p>
    * @public
    */
-  refreshToken?: string;
+  refreshToken?: string | undefined;
 
   /**
    * <p>A JSON Web Token (JWT) that identifies the user associated with the issued access token.
    *       </p>
    * @public
    */
-  idToken?: string;
+  idToken?: string | undefined;
 
   /**
    * <p>Indicates the type of tokens that are issued by IAM Identity Center. The following values are supported:
@@ -684,14 +684,14 @@ export interface CreateTokenWithIAMResponse {
    *          </p>
    * @public
    */
-  issuedTokenType?: string;
+  issuedTokenType?: string | undefined;
 
   /**
    * <p>The list of scopes for which authorization is granted. The access token that is issued
    *       is limited to the scopes that are granted.</p>
    * @public
    */
-  scope?: string[];
+  scope?: string[] | undefined;
 }
 
 /**
@@ -707,26 +707,26 @@ export class InvalidRequestRegionException extends __BaseException {
    *       For this exception the value will be <code>invalid_request</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
 
   /**
    * <p>Indicates the IAM Identity Center endpoint which the requester may call with this token.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>Indicates the region which the requester may call with this token.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
   /**
    * @internal
    */
@@ -757,14 +757,14 @@ export class InvalidClientMetadataException extends __BaseException {
    *       For this exception the value will be <code>invalid_client_metadata</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -792,14 +792,14 @@ export class InvalidRedirectUriException extends __BaseException {
    *       For this exception the value will be <code>invalid_redirect_uri</code>.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>Human-readable text providing additional information, used to assist the
    *       client developer in understanding the error that occurred.</p>
    * @public
    */
-  error_description?: string;
+  error_description?: string | undefined;
   /**
    * @internal
    */
@@ -837,34 +837,34 @@ export interface RegisterClientRequest {
    *       to restrict permissions when granting an access token.</p>
    * @public
    */
-  scopes?: string[];
+  scopes?: string[] | undefined;
 
   /**
    * <p>The list of redirect URI that are defined by the client. At completion of authorization,
    *       this list is used to restrict what locations the user agent can be redirected back to.</p>
    * @public
    */
-  redirectUris?: string[];
+  redirectUris?: string[] | undefined;
 
   /**
    * <p>The list of OAuth 2.0 grant types that are defined by the client. This list is used to
    *       restrict the token granting flows available to the client.</p>
    * @public
    */
-  grantTypes?: string[];
+  grantTypes?: string[] | undefined;
 
   /**
    * <p>The IAM Identity Center Issuer URL associated with an instance of IAM Identity Center. This value is needed for user access to resources through the client.</p>
    * @public
    */
-  issuerUrl?: string;
+  issuerUrl?: string | undefined;
 
   /**
    * <p>This IAM Identity Center application ARN is used to define administrator-managed configuration for public client access to resources. At
    *       authorization, the scopes, grants, and redirect URI available to this client will be restricted by this application resource.</p>
    * @public
    */
-  entitledApplicationArn?: string;
+  entitledApplicationArn?: string | undefined;
 }
 
 /**
@@ -876,40 +876,40 @@ export interface RegisterClientResponse {
    *       authenticated by the service in subsequent calls.</p>
    * @public
    */
-  clientId?: string;
+  clientId?: string | undefined;
 
   /**
    * <p>A secret string generated for the client. The client will use this string to get
    *       authenticated by the service in subsequent calls.</p>
    * @public
    */
-  clientSecret?: string;
+  clientSecret?: string | undefined;
 
   /**
    * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> were
    *       issued.</p>
    * @public
    */
-  clientIdIssuedAt?: number;
+  clientIdIssuedAt?: number | undefined;
 
   /**
    * <p>Indicates the time at which the <code>clientId</code> and <code>clientSecret</code> will
    *       become invalid.</p>
    * @public
    */
-  clientSecretExpiresAt?: number;
+  clientSecretExpiresAt?: number | undefined;
 
   /**
    * <p>An endpoint that the client can use to request authorization.</p>
    * @public
    */
-  authorizationEndpoint?: string;
+  authorizationEndpoint?: string | undefined;
 
   /**
    * <p>An endpoint that the client can use to create tokens.</p>
    * @public
    */
-  tokenEndpoint?: string;
+  tokenEndpoint?: string | undefined;
 }
 
 /**
@@ -947,20 +947,20 @@ export interface StartDeviceAuthorizationResponse {
    * <p>The short-lived code that is used by the device when polling for a session token.</p>
    * @public
    */
-  deviceCode?: string;
+  deviceCode?: string | undefined;
 
   /**
    * <p>A one-time user verification code. This is needed to authorize an in-use device.</p>
    * @public
    */
-  userCode?: string;
+  userCode?: string | undefined;
 
   /**
    * <p>The URI of the verification page that takes the <code>userCode</code> to authorize the
    *       device.</p>
    * @public
    */
-  verificationUri?: string;
+  verificationUri?: string | undefined;
 
   /**
    * <p>An alternate URL that the client can use to automatically launch a browser. This process
@@ -968,20 +968,20 @@ export interface StartDeviceAuthorizationResponse {
    *       code.</p>
    * @public
    */
-  verificationUriComplete?: string;
+  verificationUriComplete?: string | undefined;
 
   /**
    * <p>Indicates the number of seconds in which the verification code will become invalid.</p>
    * @public
    */
-  expiresIn?: number;
+  expiresIn?: number | undefined;
 
   /**
    * <p>Indicates the number of seconds the client must wait between attempts when polling for a
    *       session.</p>
    * @public
    */
-  interval?: number;
+  interval?: number | undefined;
 }
 
 /**

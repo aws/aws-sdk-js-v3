@@ -33,7 +33,7 @@ export interface AddTagsToStreamInput {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
@@ -45,7 +45,7 @@ export interface AddTagsToStreamInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -320,7 +320,7 @@ export interface CreateStreamInput {
    *             throughput.</p>
    * @public
    */
-  ShardCount?: number;
+  ShardCount?: number | undefined;
 
   /**
    * <p> Indicates the capacity mode of the data stream. Currently, in Kinesis Data Streams,
@@ -329,13 +329,13 @@ export interface CreateStreamInput {
    *             streams.</p>
    * @public
    */
-  StreamModeDetails?: StreamModeDetails;
+  StreamModeDetails?: StreamModeDetails | undefined;
 
   /**
    * <p>A set of up to 10 key-value pairs to use to create the tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -347,7 +347,7 @@ export interface DecreaseStreamRetentionPeriodInput {
    * <p>The name of the stream to modify.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The new retention period of the stream, in hours. Must be less than the current
@@ -360,7 +360,7 @@ export interface DecreaseStreamRetentionPeriodInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -383,7 +383,7 @@ export interface DeleteStreamInput {
    * <p>The name of the stream to delete.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>,
@@ -391,13 +391,13 @@ export interface DeleteStreamInput {
    *             with a <code>ResourceInUseException</code>. </p>
    * @public
    */
-  EnforceConsumerDeletion?: boolean;
+  EnforceConsumerDeletion?: boolean | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -410,13 +410,13 @@ export interface DeregisterStreamConsumerInput {
    *             Namespaces</a>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The name that you gave to the consumer.</p>
    * @public
    */
-  ConsumerName?: string;
+  ConsumerName?: string | undefined;
 
   /**
    * <p>The ARN returned by Kinesis Data Streams when you registered the consumer. If you
@@ -426,7 +426,7 @@ export interface DeregisterStreamConsumerInput {
    *             contains its ARN.</p>
    * @public
    */
-  ConsumerARN?: string;
+  ConsumerARN?: string | undefined;
 }
 
 /**
@@ -472,14 +472,14 @@ export interface DescribeStreamInput {
    * <p>The name of the stream to describe.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The maximum number of shards to return in a single call. The default value is 100. If
    *             you specify a value greater than 100, at most 100 results are returned.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The shard ID of the shard to start with.</p>
@@ -490,13 +490,13 @@ export interface DescribeStreamInput {
    *             in the stream.</p>
    * @public
    */
-  ExclusiveStartShardId?: string;
+  ExclusiveStartShardId?: string | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -589,7 +589,7 @@ export interface EnhancedMetrics {
    *                 Kinesis Data Streams Developer Guide</i>.</p>
    * @public
    */
-  ShardLevelMetrics?: MetricsName[];
+  ShardLevelMetrics?: MetricsName[] | undefined;
 }
 
 /**
@@ -608,7 +608,7 @@ export interface SequenceNumberRange {
    *             ending sequence number of <code>null</code>.</p>
    * @public
    */
-  EndingSequenceNumber?: string;
+  EndingSequenceNumber?: string | undefined;
 }
 
 /**
@@ -626,13 +626,13 @@ export interface Shard {
    * <p>The shard ID of the shard's parent.</p>
    * @public
    */
-  ParentShardId?: string;
+  ParentShardId?: string | undefined;
 
   /**
    * <p>The shard ID of the shard adjacent to the shard's parent.</p>
    * @public
    */
-  AdjacentParentShardId?: string;
+  AdjacentParentShardId?: string | undefined;
 
   /**
    * <p>The range of possible hash key values for the shard, which is a set of ordered
@@ -719,7 +719,7 @@ export interface StreamDescription {
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    * @public
    */
-  StreamModeDetails?: StreamModeDetails;
+  StreamModeDetails?: StreamModeDetails | undefined;
 
   /**
    * <p>The shards that comprise the stream.</p>
@@ -769,7 +769,7 @@ export interface StreamDescription {
    *          </ul>
    * @public
    */
-  EncryptionType?: EncryptionType;
+  EncryptionType?: EncryptionType | undefined;
 
   /**
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
@@ -804,7 +804,7 @@ export interface StreamDescription {
    *          </ul>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 }
 
 /**
@@ -831,19 +831,19 @@ export interface DescribeStreamConsumerInput {
    *             Namespaces</a>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The name that you gave to the consumer.</p>
    * @public
    */
-  ConsumerName?: string;
+  ConsumerName?: string | undefined;
 
   /**
    * <p>The ARN returned by Kinesis Data Streams when you registered the consumer.</p>
    * @public
    */
-  ConsumerARN?: string;
+  ConsumerARN?: string | undefined;
 }
 
 /**
@@ -865,13 +865,13 @@ export interface DescribeStreamSummaryInput {
    * <p>The name of the stream to describe.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -930,7 +930,7 @@ export interface StreamDescriptionSummary {
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> ycapacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    * @public
    */
-  StreamModeDetails?: StreamModeDetails;
+  StreamModeDetails?: StreamModeDetails | undefined;
 
   /**
    * <p>The current retention period, in hours.</p>
@@ -966,7 +966,7 @@ export interface StreamDescriptionSummary {
    *          </ul>
    * @public
    */
-  EncryptionType?: EncryptionType;
+  EncryptionType?: EncryptionType | undefined;
 
   /**
    * <p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption.
@@ -1001,7 +1001,7 @@ export interface StreamDescriptionSummary {
    *          </ul>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The number of open shards in the stream.</p>
@@ -1013,7 +1013,7 @@ export interface StreamDescriptionSummary {
    * <p>The number of enhanced fan-out consumers registered with the stream.</p>
    * @public
    */
-  ConsumerCount?: number;
+  ConsumerCount?: number | undefined;
 }
 
 /**
@@ -1037,7 +1037,7 @@ export interface DisableEnhancedMonitoringInput {
    * <p>The name of the Kinesis data stream for which to disable enhanced monitoring.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>List of shard-level metrics to disable.</p>
@@ -1096,7 +1096,7 @@ export interface DisableEnhancedMonitoringInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1108,27 +1108,27 @@ export interface EnhancedMonitoringOutput {
    * <p>The name of the Kinesis data stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>Represents the current state of the metrics that are in the enhanced state before the
    *             operation.</p>
    * @public
    */
-  CurrentShardLevelMetrics?: MetricsName[];
+  CurrentShardLevelMetrics?: MetricsName[] | undefined;
 
   /**
    * <p>Represents the list of all the metrics that would be in the enhanced state after the
    *             operation.</p>
    * @public
    */
-  DesiredShardLevelMetrics?: MetricsName[];
+  DesiredShardLevelMetrics?: MetricsName[] | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1140,7 +1140,7 @@ export interface EnableEnhancedMonitoringInput {
    * <p>The name of the stream for which to enable enhanced monitoring.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>List of shard-level metrics to enable.</p>
@@ -1199,7 +1199,7 @@ export interface EnableEnhancedMonitoringInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1261,13 +1261,13 @@ export interface GetRecordsInput {
    *                 <code>InvalidArgumentException</code>. The default value is 10,000.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1286,7 +1286,7 @@ export interface _Record {
    * <p>The approximate time that the record was inserted into the stream.</p>
    * @public
    */
-  ApproximateArrivalTimestamp?: Date;
+  ApproximateArrivalTimestamp?: Date | undefined;
 
   /**
    * <p>The data blob. The data in the blob is both opaque and immutable to Kinesis Data
@@ -1319,7 +1319,7 @@ export interface _Record {
    *          </ul>
    * @public
    */
-  EncryptionType?: EncryptionType;
+  EncryptionType?: EncryptionType | undefined;
 }
 
 /**
@@ -1339,7 +1339,7 @@ export interface GetRecordsOutput {
    *             not return any more data. </p>
    * @public
    */
-  NextShardIterator?: string;
+  NextShardIterator?: string | undefined;
 
   /**
    * <p>The number of milliseconds the <a>GetRecords</a> response is from the tip
@@ -1348,14 +1348,14 @@ export interface GetRecordsOutput {
    *             at this moment.</p>
    * @public
    */
-  MillisBehindLatest?: number;
+  MillisBehindLatest?: number | undefined;
 
   /**
    * <p>The list of the current shard's child shards, returned in the <code>GetRecords</code>
    *             API's response only when the end of the current shard is reached.</p>
    * @public
    */
-  ChildShards?: ChildShard[];
+  ChildShards?: ChildShard[] | undefined;
 }
 
 /**
@@ -1559,7 +1559,7 @@ export interface GetShardIteratorInput {
    * <p>The name of the Amazon Kinesis data stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The shard ID of the Kinesis Data Streams shard to get the iterator for.</p>
@@ -1604,7 +1604,7 @@ export interface GetShardIteratorInput {
    *             with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.</p>
    * @public
    */
-  StartingSequenceNumber?: string;
+  StartingSequenceNumber?: string | undefined;
 
   /**
    * <p>The time stamp of the data record from which to start reading. Used with shard
@@ -1616,13 +1616,13 @@ export interface GetShardIteratorInput {
    *             (TRIM_HORIZON).</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1636,7 +1636,7 @@ export interface GetShardIteratorOutput {
    *             shard.</p>
    * @public
    */
-  ShardIterator?: string;
+  ShardIterator?: string | undefined;
 }
 
 /**
@@ -1648,7 +1648,7 @@ export interface IncreaseStreamRetentionPeriodInput {
    * <p>The name of the stream to modify.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The new retention period of the stream, in hours. Must be more than the current
@@ -1661,7 +1661,7 @@ export interface IncreaseStreamRetentionPeriodInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1760,7 +1760,7 @@ export interface ShardFilter {
    *             is specified.</p>
    * @public
    */
-  ShardId?: string;
+  ShardId?: string | undefined;
 
   /**
    * <p>The timestamps specified in the <code>ShardFilter</code> parameter. A timestamp is a
@@ -1770,7 +1770,7 @@ export interface ShardFilter {
    *             specified.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 }
 
 /**
@@ -1783,7 +1783,7 @@ export interface ListShardsInput {
    *             parameter.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>When the number of shards in the data stream is greater than the default value for the
@@ -1809,7 +1809,7 @@ export interface ListShardsInput {
    *          </important>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specify this parameter to indicate that you want to list the shards starting with the
@@ -1820,7 +1820,7 @@ export interface ListShardsInput {
    *          <p>You cannot specify this parameter if you specify <code>NextToken</code>.</p>
    * @public
    */
-  ExclusiveStartShardId?: string;
+  ExclusiveStartShardId?: string | undefined;
 
   /**
    * <p>The maximum number of shards to return in a single call to <code>ListShards</code>.
@@ -1832,7 +1832,7 @@ export interface ListShardsInput {
    *             shards.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify this input parameter to distinguish data streams that have the same name. For
@@ -1843,7 +1843,7 @@ export interface ListShardsInput {
    *             parameter.</p>
    * @public
    */
-  StreamCreationTimestamp?: Date;
+  StreamCreationTimestamp?: Date | undefined;
 
   /**
    * <p>Enables you to filter out the response of the <code>ListShards</code> API. You can
@@ -1866,13 +1866,13 @@ export interface ListShardsInput {
    *             provided timestamp to TIP are returned. </p>
    * @public
    */
-  ShardFilter?: ShardFilter;
+  ShardFilter?: ShardFilter | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1886,7 +1886,7 @@ export interface ListShardsOutput {
    *             sequence numbers for the shard.</p>
    * @public
    */
-  Shards?: Shard[];
+  Shards?: Shard[] | undefined;
 
   /**
    * <p>When the number of shards in the data stream is greater than the default value for the
@@ -1904,7 +1904,7 @@ export interface ListShardsOutput {
    *          </important>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1945,7 +1945,7 @@ export interface ListStreamConsumersInput {
    *          </important>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of consumers that you want a single call of
@@ -1953,7 +1953,7 @@ export interface ListStreamConsumersInput {
    *             a value greater than 100, at most 100 results are returned. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify this input parameter to distinguish data streams that have the same name. For
@@ -1963,7 +1963,7 @@ export interface ListStreamConsumersInput {
    *          <p>You can't specify this parameter if you specify the NextToken parameter. </p>
    * @public
    */
-  StreamCreationTimestamp?: Date;
+  StreamCreationTimestamp?: Date | undefined;
 }
 
 /**
@@ -1974,7 +1974,7 @@ export interface ListStreamConsumersOutput {
    * <p>An array of JSON objects. Each object represents one registered consumer.</p>
    * @public
    */
-  Consumers?: Consumer[];
+  Consumers?: Consumer[] | undefined;
 
   /**
    * <p>When the number of consumers that are registered with the data stream is greater than
@@ -1994,7 +1994,7 @@ export interface ListStreamConsumersOutput {
    *          </important>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2007,19 +2007,19 @@ export interface ListStreamsInput {
    *             value greater than 100, at most 100 results are returned.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The name of the stream to start the list with.</p>
    * @public
    */
-  ExclusiveStartStreamName?: string;
+  ExclusiveStartStreamName?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2050,13 +2050,13 @@ export interface StreamSummary {
    *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
    * @public
    */
-  StreamModeDetails?: StreamModeDetails;
+  StreamModeDetails?: StreamModeDetails | undefined;
 
   /**
    * <p>The timestamp at which the stream was created.</p>
    * @public
    */
-  StreamCreationTimestamp?: Date;
+  StreamCreationTimestamp?: Date | undefined;
 }
 
 /**
@@ -2081,13 +2081,13 @@ export interface ListStreamsOutput {
    * <p></p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  StreamSummaries?: StreamSummary[];
+  StreamSummaries?: StreamSummary[] | undefined;
 }
 
 /**
@@ -2099,7 +2099,7 @@ export interface ListTagsForStreamInput {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The key to use as the starting point for the list of tags. If this parameter is set,
@@ -2107,7 +2107,7 @@ export interface ListTagsForStreamInput {
    *                 <code>ExclusiveStartTagKey</code>. </p>
    * @public
    */
-  ExclusiveStartTagKey?: string;
+  ExclusiveStartTagKey?: string | undefined;
 
   /**
    * <p>The number of tags to return. If this number is less than the total number of tags
@@ -2116,13 +2116,13 @@ export interface ListTagsForStreamInput {
    *             response.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2143,7 +2143,7 @@ export interface Tag {
    *             @</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -2176,7 +2176,7 @@ export interface MergeShardsInput {
    * <p>The name of the stream for the merge.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The shard ID of the shard to combine with the adjacent shard for the merge.</p>
@@ -2194,7 +2194,7 @@ export interface MergeShardsInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2228,7 +2228,7 @@ export interface PutRecordInput {
    * <p>The name of the stream to put the data record into.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The data blob to put into the record, which is base64-encoded when the blob is
@@ -2256,7 +2256,7 @@ export interface PutRecordInput {
    *             by overriding the partition key hash.</p>
    * @public
    */
-  ExplicitHashKey?: string;
+  ExplicitHashKey?: string | undefined;
 
   /**
    * <p>Guarantees strictly increasing sequence numbers, for puts from the same client and to
@@ -2266,13 +2266,13 @@ export interface PutRecordInput {
    *             is not set, records are coarsely ordered based on arrival time.</p>
    * @public
    */
-  SequenceNumberForOrdering?: string;
+  SequenceNumberForOrdering?: string | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2310,7 +2310,7 @@ export interface PutRecordOutput {
    *          </ul>
    * @public
    */
-  EncryptionType?: EncryptionType;
+  EncryptionType?: EncryptionType | undefined;
 }
 
 /**
@@ -2332,7 +2332,7 @@ export interface PutRecordsRequestEntry {
    *             to by overriding the partition key hash.</p>
    * @public
    */
-  ExplicitHashKey?: string;
+  ExplicitHashKey?: string | undefined;
 
   /**
    * <p>Determines which shard in the stream the data record is assigned to. Partition keys
@@ -2362,13 +2362,13 @@ export interface PutRecordsInput {
    * <p>The stream name associated with the request.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2383,13 +2383,13 @@ export interface PutRecordsResultEntry {
    * <p>The sequence number for an individual record result.</p>
    * @public
    */
-  SequenceNumber?: string;
+  SequenceNumber?: string | undefined;
 
   /**
    * <p>The shard ID for an individual record result.</p>
    * @public
    */
-  ShardId?: string;
+  ShardId?: string | undefined;
 
   /**
    * <p>The error code for an individual record result. <code>ErrorCodes</code> can be either
@@ -2397,7 +2397,7 @@ export interface PutRecordsResultEntry {
    *             <code>InternalFailure</code>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message for an individual record result. An <code>ErrorCode</code> value of
@@ -2407,7 +2407,7 @@ export interface PutRecordsResultEntry {
    *                 Failure"</code>.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -2421,7 +2421,7 @@ export interface PutRecordsOutput {
    *             request.</p>
    * @public
    */
-  FailedRecordCount?: number;
+  FailedRecordCount?: number | undefined;
 
   /**
    * <p>An array of successfully and unsuccessfully processed record results. A record that is
@@ -2448,7 +2448,7 @@ export interface PutRecordsOutput {
    *          </ul>
    * @public
    */
-  EncryptionType?: EncryptionType;
+  EncryptionType?: EncryptionType | undefined;
 }
 
 /**
@@ -2509,7 +2509,7 @@ export interface RemoveTagsFromStreamInput {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>A list of tag keys. Each corresponding tag is removed from the stream.</p>
@@ -2521,7 +2521,7 @@ export interface RemoveTagsFromStreamInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2533,7 +2533,7 @@ export interface SplitShardInput {
    * <p>The name of the stream for the shard split.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The shard ID of the shard to split.</p>
@@ -2557,7 +2557,7 @@ export interface SplitShardInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2568,7 +2568,7 @@ export interface StartStreamEncryptionInput {
    * <p>The name of the stream for which to start encrypting records.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The encryption type to use. The only valid value is <code>KMS</code>.</p>
@@ -2616,7 +2616,7 @@ export interface StartStreamEncryptionInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2627,7 +2627,7 @@ export interface StopStreamEncryptionInput {
    * <p>The name of the stream on which to stop encrypting records.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
@@ -2675,7 +2675,7 @@ export interface StopStreamEncryptionInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -2710,7 +2710,7 @@ export interface StartingPosition {
    *                 <code>AT_SEQUENCE_NUMBER</code> or <code>AFTER_SEQUENCE_NUMBER</code>.</p>
    * @public
    */
-  SequenceNumber?: string;
+  SequenceNumber?: string | undefined;
 
   /**
    * <p>The time stamp of the data record from which to start reading. To specify a time
@@ -2722,7 +2722,7 @@ export interface StartingPosition {
    *             be streamed from the oldest untrimmed data record (<code>TRIM_HORIZON</code>).</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 }
 
 /**
@@ -2783,7 +2783,7 @@ export interface SubscribeToShardEvent {
    *             current shard.</p>
    * @public
    */
-  ChildShards?: ChildShard[];
+  ChildShards?: ChildShard[] | undefined;
 }
 
 /**
@@ -3084,7 +3084,7 @@ export interface UpdateShardCountInput {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The new number of shards. This value has the following default limits. By default, you
@@ -3121,7 +3121,7 @@ export interface UpdateShardCountInput {
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -3132,25 +3132,25 @@ export interface UpdateShardCountOutput {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The current number of shards.</p>
    * @public
    */
-  CurrentShardCount?: number;
+  CurrentShardCount?: number | undefined;
 
   /**
    * <p>The updated number of shards.</p>
    * @public
    */
-  TargetShardCount?: number;
+  TargetShardCount?: number | undefined;
 
   /**
    * <p>The ARN of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**

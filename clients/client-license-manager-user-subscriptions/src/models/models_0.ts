@@ -32,7 +32,7 @@ export interface ActiveDirectoryIdentityProvider {
    * <p>The directory ID for an Active Directory identity provider.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 }
 
 /**
@@ -100,7 +100,7 @@ export interface AssociateUserRequest {
    * <p>The domain name of the user.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 }
 
 /**
@@ -136,25 +136,25 @@ export interface InstanceUserSummary {
    * <p>The status message for users of an EC2 instance.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The domain name of the user.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The date a user was associated with an EC2 instance.</p>
    * @public
    */
-  AssociationDate?: string;
+  AssociationDate?: string | undefined;
 
   /**
    * <p>The date a user was disassociated from an EC2 instance.</p>
    * @public
    */
-  DisassociationDate?: string;
+  DisassociationDate?: string | undefined;
 }
 
 /**
@@ -362,7 +362,7 @@ export interface IdentityProviderSummary {
    * <p>The failure message associated with an identity provider.</p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 }
 
 /**
@@ -402,7 +402,7 @@ export interface DisassociateUserRequest {
    * <p>The domain name of the user.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 }
 
 /**
@@ -427,19 +427,19 @@ export interface Filter {
    * <p>The name of an attribute to use as a filter.</p>
    * @public
    */
-  Attribute?: string;
+  Attribute?: string | undefined;
 
   /**
    * <p>The type of search (For example, eq, geq, leq)</p>
    * @public
    */
-  Operation?: string;
+  Operation?: string | undefined;
 
   /**
    * <p>Value of the filter.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -469,13 +469,13 @@ export interface InstanceSummary {
    * <p>The date of the last status check.</p>
    * @public
    */
-  LastStatusCheckDate?: string;
+  LastStatusCheckDate?: string | undefined;
 
   /**
    * <p>The status message for an EC2 instance.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -486,13 +486,13 @@ export interface ListIdentityProvidersRequest {
    * <p>Maximum number of results to return in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -509,7 +509,7 @@ export interface ListIdentityProvidersResponse {
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -520,20 +520,20 @@ export interface ListInstancesRequest {
    * <p>Maximum number of results to return in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -544,13 +544,13 @@ export interface ListInstancesResponse {
    * <p>Metadata that describes the list instances operation.</p>
    * @public
    */
-  InstanceSummaries?: InstanceSummary[];
+  InstanceSummaries?: InstanceSummary[] | undefined;
 
   /**
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -573,20 +573,20 @@ export interface ListProductSubscriptionsRequest {
    * <p>Maximum number of results to return in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -622,25 +622,25 @@ export interface ProductUserSummary {
    * <p>The status message for a product for a user.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The domain name of the user.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The start date of a subscription.</p>
    * @public
    */
-  SubscriptionStartDate?: string;
+  SubscriptionStartDate?: string | undefined;
 
   /**
    * <p>The end date of a subscription.</p>
    * @public
    */
-  SubscriptionEndDate?: string;
+  SubscriptionEndDate?: string | undefined;
 }
 
 /**
@@ -651,13 +651,13 @@ export interface ListProductSubscriptionsResponse {
    * <p>Metadata that describes the list product subscriptions operation.</p>
    * @public
    */
-  ProductUserSummaries?: ProductUserSummary[];
+  ProductUserSummaries?: ProductUserSummary[] | undefined;
 
   /**
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -680,20 +680,20 @@ export interface ListUserAssociationsRequest {
    * <p>Maximum number of results to return in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of structures that you can use to filter the results to those that match one or
    *       more sets of key-value pairs that you specify.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -704,13 +704,13 @@ export interface ListUserAssociationsResponse {
    * <p>Metadata that describes the list user association operation.</p>
    * @public
    */
-  InstanceUserSummaries?: InstanceUserSummary[];
+  InstanceUserSummaries?: InstanceUserSummary[] | undefined;
 
   /**
    * <p>Token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -734,7 +734,7 @@ export interface RegisterIdentityProviderRequest {
    *       subnets to provision VPC endpoints.</p>
    * @public
    */
-  Settings?: Settings;
+  Settings?: Settings | undefined;
 }
 
 /**
@@ -774,7 +774,7 @@ export interface StartProductSubscriptionRequest {
    * <p>The domain name of the user.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 }
 
 /**
@@ -814,7 +814,7 @@ export interface StopProductSubscriptionRequest {
    * <p>The domain name of the user.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 }
 
 /**
@@ -852,7 +852,7 @@ export interface UpdateSettings {
    *       your VPC and the VPC endpoints for activation servers.</p>
    * @public
    */
-  SecurityGroupId?: string;
+  SecurityGroupId?: string | undefined;
 }
 
 /**

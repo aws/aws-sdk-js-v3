@@ -12,7 +12,7 @@ import { MediaStoreDataServiceException as __BaseException } from "./MediaStoreD
 export class ContainerNotFoundException extends __BaseException {
   readonly name: "ContainerNotFoundException" = "ContainerNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -51,7 +51,7 @@ export interface DeleteObjectResponse {}
 export class InternalServerError extends __BaseException {
   readonly name: "InternalServerError" = "InternalServerError";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -73,7 +73,7 @@ export class InternalServerError extends __BaseException {
 export class ObjectNotFoundException extends __BaseException {
   readonly name: "ObjectNotFoundException" = "ObjectNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -108,19 +108,19 @@ export interface DescribeObjectResponse {
    * <p>The ETag that represents a unique instance of the object.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The content type of the object.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The length of the object in bytes.</p>
    * @public
    */
-  ContentLength?: number;
+  ContentLength?: number | undefined;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -128,13 +128,13 @@ export interface DescribeObjectResponse {
    *          <p>Headers with a custom user-defined value are also accepted.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>The date and time that the object was last modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 }
 
 /**
@@ -169,7 +169,7 @@ export interface GetObjectRequest {
    *           <code>Range</code> header, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35</a>. AWS Elemental MediaStore ignores this header for partially uploaded objects that have streaming upload availability.</p>
    * @public
    */
-  Range?: string;
+  Range?: string | undefined;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface GetObjectResponse {
    * <p>The bytes of the object. </p>
    * @public
    */
-  Body?: StreamingBlobTypes;
+  Body?: StreamingBlobTypes | undefined;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -188,37 +188,37 @@ export interface GetObjectResponse {
    *          <p>Headers with a custom user-defined value are also accepted.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>The range of bytes to retrieve.</p>
    * @public
    */
-  ContentRange?: string;
+  ContentRange?: string | undefined;
 
   /**
    * <p>The length of the object in bytes.</p>
    * @public
    */
-  ContentLength?: number;
+  ContentLength?: number | undefined;
 
   /**
    * <p>The content type of the object.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The ETag that represents a unique instance of the object.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The date and time that the object was last modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The HTML status code of the request. Status codes ranging from 200 to 299 indicate
@@ -235,7 +235,7 @@ export interface GetObjectResponse {
 export class RequestedRangeNotSatisfiableException extends __BaseException {
   readonly name: "RequestedRangeNotSatisfiableException" = "RequestedRangeNotSatisfiableException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -273,37 +273,37 @@ export interface Item {
    * <p>The name of the item.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The item type (folder or object).</p>
    * @public
    */
-  Type?: ItemType;
+  Type?: ItemType | undefined;
 
   /**
    * <p>The ETag that represents a unique instance of the item.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The date and time that the item was last modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The content type of the item.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The length of the item in bytes.</p>
    * @public
    */
-  ContentLength?: number;
+  ContentLength?: number | undefined;
 }
 
 /**
@@ -315,7 +315,7 @@ export interface ListItemsRequest {
    *          name>/<folder name>/<file name></p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per API request. For example, you submit a
@@ -328,7 +328,7 @@ export interface ListItemsRequest {
    *          pagination with a maximum of 1,000 results per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that identifies which batch of results that you want to see. For example,
@@ -339,7 +339,7 @@ export interface ListItemsRequest {
    *          <p>Tokens expire after 15 minutes.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -350,7 +350,7 @@ export interface ListItemsResponse {
    * <p>The metadata entries for the folders and objects at the requested path.</p>
    * @public
    */
-  Items?: Item[];
+  Items?: Item[] | undefined;
 
   /**
    * <p>The token that can be used in a request to view the next set of results. For example,
@@ -360,7 +360,7 @@ export interface ListItemsResponse {
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -427,7 +427,7 @@ export interface PutObjectRequest {
    * <p>The content type of the object.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>An optional <code>CacheControl</code> header that allows the caller to control the
@@ -435,7 +435,7 @@ export interface PutObjectRequest {
    *          <p>Headers with a custom user-defined value are also accepted.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>Indicates the storage class of a <code>Put</code> request. Defaults to
@@ -443,7 +443,7 @@ export interface PutObjectRequest {
    *          shortly after being received.</p>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>Indicates the availability of an object while it is still uploading. If the value is set to <code>streaming</code>, the object is available for
@@ -452,7 +452,7 @@ export interface PutObjectRequest {
    *         <p>To use this header, you must also set the HTTP <code>Transfer-Encoding</code> header to <code>chunked</code>.</p>
    * @public
    */
-  UploadAvailability?: UploadAvailability;
+  UploadAvailability?: UploadAvailability | undefined;
 }
 
 /**
@@ -463,20 +463,20 @@ export interface PutObjectResponse {
    * <p>The SHA256 digest of the object that is persisted.</p>
    * @public
    */
-  ContentSHA256?: string;
+  ContentSHA256?: string | undefined;
 
   /**
    * <p>Unique identifier of the object in the container.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The storage class where the object was persisted. The class should be
    *          “Temporal”.</p>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 }
 
 /**

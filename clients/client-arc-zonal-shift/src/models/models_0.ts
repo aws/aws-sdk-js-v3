@@ -81,19 +81,19 @@ export interface ListAutoshiftsRequest {
    * 			call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The status of the autoshift.</p>
    * @public
    */
-  status?: AutoshiftExecutionStatus;
+  status?: AutoshiftExecutionStatus | undefined;
 
   /**
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -144,7 +144,7 @@ export interface ListAutoshiftsResponse {
    * <p>The items in the response list.</p>
    * @public
    */
-  items?: AutoshiftSummary[];
+  items?: AutoshiftSummary[] | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
@@ -152,7 +152,7 @@ export interface ListAutoshiftsResponse {
    * 			call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -386,7 +386,7 @@ export class ConflictException extends __BaseException {
    * <p>The zonal shift ID associated with the conflict exception.</p>
    * @public
    */
-  zonalShiftId?: string;
+  zonalShiftId?: string | undefined;
 
   /**
    * @internal
@@ -574,7 +574,7 @@ export interface CreatePracticeRunConfigurationRequest {
    * 				FRI-20:30-21:30</code>.</p>
    * @public
    */
-  blockedWindows?: string[];
+  blockedWindows?: string[] | undefined;
 
   /**
    * <p>Optionally, you can block Route 53 ARC from starting practice runs for a resource
@@ -587,7 +587,7 @@ export interface CreatePracticeRunConfigurationRequest {
    * 			for <code>2024-05-01</code>.</p>
    * @public
    */
-  blockedDates?: string[];
+  blockedDates?: string[] | undefined;
 
   /**
    * <p>An Amazon CloudWatch alarm that you can specify for zonal autoshift
@@ -596,7 +596,7 @@ export interface CreatePracticeRunConfigurationRequest {
    * 			an <code>ALARM</code> state. </p>
    * @public
    */
-  blockingAlarms?: ControlCondition[];
+  blockingAlarms?: ControlCondition[] | undefined;
 
   /**
    * <p>The <i>outcome alarm</i> for practice runs is a required
@@ -628,7 +628,7 @@ export interface PracticeRunConfiguration {
    * 			specify that blocks practice runs when the alarm is in an <code>ALARM</code> state.</p>
    * @public
    */
-  blockingAlarms?: ControlCondition[];
+  blockingAlarms?: ControlCondition[] | undefined;
 
   /**
    * <p>The <i>outcome alarm</i> for practice runs is an alarm that you specify that
@@ -644,14 +644,14 @@ export interface PracticeRunConfiguration {
    * 			spaces. For example, <code>MON:18:30-MON:19:30 TUE:18:30-TUE:19:30</code>.</p>
    * @public
    */
-  blockedWindows?: string[];
+  blockedWindows?: string[] | undefined;
 
   /**
    * <p>An array of one or more dates that you can specify when Amazon Web Services does not start practice runs for a resource.</p>
    *          <p>Specify blocked dates, in UTC, in the format <code>YYYY-MM-DD</code>, separated by spaces. </p>
    * @public
    */
-  blockedDates?: string[];
+  blockedDates?: string[] | undefined;
 }
 
 /**
@@ -867,7 +867,7 @@ export interface ZonalShiftInResource {
    * 				Considerations when you configure zonal autoshift</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
    * @public
    */
-  practiceRunOutcome?: PracticeRunOutcome;
+  practiceRunOutcome?: PracticeRunOutcome | undefined;
 }
 
 /**
@@ -878,13 +878,13 @@ export interface GetManagedResourceResponse {
    * <p>The Amazon Resource Name (ARN) for the resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A collection of key-value pairs that indicate whether resources are active in Availability Zones or not.
@@ -903,14 +903,14 @@ export interface GetManagedResourceResponse {
    * <p>An array of the autoshifts that are active for the resource.</p>
    * @public
    */
-  autoshifts?: AutoshiftInResource[];
+  autoshifts?: AutoshiftInResource[] | undefined;
 
   /**
    * <p>The practice run configuration for zonal autoshift that's associated with
    * 			the resource.</p>
    * @public
    */
-  practiceRunConfiguration?: PracticeRunConfiguration;
+  practiceRunConfiguration?: PracticeRunConfiguration | undefined;
 
   /**
    * <p>The status for zonal autoshift for a resource. When the
@@ -920,7 +920,7 @@ export interface GetManagedResourceResponse {
    * 			the Availability Zone that could potentially affect customers.</p>
    * @public
    */
-  zonalAutoshiftStatus?: ZonalAutoshiftStatus;
+  zonalAutoshiftStatus?: ZonalAutoshiftStatus | undefined;
 }
 
 /**
@@ -933,13 +933,13 @@ export interface ListManagedResourcesRequest {
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -959,13 +959,13 @@ export interface ManagedResourceSummary {
    * <p>The Amazon Resource Name (ARN) for the managed resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the managed resource.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Availability Zones that a resource is deployed in.</p>
@@ -978,26 +978,26 @@ export interface ManagedResourceSummary {
    * 			The key name is the Availability Zone where the resource is deployed. The value is 1 or 0.</p>
    * @public
    */
-  appliedWeights?: Record<string, number>;
+  appliedWeights?: Record<string, number> | undefined;
 
   /**
    * <p>An array of the zonal shifts for a resource.</p>
    * @public
    */
-  zonalShifts?: ZonalShiftInResource[];
+  zonalShifts?: ZonalShiftInResource[] | undefined;
 
   /**
    * <p>An array of the autoshifts that have been completed for a resource.</p>
    * @public
    */
-  autoshifts?: AutoshiftInResource[];
+  autoshifts?: AutoshiftInResource[] | undefined;
 
   /**
    * <p>The status of autoshift for a resource. When you configure zonal autoshift for a
    * 			resource, you can set the value of the status to <code>ENABLED</code> or <code>DISABLED</code>.</p>
    * @public
    */
-  zonalAutoshiftStatus?: ZonalAutoshiftStatus;
+  zonalAutoshiftStatus?: ZonalAutoshiftStatus | undefined;
 
   /**
    * <p>This status tracks whether a practice run configuration exists for a resource. When you configure
@@ -1008,7 +1008,7 @@ export interface ManagedResourceSummary {
    * 			<code>DISABLED</code>.</p>
    * @public
    */
-  practiceRunStatus?: ZonalAutoshiftStatus;
+  practiceRunStatus?: ZonalAutoshiftStatus | undefined;
 }
 
 /**
@@ -1027,7 +1027,7 @@ export interface ListManagedResourcesResponse {
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1040,7 +1040,7 @@ export interface ListZonalShiftsRequest {
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A status for a zonal shift.</p>
@@ -1061,20 +1061,20 @@ export interface ListZonalShiftsRequest {
    *          </ul>
    * @public
    */
-  status?: ZonalShiftStatus;
+  status?: ZonalShiftStatus | undefined;
 
   /**
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The identifier for the resource that you want to list zonal shifts for.
    * 			The identifier is the Amazon Resource Name (ARN) for the resource.</p>
    * @public
    */
-  resourceIdentifier?: string;
+  resourceIdentifier?: string | undefined;
 }
 
 /**
@@ -1181,7 +1181,7 @@ export interface ZonalShiftSummary {
    * 				Considerations when you configure zonal autoshift</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
    * @public
    */
-  practiceRunOutcome?: PracticeRunOutcome;
+  practiceRunOutcome?: PracticeRunOutcome | undefined;
 }
 
 /**
@@ -1192,7 +1192,7 @@ export interface ListZonalShiftsResponse {
    * <p>The items in the response list.</p>
    * @public
    */
-  items?: ZonalShiftSummary[];
+  items?: ZonalShiftSummary[] | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid only if you received a <code>NextToken</code> response in the
@@ -1200,7 +1200,7 @@ export interface ListZonalShiftsResponse {
    *    		call's <code>NextToken</code> response to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1266,7 +1266,7 @@ export interface UpdatePracticeRunConfigurationRequest {
    * 				FRI-20:30-21:30</code>.</p>
    * @public
    */
-  blockedWindows?: string[];
+  blockedWindows?: string[] | undefined;
 
   /**
    * <p>Add, change, or remove blocked dates for a practice run in zonal autoshift.</p>
@@ -1279,20 +1279,20 @@ export interface UpdatePracticeRunConfigurationRequest {
    * 			for <code>2024-05-01</code>.</p>
    * @public
    */
-  blockedDates?: string[];
+  blockedDates?: string[] | undefined;
 
   /**
    * <p>Add, change, or remove the Amazon CloudWatch alarm that you optionally
    * 			specify as the blocking alarm for practice runs.</p>
    * @public
    */
-  blockingAlarms?: ControlCondition[];
+  blockingAlarms?: ControlCondition[] | undefined;
 
   /**
    * <p>Specify a new the Amazon CloudWatch alarm as the outcome alarm for practice runs.</p>
    * @public
    */
-  outcomeAlarms?: ControlCondition[];
+  outcomeAlarms?: ControlCondition[] | undefined;
 }
 
 /**
@@ -1342,7 +1342,7 @@ export interface UpdateZonalShiftRequest {
    *    		history is maintained. A new comment overwrites any existing comment string.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
    * <p>The length of time that you want a zonal shift to be active, which Route 53 ARC converts to an expiry time (expiration time).
@@ -1364,7 +1364,7 @@ export interface UpdateZonalShiftRequest {
    *          <p>For example: <code>20h</code> means the zonal shift expires in 20 hours. <code>120m</code> means the zonal shift expires in 120 minutes (2 hours).</p>
    * @public
    */
-  expiresIn?: string;
+  expiresIn?: string | undefined;
 }
 
 /**

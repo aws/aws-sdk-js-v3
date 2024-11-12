@@ -55,7 +55,7 @@ export interface BatchDeleteEvaluationJobError {
    * <p>A status message about the model evaluation job deletion.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -266,7 +266,7 @@ export interface EvaluationDataset {
    * <p>For custom prompt datasets, you must specify the location in Amazon S3 where the prompt dataset is saved.</p>
    * @public
    */
-  datasetLocation?: EvaluationDatasetLocation;
+  datasetLocation?: EvaluationDatasetLocation | undefined;
 }
 
 /**
@@ -339,7 +339,7 @@ export interface HumanEvaluationCustomMetric {
    * <p>An optional description of the metric. Use this parameter to provide more details about the metric.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Choose how you want your human workers to evaluation your model. Valid values for rating methods are <code>ThumbsUpDown</code>, <code>IndividualLikertScale</code>,<code>ComparisonLikertScale</code>, <code>ComparisonChoice</code>, and <code>ComparisonRank</code>
@@ -364,7 +364,7 @@ export interface HumanWorkflowConfig {
    * <p>Instructions for the flow definition</p>
    * @public
    */
-  instructions?: string;
+  instructions?: string | undefined;
 }
 
 /**
@@ -377,13 +377,13 @@ export interface HumanEvaluationConfig {
    * <p>The parameters of the human workflow.</p>
    * @public
    */
-  humanWorkflowConfig?: HumanWorkflowConfig;
+  humanWorkflowConfig?: HumanWorkflowConfig | undefined;
 
   /**
    * <p>A <code>HumanEvaluationCustomMetric</code> object. It contains the names the metrics, how the metrics are to be evaluated, an optional description.</p>
    * @public
    */
-  customMetrics?: HumanEvaluationCustomMetric[];
+  customMetrics?: HumanEvaluationCustomMetric[] | undefined;
 
   /**
    * <p>Use to specify the metrics, task, and prompt dataset to be used in your model evaluation job.</p>
@@ -589,14 +589,14 @@ export interface CreateEvaluationJobRequest {
    * <p>A description of the model evaluation job.</p>
    * @public
    */
-  jobDescription?: string;
+  jobDescription?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM service role that Amazon Bedrock can assume to perform tasks on your behalf. The service role must have Amazon Bedrock as the service principal, and provide access to any Amazon S3 buckets specified in the <code>EvaluationConfig</code> object. To pass this role to Amazon Bedrock, the caller of this API must have the <code>iam:PassRole</code> permission. To learn more about the required permissions, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation-security.html">Required permissions</a>.</p>
@@ -608,13 +608,13 @@ export interface CreateEvaluationJobRequest {
    * <p>Specify your customer managed key ARN that will be used to encrypt your model evaluation job.</p>
    * @public
    */
-  customerEncryptionKeyId?: string;
+  customerEncryptionKeyId?: string | undefined;
 
   /**
    * <p>Tags to attach to the model evaluation job.</p>
    * @public
    */
-  jobTags?: Tag[];
+  jobTags?: Tag[] | undefined;
 
   /**
    * <p>Specifies whether the model evaluation job is automatic or uses human worker.</p>
@@ -717,7 +717,7 @@ export interface GetEvaluationJobResponse {
    * <p>The description of the model evaluation job.</p>
    * @public
    */
-  jobDescription?: string;
+  jobDescription?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role used in the model evaluation job.</p>
@@ -729,7 +729,7 @@ export interface GetEvaluationJobResponse {
    * <p>The Amazon Resource Name (ARN) of the customer managed key specified when the model evaluation job was created.</p>
    * @public
    */
-  customerEncryptionKeyId?: string;
+  customerEncryptionKeyId?: string | undefined;
 
   /**
    * <p>The type of model evaluation job.</p>
@@ -765,13 +765,13 @@ export interface GetEvaluationJobResponse {
    * <p>When the model evaluation job was last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>An array of strings the specify why the model evaluation job has failed.</p>
    * @public
    */
-  failureMessages?: string[];
+  failureMessages?: string[] | undefined;
 }
 
 /**
@@ -809,49 +809,49 @@ export interface ListEvaluationJobsRequest {
    * <p>A filter that includes model evaluation jobs created after the time specified.</p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that includes model evaluation jobs created prior to the time specified.</p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>Only return jobs where the status condition is met.</p>
    * @public
    */
-  statusEquals?: EvaluationJobStatus;
+  statusEquals?: EvaluationJobStatus | undefined;
 
   /**
    * <p>Query parameter string for model evaluation job names.</p>
    * @public
    */
-  nameContains?: string;
+  nameContains?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Allows you to sort model evaluation jobs by when they were created.</p>
    * @public
    */
-  sortBy?: SortJobsBy;
+  sortBy?: SortJobsBy | undefined;
 
   /**
    * <p>How you want the order of jobs sorted.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -910,13 +910,13 @@ export interface ListEvaluationJobsResponse {
    * <p>Continuation token from the previous response, for Amazon Bedrock to list the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A summary of the model evaluation jobs.</p>
    * @public
    */
-  jobSummaries?: EvaluationSummary[];
+  jobSummaries?: EvaluationSummary[] | undefined;
 }
 
 /**
@@ -1495,7 +1495,7 @@ export interface GuardrailRegexConfig {
    * <p>The description of the regular expression to configure for the guardrail.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The regular expression pattern to configure for the guardrail.</p>
@@ -1519,13 +1519,13 @@ export interface GuardrailSensitiveInformationPolicyConfig {
    * <p>A list of PII entities to configure to the guardrail.</p>
    * @public
    */
-  piiEntitiesConfig?: GuardrailPiiEntityConfig[];
+  piiEntitiesConfig?: GuardrailPiiEntityConfig[] | undefined;
 
   /**
    * <p>A list of regular expressions to configure to the guardrail.</p>
    * @public
    */
-  regexesConfig?: GuardrailRegexConfig[];
+  regexesConfig?: GuardrailRegexConfig[] | undefined;
 }
 
 /**
@@ -1562,7 +1562,7 @@ export interface GuardrailTopicConfig {
    * <p>A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.</p>
    * @public
    */
-  examples?: string[];
+  examples?: string[] | undefined;
 
   /**
    * <p>Specifies to deny the topic.</p>
@@ -1629,13 +1629,13 @@ export interface GuardrailWordPolicyConfig {
    * <p>A list of words to configure for the guardrail.</p>
    * @public
    */
-  wordsConfig?: GuardrailWordConfig[];
+  wordsConfig?: GuardrailWordConfig[] | undefined;
 
   /**
    * <p>A list of managed words to configure for the guardrail.</p>
    * @public
    */
-  managedWordListsConfig?: GuardrailManagedWordsConfig[];
+  managedWordListsConfig?: GuardrailManagedWordsConfig[] | undefined;
 }
 
 /**
@@ -1652,37 +1652,37 @@ export interface CreateGuardrailRequest {
    * <p>A description of the guardrail.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The topic policies to configure for the guardrail.</p>
    * @public
    */
-  topicPolicyConfig?: GuardrailTopicPolicyConfig;
+  topicPolicyConfig?: GuardrailTopicPolicyConfig | undefined;
 
   /**
    * <p>The content filter policies to configure for the guardrail.</p>
    * @public
    */
-  contentPolicyConfig?: GuardrailContentPolicyConfig;
+  contentPolicyConfig?: GuardrailContentPolicyConfig | undefined;
 
   /**
    * <p>The word policy you configure for the guardrail.</p>
    * @public
    */
-  wordPolicyConfig?: GuardrailWordPolicyConfig;
+  wordPolicyConfig?: GuardrailWordPolicyConfig | undefined;
 
   /**
    * <p>The sensitive information policy to configure for the guardrail.</p>
    * @public
    */
-  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig;
+  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig | undefined;
 
   /**
    * <p>The contextual grounding policy configuration used to create a guardrail.</p>
    * @public
    */
-  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig;
+  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
 
   /**
    * <p>The message to return when the guardrail blocks a prompt.</p>
@@ -1700,13 +1700,13 @@ export interface CreateGuardrailRequest {
    * <p>The ARN of the KMS key that you use to encrypt the guardrail.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 
   /**
    * <p>The tags that you want to attach to the guardrail. </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request
@@ -1716,7 +1716,7 @@ export interface CreateGuardrailRequest {
    *             idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -1761,7 +1761,7 @@ export class TooManyTagsException extends __BaseException {
    * <p>The name of the resource with too many tags.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -1791,7 +1791,7 @@ export interface CreateGuardrailVersionRequest {
    * <p>A description of the guardrail version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request
@@ -1801,7 +1801,7 @@ export interface CreateGuardrailVersionRequest {
    *             idempotency</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -1835,7 +1835,7 @@ export interface DeleteGuardrailRequest {
    * <p>The version of the guardrail.</p>
    * @public
    */
-  guardrailVersion?: string;
+  guardrailVersion?: string | undefined;
 }
 
 /**
@@ -1857,7 +1857,7 @@ export interface GetGuardrailRequest {
    * <p>The version of the guardrail for which to get details. If you don't specify a version, the response returns details for the <code>DRAFT</code> version.</p>
    * @public
    */
-  guardrailVersion?: string;
+  guardrailVersion?: string | undefined;
 }
 
 /**
@@ -1940,7 +1940,7 @@ export interface GuardrailContentPolicy {
    * <p>Contains the type of the content filter and how strongly it should apply to prompts and model responses.</p>
    * @public
    */
-  filters?: GuardrailContentFilter[];
+  filters?: GuardrailContentFilter[] | undefined;
 }
 
 /**
@@ -2006,7 +2006,7 @@ export interface GuardrailRegex {
    * <p>The description of the regular expression for the guardrail.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The pattern of the regular expression configured for the guardrail.</p>
@@ -2030,13 +2030,13 @@ export interface GuardrailSensitiveInformationPolicy {
    * <p>The list of PII entities configured for the guardrail.</p>
    * @public
    */
-  piiEntities?: GuardrailPiiEntity[];
+  piiEntities?: GuardrailPiiEntity[] | undefined;
 
   /**
    * <p>The list of regular expressions configured for the guardrail.</p>
    * @public
    */
-  regexes?: GuardrailRegex[];
+  regexes?: GuardrailRegex[] | undefined;
 }
 
 /**
@@ -2086,13 +2086,13 @@ export interface GuardrailTopic {
    * <p>A list of prompts, each of which is an example of a prompt that can be categorized as belonging to the topic.</p>
    * @public
    */
-  examples?: string[];
+  examples?: string[] | undefined;
 
   /**
    * <p>Specifies to deny the topic.</p>
    * @public
    */
-  type?: GuardrailTopicType;
+  type?: GuardrailTopicType | undefined;
 }
 
 /**
@@ -2151,13 +2151,13 @@ export interface GuardrailWordPolicy {
    * <p>A list of words configured for the guardrail.</p>
    * @public
    */
-  words?: GuardrailWord[];
+  words?: GuardrailWord[] | undefined;
 
   /**
    * <p>A list of managed words configured for the guardrail.</p>
    * @public
    */
-  managedWordLists?: GuardrailManagedWords[];
+  managedWordLists?: GuardrailManagedWords[] | undefined;
 }
 
 /**
@@ -2174,7 +2174,7 @@ export interface GetGuardrailResponse {
    * <p>The description of the guardrail.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The unique identifier of the guardrail.</p>
@@ -2204,31 +2204,31 @@ export interface GetGuardrailResponse {
    * <p>The topic policy that was configured for the guardrail.</p>
    * @public
    */
-  topicPolicy?: GuardrailTopicPolicy;
+  topicPolicy?: GuardrailTopicPolicy | undefined;
 
   /**
    * <p>The content policy that was configured for the guardrail.</p>
    * @public
    */
-  contentPolicy?: GuardrailContentPolicy;
+  contentPolicy?: GuardrailContentPolicy | undefined;
 
   /**
    * <p>The word policy that was configured for the guardrail.</p>
    * @public
    */
-  wordPolicy?: GuardrailWordPolicy;
+  wordPolicy?: GuardrailWordPolicy | undefined;
 
   /**
    * <p>The sensitive information policy that was configured for the guardrail.</p>
    * @public
    */
-  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicy;
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicy | undefined;
 
   /**
    * <p>The contextual grounding policy used in the guardrail.</p>
    * @public
    */
-  contextualGroundingPolicy?: GuardrailContextualGroundingPolicy;
+  contextualGroundingPolicy?: GuardrailContextualGroundingPolicy | undefined;
 
   /**
    * <p>The date and time at which the guardrail was created.</p>
@@ -2246,13 +2246,13 @@ export interface GetGuardrailResponse {
    * <p>Appears if the <code>status</code> is <code>FAILED</code>. A list of reasons for why the guardrail failed to be created, updated, versioned, or deleted.</p>
    * @public
    */
-  statusReasons?: string[];
+  statusReasons?: string[] | undefined;
 
   /**
    * <p>Appears if the <code>status</code> of the guardrail is <code>FAILED</code>. A list of recommendations to carry out before retrying the request.</p>
    * @public
    */
-  failureRecommendations?: string[];
+  failureRecommendations?: string[] | undefined;
 
   /**
    * <p>The message that the guardrail returns when it blocks a prompt.</p>
@@ -2270,7 +2270,7 @@ export interface GetGuardrailResponse {
    * <p>The ARN of the KMS key that encrypts the guardrail.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -2281,19 +2281,19 @@ export interface ListGuardrailsRequest {
    * <p>The unique identifier of the guardrail.  This can be an ID or the ARN.</p>
    * @public
    */
-  guardrailIdentifier?: string;
+  guardrailIdentifier?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2337,7 +2337,7 @@ export interface GuardrailSummary {
    * <p>A description of the guardrail.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The version of the guardrail.</p>
@@ -2372,7 +2372,7 @@ export interface ListGuardrailsResponse {
    * <p>If there are more results than were returned in the response, the response returns a <code>nextToken</code> that you can send in another <code>ListGuardrails</code> request to see the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2395,37 +2395,37 @@ export interface UpdateGuardrailRequest {
    * <p>A description of the guardrail.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The topic policy to configure for the guardrail.</p>
    * @public
    */
-  topicPolicyConfig?: GuardrailTopicPolicyConfig;
+  topicPolicyConfig?: GuardrailTopicPolicyConfig | undefined;
 
   /**
    * <p>The content policy to configure for the guardrail.</p>
    * @public
    */
-  contentPolicyConfig?: GuardrailContentPolicyConfig;
+  contentPolicyConfig?: GuardrailContentPolicyConfig | undefined;
 
   /**
    * <p>The word policy to configure for the guardrail.</p>
    * @public
    */
-  wordPolicyConfig?: GuardrailWordPolicyConfig;
+  wordPolicyConfig?: GuardrailWordPolicyConfig | undefined;
 
   /**
    * <p>The sensitive information policy to configure for the guardrail.</p>
    * @public
    */
-  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig;
+  sensitiveInformationPolicyConfig?: GuardrailSensitiveInformationPolicyConfig | undefined;
 
   /**
    * <p>The contextual grounding policy configuration used to update a guardrail.</p>
    * @public
    */
-  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig;
+  contextualGroundingPolicyConfig?: GuardrailContextualGroundingPolicyConfig | undefined;
 
   /**
    * <p>The message to return when the guardrail blocks a prompt.</p>
@@ -2443,7 +2443,7 @@ export interface UpdateGuardrailRequest {
    * <p>The ARN of the KMS key with which to encrypt the guardrail.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -2529,14 +2529,14 @@ export interface CreateInferenceProfileRequest {
    * <p>A description for the inference profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The foundation model or system-defined inference profile that the inference profile will track metrics and costs for.</p>
@@ -2548,7 +2548,7 @@ export interface CreateInferenceProfileRequest {
    * <p>An array of objects, each of which contains a tag and its value. For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2578,7 +2578,7 @@ export interface CreateInferenceProfileResponse {
    * <p>The status of the inference profile. <code>ACTIVE</code> means that the inference profile is ready to be used.</p>
    * @public
    */
-  status?: InferenceProfileStatus;
+  status?: InferenceProfileStatus | undefined;
 }
 
 /**
@@ -2617,7 +2617,7 @@ export interface InferenceProfileModel {
    * <p>The Amazon Resource Name (ARN) of the model.</p>
    * @public
    */
-  modelArn?: string;
+  modelArn?: string | undefined;
 }
 
 /**
@@ -2648,19 +2648,19 @@ export interface GetInferenceProfileResponse {
    * <p>The description of the inference profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time at which the inference profile was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time at which the inference profile was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
@@ -2711,13 +2711,13 @@ export interface ListInferenceProfilesRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Filters for inference profiles that match the type you specify.</p>
@@ -2733,7 +2733,7 @@ export interface ListInferenceProfilesRequest {
    *          </ul>
    * @public
    */
-  typeEquals?: InferenceProfileType;
+  typeEquals?: InferenceProfileType | undefined;
 }
 
 /**
@@ -2751,19 +2751,19 @@ export interface InferenceProfileSummary {
    * <p>The description of the inference profile.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time at which the inference profile was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time at which the inference profile was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the inference profile.</p>
@@ -2814,13 +2814,13 @@ export interface ListInferenceProfilesResponse {
    * <p>A list of information about each inference profile that you can use.</p>
    * @public
    */
-  inferenceProfileSummaries?: InferenceProfileSummary[];
+  inferenceProfileSummaries?: InferenceProfileSummary[] | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2853,7 +2853,7 @@ export interface S3Config {
    * <p>S3 prefix. </p>
    * @public
    */
-  keyPrefix?: string;
+  keyPrefix?: string | undefined;
 }
 
 /**
@@ -2877,7 +2877,7 @@ export interface CloudWatchConfig {
    * <p>S3 configuration for delivering a large amount of data.</p>
    * @public
    */
-  largeDataDeliveryS3Config?: S3Config;
+  largeDataDeliveryS3Config?: S3Config | undefined;
 }
 
 /**
@@ -2889,31 +2889,31 @@ export interface LoggingConfig {
    * <p>CloudWatch logging configuration.</p>
    * @public
    */
-  cloudWatchConfig?: CloudWatchConfig;
+  cloudWatchConfig?: CloudWatchConfig | undefined;
 
   /**
    * <p>S3 configuration for storing log data.</p>
    * @public
    */
-  s3Config?: S3Config;
+  s3Config?: S3Config | undefined;
 
   /**
    * <p>Set to include text data in the log delivery.</p>
    * @public
    */
-  textDataDeliveryEnabled?: boolean;
+  textDataDeliveryEnabled?: boolean | undefined;
 
   /**
    * <p>Set to include image data in the log delivery.</p>
    * @public
    */
-  imageDataDeliveryEnabled?: boolean;
+  imageDataDeliveryEnabled?: boolean | undefined;
 
   /**
    * <p>Set to include embeddings data in the log delivery.</p>
    * @public
    */
-  embeddingDataDeliveryEnabled?: boolean;
+  embeddingDataDeliveryEnabled?: boolean | undefined;
 }
 
 /**
@@ -2924,7 +2924,7 @@ export interface GetModelInvocationLoggingConfigurationResponse {
    * <p>The current configuration values.</p>
    * @public
    */
-  loggingConfig?: LoggingConfig;
+  loggingConfig?: LoggingConfig | undefined;
 }
 
 /**
@@ -2963,20 +2963,20 @@ export interface CreateModelCopyJobRequest {
    * <p>The ARN of the KMS key that you use to encrypt the model copy.</p>
    * @public
    */
-  modelKmsKeyId?: string;
+  modelKmsKeyId?: string | undefined;
 
   /**
    * <p>Tags to associate with the target model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tag resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
-  targetModelTags?: Tag[];
+  targetModelTags?: Tag[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 }
 
 /**
@@ -3048,7 +3048,7 @@ export interface GetModelCopyJobResponse {
    * <p>The name of the copied model.</p>
    * @public
    */
-  targetModelName?: string;
+  targetModelName?: string | undefined;
 
   /**
    * <p>The unique identifier of the account that the model being copied originated from.</p>
@@ -3066,25 +3066,25 @@ export interface GetModelCopyJobResponse {
    * <p>The Amazon Resource Name (ARN) of the KMS key encrypting the copied model.</p>
    * @public
    */
-  targetModelKmsKeyArn?: string;
+  targetModelKmsKeyArn?: string | undefined;
 
   /**
    * <p>The tags associated with the copied model.</p>
    * @public
    */
-  targetModelTags?: Tag[];
+  targetModelTags?: Tag[] | undefined;
 
   /**
    * <p>An error message for why the model copy job failed.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>The name of the original model being copied.</p>
    * @public
    */
-  sourceModelName?: string;
+  sourceModelName?: string | undefined;
 }
 
 /**
@@ -3095,61 +3095,61 @@ export interface ListModelCopyJobsRequest {
    * <p>Filters for model copy jobs created after the specified time.</p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>Filters for model copy jobs created before the specified time. </p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>Filters for model copy jobs whose status matches the value that you specify.</p>
    * @public
    */
-  statusEquals?: ModelCopyJobStatus;
+  statusEquals?: ModelCopyJobStatus | undefined;
 
   /**
    * <p>Filters for model copy jobs in which the account that the source model belongs to is equal to the value that you specify.</p>
    * @public
    */
-  sourceAccountEquals?: string;
+  sourceAccountEquals?: string | undefined;
 
   /**
    * <p>Filters for model copy jobs in which the Amazon Resource Name (ARN) of the source model to is equal to the value that you specify.</p>
    * @public
    */
-  sourceModelArnEquals?: string;
+  sourceModelArnEquals?: string | undefined;
 
   /**
    * <p>Filters for model copy jobs in which the name of the copied model contains the string that you specify.</p>
    * @public
    */
-  targetModelNameContains?: string;
+  targetModelNameContains?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The field to sort by in the returned list of model copy jobs.</p>
    * @public
    */
-  sortBy?: SortJobsBy;
+  sortBy?: SortJobsBy | undefined;
 
   /**
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -3193,7 +3193,7 @@ export interface ModelCopyJobSummary {
    * <p>The name of the copied model.</p>
    * @public
    */
-  targetModelName?: string;
+  targetModelName?: string | undefined;
 
   /**
    * <p>The unique identifier of the account that the model being copied originated from.</p>
@@ -3211,25 +3211,25 @@ export interface ModelCopyJobSummary {
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the copied model.</p>
    * @public
    */
-  targetModelKmsKeyArn?: string;
+  targetModelKmsKeyArn?: string | undefined;
 
   /**
    * <p>Tags associated with the copied model.</p>
    * @public
    */
-  targetModelTags?: Tag[];
+  targetModelTags?: Tag[] | undefined;
 
   /**
    * <p>If a model fails to be copied, a message describing why the job failed is included here.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>The name of the original model being copied.</p>
    * @public
    */
-  sourceModelName?: string;
+  sourceModelName?: string | undefined;
 }
 
 /**
@@ -3240,13 +3240,13 @@ export interface ListModelCopyJobsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of information about each model copy job.</p>
    * @public
    */
-  modelCopyJobSummaries?: ModelCopyJobSummary[];
+  modelCopyJobSummaries?: ModelCopyJobSummary[] | undefined;
 }
 
 /**
@@ -3349,13 +3349,13 @@ export interface CreateModelImportJobRequest {
    * <p>Tags to attach to this import job. </p>
    * @public
    */
-  jobTags?: Tag[];
+  jobTags?: Tag[] | undefined;
 
   /**
    * <p>Tags to attach to the imported model.</p>
    * @public
    */
-  importedModelTags?: Tag[];
+  importedModelTags?: Tag[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
@@ -3363,20 +3363,20 @@ export interface CreateModelImportJobRequest {
    *         see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>VPC configuration parameters for the
    *         private Virtual Private Cloud (VPC) that contains the resources you are using for the import job.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The imported model is encrypted at rest using this key.</p>
    * @public
    */
-  importedModelKmsKeyId?: string;
+  importedModelKmsKeyId?: string | undefined;
 }
 
 /**
@@ -3425,55 +3425,55 @@ export interface GetImportedModelResponse {
    * <p>The Amazon Resource Name (ARN) associated with this imported model.</p>
    * @public
    */
-  modelArn?: string;
+  modelArn?: string | undefined;
 
   /**
    * <p>The name of the imported model.</p>
    * @public
    */
-  modelName?: string;
+  modelName?: string | undefined;
 
   /**
    * <p>Job name associated with the imported model.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>Job Amazon Resource Name (ARN) associated with the imported model.</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The data source for this imported model.</p>
    * @public
    */
-  modelDataSource?: ModelDataSource;
+  modelDataSource?: ModelDataSource | undefined;
 
   /**
    * <p>Creation time of the imported model.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The architecture of the imported model.</p>
    * @public
    */
-  modelArchitecture?: string;
+  modelArchitecture?: string | undefined;
 
   /**
    * <p>The imported model is encrypted at rest using this key.</p>
    * @public
    */
-  modelKmsKeyArn?: string;
+  modelKmsKeyArn?: string | undefined;
 
   /**
    * <p>Specifies if the imported model supports converse.</p>
    * @public
    */
-  instructSupported?: boolean;
+  instructSupported?: boolean | undefined;
 }
 
 /**
@@ -3510,80 +3510,80 @@ export interface GetModelImportJobResponse {
    * <p>The Amazon Resource Name (ARN) of the import job.</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The name of the import job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The name of the imported model.</p>
    * @public
    */
-  importedModelName?: string;
+  importedModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the imported model.</p>
    * @public
    */
-  importedModelArn?: string;
+  importedModelArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role associated with this job.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The data source for the imported model.</p>
    * @public
    */
-  modelDataSource?: ModelDataSource;
+  modelDataSource?: ModelDataSource | undefined;
 
   /**
    * <p>The status of the job. A successful job transitions from in-progress to completed when the imported model is ready to use.
    *         If the job failed, the failure message contains information about why the job failed.</p>
    * @public
    */
-  status?: ModelImportJobStatus;
+  status?: ModelImportJobStatus | undefined;
 
   /**
    * <p>Information about why the import job failed.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>The time the resource was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>Time the resource was last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>Time that the resource transitioned to terminal state.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The Virtual Private Cloud (VPC) configuration of the import model job.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The imported model is encrypted at rest using this key.</p>
    * @public
    */
-  importedModelKmsKeyArn?: string;
+  importedModelKmsKeyArn?: string | undefined;
 }
 
 /**
@@ -3607,43 +3607,43 @@ export interface ListImportedModelsRequest {
    * <p>Return imported models that created before the specified time.</p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>Return imported models that were created after the specified time.</p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>Return imported models only if the model name contains these characters.</p>
    * @public
    */
-  nameContains?: string;
+  nameContains?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The field to sort by in the returned list of imported models.</p>
    * @public
    */
-  sortBy?: SortModelsBy;
+  sortBy?: SortModelsBy | undefined;
 
   /**
    * <p>Specifies whetehr to sort the results in ascending or descending order.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -3673,13 +3673,13 @@ export interface ImportedModelSummary {
    * <p>Specifies if the imported model supports converse.</p>
    * @public
    */
-  instructSupported?: boolean;
+  instructSupported?: boolean | undefined;
 
   /**
    * <p>The architecture of the imported model.</p>
    * @public
    */
-  modelArchitecture?: string;
+  modelArchitecture?: string | undefined;
 }
 
 /**
@@ -3690,13 +3690,13 @@ export interface ListImportedModelsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Model summaries.</p>
    * @public
    */
-  modelSummaries?: ImportedModelSummary[];
+  modelSummaries?: ImportedModelSummary[] | undefined;
 }
 
 /**
@@ -3707,49 +3707,49 @@ export interface ListModelImportJobsRequest {
    * <p>Return import jobs that were created after the specified time.</p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>Return import jobs that were created before the specified time.</p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>Return imported jobs with the specified status.</p>
    * @public
    */
-  statusEquals?: ModelImportJobStatus;
+  statusEquals?: ModelImportJobStatus | undefined;
 
   /**
    * <p>Return imported jobs only if the job name contains these characters.</p>
    * @public
    */
-  nameContains?: string;
+  nameContains?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The field to sort by in the returned list of imported jobs.</p>
    * @public
    */
-  sortBy?: SortJobsBy;
+  sortBy?: SortJobsBy | undefined;
 
   /**
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -3779,7 +3779,7 @@ export interface ModelImportJobSummary {
    * <p>The time when the import job was last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>The time import job was created.</p>
@@ -3791,19 +3791,19 @@ export interface ModelImportJobSummary {
    * <p>The time when import job ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The Amazon resource Name (ARN) of the imported model.</p>
    * @public
    */
-  importedModelArn?: string;
+  importedModelArn?: string | undefined;
 
   /**
    * <p>The name of the imported model.</p>
    * @public
    */
-  importedModelName?: string;
+  importedModelName?: string | undefined;
 }
 
 /**
@@ -3814,13 +3814,13 @@ export interface ListModelImportJobsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Import job summaries.</p>
    * @public
    */
-  modelImportJobSummaries?: ModelImportJobSummary[];
+  modelImportJobSummaries?: ModelImportJobSummary[] | undefined;
 }
 
 /**
@@ -3845,7 +3845,7 @@ export interface ModelInvocationJobS3InputDataConfig {
    * <p>The format of the input data.</p>
    * @public
    */
-  s3InputFormat?: S3InputFormat;
+  s3InputFormat?: S3InputFormat | undefined;
 
   /**
    * <p>The S3 location of the input data.</p>
@@ -3857,7 +3857,7 @@ export interface ModelInvocationJobS3InputDataConfig {
    * <p>The ID of the Amazon Web Services account that owns the S3 bucket containing the input data.</p>
    * @public
    */
-  s3BucketOwner?: string;
+  s3BucketOwner?: string | undefined;
 }
 
 /**
@@ -3915,13 +3915,13 @@ export interface ModelInvocationJobS3OutputDataConfig {
    * <p>The unique identifier of the key that encrypts the S3 location of the output data.</p>
    * @public
    */
-  s3EncryptionKeyId?: string;
+  s3EncryptionKeyId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the S3 bucket containing the output data.</p>
    * @public
    */
-  s3BucketOwner?: string;
+  s3BucketOwner?: string | undefined;
 }
 
 /**
@@ -3985,7 +3985,7 @@ export interface CreateModelInvocationJobRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The unique identifier of the foundation model to use for the batch inference job.</p>
@@ -4009,19 +4009,19 @@ export interface CreateModelInvocationJobRequest {
    * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The number of hours after which to force the batch inference job to time out.</p>
    * @public
    */
-  timeoutDurationInHours?: number;
+  timeoutDurationInHours?: number | undefined;
 
   /**
    * <p>Any tags to associate with the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging Amazon Bedrock resources</a>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -4082,7 +4082,7 @@ export interface GetModelInvocationJobResponse {
    * <p>The name of the batch inference job.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The unique identifier of the foundation model used for model inference.</p>
@@ -4095,7 +4095,7 @@ export interface GetModelInvocationJobResponse {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to carry out and manage batch inference. You can use the console to create a default service role or follow the steps at <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-iam-sr.html">Create a service role for batch inference</a>.</p>
@@ -4107,13 +4107,13 @@ export interface GetModelInvocationJobResponse {
    * <p>The status of the batch inference job.</p>
    * @public
    */
-  status?: ModelInvocationJobStatus;
+  status?: ModelInvocationJobStatus | undefined;
 
   /**
    * <p>If the batch inference job failed, this field contains a message describing why the job failed.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The time at which the batch inference job was submitted.</p>
@@ -4125,13 +4125,13 @@ export interface GetModelInvocationJobResponse {
    * <p>The time at which the batch inference job was last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>The time at which the batch inference job ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Details about the location of the input to the batch inference job.</p>
@@ -4149,19 +4149,19 @@ export interface GetModelInvocationJobResponse {
    * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The number of hours after which batch inference job was set to time out.</p>
    * @public
    */
-  timeoutDurationInHours?: number;
+  timeoutDurationInHours?: number | undefined;
 
   /**
    * <p>The time at which the batch inference job times or timed out.</p>
    * @public
    */
-  jobExpirationTime?: Date;
+  jobExpirationTime?: Date | undefined;
 }
 
 /**
@@ -4172,31 +4172,31 @@ export interface ListModelInvocationJobsRequest {
    * <p>Specify a time to filter for batch inference jobs that were submitted after the time you specify.</p>
    * @public
    */
-  submitTimeAfter?: Date;
+  submitTimeAfter?: Date | undefined;
 
   /**
    * <p>Specify a time to filter for batch inference jobs that were submitted before the time you specify.</p>
    * @public
    */
-  submitTimeBefore?: Date;
+  submitTimeBefore?: Date | undefined;
 
   /**
    * <p>Specify a status to filter for batch inference jobs whose statuses match the string you specify.</p>
    * @public
    */
-  statusEquals?: ModelInvocationJobStatus;
+  statusEquals?: ModelInvocationJobStatus | undefined;
 
   /**
    * <p>Specify a string to filter for batch inference jobs whose names contain the string.</p>
    * @public
    */
-  nameContains?: string;
+  nameContains?: string | undefined;
 
   /**
    * <p>The maximum number of results to return. If there are more results than the number that you specify, a <code>nextToken</code> value is returned. Use the <code>nextToken</code> in a request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If there were more results than the value you specified
@@ -4206,19 +4206,19 @@ export interface ListModelInvocationJobsRequest {
    *             request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An attribute by which to sort the results.</p>
    * @public
    */
-  sortBy?: SortJobsBy;
+  sortBy?: SortJobsBy | undefined;
 
   /**
    * <p>Specifies whether to sort the results by ascending or descending order.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -4249,7 +4249,7 @@ export interface ModelInvocationJobSummary {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to carry out and manage batch inference. You can use the console to create a default service role or follow the steps at <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-iam-sr.html">Create a service role for batch inference</a>.</p>
@@ -4261,13 +4261,13 @@ export interface ModelInvocationJobSummary {
    * <p>The status of the batch inference job.</p>
    * @public
    */
-  status?: ModelInvocationJobStatus;
+  status?: ModelInvocationJobStatus | undefined;
 
   /**
    * <p>If the batch inference job failed, this field contains a message describing why the job failed.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The time at which the batch inference job was submitted.</p>
@@ -4279,13 +4279,13 @@ export interface ModelInvocationJobSummary {
    * <p>The time at which the batch inference job was last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>The time at which the batch inference job ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Details about the location of the input to the batch inference job.</p>
@@ -4303,19 +4303,19 @@ export interface ModelInvocationJobSummary {
    * <p>The configuration of the Virtual Private Cloud (VPC) for the data in the batch inference job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-vpc">Protect batch inference jobs using a VPC</a>.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The number of hours after which the batch inference job was set to time out.</p>
    * @public
    */
-  timeoutDurationInHours?: number;
+  timeoutDurationInHours?: number | undefined;
 
   /**
    * <p>The time at which the batch inference job times or timed out.</p>
    * @public
    */
-  jobExpirationTime?: Date;
+  jobExpirationTime?: Date | undefined;
 }
 
 /**
@@ -4326,13 +4326,13 @@ export interface ListModelInvocationJobsResponse {
    * <p>If there are more results than can fit in the response, a <code>nextToken</code> is returned. Use the <code>nextToken</code> in a request to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of items, each of which contains a summary about a batch inference job.</p>
    * @public
    */
-  invocationJobSummaries?: ModelInvocationJobSummary[];
+  invocationJobSummaries?: ModelInvocationJobSummary[] | undefined;
 }
 
 /**
@@ -4425,7 +4425,7 @@ export interface TrainingMetrics {
    * <p>Loss metric associated with the custom job.</p>
    * @public
    */
-  trainingLoss?: number;
+  trainingLoss?: number | undefined;
 }
 
 /**
@@ -4461,7 +4461,7 @@ export interface ValidatorMetric {
    * <p>The validation loss associated with this validator.</p>
    * @public
    */
-  validationLoss?: number;
+  validationLoss?: number | undefined;
 }
 
 /**
@@ -4484,7 +4484,7 @@ export interface GetCustomModelResponse {
    * <p>Job name associated with this model.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>Job Amazon Resource Name (ARN) associated with this model.</p>
@@ -4502,19 +4502,19 @@ export interface GetCustomModelResponse {
    * <p>The type of model customization.</p>
    * @public
    */
-  customizationType?: CustomizationType;
+  customizationType?: CustomizationType | undefined;
 
   /**
    * <p>The custom model is encrypted at rest using this key.</p>
    * @public
    */
-  modelKmsKeyArn?: string;
+  modelKmsKeyArn?: string | undefined;
 
   /**
    * <p>Hyperparameter values associated with this model. For details on the format for different models, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html">Custom model hyperparameters</a>.</p>
    * @public
    */
-  hyperParameters?: Record<string, string>;
+  hyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Contains information about the training dataset.</p>
@@ -4526,7 +4526,7 @@ export interface GetCustomModelResponse {
    * <p>Contains information about the validation dataset.</p>
    * @public
    */
-  validationDataConfig?: ValidationDataConfig;
+  validationDataConfig?: ValidationDataConfig | undefined;
 
   /**
    * <p>Output data configuration associated with this custom model.</p>
@@ -4538,13 +4538,13 @@ export interface GetCustomModelResponse {
    * <p>Contains training metrics from the job creation.</p>
    * @public
    */
-  trainingMetrics?: TrainingMetrics;
+  trainingMetrics?: TrainingMetrics | undefined;
 
   /**
    * <p>The validation metrics from the job creation.</p>
    * @public
    */
-  validationMetrics?: ValidatorMetric[];
+  validationMetrics?: ValidatorMetric[] | undefined;
 
   /**
    * <p>Creation time of the model.</p>
@@ -4655,49 +4655,49 @@ export interface FoundationModelDetails {
    * <p>The model name.</p>
    * @public
    */
-  modelName?: string;
+  modelName?: string | undefined;
 
   /**
    * <p>The model's provider name.</p>
    * @public
    */
-  providerName?: string;
+  providerName?: string | undefined;
 
   /**
    * <p>The input modalities that the model supports.</p>
    * @public
    */
-  inputModalities?: ModelModality[];
+  inputModalities?: ModelModality[] | undefined;
 
   /**
    * <p>The output modalities that the model supports.</p>
    * @public
    */
-  outputModalities?: ModelModality[];
+  outputModalities?: ModelModality[] | undefined;
 
   /**
    * <p>Indicates whether the model supports streaming.</p>
    * @public
    */
-  responseStreamingSupported?: boolean;
+  responseStreamingSupported?: boolean | undefined;
 
   /**
    * <p>The customization that the model supports.</p>
    * @public
    */
-  customizationsSupported?: ModelCustomization[];
+  customizationsSupported?: ModelCustomization[] | undefined;
 
   /**
    * <p>The inference types that the model supports.</p>
    * @public
    */
-  inferenceTypesSupported?: InferenceType[];
+  inferenceTypesSupported?: InferenceType[] | undefined;
 
   /**
    * <p>Contains details about whether a model version is available or deprecated</p>
    * @public
    */
-  modelLifecycle?: FoundationModelLifecycle;
+  modelLifecycle?: FoundationModelLifecycle | undefined;
 }
 
 /**
@@ -4708,7 +4708,7 @@ export interface GetFoundationModelResponse {
    * <p>Information about the foundation model.</p>
    * @public
    */
-  modelDetails?: FoundationModelDetails;
+  modelDetails?: FoundationModelDetails | undefined;
 }
 
 /**
@@ -4719,61 +4719,61 @@ export interface ListCustomModelsRequest {
    * <p>Return custom models created before the specified time. </p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>Return custom models created after the specified time. </p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>Return custom models only if the job name contains these characters.</p>
    * @public
    */
-  nameContains?: string;
+  nameContains?: string | undefined;
 
   /**
    * <p>Return custom models only if the base model Amazon Resource Name (ARN) matches this parameter.</p>
    * @public
    */
-  baseModelArnEquals?: string;
+  baseModelArnEquals?: string | undefined;
 
   /**
    * <p>Return custom models only if the foundation model Amazon Resource Name (ARN) matches this parameter.</p>
    * @public
    */
-  foundationModelArnEquals?: string;
+  foundationModelArnEquals?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The field to sort by in the returned list of models.</p>
    * @public
    */
-  sortBy?: SortModelsBy;
+  sortBy?: SortModelsBy | undefined;
 
   /**
    * <p>The sort order of the results.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p>Return custom models depending on if the current account owns them (<code>true</code>) or if they were shared with the current account (<code>false</code>).</p>
    * @public
    */
-  isOwned?: boolean;
+  isOwned?: boolean | undefined;
 }
 
 /**
@@ -4815,13 +4815,13 @@ export interface CustomModelSummary {
    * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
    * @public
    */
-  customizationType?: CustomizationType;
+  customizationType?: CustomizationType | undefined;
 
   /**
    * <p>The unique identifier of the account that owns the model.</p>
    * @public
    */
-  ownerAccountId?: string;
+  ownerAccountId?: string | undefined;
 }
 
 /**
@@ -4832,13 +4832,13 @@ export interface ListCustomModelsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Model summaries.</p>
    * @public
    */
-  modelSummaries?: CustomModelSummary[];
+  modelSummaries?: CustomModelSummary[] | undefined;
 }
 
 /**
@@ -4849,25 +4849,25 @@ export interface ListFoundationModelsRequest {
    * <p>Return models belonging to the model provider that you specify.</p>
    * @public
    */
-  byProvider?: string;
+  byProvider?: string | undefined;
 
   /**
    * <p>Return models that support the customization type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
-  byCustomizationType?: ModelCustomization;
+  byCustomizationType?: ModelCustomization | undefined;
 
   /**
    * <p>Return models that support the output modality that you specify.</p>
    * @public
    */
-  byOutputModality?: ModelModality;
+  byOutputModality?: ModelModality | undefined;
 
   /**
    * <p>Return models that support the inference type that you specify. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
    * @public
    */
-  byInferenceType?: InferenceType;
+  byInferenceType?: InferenceType | undefined;
 }
 
 /**
@@ -4891,49 +4891,49 @@ export interface FoundationModelSummary {
    * <p>The name of the model.</p>
    * @public
    */
-  modelName?: string;
+  modelName?: string | undefined;
 
   /**
    * <p>The model's provider name.</p>
    * @public
    */
-  providerName?: string;
+  providerName?: string | undefined;
 
   /**
    * <p>The input modalities that the model supports.</p>
    * @public
    */
-  inputModalities?: ModelModality[];
+  inputModalities?: ModelModality[] | undefined;
 
   /**
    * <p>The output modalities that the model supports.</p>
    * @public
    */
-  outputModalities?: ModelModality[];
+  outputModalities?: ModelModality[] | undefined;
 
   /**
    * <p>Indicates whether the model supports streaming.</p>
    * @public
    */
-  responseStreamingSupported?: boolean;
+  responseStreamingSupported?: boolean | undefined;
 
   /**
    * <p>Whether the model supports fine-tuning or continual pre-training.</p>
    * @public
    */
-  customizationsSupported?: ModelCustomization[];
+  customizationsSupported?: ModelCustomization[] | undefined;
 
   /**
    * <p>The inference types that the model supports.</p>
    * @public
    */
-  inferenceTypesSupported?: InferenceType[];
+  inferenceTypesSupported?: InferenceType[] | undefined;
 
   /**
    * <p>Contains details about whether a model version is available or deprecated.</p>
    * @public
    */
-  modelLifecycle?: FoundationModelLifecycle;
+  modelLifecycle?: FoundationModelLifecycle | undefined;
 }
 
 /**
@@ -4944,7 +4944,7 @@ export interface ListFoundationModelsResponse {
    * <p>A list of Amazon Bedrock foundation models.</p>
    * @public
    */
-  modelSummaries?: FoundationModelSummary[];
+  modelSummaries?: FoundationModelSummary[] | undefined;
 }
 
 /**
@@ -4970,7 +4970,7 @@ export interface CreateProvisionedModelThroughputRequest {
    *          Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a> in the Amazon S3 User Guide.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>Number of model units to allocate. A model unit delivers a specific throughput level for the specified model. The throughput level of a model unit specifies the total number of input and output tokens that it can process and generate within a span of one minute. By default, your account has no model units for purchasing Provisioned Throughputs with commitment. You must first visit the <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase">Amazon Web Services support center</a> to request MUs.</p>
@@ -4998,13 +4998,13 @@ export interface CreateProvisionedModelThroughputRequest {
    *          </p>
    * @public
    */
-  commitmentDuration?: CommitmentDuration;
+  commitmentDuration?: CommitmentDuration | undefined;
 
   /**
    * <p>Tags to associate with this Provisioned Throughput.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5129,19 +5129,19 @@ export interface GetProvisionedModelThroughputResponse {
    * <p>A failure message for any issues that occurred during creation, updating, or deletion of the Provisioned Throughput.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>Commitment duration of the Provisioned Throughput.</p>
    * @public
    */
-  commitmentDuration?: CommitmentDuration;
+  commitmentDuration?: CommitmentDuration | undefined;
 
   /**
    * <p>The timestamp for when the commitment term for the Provisioned Throughput expires.</p>
    * @public
    */
-  commitmentExpirationTime?: Date;
+  commitmentExpirationTime?: Date | undefined;
 }
 
 /**
@@ -5165,57 +5165,57 @@ export interface ListProvisionedModelThroughputsRequest {
    * <p>A filter that returns Provisioned Throughputs created after the specified time. </p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns Provisioned Throughputs created before the specified time. </p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns Provisioned Throughputs if their statuses matches the value that you specify.</p>
    * @public
    */
-  statusEquals?: ProvisionedModelStatus;
+  statusEquals?: ProvisionedModelStatus | undefined;
 
   /**
    * <p>A filter that returns Provisioned Throughputs whose model Amazon Resource Name (ARN) is equal to the value that you specify.</p>
    * @public
    */
-  modelArnEquals?: string;
+  modelArnEquals?: string | undefined;
 
   /**
    * <p>A filter that returns Provisioned Throughputs if their name contains the expression that you specify.</p>
    * @public
    */
-  nameContains?: string;
+  nameContains?: string | undefined;
 
   /**
    * <p>THe maximum number of results to return in the response. If there are more results than the number you specified, the response returns a <code>nextToken</code>
    *          value. To see the next batch of results, send the <code>nextToken</code> value in another list request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If there are more results than the number you specified in the <code>maxResults</code> field, the response returns a <code>nextToken</code>
    *          value. To see the next batch of results, specify the <code>nextToken</code> value in this field.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The field by which to sort the returned list of Provisioned Throughputs.</p>
    * @public
    */
-  sortBy?: SortByProvisionedModels;
+  sortBy?: SortByProvisionedModels | undefined;
 
   /**
    * <p>The sort order of the results.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -5283,13 +5283,13 @@ export interface ProvisionedModelSummary {
    * <p>The duration for which the Provisioned Throughput was committed.</p>
    * @public
    */
-  commitmentDuration?: CommitmentDuration;
+  commitmentDuration?: CommitmentDuration | undefined;
 
   /**
    * <p>The timestamp for when the commitment term of the Provisioned Throughput expires.</p>
    * @public
    */
-  commitmentExpirationTime?: Date;
+  commitmentExpirationTime?: Date | undefined;
 
   /**
    * <p>The time that the Provisioned Throughput was created. </p>
@@ -5312,13 +5312,13 @@ export interface ListProvisionedModelThroughputsResponse {
    * <p>If there are more results than the number you specified in the <code>maxResults</code> field, this value is returned. To see the next batch of results, include this value in the <code>nextToken</code> field in another list request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of summaries, one for each Provisioned Throughput in the response.</p>
    * @public
    */
-  provisionedModelSummaries?: ProvisionedModelSummary[];
+  provisionedModelSummaries?: ProvisionedModelSummary[] | undefined;
 }
 
 /**
@@ -5335,7 +5335,7 @@ export interface UpdateProvisionedModelThroughputRequest {
    * <p>The new name for this Provisioned Throughput.</p>
    * @public
    */
-  desiredProvisionedModelName?: string;
+  desiredProvisionedModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the new model to associate with this Provisioned Throughput. You can't specify this field if this Provisioned Throughput is associated with a base model.</p>
@@ -5350,7 +5350,7 @@ export interface UpdateProvisionedModelThroughputRequest {
    *          </ul>
    * @public
    */
-  desiredModelId?: string;
+  desiredModelId?: string | undefined;
 }
 
 /**
@@ -5377,7 +5377,7 @@ export interface ListTagsForResourceResponse {
    * <p>An array of the tags associated with this resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -5454,7 +5454,7 @@ export interface CreateModelCustomizationJobRequest {
    *          Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>Name of the base model.</p>
@@ -5466,25 +5466,25 @@ export interface CreateModelCustomizationJobRequest {
    * <p>The customization type.</p>
    * @public
    */
-  customizationType?: CustomizationType;
+  customizationType?: CustomizationType | undefined;
 
   /**
    * <p>The custom model is encrypted at rest using this key.</p>
    * @public
    */
-  customModelKmsKeyId?: string;
+  customModelKmsKeyId?: string | undefined;
 
   /**
    * <p>Tags to attach to the job.</p>
    * @public
    */
-  jobTags?: Tag[];
+  jobTags?: Tag[] | undefined;
 
   /**
    * <p>Tags to attach to the resulting custom model.</p>
    * @public
    */
-  customModelTags?: Tag[];
+  customModelTags?: Tag[] | undefined;
 
   /**
    * <p>Information about the training dataset.</p>
@@ -5496,7 +5496,7 @@ export interface CreateModelCustomizationJobRequest {
    * <p>Information about the validation dataset. </p>
    * @public
    */
-  validationDataConfig?: ValidationDataConfig;
+  validationDataConfig?: ValidationDataConfig | undefined;
 
   /**
    * <p>S3 location for the output data.</p>
@@ -5514,7 +5514,7 @@ export interface CreateModelCustomizationJobRequest {
    * <p>The configuration of the Virtual Private Cloud (VPC) that contains the resources that you're using for this job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/vpc-model-customization.html">Protect your model customization jobs using a VPC</a>.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -5583,13 +5583,13 @@ export interface GetModelCustomizationJobResponse {
    * <p>The Amazon Resource Name (ARN) of the output model.</p>
    * @public
    */
-  outputModelArn?: string;
+  outputModelArn?: string | undefined;
 
   /**
    * <p>The token that you specified in the <code>CreateCustomizationJob</code> request.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role.</p>
@@ -5602,13 +5602,13 @@ export interface GetModelCustomizationJobResponse {
    *       If the job failed, the failure message contains information about why the job failed.</p>
    * @public
    */
-  status?: ModelCustomizationJobStatus;
+  status?: ModelCustomizationJobStatus | undefined;
 
   /**
    * <p>Information about why the job failed.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>Time that the resource was created.</p>
@@ -5620,13 +5620,13 @@ export interface GetModelCustomizationJobResponse {
    * <p>Time that the resource was last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>Time that the resource transitioned to terminal state.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the base model.</p>
@@ -5662,31 +5662,31 @@ export interface GetModelCustomizationJobResponse {
    * <p>The type of model customization.</p>
    * @public
    */
-  customizationType?: CustomizationType;
+  customizationType?: CustomizationType | undefined;
 
   /**
    * <p>The custom model is encrypted at rest using this key.</p>
    * @public
    */
-  outputModelKmsKeyArn?: string;
+  outputModelKmsKeyArn?: string | undefined;
 
   /**
    * <p>Contains training metrics from the job creation.</p>
    * @public
    */
-  trainingMetrics?: TrainingMetrics;
+  trainingMetrics?: TrainingMetrics | undefined;
 
   /**
    * <p>The loss metric for each validator that you provided in the createjob request.</p>
    * @public
    */
-  validationMetrics?: ValidatorMetric[];
+  validationMetrics?: ValidatorMetric[] | undefined;
 
   /**
    * <p>VPC configuration for the custom model job.</p>
    * @public
    */
-  vpcConfig?: VpcConfig;
+  vpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -5714,49 +5714,49 @@ export interface ListModelCustomizationJobsRequest {
    * <p>Return customization jobs created after the specified time. </p>
    * @public
    */
-  creationTimeAfter?: Date;
+  creationTimeAfter?: Date | undefined;
 
   /**
    * <p>Return customization jobs created before the specified time. </p>
    * @public
    */
-  creationTimeBefore?: Date;
+  creationTimeBefore?: Date | undefined;
 
   /**
    * <p>Return customization jobs with the specified status. </p>
    * @public
    */
-  statusEquals?: FineTuningJobStatus;
+  statusEquals?: FineTuningJobStatus | undefined;
 
   /**
    * <p>Return customization jobs only if the job name contains these characters.</p>
    * @public
    */
-  nameContains?: string;
+  nameContains?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The field to sort by in the returned list of jobs.</p>
    * @public
    */
-  sortBy?: SortJobsBy;
+  sortBy?: SortJobsBy | undefined;
 
   /**
    * <p>The sort order of the results.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -5792,7 +5792,7 @@ export interface ModelCustomizationJobSummary {
    * <p>Time that the customization job was last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>Creation time of the custom model. </p>
@@ -5804,25 +5804,25 @@ export interface ModelCustomizationJobSummary {
    * <p>Time that the customization job ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) of the custom model.</p>
    * @public
    */
-  customModelArn?: string;
+  customModelArn?: string | undefined;
 
   /**
    * <p>Name of the custom model.</p>
    * @public
    */
-  customModelName?: string;
+  customModelName?: string | undefined;
 
   /**
    * <p>Specifies whether to carry out continued pre-training of a model or whether to fine-tune it. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a>.</p>
    * @public
    */
-  customizationType?: CustomizationType;
+  customizationType?: CustomizationType | undefined;
 }
 
 /**
@@ -5833,13 +5833,13 @@ export interface ListModelCustomizationJobsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Job summaries.</p>
    * @public
    */
-  modelCustomizationJobSummaries?: ModelCustomizationJobSummary[];
+  modelCustomizationJobSummaries?: ModelCustomizationJobSummary[] | undefined;
 }
 
 /**

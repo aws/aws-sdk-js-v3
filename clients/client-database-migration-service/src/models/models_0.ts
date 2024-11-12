@@ -34,19 +34,19 @@ export interface AccountQuota {
    * <p>The name of the DMS quota for this Amazon Web Services account.</p>
    * @public
    */
-  AccountQuotaName?: string;
+  AccountQuotaName?: string | undefined;
 
   /**
    * <p>The amount currently used toward the quota maximum.</p>
    * @public
    */
-  Used?: number;
+  Used?: number | undefined;
 
   /**
    * <p>The maximum allowed value for the quota.</p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -79,7 +79,7 @@ export interface Tag {
    *          regular expressions: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>A value is the optional value of the tag. The string value can be 1-256 Unicode
@@ -88,13 +88,13 @@ export interface Tag {
    *          (Java regular expressions: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the resource for which the tag is created.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface PendingMaintenanceAction {
    * <p>The type of pending maintenance action that is available for the resource.</p>
    * @public
    */
-  Action?: string;
+  Action?: string | undefined;
 
   /**
    * <p>The date of the maintenance window when the action is to be applied. The maintenance
@@ -227,7 +227,7 @@ export interface PendingMaintenanceAction {
    *          ignored.</p>
    * @public
    */
-  AutoAppliedAfterDate?: Date;
+  AutoAppliedAfterDate?: Date | undefined;
 
   /**
    * <p>The date when the maintenance action will be automatically applied. The maintenance
@@ -236,13 +236,13 @@ export interface PendingMaintenanceAction {
    *          ignored.</p>
    * @public
    */
-  ForcedApplyDate?: Date;
+  ForcedApplyDate?: Date | undefined;
 
   /**
    * <p>The type of opt-in request that has been received for the resource.</p>
    * @public
    */
-  OptInStatus?: string;
+  OptInStatus?: string | undefined;
 
   /**
    * <p>The effective date when the pending maintenance action will be applied to the resource.
@@ -253,13 +253,13 @@ export interface PendingMaintenanceAction {
    *          specified for <code>AutoAppliedAfterDate</code> or <code>ForcedApplyDate</code>.</p>
    * @public
    */
-  CurrentApplyDate?: Date;
+  CurrentApplyDate?: Date | undefined;
 
   /**
    * <p>A description providing more detail about the maintenance action.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -273,13 +273,13 @@ export interface ResourcePendingMaintenanceActions {
    *             Resource Name (ARN) for DMS</a> in the DMS documentation.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>Detailed information about the pending maintenance action.</p>
    * @public
    */
-  PendingMaintenanceActionDetails?: PendingMaintenanceAction[];
+  PendingMaintenanceActionDetails?: PendingMaintenanceAction[] | undefined;
 }
 
 /**
@@ -291,7 +291,7 @@ export interface ApplyPendingMaintenanceActionResponse {
    * <p>The DMS resource that the pending maintenance action will be applied to.</p>
    * @public
    */
-  ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions;
+  ResourcePendingMaintenanceActions?: ResourcePendingMaintenanceActions | undefined;
 }
 
 /**
@@ -345,7 +345,7 @@ export interface BatchStartRecommendationsRequest {
    *             Advisor recommends target engines for each source database.</p>
    * @public
    */
-  Data?: StartRecommendationsRequestEntry[];
+  Data?: StartRecommendationsRequestEntry[] | undefined;
 }
 
 /**
@@ -358,19 +358,19 @@ export interface BatchStartRecommendationsErrorEntry {
    * <p>The identifier of the source database.</p>
    * @public
    */
-  DatabaseId?: string;
+  DatabaseId?: string | undefined;
 
   /**
    * <p>The information about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The code of an error that occurred during the analysis of the source database.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 }
 
 /**
@@ -381,7 +381,7 @@ export interface BatchStartRecommendationsResponse {
    * <p>A list with error details about the analysis of each source database.</p>
    * @public
    */
-  ErrorEntries?: BatchStartRecommendationsErrorEntry[];
+  ErrorEntries?: BatchStartRecommendationsErrorEntry[] | undefined;
 }
 
 /**
@@ -406,13 +406,13 @@ export interface ReplicationTaskAssessmentRunProgress {
    * <p>The number of individual assessments that are specified to run.</p>
    * @public
    */
-  IndividualAssessmentCount?: number;
+  IndividualAssessmentCount?: number | undefined;
 
   /**
    * <p>The number of individual assessments that have completed, successfully or not.</p>
    * @public
    */
-  IndividualAssessmentCompletedCount?: number;
+  IndividualAssessmentCompletedCount?: number | undefined;
 }
 
 /**
@@ -424,25 +424,25 @@ export interface ReplicationTaskAssessmentRunResultStatistic {
    * <p>The number of individual assessments that successfully passed all checks in the assessment run.</p>
    * @public
    */
-  Passed?: number;
+  Passed?: number | undefined;
 
   /**
    * <p>The number of individual assessments that failed to meet the criteria defined in the assessment run.</p>
    * @public
    */
-  Failed?: number;
+  Failed?: number | undefined;
 
   /**
    * <p>The number of individual assessments that encountered a critical error and could not complete properly.</p>
    * @public
    */
-  Error?: number;
+  Error?: number | undefined;
 
   /**
    * <p>Indicates that the recent completed AssessmentRun triggered a warning.</p>
    * @public
    */
-  Warning?: number;
+  Warning?: number | undefined;
 
   /**
    * <p>
@@ -450,7 +450,7 @@ export interface ReplicationTaskAssessmentRunResultStatistic {
    *       </p>
    * @public
    */
-  Cancelled?: number;
+  Cancelled?: number | undefined;
 }
 
 /**
@@ -465,14 +465,14 @@ export interface ReplicationTaskAssessmentRun {
    * <p>Amazon Resource Name (ARN) of this assessment run.</p>
    * @public
    */
-  ReplicationTaskAssessmentRunArn?: string;
+  ReplicationTaskAssessmentRunArn?: string | undefined;
 
   /**
    * <p>ARN of the migration task associated with this premigration
    *          assessment run.</p>
    * @public
    */
-  ReplicationTaskArn?: string;
+  ReplicationTaskArn?: string | undefined;
 
   /**
    * <p>Assessment run status. </p>
@@ -529,71 +529,71 @@ export interface ReplicationTaskAssessmentRun {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Date on which the assessment run was created using the
    *             <code>StartReplicationTaskAssessmentRun</code> operation.</p>
    * @public
    */
-  ReplicationTaskAssessmentRunCreationDate?: Date;
+  ReplicationTaskAssessmentRunCreationDate?: Date | undefined;
 
   /**
    * <p>Indication of the completion progress for the individual assessments specified to
    *          run.</p>
    * @public
    */
-  AssessmentProgress?: ReplicationTaskAssessmentRunProgress;
+  AssessmentProgress?: ReplicationTaskAssessmentRunProgress | undefined;
 
   /**
    * <p>Last message generated by an individual assessment failure.</p>
    * @public
    */
-  LastFailureMessage?: string;
+  LastFailureMessage?: string | undefined;
 
   /**
    * <p>ARN of the service role used to start the assessment run using the
    *          <code>StartReplicationTaskAssessmentRun</code> operation. The role must allow the <code>iam:PassRole</code> action.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>Amazon S3 bucket where DMS stores the results of this assessment run.</p>
    * @public
    */
-  ResultLocationBucket?: string;
+  ResultLocationBucket?: string | undefined;
 
   /**
    * <p>Folder in an Amazon S3 bucket where DMS stores the results of this assessment
    *          run.</p>
    * @public
    */
-  ResultLocationFolder?: string;
+  ResultLocationFolder?: string | undefined;
 
   /**
    * <p>Encryption mode used to encrypt the assessment run results.</p>
    * @public
    */
-  ResultEncryptionMode?: string;
+  ResultEncryptionMode?: string | undefined;
 
   /**
    * <p>ARN of the KMS encryption key used to encrypt the assessment run results.</p>
    * @public
    */
-  ResultKmsKeyArn?: string;
+  ResultKmsKeyArn?: string | undefined;
 
   /**
    * <p>Unique name of the assessment run.</p>
    * @public
    */
-  AssessmentRunName?: string;
+  AssessmentRunName?: string | undefined;
 
   /**
    * <p>Indicates that the following PreflightAssessmentRun is the latest for the ReplicationTask. The status is either true or false.</p>
    * @public
    */
-  IsLatestTaskAssessmentRun?: boolean;
+  IsLatestTaskAssessmentRun?: boolean | undefined;
 
   /**
    * <p>
@@ -601,7 +601,7 @@ export interface ReplicationTaskAssessmentRun {
    *       </p>
    * @public
    */
-  ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic;
+  ResultStatistic?: ReplicationTaskAssessmentRunResultStatistic | undefined;
 }
 
 /**
@@ -614,7 +614,7 @@ export interface CancelReplicationTaskAssessmentRunResponse {
    *          run.</p>
    * @public
    */
-  ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun;
+  ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun | undefined;
 }
 
 /**
@@ -641,26 +641,26 @@ export interface SourceDataSetting {
    * <p>The change data capture (CDC) start position for the source data provider.</p>
    * @public
    */
-  CDCStartPosition?: string;
+  CDCStartPosition?: string | undefined;
 
   /**
    * <p>The change data capture (CDC) start time for the source data provider.</p>
    * @public
    */
-  CDCStartTime?: Date;
+  CDCStartTime?: Date | undefined;
 
   /**
    * <p>The change data capture (CDC) stop time for the source data provider.</p>
    * @public
    */
-  CDCStopTime?: Date;
+  CDCStopTime?: Date | undefined;
 
   /**
    * <p>The name of the replication slot on the source data provider. This attribute is only
    *       valid for a PostgreSQL or Aurora PostgreSQL source.</p>
    * @public
    */
-  SlotName?: string;
+  SlotName?: string | undefined;
 }
 
 /**
@@ -684,7 +684,7 @@ export interface CreateDataMigrationMessage {
    *          </ul>
    * @public
    */
-  DataMigrationName?: string;
+  DataMigrationName?: string | undefined;
 
   /**
    * <p>An identifier for the migration project.</p>
@@ -709,32 +709,32 @@ export interface CreateDataMigrationMessage {
    * <p>Specifies whether to enable CloudWatch logs for the data migration.</p>
    * @public
    */
-  EnableCloudwatchLogs?: boolean;
+  EnableCloudwatchLogs?: boolean | undefined;
 
   /**
    * <p>Specifies information about the source data provider.</p>
    * @public
    */
-  SourceDataSettings?: SourceDataSetting[];
+  SourceDataSettings?: SourceDataSetting[] | undefined;
 
   /**
    * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
    * @public
    */
-  NumberOfJobs?: number;
+  NumberOfJobs?: number | undefined;
 
   /**
    * <p>One or more tags to be assigned to the data migration.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>An optional JSON string specifying what tables, views, and schemas
    *       to include or exclude from the migration.</p>
    * @public
    */
-  SelectionRules?: string;
+  SelectionRules?: string | undefined;
 }
 
 /**
@@ -747,19 +747,19 @@ export interface DataMigrationSettings {
    * <p>The number of parallel jobs that trigger parallel threads to unload the tables from the source, and then load them to the target.</p>
    * @public
    */
-  NumberOfJobs?: number;
+  NumberOfJobs?: number | undefined;
 
   /**
    * <p>Whether to enable CloudWatch logging for the data migration.</p>
    * @public
    */
-  CloudwatchLogsEnabled?: boolean;
+  CloudwatchLogsEnabled?: boolean | undefined;
 
   /**
    * <p>A JSON-formatted string that defines what objects to include and exclude from the migration.</p>
    * @public
    */
-  SelectionRules?: string;
+  SelectionRules?: string | undefined;
 }
 
 /**
@@ -771,55 +771,55 @@ export interface DataMigrationStatistics {
    * <p>The number of tables loaded in the current data migration run.</p>
    * @public
    */
-  TablesLoaded?: number;
+  TablesLoaded?: number | undefined;
 
   /**
    * <p>The elapsed duration of the data migration run.</p>
    * @public
    */
-  ElapsedTimeMillis?: number;
+  ElapsedTimeMillis?: number | undefined;
 
   /**
    * <p>The data migration's table loading progress.</p>
    * @public
    */
-  TablesLoading?: number;
+  TablesLoading?: number | undefined;
 
   /**
    * <p>The data migration's progress in the full-load migration phase.</p>
    * @public
    */
-  FullLoadPercentage?: number;
+  FullLoadPercentage?: number | undefined;
 
   /**
    * <p>The current latency of the change data capture (CDC) operation.</p>
    * @public
    */
-  CDCLatency?: number;
+  CDCLatency?: number | undefined;
 
   /**
    * <p>The number of tables that are waiting for processing.</p>
    * @public
    */
-  TablesQueued?: number;
+  TablesQueued?: number | undefined;
 
   /**
    * <p>The number of tables that DMS failed to process.</p>
    * @public
    */
-  TablesErrored?: number;
+  TablesErrored?: number | undefined;
 
   /**
    * <p>The time when the migration started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time when the migration stopped or failed.</p>
    * @public
    */
-  StopTime?: Date;
+  StopTime?: Date | undefined;
 }
 
 /**
@@ -831,97 +831,97 @@ export interface DataMigration {
    * <p>The user-friendly name for the data migration.</p>
    * @public
    */
-  DataMigrationName?: string;
+  DataMigrationName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies this replication.</p>
    * @public
    */
-  DataMigrationArn?: string;
+  DataMigrationArn?: string | undefined;
 
   /**
    * <p>The UTC time when DMS created the data migration.</p>
    * @public
    */
-  DataMigrationCreateTime?: Date;
+  DataMigrationCreateTime?: Date | undefined;
 
   /**
    * <p>The UTC time when DMS started the data migration.</p>
    * @public
    */
-  DataMigrationStartTime?: Date;
+  DataMigrationStartTime?: Date | undefined;
 
   /**
    * <p>The UTC time when data migration ended.</p>
    * @public
    */
-  DataMigrationEndTime?: Date;
+  DataMigrationEndTime?: Date | undefined;
 
   /**
    * <p>The IAM role that the data migration uses to access Amazon Web Services resources.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the data migration's associated migration project.</p>
    * @public
    */
-  MigrationProjectArn?: string;
+  MigrationProjectArn?: string | undefined;
 
   /**
    * <p>Specifies whether the data migration is full-load only, change data capture (CDC) only, or full-load and CDC.</p>
    * @public
    */
-  DataMigrationType?: MigrationTypeValue;
+  DataMigrationType?: MigrationTypeValue | undefined;
 
   /**
    * <p>Specifies CloudWatch settings and selection rules for the data migration.</p>
    * @public
    */
-  DataMigrationSettings?: DataMigrationSettings;
+  DataMigrationSettings?: DataMigrationSettings | undefined;
 
   /**
    * <p>Specifies information about the data migration's source data provider.</p>
    * @public
    */
-  SourceDataSettings?: SourceDataSetting[];
+  SourceDataSettings?: SourceDataSetting[] | undefined;
 
   /**
    * <p>Provides information about the data migration's run, including start and stop time, latency, and data migration progress.</p>
    * @public
    */
-  DataMigrationStatistics?: DataMigrationStatistics;
+  DataMigrationStatistics?: DataMigrationStatistics | undefined;
 
   /**
    * <p>The current status of the data migration. </p>
    * @public
    */
-  DataMigrationStatus?: string;
+  DataMigrationStatus?: string | undefined;
 
   /**
    * <p>The IP addresses of the endpoints for the data migration.</p>
    * @public
    */
-  PublicIpAddresses?: string[];
+  PublicIpAddresses?: string[] | undefined;
 
   /**
    * <p>The CIDR blocks of the endpoints for the data migration.</p>
    * @public
    */
-  DataMigrationCidrBlocks?: string[];
+  DataMigrationCidrBlocks?: string[] | undefined;
 
   /**
    * <p>Information about the data migration's most recent error or failure.</p>
    * @public
    */
-  LastFailureMessage?: string;
+  LastFailureMessage?: string | undefined;
 
   /**
    * <p>The reason the data migration last stopped.</p>
    * @public
    */
-  StopReason?: string;
+  StopReason?: string | undefined;
 }
 
 /**
@@ -932,7 +932,7 @@ export interface CreateDataMigrationResponse {
    * <p>Information about the created data migration.</p>
    * @public
    */
-  DataMigration?: DataMigration;
+  DataMigration?: DataMigration | undefined;
 }
 
 /**
@@ -986,7 +986,7 @@ export class ResourceAlreadyExistsFault extends __BaseException {
    * <p></p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * @internal
@@ -1047,32 +1047,32 @@ export interface DocDbDataProviderSettings {
    * <p>The name of the source DocumentDB server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the DocumentDB data provider.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The database name on the DocumentDB data provider.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The SSL mode used to connect to the DocumentDB data provider.
    *          The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 }
 
 /**
@@ -1084,26 +1084,26 @@ export interface MariaDbDataProviderSettings {
    * <p>The name of the MariaDB server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the MariaDB data provider</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The SSL mode used to connect to the MariaDB data provider.
    *          The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 }
 
 /**
@@ -1115,32 +1115,32 @@ export interface MicrosoftSqlServerDataProviderSettings {
    * <p>The name of the Microsoft SQL Server server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the Microsoft SQL Server data provider.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The database name on the Microsoft SQL Server data provider.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The SSL mode used to connect to the Microsoft SQL Server data provider.
    *          The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 }
 
 /**
@@ -1181,38 +1181,38 @@ export interface MongoDbDataProviderSettings {
    * <p>The name of the MongoDB server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the MongoDB data provider.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The database name on the MongoDB data provider.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The SSL mode used to connect to the MongoDB data provider.
    *          The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The authentication type for the database connection. Valid values are PASSWORD or NO.</p>
    * @public
    */
-  AuthType?: AuthTypeValue;
+  AuthType?: AuthTypeValue | undefined;
 
   /**
    * <p> The MongoDB database name. This setting isn't used when <code>AuthType</code> is
@@ -1220,13 +1220,13 @@ export interface MongoDbDataProviderSettings {
    *          <p>The default is <code>"admin"</code>.</p>
    * @public
    */
-  AuthSource?: string;
+  AuthSource?: string | undefined;
 
   /**
    * <p>The authentication method for connecting to the data provider. Valid values are DEFAULT, MONGODB_CR, or SCRAM_SHA_1.</p>
    * @public
    */
-  AuthMechanism?: AuthMechanismValue;
+  AuthMechanism?: AuthMechanismValue | undefined;
 }
 
 /**
@@ -1238,26 +1238,26 @@ export interface MySqlDataProviderSettings {
    * <p>The name of the MySQL server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the MySQL data provider.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The SSL mode used to connect to the MySQL data provider.
    *          The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 }
 
 /**
@@ -1269,32 +1269,32 @@ export interface OracleDataProviderSettings {
    * <p>The name of the Oracle server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the Oracle data provider.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The database name on the Oracle data provider.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The SSL mode used to connect to the Oracle data provider.
    *          The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The address of your Oracle Automatic Storage Management (ASM) server. You can set
@@ -1303,21 +1303,21 @@ export interface OracleDataProviderSettings {
    *          uses ASM. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration">Configuration for change data capture (CDC) on an Oracle source database</a>.</p>
    * @public
    */
-  AsmServer?: string;
+  AsmServer?: string | undefined;
 
   /**
    * <p>The identifier of the secret in Secrets Manager that contains the Oracle ASM connection details.</p>
    *          <p>Required only if your data provider uses the Oracle ASM server.</p>
    * @public
    */
-  SecretsManagerOracleAsmSecretId?: string;
+  SecretsManagerOracleAsmSecretId?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that provides access to the secret in Secrets Manager
    *          that contains the Oracle ASM connection details.</p>
    * @public
    */
-  SecretsManagerOracleAsmAccessRoleArn?: string;
+  SecretsManagerOracleAsmAccessRoleArn?: string | undefined;
 
   /**
    * <p>The identifier of the secret in Secrets Manager that contains the transparent data encryption (TDE)
@@ -1325,14 +1325,14 @@ export interface OracleDataProviderSettings {
    *          using Binary Reader.</p>
    * @public
    */
-  SecretsManagerSecurityDbEncryptionSecretId?: string;
+  SecretsManagerSecurityDbEncryptionSecretId?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that provides access to the secret in Secrets Manager
    *          that contains the TDE password.</p>
    * @public
    */
-  SecretsManagerSecurityDbEncryptionAccessRoleArn?: string;
+  SecretsManagerSecurityDbEncryptionAccessRoleArn?: string | undefined;
 }
 
 /**
@@ -1344,32 +1344,32 @@ export interface PostgreSqlDataProviderSettings {
    * <p>The name of the PostgreSQL server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the PostgreSQL data provider.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The database name on the PostgreSQL data provider.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The SSL mode used to connect to the PostgreSQL data provider.
    *          The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 }
 
 /**
@@ -1381,19 +1381,19 @@ export interface RedshiftDataProviderSettings {
    * <p>The name of the Amazon Redshift server.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value for the Amazon Redshift data provider.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The database name on the Amazon Redshift data provider.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 }
 
 /**
@@ -1592,13 +1592,13 @@ export interface CreateDataProviderMessage {
    * <p>A user-friendly name for the data provider.</p>
    * @public
    */
-  DataProviderName?: string;
+  DataProviderName?: string | undefined;
 
   /**
    * <p>A user-friendly description of the data provider.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
@@ -1618,7 +1618,7 @@ export interface CreateDataProviderMessage {
    * <p>One or more tags to be assigned to the data provider.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1630,19 +1630,19 @@ export interface DataProvider {
    * <p>The name of the data provider.</p>
    * @public
    */
-  DataProviderName?: string;
+  DataProviderName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the data provider.</p>
    * @public
    */
-  DataProviderArn?: string;
+  DataProviderArn?: string | undefined;
 
   /**
    * <p>The time the data provider was created.</p>
    * @public
    */
-  DataProviderCreationTime?: Date;
+  DataProviderCreationTime?: Date | undefined;
 
   /**
    * <p>A description of the data provider. Descriptions can have up to 31 characters.
@@ -1650,7 +1650,7 @@ export interface DataProvider {
    *          end with a hyphen or contain two consecutive hyphens, and can only begin with a letter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
@@ -1658,13 +1658,13 @@ export interface DataProvider {
    *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The settings in JSON format for a data provider.</p>
    * @public
    */
-  Settings?: DataProviderSettings;
+  Settings?: DataProviderSettings | undefined;
 }
 
 /**
@@ -1675,7 +1675,7 @@ export interface CreateDataProviderResponse {
    * <p>The data provider that was created.</p>
    * @public
    */
-  DataProvider?: DataProvider;
+  DataProvider?: DataProvider | undefined;
 }
 
 /**
@@ -1687,13 +1687,13 @@ export interface DmsTransferSettings {
    * <p>The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p> The name of the S3 bucket to use. </p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 }
 
 /**
@@ -1719,32 +1719,32 @@ export interface DocDbSettings {
    * <p>The user name you use to access the DocumentDB source endpoint. </p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p> The password for the user account you use to access the DocumentDB source endpoint.
    *       </p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p> The name of the server on the DocumentDB source endpoint. </p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p> The port value for the DocumentDB source endpoint. </p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p> The database name on the DocumentDB source endpoint. </p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p> Specifies either document or table mode. </p>
@@ -1752,7 +1752,7 @@ export interface DocDbSettings {
    *          Specify <code>"one"</code> to use table mode.</p>
    * @public
    */
-  NestingLevel?: NestingLevelValue;
+  NestingLevel?: NestingLevelValue | undefined;
 
   /**
    * <p> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set to
@@ -1760,7 +1760,7 @@ export interface DocDbSettings {
    *          <p>Default value is <code>"false"</code>. </p>
    * @public
    */
-  ExtractDocId?: boolean;
+  ExtractDocId?: boolean | undefined;
 
   /**
    * <p> Indicates the number of documents to preview to determine the document organization.
@@ -1769,7 +1769,7 @@ export interface DocDbSettings {
    *          <code>1000</code>.</p>
    * @public
    */
-  DocsToInvestigate?: number;
+  DocsToInvestigate?: number | undefined;
 
   /**
    * <p>The KMS key identifier that is used to encrypt the content on the replication
@@ -1778,7 +1778,7 @@ export interface DocDbSettings {
    *          your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -1798,14 +1798,14 @@ export interface DocDbSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
    *          that contains the DocumentDB endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>If <code>true</code>, DMS retrieves the entire document from the DocumentDB source during migration.
@@ -1813,7 +1813,7 @@ export interface DocDbSettings {
    *          and deletes during migration, set this parameter to <code>false</code>.</p>
    * @public
    */
-  UseUpdateLookUp?: boolean;
+  UseUpdateLookUp?: boolean | undefined;
 
   /**
    * <p>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this setting if
@@ -1829,7 +1829,7 @@ export interface DocDbSettings {
    *          </ul>
    * @public
    */
-  ReplicateShardCollections?: boolean;
+  ReplicateShardCollections?: boolean | undefined;
 }
 
 /**
@@ -1873,21 +1873,21 @@ export interface ElasticsearchSettings {
    *          last 10 minutes, the full load operation stops. </p>
    * @public
    */
-  FullLoadErrorPercentage?: number;
+  FullLoadErrorPercentage?: number | undefined;
 
   /**
    * <p>The maximum number of seconds for which DMS retries failed API requests to the
    *          OpenSearch cluster.</p>
    * @public
    */
-  ErrorRetryDuration?: number;
+  ErrorRetryDuration?: number | undefined;
 
   /**
    * <p>Set this option to <code>true</code> for DMS to migrate documentation using the documentation type <code>_doc</code>.  OpenSearch and
    *       an Elasticsearch cluster only support the _doc documentation type in versions 7. x and later. The default value is <code>false</code>.</p>
    * @public
    */
-  UseNewMappingType?: boolean;
+  UseNewMappingType?: boolean | undefined;
 }
 
 /**
@@ -1930,7 +1930,7 @@ export interface GcpMySQLSettings {
    *          <p>For this parameter, provide the code of the script itself, not the name of a file containing the script. </p>
    * @public
    */
-  AfterConnectScript?: string;
+  AfterConnectScript?: string | undefined;
 
   /**
    * <p>Cleans and recreates table metadata information on the replication instance
@@ -1939,7 +1939,7 @@ export interface GcpMySQLSettings {
    *          replication instance.  </p>
    * @public
    */
-  CleanSourceMetadataOnMismatch?: boolean;
+  CleanSourceMetadataOnMismatch?: boolean | undefined;
 
   /**
    * <p>Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly specify
@@ -1949,7 +1949,7 @@ export interface GcpMySQLSettings {
    *          the database only when you specify the schema in the table-mapping rules of the DMS task. </p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Specifies how often to check the binary log for new changes/events when the database is idle. The default is five seconds.</p>
@@ -1958,7 +1958,7 @@ export interface GcpMySQLSettings {
    *          <p>In the example, DMS checks for changes in the binary logs every five seconds. </p>
    * @public
    */
-  EventsPollInterval?: number;
+  EventsPollInterval?: number | undefined;
 
   /**
    * <p>Specifies where to migrate source tables on the target, either to a single database or multiple databases.</p>
@@ -1966,7 +1966,7 @@ export interface GcpMySQLSettings {
    *          </p>
    * @public
    */
-  TargetDbType?: TargetDbType;
+  TargetDbType?: TargetDbType | undefined;
 
   /**
    * <p>Specifies the maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.</p>
@@ -1974,7 +1974,7 @@ export interface GcpMySQLSettings {
    *          </p>
    * @public
    */
-  MaxFileSize?: number;
+  MaxFileSize?: number | undefined;
 
   /**
    * <p>Improves performance when loading data into the MySQL-compatible target database. Specifies how many
@@ -1985,25 +1985,25 @@ export interface GcpMySQLSettings {
    *          </p>
    * @public
    */
-  ParallelLoadThreads?: number;
+  ParallelLoadThreads?: number | undefined;
 
   /**
    * <p>Endpoint connection password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Endpoint TCP port.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The MySQL host name.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Specifies the time zone for the source MySQL database.</p>
@@ -2012,13 +2012,13 @@ export interface GcpMySQLSettings {
    *          <p>Note: Do not enclose time zones in single quotes.</p>
    * @public
    */
-  ServerTimezone?: string;
+  ServerTimezone?: string | undefined;
 
   /**
    * <p>Endpoint connection user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS
@@ -2039,14 +2039,14 @@ export interface GcpMySQLSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code>
    *          that contains the MySQL endpoint connection details. </p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 }
 
 /**
@@ -2058,32 +2058,32 @@ export interface IBMDb2Settings {
    * <p>Database name for the endpoint.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Endpoint connection password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Endpoint TCP port. The default value is 50000.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Fully qualified domain name of the endpoint.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Enables ongoing replication (CDC) as a BOOLEAN value. The
    *          default is true.</p>
    * @public
    */
-  SetDataCaptureChanges?: boolean;
+  SetDataCaptureChanges?: boolean | undefined;
 
   /**
    * <p>For ongoing replication (CDC), use CurrentLSN to specify a
@@ -2091,20 +2091,20 @@ export interface IBMDb2Settings {
    *          to start.</p>
    * @public
    */
-  CurrentLsn?: string;
+  CurrentLsn?: string | undefined;
 
   /**
    * <p>Maximum number of bytes per read, as a NUMBER value.
    *          The default is 64 KB.</p>
    * @public
    */
-  MaxKBytesPerRead?: number;
+  MaxKBytesPerRead?: number | undefined;
 
   /**
    * <p>Endpoint connection user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -2125,33 +2125,33 @@ export interface IBMDb2Settings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the Db2 LUW endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>The amount of time (in milliseconds) before DMS times out operations performed by DMS on the Db2 target.
    *          The default value is 1200 (20 minutes).</p>
    * @public
    */
-  LoadTimeout?: number;
+  LoadTimeout?: number | undefined;
 
   /**
    * <p>The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk
    *          on the DMS replication instance. The default value is 1024 (1 MB).</p>
    * @public
    */
-  WriteBufferSize?: number;
+  WriteBufferSize?: number | undefined;
 
   /**
    * <p>Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.</p>
    * @public
    */
-  MaxFileSize?: number;
+  MaxFileSize?: number | undefined;
 
   /**
    * <p>If true, DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these
@@ -2159,7 +2159,7 @@ export interface IBMDb2Settings {
    *          <p>The default value is false. </p>
    * @public
    */
-  KeepCsvFiles?: boolean;
+  KeepCsvFiles?: boolean | undefined;
 }
 
 /**
@@ -2239,14 +2239,14 @@ export interface KafkaSettings {
    *       </p>
    * @public
    */
-  Broker?: string;
+  Broker?: string | undefined;
 
   /**
    * <p>The topic to which you migrate the data. If you don't specify a topic, DMS
    *          specifies <code>"kafka-default-topic"</code> as the migration topic.</p>
    * @public
    */
-  Topic?: string;
+  Topic?: string | undefined;
 
   /**
    * <p>The output format for the records created on the endpoint. The message format is
@@ -2254,7 +2254,7 @@ export interface KafkaSettings {
    *          tab).</p>
    * @public
    */
-  MessageFormat?: MessageFormatValue;
+  MessageFormat?: MessageFormatValue | undefined;
 
   /**
    * <p>Provides detailed transaction information from the source database. This information
@@ -2263,14 +2263,14 @@ export interface KafkaSettings {
    *          offset within a transaction). The default is <code>false</code>.</p>
    * @public
    */
-  IncludeTransactionDetails?: boolean;
+  IncludeTransactionDetails?: boolean | undefined;
 
   /**
    * <p>Shows the partition value within the Kafka message output unless the partition type is
    *             <code>schema-table-type</code>. The default is <code>false</code>.</p>
    * @public
    */
-  IncludePartitionValue?: boolean;
+  IncludePartitionValue?: boolean | undefined;
 
   /**
    * <p>Prefixes schema and table names to partition values, when the partition type is
@@ -2281,7 +2281,7 @@ export interface KafkaSettings {
    *             <code>false</code>.</p>
    * @public
    */
-  PartitionIncludeSchemaTable?: boolean;
+  PartitionIncludeSchemaTable?: boolean | undefined;
 
   /**
    * <p>Includes any data definition language (DDL) operations that change the table in the
@@ -2290,26 +2290,26 @@ export interface KafkaSettings {
    *          default is <code>false</code>.</p>
    * @public
    */
-  IncludeTableAlterOperations?: boolean;
+  IncludeTableAlterOperations?: boolean | undefined;
 
   /**
    * <p>Shows detailed control information for table definition, column definition, and table
    *          and column changes in the Kafka message output. The default is <code>false</code>.</p>
    * @public
    */
-  IncludeControlDetails?: boolean;
+  IncludeControlDetails?: boolean | undefined;
 
   /**
    * <p>The maximum size in bytes for records created on the endpoint The default is 1,000,000.</p>
    * @public
    */
-  MessageMaxBytes?: number;
+  MessageMaxBytes?: number | undefined;
 
   /**
    * <p>Include NULL and empty columns for records migrated to the endpoint. The default is <code>false</code>.</p>
    * @public
    */
-  IncludeNullAndEmpty?: boolean;
+  IncludeNullAndEmpty?: boolean | undefined;
 
   /**
    * <p>Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include
@@ -2317,32 +2317,32 @@ export interface KafkaSettings {
    *          <code>sasl-ssl</code> requires <code>SaslUsername</code> and <code>SaslPassword</code>.</p>
    * @public
    */
-  SecurityProtocol?: KafkaSecurityProtocol;
+  SecurityProtocol?: KafkaSecurityProtocol | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.</p>
    * @public
    */
-  SslClientCertificateArn?: string;
+  SslClientCertificateArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.</p>
    * @public
    */
-  SslClientKeyArn?: string;
+  SslClientKeyArn?: string | undefined;
 
   /**
    * <p> The password for the client private key used to securely connect to a Kafka target endpoint.</p>
    * @public
    */
-  SslClientKeyPassword?: string;
+  SslClientKeyPassword?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that DMS uses
    *          to securely connect to your Kafka target endpoint.</p>
    * @public
    */
-  SslCaCertificateArn?: string;
+  SslCaCertificateArn?: string | undefined;
 
   /**
    * <p> The secure user name you created when you first set up your MSK cluster to validate a
@@ -2350,14 +2350,14 @@ export interface KafkaSettings {
    *          authentication.</p>
    * @public
    */
-  SaslUsername?: string;
+  SaslUsername?: string | undefined;
 
   /**
    * <p>The secure password you created when you first set up your MSK cluster to validate a client identity and
    *          make an encrypted connection between server and client using SASL-SSL authentication.</p>
    * @public
    */
-  SaslPassword?: string;
+  SaslPassword?: string | undefined;
 
   /**
    * <p>Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix
@@ -2367,7 +2367,7 @@ export interface KafkaSettings {
    *          type columns without adding the '0x' prefix.</p>
    * @public
    */
-  NoHexPrefix?: boolean;
+  NoHexPrefix?: boolean | undefined;
 
   /**
    * <p>For SASL/SSL authentication, DMS supports the <code>SCRAM-SHA-512</code> mechanism by default. DMS versions
@@ -2376,14 +2376,14 @@ export interface KafkaSettings {
    *          </p>
    * @public
    */
-  SaslMechanism?: KafkaSaslMechanism;
+  SaslMechanism?: KafkaSaslMechanism | undefined;
 
   /**
    * <p>Sets hostname verification
    *          for the certificate. This setting is supported in DMS version 3.5.1 and later. </p>
    * @public
    */
-  SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm;
+  SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm | undefined;
 }
 
 /**
@@ -2397,14 +2397,14 @@ export interface KinesisSettings {
    * <p>The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.</p>
    * @public
    */
-  StreamArn?: string;
+  StreamArn?: string | undefined;
 
   /**
    * <p>The output format for the records created on the endpoint. The message format is
    *          <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</p>
    * @public
    */
-  MessageFormat?: MessageFormatValue;
+  MessageFormat?: MessageFormatValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the IAM role
@@ -2412,7 +2412,7 @@ export interface KinesisSettings {
    *          The role must allow the <code>iam:PassRole</code> action.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>Provides detailed transaction information from the source database. This information
@@ -2421,14 +2421,14 @@ export interface KinesisSettings {
    *          offset within a transaction). The default is <code>false</code>.</p>
    * @public
    */
-  IncludeTransactionDetails?: boolean;
+  IncludeTransactionDetails?: boolean | undefined;
 
   /**
    * <p>Shows the partition value within the Kinesis message output, unless the partition type
    *          is <code>schema-table-type</code>. The default is <code>false</code>.</p>
    * @public
    */
-  IncludePartitionValue?: boolean;
+  IncludePartitionValue?: boolean | undefined;
 
   /**
    * <p>Prefixes schema and table names to partition values, when the partition type is
@@ -2438,7 +2438,7 @@ export interface KinesisSettings {
    *          thousands of tables to the same shard, which causes throttling. The default is <code>false</code>.</p>
    * @public
    */
-  PartitionIncludeSchemaTable?: boolean;
+  PartitionIncludeSchemaTable?: boolean | undefined;
 
   /**
    * <p>Includes any data definition language (DDL) operations that change the table in the
@@ -2447,20 +2447,20 @@ export interface KinesisSettings {
    *          default is <code>false</code>.</p>
    * @public
    */
-  IncludeTableAlterOperations?: boolean;
+  IncludeTableAlterOperations?: boolean | undefined;
 
   /**
    * <p>Shows detailed control information for table definition, column definition, and table
    *          and column changes in the Kinesis message output. The default is <code>false</code>.</p>
    * @public
    */
-  IncludeControlDetails?: boolean;
+  IncludeControlDetails?: boolean | undefined;
 
   /**
    * <p>Include NULL and empty columns for records migrated to the endpoint. The default is <code>false</code>.</p>
    * @public
    */
-  IncludeNullAndEmpty?: boolean;
+  IncludeNullAndEmpty?: boolean | undefined;
 
   /**
    * <p>Set this optional parameter to <code>true</code> to avoid adding a '0x' prefix
@@ -2470,7 +2470,7 @@ export interface KinesisSettings {
    *          migration of RAW data type columns without adding the '0x' prefix.</p>
    * @public
    */
-  NoHexPrefix?: boolean;
+  NoHexPrefix?: boolean | undefined;
 }
 
 /**
@@ -2513,20 +2513,20 @@ export interface MicrosoftSQLServerSettings {
    * <p>Endpoint TCP port.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The maximum size of the packets (in bytes) used to transfer
    *          data using BCP.</p>
    * @public
    */
-  BcpPacketSize?: number;
+  BcpPacketSize?: number | undefined;
 
   /**
    * <p>Database name for the endpoint.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Specifies a file group for the DMS internal tables. When the replication task
@@ -2534,13 +2534,13 @@ export interface MicrosoftSQLServerSettings {
    *          awsdms_changes) are created for the specified file group.</p>
    * @public
    */
-  ControlTablesFileGroup?: string;
+  ControlTablesFileGroup?: string | undefined;
 
   /**
    * <p>Endpoint connection password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Cleans and recreates table metadata information on the replication instance when
@@ -2549,7 +2549,7 @@ export interface MicrosoftSQLServerSettings {
    *          instance.</p>
    * @public
    */
-  QuerySingleAlwaysOnNode?: boolean;
+  QuerySingleAlwaysOnNode?: boolean | undefined;
 
   /**
    * <p>When this attribute is set to <code>Y</code>, DMS only reads changes
@@ -2561,7 +2561,7 @@ export interface MicrosoftSQLServerSettings {
    *          replication.</p>
    * @public
    */
-  ReadBackupOnly?: boolean;
+  ReadBackupOnly?: boolean | undefined;
 
   /**
    * <p>Use this attribute to minimize the need to access the
@@ -2587,7 +2587,7 @@ export interface MicrosoftSQLServerSettings {
    *          against the same database, use the default method.</p>
    * @public
    */
-  SafeguardPolicy?: SafeguardPolicy;
+  SafeguardPolicy?: SafeguardPolicy | undefined;
 
   /**
    * <p>Fully qualified domain name of the endpoint. For an Amazon RDS SQL Server instance, this is the
@@ -2596,13 +2596,13 @@ export interface MicrosoftSQLServerSettings {
    *                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code> field.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Endpoint connection user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>Use this to attribute to transfer data for full-load operations
@@ -2611,14 +2611,14 @@ export interface MicrosoftSQLServerSettings {
    *          disable the use BCP for loading table option.</p>
    * @public
    */
-  UseBcpFullLoad?: boolean;
+  UseBcpFullLoad?: boolean | undefined;
 
   /**
    * <p>When this attribute is set to <code>Y</code>, DMS processes third-party
    *          transaction log backups if they are created in native format.</p>
    * @public
    */
-  UseThirdPartyBackupDevice?: boolean;
+  UseThirdPartyBackupDevice?: boolean | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -2639,13 +2639,13 @@ export interface MicrosoftSQLServerSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the SQL Server endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to right-trim data
@@ -2653,19 +2653,19 @@ export interface MicrosoftSQLServerSettings {
    *          does not left-trim data. The default value is <code>true</code>.</p>
    * @public
    */
-  TrimSpaceInChar?: boolean;
+  TrimSpaceInChar?: boolean | undefined;
 
   /**
    * <p>Indicates the mode used to fetch CDC data.</p>
    * @public
    */
-  TlogAccessMode?: TlogAccessMode;
+  TlogAccessMode?: TlogAccessMode | undefined;
 
   /**
    * <p>Forces LOB lookup on inline LOB.</p>
    * @public
    */
-  ForceLobLookup?: boolean;
+  ForceLobLookup?: boolean | undefined;
 }
 
 /**
@@ -2677,33 +2677,33 @@ export interface MongoDbSettings {
    * <p>The user name you use to access the MongoDB source endpoint. </p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p> The password for the user account you use to access the MongoDB source endpoint.
    *       </p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p> The name of the server on the MongoDB source endpoint. For MongoDB Atlas, provide the
    *       server name for any of the servers in the replication set.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p> The port value for the MongoDB source endpoint. </p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p> The database name on the MongoDB source endpoint. </p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p> The authentication type you use to access the MongoDB source endpoint.</p>
@@ -2711,7 +2711,7 @@ export interface MongoDbSettings {
    *          can be empty. </p>
    * @public
    */
-  AuthType?: AuthTypeValue;
+  AuthType?: AuthTypeValue | undefined;
 
   /**
    * <p> The authentication mechanism you use to access the MongoDB source endpoint.</p>
@@ -2721,7 +2721,7 @@ export interface MongoDbSettings {
    *          set to <code>"no"</code>.</p>
    * @public
    */
-  AuthMechanism?: AuthMechanismValue;
+  AuthMechanism?: AuthMechanismValue | undefined;
 
   /**
    * <p> Specifies either document or table mode. </p>
@@ -2729,7 +2729,7 @@ export interface MongoDbSettings {
    *          Specify <code>"one"</code> to use table mode.</p>
    * @public
    */
-  NestingLevel?: NestingLevelValue;
+  NestingLevel?: NestingLevelValue | undefined;
 
   /**
    * <p> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set to
@@ -2737,7 +2737,7 @@ export interface MongoDbSettings {
    *          <p>Default value is <code>"false"</code>. </p>
    * @public
    */
-  ExtractDocId?: string;
+  ExtractDocId?: string | undefined;
 
   /**
    * <p> Indicates the number of documents to preview to determine the document organization.
@@ -2746,7 +2746,7 @@ export interface MongoDbSettings {
    *          <code>1000</code>.</p>
    * @public
    */
-  DocsToInvestigate?: string;
+  DocsToInvestigate?: string | undefined;
 
   /**
    * <p> The MongoDB database name. This setting isn't used when <code>AuthType</code> is
@@ -2754,7 +2754,7 @@ export interface MongoDbSettings {
    *          <p>The default is <code>"admin"</code>.</p>
    * @public
    */
-  AuthSource?: string;
+  AuthSource?: string | undefined;
 
   /**
    * <p>The KMS key identifier that is used to encrypt the content on the replication
@@ -2763,7 +2763,7 @@ export interface MongoDbSettings {
    *          your Amazon Web Services account. Your Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -2783,13 +2783,13 @@ export interface MongoDbSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the MongoDB endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>If <code>true</code>, DMS retrieves the entire document from the MongoDB source during migration.
@@ -2797,7 +2797,7 @@ export interface MongoDbSettings {
    *          and deletes during migration, set this parameter to <code>false</code>.</p>
    * @public
    */
-  UseUpdateLookUp?: boolean;
+  UseUpdateLookUp?: boolean | undefined;
 
   /**
    * <p>If <code>true</code>, DMS replicates data to shard collections. DMS only uses this setting if
@@ -2813,7 +2813,7 @@ export interface MongoDbSettings {
    *          </ul>
    * @public
    */
-  ReplicateShardCollections?: boolean;
+  ReplicateShardCollections?: boolean | undefined;
 }
 
 /**
@@ -2829,7 +2829,7 @@ export interface MySQLSettings {
    *          containing the script.</p>
    * @public
    */
-  AfterConnectScript?: string;
+  AfterConnectScript?: string | undefined;
 
   /**
    * <p>Cleans and recreates table metadata information on the replication instance
@@ -2838,7 +2838,7 @@ export interface MySQLSettings {
    *          replication instance.  </p>
    * @public
    */
-  CleanSourceMetadataOnMismatch?: boolean;
+  CleanSourceMetadataOnMismatch?: boolean | undefined;
 
   /**
    * <p>Database name for the endpoint. For a MySQL source or target endpoint, don't explicitly
@@ -2849,7 +2849,7 @@ export interface MySQLSettings {
    *          you specify the schema in the table-mapping rules of the DMS task.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Specifies how often to check the binary log for new
@@ -2860,7 +2860,7 @@ export interface MySQLSettings {
    *          logs every five seconds.</p>
    * @public
    */
-  EventsPollInterval?: number;
+  EventsPollInterval?: number | undefined;
 
   /**
    * <p>Specifies where to migrate source tables on the target, either
@@ -2871,7 +2871,7 @@ export interface MySQLSettings {
    *          </p>
    * @public
    */
-  TargetDbType?: TargetDbType;
+  TargetDbType?: TargetDbType | undefined;
 
   /**
    * <p>Specifies the maximum size (in KB) of any .csv file used to
@@ -2880,7 +2880,7 @@ export interface MySQLSettings {
    *          </p>
    * @public
    */
-  MaxFileSize?: number;
+  MaxFileSize?: number | undefined;
 
   /**
    * <p>Improves performance when loading data into the MySQL-compatible target database.
@@ -2891,19 +2891,19 @@ export interface MySQLSettings {
    *          </p>
    * @public
    */
-  ParallelLoadThreads?: number;
+  ParallelLoadThreads?: number | undefined;
 
   /**
    * <p>Endpoint connection password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Endpoint TCP port.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The host name of the endpoint database. </p>
@@ -2916,7 +2916,7 @@ export interface MySQLSettings {
    *          in the <code>Endpoint</code> field.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Specifies the time zone for the source MySQL database.</p>
@@ -2925,13 +2925,13 @@ export interface MySQLSettings {
    *          <p>Note: Do not enclose time zones in single quotes.</p>
    * @public
    */
-  ServerTimezone?: string;
+  ServerTimezone?: string | undefined;
 
   /**
    * <p>Endpoint connection user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -2952,19 +2952,19 @@ export interface MySQLSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the MySQL endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>Sets the client statement timeout (in seconds) for a MySQL source endpoint.</p>
    * @public
    */
-  ExecuteTimeout?: number;
+  ExecuteTimeout?: number | undefined;
 }
 
 /**
@@ -2980,7 +2980,7 @@ export interface NeptuneSettings {
    *          </p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket where DMS can temporarily store migrated graph data
@@ -3003,7 +3003,7 @@ export interface NeptuneSettings {
    *          data to the Neptune target database before raising an error. The default is 250.</p>
    * @public
    */
-  ErrorRetryDuration?: number;
+  ErrorRetryDuration?: number | undefined;
 
   /**
    * <p>The maximum size in kilobytes of migrated graph data stored in a .csv file before DMS
@@ -3012,14 +3012,14 @@ export interface NeptuneSettings {
    *          migrated graph data.</p>
    * @public
    */
-  MaxFileSize?: number;
+  MaxFileSize?: number | undefined;
 
   /**
    * <p>The number of times for DMS to retry a bulk load of migrated graph data to the
    *          Neptune target database before raising an error. The default is 5.</p>
    * @public
    */
-  MaxRetryCount?: number;
+  MaxRetryCount?: number | undefined;
 
   /**
    * <p>If you want Identity and Access Management (IAM) authorization enabled for this
@@ -3028,7 +3028,7 @@ export interface NeptuneSettings {
    *          is <code>false</code>.</p>
    * @public
    */
-  IamAuthEnabled?: boolean;
+  IamAuthEnabled?: boolean | undefined;
 }
 
 /**
@@ -3060,7 +3060,7 @@ export interface OracleSettings {
    *          database-level supplemental logging.</p>
    * @public
    */
-  AddSupplementalLogging?: boolean;
+  AddSupplementalLogging?: boolean | undefined;
 
   /**
    * <p>Specifies the ID of the destination for the archived redo logs. This value
@@ -3071,7 +3071,7 @@ export interface OracleSettings {
    *          logs are accessed from the outset.</p>
    * @public
    */
-  ArchivedLogDestId?: number;
+  ArchivedLogDestId?: number | undefined;
 
   /**
    * <p>Set this attribute with <code>ArchivedLogDestId</code> in a primary/
@@ -3087,7 +3087,7 @@ export interface OracleSettings {
    *          <i>Oracle Database Backup and Recovery User's Guide</i>.</p>
    * @public
    */
-  AdditionalArchivedLogDestId?: number;
+  AdditionalArchivedLogDestId?: number | undefined;
 
   /**
    * <p>Specifies the IDs of one more destinations for one or more archived redo logs. These IDs
@@ -3112,7 +3112,7 @@ export interface OracleSettings {
    *             User's Guide</i>.</p>
    * @public
    */
-  ExtraArchivedLogDestIds?: number[];
+  ExtraArchivedLogDestIds?: number[] | undefined;
 
   /**
    * <p>Set this attribute to <code>true</code> to enable replication of Oracle
@@ -3120,7 +3120,7 @@ export interface OracleSettings {
    *          types.</p>
    * @public
    */
-  AllowSelectNestedTables?: boolean;
+  AllowSelectNestedTables?: boolean | undefined;
 
   /**
    * <p>Set this attribute to change the number of threads that DMS configures to perform a
@@ -3129,7 +3129,7 @@ export interface OracleSettings {
    *          together with the <code>readAheadBlocks</code> attribute.</p>
    * @public
    */
-  ParallelAsmReadThreads?: number;
+  ParallelAsmReadThreads?: number | undefined;
 
   /**
    * <p>Set this attribute to change the number of read-ahead blocks that DMS configures to
@@ -3138,7 +3138,7 @@ export interface OracleSettings {
    *          maximum).</p>
    * @public
    */
-  ReadAheadBlocks?: number;
+  ReadAheadBlocks?: number | undefined;
 
   /**
    * <p>Set this attribute to <code>false</code> in order to use the Binary Reader
@@ -3148,7 +3148,7 @@ export interface OracleSettings {
    *          file access.</p>
    * @public
    */
-  AccessAlternateDirectly?: boolean;
+  AccessAlternateDirectly?: boolean | undefined;
 
   /**
    * <p>Set this attribute to <code>true</code> in order to use the Binary Reader
@@ -3157,7 +3157,7 @@ export interface OracleSettings {
    *          prefix replacement to access all online redo logs.</p>
    * @public
    */
-  UseAlternateFolderForOnline?: boolean;
+  UseAlternateFolderForOnline?: boolean | undefined;
 
   /**
    * <p>Set this string attribute to the required value in order to use
@@ -3166,7 +3166,7 @@ export interface OracleSettings {
    *          default Oracle root used to access the redo logs.</p>
    * @public
    */
-  OraclePathPrefix?: string;
+  OraclePathPrefix?: string | undefined;
 
   /**
    * <p>Set this string attribute to the required value in order to use
@@ -3176,7 +3176,7 @@ export interface OracleSettings {
    *          redo logs.</p>
    * @public
    */
-  UsePathPrefix?: string;
+  UsePathPrefix?: string | undefined;
 
   /**
    * <p>Set this attribute to true in order to use the Binary Reader
@@ -3186,7 +3186,7 @@ export interface OracleSettings {
    *          access the redo logs.</p>
    * @public
    */
-  ReplacePathPrefix?: boolean;
+  ReplacePathPrefix?: boolean | undefined;
 
   /**
    * <p>Set this attribute to enable homogenous tablespace
@@ -3194,7 +3194,7 @@ export interface OracleSettings {
    *          same tablespace on the target.</p>
    * @public
    */
-  EnableHomogenousTablespace?: boolean;
+  EnableHomogenousTablespace?: boolean | undefined;
 
   /**
    * <p>When set to <code>true</code>, this attribute helps to increase the
@@ -3202,7 +3202,7 @@ export interface OracleSettings {
    *          directly to tables and not writing a trail to database logs.</p>
    * @public
    */
-  DirectPathNoLog?: boolean;
+  DirectPathNoLog?: boolean | undefined;
 
   /**
    * <p>When this field is set to <code>Y</code>, DMS only accesses the
@@ -3211,7 +3211,7 @@ export interface OracleSettings {
    *          granted ASM privileges.</p>
    * @public
    */
-  ArchivedLogsOnly?: boolean;
+  ArchivedLogsOnly?: boolean | undefined;
 
   /**
    * <p>For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
@@ -3224,7 +3224,7 @@ export interface OracleSettings {
    *             database</a>.</p>
    * @public
    */
-  AsmPassword?: string;
+  AsmPassword?: string | undefined;
 
   /**
    * <p>For an Oracle source endpoint, your ASM server address. You can set this value from the
@@ -3234,7 +3234,7 @@ export interface OracleSettings {
    *             database</a>.</p>
    * @public
    */
-  AsmServer?: string;
+  AsmServer?: string | undefined;
 
   /**
    * <p>For an Oracle source endpoint, your ASM user name. You can set this value from the
@@ -3244,7 +3244,7 @@ export interface OracleSettings {
    *             database</a>.</p>
    * @public
    */
-  AsmUser?: string;
+  AsmUser?: string | undefined;
 
   /**
    * <p>Specifies whether the length of a character column is in
@@ -3255,13 +3255,13 @@ export interface OracleSettings {
    *          </p>
    * @public
    */
-  CharLengthSemantics?: CharLengthSemantics;
+  CharLengthSemantics?: CharLengthSemantics | undefined;
 
   /**
    * <p>Database name for the endpoint.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, this attribute specifies a parallel load
@@ -3270,7 +3270,7 @@ export interface OracleSettings {
    *          feature.  Note that the target table cannot have any constraints or indexes.</p>
    * @public
    */
-  DirectPathParallelLoad?: boolean;
+  DirectPathParallelLoad?: boolean | undefined;
 
   /**
    * <p>When set to <code>true</code>, this attribute causes a task to fail if the
@@ -3280,7 +3280,7 @@ export interface OracleSettings {
    *          <code>true</code>, the task fails instead of truncating the LOB data.</p>
    * @public
    */
-  FailTasksOnLobTruncation?: boolean;
+  FailTasksOnLobTruncation?: boolean | undefined;
 
   /**
    * <p>Specifies the number scale. You can select a scale up to 38,
@@ -3290,26 +3290,26 @@ export interface OracleSettings {
    *          </p>
    * @public
    */
-  NumberDatatypeScale?: number;
+  NumberDatatypeScale?: number | undefined;
 
   /**
    * <p>Endpoint connection password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Endpoint TCP port.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>When set to <code>true</code>, this attribute supports tablespace
    *          replication.</p>
    * @public
    */
-  ReadTableSpaceName?: boolean;
+  ReadTableSpaceName?: boolean | undefined;
 
   /**
    * <p>Specifies the number of seconds that the system waits
@@ -3318,7 +3318,7 @@ export interface OracleSettings {
    *          </p>
    * @public
    */
-  RetryInterval?: number;
+  RetryInterval?: number | undefined;
 
   /**
    * <p>For an Oracle source endpoint, the transparent data encryption (TDE) password required
@@ -3332,7 +3332,7 @@ export interface OracleSettings {
    *             </a> in the <i>Database Migration Service User Guide</i>. </p>
    * @public
    */
-  SecurityDbEncryption?: string;
+  SecurityDbEncryption?: string | undefined;
 
   /**
    * <p>For an Oracle source endpoint, the name of a key used for the transparent data
@@ -3345,7 +3345,7 @@ export interface OracleSettings {
    *          Guide</i>.</p>
    * @public
    */
-  SecurityDbEncryptionName?: string;
+  SecurityDbEncryptionName?: string | undefined;
 
   /**
    * <p>Fully qualified domain name of the endpoint.</p>
@@ -3355,7 +3355,7 @@ export interface OracleSettings {
    *                <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_Endpoint.html">Endpoint</a>.Address</code> field.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Use this attribute to convert <code>SDO_GEOMETRY</code> to
@@ -3366,7 +3366,7 @@ export interface OracleSettings {
    *          <code>SpatialDataOptionToGeoJsonFunctionName</code> to call it instead. </p>
    * @public
    */
-  SpatialDataOptionToGeoJsonFunctionName?: string;
+  SpatialDataOptionToGeoJsonFunctionName?: string | undefined;
 
   /**
    * <p>Use this attribute to specify a time in minutes for the delay in standby sync. If the
@@ -3377,13 +3377,13 @@ export interface OracleSettings {
    *          to an active database that might be in production.</p>
    * @public
    */
-  StandbyDelayTime?: number;
+  StandbyDelayTime?: number | undefined;
 
   /**
    * <p>Endpoint connection user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>Set this attribute to Y to capture change data using the Binary Reader utility. Set
@@ -3393,7 +3393,7 @@ export interface OracleSettings {
    *          CDC</a>.</p>
    * @public
    */
-  UseBFile?: boolean;
+  UseBFile?: boolean | undefined;
 
   /**
    * <p>Set this attribute to Y to have DMS use a direct path full load.
@@ -3401,7 +3401,7 @@ export interface OracleSettings {
    *          By using this OCI protocol, you can bulk-load Oracle target tables during a full load.</p>
    * @public
    */
-  UseDirectPathFullLoad?: boolean;
+  UseDirectPathFullLoad?: boolean | undefined;
 
   /**
    * <p>Set this attribute to Y to capture change data using the Oracle LogMiner utility (the
@@ -3411,7 +3411,7 @@ export interface OracleSettings {
    *          the <i>DMS User Guide</i>.</p>
    * @public
    */
-  UseLogminerReader?: boolean;
+  UseLogminerReader?: boolean | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -3432,13 +3432,13 @@ export interface OracleSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the Oracle endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN
@@ -3459,27 +3459,27 @@ export interface OracleSettings {
    *          </note>
    * @public
    */
-  SecretsManagerOracleAsmAccessRoleArn?: string;
+  SecretsManagerOracleAsmAccessRoleArn?: string | undefined;
 
   /**
    * <p>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code>
    *          that contains the Oracle ASM connection details for the Oracle endpoint.</p>
    * @public
    */
-  SecretsManagerOracleAsmSecretId?: string;
+  SecretsManagerOracleAsmSecretId?: string | undefined;
 
   /**
    * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data
    *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
    * @public
    */
-  TrimSpaceInChar?: boolean;
+  TrimSpaceInChar?: boolean | undefined;
 
   /**
    * <p>When true, converts timestamps with the <code>timezone</code> datatype to their UTC value.</p>
    * @public
    */
-  ConvertTimestampWithZoneToUTC?: boolean;
+  ConvertTimestampWithZoneToUTC?: boolean | undefined;
 
   /**
    * <p>The timeframe in minutes to check for open transactions for a CDC-only task.</p>
@@ -3491,7 +3491,7 @@ export interface OracleSettings {
    *          </note>
    * @public
    */
-  OpenTransactionWindow?: number;
+  OpenTransactionWindow?: number | undefined;
 }
 
 /**
@@ -3552,7 +3552,7 @@ export interface PostgreSQLSettings {
    *          </p>
    * @public
    */
-  AfterConnectScript?: string;
+  AfterConnectScript?: string | undefined;
 
   /**
    * <p>To capture DDL events, DMS creates various artifacts in
@@ -3562,7 +3562,7 @@ export interface PostgreSQLSettings {
    *          triggers on the source database.</p>
    * @public
    */
-  CaptureDdls?: boolean;
+  CaptureDdls?: boolean | undefined;
 
   /**
    * <p>Specifies the maximum size (in KB) of any .csv file used to
@@ -3571,13 +3571,13 @@ export interface PostgreSQLSettings {
    *          </p>
    * @public
    */
-  MaxFileSize?: number;
+  MaxFileSize?: number | undefined;
 
   /**
    * <p>Database name for the endpoint.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The schema in which the operational DDL database artifacts
@@ -3586,7 +3586,7 @@ export interface PostgreSQLSettings {
    *          </p>
    * @public
    */
-  DdlArtifactsSchema?: string;
+  DdlArtifactsSchema?: string | undefined;
 
   /**
    * <p>Sets the client statement timeout for the PostgreSQL
@@ -3595,7 +3595,7 @@ export interface PostgreSQLSettings {
    *          </p>
    * @public
    */
-  ExecuteTimeout?: number;
+  ExecuteTimeout?: number | undefined;
 
   /**
    * <p>When set to <code>true</code>, this value causes a task to fail if the
@@ -3605,7 +3605,7 @@ export interface PostgreSQLSettings {
    *          true, the task fails instead of truncating the LOB data.</p>
    * @public
    */
-  FailTasksOnLobTruncation?: boolean;
+  FailTasksOnLobTruncation?: boolean | undefined;
 
   /**
    * <p>The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this,
@@ -3614,31 +3614,31 @@ export interface PostgreSQLSettings {
    *          and prevents storage full scenarios.</p>
    * @public
    */
-  HeartbeatEnable?: boolean;
+  HeartbeatEnable?: boolean | undefined;
 
   /**
    * <p>Sets the schema in which the heartbeat artifacts are created.</p>
    * @public
    */
-  HeartbeatSchema?: string;
+  HeartbeatSchema?: string | undefined;
 
   /**
    * <p>Sets the WAL heartbeat frequency (in minutes).</p>
    * @public
    */
-  HeartbeatFrequency?: number;
+  HeartbeatFrequency?: number | undefined;
 
   /**
    * <p>Endpoint connection password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Endpoint TCP port. The default is 5432.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The host name of the endpoint database. </p>
@@ -3651,13 +3651,13 @@ export interface PostgreSQLSettings {
    *          in the <code>Endpoint</code> field.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Endpoint connection user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>Sets the name of a previously created logical replication slot
@@ -3677,13 +3677,13 @@ export interface PostgreSQLSettings {
    *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CreateReplicationTask.html">CreateReplicationTask</a>, <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html">StartReplicationTask</a>, and <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ModifyReplicationTask.html">ModifyReplicationTask</a>.</p>
    * @public
    */
-  SlotName?: string;
+  SlotName?: string | undefined;
 
   /**
    * <p>Specifies the plugin to use to create a replication slot.</p>
    * @public
    */
-  PluginName?: PluginNameValue;
+  PluginName?: PluginNameValue | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -3704,51 +3704,51 @@ export interface PostgreSQLSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the PostgreSQL endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data
    *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
    * @public
    */
-  TrimSpaceInChar?: boolean;
+  TrimSpaceInChar?: boolean | undefined;
 
   /**
    * <p>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL migrates booleans as
    *          <code>varchar(5)</code>. You must set this setting on both the source and target endpoints for it to take effect.</p>
    * @public
    */
-  MapBooleanAsBoolean?: boolean;
+  MapBooleanAsBoolean?: boolean | undefined;
 
   /**
    * <p>When true, DMS migrates JSONB values as CLOB.</p>
    * @public
    */
-  MapJsonbAsClob?: boolean;
+  MapJsonbAsClob?: boolean | undefined;
 
   /**
    * <p>When true, DMS migrates LONG values as VARCHAR.</p>
    * @public
    */
-  MapLongVarcharAs?: LongVarcharMappingType;
+  MapLongVarcharAs?: LongVarcharMappingType | undefined;
 
   /**
    * <p>Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.</p>
    * @public
    */
-  DatabaseMode?: DatabaseMode;
+  DatabaseMode?: DatabaseMode | undefined;
 
   /**
    * <p>The Babelfish for Aurora PostgreSQL database name for the endpoint.</p>
    * @public
    */
-  BabelfishDatabaseName?: string;
+  BabelfishDatabaseName?: string | undefined;
 }
 
 /**
@@ -3808,7 +3808,7 @@ export interface RedisSettings {
    *          encryption for traffic between endpoint and database.</p>
    * @public
    */
-  SslSecurityProtocol?: SslSecurityProtocolValue;
+  SslSecurityProtocol?: SslSecurityProtocolValue | undefined;
 
   /**
    * <p>The type of authentication to perform when connecting to a Redis target. Options include
@@ -3818,14 +3818,14 @@ export interface RedisSettings {
    *          to be provided.</p>
    * @public
    */
-  AuthType?: RedisAuthTypeValue;
+  AuthType?: RedisAuthTypeValue | undefined;
 
   /**
    * <p>The user name provided with the <code>auth-role</code> option of the
    *          <code>AuthType</code> setting for a Redis target endpoint.</p>
    * @public
    */
-  AuthUserName?: string;
+  AuthUserName?: string | undefined;
 
   /**
    * <p>The password provided with the <code>auth-role</code> and
@@ -3833,14 +3833,14 @@ export interface RedisSettings {
    *          target endpoint.</p>
    * @public
    */
-  AuthPassword?: string;
+  AuthPassword?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to
    *          connect to your Redis target endpoint.</p>
    * @public
    */
-  SslCaCertificateArn?: string;
+  SslCaCertificateArn?: string | undefined;
 }
 
 /**
@@ -3871,14 +3871,14 @@ export interface RedshiftSettings {
    *          specification, Amazon Redshift inserts a NULL value into that field. </p>
    * @public
    */
-  AcceptAnyDate?: boolean;
+  AcceptAnyDate?: boolean | undefined;
 
   /**
    * <p>Code to run after connecting. This parameter should contain the code itself, not the
    *          name of a file containing the code.</p>
    * @public
    */
-  AfterConnectScript?: string;
+  AfterConnectScript?: string | undefined;
 
   /**
    * <p>An S3 folder where the comma-separated-value (.csv) files are stored before being
@@ -3892,13 +3892,13 @@ export interface RedshiftSettings {
    *          and loads the .csv files to this <i>BucketFolder/NetChangesTableID</i> path.</p>
    * @public
    */
-  BucketFolder?: string;
+  BucketFolder?: string | undefined;
 
   /**
    * <p>The name of the intermediate S3 bucket used to store .csv files before uploading data to Redshift.</p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p>If Amazon Redshift is configured to support case sensitive schema names, set
@@ -3906,7 +3906,7 @@ export interface RedshiftSettings {
    *          <code>false</code>.</p>
    * @public
    */
-  CaseSensitiveNames?: boolean;
+  CaseSensitiveNames?: boolean | undefined;
 
   /**
    * <p>If you set <code>CompUpdate</code> to <code>true</code> Amazon Redshift applies
@@ -3916,21 +3916,21 @@ export interface RedshiftSettings {
    *          aren't changed. The default is <code>true</code>.</p>
    * @public
    */
-  CompUpdate?: boolean;
+  CompUpdate?: boolean | undefined;
 
   /**
    * <p>A value that sets the amount of time to wait (in milliseconds) before timing out,
    *          beginning from when you initially establish a connection.</p>
    * @public
    */
-  ConnectionTimeout?: number;
+  ConnectionTimeout?: number | undefined;
 
   /**
    * <p>The name of the Amazon Redshift data warehouse (service) that you are working
    *          with.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The date format that you are using. Valid values are <code>auto</code> (case-sensitive),
@@ -3941,7 +3941,7 @@ export interface RedshiftSettings {
    *          <code>auto</code>. </p>
    * @public
    */
-  DateFormat?: string;
+  DateFormat?: string | undefined;
 
   /**
    * <p>A value that specifies whether DMS should migrate empty CHAR and VARCHAR fields as
@@ -3949,7 +3949,7 @@ export interface RedshiftSettings {
    *          is <code>false</code>.</p>
    * @public
    */
-  EmptyAsNull?: boolean;
+  EmptyAsNull?: boolean | undefined;
 
   /**
    * <p>The type of server-side encryption that you want to use for your data. This encryption
@@ -3967,7 +3967,7 @@ export interface RedshiftSettings {
    *          </p>
    * @public
    */
-  EncryptionMode?: EncryptionModeValue;
+  EncryptionMode?: EncryptionModeValue | undefined;
 
   /**
    * <p>This setting is only valid for a full-load migration task. Set <code>ExplicitIds</code>
@@ -3976,7 +3976,7 @@ export interface RedshiftSettings {
    *          populate the tables. The default is <code>false</code>.</p>
    * @public
    */
-  ExplicitIds?: boolean;
+  ExplicitIds?: boolean | undefined;
 
   /**
    * <p>The number of threads used to upload a single file. This parameter accepts a value from
@@ -3989,33 +3989,33 @@ export interface RedshiftSettings {
    *          defaults to 10.</p>
    * @public
    */
-  FileTransferUploadStreams?: number;
+  FileTransferUploadStreams?: number | undefined;
 
   /**
    * <p>The amount of time to wait (in milliseconds) before timing out of operations performed
    *             by DMS on a Redshift cluster, such as Redshift COPY, INSERT, DELETE, and UPDATE.</p>
    * @public
    */
-  LoadTimeout?: number;
+  LoadTimeout?: number | undefined;
 
   /**
    * <p>The maximum size (in KB) of any .csv file used to load data on an S3 bucket and transfer
    *             data to Amazon Redshift. It defaults to 1048576KB (1 GB).</p>
    * @public
    */
-  MaxFileSize?: number;
+  MaxFileSize?: number | undefined;
 
   /**
    * <p>The password for the user named in the <code>username</code> property.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>The port number for Amazon Redshift. The default value is 5439.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>A value that specifies to remove surrounding quotation marks from strings in the
@@ -4024,14 +4024,14 @@ export interface RedshiftSettings {
    *             <code>false</code>.</p>
    * @public
    */
-  RemoveQuotes?: boolean;
+  RemoveQuotes?: boolean | undefined;
 
   /**
    * <p>A list of characters that you want to replace. Use with
    *          <code>ReplaceChars</code>.</p>
    * @public
    */
-  ReplaceInvalidChars?: string;
+  ReplaceInvalidChars?: string | undefined;
 
   /**
    * <p>A value that specifies to replaces the invalid characters specified in
@@ -4039,20 +4039,20 @@ export interface RedshiftSettings {
    *          default is <code>"?"</code>.</p>
    * @public
    */
-  ReplaceChars?: string;
+  ReplaceChars?: string | undefined;
 
   /**
    * <p>The name of the Amazon Redshift cluster you are using.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that has access to the Amazon Redshift
    *          service. The role must allow the <code>iam:PassRole</code> action.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>The KMS key ID. If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>,
@@ -4060,7 +4060,7 @@ export interface RedshiftSettings {
    *          permissions and allows use of the key.</p>
    * @public
    */
-  ServerSideEncryptionKmsKeyId?: string;
+  ServerSideEncryptionKmsKeyId?: string | undefined;
 
   /**
    * <p>The time format that you want to use. Valid values are <code>auto</code>
@@ -4071,7 +4071,7 @@ export interface RedshiftSettings {
    *          to <code>auto</code>. </p>
    * @public
    */
-  TimeFormat?: string;
+  TimeFormat?: string | undefined;
 
   /**
    * <p>A value that specifies to remove the trailing white space characters from a VARCHAR
@@ -4080,7 +4080,7 @@ export interface RedshiftSettings {
    *          <code>false</code>.</p>
    * @public
    */
-  TrimBlanks?: boolean;
+  TrimBlanks?: boolean | undefined;
 
   /**
    * <p>A value that specifies to truncate data in columns to the appropriate number of
@@ -4089,13 +4089,13 @@ export interface RedshiftSettings {
    *             <code>true</code> to truncate data. The default is <code>false</code>.</p>
    * @public
    */
-  TruncateColumns?: boolean;
+  TruncateColumns?: boolean | undefined;
 
   /**
    * <p>An Amazon Redshift user name for a registered user.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The size (in KB) of the in-memory file write buffer used when generating .csv files
@@ -4103,7 +4103,7 @@ export interface RedshiftSettings {
    *          (buffer size is 1000KB).</p>
    * @public
    */
-  WriteBufferSize?: number;
+  WriteBufferSize?: number | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -4123,20 +4123,20 @@ export interface RedshiftSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the Amazon Redshift endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as
    *          <code>varchar(1)</code>. You must set this setting on both the source and target endpoints for it to take effect.</p>
    * @public
    */
-  MapBooleanAsBoolean?: boolean;
+  MapBooleanAsBoolean?: boolean | undefined;
 }
 
 /**
@@ -4261,27 +4261,27 @@ export interface S3Settings {
    *          parameter that enables DMS to write and read objects from an S3 bucket.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p> Specifies how tables are defined in the S3 source files only. </p>
    * @public
    */
-  ExternalTableDefinition?: string;
+  ExternalTableDefinition?: string | undefined;
 
   /**
    * <p> The delimiter used to separate rows in the .csv file for both source and target. The default is a carriage
    *          return (<code>\n</code>). </p>
    * @public
    */
-  CsvRowDelimiter?: string;
+  CsvRowDelimiter?: string | undefined;
 
   /**
    * <p> The delimiter used to separate columns in the .csv file for both source and target. The default is a comma.
    *       </p>
    * @public
    */
-  CsvDelimiter?: string;
+  CsvDelimiter?: string | undefined;
 
   /**
    * <p> An optional parameter to set a folder name in the S3 bucket. If provided, tables are
@@ -4293,13 +4293,13 @@ export interface S3Settings {
    *                <i>schema_name</i>/<i>table_name</i>/</code>. </p>
    * @public
    */
-  BucketFolder?: string;
+  BucketFolder?: string | undefined;
 
   /**
    * <p> The name of the S3 bucket. </p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p>An optional parameter to use GZIP to compress the target files. Set to GZIP to compress
@@ -4307,7 +4307,7 @@ export interface S3Settings {
    *          This parameter applies to both .csv and .parquet file formats. </p>
    * @public
    */
-  CompressionType?: CompressionTypeValue;
+  CompressionType?: CompressionTypeValue | undefined;
 
   /**
    * <p>The type of server-side encryption that you want to use for your data. This encryption
@@ -4381,7 +4381,7 @@ export interface S3Settings {
    *          </ul>
    * @public
    */
-  EncryptionMode?: EncryptionModeValue;
+  EncryptionMode?: EncryptionModeValue | undefined;
 
   /**
    * <p>If you are using <code>SSE_KMS</code> for the <code>EncryptionMode</code>, provide the
@@ -4394,7 +4394,7 @@ export interface S3Settings {
    *          </p>
    * @public
    */
-  ServerSideEncryptionKmsKeyId?: string;
+  ServerSideEncryptionKmsKeyId?: string | undefined;
 
   /**
    * <p>The format of the data that you want to use for output. You can choose one of the
@@ -4413,7 +4413,7 @@ export interface S3Settings {
    *          </ul>
    * @public
    */
-  DataFormat?: DataFormatValue;
+  DataFormat?: DataFormatValue | undefined;
 
   /**
    * <p>The type of encoding you are using: </p>
@@ -4437,7 +4437,7 @@ export interface S3Settings {
    *          </ul>
    * @public
    */
-  EncodingType?: EncodingTypeValue;
+  EncodingType?: EncodingTypeValue | undefined;
 
   /**
    * <p>The maximum size of an encoded dictionary page of a column. If the dictionary page
@@ -4447,7 +4447,7 @@ export interface S3Settings {
    *            .parquet file format only. </p>
    * @public
    */
-  DictPageSizeLimit?: number;
+  DictPageSizeLimit?: number | undefined;
 
   /**
    * <p>The number of rows in a row group. A smaller row group size provides faster reads. But
@@ -4457,21 +4457,21 @@ export interface S3Settings {
    *          max row group length in bytes (64 * 1024 * 1024). </p>
    * @public
    */
-  RowGroupLength?: number;
+  RowGroupLength?: number | undefined;
 
   /**
    * <p>The size of one data page in bytes. This parameter defaults to 1024 * 1024 bytes (1 MiB).
    *          This number is used for .parquet file format only. </p>
    * @public
    */
-  DataPageSize?: number;
+  DataPageSize?: number | undefined;
 
   /**
    * <p>The version of the Apache Parquet format that you want to use: <code>parquet_1_0</code>
    *          (the default) or <code>parquet_2_0</code>.</p>
    * @public
    */
-  ParquetVersion?: ParquetVersionValue;
+  ParquetVersion?: ParquetVersionValue | undefined;
 
   /**
    * <p>A value that enables statistics for Parquet pages and row groups. Choose
@@ -4481,7 +4481,7 @@ export interface S3Settings {
    *             .parquet file format only.</p>
    * @public
    */
-  EnableStatistics?: boolean;
+  EnableStatistics?: boolean | undefined;
 
   /**
    * <p>A value that enables a full load to write INSERT operations to the comma-separated value
@@ -4506,7 +4506,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  IncludeOpForFullLoad?: boolean;
+  IncludeOpForFullLoad?: boolean | undefined;
 
   /**
    * <p>A value that enables a change data capture (CDC) load to write only INSERT operations to
@@ -4535,7 +4535,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  CdcInsertsOnly?: boolean;
+  CdcInsertsOnly?: boolean | undefined;
 
   /**
    * <p>A value that when nonblank causes DMS to add a column with timestamp information to
@@ -4562,7 +4562,7 @@ export interface S3Settings {
    *          <code>TimestampColumnName</code>.</p>
    * @public
    */
-  TimestampColumnName?: string;
+  TimestampColumnName?: string | undefined;
 
   /**
    * <p>A value that specifies the precision of any <code>TIMESTAMP</code> column values that
@@ -4589,7 +4589,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  ParquetTimestampInMillisecond?: boolean;
+  ParquetTimestampInMillisecond?: boolean | undefined;
 
   /**
    * <p>A value that enables a change data capture (CDC) load to write INSERT and UPDATE
@@ -4619,7 +4619,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  CdcInsertsAndUpdates?: boolean;
+  CdcInsertsAndUpdates?: boolean | undefined;
 
   /**
    * <p>When set to <code>true</code>, this parameter partitions S3 bucket folders based on
@@ -4627,21 +4627,21 @@ export interface S3Settings {
    *          about date-based folder partitioning, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.DatePartitioning">Using date-based folder partitioning</a>.</p>
    * @public
    */
-  DatePartitionEnabled?: boolean;
+  DatePartitionEnabled?: boolean | undefined;
 
   /**
    * <p>Identifies the sequence of the date format to use during folder partitioning. The default value is
    *          <code>YYYYMMDD</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    * @public
    */
-  DatePartitionSequence?: DatePartitionSequenceValue;
+  DatePartitionSequence?: DatePartitionSequenceValue | undefined;
 
   /**
    * <p>Specifies a date separating delimiter to use during folder partitioning. The default value is
    *          <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    * @public
    */
-  DatePartitionDelimiter?: DatePartitionDelimiterValue;
+  DatePartitionDelimiter?: DatePartitionDelimiterValue | undefined;
 
   /**
    * <p>This setting applies if the S3 output files during a change data capture (CDC) load are
@@ -4655,7 +4655,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  UseCsvNoSupValue?: boolean;
+  UseCsvNoSupValue?: boolean | undefined;
 
   /**
    * <p>This setting only applies if your Amazon S3 output files during a change data capture
@@ -4670,7 +4670,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  CsvNoSupValue?: string;
+  CsvNoSupValue?: string | undefined;
 
   /**
    * <p>If set to <code>true</code>, DMS saves the transaction order for a change data
@@ -4683,7 +4683,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  PreserveTransactions?: boolean;
+  PreserveTransactions?: boolean | undefined;
 
   /**
    * <p>Specifies the folder path of CDC files. For an S3 source, this setting is required if a
@@ -4714,7 +4714,7 @@ export interface S3Settings {
    *          </note>
    * @public
    */
-  CdcPath?: string;
+  CdcPath?: string | undefined;
 
   /**
    * <p>When set to true, this parameter uses the task start time as the timestamp column value instead of
@@ -4725,7 +4725,7 @@ export interface S3Settings {
    *          in the timestamp column increments with the time data arrives at the target. </p>
    * @public
    */
-  UseTaskStartTimeForFullLoadTimestamp?: boolean;
+  UseTaskStartTimeForFullLoadTimestamp?: boolean | undefined;
 
   /**
    * <p>A value that enables DMS to specify a predefined (canned) access control list for
@@ -4739,7 +4739,7 @@ export interface S3Settings {
    *          BUCKET_OWNER_FULL_CONTROL.</p>
    * @public
    */
-  CannedAclForObjects?: CannedAclForObjectsValue;
+  CannedAclForObjects?: CannedAclForObjectsValue | undefined;
 
   /**
    * <p>An optional parameter that, when set to <code>true</code> or <code>y</code>, you can use
@@ -4748,7 +4748,7 @@ export interface S3Settings {
    *          <code>y</code>, and <code>n</code>.</p>
    * @public
    */
-  AddColumnName?: boolean;
+  AddColumnName?: boolean | undefined;
 
   /**
    * <p>Maximum length of the interval, defined in seconds, after which to output a file to Amazon S3.</p>
@@ -4758,7 +4758,7 @@ export interface S3Settings {
    *          <p>The default value is 60 seconds.</p>
    * @public
    */
-  CdcMaxBatchInterval?: number;
+  CdcMaxBatchInterval?: number | undefined;
 
   /**
    * <p>Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.</p>
@@ -4768,7 +4768,7 @@ export interface S3Settings {
    *          <p>The default value is 32 MB.</p>
    * @public
    */
-  CdcMinFileSize?: number;
+  CdcMinFileSize?: number | undefined;
 
   /**
    * <p>An optional parameter that specifies how DMS treats null
@@ -4782,7 +4782,7 @@ export interface S3Settings {
    *          <p>The default value is <code>NULL</code>. Valid values include any valid string.</p>
    * @public
    */
-  CsvNullValue?: string;
+  CsvNullValue?: string | undefined;
 
   /**
    * <p>When this value is set to 1, DMS ignores the first row header in a .csv file. A value
@@ -4790,7 +4790,7 @@ export interface S3Settings {
    *          <p>The default is 0.</p>
    * @public
    */
-  IgnoreHeaderRows?: number;
+  IgnoreHeaderRows?: number | undefined;
 
   /**
    * <p>A value that specifies the maximum size (in KB) of any .csv
@@ -4799,7 +4799,7 @@ export interface S3Settings {
    *          <p>The default value is 1,048,576 KB (1 GB). Valid values include 1 to 1,048,576.</p>
    * @public
    */
-  MaxFileSize?: number;
+  MaxFileSize?: number | undefined;
 
   /**
    * <p>For an S3 source, when this value is set to <code>true</code> or <code>y</code>,
@@ -4821,7 +4821,7 @@ export interface S3Settings {
    *          <code>y</code>, and <code>n</code>.</p>
    * @public
    */
-  Rfc4180?: boolean;
+  Rfc4180?: boolean | undefined;
 
   /**
    * <p>When creating an S3 target endpoint, set <code>DatePartitionTimezone</code> to convert
@@ -4837,14 +4837,14 @@ export interface S3Settings {
    *          </p>
    * @public
    */
-  DatePartitionTimezone?: string;
+  DatePartitionTimezone?: string | undefined;
 
   /**
    * <p>Use the S3 target endpoint setting <code>AddTrailingPaddingCharacter</code> to add
    *          padding on string data. The default value is <code>false</code>.</p>
    * @public
    */
-  AddTrailingPaddingCharacter?: boolean;
+  AddTrailingPaddingCharacter?: boolean | undefined;
 
   /**
    * <p>To specify a bucket owner and prevent sniping, you can use the
@@ -4855,14 +4855,14 @@ export interface S3Settings {
    *          ID of the bucket owner against the specified parameter.</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>When true, allows Glue to catalog your S3 bucket. Creating an Glue catalog
    *          lets you use Athena to query your data.</p>
    * @public
    */
-  GlueCatalogGeneration?: boolean;
+  GlueCatalogGeneration?: boolean | undefined;
 }
 
 /**
@@ -4874,31 +4874,31 @@ export interface SybaseSettings {
    * <p>Database name for the endpoint.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Endpoint connection password.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>Endpoint TCP port. The default is 5000.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Fully qualified domain name of the endpoint.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>Endpoint connection user name.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The full Amazon Resource Name (ARN) of the IAM role that specifies DMS as the
@@ -4919,13 +4919,13 @@ export interface SybaseSettings {
    *          </note>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the SAP SAE endpoint connection details.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 }
 
 /**
@@ -4964,7 +4964,7 @@ export interface TimestreamSettings {
    *          the corresponding record in the Timestream database rather than deleting it.</p>
    * @public
    */
-  CdcInsertsAndUpdates?: boolean;
+  CdcInsertsAndUpdates?: boolean | undefined;
 
   /**
    * <p>Set this attribute to <code>true</code> to enable memory store writes.
@@ -4974,7 +4974,7 @@ export interface TimestreamSettings {
    *          <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/">Amazon Timestream Developer Guide</a>.</p>
    * @public
    */
-  EnableMagneticStoreWrites?: boolean;
+  EnableMagneticStoreWrites?: boolean | undefined;
 }
 
 /**
@@ -5014,32 +5014,32 @@ export interface CreateEndpointMessage {
    * <p>The user name to be used to log in to the endpoint database.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The password to be used to log in to the endpoint database.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>The name of the server where the endpoint database resides.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port used by the endpoint database.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.
    *       To migrate to a specific database, use this setting and <code>targetDbType</code>.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Additional attributes associated with the connection. Each attribute is specified as a
@@ -5051,7 +5051,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  ExtraConnectionAttributes?: string;
+  ExtraConnectionAttributes?: string | undefined;
 
   /**
    * <p>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
@@ -5061,39 +5061,39 @@ export interface CreateEndpointMessage {
    *          different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>One or more tags to be assigned to the endpoint.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the certificate.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is <code>none</code>
    *          </p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) for the service access role that you want to use to
    *           create the endpoint. The role must allow the <code>iam:PassRole</code> action.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>The external table definition. </p>
    * @public
    */
-  ExternalTableDefinition?: string;
+  ExternalTableDefinition?: string | undefined;
 
   /**
    * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other
@@ -5103,7 +5103,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  DynamoDbSettings?: DynamoDbSettings;
+  DynamoDbSettings?: DynamoDbSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the target Amazon S3 endpoint. For more information about
@@ -5113,7 +5113,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  S3Settings?: S3Settings;
+  S3Settings?: S3Settings | undefined;
 
   /**
    * <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
@@ -5137,7 +5137,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  DmsTransferSettings?: DmsTransferSettings;
+  DmsTransferSettings?: DmsTransferSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source MongoDB endpoint. For more information about the
@@ -5147,7 +5147,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  MongoDbSettings?: MongoDbSettings;
+  MongoDbSettings?: MongoDbSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For
@@ -5156,7 +5156,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  KinesisSettings?: KinesisSettings;
+  KinesisSettings?: KinesisSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the target Apache Kafka endpoint. For more information about
@@ -5166,7 +5166,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  KafkaSettings?: KafkaSettings;
+  KafkaSettings?: KafkaSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the target OpenSearch endpoint. For more information
@@ -5174,7 +5174,7 @@ export interface CreateEndpointMessage {
    *           the <i>Database Migration Service User Guide</i>.</p>
    * @public
    */
-  ElasticsearchSettings?: ElasticsearchSettings;
+  ElasticsearchSettings?: ElasticsearchSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the target Amazon Neptune endpoint.
@@ -5184,13 +5184,13 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  NeptuneSettings?: NeptuneSettings;
+  NeptuneSettings?: NeptuneSettings | undefined;
 
   /**
    * <p>Provides information that defines an Amazon Redshift endpoint.</p>
    * @public
    */
-  RedshiftSettings?: RedshiftSettings;
+  RedshiftSettings?: RedshiftSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source and target PostgreSQL endpoint. For information
@@ -5201,7 +5201,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  PostgreSQLSettings?: PostgreSQLSettings;
+  PostgreSQLSettings?: PostgreSQLSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source and target MySQL endpoint. For information about
@@ -5211,7 +5211,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  MySQLSettings?: MySQLSettings;
+  MySQLSettings?: MySQLSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source and target Oracle endpoint. For information about
@@ -5223,7 +5223,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  OracleSettings?: OracleSettings;
+  OracleSettings?: OracleSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
@@ -5234,7 +5234,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  SybaseSettings?: SybaseSettings;
+  SybaseSettings?: SybaseSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For
@@ -5245,7 +5245,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings;
+  MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other
@@ -5255,7 +5255,7 @@ export interface CreateEndpointMessage {
    *          </p>
    * @public
    */
-  IBMDb2Settings?: IBMDb2Settings;
+  IBMDb2Settings?: IBMDb2Settings | undefined;
 
   /**
    * <p>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
@@ -5269,31 +5269,31 @@ export interface CreateEndpointMessage {
    *          value for the end of <code>EndpointArn</code>.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>Provides information that defines a DocumentDB endpoint.</p>
    * @public
    */
-  DocDbSettings?: DocDbSettings;
+  DocDbSettings?: DocDbSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the target Redis endpoint.</p>
    * @public
    */
-  RedisSettings?: RedisSettings;
+  RedisSettings?: RedisSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
    * @public
    */
-  GcpMySQLSettings?: GcpMySQLSettings;
+  GcpMySQLSettings?: GcpMySQLSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
    * @public
    */
-  TimestreamSettings?: TimestreamSettings;
+  TimestreamSettings?: TimestreamSettings | undefined;
 }
 
 /**
@@ -5325,13 +5325,13 @@ export interface Endpoint {
    *          consecutive hyphens.</p>
    * @public
    */
-  EndpointIdentifier?: string;
+  EndpointIdentifier?: string | undefined;
 
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    * @public
    */
-  EndpointType?: ReplicationEndpointTypeValue;
+  EndpointType?: ReplicationEndpointTypeValue | undefined;
 
   /**
    * <p>The database engine name. Valid values, depending on the EndpointType, include
@@ -5344,50 +5344,50 @@ export interface Endpoint {
    *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
    * @public
    */
-  EngineName?: string;
+  EngineName?: string | undefined;
 
   /**
    * <p>The expanded name for the engine name. For example, if the <code>EngineName</code>
    *          parameter is "aurora", this value would be "Amazon Aurora MySQL".</p>
    * @public
    */
-  EngineDisplayName?: string;
+  EngineDisplayName?: string | undefined;
 
   /**
    * <p>The user name used to connect to the endpoint.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The name of the server at the endpoint.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The port value used to access the endpoint.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The name of the database at the endpoint.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Additional connection attributes used to connect to the endpoint.</p>
    * @public
    */
-  ExtraConnectionAttributes?: string;
+  ExtraConnectionAttributes?: string | undefined;
 
   /**
    * <p>The status of the endpoint.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>An KMS key identifier that is used to encrypt the connection parameters for the endpoint.</p>
@@ -5397,38 +5397,38 @@ export interface Endpoint {
    *          different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) used for SSL connection to the endpoint.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The SSL mode used to connect to the endpoint. The default value is <code>none</code>.</p>
    * @public
    */
-  SslMode?: DmsSslModeValue;
+  SslMode?: DmsSslModeValue | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) used by the service to access the IAM role.
    *          The role must allow the <code>iam:PassRole</code> action.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>The external table definition.</p>
    * @public
    */
-  ExternalTableDefinition?: string;
+  ExternalTableDefinition?: string | undefined;
 
   /**
    * <p> Value returned by a call to CreateEndpoint that can be used for cross-account
@@ -5436,103 +5436,103 @@ export interface Endpoint {
    *          cross-account. </p>
    * @public
    */
-  ExternalId?: string;
+  ExternalId?: string | undefined;
 
   /**
    * <p>The settings for the DynamoDB target endpoint. For more information, see the
    *             <code>DynamoDBSettings</code> structure.</p>
    * @public
    */
-  DynamoDbSettings?: DynamoDbSettings;
+  DynamoDbSettings?: DynamoDbSettings | undefined;
 
   /**
    * <p>The settings for the S3 target endpoint. For more information, see the
    *             <code>S3Settings</code> structure.</p>
    * @public
    */
-  S3Settings?: S3Settings;
+  S3Settings?: S3Settings | undefined;
 
   /**
    * <p>The settings for the DMS Transfer type source. For more information, see the DmsTransferSettings structure.  </p>
    * @public
    */
-  DmsTransferSettings?: DmsTransferSettings;
+  DmsTransferSettings?: DmsTransferSettings | undefined;
 
   /**
    * <p>The settings for the MongoDB source endpoint. For more information, see the
    *             <code>MongoDbSettings</code> structure.</p>
    * @public
    */
-  MongoDbSettings?: MongoDbSettings;
+  MongoDbSettings?: MongoDbSettings | undefined;
 
   /**
    * <p>The settings for the Amazon Kinesis target endpoint. For more information, see the
    *             <code>KinesisSettings</code> structure.</p>
    * @public
    */
-  KinesisSettings?: KinesisSettings;
+  KinesisSettings?: KinesisSettings | undefined;
 
   /**
    * <p>The settings for the Apache Kafka target endpoint. For more information, see the
    *          <code>KafkaSettings</code> structure.</p>
    * @public
    */
-  KafkaSettings?: KafkaSettings;
+  KafkaSettings?: KafkaSettings | undefined;
 
   /**
    * <p>The settings for the OpenSearch source endpoint. For more information, see the
    *             <code>ElasticsearchSettings</code> structure.</p>
    * @public
    */
-  ElasticsearchSettings?: ElasticsearchSettings;
+  ElasticsearchSettings?: ElasticsearchSettings | undefined;
 
   /**
    * <p>The settings for the Amazon Neptune target endpoint. For more information, see the
    *          <code>NeptuneSettings</code> structure.</p>
    * @public
    */
-  NeptuneSettings?: NeptuneSettings;
+  NeptuneSettings?: NeptuneSettings | undefined;
 
   /**
    * <p>Settings for the Amazon Redshift endpoint.</p>
    * @public
    */
-  RedshiftSettings?: RedshiftSettings;
+  RedshiftSettings?: RedshiftSettings | undefined;
 
   /**
    * <p>The settings for the PostgreSQL source and target endpoint. For more information, see
    *          the <code>PostgreSQLSettings</code> structure.</p>
    * @public
    */
-  PostgreSQLSettings?: PostgreSQLSettings;
+  PostgreSQLSettings?: PostgreSQLSettings | undefined;
 
   /**
    * <p>The settings for the MySQL source and target endpoint. For more information, see the
    *             <code>MySQLSettings</code> structure.</p>
    * @public
    */
-  MySQLSettings?: MySQLSettings;
+  MySQLSettings?: MySQLSettings | undefined;
 
   /**
    * <p>The settings for the Oracle source and target endpoint. For more information, see the
    *             <code>OracleSettings</code> structure.</p>
    * @public
    */
-  OracleSettings?: OracleSettings;
+  OracleSettings?: OracleSettings | undefined;
 
   /**
    * <p>The settings for the SAP ASE source and target endpoint. For more information, see the
    *             <code>SybaseSettings</code> structure.</p>
    * @public
    */
-  SybaseSettings?: SybaseSettings;
+  SybaseSettings?: SybaseSettings | undefined;
 
   /**
    * <p>The settings for the Microsoft SQL Server source and target endpoint. For more
    *          information, see the <code>MicrosoftSQLServerSettings</code> structure.</p>
    * @public
    */
-  MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings;
+  MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings | undefined;
 
   /**
    * <p>The settings for the IBM Db2 LUW source endpoint. For more information, see the
@@ -5540,33 +5540,33 @@ export interface Endpoint {
    *       </p>
    * @public
    */
-  IBMDb2Settings?: IBMDb2Settings;
+  IBMDb2Settings?: IBMDb2Settings | undefined;
 
   /**
    * <p>Provides information that defines a DocumentDB endpoint.</p>
    * @public
    */
-  DocDbSettings?: DocDbSettings;
+  DocDbSettings?: DocDbSettings | undefined;
 
   /**
    * <p>The settings for the Redis target endpoint. For more information, see the
    *          <code>RedisSettings</code> structure.</p>
    * @public
    */
-  RedisSettings?: RedisSettings;
+  RedisSettings?: RedisSettings | undefined;
 
   /**
    * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
    * @public
    */
-  GcpMySQLSettings?: GcpMySQLSettings;
+  GcpMySQLSettings?: GcpMySQLSettings | undefined;
 
   /**
    * <p>The settings for the Amazon Timestream target endpoint. For more information, see the
    *          <code>TimestreamSettings</code> structure.</p>
    * @public
    */
-  TimestreamSettings?: TimestreamSettings;
+  TimestreamSettings?: TimestreamSettings | undefined;
 }
 
 /**
@@ -5578,7 +5578,7 @@ export interface CreateEndpointResponse {
    * <p>The endpoint that was created.</p>
    * @public
    */
-  Endpoint?: Endpoint;
+  Endpoint?: Endpoint | undefined;
 }
 
 /**
@@ -5648,7 +5648,7 @@ export interface CreateEventSubscriptionMessage {
    *          </p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>A list of event categories for a source type that you want to subscribe to. For more
@@ -5658,7 +5658,7 @@ export interface CreateEventSubscriptionMessage {
    *          </p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 
   /**
    * <p>A list of identifiers for which DMS provides notification events.</p>
@@ -5668,20 +5668,20 @@ export interface CreateEventSubscriptionMessage {
    *             IDs.</p>
    * @public
    */
-  SourceIds?: string[];
+  SourceIds?: string[] | undefined;
 
   /**
    * <p> A Boolean value; set to <code>true</code> to activate the subscription, or set to
    *             <code>false</code> to create the subscription but not activate it. </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>One or more tags to be assigned to the event subscription.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5695,19 +5695,19 @@ export interface EventSubscription {
    *          subscription.</p>
    * @public
    */
-  CustomerAwsId?: string;
+  CustomerAwsId?: string | undefined;
 
   /**
    * <p>The DMS event notification subscription Id.</p>
    * @public
    */
-  CustSubscriptionId?: string;
+  CustSubscriptionId?: string | undefined;
 
   /**
    * <p>The topic ARN of the DMS event notification subscription.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>The status of the DMS event notification subscription.</p>
@@ -5719,13 +5719,13 @@ export interface EventSubscription {
    *          subscription was created.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The time the DMS event notification subscription was created.</p>
    * @public
    */
-  SubscriptionCreationTime?: string;
+  SubscriptionCreationTime?: string | undefined;
 
   /**
    * <p> The type of DMS resource that generates events. </p>
@@ -5733,25 +5733,25 @@ export interface EventSubscription {
    *          replication-task</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>A list of source Ids for the event subscription.</p>
    * @public
    */
-  SourceIdsList?: string[];
+  SourceIdsList?: string[] | undefined;
 
   /**
    * <p>A lists of event categories.</p>
    * @public
    */
-  EventCategoriesList?: string[];
+  EventCategoriesList?: string[] | undefined;
 
   /**
    * <p>Boolean value that indicates if the event subscription is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -5763,7 +5763,7 @@ export interface CreateEventSubscriptionResponse {
    * <p>The event subscription that was created.</p>
    * @public
    */
-  EventSubscription?: EventSubscription;
+  EventSubscription?: EventSubscription | undefined;
 }
 
 /**
@@ -5920,7 +5920,7 @@ export interface CreateFleetAdvisorCollectorRequest {
    * <p>A summary description of your Fleet Advisor collector.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The IAM role that grants permissions to access the specified Amazon S3 bucket.</p>
@@ -5945,31 +5945,31 @@ export interface CreateFleetAdvisorCollectorResponse {
    *          </p>
    * @public
    */
-  CollectorReferencedId?: string;
+  CollectorReferencedId?: string | undefined;
 
   /**
    * <p>The name of the new Fleet Advisor collector.</p>
    * @public
    */
-  CollectorName?: string;
+  CollectorName?: string | undefined;
 
   /**
    * <p>A summary description of the Fleet Advisor collector.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The IAM role that grants permissions to access the specified Amazon S3 bucket.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket that the collector uses to store inventory metadata.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 }
 
 /**
@@ -6003,7 +6003,7 @@ export interface CreateInstanceProfileMessage {
    *          data provider is created, for examplem <code>us-east-1d</code>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key that is used to encrypt
@@ -6014,7 +6014,7 @@ export interface CreateInstanceProfileMessage {
    *          different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>Specifies the accessibility options for the instance profile. A value of
@@ -6023,13 +6023,13 @@ export interface CreateInstanceProfileMessage {
    *          is <code>true</code>.</p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>One or more tags to be assigned to the instance profile.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Specifies the network type for the instance profile. A value of <code>IPV4</code>
@@ -6039,32 +6039,32 @@ export interface CreateInstanceProfileMessage {
    *          profile with dual network type that supports IPv4 and IPv6 addressing.</p>
    * @public
    */
-  NetworkType?: string;
+  NetworkType?: string | undefined;
 
   /**
    * <p>A user-friendly name for the instance profile.</p>
    * @public
    */
-  InstanceProfileName?: string;
+  InstanceProfileName?: string | undefined;
 
   /**
    * <p>A user-friendly description of the instance profile.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A subnet group to associate with the instance profile.</p>
    * @public
    */
-  SubnetGroupIdentifier?: string;
+  SubnetGroupIdentifier?: string | undefined;
 
   /**
    * <p>Specifies the VPC security group names to be used with the instance profile.
    *          The VPC security group must work with the VPC containing the instance profile.</p>
    * @public
    */
-  VpcSecurityGroups?: string[];
+  VpcSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -6076,13 +6076,13 @@ export interface InstanceProfile {
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the instance profile.</p>
    * @public
    */
-  InstanceProfileArn?: string;
+  InstanceProfileArn?: string | undefined;
 
   /**
    * <p>The Availability Zone where the instance profile runs.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key that is used to encrypt
@@ -6093,7 +6093,7 @@ export interface InstanceProfile {
    *          has a different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>Specifies the accessibility options for the instance profile. A value of
@@ -6102,7 +6102,7 @@ export interface InstanceProfile {
    *          is <code>true</code>.</p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>Specifies the network type for the instance profile. A value of <code>IPV4</code>
@@ -6112,13 +6112,13 @@ export interface InstanceProfile {
    *          profile with dual network type that supports IPv4 and IPv6 addressing.</p>
    * @public
    */
-  NetworkType?: string;
+  NetworkType?: string | undefined;
 
   /**
    * <p>The user-friendly name for the instance profile.</p>
    * @public
    */
-  InstanceProfileName?: string;
+  InstanceProfileName?: string | undefined;
 
   /**
    * <p>A description of the instance profile. Descriptions can have up to 31 characters.
@@ -6126,26 +6126,26 @@ export interface InstanceProfile {
    *          end with a hyphen or contain two consecutive hyphens, and can only begin with a letter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The time the instance profile was created.</p>
    * @public
    */
-  InstanceProfileCreationTime?: Date;
+  InstanceProfileCreationTime?: Date | undefined;
 
   /**
    * <p>The identifier of the subnet group that is associated with the instance profile.</p>
    * @public
    */
-  SubnetGroupIdentifier?: string;
+  SubnetGroupIdentifier?: string | undefined;
 
   /**
    * <p>The VPC security groups that are used with the instance profile.
    *          The VPC security group must work with the VPC containing the instance profile.</p>
    * @public
    */
-  VpcSecurityGroups?: string[];
+  VpcSecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -6156,7 +6156,7 @@ export interface CreateInstanceProfileResponse {
    * <p>The instance profile that was created.</p>
    * @public
    */
-  InstanceProfile?: InstanceProfile;
+  InstanceProfile?: InstanceProfile | undefined;
 }
 
 /**
@@ -6168,13 +6168,13 @@ export interface SCApplicationAttributes {
    * <p>The path for the Amazon S3 bucket that the application uses for exporting assessment reports.</p>
    * @public
    */
-  S3BucketPath?: string;
+  S3BucketPath?: string | undefined;
 
   /**
    * <p>The ARN for the role the application uses to access its Amazon S3 bucket.</p>
    * @public
    */
-  S3BucketRoleArn?: string;
+  S3BucketRoleArn?: string | undefined;
 }
 
 /**
@@ -6192,13 +6192,13 @@ export interface DataProviderDescriptorDefinition {
    * <p>The identifier of the Amazon Web Services Secrets Manager Secret used to store access credentials for the data provider.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>The ARN of the role used to access Amazon Web Services Secrets Manager.</p>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 }
 
 /**
@@ -6209,7 +6209,7 @@ export interface CreateMigrationProjectMessage {
    * <p>A user-friendly name for the migration project.</p>
    * @public
    */
-  MigrationProjectName?: string;
+  MigrationProjectName?: string | undefined;
 
   /**
    * <p>Information about the source data provider, including the name, ARN, and Secrets Manager parameters.</p>
@@ -6237,25 +6237,25 @@ export interface CreateMigrationProjectMessage {
    *          to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>
    * @public
    */
-  TransformationRules?: string;
+  TransformationRules?: string | undefined;
 
   /**
    * <p>A user-friendly description of the migration project.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>One or more tags to be assigned to the migration project.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.</p>
    * @public
    */
-  SchemaConversionApplicationAttributes?: SCApplicationAttributes;
+  SchemaConversionApplicationAttributes?: SCApplicationAttributes | undefined;
 }
 
 /**
@@ -6267,25 +6267,25 @@ export interface DataProviderDescriptor {
    * <p>The identifier of the Amazon Web Services Secrets Manager Secret used to store access credentials for the data provider.</p>
    * @public
    */
-  SecretsManagerSecretId?: string;
+  SecretsManagerSecretId?: string | undefined;
 
   /**
    * <p>The ARN of the role used to access Amazon Web Services Secrets Manager.</p>
    * @public
    */
-  SecretsManagerAccessRoleArn?: string;
+  SecretsManagerAccessRoleArn?: string | undefined;
 
   /**
    * <p>The user-friendly name of the data provider.</p>
    * @public
    */
-  DataProviderName?: string;
+  DataProviderName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the data provider.</p>
    * @public
    */
-  DataProviderArn?: string;
+  DataProviderArn?: string | undefined;
 }
 
 /**
@@ -6297,43 +6297,43 @@ export interface MigrationProject {
    * <p>The name of the migration project.</p>
    * @public
    */
-  MigrationProjectName?: string;
+  MigrationProjectName?: string | undefined;
 
   /**
    * <p>The ARN string that uniquely identifies the migration project.</p>
    * @public
    */
-  MigrationProjectArn?: string;
+  MigrationProjectArn?: string | undefined;
 
   /**
    * <p>The time when the migration project was created.</p>
    * @public
    */
-  MigrationProjectCreationTime?: Date;
+  MigrationProjectCreationTime?: Date | undefined;
 
   /**
    * <p>Information about the source data provider, including the name or ARN, and Secrets Manager parameters.</p>
    * @public
    */
-  SourceDataProviderDescriptors?: DataProviderDescriptor[];
+  SourceDataProviderDescriptors?: DataProviderDescriptor[] | undefined;
 
   /**
    * <p>Information about the target data provider, including the name or ARN, and Secrets Manager parameters.</p>
    * @public
    */
-  TargetDataProviderDescriptors?: DataProviderDescriptor[];
+  TargetDataProviderDescriptors?: DataProviderDescriptor[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the instance profile for your migration project.</p>
    * @public
    */
-  InstanceProfileArn?: string;
+  InstanceProfileArn?: string | undefined;
 
   /**
    * <p>The name of the associated instance profile.</p>
    * @public
    */
-  InstanceProfileName?: string;
+  InstanceProfileName?: string | undefined;
 
   /**
    * <p>The settings in JSON format for migration rules. Migration rules make it possible for you to change
@@ -6341,19 +6341,19 @@ export interface MigrationProject {
    *          to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>
    * @public
    */
-  TransformationRules?: string;
+  TransformationRules?: string | undefined;
 
   /**
    * <p>A user-friendly description of the migration project.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The schema conversion application attributes, including the Amazon S3 bucket name and Amazon S3 role ARN.</p>
    * @public
    */
-  SchemaConversionApplicationAttributes?: SCApplicationAttributes;
+  SchemaConversionApplicationAttributes?: SCApplicationAttributes | undefined;
 }
 
 /**
@@ -6364,7 +6364,7 @@ export interface CreateMigrationProjectResponse {
    * <p>The migration project that was created.</p>
    * @public
    */
-  MigrationProject?: MigrationProject;
+  MigrationProject?: MigrationProject | undefined;
 }
 
 /**
@@ -6379,7 +6379,7 @@ export interface ComputeConfig {
    *          parameter is set to <code>true</code>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>A list of custom DNS name servers supported for the DMS Serverless replication
@@ -6390,7 +6390,7 @@ export interface ComputeConfig {
    *          </p>
    * @public
    */
-  DnsNameServers?: string;
+  DnsNameServers?: string | undefined;
 
   /**
    * <p>An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during
@@ -6401,7 +6401,7 @@ export interface ComputeConfig {
    *          different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless
@@ -6411,7 +6411,7 @@ export interface ComputeConfig {
    *          DCU parameter you are required to specify.</p>
    * @public
    */
-  MaxCapacityUnits?: number;
+  MaxCapacityUnits?: number | undefined;
 
   /**
    * <p>Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS
@@ -6422,7 +6422,7 @@ export interface ComputeConfig {
    *          reaches the value specified in <code>MinCapacityUnits</code>.</p>
    * @public
    */
-  MinCapacityUnits?: number;
+  MinCapacityUnits?: number | undefined;
 
   /**
    * <p>Specifies whether the DMS Serverless replication is a Multi-AZ deployment. You can't set the
@@ -6430,7 +6430,7 @@ export interface ComputeConfig {
    *          <code>true</code>.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur for the DMS Serverless
@@ -6442,20 +6442,20 @@ export interface ComputeConfig {
    *          <p>Constraints include a minimum 30-minute window.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>Specifies a subnet group identifier to associate with the DMS Serverless replication.</p>
    * @public
    */
-  ReplicationSubnetGroupId?: string;
+  ReplicationSubnetGroupId?: string | undefined;
 
   /**
    * <p>Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless
    *          replication. The VPC security group must work with the VPC containing the replication.</p>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -6535,7 +6535,7 @@ export interface CreateReplicationConfigMessage {
    *             Change processing tuning settings</a>.</p>
    * @public
    */
-  ReplicationSettings?: string;
+  ReplicationSettings?: string | undefined;
 
   /**
    * <p>Optional JSON settings for specifying supplemental data. For more information, see
@@ -6543,7 +6543,7 @@ export interface CreateReplicationConfigMessage {
    *             Specifying supplemental data for task settings</a>.</p>
    * @public
    */
-  SupplementalSettings?: string;
+  SupplementalSettings?: string | undefined;
 
   /**
    * <p>Optional unique value or name that you set for a given resource
@@ -6552,7 +6552,7 @@ export interface CreateReplicationConfigMessage {
    *             Fine-grained access control using resource names and tags</a>.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>One or more optional tags associated with resources used by the DMS Serverless replication.
@@ -6560,7 +6560,7 @@ export interface CreateReplicationConfigMessage {
    *             Tagging resources in Database Migration Service</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6572,70 +6572,70 @@ export interface ReplicationConfig {
    * <p>The identifier for the <code>ReplicationConfig</code> associated with the replication.</p>
    * @public
    */
-  ReplicationConfigIdentifier?: string;
+  ReplicationConfigIdentifier?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of
    *          this DMS Serverless replication configuration.</p>
    * @public
    */
-  ReplicationConfigArn?: string;
+  ReplicationConfigArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source endpoint for
    *          this DMS serverless replication configuration.</p>
    * @public
    */
-  SourceEndpointArn?: string;
+  SourceEndpointArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target endpoint for
    *          this DMS serverless replication configuration.</p>
    * @public
    */
-  TargetEndpointArn?: string;
+  TargetEndpointArn?: string | undefined;
 
   /**
    * <p>The type of the replication.</p>
    * @public
    */
-  ReplicationType?: MigrationTypeValue;
+  ReplicationType?: MigrationTypeValue | undefined;
 
   /**
    * <p>Configuration parameters for provisioning an DMS serverless replication.</p>
    * @public
    */
-  ComputeConfig?: ComputeConfig;
+  ComputeConfig?: ComputeConfig | undefined;
 
   /**
    * <p>Configuration parameters for an DMS serverless replication.</p>
    * @public
    */
-  ReplicationSettings?: string;
+  ReplicationSettings?: string | undefined;
 
   /**
    * <p>Additional parameters for an DMS serverless replication.</p>
    * @public
    */
-  SupplementalSettings?: string;
+  SupplementalSettings?: string | undefined;
 
   /**
    * <p>Table mappings specified in the replication.</p>
    * @public
    */
-  TableMappings?: string;
+  TableMappings?: string | undefined;
 
   /**
    * <p>The time the serverless replication config was created.</p>
    * @public
    */
-  ReplicationConfigCreateTime?: Date;
+  ReplicationConfigCreateTime?: Date | undefined;
 
   /**
    * <p>The time the serverless replication config was updated.</p>
    * @public
    */
-  ReplicationConfigUpdateTime?: Date;
+  ReplicationConfigUpdateTime?: Date | undefined;
 }
 
 /**
@@ -6647,7 +6647,7 @@ export interface CreateReplicationConfigResponse {
    * <p>Configuration parameters returned from the DMS Serverless replication after it is created.</p>
    * @public
    */
-  ReplicationConfig?: ReplicationConfig;
+  ReplicationConfig?: ReplicationConfig | undefined;
 }
 
 /**
@@ -6721,7 +6721,7 @@ export interface CreateReplicationInstanceMessage {
    *          instance.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The compute and memory capacity of the replication instance as defined for the specified
@@ -6740,7 +6740,7 @@ export interface CreateReplicationInstanceMessage {
    *          security group must work with the VPC containing the replication instance. </p>
    * @public
    */
-  VpcSecurityGroupIds?: string[];
+  VpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The Availability Zone where the replication instance will be created. The default
@@ -6748,13 +6748,13 @@ export interface CreateReplicationInstanceMessage {
    *          example: <code>us-east-1d</code>.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>A subnet group to associate with the replication instance.</p>
    * @public
    */
-  ReplicationSubnetGroupIdentifier?: string;
+  ReplicationSubnetGroupIdentifier?: string | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal
@@ -6767,7 +6767,7 @@ export interface CreateReplicationInstanceMessage {
    *          <p>Constraints: Minimum 30-minute window.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p> Specifies whether the replication instance is a Multi-AZ deployment. You can't set the
@@ -6775,7 +6775,7 @@ export interface CreateReplicationInstanceMessage {
    *             <code>true</code>. </p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>The engine version number of the replication instance.</p>
@@ -6783,7 +6783,7 @@ export interface CreateReplicationInstanceMessage {
    *          instance is created, the default is the latest engine version available.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>A value that indicates whether minor engine upgrades are applied automatically to the
@@ -6793,13 +6793,13 @@ export interface CreateReplicationInstanceMessage {
    *          </p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>One or more tags to be assigned to the replication instance.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>An KMS key identifier that is used to encrypt the data on the replication
@@ -6810,7 +6810,7 @@ export interface CreateReplicationInstanceMessage {
    *          different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p> Specifies the accessibility options for the replication instance. A value of
@@ -6819,7 +6819,7 @@ export interface CreateReplicationInstanceMessage {
    *          is <code>true</code>. </p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>A list of custom DNS name servers supported for the replication instance to access your
@@ -6830,7 +6830,7 @@ export interface CreateReplicationInstanceMessage {
    *          </p>
    * @public
    */
-  DnsNameServers?: string;
+  DnsNameServers?: string | undefined;
 
   /**
    * <p>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
@@ -6844,7 +6844,7 @@ export interface CreateReplicationInstanceMessage {
    *          value for the end of <code>EndpointArn</code>.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>The type of IP address protocol used by a replication instance,
@@ -6852,7 +6852,7 @@ export interface CreateReplicationInstanceMessage {
    *          IPv6 only is not yet supported.</p>
    * @public
    */
-  NetworkType?: string;
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -6874,14 +6874,14 @@ export interface ReplicationPendingModifiedValues {
    *       </p>
    * @public
    */
-  ReplicationInstanceClass?: string;
+  ReplicationInstanceClass?: string | undefined;
 
   /**
    * <p>The amount of storage (in gigabytes) that is allocated for the replication
    *          instance.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p> Specifies whether the replication instance is a Multi-AZ deployment. You can't set the
@@ -6889,13 +6889,13 @@ export interface ReplicationPendingModifiedValues {
    *             <code>true</code>. </p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>The engine version number of the replication instance.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The type of IP address protocol used by a replication instance,
@@ -6903,7 +6903,7 @@ export interface ReplicationPendingModifiedValues {
    *          IPv6 only is not yet supported.</p>
    * @public
    */
-  NetworkType?: string;
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -6920,7 +6920,7 @@ export interface AvailabilityZone {
    * <p>The name of the Availability Zone.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -6934,19 +6934,19 @@ export interface Subnet {
    * <p>The subnet identifier.</p>
    * @public
    */
-  SubnetIdentifier?: string;
+  SubnetIdentifier?: string | undefined;
 
   /**
    * <p>The Availability Zone of the subnet.</p>
    * @public
    */
-  SubnetAvailabilityZone?: AvailabilityZone;
+  SubnetAvailabilityZone?: AvailabilityZone | undefined;
 
   /**
    * <p>The status of the subnet.</p>
    * @public
    */
-  SubnetStatus?: string;
+  SubnetStatus?: string | undefined;
 }
 
 /**
@@ -6959,31 +6959,31 @@ export interface ReplicationSubnetGroup {
    * <p>The identifier of the replication instance subnet group.</p>
    * @public
    */
-  ReplicationSubnetGroupIdentifier?: string;
+  ReplicationSubnetGroupIdentifier?: string | undefined;
 
   /**
    * <p>A description for the replication subnet group.</p>
    * @public
    */
-  ReplicationSubnetGroupDescription?: string;
+  ReplicationSubnetGroupDescription?: string | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The status of the subnet group.</p>
    * @public
    */
-  SubnetGroupStatus?: string;
+  SubnetGroupStatus?: string | undefined;
 
   /**
    * <p>The subnets that are in the subnet group.</p>
    * @public
    */
-  Subnets?: Subnet[];
+  Subnets?: Subnet[] | undefined;
 
   /**
    * <p>The IP addressing protocol supported by the subnet group. This is used by a
@@ -6991,7 +6991,7 @@ export interface ReplicationSubnetGroup {
    *       both IPv4 and IPv6 addressing. IPv6 only is not yet supported.</p>
    * @public
    */
-  SupportedNetworkTypes?: string[];
+  SupportedNetworkTypes?: string[] | undefined;
 }
 
 /**
@@ -7004,13 +7004,13 @@ export interface VpcSecurityGroupMembership {
    * <p>The VPC security group ID.</p>
    * @public
    */
-  VpcSecurityGroupId?: string;
+  VpcSecurityGroupId?: string | undefined;
 
   /**
    * <p>The status of the VPC security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -7037,7 +7037,7 @@ export interface ReplicationInstance {
    *          </p>
    * @public
    */
-  ReplicationInstanceIdentifier?: string;
+  ReplicationInstanceIdentifier?: string | undefined;
 
   /**
    * <p>The compute and memory capacity of the replication instance as defined for the specified
@@ -7049,7 +7049,7 @@ export interface ReplicationInstance {
    *       </p>
    * @public
    */
-  ReplicationInstanceClass?: string;
+  ReplicationInstanceClass?: string | undefined;
 
   /**
    * <p>The status of the replication instance. The possible return values include:</p>
@@ -7122,51 +7122,51 @@ export interface ReplicationInstance {
    *          </ul>
    * @public
    */
-  ReplicationInstanceStatus?: string;
+  ReplicationInstanceStatus?: string | undefined;
 
   /**
    * <p>The amount of storage (in gigabytes) that is allocated for the replication
    *          instance.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The time the replication instance was created.</p>
    * @public
    */
-  InstanceCreateTime?: Date;
+  InstanceCreateTime?: Date | undefined;
 
   /**
    * <p>The VPC security group for the instance.</p>
    * @public
    */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+  VpcSecurityGroups?: VpcSecurityGroupMembership[] | undefined;
 
   /**
    * <p>The Availability Zone for the instance.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The subnet group for the replication instance.</p>
    * @public
    */
-  ReplicationSubnetGroup?: ReplicationSubnetGroup;
+  ReplicationSubnetGroup?: ReplicationSubnetGroup | undefined;
 
   /**
    * <p>The maintenance window times for the replication instance. Any pending upgrades to the
    *          replication instance are performed during this time.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The pending modification values.</p>
    * @public
    */
-  PendingModifiedValues?: ReplicationPendingModifiedValues;
+  PendingModifiedValues?: ReplicationPendingModifiedValues | undefined;
 
   /**
    * <p> Specifies whether the replication instance is a Multi-AZ deployment. You can't set the
@@ -7174,7 +7174,7 @@ export interface ReplicationInstance {
    *             <code>true</code>. </p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>The engine version number of the replication instance.</p>
@@ -7184,14 +7184,14 @@ export interface ReplicationInstance {
    *          <code>AllowMajorVersionUpgrade</code> to <code>true</code>.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Boolean value indicating if minor version upgrades will be automatically applied to the
    *          instance.</p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>An KMS key identifier that is used to encrypt the data on the replication
@@ -7202,13 +7202,13 @@ export interface ReplicationInstance {
    *          different default encryption key for each Amazon Web Services Region.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * @deprecated
@@ -7216,7 +7216,7 @@ export interface ReplicationInstance {
    * <p>The public IP address of the replication instance.</p>
    * @public
    */
-  ReplicationInstancePublicIpAddress?: string;
+  ReplicationInstancePublicIpAddress?: string | undefined;
 
   /**
    * @deprecated
@@ -7224,25 +7224,25 @@ export interface ReplicationInstance {
    * <p>The private IP address of the replication instance.</p>
    * @public
    */
-  ReplicationInstancePrivateIpAddress?: string;
+  ReplicationInstancePrivateIpAddress?: string | undefined;
 
   /**
    * <p>One or more public IP addresses for the replication instance.</p>
    * @public
    */
-  ReplicationInstancePublicIpAddresses?: string[];
+  ReplicationInstancePublicIpAddresses?: string[] | undefined;
 
   /**
    * <p>One or more private IP addresses for the replication instance.</p>
    * @public
    */
-  ReplicationInstancePrivateIpAddresses?: string[];
+  ReplicationInstancePrivateIpAddresses?: string[] | undefined;
 
   /**
    * <p>One or more IPv6 addresses for the replication instance.</p>
    * @public
    */
-  ReplicationInstanceIpv6Addresses?: string[];
+  ReplicationInstanceIpv6Addresses?: string[] | undefined;
 
   /**
    * <p> Specifies the accessibility options for the replication instance. A value of
@@ -7251,27 +7251,27 @@ export interface ReplicationInstance {
    *          is <code>true</code>. </p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>The Availability Zone of the standby replication instance in a Multi-AZ
    *          deployment.</p>
    * @public
    */
-  SecondaryAvailabilityZone?: string;
+  SecondaryAvailabilityZone?: string | undefined;
 
   /**
    * <p> The expiration date of the free replication instance that is part of the Free DMS
    *          program. </p>
    * @public
    */
-  FreeUntil?: Date;
+  FreeUntil?: Date | undefined;
 
   /**
    * <p>The DNS name servers supported for the replication instance to access your on-premise source or target database.</p>
    * @public
    */
-  DnsNameServers?: string;
+  DnsNameServers?: string | undefined;
 
   /**
    * <p>The type of IP address protocol used by a replication instance,
@@ -7279,7 +7279,7 @@ export interface ReplicationInstance {
    *          IPv6 only is not yet supported.</p>
    * @public
    */
-  NetworkType?: string;
+  NetworkType?: string | undefined;
 }
 
 /**
@@ -7291,7 +7291,7 @@ export interface CreateReplicationInstanceResponse {
    * <p>The replication instance that was created.</p>
    * @public
    */
-  ReplicationInstance?: ReplicationInstance;
+  ReplicationInstance?: ReplicationInstance | undefined;
 }
 
 /**
@@ -7366,7 +7366,7 @@ export interface CreateReplicationSubnetGroupMessage {
    * <p>One or more tags to be assigned to the subnet group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -7378,7 +7378,7 @@ export interface CreateReplicationSubnetGroupResponse {
    * <p>The replication subnet group that was created.</p>
    * @public
    */
-  ReplicationSubnetGroup?: ReplicationSubnetGroup;
+  ReplicationSubnetGroup?: ReplicationSubnetGroup | undefined;
 }
 
 /**
@@ -7444,7 +7444,7 @@ export interface CreateReplicationTaskMessage {
    *          </p>
    * @public
    */
-  ReplicationTaskSettings?: string;
+  ReplicationTaskSettings?: string | undefined;
 
   /**
    * <p>Indicates the start time for a change data capture (CDC) operation. Use either
@@ -7453,7 +7453,7 @@ export interface CreateReplicationTaskMessage {
    *          <p>Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”</p>
    * @public
    */
-  CdcStartTime?: Date;
+  CdcStartTime?: Date | undefined;
 
   /**
    * <p>Indicates when you want a change data capture (CDC) operation to start. Use either
@@ -7473,7 +7473,7 @@ export interface CreateReplicationTaskMessage {
    *          </note>
    * @public
    */
-  CdcStartPosition?: string;
+  CdcStartPosition?: string | undefined;
 
   /**
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
@@ -7482,13 +7482,13 @@ export interface CreateReplicationTaskMessage {
    *          <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
    * @public
    */
-  CdcStopPosition?: string;
+  CdcStopPosition?: string | undefined;
 
   /**
    * <p>One or more tags to be assigned to the replication task.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints.
@@ -7497,7 +7497,7 @@ export interface CreateReplicationTaskMessage {
    *          </p>
    * @public
    */
-  TaskData?: string;
+  TaskData?: string | undefined;
 
   /**
    * <p>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>
@@ -7511,7 +7511,7 @@ export interface CreateReplicationTaskMessage {
    *          value for the end of <code>EndpointArn</code>.</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 }
 
 /**
@@ -7524,68 +7524,68 @@ export interface ReplicationTaskStats {
    * <p>The percent complete for the full load migration task.</p>
    * @public
    */
-  FullLoadProgressPercent?: number;
+  FullLoadProgressPercent?: number | undefined;
 
   /**
    * <p>The elapsed time of the task, in milliseconds.</p>
    * @public
    */
-  ElapsedTimeMillis?: number;
+  ElapsedTimeMillis?: number | undefined;
 
   /**
    * <p>The number of tables loaded for this task.</p>
    * @public
    */
-  TablesLoaded?: number;
+  TablesLoaded?: number | undefined;
 
   /**
    * <p>The number of tables currently loading for this task.</p>
    * @public
    */
-  TablesLoading?: number;
+  TablesLoading?: number | undefined;
 
   /**
    * <p>The number of tables queued for this task.</p>
    * @public
    */
-  TablesQueued?: number;
+  TablesQueued?: number | undefined;
 
   /**
    * <p>The number of errors that have occurred during this task.</p>
    * @public
    */
-  TablesErrored?: number;
+  TablesErrored?: number | undefined;
 
   /**
    * <p>The date the replication task was started either with a fresh start or a target reload.</p>
    * @public
    */
-  FreshStartDate?: Date;
+  FreshStartDate?: Date | undefined;
 
   /**
    * <p>The date the replication task was started either with a fresh start or a resume. For more information, see
    *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartReplicationTask.html#DMS-StartReplicationTask-request-StartReplicationTaskType">StartReplicationTaskType</a>.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>The date the replication task was stopped.</p>
    * @public
    */
-  StopDate?: Date;
+  StopDate?: Date | undefined;
 
   /**
    * <p>The date the replication task full load was started.</p>
    * @public
    */
-  FullLoadStartDate?: Date;
+  FullLoadStartDate?: Date | undefined;
 
   /**
    * <p>The date the replication task full load was completed.</p>
    * @public
    */
-  FullLoadFinishDate?: Date;
+  FullLoadFinishDate?: Date | undefined;
 }
 
 /**
@@ -7610,43 +7610,43 @@ export interface ReplicationTask {
    *          </ul>
    * @public
    */
-  ReplicationTaskIdentifier?: string;
+  ReplicationTaskIdentifier?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the endpoint.</p>
    * @public
    */
-  SourceEndpointArn?: string;
+  SourceEndpointArn?: string | undefined;
 
   /**
    * <p>The ARN that uniquely identifies the endpoint.</p>
    * @public
    */
-  TargetEndpointArn?: string;
+  TargetEndpointArn?: string | undefined;
 
   /**
    * <p>The ARN of the replication instance.</p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * <p>The type of migration.</p>
    * @public
    */
-  MigrationType?: MigrationTypeValue;
+  MigrationType?: MigrationTypeValue | undefined;
 
   /**
    * <p>Table mappings specified in the task.</p>
    * @public
    */
-  TableMappings?: string;
+  TableMappings?: string | undefined;
 
   /**
    * <p>The settings for the replication task.</p>
    * @public
    */
-  ReplicationTaskSettings?: string;
+  ReplicationTaskSettings?: string | undefined;
 
   /**
    * <p>The status of the replication task. This response parameter can return one of
@@ -7761,13 +7761,13 @@ export interface ReplicationTask {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The last error (failure) message generated for the replication task.</p>
    * @public
    */
-  LastFailureMessage?: string;
+  LastFailureMessage?: string | undefined;
 
   /**
    * <p>The reason the replication task was stopped. This response parameter can return one of
@@ -7841,19 +7841,19 @@ export interface ReplicationTask {
    *          </ul>
    * @public
    */
-  StopReason?: string;
+  StopReason?: string | undefined;
 
   /**
    * <p>The date the replication task was created.</p>
    * @public
    */
-  ReplicationTaskCreationDate?: Date;
+  ReplicationTaskCreationDate?: Date | undefined;
 
   /**
    * <p>The date the replication task is scheduled to start.</p>
    * @public
    */
-  ReplicationTaskStartDate?: Date;
+  ReplicationTaskStartDate?: Date | undefined;
 
   /**
    * <p>Indicates when you want a change data capture (CDC) operation to start. Use either
@@ -7866,7 +7866,7 @@ export interface ReplicationTask {
    *          <p>LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”</p>
    * @public
    */
-  CdcStartPosition?: string;
+  CdcStartPosition?: string | undefined;
 
   /**
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
@@ -7875,7 +7875,7 @@ export interface ReplicationTask {
    *          <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
    * @public
    */
-  CdcStopPosition?: string;
+  CdcStopPosition?: string | undefined;
 
   /**
    * <p>Indicates the last checkpoint that occurred during a change data capture (CDC)
@@ -7883,20 +7883,20 @@ export interface ReplicationTask {
    *          start a CDC operation that begins at that checkpoint.</p>
    * @public
    */
-  RecoveryCheckpoint?: string;
+  RecoveryCheckpoint?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task.</p>
    * @public
    */
-  ReplicationTaskArn?: string;
+  ReplicationTaskArn?: string | undefined;
 
   /**
    * <p>The statistics for the task, including elapsed time, tables loaded, and table
    *          errors.</p>
    * @public
    */
-  ReplicationTaskStats?: ReplicationTaskStats;
+  ReplicationTaskStats?: ReplicationTaskStats | undefined;
 
   /**
    * <p>Supplemental information that the task requires to migrate the data for certain source and target endpoints.
@@ -7905,7 +7905,7 @@ export interface ReplicationTask {
    *          </p>
    * @public
    */
-  TaskData?: string;
+  TaskData?: string | undefined;
 
   /**
    * <p>The ARN of the replication instance to which this task is moved in response to running
@@ -7915,7 +7915,7 @@ export interface ReplicationTask {
    *          parameter isn't a member of the <code>ReplicationTask</code> object.</p>
    * @public
    */
-  TargetReplicationInstanceArn?: string;
+  TargetReplicationInstanceArn?: string | undefined;
 }
 
 /**
@@ -7927,7 +7927,7 @@ export interface CreateReplicationTaskResponse {
    * <p>The replication task that was created.</p>
    * @public
    */
-  ReplicationTask?: ReplicationTask;
+  ReplicationTask?: ReplicationTask | undefined;
 }
 
 /**
@@ -7953,62 +7953,62 @@ export interface Certificate {
    *          contain two consecutive hyphens.</p>
    * @public
    */
-  CertificateIdentifier?: string;
+  CertificateIdentifier?: string | undefined;
 
   /**
    * <p>The date that the certificate was created.</p>
    * @public
    */
-  CertificateCreationDate?: Date;
+  CertificateCreationDate?: Date | undefined;
 
   /**
    * <p>The contents of a <code>.pem</code> file, which contains an X.509 certificate.</p>
    * @public
    */
-  CertificatePem?: string;
+  CertificatePem?: string | undefined;
 
   /**
    * <p>The location of an imported Oracle Wallet certificate for use with SSL. Example: <code>filebase64("$\{path.root\}/rds-ca-2019-root.sso")</code>
    *          </p>
    * @public
    */
-  CertificateWallet?: Uint8Array;
+  CertificateWallet?: Uint8Array | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the certificate.</p>
    * @public
    */
-  CertificateArn?: string;
+  CertificateArn?: string | undefined;
 
   /**
    * <p>The owner of the certificate.</p>
    * @public
    */
-  CertificateOwner?: string;
+  CertificateOwner?: string | undefined;
 
   /**
    * <p>The beginning date that the certificate is valid.</p>
    * @public
    */
-  ValidFromDate?: Date;
+  ValidFromDate?: Date | undefined;
 
   /**
    * <p>The final date that the certificate is valid.</p>
    * @public
    */
-  ValidToDate?: Date;
+  ValidToDate?: Date | undefined;
 
   /**
    * <p>The signing algorithm for the certificate.</p>
    * @public
    */
-  SigningAlgorithm?: string;
+  SigningAlgorithm?: string | undefined;
 
   /**
    * <p>The key length of the cryptographic algorithm being used.</p>
    * @public
    */
-  KeyLength?: number;
+  KeyLength?: number | undefined;
 }
 
 /**
@@ -8019,7 +8019,7 @@ export interface DeleteCertificateResponse {
    * <p>The Secure Sockets Layer (SSL) certificate.</p>
    * @public
    */
-  Certificate?: Certificate;
+  Certificate?: Certificate | undefined;
 }
 
 /**
@@ -8050,13 +8050,13 @@ export interface Connection {
    * <p>The ARN of the replication instance.</p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * <p>The ARN string that uniquely identifies the endpoint.</p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 
   /**
    * <p>The connection status. This parameter can return one of the following values:</p>
@@ -8084,13 +8084,13 @@ export interface Connection {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The error message when the connection last failed.</p>
    * @public
    */
-  LastFailureMessage?: string;
+  LastFailureMessage?: string | undefined;
 
   /**
    * <p>The identifier of the endpoint. Identifiers must begin with a letter and must contain only
@@ -8098,14 +8098,14 @@ export interface Connection {
    *          consecutive hyphens.</p>
    * @public
    */
-  EndpointIdentifier?: string;
+  EndpointIdentifier?: string | undefined;
 
   /**
    * <p>The replication instance identifier. This parameter is stored as a lowercase
    *          string.</p>
    * @public
    */
-  ReplicationInstanceIdentifier?: string;
+  ReplicationInstanceIdentifier?: string | undefined;
 }
 
 /**
@@ -8117,7 +8117,7 @@ export interface DeleteConnectionResponse {
    * <p>The connection that is being deleted.</p>
    * @public
    */
-  Connection?: Connection;
+  Connection?: Connection | undefined;
 }
 
 /**
@@ -8139,7 +8139,7 @@ export interface DeleteDataMigrationResponse {
    * <p>The deleted data migration.</p>
    * @public
    */
-  DataMigration?: DataMigration;
+  DataMigration?: DataMigration | undefined;
 }
 
 /**
@@ -8161,7 +8161,7 @@ export interface DeleteDataProviderResponse {
    * <p>The data provider that was deleted.</p>
    * @public
    */
-  DataProvider?: DataProvider;
+  DataProvider?: DataProvider | undefined;
 }
 
 /**
@@ -8185,7 +8185,7 @@ export interface DeleteEndpointResponse {
    * <p>The endpoint that was deleted.</p>
    * @public
    */
-  Endpoint?: Endpoint;
+  Endpoint?: Endpoint | undefined;
 }
 
 /**
@@ -8209,7 +8209,7 @@ export interface DeleteEventSubscriptionResponse {
    * <p>The event subscription that was deleted.</p>
    * @public
    */
-  EventSubscription?: EventSubscription;
+  EventSubscription?: EventSubscription | undefined;
 }
 
 /**
@@ -8262,7 +8262,7 @@ export interface DeleteFleetAdvisorDatabasesResponse {
    * <p>The IDs of the databases that the operation deleted.</p>
    * @public
    */
-  DatabaseIds?: string[];
+  DatabaseIds?: string[] | undefined;
 }
 
 /**
@@ -8284,7 +8284,7 @@ export interface DeleteInstanceProfileResponse {
    * <p>The instance profile that was deleted.</p>
    * @public
    */
-  InstanceProfile?: InstanceProfile;
+  InstanceProfile?: InstanceProfile | undefined;
 }
 
 /**
@@ -8306,7 +8306,7 @@ export interface DeleteMigrationProjectResponse {
    * <p>The migration project that was deleted.</p>
    * @public
    */
-  MigrationProject?: MigrationProject;
+  MigrationProject?: MigrationProject | undefined;
 }
 
 /**
@@ -8330,7 +8330,7 @@ export interface DeleteReplicationConfigResponse {
    * <p>Configuration parameters returned for the DMS Serverless replication after it is deleted.</p>
    * @public
    */
-  ReplicationConfig?: ReplicationConfig;
+  ReplicationConfig?: ReplicationConfig | undefined;
 }
 
 /**
@@ -8354,7 +8354,7 @@ export interface DeleteReplicationInstanceResponse {
    * <p>The replication instance that was deleted.</p>
    * @public
    */
-  ReplicationInstance?: ReplicationInstance;
+  ReplicationInstance?: ReplicationInstance | undefined;
 }
 
 /**
@@ -8396,7 +8396,7 @@ export interface DeleteReplicationTaskResponse {
    * <p>The deleted replication task.</p>
    * @public
    */
-  ReplicationTask?: ReplicationTask;
+  ReplicationTask?: ReplicationTask | undefined;
 }
 
 /**
@@ -8421,7 +8421,7 @@ export interface DeleteReplicationTaskAssessmentRunResponse {
    *          run.</p>
    * @public
    */
-  ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun;
+  ReplicationTaskAssessmentRun?: ReplicationTaskAssessmentRun | undefined;
 }
 
 /**
@@ -8439,7 +8439,7 @@ export interface DescribeAccountAttributesResponse {
    * <p>Account quota information.</p>
    * @public
    */
-  AccountQuotas?: AccountQuota[];
+  AccountQuotas?: AccountQuota[] | undefined;
 
   /**
    * <p>A unique DMS identifier for an account in a particular Amazon Web Services Region. The value of this
@@ -8456,7 +8456,7 @@ export interface DescribeAccountAttributesResponse {
    *          </note>
    * @public
    */
-  UniqueAccountIdentifier?: string;
+  UniqueAccountIdentifier?: string | undefined;
 }
 
 /**
@@ -8469,32 +8469,32 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
    *          the default list of individual assessments.</p>
    * @public
    */
-  ReplicationTaskArn?: string;
+  ReplicationTaskArn?: string | undefined;
 
   /**
    * <p>ARN of a replication instance on which you want to base the default list of individual
    *          assessments.</p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * <p>Name of a database engine that the specified replication instance supports as a source.</p>
    * @public
    */
-  SourceEngineName?: string;
+  SourceEngineName?: string | undefined;
 
   /**
    * <p>Name of a database engine that the specified replication instance supports as a target.</p>
    * @public
    */
-  TargetEngineName?: string;
+  TargetEngineName?: string | undefined;
 
   /**
    * <p>Name of the migration type that each provided individual assessment must support.</p>
    * @public
    */
-  MigrationType?: MigrationTypeValue;
+  MigrationType?: MigrationTypeValue | undefined;
 
   /**
    * <p>Maximum number of records to include in the response. If more records exist than the
@@ -8502,7 +8502,7 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
    *          the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>Optional pagination token provided by a previous request. If this parameter is
@@ -8510,7 +8510,7 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
    *          by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8527,7 +8527,7 @@ export interface DescribeApplicableIndividualAssessmentsResponse {
    *          </p>
    * @public
    */
-  IndividualAssessmentNames?: string[];
+  IndividualAssessmentNames?: string[] | undefined;
 
   /**
    * <p>Pagination token returned for you to pass to a subsequent request. If you pass this
@@ -8536,7 +8536,7 @@ export interface DescribeApplicableIndividualAssessmentsResponse {
    *             <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8570,7 +8570,7 @@ export interface DescribeCertificatesMessage {
    *           Valid values are <code>certificate-arn</code> and <code>certificate-id</code>.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -8579,7 +8579,7 @@ export interface DescribeCertificatesMessage {
    *          <p>Default: 10</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -8587,7 +8587,7 @@ export interface DescribeCertificatesMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8598,14 +8598,14 @@ export interface DescribeCertificatesResponse {
    * <p>The pagination token.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The Secure Sockets Layer (SSL) certificates associated with the replication
    *          instance.</p>
    * @public
    */
-  Certificates?: Certificate[];
+  Certificates?: Certificate[] | undefined;
 }
 
 /**
@@ -8618,7 +8618,7 @@ export interface DescribeConnectionsMessage {
    *          <p>Valid filter names: endpoint-arn | replication-instance-arn</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -8628,7 +8628,7 @@ export interface DescribeConnectionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -8636,7 +8636,7 @@ export interface DescribeConnectionsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8650,13 +8650,13 @@ export interface DescribeConnectionsResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A description of the connections.</p>
    * @public
    */
-  Connections?: Connection[];
+  Connections?: Connection[] | undefined;
 }
 
 /**
@@ -8678,13 +8678,13 @@ export interface DescribeConversionConfigurationResponse {
    * <p>The name or Amazon Resource Name (ARN) for the schema conversion project.</p>
    * @public
    */
-  MigrationProjectIdentifier?: string;
+  MigrationProjectIdentifier?: string | undefined;
 
   /**
    * <p>The configuration parameters for the schema conversion project.</p>
    * @public
    */
-  ConversionConfiguration?: string;
+  ConversionConfiguration?: string | undefined;
 }
 
 /**
@@ -8695,7 +8695,7 @@ export interface DescribeDataMigrationsMessage {
    * <p>Filters applied to the data migrations.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified
@@ -8703,14 +8703,14 @@ export interface DescribeDataMigrationsMessage {
    *          the remaining results can be retrieved. </p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>An option to set to avoid returning information about settings. Use this to reduce
@@ -8718,7 +8718,7 @@ export interface DescribeDataMigrationsMessage {
    *          <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
    * @public
    */
-  WithoutSettings?: boolean;
+  WithoutSettings?: boolean | undefined;
 
   /**
    * <p>An option to set to avoid returning information about statistics. Use this to reduce
@@ -8726,7 +8726,7 @@ export interface DescribeDataMigrationsMessage {
    *          <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
    * @public
    */
-  WithoutStatistics?: boolean;
+  WithoutStatistics?: boolean | undefined;
 }
 
 /**
@@ -8737,14 +8737,14 @@ export interface DescribeDataMigrationsResponse {
    * <p>Returns information about the data migrations used in the project.</p>
    * @public
    */
-  DataMigrations?: DataMigration[];
+  DataMigrations?: DataMigration[] | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8756,7 +8756,7 @@ export interface DescribeDataProvidersMessage {
    *          <p>Valid filter names: data-provider-identifier</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -8764,7 +8764,7 @@ export interface DescribeDataProvidersMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -8775,7 +8775,7 @@ export interface DescribeDataProvidersMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8791,13 +8791,13 @@ export interface DescribeDataProvidersResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A description of data providers.</p>
    * @public
    */
-  DataProviders?: DataProvider[];
+  DataProviders?: DataProvider[] | undefined;
 }
 
 /**
@@ -8810,7 +8810,7 @@ export interface DescribeEndpointsMessage {
    *          <p>Valid filter names: endpoint-arn | endpoint-type | endpoint-id | engine-name</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -8820,7 +8820,7 @@ export interface DescribeEndpointsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -8828,7 +8828,7 @@ export interface DescribeEndpointsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8842,13 +8842,13 @@ export interface DescribeEndpointsResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Endpoint description.</p>
    * @public
    */
-  Endpoints?: Endpoint[];
+  Endpoints?: Endpoint[] | undefined;
 }
 
 /**
@@ -8867,14 +8867,14 @@ export interface DescribeEndpointSettingsMessage {
    *          so that the remaining results can be retrieved.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -8902,55 +8902,55 @@ export interface EndpointSetting {
    * <p>The name that you want to give the endpoint settings.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    * @public
    */
-  Type?: EndpointSettingTypeValue;
+  Type?: EndpointSettingTypeValue | undefined;
 
   /**
    * <p>Enumerated values to use for this endpoint.</p>
    * @public
    */
-  EnumValues?: string[];
+  EnumValues?: string[] | undefined;
 
   /**
    * <p>A value that marks this endpoint setting as sensitive.</p>
    * @public
    */
-  Sensitive?: boolean;
+  Sensitive?: boolean | undefined;
 
   /**
    * <p>The unit of measure for this endpoint setting.</p>
    * @public
    */
-  Units?: string;
+  Units?: string | undefined;
 
   /**
    * <p>The relevance or validity of an endpoint setting for an engine name and its endpoint type.</p>
    * @public
    */
-  Applicability?: string;
+  Applicability?: string | undefined;
 
   /**
    * <p>The minimum value of an endpoint setting that is of type <code>int</code>.</p>
    * @public
    */
-  IntValueMin?: number;
+  IntValueMin?: number | undefined;
 
   /**
    * <p>The maximum value of an endpoint setting that is of type <code>int</code>.</p>
    * @public
    */
-  IntValueMax?: number;
+  IntValueMax?: number | undefined;
 
   /**
    * <p>The default value of the endpoint setting if no value is specified using <code>CreateEndpoint</code> or <code>ModifyEndpoint</code>.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 }
 
 /**
@@ -8962,13 +8962,13 @@ export interface DescribeEndpointSettingsResponse {
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Descriptions of the endpoint settings available for your source or target database engine.</p>
    * @public
    */
-  EndpointSettings?: EndpointSetting[];
+  EndpointSettings?: EndpointSetting[] | undefined;
 }
 
 /**
@@ -8981,7 +8981,7 @@ export interface DescribeEndpointTypesMessage {
    *          <p>Valid filter names: engine-name | endpoint-type</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -8991,7 +8991,7 @@ export interface DescribeEndpointTypesMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -8999,7 +8999,7 @@ export interface DescribeEndpointTypesMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -9021,32 +9021,32 @@ export interface SupportedEndpointType {
    *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
    * @public
    */
-  EngineName?: string;
+  EngineName?: string | undefined;
 
   /**
    * <p>Indicates if change data capture (CDC) is supported.</p>
    * @public
    */
-  SupportsCDC?: boolean;
+  SupportsCDC?: boolean | undefined;
 
   /**
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    * @public
    */
-  EndpointType?: ReplicationEndpointTypeValue;
+  EndpointType?: ReplicationEndpointTypeValue | undefined;
 
   /**
    * <p>The earliest DMS engine version that supports this endpoint engine. Note that endpoint engines released with DMS versions earlier than 3.1.1 do not return a value for this parameter.</p>
    * @public
    */
-  ReplicationInstanceEngineMinimumVersion?: string;
+  ReplicationInstanceEngineMinimumVersion?: string | undefined;
 
   /**
    * <p>The expanded name for the engine name. For example, if the <code>EngineName</code>
    *          parameter is "aurora", this value would be "Amazon Aurora MySQL".</p>
    * @public
    */
-  EngineDisplayName?: string;
+  EngineDisplayName?: string | undefined;
 }
 
 /**
@@ -9060,13 +9060,13 @@ export interface DescribeEndpointTypesResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The types of endpoints that are supported.</p>
    * @public
    */
-  SupportedEndpointTypes?: SupportedEndpointType[];
+  SupportedEndpointTypes?: SupportedEndpointType[] | undefined;
 }
 
 /**
@@ -9079,14 +9079,14 @@ export interface DescribeEngineVersionsMessage {
    *          the remaining results can be retrieved. </p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -9112,51 +9112,51 @@ export interface EngineVersion {
    * <p>The version number of the replication instance.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The lifecycle status of the replication instance version. Valid values are <code>DEPRECATED</code>,
    *          <code>DEFAULT_VERSION</code>, and <code>ACTIVE</code>.</p>
    * @public
    */
-  Lifecycle?: string;
+  Lifecycle?: string | undefined;
 
   /**
    * <p>The release status of the replication instance version.</p>
    * @public
    */
-  ReleaseStatus?: ReleaseStatusValues;
+  ReleaseStatus?: ReleaseStatusValues | undefined;
 
   /**
    * <p>The date when the replication instance version became publicly available.</p>
    * @public
    */
-  LaunchDate?: Date;
+  LaunchDate?: Date | undefined;
 
   /**
    * <p>The date when the replication instance will be automatically upgraded. This setting only applies
    *       if the <code>auto-minor-version</code> setting is enabled.</p>
    * @public
    */
-  AutoUpgradeDate?: Date;
+  AutoUpgradeDate?: Date | undefined;
 
   /**
    * <p>The date when the replication instance version will be deprecated and can no longer be requested.</p>
    * @public
    */
-  DeprecationDate?: Date;
+  DeprecationDate?: Date | undefined;
 
   /**
    * <p>The date when the replication instance will have a version upgrade forced.</p>
    * @public
    */
-  ForceUpgradeDate?: Date;
+  ForceUpgradeDate?: Date | undefined;
 
   /**
    * <p>The list of valid replication instance versions that you can upgrade to.</p>
    * @public
    */
-  AvailableUpgrades?: string[];
+  AvailableUpgrades?: string[] | undefined;
 }
 
 /**
@@ -9167,14 +9167,14 @@ export interface DescribeEngineVersionsResponse {
    * <p>Returned <code>EngineVersion</code> objects that describe the replication instance engine versions used in the project.</p>
    * @public
    */
-  EngineVersions?: EngineVersion[];
+  EngineVersions?: EngineVersion[] | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified, the response
    *          includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -9187,13 +9187,13 @@ export interface DescribeEventCategoriesMessage {
    *          <p>Valid values: replication-instance | replication-task</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>Filters applied to the event categories.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -9212,13 +9212,13 @@ export interface EventCategoryGroup {
    *          replication-task</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p> A list of event categories from a source type that you've chosen.</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 }
 
 /**
@@ -9230,7 +9230,7 @@ export interface DescribeEventCategoriesResponse {
    * <p>A list of event categories.</p>
    * @public
    */
-  EventCategoryGroupList?: EventCategoryGroup[];
+  EventCategoryGroupList?: EventCategoryGroup[] | undefined;
 }
 
 /**
@@ -9255,44 +9255,44 @@ export interface DescribeEventsMessage {
    * <p> The identifier of an event source.</p>
    * @public
    */
-  SourceIdentifier?: string;
+  SourceIdentifier?: string | undefined;
 
   /**
    * <p>The type of DMS resource that generates events.</p>
    *          <p>Valid values: replication-instance | replication-task</p>
    * @public
    */
-  SourceType?: SourceType;
+  SourceType?: SourceType | undefined;
 
   /**
    * <p>The start time for the events to be listed.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The end time for the events to be listed.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The duration of the events to be listed.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>A list of event categories for the source type that you've chosen.</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 
   /**
    * <p>Filters applied to events. The only valid filter is <code>replication-instance-id</code>.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -9302,7 +9302,7 @@ export interface DescribeEventsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -9310,7 +9310,7 @@ export interface DescribeEventsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -9324,32 +9324,32 @@ export interface Event {
    * <p> The identifier of an event source.</p>
    * @public
    */
-  SourceIdentifier?: string;
+  SourceIdentifier?: string | undefined;
 
   /**
    * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | endpoint | replication-task</p>
    * @public
    */
-  SourceType?: SourceType;
+  SourceType?: SourceType | undefined;
 
   /**
    * <p>The event message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The event categories available for the specified source type.</p>
    * @public
    */
-  EventCategories?: string[];
+  EventCategories?: string[] | undefined;
 
   /**
    * <p>The date of the event.</p>
    * @public
    */
-  Date?: Date;
+  Date?: Date | undefined;
 }
 
 /**
@@ -9363,13 +9363,13 @@ export interface DescribeEventsResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The events described.</p>
    * @public
    */
-  Events?: Event[];
+  Events?: Event[] | undefined;
 }
 
 /**
@@ -9381,14 +9381,14 @@ export interface DescribeEventSubscriptionsMessage {
    * <p>The name of the DMS event subscription to be described.</p>
    * @public
    */
-  SubscriptionName?: string;
+  SubscriptionName?: string | undefined;
 
   /**
    * <p>Filters applied to event subscriptions.</p>
    *          <p>Valid filter names: event-subscription-arn |  event-subscription-id </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -9398,7 +9398,7 @@ export interface DescribeEventSubscriptionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -9406,7 +9406,7 @@ export interface DescribeEventSubscriptionsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -9420,13 +9420,13 @@ export interface DescribeEventSubscriptionsResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A list of event subscriptions.</p>
    * @public
    */
-  EventSubscriptionsList?: EventSubscription[];
+  EventSubscriptionsList?: EventSubscription[] | undefined;
 }
 
 /**
@@ -9443,7 +9443,7 @@ export interface DescribeExtensionPackAssociationsMessage {
    * <p>Filters applied to the extension pack associations described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -9454,7 +9454,7 @@ export interface DescribeExtensionPackAssociationsMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -9462,7 +9462,7 @@ export interface DescribeExtensionPackAssociationsMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -9474,7 +9474,7 @@ export interface DefaultErrorDetails {
    * <p>The error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -9524,13 +9524,13 @@ export interface ExportSqlDetails {
    * <p>The Amazon S3 object key for the object containing the exported metadata model assessment.</p>
    * @public
    */
-  S3ObjectKey?: string;
+  S3ObjectKey?: string | undefined;
 
   /**
    * <p>The URL for the object containing the exported metadata model assessment.</p>
    * @public
    */
-  ObjectURL?: string;
+  ObjectURL?: string | undefined;
 }
 
 /**
@@ -9542,31 +9542,31 @@ export interface SchemaConversionRequest {
    * <p>The schema conversion action status.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The identifier for the schema conversion action.</p>
    * @public
    */
-  RequestIdentifier?: string;
+  RequestIdentifier?: string | undefined;
 
   /**
    * <p>The migration project ARN.</p>
    * @public
    */
-  MigrationProjectArn?: string;
+  MigrationProjectArn?: string | undefined;
 
   /**
    * <p>Provides error information about a project.</p>
    * @public
    */
-  Error?: ErrorDetails;
+  Error?: ErrorDetails | undefined;
 
   /**
    * <p>Provides information about a metadata model assessment exported to SQL.</p>
    * @public
    */
-  ExportSqlDetails?: ExportSqlDetails;
+  ExportSqlDetails?: ExportSqlDetails | undefined;
 }
 
 /**
@@ -9582,13 +9582,13 @@ export interface DescribeExtensionPackAssociationsResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A paginated list of extension pack associations for the specified migration project.</p>
    * @public
    */
-  Requests?: SchemaConversionRequest[];
+  Requests?: SchemaConversionRequest[] | undefined;
 }
 
 /**
@@ -9614,13 +9614,13 @@ export interface DescribeFleetAdvisorCollectorsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Sets the maximum number of records returned in the response.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned by a previous response, there are more results
@@ -9629,7 +9629,7 @@ export interface DescribeFleetAdvisorCollectorsRequest {
    *             other arguments unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9655,26 +9655,26 @@ export interface CollectorHealthCheck {
    * <p>The status of the Fleet Advisor collector.</p>
    * @public
    */
-  CollectorStatus?: CollectorStatus;
+  CollectorStatus?: CollectorStatus | undefined;
 
   /**
    * <p>Whether the local collector can access its Amazon S3 bucket.</p>
    * @public
    */
-  LocalCollectorS3Access?: boolean;
+  LocalCollectorS3Access?: boolean | undefined;
 
   /**
    * <p>Whether the web collector can access its Amazon S3 bucket.</p>
    * @public
    */
-  WebCollectorS3Access?: boolean;
+  WebCollectorS3Access?: boolean | undefined;
 
   /**
    * <p>Whether the role that you provided when creating the Fleet Advisor collector has sufficient permissions
    *             to access the Fleet Advisor web collector.</p>
    * @public
    */
-  WebCollectorGrantedRoleBasedAccess?: boolean;
+  WebCollectorGrantedRoleBasedAccess?: boolean | undefined;
 }
 
 /**
@@ -9686,13 +9686,13 @@ export interface InventoryData {
    * <p>The number of databases in the Fleet Advisor collector inventory.</p>
    * @public
    */
-  NumberOfDatabases?: number;
+  NumberOfDatabases?: number | undefined;
 
   /**
    * <p>The number of schemas in the Fleet Advisor collector inventory.</p>
    * @public
    */
-  NumberOfSchemas?: number;
+  NumberOfSchemas?: number | undefined;
 }
 
 /**
@@ -9719,13 +9719,13 @@ export interface CollectorResponse {
    * <p>The reference ID of the Fleet Advisor collector.</p>
    * @public
    */
-  CollectorReferencedId?: string;
+  CollectorReferencedId?: string | undefined;
 
   /**
    * <p>The name of the Fleet Advisor collector .</p>
    * @public
    */
-  CollectorName?: string;
+  CollectorName?: string | undefined;
 
   /**
    * <p>The version of your Fleet Advisor collector, in semantic versioning format, for example
@@ -9733,37 +9733,37 @@ export interface CollectorResponse {
    *          </p>
    * @public
    */
-  CollectorVersion?: string;
+  CollectorVersion?: string | undefined;
 
   /**
    * <p>Whether the collector version is up to date.</p>
    * @public
    */
-  VersionStatus?: VersionStatus;
+  VersionStatus?: VersionStatus | undefined;
 
   /**
    * <p>A summary description of the Fleet Advisor collector.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket that the Fleet Advisor collector uses to store inventory metadata.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>The IAM role that grants permissions to access the specified Amazon S3 bucket.</p>
    * @public
    */
-  ServiceAccessRoleArn?: string;
+  ServiceAccessRoleArn?: string | undefined;
 
   /**
    * <p>Describes the last Fleet Advisor collector health check.</p>
    * @public
    */
-  CollectorHealthCheck?: CollectorHealthCheck;
+  CollectorHealthCheck?: CollectorHealthCheck | undefined;
 
   /**
    * <p>The timestamp of the last time the collector received data, in the following format:
@@ -9771,7 +9771,7 @@ export interface CollectorResponse {
    *          </p>
    * @public
    */
-  LastDataReceived?: string;
+  LastDataReceived?: string | undefined;
 
   /**
    * <p>The timestamp when DMS registered the collector, in the following format:
@@ -9779,7 +9779,7 @@ export interface CollectorResponse {
    *          </p>
    * @public
    */
-  RegisteredDate?: string;
+  RegisteredDate?: string | undefined;
 
   /**
    * <p>The timestamp when you created the collector, in the following format:
@@ -9787,7 +9787,7 @@ export interface CollectorResponse {
    *          </p>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 
   /**
    * <p>The timestamp when DMS last modified the collector, in the following format:
@@ -9795,13 +9795,13 @@ export interface CollectorResponse {
    *          </p>
    * @public
    */
-  ModifiedDate?: string;
+  ModifiedDate?: string | undefined;
 
   /**
    * <p>Describes a Fleet Advisor collector inventory.</p>
    * @public
    */
-  InventoryData?: InventoryData;
+  InventoryData?: InventoryData | undefined;
 }
 
 /**
@@ -9813,7 +9813,7 @@ export interface DescribeFleetAdvisorCollectorsResponse {
    *             and ID, and the latest inventory data. </p>
    * @public
    */
-  Collectors?: CollectorResponse[];
+  Collectors?: CollectorResponse[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -9822,7 +9822,7 @@ export interface DescribeFleetAdvisorCollectorsResponse {
    *             unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9865,13 +9865,13 @@ export interface DescribeFleetAdvisorDatabasesRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Sets the maximum number of records returned in the response.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned by a previous response, there are more results
@@ -9880,7 +9880,7 @@ export interface DescribeFleetAdvisorDatabasesRequest {
    *             other arguments unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9892,13 +9892,13 @@ export interface CollectorShortInfoResponse {
    * <p>The reference ID of the Fleet Advisor collector.</p>
    * @public
    */
-  CollectorReferencedId?: string;
+  CollectorReferencedId?: string | undefined;
 
   /**
    * <p>The name of the Fleet Advisor collector.</p>
    * @public
    */
-  CollectorName?: string;
+  CollectorName?: string | undefined;
 }
 
 /**
@@ -9910,19 +9910,19 @@ export interface ServerShortInfoResponse {
    * <p>The ID of a server in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  ServerId?: string;
+  ServerId?: string | undefined;
 
   /**
    * <p>The IP address of a server in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
    * <p>The name address of a server in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 }
 
 /**
@@ -9935,46 +9935,46 @@ export interface DatabaseInstanceSoftwareDetailsResponse {
    *                 SQL Server</code>.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The database engine version of a database in a Fleet Advisor collector inventory, for example
    *                 <code>2019</code>.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The database engine edition of a database in a Fleet Advisor collector inventory, for example
    *                 <code>Express</code>.</p>
    * @public
    */
-  EngineEdition?: string;
+  EngineEdition?: string | undefined;
 
   /**
    * <p>The service pack level of the database.</p>
    * @public
    */
-  ServicePack?: string;
+  ServicePack?: string | undefined;
 
   /**
    * <p>The support level of the database, for example <code>Mainstream support</code>.</p>
    * @public
    */
-  SupportLevel?: string;
+  SupportLevel?: string | undefined;
 
   /**
    * <p>The operating system architecture of the database.</p>
    * @public
    */
-  OsArchitecture?: number;
+  OsArchitecture?: number | undefined;
 
   /**
    * <p>Information about the database engine software, for example <code>Mainstream support
    *                 ends on November 14th, 2024</code>.</p>
    * @public
    */
-  Tooltip?: string;
+  Tooltip?: string | undefined;
 }
 
 /**
@@ -9986,44 +9986,44 @@ export interface DatabaseResponse {
    * <p>The ID of a database in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseId?: string;
+  DatabaseId?: string | undefined;
 
   /**
    * <p>The name of a database in a Fleet Advisor collector inventory. </p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The IP address of a database in a Fleet Advisor collector inventory. </p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
    * <p>The number of schemas in a Fleet Advisor collector inventory database. </p>
    * @public
    */
-  NumberOfSchemas?: number;
+  NumberOfSchemas?: number | undefined;
 
   /**
    * <p>The server name of a database in a Fleet Advisor collector inventory. </p>
    * @public
    */
-  Server?: ServerShortInfoResponse;
+  Server?: ServerShortInfoResponse | undefined;
 
   /**
    * <p>The software details of a database in a Fleet Advisor collector inventory, such as database engine and
    *             version.</p>
    * @public
    */
-  SoftwareDetails?: DatabaseInstanceSoftwareDetailsResponse;
+  SoftwareDetails?: DatabaseInstanceSoftwareDetailsResponse | undefined;
 
   /**
    * <p>A list of collectors associated with the database.</p>
    * @public
    */
-  Collectors?: CollectorShortInfoResponse[];
+  Collectors?: CollectorShortInfoResponse[] | undefined;
 }
 
 /**
@@ -10035,7 +10035,7 @@ export interface DescribeFleetAdvisorDatabasesResponse {
    *             and name.</p>
    * @public
    */
-  Databases?: DatabaseResponse[];
+  Databases?: DatabaseResponse[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -10044,7 +10044,7 @@ export interface DescribeFleetAdvisorDatabasesResponse {
    *             unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10055,7 +10055,7 @@ export interface DescribeFleetAdvisorLsaAnalysisRequest {
    * <p>Sets the maximum number of records returned in the response.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned by a previous response, there are more results
@@ -10064,7 +10064,7 @@ export interface DescribeFleetAdvisorLsaAnalysisRequest {
    *             other arguments unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10076,13 +10076,13 @@ export interface FleetAdvisorLsaAnalysisResponse {
    * <p>The ID of an LSA analysis run by a Fleet Advisor collector.</p>
    * @public
    */
-  LsaAnalysisId?: string;
+  LsaAnalysisId?: string | undefined;
 
   /**
    * <p>The status of an LSA analysis run by a Fleet Advisor collector.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -10093,7 +10093,7 @@ export interface DescribeFleetAdvisorLsaAnalysisResponse {
    * <p>A list of <code>FleetAdvisorLsaAnalysisResponse</code> objects.</p>
    * @public
    */
-  Analysis?: FleetAdvisorLsaAnalysisResponse[];
+  Analysis?: FleetAdvisorLsaAnalysisResponse[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -10102,7 +10102,7 @@ export interface DescribeFleetAdvisorLsaAnalysisResponse {
    *             unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10124,13 +10124,13 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Sets the maximum number of records returned in the response.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned by a previous response, there are more results
@@ -10139,7 +10139,7 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryRequest {
    *             other arguments unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10151,7 +10151,7 @@ export interface FleetAdvisorSchemaObjectResponse {
    * <p>The ID of a schema object in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  SchemaId?: string;
+  SchemaId?: string | undefined;
 
   /**
    * <p>The type of the schema object, as reported by the database engine. Examples include
@@ -10180,25 +10180,25 @@ export interface FleetAdvisorSchemaObjectResponse {
    *          </ul>
    * @public
    */
-  ObjectType?: string;
+  ObjectType?: string | undefined;
 
   /**
    * <p>The number of objects in a schema object in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  NumberOfObjects?: number;
+  NumberOfObjects?: number | undefined;
 
   /**
    * <p>The number of lines of code in a schema object in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  CodeLineCount?: number;
+  CodeLineCount?: number | undefined;
 
   /**
    * <p>The size level of the code in a schema object in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  CodeSize?: number;
+  CodeSize?: number | undefined;
 }
 
 /**
@@ -10209,7 +10209,7 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryResponse {
    * <p>A collection of <code>FleetAdvisorSchemaObjectResponse</code> objects.</p>
    * @public
    */
-  FleetAdvisorSchemaObjects?: FleetAdvisorSchemaObjectResponse[];
+  FleetAdvisorSchemaObjects?: FleetAdvisorSchemaObjectResponse[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -10218,7 +10218,7 @@ export interface DescribeFleetAdvisorSchemaObjectSummaryResponse {
    *             unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10277,13 +10277,13 @@ export interface DescribeFleetAdvisorSchemasRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Sets the maximum number of records returned in the response.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned by a previous response, there are more results
@@ -10292,7 +10292,7 @@ export interface DescribeFleetAdvisorSchemasRequest {
    *             other arguments unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10304,26 +10304,26 @@ export interface DatabaseShortInfoResponse {
    * <p>The ID of a database in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseId?: string;
+  DatabaseId?: string | undefined;
 
   /**
    * <p>The name of a database in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The IP address of a database in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseIpAddress?: string;
+  DatabaseIpAddress?: string | undefined;
 
   /**
    * <p>The database engine of a database in a Fleet Advisor collector inventory, for example
    *                 <code>PostgreSQL</code>.</p>
    * @public
    */
-  DatabaseEngine?: string;
+  DatabaseEngine?: string | undefined;
 }
 
 /**
@@ -10335,31 +10335,31 @@ export interface SchemaShortInfoResponse {
    * <p>The ID of a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  SchemaId?: string;
+  SchemaId?: string | undefined;
 
   /**
    * <p>The name of a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The ID of a database in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseId?: string;
+  DatabaseId?: string | undefined;
 
   /**
    * <p>The name of a database in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The IP address of a database in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseIpAddress?: string;
+  DatabaseIpAddress?: string | undefined;
 }
 
 /**
@@ -10371,56 +10371,56 @@ export interface SchemaResponse {
    * <p>The number of lines of code in a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  CodeLineCount?: number;
+  CodeLineCount?: number | undefined;
 
   /**
    * <p>The size level of the code in a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  CodeSize?: number;
+  CodeSize?: number | undefined;
 
   /**
    * <p>The complexity level of the code in a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  Complexity?: string;
+  Complexity?: string | undefined;
 
   /**
    * <p>The database server for a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  Server?: ServerShortInfoResponse;
+  Server?: ServerShortInfoResponse | undefined;
 
   /**
    * <p>The database for a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  DatabaseInstance?: DatabaseShortInfoResponse;
+  DatabaseInstance?: DatabaseShortInfoResponse | undefined;
 
   /**
    * <p>The ID of a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  SchemaId?: string;
+  SchemaId?: string | undefined;
 
   /**
    * <p>The name of a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>Describes a schema in a Fleet Advisor collector inventory.</p>
    * @public
    */
-  OriginalSchema?: SchemaShortInfoResponse;
+  OriginalSchema?: SchemaShortInfoResponse | undefined;
 
   /**
    * <p>The similarity value for a schema in a Fleet Advisor collector inventory. A higher similarity value
    *             indicates that a schema is likely to be a duplicate.</p>
    * @public
    */
-  Similarity?: number;
+  Similarity?: number | undefined;
 }
 
 /**
@@ -10431,7 +10431,7 @@ export interface DescribeFleetAdvisorSchemasResponse {
    * <p>A collection of <code>SchemaResponse</code> objects.</p>
    * @public
    */
-  FleetAdvisorSchemas?: SchemaResponse[];
+  FleetAdvisorSchemas?: SchemaResponse[] | undefined;
 
   /**
    * <p>If <code>NextToken</code> is returned, there are more results available. The value of
@@ -10440,7 +10440,7 @@ export interface DescribeFleetAdvisorSchemasResponse {
    *             unchanged. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10451,7 +10451,7 @@ export interface DescribeInstanceProfilesMessage {
    * <p>Filters applied to the instance profiles described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -10459,7 +10459,7 @@ export interface DescribeInstanceProfilesMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -10470,7 +10470,7 @@ export interface DescribeInstanceProfilesMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -10486,13 +10486,13 @@ export interface DescribeInstanceProfilesResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A description of instance profiles.</p>
    * @public
    */
-  InstanceProfiles?: InstanceProfile[];
+  InstanceProfiles?: InstanceProfile[] | undefined;
 }
 
 /**
@@ -10509,7 +10509,7 @@ export interface DescribeMetadataModelAssessmentsMessage {
    * <p>Filters applied to the metadata model assessments described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -10520,7 +10520,7 @@ export interface DescribeMetadataModelAssessmentsMessage {
    *             make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -10528,7 +10528,7 @@ export interface DescribeMetadataModelAssessmentsMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -10544,13 +10544,13 @@ export interface DescribeMetadataModelAssessmentsResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A paginated list of metadata model assessments for the specified migration project.</p>
    * @public
    */
-  Requests?: SchemaConversionRequest[];
+  Requests?: SchemaConversionRequest[] | undefined;
 }
 
 /**
@@ -10567,7 +10567,7 @@ export interface DescribeMetadataModelConversionsMessage {
    * <p>Filters applied to the metadata model conversions described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -10578,7 +10578,7 @@ export interface DescribeMetadataModelConversionsMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -10586,7 +10586,7 @@ export interface DescribeMetadataModelConversionsMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -10602,13 +10602,13 @@ export interface DescribeMetadataModelConversionsResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A paginated list of metadata model conversions.</p>
    * @public
    */
-  Requests?: SchemaConversionRequest[];
+  Requests?: SchemaConversionRequest[] | undefined;
 }
 
 /**
@@ -10625,7 +10625,7 @@ export interface DescribeMetadataModelExportsAsScriptMessage {
    * <p>Filters applied to the metadata model exports described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -10636,7 +10636,7 @@ export interface DescribeMetadataModelExportsAsScriptMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -10644,7 +10644,7 @@ export interface DescribeMetadataModelExportsAsScriptMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -10660,13 +10660,13 @@ export interface DescribeMetadataModelExportsAsScriptResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A paginated list of metadata model exports.</p>
    * @public
    */
-  Requests?: SchemaConversionRequest[];
+  Requests?: SchemaConversionRequest[] | undefined;
 }
 
 /**
@@ -10683,7 +10683,7 @@ export interface DescribeMetadataModelExportsToTargetMessage {
    * <p>Filters applied to the metadata model exports described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -10694,7 +10694,7 @@ export interface DescribeMetadataModelExportsToTargetMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -10702,7 +10702,7 @@ export interface DescribeMetadataModelExportsToTargetMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -10718,13 +10718,13 @@ export interface DescribeMetadataModelExportsToTargetResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A paginated list of metadata model exports.</p>
    * @public
    */
-  Requests?: SchemaConversionRequest[];
+  Requests?: SchemaConversionRequest[] | undefined;
 }
 
 /**
@@ -10741,7 +10741,7 @@ export interface DescribeMetadataModelImportsMessage {
    * <p>Filters applied to the metadata model imports described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -10752,13 +10752,13 @@ export interface DescribeMetadataModelImportsMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A paginated list of metadata model imports.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -10774,13 +10774,13 @@ export interface DescribeMetadataModelImportsResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A paginated list of metadata model imports.</p>
    * @public
    */
-  Requests?: SchemaConversionRequest[];
+  Requests?: SchemaConversionRequest[] | undefined;
 }
 
 /**
@@ -10791,7 +10791,7 @@ export interface DescribeMigrationProjectsMessage {
    * <p>Filters applied to the migration projects described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -10799,7 +10799,7 @@ export interface DescribeMigrationProjectsMessage {
    *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
@@ -10810,7 +10810,7 @@ export interface DescribeMigrationProjectsMessage {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -10826,13 +10826,13 @@ export interface DescribeMigrationProjectsResponse {
    *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A description of migration projects.</p>
    * @public
    */
-  MigrationProjects?: MigrationProject[];
+  MigrationProjects?: MigrationProject[] | undefined;
 }
 
 /**
@@ -10848,7 +10848,7 @@ export interface DescribeOrderableReplicationInstancesMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -10856,7 +10856,7 @@ export interface DescribeOrderableReplicationInstancesMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -10870,7 +10870,7 @@ export interface OrderableReplicationInstance {
    * <p>The version of the replication engine.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The compute and memory capacity of the replication instance as defined for the specified
@@ -10881,47 +10881,47 @@ export interface OrderableReplicationInstance {
    *       </p>
    * @public
    */
-  ReplicationInstanceClass?: string;
+  ReplicationInstanceClass?: string | undefined;
 
   /**
    * <p>The type of storage used by the replication instance.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The minimum amount of storage (in gigabytes) that can be allocated for the replication
    *          instance.</p>
    * @public
    */
-  MinAllocatedStorage?: number;
+  MinAllocatedStorage?: number | undefined;
 
   /**
    * <p>The minimum amount of storage (in gigabytes) that can be allocated for the replication
    *          instance.</p>
    * @public
    */
-  MaxAllocatedStorage?: number;
+  MaxAllocatedStorage?: number | undefined;
 
   /**
    * <p>The default amount of storage (in gigabytes) that is allocated for the replication
    *          instance.</p>
    * @public
    */
-  DefaultAllocatedStorage?: number;
+  DefaultAllocatedStorage?: number | undefined;
 
   /**
    * <p>The amount of storage (in gigabytes) that is allocated for the replication
    *          instance.</p>
    * @public
    */
-  IncludedAllocatedStorage?: number;
+  IncludedAllocatedStorage?: number | undefined;
 
   /**
    * <p>List of Availability Zones for this replication instance.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The value returned when the specified <code>EngineVersion</code> of the replication
@@ -10931,7 +10931,7 @@ export interface OrderableReplicationInstance {
    *          </note>
    * @public
    */
-  ReleaseStatus?: ReleaseStatusValues;
+  ReleaseStatus?: ReleaseStatusValues | undefined;
 }
 
 /**
@@ -10943,7 +10943,7 @@ export interface DescribeOrderableReplicationInstancesResponse {
    * <p>The order-able replication instances available.</p>
    * @public
    */
-  OrderableReplicationInstances?: OrderableReplicationInstance[];
+  OrderableReplicationInstances?: OrderableReplicationInstance[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -10951,7 +10951,7 @@ export interface DescribeOrderableReplicationInstancesResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -10963,13 +10963,13 @@ export interface DescribePendingMaintenanceActionsMessage {
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -10977,7 +10977,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -10987,7 +10987,7 @@ export interface DescribePendingMaintenanceActionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 }
 
 /**
@@ -10999,7 +10999,7 @@ export interface DescribePendingMaintenanceActionsResponse {
    * <p>The pending maintenance action.</p>
    * @public
    */
-  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[];
+  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -11007,7 +11007,7 @@ export interface DescribePendingMaintenanceActionsResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -11018,7 +11018,7 @@ export interface DescribeRecommendationLimitationsRequest {
    * <p>Filters applied to the limitations described in the form of key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -11026,7 +11026,7 @@ export interface DescribeRecommendationLimitationsRequest {
    *             in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page
@@ -11038,7 +11038,7 @@ export interface DescribeRecommendationLimitationsRequest {
    *             other arguments unchanged.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -11054,7 +11054,7 @@ export interface Limitation {
    * <p>The identifier of the source database.</p>
    * @public
    */
-  DatabaseId?: string;
+  DatabaseId?: string | undefined;
 
   /**
    * <p>The name of the target engine that Fleet Advisor should use in the target engine
@@ -11064,14 +11064,14 @@ export interface Limitation {
    *                 <code>"rds-postgresql"</code>.</p>
    * @public
    */
-  EngineName?: string;
+  EngineName?: string | undefined;
 
   /**
    * <p>The name of the limitation. Describes unsupported database features, migration action
    *             items, and other limitations.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the limitation. Provides additional information about the limitation,
@@ -11079,7 +11079,7 @@ export interface Limitation {
    *             limitation.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The impact of the limitation. You can use this parameter to prioritize limitations
@@ -11087,14 +11087,14 @@ export interface Limitation {
    *                 <code>"High"</code>, <code>"Medium"</code>, and <code>"Low"</code>.</p>
    * @public
    */
-  Impact?: string;
+  Impact?: string | undefined;
 
   /**
    * <p>The type of the limitation, such as action required, upgrade required, and limited
    *             feature.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -11108,13 +11108,13 @@ export interface DescribeRecommendationLimitationsResponse {
    *             the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The list of limitations for recommendations of target Amazon Web Services engines.</p>
    * @public
    */
-  Limitations?: Limitation[];
+  Limitations?: Limitation[] | undefined;
 }
 
 /**
@@ -11126,7 +11126,7 @@ export interface DescribeRecommendationsRequest {
    *             key-value pairs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than
@@ -11134,7 +11134,7 @@ export interface DescribeRecommendationsRequest {
    *             in the response so that you can retrieve the remaining results.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>Specifies the unique pagination token that makes it possible to display the next page
@@ -11146,7 +11146,7 @@ export interface DescribeRecommendationsRequest {
    *             other arguments unchanged.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -11159,32 +11159,32 @@ export interface RdsRequirements {
    * <p>The required target Amazon RDS engine edition.</p>
    * @public
    */
-  EngineEdition?: string;
+  EngineEdition?: string | undefined;
 
   /**
    * <p>The required number of virtual CPUs (vCPU) on the Amazon RDS DB instance.</p>
    * @public
    */
-  InstanceVcpu?: number;
+  InstanceVcpu?: number | undefined;
 
   /**
    * <p>The required memory on the Amazon RDS DB instance.</p>
    * @public
    */
-  InstanceMemory?: number;
+  InstanceMemory?: number | undefined;
 
   /**
    * <p>The required Amazon RDS DB instance storage size.</p>
    * @public
    */
-  StorageSize?: number;
+  StorageSize?: number | undefined;
 
   /**
    * <p>The required number of I/O operations completed each second (IOPS) on your Amazon RDS DB
    *             instance.</p>
    * @public
    */
-  StorageIops?: number;
+  StorageIops?: number | undefined;
 
   /**
    * <p>The required deployment option for the Amazon RDS DB instance. Valid values include
@@ -11192,13 +11192,13 @@ export interface RdsRequirements {
    *             Single-AZ deployments.</p>
    * @public
    */
-  DeploymentOption?: string;
+  DeploymentOption?: string | undefined;
 
   /**
    * <p>The required target Amazon RDS engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 }
 
 /**
@@ -11211,27 +11211,27 @@ export interface RdsConfiguration {
    * <p>Describes the recommended target Amazon RDS engine edition.</p>
    * @public
    */
-  EngineEdition?: string;
+  EngineEdition?: string | undefined;
 
   /**
    * <p>Describes the recommended target Amazon RDS instance type.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>Describes the number of virtual CPUs (vCPU) on the recommended Amazon RDS DB instance that
    *             meets your requirements.</p>
    * @public
    */
-  InstanceVcpu?: number;
+  InstanceVcpu?: number | undefined;
 
   /**
    * <p>Describes the memory on the recommended Amazon RDS DB instance that meets your
    *             requirements.</p>
    * @public
    */
-  InstanceMemory?: number;
+  InstanceMemory?: number | undefined;
 
   /**
    * <p>Describes the storage type of the recommended Amazon RDS DB instance that meets your
@@ -11240,21 +11240,21 @@ export interface RdsConfiguration {
    *             Provisioned IOPS SSD (also known as io1), and magnetic (also known as standard).</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>Describes the storage size of the recommended Amazon RDS DB instance that meets your
    *             requirements.</p>
    * @public
    */
-  StorageSize?: number;
+  StorageSize?: number | undefined;
 
   /**
    * <p>Describes the number of I/O operations completed each second (IOPS) on the recommended
    *             Amazon RDS DB instance that meets your requirements.</p>
    * @public
    */
-  StorageIops?: number;
+  StorageIops?: number | undefined;
 
   /**
    * <p>Describes the deployment option for the recommended Amazon RDS DB instance. The deployment
@@ -11262,13 +11262,13 @@ export interface RdsConfiguration {
    *                 <code>"MULTI_AZ"</code> and <code>"SINGLE_AZ"</code>.</p>
    * @public
    */
-  DeploymentOption?: string;
+  DeploymentOption?: string | undefined;
 
   /**
    * <p>Describes the recommended target Amazon RDS engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 }
 
 /**
@@ -11282,14 +11282,14 @@ export interface RdsRecommendation {
    *             Amazon RDS.</p>
    * @public
    */
-  RequirementsToTarget?: RdsRequirements;
+  RequirementsToTarget?: RdsRequirements | undefined;
 
   /**
    * <p>Supplemental information about the configuration of the recommended target database on
    *             Amazon RDS.</p>
    * @public
    */
-  TargetConfiguration?: RdsConfiguration;
+  TargetConfiguration?: RdsConfiguration | undefined;
 }
 
 /**
@@ -11301,7 +11301,7 @@ export interface RecommendationData {
    * <p>The recommendation of a target Amazon RDS database engine.</p>
    * @public
    */
-  RdsEngine?: RdsRecommendation;
+  RdsEngine?: RdsRecommendation | undefined;
 }
 
 /**
@@ -11322,7 +11322,7 @@ export interface Recommendation {
    *             recommendation.</p>
    * @public
    */
-  DatabaseId?: string;
+  DatabaseId?: string | undefined;
 
   /**
    * <p>The name of the target engine. Valid values include <code>"rds-aurora-mysql"</code>,
@@ -11331,13 +11331,13 @@ export interface Recommendation {
    *                 <code>"rds-postgresql"</code>.</p>
    * @public
    */
-  EngineName?: string;
+  EngineName?: string | undefined;
 
   /**
    * <p>The date when Fleet Advisor created the target engine recommendation.</p>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 
   /**
    * <p>The status of the target engine recommendation. Valid values include
@@ -11345,13 +11345,13 @@ export interface Recommendation {
    *                 <code>"recommended"</code>.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Indicates that this target is the rightsized migration destination.</p>
    * @public
    */
-  Preferred?: boolean;
+  Preferred?: boolean | undefined;
 
   /**
    * <p>The settings in JSON format for the preferred target engine parameters. These
@@ -11359,13 +11359,13 @@ export interface Recommendation {
    *             development, or testing).</p>
    * @public
    */
-  Settings?: RecommendationSettings;
+  Settings?: RecommendationSettings | undefined;
 
   /**
    * <p>The recommendation of a target engine for the specified source database.</p>
    * @public
    */
-  Data?: RecommendationData;
+  Data?: RecommendationData | undefined;
 }
 
 /**
@@ -11379,14 +11379,14 @@ export interface DescribeRecommendationsResponse {
    *             the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The list of recommendations of target engines that Fleet Advisor created for the
    *             source database.</p>
    * @public
    */
-  Recommendations?: Recommendation[];
+  Recommendations?: Recommendation[] | undefined;
 }
 
 /**
@@ -11427,31 +11427,31 @@ export interface RefreshSchemasStatus {
    * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * <p>The status of the schema.</p>
    * @public
    */
-  Status?: RefreshSchemasStatusTypeValue;
+  Status?: RefreshSchemasStatusTypeValue | undefined;
 
   /**
    * <p>The date the schema was last refreshed.</p>
    * @public
    */
-  LastRefreshDate?: Date;
+  LastRefreshDate?: Date | undefined;
 
   /**
    * <p>The last failure message for the schema.</p>
    * @public
    */
-  LastFailureMessage?: string;
+  LastFailureMessage?: string | undefined;
 }
 
 /**
@@ -11463,7 +11463,7 @@ export interface DescribeRefreshSchemasStatusResponse {
    * <p>The status of the schema.</p>
    * @public
    */
-  RefreshSchemasStatus?: RefreshSchemasStatus;
+  RefreshSchemasStatus?: RefreshSchemasStatus | undefined;
 }
 
 /**
@@ -11475,7 +11475,7 @@ export interface DescribeReplicationConfigsMessage {
    * <p>Filters applied to the replication configs.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified
@@ -11483,14 +11483,14 @@ export interface DescribeReplicationConfigsMessage {
    *          the remaining results can be retrieved. </p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -11503,13 +11503,13 @@ export interface DescribeReplicationConfigsResponse {
    *          includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Returned configuration parameters that describe each provisioned DMS Serverless replication.</p>
    * @public
    */
-  ReplicationConfigs?: ReplicationConfig[];
+  ReplicationConfigs?: ReplicationConfig[] | undefined;
 }
 
 /**
@@ -11523,7 +11523,7 @@ export interface DescribeReplicationInstancesMessage {
    *          replication-instance-class | engine-version</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -11533,7 +11533,7 @@ export interface DescribeReplicationInstancesMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -11541,7 +11541,7 @@ export interface DescribeReplicationInstancesMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -11555,13 +11555,13 @@ export interface DescribeReplicationInstancesResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The replication instances described.</p>
    * @public
    */
-  ReplicationInstances?: ReplicationInstance[];
+  ReplicationInstances?: ReplicationInstance[] | undefined;
 }
 
 /**
@@ -11582,7 +11582,7 @@ export interface DescribeReplicationInstanceTaskLogsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -11590,7 +11590,7 @@ export interface DescribeReplicationInstanceTaskLogsMessage {
    *          by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -11602,19 +11602,19 @@ export interface ReplicationInstanceTaskLog {
    * <p>The name of the replication task.</p>
    * @public
    */
-  ReplicationTaskName?: string;
+  ReplicationTaskName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task.</p>
    * @public
    */
-  ReplicationTaskArn?: string;
+  ReplicationTaskArn?: string | undefined;
 
   /**
    * <p>The size, in bytes, of the replication task log.</p>
    * @public
    */
-  ReplicationInstanceTaskLogSize?: number;
+  ReplicationInstanceTaskLogSize?: number | undefined;
 }
 
 /**
@@ -11625,14 +11625,14 @@ export interface DescribeReplicationInstanceTaskLogsResponse {
    * <p>The Amazon Resource Name (ARN) of the replication instance.</p>
    * @public
    */
-  ReplicationInstanceArn?: string;
+  ReplicationInstanceArn?: string | undefined;
 
   /**
    * <p>An array of replication task log metadata. Each member of the array contains the
    *          replication task name, ARN, and task log size (in bytes). </p>
    * @public
    */
-  ReplicationInstanceTaskLogs?: ReplicationInstanceTaskLog[];
+  ReplicationInstanceTaskLogs?: ReplicationInstanceTaskLog[] | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -11640,7 +11640,7 @@ export interface DescribeReplicationInstanceTaskLogsResponse {
    *          by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -11652,7 +11652,7 @@ export interface DescribeReplicationsMessage {
    * <p>Filters applied to the replications.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the specified
@@ -11660,14 +11660,14 @@ export interface DescribeReplicationsMessage {
    *          the remaining results can be retrieved. </p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -11679,37 +11679,37 @@ export interface ProvisionData {
    * <p>The current provisioning state </p>
    * @public
    */
-  ProvisionState?: string;
+  ProvisionState?: string | undefined;
 
   /**
    * <p>The number of capacity units the replication is using.</p>
    * @public
    */
-  ProvisionedCapacityUnits?: number;
+  ProvisionedCapacityUnits?: number | undefined;
 
   /**
    * <p>The timestamp when DMS provisioned replication resources.</p>
    * @public
    */
-  DateProvisioned?: Date;
+  DateProvisioned?: Date | undefined;
 
   /**
    * <p>Whether the new provisioning is available to the replication.</p>
    * @public
    */
-  IsNewProvisioningAvailable?: boolean;
+  IsNewProvisioningAvailable?: boolean | undefined;
 
   /**
    * <p>The timestamp when provisioning became available.</p>
    * @public
    */
-  DateNewProvisioningDataAvailable?: Date;
+  DateNewProvisioningDataAvailable?: Date | undefined;
 
   /**
    * <p>A message describing the reason that DMS provisioned new resources for the serverless replication.</p>
    * @public
    */
-  ReasonForNewProvisioningData?: string;
+  ReasonForNewProvisioningData?: string | undefined;
 }
 
 /**
@@ -11721,67 +11721,67 @@ export interface ReplicationStats {
    * <p>The percent complete for the full load serverless replication.</p>
    * @public
    */
-  FullLoadProgressPercent?: number;
+  FullLoadProgressPercent?: number | undefined;
 
   /**
    * <p>The elapsed time of the replication, in milliseconds.</p>
    * @public
    */
-  ElapsedTimeMillis?: number;
+  ElapsedTimeMillis?: number | undefined;
 
   /**
    * <p>The number of tables loaded for this replication.</p>
    * @public
    */
-  TablesLoaded?: number;
+  TablesLoaded?: number | undefined;
 
   /**
    * <p>The number of tables currently loading for this replication.</p>
    * @public
    */
-  TablesLoading?: number;
+  TablesLoading?: number | undefined;
 
   /**
    * <p>The number of tables queued for this replication.</p>
    * @public
    */
-  TablesQueued?: number;
+  TablesQueued?: number | undefined;
 
   /**
    * <p>The number of errors that have occured for this replication.</p>
    * @public
    */
-  TablesErrored?: number;
+  TablesErrored?: number | undefined;
 
   /**
    * <p>The date the replication was started either with a fresh start or a target reload.</p>
    * @public
    */
-  FreshStartDate?: Date;
+  FreshStartDate?: Date | undefined;
 
   /**
    * <p>The date the replication is scheduled to start.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>The date the replication was stopped.</p>
    * @public
    */
-  StopDate?: Date;
+  StopDate?: Date | undefined;
 
   /**
    * <p>The date the replication full load was started.</p>
    * @public
    */
-  FullLoadStartDate?: Date;
+  FullLoadStartDate?: Date | undefined;
 
   /**
    * <p>The date the replication full load was finished.</p>
    * @public
    */
-  FullLoadFinishDate?: Date;
+  FullLoadFinishDate?: Date | undefined;
 }
 
 /**
@@ -11793,43 +11793,43 @@ export interface Replication {
    * <p>The identifier for the <code>ReplicationConfig</code> associated with the replication.</p>
    * @public
    */
-  ReplicationConfigIdentifier?: string;
+  ReplicationConfigIdentifier?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name for the <code>ReplicationConfig</code> associated with the replication.</p>
    * @public
    */
-  ReplicationConfigArn?: string;
+  ReplicationConfigArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless replication uses for its data source.</p>
    * @public
    */
-  SourceEndpointArn?: string;
+  SourceEndpointArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name for an existing <code>Endpoint</code> the serverless replication uses for its data target.</p>
    * @public
    */
-  TargetEndpointArn?: string;
+  TargetEndpointArn?: string | undefined;
 
   /**
    * <p>The type of the serverless replication.</p>
    * @public
    */
-  ReplicationType?: MigrationTypeValue;
+  ReplicationType?: MigrationTypeValue | undefined;
 
   /**
    * <p>The current status of the serverless replication.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Information about provisioning resources for an DMS serverless replication.</p>
    * @public
    */
-  ProvisionData?: ProvisionData;
+  ProvisionData?: ProvisionData | undefined;
 
   /**
    * <p>The reason the replication task was stopped. This response parameter can return one of
@@ -11903,25 +11903,25 @@ export interface Replication {
    *          </ul>
    * @public
    */
-  StopReason?: string;
+  StopReason?: string | undefined;
 
   /**
    * <p>Error and other information about why a serverless replication failed.</p>
    * @public
    */
-  FailureMessages?: string[];
+  FailureMessages?: string[] | undefined;
 
   /**
    * <p>This object provides a collection of statistics about a serverless replication.</p>
    * @public
    */
-  ReplicationStats?: ReplicationStats;
+  ReplicationStats?: ReplicationStats | undefined;
 
   /**
    * <p>The replication type.</p>
    * @public
    */
-  StartReplicationType?: string;
+  StartReplicationType?: string | undefined;
 
   /**
    * <p>Indicates the start time for a change data capture (CDC) operation. Use either
@@ -11929,7 +11929,7 @@ export interface Replication {
    *          Specifying both values results in an error.</p>
    * @public
    */
-  CdcStartTime?: Date;
+  CdcStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the start time for a change data capture (CDC) operation. Use either
@@ -11937,14 +11937,14 @@ export interface Replication {
    *          Specifying both values results in an error.</p>
    * @public
    */
-  CdcStartPosition?: string;
+  CdcStartPosition?: string | undefined;
 
   /**
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    * @public
    */
-  CdcStopPosition?: string;
+  CdcStopPosition?: string | undefined;
 
   /**
    * <p>Indicates the last checkpoint that occurred during a change data capture (CDC)
@@ -11952,31 +11952,31 @@ export interface Replication {
    *          start a CDC operation that begins at that checkpoint.</p>
    * @public
    */
-  RecoveryCheckpoint?: string;
+  RecoveryCheckpoint?: string | undefined;
 
   /**
    * <p>The time the serverless replication was created.</p>
    * @public
    */
-  ReplicationCreateTime?: Date;
+  ReplicationCreateTime?: Date | undefined;
 
   /**
    * <p>The time the serverless replication was updated.</p>
    * @public
    */
-  ReplicationUpdateTime?: Date;
+  ReplicationUpdateTime?: Date | undefined;
 
   /**
    * <p>The timestamp when replication was last stopped.</p>
    * @public
    */
-  ReplicationLastStopTime?: Date;
+  ReplicationLastStopTime?: Date | undefined;
 
   /**
    * <p>The timestamp when DMS will deprovision the replication.</p>
    * @public
    */
-  ReplicationDeprovisionTime?: Date;
+  ReplicationDeprovisionTime?: Date | undefined;
 }
 
 /**
@@ -11989,13 +11989,13 @@ export interface DescribeReplicationsResponse {
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The replication descriptions.</p>
    * @public
    */
-  Replications?: Replication[];
+  Replications?: Replication[] | undefined;
 }
 
 /**
@@ -12008,7 +12008,7 @@ export interface DescribeReplicationSubnetGroupsMessage {
    *          <p>Valid filter names: replication-subnet-group-id</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -12018,7 +12018,7 @@ export interface DescribeReplicationSubnetGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -12026,7 +12026,7 @@ export interface DescribeReplicationSubnetGroupsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -12040,13 +12040,13 @@ export interface DescribeReplicationSubnetGroupsResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A description of the replication subnet groups.</p>
    * @public
    */
-  ReplicationSubnetGroups?: ReplicationSubnetGroup[];
+  ReplicationSubnetGroups?: ReplicationSubnetGroup[] | undefined;
 }
 
 /**
@@ -12066,20 +12066,20 @@ export interface DescribeReplicationTableStatisticsMessage {
    *          the remaining results can be retrieved. </p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Filters applied to the replication table statistics.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -12092,107 +12092,107 @@ export interface TableStatistics {
    * <p>The schema name.</p>
    * @public
    */
-  SchemaName?: string;
+  SchemaName?: string | undefined;
 
   /**
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The number of insert actions performed on a table.</p>
    * @public
    */
-  Inserts?: number;
+  Inserts?: number | undefined;
 
   /**
    * <p>The number of delete actions performed on a table.</p>
    * @public
    */
-  Deletes?: number;
+  Deletes?: number | undefined;
 
   /**
    * <p>The number of update actions performed on a table.</p>
    * @public
    */
-  Updates?: number;
+  Updates?: number | undefined;
 
   /**
    * <p>The data definition language (DDL) used to build and modify the structure of your tables.</p>
    * @public
    */
-  Ddls?: number;
+  Ddls?: number | undefined;
 
   /**
    * <p>The number of insert actions applied on a target table.</p>
    * @public
    */
-  AppliedInserts?: number;
+  AppliedInserts?: number | undefined;
 
   /**
    * <p>The number of delete actions applied on a target table.</p>
    * @public
    */
-  AppliedDeletes?: number;
+  AppliedDeletes?: number | undefined;
 
   /**
    * <p>The number of update actions applied on a target table.</p>
    * @public
    */
-  AppliedUpdates?: number;
+  AppliedUpdates?: number | undefined;
 
   /**
    * <p>The number of data definition language (DDL) statements used to build and modify the structure
    *          of your tables applied on the target.</p>
    * @public
    */
-  AppliedDdls?: number;
+  AppliedDdls?: number | undefined;
 
   /**
    * <p>The number of rows added during the full load operation.</p>
    * @public
    */
-  FullLoadRows?: number;
+  FullLoadRows?: number | undefined;
 
   /**
    * <p>The number of rows that failed conditional checks during the full load operation (valid
    *          only for migrations where DynamoDB is the target).</p>
    * @public
    */
-  FullLoadCondtnlChkFailedRows?: number;
+  FullLoadCondtnlChkFailedRows?: number | undefined;
 
   /**
    * <p>The number of rows that failed to load during the full load operation (valid only for
    *          migrations where DynamoDB is the target).</p>
    * @public
    */
-  FullLoadErrorRows?: number;
+  FullLoadErrorRows?: number | undefined;
 
   /**
    * <p>The time when the full load operation started.</p>
    * @public
    */
-  FullLoadStartTime?: Date;
+  FullLoadStartTime?: Date | undefined;
 
   /**
    * <p>The time when the full load operation completed.</p>
    * @public
    */
-  FullLoadEndTime?: Date;
+  FullLoadEndTime?: Date | undefined;
 
   /**
    * <p>A value that indicates if the table was reloaded (<code>true</code>)
    *          or loaded as part of a new full load operation (<code>false</code>).</p>
    * @public
    */
-  FullLoadReloaded?: boolean;
+  FullLoadReloaded?: boolean | undefined;
 
   /**
    * <p>The last time a table was updated.</p>
    * @public
    */
-  LastUpdateTime?: Date;
+  LastUpdateTime?: Date | undefined;
 
   /**
    * <p>The state of the tables described.</p>
@@ -12200,25 +12200,25 @@ export interface TableStatistics {
    *          cancelled | Table error | Table is being reloaded</p>
    * @public
    */
-  TableState?: string;
+  TableState?: string | undefined;
 
   /**
    * <p>The number of records that have yet to be validated.</p>
    * @public
    */
-  ValidationPendingRecords?: number;
+  ValidationPendingRecords?: number | undefined;
 
   /**
    * <p>The number of records that failed validation.</p>
    * @public
    */
-  ValidationFailedRecords?: number;
+  ValidationFailedRecords?: number | undefined;
 
   /**
    * <p>The number of records that couldn't be validated.</p>
    * @public
    */
-  ValidationSuspendedRecords?: number;
+  ValidationSuspendedRecords?: number | undefined;
 
   /**
    * <p>The validation state of the table.</p>
@@ -12266,13 +12266,13 @@ export interface TableStatistics {
    *          </ul>
    * @public
    */
-  ValidationState?: string;
+  ValidationState?: string | undefined;
 
   /**
    * <p>Additional details about the state of validation.</p>
    * @public
    */
-  ValidationStateDetails?: string;
+  ValidationStateDetails?: string | undefined;
 }
 
 /**
@@ -12284,20 +12284,20 @@ export interface DescribeReplicationTableStatisticsResponse {
    * <p>The Amazon Resource Name of the replication config.</p>
    * @public
    */
-  ReplicationConfigArn?: string;
+  ReplicationConfigArn?: string | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is specified,
    *          the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Returns table statistics on the replication, including table name, rows inserted, rows updated, and rows deleted.</p>
    * @public
    */
-  ReplicationTableStatistics?: TableStatistics[];
+  ReplicationTableStatistics?: TableStatistics[] | undefined;
 }
 
 /**
@@ -12311,7 +12311,7 @@ export interface DescribeReplicationTaskAssessmentResultsMessage {
    *             <code>MaxRecords</code> and <code>Marker</code> parameters. </p>
    * @public
    */
-  ReplicationTaskArn?: string;
+  ReplicationTaskArn?: string | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -12321,7 +12321,7 @@ export interface DescribeReplicationTaskAssessmentResultsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -12329,7 +12329,7 @@ export interface DescribeReplicationTaskAssessmentResultsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -12342,31 +12342,31 @@ export interface ReplicationTaskAssessmentResult {
    *       </p>
    * @public
    */
-  ReplicationTaskIdentifier?: string;
+  ReplicationTaskIdentifier?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replication task. </p>
    * @public
    */
-  ReplicationTaskArn?: string;
+  ReplicationTaskArn?: string | undefined;
 
   /**
    * <p>The date the task assessment was completed. </p>
    * @public
    */
-  ReplicationTaskLastAssessmentDate?: Date;
+  ReplicationTaskLastAssessmentDate?: Date | undefined;
 
   /**
    * <p> The status of the task assessment. </p>
    * @public
    */
-  AssessmentStatus?: string;
+  AssessmentStatus?: string | undefined;
 
   /**
    * <p> The file containing the results of the task assessment. </p>
    * @public
    */
-  AssessmentResultsFile?: string;
+  AssessmentResultsFile?: string | undefined;
 
   /**
    * <p> The task assessment results in JSON format. </p>
@@ -12374,7 +12374,7 @@ export interface ReplicationTaskAssessmentResult {
    *            in the request.</p>
    * @public
    */
-  AssessmentResults?: string;
+  AssessmentResults?: string | undefined;
 
   /**
    * <p> The URL of the S3 object containing the task assessment results. </p>
@@ -12382,7 +12382,7 @@ export interface ReplicationTaskAssessmentResult {
    *            in the request.</p>
    * @public
    */
-  S3ObjectUrl?: string;
+  S3ObjectUrl?: string | undefined;
 }
 
 /**
@@ -12396,19 +12396,19 @@ export interface DescribeReplicationTaskAssessmentResultsResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>- The Amazon S3 bucket where the task assessment report is located. </p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p> The task assessment report. </p>
    * @public
    */
-  ReplicationTaskAssessmentResults?: ReplicationTaskAssessmentResult[];
+  ReplicationTaskAssessmentResults?: ReplicationTaskAssessmentResult[] | undefined;
 }
 
 /**
@@ -12423,7 +12423,7 @@ export interface DescribeReplicationTaskAssessmentRunsMessage {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
@@ -12431,7 +12431,7 @@ export interface DescribeReplicationTaskAssessmentRunsMessage {
    *          the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is
@@ -12439,7 +12439,7 @@ export interface DescribeReplicationTaskAssessmentRunsMessage {
    *          by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -12454,13 +12454,13 @@ export interface DescribeReplicationTaskAssessmentRunsResponse {
    *             <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>One or more premigration assessment runs as specified by <code>Filters</code>.</p>
    * @public
    */
-  ReplicationTaskAssessmentRuns?: ReplicationTaskAssessmentRun[];
+  ReplicationTaskAssessmentRuns?: ReplicationTaskAssessmentRun[] | undefined;
 }
 
 /**
@@ -12476,7 +12476,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsMessage {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of records to include in the response. If more records exist than the
@@ -12484,7 +12484,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsMessage {
    *          the response so that the remaining results can be retrieved.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p>An optional pagination token provided by a previous request. If this parameter is
@@ -12492,7 +12492,7 @@ export interface DescribeReplicationTaskIndividualAssessmentsMessage {
    *          by <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -12505,20 +12505,20 @@ export interface ReplicationTaskIndividualAssessment {
    * <p>Amazon Resource Name (ARN) of this individual assessment.</p>
    * @public
    */
-  ReplicationTaskIndividualAssessmentArn?: string;
+  ReplicationTaskIndividualAssessmentArn?: string | undefined;
 
   /**
    * <p>ARN of the premigration assessment run that is created to run this individual
    *          assessment.</p>
    * @public
    */
-  ReplicationTaskAssessmentRunArn?: string;
+  ReplicationTaskAssessmentRunArn?: string | undefined;
 
   /**
    * <p>Name of this individual assessment.</p>
    * @public
    */
-  IndividualAssessmentName?: string;
+  IndividualAssessmentName?: string | undefined;
 
   /**
    * <p>Individual assessment status.</p>
@@ -12557,14 +12557,14 @@ export interface ReplicationTaskIndividualAssessment {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Date when this individual assessment was started as part of running the
    *             <code>StartReplicationTaskAssessmentRun</code> operation.</p>
    * @public
    */
-  ReplicationTaskIndividualAssessmentStartDate?: Date;
+  ReplicationTaskIndividualAssessmentStartDate?: Date | undefined;
 }
 
 /**
@@ -12579,13 +12579,13 @@ export interface DescribeReplicationTaskIndividualAssessmentsResponse {
    *             <code>MaxRecords</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>One or more individual assessments as specified by <code>Filters</code>.</p>
    * @public
    */
-  ReplicationTaskIndividualAssessments?: ReplicationTaskIndividualAssessment[];
+  ReplicationTaskIndividualAssessments?: ReplicationTaskIndividualAssessment[] | undefined;
 }
 
 /**
@@ -12599,7 +12599,7 @@ export interface DescribeReplicationTasksMessage {
    *          endpoint-arn | replication-instance-arn</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than
@@ -12609,7 +12609,7 @@ export interface DescribeReplicationTasksMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -12617,7 +12617,7 @@ export interface DescribeReplicationTasksMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>An option to set to avoid returning information about settings. Use this to reduce
@@ -12625,7 +12625,7 @@ export interface DescribeReplicationTasksMessage {
    *             <code>true</code>; otherwise, choose <code>false</code> (the default).</p>
    * @public
    */
-  WithoutSettings?: boolean;
+  WithoutSettings?: boolean | undefined;
 }
 
 /**
@@ -12639,13 +12639,13 @@ export interface DescribeReplicationTasksResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>A description of the replication tasks.</p>
    * @public
    */
-  ReplicationTasks?: ReplicationTask[];
+  ReplicationTasks?: ReplicationTask[] | undefined;
 }
 
 /**
@@ -12667,7 +12667,7 @@ export interface DescribeSchemasMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -12675,7 +12675,7 @@ export interface DescribeSchemasMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 }
 
 /**
@@ -12689,13 +12689,13 @@ export interface DescribeSchemasResponse {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The described schema.</p>
    * @public
    */
-  Schemas?: string[];
+  Schemas?: string[] | undefined;
 }
 
 /**
@@ -12717,7 +12717,7 @@ export interface DescribeTableStatisticsMessage {
    *          <p>Constraints: Minimum 20, maximum 500.</p>
    * @public
    */
-  MaxRecords?: number;
+  MaxRecords?: number | undefined;
 
   /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
@@ -12725,7 +12725,7 @@ export interface DescribeTableStatisticsMessage {
    *          by <code>MaxRecords</code>. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Filters applied to table statistics.</p>
@@ -12734,7 +12734,7 @@ export interface DescribeTableStatisticsMessage {
    *          specified filters.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**

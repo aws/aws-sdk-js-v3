@@ -10,7 +10,7 @@ import { ControlCatalogServiceException as __BaseException } from "./ControlCata
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -34,13 +34,13 @@ export interface AssociatedDomainSummary {
    * <p>The Amazon Resource Name (ARN) of the related domain.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the related domain.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -52,13 +52,13 @@ export interface AssociatedObjectiveSummary {
    * <p>The Amazon Resource Name (ARN) of the related objective.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the related objective.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -70,7 +70,7 @@ export interface ObjectiveResourceFilter {
    * <p>The Amazon Resource Name (ARN) of the objective.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -84,7 +84,7 @@ export interface CommonControlFilter {
    *       in the <code>CommonControlFilter</code> isn’t currently supported.</p>
    * @public
    */
-  Objectives?: ObjectiveResourceFilter[];
+  Objectives?: ObjectiveResourceFilter[] | undefined;
 }
 
 /**
@@ -95,7 +95,7 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -118,13 +118,13 @@ export interface ListCommonControlsRequest {
    * <p>The maximum number of results on a page or for an API request call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional filter that narrows the results to a specific objective.</p>
@@ -132,7 +132,7 @@ export interface ListCommonControlsRequest {
    *       the <code>CommonControlFilter</code> isn’t currently supported.</p>
    * @public
    */
-  CommonControlFilter?: CommonControlFilter;
+  CommonControlFilter?: CommonControlFilter | undefined;
 }
 
 /**
@@ -197,7 +197,7 @@ export interface ListCommonControlsResponse {
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -210,7 +210,7 @@ export class ThrottlingException extends __BaseException {
   $retryable = {
     throttling: true,
   };
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -232,7 +232,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -407,7 +407,7 @@ export interface RegionConfiguration {
    * <p>Regions in which the control is available to be deployed.</p>
    * @public
    */
-  DeployableRegions?: string[];
+  DeployableRegions?: string[] | undefined;
 }
 
 /**
@@ -450,14 +450,14 @@ export interface GetControlResponse {
    * <p>Returns information about the control, as an <code>ImplementationDetails</code> object that shows the underlying implementation type for a control.</p>
    * @public
    */
-  Implementation?: ImplementationDetails;
+  Implementation?: ImplementationDetails | undefined;
 
   /**
    * <p>Returns an array of <code>ControlParameter</code> objects that specify the parameters a control supports. An empty list is returned for controls that don’t support parameters.
    *     </p>
    * @public
    */
-  Parameters?: ControlParameter[];
+  Parameters?: ControlParameter[] | undefined;
 }
 
 /**
@@ -467,7 +467,7 @@ export interface GetControlResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -490,13 +490,13 @@ export interface ListControlsRequest {
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results on a page or for an API request call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -537,7 +537,7 @@ export interface ListControlsResponse {
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -548,13 +548,13 @@ export interface ListDomainsRequest {
    * <p>The maximum number of results on a page or for an API request call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -607,7 +607,7 @@ export interface ListDomainsResponse {
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -619,7 +619,7 @@ export interface DomainResourceFilter {
    * <p>The Amazon Resource Name (ARN) of the domain.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -633,7 +633,7 @@ export interface ObjectiveFilter {
    *       the <code>ObjectiveFilter</code> isn’t currently supported.</p>
    * @public
    */
-  Domains?: DomainResourceFilter[];
+  Domains?: DomainResourceFilter[] | undefined;
 }
 
 /**
@@ -644,13 +644,13 @@ export interface ListObjectivesRequest {
    * <p>The maximum number of results on a page or for an API request call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An optional filter that narrows the results to a specific domain.</p>
@@ -658,7 +658,7 @@ export interface ListObjectivesRequest {
    *       Passing multiple ARNs in the <code>ObjectiveFilter</code> isn’t currently supported.</p>
    * @public
    */
-  ObjectiveFilter?: ObjectiveFilter;
+  ObjectiveFilter?: ObjectiveFilter | undefined;
 }
 
 /**
@@ -717,5 +717,5 @@ export interface ListObjectivesResponse {
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }

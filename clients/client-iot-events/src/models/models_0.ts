@@ -140,7 +140,7 @@ export interface DynamoDBAction {
    *       <code>'STRING'</code>.</p>
    * @public
    */
-  hashKeyType?: string;
+  hashKeyType?: string | undefined;
 
   /**
    * <p>The name of the hash key (also called the partition key). The <code>hashKeyField</code>
@@ -172,20 +172,20 @@ export interface DynamoDBAction {
    *         <code>'STRING'</code>.</p>
    * @public
    */
-  rangeKeyType?: string;
+  rangeKeyType?: string | undefined;
 
   /**
    * <p>The name of the range key (also called the sort key). The <code>rangeKeyField</code> value
    *       must match the sort key of the target DynamoDB table. </p>
    * @public
    */
-  rangeKeyField?: string;
+  rangeKeyField?: string | undefined;
 
   /**
    * <p>The value of the range key (also called the sort key).</p>
    * @public
    */
-  rangeKeyValue?: string;
+  rangeKeyValue?: string | undefined;
 
   /**
    * <p>The type of operation to perform. You can specify the following values: </p>
@@ -213,7 +213,7 @@ export interface DynamoDBAction {
    *       operation.</p>
    * @public
    */
-  operation?: string;
+  operation?: string | undefined;
 
   /**
    * <p>The name of the DynamoDB column that receives the action payload.</p>
@@ -221,7 +221,7 @@ export interface DynamoDBAction {
    *       <code>payload</code>.</p>
    * @public
    */
-  payloadField?: string;
+  payloadField?: string | undefined;
 
   /**
    * <p>The name of the DynamoDB table. The <code>tableName</code> value must match the table name of
@@ -238,7 +238,7 @@ export interface DynamoDBAction {
    *         <code>contentExpression</code>.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface DynamoDBv2Action {
    *         <code>contentExpression</code>.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -327,14 +327,14 @@ export interface FirehoseAction {
    *       newline), ',' (comma).</p>
    * @public
    */
-  separator?: string;
+  separator?: string | undefined;
 
   /**
    * <p>You can configure the action payload when you send a message to an Amazon Kinesis Data Firehose delivery
    *       stream.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -353,7 +353,7 @@ export interface IotEventsAction {
    * <p>You can configure the action payload when you send a message to an AWS IoT Events input.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -403,7 +403,7 @@ export interface AssetPropertyTimestamp {
    *       between 0-999999999.</p>
    * @public
    */
-  offsetInNanos?: string;
+  offsetInNanos?: string | undefined;
 }
 
 /**
@@ -450,21 +450,21 @@ export interface AssetPropertyVariant {
    *       should be a string.</p>
    * @public
    */
-  stringValue?: string;
+  stringValue?: string | undefined;
 
   /**
    * <p>The asset property value is an integer. You must use an expression, and the evaluated
    *       result should be an integer.</p>
    * @public
    */
-  integerValue?: string;
+  integerValue?: string | undefined;
 
   /**
    * <p>The asset property value is a double. You must use an expression, and the evaluated result
    *       should be a double.</p>
    * @public
    */
-  doubleValue?: string;
+  doubleValue?: string | undefined;
 
   /**
    * <p>The asset property value is a Boolean value that must be <code>'TRUE'</code> or
@@ -472,7 +472,7 @@ export interface AssetPropertyVariant {
    *       Boolean value.</p>
    * @public
    */
-  booleanValue?: string;
+  booleanValue?: string | undefined;
 }
 
 /**
@@ -504,21 +504,21 @@ export interface AssetPropertyValue {
    * <p>The value to send to an asset property.</p>
    * @public
    */
-  value?: AssetPropertyVariant;
+  value?: AssetPropertyVariant | undefined;
 
   /**
    * <p>The timestamp associated with the asset property value. The default is the current event
    *       time.</p>
    * @public
    */
-  timestamp?: AssetPropertyTimestamp;
+  timestamp?: AssetPropertyTimestamp | undefined;
 
   /**
    * <p>The quality of the asset property value. The value must be <code>'GOOD'</code>,
    *         <code>'BAD'</code>, or <code>'UNCERTAIN'</code>.</p>
    * @public
    */
-  quality?: string;
+  quality?: string | undefined;
 }
 
 /**
@@ -566,32 +566,32 @@ export interface IotSiteWiseAction {
    *       causes an error in case of failure. The default is a new unique identifier.</p>
    * @public
    */
-  entryId?: string;
+  entryId?: string | undefined;
 
   /**
    * <p>The ID of the asset that has the specified property.</p>
    * @public
    */
-  assetId?: string;
+  assetId?: string | undefined;
 
   /**
    * <p>The ID of the asset property.</p>
    * @public
    */
-  propertyId?: string;
+  propertyId?: string | undefined;
 
   /**
    * <p>The alias of the asset property.</p>
    * @public
    */
-  propertyAlias?: string;
+  propertyAlias?: string | undefined;
 
   /**
    * <p>The value to send to the asset property. This value contains timestamp, quality, and value
    *       (TQV) information. </p>
    * @public
    */
-  propertyValue?: AssetPropertyValue;
+  propertyValue?: AssetPropertyValue | undefined;
 }
 
 /**
@@ -612,7 +612,7 @@ export interface IotTopicPublishAction {
    *       topic.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -631,7 +631,7 @@ export interface LambdaAction {
    * <p>You can configure the action payload when you send a message to a Lambda function.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -666,7 +666,7 @@ export interface SetTimerAction {
    *       accuracy. The maximum value is 31622400 seconds. </p>
    * @public
    */
-  seconds?: number;
+  seconds?: number | undefined;
 
   /**
    * <p>The duration of the timer, in seconds. You can use a string expression that includes
@@ -676,7 +676,7 @@ export interface SetTimerAction {
    *       The evaluated result of the duration is rounded down to the nearest whole number. </p>
    * @public
    */
-  durationExpression?: string;
+  durationExpression?: string | undefined;
 }
 
 /**
@@ -713,7 +713,7 @@ export interface SNSTopicPublishAction {
    *       notification.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -733,14 +733,14 @@ export interface SqsAction {
    *       queue. Otherwise, set this to FALSE.</p>
    * @public
    */
-  useBase64?: boolean;
+  useBase64?: boolean | undefined;
 
   /**
    * <p>You can configure the action payload when you send a message to an Amazon SQS
    *       queue.</p>
    * @public
    */
-  payload?: Payload;
+  payload?: Payload | undefined;
 }
 
 /**
@@ -752,65 +752,65 @@ export interface Action {
    * <p>Sets a variable to a specified value.</p>
    * @public
    */
-  setVariable?: SetVariableAction;
+  setVariable?: SetVariableAction | undefined;
 
   /**
    * <p>Sends an Amazon SNS message.</p>
    * @public
    */
-  sns?: SNSTopicPublishAction;
+  sns?: SNSTopicPublishAction | undefined;
 
   /**
    * <p>Publishes an MQTT message with the given topic to the AWS IoT message broker.</p>
    * @public
    */
-  iotTopicPublish?: IotTopicPublishAction;
+  iotTopicPublish?: IotTopicPublishAction | undefined;
 
   /**
    * <p>Information needed to set the timer.</p>
    * @public
    */
-  setTimer?: SetTimerAction;
+  setTimer?: SetTimerAction | undefined;
 
   /**
    * <p>Information needed to clear the timer.</p>
    * @public
    */
-  clearTimer?: ClearTimerAction;
+  clearTimer?: ClearTimerAction | undefined;
 
   /**
    * <p>Information needed to reset the timer.</p>
    * @public
    */
-  resetTimer?: ResetTimerAction;
+  resetTimer?: ResetTimerAction | undefined;
 
   /**
    * <p>Calls a Lambda function, passing in information about the detector model instance and the
    *       event that triggered the action.</p>
    * @public
    */
-  lambda?: LambdaAction;
+  lambda?: LambdaAction | undefined;
 
   /**
    * <p>Sends AWS IoT Events input, which passes information about the detector model instance and the
    *       event that triggered the action.</p>
    * @public
    */
-  iotEvents?: IotEventsAction;
+  iotEvents?: IotEventsAction | undefined;
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon SQS queue.</p>
    * @public
    */
-  sqs?: SqsAction;
+  sqs?: SqsAction | undefined;
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
    * @public
    */
-  firehose?: FirehoseAction;
+  firehose?: FirehoseAction | undefined;
 
   /**
    * <p>Writes to the DynamoDB table that you created. The default action payload contains all
@@ -821,7 +821,7 @@ export interface Action {
    *         <i>AWS IoT Events Developer Guide</i>.</p>
    * @public
    */
-  dynamoDB?: DynamoDBAction;
+  dynamoDB?: DynamoDBAction | undefined;
 
   /**
    * <p>Writes to the DynamoDB table that you created. The default action payload contains all
@@ -832,14 +832,14 @@ export interface Action {
    *         <i>AWS IoT Events Developer Guide</i>.</p>
    * @public
    */
-  dynamoDBv2?: DynamoDBv2Action;
+  dynamoDBv2?: DynamoDBv2Action | undefined;
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an asset property in AWS IoT SiteWise .</p>
    * @public
    */
-  iotSiteWise?: IotSiteWiseAction;
+  iotSiteWise?: IotSiteWiseAction | undefined;
 }
 
 /**
@@ -852,41 +852,41 @@ export interface AlarmAction {
    * <p>Information required to publish the Amazon SNS message.</p>
    * @public
    */
-  sns?: SNSTopicPublishAction;
+  sns?: SNSTopicPublishAction | undefined;
 
   /**
    * <p>Information required to publish the MQTT message through the AWS IoT message broker.</p>
    * @public
    */
-  iotTopicPublish?: IotTopicPublishAction;
+  iotTopicPublish?: IotTopicPublishAction | undefined;
 
   /**
    * <p>Calls a Lambda function, passing in information about the detector model instance and the
    *       event that triggered the action.</p>
    * @public
    */
-  lambda?: LambdaAction;
+  lambda?: LambdaAction | undefined;
 
   /**
    * <p>Sends an AWS IoT Events input, passing in information about the detector model instance and the
    *       event that triggered the action.</p>
    * @public
    */
-  iotEvents?: IotEventsAction;
+  iotEvents?: IotEventsAction | undefined;
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon SQS queue.</p>
    * @public
    */
-  sqs?: SqsAction;
+  sqs?: SqsAction | undefined;
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
    *       action to an Amazon Kinesis Data Firehose delivery stream.</p>
    * @public
    */
-  firehose?: FirehoseAction;
+  firehose?: FirehoseAction | undefined;
 
   /**
    * <p>Defines an action to write to the Amazon DynamoDB table that you created. The standard action
@@ -938,7 +938,7 @@ export interface AlarmAction {
    *         <code><payload-field>_raw</code>.</p>
    * @public
    */
-  dynamoDB?: DynamoDBAction;
+  dynamoDB?: DynamoDBAction | undefined;
 
   /**
    * <p>Defines an action to write to the Amazon DynamoDB table that you created. The default action
@@ -990,7 +990,7 @@ export interface AlarmAction {
    *         <code>JSON</code>.</p>
    * @public
    */
-  dynamoDBv2?: DynamoDBv2Action;
+  dynamoDBv2?: DynamoDBv2Action | undefined;
 
   /**
    * <p>Sends information about the detector model instance and the event that triggered the
@@ -1031,7 +1031,7 @@ export interface AlarmAction {
    *         in the <i>AWS IoT Events Developer Guide</i>.</p>
    * @public
    */
-  iotSiteWise?: IotSiteWiseAction;
+  iotSiteWise?: IotSiteWiseAction | undefined;
 }
 
 /**
@@ -1059,13 +1059,13 @@ export interface AlarmCapabilities {
    * The configuration applies to all alarms that were created based on this alarm model.</p>
    * @public
    */
-  initializationConfiguration?: InitializationConfiguration;
+  initializationConfiguration?: InitializationConfiguration | undefined;
 
   /**
    * <p>Specifies whether to get notified for alarm state changes.</p>
    * @public
    */
-  acknowledgeFlow?: AcknowledgeFlow;
+  acknowledgeFlow?: AcknowledgeFlow | undefined;
 }
 
 /**
@@ -1078,7 +1078,7 @@ export interface AlarmEventActions {
    *       changes.</p>
    * @public
    */
-  alarmActions?: AlarmAction[];
+  alarmActions?: AlarmAction[] | undefined;
 }
 
 /**
@@ -1090,19 +1090,19 @@ export interface AlarmModelSummary {
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The description of the alarm model.</p>
    * @public
    */
-  alarmModelDescription?: string;
+  alarmModelDescription?: string | undefined;
 
   /**
    * <p>The name of the alarm model.</p>
    * @public
    */
-  alarmModelName?: string;
+  alarmModelName?: string | undefined;
 }
 
 /**
@@ -1130,37 +1130,37 @@ export interface AlarmModelVersionSummary {
    * <p>The name of the alarm model.</p>
    * @public
    */
-  alarmModelName?: string;
+  alarmModelName?: string | undefined;
 
   /**
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    * @public
    */
-  alarmModelArn?: string;
+  alarmModelArn?: string | undefined;
 
   /**
    * <p>The version of the alarm model.</p>
    * @public
    */
-  alarmModelVersion?: string;
+  alarmModelVersion?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the alarm model. The status can be one of the following values:</p>
@@ -1187,7 +1187,7 @@ export interface AlarmModelVersionSummary {
    *          </ul>
    * @public
    */
-  status?: AlarmModelVersionStatus;
+  status?: AlarmModelVersionStatus | undefined;
 
   /**
    * <p>
@@ -1195,7 +1195,7 @@ export interface AlarmModelVersionSummary {
    *     </p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 }
 
 /**
@@ -1209,7 +1209,7 @@ export interface NotificationTargetActions {
    *       event that triggered the action.</p>
    * @public
    */
-  lambdaAction?: LambdaAction;
+  lambdaAction?: LambdaAction | undefined;
 }
 
 /**
@@ -1221,13 +1221,13 @@ export interface EmailContent {
    * <p>The subject of the email.</p>
    * @public
    */
-  subject?: string;
+  subject?: string | undefined;
 
   /**
    * <p>The message that you want to send. The message can be up to 200 characters.</p>
    * @public
    */
-  additionalMessage?: string;
+  additionalMessage?: string | undefined;
 }
 
 /**
@@ -1247,7 +1247,7 @@ export interface SSOIdentity {
    * <p>The user ID.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 }
 
 /**
@@ -1259,7 +1259,7 @@ export interface RecipientDetail {
    * <p>The AWS Single Sign-On (AWS SSO) authentication information.</p>
    * @public
    */
-  ssoIdentity?: SSOIdentity;
+  ssoIdentity?: SSOIdentity | undefined;
 }
 
 /**
@@ -1274,7 +1274,7 @@ export interface EmailRecipients {
    * <p>Specifies one or more recipients who receive the email.</p>
    * @public
    */
-  to?: RecipientDetail[];
+  to?: RecipientDetail[] | undefined;
 }
 
 /**
@@ -1296,7 +1296,7 @@ export interface EmailConfiguration {
    * <p>Contains the subject and message of an email.</p>
    * @public
    */
-  content?: EmailContent;
+  content?: EmailContent | undefined;
 
   /**
    * <p>Contains the information of one or more recipients who receive the emails.</p>
@@ -1317,13 +1317,13 @@ export interface SMSConfiguration {
    * <p>The sender ID.</p>
    * @public
    */
-  senderId?: string;
+  senderId?: string | undefined;
 
   /**
    * <p>The message that you want to send. The message can be up to 200 characters.</p>
    * @public
    */
-  additionalMessage?: string;
+  additionalMessage?: string | undefined;
 
   /**
    * <p>Specifies one or more recipients who receive the message.</p>
@@ -1352,13 +1352,13 @@ export interface NotificationAction {
    * <p>Contains the configuration information of SMS notifications.</p>
    * @public
    */
-  smsConfigurations?: SMSConfiguration[];
+  smsConfigurations?: SMSConfiguration[] | undefined;
 
   /**
    * <p>Contains the configuration information of email notifications.</p>
    * @public
    */
-  emailConfigurations?: EmailConfiguration[];
+  emailConfigurations?: EmailConfiguration[] | undefined;
 }
 
 /**
@@ -1371,7 +1371,7 @@ export interface AlarmNotification {
    * The settings apply to all alarms that were created based on this alarm model.</p>
    * @public
    */
-  notificationActions?: NotificationAction[];
+  notificationActions?: NotificationAction[] | undefined;
 }
 
 /**
@@ -1427,7 +1427,7 @@ export interface AlarmRule {
    * <p>A rule that compares an input property value to a threshold value with a comparison operator.</p>
    * @public
    */
-  simpleRule?: SimpleRule;
+  simpleRule?: SimpleRule | undefined;
 }
 
 /**
@@ -1456,7 +1456,7 @@ export interface AnalysisResultLocation {
    *       identifies the error field in your detector model.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 }
 
 /**
@@ -1509,7 +1509,7 @@ export interface AnalysisResult {
    *         analyses</a> in the <i>AWS IoT Events Developer Guide</i>.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The severity level of the analysis result. Based on the severity level, analysis results
@@ -1535,20 +1535,20 @@ export interface AnalysisResult {
    *          </ul>
    * @public
    */
-  level?: AnalysisResultLevel;
+  level?: AnalysisResultLevel | undefined;
 
   /**
    * <p>Contains additional information about the analysis result.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>Contains one or more locations that you can use to locate the fields in your detector
    *       model that the analysis result references.</p>
    * @public
    */
-  locations?: AnalysisResultLocation[];
+  locations?: AnalysisResultLocation[] | undefined;
 }
 
 /**
@@ -1620,7 +1620,7 @@ export interface CreateAlarmModelRequest {
    * <p>A description that tells you what the alarm model detects.</p>
    * @public
    */
-  alarmModelDescription?: string;
+  alarmModelDescription?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
@@ -1635,7 +1635,7 @@ export interface CreateAlarmModelRequest {
    *          <p>You can create up to 50 tags for one alarm model.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>An input attribute used as a key to create an alarm.
@@ -1643,13 +1643,13 @@ export interface CreateAlarmModelRequest {
    * associated with this key to the alarm.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
    * @public
    */
-  severity?: number;
+  severity?: number | undefined;
 
   /**
    * <p>Defines when your alarm is invoked.</p>
@@ -1661,19 +1661,19 @@ export interface CreateAlarmModelRequest {
    * <p>Contains information about one or more notification actions.</p>
    * @public
    */
-  alarmNotification?: AlarmNotification;
+  alarmNotification?: AlarmNotification | undefined;
 
   /**
    * <p>Contains information about one or more alarm actions.</p>
    * @public
    */
-  alarmEventActions?: AlarmEventActions;
+  alarmEventActions?: AlarmEventActions | undefined;
 
   /**
    * <p>Contains the configuration information of alarm state changes.</p>
    * @public
    */
-  alarmCapabilities?: AlarmCapabilities;
+  alarmCapabilities?: AlarmCapabilities | undefined;
 }
 
 /**
@@ -1684,25 +1684,25 @@ export interface CreateAlarmModelResponse {
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    * @public
    */
-  alarmModelArn?: string;
+  alarmModelArn?: string | undefined;
 
   /**
    * <p>The version of the alarm model.</p>
    * @public
    */
-  alarmModelVersion?: string;
+  alarmModelVersion?: string | undefined;
 
   /**
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the alarm model. The status can be one of the following values:</p>
@@ -1729,7 +1729,7 @@ export interface CreateAlarmModelResponse {
    *          </ul>
    * @public
    */
-  status?: AlarmModelVersionStatus;
+  status?: AlarmModelVersionStatus | undefined;
 }
 
 /**
@@ -1803,13 +1803,13 @@ export class ResourceAlreadyExistsException extends __BaseException {
    * <p>The ID of the resource.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * @internal
@@ -1904,13 +1904,13 @@ export interface Event {
    *       a Boolean value, the actions are not performed (=FALSE).</p>
    * @public
    */
-  condition?: string;
+  condition?: string | undefined;
 
   /**
    * <p>The actions to be performed.</p>
    * @public
    */
-  actions?: Action[];
+  actions?: Action[] | undefined;
 }
 
 /**
@@ -1924,7 +1924,7 @@ export interface OnEnterLifecycle {
    *         <code>condition</code> is <code>TRUE</code>.</p>
    * @public
    */
-  events?: Event[];
+  events?: Event[] | undefined;
 }
 
 /**
@@ -1938,7 +1938,7 @@ export interface OnExitLifecycle {
    *         <code>condition</code> is <code>TRUE</code>.</p>
    * @public
    */
-  events?: Event[];
+  events?: Event[] | undefined;
 }
 
 /**
@@ -1964,7 +1964,7 @@ export interface TransitionEvent {
    * <p>The actions to be performed.</p>
    * @public
    */
-  actions?: Action[];
+  actions?: Action[] | undefined;
 
   /**
    * <p>The next state to enter.</p>
@@ -1982,14 +1982,14 @@ export interface OnInputLifecycle {
    * <p>Specifies the actions performed when the <code>condition</code> evaluates to TRUE.</p>
    * @public
    */
-  events?: Event[];
+  events?: Event[] | undefined;
 
   /**
    * <p>Specifies the actions performed, and the next state entered, when a <code>condition</code>
    *       evaluates to TRUE.</p>
    * @public
    */
-  transitionEvents?: TransitionEvent[];
+  transitionEvents?: TransitionEvent[] | undefined;
 }
 
 /**
@@ -2008,21 +2008,21 @@ export interface State {
    *         <code>actions</code>.</p>
    * @public
    */
-  onInput?: OnInputLifecycle;
+  onInput?: OnInputLifecycle | undefined;
 
   /**
    * <p>When entering this state, perform these <code>actions</code> if the <code>condition</code>
    *       is TRUE.</p>
    * @public
    */
-  onEnter?: OnEnterLifecycle;
+  onEnter?: OnEnterLifecycle | undefined;
 
   /**
    * <p>When exiting this state, perform these <code>actions</code> if the specified
    *         <code>condition</code> is <code>TRUE</code>.</p>
    * @public
    */
-  onExit?: OnExitLifecycle;
+  onExit?: OnExitLifecycle | undefined;
 }
 
 /**
@@ -2077,7 +2077,7 @@ export interface CreateDetectorModelRequest {
    * <p>A brief description of the detector model.</p>
    * @public
    */
-  detectorModelDescription?: string;
+  detectorModelDescription?: string | undefined;
 
   /**
    * <p>The input attribute key used to identify a device or system to create a detector (an
@@ -2087,7 +2087,7 @@ export interface CreateDetectorModelRequest {
    *       the input.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
@@ -2099,14 +2099,14 @@ export interface CreateDetectorModelRequest {
    * <p>Metadata that can be used to manage the detector model.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    * @public
    */
-  evaluationMethod?: EvaluationMethod;
+  evaluationMethod?: EvaluationMethod | undefined;
 }
 
 /**
@@ -2137,49 +2137,49 @@ export interface DetectorModelConfiguration {
    * <p>The name of the detector model.</p>
    * @public
    */
-  detectorModelName?: string;
+  detectorModelName?: string | undefined;
 
   /**
    * <p>The version of the detector model.</p>
    * @public
    */
-  detectorModelVersion?: string;
+  detectorModelVersion?: string | undefined;
 
   /**
    * <p>A brief description of the detector model.</p>
    * @public
    */
-  detectorModelDescription?: string;
+  detectorModelDescription?: string | undefined;
 
   /**
    * <p>The ARN of the detector model.</p>
    * @public
    */
-  detectorModelArn?: string;
+  detectorModelArn?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The time the detector model was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The time the detector model was last updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the detector model.</p>
    * @public
    */
-  status?: DetectorModelVersionStatus;
+  status?: DetectorModelVersionStatus | undefined;
 
   /**
    * <p>The value used to identify a detector instance. When a device or system sends input, a new
@@ -2191,14 +2191,14 @@ export interface DetectorModelConfiguration {
    *       attribute-value.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    * @public
    */
-  evaluationMethod?: EvaluationMethod;
+  evaluationMethod?: EvaluationMethod | undefined;
 }
 
 /**
@@ -2209,7 +2209,7 @@ export interface CreateDetectorModelResponse {
    * <p>Information about how the detector model is configured.</p>
    * @public
    */
-  detectorModelConfiguration?: DetectorModelConfiguration;
+  detectorModelConfiguration?: DetectorModelConfiguration | undefined;
 }
 
 /**
@@ -2242,7 +2242,7 @@ export interface CreateInputRequest {
    * <p>A brief description of the input.</p>
    * @public
    */
-  inputDescription?: string;
+  inputDescription?: string | undefined;
 
   /**
    * <p>The definition of the input.</p>
@@ -2254,7 +2254,7 @@ export interface CreateInputRequest {
    * <p>Metadata that can be used to manage the input.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2288,7 +2288,7 @@ export interface InputConfiguration {
    * <p>A brief description of the input.</p>
    * @public
    */
-  inputDescription?: string;
+  inputDescription?: string | undefined;
 
   /**
    * <p>The ARN of the input.</p>
@@ -2323,7 +2323,7 @@ export interface CreateInputResponse {
    * <p>Information about the configuration of the input.</p>
    * @public
    */
-  inputConfiguration?: InputConfiguration;
+  inputConfiguration?: InputConfiguration | undefined;
 }
 
 /**
@@ -2408,7 +2408,7 @@ export interface DescribeAlarmModelRequest {
    * <p>The version of the alarm model.</p>
    * @public
    */
-  alarmModelVersion?: string;
+  alarmModelVersion?: string | undefined;
 }
 
 /**
@@ -2419,25 +2419,25 @@ export interface DescribeAlarmModelResponse {
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    * @public
    */
-  alarmModelArn?: string;
+  alarmModelArn?: string | undefined;
 
   /**
    * <p>The version of the alarm model.</p>
    * @public
    */
-  alarmModelVersion?: string;
+  alarmModelVersion?: string | undefined;
 
   /**
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the alarm model. The status can be one of the following values:</p>
@@ -2464,7 +2464,7 @@ export interface DescribeAlarmModelResponse {
    *          </ul>
    * @public
    */
-  status?: AlarmModelVersionStatus;
+  status?: AlarmModelVersionStatus | undefined;
 
   /**
    * <p>
@@ -2472,25 +2472,25 @@ export interface DescribeAlarmModelResponse {
    *     </p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The name of the alarm model.</p>
    * @public
    */
-  alarmModelName?: string;
+  alarmModelName?: string | undefined;
 
   /**
    * <p>The description of the alarm model.</p>
    * @public
    */
-  alarmModelDescription?: string;
+  alarmModelDescription?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>An input attribute used as a key to create an alarm.
@@ -2498,37 +2498,37 @@ export interface DescribeAlarmModelResponse {
    * associated with this key to the alarm.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
    * @public
    */
-  severity?: number;
+  severity?: number | undefined;
 
   /**
    * <p>Defines when your alarm is invoked.</p>
    * @public
    */
-  alarmRule?: AlarmRule;
+  alarmRule?: AlarmRule | undefined;
 
   /**
    * <p>Contains information about one or more notification actions.</p>
    * @public
    */
-  alarmNotification?: AlarmNotification;
+  alarmNotification?: AlarmNotification | undefined;
 
   /**
    * <p>Contains information about one or more alarm actions.</p>
    * @public
    */
-  alarmEventActions?: AlarmEventActions;
+  alarmEventActions?: AlarmEventActions | undefined;
 
   /**
    * <p>Contains the configuration information of alarm state changes.</p>
    * @public
    */
-  alarmCapabilities?: AlarmCapabilities;
+  alarmCapabilities?: AlarmCapabilities | undefined;
 }
 
 /**
@@ -2545,7 +2545,7 @@ export interface DescribeDetectorModelRequest {
    * <p>The version of the detector model.</p>
    * @public
    */
-  detectorModelVersion?: string;
+  detectorModelVersion?: string | undefined;
 }
 
 /**
@@ -2557,13 +2557,13 @@ export interface DetectorModel {
    * <p>Information that defines how a detector operates.</p>
    * @public
    */
-  detectorModelDefinition?: DetectorModelDefinition;
+  detectorModelDefinition?: DetectorModelDefinition | undefined;
 
   /**
    * <p>Information about how the detector is configured.</p>
    * @public
    */
-  detectorModelConfiguration?: DetectorModelConfiguration;
+  detectorModelConfiguration?: DetectorModelConfiguration | undefined;
 }
 
 /**
@@ -2574,7 +2574,7 @@ export interface DescribeDetectorModelResponse {
    * <p>Information about the detector model.</p>
    * @public
    */
-  detectorModel?: DetectorModel;
+  detectorModel?: DetectorModel | undefined;
 }
 
 /**
@@ -2612,7 +2612,7 @@ export interface DescribeDetectorModelAnalysisResponse {
    *          </ul>
    * @public
    */
-  status?: AnalysisStatus;
+  status?: AnalysisStatus | undefined;
 }
 
 /**
@@ -2635,13 +2635,13 @@ export interface Input {
    * <p>Information about the configuration of an input.</p>
    * @public
    */
-  inputConfiguration?: InputConfiguration;
+  inputConfiguration?: InputConfiguration | undefined;
 
   /**
    * <p>The definition of the input.</p>
    * @public
    */
-  inputDefinition?: InputDefinition;
+  inputDefinition?: InputDefinition | undefined;
 }
 
 /**
@@ -2652,7 +2652,7 @@ export interface DescribeInputResponse {
    * <p>Information about the input.</p>
    * @public
    */
-  input?: Input;
+  input?: Input | undefined;
 }
 
 /**
@@ -2677,7 +2677,7 @@ export interface DetectorDebugOption {
    *       detector model).</p>
    * @public
    */
-  keyValue?: string;
+  keyValue?: string | undefined;
 }
 
 /**
@@ -2723,7 +2723,7 @@ export interface LoggingOptions {
    *       which the logging level is given.</p>
    * @public
    */
-  detectorDebugOptions?: DetectorDebugOption[];
+  detectorDebugOptions?: DetectorDebugOption[] | undefined;
 }
 
 /**
@@ -2734,7 +2734,7 @@ export interface DescribeLoggingOptionsResponse {
    * <p>The current settings of the AWS IoT Events logging options.</p>
    * @public
    */
-  loggingOptions?: LoggingOptions;
+  loggingOptions?: LoggingOptions | undefined;
 }
 
 /**
@@ -2766,19 +2766,19 @@ export interface DetectorModelSummary {
    * <p>The name of the detector model.</p>
    * @public
    */
-  detectorModelName?: string;
+  detectorModelName?: string | undefined;
 
   /**
    * <p>A brief description of the detector model.</p>
    * @public
    */
-  detectorModelDescription?: string;
+  detectorModelDescription?: string | undefined;
 
   /**
    * <p>The time the detector model was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 }
 
 /**
@@ -2790,50 +2790,50 @@ export interface DetectorModelVersionSummary {
    * <p>The name of the detector model.</p>
    * @public
    */
-  detectorModelName?: string;
+  detectorModelName?: string | undefined;
 
   /**
    * <p>The ID of the detector model version.</p>
    * @public
    */
-  detectorModelVersion?: string;
+  detectorModelVersion?: string | undefined;
 
   /**
    * <p>The ARN of the detector model version.</p>
    * @public
    */
-  detectorModelArn?: string;
+  detectorModelArn?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants the detector model permission to perform its tasks.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The time the detector model version was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the detector model version was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the detector model version.</p>
    * @public
    */
-  status?: DetectorModelVersionStatus;
+  status?: DetectorModelVersionStatus | undefined;
 
   /**
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    * @public
    */
-  evaluationMethod?: EvaluationMethod;
+  evaluationMethod?: EvaluationMethod | undefined;
 }
 
 /**
@@ -2850,13 +2850,13 @@ export interface GetDetectorModelAnalysisResultsRequest {
    * <p>The token that you can use to return the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2867,14 +2867,14 @@ export interface GetDetectorModelAnalysisResultsResponse {
    * <p>Contains information about one or more analysis results.</p>
    * @public
    */
-  analysisResults?: AnalysisResult[];
+  analysisResults?: AnalysisResult[] | undefined;
 
   /**
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2930,7 +2930,7 @@ export interface IotSiteWiseInputIdentifier {
    *     </p>
    * @public
    */
-  iotSiteWiseAssetModelPropertyIdentifier?: IotSiteWiseAssetModelPropertyIdentifier;
+  iotSiteWiseAssetModelPropertyIdentifier?: IotSiteWiseAssetModelPropertyIdentifier | undefined;
 }
 
 /**
@@ -2946,7 +2946,7 @@ export interface InputIdentifier {
    *     </p>
    * @public
    */
-  iotEventsInputIdentifier?: IotEventsInputIdentifier;
+  iotEventsInputIdentifier?: IotEventsInputIdentifier | undefined;
 
   /**
    * <p>
@@ -2954,7 +2954,7 @@ export interface InputIdentifier {
    *     </p>
    * @public
    */
-  iotSiteWiseInputIdentifier?: IotSiteWiseInputIdentifier;
+  iotSiteWiseInputIdentifier?: IotSiteWiseInputIdentifier | undefined;
 }
 
 /**
@@ -2966,37 +2966,37 @@ export interface InputSummary {
    * <p>The name of the input.</p>
    * @public
    */
-  inputName?: string;
+  inputName?: string | undefined;
 
   /**
    * <p>A brief description of the input.</p>
    * @public
    */
-  inputDescription?: string;
+  inputDescription?: string | undefined;
 
   /**
    * <p>The ARN of the input.</p>
    * @public
    */
-  inputArn?: string;
+  inputArn?: string | undefined;
 
   /**
    * <p>The time the input was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The last time the input was updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the input.</p>
    * @public
    */
-  status?: InputStatus;
+  status?: InputStatus | undefined;
 }
 
 /**
@@ -3007,13 +3007,13 @@ export interface ListAlarmModelsRequest {
    * <p>The token that you can use to return the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3024,14 +3024,14 @@ export interface ListAlarmModelsResponse {
    * <p>A list that summarizes each alarm model.</p>
    * @public
    */
-  alarmModelSummaries?: AlarmModelSummary[];
+  alarmModelSummaries?: AlarmModelSummary[] | undefined;
 
   /**
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3048,13 +3048,13 @@ export interface ListAlarmModelVersionsRequest {
    * <p>The token that you can use to return the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3065,14 +3065,14 @@ export interface ListAlarmModelVersionsResponse {
    * <p>A list that summarizes each alarm model version.</p>
    * @public
    */
-  alarmModelVersionSummaries?: AlarmModelVersionSummary[];
+  alarmModelVersionSummaries?: AlarmModelVersionSummary[] | undefined;
 
   /**
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3083,13 +3083,13 @@ export interface ListDetectorModelsRequest {
    * <p>The token that you can use to return the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3100,14 +3100,14 @@ export interface ListDetectorModelsResponse {
    * <p>Summary information about the detector models.</p>
    * @public
    */
-  detectorModelSummaries?: DetectorModelSummary[];
+  detectorModelSummaries?: DetectorModelSummary[] | undefined;
 
   /**
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3124,13 +3124,13 @@ export interface ListDetectorModelVersionsRequest {
    * <p>The token that you can use to return the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3141,14 +3141,14 @@ export interface ListDetectorModelVersionsResponse {
    * <p>Summary information about the detector model versions.</p>
    * @public
    */
-  detectorModelVersionSummaries?: DetectorModelVersionSummary[];
+  detectorModelVersionSummaries?: DetectorModelVersionSummary[] | undefined;
 
   /**
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3169,7 +3169,7 @@ export interface ListInputRoutingsRequest {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -3177,7 +3177,7 @@ export interface ListInputRoutingsRequest {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3193,7 +3193,7 @@ export interface RoutedResource {
    *     </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>
@@ -3201,7 +3201,7 @@ export interface RoutedResource {
    *     </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -3214,7 +3214,7 @@ export interface ListInputRoutingsResponse {
    *     </p>
    * @public
    */
-  routedResources?: RoutedResource[];
+  routedResources?: RoutedResource[] | undefined;
 
   /**
    * <p>
@@ -3223,7 +3223,7 @@ export interface ListInputRoutingsResponse {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3234,13 +3234,13 @@ export interface ListInputsRequest {
    * <p>The token that you can use to return the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3251,14 +3251,14 @@ export interface ListInputsResponse {
    * <p>Summary information about the inputs.</p>
    * @public
    */
-  inputSummaries?: InputSummary[];
+  inputSummaries?: InputSummary[] | undefined;
 
   /**
    * <p>The token that you can use to return the next set of results,
    * or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3280,7 +3280,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags assigned to the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3313,7 +3313,7 @@ export interface StartDetectorModelAnalysisResponse {
    * <p>The ID that you can use to retrieve the analysis result.</p>
    * @public
    */
-  analysisId?: string;
+  analysisId?: string | undefined;
 }
 
 /**
@@ -3374,7 +3374,7 @@ export interface UpdateAlarmModelRequest {
    * <p>The description of the alarm model.</p>
    * @public
    */
-  alarmModelDescription?: string;
+  alarmModelDescription?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role that allows the alarm to perform actions and access AWS resources. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
@@ -3386,7 +3386,7 @@ export interface UpdateAlarmModelRequest {
    * <p>A non-negative integer that reflects the severity level of the alarm.</p>
    * @public
    */
-  severity?: number;
+  severity?: number | undefined;
 
   /**
    * <p>Defines when your alarm is invoked.</p>
@@ -3398,19 +3398,19 @@ export interface UpdateAlarmModelRequest {
    * <p>Contains information about one or more notification actions.</p>
    * @public
    */
-  alarmNotification?: AlarmNotification;
+  alarmNotification?: AlarmNotification | undefined;
 
   /**
    * <p>Contains information about one or more alarm actions.</p>
    * @public
    */
-  alarmEventActions?: AlarmEventActions;
+  alarmEventActions?: AlarmEventActions | undefined;
 
   /**
    * <p>Contains the configuration information of alarm state changes.</p>
    * @public
    */
-  alarmCapabilities?: AlarmCapabilities;
+  alarmCapabilities?: AlarmCapabilities | undefined;
 }
 
 /**
@@ -3421,25 +3421,25 @@ export interface UpdateAlarmModelResponse {
    * <p>The time the alarm model was created, in the Unix epoch format.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The ARN of the alarm model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>AWS General Reference</i>.</p>
    * @public
    */
-  alarmModelArn?: string;
+  alarmModelArn?: string | undefined;
 
   /**
    * <p>The version of the alarm model.</p>
    * @public
    */
-  alarmModelVersion?: string;
+  alarmModelVersion?: string | undefined;
 
   /**
    * <p>The time the alarm model was last updated, in the Unix epoch format.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The status of the alarm model. The status can be one of the following values:</p>
@@ -3466,7 +3466,7 @@ export interface UpdateAlarmModelResponse {
    *          </ul>
    * @public
    */
-  status?: AlarmModelVersionStatus;
+  status?: AlarmModelVersionStatus | undefined;
 }
 
 /**
@@ -3489,7 +3489,7 @@ export interface UpdateDetectorModelRequest {
    * <p>A brief description of the detector model.</p>
    * @public
    */
-  detectorModelDescription?: string;
+  detectorModelDescription?: string | undefined;
 
   /**
    * <p>The ARN of the role that grants permission to AWS IoT Events to perform its operations.</p>
@@ -3502,7 +3502,7 @@ export interface UpdateDetectorModelRequest {
    *     </p>
    * @public
    */
-  evaluationMethod?: EvaluationMethod;
+  evaluationMethod?: EvaluationMethod | undefined;
 }
 
 /**
@@ -3513,7 +3513,7 @@ export interface UpdateDetectorModelResponse {
    * <p>Information about how the detector model is configured.</p>
    * @public
    */
-  detectorModelConfiguration?: DetectorModelConfiguration;
+  detectorModelConfiguration?: DetectorModelConfiguration | undefined;
 }
 
 /**
@@ -3530,7 +3530,7 @@ export interface UpdateInputRequest {
    * <p>A brief description of the input.</p>
    * @public
    */
-  inputDescription?: string;
+  inputDescription?: string | undefined;
 
   /**
    * <p>The definition of the input.</p>
@@ -3547,5 +3547,5 @@ export interface UpdateInputResponse {
    * <p>Information about the configuration of the input.</p>
    * @public
    */
-  inputConfiguration?: InputConfiguration;
+  inputConfiguration?: InputConfiguration | undefined;
 }

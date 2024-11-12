@@ -58,31 +58,31 @@ export interface ListCisScanResultsAggregatedByTargetResourceRequest {
    * <p>The filter criteria.</p>
    * @public
    */
-  filterCriteria?: CisScanResultsAggregatedByTargetResourceFilterCriteria;
+  filterCriteria?: CisScanResultsAggregatedByTargetResourceFilterCriteria | undefined;
 
   /**
    * <p>The sort by order.</p>
    * @public
    */
-  sortBy?: CisScanResultsAggregatedByTargetResourceSortBy;
+  sortBy?: CisScanResultsAggregatedByTargetResourceSortBy | undefined;
 
   /**
    * <p>The sort order.</p>
    * @public
    */
-  sortOrder?: CisSortOrder;
+  sortOrder?: CisSortOrder | undefined;
 
   /**
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of scan results aggregated by a target resource to be returned in a single page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -93,13 +93,13 @@ export interface ListCisScanResultsAggregatedByTargetResourceResponse {
    * <p>The resource aggregations.</p>
    * @public
    */
-  targetResourceAggregations?: CisTargetResourceAggregation[];
+  targetResourceAggregations?: CisTargetResourceAggregation[] | undefined;
 
   /**
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -125,61 +125,61 @@ export interface ListCisScansFilterCriteria {
    * <p>The list of scan name filters.</p>
    * @public
    */
-  scanNameFilters?: CisStringFilter[];
+  scanNameFilters?: CisStringFilter[] | undefined;
 
   /**
    * <p>The list of target resource tag filters.</p>
    * @public
    */
-  targetResourceTagFilters?: TagFilter[];
+  targetResourceTagFilters?: TagFilter[] | undefined;
 
   /**
    * <p>The list of target resource ID filters.</p>
    * @public
    */
-  targetResourceIdFilters?: CisStringFilter[];
+  targetResourceIdFilters?: CisStringFilter[] | undefined;
 
   /**
    * <p>The list of scan status filters.</p>
    * @public
    */
-  scanStatusFilters?: CisScanStatusFilter[];
+  scanStatusFilters?: CisScanStatusFilter[] | undefined;
 
   /**
    * <p>The list of scan at filters.</p>
    * @public
    */
-  scanAtFilters?: CisDateFilter[];
+  scanAtFilters?: CisDateFilter[] | undefined;
 
   /**
    * <p>The list of scan configuration ARN filters.</p>
    * @public
    */
-  scanConfigurationArnFilters?: CisStringFilter[];
+  scanConfigurationArnFilters?: CisStringFilter[] | undefined;
 
   /**
    * <p>The list of scan ARN filters.</p>
    * @public
    */
-  scanArnFilters?: CisStringFilter[];
+  scanArnFilters?: CisStringFilter[] | undefined;
 
   /**
    * <p>The list of scheduled by filters.</p>
    * @public
    */
-  scheduledByFilters?: CisStringFilter[];
+  scheduledByFilters?: CisStringFilter[] | undefined;
 
   /**
    * <p>The list of failed checks filters.</p>
    * @public
    */
-  failedChecksFilters?: CisNumberFilter[];
+  failedChecksFilters?: CisNumberFilter[] | undefined;
 
   /**
    * <p>The list of target account ID filters.</p>
    * @public
    */
-  targetAccountIdFilters?: CisStringFilter[];
+  targetAccountIdFilters?: CisStringFilter[] | undefined;
 }
 
 /**
@@ -206,37 +206,37 @@ export interface ListCisScansRequest {
    * <p>The CIS scan filter criteria.</p>
    * @public
    */
-  filterCriteria?: ListCisScansFilterCriteria;
+  filterCriteria?: ListCisScansFilterCriteria | undefined;
 
   /**
    * <p>The detail applied to the CIS scan.</p>
    * @public
    */
-  detailLevel?: ListCisScansDetailLevel;
+  detailLevel?: ListCisScansDetailLevel | undefined;
 
   /**
    * <p>The CIS scans sort by order.</p>
    * @public
    */
-  sortBy?: ListCisScansSortBy;
+  sortBy?: ListCisScansSortBy | undefined;
 
   /**
    * <p>The CIS scans sort order.</p>
    * @public
    */
-  sortOrder?: CisSortOrder;
+  sortOrder?: CisSortOrder | undefined;
 
   /**
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -247,13 +247,13 @@ export interface ListCisScansResponse {
    * <p>The CIS scans.</p>
    * @public
    */
-  scans?: CisScan[];
+  scans?: CisScan[] | undefined;
 
   /**
    * <p>The pagination token from a previous request that's used to retrieve the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -264,20 +264,20 @@ export interface ListCoverageRequest {
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An object that contains details on the filters to apply to the coverage data for your
    *          environment.</p>
    * @public
    */
-  filterCriteria?: CoverageFilterCriteria;
+  filterCriteria?: CoverageFilterCriteria | undefined;
 }
 
 /**
@@ -291,13 +291,13 @@ export interface ListCoverageResponse {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An object that contains details on the covered resources in your environment.</p>
    * @public
    */
-  coveredResources?: CoveredResource[];
+  coveredResources?: CoveredResource[] | undefined;
 }
 
 /**
@@ -309,13 +309,13 @@ export interface ListCoverageStatisticsRequest {
    *          environment.</p>
    * @public
    */
-  filterCriteria?: CoverageFilterCriteria;
+  filterCriteria?: CoverageFilterCriteria | undefined;
 
   /**
    * <p>The value to group the results by.</p>
    * @public
    */
-  groupBy?: GroupKey;
+  groupBy?: GroupKey | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -324,7 +324,7 @@ export interface ListCoverageStatisticsRequest {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -335,7 +335,7 @@ export interface ListCoverageStatisticsResponse {
    * <p>An array with the number for each group.</p>
    * @public
    */
-  countsByGroup?: Counts[];
+  countsByGroup?: Counts[] | undefined;
 
   /**
    * <p>The total number for all groups.</p>
@@ -350,7 +350,7 @@ export interface ListCoverageStatisticsResponse {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -361,13 +361,13 @@ export interface ListDelegatedAdminAccountsRequest {
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -378,7 +378,7 @@ export interface ListDelegatedAdminAccountsResponse {
    * <p>Details of the Amazon Inspector delegated administrator of your organization.</p>
    * @public
    */
-  delegatedAdminAccounts?: DelegatedAdminAccount[];
+  delegatedAdminAccounts?: DelegatedAdminAccount[] | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -387,7 +387,7 @@ export interface ListDelegatedAdminAccountsResponse {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -398,25 +398,25 @@ export interface ListFiltersRequest {
    * <p>The Amazon resource number (ARN) of the filter.</p>
    * @public
    */
-  arns?: string[];
+  arns?: string[] | undefined;
 
   /**
    * <p>The action the filter applies to matched findings.</p>
    * @public
    */
-  action?: FilterAction;
+  action?: FilterAction | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -436,7 +436,7 @@ export interface ListFiltersResponse {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -453,25 +453,25 @@ export interface ListFindingAggregationsRequest {
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The Amazon Web Services account IDs to retrieve finding aggregation data for.</p>
    * @public
    */
-  accountIds?: StringFilter[];
+  accountIds?: StringFilter[] | undefined;
 
   /**
    * <p>Details of the aggregation request that is used to filter your aggregation results.</p>
    * @public
    */
-  aggregationRequest?: AggregationRequest;
+  aggregationRequest?: AggregationRequest | undefined;
 }
 
 /**
@@ -488,7 +488,7 @@ export interface ListFindingAggregationsResponse {
    * <p>Objects that contain the results of an aggregation operation.</p>
    * @public
    */
-  responses?: AggregationResponse[];
+  responses?: AggregationResponse[] | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value
@@ -497,7 +497,7 @@ export interface ListFindingAggregationsResponse {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -555,25 +555,25 @@ export interface ListFindingsRequest {
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Details on the filters to apply to your finding results.</p>
    * @public
    */
-  filterCriteria?: FilterCriteria;
+  filterCriteria?: FilterCriteria | undefined;
 
   /**
    * <p>Details on the sort criteria to apply to your finding results.</p>
    * @public
    */
-  sortCriteria?: SortCriteria;
+  sortCriteria?: SortCriteria | undefined;
 }
 
 /**
@@ -587,13 +587,13 @@ export interface ListFindingsResponse {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Contains details on the findings in your environment.</p>
    * @public
    */
-  findings?: Finding[];
+  findings?: Finding[] | undefined;
 }
 
 /**
@@ -605,19 +605,19 @@ export interface ListMembersRequest {
    *          list all members within the organization if <code>False</code>.</p>
    * @public
    */
-  onlyAssociated?: boolean;
+  onlyAssociated?: boolean | undefined;
 
   /**
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -628,14 +628,14 @@ export interface ListMembersResponse {
    * <p>An object that contains details for each member account.</p>
    * @public
    */
-  members?: Member[];
+  members?: Member[] | undefined;
 
   /**
    * <p>The pagination parameter to be used on the next list operation to retrieve more
    *          items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -657,7 +657,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -668,19 +668,19 @@ export interface ListUsageTotalsRequest {
    * <p>The maximum number of results the response can return. If your request would return more than the maximum the response will return a <code>nextToken</code> value, use this value when you call the action again to get the remaining results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. If your response returns more than the <code>maxResults</code> maximum value it will also return a <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value returned from the previous request to continue listing results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account IDs to retrieve usage totals for.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 }
 
 /**
@@ -709,25 +709,25 @@ export interface Usage {
    * <p>The type scan.</p>
    * @public
    */
-  type?: UsageType;
+  type?: UsageType | undefined;
 
   /**
    * <p>The total of usage.</p>
    * @public
    */
-  total?: number;
+  total?: number | undefined;
 
   /**
    * <p>The estimated monthly cost of Amazon Inspector.</p>
    * @public
    */
-  estimatedMonthlyCost?: number;
+  estimatedMonthlyCost?: number | undefined;
 
   /**
    * <p>The currency type used when calculating usage data.</p>
    * @public
    */
-  currency?: Currency;
+  currency?: Currency | undefined;
 }
 
 /**
@@ -739,13 +739,13 @@ export interface UsageTotal {
    * <p>The account ID of the account that usage data was retrieved for.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>An object representing the total usage for an account.</p>
    * @public
    */
-  usage?: Usage[];
+  usage?: Usage[] | undefined;
 }
 
 /**
@@ -756,13 +756,13 @@ export interface ListUsageTotalsResponse {
    * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An object with details on the total usage for the requested account.</p>
    * @public
    */
-  totals?: UsageTotal[];
+  totals?: UsageTotal[] | undefined;
 }
 
 /**
@@ -817,7 +817,7 @@ export interface SearchVulnerabilitiesRequest {
    *          results after the first page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -848,97 +848,97 @@ export interface Vulnerability {
    * <p>The Common Weakness Enumeration (CWE) associated with the vulnerability.</p>
    * @public
    */
-  cwes?: string[];
+  cwes?: string[] | undefined;
 
   /**
    * <p>An object that contains the Cybersecurity and Infrastructure Security Agency (CISA) details for the vulnerability.</p>
    * @public
    */
-  cisaData?: CisaData;
+  cisaData?: CisaData | undefined;
 
   /**
    * <p>The source of the vulnerability information.  Possible results are <code>RHEL</code>, <code>AMAZON_CVE</code>, <code>DEBIAN</code> or <code>NVD</code>.</p>
    * @public
    */
-  source?: VulnerabilitySource;
+  source?: VulnerabilitySource | undefined;
 
   /**
    * <p>A description of the vulnerability.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An object that contains information about the Amazon Web Services Threat Intel Group (ATIG) details for the vulnerability.</p>
    * @public
    */
-  atigData?: AtigData;
+  atigData?: AtigData | undefined;
 
   /**
    * <p>The severity assigned by the vendor.</p>
    * @public
    */
-  vendorSeverity?: string;
+  vendorSeverity?: string | undefined;
 
   /**
    * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 3 details for the vulnerability.</p>
    * @public
    */
-  cvss3?: Cvss3;
+  cvss3?: Cvss3 | undefined;
 
   /**
    * <p>A list of related vulnerabilities.</p>
    * @public
    */
-  relatedVulnerabilities?: string[];
+  relatedVulnerabilities?: string[] | undefined;
 
   /**
    * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 2 details for the vulnerability.</p>
    * @public
    */
-  cvss2?: Cvss2;
+  cvss2?: Cvss2 | undefined;
 
   /**
    * <p>The date and time when the vendor created this vulnerability.</p>
    * @public
    */
-  vendorCreatedAt?: Date;
+  vendorCreatedAt?: Date | undefined;
 
   /**
    * <p>The date and time when the vendor last updated this vulnerability.</p>
    * @public
    */
-  vendorUpdatedAt?: Date;
+  vendorUpdatedAt?: Date | undefined;
 
   /**
    * <p>A link to the official source material for this vulnerability.</p>
    * @public
    */
-  sourceUrl?: string;
+  sourceUrl?: string | undefined;
 
   /**
    * <p>Links to various resources with more information on this vulnerability. </p>
    * @public
    */
-  referenceUrls?: string[];
+  referenceUrls?: string[] | undefined;
 
   /**
    * <p>An object that contains details on when the exploit was observed.</p>
    * @public
    */
-  exploitObserved?: ExploitObserved;
+  exploitObserved?: ExploitObserved | undefined;
 
   /**
    * <p>Platforms that the vulnerability can be detected on.</p>
    * @public
    */
-  detectionPlatforms?: string[];
+  detectionPlatforms?: string[] | undefined;
 
   /**
    * <p>An object that contains the Exploit Prediction Scoring System (EPSS) score for a vulnerability.</p>
    * @public
    */
-  epss?: Epss;
+  epss?: Epss | undefined;
 }
 
 /**
@@ -955,7 +955,7 @@ export interface SearchVulnerabilitiesResponse {
    * <p>The pagination parameter to be used on the next list operation to retrieve more items.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1051,49 +1051,49 @@ export interface StopCisMessageProgress {
    * <p>The progress' total checks.</p>
    * @public
    */
-  totalChecks?: number;
+  totalChecks?: number | undefined;
 
   /**
    * <p>The progress' successful checks.</p>
    * @public
    */
-  successfulChecks?: number;
+  successfulChecks?: number | undefined;
 
   /**
    * <p>The progress' failed checks.</p>
    * @public
    */
-  failedChecks?: number;
+  failedChecks?: number | undefined;
 
   /**
    * <p>The progress' not evaluated checks.</p>
    * @public
    */
-  notEvaluatedChecks?: number;
+  notEvaluatedChecks?: number | undefined;
 
   /**
    * <p>The progress' unknown checks.</p>
    * @public
    */
-  unknownChecks?: number;
+  unknownChecks?: number | undefined;
 
   /**
    * <p>The progress' not applicable checks.</p>
    * @public
    */
-  notApplicableChecks?: number;
+  notApplicableChecks?: number | undefined;
 
   /**
    * <p>The progress' informational checks.</p>
    * @public
    */
-  informationalChecks?: number;
+  informationalChecks?: number | undefined;
 
   /**
    * <p>The progress' error checks.</p>
    * @public
    */
-  errorChecks?: number;
+  errorChecks?: number | undefined;
 }
 
 /**
@@ -1127,7 +1127,7 @@ export interface StopCisSessionMessage {
    * <p>The reason for the message.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The progress of the message.</p>
@@ -1139,19 +1139,19 @@ export interface StopCisSessionMessage {
    * <p>The message compute platform.</p>
    * @public
    */
-  computePlatform?: ComputePlatform;
+  computePlatform?: ComputePlatform | undefined;
 
   /**
    * <p>The message benchmark version.</p>
    * @public
    */
-  benchmarkVersion?: string;
+  benchmarkVersion?: string | undefined;
 
   /**
    * <p>The message benchmark profile.</p>
    * @public
    */
-  benchmarkProfile?: string;
+  benchmarkProfile?: string | undefined;
 }
 
 /**
@@ -1235,13 +1235,13 @@ export interface UpdateCisTargets {
    * <p>The target account ids.</p>
    * @public
    */
-  accountIds?: string[];
+  accountIds?: string[] | undefined;
 
   /**
    * <p>The target resource tags.</p>
    * @public
    */
-  targetResourceTags?: Record<string, string[]>;
+  targetResourceTags?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1258,7 +1258,7 @@ export interface UpdateCisScanConfigurationRequest {
    * <p>The scan name for the CIS scan configuration.</p>
    * @public
    */
-  scanName?: string;
+  scanName?: string | undefined;
 
   /**
    * <p>
@@ -1267,19 +1267,19 @@ export interface UpdateCisScanConfigurationRequest {
    *       </p>
    * @public
    */
-  securityLevel?: CisSecurityLevel;
+  securityLevel?: CisSecurityLevel | undefined;
 
   /**
    * <p>The schedule for the CIS scan configuration.</p>
    * @public
    */
-  schedule?: Schedule;
+  schedule?: Schedule | undefined;
 
   /**
    * <p>The targets for the CIS scan configuration.</p>
    * @public
    */
-  targets?: UpdateCisTargets;
+  targets?: UpdateCisTargets | undefined;
 }
 
 /**
@@ -1301,13 +1301,13 @@ export interface UpdateConfigurationRequest {
    * <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
    * @public
    */
-  ecrConfiguration?: EcrConfiguration;
+  ecrConfiguration?: EcrConfiguration | undefined;
 
   /**
    * <p>Specifies how the Amazon EC2 automated scan will be updated for your environment.</p>
    * @public
    */
-  ec2Configuration?: Ec2Configuration;
+  ec2Configuration?: Ec2Configuration | undefined;
 }
 
 /**
@@ -1323,13 +1323,13 @@ export interface UpdateEc2DeepInspectionConfigurationRequest {
    * <p>Specify <code>TRUE</code> to activate Amazon Inspector deep inspection in your account, or <code>FALSE</code> to deactivate. Member accounts in an organization cannot deactivate deep inspection, instead the delegated administrator for the organization can deactivate a member account using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_BatchUpdateMemberEc2DeepInspectionStatus.html">BatchUpdateMemberEc2DeepInspectionStatus</a>.</p>
    * @public
    */
-  activateDeepInspection?: boolean;
+  activateDeepInspection?: boolean | undefined;
 
   /**
    * <p>The Amazon Inspector deep inspection custom paths you are adding for your account.</p>
    * @public
    */
-  packagePaths?: string[];
+  packagePaths?: string[] | undefined;
 }
 
 /**
@@ -1340,25 +1340,25 @@ export interface UpdateEc2DeepInspectionConfigurationResponse {
    * <p>The current Amazon Inspector deep inspection custom paths for your account.</p>
    * @public
    */
-  packagePaths?: string[];
+  packagePaths?: string[] | undefined;
 
   /**
    * <p>The current Amazon Inspector deep inspection custom paths for the organization.</p>
    * @public
    */
-  orgPackagePaths?: string[];
+  orgPackagePaths?: string[] | undefined;
 
   /**
    * <p>The status of Amazon Inspector deep inspection in your account.</p>
    * @public
    */
-  status?: Ec2DeepInspectionStatus;
+  status?: Ec2DeepInspectionStatus | undefined;
 
   /**
    * <p>An error message explaining why new Amazon Inspector deep inspection custom paths could not be added.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1397,25 +1397,25 @@ export interface UpdateFilterRequest {
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    * @public
    */
-  action?: FilterAction;
+  action?: FilterAction | undefined;
 
   /**
    * <p>A description of the filter.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Defines the criteria to be update in the filter.</p>
    * @public
    */
-  filterCriteria?: FilterCriteria;
+  filterCriteria?: FilterCriteria | undefined;
 
   /**
    * <p>The name of the filter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Number (ARN) of the filter to update.</p>
@@ -1427,7 +1427,7 @@ export interface UpdateFilterRequest {
    * <p>The reason the filter was updated.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**

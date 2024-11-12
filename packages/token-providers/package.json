@@ -28,8 +28,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.7",
-    "@smithy/shared-ini-file-loader": "^3.1.8",
+    "@smithy/property-provider": "^3.1.8",
+    "@smithy/shared-ini-file-loader": "^3.1.9",
     "@smithy/types": "^3.6.0",
     "tslib": "^2.6.2"
   },

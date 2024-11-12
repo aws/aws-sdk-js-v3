@@ -65,7 +65,7 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    *          </ul>
    * @public
    */
-  DkimStatus?: DkimStatus;
+  DkimStatus?: DkimStatus | undefined;
 
   /**
    * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
@@ -79,7 +79,7 @@ export interface PutEmailIdentityDkimSigningAttributesResponse {
    *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
    * @public
    */
-  DkimTokens?: string[];
+  DkimTokens?: string[] | undefined;
 }
 
 /**
@@ -105,7 +105,7 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
    *             occur (even if this setting is disabled).</p>
    * @public
    */
-  EmailForwardingEnabled?: boolean;
+  EmailForwardingEnabled?: boolean | undefined;
 }
 
 /**
@@ -143,7 +143,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *          </ul>
    * @public
    */
-  MailFromDomain?: string;
+  MailFromDomain?: string | undefined;
 
   /**
    * <p>The action to take if the required MX record isn't found when you send an email. When
@@ -157,7 +157,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *             states.</p>
    * @public
    */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure;
+  BehaviorOnMxFailure?: BehaviorOnMxFailure | undefined;
 }
 
 /**
@@ -206,7 +206,7 @@ export interface SendBulkEmailRequest {
    *             specify has to be verified.</p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -222,20 +222,20 @@ export interface SendBulkEmailRequest {
    *                 Guide</a>.</p>
    * @public
    */
-  FromEmailAddressIdentityArn?: string;
+  FromEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
    * @public
    */
-  ReplyToAddresses?: string[];
+  ReplyToAddresses?: string[] | undefined;
 
   /**
    * <p>The address that you want bounce and complaint notifications to be sent to.</p>
    * @public
    */
-  FeedbackForwardingEmailAddress?: string;
+  FeedbackForwardingEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -252,7 +252,7 @@ export interface SendBulkEmailRequest {
    *                 Guide</a>.</p>
    * @public
    */
-  FeedbackForwardingEmailAddressIdentityArn?: string;
+  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
@@ -260,7 +260,7 @@ export interface SendBulkEmailRequest {
    *             email that you define, so that you can publish email sending events.</p>
    * @public
    */
-  DefaultEmailTags?: MessageTag[];
+  DefaultEmailTags?: MessageTag[] | undefined;
 
   /**
    * <p>An object that contains the body of the message. You can specify a template
@@ -279,7 +279,7 @@ export interface SendBulkEmailRequest {
    * <p>The name of the configuration set to use when sending the email.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 }
 
 /**
@@ -318,7 +318,7 @@ export interface SendCustomVerificationEmailRequest {
    * <p>Name of a configuration set to use when sending the verification email.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 }
 
 /**
@@ -331,7 +331,7 @@ export interface SendCustomVerificationEmailResponse {
    *                 <code>SendCustomVerificationEmail</code> operation.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -347,7 +347,7 @@ export interface SendEmailRequest {
    *             </p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -366,26 +366,26 @@ export interface SendEmailRequest {
    *             content.</p>
    * @public
    */
-  FromEmailAddressIdentityArn?: string;
+  FromEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>An object that contains the recipients of the email message.</p>
    * @public
    */
-  Destination?: Destination;
+  Destination?: Destination | undefined;
 
   /**
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
    * @public
    */
-  ReplyToAddresses?: string[];
+  ReplyToAddresses?: string[] | undefined;
 
   /**
    * <p>The address that you want bounce and complaint notifications to be sent to.</p>
    * @public
    */
-  FeedbackForwardingEmailAddress?: string;
+  FeedbackForwardingEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -402,7 +402,7 @@ export interface SendEmailRequest {
    *                 Guide</a>.</p>
    * @public
    */
-  FeedbackForwardingEmailAddressIdentityArn?: string;
+  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>An object that contains the body of the message. You can send either a Simple message,
@@ -417,20 +417,20 @@ export interface SendEmailRequest {
    *             email that you define, so that you can publish email sending events. </p>
    * @public
    */
-  EmailTags?: MessageTag[];
+  EmailTags?: MessageTag[] | undefined;
 
   /**
    * <p>The name of the configuration set to use when sending the email.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>An object used to specify a list or topic to which an email belongs, which will be
    *             used when a contact chooses to unsubscribe.</p>
    * @public
    */
-  ListManagementOptions?: ListManagementOptions;
+  ListManagementOptions?: ListManagementOptions | undefined;
 }
 
 /**
@@ -449,7 +449,7 @@ export interface SendEmailResponse {
    *          </note>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -595,20 +595,20 @@ export interface UpdateContactRequest {
    * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
    * @public
    */
-  TopicPreferences?: TopicPreference[];
+  TopicPreferences?: TopicPreference[] | undefined;
 
   /**
    * <p>A boolean value status noting if the contact is unsubscribed from all contact list
    *             topics.</p>
    * @public
    */
-  UnsubscribeAll?: boolean;
+  UnsubscribeAll?: boolean | undefined;
 
   /**
    * <p>The attribute data attached to a contact.</p>
    * @public
    */
-  AttributesData?: string;
+  AttributesData?: string | undefined;
 }
 
 /**
@@ -631,13 +631,13 @@ export interface UpdateContactListRequest {
    *             topics.</p>
    * @public
    */
-  Topics?: Topic[];
+  Topics?: Topic[] | undefined;
 
   /**
    * <p>A description of what the contact list is about.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**

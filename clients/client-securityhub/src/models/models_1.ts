@@ -31,13 +31,13 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
    * <p>Whether the container has read-only access to the volume.</p>
    * @public
    */
-  ReadOnly?: boolean;
+  ReadOnly?: boolean | undefined;
 
   /**
    * <p>The name of another container within the same task definition from which to mount volumes.</p>
    * @public
    */
-  SourceContainer?: string;
+  SourceContainer?: string | undefined;
 }
 
 /**
@@ -49,109 +49,109 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
    * <p>The command that is passed to the container.</p>
    * @public
    */
-  Command?: string[];
+  Command?: string[] | undefined;
 
   /**
    * <p>The number of CPU units reserved for the container.</p>
    * @public
    */
-  Cpu?: number;
+  Cpu?: number | undefined;
 
   /**
    * <p>The dependencies that are defined for container startup and shutdown.</p>
    * @public
    */
-  DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[];
+  DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[] | undefined;
 
   /**
    * <p>Whether to disable networking within the container.</p>
    * @public
    */
-  DisableNetworking?: boolean;
+  DisableNetworking?: boolean | undefined;
 
   /**
    * <p>A list of DNS search domains that are presented to the container.</p>
    * @public
    */
-  DnsSearchDomains?: string[];
+  DnsSearchDomains?: string[] | undefined;
 
   /**
    * <p>A list of DNS servers that are presented to the container.</p>
    * @public
    */
-  DnsServers?: string[];
+  DnsServers?: string[] | undefined;
 
   /**
    * <p>A key-value map of labels to add to the container.</p>
    * @public
    */
-  DockerLabels?: Record<string, string>;
+  DockerLabels?: Record<string, string> | undefined;
 
   /**
    * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
    * @public
    */
-  DockerSecurityOptions?: string[];
+  DockerSecurityOptions?: string[] | undefined;
 
   /**
    * <p>The entry point that is passed to the container.</p>
    * @public
    */
-  EntryPoint?: string[];
+  EntryPoint?: string[] | undefined;
 
   /**
    * <p>The environment variables to pass to a container.</p>
    * @public
    */
-  Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[];
+  Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[] | undefined;
 
   /**
    * <p>A list of files containing the environment variables to pass to a container.</p>
    * @public
    */
-  EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[];
+  EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[] | undefined;
 
   /**
    * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
    * @public
    */
-  Essential?: boolean;
+  Essential?: boolean | undefined;
 
   /**
    * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
    * @public
    */
-  ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[];
+  ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[] | undefined;
 
   /**
    * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
    * @public
    */
-  FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails;
+  FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails | undefined;
 
   /**
    * <p>The container health check command and associated configuration parameters for the container.</p>
    * @public
    */
-  HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails;
+  HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails | undefined;
 
   /**
    * <p>The hostname to use for the container.</p>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>The image used to start the container.</p>
    * @public
    */
-  Image?: string;
+  Image?: string | undefined;
 
   /**
    * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
    * @public
    */
-  Interactive?: boolean;
+  Interactive?: boolean | undefined;
 
   /**
    * <p>A list of links for the container in the form <code>
@@ -159,109 +159,109 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
    *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
    * @public
    */
-  Links?: string[];
+  Links?: string[] | undefined;
 
   /**
    * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
    * @public
    */
-  LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails;
+  LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails | undefined;
 
   /**
    * <p>The log configuration specification for the container.</p>
    * @public
    */
-  LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails;
+  LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails | undefined;
 
   /**
    * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
    * @public
    */
-  Memory?: number;
+  Memory?: number | undefined;
 
   /**
    * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
    * @public
    */
-  MemoryReservation?: number;
+  MemoryReservation?: number | undefined;
 
   /**
    * <p>The mount points for the data volumes in the container.</p>
    * @public
    */
-  MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[];
+  MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[] | undefined;
 
   /**
    * <p>The name of the container.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The list of port mappings for the container.</p>
    * @public
    */
-  PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[];
+  PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[] | undefined;
 
   /**
    * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
    * @public
    */
-  Privileged?: boolean;
+  Privileged?: boolean | undefined;
 
   /**
    * <p>Whether to allocate a TTY to the container.</p>
    * @public
    */
-  PseudoTerminal?: boolean;
+  PseudoTerminal?: boolean | undefined;
 
   /**
    * <p>Whether the container is given read-only access to its root file system.</p>
    * @public
    */
-  ReadonlyRootFilesystem?: boolean;
+  ReadonlyRootFilesystem?: boolean | undefined;
 
   /**
    * <p>The private repository authentication credentials to use.</p>
    * @public
    */
-  RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails;
+  RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails | undefined;
 
   /**
    * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
    * @public
    */
-  ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[];
+  ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[] | undefined;
 
   /**
    * <p>The secrets to pass to the container.</p>
    * @public
    */
-  Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[];
+  Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[] | undefined;
 
   /**
    * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
    * @public
    */
-  StartTimeout?: number;
+  StartTimeout?: number | undefined;
 
   /**
    * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
    * @public
    */
-  StopTimeout?: number;
+  StopTimeout?: number | undefined;
 
   /**
    * <p>A list of namespaced kernel parameters to set in the container.</p>
    * @public
    */
-  SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[];
+  SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[] | undefined;
 
   /**
    * <p>A list of ulimits to set in the container. </p>
    * @public
    */
-  Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[];
+  Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[] | undefined;
 
   /**
    * <p>The user to use inside the container.</p>
@@ -320,19 +320,19 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
    *          </ul>
    * @public
    */
-  User?: string;
+  User?: string | undefined;
 
   /**
    * <p>Data volumes to mount from another container.</p>
    * @public
    */
-  VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[];
+  VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[] | undefined;
 
   /**
    * <p>The working directory in which to run commands inside the container.</p>
    * @public
    */
-  WorkingDirectory?: string;
+  WorkingDirectory?: string | undefined;
 }
 
 /**
@@ -345,13 +345,13 @@ export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
    * <p>The Elastic Inference accelerator device name.</p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>The Elastic Inference accelerator type to use.</p>
    * @public
    */
-  DeviceType?: string;
+  DeviceType?: string | undefined;
 }
 
 /**
@@ -363,13 +363,13 @@ export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
    * <p>A cluster query language expression to apply to the constraint.</p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>The type of constraint.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -381,13 +381,13 @@ export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropert
    * <p>The name of the property.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the property.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -400,19 +400,21 @@ export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
    * <p>The name of the container that will serve as the App Mesh proxy.</p>
    * @public
    */
-  ContainerName?: string;
+  ContainerName?: string | undefined;
 
   /**
    * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
    * @public
    */
-  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[];
+  ProxyConfigurationProperties?:
+    | AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[]
+    | undefined;
 
   /**
    * <p>The proxy type.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -424,32 +426,32 @@ export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
    * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
    * @public
    */
-  Autoprovision?: boolean;
+  Autoprovision?: boolean | undefined;
 
   /**
    * <p>The Docker volume driver to use.</p>
    * @public
    */
-  Driver?: string;
+  Driver?: string | undefined;
 
   /**
    * <p>A map of Docker driver-specific options that are passed through.</p>
    * @public
    */
-  DriverOpts?: Record<string, string>;
+  DriverOpts?: Record<string, string> | undefined;
 
   /**
    * <p>Custom metadata to add to the Docker volume.</p>
    * @public
    */
-  Labels?: Record<string, string>;
+  Labels?: Record<string, string> | undefined;
 
   /**
    * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
    * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
    * @public
    */
-  Scope?: string;
+  Scope?: string | undefined;
 }
 
 /**
@@ -461,13 +463,13 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationC
    * <p>The Amazon EFS access point identifier to use.</p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 
   /**
    * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
    * @public
    */
-  Iam?: string;
+  Iam?: string | undefined;
 }
 
 /**
@@ -479,31 +481,31 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
    * <p>The authorization configuration details for the Amazon EFS file system.</p>
    * @public
    */
-  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails;
+  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails | undefined;
 
   /**
    * <p>The Amazon EFS file system identifier to use.</p>
    * @public
    */
-  FilesystemId?: string;
+  FilesystemId?: string | undefined;
 
   /**
    * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
    * @public
    */
-  RootDirectory?: string;
+  RootDirectory?: string | undefined;
 
   /**
    * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
    * @public
    */
-  TransitEncryption?: string;
+  TransitEncryption?: string | undefined;
 
   /**
    * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
    * @public
    */
-  TransitEncryptionPort?: number;
+  TransitEncryptionPort?: number | undefined;
 }
 
 /**
@@ -515,7 +517,7 @@ export interface AwsEcsTaskDefinitionVolumesHostDetails {
    * <p>The path on the host container instance that is presented to the container.</p>
    * @public
    */
-  SourcePath?: string;
+  SourcePath?: string | undefined;
 }
 
 /**
@@ -527,25 +529,25 @@ export interface AwsEcsTaskDefinitionVolumesDetails {
    * <p>Information about a Docker volume.</p>
    * @public
    */
-  DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails;
+  DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails | undefined;
 
   /**
    * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
    * @public
    */
-  EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails;
+  EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails | undefined;
 
   /**
    * <p>Information about a bind mount host volume.</p>
    * @public
    */
-  Host?: AwsEcsTaskDefinitionVolumesHostDetails;
+  Host?: AwsEcsTaskDefinitionVolumesHostDetails | undefined;
 
   /**
    * <p>The name of the data volume.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -558,7 +560,7 @@ export interface AwsEcsTaskDefinitionDetails {
    * <p>The container definitions that describe the containers that make up the task.</p>
    * @public
    */
-  ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[];
+  ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[] | undefined;
 
   /**
    * <p>The number of CPU units used by the task.Valid values are as follows:</p>
@@ -591,25 +593,25 @@ export interface AwsEcsTaskDefinitionDetails {
    *          </ul>
    * @public
    */
-  Cpu?: string;
+  Cpu?: string | undefined;
 
   /**
    * <p>The ARN of the task execution role that grants the container agent permission to make API calls on behalf of the container user.</p>
    * @public
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn?: string | undefined;
 
   /**
    * <p>The name of a family that this task definition is registered to.</p>
    * @public
    */
-  Family?: string;
+  Family?: string | undefined;
 
   /**
    * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
    * @public
    */
-  InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[];
+  InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[] | undefined;
 
   /**
    * <p>The inter-process communication (IPC) resource namespace to use for the containers in the task. Valid values are as follows:</p>
@@ -632,7 +634,7 @@ export interface AwsEcsTaskDefinitionDetails {
    *          </ul>
    * @public
    */
-  IpcMode?: string;
+  IpcMode?: string | undefined;
 
   /**
    * <p>The amount (in MiB) of memory used by the task. </p>
@@ -642,7 +644,7 @@ export interface AwsEcsTaskDefinitionDetails {
    *             </i>, which determines your range of supported values for the <code>Cpu</code> and <code>Memory</code> parameters.</p>
    * @public
    */
-  Memory?: string;
+  Memory?: string | undefined;
 
   /**
    * <p>The Docker networking mode to use for the containers in the task. Valid values are as follows:</p>
@@ -670,43 +672,43 @@ export interface AwsEcsTaskDefinitionDetails {
    *          </ul>
    * @public
    */
-  NetworkMode?: string;
+  NetworkMode?: string | undefined;
 
   /**
    * <p>The process namespace to use for the containers in the task. Valid values are <code>host</code> or <code>task</code>.</p>
    * @public
    */
-  PidMode?: string;
+  PidMode?: string | undefined;
 
   /**
    * <p>The placement constraint objects to use for tasks.</p>
    * @public
    */
-  PlacementConstraints?: AwsEcsTaskDefinitionPlacementConstraintsDetails[];
+  PlacementConstraints?: AwsEcsTaskDefinitionPlacementConstraintsDetails[] | undefined;
 
   /**
    * <p>The configuration details for the App Mesh proxy.</p>
    * @public
    */
-  ProxyConfiguration?: AwsEcsTaskDefinitionProxyConfigurationDetails;
+  ProxyConfiguration?: AwsEcsTaskDefinitionProxyConfigurationDetails | undefined;
 
   /**
    * <p>The task launch types that the task definition was validated against.</p>
    * @public
    */
-  RequiresCompatibilities?: string[];
+  RequiresCompatibilities?: string[] | undefined;
 
   /**
    * <p>The short name or ARN of the IAM role that grants containers in the task permission to call Amazon Web Services API operations on your behalf.</p>
    * @public
    */
-  TaskRoleArn?: string;
+  TaskRoleArn?: string | undefined;
 
   /**
    * <p>The data volume definitions for the task.</p>
    * @public
    */
-  Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
+  Volumes?: AwsEcsTaskDefinitionVolumesDetails[] | undefined;
 
   /**
    * <p>
@@ -714,7 +716,7 @@ export interface AwsEcsTaskDefinitionDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -729,7 +731,7 @@ export interface AwsEcsTaskVolumeHostDetails {
    *       </p>
    * @public
    */
-  SourcePath?: string;
+  SourcePath?: string | undefined;
 }
 
 /**
@@ -744,7 +746,7 @@ export interface AwsEcsTaskVolumeDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>This parameter is specified when you use bind mount host volumes. The contents of the <code>host</code> parameter
@@ -752,7 +754,7 @@ export interface AwsEcsTaskVolumeDetails {
    *       </p>
    * @public
    */
-  Host?: AwsEcsTaskVolumeHostDetails;
+  Host?: AwsEcsTaskVolumeHostDetails | undefined;
 }
 
 /**
@@ -766,21 +768,21 @@ export interface AwsEcsTaskDetails {
    *       </p>
    * @public
    */
-  ClusterArn?: string;
+  ClusterArn?: string | undefined;
 
   /**
    * <p>The ARN of the task definition that creates the task.
    *       </p>
    * @public
    */
-  TaskDefinitionArn?: string;
+  TaskDefinitionArn?: string | undefined;
 
   /**
    * <p>The version counter for the task.
    *       </p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The Unix timestamp for the time when the task was created. More specifically, it's for the time when
@@ -788,7 +790,7 @@ export interface AwsEcsTaskDetails {
    *       </p>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>The Unix timestamp for the time when the task started. More specifically, it's for the time when the
@@ -796,7 +798,7 @@ export interface AwsEcsTaskDetails {
    *    </p>
    * @public
    */
-  StartedAt?: string;
+  StartedAt?: string | undefined;
 
   /**
    * <p>The tag specified when a task is started. If an Amazon ECS service started the task, the
@@ -804,28 +806,28 @@ export interface AwsEcsTaskDetails {
    *       </p>
    * @public
    */
-  StartedBy?: string;
+  StartedBy?: string | undefined;
 
   /**
    * <p>The name of the task group that's associated with the task.
    *       </p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 
   /**
    * <p>Details about the data volume that is used in a task definition.
    *       </p>
    * @public
    */
-  Volumes?: AwsEcsTaskVolumeDetails[];
+  Volumes?: AwsEcsTaskVolumeDetails[] | undefined;
 
   /**
    * <p>The containers that are associated with the task.
    *       </p>
    * @public
    */
-  Containers?: AwsEcsContainerDetails[];
+  Containers?: AwsEcsContainerDetails[] | undefined;
 }
 
 /**
@@ -839,21 +841,21 @@ export interface AwsEfsAccessPointPosixUserDetails {
    *       </p>
    * @public
    */
-  Gid?: string;
+  Gid?: string | undefined;
 
   /**
    * <p>Secondary POSIX group IDs used for all file system operations using this access point.
    *       </p>
    * @public
    */
-  SecondaryGids?: string[];
+  SecondaryGids?: string[] | undefined;
 
   /**
    * <p>The POSIX user ID used for all file system operations using this access point.
    *       </p>
    * @public
    */
-  Uid?: string;
+  Uid?: string | undefined;
 }
 
 /**
@@ -868,14 +870,14 @@ export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
    *       </p>
    * @public
    */
-  OwnerGid?: string;
+  OwnerGid?: string | undefined;
 
   /**
    * <p>Specifies the POSIX user ID to apply to the root directory.
    *       </p>
    * @public
    */
-  OwnerUid?: string;
+  OwnerUid?: string | undefined;
 
   /**
    * <p>Specifies the POSIX permissions to apply to the root directory, in the format of an octal number
@@ -883,7 +885,7 @@ export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
    *       </p>
    * @public
    */
-  Permissions?: string;
+  Permissions?: string | undefined;
 }
 
 /**
@@ -898,7 +900,7 @@ export interface AwsEfsAccessPointRootDirectoryDetails {
    *       </p>
    * @public
    */
-  CreationInfo?: AwsEfsAccessPointRootDirectoryCreationInfoDetails;
+  CreationInfo?: AwsEfsAccessPointRootDirectoryCreationInfoDetails | undefined;
 
   /**
    * <p>Specifies the path on the Amazon EFS file system to expose as the root directory to NFS clients
@@ -907,7 +909,7 @@ export interface AwsEfsAccessPointRootDirectoryDetails {
    *       </p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 }
 
 /**
@@ -921,27 +923,27 @@ export interface AwsEfsAccessPointDetails {
    *       </p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon EFS access point. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The opaque string specified in the request to ensure idempotent creation.
    *       </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The ID of the Amazon EFS file system that the access point applies to.
    *       </p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point,
@@ -949,7 +951,7 @@ export interface AwsEfsAccessPointDetails {
    *       </p>
    * @public
    */
-  PosixUser?: AwsEfsAccessPointPosixUserDetails;
+  PosixUser?: AwsEfsAccessPointPosixUserDetails | undefined;
 
   /**
    * <p>The directory on the Amazon EFS file system that the access point exposes as the root
@@ -957,7 +959,7 @@ export interface AwsEfsAccessPointDetails {
    *       </p>
    * @public
    */
-  RootDirectory?: AwsEfsAccessPointRootDirectoryDetails;
+  RootDirectory?: AwsEfsAccessPointRootDirectoryDetails | undefined;
 }
 
 /**
@@ -969,7 +971,7 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
    * <p>Whether the logging types that are listed in <code>Types</code> are enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>A list of logging types. Valid values are as follows:</p>
@@ -1002,7 +1004,7 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
    *          </ul>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 }
 
 /**
@@ -1014,7 +1016,7 @@ export interface AwsEksClusterLoggingDetails {
    * <p>Cluster logging configurations.</p>
    * @public
    */
-  ClusterLogging?: AwsEksClusterLoggingClusterLoggingDetails[];
+  ClusterLogging?: AwsEksClusterLoggingClusterLoggingDetails[] | undefined;
 }
 
 /**
@@ -1026,13 +1028,13 @@ export interface AwsEksClusterResourcesVpcConfigDetails {
    * <p>The security groups that are associated with the cross-account elastic network interfaces that are used to allow communication between your nodes and the Amazon EKS control plane.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The subnets that are associated with the cluster.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>
@@ -1042,7 +1044,7 @@ export interface AwsEksClusterResourcesVpcConfigDetails {
    *       </p>
    * @public
    */
-  EndpointPublicAccess?: boolean;
+  EndpointPublicAccess?: boolean | undefined;
 }
 
 /**
@@ -1054,13 +1056,13 @@ export interface AwsEksClusterDetails {
    * <p>The ARN of the cluster.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The certificate authority data for the cluster.</p>
    * @public
    */
-  CertificateAuthorityData?: string;
+  CertificateAuthorityData?: string | undefined;
 
   /**
    * <p>The status of the cluster. Valid values are as follows:</p>
@@ -1098,43 +1100,43 @@ export interface AwsEksClusterDetails {
    *          </ul>
    * @public
    */
-  ClusterStatus?: string;
+  ClusterStatus?: string | undefined;
 
   /**
    * <p>The endpoint for the Amazon EKS API server.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The name of the cluster.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The VPC configuration used by the cluster control plane.</p>
    * @public
    */
-  ResourcesVpcConfig?: AwsEksClusterResourcesVpcConfigDetails;
+  ResourcesVpcConfig?: AwsEksClusterResourcesVpcConfigDetails | undefined;
 
   /**
    * <p>The ARN of the IAM role that provides permissions for the Amazon EKS control plane to make calls to Amazon Web Services API operations on your behalf.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The Amazon EKS server version for the cluster.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The logging configuration for the cluster.</p>
    * @public
    */
-  Logging?: AwsEksClusterLoggingDetails;
+  Logging?: AwsEksClusterLoggingDetails | undefined;
 }
 
 /**
@@ -1146,13 +1148,13 @@ export interface AwsElasticBeanstalkEnvironmentEnvironmentLink {
    * <p>The name of the linked environment.</p>
    * @public
    */
-  EnvironmentName?: string;
+  EnvironmentName?: string | undefined;
 
   /**
    * <p>The name of the environment link.</p>
    * @public
    */
-  LinkName?: string;
+  LinkName?: string | undefined;
 }
 
 /**
@@ -1164,25 +1166,25 @@ export interface AwsElasticBeanstalkEnvironmentOptionSetting {
    * <p>The type of resource that the configuration option is associated with.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The name of the option.</p>
    * @public
    */
-  OptionName?: string;
+  OptionName?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 
   /**
    * <p>The value of the configuration setting.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -1194,19 +1196,19 @@ export interface AwsElasticBeanstalkEnvironmentTier {
    * <p>The name of the environment tier. Valid values are <code>WebServer</code> or <code>Worker</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of environment tier. Valid values are <code>Standard</code> or <code>SQS/HTTP</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The version of the environment tier.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -1218,79 +1220,79 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
    * <p>The name of the application that is associated with the environment.</p>
    * @public
    */
-  ApplicationName?: string;
+  ApplicationName?: string | undefined;
 
   /**
    * <p>The URL to the CNAME for this environment.</p>
    * @public
    */
-  Cname?: string;
+  Cname?: string | undefined;
 
   /**
    * <p>The creation date for this environment.</p>
    * @public
    */
-  DateCreated?: string;
+  DateCreated?: string | undefined;
 
   /**
    * <p>The date when this environment was last modified.</p>
    * @public
    */
-  DateUpdated?: string;
+  DateUpdated?: string | undefined;
 
   /**
    * <p>A description of the environment.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>For load-balanced, autoscaling environments, the URL to the load balancer. For single-instance environments, the IP address of the instance.</p>
    * @public
    */
-  EndpointUrl?: string;
+  EndpointUrl?: string | undefined;
 
   /**
    * <p>The ARN of the environment.</p>
    * @public
    */
-  EnvironmentArn?: string;
+  EnvironmentArn?: string | undefined;
 
   /**
    * <p>The identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>Links to other environments in the same group.</p>
    * @public
    */
-  EnvironmentLinks?: AwsElasticBeanstalkEnvironmentEnvironmentLink[];
+  EnvironmentLinks?: AwsElasticBeanstalkEnvironmentEnvironmentLink[] | undefined;
 
   /**
    * <p>The name of the environment.</p>
    * @public
    */
-  EnvironmentName?: string;
+  EnvironmentName?: string | undefined;
 
   /**
    * <p>The configuration setting for the environment.</p>
    * @public
    */
-  OptionSettings?: AwsElasticBeanstalkEnvironmentOptionSetting[];
+  OptionSettings?: AwsElasticBeanstalkEnvironmentOptionSetting[] | undefined;
 
   /**
    * <p>The ARN of the platform version for the environment.</p>
    * @public
    */
-  PlatformArn?: string;
+  PlatformArn?: string | undefined;
 
   /**
    * <p>The name of the solution stack that is deployed with the environment.</p>
    * @public
    */
-  SolutionStackName?: string;
+  SolutionStackName?: string | undefined;
 
   /**
    * <p>The current operational status of the environment. Valid values are as follows:</p>
@@ -1338,19 +1340,19 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The tier of the environment.</p>
    * @public
    */
-  Tier?: AwsElasticBeanstalkEnvironmentTier;
+  Tier?: AwsElasticBeanstalkEnvironmentTier | undefined;
 
   /**
    * <p>The application version of the environment.</p>
    * @public
    */
-  VersionLabel?: string;
+  VersionLabel?: string | undefined;
 }
 
 /**
@@ -1363,7 +1365,7 @@ export interface AwsElasticsearchDomainDomainEndpointOptions {
    * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
    * @public
    */
-  EnforceHTTPS?: boolean;
+  EnforceHTTPS?: boolean | undefined;
 
   /**
    * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch
@@ -1381,7 +1383,7 @@ export interface AwsElasticsearchDomainDomainEndpointOptions {
    *          </ul>
    * @public
    */
-  TLSSecurityPolicy?: string;
+  TLSSecurityPolicy?: string | undefined;
 }
 
 /**
@@ -1393,7 +1395,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessCo
    * <p>he number of Availability Zones that the domain uses. Valid values are 2 and 3. The default is 2.</p>
    * @public
    */
-  AvailabilityZoneCount?: number;
+  AvailabilityZoneCount?: number | undefined;
 }
 
 /**
@@ -1405,45 +1407,45 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
    * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
    * @public
    */
-  DedicatedMasterCount?: number;
+  DedicatedMasterCount?: number | undefined;
 
   /**
    * <p>Whether to use a dedicated master node for the Elasticsearch domain. A dedicated master node performs cluster management tasks, but doesn't hold data or respond to data upload requests.</p>
    * @public
    */
-  DedicatedMasterEnabled?: boolean;
+  DedicatedMasterEnabled?: boolean | undefined;
 
   /**
    * <p>The hardware configuration of the computer that hosts the dedicated master node. A sample value is <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
    *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    * @public
    */
-  DedicatedMasterType?: string;
+  DedicatedMasterType?: string | undefined;
 
   /**
    * <p>The number of data nodes to use in the Elasticsearch domain.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>The instance type for your data nodes. For example, <code>m3.medium.elasticsearch</code>.</p>
    *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
    * @public
    */
-  ZoneAwarenessConfig?: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails;
+  ZoneAwarenessConfig?: AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails | undefined;
 
   /**
    * <p>Whether to enable zone awareness for the Elasticsearch domain. When zone awareness is enabled, OpenSearch allocates the cluster's nodes and replica index shards across Availability Zones in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
    * @public
    */
-  ZoneAwarenessEnabled?: boolean;
+  ZoneAwarenessEnabled?: boolean | undefined;
 }
 
 /**
@@ -1455,13 +1457,13 @@ export interface AwsElasticsearchDomainEncryptionAtRestOptions {
    * <p>Whether encryption at rest is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The KMS key ID. Takes the form <code>1a2a3a4-1a2a-3a4a-5a6a-1a2a3a4a5a6a</code>.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -1473,13 +1475,13 @@ export interface AwsElasticsearchDomainLogPublishingOptionsLogConfig {
    * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Whether the log publishing is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -1493,20 +1495,20 @@ export interface AwsElasticsearchDomainLogPublishingOptions {
    *          publishing.</p>
    * @public
    */
-  IndexSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+  IndexSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig | undefined;
 
   /**
    * <p>Configures the OpenSearch search slow log
    *          publishing.</p>
    * @public
    */
-  SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+  SearchSlowLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig | undefined;
 
   /**
    * <p>The log configuration.</p>
    * @public
    */
-  AuditLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig;
+  AuditLogs?: AwsElasticsearchDomainLogPublishingOptionsLogConfig | undefined;
 }
 
 /**
@@ -1518,7 +1520,7 @@ export interface AwsElasticsearchDomainNodeToNodeEncryptionOptions {
    * <p>Whether node-to-node encryption is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -1531,37 +1533,37 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
    *          Amazon OpenSearch Service schedules the software upgrade automatically.</p>
    * @public
    */
-  AutomatedUpdateDate?: string;
+  AutomatedUpdateDate?: string | undefined;
 
   /**
    * <p>Whether a request to update the domain can be canceled.</p>
    * @public
    */
-  Cancellable?: boolean;
+  Cancellable?: boolean | undefined;
 
   /**
    * <p>The version of the service software that is currently installed on the domain.</p>
    * @public
    */
-  CurrentVersion?: string;
+  CurrentVersion?: string | undefined;
 
   /**
    * <p>A more detailed description of the service software status.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The most recent version of the service software.</p>
    * @public
    */
-  NewVersion?: string;
+  NewVersion?: string | undefined;
 
   /**
    * <p>Whether a service software update is available for the domain.</p>
    * @public
    */
-  UpdateAvailable?: boolean;
+  UpdateAvailable?: boolean | undefined;
 
   /**
    * <p>The status of the service software update. Valid values are as follows:</p>
@@ -1594,7 +1596,7 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
    *          </ul>
    * @public
    */
-  UpdateStatus?: string;
+  UpdateStatus?: string | undefined;
 }
 
 /**
@@ -1607,25 +1609,25 @@ export interface AwsElasticsearchDomainVPCOptions {
    * <p>The list of Availability Zones associated with the VPC subnets.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The list of security group IDs associated with the VPC endpoints for the domain.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>A list of subnet IDs associated with the VPC endpoints for the domain.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>ID for the VPC.</p>
    * @public
    */
-  VPCId?: string;
+  VPCId?: string | undefined;
 }
 
 /**
@@ -1637,19 +1639,19 @@ export interface AwsElasticsearchDomainDetails {
    * <p>IAM policy document specifying the access policies for the new Elasticsearch domain.</p>
    * @public
    */
-  AccessPolicies?: string;
+  AccessPolicies?: string | undefined;
 
   /**
    * <p>Additional options for the domain endpoint.</p>
    * @public
    */
-  DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions;
+  DomainEndpointOptions?: AwsElasticsearchDomainDomainEndpointOptions | undefined;
 
   /**
    * <p>Unique identifier for an Elasticsearch domain.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>Name of an Elasticsearch domain.</p>
@@ -1660,7 +1662,7 @@ export interface AwsElasticsearchDomainDetails {
    *          <p>Valid characters are a-z (lowercase only), 0-9, and – (hyphen). </p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>Domain-specific endpoint used to submit index, search, and data upload requests to an
@@ -1668,56 +1670,56 @@ export interface AwsElasticsearchDomainDetails {
    *          <p>The endpoint is a service URL. </p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The key-value pair that exists if the Elasticsearch domain uses VPC endpoints.</p>
    * @public
    */
-  Endpoints?: Record<string, string>;
+  Endpoints?: Record<string, string> | undefined;
 
   /**
    * <p>OpenSearch version.</p>
    * @public
    */
-  ElasticsearchVersion?: string;
+  ElasticsearchVersion?: string | undefined;
 
   /**
    * <p>Information about an OpenSearch cluster configuration.</p>
    * @public
    */
-  ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails;
+  ElasticsearchClusterConfig?: AwsElasticsearchDomainElasticsearchClusterConfigDetails | undefined;
 
   /**
    * <p>Details about the configuration for encryption at rest.</p>
    * @public
    */
-  EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions;
+  EncryptionAtRestOptions?: AwsElasticsearchDomainEncryptionAtRestOptions | undefined;
 
   /**
    * <p>Configures the CloudWatch Logs to publish for the Elasticsearch domain.</p>
    * @public
    */
-  LogPublishingOptions?: AwsElasticsearchDomainLogPublishingOptions;
+  LogPublishingOptions?: AwsElasticsearchDomainLogPublishingOptions | undefined;
 
   /**
    * <p>Details about the configuration for node-to-node encryption.</p>
    * @public
    */
-  NodeToNodeEncryptionOptions?: AwsElasticsearchDomainNodeToNodeEncryptionOptions;
+  NodeToNodeEncryptionOptions?: AwsElasticsearchDomainNodeToNodeEncryptionOptions | undefined;
 
   /**
    * <p>Information about the status of a domain relative to the latest service software.</p>
    * @public
    */
-  ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions;
+  ServiceSoftwareOptions?: AwsElasticsearchDomainServiceSoftwareOptions | undefined;
 
   /**
    * <p>Information that OpenSearch derives based on <code>VPCOptions</code> for the
    *          domain.</p>
    * @public
    */
-  VPCOptions?: AwsElasticsearchDomainVPCOptions;
+  VPCOptions?: AwsElasticsearchDomainVPCOptions | undefined;
 }
 
 /**
@@ -1730,14 +1732,14 @@ export interface AwsElbAppCookieStickinessPolicy {
    * <p>The name of the application cookie used for stickiness.</p>
    * @public
    */
-  CookieName?: string;
+  CookieName?: string | undefined;
 
   /**
    * <p>The mnemonic name for the policy being created. The name must be unique within the set
    *          of policies for the load balancer.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 }
 
 /**
@@ -1752,14 +1754,14 @@ export interface AwsElbLbCookieStickinessPolicy {
    *          browser session.</p>
    * @public
    */
-  CookieExpirationPeriod?: number;
+  CookieExpirationPeriod?: number | undefined;
 
   /**
    * <p>The name of the policy. The name must be unique within the set of policies for the load
    *          balancer.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 }
 
 /**
@@ -1772,26 +1774,26 @@ export interface AwsElbLoadBalancerAccessLog {
    *          <p>You can publish access logs either every 5 minutes or every 60 minutes.</p>
    * @public
    */
-  EmitInterval?: number;
+  EmitInterval?: number | undefined;
 
   /**
    * <p>Indicates whether access logs are enabled for the load balancer.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The name of the S3 bucket where the access logs are stored.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>The logical hierarchy that was created for the S3 bucket.</p>
    *          <p>If a prefix is not provided, the log is placed at the root level of the bucket.</p>
    * @public
    */
-  S3BucketPrefix?: string;
+  S3BucketPrefix?: string | undefined;
 }
 
 /**
@@ -1803,13 +1805,13 @@ export interface AwsElbLoadBalancerAdditionalAttribute {
    * <p>The name of the attribute.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of the attribute.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -1822,14 +1824,14 @@ export interface AwsElbLoadBalancerConnectionDraining {
    * <p>Indicates whether connection draining is enabled for the load balancer.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The maximum time, in seconds, to keep the existing connections open before deregistering
    *          the instances.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 }
 
 /**
@@ -1842,7 +1844,7 @@ export interface AwsElbLoadBalancerConnectionSettings {
    *          connection) before it is closed by the load balancer.</p>
    * @public
    */
-  IdleTimeout?: number;
+  IdleTimeout?: number | undefined;
 }
 
 /**
@@ -1854,7 +1856,7 @@ export interface AwsElbLoadBalancerCrossZoneLoadBalancing {
    * <p>Indicates whether cross-zone load balancing is enabled for the load balancer.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -1868,7 +1870,7 @@ export interface AwsElbLoadBalancerAttributes {
    *          requests. It delivers the information to a specified S3 bucket.</p>
    * @public
    */
-  AccessLog?: AwsElbLoadBalancerAccessLog;
+  AccessLog?: AwsElbLoadBalancerAccessLog | undefined;
 
   /**
    * <p>Information about the connection draining configuration for the load balancer.</p>
@@ -1876,7 +1878,7 @@ export interface AwsElbLoadBalancerAttributes {
    *          complete before it shifts traffic away from a deregistered or unhealthy instance.</p>
    * @public
    */
-  ConnectionDraining?: AwsElbLoadBalancerConnectionDraining;
+  ConnectionDraining?: AwsElbLoadBalancerConnectionDraining | undefined;
 
   /**
    * <p>Connection settings for the load balancer.</p>
@@ -1885,7 +1887,7 @@ export interface AwsElbLoadBalancerAttributes {
    *          connection.</p>
    * @public
    */
-  ConnectionSettings?: AwsElbLoadBalancerConnectionSettings;
+  ConnectionSettings?: AwsElbLoadBalancerConnectionSettings | undefined;
 
   /**
    * <p>Cross-zone load balancing settings for the load balancer.</p>
@@ -1893,13 +1895,13 @@ export interface AwsElbLoadBalancerAttributes {
    *          evenly across all instances regardless of the Availability Zones.</p>
    * @public
    */
-  CrossZoneLoadBalancing?: AwsElbLoadBalancerCrossZoneLoadBalancing;
+  CrossZoneLoadBalancing?: AwsElbLoadBalancerCrossZoneLoadBalancing | undefined;
 
   /**
    * <p>Any additional attributes for a load balancer.</p>
    * @public
    */
-  AdditionalAttributes?: AwsElbLoadBalancerAdditionalAttribute[];
+  AdditionalAttributes?: AwsElbLoadBalancerAdditionalAttribute[] | undefined;
 }
 
 /**
@@ -1912,13 +1914,13 @@ export interface AwsElbLoadBalancerBackendServerDescription {
    * <p>The port on which the EC2 instance is listening.</p>
    * @public
    */
-  InstancePort?: number;
+  InstancePort?: number | undefined;
 
   /**
    * <p>The names of the policies that are enabled for the EC2 instance.</p>
    * @public
    */
-  PolicyNames?: string[];
+  PolicyNames?: string[] | undefined;
 }
 
 /**
@@ -1932,14 +1934,14 @@ export interface AwsElbLoadBalancerHealthCheck {
    *          to the Healthy state.</p>
    * @public
    */
-  HealthyThreshold?: number;
+  HealthyThreshold?: number | undefined;
 
   /**
    * <p>The approximate interval, in seconds, between health checks of an individual
    *          instance.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The instance that is being checked. The target specifies the protocol and port. The
@@ -1959,21 +1961,21 @@ export interface AwsElbLoadBalancerHealthCheck {
    *             </code>.</p>
    * @public
    */
-  Target?: string;
+  Target?: string | undefined;
 
   /**
    * <p>The amount of time, in seconds, during which no response means a failed health
    *          check.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>The number of consecutive health check failures that must occur before the instance is
    *          moved to the Unhealthy state.</p>
    * @public
    */
-  UnhealthyThreshold?: number;
+  UnhealthyThreshold?: number | undefined;
 }
 
 /**
@@ -1985,7 +1987,7 @@ export interface AwsElbLoadBalancerInstance {
    * <p>The instance identifier.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -1997,7 +1999,7 @@ export interface AwsElbLoadBalancerListener {
    * <p>The port on which the instance is listening.</p>
    * @public
    */
-  InstancePort?: number;
+  InstancePort?: number | undefined;
 
   /**
    * <p>The protocol to use to route traffic to instances.</p>
@@ -2006,7 +2008,7 @@ export interface AwsElbLoadBalancerListener {
    *          </p>
    * @public
    */
-  InstanceProtocol?: string;
+  InstanceProtocol?: string | undefined;
 
   /**
    * <p>The port on which the load balancer is listening.</p>
@@ -2015,7 +2017,7 @@ export interface AwsElbLoadBalancerListener {
    *          1024-65535.</p>
    * @public
    */
-  LoadBalancerPort?: number;
+  LoadBalancerPort?: number | undefined;
 
   /**
    * <p>The load balancer transport protocol to use for routing.</p>
@@ -2024,13 +2026,13 @@ export interface AwsElbLoadBalancerListener {
    *          </p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>The ARN of the server certificate.</p>
    * @public
    */
-  SslCertificateId?: string;
+  SslCertificateId?: string | undefined;
 }
 
 /**
@@ -2042,13 +2044,13 @@ export interface AwsElbLoadBalancerListenerDescription {
    * <p>Information about the listener.</p>
    * @public
    */
-  Listener?: AwsElbLoadBalancerListener;
+  Listener?: AwsElbLoadBalancerListener | undefined;
 
   /**
    * <p>The policies enabled for the listener.</p>
    * @public
    */
-  PolicyNames?: string[];
+  PolicyNames?: string[] | undefined;
 }
 
 /**
@@ -2061,20 +2063,20 @@ export interface AwsElbLoadBalancerPolicies {
    *             <code>CreateAppCookieStickinessPolicy</code>.</p>
    * @public
    */
-  AppCookieStickinessPolicies?: AwsElbAppCookieStickinessPolicy[];
+  AppCookieStickinessPolicies?: AwsElbAppCookieStickinessPolicy[] | undefined;
 
   /**
    * <p>The stickiness policies that are created using
    *             <code>CreateLBCookieStickinessPolicy</code>.</p>
    * @public
    */
-  LbCookieStickinessPolicies?: AwsElbLbCookieStickinessPolicy[];
+  LbCookieStickinessPolicies?: AwsElbLbCookieStickinessPolicy[] | undefined;
 
   /**
    * <p>The policies other than the stickiness policies.</p>
    * @public
    */
-  OtherPolicies?: string[];
+  OtherPolicies?: string[] | undefined;
 }
 
 /**
@@ -2086,13 +2088,13 @@ export interface AwsElbLoadBalancerSourceSecurityGroup {
    * <p>The name of the security group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The owner of the security group.</p>
    * @public
    */
-  OwnerAlias?: string;
+  OwnerAlias?: string | undefined;
 }
 
 /**
@@ -2104,25 +2106,25 @@ export interface AwsElbLoadBalancerDetails {
    * <p>The list of Availability Zones for the load balancer.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>Information about the configuration of the EC2 instances.</p>
    * @public
    */
-  BackendServerDescriptions?: AwsElbLoadBalancerBackendServerDescription[];
+  BackendServerDescriptions?: AwsElbLoadBalancerBackendServerDescription[] | undefined;
 
   /**
    * <p>The name of the Amazon Route 53 hosted zone for the load balancer.</p>
    * @public
    */
-  CanonicalHostedZoneName?: string;
+  CanonicalHostedZoneName?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
    * @public
    */
-  CanonicalHostedZoneNameID?: string;
+  CanonicalHostedZoneNameID?: string | undefined;
 
   /**
    * <p>Indicates when the load balancer was created.</p>
@@ -2153,49 +2155,49 @@ export interface AwsElbLoadBalancerDetails {
    *          </ul>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>The DNS name of the load balancer.</p>
    * @public
    */
-  DnsName?: string;
+  DnsName?: string | undefined;
 
   /**
    * <p>Information about the health checks that are conducted on the load balancer.</p>
    * @public
    */
-  HealthCheck?: AwsElbLoadBalancerHealthCheck;
+  HealthCheck?: AwsElbLoadBalancerHealthCheck | undefined;
 
   /**
    * <p>List of EC2 instances for the load balancer.</p>
    * @public
    */
-  Instances?: AwsElbLoadBalancerInstance[];
+  Instances?: AwsElbLoadBalancerInstance[] | undefined;
 
   /**
    * <p>The policies that are enabled for the load balancer listeners.</p>
    * @public
    */
-  ListenerDescriptions?: AwsElbLoadBalancerListenerDescription[];
+  ListenerDescriptions?: AwsElbLoadBalancerListenerDescription[] | undefined;
 
   /**
    * <p>The attributes for a load balancer.</p>
    * @public
    */
-  LoadBalancerAttributes?: AwsElbLoadBalancerAttributes;
+  LoadBalancerAttributes?: AwsElbLoadBalancerAttributes | undefined;
 
   /**
    * <p>The name of the load balancer.</p>
    * @public
    */
-  LoadBalancerName?: string;
+  LoadBalancerName?: string | undefined;
 
   /**
    * <p>The policies for a load balancer.</p>
    * @public
    */
-  Policies?: AwsElbLoadBalancerPolicies;
+  Policies?: AwsElbLoadBalancerPolicies | undefined;
 
   /**
    * <p>The type of load balancer. Only provided if the load balancer is in a VPC.</p>
@@ -2205,33 +2207,33 @@ export interface AwsElbLoadBalancerDetails {
    *          that resolves to a private IP address.</p>
    * @public
    */
-  Scheme?: string;
+  Scheme?: string | undefined;
 
   /**
    * <p>The security groups for the load balancer. Only provided if the load balancer is in a
    *          VPC.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>Information about the security group for the load balancer. This is the security group
    *          that is used for inbound rules.</p>
    * @public
    */
-  SourceSecurityGroup?: AwsElbLoadBalancerSourceSecurityGroup;
+  SourceSecurityGroup?: AwsElbLoadBalancerSourceSecurityGroup | undefined;
 
   /**
    * <p>The list of subnet identifiers for the load balancer.</p>
    * @public
    */
-  Subnets?: string[];
+  Subnets?: string[] | undefined;
 
   /**
    * <p>The identifier of the VPC for the load balancer.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -2243,13 +2245,13 @@ export interface AwsElbv2LoadBalancerAttribute {
    * <p>The name of the load balancer attribute.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of the load balancer attribute.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -2264,13 +2266,13 @@ export interface LoadBalancerState {
    *          <p>If the load balancer could not be set up, its state is failed. </p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A description of the state.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -2282,13 +2284,13 @@ export interface AwsElbv2LoadBalancerDetails {
    * <p>The Availability Zones for the load balancer.</p>
    * @public
    */
-  AvailabilityZones?: AvailabilityZone[];
+  AvailabilityZones?: AvailabilityZone[] | undefined;
 
   /**
    * <p>The ID of the Amazon Route 53 hosted zone associated with the load balancer.</p>
    * @public
    */
-  CanonicalHostedZoneId?: string;
+  CanonicalHostedZoneId?: string | undefined;
 
   /**
    * <p>Indicates when the load balancer was created.</p>
@@ -2319,13 +2321,13 @@ export interface AwsElbv2LoadBalancerDetails {
    *          </ul>
    * @public
    */
-  CreatedTime?: string;
+  CreatedTime?: string | undefined;
 
   /**
    * <p>The public DNS name of the load balancer.</p>
    * @public
    */
-  DNSName?: string;
+  DNSName?: string | undefined;
 
   /**
    * <p>The type of IP addresses used by the subnets for your load balancer. The possible values
@@ -2333,43 +2335,43 @@ export interface AwsElbv2LoadBalancerDetails {
    *          addresses).</p>
    * @public
    */
-  IpAddressType?: string;
+  IpAddressType?: string | undefined;
 
   /**
    * <p>The nodes of an Internet-facing load balancer have public IP addresses.</p>
    * @public
    */
-  Scheme?: string;
+  Scheme?: string | undefined;
 
   /**
    * <p>The IDs of the security groups for the load balancer.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The state of the load balancer.</p>
    * @public
    */
-  State?: LoadBalancerState;
+  State?: LoadBalancerState | undefined;
 
   /**
    * <p>The type of load balancer.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The ID of the VPC for the load balancer.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Attributes of the load balancer.</p>
    * @public
    */
-  LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[];
+  LoadBalancerAttributes?: AwsElbv2LoadBalancerAttribute[] | undefined;
 }
 
 /**
@@ -2386,7 +2388,7 @@ export interface AwsEventSchemasRegistryDetails {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -2394,7 +2396,7 @@ export interface AwsEventSchemasRegistryDetails {
    *         </p>
    * @public
    */
-  RegistryArn?: string;
+  RegistryArn?: string | undefined;
 
   /**
    * <p>
@@ -2402,7 +2404,7 @@ export interface AwsEventSchemasRegistryDetails {
    *         </p>
    * @public
    */
-  RegistryName?: string;
+  RegistryName?: string | undefined;
 }
 
 /**
@@ -2416,7 +2418,7 @@ export interface AwsEventsEndpointEventBusesDetails {
    *             The Amazon Resource Name (ARN) of the event bus that the endpoint is associated with.</p>
    * @public
    */
-  EventBusArn?: string;
+  EventBusArn?: string | undefined;
 }
 
 /**
@@ -2431,7 +2433,7 @@ export interface AwsEventsEndpointReplicationConfigDetails {
    *             The state of event replication.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 }
 
 /**
@@ -2445,7 +2447,7 @@ export interface AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails {
    *             The Amazon Resource Name (ARN) of the health check used by the endpoint to determine whether failover is triggered.</p>
    * @public
    */
-  HealthCheck?: string;
+  HealthCheck?: string | undefined;
 }
 
 /**
@@ -2459,7 +2461,7 @@ export interface AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails {
    *             Defines the secondary Region.</p>
    * @public
    */
-  Route?: string;
+  Route?: string | undefined;
 }
 
 /**
@@ -2473,14 +2475,14 @@ export interface AwsEventsEndpointRoutingConfigFailoverConfigDetails {
    *             The main Region of the endpoint.</p>
    * @public
    */
-  Primary?: AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails;
+  Primary?: AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails | undefined;
 
   /**
    * <p>
    *             The Region that events are routed to when failover is triggered or event replication is enabled.</p>
    * @public
    */
-  Secondary?: AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails;
+  Secondary?: AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails | undefined;
 }
 
 /**
@@ -2494,7 +2496,7 @@ export interface AwsEventsEndpointRoutingConfigDetails {
    *             The failover configuration for an endpoint. This includes what triggers failover and what happens when it's triggered.</p>
    * @public
    */
-  FailoverConfig?: AwsEventsEndpointRoutingConfigFailoverConfigDetails;
+  FailoverConfig?: AwsEventsEndpointRoutingConfigFailoverConfigDetails | undefined;
 }
 
 /**
@@ -2511,7 +2513,7 @@ export interface AwsEventsEndpointDetails {
    *         </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -2519,7 +2521,7 @@ export interface AwsEventsEndpointDetails {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -2527,28 +2529,28 @@ export interface AwsEventsEndpointDetails {
    *             <code>https://abcde.veo.endpoints.event.amazonaws.com</code>, then the <code>EndpointId</code> is <code>abcde.veo</code>.</p>
    * @public
    */
-  EndpointId?: string;
+  EndpointId?: string | undefined;
 
   /**
    * <p>
    *             The URL of the endpoint.</p>
    * @public
    */
-  EndpointUrl?: string;
+  EndpointUrl?: string | undefined;
 
   /**
    * <p>
    *             The event buses being used by the endpoint.</p>
    * @public
    */
-  EventBuses?: AwsEventsEndpointEventBusesDetails[];
+  EventBuses?: AwsEventsEndpointEventBusesDetails[] | undefined;
 
   /**
    * <p>
    *             The name of the endpoint.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -2557,35 +2559,35 @@ export interface AwsEventsEndpointDetails {
    *             replication enabled, set the state to <code>DISABLED</code>.</p>
    * @public
    */
-  ReplicationConfig?: AwsEventsEndpointReplicationConfigDetails;
+  ReplicationConfig?: AwsEventsEndpointReplicationConfigDetails | undefined;
 
   /**
    * <p>
    *             The ARN of the role used by event replication for the endpoint.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>
    *             The routing configuration of the endpoint.</p>
    * @public
    */
-  RoutingConfig?: AwsEventsEndpointRoutingConfigDetails;
+  RoutingConfig?: AwsEventsEndpointRoutingConfigDetails | undefined;
 
   /**
    * <p>
    *             The current state of the endpoint.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>
    *             The reason the endpoint is in its current state.</p>
    * @public
    */
-  StateReason?: string;
+  StateReason?: string | undefined;
 }
 
 /**
@@ -2602,21 +2604,21 @@ export interface AwsEventsEventbusDetails {
    *             The Amazon Resource Name (ARN) of the account permitted to write events to the current account.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
    *             The name of the event bus.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
    *             The policy that enables the external account to send events to your account.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -2632,7 +2634,7 @@ export interface AwsGuardDutyDetectorDataSourcesCloudTrailDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2648,7 +2650,7 @@ export interface AwsGuardDutyDetectorDataSourcesDnsLogsDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2664,7 +2666,7 @@ export interface AwsGuardDutyDetectorDataSourcesFlowLogsDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2680,7 +2682,7 @@ export interface AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2696,7 +2698,7 @@ export interface AwsGuardDutyDetectorDataSourcesKubernetesDetails {
    *         </p>
    * @public
    */
-  AuditLogs?: AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails;
+  AuditLogs?: AwsGuardDutyDetectorDataSourcesKubernetesAuditLogsDetails | undefined;
 }
 
 /**
@@ -2712,7 +2714,7 @@ export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2Instance
    *         </p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 
   /**
    * <p>
@@ -2720,7 +2722,7 @@ export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2Instance
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2736,7 +2738,7 @@ export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2Instance
    *         </p>
    * @public
    */
-  EbsVolumes?: AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails;
+  EbsVolumes?: AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesDetails | undefined;
 }
 
 /**
@@ -2752,7 +2754,9 @@ export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails {
    *         </p>
    * @public
    */
-  ScanEc2InstanceWithFindings?: AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails;
+  ScanEc2InstanceWithFindings?:
+    | AwsGuardDutyDetectorDataSourcesMalwareProtectionScanEc2InstanceWithFindingsDetails
+    | undefined;
 
   /**
    * <p>
@@ -2760,7 +2764,7 @@ export interface AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails {
    *         </p>
    * @public
    */
-  ServiceRole?: string;
+  ServiceRole?: string | undefined;
 }
 
 /**
@@ -2776,7 +2780,7 @@ export interface AwsGuardDutyDetectorDataSourcesS3LogsDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2792,7 +2796,7 @@ export interface AwsGuardDutyDetectorDataSourcesDetails {
    *         </p>
    * @public
    */
-  CloudTrail?: AwsGuardDutyDetectorDataSourcesCloudTrailDetails;
+  CloudTrail?: AwsGuardDutyDetectorDataSourcesCloudTrailDetails | undefined;
 
   /**
    * <p>
@@ -2800,7 +2804,7 @@ export interface AwsGuardDutyDetectorDataSourcesDetails {
    *         </p>
    * @public
    */
-  DnsLogs?: AwsGuardDutyDetectorDataSourcesDnsLogsDetails;
+  DnsLogs?: AwsGuardDutyDetectorDataSourcesDnsLogsDetails | undefined;
 
   /**
    * <p>
@@ -2808,7 +2812,7 @@ export interface AwsGuardDutyDetectorDataSourcesDetails {
    *         </p>
    * @public
    */
-  FlowLogs?: AwsGuardDutyDetectorDataSourcesFlowLogsDetails;
+  FlowLogs?: AwsGuardDutyDetectorDataSourcesFlowLogsDetails | undefined;
 
   /**
    * <p>
@@ -2816,7 +2820,7 @@ export interface AwsGuardDutyDetectorDataSourcesDetails {
    *         </p>
    * @public
    */
-  Kubernetes?: AwsGuardDutyDetectorDataSourcesKubernetesDetails;
+  Kubernetes?: AwsGuardDutyDetectorDataSourcesKubernetesDetails | undefined;
 
   /**
    * <p>
@@ -2824,7 +2828,7 @@ export interface AwsGuardDutyDetectorDataSourcesDetails {
    *         </p>
    * @public
    */
-  MalwareProtection?: AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails;
+  MalwareProtection?: AwsGuardDutyDetectorDataSourcesMalwareProtectionDetails | undefined;
 
   /**
    * <p>
@@ -2832,7 +2836,7 @@ export interface AwsGuardDutyDetectorDataSourcesDetails {
    *         </p>
    * @public
    */
-  S3Logs?: AwsGuardDutyDetectorDataSourcesS3LogsDetails;
+  S3Logs?: AwsGuardDutyDetectorDataSourcesS3LogsDetails | undefined;
 }
 
 /**
@@ -2848,7 +2852,7 @@ export interface AwsGuardDutyDetectorFeaturesDetails {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -2856,7 +2860,7 @@ export interface AwsGuardDutyDetectorFeaturesDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2872,7 +2876,7 @@ export interface AwsGuardDutyDetectorDetails {
    *         </p>
    * @public
    */
-  DataSources?: AwsGuardDutyDetectorDataSourcesDetails;
+  DataSources?: AwsGuardDutyDetectorDataSourcesDetails | undefined;
 
   /**
    * <p>
@@ -2880,7 +2884,7 @@ export interface AwsGuardDutyDetectorDetails {
    *         </p>
    * @public
    */
-  Features?: AwsGuardDutyDetectorFeaturesDetails[];
+  Features?: AwsGuardDutyDetectorFeaturesDetails[] | undefined;
 
   /**
    * <p>
@@ -2888,7 +2892,7 @@ export interface AwsGuardDutyDetectorDetails {
    *         </p>
    * @public
    */
-  FindingPublishingFrequency?: string;
+  FindingPublishingFrequency?: string | undefined;
 
   /**
    * <p>
@@ -2896,7 +2900,7 @@ export interface AwsGuardDutyDetectorDetails {
    *         </p>
    * @public
    */
-  ServiceRole?: string;
+  ServiceRole?: string | undefined;
 
   /**
    * <p>
@@ -2904,7 +2908,7 @@ export interface AwsGuardDutyDetectorDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -2916,7 +2920,7 @@ export interface AwsIamAccessKeySessionContextAttributes {
    * <p>Indicates whether the session used multi-factor authentication (MFA).</p>
    * @public
    */
-  MfaAuthenticated?: boolean;
+  MfaAuthenticated?: boolean | undefined;
 
   /**
    * <p>Indicates when the session was created.</p>
@@ -2947,7 +2951,7 @@ export interface AwsIamAccessKeySessionContextAttributes {
    *          </ul>
    * @public
    */
-  CreationDate?: string;
+  CreationDate?: string | undefined;
 }
 
 /**
@@ -2959,32 +2963,32 @@ export interface AwsIamAccessKeySessionContextSessionIssuer {
    * <p>The type of principal (user, role, or group) that created the session.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The principal ID of the principal (user, role, or group) that created the
    *          session.</p>
    * @public
    */
-  PrincipalId?: string;
+  PrincipalId?: string | undefined;
 
   /**
    * <p>The ARN of the session.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Web Services account that created the session.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The name of the principal that created the session.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 }
 
 /**
@@ -2996,13 +3000,13 @@ export interface AwsIamAccessKeySessionContext {
    * <p>Attributes of the session that the key was used for.</p>
    * @public
    */
-  Attributes?: AwsIamAccessKeySessionContextAttributes;
+  Attributes?: AwsIamAccessKeySessionContextAttributes | undefined;
 
   /**
    * <p>Information about the entity that created the session.</p>
    * @public
    */
-  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer;
+  SessionIssuer?: AwsIamAccessKeySessionContextSessionIssuer | undefined;
 }
 
 /**
@@ -3033,13 +3037,13 @@ export interface AwsIamAccessKeyDetails {
    *          principals that are not IAM users.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The status of the IAM access key related to a finding.</p>
    * @public
    */
-  Status?: AwsIamAccessKeyStatus;
+  Status?: AwsIamAccessKeyStatus | undefined;
 
   /**
    * <p>Indicates when the IAM access key was created.</p>
@@ -3070,43 +3074,43 @@ export interface AwsIamAccessKeyDetails {
    *          </ul>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>The ID of the principal associated with an access key.</p>
    * @public
    */
-  PrincipalId?: string;
+  PrincipalId?: string | undefined;
 
   /**
    * <p>The type of principal associated with an access key.</p>
    * @public
    */
-  PrincipalType?: string;
+  PrincipalType?: string | undefined;
 
   /**
    * <p>The name of the principal.</p>
    * @public
    */
-  PrincipalName?: string;
+  PrincipalName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the account for the key.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The identifier of the access key.</p>
    * @public
    */
-  AccessKeyId?: string;
+  AccessKeyId?: string | undefined;
 
   /**
    * <p>Information about the session that the key was used for.</p>
    * @public
    */
-  SessionContext?: AwsIamAccessKeySessionContext;
+  SessionContext?: AwsIamAccessKeySessionContext | undefined;
 }
 
 /**
@@ -3118,13 +3122,13 @@ export interface AwsIamAttachedManagedPolicy {
    * <p>The name of the policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>The ARN of the policy.</p>
    * @public
    */
-  PolicyArn?: string;
+  PolicyArn?: string | undefined;
 }
 
 /**
@@ -3136,7 +3140,7 @@ export interface AwsIamGroupPolicy {
    * <p>The name of the policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 }
 
 /**
@@ -3148,7 +3152,7 @@ export interface AwsIamGroupDetails {
    * <p>A list of the managed policies that are attached to the IAM group.</p>
    * @public
    */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
+  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[] | undefined;
 
   /**
    * <p>Indicates when the IAM group was created.</p>
@@ -3179,31 +3183,31 @@ export interface AwsIamGroupDetails {
    *          </ul>
    * @public
    */
-  CreateDate?: string;
+  CreateDate?: string | undefined;
 
   /**
    * <p>The identifier of the IAM group.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>The name of the IAM group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The list of inline policies that are embedded in the group.</p>
    * @public
    */
-  GroupPolicyList?: AwsIamGroupPolicy[];
+  GroupPolicyList?: AwsIamGroupPolicy[] | undefined;
 
   /**
    * <p>The path to the group.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 }
 
 /**
@@ -3215,13 +3219,13 @@ export interface AwsIamInstanceProfileRole {
    * <p>The ARN of the role.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The policy that grants an entity permission to assume the role.</p>
    * @public
    */
-  AssumeRolePolicyDocument?: string;
+  AssumeRolePolicyDocument?: string | undefined;
 
   /**
    * <p>Indicates when the role was created.</p>
@@ -3252,25 +3256,25 @@ export interface AwsIamInstanceProfileRole {
    *          </ul>
    * @public
    */
-  CreateDate?: string;
+  CreateDate?: string | undefined;
 
   /**
    * <p>The path to the role.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The identifier of the role.</p>
    * @public
    */
-  RoleId?: string;
+  RoleId?: string | undefined;
 
   /**
    * <p>The name of the role.</p>
    * @public
    */
-  RoleName?: string;
+  RoleName?: string | undefined;
 }
 
 /**
@@ -3282,7 +3286,7 @@ export interface AwsIamInstanceProfile {
    * <p>The ARN of the instance profile.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Indicates when the instance profile was created.</p>
@@ -3313,31 +3317,31 @@ export interface AwsIamInstanceProfile {
    *          </ul>
    * @public
    */
-  CreateDate?: string;
+  CreateDate?: string | undefined;
 
   /**
    * <p>The identifier of the instance profile.</p>
    * @public
    */
-  InstanceProfileId?: string;
+  InstanceProfileId?: string | undefined;
 
   /**
    * <p>The name of the instance profile.</p>
    * @public
    */
-  InstanceProfileName?: string;
+  InstanceProfileName?: string | undefined;
 
   /**
    * <p>The path to the instance profile.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The roles associated with the instance profile.</p>
    * @public
    */
-  Roles?: AwsIamInstanceProfileRole[];
+  Roles?: AwsIamInstanceProfileRole[] | undefined;
 }
 
 /**
@@ -3350,13 +3354,13 @@ export interface AwsIamPermissionsBoundary {
    * <p>The ARN of the policy used to set the permissions boundary.</p>
    * @public
    */
-  PermissionsBoundaryArn?: string;
+  PermissionsBoundaryArn?: string | undefined;
 
   /**
    * <p>The usage type for the permissions boundary.</p>
    * @public
    */
-  PermissionsBoundaryType?: string;
+  PermissionsBoundaryType?: string | undefined;
 }
 
 /**
@@ -3368,13 +3372,13 @@ export interface AwsIamPolicyVersion {
    * <p>The identifier of the policy version.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Whether the version is the default version.</p>
    * @public
    */
-  IsDefaultVersion?: boolean;
+  IsDefaultVersion?: boolean | undefined;
 
   /**
    * <p>Indicates when the version was created.</p>
@@ -3405,7 +3409,7 @@ export interface AwsIamPolicyVersion {
    *          </ul>
    * @public
    */
-  CreateDate?: string;
+  CreateDate?: string | undefined;
 }
 
 /**
@@ -3417,7 +3421,7 @@ export interface AwsIamPolicyDetails {
    * <p>The number of users, groups, and roles that the policy is attached to.</p>
    * @public
    */
-  AttachmentCount?: number;
+  AttachmentCount?: number | undefined;
 
   /**
    * <p>When the policy was created.</p>
@@ -3448,56 +3452,56 @@ export interface AwsIamPolicyDetails {
    *          </ul>
    * @public
    */
-  CreateDate?: string;
+  CreateDate?: string | undefined;
 
   /**
    * <p>The identifier of the default version of the policy.</p>
    * @public
    */
-  DefaultVersionId?: string;
+  DefaultVersionId?: string | undefined;
 
   /**
    * <p>A description of the policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Whether the policy can be attached to a user, group, or role.</p>
    * @public
    */
-  IsAttachable?: boolean;
+  IsAttachable?: boolean | undefined;
 
   /**
    * <p>The path to the policy.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The number of users and roles that use the policy to set the permissions
    *          boundary.</p>
    * @public
    */
-  PermissionsBoundaryUsageCount?: number;
+  PermissionsBoundaryUsageCount?: number | undefined;
 
   /**
    * <p>The unique identifier of the policy.</p>
    * @public
    */
-  PolicyId?: string;
+  PolicyId?: string | undefined;
 
   /**
    * <p>The name of the policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>List of versions of the policy.</p>
    * @public
    */
-  PolicyVersionList?: AwsIamPolicyVersion[];
+  PolicyVersionList?: AwsIamPolicyVersion[] | undefined;
 
   /**
    * <p>When the policy was most recently updated.</p>
@@ -3528,7 +3532,7 @@ export interface AwsIamPolicyDetails {
    *          </ul>
    * @public
    */
-  UpdateDate?: string;
+  UpdateDate?: string | undefined;
 }
 
 /**
@@ -3540,7 +3544,7 @@ export interface AwsIamRolePolicy {
    * <p>The name of the policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 }
 
 /**
@@ -3552,13 +3556,13 @@ export interface AwsIamRoleDetails {
    * <p>The trust policy that grants permission to assume the role.</p>
    * @public
    */
-  AssumeRolePolicyDocument?: string;
+  AssumeRolePolicyDocument?: string | undefined;
 
   /**
    * <p>The list of the managed policies that are attached to the role.</p>
    * @public
    */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
+  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[] | undefined;
 
   /**
    * <p>Indicates when the role was created.</p>
@@ -3589,50 +3593,50 @@ export interface AwsIamRoleDetails {
    *          </ul>
    * @public
    */
-  CreateDate?: string;
+  CreateDate?: string | undefined;
 
   /**
    * <p>The list of instance profiles that contain this role.</p>
    * @public
    */
-  InstanceProfileList?: AwsIamInstanceProfile[];
+  InstanceProfileList?: AwsIamInstanceProfile[] | undefined;
 
   /**
    * <p>Information about the policy used to set the permissions boundary for an IAM
    *          principal.</p>
    * @public
    */
-  PermissionsBoundary?: AwsIamPermissionsBoundary;
+  PermissionsBoundary?: AwsIamPermissionsBoundary | undefined;
 
   /**
    * <p>The stable and unique string identifying the role.</p>
    * @public
    */
-  RoleId?: string;
+  RoleId?: string | undefined;
 
   /**
    * <p>The friendly name that identifies the role.</p>
    * @public
    */
-  RoleName?: string;
+  RoleName?: string | undefined;
 
   /**
    * <p>The list of inline policies that are embedded in the role.</p>
    * @public
    */
-  RolePolicyList?: AwsIamRolePolicy[];
+  RolePolicyList?: AwsIamRolePolicy[] | undefined;
 
   /**
    * <p>The maximum session duration (in seconds) that you want to set for the specified role.</p>
    * @public
    */
-  MaxSessionDuration?: number;
+  MaxSessionDuration?: number | undefined;
 
   /**
    * <p>The path to the role.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 }
 
 /**
@@ -3644,7 +3648,7 @@ export interface AwsIamUserPolicy {
    * <p>The name of the policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 }
 
 /**
@@ -3656,7 +3660,7 @@ export interface AwsIamUserDetails {
    * <p>A list of the managed policies that are attached to the user.</p>
    * @public
    */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
+  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[] | undefined;
 
   /**
    * <p>Indicates when the user was created.</p>
@@ -3687,43 +3691,43 @@ export interface AwsIamUserDetails {
    *          </ul>
    * @public
    */
-  CreateDate?: string;
+  CreateDate?: string | undefined;
 
   /**
    * <p>A list of IAM groups that the user belongs to.</p>
    * @public
    */
-  GroupList?: string[];
+  GroupList?: string[] | undefined;
 
   /**
    * <p>The path to the user.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The permissions boundary for the user.</p>
    * @public
    */
-  PermissionsBoundary?: AwsIamPermissionsBoundary;
+  PermissionsBoundary?: AwsIamPermissionsBoundary | undefined;
 
   /**
    * <p>The unique identifier for the user.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>The name of the user.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The list of inline policies that are embedded in the user.</p>
    * @public
    */
-  UserPolicyList?: AwsIamUserPolicy[];
+  UserPolicyList?: AwsIamUserPolicy[] | undefined;
 }
 
 /**
@@ -3737,13 +3741,13 @@ export interface AwsKinesisStreamStreamEncryptionDetails {
    *       </p>
    * @public
    */
-  EncryptionType?: string;
+  EncryptionType?: string | undefined;
 
   /**
    * <p>The globally unique identifier for the customer-managed KMS key to use for encryption. </p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 }
 
 /**
@@ -3758,14 +3762,14 @@ export interface AwsKinesisStreamDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.
    *       </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>When specified, enables or updates server-side encryption using an KMS key for a specified stream.
@@ -3773,21 +3777,21 @@ export interface AwsKinesisStreamDetails {
    *       </p>
    * @public
    */
-  StreamEncryption?: AwsKinesisStreamStreamEncryptionDetails;
+  StreamEncryption?: AwsKinesisStreamStreamEncryptionDetails | undefined;
 
   /**
    * <p>The number of shards that the stream uses.
    *       </p>
    * @public
    */
-  ShardCount?: number;
+  ShardCount?: number | undefined;
 
   /**
    * <p>The number of hours for the data records that are stored in shards to remain accessible.
    *       </p>
    * @public
    */
-  RetentionPeriodHours?: number;
+  RetentionPeriodHours?: number | undefined;
 }
 
 /**
@@ -3799,7 +3803,7 @@ export interface AwsKmsKeyDetails {
    * <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
    * @public
    */
-  AWSAccountId?: string;
+  AWSAccountId?: string | undefined;
 
   /**
    * <p>Indicates when the KMS key was created.</p>
@@ -3830,19 +3834,19 @@ export interface AwsKmsKeyDetails {
    *          </ul>
    * @public
    */
-  CreationDate?: number;
+  CreationDate?: number | undefined;
 
   /**
    * <p>The globally unique identifier for the KMS key.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
    * @public
    */
-  KeyManager?: string;
+  KeyManager?: string | undefined;
 
   /**
    * <p>The state of the KMS key. Valid values are as follows:</p>
@@ -3875,7 +3879,7 @@ export interface AwsKmsKeyDetails {
    *          </ul>
    * @public
    */
-  KeyState?: string;
+  KeyState?: string | undefined;
 
   /**
    * <p>The source of the KMS key material.</p>
@@ -3885,19 +3889,19 @@ export interface AwsKmsKeyDetails {
    *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
    * @public
    */
-  Origin?: string;
+  Origin?: string | undefined;
 
   /**
    * <p>A description of the KMS key.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Whether the key has key rotation enabled.</p>
    * @public
    */
-  KeyRotationStatus?: boolean;
+  KeyRotationStatus?: boolean | undefined;
 }
 
 /**
@@ -3909,25 +3913,25 @@ export interface AwsLambdaFunctionCode {
    * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
    * @public
    */
-  S3Bucket?: string;
+  S3Bucket?: string | undefined;
 
   /**
    * <p>The Amazon S3 key of the deployment package.</p>
    * @public
    */
-  S3Key?: string;
+  S3Key?: string | undefined;
 
   /**
    * <p>For versioned objects, the version of the deployment package object to use.</p>
    * @public
    */
-  S3ObjectVersion?: string;
+  S3ObjectVersion?: string | undefined;
 
   /**
    * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
    * @public
    */
-  ZipFile?: string;
+  ZipFile?: string | undefined;
 }
 
 /**
@@ -3939,7 +3943,7 @@ export interface AwsLambdaFunctionDeadLetterConfig {
    * <p>The ARN of an SQS queue or SNS topic.</p>
    * @public
    */
-  TargetArn?: string;
+  TargetArn?: string | undefined;
 }
 
 /**
@@ -3951,13 +3955,13 @@ export interface AwsLambdaFunctionEnvironmentError {
    * <p>The error code.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -3969,13 +3973,13 @@ export interface AwsLambdaFunctionEnvironment {
    * <p>Environment variable key-value pairs.</p>
    * @public
    */
-  Variables?: Record<string, string>;
+  Variables?: Record<string, string> | undefined;
 
   /**
    * <p>An <code>AwsLambdaFunctionEnvironmentError</code> object.</p>
    * @public
    */
-  Error?: AwsLambdaFunctionEnvironmentError;
+  Error?: AwsLambdaFunctionEnvironmentError | undefined;
 }
 
 /**
@@ -3987,13 +3991,13 @@ export interface AwsLambdaFunctionLayer {
    * <p>The ARN of the function layer.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The size of the layer archive in bytes.</p>
    * @public
    */
-  CodeSize?: number;
+  CodeSize?: number | undefined;
 }
 
 /**
@@ -4005,7 +4009,7 @@ export interface AwsLambdaFunctionTracingConfig {
    * <p>The tracing mode.</p>
    * @public
    */
-  Mode?: string;
+  Mode?: string | undefined;
 }
 
 /**
@@ -4017,19 +4021,19 @@ export interface AwsLambdaFunctionVpcConfig {
    * <p>A list of VPC security groups IDs.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>A list of VPC subnet IDs.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -4041,43 +4045,43 @@ export interface AwsLambdaFunctionDetails {
    * <p>An <code>AwsLambdaFunctionCode</code> object.</p>
    * @public
    */
-  Code?: AwsLambdaFunctionCode;
+  Code?: AwsLambdaFunctionCode | undefined;
 
   /**
    * <p>The SHA256 hash of the function's deployment package.</p>
    * @public
    */
-  CodeSha256?: string;
+  CodeSha256?: string | undefined;
 
   /**
    * <p>The function's dead letter queue.</p>
    * @public
    */
-  DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig;
+  DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig | undefined;
 
   /**
    * <p>The function's environment variables.</p>
    * @public
    */
-  Environment?: AwsLambdaFunctionEnvironment;
+  Environment?: AwsLambdaFunctionEnvironment | undefined;
 
   /**
    * <p>The name of the function.</p>
    * @public
    */
-  FunctionName?: string;
+  FunctionName?: string | undefined;
 
   /**
    * <p>The function that Lambda calls to begin executing your function.</p>
    * @public
    */
-  Handler?: string;
+  Handler?: string | undefined;
 
   /**
    * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed customer managed key.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>Indicates when the function was last updated.</p>
@@ -4108,81 +4112,81 @@ export interface AwsLambdaFunctionDetails {
    *          </ul>
    * @public
    */
-  LastModified?: string;
+  LastModified?: string | undefined;
 
   /**
    * <p>The function's layers.</p>
    * @public
    */
-  Layers?: AwsLambdaFunctionLayer[];
+  Layers?: AwsLambdaFunctionLayer[] | undefined;
 
   /**
    * <p>For Lambda@Edge functions, the ARN of the master function.</p>
    * @public
    */
-  MasterArn?: string;
+  MasterArn?: string | undefined;
 
   /**
    * <p>The memory that is allocated to the function.</p>
    * @public
    */
-  MemorySize?: number;
+  MemorySize?: number | undefined;
 
   /**
    * <p>The latest updated revision of the function or alias.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 
   /**
    * <p>The function's execution role.</p>
    * @public
    */
-  Role?: string;
+  Role?: string | undefined;
 
   /**
    * <p>The runtime environment for the Lambda function.</p>
    * @public
    */
-  Runtime?: string;
+  Runtime?: string | undefined;
 
   /**
    * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 
   /**
    * <p>The function's X-Ray tracing configuration.</p>
    * @public
    */
-  TracingConfig?: AwsLambdaFunctionTracingConfig;
+  TracingConfig?: AwsLambdaFunctionTracingConfig | undefined;
 
   /**
    * <p>The function's networking configuration.</p>
    * @public
    */
-  VpcConfig?: AwsLambdaFunctionVpcConfig;
+  VpcConfig?: AwsLambdaFunctionVpcConfig | undefined;
 
   /**
    * <p>The version of the Lambda function.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The instruction set architecture that the function uses. Valid values are <code>x86_64</code> or
    * <code>arm64</code>.</p>
    * @public
    */
-  Architectures?: string[];
+  Architectures?: string[] | undefined;
 
   /**
    * <p>The type of deployment package that's used to deploy the function code to Lambda. Set to <code>Image</code> for a container image and <code>Zip</code>  for a .zip file archive.
    *       </p>
    * @public
    */
-  PackageType?: string;
+  PackageType?: string | undefined;
 }
 
 /**
@@ -4194,7 +4198,7 @@ export interface AwsLambdaLayerVersionDetails {
    * <p>The version number.</p>
    * @public
    */
-  Version?: number;
+  Version?: number | undefined;
 
   /**
    * <p>The layer's compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>.</p>
@@ -4204,7 +4208,7 @@ export interface AwsLambdaLayerVersionDetails {
    *          </p>
    * @public
    */
-  CompatibleRuntimes?: string[];
+  CompatibleRuntimes?: string[] | undefined;
 
   /**
    * <p>Indicates when the version was created.</p>
@@ -4235,7 +4239,7 @@ export interface AwsLambdaLayerVersionDetails {
    *          </ul>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 }
 
 /**
@@ -4249,7 +4253,7 @@ export interface AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails {
    *             Indicates whether SASL/IAM authentication is enabled or not.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -4263,7 +4267,7 @@ export interface AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails {
    *             Indicates whether SASL/SCRAM authentication is enabled or not.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -4277,14 +4281,14 @@ export interface AwsMskClusterClusterInfoClientAuthenticationSaslDetails {
    *             Provides details for SASL client authentication using IAM. </p>
    * @public
    */
-  Iam?: AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails;
+  Iam?: AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails | undefined;
 
   /**
    * <p>
    *             Details for SASL client authentication using SCRAM.</p>
    * @public
    */
-  Scram?: AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails;
+  Scram?: AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails | undefined;
 }
 
 /**
@@ -4300,14 +4304,14 @@ export interface AwsMskClusterClusterInfoClientAuthenticationTlsDetails {
    * of operating an on-premises CA.</p>
    * @public
    */
-  CertificateAuthorityArnList?: string[];
+  CertificateAuthorityArnList?: string[] | undefined;
 
   /**
    * <p>
    *             Indicates whether TLS authentication is enabled or not.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -4322,7 +4326,7 @@ export interface AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDeta
    *             Indicates whether unauthenticated is allowed or not.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -4336,21 +4340,21 @@ export interface AwsMskClusterClusterInfoClientAuthenticationDetails {
    *             Provides details for client authentication using SASL.</p>
    * @public
    */
-  Sasl?: AwsMskClusterClusterInfoClientAuthenticationSaslDetails;
+  Sasl?: AwsMskClusterClusterInfoClientAuthenticationSaslDetails | undefined;
 
   /**
    * <p>
    *             Provides details for allowing no client authentication.</p>
    * @public
    */
-  Unauthenticated?: AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails;
+  Unauthenticated?: AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails | undefined;
 
   /**
    * <p>
    *             Provides details for client authentication using TLS.</p>
    * @public
    */
-  Tls?: AwsMskClusterClusterInfoClientAuthenticationTlsDetails;
+  Tls?: AwsMskClusterClusterInfoClientAuthenticationTlsDetails | undefined;
 }
 
 /**
@@ -4365,7 +4369,7 @@ export interface AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails {
    * KMS key, MSK creates one for you and uses it.</p>
    * @public
    */
-  DataVolumeKMSKeyId?: string;
+  DataVolumeKMSKeyId?: string | undefined;
 }
 
 /**
@@ -4381,14 +4385,14 @@ export interface AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetail
    *             <code>true</code>.</p>
    * @public
    */
-  InCluster?: boolean;
+  InCluster?: boolean | undefined;
 
   /**
    * <p>
    *             Indicates the encryption setting for data in transit between clients and brokers.</p>
    * @public
    */
-  ClientBroker?: string;
+  ClientBroker?: string | undefined;
 }
 
 /**
@@ -4403,14 +4407,14 @@ export interface AwsMskClusterClusterInfoEncryptionInfoDetails {
    *             The settings for encrypting data in transit.</p>
    * @public
    */
-  EncryptionInTransit?: AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails;
+  EncryptionInTransit?: AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails | undefined;
 
   /**
    * <p>
    *             The data-volume encryption details. You can't update encryption at rest settings for existing clusters.</p>
    * @public
    */
-  EncryptionAtRest?: AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails;
+  EncryptionAtRest?: AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails | undefined;
 }
 
 /**
@@ -4425,35 +4429,35 @@ export interface AwsMskClusterClusterInfoDetails {
    * whether you want Amazon MSK to encrypt your data in transit.</p>
    * @public
    */
-  EncryptionInfo?: AwsMskClusterClusterInfoEncryptionInfoDetails;
+  EncryptionInfo?: AwsMskClusterClusterInfoEncryptionInfoDetails | undefined;
 
   /**
    * <p>
    *             The current version of the cluster.</p>
    * @public
    */
-  CurrentVersion?: string;
+  CurrentVersion?: string | undefined;
 
   /**
    * <p>
    *             The number of broker nodes in the cluster.</p>
    * @public
    */
-  NumberOfBrokerNodes?: number;
+  NumberOfBrokerNodes?: number | undefined;
 
   /**
    * <p>
    *             The name of the cluster.</p>
    * @public
    */
-  ClusterName?: string;
+  ClusterName?: string | undefined;
 
   /**
    * <p>
    *             Provides information for different modes of client authentication.</p>
    * @public
    */
-  ClientAuthentication?: AwsMskClusterClusterInfoClientAuthenticationDetails;
+  ClientAuthentication?: AwsMskClusterClusterInfoClientAuthenticationDetails | undefined;
 
   /**
    * <p>
@@ -4461,7 +4465,7 @@ export interface AwsMskClusterClusterInfoDetails {
    *         </p>
    * @public
    */
-  EnhancedMonitoring?: string;
+  EnhancedMonitoring?: string | undefined;
 }
 
 /**
@@ -4476,7 +4480,7 @@ export interface AwsMskClusterDetails {
    *             Provides information about a cluster.</p>
    * @public
    */
-  ClusterInfo?: AwsMskClusterClusterInfoDetails;
+  ClusterInfo?: AwsMskClusterClusterInfoDetails | undefined;
 }
 
 /**
@@ -4488,7 +4492,7 @@ export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
    * <p>The identifier of the subnet</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 }
 
 /**
@@ -4500,61 +4504,61 @@ export interface AwsNetworkFirewallFirewallDetails {
    * <p>Whether the firewall is protected from deletion. If set to <code>true</code>, then the firewall cannot be deleted.</p>
    * @public
    */
-  DeleteProtection?: boolean;
+  DeleteProtection?: boolean | undefined;
 
   /**
    * <p>A description of the firewall.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ARN of the firewall.</p>
    * @public
    */
-  FirewallArn?: string;
+  FirewallArn?: string | undefined;
 
   /**
    * <p>The identifier of the firewall.</p>
    * @public
    */
-  FirewallId?: string;
+  FirewallId?: string | undefined;
 
   /**
    * <p>A descriptive name of the firewall.</p>
    * @public
    */
-  FirewallName?: string;
+  FirewallName?: string | undefined;
 
   /**
    * <p>The ARN of the firewall policy.</p>
    * @public
    */
-  FirewallPolicyArn?: string;
+  FirewallPolicyArn?: string | undefined;
 
   /**
    * <p>Whether the firewall is protected from a change to the firewall policy. If set to <code>true</code>, you cannot associate a different policy with the firewall.</p>
    * @public
    */
-  FirewallPolicyChangeProtection?: boolean;
+  FirewallPolicyChangeProtection?: boolean | undefined;
 
   /**
    * <p>Whether the firewall is protected from a change to the subnet associations. If set to <code>true</code>, you cannot map different subnets to the firewall.</p>
    * @public
    */
-  SubnetChangeProtection?: boolean;
+  SubnetChangeProtection?: boolean | undefined;
 
   /**
    * <p>The public subnets that Network Firewall uses for the firewall. Each subnet must belong to a different Availability Zone.</p>
    * @public
    */
-  SubnetMappings?: AwsNetworkFirewallFirewallSubnetMappingsDetails[];
+  SubnetMappings?: AwsNetworkFirewallFirewallSubnetMappingsDetails[] | undefined;
 
   /**
    * <p>The identifier of the VPC where the firewall is used.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -4566,7 +4570,7 @@ export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
    * <p>The ARN of the stateful rule group.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 }
 
 /**
@@ -4578,7 +4582,7 @@ export interface StatelessCustomPublishMetricActionDimension {
    * <p>The value to use for the custom metric dimension.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -4590,7 +4594,7 @@ export interface StatelessCustomPublishMetricAction {
    * <p>Defines CloudWatch dimension values to publish.</p>
    * @public
    */
-  Dimensions?: StatelessCustomPublishMetricActionDimension[];
+  Dimensions?: StatelessCustomPublishMetricActionDimension[] | undefined;
 }
 
 /**
@@ -4602,7 +4606,7 @@ export interface StatelessCustomActionDefinition {
    * <p>Information about metrics to publish to CloudWatch.</p>
    * @public
    */
-  PublishMetricAction?: StatelessCustomPublishMetricAction;
+  PublishMetricAction?: StatelessCustomPublishMetricAction | undefined;
 }
 
 /**
@@ -4614,13 +4618,13 @@ export interface FirewallPolicyStatelessCustomActionsDetails {
    * <p>The definition of the custom action.</p>
    * @public
    */
-  ActionDefinition?: StatelessCustomActionDefinition;
+  ActionDefinition?: StatelessCustomActionDefinition | undefined;
 
   /**
    * <p>The name of the custom action.</p>
    * @public
    */
-  ActionName?: string;
+  ActionName?: string | undefined;
 }
 
 /**
@@ -4632,13 +4636,13 @@ export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
    * <p>The order in which to run the stateless rule group.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The ARN of the stateless rule group.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 }
 
 /**
@@ -4650,13 +4654,13 @@ export interface FirewallPolicyDetails {
    * <p>The stateful rule groups that are used in the firewall policy.</p>
    * @public
    */
-  StatefulRuleGroupReferences?: FirewallPolicyStatefulRuleGroupReferencesDetails[];
+  StatefulRuleGroupReferences?: FirewallPolicyStatefulRuleGroupReferencesDetails[] | undefined;
 
   /**
    * <p>The custom action definitions that are available to use in the firewall policy's <code>StatelessDefaultActions</code> setting.</p>
    * @public
    */
-  StatelessCustomActions?: FirewallPolicyStatelessCustomActionsDetails[];
+  StatelessCustomActions?: FirewallPolicyStatelessCustomActionsDetails[] | undefined;
 
   /**
    * <p>The actions to take on a packet if it doesn't match any of the stateless rules in the policy.</p>
@@ -4664,7 +4668,7 @@ export interface FirewallPolicyDetails {
    *       </p>
    * @public
    */
-  StatelessDefaultActions?: string[];
+  StatelessDefaultActions?: string[] | undefined;
 
   /**
    * <p>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless rules in the policy.</p>
@@ -4672,13 +4676,13 @@ export interface FirewallPolicyDetails {
    *       </p>
    * @public
    */
-  StatelessFragmentDefaultActions?: string[];
+  StatelessFragmentDefaultActions?: string[] | undefined;
 
   /**
    * <p>The stateless rule groups that are used in the firewall policy.</p>
    * @public
    */
-  StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[];
+  StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[] | undefined;
 }
 
 /**
@@ -4690,31 +4694,31 @@ export interface AwsNetworkFirewallFirewallPolicyDetails {
    * <p>The firewall policy configuration.</p>
    * @public
    */
-  FirewallPolicy?: FirewallPolicyDetails;
+  FirewallPolicy?: FirewallPolicyDetails | undefined;
 
   /**
    * <p>The ARN of the firewall policy.</p>
    * @public
    */
-  FirewallPolicyArn?: string;
+  FirewallPolicyArn?: string | undefined;
 
   /**
    * <p>The identifier of the firewall policy.</p>
    * @public
    */
-  FirewallPolicyId?: string;
+  FirewallPolicyId?: string | undefined;
 
   /**
    * <p>The name of the firewall policy.</p>
    * @public
    */
-  FirewallPolicyName?: string;
+  FirewallPolicyName?: string | undefined;
 
   /**
    * <p>A description of the firewall policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4726,19 +4730,19 @@ export interface RuleGroupSourceListDetails {
    * <p>Indicates whether to allow or deny access to the domains listed in <code>Targets</code>.</p>
    * @public
    */
-  GeneratedRulesType?: string;
+  GeneratedRulesType?: string | undefined;
 
   /**
    * <p>The protocols that you want to inspect. Specify <code>LS_SNI</code> for HTTPS. Specify <code>HTTP_HOST</code> for HTTP. You can specify either or both.</p>
    * @public
    */
-  TargetTypes?: string[];
+  TargetTypes?: string[] | undefined;
 
   /**
    * <p>The domains that you want to inspect for in your traffic flows. You can provide full domain names, or use the '.' prefix as a wildcard. For example, <code>.example.com</code> matches all domains that end with <code>example.com</code>.</p>
    * @public
    */
-  Targets?: string[];
+  Targets?: string[] | undefined;
 }
 
 /**
@@ -4750,37 +4754,37 @@ export interface RuleGroupSourceStatefulRulesHeaderDetails {
    * <p>The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
    * @public
    */
-  Destination?: string;
+  Destination?: string | undefined;
 
   /**
    * <p>The destination port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
    * @public
    */
-  DestinationPort?: string;
+  DestinationPort?: string | undefined;
 
   /**
    * <p>The direction of traffic flow to inspect. If set to <code>ANY</code>, the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to <code>FORWARD</code>, the inspection only matches traffic going from the source to the destination.</p>
    * @public
    */
-  Direction?: string;
+  Direction?: string | undefined;
 
   /**
    * <p>The protocol to inspect for. To inspector for all protocols, use <code>IP</code>.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The source port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
    * @public
    */
-  SourcePort?: string;
+  SourcePort?: string | undefined;
 }
 
 /**
@@ -4792,13 +4796,13 @@ export interface RuleGroupSourceStatefulRulesOptionsDetails {
    * <p>A keyword to look for.</p>
    * @public
    */
-  Keyword?: string;
+  Keyword?: string | undefined;
 
   /**
    * <p>A list of settings.</p>
    * @public
    */
-  Settings?: string[];
+  Settings?: string[] | undefined;
 }
 
 /**
@@ -4810,19 +4814,19 @@ export interface RuleGroupSourceStatefulRulesDetails {
    * <p>Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.</p>
    * @public
    */
-  Action?: string;
+  Action?: string | undefined;
 
   /**
    * <p>The stateful inspection criteria for the rule.</p>
    * @public
    */
-  Header?: RuleGroupSourceStatefulRulesHeaderDetails;
+  Header?: RuleGroupSourceStatefulRulesHeaderDetails | undefined;
 
   /**
    * <p>Additional options for the rule.</p>
    * @public
    */
-  RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[];
+  RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[] | undefined;
 }
 
 /**
@@ -4834,13 +4838,13 @@ export interface RuleGroupSourceCustomActionsDetails {
    * <p>The definition of a custom action.</p>
    * @public
    */
-  ActionDefinition?: StatelessCustomActionDefinition;
+  ActionDefinition?: StatelessCustomActionDefinition | undefined;
 
   /**
    * <p>A descriptive name of the custom action.</p>
    * @public
    */
-  ActionName?: string;
+  ActionName?: string | undefined;
 }
 
 /**
@@ -4852,13 +4856,13 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts {
    * <p>The starting port value for the port range.</p>
    * @public
    */
-  FromPort?: number;
+  FromPort?: number | undefined;
 
   /**
    * <p>The ending port value for the port range.</p>
    * @public
    */
-  ToPort?: number;
+  ToPort?: number | undefined;
 }
 
 /**
@@ -4870,7 +4874,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesDestinations {
    * <p>An IP address or a block of IP addresses.</p>
    * @public
    */
-  AddressDefinition?: string;
+  AddressDefinition?: string | undefined;
 }
 
 /**
@@ -4882,13 +4886,13 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesSourcePorts {
    * <p>The starting port value for the port range.</p>
    * @public
    */
-  FromPort?: number;
+  FromPort?: number | undefined;
 
   /**
    * <p>The ending port value for the port range.</p>
    * @public
    */
-  ToPort?: number;
+  ToPort?: number | undefined;
 }
 
 /**
@@ -4900,7 +4904,7 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesSources {
    * <p>An IP address or a block of IP addresses.</p>
    * @public
    */
-  AddressDefinition?: string;
+  AddressDefinition?: string | undefined;
 }
 
 /**
@@ -4912,13 +4916,13 @@ export interface RuleGroupSourceStatelessRuleMatchAttributesTcpFlags {
    * <p>Defines the flags from the <code>Masks</code> setting that must be set in order for the packet to match. Flags that are listed must be set. Flags that are not listed must not be set.</p>
    * @public
    */
-  Flags?: string[];
+  Flags?: string[] | undefined;
 
   /**
    * <p>The set of flags to consider in the inspection. If not specified, then all flags are inspected.</p>
    * @public
    */
-  Masks?: string[];
+  Masks?: string[] | undefined;
 }
 
 /**
@@ -4930,37 +4934,37 @@ export interface RuleGroupSourceStatelessRuleMatchAttributes {
    * <p>A list of port ranges to specify the destination ports to inspect for.</p>
    * @public
    */
-  DestinationPorts?: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[];
+  DestinationPorts?: RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts[] | undefined;
 
   /**
    * <p>The destination IP addresses and address ranges to inspect for, in CIDR notation.</p>
    * @public
    */
-  Destinations?: RuleGroupSourceStatelessRuleMatchAttributesDestinations[];
+  Destinations?: RuleGroupSourceStatelessRuleMatchAttributesDestinations[] | undefined;
 
   /**
    * <p>The protocols to inspect for.</p>
    * @public
    */
-  Protocols?: number[];
+  Protocols?: number[] | undefined;
 
   /**
    * <p>A list of port ranges to specify the source ports to inspect for.</p>
    * @public
    */
-  SourcePorts?: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[];
+  SourcePorts?: RuleGroupSourceStatelessRuleMatchAttributesSourcePorts[] | undefined;
 
   /**
    * <p>The source IP addresses and address ranges to inspect for, in CIDR notation.</p>
    * @public
    */
-  Sources?: RuleGroupSourceStatelessRuleMatchAttributesSources[];
+  Sources?: RuleGroupSourceStatelessRuleMatchAttributesSources[] | undefined;
 
   /**
    * <p>The TCP flags and masks to inspect for.</p>
    * @public
    */
-  TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[];
+  TcpFlags?: RuleGroupSourceStatelessRuleMatchAttributesTcpFlags[] | undefined;
 }
 
 /**
@@ -4972,13 +4976,13 @@ export interface RuleGroupSourceStatelessRuleDefinition {
    * <p>The actions to take on a packet that matches one of the stateless rule definition's match attributes. You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, or <code>aws:forward_to_sfe</code>). You can then add custom actions.</p>
    * @public
    */
-  Actions?: string[];
+  Actions?: string[] | undefined;
 
   /**
    * <p>The criteria for Network Firewall to use to inspect an individual packet in a stateless rule inspection.</p>
    * @public
    */
-  MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes;
+  MatchAttributes?: RuleGroupSourceStatelessRuleMatchAttributes | undefined;
 }
 
 /**
@@ -4990,13 +4994,13 @@ export interface RuleGroupSourceStatelessRulesDetails {
    * <p>Indicates the order in which to run this rule relative to all of the rules in the stateless rule group.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>Provides the definition of the stateless rule.</p>
    * @public
    */
-  RuleDefinition?: RuleGroupSourceStatelessRuleDefinition;
+  RuleDefinition?: RuleGroupSourceStatelessRuleDefinition | undefined;
 }
 
 /**
@@ -5008,13 +5012,13 @@ export interface RuleGroupSourceStatelessRulesAndCustomActionsDetails {
    * <p>Custom actions for the rule group.</p>
    * @public
    */
-  CustomActions?: RuleGroupSourceCustomActionsDetails[];
+  CustomActions?: RuleGroupSourceCustomActionsDetails[] | undefined;
 
   /**
    * <p>Stateless rules for the rule group.</p>
    * @public
    */
-  StatelessRules?: RuleGroupSourceStatelessRulesDetails[];
+  StatelessRules?: RuleGroupSourceStatelessRulesDetails[] | undefined;
 }
 
 /**
@@ -5026,25 +5030,25 @@ export interface RuleGroupSource {
    * <p>Stateful inspection criteria for a domain list rule group. A domain list rule group determines access by specific protocols to specific domains.</p>
    * @public
    */
-  RulesSourceList?: RuleGroupSourceListDetails;
+  RulesSourceList?: RuleGroupSourceListDetails | undefined;
 
   /**
    * <p>Stateful inspection criteria, provided in Suricata compatible intrusion prevention system (IPS) rules.</p>
    * @public
    */
-  RulesString?: string;
+  RulesString?: string | undefined;
 
   /**
    * <p>Suricata rule specifications.</p>
    * @public
    */
-  StatefulRules?: RuleGroupSourceStatefulRulesDetails[];
+  StatefulRules?: RuleGroupSourceStatefulRulesDetails[] | undefined;
 
   /**
    * <p>The stateless rules and custom actions used by a stateless rule group.</p>
    * @public
    */
-  StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails;
+  StatelessRulesAndCustomActions?: RuleGroupSourceStatelessRulesAndCustomActionsDetails | undefined;
 }
 
 /**
@@ -5056,7 +5060,7 @@ export interface RuleGroupVariablesIpSetsDetails {
    * <p>The list of IP addresses and ranges.</p>
    * @public
    */
-  Definition?: string[];
+  Definition?: string[] | undefined;
 }
 
 /**
@@ -5068,7 +5072,7 @@ export interface RuleGroupVariablesPortSetsDetails {
    * <p>The list of port ranges.</p>
    * @public
    */
-  Definition?: string[];
+  Definition?: string[] | undefined;
 }
 
 /**
@@ -5080,13 +5084,13 @@ export interface RuleGroupVariables {
    * <p>A list of IP addresses and address ranges, in CIDR notation.</p>
    * @public
    */
-  IpSets?: RuleGroupVariablesIpSetsDetails;
+  IpSets?: RuleGroupVariablesIpSetsDetails | undefined;
 
   /**
    * <p>A list of port ranges.</p>
    * @public
    */
-  PortSets?: RuleGroupVariablesPortSetsDetails;
+  PortSets?: RuleGroupVariablesPortSetsDetails | undefined;
 }
 
 /**
@@ -5098,7 +5102,7 @@ export interface RuleGroupDetails {
    * <p>Additional settings to use in the specified rules.</p>
    * @public
    */
-  RuleVariables?: RuleGroupVariables;
+  RuleVariables?: RuleGroupVariables | undefined;
 
   /**
    * <p>The rules and actions for the rule group.</p>
@@ -5106,7 +5110,7 @@ export interface RuleGroupDetails {
    *          <p>For stateless rule groups, contains <code>StatelessRulesAndCustomActions</code>.</p>
    * @public
    */
-  RulesSource?: RuleGroupSource;
+  RulesSource?: RuleGroupSource | undefined;
 }
 
 /**
@@ -5120,43 +5124,43 @@ export interface AwsNetworkFirewallRuleGroupDetails {
    * <p>The maximum number of operating resources that this rule group can use.</p>
    * @public
    */
-  Capacity?: number;
+  Capacity?: number | undefined;
 
   /**
    * <p>A description of the rule group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Details about the rule group.</p>
    * @public
    */
-  RuleGroup?: RuleGroupDetails;
+  RuleGroup?: RuleGroupDetails | undefined;
 
   /**
    * <p>The ARN of the rule group.</p>
    * @public
    */
-  RuleGroupArn?: string;
+  RuleGroupArn?: string | undefined;
 
   /**
    * <p>The identifier of the rule group.</p>
    * @public
    */
-  RuleGroupId?: string;
+  RuleGroupId?: string | undefined;
 
   /**
    * <p>The descriptive name of the rule group.</p>
    * @public
    */
-  RuleGroupName?: string;
+  RuleGroupName?: string | undefined;
 
   /**
    * <p>The type of rule group. A rule group can be stateful or stateless.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -5170,21 +5174,21 @@ export interface AwsOpenSearchServiceDomainMasterUserOptionsDetails {
    *       </p>
    * @public
    */
-  MasterUserArn?: string;
+  MasterUserArn?: string | undefined;
 
   /**
    * <p>The username for the master user.
    *       </p>
    * @public
    */
-  MasterUserName?: string;
+  MasterUserName?: string | undefined;
 
   /**
    * <p>The password for the master user.
    *       </p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 }
 
 /**
@@ -5198,21 +5202,21 @@ export interface AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails {
    *       </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Enables the internal user database.
    *       </p>
    * @public
    */
-  InternalUserDatabaseEnabled?: boolean;
+  InternalUserDatabaseEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies information about the master user of the domain.
    *       </p>
    * @public
    */
-  MasterUserOptions?: AwsOpenSearchServiceDomainMasterUserOptionsDetails;
+  MasterUserOptions?: AwsOpenSearchServiceDomainMasterUserOptionsDetails | undefined;
 }
 
 /**
@@ -5224,7 +5228,7 @@ export interface AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetai
    * <p>The number of Availability Zones that the domain uses. Valid values are <code>2</code> or <code>3</code>. The default is <code>2</code>.</p>
    * @public
    */
-  AvailabilityZoneCount?: number;
+  AvailabilityZoneCount?: number | undefined;
 }
 
 /**
@@ -5236,56 +5240,56 @@ export interface AwsOpenSearchServiceDomainClusterConfigDetails {
    * <p>The number of data nodes to use in the OpenSearch domain.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 
   /**
    * <p>Whether UltraWarm is enabled.</p>
    * @public
    */
-  WarmEnabled?: boolean;
+  WarmEnabled?: boolean | undefined;
 
   /**
    * <p>The number of UltraWarm instances.</p>
    * @public
    */
-  WarmCount?: number;
+  WarmCount?: number | undefined;
 
   /**
    * <p>Whether to use a dedicated master node for the OpenSearch domain. A dedicated master node performs cluster management tasks, but does not hold data or respond to data upload requests.</p>
    * @public
    */
-  DedicatedMasterEnabled?: boolean;
+  DedicatedMasterEnabled?: boolean | undefined;
 
   /**
    * <p>Configuration options for zone awareness. Provided if <code>ZoneAwarenessEnabled</code> is <code>true</code>.</p>
    * @public
    */
-  ZoneAwarenessConfig?: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails;
+  ZoneAwarenessConfig?: AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails | undefined;
 
   /**
    * <p>The number of instances to use for the master node. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
    * @public
    */
-  DedicatedMasterCount?: number;
+  DedicatedMasterCount?: number | undefined;
 
   /**
    * <p>The instance type for your data nodes.</p>
    *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The type of UltraWarm instance.</p>
    * @public
    */
-  WarmType?: string;
+  WarmType?: string | undefined;
 
   /**
    * <p>Whether to enable zone awareness for the OpenSearch domain. When zone awareness is enabled, OpenSearch Service allocates the cluster's nodes and replica index shards across Availability Zones (AZs) in the same Region. This prevents data loss and minimizes downtime if a node or data center fails.</p>
    * @public
    */
-  ZoneAwarenessEnabled?: boolean;
+  ZoneAwarenessEnabled?: boolean | undefined;
 
   /**
    * <p>The hardware configuration of the computer that hosts the dedicated master node.</p>
@@ -5293,7 +5297,7 @@ export interface AwsOpenSearchServiceDomainClusterConfigDetails {
    *       </p>
    * @public
    */
-  DedicatedMasterType?: string;
+  DedicatedMasterType?: string | undefined;
 }
 
 /**
@@ -5305,31 +5309,31 @@ export interface AwsOpenSearchServiceDomainDomainEndpointOptionsDetails {
    * <p>The ARN for the security certificate. The certificate is managed in ACM.</p>
    * @public
    */
-  CustomEndpointCertificateArn?: string;
+  CustomEndpointCertificateArn?: string | undefined;
 
   /**
    * <p>Whether to enable a custom endpoint for the domain.</p>
    * @public
    */
-  CustomEndpointEnabled?: boolean;
+  CustomEndpointEnabled?: boolean | undefined;
 
   /**
    * <p>Whether to require that all traffic to the domain arrive over HTTPS.</p>
    * @public
    */
-  EnforceHTTPS?: boolean;
+  EnforceHTTPS?: boolean | undefined;
 
   /**
    * <p>The fully qualified URL for the custom endpoint.</p>
    * @public
    */
-  CustomEndpoint?: string;
+  CustomEndpoint?: string | undefined;
 
   /**
    * <p>The TLS security policy to apply to the HTTPS endpoint of the OpenSearch domain.</p>
    * @public
    */
-  TLSSecurityPolicy?: string;
+  TLSSecurityPolicy?: string | undefined;
 }
 
 /**
@@ -5341,13 +5345,13 @@ export interface AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails {
    * <p>Whether encryption at rest is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The KMS key ID.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -5359,13 +5363,13 @@ export interface AwsOpenSearchServiceDomainLogPublishingOption {
    * <p>The ARN of the CloudWatch Logs group to publish the logs to.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Whether the log publishing is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -5377,19 +5381,19 @@ export interface AwsOpenSearchServiceDomainLogPublishingOptionsDetails {
    * <p>Configures the OpenSearch index logs publishing.</p>
    * @public
    */
-  IndexSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+  IndexSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption | undefined;
 
   /**
    * <p>Configures the OpenSearch search slow log publishing.</p>
    * @public
    */
-  SearchSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+  SearchSlowLogs?: AwsOpenSearchServiceDomainLogPublishingOption | undefined;
 
   /**
    * <p>Configures the OpenSearch audit logs publishing.</p>
    * @public
    */
-  AuditLogs?: AwsOpenSearchServiceDomainLogPublishingOption;
+  AuditLogs?: AwsOpenSearchServiceDomainLogPublishingOption | undefined;
 }
 
 /**
@@ -5401,7 +5405,7 @@ export interface AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails {
    * <p>Whether node-to-node encryption is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -5413,37 +5417,37 @@ export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
    * <p>The epoch time when the deployment window closes for required updates. After this time, OpenSearch Service schedules the software upgrade automatically.</p>
    * @public
    */
-  AutomatedUpdateDate?: string;
+  AutomatedUpdateDate?: string | undefined;
 
   /**
    * <p>Whether a request to update the domain can be canceled.</p>
    * @public
    */
-  Cancellable?: boolean;
+  Cancellable?: boolean | undefined;
 
   /**
    * <p>The version of the service software that is currently installed on the domain.</p>
    * @public
    */
-  CurrentVersion?: string;
+  CurrentVersion?: string | undefined;
 
   /**
    * <p>A more detailed description of the service software status.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The most recent version of the service software.</p>
    * @public
    */
-  NewVersion?: string;
+  NewVersion?: string | undefined;
 
   /**
    * <p>Whether a service software update is available for the domain.</p>
    * @public
    */
-  UpdateAvailable?: boolean;
+  UpdateAvailable?: boolean | undefined;
 
   /**
    * <p>The status of the service software update. Valid values are as follows:</p>
@@ -5476,13 +5480,13 @@ export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
    *          </ul>
    * @public
    */
-  UpdateStatus?: string;
+  UpdateStatus?: string | undefined;
 
   /**
    * <p>Whether the service software update is optional.</p>
    * @public
    */
-  OptionalDeployment?: boolean;
+  OptionalDeployment?: boolean | undefined;
 }
 
 /**
@@ -5494,13 +5498,13 @@ export interface AwsOpenSearchServiceDomainVpcOptionsDetails {
    * <p>The list of security group IDs that are associated with the VPC endpoints for the domain.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>A list of subnet IDs that are associated with the VPC endpoints for the domain.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 }
 
 /**
@@ -5512,93 +5516,93 @@ export interface AwsOpenSearchServiceDomainDetails {
    * <p>The ARN of the OpenSearch Service domain.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>IAM policy document that specifies the access policies for the OpenSearch Service domain.</p>
    * @public
    */
-  AccessPolicies?: string;
+  AccessPolicies?: string | undefined;
 
   /**
    * <p>The name of the endpoint.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The identifier of the domain.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The domain endpoint.</p>
    * @public
    */
-  DomainEndpoint?: string;
+  DomainEndpoint?: string | undefined;
 
   /**
    * <p>The version of the domain engine.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Details about the configuration for encryption at rest.</p>
    * @public
    */
-  EncryptionAtRestOptions?: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails;
+  EncryptionAtRestOptions?: AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails | undefined;
 
   /**
    * <p>Details about the configuration for node-to-node encryption.</p>
    * @public
    */
-  NodeToNodeEncryptionOptions?: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails;
+  NodeToNodeEncryptionOptions?: AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails | undefined;
 
   /**
    * <p>Information about the status of a domain relative to the latest service software.</p>
    * @public
    */
-  ServiceSoftwareOptions?: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails;
+  ServiceSoftwareOptions?: AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails | undefined;
 
   /**
    * <p>Details about the configuration of an OpenSearch cluster.</p>
    * @public
    */
-  ClusterConfig?: AwsOpenSearchServiceDomainClusterConfigDetails;
+  ClusterConfig?: AwsOpenSearchServiceDomainClusterConfigDetails | undefined;
 
   /**
    * <p>Additional options for the domain endpoint.</p>
    * @public
    */
-  DomainEndpointOptions?: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails;
+  DomainEndpointOptions?: AwsOpenSearchServiceDomainDomainEndpointOptionsDetails | undefined;
 
   /**
    * <p>Information that OpenSearch Service derives based on <code>VPCOptions</code> for the domain.</p>
    * @public
    */
-  VpcOptions?: AwsOpenSearchServiceDomainVpcOptionsDetails;
+  VpcOptions?: AwsOpenSearchServiceDomainVpcOptionsDetails | undefined;
 
   /**
    * <p>Configures the CloudWatch Logs to publish for the OpenSearch domain.</p>
    * @public
    */
-  LogPublishingOptions?: AwsOpenSearchServiceDomainLogPublishingOptionsDetails;
+  LogPublishingOptions?: AwsOpenSearchServiceDomainLogPublishingOptionsDetails | undefined;
 
   /**
    * <p>The domain endpoints. Used if the OpenSearch domain resides in a VPC.</p>
    *          <p>This is a map of key-value pairs. The key is always <code>vpc</code>. The value is the endpoint.</p>
    * @public
    */
-  DomainEndpoints?: Record<string, string>;
+  DomainEndpoints?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies options for fine-grained access control.
    *       </p>
    * @public
    */
-  AdvancedSecurityOptions?: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails;
+  AdvancedSecurityOptions?: AwsOpenSearchServiceDomainAdvancedSecurityOptionsDetails | undefined;
 }
 
 /**
@@ -5610,7 +5614,7 @@ export interface AwsRdsDbClusterAssociatedRole {
    * <p>The ARN of the IAM role.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The status of the association between the IAM role and the DB cluster. Valid values are as follows:</p>
@@ -5633,7 +5637,7 @@ export interface AwsRdsDbClusterAssociatedRole {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -5645,26 +5649,26 @@ export interface AwsRdsDbClusterMember {
    * <p>Whether the cluster member is the primary instance for the DB cluster.</p>
    * @public
    */
-  IsClusterWriter?: boolean;
+  IsClusterWriter?: boolean | undefined;
 
   /**
    * <p>Specifies the order in which an Aurora replica is promoted to the primary instance when
    *          the existing primary instance fails.</p>
    * @public
    */
-  PromotionTier?: number;
+  PromotionTier?: number | undefined;
 
   /**
    * <p>The instance identifier for this member of the DB cluster.</p>
    * @public
    */
-  DbInstanceIdentifier?: string;
+  DbInstanceIdentifier?: string | undefined;
 
   /**
    * <p>The status of the DB cluster parameter group for this member of the DB cluster.</p>
    * @public
    */
-  DbClusterParameterGroupStatus?: string;
+  DbClusterParameterGroupStatus?: string | undefined;
 }
 
 /**
@@ -5676,13 +5680,13 @@ export interface AwsRdsDbClusterOptionGroupMembership {
    * <p>The name of the DB cluster option group.</p>
    * @public
    */
-  DbClusterOptionGroupName?: string;
+  DbClusterOptionGroupName?: string | undefined;
 
   /**
    * <p>The status of the DB cluster option group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -5695,25 +5699,25 @@ export interface AwsRdsDbDomainMembership {
    * <p>The identifier of the Active Directory domain.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The status of the Active Directory Domain membership for the DB instance.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The fully qualified domain name of the Active Directory domain.</p>
    * @public
    */
-  Fqdn?: string;
+  Fqdn?: string | undefined;
 
   /**
    * <p>The name of the IAM role to use when making API calls to the Directory Service.</p>
    * @public
    */
-  IamRoleName?: string;
+  IamRoleName?: string | undefined;
 }
 
 /**
@@ -5725,13 +5729,13 @@ export interface AwsRdsDbInstanceVpcSecurityGroup {
    * <p>The name of the VPC security group.</p>
    * @public
    */
-  VpcSecurityGroupId?: string;
+  VpcSecurityGroupId?: string | undefined;
 
   /**
    * <p>The status of the VPC security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -5744,56 +5748,56 @@ export interface AwsRdsDbClusterDetails {
    *          gibibytes (GiB).</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>A list of Availability Zones (AZs) where instances in the DB cluster can be
    *          created.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The number of days for which automated backups are retained.</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>The name of the database.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The current status of this DB cluster.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The connection endpoint for the primary instance of the DB cluster.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The reader endpoint for the DB cluster.</p>
    * @public
    */
-  ReaderEndpoint?: string;
+  ReaderEndpoint?: string | undefined;
 
   /**
    * <p>A list of custom endpoints for the DB cluster.</p>
    * @public
    */
-  CustomEndpoints?: string[];
+  CustomEndpoints?: string[] | undefined;
 
   /**
    * <p>Whether the DB cluster has instances in multiple Availability Zones.</p>
    * @public
    */
-  MultiAz?: boolean;
+  MultiAz?: boolean | undefined;
 
   /**
    * <p>The name of the database engine to use for this DB cluster. Valid values are as follows:</p>
@@ -5816,25 +5820,25 @@ export interface AwsRdsDbClusterDetails {
    *          </ul>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The version number of the database engine to use.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The name of the master user for the DB cluster.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>The range of time each day when automated backups are created, if automated backups are
@@ -5842,7 +5846,7 @@ export interface AwsRdsDbClusterDetails {
    *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal
@@ -5853,52 +5857,52 @@ export interface AwsRdsDbClusterDetails {
    *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>The identifiers of the read replicas that are associated with this DB cluster.</p>
    * @public
    */
-  ReadReplicaIdentifiers?: string[];
+  ReadReplicaIdentifiers?: string[] | undefined;
 
   /**
    * <p>A list of VPC security groups that the DB cluster belongs to.</p>
    * @public
    */
-  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
+  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[] | undefined;
 
   /**
    * <p>Specifies the identifier that Amazon Route 53 assigns when you create a hosted
    *          zone.</p>
    * @public
    */
-  HostedZoneId?: string;
+  HostedZoneId?: string | undefined;
 
   /**
    * <p>Whether the DB cluster is encrypted.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
    *          DB cluster.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The identifier of the DB cluster. The identifier must be unique within each Amazon Web Services Region
    *          and is immutable.</p>
    * @public
    */
-  DbClusterResourceId?: string;
+  DbClusterResourceId?: string | undefined;
 
   /**
    * <p>A list of the IAM roles that are associated with the DB cluster.</p>
    * @public
    */
-  AssociatedRoles?: AwsRdsDbClusterAssociatedRole[];
+  AssociatedRoles?: AwsRdsDbClusterAssociatedRole[] | undefined;
 
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
@@ -5929,14 +5933,14 @@ export interface AwsRdsDbClusterDetails {
    *          </ul>
    * @public
    */
-  ClusterCreateTime?: string;
+  ClusterCreateTime?: string | undefined;
 
   /**
    * <p>A list of log types that this DB cluster is configured to export to CloudWatch
    *          Logs.</p>
    * @public
    */
-  EnabledCloudWatchLogsExports?: string[];
+  EnabledCloudWatchLogsExports?: string[] | undefined;
 
   /**
    * <p>The database engine mode of the DB cluster.Valid values are as follows:</p>
@@ -5969,19 +5973,19 @@ export interface AwsRdsDbClusterDetails {
    *          </ul>
    * @public
    */
-  EngineMode?: string;
+  EngineMode?: string | undefined;
 
   /**
    * <p>Whether the DB cluster has deletion protection enabled.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>Whether the HTTP endpoint for an Aurora Serverless DB cluster is enabled.</p>
    * @public
    */
-  HttpEndpointEnabled?: boolean;
+  HttpEndpointEnabled?: boolean | undefined;
 
   /**
    * <p>The status of the database activity stream. Valid values are as follows:</p>
@@ -6009,72 +6013,72 @@ export interface AwsRdsDbClusterDetails {
    *          </ul>
    * @public
    */
-  ActivityStreamStatus?: string;
+  ActivityStreamStatus?: string | undefined;
 
   /**
    * <p>Whether tags are copied from the DB cluster to snapshots of the DB cluster.</p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>Whether the DB cluster is a clone of a DB cluster owned by a different Amazon Web Services
    *          account.</p>
    * @public
    */
-  CrossAccountClone?: boolean;
+  CrossAccountClone?: boolean | undefined;
 
   /**
    * <p>The Active Directory domain membership records that are associated with the DB
    *          cluster.</p>
    * @public
    */
-  DomainMemberships?: AwsRdsDbDomainMembership[];
+  DomainMemberships?: AwsRdsDbDomainMembership[] | undefined;
 
   /**
    * <p>The name of the DB cluster parameter group for the DB cluster.</p>
    * @public
    */
-  DbClusterParameterGroup?: string;
+  DbClusterParameterGroup?: string | undefined;
 
   /**
    * <p>The subnet group that is associated with the DB cluster, including the name,
    *          description, and subnets in the subnet group.</p>
    * @public
    */
-  DbSubnetGroup?: string;
+  DbSubnetGroup?: string | undefined;
 
   /**
    * <p>The list of option group memberships for this DB cluster.</p>
    * @public
    */
-  DbClusterOptionGroupMemberships?: AwsRdsDbClusterOptionGroupMembership[];
+  DbClusterOptionGroupMemberships?: AwsRdsDbClusterOptionGroupMembership[] | undefined;
 
   /**
    * <p>The DB cluster identifier that the user assigned to the cluster. This identifier is the
    *          unique key that identifies a DB cluster.</p>
    * @public
    */
-  DbClusterIdentifier?: string;
+  DbClusterIdentifier?: string | undefined;
 
   /**
    * <p>The list of instances that make up the DB cluster.</p>
    * @public
    */
-  DbClusterMembers?: AwsRdsDbClusterMember[];
+  DbClusterMembers?: AwsRdsDbClusterMember[] | undefined;
 
   /**
    * <p>Whether the mapping of IAM accounts to database accounts is enabled.</p>
    * @public
    */
-  IamDatabaseAuthenticationEnabled?: boolean;
+  IamDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>
    *             Indicates if minor version upgrades are automatically applied to the cluster.</p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 }
 
 /**
@@ -6091,7 +6095,7 @@ export interface AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute {
    *         </p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>
@@ -6102,7 +6106,7 @@ export interface AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute {
    *         </p>
    * @public
    */
-  AttributeValues?: string[];
+  AttributeValues?: string[] | undefined;
 }
 
 /**
@@ -6114,7 +6118,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
    * <p>A list of Availability Zones where instances in the DB cluster can be created.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>Indicates when the snapshot was taken.</p>
@@ -6145,37 +6149,37 @@ export interface AwsRdsDbClusterSnapshotDetails {
    *          </ul>
    * @public
    */
-  SnapshotCreateTime?: string;
+  SnapshotCreateTime?: string | undefined;
 
   /**
    * <p>The name of the database engine that you want to use for this DB instance.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The status of this DB cluster snapshot.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The port number on which the DB instances in the DB cluster accept connections.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The VPC ID that is associated with the DB cluster snapshot.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Indicates when the DB cluster was created, in Universal Coordinated Time (UTC).</p>
@@ -6206,68 +6210,68 @@ export interface AwsRdsDbClusterSnapshotDetails {
    *          </ul>
    * @public
    */
-  ClusterCreateTime?: string;
+  ClusterCreateTime?: string | undefined;
 
   /**
    * <p>The name of the master user for the DB cluster.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>The version of the database engine to use.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The license model information for this DB cluster snapshot.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>The type of DB cluster snapshot.</p>
    * @public
    */
-  SnapshotType?: string;
+  SnapshotType?: string | undefined;
 
   /**
    * <p>Specifies the percentage of the estimated data that has been transferred.</p>
    * @public
    */
-  PercentProgress?: number;
+  PercentProgress?: number | undefined;
 
   /**
    * <p>Whether the DB cluster is encrypted.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>The ARN of the KMS master key that is used to encrypt the database instances in the
    *          DB cluster.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The DB cluster identifier.</p>
    * @public
    */
-  DbClusterIdentifier?: string;
+  DbClusterIdentifier?: string | undefined;
 
   /**
    * <p>The identifier of the DB cluster snapshot.</p>
    * @public
    */
-  DbClusterSnapshotIdentifier?: string;
+  DbClusterSnapshotIdentifier?: string | undefined;
 
   /**
    * <p>Whether mapping of IAM accounts to database accounts is enabled.</p>
    * @public
    */
-  IamDatabaseAuthenticationEnabled?: boolean;
+  IamDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>
@@ -6275,7 +6279,7 @@ export interface AwsRdsDbClusterSnapshotDetails {
    *         </p>
    * @public
    */
-  DbClusterSnapshotAttributes?: AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute[];
+  DbClusterSnapshotAttributes?: AwsRdsDbClusterSnapshotDbClusterSnapshotAttribute[] | undefined;
 }
 
 /**
@@ -6288,13 +6292,13 @@ export interface AwsRdsDbInstanceAssociatedRole {
    *          instance.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The name of the feature associated with the IAM role.</p>
    * @public
    */
-  FeatureName?: string;
+  FeatureName?: string | undefined;
 
   /**
    * <p>Describes the state of the association between the IAM role and the DB instance. The
@@ -6319,7 +6323,7 @@ export interface AwsRdsDbInstanceAssociatedRole {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -6331,13 +6335,13 @@ export interface AwsRdsDbParameterGroup {
    * <p>The name of the parameter group.</p>
    * @public
    */
-  DbParameterGroupName?: string;
+  DbParameterGroupName?: string | undefined;
 
   /**
    * <p>The status of parameter updates.</p>
    * @public
    */
-  ParameterApplyStatus?: string;
+  ParameterApplyStatus?: string | undefined;
 }
 
 /**
@@ -6349,7 +6353,7 @@ export interface AwsRdsDbSubnetGroupSubnetAvailabilityZone {
    * <p>The name of the Availability Zone for a subnet in the subnet group.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -6361,19 +6365,19 @@ export interface AwsRdsDbSubnetGroupSubnet {
    * <p>The identifier of a subnet in the subnet group.</p>
    * @public
    */
-  SubnetIdentifier?: string;
+  SubnetIdentifier?: string | undefined;
 
   /**
    * <p>Information about the Availability Zone for a subnet in the subnet group.</p>
    * @public
    */
-  SubnetAvailabilityZone?: AwsRdsDbSubnetGroupSubnetAvailabilityZone;
+  SubnetAvailabilityZone?: AwsRdsDbSubnetGroupSubnetAvailabilityZone | undefined;
 
   /**
    * <p>The status of a subnet in the subnet group.</p>
    * @public
    */
-  SubnetStatus?: string;
+  SubnetStatus?: string | undefined;
 }
 
 /**
@@ -6385,37 +6389,37 @@ export interface AwsRdsDbSubnetGroup {
    * <p>The name of the subnet group.</p>
    * @public
    */
-  DbSubnetGroupName?: string;
+  DbSubnetGroupName?: string | undefined;
 
   /**
    * <p>The description of the subnet group.</p>
    * @public
    */
-  DbSubnetGroupDescription?: string;
+  DbSubnetGroupDescription?: string | undefined;
 
   /**
    * <p>The VPC ID of the subnet group.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The status of the subnet group.</p>
    * @public
    */
-  SubnetGroupStatus?: string;
+  SubnetGroupStatus?: string | undefined;
 
   /**
    * <p>A list of subnets in the subnet group.</p>
    * @public
    */
-  Subnets?: AwsRdsDbSubnetGroupSubnet[];
+  Subnets?: AwsRdsDbSubnetGroupSubnet[] | undefined;
 
   /**
    * <p>The ARN of the subnet group.</p>
    * @public
    */
-  DbSubnetGroupArn?: string;
+  DbSubnetGroupArn?: string | undefined;
 }
 
 /**
@@ -6427,19 +6431,19 @@ export interface AwsRdsDbInstanceEndpoint {
    * <p>Specifies the DNS address of the DB instance.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>Specifies the port that the database engine is listening on.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
    * @public
    */
-  HostedZoneId?: string;
+  HostedZoneId?: string | undefined;
 }
 
 /**
@@ -6451,13 +6455,13 @@ export interface AwsRdsDbOptionGroupMembership {
    * <p>The name of the option group.</p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>The status of the option group membership.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -6469,13 +6473,13 @@ export interface AwsRdsPendingCloudWatchLogsExports {
    * <p>A list of log types that are being enabled.</p>
    * @public
    */
-  LogTypesToEnable?: string[];
+  LogTypesToEnable?: string[] | undefined;
 
   /**
    * <p>A list of log types that are being disabled.</p>
    * @public
    */
-  LogTypesToDisable?: string[];
+  LogTypesToDisable?: string[] | undefined;
 }
 
 /**
@@ -6487,13 +6491,13 @@ export interface AwsRdsDbProcessorFeature {
    * <p>The name of the processor feature. Valid values are <code>coreCount</code> or <code>threadsPerCore</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the processor feature.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -6505,91 +6509,91 @@ export interface AwsRdsDbPendingModifiedValues {
    * <p>The new DB instance class for the DB instance.</p>
    * @public
    */
-  DbInstanceClass?: string;
+  DbInstanceClass?: string | undefined;
 
   /**
    * <p>The new value of the allocated storage for the DB instance.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The new master user password for the DB instance.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>The new port for the DB instance.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>The new backup retention period for the DB instance.</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that a single Availability Zone DB instance is changing to a multiple Availability Zone deployment.</p>
    * @public
    */
-  MultiAZ?: boolean;
+  MultiAZ?: boolean | undefined;
 
   /**
    * <p>The new engine version for the DB instance.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The new license model value for the DB instance.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>The new provisioned IOPS value for the DB instance.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>The new DB instance identifier for the DB instance.</p>
    * @public
    */
-  DbInstanceIdentifier?: string;
+  DbInstanceIdentifier?: string | undefined;
 
   /**
    * <p>The new storage type for the DB instance.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The new CA certificate identifier for the DB instance.</p>
    * @public
    */
-  CaCertificateIdentifier?: string;
+  CaCertificateIdentifier?: string | undefined;
 
   /**
    * <p>The name of the new subnet group for the DB instance.</p>
    * @public
    */
-  DbSubnetGroupName?: string;
+  DbSubnetGroupName?: string | undefined;
 
   /**
    * <p>A list of log types that are being enabled or disabled.</p>
    * @public
    */
-  PendingCloudWatchLogsExports?: AwsRdsPendingCloudWatchLogsExports;
+  PendingCloudWatchLogsExports?: AwsRdsPendingCloudWatchLogsExports | undefined;
 
   /**
    * <p>Processor features that are being updated.</p>
    * @public
    */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
+  ProcessorFeatures?: AwsRdsDbProcessorFeature[] | undefined;
 }
 
 /**
@@ -6601,25 +6605,25 @@ export interface AwsRdsDbStatusInfo {
    * <p>The type of status. For a read replica, the status type is read replication.</p>
    * @public
    */
-  StatusType?: string;
+  StatusType?: string | undefined;
 
   /**
    * <p>Whether the read replica instance is operating normally.</p>
    * @public
    */
-  Normal?: boolean;
+  Normal?: boolean | undefined;
 
   /**
    * <p>The status of the read replica instance.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If the read replica is currently in an error state, provides the error details.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -6632,40 +6636,40 @@ export interface AwsRdsDbInstanceDetails {
    *          instance.</p>
    * @public
    */
-  AssociatedRoles?: AwsRdsDbInstanceAssociatedRole[];
+  AssociatedRoles?: AwsRdsDbInstanceAssociatedRole[] | undefined;
 
   /**
    * <p>The identifier of the CA certificate for this DB instance.</p>
    * @public
    */
-  CACertificateIdentifier?: string;
+  CACertificateIdentifier?: string | undefined;
 
   /**
    * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that
    *          the DB instance is a member of.</p>
    * @public
    */
-  DBClusterIdentifier?: string;
+  DBClusterIdentifier?: string | undefined;
 
   /**
    * <p>Contains a user-supplied database identifier. This identifier is the unique key that
    *          identifies a DB instance.</p>
    * @public
    */
-  DBInstanceIdentifier?: string;
+  DBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
    * @public
    */
-  DBInstanceClass?: string;
+  DBInstanceClass?: string | undefined;
 
   /**
    * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
    *          cluster, this can be a different port than the DB cluster port.</p>
    * @public
    */
-  DbInstancePort?: number;
+  DbInstancePort?: number | undefined;
 
   /**
    * <p>The Amazon Web Services Region-unique, immutable identifier for the DB instance. This identifier is
@@ -6673,7 +6677,7 @@ export interface AwsRdsDbInstanceDetails {
    *          accessed. </p>
    * @public
    */
-  DbiResourceId?: string;
+  DbiResourceId?: string | undefined;
 
   /**
    * <p>The meaning of this parameter differs according to the database engine you use.</p>
@@ -6690,32 +6694,32 @@ export interface AwsRdsDbInstanceDetails {
    *          returned parameters don't apply to an Oracle DB instance. </p>
    * @public
    */
-  DBName?: string;
+  DBName?: string | undefined;
 
   /**
    * <p>Indicates whether the DB instance has deletion protection enabled.</p>
    *          <p>When deletion protection is enabled, the database cannot be deleted.</p>
    * @public
    */
-  DeletionProtection?: boolean;
+  DeletionProtection?: boolean | undefined;
 
   /**
    * <p>Specifies the connection endpoint.</p>
    * @public
    */
-  Endpoint?: AwsRdsDbInstanceEndpoint;
+  Endpoint?: AwsRdsDbInstanceEndpoint | undefined;
 
   /**
    * <p>Provides the name of the database engine to use for this DB instance.</p>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>Indicates the database engine version.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>True if mapping of IAM accounts to database
@@ -6734,7 +6738,7 @@ export interface AwsRdsDbInstanceDetails {
    *          </ul>
    * @public
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
+  IAMDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates when the DB instance was created.</p>
@@ -6765,14 +6769,14 @@ export interface AwsRdsDbInstanceDetails {
    *          </ul>
    * @public
    */
-  InstanceCreateTime?: string;
+  InstanceCreateTime?: string | undefined;
 
   /**
    * <p>If <code>StorageEncrypted</code> is true, the KMS key identifier for the encrypted
    *          DB instance.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies the accessibility options for the DB instance.</p>
@@ -6782,57 +6786,57 @@ export interface AwsRdsDbInstanceDetails {
    *          private IP address. </p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>Specifies whether the DB instance is encrypted.</p>
    * @public
    */
-  StorageEncrypted?: boolean;
+  StorageEncrypted?: boolean | undefined;
 
   /**
    * <p>The ARN from the key store with which the instance is associated for TDE
    *          encryption.</p>
    * @public
    */
-  TdeCredentialArn?: string;
+  TdeCredentialArn?: string | undefined;
 
   /**
    * <p>A list of VPC security groups that the DB instance belongs to.</p>
    * @public
    */
-  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[];
+  VpcSecurityGroups?: AwsRdsDbInstanceVpcSecurityGroup[] | undefined;
 
   /**
    * <p>Whether the DB instance is a multiple Availability Zone deployment.</p>
    * @public
    */
-  MultiAz?: boolean;
+  MultiAz?: boolean | undefined;
 
   /**
    * <p>The ARN of the CloudWatch Logs log stream that receives the enhanced monitoring metrics
    *          data for the DB instance.</p>
    * @public
    */
-  EnhancedMonitoringResourceArn?: string;
+  EnhancedMonitoringResourceArn?: string | undefined;
 
   /**
    * <p>The current status of the DB instance.</p>
    * @public
    */
-  DbInstanceStatus?: string;
+  DbInstanceStatus?: string | undefined;
 
   /**
    * <p>The master user name of the DB instance.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>The amount of storage (in gigabytes) to initially allocate for the DB instance.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The range of time each day when automated backups are created, if automated backups are
@@ -6840,37 +6844,37 @@ export interface AwsRdsDbInstanceDetails {
    *          <p>Uses the format <code>HH:MM-HH:MM</code>. For example, <code>04:52-05:22</code>.</p>
    * @public
    */
-  PreferredBackupWindow?: string;
+  PreferredBackupWindow?: string | undefined;
 
   /**
    * <p>The number of days for which to retain automated backups.</p>
    * @public
    */
-  BackupRetentionPeriod?: number;
+  BackupRetentionPeriod?: number | undefined;
 
   /**
    * <p>A list of the DB security groups to assign to the DB instance.</p>
    * @public
    */
-  DbSecurityGroups?: string[];
+  DbSecurityGroups?: string[] | undefined;
 
   /**
    * <p>A list of the DB parameter groups to assign to the DB instance.</p>
    * @public
    */
-  DbParameterGroups?: AwsRdsDbParameterGroup[];
+  DbParameterGroups?: AwsRdsDbParameterGroup[] | undefined;
 
   /**
    * <p>The Availability Zone where the DB instance will be created.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>Information about the subnet group that is associated with the DB instance.</p>
    * @public
    */
-  DbSubnetGroup?: AwsRdsDbSubnetGroup;
+  DbSubnetGroup?: AwsRdsDbSubnetGroup | undefined;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal
@@ -6881,13 +6885,13 @@ export interface AwsRdsDbInstanceDetails {
    *          <p>For example, <code>sun:09:32-sun:10:02</code>.</p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>Changes to the DB instance that are currently pending.</p>
    * @public
    */
-  PendingModifiedValues?: AwsRdsDbPendingModifiedValues;
+  PendingModifiedValues?: AwsRdsDbPendingModifiedValues | undefined;
 
   /**
    * <p>Specifies the latest time to which a database can be restored with point-in-time
@@ -6919,160 +6923,160 @@ export interface AwsRdsDbInstanceDetails {
    *          </ul>
    * @public
    */
-  LatestRestorableTime?: string;
+  LatestRestorableTime?: string | undefined;
 
   /**
    * <p>Indicates whether minor version patches are applied automatically.</p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>If this DB instance is a read replica, contains the identifier of the source DB
    *          instance.</p>
    * @public
    */
-  ReadReplicaSourceDBInstanceIdentifier?: string;
+  ReadReplicaSourceDBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>List of identifiers of the read replicas associated with this DB instance.</p>
    * @public
    */
-  ReadReplicaDBInstanceIdentifiers?: string[];
+  ReadReplicaDBInstanceIdentifiers?: string[] | undefined;
 
   /**
    * <p>List of identifiers of Aurora DB clusters to which the RDS DB instance is replicated as
    *          a read replica.</p>
    * @public
    */
-  ReadReplicaDBClusterIdentifiers?: string[];
+  ReadReplicaDBClusterIdentifiers?: string[] | undefined;
 
   /**
    * <p>License model information for this DB instance.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>Specifies the provisioned IOPS (I/O operations per second) for this DB instance.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>The list of option group memberships for this DB instance.</p>
    * @public
    */
-  OptionGroupMemberships?: AwsRdsDbOptionGroupMembership[];
+  OptionGroupMemberships?: AwsRdsDbOptionGroupMembership[] | undefined;
 
   /**
    * <p>The name of the character set that this DB instance is associated with.</p>
    * @public
    */
-  CharacterSetName?: string;
+  CharacterSetName?: string | undefined;
 
   /**
    * <p>For a DB instance with multi-Availability Zone support, the name of the secondary
    *          Availability Zone.</p>
    * @public
    */
-  SecondaryAvailabilityZone?: string;
+  SecondaryAvailabilityZone?: string | undefined;
 
   /**
    * <p>The status of a read replica. If the instance isn't a read replica, this is
    *          empty.</p>
    * @public
    */
-  StatusInfos?: AwsRdsDbStatusInfo[];
+  StatusInfos?: AwsRdsDbStatusInfo[] | undefined;
 
   /**
    * <p>The storage type for the DB instance.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The Active Directory domain membership records associated with the DB instance.</p>
    * @public
    */
-  DomainMemberships?: AwsRdsDbDomainMembership[];
+  DomainMemberships?: AwsRdsDbDomainMembership[] | undefined;
 
   /**
    * <p>Whether to copy resource tags to snapshots of the DB instance.</p>
    * @public
    */
-  CopyTagsToSnapshot?: boolean;
+  CopyTagsToSnapshot?: boolean | undefined;
 
   /**
    * <p>The interval, in seconds, between points when enhanced monitoring metrics are collected
    *          for the DB instance.</p>
    * @public
    */
-  MonitoringInterval?: number;
+  MonitoringInterval?: number | undefined;
 
   /**
    * <p>The ARN for the IAM role that permits Amazon RDS to send enhanced monitoring metrics to
    *          CloudWatch Logs.</p>
    * @public
    */
-  MonitoringRoleArn?: string;
+  MonitoringRoleArn?: string | undefined;
 
   /**
    * <p>The order in which to promote an Aurora replica to the primary instance after a failure
    *          of the existing primary instance.</p>
    * @public
    */
-  PromotionTier?: number;
+  PromotionTier?: number | undefined;
 
   /**
    * <p>The time zone of the DB instance.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>Indicates whether Performance Insights is enabled for the DB instance.</p>
    * @public
    */
-  PerformanceInsightsEnabled?: boolean;
+  PerformanceInsightsEnabled?: boolean | undefined;
 
   /**
    * <p>The identifier of the KMS key used to encrypt the Performance Insights data.</p>
    * @public
    */
-  PerformanceInsightsKmsKeyId?: string;
+  PerformanceInsightsKmsKeyId?: string | undefined;
 
   /**
    * <p>The number of days to retain Performance Insights data.</p>
    * @public
    */
-  PerformanceInsightsRetentionPeriod?: number;
+  PerformanceInsightsRetentionPeriod?: number | undefined;
 
   /**
    * <p>A list of log types that this DB instance is configured to export to CloudWatch Logs.</p>
    * @public
    */
-  EnabledCloudWatchLogsExports?: string[];
+  EnabledCloudWatchLogsExports?: string[] | undefined;
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of
    *          the DB instance.</p>
    * @public
    */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
+  ProcessorFeatures?: AwsRdsDbProcessorFeature[] | undefined;
 
   /**
    * <p>Specifies the connection endpoint.</p>
    * @public
    */
-  ListenerEndpoint?: AwsRdsDbInstanceEndpoint;
+  ListenerEndpoint?: AwsRdsDbInstanceEndpoint | undefined;
 
   /**
    * <p>The upper limit to which Amazon RDS can automatically scale the storage of the DB
    *          instance.</p>
    * @public
    */
-  MaxAllocatedStorage?: number;
+  MaxAllocatedStorage?: number | undefined;
 }
 
 /**
@@ -7084,25 +7088,25 @@ export interface AwsRdsDbSecurityGroupEc2SecurityGroup {
    * <p>Specifies the ID for the EC2 security group.</p>
    * @public
    */
-  Ec2SecurityGroupId?: string;
+  Ec2SecurityGroupId?: string | undefined;
 
   /**
    * <p>Specifies the name of the EC2 security group.</p>
    * @public
    */
-  Ec2SecurityGroupName?: string;
+  Ec2SecurityGroupName?: string | undefined;
 
   /**
    * <p>Provides the Amazon Web Services ID of the owner of the EC2 security group.</p>
    * @public
    */
-  Ec2SecurityGroupOwnerId?: string;
+  Ec2SecurityGroupOwnerId?: string | undefined;
 
   /**
    * <p>Provides the status of the EC2 security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -7114,13 +7118,13 @@ export interface AwsRdsDbSecurityGroupIpRange {
    * <p>Specifies the IP range.</p>
    * @public
    */
-  CidrIp?: string;
+  CidrIp?: string | undefined;
 
   /**
    * <p>Specifies the status of the IP range.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -7132,44 +7136,44 @@ export interface AwsRdsDbSecurityGroupDetails {
    * <p>The ARN for the DB security group.</p>
    * @public
    */
-  DbSecurityGroupArn?: string;
+  DbSecurityGroupArn?: string | undefined;
 
   /**
    * <p>Provides the description of the DB security group.</p>
    * @public
    */
-  DbSecurityGroupDescription?: string;
+  DbSecurityGroupDescription?: string | undefined;
 
   /**
    * <p>Specifies the name of the DB security group.</p>
    * @public
    */
-  DbSecurityGroupName?: string;
+  DbSecurityGroupName?: string | undefined;
 
   /**
    * <p>Contains a list of EC2 security groups.</p>
    * @public
    */
-  Ec2SecurityGroups?: AwsRdsDbSecurityGroupEc2SecurityGroup[];
+  Ec2SecurityGroups?: AwsRdsDbSecurityGroupEc2SecurityGroup[] | undefined;
 
   /**
    * <p>Contains a list of IP ranges.</p>
    * @public
    */
-  IpRanges?: AwsRdsDbSecurityGroupIpRange[];
+  IpRanges?: AwsRdsDbSecurityGroupIpRange[] | undefined;
 
   /**
    * <p>Provides the Amazon Web Services ID of the owner of a specific DB security group.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Provides VPC ID associated with the DB security group.
    *       </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -7181,19 +7185,19 @@ export interface AwsRdsDbSnapshotDetails {
    * <p>The name or ARN of the DB snapshot that is used to restore the DB instance.</p>
    * @public
    */
-  DbSnapshotIdentifier?: string;
+  DbSnapshotIdentifier?: string | undefined;
 
   /**
    * <p>A name for the DB instance.</p>
    * @public
    */
-  DbInstanceIdentifier?: string;
+  DbInstanceIdentifier?: string | undefined;
 
   /**
    * <p>When the snapshot was taken in Coordinated Universal Time (UTC).</p>
    * @public
    */
-  SnapshotCreateTime?: string;
+  SnapshotCreateTime?: string | undefined;
 
   /**
    * <p>The name of the database engine to use for this DB instance. Valid values are as follows:</p>
@@ -7271,97 +7275,97 @@ export interface AwsRdsDbSnapshotDetails {
    *          </ul>
    * @public
    */
-  Engine?: string;
+  Engine?: string | undefined;
 
   /**
    * <p>The amount of storage (in gigabytes) to be initially allocated for the database instance.</p>
    * @public
    */
-  AllocatedStorage?: number;
+  AllocatedStorage?: number | undefined;
 
   /**
    * <p>The status of this DB snapshot.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The port that the database engine was listening on at the time of the snapshot.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 
   /**
    * <p>Specifies the name of the Availability Zone in which the DB instance was located at the time of the DB snapshot.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The VPC ID associated with the DB snapshot.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Specifies the time in Coordinated Universal Time (UTC) when the DB instance, from which the snapshot was taken, was created.</p>
    * @public
    */
-  InstanceCreateTime?: string;
+  InstanceCreateTime?: string | undefined;
 
   /**
    * <p>The master user name for the DB snapshot.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>The version of the database engine.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>License model information for the restored DB instance.</p>
    * @public
    */
-  LicenseModel?: string;
+  LicenseModel?: string | undefined;
 
   /**
    * <p>The type of the DB snapshot.</p>
    * @public
    */
-  SnapshotType?: string;
+  SnapshotType?: string | undefined;
 
   /**
    * <p>The provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.</p>
    * @public
    */
-  Iops?: number;
+  Iops?: number | undefined;
 
   /**
    * <p>The option group name for the DB snapshot.</p>
    * @public
    */
-  OptionGroupName?: string;
+  OptionGroupName?: string | undefined;
 
   /**
    * <p>The percentage of the estimated data that has been transferred.</p>
    * @public
    */
-  PercentProgress?: number;
+  PercentProgress?: number | undefined;
 
   /**
    * <p>The Amazon Web Services Region that the DB snapshot was created in or copied from.</p>
    * @public
    */
-  SourceRegion?: string;
+  SourceRegion?: string | undefined;
 
   /**
    * <p>The DB snapshot ARN that the DB snapshot was copied from.</p>
    * @public
    */
-  SourceDbSnapshotIdentifier?: string;
+  SourceDbSnapshotIdentifier?: string | undefined;
 
   /**
    * <p>The storage type associated with the DB snapshot. Valid values are as follows:</p>
@@ -7384,49 +7388,49 @@ export interface AwsRdsDbSnapshotDetails {
    *          </ul>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 
   /**
    * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
    * @public
    */
-  TdeCredentialArn?: string;
+  TdeCredentialArn?: string | undefined;
 
   /**
    * <p>Whether the DB snapshot is encrypted.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>If <code>Encrypted</code> is <code>true</code>, the KMS key identifier for the encrypted DB snapshot.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The time zone of the DB snapshot.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>Whether mapping of IAM accounts to database accounts is enabled.</p>
    * @public
    */
-  IamDatabaseAuthenticationEnabled?: boolean;
+  IamDatabaseAuthenticationEnabled?: boolean | undefined;
 
   /**
    * <p>The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.</p>
    * @public
    */
-  ProcessorFeatures?: AwsRdsDbProcessorFeature[];
+  ProcessorFeatures?: AwsRdsDbProcessorFeature[] | undefined;
 
   /**
    * <p>The identifier for the source DB instance.</p>
    * @public
    */
-  DbiResourceId?: string;
+  DbiResourceId?: string | undefined;
 }
 
 /**
@@ -7438,49 +7442,49 @@ export interface AwsRdsEventSubscriptionDetails {
    * <p>The identifier of the account that is associated with the event notification subscription.</p>
    * @public
    */
-  CustSubscriptionId?: string;
+  CustSubscriptionId?: string | undefined;
 
   /**
    * <p>The identifier of the event notification subscription.</p>
    * @public
    */
-  CustomerAwsId?: string;
+  CustomerAwsId?: string | undefined;
 
   /**
    * <p>Whether the event notification subscription is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>The list of event categories for the event notification subscription.</p>
    * @public
    */
-  EventCategoriesList?: string[];
+  EventCategoriesList?: string[] | undefined;
 
   /**
    * <p>The ARN of the event notification subscription.</p>
    * @public
    */
-  EventSubscriptionArn?: string;
+  EventSubscriptionArn?: string | undefined;
 
   /**
    * <p>The ARN of the SNS topic to post the event notifications to.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>A list of source identifiers for the event notification subscription.</p>
    * @public
    */
-  SourceIdsList?: string[];
+  SourceIdsList?: string[] | undefined;
 
   /**
    * <p>The source type for the event notification subscription.</p>
    * @public
    */
-  SourceType?: string;
+  SourceType?: string | undefined;
 
   /**
    * <p>The status of the event notification subscription.</p>
@@ -7488,7 +7492,7 @@ export interface AwsRdsEventSubscriptionDetails {
    *          </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The datetime when the event notification subscription was created.</p>
@@ -7519,7 +7523,7 @@ export interface AwsRdsEventSubscriptionDetails {
    *          </ul>
    * @public
    */
-  SubscriptionCreationTime?: string;
+  SubscriptionCreationTime?: string | undefined;
 }
 
 /**
@@ -7531,19 +7535,19 @@ export interface AwsRedshiftClusterClusterNode {
    * <p>The role of the node. A node might be a leader node or a compute node.</p>
    * @public
    */
-  NodeRole?: string;
+  NodeRole?: string | undefined;
 
   /**
    * <p>The private IP address of the node.</p>
    * @public
    */
-  PrivateIpAddress?: string;
+  PrivateIpAddress?: string | undefined;
 
   /**
    * <p>The public IP address of the node.</p>
    * @public
    */
-  PublicIpAddress?: string;
+  PublicIpAddress?: string | undefined;
 }
 
 /**
@@ -7556,7 +7560,7 @@ export interface AwsRedshiftClusterClusterParameterStatus {
    * <p>The name of the parameter.</p>
    * @public
    */
-  ParameterName?: string;
+  ParameterName?: string | undefined;
 
   /**
    * <p>The status of the parameter. Indicates whether the parameter is in sync with the
@@ -7567,13 +7571,13 @@ export interface AwsRedshiftClusterClusterParameterStatus {
    *          </p>
    * @public
    */
-  ParameterApplyStatus?: string;
+  ParameterApplyStatus?: string | undefined;
 
   /**
    * <p>The error that prevented the parameter from being applied to the database.</p>
    * @public
    */
-  ParameterApplyErrorDescription?: string;
+  ParameterApplyErrorDescription?: string | undefined;
 }
 
 /**
@@ -7585,19 +7589,19 @@ export interface AwsRedshiftClusterClusterParameterGroup {
    * <p>The list of parameter statuses.</p>
    * @public
    */
-  ClusterParameterStatusList?: AwsRedshiftClusterClusterParameterStatus[];
+  ClusterParameterStatusList?: AwsRedshiftClusterClusterParameterStatus[] | undefined;
 
   /**
    * <p>The status of updates to the parameters.</p>
    * @public
    */
-  ParameterApplyStatus?: string;
+  ParameterApplyStatus?: string | undefined;
 
   /**
    * <p>The name of the parameter group.</p>
    * @public
    */
-  ParameterGroupName?: string;
+  ParameterGroupName?: string | undefined;
 }
 
 /**
@@ -7609,13 +7613,13 @@ export interface AwsRedshiftClusterClusterSecurityGroup {
    * <p>The name of the cluster security group.</p>
    * @public
    */
-  ClusterSecurityGroupName?: string;
+  ClusterSecurityGroupName?: string | undefined;
 
   /**
    * <p>The status of the cluster security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -7629,7 +7633,7 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
    *          snapshot copy is enabled.</p>
    * @public
    */
-  DestinationRegion?: string;
+  DestinationRegion?: string | undefined;
 
   /**
    * <p>The number of days that manual snapshots are retained in the destination Region after
@@ -7640,20 +7644,20 @@ export interface AwsRedshiftClusterClusterSnapshotCopyStatus {
    *          or an integer between 1 and 3,653</p>
    * @public
    */
-  ManualSnapshotRetentionPeriod?: number;
+  ManualSnapshotRetentionPeriod?: number | undefined;
 
   /**
    * <p>The number of days to retain automated snapshots in the destination Region after they
    *          are copied from a source Region.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>The name of the snapshot copy grant.</p>
    * @public
    */
-  SnapshotCopyGrantName?: string;
+  SnapshotCopyGrantName?: string | undefined;
 }
 
 /**
@@ -7691,13 +7695,13 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
    *          </ul>
    * @public
    */
-  DeferMaintenanceEndTime?: string;
+  DeferMaintenanceEndTime?: string | undefined;
 
   /**
    * <p>The identifier of the maintenance window.</p>
    * @public
    */
-  DeferMaintenanceIdentifier?: string;
+  DeferMaintenanceIdentifier?: string | undefined;
 
   /**
    * <p>The start of the time window for which maintenance was deferred.</p>
@@ -7728,7 +7732,7 @@ export interface AwsRedshiftClusterDeferredMaintenanceWindow {
    *          </ul>
    * @public
    */
-  DeferMaintenanceStartTime?: string;
+  DeferMaintenanceStartTime?: string | undefined;
 }
 
 /**
@@ -7740,13 +7744,13 @@ export interface AwsRedshiftClusterElasticIpStatus {
    * <p>The elastic IP address for the cluster.</p>
    * @public
    */
-  ElasticIp?: string;
+  ElasticIp?: string | undefined;
 
   /**
    * <p>The status of the elastic IP address.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -7758,13 +7762,13 @@ export interface AwsRedshiftClusterEndpoint {
    * <p>The DNS address of the cluster.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The port that the database engine listens on.</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 }
 
 /**
@@ -7779,14 +7783,14 @@ export interface AwsRedshiftClusterHsmStatus {
    *          the data encryption keys that are stored in an HSM.</p>
    * @public
    */
-  HsmClientCertificateIdentifier?: string;
+  HsmClientCertificateIdentifier?: string | undefined;
 
   /**
    * <p>The name of the HSM configuration that contains the information that the Amazon Redshift
    *          cluster can use to retrieve and store keys in an HSM.</p>
    * @public
    */
-  HsmConfigurationIdentifier?: string;
+  HsmConfigurationIdentifier?: string | undefined;
 
   /**
    * <p>Indicates whether the Amazon Redshift cluster has finished applying any HSM settings
@@ -7796,7 +7800,7 @@ export interface AwsRedshiftClusterHsmStatus {
    *          </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -7810,13 +7814,13 @@ export interface AwsRedshiftClusterIamRole {
    *          </p>
    * @public
    */
-  ApplyStatus?: string;
+  ApplyStatus?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role.</p>
    * @public
    */
-  IamRoleArn?: string;
+  IamRoleArn?: string | undefined;
 }
 
 /**
@@ -7828,13 +7832,13 @@ export interface AwsRedshiftClusterLoggingStatus {
    * <p>The name of the S3 bucket where the log files are stored.</p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p>The message indicating that the logs failed to be delivered.</p>
    * @public
    */
-  LastFailureMessage?: string;
+  LastFailureMessage?: string | undefined;
 
   /**
    * <p>The last time when logs failed to be delivered.</p>
@@ -7865,7 +7869,7 @@ export interface AwsRedshiftClusterLoggingStatus {
    *          </ul>
    * @public
    */
-  LastFailureTime?: string;
+  LastFailureTime?: string | undefined;
 
   /**
    * <p>The last time that logs were delivered successfully.</p>
@@ -7896,19 +7900,19 @@ export interface AwsRedshiftClusterLoggingStatus {
    *          </ul>
    * @public
    */
-  LastSuccessfulDeliveryTime?: string;
+  LastSuccessfulDeliveryTime?: string | undefined;
 
   /**
    * <p>Indicates whether logging is enabled.</p>
    * @public
    */
-  LoggingEnabled?: boolean;
+  LoggingEnabled?: boolean | undefined;
 
   /**
    * <p>Provides the prefix applied to the log file names.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 }
 
 /**
@@ -7920,69 +7924,69 @@ export interface AwsRedshiftClusterPendingModifiedValues {
    * <p>The pending or in-progress change to the automated snapshot retention period.</p>
    * @public
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  AutomatedSnapshotRetentionPeriod?: number | undefined;
 
   /**
    * <p>The pending or in-progress change to the identifier for the cluster.</p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The pending or in-progress change to the cluster type.</p>
    * @public
    */
-  ClusterType?: string;
+  ClusterType?: string | undefined;
 
   /**
    * <p>The pending or in-progress change to the service version.</p>
    * @public
    */
-  ClusterVersion?: string;
+  ClusterVersion?: string | undefined;
 
   /**
    * <p>The encryption type for a cluster.</p>
    * @public
    */
-  EncryptionType?: string;
+  EncryptionType?: string | undefined;
 
   /**
    * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
    * @public
    */
-  EnhancedVpcRouting?: boolean;
+  EnhancedVpcRouting?: boolean | undefined;
 
   /**
    * <p>The name of the maintenance track that the cluster changes to during the next
    *          maintenance window.</p>
    * @public
    */
-  MaintenanceTrackName?: string;
+  MaintenanceTrackName?: string | undefined;
 
   /**
    * <p>The pending or in-progress change to the master user password for the cluster.</p>
    * @public
    */
-  MasterUserPassword?: string;
+  MasterUserPassword?: string | undefined;
 
   /**
    * <p>The pending or in-progress change to the cluster's node type.</p>
    * @public
    */
-  NodeType?: string;
+  NodeType?: string | undefined;
 
   /**
    * <p>The pending or in-progress change to the number of nodes in the cluster.</p>
    * @public
    */
-  NumberOfNodes?: number;
+  NumberOfNodes?: number | undefined;
 
   /**
    * <p>The pending or in-progress change to whether the cluster can be connected to from the
    *          public network.</p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 }
 
 /**
@@ -7994,7 +7998,7 @@ export interface AwsRedshiftClusterResizeInfo {
    * <p>Indicates whether the resize operation can be canceled.</p>
    * @public
    */
-  AllowCancelResize?: boolean;
+  AllowCancelResize?: boolean | undefined;
 
   /**
    * <p>The type of resize operation.</p>
@@ -8002,7 +8006,7 @@ export interface AwsRedshiftClusterResizeInfo {
    *          </p>
    * @public
    */
-  ResizeType?: string;
+  ResizeType?: string | undefined;
 }
 
 /**
@@ -8017,7 +8021,7 @@ export interface AwsRedshiftClusterRestoreStatus {
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
    * @public
    */
-  CurrentRestoreRateInMegaBytesPerSecond?: number;
+  CurrentRestoreRateInMegaBytesPerSecond?: number | undefined;
 
   /**
    * <p>The amount of time an in-progress restore has been running, or the amount of time it
@@ -8025,7 +8029,7 @@ export interface AwsRedshiftClusterRestoreStatus {
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
    * @public
    */
-  ElapsedTimeInSeconds?: number;
+  ElapsedTimeInSeconds?: number | undefined;
 
   /**
    * <p>The estimate of the time remaining before the restore is complete. Returns 0 for a
@@ -8033,21 +8037,21 @@ export interface AwsRedshiftClusterRestoreStatus {
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
    * @public
    */
-  EstimatedTimeToCompletionInSeconds?: number;
+  EstimatedTimeToCompletionInSeconds?: number | undefined;
 
   /**
    * <p>The number of megabytes that were transferred from snapshot storage.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
    * @public
    */
-  ProgressInMegaBytes?: number;
+  ProgressInMegaBytes?: number | undefined;
 
   /**
    * <p>The size of the set of snapshot data that was used to restore the cluster.</p>
    *          <p>This field is only updated when you restore to DC2 and DS2 node types.</p>
    * @public
    */
-  SnapshotSizeInMegaBytes?: number;
+  SnapshotSizeInMegaBytes?: number | undefined;
 
   /**
    * <p>The status of the restore action.</p>
@@ -8056,7 +8060,7 @@ export interface AwsRedshiftClusterRestoreStatus {
    *          </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -8068,13 +8072,13 @@ export interface AwsRedshiftClusterVpcSecurityGroup {
    * <p>The status of the VPC security group.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The identifier of the VPC security group.</p>
    * @public
    */
-  VpcSecurityGroupId?: string;
+  VpcSecurityGroupId?: string | undefined;
 }
 
 /**
@@ -8087,19 +8091,19 @@ export interface AwsRedshiftClusterDetails {
    *          the maintenance window.</p>
    * @public
    */
-  AllowVersionUpgrade?: boolean;
+  AllowVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>The number of days that automatic cluster snapshots are retained.</p>
    * @public
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  AutomatedSnapshotRetentionPeriod?: number | undefined;
 
   /**
    * <p>The name of the Availability Zone in which the cluster is located.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The availability status of the cluster for queries. Possible values are the
@@ -8130,7 +8134,7 @@ export interface AwsRedshiftClusterDetails {
    *          </ul>
    * @public
    */
-  ClusterAvailabilityStatus?: string;
+  ClusterAvailabilityStatus?: string | undefined;
 
   /**
    * <p>Indicates when the cluster was created.</p>
@@ -8161,50 +8165,50 @@ export interface AwsRedshiftClusterDetails {
    *          </ul>
    * @public
    */
-  ClusterCreateTime?: string;
+  ClusterCreateTime?: string | undefined;
 
   /**
    * <p>The unique identifier of the cluster.</p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The nodes in the cluster.</p>
    * @public
    */
-  ClusterNodes?: AwsRedshiftClusterClusterNode[];
+  ClusterNodes?: AwsRedshiftClusterClusterNode[] | undefined;
 
   /**
    * <p>The list of cluster parameter groups that are associated with this cluster.</p>
    * @public
    */
-  ClusterParameterGroups?: AwsRedshiftClusterClusterParameterGroup[];
+  ClusterParameterGroups?: AwsRedshiftClusterClusterParameterGroup[] | undefined;
 
   /**
    * <p>The public key for the cluster.</p>
    * @public
    */
-  ClusterPublicKey?: string;
+  ClusterPublicKey?: string | undefined;
 
   /**
    * <p>The specific revision number of the database in the cluster.</p>
    * @public
    */
-  ClusterRevisionNumber?: string;
+  ClusterRevisionNumber?: string | undefined;
 
   /**
    * <p>A list of cluster security groups that are associated with the cluster.</p>
    * @public
    */
-  ClusterSecurityGroups?: AwsRedshiftClusterClusterSecurityGroup[];
+  ClusterSecurityGroups?: AwsRedshiftClusterClusterSecurityGroup[] | undefined;
 
   /**
    * <p>Information about the destination Region and retention period for the cross-Region
    *          snapshot copy.</p>
    * @public
    */
-  ClusterSnapshotCopyStatus?: AwsRedshiftClusterClusterSnapshotCopyStatus;
+  ClusterSnapshotCopyStatus?: AwsRedshiftClusterClusterSnapshotCopyStatus | undefined;
 
   /**
    * <p>The current status of the cluster.</p>
@@ -8220,20 +8224,20 @@ export interface AwsRedshiftClusterDetails {
    *          </p>
    * @public
    */
-  ClusterStatus?: string;
+  ClusterStatus?: string | undefined;
 
   /**
    * <p>The name of the subnet group that is associated with the cluster. This parameter is
    *          valid only when the cluster is in a VPC.</p>
    * @public
    */
-  ClusterSubnetGroupName?: string;
+  ClusterSubnetGroupName?: string | undefined;
 
   /**
    * <p>The version ID of the Amazon Redshift engine that runs on the cluster.</p>
    * @public
    */
-  ClusterVersion?: string;
+  ClusterVersion?: string | undefined;
 
   /**
    * <p>The name of the initial database that was created when the cluster was created.</p>
@@ -8242,44 +8246,44 @@ export interface AwsRedshiftClusterDetails {
    *          by default.</p>
    * @public
    */
-  DBName?: string;
+  DBName?: string | undefined;
 
   /**
    * <p>List of time windows during which maintenance was deferred.</p>
    * @public
    */
-  DeferredMaintenanceWindows?: AwsRedshiftClusterDeferredMaintenanceWindow[];
+  DeferredMaintenanceWindows?: AwsRedshiftClusterDeferredMaintenanceWindow[] | undefined;
 
   /**
    * <p>Information about the status of the Elastic IP (EIP) address.</p>
    * @public
    */
-  ElasticIpStatus?: AwsRedshiftClusterElasticIpStatus;
+  ElasticIpStatus?: AwsRedshiftClusterElasticIpStatus | undefined;
 
   /**
    * <p>The number of nodes that you can use the elastic resize method to resize the cluster
    *          to.</p>
    * @public
    */
-  ElasticResizeNumberOfNodeOptions?: string;
+  ElasticResizeNumberOfNodeOptions?: string | undefined;
 
   /**
    * <p>Indicates whether the data in the cluster is encrypted at rest.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The connection endpoint.</p>
    * @public
    */
-  Endpoint?: AwsRedshiftClusterEndpoint;
+  Endpoint?: AwsRedshiftClusterEndpoint | undefined;
 
   /**
    * <p>Indicates whether to create the cluster with enhanced VPC routing enabled.</p>
    * @public
    */
-  EnhancedVpcRouting?: boolean;
+  EnhancedVpcRouting?: boolean | undefined;
 
   /**
    * <p>Indicates when the next snapshot is expected to be taken. The cluster must have a valid
@@ -8311,7 +8315,7 @@ export interface AwsRedshiftClusterDetails {
    *          </ul>
    * @public
    */
-  ExpectedNextSnapshotScheduleTime?: string;
+  ExpectedNextSnapshotScheduleTime?: string | undefined;
 
   /**
    * <p>The status of the next expected snapshot.</p>
@@ -8319,7 +8323,7 @@ export interface AwsRedshiftClusterDetails {
    *          </p>
    * @public
    */
-  ExpectedNextSnapshotScheduleTimeStatus?: string;
+  ExpectedNextSnapshotScheduleTimeStatus?: string | undefined;
 
   /**
    * <p>Information about whether the Amazon Redshift cluster finished applying any changes to
@@ -8327,26 +8331,26 @@ export interface AwsRedshiftClusterDetails {
    *          command.</p>
    * @public
    */
-  HsmStatus?: AwsRedshiftClusterHsmStatus;
+  HsmStatus?: AwsRedshiftClusterHsmStatus | undefined;
 
   /**
    * <p>A list of IAM roles that the cluster can use to access other Amazon Web Services services.</p>
    * @public
    */
-  IamRoles?: AwsRedshiftClusterIamRole[];
+  IamRoles?: AwsRedshiftClusterIamRole[] | undefined;
 
   /**
    * <p>The identifier of the KMS encryption key that is used to encrypt data in the
    *          cluster.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The name of the maintenance track for the cluster.</p>
    * @public
    */
-  MaintenanceTrackName?: string;
+  MaintenanceTrackName?: string | undefined;
 
   /**
    * <p>The default number of days to retain a manual snapshot.</p>
@@ -8355,14 +8359,14 @@ export interface AwsRedshiftClusterDetails {
    *          <p>Valid values: Either <code>-1</code> or an integer between 1 and 3,653</p>
    * @public
    */
-  ManualSnapshotRetentionPeriod?: number;
+  ManualSnapshotRetentionPeriod?: number | undefined;
 
   /**
    * <p>The master user name for the cluster. This name is used to connect to the database that
    *          is specified in as the value of <code>DBName</code>.</p>
    * @public
    */
-  MasterUsername?: string;
+  MasterUsername?: string | undefined;
 
   /**
    * <p>Indicates the start of the next maintenance window.</p>
@@ -8393,31 +8397,31 @@ export interface AwsRedshiftClusterDetails {
    *          </ul>
    * @public
    */
-  NextMaintenanceWindowStartTime?: string;
+  NextMaintenanceWindowStartTime?: string | undefined;
 
   /**
    * <p>The node type for the nodes in the cluster.</p>
    * @public
    */
-  NodeType?: string;
+  NodeType?: string | undefined;
 
   /**
    * <p>The number of compute nodes in the cluster.</p>
    * @public
    */
-  NumberOfNodes?: number;
+  NumberOfNodes?: number | undefined;
 
   /**
    * <p>A list of cluster operations that are waiting to start.</p>
    * @public
    */
-  PendingActions?: string[];
+  PendingActions?: string[] | undefined;
 
   /**
    * <p>A list of changes to the cluster that are currently pending.</p>
    * @public
    */
-  PendingModifiedValues?: AwsRedshiftClusterPendingModifiedValues;
+  PendingModifiedValues?: AwsRedshiftClusterPendingModifiedValues | undefined;
 
   /**
    * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
@@ -8433,32 +8437,32 @@ export interface AwsRedshiftClusterDetails {
    *          </p>
    * @public
    */
-  PreferredMaintenanceWindow?: string;
+  PreferredMaintenanceWindow?: string | undefined;
 
   /**
    * <p>Whether the cluster can be accessed from a public network.</p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>Information about the resize operation for the cluster.</p>
    * @public
    */
-  ResizeInfo?: AwsRedshiftClusterResizeInfo;
+  ResizeInfo?: AwsRedshiftClusterResizeInfo | undefined;
 
   /**
    * <p>Information about the status of a cluster restore action. Only applies to a cluster that
    *          was created by restoring a snapshot.</p>
    * @public
    */
-  RestoreStatus?: AwsRedshiftClusterRestoreStatus;
+  RestoreStatus?: AwsRedshiftClusterRestoreStatus | undefined;
 
   /**
    * <p>A unique identifier for the cluster snapshot schedule.</p>
    * @public
    */
-  SnapshotScheduleIdentifier?: string;
+  SnapshotScheduleIdentifier?: string | undefined;
 
   /**
    * <p>The current state of the cluster snapshot schedule.</p>
@@ -8466,26 +8470,26 @@ export interface AwsRedshiftClusterDetails {
    *          </p>
    * @public
    */
-  SnapshotScheduleState?: string;
+  SnapshotScheduleState?: string | undefined;
 
   /**
    * <p>The identifier of the VPC that the cluster is in, if the cluster is in a VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The list of VPC security groups that the cluster belongs to, if the cluster is in a
    *          VPC.</p>
    * @public
    */
-  VpcSecurityGroups?: AwsRedshiftClusterVpcSecurityGroup[];
+  VpcSecurityGroups?: AwsRedshiftClusterVpcSecurityGroup[] | undefined;
 
   /**
    * <p>Information about the logging status of the cluster.</p>
    * @public
    */
-  LoggingStatus?: AwsRedshiftClusterLoggingStatus;
+  LoggingStatus?: AwsRedshiftClusterLoggingStatus | undefined;
 }
 
 /**
@@ -8499,7 +8503,7 @@ export interface AwsRoute53HostedZoneConfigDetails {
    *         </p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 }
 
 /**
@@ -8513,21 +8517,21 @@ export interface AwsRoute53HostedZoneObjectDetails {
    *             The ID that Route 53 assigns to the hosted zone when you create it. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
    *             The name of the domain. For public hosted zones, this is the name that you have registered with your DNS registrar.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
    *             An object that includes the <code>Comment</code> element.</p>
    * @public
    */
-  Config?: AwsRoute53HostedZoneConfigDetails;
+  Config?: AwsRoute53HostedZoneConfigDetails | undefined;
 }
 
 /**
@@ -8542,14 +8546,14 @@ export interface CloudWatchLogsLogGroupArnConfigDetails {
    *             The ARN of the CloudWatch Logs log group that Route 53 is publishing logs to.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>
    *             The ID of the hosted zone that CloudWatch Logs is logging queries for. </p>
    * @public
    */
-  HostedZoneId?: string;
+  HostedZoneId?: string | undefined;
 
   /**
    * <p>
@@ -8557,7 +8561,7 @@ export interface CloudWatchLogsLogGroupArnConfigDetails {
    *         </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -8571,7 +8575,7 @@ export interface AwsRoute53QueryLoggingConfigDetails {
    *             The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log group that Route 53 is publishing logs to.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: CloudWatchLogsLogGroupArnConfigDetails;
+  CloudWatchLogsLogGroupArn?: CloudWatchLogsLogGroupArnConfigDetails | undefined;
 }
 
 /**
@@ -8586,14 +8590,14 @@ export interface AwsRoute53HostedZoneVpcDetails {
    *         </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
    *             The Amazon Web Services Region that an Amazon VPC was created in.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -8609,7 +8613,7 @@ export interface AwsRoute53HostedZoneDetails {
    *             An object that contains information about the specified hosted zone.</p>
    * @public
    */
-  HostedZone?: AwsRoute53HostedZoneObjectDetails;
+  HostedZone?: AwsRoute53HostedZoneObjectDetails | undefined;
 
   /**
    * <p>
@@ -8617,14 +8621,14 @@ export interface AwsRoute53HostedZoneDetails {
    * the specified hosted zone.</p>
    * @public
    */
-  Vpcs?: AwsRoute53HostedZoneVpcDetails[];
+  Vpcs?: AwsRoute53HostedZoneVpcDetails[] | undefined;
 
   /**
    * <p>
    *             An object that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.</p>
    * @public
    */
-  NameServers?: string[];
+  NameServers?: string[] | undefined;
 
   /**
    * <p>
@@ -8632,7 +8636,7 @@ export interface AwsRoute53HostedZoneDetails {
    * associated with the current Amazon Web Services account.</p>
    * @public
    */
-  QueryLoggingConfig?: AwsRoute53QueryLoggingConfigDetails;
+  QueryLoggingConfig?: AwsRoute53QueryLoggingConfigDetails | undefined;
 }
 
 /**
@@ -8644,25 +8648,25 @@ export interface AwsS3AccountPublicAccessBlockDetails {
    * <p>Indicates whether to reject calls to update an S3 bucket if the calls include a public access control list (ACL).</p>
    * @public
    */
-  BlockPublicAcls?: boolean;
+  BlockPublicAcls?: boolean | undefined;
 
   /**
    * <p>Indicates whether to reject calls to update the access policy for an S3 bucket or access point if the policy allows public access.</p>
    * @public
    */
-  BlockPublicPolicy?: boolean;
+  BlockPublicPolicy?: boolean | undefined;
 
   /**
    * <p>Indicates whether Amazon S3 ignores public ACLs that are associated with an S3 bucket.</p>
    * @public
    */
-  IgnorePublicAcls?: boolean;
+  IgnorePublicAcls?: boolean | undefined;
 
   /**
    * <p>Indicates whether to restrict access to an access point or S3 bucket that has a public policy to only Amazon Web Services service principals and authorized users within the S3 bucket owner's account.</p>
    * @public
    */
-  RestrictPublicBuckets?: boolean;
+  RestrictPublicBuckets?: boolean | undefined;
 }
 
 /**
@@ -8678,7 +8682,7 @@ export interface AwsS3AccessPointVpcConfigurationDetails {
    *         </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -8695,7 +8699,7 @@ export interface AwsS3AccessPointDetails {
    *         </p>
    * @public
    */
-  AccessPointArn?: string;
+  AccessPointArn?: string | undefined;
 
   /**
    * <p>
@@ -8703,7 +8707,7 @@ export interface AwsS3AccessPointDetails {
    *         </p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 
   /**
    * <p>
@@ -8711,7 +8715,7 @@ export interface AwsS3AccessPointDetails {
    *         </p>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>
@@ -8719,7 +8723,7 @@ export interface AwsS3AccessPointDetails {
    *         </p>
    * @public
    */
-  BucketAccountId?: string;
+  BucketAccountId?: string | undefined;
 
   /**
    * <p>
@@ -8727,7 +8731,7 @@ export interface AwsS3AccessPointDetails {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -8735,13 +8739,13 @@ export interface AwsS3AccessPointDetails {
    *         </p>
    * @public
    */
-  NetworkOrigin?: string;
+  NetworkOrigin?: string | undefined;
 
   /**
    * <p>provides information about the Amazon S3 Public Access Block configuration for accounts.</p>
    * @public
    */
-  PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
+  PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails | undefined;
 
   /**
    * <p>
@@ -8749,7 +8753,7 @@ export interface AwsS3AccessPointDetails {
    *         </p>
    * @public
    */
-  VpcConfiguration?: AwsS3AccessPointVpcConfigurationDetails;
+  VpcConfiguration?: AwsS3AccessPointVpcConfigurationDetails | undefined;
 }
 
 /**
@@ -8762,7 +8766,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMult
    * <p>The number of days after which Amazon S3 cancels an incomplete multipart upload.</p>
    * @public
    */
-  DaysAfterInitiation?: number;
+  DaysAfterInitiation?: number | undefined;
 }
 
 /**
@@ -8774,13 +8778,13 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
    * <p>The tag key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The tag value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -8792,20 +8796,20 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOper
    * <p>Prefix text for matching objects.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>A tag that is assigned to matching objects.</p>
    * @public
    */
-  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails;
+  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails | undefined;
 
   /**
    * <p>The type of filter value.
    * Valid values are <code>LifecyclePrefixPredicate</code> or <code>LifecycleTagPredicate</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -8817,13 +8821,13 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagD
    * <p>The tag key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The tag value</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -8835,26 +8839,26 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDeta
    * <p>The values to use for the filter.</p>
    * @public
    */
-  Operands?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails[];
+  Operands?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails[] | undefined;
 
   /**
    * <p>A prefix filter.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>A tag filter.</p>
    * @public
    */
-  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails;
+  Tag?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails | undefined;
 
   /**
    * <p>Whether to use <code>AND</code> or <code>OR</code> to join the operands.
    * Valid values are <code>LifecycleAndOperator</code> or <code>LifecycleOrOperator</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -8866,7 +8870,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails {
    * <p>The configuration for the filter.</p>
    * @public
    */
-  Predicate?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails;
+  Predicate?: AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails | undefined;
 }
 
 /**
@@ -8878,13 +8882,13 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTr
    * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
    * @public
    */
-  Days?: number;
+  Days?: number | undefined;
 
   /**
    * <p>The class of storage to change the object to after the object is noncurrent for the specified number of days.</p>
    * @public
    */
-  StorageClass?: string;
+  StorageClass?: string | undefined;
 }
 
 /**
@@ -8921,13 +8925,13 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails 
    *          </ul>
    * @public
    */
-  Date?: string;
+  Date?: string | undefined;
 
   /**
    * <p>The number of days after which to transition the object to the specified storage class. If you provide <code>Days</code>, you cannot provide <code>Date</code>.</p>
    * @public
    */
-  Days?: number;
+  Days?: number | undefined;
 
   /**
    * <p>The storage class to transition the object to. Valid values are as follows:</p>
@@ -8960,7 +8964,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails 
    *          </ul>
    * @public
    */
-  StorageClass?: string;
+  StorageClass?: string | undefined;
 }
 
 /**
@@ -8973,7 +8977,9 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
    *          of days before Amazon S3 cancels the entire upload.</p>
    * @public
    */
-  AbortIncompleteMultipartUpload?: AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails;
+  AbortIncompleteMultipartUpload?:
+    | AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails
+    | undefined;
 
   /**
    * <p>The date when objects are moved or deleted.</p>
@@ -9004,13 +9010,13 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
    *          </ul>
    * @public
    */
-  ExpirationDate?: string;
+  ExpirationDate?: string | undefined;
 
   /**
    * <p>The length in days of the lifetime for objects that are subject to the rule.</p>
    * @public
    */
-  ExpirationInDays?: number;
+  ExpirationInDays?: number | undefined;
 
   /**
    * <p>Whether Amazon S3 removes a delete marker that has no noncurrent versions. If set to
@@ -9020,49 +9026,51 @@ export interface AwsS3BucketBucketLifecycleConfigurationRulesDetails {
    *          <code>ExpirationInDays</code> or <code>ExpirationDate</code>.</p>
    * @public
    */
-  ExpiredObjectDeleteMarker?: boolean;
+  ExpiredObjectDeleteMarker?: boolean | undefined;
 
   /**
    * <p>Identifies the objects that a rule applies to.</p>
    * @public
    */
-  Filter?: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails;
+  Filter?: AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails | undefined;
 
   /**
    * <p>The unique identifier of the rule.</p>
    * @public
    */
-  ID?: string;
+  ID?: string | undefined;
 
   /**
    * <p>The number of days that an object is noncurrent before Amazon S3 can perform the associated action.</p>
    * @public
    */
-  NoncurrentVersionExpirationInDays?: number;
+  NoncurrentVersionExpirationInDays?: number | undefined;
 
   /**
    * <p>Transition rules that describe when noncurrent objects transition to a specified storage class.</p>
    * @public
    */
-  NoncurrentVersionTransitions?: AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails[];
+  NoncurrentVersionTransitions?:
+    | AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails[]
+    | undefined;
 
   /**
    * <p>A prefix that identifies one or more objects that the rule applies to.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>The current status of the rule. Indicates whether the rule is currently being applied.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Transition rules that indicate when objects transition to a specified storage class.</p>
    * @public
    */
-  Transitions?: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails[];
+  Transitions?: AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails[] | undefined;
 }
 
 /**
@@ -9074,7 +9082,7 @@ export interface AwsS3BucketBucketLifecycleConfigurationDetails {
    * <p>The lifecycle rules.</p>
    * @public
    */
-  Rules?: AwsS3BucketBucketLifecycleConfigurationRulesDetails[];
+  Rules?: AwsS3BucketBucketLifecycleConfigurationRulesDetails[] | undefined;
 }
 
 /**
@@ -9086,13 +9094,13 @@ export interface AwsS3BucketBucketVersioningConfiguration {
    * <p>Specifies whether MFA delete is currently enabled in the S3 bucket versioning configuration. If the S3 bucket was never configured with MFA delete, then this attribute is not included.</p>
    * @public
    */
-  IsMfaDeleteEnabled?: boolean;
+  IsMfaDeleteEnabled?: boolean | undefined;
 
   /**
    * <p>The versioning status of the S3 bucket. Valid values are <code>Enabled</code> or <code>Suspended</code>.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -9105,13 +9113,13 @@ export interface AwsS3BucketLoggingConfiguration {
    * <p>The name of the S3 bucket where log files for the S3 bucket are stored.</p>
    * @public
    */
-  DestinationBucketName?: string;
+  DestinationBucketName?: string | undefined;
 
   /**
    * <p>The prefix added to log files for the S3 bucket.</p>
    * @public
    */
-  LogFilePrefix?: string;
+  LogFilePrefix?: string | undefined;
 }
 
 /**
@@ -9138,13 +9146,13 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilterRule {
    * <p>Indicates whether the filter is based on the prefix or suffix of the Amazon S3 key.</p>
    * @public
    */
-  Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName;
+  Name?: AwsS3BucketNotificationConfigurationS3KeyFilterRuleName | undefined;
 
   /**
    * <p>The filter value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -9156,7 +9164,7 @@ export interface AwsS3BucketNotificationConfigurationS3KeyFilter {
    * <p>The filter rules for the filter.</p>
    * @public
    */
-  FilterRules?: AwsS3BucketNotificationConfigurationS3KeyFilterRule[];
+  FilterRules?: AwsS3BucketNotificationConfigurationS3KeyFilterRule[] | undefined;
 }
 
 /**
@@ -9169,7 +9177,7 @@ export interface AwsS3BucketNotificationConfigurationFilter {
    * <p>Details for an Amazon S3 filter.</p>
    * @public
    */
-  S3KeyFilter?: AwsS3BucketNotificationConfigurationS3KeyFilter;
+  S3KeyFilter?: AwsS3BucketNotificationConfigurationS3KeyFilter | undefined;
 }
 
 /**
@@ -9181,20 +9189,20 @@ export interface AwsS3BucketNotificationConfigurationDetail {
    * <p>The list of events that trigger a notification.</p>
    * @public
    */
-  Events?: string[];
+  Events?: string[] | undefined;
 
   /**
    * <p>The filters that determine which S3 buckets generate notifications.</p>
    * @public
    */
-  Filter?: AwsS3BucketNotificationConfigurationFilter;
+  Filter?: AwsS3BucketNotificationConfigurationFilter | undefined;
 
   /**
    * <p>The ARN of the Lambda function, Amazon SQS queue, or Amazon SNS topic that generates the
    *          notification.</p>
    * @public
    */
-  Destination?: string;
+  Destination?: string | undefined;
 
   /**
    * <p>Indicates the type of notification. Notifications can be generated using Lambda functions,
@@ -9218,7 +9226,7 @@ export interface AwsS3BucketNotificationConfigurationDetail {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -9231,7 +9239,7 @@ export interface AwsS3BucketNotificationConfiguration {
    * <p>Configurations for S3 bucket notifications.</p>
    * @public
    */
-  Configurations?: AwsS3BucketNotificationConfigurationDetail[];
+  Configurations?: AwsS3BucketNotificationConfigurationDetail[] | undefined;
 }
 
 /**
@@ -9244,14 +9252,14 @@ export interface AwsS3BucketWebsiteConfigurationRedirectTo {
    * <p>The name of the host to redirect requests to.</p>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>The protocol to use when redirecting requests. By default, this field uses the same protocol as the
    *          original request. Valid values are <code>http</code> or <code>https</code>.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 }
 
 /**
@@ -9263,13 +9271,13 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRuleCondition {
    * <p>Indicates to redirect the request if the HTTP error code matches this value.</p>
    * @public
    */
-  HttpErrorCodeReturnedEquals?: string;
+  HttpErrorCodeReturnedEquals?: string | undefined;
 
   /**
    * <p>Indicates to redirect the request if the key prefix matches this value.</p>
    * @public
    */
-  KeyPrefixEquals?: string;
+  KeyPrefixEquals?: string | undefined;
 }
 
 /**
@@ -9282,34 +9290,34 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRuleRedirect {
    * <p>The host name to use in the redirect request.</p>
    * @public
    */
-  Hostname?: string;
+  Hostname?: string | undefined;
 
   /**
    * <p>The HTTP redirect code to use in the response.</p>
    * @public
    */
-  HttpRedirectCode?: string;
+  HttpRedirectCode?: string | undefined;
 
   /**
    * <p>The protocol to use to redirect the request. By default, uses the protocol from the
    *          original request.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>The object key prefix to use in the redirect request.</p>
    *          <p>Cannot be provided if <code>ReplaceKeyWith</code> is present.</p>
    * @public
    */
-  ReplaceKeyPrefixWith?: string;
+  ReplaceKeyPrefixWith?: string | undefined;
 
   /**
    * <p>The specific object key to use in the redirect request.</p>
    *          <p>Cannot be provided if <code>ReplaceKeyPrefixWith</code> is present.</p>
    * @public
    */
-  ReplaceKeyWith?: string;
+  ReplaceKeyWith?: string | undefined;
 }
 
 /**
@@ -9322,14 +9330,14 @@ export interface AwsS3BucketWebsiteConfigurationRoutingRule {
    * <p>Provides the condition that must be met in order to apply the routing rule.</p>
    * @public
    */
-  Condition?: AwsS3BucketWebsiteConfigurationRoutingRuleCondition;
+  Condition?: AwsS3BucketWebsiteConfigurationRoutingRuleCondition | undefined;
 
   /**
    * <p>Provides the rules to redirect the request if the condition in <code>Condition</code> is
    *          met.</p>
    * @public
    */
-  Redirect?: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect;
+  Redirect?: AwsS3BucketWebsiteConfigurationRoutingRuleRedirect | undefined;
 }
 
 /**
@@ -9342,25 +9350,25 @@ export interface AwsS3BucketWebsiteConfiguration {
    * <p>The name of the error document for the website.</p>
    * @public
    */
-  ErrorDocument?: string;
+  ErrorDocument?: string | undefined;
 
   /**
    * <p>The name of the index document for the website.</p>
    * @public
    */
-  IndexDocumentSuffix?: string;
+  IndexDocumentSuffix?: string | undefined;
 
   /**
    * <p>The redirect behavior for requests to the website.</p>
    * @public
    */
-  RedirectAllRequestsTo?: AwsS3BucketWebsiteConfigurationRedirectTo;
+  RedirectAllRequestsTo?: AwsS3BucketWebsiteConfigurationRedirectTo | undefined;
 
   /**
    * <p>The rules for applying redirects for requests to the website.</p>
    * @public
    */
-  RoutingRules?: AwsS3BucketWebsiteConfigurationRoutingRule[];
+  RoutingRules?: AwsS3BucketWebsiteConfigurationRoutingRule[] | undefined;
 }
 
 /**
@@ -9376,7 +9384,7 @@ export interface AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails {
    *       </p>
    * @public
    */
-  Days?: number;
+  Days?: number | undefined;
 
   /**
    * <p>
@@ -9384,7 +9392,7 @@ export interface AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails {
    *       </p>
    * @public
    */
-  Mode?: string;
+  Mode?: string | undefined;
 
   /**
    * <p>
@@ -9392,7 +9400,7 @@ export interface AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails {
    *       </p>
    * @public
    */
-  Years?: number;
+  Years?: number | undefined;
 }
 
 /**
@@ -9408,7 +9416,7 @@ export interface AwsS3BucketObjectLockConfigurationRuleDetails {
    *       </p>
    * @public
    */
-  DefaultRetention?: AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails;
+  DefaultRetention?: AwsS3BucketObjectLockConfigurationRuleDefaultRetentionDetails | undefined;
 }
 
 /**
@@ -9424,7 +9432,7 @@ export interface AwsS3BucketObjectLockConfiguration {
    *       </p>
    * @public
    */
-  ObjectLockEnabled?: string;
+  ObjectLockEnabled?: string | undefined;
 
   /**
    * <p>
@@ -9432,7 +9440,7 @@ export interface AwsS3BucketObjectLockConfiguration {
    *       </p>
    * @public
    */
-  Rule?: AwsS3BucketObjectLockConfigurationRuleDetails;
+  Rule?: AwsS3BucketObjectLockConfigurationRuleDetails | undefined;
 }
 
 /**
@@ -9446,13 +9454,13 @@ export interface AwsS3BucketServerSideEncryptionByDefault {
    * <code>aws: kms</code> or <code>AES256</code>.</p>
    * @public
    */
-  SSEAlgorithm?: string;
+  SSEAlgorithm?: string | undefined;
 
   /**
    * <p>KMS key ID to use for the default encryption.</p>
    * @public
    */
-  KMSMasterKeyID?: string;
+  KMSMasterKeyID?: string | undefined;
 }
 
 /**
@@ -9466,7 +9474,7 @@ export interface AwsS3BucketServerSideEncryptionRule {
    *          encryption is applied.</p>
    * @public
    */
-  ApplyServerSideEncryptionByDefault?: AwsS3BucketServerSideEncryptionByDefault;
+  ApplyServerSideEncryptionByDefault?: AwsS3BucketServerSideEncryptionByDefault | undefined;
 }
 
 /**
@@ -9478,7 +9486,7 @@ export interface AwsS3BucketServerSideEncryptionConfiguration {
    * <p>The encryption rules that are applied to the S3 bucket.</p>
    * @public
    */
-  Rules?: AwsS3BucketServerSideEncryptionRule[];
+  Rules?: AwsS3BucketServerSideEncryptionRule[] | undefined;
 }
 
 /**
@@ -9490,19 +9498,19 @@ export interface AwsS3BucketDetails {
    * <p>The canonical user ID of the owner of the S3 bucket.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The display name of the owner of the S3 bucket.</p>
    * @public
    */
-  OwnerName?: string;
+  OwnerName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account identifier of the account that owns the S3 bucket.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>Indicates when the S3 bucket was created.</p>
@@ -9533,55 +9541,55 @@ export interface AwsS3BucketDetails {
    *          </ul>
    * @public
    */
-  CreatedAt?: string;
+  CreatedAt?: string | undefined;
 
   /**
    * <p>The encryption rules that are applied to the S3 bucket.</p>
    * @public
    */
-  ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration;
+  ServerSideEncryptionConfiguration?: AwsS3BucketServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>The lifecycle configuration for objects in the specified bucket.</p>
    * @public
    */
-  BucketLifecycleConfiguration?: AwsS3BucketBucketLifecycleConfigurationDetails;
+  BucketLifecycleConfiguration?: AwsS3BucketBucketLifecycleConfigurationDetails | undefined;
 
   /**
    * <p>Provides information about the Amazon S3 Public Access Block configuration for the S3 bucket.</p>
    * @public
    */
-  PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails;
+  PublicAccessBlockConfiguration?: AwsS3AccountPublicAccessBlockDetails | undefined;
 
   /**
    * <p>The access control list for the S3 bucket.</p>
    * @public
    */
-  AccessControlList?: string;
+  AccessControlList?: string | undefined;
 
   /**
    * <p>The logging configuration for the S3 bucket.</p>
    * @public
    */
-  BucketLoggingConfiguration?: AwsS3BucketLoggingConfiguration;
+  BucketLoggingConfiguration?: AwsS3BucketLoggingConfiguration | undefined;
 
   /**
    * <p>The website configuration parameters for the S3 bucket.</p>
    * @public
    */
-  BucketWebsiteConfiguration?: AwsS3BucketWebsiteConfiguration;
+  BucketWebsiteConfiguration?: AwsS3BucketWebsiteConfiguration | undefined;
 
   /**
    * <p>The notification configuration for the S3 bucket.</p>
    * @public
    */
-  BucketNotificationConfiguration?: AwsS3BucketNotificationConfiguration;
+  BucketNotificationConfiguration?: AwsS3BucketNotificationConfiguration | undefined;
 
   /**
    * <p>The versioning state of an S3 bucket.</p>
    * @public
    */
-  BucketVersioningConfiguration?: AwsS3BucketBucketVersioningConfiguration;
+  BucketVersioningConfiguration?: AwsS3BucketBucketVersioningConfiguration | undefined;
 
   /**
    * <p>
@@ -9589,7 +9597,7 @@ export interface AwsS3BucketDetails {
    *       </p>
    * @public
    */
-  ObjectLockConfiguration?: AwsS3BucketObjectLockConfiguration;
+  ObjectLockConfiguration?: AwsS3BucketObjectLockConfiguration | undefined;
 
   /**
    * <p>
@@ -9597,7 +9605,7 @@ export interface AwsS3BucketDetails {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -9634,39 +9642,39 @@ export interface AwsS3ObjectDetails {
    *          </ul>
    * @public
    */
-  LastModified?: string;
+  LastModified?: string | undefined;
 
   /**
    * <p>The opaque identifier assigned by a web server to a specific version of a resource found
    *          at a URL.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The version of the object.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>A standard MIME type describing the format of the object data.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>If the object is stored using server-side encryption, the value of the server-side
    *          encryption algorithm used when storing this object in Amazon S3.</p>
    * @public
    */
-  ServerSideEncryption?: string;
+  ServerSideEncryption?: string | undefined;
 
   /**
    * <p>The identifier of the KMS symmetric customer managed key that was used for the object.</p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 }
 
 /**
@@ -9682,7 +9690,7 @@ export interface AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
    *       </p>
    * @public
    */
-  MinimumInstanceMetadataServiceVersion?: string;
+  MinimumInstanceMetadataServiceVersion?: string | undefined;
 }
 
 /**
@@ -9698,7 +9706,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  AcceleratorTypes?: string[];
+  AcceleratorTypes?: string[] | undefined;
 
   /**
    * <p>
@@ -9707,7 +9715,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  AdditionalCodeRepositories?: string[];
+  AdditionalCodeRepositories?: string[] | undefined;
 
   /**
    * <p>
@@ -9716,7 +9724,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  DefaultCodeRepository?: string;
+  DefaultCodeRepository?: string | undefined;
 
   /**
    * <p>
@@ -9724,7 +9732,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  DirectInternetAccess?: string;
+  DirectInternetAccess?: string | undefined;
 
   /**
    * <p>
@@ -9732,7 +9740,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>
@@ -9740,7 +9748,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  InstanceMetadataServiceConfiguration?: AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails;
+  InstanceMetadataServiceConfiguration?: AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails | undefined;
 
   /**
    * <p>
@@ -9748,7 +9756,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>
@@ -9757,7 +9765,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>
@@ -9765,7 +9773,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>
@@ -9773,7 +9781,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  NotebookInstanceArn?: string;
+  NotebookInstanceArn?: string | undefined;
 
   /**
    * <p>
@@ -9781,7 +9789,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  NotebookInstanceLifecycleConfigName?: string;
+  NotebookInstanceLifecycleConfigName?: string | undefined;
 
   /**
    * <p>
@@ -9789,7 +9797,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  NotebookInstanceName?: string;
+  NotebookInstanceName?: string | undefined;
 
   /**
    * <p>
@@ -9797,7 +9805,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  NotebookInstanceStatus?: string;
+  NotebookInstanceStatus?: string | undefined;
 
   /**
    * <p>
@@ -9805,7 +9813,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  PlatformIdentifier?: string;
+  PlatformIdentifier?: string | undefined;
 
   /**
    * <p>
@@ -9813,7 +9821,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>
@@ -9821,7 +9829,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  RootAccess?: string;
+  RootAccess?: string | undefined;
 
   /**
    * <p>
@@ -9829,7 +9837,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>
@@ -9837,7 +9845,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>
@@ -9845,7 +9853,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>
@@ -9853,7 +9861,7 @@ export interface AwsSageMakerNotebookInstanceDetails {
    *       </p>
    * @public
    */
-  VolumeSizeInGB?: number;
+  VolumeSizeInGB?: number | undefined;
 }
 
 /**
@@ -9865,7 +9873,7 @@ export interface AwsSecretsManagerSecretRotationRules {
    * <p>The number of days after the previous rotation to rotate the secret.</p>
    * @public
    */
-  AutomaticallyAfterDays?: number;
+  AutomaticallyAfterDays?: number | undefined;
 }
 
 /**
@@ -9877,13 +9885,13 @@ export interface AwsSecretsManagerSecretDetails {
    * <p>Defines the rotation schedule for the secret.</p>
    * @public
    */
-  RotationRules?: AwsSecretsManagerSecretRotationRules;
+  RotationRules?: AwsSecretsManagerSecretRotationRules | undefined;
 
   /**
    * <p>Whether the rotation occurred within the specified rotation frequency.</p>
    * @public
    */
-  RotationOccurredWithinFrequency?: boolean;
+  RotationOccurredWithinFrequency?: boolean | undefined;
 
   /**
    * <p>The ARN, Key ID, or alias of the KMS key used to encrypt the
@@ -9891,37 +9899,37 @@ export interface AwsSecretsManagerSecretDetails {
    *          secret.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Whether rotation is enabled.</p>
    * @public
    */
-  RotationEnabled?: boolean;
+  RotationEnabled?: boolean | undefined;
 
   /**
    * <p>The ARN of the Lambda function that rotates the secret.</p>
    * @public
    */
-  RotationLambdaArn?: string;
+  RotationLambdaArn?: string | undefined;
 
   /**
    * <p>Whether the secret is deleted.</p>
    * @public
    */
-  Deleted?: boolean;
+  Deleted?: boolean | undefined;
 
   /**
    * <p>The name of the secret.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The user-provided description of the secret.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -9937,7 +9945,7 @@ export interface SecurityControlParameter {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -9945,7 +9953,7 @@ export interface SecurityControlParameter {
    *         </p>
    * @public
    */
-  Value?: string[];
+  Value?: string[] | undefined;
 }
 
 /**
@@ -9981,7 +9989,7 @@ export interface StatusReason {
    * <p>The corresponding description for the status reason code.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -10025,7 +10033,7 @@ export interface Compliance {
    *          </ul>
    * @public
    */
-  Status?: ComplianceStatus;
+  Status?: ComplianceStatus | undefined;
 
   /**
    * <p>Typically provides the industry or regulatory framework requirements that are related to a
@@ -10033,13 +10041,13 @@ export interface Compliance {
    *          <p>Array Members: Maximum number of 32 items.</p>
    * @public
    */
-  RelatedRequirements?: string[];
+  RelatedRequirements?: string[] | undefined;
 
   /**
    * <p>Typically used to provide a list of reasons for the value of <code>Status</code>.</p>
    * @public
    */
-  StatusReasons?: StatusReason[];
+  StatusReasons?: StatusReason[] | undefined;
 
   /**
    * <p>
@@ -10048,14 +10056,14 @@ export interface Compliance {
    *       </p>
    * @public
    */
-  SecurityControlId?: string;
+  SecurityControlId?: string | undefined;
 
   /**
    * <p>Typically provides an array of enabled security standards in which a security control is currently enabled.
    *       </p>
    * @public
    */
-  AssociatedStandards?: AssociatedStandard[];
+  AssociatedStandards?: AssociatedStandard[] | undefined;
 
   /**
    * <p>
@@ -10063,7 +10071,7 @@ export interface Compliance {
    *         </p>
    * @public
    */
-  SecurityControlParameters?: SecurityControlParameter[];
+  SecurityControlParameters?: SecurityControlParameter[] | undefined;
 }
 
 /**
@@ -10113,14 +10121,14 @@ export interface FindingProviderSeverity {
    * <p>The severity label assigned to the finding by the finding provider.</p>
    * @public
    */
-  Label?: SeverityLabel;
+  Label?: SeverityLabel | undefined;
 
   /**
    * <p>The finding provider's original value for the severity.</p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
-  Original?: string;
+  Original?: string | undefined;
 }
 
 /**
@@ -10179,7 +10187,7 @@ export interface FindingProviderFields {
    *          confidence and 100 means 100 percent confidence.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>The level of importance assigned to the resources associated with the finding.</p>
@@ -10187,19 +10195,19 @@ export interface FindingProviderFields {
    *          is reserved for the most critical resources.</p>
    * @public
    */
-  Criticality?: number;
+  Criticality?: number | undefined;
 
   /**
    * <p>A list of findings that are related to the current finding.</p>
    * @public
    */
-  RelatedFindings?: RelatedFinding[];
+  RelatedFindings?: RelatedFinding[] | undefined;
 
   /**
    * <p>The severity of a finding.</p>
    * @public
    */
-  Severity?: FindingProviderSeverity;
+  Severity?: FindingProviderSeverity | undefined;
 
   /**
    * <p>One or more finding types in the format of <code>namespace/category/classifier</code>
@@ -10208,7 +10216,7 @@ export interface FindingProviderFields {
    *          Behaviors | Sensitive Data Identifications</p>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 }
 
 /**
@@ -10227,7 +10235,7 @@ export interface GeneratorDetails {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -10235,7 +10243,7 @@ export interface GeneratorDetails {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -10244,7 +10252,7 @@ export interface GeneratorDetails {
    *          <p>Array Members: Minimum number of 0 items. Maximum number of 10 items.</p>
    * @public
    */
-  Labels?: string[];
+  Labels?: string[] | undefined;
 }
 
 /**
@@ -10305,20 +10313,20 @@ export interface Malware {
    * <p>The type of the malware that was observed.</p>
    * @public
    */
-  Type?: MalwareType;
+  Type?: MalwareType | undefined;
 
   /**
    * <p>The file system path of the malware that was observed.</p>
    *          <p>Length Constraints: Minimum of 1. Maximum of 512.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The state of the malware that was observed.</p>
    * @public
    */
-  State?: MalwareState;
+  State?: MalwareState | undefined;
 }
 
 /**
@@ -10344,13 +10352,13 @@ export interface PortRange {
    * <p>The first port in the port range.</p>
    * @public
    */
-  Begin?: number;
+  Begin?: number | undefined;
 
   /**
    * <p>The last port in the port range.</p>
    * @public
    */
-  End?: number;
+  End?: number | undefined;
 }
 
 /**
@@ -10362,77 +10370,77 @@ export interface Network {
    * <p>The direction of network traffic associated with a finding.</p>
    * @public
    */
-  Direction?: NetworkDirection;
+  Direction?: NetworkDirection | undefined;
 
   /**
    * <p>The protocol of network-related information about a finding.</p>
    *          <p>Length Constraints: Minimum of 1. Maximum of 16.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>The range of open ports that is present on the network.</p>
    * @public
    */
-  OpenPortRange?: PortRange;
+  OpenPortRange?: PortRange | undefined;
 
   /**
    * <p>The source IPv4 address of network-related information about a finding.</p>
    * @public
    */
-  SourceIpV4?: string;
+  SourceIpV4?: string | undefined;
 
   /**
    * <p>The source IPv6 address of network-related information about a finding.</p>
    * @public
    */
-  SourceIpV6?: string;
+  SourceIpV6?: string | undefined;
 
   /**
    * <p>The source port of network-related information about a finding.</p>
    * @public
    */
-  SourcePort?: number;
+  SourcePort?: number | undefined;
 
   /**
    * <p>The source domain of network-related information about a finding.</p>
    *          <p>Length Constraints: Minimum of 1. Maximum of 128.</p>
    * @public
    */
-  SourceDomain?: string;
+  SourceDomain?: string | undefined;
 
   /**
    * <p>The source media access control (MAC) address of network-related information about a
    *          finding.</p>
    * @public
    */
-  SourceMac?: string;
+  SourceMac?: string | undefined;
 
   /**
    * <p>The destination IPv4 address of network-related information about a finding.</p>
    * @public
    */
-  DestinationIpV4?: string;
+  DestinationIpV4?: string | undefined;
 
   /**
    * <p>The destination IPv6 address of network-related information about a finding.</p>
    * @public
    */
-  DestinationIpV6?: string;
+  DestinationIpV6?: string | undefined;
 
   /**
    * <p>The destination port of network-related information about a finding.</p>
    * @public
    */
-  DestinationPort?: number;
+  DestinationPort?: number | undefined;
 
   /**
    * <p>The destination domain of network-related information about a finding.</p>
    *          <p>Length Constraints: Minimum of 1. Maximum of 128.</p>
    * @public
    */
-  DestinationDomain?: string;
+  DestinationDomain?: string | undefined;
 }
 
 /**
@@ -10444,13 +10452,13 @@ export interface NetworkPathComponentDetails {
    * <p>The IP addresses of the destination.</p>
    * @public
    */
-  Address?: string[];
+  Address?: string[] | undefined;
 
   /**
    * <p>A list of port ranges for the destination.</p>
    * @public
    */
-  PortRanges?: PortRange[];
+  PortRanges?: PortRange[] | undefined;
 }
 
 /**
@@ -10464,19 +10472,19 @@ export interface NetworkHeader {
    *          <p>Length Constraints: Minimum of 1. Maximum of 16.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>Information about the destination of the component.</p>
    * @public
    */
-  Destination?: NetworkPathComponentDetails;
+  Destination?: NetworkPathComponentDetails | undefined;
 
   /**
    * <p>Information about the origin of the component.</p>
    * @public
    */
-  Source?: NetworkPathComponentDetails;
+  Source?: NetworkPathComponentDetails | undefined;
 }
 
 /**
@@ -10489,28 +10497,28 @@ export interface NetworkPathComponent {
    *          <p>Length Constraints: Minimum of 1. Maximum of 32.</p>
    * @public
    */
-  ComponentId?: string;
+  ComponentId?: string | undefined;
 
   /**
    * <p>The type of component.</p>
    *          <p>Length Constraints: Minimum of 1. Maximum of 32.</p>
    * @public
    */
-  ComponentType?: string;
+  ComponentType?: string | undefined;
 
   /**
    * <p>Information about the component that comes after the current component in the network
    *          path.</p>
    * @public
    */
-  Egress?: NetworkHeader;
+  Egress?: NetworkHeader | undefined;
 
   /**
    * <p>Information about the component that comes before the current node in the network
    *          path.</p>
    * @public
    */
-  Ingress?: NetworkHeader;
+  Ingress?: NetworkHeader | undefined;
 }
 
 /**
@@ -10583,7 +10591,7 @@ export interface PatchSummary {
    *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
-  InstalledCount?: number;
+  InstalledCount?: number | undefined;
 
   /**
    * <p>The number of patches that are part of the compliance standard but are not installed.
@@ -10591,21 +10599,21 @@ export interface PatchSummary {
    *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
-  MissingCount?: number;
+  MissingCount?: number | undefined;
 
   /**
    * <p>The number of patches from the compliance standard that failed to install.</p>
    *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
-  FailedCount?: number;
+  FailedCount?: number | undefined;
 
   /**
    * <p>The number of installed patches that are not part of the compliance standard.</p>
    *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
-  InstalledOtherCount?: number;
+  InstalledOtherCount?: number | undefined;
 
   /**
    * <p>The number of patches that are installed but are also on a list of patches that the
@@ -10613,7 +10621,7 @@ export interface PatchSummary {
    *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
-  InstalledRejectedCount?: number;
+  InstalledRejectedCount?: number | undefined;
 
   /**
    * <p>The number of patches that were applied, but that require the instance to be rebooted in
@@ -10621,7 +10629,7 @@ export interface PatchSummary {
    *          <p>The value can be an integer from <code>0</code> to <code>100000</code>.</p>
    * @public
    */
-  InstalledPendingReboot?: number;
+  InstalledPendingReboot?: number | undefined;
 
   /**
    * <p>Indicates when the operation started.</p>
@@ -10652,7 +10660,7 @@ export interface PatchSummary {
    *          </ul>
    * @public
    */
-  OperationStartTime?: string;
+  OperationStartTime?: string | undefined;
 
   /**
    * <p>Indicates when the operation completed.</p>
@@ -10683,14 +10691,14 @@ export interface PatchSummary {
    *          </ul>
    * @public
    */
-  OperationEndTime?: string;
+  OperationEndTime?: string | undefined;
 
   /**
    * <p>The reboot option specified for the instance.</p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
-  RebootOption?: string;
+  RebootOption?: string | undefined;
 
   /**
    * <p>The type of patch operation performed. For Patch Manager, the values are
@@ -10698,7 +10706,7 @@ export interface PatchSummary {
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
-  Operation?: string;
+  Operation?: string | undefined;
 }
 
 /**
@@ -10711,26 +10719,26 @@ export interface ProcessDetails {
    *          <p>Length Constraints: Minimum of 1. Maximum of 64.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The path to the process executable.</p>
    *          <p>Length Constraints: Minimum of 1. Maximum of 512.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The process ID.</p>
    * @public
    */
-  Pid?: number;
+  Pid?: number | undefined;
 
   /**
    * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
    * @public
    */
-  ParentPid?: number;
+  ParentPid?: number | undefined;
 
   /**
    * <p>Indicates when the process was launched.</p>
@@ -10761,7 +10769,7 @@ export interface ProcessDetails {
    *          </ul>
    * @public
    */
-  LaunchedAt?: string;
+  LaunchedAt?: string | undefined;
 
   /**
    * <p>Indicates when the process was terminated.</p>
@@ -10792,7 +10800,7 @@ export interface ProcessDetails {
    *          </ul>
    * @public
    */
-  TerminatedAt?: string;
+  TerminatedAt?: string | undefined;
 }
 
 /**
@@ -10819,13 +10827,13 @@ export interface Recommendation {
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 512 length.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>A URL to a page or site that contains information about how to remediate a finding.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -10837,7 +10845,7 @@ export interface Remediation {
    * <p>A recommendation on the steps to take to remediate the issue identified by a finding.</p>
    * @public
    */
-  Recommendation?: Recommendation;
+  Recommendation?: Recommendation | undefined;
 }
 
 /**
@@ -10849,25 +10857,25 @@ export interface Cell {
    * <p>The column number of the column that contains the data. For a Microsoft Excel workbook, the column number corresponds to the alphabetical column identifiers. For example, a value of 1 for Column corresponds to the A column in the workbook.</p>
    * @public
    */
-  Column?: number;
+  Column?: number | undefined;
 
   /**
    * <p>The row number of the row that contains the data.</p>
    * @public
    */
-  Row?: number;
+  Row?: number | undefined;
 
   /**
    * <p>The name of the column that contains the data.</p>
    * @public
    */
-  ColumnName?: string;
+  ColumnName?: string | undefined;
 
   /**
    * <p>For a Microsoft Excel workbook, provides the location of the cell, as an absolute cell reference, that contains the data. For example, Sheet2!C5 for cell C5 on Sheet2.</p>
    * @public
    */
-  CellReference?: string;
+  CellReference?: string | undefined;
 }
 
 /**
@@ -10879,19 +10887,19 @@ export interface Range {
    * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
    * @public
    */
-  Start?: number;
+  Start?: number | undefined;
 
   /**
    * <p>The number of lines (for a line range) or characters (for an offset range) from the beginning of the file to the end of the sensitive data.</p>
    * @public
    */
-  End?: number;
+  End?: number | undefined;
 
   /**
    * <p>In the line where the sensitive data starts, the column within the line where the sensitive data starts.</p>
    * @public
    */
-  StartColumn?: number;
+  StartColumn?: number | undefined;
 }
 
 /**
@@ -10903,19 +10911,19 @@ export interface Page {
    * <p>The page number of the page that contains the sensitive data.</p>
    * @public
    */
-  PageNumber?: number;
+  PageNumber?: number | undefined;
 
   /**
    * <p>An occurrence of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
    * @public
    */
-  LineRange?: Range;
+  LineRange?: Range | undefined;
 
   /**
    * <p>An occurrence of sensitive data detected in a binary text file.</p>
    * @public
    */
-  OffsetRange?: Range;
+  OffsetRange?: Range | undefined;
 }
 
 /**
@@ -10927,13 +10935,13 @@ export interface _Record {
    * <p>The path, as a JSONPath expression, to the field in the record that contains the data. If the field name is longer than 20 characters, it is truncated. If the path is longer than 250 characters, it is truncated.</p>
    * @public
    */
-  JsonPath?: string;
+  JsonPath?: string | undefined;
 
   /**
    * <p>The record index, starting from 0, for the record that contains the data.</p>
    * @public
    */
-  RecordIndex?: number;
+  RecordIndex?: number | undefined;
 }
 
 /**
@@ -10945,31 +10953,31 @@ export interface Occurrences {
    * <p>Occurrences of sensitive data detected in a non-binary text file or a Microsoft Word file. Non-binary text files include files such as HTML, XML, JSON, and TXT files.</p>
    * @public
    */
-  LineRanges?: Range[];
+  LineRanges?: Range[] | undefined;
 
   /**
    * <p>Occurrences of sensitive data detected in a binary text file.</p>
    * @public
    */
-  OffsetRanges?: Range[];
+  OffsetRanges?: Range[] | undefined;
 
   /**
    * <p>Occurrences of sensitive data in an Adobe Portable Document Format (PDF) file.</p>
    * @public
    */
-  Pages?: Page[];
+  Pages?: Page[] | undefined;
 
   /**
    * <p>Occurrences of sensitive data in an Apache Avro object container or an Apache Parquet file.</p>
    * @public
    */
-  Records?: _Record[];
+  Records?: _Record[] | undefined;
 
   /**
    * <p>Occurrences of sensitive data detected in Microsoft Excel workbooks, comma-separated value (CSV) files, or tab-separated value (TSV) files.</p>
    * @public
    */
-  Cells?: Cell[];
+  Cells?: Cell[] | undefined;
 }
 
 /**
@@ -10981,25 +10989,25 @@ export interface CustomDataIdentifiersDetections {
    * <p>The total number of occurrences of sensitive data that were detected.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The ARN of the custom identifier that was used to detect the sensitive data.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>he name of the custom identifier that detected the sensitive data.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Details about the sensitive data that was detected.</p>
    * @public
    */
-  Occurrences?: Occurrences;
+  Occurrences?: Occurrences | undefined;
 }
 
 /**
@@ -11011,13 +11019,13 @@ export interface CustomDataIdentifiersResult {
    * <p>The list of detected instances of sensitive data.</p>
    * @public
    */
-  Detections?: CustomDataIdentifiersDetections[];
+  Detections?: CustomDataIdentifiersDetections[] | undefined;
 
   /**
    * <p>The total number of occurrences of sensitive data.</p>
    * @public
    */
-  TotalCount?: number;
+  TotalCount?: number | undefined;
 }
 
 /**
@@ -11029,19 +11037,19 @@ export interface SensitiveDataDetections {
    * <p>The total number of occurrences of sensitive data that were detected.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The type of sensitive data that was detected. For example, the type might indicate that the data is an email address.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>Details about the sensitive data that was detected.</p>
    * @public
    */
-  Occurrences?: Occurrences;
+  Occurrences?: Occurrences | undefined;
 }
 
 /**
@@ -11053,19 +11061,19 @@ export interface SensitiveDataResult {
    * <p>The category of sensitive data that was detected. For example, the category can indicate that the sensitive data involved credentials, financial information, or personal information.</p>
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * <p>The list of detected instances of sensitive data.</p>
    * @public
    */
-  Detections?: SensitiveDataDetections[];
+  Detections?: SensitiveDataDetections[] | undefined;
 
   /**
    * <p>The total number of occurrences of sensitive data.</p>
    * @public
    */
-  TotalCount?: number;
+  TotalCount?: number | undefined;
 }
 
 /**
@@ -11077,13 +11085,13 @@ export interface ClassificationStatus {
    * <p>The code that represents the status of the sensitive data detection.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>A longer description of the current status of the sensitive data detection.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -11095,37 +11103,37 @@ export interface ClassificationResult {
    * <p>The type of content that the finding applies to.</p>
    * @public
    */
-  MimeType?: string;
+  MimeType?: string | undefined;
 
   /**
    * <p>The total size in bytes of the affected data.</p>
    * @public
    */
-  SizeClassified?: number;
+  SizeClassified?: number | undefined;
 
   /**
    * <p>Indicates whether there are additional occurrences of sensitive data that are not included in the finding. This occurs when the number of occurrences exceeds the maximum that can be included.</p>
    * @public
    */
-  AdditionalOccurrences?: boolean;
+  AdditionalOccurrences?: boolean | undefined;
 
   /**
    * <p>The current status of the sensitive data detection.</p>
    * @public
    */
-  Status?: ClassificationStatus;
+  Status?: ClassificationStatus | undefined;
 
   /**
    * <p>Provides details about sensitive data that was identified based on built-in configuration.</p>
    * @public
    */
-  SensitiveData?: SensitiveDataResult[];
+  SensitiveData?: SensitiveDataResult[] | undefined;
 
   /**
    * <p>Provides details about sensitive data that was identified based on customer-defined configuration.</p>
    * @public
    */
-  CustomDataIdentifiers?: CustomDataIdentifiersResult;
+  CustomDataIdentifiers?: CustomDataIdentifiersResult | undefined;
 }
 
 /**
@@ -11137,13 +11145,13 @@ export interface DataClassificationDetails {
    * <p>The path to the folder or file that contains the sensitive data.</p>
    * @public
    */
-  DetailedResultsLocation?: string;
+  DetailedResultsLocation?: string | undefined;
 
   /**
    * <p>The details about the sensitive data that was detected on the resource.</p>
    * @public
    */
-  Result?: ClassificationResult;
+  Result?: ClassificationResult | undefined;
 }
 
 /**
@@ -11155,13 +11163,13 @@ export interface AwsSnsTopicSubscription {
    * <p>The subscription's endpoint (format depends on the protocol).</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The subscription's protocol.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 }
 
 /**
@@ -11173,73 +11181,73 @@ export interface AwsSnsTopicDetails {
    * <p>The ID of an Amazon Web Services managed key for Amazon SNS or a customer managed key.</p>
    * @public
    */
-  KmsMasterKeyId?: string;
+  KmsMasterKeyId?: string | undefined;
 
   /**
    * <p>Subscription is an embedded property that describes the subscription endpoints of an Amazon SNS topic.</p>
    * @public
    */
-  Subscription?: AwsSnsTopicSubscription[];
+  Subscription?: AwsSnsTopicSubscription[] | undefined;
 
   /**
    * <p>The name of the Amazon SNS topic.</p>
    * @public
    */
-  TopicName?: string;
+  TopicName?: string | undefined;
 
   /**
    * <p>The subscription's owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
    *       </p>
    * @public
    */
-  SqsSuccessFeedbackRoleArn?: string;
+  SqsSuccessFeedbackRoleArn?: string | undefined;
 
   /**
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon SQS endpoint.
    *       </p>
    * @public
    */
-  SqsFailureFeedbackRoleArn?: string;
+  SqsFailureFeedbackRoleArn?: string | undefined;
 
   /**
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to a platform application endpoint.
    *       </p>
    * @public
    */
-  ApplicationSuccessFeedbackRoleArn?: string;
+  ApplicationSuccessFeedbackRoleArn?: string | undefined;
 
   /**
    * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
    *       </p>
    * @public
    */
-  FirehoseSuccessFeedbackRoleArn?: string;
+  FirehoseSuccessFeedbackRoleArn?: string | undefined;
 
   /**
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an Amazon Kinesis Data Firehose endpoint.
    *       </p>
    * @public
    */
-  FirehoseFailureFeedbackRoleArn?: string;
+  FirehoseFailureFeedbackRoleArn?: string | undefined;
 
   /**
    * <p>Indicates successful message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint.
    *       </p>
    * @public
    */
-  HttpSuccessFeedbackRoleArn?: string;
+  HttpSuccessFeedbackRoleArn?: string | undefined;
 
   /**
    * <p>Indicates failed message delivery status for an Amazon SNS topic that is subscribed to an HTTP endpoint. </p>
    * @public
    */
-  HttpFailureFeedbackRoleArn?: string;
+  HttpFailureFeedbackRoleArn?: string | undefined;
 }
 
 /**
@@ -11251,27 +11259,27 @@ export interface AwsSqsQueueDetails {
    * <p>The length of time, in seconds, for which Amazon SQS can reuse a data key to encrypt or decrypt messages before calling KMS again.</p>
    * @public
    */
-  KmsDataKeyReusePeriodSeconds?: number;
+  KmsDataKeyReusePeriodSeconds?: number | undefined;
 
   /**
    * <p>The ID of an Amazon Web Services managed key for Amazon SQS or a custom
    *          KMS key.</p>
    * @public
    */
-  KmsMasterKeyId?: string;
+  KmsMasterKeyId?: string | undefined;
 
   /**
    * <p>The name of the new queue.</p>
    * @public
    */
-  QueueName?: string;
+  QueueName?: string | undefined;
 
   /**
    * <p>The ARN of the dead-letter queue to which Amazon SQS moves
    *          messages after the value of <code>maxReceiveCount</code> is exceeded. </p>
    * @public
    */
-  DeadLetterTargetArn?: string;
+  DeadLetterTargetArn?: string | undefined;
 }
 
 /**
@@ -11300,97 +11308,97 @@ export interface AwsSsmComplianceSummary {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>CRITICAL</code>.</p>
    * @public
    */
-  CompliantCriticalCount?: number;
+  CompliantCriticalCount?: number | undefined;
 
   /**
    * <p>For the patches that are compliant, the number that have a severity of
    *          <code>HIGH</code>.</p>
    * @public
    */
-  CompliantHighCount?: number;
+  CompliantHighCount?: number | undefined;
 
   /**
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>MEDIUM</code>.</p>
    * @public
    */
-  CompliantMediumCount?: number;
+  CompliantMediumCount?: number | undefined;
 
   /**
    * <p>The type of execution that was used determine compliance.</p>
    * @public
    */
-  ExecutionType?: string;
+  ExecutionType?: string | undefined;
 
   /**
    * <p>For the patch items that are noncompliant, the number of items that have a severity of
    *             <code>CRITICAL</code>.</p>
    * @public
    */
-  NonCompliantCriticalCount?: number;
+  NonCompliantCriticalCount?: number | undefined;
 
   /**
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>INFORMATIONAL</code>.</p>
    * @public
    */
-  CompliantInformationalCount?: number;
+  CompliantInformationalCount?: number | undefined;
 
   /**
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>INFORMATIONAL</code>.</p>
    * @public
    */
-  NonCompliantInformationalCount?: number;
+  NonCompliantInformationalCount?: number | undefined;
 
   /**
    * <p>For the patches that are compliant, the number that have a severity of
    *             <code>UNSPECIFIED</code>.</p>
    * @public
    */
-  CompliantUnspecifiedCount?: number;
+  CompliantUnspecifiedCount?: number | undefined;
 
   /**
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>LOW</code>.</p>
    * @public
    */
-  NonCompliantLowCount?: number;
+  NonCompliantLowCount?: number | undefined;
 
   /**
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>HIGH</code>.</p>
    * @public
    */
-  NonCompliantHighCount?: number;
+  NonCompliantHighCount?: number | undefined;
 
   /**
    * <p>For the patches that are compliant, the number that have a severity of
    *          <code>LOW</code>.</p>
    * @public
    */
-  CompliantLowCount?: number;
+  CompliantLowCount?: number | undefined;
 
   /**
    * <p>The type of resource for which the compliance was determined. For
    *             <code>AwsSsmPatchCompliance</code>, <code>ComplianceType</code> is <code>Patch</code>. </p>
    * @public
    */
-  ComplianceType?: string;
+  ComplianceType?: string | undefined;
 
   /**
    * <p>The identifier of the patch baseline. The patch baseline lists the patches that are
    *          approved for installation.</p>
    * @public
    */
-  PatchBaselineId?: string;
+  PatchBaselineId?: string | undefined;
 
   /**
    * <p>The highest severity for the patches. Valid values are as follows:</p>
@@ -11428,28 +11436,28 @@ export interface AwsSsmComplianceSummary {
    *          </ul>
    * @public
    */
-  OverallSeverity?: string;
+  OverallSeverity?: string | undefined;
 
   /**
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>MEDIUM</code>.</p>
    * @public
    */
-  NonCompliantMediumCount?: number;
+  NonCompliantMediumCount?: number | undefined;
 
   /**
    * <p>For the patches that are noncompliant, the number that have a severity of
    *             <code>UNSPECIFIED</code>.</p>
    * @public
    */
-  NonCompliantUnspecifiedCount?: number;
+  NonCompliantUnspecifiedCount?: number | undefined;
 
   /**
    * <p>The identifier of the patch group for which compliance was determined. A patch group
    *          uses tags to group EC2 instances that should have the same patch compliance.</p>
    * @public
    */
-  PatchGroup?: string;
+  PatchGroup?: string | undefined;
 }
 
 /**
@@ -11461,7 +11469,7 @@ export interface AwsSsmPatch {
    * <p>The compliance status details for the patch.</p>
    * @public
    */
-  ComplianceSummary?: AwsSsmComplianceSummary;
+  ComplianceSummary?: AwsSsmComplianceSummary | undefined;
 }
 
 /**
@@ -11474,7 +11482,7 @@ export interface AwsSsmPatchComplianceDetails {
    * <p>Information about the status of a patch.</p>
    * @public
    */
-  Patch?: AwsSsmPatch;
+  Patch?: AwsSsmPatch | undefined;
 }
 
 /**
@@ -11490,7 +11498,7 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsClou
    * <p>The ARN (ends with <code>:*</code>) of the CloudWatch Logs log group to which you want your logs emitted.</p>
    * @public
    */
-  LogGroupArn?: string;
+  LogGroupArn?: string | undefined;
 }
 
 /**
@@ -11508,7 +11516,9 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDestinationsDeta
    *         </p>
    * @public
    */
-  CloudWatchLogsLogGroup?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails;
+  CloudWatchLogsLogGroup?:
+    | AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails
+    | undefined;
 }
 
 /**
@@ -11524,7 +11534,7 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
    *         </p>
    * @public
    */
-  Destinations?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails[];
+  Destinations?: AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails[] | undefined;
 
   /**
    * <p>
@@ -11532,7 +11542,7 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
    *         </p>
    * @public
    */
-  IncludeExecutionData?: boolean;
+  IncludeExecutionData?: boolean | undefined;
 
   /**
    * <p>
@@ -11540,7 +11550,7 @@ export interface AwsStepFunctionStateMachineLoggingConfigurationDetails {
    *         </p>
    * @public
    */
-  Level?: string;
+  Level?: string | undefined;
 }
 
 /**
@@ -11556,7 +11566,7 @@ export interface AwsStepFunctionStateMachineTracingConfigurationDetails {
    *         </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -11574,7 +11584,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  Label?: string;
+  Label?: string | undefined;
 
   /**
    * <p>
@@ -11582,7 +11592,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  LoggingConfiguration?: AwsStepFunctionStateMachineLoggingConfigurationDetails;
+  LoggingConfiguration?: AwsStepFunctionStateMachineLoggingConfigurationDetails | undefined;
 
   /**
    * <p>
@@ -11590,7 +11600,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -11598,7 +11608,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>
@@ -11606,7 +11616,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  StateMachineArn?: string;
+  StateMachineArn?: string | undefined;
 
   /**
    * <p>
@@ -11614,7 +11624,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>
@@ -11622,7 +11632,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  TracingConfiguration?: AwsStepFunctionStateMachineTracingConfigurationDetails;
+  TracingConfiguration?: AwsStepFunctionStateMachineTracingConfigurationDetails | undefined;
 
   /**
    * <p>
@@ -11630,7 +11640,7 @@ export interface AwsStepFunctionStateMachineDetails {
    *         </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -11642,7 +11652,7 @@ export interface AwsWafRateBasedRuleMatchPredicate {
    * <p>The unique identifier for the predicate.</p>
    * @public
    */
-  DataId?: string;
+  DataId?: string | undefined;
 
   /**
    * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
@@ -11650,7 +11660,7 @@ export interface AwsWafRateBasedRuleMatchPredicate {
    *       </p>
    * @public
    */
-  Negated?: boolean;
+  Negated?: boolean | undefined;
 
   /**
    * <p>The type of predicate. Valid values are as follows:</p>
@@ -11693,7 +11703,7 @@ export interface AwsWafRateBasedRuleMatchPredicate {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -11705,37 +11715,37 @@ export interface AwsWafRateBasedRuleDetails {
    * <p>The name of the metrics for the rate-based rule.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The name of the rate-based rule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
    * @public
    */
-  RateKey?: string;
+  RateKey?: string | undefined;
 
   /**
    * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
    * @public
    */
-  RateLimit?: number;
+  RateLimit?: number | undefined;
 
   /**
    * <p>The unique identifier for the rate-based rule.</p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>The predicates to include in the rate-based rule.</p>
    * @public
    */
-  MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[];
+  MatchPredicates?: AwsWafRateBasedRuleMatchPredicate[] | undefined;
 }
 
 /**
@@ -11747,14 +11757,14 @@ export interface AwsWafRegionalRateBasedRuleMatchPredicate {
    * <p>The unique identifier for the predicate.</p>
    * @public
    */
-  DataId?: string;
+  DataId?: string | undefined;
 
   /**
    * <p>If set to <code>true</code>, then the rule actions are performed on requests that match the predicate settings.</p>
    *          <p>If set to <code>false</code>, then the rule actions are performed on all requests except those that match the predicate settings.</p>
    * @public
    */
-  Negated?: boolean;
+  Negated?: boolean | undefined;
 
   /**
    * <p>The type of predicate. Valid values are as follows:</p>
@@ -11797,7 +11807,7 @@ export interface AwsWafRegionalRateBasedRuleMatchPredicate {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -11809,37 +11819,37 @@ export interface AwsWafRegionalRateBasedRuleDetails {
    * <p>The name of the metrics for the rate-based rule.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The name of the rate-based rule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The field that WAF uses to determine whether requests are likely arriving from single source and are subject to rate monitoring.</p>
    * @public
    */
-  RateKey?: string;
+  RateKey?: string | undefined;
 
   /**
    * <p>The maximum number of requests that have an identical value for the field specified in <code>RateKey</code> that are allowed within a five-minute period. If the number of requests exceeds <code>RateLimit</code> and the other predicates specified in the rule are met, WAF triggers the action for the rule.</p>
    * @public
    */
-  RateLimit?: number;
+  RateLimit?: number | undefined;
 
   /**
    * <p>The unique identifier for the rate-based rule.</p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>The predicates to include in the rate-based rule.</p>
    * @public
    */
-  MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[];
+  MatchPredicates?: AwsWafRegionalRateBasedRuleMatchPredicate[] | undefined;
 }
 
 /**
@@ -11854,7 +11864,7 @@ export interface AwsWafRegionalRulePredicateListDetails {
    *       </p>
    * @public
    */
-  DataId?: string;
+  DataId?: string | undefined;
 
   /**
    * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
@@ -11863,14 +11873,14 @@ export interface AwsWafRegionalRulePredicateListDetails {
    *       </p>
    * @public
    */
-  Negated?: boolean;
+  Negated?: boolean | undefined;
 
   /**
    * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -11883,14 +11893,14 @@ export interface AwsWafRegionalRuleDetails {
    *       </p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>A descriptive name for the rule.
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>,
@@ -11899,14 +11909,14 @@ export interface AwsWafRegionalRuleDetails {
    *          add to a rule and, for each object, indicates whether you want to negate the settings. </p>
    * @public
    */
-  PredicateList?: AwsWafRegionalRulePredicateListDetails[];
+  PredicateList?: AwsWafRegionalRulePredicateListDetails[] | undefined;
 
   /**
    * <p>The ID of the rule.
    *       </p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 }
 
 /**
@@ -11920,7 +11930,7 @@ export interface AwsWafRegionalRuleGroupRulesActionDetails {
    * <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and, for each object, indicates whether you want to negate the settings.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -11933,28 +11943,28 @@ export interface AwsWafRegionalRuleGroupRulesDetails {
    * <p>The action that WAF should take on a web request when it matches the criteria defined in the rule. </p>
    * @public
    */
-  Action?: AwsWafRegionalRuleGroupRulesActionDetails;
+  Action?: AwsWafRegionalRuleGroupRulesActionDetails | undefined;
 
   /**
    * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in
    *          order based on the value of <code>Priority</code>. </p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The ID for a rule.
    *       </p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>The type of rule in the rule group.
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -11968,21 +11978,21 @@ export interface AwsWafRegionalRuleGroupDetails {
    *       </p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The descriptive name of the rule group.
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of the rule group.
    *       </p>
    * @public
    */
-  RuleGroupId?: string;
+  RuleGroupId?: string | undefined;
 
   /**
    * <p>Provides information about the rule statements used to identify the web requests that you want to allow, block, or
@@ -11990,7 +12000,7 @@ export interface AwsWafRegionalRuleGroupDetails {
    *       </p>
    * @public
    */
-  Rules?: AwsWafRegionalRuleGroupRulesDetails[];
+  Rules?: AwsWafRegionalRuleGroupRulesDetails[] | undefined;
 }
 
 /**
@@ -12004,7 +12014,7 @@ export interface AwsWafRegionalWebAclRulesListActionDetails {
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -12019,5 +12029,5 @@ export interface AwsWafRegionalWebAclRulesListOverrideActionDetails {
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }

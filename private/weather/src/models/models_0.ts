@@ -3,5 +3,5 @@
  * @public
  */
 export interface SameAsServiceOutput {
-  service?: string;
+  service?: string | undefined;
 }

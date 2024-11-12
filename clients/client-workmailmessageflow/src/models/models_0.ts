@@ -151,7 +151,7 @@ export interface S3Reference {
    * <p>If you enable versioning for the bucket, you can specify the object version.</p>
    * @public
    */
-  objectVersion?: string;
+  objectVersion?: string | undefined;
 }
 
 /**

@@ -19,7 +19,7 @@ export interface ComponentPropertyBindingProperties {
    * <p>The data field to bind the property to.</p>
    * @public
    */
-  field?: string;
+  field?: string | undefined;
 }
 
 /**
@@ -72,7 +72,7 @@ export interface CodegenJobAsset {
    * <p>The URL to use to access the asset.</p>
    * @public
    */
-  downloadUrl?: string;
+  downloadUrl?: string | undefined;
 }
 
 /**
@@ -84,25 +84,25 @@ export interface CodegenDependency {
    * <p>Name of the dependency package.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Indicates the version of the supported dependency package.</p>
    * @public
    */
-  supportedVersion?: string;
+  supportedVersion?: string | undefined;
 
   /**
    * <p>Determines if the dependency package is using Semantic versioning. If set to true, it indicates that the dependency package uses Semantic versioning.</p>
    * @public
    */
-  isSemVer?: boolean;
+  isSemVer?: boolean | undefined;
 
   /**
    * <p>Indicates the reason to include the dependency package in your project code.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -114,13 +114,13 @@ export interface CodegenFeatureFlags {
    * <p>Specifes whether a code generation job supports data relationships.</p>
    * @public
    */
-  isRelationshipSupported?: boolean;
+  isRelationshipSupported?: boolean | undefined;
 
   /**
    * <p>Specifies whether a code generation job supports non models.</p>
    * @public
    */
-  isNonModelSupported?: boolean;
+  isNonModelSupported?: boolean | undefined;
 }
 
 /**
@@ -216,43 +216,43 @@ export interface CodegenGenericDataRelationshipType {
    * <p>The related model fields in the data relationship.</p>
    * @public
    */
-  relatedModelFields?: string[];
+  relatedModelFields?: string[] | undefined;
 
   /**
    * <p>Specifies whether the relationship can unlink the associated model.</p>
    * @public
    */
-  canUnlinkAssociatedModel?: boolean;
+  canUnlinkAssociatedModel?: boolean | undefined;
 
   /**
    * <p>The name of the related join field in the data relationship.</p>
    * @public
    */
-  relatedJoinFieldName?: string;
+  relatedJoinFieldName?: string | undefined;
 
   /**
    * <p>The name of the related join table in the data relationship.</p>
    * @public
    */
-  relatedJoinTableName?: string;
+  relatedJoinTableName?: string | undefined;
 
   /**
    * <p>The value of the <code>belongsTo</code> field on the related data model. </p>
    * @public
    */
-  belongsToFieldOnRelatedModel?: string;
+  belongsToFieldOnRelatedModel?: string | undefined;
 
   /**
    * <p>The associated fields of the data relationship.</p>
    * @public
    */
-  associatedFields?: string[];
+  associatedFields?: string[] | undefined;
 
   /**
    * <p>Specifies whether the <code>@index</code> directive is supported for a <code>hasMany</code> data relationship.</p>
    * @public
    */
-  isHasManyIndex?: boolean;
+  isHasManyIndex?: boolean | undefined;
 }
 
 /**
@@ -294,7 +294,7 @@ export interface CodegenGenericDataField {
    * <p>The relationship of the generic data schema.</p>
    * @public
    */
-  relationship?: CodegenGenericDataRelationshipType;
+  relationship?: CodegenGenericDataRelationshipType | undefined;
 }
 
 /**
@@ -312,7 +312,7 @@ export interface CodegenGenericDataModel {
    * <p>Specifies whether the generic data model is a join table.</p>
    * @public
    */
-  isJoinTable?: boolean;
+  isJoinTable?: boolean | undefined;
 
   /**
    * <p>The primary keys of the generic data model.</p>
@@ -535,43 +535,43 @@ export interface ReactStartCodegenJobData {
    * <p>The JavaScript module type.</p>
    * @public
    */
-  module?: JSModule;
+  module?: JSModule | undefined;
 
   /**
    * <p>The ECMAScript specification to use.</p>
    * @public
    */
-  target?: JSTarget;
+  target?: JSTarget | undefined;
 
   /**
    * <p>The file type to use for a JavaScript project.</p>
    * @public
    */
-  script?: JSScript;
+  script?: JSScript | undefined;
 
   /**
    * <p>Specifies whether the code generation job should render type declaration files.</p>
    * @public
    */
-  renderTypeDeclarations?: boolean;
+  renderTypeDeclarations?: boolean | undefined;
 
   /**
    * <p>Specifies whether the code generation job should render inline source maps.</p>
    * @public
    */
-  inlineSourceMap?: boolean;
+  inlineSourceMap?: boolean | undefined;
 
   /**
    * <p>The API configuration for the code generation job.</p>
    * @public
    */
-  apiConfiguration?: ApiConfiguration;
+  apiConfiguration?: ApiConfiguration | undefined;
 
   /**
    * <p>Lists the dependency packages that may be required for the project code to run.</p>
    * @public
    */
-  dependencies?: Record<string, string>;
+  dependencies?: Record<string, string> | undefined;
 }
 
 /**
@@ -654,67 +654,67 @@ export interface CodegenJob {
    * <p>Describes the configuration information for rendering the UI component associated with the code generation job.</p>
    * @public
    */
-  renderConfig?: CodegenJobRenderConfig;
+  renderConfig?: CodegenJobRenderConfig | undefined;
 
   /**
    * <p>Describes the data schema for a code generation job.</p>
    * @public
    */
-  genericDataSchema?: CodegenJobGenericDataSchema;
+  genericDataSchema?: CodegenJobGenericDataSchema | undefined;
 
   /**
    * <p>Specifies whether to autogenerate forms in the code generation job.</p>
    * @public
    */
-  autoGenerateForms?: boolean;
+  autoGenerateForms?: boolean | undefined;
 
   /**
    * <p>Describes the feature flags that you can specify for a code generation job.</p>
    * @public
    */
-  features?: CodegenFeatureFlags;
+  features?: CodegenFeatureFlags | undefined;
 
   /**
    * <p>The status of the code generation job.</p>
    * @public
    */
-  status?: CodegenJobStatus;
+  status?: CodegenJobStatus | undefined;
 
   /**
    * <p>The customized status message for the code generation job.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The <code>CodegenJobAsset</code> to use for the code generation job.</p>
    * @public
    */
-  asset?: CodegenJobAsset;
+  asset?: CodegenJobAsset | undefined;
 
   /**
    * <p>One or more key-value pairs to use when tagging the code generation job.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The time that the code generation job was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time that the code generation job was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>Lists the dependency packages that may be required for the project code to run.</p>
    * @public
    */
-  dependencies?: CodegenDependency[];
+  dependencies?: CodegenDependency[] | undefined;
 }
 
 /**
@@ -725,7 +725,7 @@ export interface GetCodegenJobResponse {
    * <p>The configuration settings for the code generation job.</p>
    * @public
    */
-  job?: CodegenJob;
+  job?: CodegenJob | undefined;
 }
 
 /**
@@ -828,13 +828,13 @@ export interface ListCodegenJobsRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of jobs to retrieve.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -864,13 +864,13 @@ export interface CodegenJobSummary {
    * <p>The time that the code generation job summary was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time that the code generation job summary was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 }
 
 /**
@@ -887,7 +887,7 @@ export interface ListCodegenJobsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -905,25 +905,25 @@ export interface StartCodegenJobData {
    * <p>The data schema to use for a code generation job.</p>
    * @public
    */
-  genericDataSchema?: CodegenJobGenericDataSchema;
+  genericDataSchema?: CodegenJobGenericDataSchema | undefined;
 
   /**
    * <p>Specifies whether to autogenerate forms in the code generation job.</p>
    * @public
    */
-  autoGenerateForms?: boolean;
+  autoGenerateForms?: boolean | undefined;
 
   /**
    * <p>The feature flags for a code generation job.</p>
    * @public
    */
-  features?: CodegenFeatureFlags;
+  features?: CodegenFeatureFlags | undefined;
 
   /**
    * <p>One or more key-value pairs to use when tagging the code generation job data.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -946,7 +946,7 @@ export interface StartCodegenJobRequest {
    * <p>The idempotency token used to ensure that the code generation job request completes only once.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The code generation job resource configuration.</p>
@@ -963,7 +963,7 @@ export interface StartCodegenJobResponse {
    * <p>The code generation job for a UI component that is associated with an Amplify app.</p>
    * @public
    */
-  entity?: CodegenJob;
+  entity?: CodegenJob | undefined;
 }
 
 /**
@@ -1008,7 +1008,7 @@ export interface ComponentVariant {
    *         <code>tags</code> as a valid property for <code>variantValues</code>.</p>
    * @public
    */
-  variantValues?: Record<string, string>;
+  variantValues?: Record<string, string> | undefined;
 
   /**
    * <p>The properties of the component variant that can be overriden when customizing an instance
@@ -1016,7 +1016,7 @@ export interface ComponentVariant {
    *         <code>overrides</code>.</p>
    * @public
    */
-  overrides?: Record<string, Record<string, string>>;
+  overrides?: Record<string, Record<string, string>> | undefined;
 }
 
 /**
@@ -1106,7 +1106,7 @@ export interface ExportComponentsRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1153,13 +1153,13 @@ export interface ListComponentsRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of components to retrieve.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1214,7 +1214,7 @@ export interface ListComponentsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1254,7 +1254,7 @@ export interface ExchangeCodeForTokenRequestBody {
    * <p>The ID of the client to request the token from.</p>
    * @public
    */
-  clientId?: string;
+  clientId?: string | undefined;
 }
 
 /**
@@ -1392,19 +1392,19 @@ export interface FormButton {
    * <p>Specifies whether the button is visible on the form.</p>
    * @public
    */
-  excluded?: boolean;
+  excluded?: boolean | undefined;
 
   /**
    * <p>Describes the button's properties.</p>
    * @public
    */
-  children?: string;
+  children?: string | undefined;
 
   /**
    * <p>The position of the button.</p>
    * @public
    */
-  position?: FieldPosition;
+  position?: FieldPosition | undefined;
 }
 
 /**
@@ -1431,25 +1431,25 @@ export interface FormCTA {
    * <p>The position of the button.</p>
    * @public
    */
-  position?: FormButtonsPosition;
+  position?: FormButtonsPosition | undefined;
 
   /**
    * <p>Displays a clear button.</p>
    * @public
    */
-  clear?: FormButton;
+  clear?: FormButton | undefined;
 
   /**
    * <p>Displays a cancel button.</p>
    * @public
    */
-  cancel?: FormButton;
+  cancel?: FormButton | undefined;
 
   /**
    * <p>Displays a submit button.</p>
    * @public
    */
-  submit?: FormButton;
+  submit?: FormButton | undefined;
 }
 
 /**
@@ -1532,7 +1532,7 @@ export interface FileUploaderFieldConfig {
    *       The default value is <code>true</code> to display the image preview.</p>
    * @public
    */
-  showThumbnails?: boolean;
+  showThumbnails?: boolean | undefined;
 
   /**
    * <p>Allows the file upload operation to be paused and resumed. The default value is
@@ -1542,21 +1542,21 @@ export interface FileUploaderFieldConfig {
    *       isn't continuous, because the file uploader uploads a chunk at a time.</p>
    * @public
    */
-  isResumable?: boolean;
+  isResumable?: boolean | undefined;
 
   /**
    * <p>Specifies the maximum number of files that can be selected to upload. The default value is
    *       an unlimited number of files.</p>
    * @public
    */
-  maxFileCount?: number;
+  maxFileCount?: number | undefined;
 
   /**
    * <p>The maximum file size in bytes that the file uploader will accept. The default value is an
    *       unlimited file size.</p>
    * @public
    */
-  maxSize?: number;
+  maxSize?: number | undefined;
 }
 
 /**
@@ -1570,7 +1570,7 @@ export interface FormInputBindingPropertiesValueProperties {
    * <p>An Amplify DataStore model.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 }
 
 /**
@@ -1584,13 +1584,13 @@ export interface FormInputBindingPropertiesValue {
    * <p>The property type.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>Describes the properties to customize with data at runtime.</p>
    * @public
    */
-  bindingProperties?: FormInputBindingPropertiesValueProperties;
+  bindingProperties?: FormInputBindingPropertiesValueProperties | undefined;
 }
 
 /**
@@ -1609,7 +1609,7 @@ export interface FormInputValuePropertyBindingProperties {
    * <p>The data field to bind the property to.</p>
    * @public
    */
-  field?: string;
+  field?: string | undefined;
 }
 
 /**
@@ -1628,19 +1628,19 @@ export interface FieldValidationConfiguration {
    * <p>The validation to perform on a string value.</p>
    * @public
    */
-  strValues?: string[];
+  strValues?: string[] | undefined;
 
   /**
    * <p>The validation to perform on a number value.</p>
    * @public
    */
-  numValues?: number[];
+  numValues?: number[] | undefined;
 
   /**
    * <p>The validation message to display.</p>
    * @public
    */
-  validationMessage?: string;
+  validationMessage?: string | undefined;
 }
 
 /**
@@ -1691,34 +1691,34 @@ export interface SectionalElement {
    *       element.</p>
    * @public
    */
-  position?: FieldPosition;
+  position?: FieldPosition | undefined;
 
   /**
    * <p>The text for a <code>Text</code> sectional element.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 
   /**
    * <p>Specifies the size of the font for a <code>Heading</code> sectional element. Valid values
    *       are <code>1 | 2 | 3 | 4 | 5 | 6</code>.</p>
    * @public
    */
-  level?: number;
+  level?: number | undefined;
 
   /**
    * <p>Specifies the orientation for a <code>Divider</code> sectional element. Valid values are
    *         <code>horizontal</code> or <code>vertical</code>.</p>
    * @public
    */
-  orientation?: string;
+  orientation?: string | undefined;
 
   /**
    * <p>Excludes a sectional element that was generated by default for a specified data
    *       model.</p>
    * @public
    */
-  excluded?: boolean;
+  excluded?: boolean | undefined;
 }
 
 /**
@@ -1786,19 +1786,19 @@ export interface FormStyle {
    * <p>The spacing for the horizontal gap.</p>
    * @public
    */
-  horizontalGap?: FormStyleConfig;
+  horizontalGap?: FormStyleConfig | undefined;
 
   /**
    * <p>The spacing for the vertical gap.</p>
    * @public
    */
-  verticalGap?: FormStyleConfig;
+  verticalGap?: FormStyleConfig | undefined;
 
   /**
    * <p>The size of the outer padding for the form.</p>
    * @public
    */
-  outerPadding?: FormStyleConfig;
+  outerPadding?: FormStyleConfig | undefined;
 }
 
 /**
@@ -1844,7 +1844,7 @@ export interface ExportFormsRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1890,13 +1890,13 @@ export interface ListFormsRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of forms to retrieve.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1955,7 +1955,7 @@ export interface ListFormsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2085,7 +2085,7 @@ export interface RefreshTokenRequestBody {
    * <p>The ID of the client to request the token from.</p>
    * @public
    */
-  clientId?: string;
+  clientId?: string | undefined;
 }
 
 /**
@@ -2189,7 +2189,7 @@ export interface ExportThemesRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2236,13 +2236,13 @@ export interface ListThemesRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of theme results to return in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2289,7 +2289,7 @@ export interface ListThemesResponse {
    * <p>The pagination token that's returned if more results are available.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2325,20 +2325,20 @@ export interface FormInputValueProperty {
    * <p>The value to assign to the input field.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The information to bind fields to data at runtime.</p>
    * @public
    */
-  bindingProperties?: FormInputValuePropertyBindingProperties;
+  bindingProperties?: FormInputValuePropertyBindingProperties | undefined;
 
   /**
    * <p>A list of form properties to concatenate to create the value to assign to this field
    *       property.</p>
    * @public
    */
-  concat?: FormInputValueProperty[];
+  concat?: FormInputValueProperty[] | undefined;
 }
 
 /**
@@ -2350,13 +2350,13 @@ export interface ThemeValue {
    * <p>The value of a theme property.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>A list of key-value pairs that define the theme's properties.</p>
    * @public
    */
-  children?: ThemeValues[];
+  children?: ThemeValues[] | undefined;
 }
 
 /**
@@ -2368,13 +2368,13 @@ export interface ThemeValues {
    * <p>The name of the property.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The value of the property.</p>
    * @public
    */
-  value?: ThemeValue;
+  value?: ThemeValue | undefined;
 }
 
 /**
@@ -2387,37 +2387,37 @@ export interface Predicate {
    * <p>A list of predicates to combine logically.</p>
    * @public
    */
-  or?: Predicate[];
+  or?: Predicate[] | undefined;
 
   /**
    * <p>A list of predicates to combine logically.</p>
    * @public
    */
-  and?: Predicate[];
+  and?: Predicate[] | undefined;
 
   /**
    * <p>The field to query.</p>
    * @public
    */
-  field?: string;
+  field?: string | undefined;
 
   /**
    * <p>The operator to use to perform the evaluation.</p>
    * @public
    */
-  operator?: string;
+  operator?: string | undefined;
 
   /**
    * <p>The value to use when performing the evaluation.</p>
    * @public
    */
-  operand?: string;
+  operand?: string | undefined;
 
   /**
    * <p>The type of value to use when performing the evaluation.</p>
    * @public
    */
-  operandType?: string;
+  operandType?: string | undefined;
 }
 
 /**
@@ -2432,49 +2432,49 @@ export interface ComponentBindingPropertiesValueProperties {
    * <p>An Amplify DataStore model.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 
   /**
    * <p>The field to bind the data to.</p>
    * @public
    */
-  field?: string;
+  field?: string | undefined;
 
   /**
    * <p>A list of predicates for binding a component's properties to data.</p>
    * @public
    */
-  predicates?: Predicate[];
+  predicates?: Predicate[] | undefined;
 
   /**
    * <p>An authenticated user attribute.</p>
    * @public
    */
-  userAttribute?: string;
+  userAttribute?: string | undefined;
 
   /**
    * <p>An Amazon S3 bucket.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The storage key for an Amazon S3 bucket.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The default value to assign to the property.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 
   /**
    * <p>The name of a component slot.</p>
    * @public
    */
-  slotName?: string;
+  slotName?: string | undefined;
 }
 
 /**
@@ -2492,21 +2492,21 @@ export interface ComponentDataConfiguration {
    * <p>Describes how to sort the component's properties.</p>
    * @public
    */
-  sort?: SortProperty[];
+  sort?: SortProperty[] | undefined;
 
   /**
    * <p>Represents the conditional logic to use when binding data to a component. Use this
    *       property to retrieve only a subset of the data in a collection.</p>
    * @public
    */
-  predicate?: Predicate;
+  predicate?: Predicate | undefined;
 
   /**
    * <p>A list of IDs to use to bind data to a component. Use this property to bind specifically
    *       chosen data, rather than data retrieved from a query.</p>
    * @public
    */
-  identifiers?: string[];
+  identifiers?: string[] | undefined;
 }
 
 /**
@@ -2519,95 +2519,95 @@ export interface ComponentProperty {
    * <p>The value to assign to the component property.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The information to bind the component property to data at runtime.</p>
    * @public
    */
-  bindingProperties?: ComponentPropertyBindingProperties;
+  bindingProperties?: ComponentPropertyBindingProperties | undefined;
 
   /**
    * <p>The information to bind the component property to data at runtime. Use this for collection
    *       components.</p>
    * @public
    */
-  collectionBindingProperties?: ComponentPropertyBindingProperties;
+  collectionBindingProperties?: ComponentPropertyBindingProperties | undefined;
 
   /**
    * <p>The default value to assign to the component property.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 
   /**
    * <p>The data model to use to assign a value to the component property.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 
   /**
    * <p>The information to bind the component property to form data.</p>
    * @public
    */
-  bindings?: Record<string, FormBindingElement>;
+  bindings?: Record<string, FormBindingElement> | undefined;
 
   /**
    * <p>An event that occurs in your app. Use this for workflow data binding.</p>
    * @public
    */
-  event?: string;
+  event?: string | undefined;
 
   /**
    * <p>An authenticated user attribute to use to assign a value to the component property.</p>
    * @public
    */
-  userAttribute?: string;
+  userAttribute?: string | undefined;
 
   /**
    * <p>A list of component properties to concatenate to create the value to assign to this
    *       component property.</p>
    * @public
    */
-  concat?: ComponentProperty[];
+  concat?: ComponentProperty[] | undefined;
 
   /**
    * <p>The conditional expression to use to assign a value to the component property.</p>
    * @public
    */
-  condition?: ComponentConditionProperty;
+  condition?: ComponentConditionProperty | undefined;
 
   /**
    * <p>Specifies whether the user configured the property in Amplify Studio after
    *       importing it.</p>
    * @public
    */
-  configured?: boolean;
+  configured?: boolean | undefined;
 
   /**
    * <p>The component type.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The default value assigned to the property when the component is imported into an
    *       app.</p>
    * @public
    */
-  importedValue?: string;
+  importedValue?: string | undefined;
 
   /**
    * <p>The name of the component that is affected by an event.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The name of the component's property that is affected by an event.</p>
    * @public
    */
-  property?: string;
+  property?: string | undefined;
 }
 
 /**
@@ -2620,7 +2620,7 @@ export interface ValueMapping {
    * <p>The value to display for the complex object.</p>
    * @public
    */
-  displayValue?: FormInputValueProperty;
+  displayValue?: FormInputValueProperty | undefined;
 
   /**
    * <p>The complex object.</p>
@@ -2641,19 +2641,19 @@ export interface ComponentBindingPropertiesValue {
    * <p>The property type.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>Describes the properties to customize with data at runtime.</p>
    * @public
    */
-  bindingProperties?: ComponentBindingPropertiesValueProperties;
+  bindingProperties?: ComponentBindingPropertiesValueProperties | undefined;
 
   /**
    * <p>The default value of the property.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 }
 
 /**
@@ -2678,13 +2678,13 @@ export interface CreateThemeData {
    *       theme.</p>
    * @public
    */
-  overrides?: ThemeValues[];
+  overrides?: ThemeValues[] | undefined;
 
   /**
    * <p>One or more key-value pairs to use when tagging the theme data.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2728,7 +2728,7 @@ export interface Theme {
    * <p>The time that the theme was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>A list of key-value pairs that defines the properties of the theme.</p>
@@ -2740,13 +2740,13 @@ export interface Theme {
    * <p>Describes the properties that can be overriden to customize a theme.</p>
    * @public
    */
-  overrides?: ThemeValues[];
+  overrides?: ThemeValues[] | undefined;
 
   /**
    * <p>One or more key-value pairs to use when tagging the theme.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2758,13 +2758,13 @@ export interface UpdateThemeData {
    * <p>The unique ID of the theme to update.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the theme to update.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A list of key-value pairs that define the theme's properties.</p>
@@ -2776,7 +2776,7 @@ export interface UpdateThemeData {
    * <p>Describes the properties that can be overriden to customize the theme.</p>
    * @public
    */
-  overrides?: ThemeValues[];
+  overrides?: ThemeValues[] | undefined;
 }
 
 /**
@@ -2815,44 +2815,44 @@ export interface ComponentConditionProperty {
    * <p>The name of the conditional property.</p>
    * @public
    */
-  property?: string;
+  property?: string | undefined;
 
   /**
    * <p>The name of a field. Specify this when the property is a data model.</p>
    * @public
    */
-  field?: string;
+  field?: string | undefined;
 
   /**
    * <p>The operator to use to perform the evaluation, such as <code>eq</code> to represent
    *       equals.</p>
    * @public
    */
-  operator?: string;
+  operator?: string | undefined;
 
   /**
    * <p>The value of the property to evaluate.</p>
    * @public
    */
-  operand?: string;
+  operand?: string | undefined;
 
   /**
    * <p>The value to assign to the property if the condition is met.</p>
    * @public
    */
-  then?: ComponentProperty;
+  then?: ComponentProperty | undefined;
 
   /**
    * <p>The value to assign to the property if the condition is not met.</p>
    * @public
    */
-  else?: ComponentProperty;
+  else?: ComponentProperty | undefined;
 
   /**
    * <p>The type of the property to evaluate.</p>
    * @public
    */
-  operandType?: string;
+  operandType?: string | undefined;
 }
 
 /**
@@ -2876,7 +2876,7 @@ export interface CreateThemeRequest {
    * <p>The unique client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Represents the configuration of the theme to create.</p>
@@ -2893,7 +2893,7 @@ export interface CreateThemeResponse {
    * <p>Describes the configuration of the new theme.</p>
    * @public
    */
-  entity?: Theme;
+  entity?: Theme | undefined;
 }
 
 /**
@@ -2904,7 +2904,7 @@ export interface GetThemeResponse {
    * <p>Represents the configuration settings for the theme.</p>
    * @public
    */
-  theme?: Theme;
+  theme?: Theme | undefined;
 }
 
 /**
@@ -2933,7 +2933,7 @@ export interface UpdateThemeRequest {
    * <p>The unique client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The configuration of the updated theme.</p>
@@ -2950,7 +2950,7 @@ export interface UpdateThemeResponse {
    * <p>Describes the configuration of the updated theme.</p>
    * @public
    */
-  entity?: Theme;
+  entity?: Theme | undefined;
 }
 
 /**
@@ -2968,7 +2968,7 @@ export interface ValueMappings {
    * <p>The information to bind fields to data at runtime.</p>
    * @public
    */
-  bindingProperties?: Record<string, FormInputBindingPropertiesValue>;
+  bindingProperties?: Record<string, FormInputBindingPropertiesValue> | undefined;
 }
 
 /**
@@ -2985,7 +2985,7 @@ export interface ExportThemesResponse {
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3003,92 +3003,92 @@ export interface FieldInputConfig {
    * <p>Specifies a field that requires input.</p>
    * @public
    */
-  required?: boolean;
+  required?: boolean | undefined;
 
   /**
    * <p>Specifies a read only field.</p>
    * @public
    */
-  readOnly?: boolean;
+  readOnly?: boolean | undefined;
 
   /**
    * <p>The text to display as a placeholder for the field.</p>
    * @public
    */
-  placeholder?: string;
+  placeholder?: string | undefined;
 
   /**
    * <p>The default value for the field.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 
   /**
    * <p>The text to display to describe the field.</p>
    * @public
    */
-  descriptiveText?: string;
+  descriptiveText?: string | undefined;
 
   /**
    * <p>Specifies whether a field has a default value.</p>
    * @public
    */
-  defaultChecked?: boolean;
+  defaultChecked?: boolean | undefined;
 
   /**
    * <p>The default country code for a phone number.</p>
    * @public
    */
-  defaultCountryCode?: string;
+  defaultCountryCode?: string | undefined;
 
   /**
    * <p>The information to use to customize the input fields with data at runtime.</p>
    * @public
    */
-  valueMappings?: ValueMappings;
+  valueMappings?: ValueMappings | undefined;
 
   /**
    * <p>The name of the field.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The minimum value to display for the field.</p>
    * @public
    */
-  minValue?: number;
+  minValue?: number | undefined;
 
   /**
    * <p>The maximum value to display for the field.</p>
    * @public
    */
-  maxValue?: number;
+  maxValue?: number | undefined;
 
   /**
    * <p>The stepping increment for a numeric value in a field.</p>
    * @public
    */
-  step?: number;
+  step?: number | undefined;
 
   /**
    * <p>The value for the field.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>Specifies whether to render the field as an array. This property is ignored if the
    *         <code>dataSourceType</code> for the form is a Data Store.</p>
    * @public
    */
-  isArray?: boolean;
+  isArray?: boolean | undefined;
 
   /**
    * <p>The configuration for the file uploader field.</p>
    * @public
    */
-  fileUploaderConfig?: FileUploaderFieldConfig;
+  fileUploaderConfig?: FileUploaderFieldConfig | undefined;
 }
 
 /**
@@ -3100,31 +3100,31 @@ export interface FieldConfig {
    * <p>The label for the field.</p>
    * @public
    */
-  label?: string;
+  label?: string | undefined;
 
   /**
    * <p>Specifies the field position.</p>
    * @public
    */
-  position?: FieldPosition;
+  position?: FieldPosition | undefined;
 
   /**
    * <p>Specifies whether to hide a field.</p>
    * @public
    */
-  excluded?: boolean;
+  excluded?: boolean | undefined;
 
   /**
    * <p>Describes the configuration for the default input value to display for a field.</p>
    * @public
    */
-  inputType?: FieldInputConfig;
+  inputType?: FieldInputConfig | undefined;
 
   /**
    * <p>The validations to perform on the value in the field.</p>
    * @public
    */
-  validations?: FieldValidationConfiguration[];
+  validations?: FieldValidationConfiguration[] | undefined;
 }
 
 /**
@@ -3180,19 +3180,19 @@ export interface CreateFormData {
    *       form.</p>
    * @public
    */
-  cta?: FormCTA;
+  cta?: FormCTA | undefined;
 
   /**
    * <p>One or more key-value pairs to use when tagging the form data.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies an icon or decoration to display on the form.</p>
    * @public
    */
-  labelDecorator?: LabelDecorator;
+  labelDecorator?: LabelDecorator | undefined;
 }
 
 /**
@@ -3267,19 +3267,19 @@ export interface Form {
    * <p>One or more key-value pairs to use when tagging the form.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Stores the call to action configuration for the form.</p>
    * @public
    */
-  cta?: FormCTA;
+  cta?: FormCTA | undefined;
 
   /**
    * <p>Specifies an icon or decoration to display on the form.</p>
    * @public
    */
-  labelDecorator?: LabelDecorator;
+  labelDecorator?: LabelDecorator | undefined;
 }
 
 /**
@@ -3291,57 +3291,57 @@ export interface UpdateFormData {
    * <p>The name of the form.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of data source to use to create the form.</p>
    * @public
    */
-  dataType?: FormDataTypeConfig;
+  dataType?: FormDataTypeConfig | undefined;
 
   /**
    * <p>Specifies whether to perform a create or update action on the form.</p>
    * @public
    */
-  formActionType?: FormActionType;
+  formActionType?: FormActionType | undefined;
 
   /**
    * <p>The configuration information for the form's fields.</p>
    * @public
    */
-  fields?: Record<string, FieldConfig>;
+  fields?: Record<string, FieldConfig> | undefined;
 
   /**
    * <p>The configuration for the form's style.</p>
    * @public
    */
-  style?: FormStyle;
+  style?: FormStyle | undefined;
 
   /**
    * <p>The configuration information for the visual helper elements for the form. These elements
    *       are not associated with any data.</p>
    * @public
    */
-  sectionalElements?: Record<string, SectionalElement>;
+  sectionalElements?: Record<string, SectionalElement> | undefined;
 
   /**
    * <p>The schema version of the form.</p>
    * @public
    */
-  schemaVersion?: string;
+  schemaVersion?: string | undefined;
 
   /**
    * <p>The <code>FormCTA</code> object that stores the call to action configuration for the
    *       form.</p>
    * @public
    */
-  cta?: FormCTA;
+  cta?: FormCTA | undefined;
 
   /**
    * <p>Specifies an icon or decoration to display on the form.</p>
    * @public
    */
-  labelDecorator?: LabelDecorator;
+  labelDecorator?: LabelDecorator | undefined;
 }
 
 /**
@@ -3364,7 +3364,7 @@ export interface CreateFormRequest {
    * <p>The unique client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Represents the configuration of the form to create.</p>
@@ -3381,7 +3381,7 @@ export interface CreateFormResponse {
    * <p>Describes the configuration of the new form.</p>
    * @public
    */
-  entity?: Form;
+  entity?: Form | undefined;
 }
 
 /**
@@ -3392,7 +3392,7 @@ export interface GetFormResponse {
    * <p>Represents the configuration settings for the form.</p>
    * @public
    */
-  form?: Form;
+  form?: Form | undefined;
 }
 
 /**
@@ -3421,7 +3421,7 @@ export interface UpdateFormRequest {
    * <p>The unique client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The request accepts the following data in JSON format.</p>
@@ -3438,7 +3438,7 @@ export interface UpdateFormResponse {
    * <p>Describes the configuration of the updated form.</p>
    * @public
    */
-  entity?: Form;
+  entity?: Form | undefined;
 }
 
 /**
@@ -3455,7 +3455,7 @@ export interface ExportFormsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3471,45 +3471,45 @@ export interface ActionParameters {
    *       This value is required for a navigation action.</p>
    * @public
    */
-  type?: ComponentProperty;
+  type?: ComponentProperty | undefined;
 
   /**
    * <p>The URL to the location to open. Specify this value for a navigation action.</p>
    * @public
    */
-  url?: ComponentProperty;
+  url?: ComponentProperty | undefined;
 
   /**
    * <p>The HTML anchor link to the location to open. Specify this value for a navigation
    *       action.</p>
    * @public
    */
-  anchor?: ComponentProperty;
+  anchor?: ComponentProperty | undefined;
 
   /**
    * <p>The element within the same component to modify when the action occurs.</p>
    * @public
    */
-  target?: ComponentProperty;
+  target?: ComponentProperty | undefined;
 
   /**
    * <p>Specifies whether the user should be signed out globally. Specify this value for an auth
    *       sign out action.</p>
    * @public
    */
-  global?: ComponentProperty;
+  global?: ComponentProperty | undefined;
 
   /**
    * <p>The name of the data model. Use when the action performs an operation on an Amplify DataStore model.</p>
    * @public
    */
-  model?: string;
+  model?: string | undefined;
 
   /**
    * <p>The unique ID of the component that the <code>ActionParameters</code> apply to.</p>
    * @public
    */
-  id?: ComponentProperty;
+  id?: ComponentProperty | undefined;
 
   /**
    * <p>A dictionary of key-value pairs mapping Amplify Studio properties to fields
@@ -3517,13 +3517,13 @@ export interface ActionParameters {
    *       DataStore model.</p>
    * @public
    */
-  fields?: Record<string, ComponentProperty>;
+  fields?: Record<string, ComponentProperty> | undefined;
 
   /**
    * <p>A key-value pair that specifies the state property name and its initial value.</p>
    * @public
    */
-  state?: MutationActionSetStateParameter;
+  state?: MutationActionSetStateParameter | undefined;
 }
 
 /**
@@ -3537,20 +3537,20 @@ export interface ComponentEvent {
    * <p>The action to perform when a specific event is raised.</p>
    * @public
    */
-  action?: string;
+  action?: string | undefined;
 
   /**
    * <p>Describes information about the action.</p>
    * @public
    */
-  parameters?: ActionParameters;
+  parameters?: ActionParameters | undefined;
 
   /**
    * <p>Binds an event to an action on a component. When you specify a <code>bindingEvent</code>,
    *       the event is called when the action is performed.</p>
    * @public
    */
-  bindingEvent?: string;
+  bindingEvent?: string | undefined;
 }
 
 /**
@@ -3581,7 +3581,7 @@ export interface ComponentChild {
    * <p>The list of <code>ComponentChild</code> instances for this component.</p>
    * @public
    */
-  children?: ComponentChild[];
+  children?: ComponentChild[] | undefined;
 
   /**
    * <p>Describes the events that can be raised on the child component. Use for the workflow
@@ -3589,13 +3589,13 @@ export interface ComponentChild {
    *       components.</p>
    * @public
    */
-  events?: Record<string, ComponentEvent>;
+  events?: Record<string, ComponentEvent> | undefined;
 
   /**
    * <p>The unique ID of the child component in its original source system, such as Figma.</p>
    * @public
    */
-  sourceId?: string;
+  sourceId?: string | undefined;
 }
 
 /**
@@ -3623,7 +3623,7 @@ export interface Component {
    * <p>The unique ID of the component in its original source system, such as Figma.</p>
    * @public
    */
-  sourceId?: string;
+  sourceId?: string | undefined;
 
   /**
    * <p>The unique ID of the component.</p>
@@ -3655,7 +3655,7 @@ export interface Component {
    * <p>A list of the component's <code>ComponentChild</code> instances.</p>
    * @public
    */
-  children?: ComponentChild[];
+  children?: ComponentChild[] | undefined;
 
   /**
    * <p>A list of the component's variants. A variant is a unique style configuration of a main
@@ -3686,7 +3686,7 @@ export interface Component {
    *         <code>collectionProperties</code>.</p>
    * @public
    */
-  collectionProperties?: Record<string, ComponentDataConfiguration>;
+  collectionProperties?: Record<string, ComponentDataConfiguration> | undefined;
 
   /**
    * <p>The time that the component was created.</p>
@@ -3698,13 +3698,13 @@ export interface Component {
    * <p>The time that the component was modified.</p>
    * @public
    */
-  modifiedAt?: Date;
+  modifiedAt?: Date | undefined;
 
   /**
    * <p>One or more key-value pairs to use when tagging the component.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Describes the events that can be raised on the component. Use for the workflow feature in
@@ -3712,13 +3712,13 @@ export interface Component {
    *       components.</p>
    * @public
    */
-  events?: Record<string, ComponentEvent>;
+  events?: Record<string, ComponentEvent> | undefined;
 
   /**
    * <p>The schema version of the component when it was imported.</p>
    * @public
    */
-  schemaVersion?: string;
+  schemaVersion?: string | undefined;
 }
 
 /**
@@ -3736,7 +3736,7 @@ export interface CreateComponentData {
    * <p>The unique ID of the component in its original source system, such as Figma.</p>
    * @public
    */
-  sourceId?: string;
+  sourceId?: string | undefined;
 
   /**
    * <p>The component type. This can be an Amplify custom UI component or another
@@ -3755,7 +3755,7 @@ export interface CreateComponentData {
    * <p>A list of child components that are instances of the main component.</p>
    * @public
    */
-  children?: ComponentChild[];
+  children?: ComponentChild[] | undefined;
 
   /**
    * <p>A list of the unique variants of this component.</p>
@@ -3781,25 +3781,25 @@ export interface CreateComponentData {
    *       collection component.</p>
    * @public
    */
-  collectionProperties?: Record<string, ComponentDataConfiguration>;
+  collectionProperties?: Record<string, ComponentDataConfiguration> | undefined;
 
   /**
    * <p>One or more key-value pairs to use when tagging the component data.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
    * @public
    */
-  events?: Record<string, ComponentEvent>;
+  events?: Record<string, ComponentEvent> | undefined;
 
   /**
    * <p>The schema version of the component when it was imported.</p>
    * @public
    */
-  schemaVersion?: string;
+  schemaVersion?: string | undefined;
 }
 
 /**
@@ -3811,75 +3811,75 @@ export interface UpdateComponentData {
    * <p>The unique ID of the component to update.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the component to update.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The unique ID of the component in its original source system, such as Figma.</p>
    * @public
    */
-  sourceId?: string;
+  sourceId?: string | undefined;
 
   /**
    * <p>The type of the component. This can be an Amplify custom UI component or
    *       another custom component.</p>
    * @public
    */
-  componentType?: string;
+  componentType?: string | undefined;
 
   /**
    * <p>Describes the component's properties.</p>
    * @public
    */
-  properties?: Record<string, ComponentProperty>;
+  properties?: Record<string, ComponentProperty> | undefined;
 
   /**
    * <p>The components that are instances of the main component.</p>
    * @public
    */
-  children?: ComponentChild[];
+  children?: ComponentChild[] | undefined;
 
   /**
    * <p>A list of the unique variants of the main component being updated.</p>
    * @public
    */
-  variants?: ComponentVariant[];
+  variants?: ComponentVariant[] | undefined;
 
   /**
    * <p>Describes the properties that can be overriden to customize the component.</p>
    * @public
    */
-  overrides?: Record<string, Record<string, string>>;
+  overrides?: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The data binding information for the component's properties.</p>
    * @public
    */
-  bindingProperties?: Record<string, ComponentBindingPropertiesValue>;
+  bindingProperties?: Record<string, ComponentBindingPropertiesValue> | undefined;
 
   /**
    * <p>The configuration for binding a component's properties to a data model. Use this for a
    *       collection component.</p>
    * @public
    */
-  collectionProperties?: Record<string, ComponentDataConfiguration>;
+  collectionProperties?: Record<string, ComponentDataConfiguration> | undefined;
 
   /**
    * <p>The event configuration for the component. Use for the workflow feature in Amplify Studio that allows you to bind events and actions to components.</p>
    * @public
    */
-  events?: Record<string, ComponentEvent>;
+  events?: Record<string, ComponentEvent> | undefined;
 
   /**
    * <p>The schema version of the component when it was imported.</p>
    * @public
    */
-  schemaVersion?: string;
+  schemaVersion?: string | undefined;
 }
 
 /**
@@ -3903,7 +3903,7 @@ export interface CreateComponentRequest {
    * <p>The unique client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Represents the configuration of the component to create.</p>
@@ -3920,7 +3920,7 @@ export interface CreateComponentResponse {
    * <p>Describes the configuration of the new component.</p>
    * @public
    */
-  entity?: Component;
+  entity?: Component | undefined;
 }
 
 /**
@@ -3931,7 +3931,7 @@ export interface GetComponentResponse {
    * <p>Represents the configuration settings for the component.</p>
    * @public
    */
-  component?: Component;
+  component?: Component | undefined;
 }
 
 /**
@@ -3960,7 +3960,7 @@ export interface UpdateComponentRequest {
    * <p>The unique client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The configuration of the updated component.</p>
@@ -3977,7 +3977,7 @@ export interface UpdateComponentResponse {
    * <p>Describes the configuration of the updated component.</p>
    * @public
    */
-  entity?: Component;
+  entity?: Component | undefined;
 }
 
 /**
@@ -3994,7 +3994,7 @@ export interface ExportComponentsResponse {
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**

@@ -69,7 +69,7 @@ export interface CreateAccessLogSubscriptionRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The ID or Amazon Resource Name (ARN) of the service network or service.</p>
@@ -88,7 +88,7 @@ export interface CreateAccessLogSubscriptionRequest {
    * <p>The tags for the access log subscription.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -138,7 +138,7 @@ export class InternalServerException extends __BaseException {
    * <p>The number of seconds to wait before retrying.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -202,19 +202,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The service code.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The ID of the service quota that was exceeded.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>The number of seconds to wait before retrying.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -284,7 +284,7 @@ export class ValidationException extends __BaseException {
    * <p>The fields that failed validation.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -391,13 +391,13 @@ export interface ListAccessLogSubscriptionsRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -464,7 +464,7 @@ export interface ListAccessLogSubscriptionsResponse {
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface WeightedTargetGroup {
    *    only one target group specified, then the default value is 100.</p>
    * @public
    */
-  weight?: number;
+  weight?: number | undefined;
 }
 
 /**
@@ -749,7 +749,7 @@ export interface HeaderMatch {
    * <p>Indicates whether the match is case sensitive.</p>
    * @public
    */
-  caseSensitive?: boolean;
+  caseSensitive?: boolean | undefined;
 }
 
 /**
@@ -821,7 +821,7 @@ export interface PathMatch {
    * <p>Indicates whether the match is case sensitive.</p>
    * @public
    */
-  caseSensitive?: boolean;
+  caseSensitive?: boolean | undefined;
 }
 
 /**
@@ -833,20 +833,20 @@ export interface HttpMatch {
    * <p>The HTTP method type.</p>
    * @public
    */
-  method?: string;
+  method?: string | undefined;
 
   /**
    * <p>The path match.</p>
    * @public
    */
-  pathMatch?: PathMatch;
+  pathMatch?: PathMatch | undefined;
 
   /**
    * <p>The header matches. Matches incoming requests with rule based on request header value before
    *    applying rule action.</p>
    * @public
    */
-  headerMatches?: HeaderMatch[];
+  headerMatches?: HeaderMatch[] | undefined;
 }
 
 /**
@@ -902,19 +902,19 @@ export interface RuleUpdate {
    * <p>The rule match.</p>
    * @public
    */
-  match?: RuleMatch;
+  match?: RuleMatch | undefined;
 
   /**
    * <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>The rule action.</p>
    * @public
    */
-  action?: RuleAction;
+  action?: RuleAction | undefined;
 }
 
 /**
@@ -949,43 +949,43 @@ export interface RuleUpdateSuccess {
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the listener.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the listener.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Indicates whether this is the default rule.</p>
    * @public
    */
-  isDefault?: boolean;
+  isDefault?: boolean | undefined;
 
   /**
    * <p>The rule match.</p>
    * @public
    */
-  match?: RuleMatch;
+  match?: RuleMatch | undefined;
 
   /**
    * <p>The rule priority.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>The action for the rule.</p>
    * @public
    */
-  action?: RuleAction;
+  action?: RuleAction | undefined;
 }
 
 /**
@@ -997,19 +997,19 @@ export interface RuleUpdateFailure {
    * <p>The ID or Amazon Resource Name (ARN) of the rule.</p>
    * @public
    */
-  ruleIdentifier?: string;
+  ruleIdentifier?: string | undefined;
 
   /**
    * <p>The failure code.</p>
    * @public
    */
-  failureCode?: string;
+  failureCode?: string | undefined;
 
   /**
    * <p>The failure message.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -1020,13 +1020,13 @@ export interface BatchUpdateRuleResponse {
    * <p>The rules that were successfully updated.</p>
    * @public
    */
-  successful?: RuleUpdateSuccess[];
+  successful?: RuleUpdateSuccess[] | undefined;
 
   /**
    * <p>The rules that the operation couldn't update.</p>
    * @public
    */
-  unsuccessful?: RuleUpdateFailure[];
+  unsuccessful?: RuleUpdateFailure[] | undefined;
 }
 
 /**
@@ -1081,7 +1081,7 @@ export interface CreateListenerRequest {
    *    HTTP, the default is 80. For HTTPS, the default is 443.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The action for the default rule. Each listener has a default rule. The default rule is used
@@ -1097,13 +1097,13 @@ export interface CreateListenerRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags for the listener.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1114,49 +1114,49 @@ export interface CreateListenerResponse {
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the listener.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the listener.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The protocol of the listener.</p>
    * @public
    */
-  protocol?: ListenerProtocol;
+  protocol?: ListenerProtocol | undefined;
 
   /**
    * <p>The port number of the listener.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  serviceArn?: string;
+  serviceArn?: string | undefined;
 
   /**
    * <p>The ID of the service.</p>
    * @public
    */
-  serviceId?: string;
+  serviceId?: string | undefined;
 
   /**
    * <p>The action for the default rule.</p>
    * @public
    */
-  defaultAction?: RuleAction;
+  defaultAction?: RuleAction | undefined;
 }
 
 /**
@@ -1170,7 +1170,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The resource ID.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The resource type.</p>
@@ -1256,13 +1256,13 @@ export interface CreateRuleRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags for the rule.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1273,19 +1273,19 @@ export interface CreateRuleResponse {
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the rule.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the rule.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The rule match. The <code>RuleMatch</code> must be an <code>HttpMatch</code>. This means
@@ -1293,20 +1293,20 @@ export interface CreateRuleResponse {
    *    path, and header.</p>
    * @public
    */
-  match?: RuleMatch;
+  match?: RuleMatch | undefined;
 
   /**
    * <p>The priority assigned to the rule. The lower the priority number the higher the
    *    priority.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>The rule action.</p>
    * @public
    */
-  action?: RuleAction;
+  action?: RuleAction | undefined;
 }
 
 /**
@@ -1320,7 +1320,7 @@ export interface CreateServiceRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a
@@ -1333,19 +1333,19 @@ export interface CreateServiceRequest {
    * <p>The tags for the service.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
@@ -1361,7 +1361,7 @@ export interface CreateServiceRequest {
    *          </ul>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 }
 
 /**
@@ -1373,13 +1373,13 @@ export interface DnsEntry {
    * <p>The domain name of the service.</p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>The ID of the hosted zone.</p>
    * @public
    */
-  hostedZoneId?: string;
+  hostedZoneId?: string | undefined;
 }
 
 /**
@@ -1422,50 +1422,50 @@ export interface CreateServiceResponse {
    * <p>The ID of the service.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The status. If the status is <code>CREATE_FAILED</code>, you must delete and
    *    recreate the service.</p>
    * @public
    */
-  status?: ServiceStatus;
+  status?: ServiceStatus | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 
   /**
    * <p>The public DNS name of the service.</p>
    * @public
    */
-  dnsEntry?: DnsEntry;
+  dnsEntry?: DnsEntry | undefined;
 }
 
 /**
@@ -1479,7 +1479,7 @@ export interface CreateServiceNetworkRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a
@@ -1502,13 +1502,13 @@ export interface CreateServiceNetworkRequest {
    *          </ul>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 
   /**
    * <p>The tags for the service network.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1519,25 +1519,25 @@ export interface CreateServiceNetworkResponse {
    * <p>The ID of the service network.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 }
 
 /**
@@ -1551,7 +1551,7 @@ export interface CreateServiceNetworkServiceAssociationRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The ID or Amazon Resource Name (ARN) of the service.</p>
@@ -1570,7 +1570,7 @@ export interface CreateServiceNetworkServiceAssociationRequest {
    * <p>The tags for the association.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1614,37 +1614,37 @@ export interface CreateServiceNetworkServiceAssociationResponse {
    * <p>The ID of the association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The association status.</p>
    * @public
    */
-  status?: ServiceNetworkServiceAssociationStatus;
+  status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The account that created the association.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The DNS name of the service.</p>
    * @public
    */
-  dnsEntry?: DnsEntry;
+  dnsEntry?: DnsEntry | undefined;
 }
 
 /**
@@ -1658,7 +1658,7 @@ export interface CreateServiceNetworkVpcAssociationRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the
@@ -1681,13 +1681,13 @@ export interface CreateServiceNetworkVpcAssociationRequest {
    *    Guide</i>.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The tags for the association.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1739,31 +1739,31 @@ export interface CreateServiceNetworkVpcAssociationResponse {
    * <p>The ID of the association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The association status.</p>
    * @public
    */
-  status?: ServiceNetworkVpcAssociationStatus;
+  status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The account that created the association.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The IDs of the security groups.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -1859,28 +1859,28 @@ export interface HealthCheckConfig {
    * <p>Indicates whether health checking is enabled.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The protocol used when performing health checks on targets. The possible protocols are
    *     <code>HTTP</code> and <code>HTTPS</code>. The default is <code>HTTP</code>.</p>
    * @public
    */
-  protocol?: TargetGroupProtocol;
+  protocol?: TargetGroupProtocol | undefined;
 
   /**
    * <p>The protocol version used when performing health checks on targets. The possible protocol
    *    versions are <code>HTTP1</code> and <code>HTTP2</code>.</p>
    * @public
    */
-  protocolVersion?: HealthCheckProtocolVersion;
+  protocolVersion?: HealthCheckProtocolVersion | undefined;
 
   /**
    * <p>The port used when performing health checks on targets. The default setting is the port that
    *    a target receives traffic on.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The destination for health checks on the targets. If the protocol version is
@@ -1890,41 +1890,41 @@ export interface HealthCheckConfig {
    *     <code>HTTP/2</code> and specify a valid URI.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The approximate amount of time, in seconds, between health checks of an individual target.
    *    The range is 5–300 seconds. The default is 30 seconds.</p>
    * @public
    */
-  healthCheckIntervalSeconds?: number;
+  healthCheckIntervalSeconds?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, to wait before reporting a target as unhealthy. The range is
    *    1–120 seconds. The default is 5 seconds.</p>
    * @public
    */
-  healthCheckTimeoutSeconds?: number;
+  healthCheckTimeoutSeconds?: number | undefined;
 
   /**
    * <p>The number of consecutive successful health checks required before considering an unhealthy
    *    target healthy. The range is 2–10. The default is 5.</p>
    * @public
    */
-  healthyThresholdCount?: number;
+  healthyThresholdCount?: number | undefined;
 
   /**
    * <p>The number of consecutive failed health checks required before considering a target
    *    unhealthy. The range is 2–10. The default is 2.</p>
    * @public
    */
-  unhealthyThresholdCount?: number;
+  unhealthyThresholdCount?: number | undefined;
 
   /**
    * <p>The codes to use when checking for a successful response from a target.</p>
    * @public
    */
-  matcher?: Matcher;
+  matcher?: Matcher | undefined;
 }
 
 /**
@@ -2004,48 +2004,48 @@ export interface TargetGroupConfig {
    *    HTTPS, the default is 443. Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The protocol to use for routing traffic to the targets. The default is the protocol of the target
    *    group. Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
-  protocol?: TargetGroupProtocol;
+  protocol?: TargetGroupProtocol | undefined;
 
   /**
    * <p>The protocol version. The default is <code>HTTP1</code>.
    *    Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
-  protocolVersion?: TargetGroupProtocolVersion;
+  protocolVersion?: TargetGroupProtocolVersion | undefined;
 
   /**
    * <p>The type of IP address used for the target group. Supported only if the target group
    *    type is <code>IP</code>. The default is <code>IPV4</code>.</p>
    * @public
    */
-  ipAddressType?: IpAddressType;
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The ID of the VPC. Not supported if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
-  vpcIdentifier?: string;
+  vpcIdentifier?: string | undefined;
 
   /**
    * <p>The health check configuration. Not supported if the target group type is
    *    <code>LAMBDA</code> or <code>ALB</code>.</p>
    * @public
    */
-  healthCheck?: HealthCheckConfig;
+  healthCheck?: HealthCheckConfig | undefined;
 
   /**
    * <p>The version of the event structure that your Lambda function receives.
    *    Supported only if the target group type is <code>LAMBDA</code>. The default is <code>V1</code>.</p>
    * @public
    */
-  lambdaEventStructureVersion?: LambdaEventStructureVersion;
+  lambdaEventStructureVersion?: LambdaEventStructureVersion | undefined;
 }
 
 /**
@@ -2097,7 +2097,7 @@ export interface CreateTargetGroupRequest {
    * <p>The target group configuration.</p>
    * @public
    */
-  config?: TargetGroupConfig;
+  config?: TargetGroupConfig | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure
@@ -2106,13 +2106,13 @@ export interface CreateTargetGroupRequest {
    *   If the parameters aren't identical, the retry fails.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags for the target group.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2155,31 +2155,31 @@ export interface CreateTargetGroupResponse {
    * <p>The ID of the target group.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the target group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of target group.</p>
    * @public
    */
-  type?: TargetGroupType;
+  type?: TargetGroupType | undefined;
 
   /**
    * <p>The target group configuration.</p>
    * @public
    */
-  config?: TargetGroupConfig;
+  config?: TargetGroupConfig | undefined;
 
   /**
    * <p>The status. You can retry the operation if the status is <code>CREATE_FAILED</code>.
@@ -2187,7 +2187,7 @@ export interface CreateTargetGroupResponse {
    *    no change in the status.</p>
    * @public
    */
-  status?: TargetGroupStatus;
+  status?: TargetGroupStatus | undefined;
 }
 
 /**
@@ -2291,19 +2291,19 @@ export interface DeleteServiceResponse {
    * <p>The ID of the service.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>.
@@ -2311,7 +2311,7 @@ export interface DeleteServiceResponse {
    *    change.</p>
    * @public
    */
-  status?: ServiceStatus;
+  status?: ServiceStatus | undefined;
 }
 
 /**
@@ -2349,7 +2349,7 @@ export interface DeleteServiceNetworkServiceAssociationResponse {
    * <p>The ID of the association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>.
@@ -2357,13 +2357,13 @@ export interface DeleteServiceNetworkServiceAssociationResponse {
    *    change in the status.</p>
    * @public
    */
-  status?: ServiceNetworkServiceAssociationStatus;
+  status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -2385,7 +2385,7 @@ export interface DeleteServiceNetworkVpcAssociationResponse {
    * <p>The ID of the association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>.
@@ -2393,13 +2393,13 @@ export interface DeleteServiceNetworkVpcAssociationResponse {
    *    in the status.</p>
    * @public
    */
-  status?: ServiceNetworkVpcAssociationStatus;
+  status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -2421,13 +2421,13 @@ export interface DeleteTargetGroupResponse {
    * <p>The ID of the target group.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>.
@@ -2435,7 +2435,7 @@ export interface DeleteTargetGroupResponse {
    *    change.</p>
    * @public
    */
-  status?: TargetGroupStatus;
+  status?: TargetGroupStatus | undefined;
 }
 
 /**
@@ -2457,7 +2457,7 @@ export interface Target {
    *    HTTPS, the default is 443.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -2489,26 +2489,26 @@ export interface TargetFailure {
    *     <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The port on which the target is listening. This parameter doesn't apply if the target is a
    *    Lambda function.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The failure code.</p>
    * @public
    */
-  failureCode?: string;
+  failureCode?: string | undefined;
 
   /**
    * <p>The failure message.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -2519,13 +2519,13 @@ export interface DeregisterTargetsResponse {
    * <p>The targets that were successfully deregistered.</p>
    * @public
    */
-  successful?: Target[];
+  successful?: Target[] | undefined;
 
   /**
    * <p>The targets that the operation couldn't deregister.</p>
    * @public
    */
-  unsuccessful?: TargetFailure[];
+  unsuccessful?: TargetFailure[] | undefined;
 }
 
 /**
@@ -2547,7 +2547,7 @@ export interface GetAuthPolicyResponse {
    * <p>The auth policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
@@ -2556,20 +2556,20 @@ export interface GetAuthPolicyResponse {
    *    then any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
    * @public
    */
-  state?: AuthPolicyState;
+  state?: AuthPolicyState | undefined;
 
   /**
    * <p>The date and time that the auth policy was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the auth policy was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2597,61 +2597,61 @@ export interface GetListenerResponse {
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the listener.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the listener.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The listener protocol.</p>
    * @public
    */
-  protocol?: ListenerProtocol;
+  protocol?: ListenerProtocol | undefined;
 
   /**
    * <p>The listener port.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  serviceArn?: string;
+  serviceArn?: string | undefined;
 
   /**
    * <p>The ID of the service.</p>
    * @public
    */
-  serviceId?: string;
+  serviceId?: string | undefined;
 
   /**
    * <p>The actions for the default listener rule.</p>
    * @public
    */
-  defaultAction?: RuleAction;
+  defaultAction?: RuleAction | undefined;
 
   /**
    * <p>The date and time that the listener was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the listener was last updated, specified in ISO-8601 format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2673,7 +2673,7 @@ export interface GetResourcePolicyResponse {
    * <p>An IAM policy.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 }
 
 /**
@@ -2707,56 +2707,56 @@ export interface GetRuleResponse {
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the listener.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the listener.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Indicates whether this is the default rule.</p>
    * @public
    */
-  isDefault?: boolean;
+  isDefault?: boolean | undefined;
 
   /**
    * <p>The rule match.</p>
    * @public
    */
-  match?: RuleMatch;
+  match?: RuleMatch | undefined;
 
   /**
    * <p>The priority level for the specified rule.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>The action for the default rule.</p>
    * @public
    */
-  action?: RuleAction;
+  action?: RuleAction | undefined;
 
   /**
    * <p>The date and time that the listener rule was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the listener rule was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2778,73 +2778,73 @@ export interface GetServiceResponse {
    * <p>The ID of the service.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The date and time that the service was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the service was last updated, specified in ISO-8601 format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The DNS name of the service.</p>
    * @public
    */
-  dnsEntry?: DnsEntry;
+  dnsEntry?: DnsEntry | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The status of the service.</p>
    * @public
    */
-  status?: ServiceStatus;
+  status?: ServiceStatus | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 
   /**
    * <p>The failure code.</p>
    * @public
    */
-  failureCode?: string;
+  failureCode?: string | undefined;
 
   /**
    * <p>The failure message.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -2866,49 +2866,49 @@ export interface GetServiceNetworkResponse {
    * <p>The ID of the service network.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The date and time that the service network was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time of the last update, specified in ISO-8601 format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 
   /**
    * <p>The number of VPCs associated with the service network.</p>
    * @public
    */
-  numberOfAssociatedVPCs?: number;
+  numberOfAssociatedVPCs?: number | undefined;
 
   /**
    * <p>The number of services associated with the service network.</p>
    * @public
    */
-  numberOfAssociatedServices?: number;
+  numberOfAssociatedServices?: number | undefined;
 }
 
 /**
@@ -2930,91 +2930,91 @@ export interface GetServiceNetworkServiceAssociationResponse {
    * <p>The ID of the service network and service association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status of the association.</p>
    * @public
    */
-  status?: ServiceNetworkServiceAssociationStatus;
+  status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The account that created the association.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The date and time that the association was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The ID of the service.</p>
    * @public
    */
-  serviceId?: string;
+  serviceId?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  serviceName?: string;
+  serviceName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  serviceArn?: string;
+  serviceArn?: string | undefined;
 
   /**
    * <p>The ID of the service network.</p>
    * @public
    */
-  serviceNetworkId?: string;
+  serviceNetworkId?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  serviceNetworkName?: string;
+  serviceNetworkName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  serviceNetworkArn?: string;
+  serviceNetworkArn?: string | undefined;
 
   /**
    * <p>The DNS name of the service.</p>
    * @public
    */
-  dnsEntry?: DnsEntry;
+  dnsEntry?: DnsEntry | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The failure message.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>The failure code.</p>
    * @public
    */
-  failureCode?: string;
+  failureCode?: string | undefined;
 }
 
 /**
@@ -3036,80 +3036,80 @@ export interface GetServiceNetworkVpcAssociationResponse {
    * <p>The ID of the specified association between the service network and the VPC.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status of the association.</p>
    * @public
    */
-  status?: ServiceNetworkVpcAssociationStatus;
+  status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The account that created the association.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The date and time that the association was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The ID of the service network.</p>
    * @public
    */
-  serviceNetworkId?: string;
+  serviceNetworkId?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  serviceNetworkName?: string;
+  serviceNetworkName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  serviceNetworkArn?: string;
+  serviceNetworkArn?: string | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The IDs of the security groups.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>The failure message.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>The failure code.</p>
    * @public
    */
-  failureCode?: string;
+  failureCode?: string | undefined;
 
   /**
    * <p>The date and time that the association was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3131,68 +3131,68 @@ export interface GetTargetGroupResponse {
    * <p>The ID of the target group.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the target group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The target group type.</p>
    * @public
    */
-  type?: TargetGroupType;
+  type?: TargetGroupType | undefined;
 
   /**
    * <p>The target group configuration.</p>
    * @public
    */
-  config?: TargetGroupConfig;
+  config?: TargetGroupConfig | undefined;
 
   /**
    * <p>The date and time that the target group was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the target group was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  status?: TargetGroupStatus;
+  status?: TargetGroupStatus | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the service.</p>
    * @public
    */
-  serviceArns?: string[];
+  serviceArns?: string[] | undefined;
 
   /**
    * <p>The failure message.</p>
    * @public
    */
-  failureMessage?: string;
+  failureMessage?: string | undefined;
 
   /**
    * <p>The failure code.</p>
    * @public
    */
-  failureCode?: string;
+  failureCode?: string | undefined;
 }
 
 /**
@@ -3209,13 +3209,13 @@ export interface ListListenersRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3227,43 +3227,43 @@ export interface ListenerSummary {
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the listener.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the listener.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The listener protocol.</p>
    * @public
    */
-  protocol?: ListenerProtocol;
+  protocol?: ListenerProtocol | undefined;
 
   /**
    * <p>The listener port.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The date and time that the listener was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the listener was last updated, specified in ISO-8601 format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3280,7 +3280,7 @@ export interface ListListenersResponse {
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3314,49 +3314,49 @@ export interface UpdateListenerResponse {
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the listener.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the listener.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The protocol of the listener.</p>
    * @public
    */
-  protocol?: ListenerProtocol;
+  protocol?: ListenerProtocol | undefined;
 
   /**
    * <p>The listener port.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  serviceArn?: string;
+  serviceArn?: string | undefined;
 
   /**
    * <p>The ID of the service.</p>
    * @public
    */
-  serviceId?: string;
+  serviceId?: string | undefined;
 
   /**
    * <p>The action for the default rule.</p>
    * @public
    */
-  defaultAction?: RuleAction;
+  defaultAction?: RuleAction | undefined;
 }
 
 /**
@@ -3379,13 +3379,13 @@ export interface ListRulesRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3397,44 +3397,44 @@ export interface RuleSummary {
    * <p>The Amazon Resource Name (ARN) of the rule.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the rule.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the rule.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Indicates whether this is the default listener rule.</p>
    * @public
    */
-  isDefault?: boolean;
+  isDefault?: boolean | undefined;
 
   /**
    * <p>The priority of the rule.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>The date and time that the listener rule was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the listener rule was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3451,7 +3451,7 @@ export interface ListRulesResponse {
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3462,13 +3462,13 @@ export interface ListServiceNetworksRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3480,44 +3480,44 @@ export interface ServiceNetworkSummary {
    * <p>The ID of the service network.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The date and time that the service network was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the service network was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The number of VPCs associated with the service network.</p>
    * @public
    */
-  numberOfAssociatedVPCs?: number;
+  numberOfAssociatedVPCs?: number | undefined;
 
   /**
    * <p>The number of services associated with the service network.</p>
    * @public
    */
-  numberOfAssociatedServices?: number;
+  numberOfAssociatedServices?: number | undefined;
 }
 
 /**
@@ -3534,7 +3534,7 @@ export interface ListServiceNetworksResponse {
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3545,25 +3545,25 @@ export interface ListServiceNetworkServiceAssociationsRequest {
    * <p>The ID or Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  serviceNetworkIdentifier?: string;
+  serviceNetworkIdentifier?: string | undefined;
 
   /**
    * <p>The ID or Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  serviceIdentifier?: string;
+  serviceIdentifier?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3575,79 +3575,79 @@ export interface ServiceNetworkServiceAssociationSummary {
    * <p>The ID of the association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The status. If the deletion fails, try to delete again.</p>
    * @public
    */
-  status?: ServiceNetworkServiceAssociationStatus;
+  status?: ServiceNetworkServiceAssociationStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The account that created the association.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The date and time that the association was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The ID of the service.</p>
    * @public
    */
-  serviceId?: string;
+  serviceId?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  serviceName?: string;
+  serviceName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  serviceArn?: string;
+  serviceArn?: string | undefined;
 
   /**
    * <p>The ID of the service network.</p>
    * @public
    */
-  serviceNetworkId?: string;
+  serviceNetworkId?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  serviceNetworkName?: string;
+  serviceNetworkName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  serviceNetworkArn?: string;
+  serviceNetworkArn?: string | undefined;
 
   /**
    * <p>The DNS information.</p>
    * @public
    */
-  dnsEntry?: DnsEntry;
+  dnsEntry?: DnsEntry | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 }
 
 /**
@@ -3664,7 +3664,7 @@ export interface ListServiceNetworkServiceAssociationsResponse {
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3675,25 +3675,25 @@ export interface ListServiceNetworkVpcAssociationsRequest {
    * <p>The ID or Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  serviceNetworkIdentifier?: string;
+  serviceNetworkIdentifier?: string | undefined;
 
   /**
    * <p>The ID or Amazon Resource Name (ARN) of the VPC.</p>
    * @public
    */
-  vpcIdentifier?: string;
+  vpcIdentifier?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3705,62 +3705,62 @@ export interface ServiceNetworkVpcAssociationSummary {
    * <p>The ID of the association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  status?: ServiceNetworkVpcAssociationStatus;
+  status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
    * <p>The account that created the association.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The date and time that the association was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The ID of the service network.</p>
    * @public
    */
-  serviceNetworkId?: string;
+  serviceNetworkId?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  serviceNetworkName?: string;
+  serviceNetworkName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  serviceNetworkArn?: string;
+  serviceNetworkArn?: string | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The date and time that the association was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3777,7 +3777,7 @@ export interface ListServiceNetworkVpcAssociationsResponse {
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3788,13 +3788,13 @@ export interface ListServicesRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3806,49 +3806,49 @@ export interface ServiceSummary {
    * <p>The ID of the service.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The date and time that the service was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date and time that the service was last updated. The format is ISO-8601.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The DNS information.</p>
    * @public
    */
-  dnsEntry?: DnsEntry;
+  dnsEntry?: DnsEntry | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  status?: ServiceStatus;
+  status?: ServiceStatus | undefined;
 }
 
 /**
@@ -3859,13 +3859,13 @@ export interface ListServicesResponse {
    * <p>Information about the services.</p>
    * @public
    */
-  items?: ServiceSummary[];
+  items?: ServiceSummary[] | undefined;
 
   /**
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3887,7 +3887,7 @@ export interface ListTagsForResourceResponse {
    * <p>Information about the tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3898,25 +3898,25 @@ export interface ListTargetGroupsRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The ID or Amazon Resource Name (ARN) of the VPC.</p>
    * @public
    */
-  vpcIdentifier?: string;
+  vpcIdentifier?: string | undefined;
 
   /**
    * <p>The target group type.</p>
    * @public
    */
-  targetGroupType?: TargetGroupType;
+  targetGroupType?: TargetGroupType | undefined;
 }
 
 /**
@@ -3930,43 +3930,43 @@ export interface TargetGroupSummary {
    * <p>The ID of the target group.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the target group.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the target group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The target group type.</p>
    * @public
    */
-  type?: TargetGroupType;
+  type?: TargetGroupType | undefined;
 
   /**
    * <p>The date and time that the target group was created, specified in ISO-8601 format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The port of the target group.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The protocol of the target group.</p>
    * @public
    */
-  protocol?: TargetGroupProtocol;
+  protocol?: TargetGroupProtocol | undefined;
 
   /**
    * <p>The type of IP address used for the target group. The possible values are <code>IPV4</code>
@@ -3974,39 +3974,39 @@ export interface TargetGroupSummary {
    *    <code>IPV4</code>.</p>
    * @public
    */
-  ipAddressType?: IpAddressType;
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>The ID of the VPC of the target group.</p>
    * @public
    */
-  vpcIdentifier?: string;
+  vpcIdentifier?: string | undefined;
 
   /**
    * <p>The date and time that the target group was last updated, specified in ISO-8601
    *    format.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  status?: TargetGroupStatus;
+  status?: TargetGroupStatus | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the service.</p>
    * @public
    */
-  serviceArns?: string[];
+  serviceArns?: string[] | undefined;
 
   /**
    * <p>The version of the event structure that your Lambda function receives.
    *    Supported only if the target group type is <code>LAMBDA</code>.</p>
    * @public
    */
-  lambdaEventStructureVersion?: LambdaEventStructureVersion;
+  lambdaEventStructureVersion?: LambdaEventStructureVersion | undefined;
 }
 
 /**
@@ -4017,13 +4017,13 @@ export interface ListTargetGroupsResponse {
    * <p>Information about the target groups.</p>
    * @public
    */
-  items?: TargetGroupSummary[];
+  items?: TargetGroupSummary[] | undefined;
 
   /**
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4040,19 +4040,19 @@ export interface ListTargetsRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The targets.</p>
    * @public
    */
-  targets?: Target[];
+  targets?: Target[] | undefined;
 }
 
 /**
@@ -4103,13 +4103,13 @@ export interface TargetSummary {
    *    <code>ALB</code>, this is the ARN of an Application Load Balancer.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The port on which the target is listening.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The status of the target.</p>
@@ -4143,13 +4143,13 @@ export interface TargetSummary {
    *          </ul>
    * @public
    */
-  status?: TargetStatus;
+  status?: TargetStatus | undefined;
 
   /**
    * <p>The code for why the target status is what it is.</p>
    * @public
    */
-  reasonCode?: string;
+  reasonCode?: string | undefined;
 }
 
 /**
@@ -4166,7 +4166,7 @@ export interface ListTargetsResponse {
    * <p>If there are additional results, a pagination token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4195,7 +4195,7 @@ export interface PutAuthPolicyResponse {
    * <p>The auth policy. The policy string in JSON must not contain newlines or blank lines.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>The state of the auth policy. The auth policy is only active when the auth type is set to
@@ -4204,7 +4204,7 @@ export interface PutAuthPolicyResponse {
    *    then, any auth policy that you provide remains inactive. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html#create-service-network">Create a service network</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
    * @public
    */
-  state?: AuthPolicyState;
+  state?: AuthPolicyState | undefined;
 }
 
 /**
@@ -4257,19 +4257,19 @@ export interface UpdateRuleRequest {
    * <p>The rule match.</p>
    * @public
    */
-  match?: RuleMatch;
+  match?: RuleMatch | undefined;
 
   /**
    * <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>Information about the action for the specified listener rule.</p>
    * @public
    */
-  action?: RuleAction;
+  action?: RuleAction | undefined;
 }
 
 /**
@@ -4280,43 +4280,43 @@ export interface UpdateRuleResponse {
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the listener.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the listener.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Indicates whether this is the default rule.</p>
    * @public
    */
-  isDefault?: boolean;
+  isDefault?: boolean | undefined;
 
   /**
    * <p>The rule match.</p>
    * @public
    */
-  match?: RuleMatch;
+  match?: RuleMatch | undefined;
 
   /**
    * <p>The rule priority.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>Information about the action for the specified listener rule.</p>
    * @public
    */
-  action?: RuleAction;
+  action?: RuleAction | undefined;
 }
 
 /**
@@ -4333,7 +4333,7 @@ export interface UpdateServiceRequest {
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
@@ -4349,7 +4349,7 @@ export interface UpdateServiceRequest {
    *          </ul>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 }
 
 /**
@@ -4360,37 +4360,37 @@ export interface UpdateServiceResponse {
    * <p>The ID of the service.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The custom domain name of the service.</p>
    * @public
    */
-  customDomainName?: string;
+  customDomainName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 }
 
 /**
@@ -4428,25 +4428,25 @@ export interface UpdateServiceNetworkResponse {
    * <p>The ID of the service network.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the service network.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service network.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The type of IAM policy.</p>
    * @public
    */
-  authType?: AuthType;
+  authType?: AuthType | undefined;
 }
 
 /**
@@ -4474,13 +4474,13 @@ export interface UpdateServiceNetworkVpcAssociationResponse {
    * <p>The ID of the association.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the association.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The status. You can retry the operation if the status is <code>DELETE_FAILED</code>.
@@ -4488,19 +4488,19 @@ export interface UpdateServiceNetworkVpcAssociationResponse {
    *    in the status.</p>
    * @public
    */
-  status?: ServiceNetworkVpcAssociationStatus;
+  status?: ServiceNetworkVpcAssociationStatus | undefined;
 
   /**
    * <p>The account that created the association.</p>
    * @public
    */
-  createdBy?: string;
+  createdBy?: string | undefined;
 
   /**
    * <p>The IDs of the security groups.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 }
 
 /**
@@ -4550,13 +4550,13 @@ export interface RegisterTargetsResponse {
    * <p>The targets that were successfully registered.</p>
    * @public
    */
-  successful?: Target[];
+  successful?: Target[] | undefined;
 
   /**
    * <p>The targets that were not registered.</p>
    * @public
    */
-  unsuccessful?: TargetFailure[];
+  unsuccessful?: TargetFailure[] | undefined;
 }
 
 /**
@@ -4584,37 +4584,37 @@ export interface UpdateTargetGroupResponse {
    * <p>The ID of the target group.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the target group.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the target group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The target group type.</p>
    * @public
    */
-  type?: TargetGroupType;
+  type?: TargetGroupType | undefined;
 
   /**
    * <p>The target group configuration.</p>
    * @public
    */
-  config?: TargetGroupConfig;
+  config?: TargetGroupConfig | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  status?: TargetGroupStatus;
+  status?: TargetGroupStatus | undefined;
 }
 
 /**

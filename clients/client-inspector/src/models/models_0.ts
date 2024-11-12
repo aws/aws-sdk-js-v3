@@ -73,7 +73,7 @@ export interface Attribute {
    * <p>The value assigned to the attribute key.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -435,7 +435,7 @@ export interface AgentPreview {
    *          installed.</p>
    * @public
    */
-  hostname?: string;
+  hostname?: string | undefined;
 
   /**
    * <p>The ID of the EC2 instance where the agent is installed.</p>
@@ -447,40 +447,40 @@ export interface AgentPreview {
    * <p>The Auto Scaling group for the EC2 instance where the agent is installed.</p>
    * @public
    */
-  autoScalingGroup?: string;
+  autoScalingGroup?: string | undefined;
 
   /**
    * <p>The health status of the Amazon Inspector Agent.</p>
    * @public
    */
-  agentHealth?: AgentHealth;
+  agentHealth?: AgentHealth | undefined;
 
   /**
    * <p>The version of the Amazon Inspector Agent.</p>
    * @public
    */
-  agentVersion?: string;
+  agentVersion?: string | undefined;
 
   /**
    * <p>The operating system running on the EC2 instance on which the Amazon Inspector Agent
    *          is installed.</p>
    * @public
    */
-  operatingSystem?: string;
+  operatingSystem?: string | undefined;
 
   /**
    * <p>The kernel version of the operating system running on the EC2 instance on which the
    *          Amazon Inspector Agent is installed.</p>
    * @public
    */
-  kernelVersion?: string;
+  kernelVersion?: string | undefined;
 
   /**
    * <p>The IP address of the EC2 instance on which the Amazon Inspector Agent is
    *          installed.</p>
    * @public
    */
-  ipv4Address?: string;
+  ipv4Address?: string | undefined;
 }
 
 /**
@@ -598,7 +598,7 @@ export interface AssessmentRunNotification {
    * <p>The message included in the notification.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The Boolean value that specifies whether the notification represents an
@@ -611,13 +611,13 @@ export interface AssessmentRunNotification {
    * <p>The SNS topic to which the SNS notification is sent.</p>
    * @public
    */
-  snsTopicArn?: string;
+  snsTopicArn?: string | undefined;
 
   /**
    * <p>The status code of the SNS notification.</p>
    * @public
    */
-  snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode;
+  snsPublishStatusCode?: AssessmentRunNotificationSnsStatusCode | undefined;
 }
 
 /**
@@ -725,14 +725,14 @@ export interface AssessmentRun {
    * <p>The time when <a>StartAssessmentRun</a> was called.</p>
    * @public
    */
-  startedAt?: Date;
+  startedAt?: Date | undefined;
 
   /**
    * <p>The assessment run completion time that corresponds to the rules packages evaluation
    *          completion time or failure.</p>
    * @public
    */
-  completedAt?: Date;
+  completedAt?: Date | undefined;
 
   /**
    * <p>The last time when the assessment run's state changed.</p>
@@ -790,7 +790,7 @@ export interface TelemetryMetadata {
    *          service.</p>
    * @public
    */
-  dataSize?: number;
+  dataSize?: number | undefined;
 }
 
 /**
@@ -827,14 +827,14 @@ export interface AssessmentRunAgent {
    * <p>The description for the agent health code.</p>
    * @public
    */
-  agentHealthDetails?: string;
+  agentHealthDetails?: string | undefined;
 
   /**
    * <p>The Auto Scaling group of the EC2 instance that is specified by the agent
    *          ID.</p>
    * @public
    */
-  autoScalingGroup?: string;
+  autoScalingGroup?: string | undefined;
 
   /**
    * <p>The Amazon Inspector application data metrics that are collected by the
@@ -854,13 +854,13 @@ export interface TimestampRange {
    * <p>The minimum value of the timestamp range.</p>
    * @public
    */
-  beginDate?: Date;
+  beginDate?: Date | undefined;
 
   /**
    * <p>The maximum value of the timestamp range.</p>
    * @public
    */
-  endDate?: Date;
+  endDate?: Date | undefined;
 }
 
 /**
@@ -873,14 +873,14 @@ export interface DurationRange {
    * <p>The minimum value of the duration range. Must be greater than zero.</p>
    * @public
    */
-  minSeconds?: number;
+  minSeconds?: number | undefined;
 
   /**
    * <p>The maximum value of the duration range. Must be less than or equal to 604800 seconds
    *          (1 week).</p>
    * @public
    */
-  maxSeconds?: number;
+  maxSeconds?: number | undefined;
 }
 
 /**
@@ -895,7 +895,7 @@ export interface AssessmentRunFilter {
    *          data type.</p>
    * @public
    */
-  namePattern?: string;
+  namePattern?: string | undefined;
 
   /**
    * <p>For a record to match a filter, one of the values specified for this data type
@@ -903,7 +903,7 @@ export interface AssessmentRunFilter {
    *          type.</p>
    * @public
    */
-  states?: AssessmentRunState[];
+  states?: AssessmentRunState[] | undefined;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -911,7 +911,7 @@ export interface AssessmentRunFilter {
    *          of the <b>durationInSeconds</b> property of the <a>AssessmentRun</a> data type.</p>
    * @public
    */
-  durationRange?: DurationRange;
+  durationRange?: DurationRange | undefined;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -919,7 +919,7 @@ export interface AssessmentRunFilter {
    *          type.</p>
    * @public
    */
-  rulesPackageArns?: string[];
+  rulesPackageArns?: string[] | undefined;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -927,7 +927,7 @@ export interface AssessmentRunFilter {
    *          of the <b>startTime</b> property of the <a>AssessmentRun</a> data type.</p>
    * @public
    */
-  startTimeRange?: TimestampRange;
+  startTimeRange?: TimestampRange | undefined;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -935,7 +935,7 @@ export interface AssessmentRunFilter {
    *          of the <b>completedAt</b> property of the <a>AssessmentRun</a> data type.</p>
    * @public
    */
-  completionTimeRange?: TimestampRange;
+  completionTimeRange?: TimestampRange | undefined;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -943,7 +943,7 @@ export interface AssessmentRunFilter {
    *             <a>AssessmentRun</a> data type.</p>
    * @public
    */
-  stateChangeTimeRange?: TimestampRange;
+  stateChangeTimeRange?: TimestampRange | undefined;
 }
 
 /**
@@ -1012,7 +1012,7 @@ export interface AssessmentTarget {
    *          target.</p>
    * @public
    */
-  resourceGroupArn?: string;
+  resourceGroupArn?: string | undefined;
 
   /**
    * <p>The time at which the assessment target is created.</p>
@@ -1039,7 +1039,7 @@ export interface AssessmentTargetFilter {
    *             <b>assessmentTargetName</b> property of the <a>AssessmentTarget</a> data type.</p>
    * @public
    */
-  assessmentTargetNamePattern?: string;
+  assessmentTargetNamePattern?: string | undefined;
 }
 
 /**
@@ -1094,7 +1094,7 @@ export interface AssessmentTemplate {
    *          greaterpa than zero.</p>
    * @public
    */
-  lastAssessmentRunArn?: string;
+  lastAssessmentRunArn?: string | undefined;
 
   /**
    * <p>The number of existing assessment runs associated with this assessment template. This
@@ -1122,7 +1122,7 @@ export interface AssessmentTemplateFilter {
    *             <b>assessmentTemplateName</b> property of the <a>AssessmentTemplate</a> data type.</p>
    * @public
    */
-  namePattern?: string;
+  namePattern?: string | undefined;
 
   /**
    * <p>For a record to match a filter, the value specified for this data type property must
@@ -1130,7 +1130,7 @@ export interface AssessmentTemplateFilter {
    *             <b>durationInSeconds</b> property of the <a>AssessmentTemplate</a> data type.</p>
    * @public
    */
-  durationRange?: DurationRange;
+  durationRange?: DurationRange | undefined;
 
   /**
    * <p>For a record to match a filter, the values that are specified for this data type
@@ -1138,7 +1138,7 @@ export interface AssessmentTemplateFilter {
    *          type.</p>
    * @public
    */
-  rulesPackageArns?: string[];
+  rulesPackageArns?: string[] | undefined;
 }
 
 /**
@@ -1152,13 +1152,13 @@ export interface PrivateIp {
    * <p>The DNS name of the private IP address.</p>
    * @public
    */
-  privateDnsName?: string;
+  privateDnsName?: string | undefined;
 
   /**
    * <p>The full IP address of the network inteface.</p>
    * @public
    */
-  privateIpAddress?: string;
+  privateIpAddress?: string | undefined;
 }
 
 /**
@@ -1172,13 +1172,13 @@ export interface SecurityGroup {
    * <p>The name of the security group.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 
   /**
    * <p>The ID of the security group.</p>
    * @public
    */
-  groupId?: string;
+  groupId?: string | undefined;
 }
 
 /**
@@ -1192,63 +1192,63 @@ export interface NetworkInterface {
    * <p>The ID of the network interface.</p>
    * @public
    */
-  networkInterfaceId?: string;
+  networkInterfaceId?: string | undefined;
 
   /**
    * <p>The ID of a subnet associated with the network interface.</p>
    * @public
    */
-  subnetId?: string;
+  subnetId?: string | undefined;
 
   /**
    * <p>The ID of a VPC associated with the network interface.</p>
    * @public
    */
-  vpcId?: string;
+  vpcId?: string | undefined;
 
   /**
    * <p>The name of a private DNS associated with the network interface.</p>
    * @public
    */
-  privateDnsName?: string;
+  privateDnsName?: string | undefined;
 
   /**
    * <p>The private IP address associated with the network interface.</p>
    * @public
    */
-  privateIpAddress?: string;
+  privateIpAddress?: string | undefined;
 
   /**
    * <p>A list of the private IP addresses associated with the network interface. Includes
    *          the privateDnsName and privateIpAddress.</p>
    * @public
    */
-  privateIpAddresses?: PrivateIp[];
+  privateIpAddresses?: PrivateIp[] | undefined;
 
   /**
    * <p>The name of a public DNS associated with the network interface.</p>
    * @public
    */
-  publicDnsName?: string;
+  publicDnsName?: string | undefined;
 
   /**
    * <p>The public IP address from which the network interface is reachable.</p>
    * @public
    */
-  publicIp?: string;
+  publicIp?: string | undefined;
 
   /**
    * <p>The IP addresses associated with the network interface.</p>
    * @public
    */
-  ipv6Addresses?: string[];
+  ipv6Addresses?: string[] | undefined;
 
   /**
    * <p>A list of the security groups associated with the network interface. Includes the
    *          groupId and groupName.</p>
    * @public
    */
-  securityGroups?: SecurityGroup[];
+  securityGroups?: SecurityGroup[] | undefined;
 }
 
 /**
@@ -1266,7 +1266,7 @@ export interface Tag {
    * <p>A value assigned to a tag key.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1285,46 +1285,46 @@ export interface AssetAttributes {
    *          generated.</p>
    * @public
    */
-  agentId?: string;
+  agentId?: string | undefined;
 
   /**
    * <p>The Auto Scaling group of the EC2 instance where the finding is generated.</p>
    * @public
    */
-  autoScalingGroup?: string;
+  autoScalingGroup?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Machine Image (AMI) that is installed on the EC2 instance where
    *          the finding is generated.</p>
    * @public
    */
-  amiId?: string;
+  amiId?: string | undefined;
 
   /**
    * <p>The hostname of the EC2 instance where the finding is generated.</p>
    * @public
    */
-  hostname?: string;
+  hostname?: string | undefined;
 
   /**
    * <p>The list of IP v4 addresses of the EC2 instance where the finding is
    *          generated.</p>
    * @public
    */
-  ipv4Addresses?: string[];
+  ipv4Addresses?: string[] | undefined;
 
   /**
    * <p>The tags related to the EC2 instance where the finding is generated.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>An array of the network interfaces interacting with the EC2 instance where the
    *          finding is generated.</p>
    * @public
    */
-  networkInterfaces?: NetworkInterface[];
+  networkInterfaces?: NetworkInterface[] | undefined;
 }
 
 /**
@@ -1357,7 +1357,7 @@ export interface CreateAssessmentTargetRequest {
    *          and region are included in the assessment target.</p>
    * @public
    */
-  resourceGroupArn?: string;
+  resourceGroupArn?: string | undefined;
 }
 
 /**
@@ -1513,7 +1513,7 @@ export interface CreateAssessmentTemplateRequest {
    *          unique.</p>
    * @public
    */
-  userAttributesForFindings?: Attribute[];
+  userAttributesForFindings?: Attribute[] | undefined;
 }
 
 /**
@@ -1589,7 +1589,7 @@ export interface ResourceGroupTag {
    * <p>The value assigned to a tag key.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1785,7 +1785,7 @@ export interface DescribeExclusionsRequest {
    *          recommendation.</p>
    * @public
    */
-  locale?: Locale;
+  locale?: Locale | undefined;
 }
 
 /**
@@ -1812,13 +1812,13 @@ export interface Scope {
    * <p>The type of the scope.</p>
    * @public
    */
-  key?: ScopeType;
+  key?: ScopeType | undefined;
 
   /**
    * <p>The resource identifier for the specified scope type.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1860,7 +1860,7 @@ export interface Exclusion {
    * <p>The system-defined attributes for the exclusion.</p>
    * @public
    */
-  attributes?: Attribute[];
+  attributes?: Attribute[] | undefined;
 }
 
 /**
@@ -1896,7 +1896,7 @@ export interface DescribeFindingsRequest {
    *          and the short description that identifies the finding.</p>
    * @public
    */
-  locale?: Locale;
+  locale?: Locale | undefined;
 }
 
 /**
@@ -1914,13 +1914,13 @@ export interface InspectorServiceAttributes {
    * <p>The ARN of the assessment run during which the finding is generated.</p>
    * @public
    */
-  assessmentRunArn?: string;
+  assessmentRunArn?: string | undefined;
 
   /**
    * <p>The ARN of the rules package that is used to generate the finding.</p>
    * @public
    */
-  rulesPackageArn?: string;
+  rulesPackageArn?: string | undefined;
 }
 
 /**
@@ -1939,80 +1939,80 @@ export interface Finding {
    * <p>The schema version of this data type.</p>
    * @public
    */
-  schemaVersion?: number;
+  schemaVersion?: number | undefined;
 
   /**
    * <p>The data element is set to "Inspector".</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>This data type is used in the <a>Finding</a> data type.</p>
    * @public
    */
-  serviceAttributes?: InspectorServiceAttributes;
+  serviceAttributes?: InspectorServiceAttributes | undefined;
 
   /**
    * <p>The type of the host from which the finding is generated.</p>
    * @public
    */
-  assetType?: AssetType;
+  assetType?: AssetType | undefined;
 
   /**
    * <p>A collection of attributes of the host from which the finding is generated.</p>
    * @public
    */
-  assetAttributes?: AssetAttributes;
+  assetAttributes?: AssetAttributes | undefined;
 
   /**
    * <p>The ID of the finding.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the finding.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The description of the finding.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The recommendation for the finding.</p>
    * @public
    */
-  recommendation?: string;
+  recommendation?: string | undefined;
 
   /**
    * <p>The finding severity. Values can be set to High, Medium, Low, and
    *          Informational.</p>
    * @public
    */
-  severity?: Severity;
+  severity?: Severity | undefined;
 
   /**
    * <p>The numeric value of the finding severity.</p>
    * @public
    */
-  numericSeverity?: number;
+  numericSeverity?: number | undefined;
 
   /**
    * <p>This data element is currently not used.</p>
    * @public
    */
-  confidence?: number;
+  confidence?: number | undefined;
 
   /**
    * <p>This data element is currently not used.</p>
    * @public
    */
-  indicatorOfCompromise?: boolean;
+  indicatorOfCompromise?: boolean | undefined;
 
   /**
    * <p>The system-defined attributes for the finding.</p>
@@ -2128,7 +2128,7 @@ export interface DescribeRulesPackagesRequest {
    * <p>The locale that you want to translate a rules package description into.</p>
    * @public
    */
-  locale?: Locale;
+  locale?: Locale | undefined;
 }
 
 /**
@@ -2165,7 +2165,7 @@ export interface RulesPackage {
    * <p>The description of the rules package.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2239,7 +2239,7 @@ export interface ExclusionPreview {
    * <p>The system-defined attributes for the exclusion preview.</p>
    * @public
    */
-  attributes?: Attribute[];
+  attributes?: Attribute[] | undefined;
 }
 
 /**
@@ -2253,7 +2253,7 @@ export interface FindingFilter {
    *          type property must be the exact match of the value of the <b>agentId</b> property of the <a>Finding</a> data type.</p>
    * @public
    */
-  agentIds?: string[];
+  agentIds?: string[] | undefined;
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
@@ -2261,21 +2261,21 @@ export interface FindingFilter {
    *          type.</p>
    * @public
    */
-  autoScalingGroups?: string[];
+  autoScalingGroups?: string[] | undefined;
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>ruleName</b> property of the <a>Finding</a> data type.</p>
    * @public
    */
-  ruleNames?: string[];
+  ruleNames?: string[] | undefined;
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
    *          type property must be the exact match of the value of the <b>severity</b> property of the <a>Finding</a> data type.</p>
    * @public
    */
-  severities?: Severity[];
+  severities?: Severity[] | undefined;
 
   /**
    * <p>For a record to match a filter, one of the values that is specified for this data
@@ -2283,14 +2283,14 @@ export interface FindingFilter {
    *          type.</p>
    * @public
    */
-  rulesPackageArns?: string[];
+  rulesPackageArns?: string[] | undefined;
 
   /**
    * <p>For a record to match a filter, the list of values that are specified for this data
    *          type property must be contained in the list of values of the <b>attributes</b> property of the <a>Finding</a> data type.</p>
    * @public
    */
-  attributes?: Attribute[];
+  attributes?: Attribute[] | undefined;
 
   /**
    * <p>For a record to match a filter, the value that is specified for this data type
@@ -2298,13 +2298,13 @@ export interface FindingFilter {
    *          type.</p>
    * @public
    */
-  userAttributes?: Attribute[];
+  userAttributes?: Attribute[] | undefined;
 
   /**
    * <p>The time range during which the finding is generated.</p>
    * @public
    */
-  creationTimeRange?: TimestampRange;
+  creationTimeRange?: TimestampRange | undefined;
 }
 
 /**
@@ -2392,7 +2392,7 @@ export interface GetAssessmentReportResponse {
    *          is only returned if the report is successfully generated.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -2445,21 +2445,21 @@ export interface GetExclusionsPreviewRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 100. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The locale into which you want to translate the exclusion's title, description, and
    *          recommendation.</p>
    * @public
    */
-  locale?: Locale;
+  locale?: Locale | undefined;
 }
 
 /**
@@ -2490,7 +2490,7 @@ export interface GetExclusionsPreviewResponse {
    * <p>Information about the exclusions included in the preview.</p>
    * @public
    */
-  exclusionPreviews?: ExclusionPreview[];
+  exclusionPreviews?: ExclusionPreview[] | undefined;
 
   /**
    * <p>When a response is generated, if there is more data to be listed, this parameters is
@@ -2499,7 +2499,7 @@ export interface GetExclusionsPreviewResponse {
    *          to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2543,7 +2543,7 @@ export interface ListAssessmentRunAgentsRequest {
    *          match.</p>
    * @public
    */
-  filter?: AgentFilter;
+  filter?: AgentFilter | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2553,14 +2553,14 @@ export interface ListAssessmentRunAgentsRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items that you want in
    *          the response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2579,7 +2579,7 @@ export interface ListAssessmentRunAgentsResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2591,7 +2591,7 @@ export interface ListAssessmentRunsRequest {
    *          list.</p>
    * @public
    */
-  assessmentTemplateArns?: string[];
+  assessmentTemplateArns?: string[] | undefined;
 
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2601,7 +2601,7 @@ export interface ListAssessmentRunsRequest {
    *          match.</p>
    * @public
    */
-  filter?: AssessmentRunFilter;
+  filter?: AssessmentRunFilter | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2611,14 +2611,14 @@ export interface ListAssessmentRunsRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items that you want in
    *          the response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2638,7 +2638,7 @@ export interface ListAssessmentRunsResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2653,7 +2653,7 @@ export interface ListAssessmentTargetsRequest {
    *          match.</p>
    * @public
    */
-  filter?: AssessmentTargetFilter;
+  filter?: AssessmentTargetFilter | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2663,14 +2663,14 @@ export interface ListAssessmentTargetsRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2690,7 +2690,7 @@ export interface ListAssessmentTargetsResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2702,7 +2702,7 @@ export interface ListAssessmentTemplatesRequest {
    *          want to list.</p>
    * @public
    */
-  assessmentTargetArns?: string[];
+  assessmentTargetArns?: string[] | undefined;
 
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2712,7 +2712,7 @@ export interface ListAssessmentTemplatesRequest {
    *          match.</p>
    * @public
    */
-  filter?: AssessmentTemplateFilter;
+  filter?: AssessmentTemplateFilter | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2722,14 +2722,14 @@ export interface ListAssessmentTemplatesRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2749,7 +2749,7 @@ export interface ListAssessmentTemplatesResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2761,7 +2761,7 @@ export interface ListEventSubscriptionsRequest {
    *          subscriptions.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2771,14 +2771,14 @@ export interface ListEventSubscriptionsRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2823,7 +2823,7 @@ export interface ListEventSubscriptionsResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2844,14 +2844,14 @@ export interface ListExclusionsRequest {
    *          to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 100. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2871,7 +2871,7 @@ export interface ListExclusionsResponse {
    *          to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2883,7 +2883,7 @@ export interface ListFindingsRequest {
    *          list.</p>
    * @public
    */
-  assessmentRunArns?: string[];
+  assessmentRunArns?: string[] | undefined;
 
   /**
    * <p>You can use this parameter to specify a subset of data to be included in the action's
@@ -2893,7 +2893,7 @@ export interface ListFindingsRequest {
    *          match.</p>
    * @public
    */
-  filter?: FindingFilter;
+  filter?: FindingFilter | undefined;
 
   /**
    * <p>You can use this parameter when paginating results. Set the value of this parameter
@@ -2903,14 +2903,14 @@ export interface ListFindingsRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2929,7 +2929,7 @@ export interface ListFindingsResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2944,14 +2944,14 @@ export interface ListRulesPackagesRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2970,7 +2970,7 @@ export interface ListRulesPackagesResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3013,14 +3013,14 @@ export interface PreviewAgentsRequest {
    *          response to continue listing data.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can use this parameter to indicate the maximum number of items you want in the
    *          response. The default value is 10. The maximum value is 500.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3039,7 +3039,7 @@ export interface PreviewAgentsResponse {
    *          data to be listed, this parameter is set to null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3099,7 +3099,7 @@ export interface SetTagsForResourceRequest {
    *          template.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3118,7 +3118,7 @@ export interface StartAssessmentRunRequest {
    *          assessment template whose ARN is used to start the assessment run.</p>
    * @public
    */
-  assessmentRunName?: string;
+  assessmentRunName?: string | undefined;
 }
 
 /**
@@ -3163,7 +3163,7 @@ export interface StopAssessmentRunRequest {
    *          assessment run immediately, after which no findings are generated.</p>
    * @public
    */
-  stopAction?: StopAction;
+  stopAction?: StopAction | undefined;
 }
 
 /**
@@ -3235,5 +3235,5 @@ export interface UpdateAssessmentTargetRequest {
    *          associate with the assessment target.</p>
    * @public
    */
-  resourceGroupArn?: string;
+  resourceGroupArn?: string | undefined;
 }

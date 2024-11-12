@@ -97,7 +97,7 @@ export interface FileAccessLog {
    *             <code>text_format</code>.</p>
    * @public
    */
-  format?: LoggingFormat;
+  format?: LoggingFormat | undefined;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface ListTagsForResourceInput {
    *          previous results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of tag results returned by <code>ListTagsForResource</code> in
@@ -231,7 +231,7 @@ export interface ListTagsForResourceInput {
    *          results and a <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -275,7 +275,7 @@ export interface ListTagsForResourceOutput {
    *          value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -420,7 +420,7 @@ export interface MeshServiceDiscovery {
    * <p>The IP version to use to control traffic within the mesh.</p>
    * @public
    */
-  ipPreference?: IpPreference;
+  ipPreference?: IpPreference | undefined;
 }
 
 /**
@@ -432,13 +432,13 @@ export interface MeshSpec {
    * <p>The egress filter rules for the service mesh.</p>
    * @public
    */
-  egressFilter?: EgressFilter;
+  egressFilter?: EgressFilter | undefined;
 
   /**
    * <p>An object that represents the service discovery information for a service mesh.</p>
    * @public
    */
-  serviceDiscovery?: MeshServiceDiscovery;
+  serviceDiscovery?: MeshServiceDiscovery | undefined;
 }
 
 /**
@@ -456,7 +456,7 @@ export interface CreateMeshInput {
    * <p>The service mesh specification to apply.</p>
    * @public
    */
-  spec?: MeshSpec;
+  spec?: MeshSpec | undefined;
 
   /**
    * <p>Optional metadata that you can apply to the service mesh to assist with categorization
@@ -465,14 +465,14 @@ export interface CreateMeshInput {
    *             a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: TagRef[];
+  tags?: TagRef[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -549,7 +549,7 @@ export interface MeshStatus {
    * <p>The current mesh status.</p>
    * @public
    */
-  status?: MeshStatusCode;
+  status?: MeshStatusCode | undefined;
 }
 
 /**
@@ -676,7 +676,7 @@ export interface DescribeMeshInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -707,7 +707,7 @@ export interface ListMeshesInput {
    *          </note>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListMeshes</code> in paginated output.
@@ -720,7 +720,7 @@ export interface ListMeshesInput {
    *             <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -791,7 +791,7 @@ export interface ListMeshesOutput {
    *          there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -809,14 +809,14 @@ export interface UpdateMeshInput {
    * <p>The service mesh specification to apply.</p>
    * @public
    */
-  spec?: MeshSpec;
+  spec?: MeshSpec | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1086,7 +1086,7 @@ export interface VirtualGatewayTlsValidationContext {
    *          Transport Layer Security (TLS) validation context.</p>
    * @public
    */
-  subjectAlternativeNames?: SubjectAlternativeNames;
+  subjectAlternativeNames?: SubjectAlternativeNames | undefined;
 }
 
 /**
@@ -1099,20 +1099,20 @@ export interface VirtualGatewayClientPolicyTls {
    *          specified.</p>
    * @public
    */
-  enforce?: boolean;
+  enforce?: boolean | undefined;
 
   /**
    * <p>One or more ports that the policy is enforced for.</p>
    * @public
    */
-  ports?: number[];
+  ports?: number[] | undefined;
 
   /**
    * <p>A reference to an object that represents a virtual gateway's client's Transport Layer Security (TLS)
    *          certificate.</p>
    * @public
    */
-  certificate?: VirtualGatewayClientTlsCertificate;
+  certificate?: VirtualGatewayClientTlsCertificate | undefined;
 
   /**
    * <p>A reference to an object that represents a Transport Layer Security (TLS) validation context.</p>
@@ -1130,7 +1130,7 @@ export interface VirtualGatewayClientPolicy {
    * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
    * @public
    */
-  tls?: VirtualGatewayClientPolicyTls;
+  tls?: VirtualGatewayClientPolicyTls | undefined;
 }
 
 /**
@@ -1142,7 +1142,7 @@ export interface VirtualGatewayBackendDefaults {
    * <p>A reference to an object that represents a client policy.</p>
    * @public
    */
-  clientPolicy?: VirtualGatewayClientPolicy;
+  clientPolicy?: VirtualGatewayClientPolicy | undefined;
 }
 
 /**
@@ -1175,7 +1175,7 @@ export interface VirtualGatewayHttpConnectionPool {
    *          upstream cluster.</p>
    * @public
    */
-  maxPendingRequests?: number;
+  maxPendingRequests?: number | undefined;
 }
 
 /**
@@ -1314,14 +1314,14 @@ export interface VirtualGatewayHealthCheckPolicy {
    *          in the <a>PortMapping</a> for the listener.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The destination path for the health check request. This value is only used if the
    *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The number of consecutive successful health checks that must occur before declaring the
@@ -1532,7 +1532,7 @@ export interface VirtualGatewayListenerTlsValidationContext {
    *          validation context.</p>
    * @public
    */
-  subjectAlternativeNames?: SubjectAlternativeNames;
+  subjectAlternativeNames?: SubjectAlternativeNames | undefined;
 }
 
 /**
@@ -1568,7 +1568,7 @@ export interface VirtualGatewayListenerTls {
    *          context.</p>
    * @public
    */
-  validation?: VirtualGatewayListenerTlsValidationContext;
+  validation?: VirtualGatewayListenerTlsValidationContext | undefined;
 
   /**
    * <p>An object that represents a Transport Layer Security (TLS) certificate.</p>
@@ -1586,7 +1586,7 @@ export interface VirtualGatewayListener {
    * <p>The health check information for the listener.</p>
    * @public
    */
-  healthCheck?: VirtualGatewayHealthCheckPolicy;
+  healthCheck?: VirtualGatewayHealthCheckPolicy | undefined;
 
   /**
    * <p>The port mapping information for the listener.</p>
@@ -1598,13 +1598,13 @@ export interface VirtualGatewayListener {
    * <p>A reference to an object that represents the Transport Layer Security (TLS) properties for the listener.</p>
    * @public
    */
-  tls?: VirtualGatewayListenerTls;
+  tls?: VirtualGatewayListenerTls | undefined;
 
   /**
    * <p>The connection pool information for the virtual gateway listener.</p>
    * @public
    */
-  connectionPool?: VirtualGatewayConnectionPool;
+  connectionPool?: VirtualGatewayConnectionPool | undefined;
 }
 
 /**
@@ -1627,7 +1627,7 @@ export interface VirtualGatewayFileAccessLog {
    *             <code>json_format</code> or <code>text_format</code>.</p>
    * @public
    */
-  format?: LoggingFormat;
+  format?: LoggingFormat | undefined;
 }
 
 /**
@@ -1677,7 +1677,7 @@ export interface VirtualGatewayLogging {
    * <p>The access log configuration.</p>
    * @public
    */
-  accessLog?: VirtualGatewayAccessLog;
+  accessLog?: VirtualGatewayAccessLog | undefined;
 }
 
 /**
@@ -1689,7 +1689,7 @@ export interface VirtualGatewaySpec {
    * <p>A reference to an object that represents the defaults for backends.</p>
    * @public
    */
-  backendDefaults?: VirtualGatewayBackendDefaults;
+  backendDefaults?: VirtualGatewayBackendDefaults | undefined;
 
   /**
    * <p>The listeners that the mesh endpoint is expected to receive inbound traffic from. You
@@ -1702,7 +1702,7 @@ export interface VirtualGatewaySpec {
    * <p>An object that represents logging information.</p>
    * @public
    */
-  logging?: VirtualGatewayLogging;
+  logging?: VirtualGatewayLogging | undefined;
 }
 
 /**
@@ -1734,14 +1734,14 @@ export interface CreateVirtualGatewayInput {
    *             a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: TagRef[];
+  tags?: TagRef[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
@@ -1749,7 +1749,7 @@ export interface CreateVirtualGatewayInput {
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -1847,7 +1847,7 @@ export interface DeleteVirtualGatewayInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -1882,7 +1882,7 @@ export interface DescribeVirtualGatewayInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -1919,7 +1919,7 @@ export interface GatewayRouteHostnameRewrite {
    * <p>The default target host name to write to.</p>
    * @public
    */
-  defaultTargetHostname?: DefaultGatewayRouteRewrite;
+  defaultTargetHostname?: DefaultGatewayRouteRewrite | undefined;
 }
 
 /**
@@ -1931,7 +1931,7 @@ export interface GrpcGatewayRouteRewrite {
    * <p>The host name of the gateway route to rewrite.</p>
    * @public
    */
-  hostname?: GatewayRouteHostnameRewrite;
+  hostname?: GatewayRouteHostnameRewrite | undefined;
 }
 
 /**
@@ -1961,7 +1961,7 @@ export interface GatewayRouteTarget {
    * <p>The port number of the gateway route target.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -1979,7 +1979,7 @@ export interface GrpcGatewayRouteAction {
    * <p>The gateway route action to rewrite.</p>
    * @public
    */
-  rewrite?: GrpcGatewayRouteRewrite;
+  rewrite?: GrpcGatewayRouteRewrite | undefined;
 }
 
 /**
@@ -1991,13 +1991,13 @@ export interface GatewayRouteHostnameMatch {
    * <p>The exact host name to match on.</p>
    * @public
    */
-  exact?: string;
+  exact?: string | undefined;
 
   /**
    * <p>The specified ending characters of the host name to match on.</p>
    * @public
    */
-  suffix?: string;
+  suffix?: string | undefined;
 }
 
 /**
@@ -2146,13 +2146,13 @@ export interface GrpcGatewayRouteMetadata {
    *          is <code>False</code>.</p>
    * @public
    */
-  invert?: boolean;
+  invert?: boolean | undefined;
 
   /**
    * <p>The criteria for determining a metadata match.</p>
    * @public
    */
-  match?: GrpcMetadataMatchMethod;
+  match?: GrpcMetadataMatchMethod | undefined;
 }
 
 /**
@@ -2164,25 +2164,25 @@ export interface GrpcGatewayRouteMatch {
    * <p>The fully qualified domain name for the service to match from the request.</p>
    * @public
    */
-  serviceName?: string;
+  serviceName?: string | undefined;
 
   /**
    * <p>The gateway route host name to be matched on.</p>
    * @public
    */
-  hostname?: GatewayRouteHostnameMatch;
+  hostname?: GatewayRouteHostnameMatch | undefined;
 
   /**
    * <p>The gateway route metadata to be matched on.</p>
    * @public
    */
-  metadata?: GrpcGatewayRouteMetadata[];
+  metadata?: GrpcGatewayRouteMetadata[] | undefined;
 
   /**
    * <p>The gateway route port to be matched on.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -2212,7 +2212,7 @@ export interface HttpGatewayRoutePathRewrite {
    * <p>The exact path to rewrite.</p>
    * @public
    */
-  exact?: string;
+  exact?: string | undefined;
 }
 
 /**
@@ -2224,13 +2224,13 @@ export interface HttpGatewayRoutePrefixRewrite {
    * <p>The default prefix used to replace the incoming route prefix when rewritten.</p>
    * @public
    */
-  defaultPrefix?: DefaultGatewayRouteRewrite;
+  defaultPrefix?: DefaultGatewayRouteRewrite | undefined;
 
   /**
    * <p>The value used to replace the incoming route prefix when rewritten.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -2242,19 +2242,19 @@ export interface HttpGatewayRouteRewrite {
    * <p>The specified beginning characters to rewrite.</p>
    * @public
    */
-  prefix?: HttpGatewayRoutePrefixRewrite;
+  prefix?: HttpGatewayRoutePrefixRewrite | undefined;
 
   /**
    * <p>The path to rewrite.</p>
    * @public
    */
-  path?: HttpGatewayRoutePathRewrite;
+  path?: HttpGatewayRoutePathRewrite | undefined;
 
   /**
    * <p>The host name to rewrite.</p>
    * @public
    */
-  hostname?: GatewayRouteHostnameRewrite;
+  hostname?: GatewayRouteHostnameRewrite | undefined;
 }
 
 /**
@@ -2272,7 +2272,7 @@ export interface HttpGatewayRouteAction {
    * <p>The gateway route action to rewrite.</p>
    * @public
    */
-  rewrite?: HttpGatewayRouteRewrite;
+  rewrite?: HttpGatewayRouteRewrite | undefined;
 }
 
 /**
@@ -2404,14 +2404,14 @@ export interface HttpGatewayRouteHeader {
    *          is <code>False</code>.</p>
    * @public
    */
-  invert?: boolean;
+  invert?: boolean | undefined;
 
   /**
    * <p>An object that represents the method and value to match with the header value sent in a
    *          request. Specify one match method.</p>
    * @public
    */
-  match?: HeaderMatchMethod;
+  match?: HeaderMatchMethod | undefined;
 }
 
 /**
@@ -2444,13 +2444,13 @@ export interface HttpPathMatch {
    * <p>The exact path to match on.</p>
    * @public
    */
-  exact?: string;
+  exact?: string | undefined;
 
   /**
    * <p>The regex used to match the path.</p>
    * @public
    */
-  regex?: string;
+  regex?: string | undefined;
 }
 
 /**
@@ -2462,7 +2462,7 @@ export interface QueryParameterMatch {
    * <p>The exact query parameter to match on.</p>
    * @public
    */
-  exact?: string;
+  exact?: string | undefined;
 }
 
 /**
@@ -2480,7 +2480,7 @@ export interface HttpQueryParameter {
    * <p>The query parameter to match on.</p>
    * @public
    */
-  match?: QueryParameterMatch;
+  match?: QueryParameterMatch | undefined;
 }
 
 /**
@@ -2497,43 +2497,43 @@ export interface HttpGatewayRouteMatch {
    *          <code>/metrics</code>.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 
   /**
    * <p>The path to match on.</p>
    * @public
    */
-  path?: HttpPathMatch;
+  path?: HttpPathMatch | undefined;
 
   /**
    * <p>The query parameter to match on.</p>
    * @public
    */
-  queryParameters?: HttpQueryParameter[];
+  queryParameters?: HttpQueryParameter[] | undefined;
 
   /**
    * <p>The method to match on.</p>
    * @public
    */
-  method?: HttpMethod;
+  method?: HttpMethod | undefined;
 
   /**
    * <p>The host name to match on.</p>
    * @public
    */
-  hostname?: GatewayRouteHostnameMatch;
+  hostname?: GatewayRouteHostnameMatch | undefined;
 
   /**
    * <p>The client request headers to match on.</p>
    * @public
    */
-  headers?: HttpGatewayRouteHeader[];
+  headers?: HttpGatewayRouteHeader[] | undefined;
 
   /**
    * <p>The port number to match on.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -2564,25 +2564,25 @@ export interface GatewayRouteSpec {
    * <p>The ordering of the gateway routes spec.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>An object that represents the specification of an HTTP gateway route.</p>
    * @public
    */
-  httpRoute?: HttpGatewayRoute;
+  httpRoute?: HttpGatewayRoute | undefined;
 
   /**
    * <p>An object that represents the specification of an HTTP/2 gateway route.</p>
    * @public
    */
-  http2Route?: HttpGatewayRoute;
+  http2Route?: HttpGatewayRoute | undefined;
 
   /**
    * <p>An object that represents the specification of a gRPC gateway route.</p>
    * @public
    */
-  grpcRoute?: GrpcGatewayRoute;
+  grpcRoute?: GrpcGatewayRoute | undefined;
 }
 
 /**
@@ -2622,14 +2622,14 @@ export interface CreateGatewayRouteInput {
    *             a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: TagRef[];
+  tags?: TagRef[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
@@ -2637,7 +2637,7 @@ export interface CreateGatewayRouteInput {
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -2747,7 +2747,7 @@ export interface DeleteGatewayRouteInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -2788,7 +2788,7 @@ export interface DescribeGatewayRouteInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -2825,7 +2825,7 @@ export interface ListGatewayRoutesInput {
    *          results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListGatewayRoutes</code> in paginated
@@ -2838,14 +2838,14 @@ export interface ListGatewayRoutesInput {
    *             <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -2928,7 +2928,7 @@ export interface ListGatewayRoutesOutput {
    *          value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2964,14 +2964,14 @@ export interface UpdateGatewayRouteInput {
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -3002,7 +3002,7 @@ export interface ListVirtualGatewaysInput {
    *          previous results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListVirtualGateways</code> in paginated
@@ -3015,14 +3015,14 @@ export interface ListVirtualGatewaysInput {
    *          a <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -3098,7 +3098,7 @@ export interface ListVirtualGatewaysOutput {
    *          value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3129,14 +3129,14 @@ export interface UpdateVirtualGatewayInput {
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -3383,7 +3383,7 @@ export interface TlsValidationContext {
    *          SAN since the name doesn't match the service discovery name.</p>
    * @public
    */
-  subjectAlternativeNames?: SubjectAlternativeNames;
+  subjectAlternativeNames?: SubjectAlternativeNames | undefined;
 }
 
 /**
@@ -3395,19 +3395,19 @@ export interface ClientPolicyTls {
    * <p>Whether the policy is enforced. The default is <code>True</code>, if a value isn't specified.</p>
    * @public
    */
-  enforce?: boolean;
+  enforce?: boolean | undefined;
 
   /**
    * <p>One or more ports that the policy is enforced for.</p>
    * @public
    */
-  ports?: number[];
+  ports?: number[] | undefined;
 
   /**
    * <p>A reference to an object that represents a client's TLS certificate.</p>
    * @public
    */
-  certificate?: ClientTlsCertificate;
+  certificate?: ClientTlsCertificate | undefined;
 
   /**
    * <p>A reference to an object that represents a TLS validation context.</p>
@@ -3425,7 +3425,7 @@ export interface ClientPolicy {
    * <p>A reference to an object that represents a Transport Layer Security (TLS) client policy.</p>
    * @public
    */
-  tls?: ClientPolicyTls;
+  tls?: ClientPolicyTls | undefined;
 }
 
 /**
@@ -3437,7 +3437,7 @@ export interface BackendDefaults {
    * <p>A reference to an object that represents a client policy.</p>
    * @public
    */
-  clientPolicy?: ClientPolicy;
+  clientPolicy?: ClientPolicy | undefined;
 }
 
 /**
@@ -3455,7 +3455,7 @@ export interface VirtualServiceBackend {
    * <p>A reference to an object that represents the client policy for a backend.</p>
    * @public
    */
-  clientPolicy?: ClientPolicy;
+  clientPolicy?: ClientPolicy | undefined;
 }
 
 /**
@@ -3527,7 +3527,7 @@ export interface VirtualNodeHttpConnectionPool {
    *          upstream cluster.</p>
    * @public
    */
-  maxPendingRequests?: number;
+  maxPendingRequests?: number | undefined;
 }
 
 /**
@@ -3699,14 +3699,14 @@ export interface HealthCheckPolicy {
    *          in the <a>PortMapping</a> for the listener.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The destination path for the health check request. This value is only used if the
    *          specified protocol is HTTP or HTTP/2. For any other protocol, this value is ignored.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The number of consecutive successful health checks that must occur before declaring
@@ -3746,13 +3746,13 @@ export interface Duration {
    * <p>A number of time units.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 
   /**
    * <p>A unit of time.</p>
    * @public
    */
-  unit?: DurationUnit;
+  unit?: DurationUnit | undefined;
 }
 
 /**
@@ -3815,13 +3815,13 @@ export interface GrpcTimeout {
    *                                   seconds for the source and destination virtual node and the route.</p>
    * @public
    */
-  perRequest?: Duration;
+  perRequest?: Duration | undefined;
 
   /**
    * <p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>
    * @public
    */
-  idle?: Duration;
+  idle?: Duration | undefined;
 }
 
 /**
@@ -3835,13 +3835,13 @@ export interface HttpTimeout {
    *                                   seconds for the source and destination virtual node and the route.</p>
    * @public
    */
-  perRequest?: Duration;
+  perRequest?: Duration | undefined;
 
   /**
    * <p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>
    * @public
    */
-  idle?: Duration;
+  idle?: Duration | undefined;
 }
 
 /**
@@ -3853,7 +3853,7 @@ export interface TcpTimeout {
    * <p>An object that represents an idle timeout. An idle timeout bounds the amount of time that a connection may be idle. The default value is none.</p>
    * @public
    */
-  idle?: Duration;
+  idle?: Duration | undefined;
 }
 
 /**
@@ -4120,7 +4120,7 @@ export interface ListenerTlsValidationContext {
    *          context.</p>
    * @public
    */
-  subjectAlternativeNames?: SubjectAlternativeNames;
+  subjectAlternativeNames?: SubjectAlternativeNames | undefined;
 }
 
 /**
@@ -4161,7 +4161,7 @@ export interface ListenerTls {
    * <p>A reference to an object that represents a listener's Transport Layer Security (TLS) validation context.</p>
    * @public
    */
-  validation?: ListenerTlsValidationContext;
+  validation?: ListenerTlsValidationContext | undefined;
 }
 
 /**
@@ -4179,31 +4179,31 @@ export interface Listener {
    * <p>A reference to an object that represents the Transport Layer Security (TLS) properties for a listener.</p>
    * @public
    */
-  tls?: ListenerTls;
+  tls?: ListenerTls | undefined;
 
   /**
    * <p>The health check information for the listener.</p>
    * @public
    */
-  healthCheck?: HealthCheckPolicy;
+  healthCheck?: HealthCheckPolicy | undefined;
 
   /**
    * <p>An object that represents timeouts for different protocols.</p>
    * @public
    */
-  timeout?: ListenerTimeout;
+  timeout?: ListenerTimeout | undefined;
 
   /**
    * <p>The outlier detection information for the listener.</p>
    * @public
    */
-  outlierDetection?: OutlierDetection;
+  outlierDetection?: OutlierDetection | undefined;
 
   /**
    * <p>The connection pool information for the listener.</p>
    * @public
    */
-  connectionPool?: VirtualNodeConnectionPool;
+  connectionPool?: VirtualNodeConnectionPool | undefined;
 }
 
 /**
@@ -4215,7 +4215,7 @@ export interface Logging {
    * <p>The access log configuration for a virtual node.</p>
    * @public
    */
-  accessLog?: AccessLog;
+  accessLog?: AccessLog | undefined;
 }
 
 /**
@@ -4269,7 +4269,7 @@ export interface AwsCloudMapServiceDiscovery {
    *          that match all of the specified key/value pairs will be returned.</p>
    * @public
    */
-  attributes?: AwsCloudMapInstanceAttribute[];
+  attributes?: AwsCloudMapInstanceAttribute[] | undefined;
 
   /**
    * <p>The preferred IP version that this virtual node uses. Setting the IP preference on the
@@ -4277,7 +4277,7 @@ export interface AwsCloudMapServiceDiscovery {
    *          node.</p>
    * @public
    */
-  ipPreference?: IpPreference;
+  ipPreference?: IpPreference | undefined;
 }
 
 /**
@@ -4310,7 +4310,7 @@ export interface DnsServiceDiscovery {
    * <p>Specifies the DNS response type for the virtual node.</p>
    * @public
    */
-  responseType?: DnsResponseType;
+  responseType?: DnsResponseType | undefined;
 
   /**
    * <p>The preferred IP version that this virtual node uses. Setting the IP preference on the
@@ -4318,7 +4318,7 @@ export interface DnsServiceDiscovery {
    *          node.</p>
    * @public
    */
-  ipPreference?: IpPreference;
+  ipPreference?: IpPreference | undefined;
 }
 
 /**
@@ -4387,32 +4387,32 @@ export interface VirtualNodeSpec {
    *          <code>listener</code>, then you must specify service discovery information.</p>
    * @public
    */
-  serviceDiscovery?: ServiceDiscovery;
+  serviceDiscovery?: ServiceDiscovery | undefined;
 
   /**
    * <p>The listener that the virtual node is expected to receive inbound traffic from. You can
    *          specify one listener.</p>
    * @public
    */
-  listeners?: Listener[];
+  listeners?: Listener[] | undefined;
 
   /**
    * <p>The backends that the virtual node is expected to send outbound traffic to.</p>
    * @public
    */
-  backends?: Backend[];
+  backends?: Backend[] | undefined;
 
   /**
    * <p>A reference to an object that represents the defaults for backends.</p>
    * @public
    */
-  backendDefaults?: BackendDefaults;
+  backendDefaults?: BackendDefaults | undefined;
 
   /**
    * <p>The inbound and outbound access logging information for the virtual node.</p>
    * @public
    */
-  logging?: Logging;
+  logging?: Logging | undefined;
 }
 
 /**
@@ -4445,14 +4445,14 @@ export interface CreateVirtualNodeInput {
    *             a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: TagRef[];
+  tags?: TagRef[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
@@ -4460,7 +4460,7 @@ export interface CreateVirtualNodeInput {
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -4560,7 +4560,7 @@ export interface DeleteVirtualNodeInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -4597,7 +4597,7 @@ export interface DescribeVirtualNodeInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -4630,7 +4630,7 @@ export interface ListVirtualNodesInput {
    *          results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListVirtualNodes</code> in paginated
@@ -4643,14 +4643,14 @@ export interface ListVirtualNodesInput {
    *             <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -4727,7 +4727,7 @@ export interface ListVirtualNodesOutput {
    *          value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4758,14 +4758,14 @@ export interface UpdateVirtualNodeInput {
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -4802,7 +4802,7 @@ export interface VirtualRouterSpec {
    *          can specify one listener.</p>
    * @public
    */
-  listeners?: VirtualRouterListener[];
+  listeners?: VirtualRouterListener[] | undefined;
 }
 
 /**
@@ -4835,14 +4835,14 @@ export interface CreateVirtualRouterInput {
    *             a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: TagRef[];
+  tags?: TagRef[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
@@ -4850,7 +4850,7 @@ export interface CreateVirtualRouterInput {
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -4950,7 +4950,7 @@ export interface DeleteVirtualRouterInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -4987,7 +4987,7 @@ export interface DescribeVirtualRouterInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -5020,7 +5020,7 @@ export interface ListVirtualRoutersInput {
    *          previous results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListVirtualRouters</code> in paginated
@@ -5033,14 +5033,14 @@ export interface ListVirtualRoutersInput {
    *          a <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -5117,7 +5117,7 @@ export interface ListVirtualRoutersOutput {
    *          value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5144,7 +5144,7 @@ export interface WeightedTarget {
    * <p>The targeted port of the weighted object.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -5286,13 +5286,13 @@ export interface GrpcRouteMetadata {
    * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
    * @public
    */
-  invert?: boolean;
+  invert?: boolean | undefined;
 
   /**
    * <p>An object that represents the data to match from the request.</p>
    * @public
    */
-  match?: GrpcRouteMetadataMatchMethod;
+  match?: GrpcRouteMetadataMatchMethod | undefined;
 }
 
 /**
@@ -5304,26 +5304,26 @@ export interface GrpcRouteMatch {
    * <p>The fully qualified domain name for the service to match from the request.</p>
    * @public
    */
-  serviceName?: string;
+  serviceName?: string | undefined;
 
   /**
    * <p>The method name to match from the request. If you specify a name, you must also specify
    *          a <code>serviceName</code>.</p>
    * @public
    */
-  methodName?: string;
+  methodName?: string | undefined;
 
   /**
    * <p>An object that represents the data to match from the request.</p>
    * @public
    */
-  metadata?: GrpcRouteMetadata[];
+  metadata?: GrpcRouteMetadata[] | undefined;
 
   /**
    * <p>The port number to match on.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -5400,19 +5400,19 @@ export interface GrpcRetryPolicy {
    *          </ul>
    * @public
    */
-  httpRetryEvents?: string[];
+  httpRetryEvents?: string[] | undefined;
 
   /**
    * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    * @public
    */
-  tcpRetryEvents?: TcpRetryPolicyEvent[];
+  tcpRetryEvents?: TcpRetryPolicyEvent[] | undefined;
 
   /**
    * <p>Specify at least one of the valid values.</p>
    * @public
    */
-  grpcRetryEvents?: GrpcRetryPolicyEvent[];
+  grpcRetryEvents?: GrpcRetryPolicyEvent[] | undefined;
 }
 
 /**
@@ -5436,13 +5436,13 @@ export interface GrpcRoute {
    * <p>An object that represents a retry policy.</p>
    * @public
    */
-  retryPolicy?: GrpcRetryPolicy;
+  retryPolicy?: GrpcRetryPolicy | undefined;
 
   /**
    * <p>An object that represents types of timeouts. </p>
    * @public
    */
-  timeout?: GrpcTimeout;
+  timeout?: GrpcTimeout | undefined;
 }
 
 /**
@@ -5472,13 +5472,13 @@ export interface HttpRouteHeader {
    * <p>Specify <code>True</code> to match anything except the match criteria. The default value is <code>False</code>.</p>
    * @public
    */
-  invert?: boolean;
+  invert?: boolean | undefined;
 
   /**
    * <p>The <code>HeaderMatchMethod</code> object.</p>
    * @public
    */
-  match?: HeaderMatchMethod;
+  match?: HeaderMatchMethod | undefined;
 }
 
 /**
@@ -5510,44 +5510,44 @@ export interface HttpRouteMatch {
    *          <code>/metrics</code>.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 
   /**
    * <p>The client request path to match on.</p>
    * @public
    */
-  path?: HttpPathMatch;
+  path?: HttpPathMatch | undefined;
 
   /**
    * <p>The client request query parameters to match on.</p>
    * @public
    */
-  queryParameters?: HttpQueryParameter[];
+  queryParameters?: HttpQueryParameter[] | undefined;
 
   /**
    * <p>The client request method to match on. Specify only one.</p>
    * @public
    */
-  method?: HttpMethod;
+  method?: HttpMethod | undefined;
 
   /**
    * <p>The client request scheme to match on. Specify only one. Applicable only for HTTP2
    *          routes.</p>
    * @public
    */
-  scheme?: HttpScheme;
+  scheme?: HttpScheme | undefined;
 
   /**
    * <p>The client request headers to match on.</p>
    * @public
    */
-  headers?: HttpRouteHeader[];
+  headers?: HttpRouteHeader[] | undefined;
 
   /**
    * <p>The port number to match on.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -5594,13 +5594,13 @@ export interface HttpRetryPolicy {
    *          </ul>
    * @public
    */
-  httpRetryEvents?: string[];
+  httpRetryEvents?: string[] | undefined;
 
   /**
    * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    * @public
    */
-  tcpRetryEvents?: TcpRetryPolicyEvent[];
+  tcpRetryEvents?: TcpRetryPolicyEvent[] | undefined;
 }
 
 /**
@@ -5624,13 +5624,13 @@ export interface HttpRoute {
    * <p>An object that represents a retry policy.</p>
    * @public
    */
-  retryPolicy?: HttpRetryPolicy;
+  retryPolicy?: HttpRetryPolicy | undefined;
 
   /**
    * <p>An object that represents types of timeouts. </p>
    * @public
    */
-  timeout?: HttpTimeout;
+  timeout?: HttpTimeout | undefined;
 }
 
 /**
@@ -5654,7 +5654,7 @@ export interface TcpRouteMatch {
    * <p>The port number to match on.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -5672,13 +5672,13 @@ export interface TcpRoute {
    * <p>An object that represents types of timeouts. </p>
    * @public
    */
-  timeout?: TcpTimeout;
+  timeout?: TcpTimeout | undefined;
 
   /**
    * <p>An object that represents the criteria for determining a request match.</p>
    * @public
    */
-  match?: TcpRouteMatch;
+  match?: TcpRouteMatch | undefined;
 }
 
 /**
@@ -5691,31 +5691,31 @@ export interface RouteSpec {
    *          the highest priority.</p>
    * @public
    */
-  priority?: number;
+  priority?: number | undefined;
 
   /**
    * <p>An object that represents the specification of an HTTP route.</p>
    * @public
    */
-  httpRoute?: HttpRoute;
+  httpRoute?: HttpRoute | undefined;
 
   /**
    * <p>An object that represents the specification of a TCP route.</p>
    * @public
    */
-  tcpRoute?: TcpRoute;
+  tcpRoute?: TcpRoute | undefined;
 
   /**
    * <p>An object that represents the specification of an HTTP/2 route.</p>
    * @public
    */
-  http2Route?: HttpRoute;
+  http2Route?: HttpRoute | undefined;
 
   /**
    * <p>An object that represents the specification of a gRPC route.</p>
    * @public
    */
-  grpcRoute?: GrpcRoute;
+  grpcRoute?: GrpcRoute | undefined;
 }
 
 /**
@@ -5755,14 +5755,14 @@ export interface CreateRouteInput {
    *             a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: TagRef[];
+  tags?: TagRef[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
@@ -5770,7 +5770,7 @@ export interface CreateRouteInput {
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -5882,7 +5882,7 @@ export interface DeleteRouteInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -5919,7 +5919,7 @@ export interface DescribeRouteInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 
   /**
    * <p>The name of the virtual router that the route is associated with.</p>
@@ -5964,7 +5964,7 @@ export interface ListRoutesInput {
    *          results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListRoutes</code> in paginated output.
@@ -5977,14 +5977,14 @@ export interface ListRoutesInput {
    *             <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -6067,7 +6067,7 @@ export interface ListRoutesOutput {
    *          there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6104,14 +6104,14 @@ export interface UpdateRouteInput {
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -6154,14 +6154,14 @@ export interface UpdateVirtualRouterInput {
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -6265,7 +6265,7 @@ export interface VirtualServiceSpec {
    *          can specify a single virtual node or virtual router.</p>
    * @public
    */
-  provider?: VirtualServiceProvider;
+  provider?: VirtualServiceProvider | undefined;
 }
 
 /**
@@ -6298,14 +6298,14 @@ export interface CreateVirtualServiceInput {
    *             a maximum length of 256 characters.</p>
    * @public
    */
-  tags?: TagRef[];
+  tags?: TagRef[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then
@@ -6313,7 +6313,7 @@ export interface CreateVirtualServiceInput {
    *              the resource in the service mesh. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -6413,7 +6413,7 @@ export interface DeleteVirtualServiceInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -6450,7 +6450,7 @@ export interface DescribeVirtualServiceInput {
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -6483,7 +6483,7 @@ export interface ListVirtualServicesInput {
    *          previous results that returned the <code>nextToken</code> value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by <code>ListVirtualServices</code> in paginated
@@ -6496,14 +6496,14 @@ export interface ListVirtualServicesInput {
    *          a <code>nextToken</code> value if applicable.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**
@@ -6580,7 +6580,7 @@ export interface ListVirtualServicesOutput {
    *          value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6612,14 +6612,14 @@ export interface UpdateVirtualServiceInput {
    * request. Up to 36 letters, numbers, hyphens, and underscores are allowed.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services IAM account ID of the service mesh owner. If the account ID is not your own, then it's
    *                the ID of the account that shared the mesh with your account. For more information about mesh sharing, see <a href="https://docs.aws.amazon.com/app-mesh/latest/userguide/sharing.html">Working with shared meshes</a>.</p>
    * @public
    */
-  meshOwner?: string;
+  meshOwner?: string | undefined;
 }
 
 /**

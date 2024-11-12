@@ -133,19 +133,19 @@ export interface Filter {
    * <p>The type of name to filter by.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>One or more values for the name to filter by.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 
   /**
    * <p>An operator for filtering results.</p>
    * @public
    */
-  Operator?: Operator;
+  Operator?: Operator | undefined;
 }
 
 /**
@@ -207,41 +207,41 @@ export interface GetRegisteredSubscriptionProviderResponse {
    * <p>The Amazon Resource Name (ARN) for the BYOL registration resource specified in the request.</p>
    * @public
    */
-  SubscriptionProviderArn?: string;
+  SubscriptionProviderArn?: string | undefined;
 
   /**
    * <p>The subscription provider for the BYOL registration resource specified
    * 			in the request.</p>
    * @public
    */
-  SubscriptionProviderSource?: SubscriptionProviderSource;
+  SubscriptionProviderSource?: SubscriptionProviderSource | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the third-party access secret stored in Secrets Manager for the BYOL
    * 			registration resource specified in the request.</p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>The status of the Linux subscription provider access token from the last
    * 			successful subscription data request.</p>
    * @public
    */
-  SubscriptionProviderStatus?: SubscriptionProviderStatus;
+  SubscriptionProviderStatus?: SubscriptionProviderStatus | undefined;
 
   /**
    * <p>The detailed message from your subscription provider token status.</p>
    * @public
    */
-  SubscriptionProviderStatusMessage?: string;
+  SubscriptionProviderStatusMessage?: string | undefined;
 
   /**
    * <p>The timestamp from the last time License Manager retrieved subscription details
    * 			from your registered third-party Linux subscription provider.</p>
    * @public
    */
-  LastSuccessfulDataRetrievalTime?: string;
+  LastSuccessfulDataRetrievalTime?: string | undefined;
 }
 
 /**
@@ -344,33 +344,33 @@ export interface GetServiceSettingsResponse {
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    * @public
    */
-  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery;
+  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | undefined;
 
   /**
    * <p>Lists the settings defined for Linux subscriptions discovery. The settings include if
    *       Organizations integration has been enabled, and which Regions data will be aggregated from.</p>
    * @public
    */
-  LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings;
+  LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings | undefined;
 
   /**
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>A message which details the Linux subscriptions service settings current status.</p>
    * @public
    */
-  StatusMessage?: Record<string, string>;
+  StatusMessage?: Record<string, string> | undefined;
 
   /**
    * <p>The Region in which License Manager displays the aggregated data for Linux
    *       subscriptions.</p>
    * @public
    */
-  HomeRegions?: string[];
+  HomeRegions?: string[] | undefined;
 }
 
 /**
@@ -382,37 +382,37 @@ export interface Instance {
    * <p>The AMI ID used to launch the instance.</p>
    * @public
    */
-  AmiId?: string;
+  AmiId?: string | undefined;
 
   /**
    * <p>The instance ID of the resource.</p>
    * @public
    */
-  InstanceID?: string;
+  InstanceID?: string | undefined;
 
   /**
    * <p>The instance type of the resource.</p>
    * @public
    */
-  InstanceType?: string;
+  InstanceType?: string | undefined;
 
   /**
    * <p>The account ID which owns the instance.</p>
    * @public
    */
-  AccountID?: string;
+  AccountID?: string | undefined;
 
   /**
    * <p>The status of the instance.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The Region the instance is running in.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The usage operation of the instance. For more information, see For more information, see
@@ -420,60 +420,60 @@ export interface Instance {
    *         operation values</a> in the <i>License Manager User Guide</i>.</p>
    * @public
    */
-  UsageOperation?: string;
+  UsageOperation?: string | undefined;
 
   /**
    * <p>The product code for the instance. For more information, see <a href="https://docs.aws.amazon.com/license-manager/latest/userguide/linux-subscriptions-usage-operation.html">Usage
    *         operation values</a> in the <i>License Manager User Guide</i> .</p>
    * @public
    */
-  ProductCode?: string[];
+  ProductCode?: string[] | undefined;
 
   /**
    * <p>The time in which the last discovery updated the instance details.</p>
    * @public
    */
-  LastUpdatedTime?: string;
+  LastUpdatedTime?: string | undefined;
 
   /**
    * <p>The name of the license subscription that the instance uses.</p>
    * @public
    */
-  SubscriptionName?: string;
+  SubscriptionName?: string | undefined;
 
   /**
    * <p>The operating system software version that runs on your instance.</p>
    * @public
    */
-  OsVersion?: string;
+  OsVersion?: string | undefined;
 
   /**
    * <p>The timestamp when you registered the third-party Linux subscription
    * 			provider for the subscription that the instance uses.</p>
    * @public
    */
-  SubscriptionProviderCreateTime?: string;
+  SubscriptionProviderCreateTime?: string | undefined;
 
   /**
    * <p>The timestamp from the last time that the instance synced with the registered
    * 			third-party Linux subscription provider.</p>
    * @public
    */
-  SubscriptionProviderUpdateTime?: string;
+  SubscriptionProviderUpdateTime?: string | undefined;
 
   /**
    * <p>Indicates that you have two different license subscriptions for
    * 			the same software on your instance.</p>
    * @public
    */
-  DualSubscription?: string;
+  DualSubscription?: string | undefined;
 
   /**
    * <p>Indicates that your instance uses a BYOL license subscription from
    * 			a third-party Linux subscription provider that you've registered with License Manager.</p>
    * @public
    */
-  RegisteredWithSubscriptionProvider?: string;
+  RegisteredWithSubscriptionProvider?: string | undefined;
 }
 
 /**
@@ -557,20 +557,20 @@ export interface ListLinuxSubscriptionInstancesRequest {
    *          </ul>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum items to return in a request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token to specify where to start paginating. This
    * 	is the nextToken from a previously truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -581,7 +581,7 @@ export interface ListLinuxSubscriptionInstancesResponse {
    * <p>An array that contains instance objects.</p>
    * @public
    */
-  Instances?: Instance[];
+  Instances?: Instance[] | undefined;
 
   /**
    * <p>The next token used for paginated responses. When this
@@ -590,7 +590,7 @@ export interface ListLinuxSubscriptionInstancesResponse {
    * 	additional objects.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -632,20 +632,20 @@ export interface ListLinuxSubscriptionsRequest {
    *          </ul>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum items to return in a request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token to specify where to start paginating. This
    * 	is the nextToken from a previously truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -657,7 +657,7 @@ export interface Subscription {
    * <p>The name of the subscription.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of subscription. The type can be subscription-included with Amazon EC2, Bring Your Own
@@ -665,13 +665,13 @@ export interface Subscription {
    *       Amazon Web Services Marketplace as well as OS licensing from Amazon EC2 or BYOS.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The total amount of running instances using this subscription.</p>
    * @public
    */
-  InstanceCount?: number;
+  InstanceCount?: number | undefined;
 }
 
 /**
@@ -682,7 +682,7 @@ export interface ListLinuxSubscriptionsResponse {
    * <p>An array that contains subscription objects.</p>
    * @public
    */
-  Subscriptions?: Subscription[];
+  Subscriptions?: Subscription[] | undefined;
 
   /**
    * <p>The next token used for paginated responses. When this
@@ -691,7 +691,7 @@ export interface ListLinuxSubscriptionsResponse {
    * 	additional objects.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -703,20 +703,20 @@ export interface ListRegisteredSubscriptionProvidersRequest {
    * 			in the list.</p>
    * @public
    */
-  SubscriptionProviderSources?: SubscriptionProviderSource[];
+  SubscriptionProviderSources?: SubscriptionProviderSource[] | undefined;
 
   /**
    * <p>The maximum items to return in a request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token to specify where to start paginating. This
    * 	is the nextToken from a previously truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -730,21 +730,21 @@ export interface RegisteredSubscriptionProvider {
    * <p>The Amazon Resource Name (ARN) of the Linux subscription provider resource that you registered.</p>
    * @public
    */
-  SubscriptionProviderArn?: string;
+  SubscriptionProviderArn?: string | undefined;
 
   /**
    * <p>A supported third-party Linux subscription provider. License Manager currently supports
    * 			Red Hat subscriptions.</p>
    * @public
    */
-  SubscriptionProviderSource?: SubscriptionProviderSource;
+  SubscriptionProviderSource?: SubscriptionProviderSource | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that stores your registered Linux subscription provider
    * 			access token. For RHEL account subscriptions, this is the offline token.</p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 
   /**
    * <p>Indicates the status of your registered Linux subscription provider access token
@@ -752,21 +752,21 @@ export interface RegisteredSubscriptionProvider {
    * 			this is the status of the offline token.</p>
    * @public
    */
-  SubscriptionProviderStatus?: SubscriptionProviderStatus;
+  SubscriptionProviderStatus?: SubscriptionProviderStatus | undefined;
 
   /**
    * <p>A detailed message that's associated with your BYOL subscription
    * 			provider token status.</p>
    * @public
    */
-  SubscriptionProviderStatusMessage?: string;
+  SubscriptionProviderStatusMessage?: string | undefined;
 
   /**
    * <p>The timestamp from the last time that License Manager accessed third-party subscription data
    * 			for your account from your registered Linux subscription provider.</p>
    * @public
    */
-  LastSuccessfulDataRetrievalTime?: string;
+  LastSuccessfulDataRetrievalTime?: string | undefined;
 }
 
 /**
@@ -778,7 +778,7 @@ export interface ListRegisteredSubscriptionProvidersResponse {
    * 			you specified in the request.</p>
    * @public
    */
-  RegisteredSubscriptionProviders?: RegisteredSubscriptionProvider[];
+  RegisteredSubscriptionProviders?: RegisteredSubscriptionProvider[] | undefined;
 
   /**
    * <p>The next token used for paginated responses. When this
@@ -787,7 +787,7 @@ export interface ListRegisteredSubscriptionProvidersResponse {
    * 	additional objects.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -809,7 +809,7 @@ export interface ListTagsForResourceResponse {
    * <p>The metadata tags for the requested resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -835,7 +835,7 @@ export interface RegisterSubscriptionProviderRequest {
    * 			resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -846,20 +846,20 @@ export interface RegisterSubscriptionProviderResponse {
    * <p>The Linux subscription provider that you registered.</p>
    * @public
    */
-  SubscriptionProviderSource?: SubscriptionProviderSource;
+  SubscriptionProviderSource?: SubscriptionProviderSource | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Linux subscription provider resource that you registered.</p>
    * @public
    */
-  SubscriptionProviderArn?: string;
+  SubscriptionProviderArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the registration action for the Linux subscription provider
    * 			that you requested.</p>
    * @public
    */
-  SubscriptionProviderStatus?: SubscriptionProviderStatus;
+  SubscriptionProviderStatus?: SubscriptionProviderStatus | undefined;
 }
 
 /**
@@ -931,7 +931,7 @@ export interface UpdateServiceSettingsRequest {
    *       allow updates, you can aggregate Linux subscription data in more than one home Region.</p>
    * @public
    */
-  AllowUpdate?: boolean;
+  AllowUpdate?: boolean | undefined;
 }
 
 /**
@@ -942,33 +942,33 @@ export interface UpdateServiceSettingsResponse {
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    * @public
    */
-  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery;
+  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | undefined;
 
   /**
    * <p>The settings defined for Linux subscriptions discovery. The settings include if Organizations
    *       integration has been enabled, and which Regions data will be aggregated from.</p>
    * @public
    */
-  LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings;
+  LinuxSubscriptionsDiscoverySettings?: LinuxSubscriptionsDiscoverySettings | undefined;
 
   /**
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>A message which details the Linux subscriptions service settings current status.</p>
    * @public
    */
-  StatusMessage?: Record<string, string>;
+  StatusMessage?: Record<string, string> | undefined;
 
   /**
    * <p>The Region in which License Manager displays the aggregated data for Linux
    *       subscriptions.</p>
    * @public
    */
-  HomeRegions?: string[];
+  HomeRegions?: string[] | undefined;
 }
 
 /**

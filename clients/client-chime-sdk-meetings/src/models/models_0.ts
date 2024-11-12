@@ -95,19 +95,19 @@ export interface Attendee {
    *             Case insensitive.</p>
    * @public
    */
-  ExternalUserId?: string;
+  ExternalUserId?: string | undefined;
 
   /**
    * <p>The Amazon Chime SDK attendee ID.</p>
    * @public
    */
-  AttendeeId?: string;
+  AttendeeId?: string | undefined;
 
   /**
    * <p>The join token used by the Amazon Chime SDK attendee.</p>
    * @public
    */
-  JoinToken?: string;
+  JoinToken?: string | undefined;
 
   /**
    * <p>The capabilities assigned to an attendee: audio, video, or content.</p>
@@ -141,7 +141,7 @@ export interface Attendee {
    *          </ul>
    * @public
    */
-  Capabilities?: AttendeeCapabilities;
+  Capabilities?: AttendeeCapabilities | undefined;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface AttendeeFeatures {
    * <p>The maximum number of attendees allowed into the meeting.</p>
    * @public
    */
-  MaxCount?: number;
+  MaxCount?: number | undefined;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface AudioFeatures {
    * <p>Makes echo reduction available to clients who connect to the meeting.</p>
    * @public
    */
-  EchoReduction?: MeetingFeatureStatus;
+  EchoReduction?: MeetingFeatureStatus | undefined;
 }
 
 /**
@@ -205,13 +205,13 @@ export interface AudioFeatures {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -247,7 +247,7 @@ export interface CreateAttendeeRequestItem {
    * <p>A list of one or more capabilities.</p>
    * @public
    */
-  Capabilities?: AttendeeCapabilities;
+  Capabilities?: AttendeeCapabilities | undefined;
 }
 
 /**
@@ -280,19 +280,19 @@ export interface CreateAttendeeError {
    *             Case insensitive.</p>
    * @public
    */
-  ExternalUserId?: string;
+  ExternalUserId?: string | undefined;
 
   /**
    * <p>The error code.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -303,13 +303,13 @@ export interface BatchCreateAttendeeResponse {
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
    * @public
    */
-  Attendees?: Attendee[];
+  Attendees?: Attendee[] | undefined;
 
   /**
    * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
    * @public
    */
-  Errors?: CreateAttendeeError[];
+  Errors?: CreateAttendeeError[] | undefined;
 }
 
 /**
@@ -319,13 +319,13 @@ export interface BatchCreateAttendeeResponse {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -349,13 +349,13 @@ export class ForbiddenException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -379,13 +379,13 @@ export class LimitExceededException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The request ID associated with the call responsible for the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -409,13 +409,13 @@ export class NotFoundException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The ID of the failed request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -439,19 +439,19 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The number of seconds the caller should wait before retrying.</p>
    * @public
    */
-  RetryAfterSeconds?: string;
+  RetryAfterSeconds?: string | undefined;
   /**
    * @internal
    */
@@ -476,13 +476,13 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The ID of the request that exceeded the throttling limit.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -506,13 +506,13 @@ export class ThrottlingException extends __BaseException {
 export class UnauthorizedException extends __BaseException {
   readonly name: "UnauthorizedException" = "UnauthorizedException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -536,13 +536,13 @@ export class UnauthorizedException extends __BaseException {
 export class UnprocessableEntityException extends __BaseException {
   readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The request id associated with the call responsible for the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -589,13 +589,13 @@ export interface BatchUpdateAttendeeCapabilitiesExceptRequest {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The ID of the request involved in the conflict.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -665,7 +665,7 @@ export interface CreateAttendeeRequest {
    *          </ul>
    * @public
    */
-  Capabilities?: AttendeeCapabilities;
+  Capabilities?: AttendeeCapabilities | undefined;
 }
 
 /**
@@ -676,7 +676,7 @@ export interface CreateAttendeeResponse {
    * <p>The attendee information, including attendee ID and join token.</p>
    * @public
    */
-  Attendee?: Attendee;
+  Attendee?: Attendee | undefined;
 }
 
 /**
@@ -711,7 +711,7 @@ export interface ContentFeatures {
    *          </note>
    * @public
    */
-  MaxResolution?: ContentResolution;
+  MaxResolution?: ContentResolution | undefined;
 }
 
 /**
@@ -746,7 +746,7 @@ export interface VideoFeatures {
    *          </note>
    * @public
    */
-  MaxResolution?: VideoResolution;
+  MaxResolution?: VideoResolution | undefined;
 }
 
 /**
@@ -758,25 +758,25 @@ export interface MeetingFeaturesConfiguration {
    * <p>The configuration settings for the audio features available to a meeting.</p>
    * @public
    */
-  Audio?: AudioFeatures;
+  Audio?: AudioFeatures | undefined;
 
   /**
    * <p>The configuration settings for the video features available to a meeting.</p>
    * @public
    */
-  Video?: VideoFeatures;
+  Video?: VideoFeatures | undefined;
 
   /**
    * <p>The configuration settings for the content features available to a meeting.</p>
    * @public
    */
-  Content?: ContentFeatures;
+  Content?: ContentFeatures | undefined;
 
   /**
    * <p>The configuration settings for the attendee features available to a meeting.</p>
    * @public
    */
-  Attendee?: AttendeeFeatures;
+  Attendee?: AttendeeFeatures | undefined;
 }
 
 /**
@@ -788,19 +788,19 @@ export interface NotificationsConfiguration {
    * <p>The ARN of the Amazon Web Services Lambda function in the notifications configuration.</p>
    * @public
    */
-  LambdaFunctionArn?: string;
+  LambdaFunctionArn?: string | undefined;
 
   /**
    * <p>The ARN of the SNS topic.</p>
    * @public
    */
-  SnsTopicArn?: string;
+  SnsTopicArn?: string | undefined;
 
   /**
    * <p>The ARN of the SQS queue.</p>
    * @public
    */
-  SqsQueueArn?: string;
+  SqsQueueArn?: string | undefined;
 }
 
 /**
@@ -829,7 +829,7 @@ export interface CreateMeetingRequest {
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The Region in which to create the meeting.</p>
@@ -863,7 +863,7 @@ export interface CreateMeetingRequest {
    * <p>Reserved.</p>
    * @public
    */
-  MeetingHostId?: string;
+  MeetingHostId?: string | undefined;
 
   /**
    * <p>The external meeting ID.</p>
@@ -879,25 +879,25 @@ export interface CreateMeetingRequest {
    * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
    * @public
    */
-  NotificationsConfiguration?: NotificationsConfiguration;
+  NotificationsConfiguration?: NotificationsConfiguration | undefined;
 
   /**
    * <p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>
    * @public
    */
-  MeetingFeatures?: MeetingFeaturesConfiguration;
+  MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
    * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
    * @public
    */
-  PrimaryMeetingId?: string;
+  PrimaryMeetingId?: string | undefined;
 
   /**
    * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
    * @public
    */
-  TenantIds?: string[];
+  TenantIds?: string[] | undefined;
 
   /**
    * <p>Applies one or more tags to an Amazon Chime SDK meeting. Note the following:</p>
@@ -940,7 +940,7 @@ export interface CreateMeetingRequest {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -952,19 +952,19 @@ export interface MediaPlacement {
    * <p>The audio host URL.</p>
    * @public
    */
-  AudioHostUrl?: string;
+  AudioHostUrl?: string | undefined;
 
   /**
    * <p>The audio fallback URL.</p>
    * @public
    */
-  AudioFallbackUrl?: string;
+  AudioFallbackUrl?: string | undefined;
 
   /**
    * <p>The signaling URL.</p>
    * @public
    */
-  SignalingUrl?: string;
+  SignalingUrl?: string | undefined;
 
   /**
    * <p>The turn control URL.</p>
@@ -975,7 +975,7 @@ export interface MediaPlacement {
    *          </important>
    * @public
    */
-  TurnControlUrl?: string;
+  TurnControlUrl?: string | undefined;
 
   /**
    * <p>The screen data URL.</p>
@@ -986,7 +986,7 @@ export interface MediaPlacement {
    *          </important>
    * @public
    */
-  ScreenDataUrl?: string;
+  ScreenDataUrl?: string | undefined;
 
   /**
    * <p>The screen viewing URL.</p>
@@ -997,7 +997,7 @@ export interface MediaPlacement {
    *          </important>
    * @public
    */
-  ScreenViewingUrl?: string;
+  ScreenViewingUrl?: string | undefined;
 
   /**
    * <p>The screen sharing URL.</p>
@@ -1008,13 +1008,13 @@ export interface MediaPlacement {
    *          </important>
    * @public
    */
-  ScreenSharingUrl?: string;
+  ScreenSharingUrl?: string | undefined;
 
   /**
    * <p>The event ingestion URL.</p>
    * @public
    */
-  EventIngestionUrl?: string;
+  EventIngestionUrl?: string | undefined;
 }
 
 /**
@@ -1026,13 +1026,13 @@ export interface Meeting {
    * <p>The Amazon Chime SDK meeting ID.</p>
    * @public
    */
-  MeetingId?: string;
+  MeetingId?: string | undefined;
 
   /**
    * <p>Reserved.</p>
    * @public
    */
-  MeetingHostId?: string;
+  MeetingHostId?: string | undefined;
 
   /**
    * <p>The external meeting ID.</p>
@@ -1042,7 +1042,7 @@ export interface Meeting {
    *             Case insensitive.</p>
    * @public
    */
-  ExternalMeetingId?: string;
+  ExternalMeetingId?: string | undefined;
 
   /**
    * <p>The Region in which you create the meeting. Available values: <code>af-south-1</code>, <code>ap-northeast-1</code>,
@@ -1054,37 +1054,37 @@ export interface Meeting {
    *          <p>Available values in Amazon Web Services GovCloud (US) Regions: <code>us-gov-east-1</code>, <code>us-gov-west-1</code>.</p>
    * @public
    */
-  MediaRegion?: string;
+  MediaRegion?: string | undefined;
 
   /**
    * <p>The media placement for the meeting.</p>
    * @public
    */
-  MediaPlacement?: MediaPlacement;
+  MediaPlacement?: MediaPlacement | undefined;
 
   /**
    * <p>The features available to a meeting, such as echo reduction.</p>
    * @public
    */
-  MeetingFeatures?: MeetingFeaturesConfiguration;
+  MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
    * <p>When specified, replicates the media from the primary meeting to this meeting.</p>
    * @public
    */
-  PrimaryMeetingId?: string;
+  PrimaryMeetingId?: string | undefined;
 
   /**
    * <p>Array of strings.</p>
    * @public
    */
-  TenantIds?: string[];
+  TenantIds?: string[] | undefined;
 
   /**
    * <p>The ARN of the meeting.</p>
    * @public
    */
-  MeetingArn?: string;
+  MeetingArn?: string | undefined;
 }
 
 /**
@@ -1096,7 +1096,7 @@ export interface CreateMeetingResponse {
    *            <code>MediaPlacement</code>.</p>
    * @public
    */
-  Meeting?: Meeting;
+  Meeting?: Meeting | undefined;
 }
 
 /**
@@ -1107,7 +1107,7 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>The unique identifier for the client request. Use a different token for different meetings.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The Region in which to create the meeting.</p>
@@ -1141,7 +1141,7 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>Reserved.</p>
    * @public
    */
-  MeetingHostId?: string;
+  MeetingHostId?: string | undefined;
 
   /**
    * <p>The external meeting ID.</p>
@@ -1157,13 +1157,13 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>Lists the audio and video features enabled for a meeting, such as echo reduction.</p>
    * @public
    */
-  MeetingFeatures?: MeetingFeaturesConfiguration;
+  MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
    * <p>The configuration for resource targets to receive notifications when meeting and attendee events occur.</p>
    * @public
    */
-  NotificationsConfiguration?: NotificationsConfiguration;
+  NotificationsConfiguration?: NotificationsConfiguration | undefined;
 
   /**
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
@@ -1175,19 +1175,19 @@ export interface CreateMeetingWithAttendeesRequest {
    * <p>When specified, replicates the media from the primary meeting to the new meeting.</p>
    * @public
    */
-  PrimaryMeetingId?: string;
+  PrimaryMeetingId?: string | undefined;
 
   /**
    * <p>A consistent and opaque identifier, created and maintained by the builder to represent a segment of their users.</p>
    * @public
    */
-  TenantIds?: string[];
+  TenantIds?: string[] | undefined;
 
   /**
    * <p>The tags in the request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1199,19 +1199,19 @@ export interface CreateMeetingWithAttendeesResponse {
    *            <code>MediaPlacement</code>.</p>
    * @public
    */
-  Meeting?: Meeting;
+  Meeting?: Meeting | undefined;
 
   /**
    * <p>The attendee information, including attendees' IDs and join tokens.</p>
    * @public
    */
-  Attendees?: Attendee[];
+  Attendees?: Attendee[] | undefined;
 
   /**
    * <p>If the action fails for one or more of the attendees in the request, a list of the attendees is returned, along with error codes and error messages.</p>
    * @public
    */
-  Errors?: CreateAttendeeError[];
+  Errors?: CreateAttendeeError[] | undefined;
 }
 
 /**
@@ -1267,7 +1267,7 @@ export interface GetAttendeeResponse {
    * <p>The Amazon Chime SDK attendee information.</p>
    * @public
    */
-  Attendee?: Attendee;
+  Attendee?: Attendee | undefined;
 }
 
 /**
@@ -1289,7 +1289,7 @@ export interface GetMeetingResponse {
    * <p>The Amazon Chime SDK meeting information.</p>
    * @public
    */
-  Meeting?: Meeting;
+  Meeting?: Meeting | undefined;
 }
 
 /**
@@ -1306,13 +1306,13 @@ export interface ListAttendeesRequest {
    * <p>The token to use to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1323,13 +1323,13 @@ export interface ListAttendeesResponse {
    * <p>The Amazon Chime SDK attendee information.</p>
    * @public
    */
-  Attendees?: Attendee[];
+  Attendees?: Attendee[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1351,7 +1351,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags requested for the specified resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1361,19 +1361,19 @@ export interface ListTagsForResourceResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The ID of the resource that couldn't be found.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The name of the resource that couldn't be found.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -1497,19 +1497,19 @@ export interface EngineTranscribeMedicalSettings {
    * <p>The name of the vocabulary passed to Amazon Transcribe Medical.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region passed to Amazon Transcribe Medical. If you don't specify a Region, Amazon Chime uses the meeting's Region. </p>
    * @public
    */
-  Region?: TranscribeMedicalRegion;
+  Region?: TranscribeMedicalRegion | undefined;
 
   /**
    * <p>Set this field to <code>PHI</code> to identify personal health information in the transcription output.</p>
    * @public
    */
-  ContentIdentificationType?: TranscribeMedicalContentIdentificationType;
+  ContentIdentificationType?: TranscribeMedicalContentIdentificationType | undefined;
 }
 
 /**
@@ -1637,7 +1637,7 @@ export interface EngineTranscribeSettings {
    *          <p>If you're unsure of the language spoken in your audio, consider using <code>IdentifyLanguage</code> to enable automatic language identification.</p>
    * @public
    */
-  LanguageCode?: TranscribeLanguageCode;
+  LanguageCode?: TranscribeLanguageCode | undefined;
 
   /**
    * <p>Specify how you want your vocabulary filter applied to your transcript.</p>
@@ -1646,7 +1646,7 @@ export interface EngineTranscribeSettings {
    *          <p>To flag words without changing them, choose <code>tag</code>.</p>
    * @public
    */
-  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod;
+  VocabularyFilterMethod?: TranscribeVocabularyFilterMethod | undefined;
 
   /**
    * <p>Specify the name of the custom vocabulary filter that you want to use when processing your transcription. Note that vocabulary filter names are case sensitive. </p>
@@ -1654,7 +1654,7 @@ export interface EngineTranscribeSettings {
    *          <p>If you include <code>IdentifyLanguage</code> and want to use one or more vocabulary filters with your transcription, use the <code>VocabularyFilterNames</code> parameter instead.</p>
    * @public
    */
-  VocabularyFilterName?: string;
+  VocabularyFilterName?: string | undefined;
 
   /**
    * <p>Specify the name of the custom vocabulary that you want to use when processing your transcription. Note that vocabulary names are case sensitive.</p>
@@ -1663,7 +1663,7 @@ export interface EngineTranscribeSettings {
    *                 parameter instead.</p>
    * @public
    */
-  VocabularyName?: string;
+  VocabularyName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which to use Amazon Transcribe.</p>
@@ -1674,20 +1674,20 @@ export interface EngineTranscribeSettings {
    *             <i>Amazon Chime SDK Developer Guide</i>.</p>
    * @public
    */
-  Region?: TranscribeRegion;
+  Region?: TranscribeRegion | undefined;
 
   /**
    * <p>Enables partial result stabilization for your transcription. Partial result stabilization can reduce latency in your output, but may impact accuracy.</p>
    * @public
    */
-  EnablePartialResultsStabilization?: boolean;
+  EnablePartialResultsStabilization?: boolean | undefined;
 
   /**
    * <p>Specify the level of stability to use when you enable partial results stabilization (<code>EnablePartialResultsStabilization</code>).</p>
    *          <p>Low stability provides the highest accuracy. High stability transcribes faster, but with slightly lower accuracy.</p>
    * @public
    */
-  PartialResultsStability?: TranscribePartialResultsStability;
+  PartialResultsStability?: TranscribePartialResultsStability | undefined;
 
   /**
    * <p>Labels all personally identifiable information (PII) identified in your transcript. If you don't include <code>PiiEntityTypes</code>, all PII is identified.</p>
@@ -1696,7 +1696,7 @@ export interface EngineTranscribeSettings {
    *          </note>
    * @public
    */
-  ContentIdentificationType?: TranscribeContentIdentificationType;
+  ContentIdentificationType?: TranscribeContentIdentificationType | undefined;
 
   /**
    * <p>Content redaction is performed at the segment level. If you don't include <code>PiiEntityTypes</code>, all PII is redacted.</p>
@@ -1705,7 +1705,7 @@ export interface EngineTranscribeSettings {
    *          </note>
    * @public
    */
-  ContentRedactionType?: TranscribeContentRedactionType;
+  ContentRedactionType?: TranscribeContentRedactionType | undefined;
 
   /**
    * <p>Specify which types of personally identifiable information (PII) you want to redact in your transcript. You can include as many types as you'd like, or you can select <code>ALL</code>.</p>
@@ -1716,7 +1716,7 @@ export interface EngineTranscribeSettings {
    *          <p>If you include <code>ContentRedactionType</code> or <code>ContentIdentificationType</code>, but do not include PiiEntityTypes, all PII is redacted or identified.</p>
    * @public
    */
-  PiiEntityTypes?: string;
+  PiiEntityTypes?: string | undefined;
 
   /**
    * <p>Specify the name of the custom language model that you want to use when processing your transcription. Note that language model names are case sensitive.</p>
@@ -1725,7 +1725,7 @@ export interface EngineTranscribeSettings {
    *          <p>If you use Amazon Transcribe in multiple Regions, the custom language model must be available in Amazon Transcribe in each Region.</p>
    * @public
    */
-  LanguageModelName?: string;
+  LanguageModelName?: string | undefined;
 
   /**
    * <p>Enables automatic language identification for your transcription.</p>
@@ -1736,7 +1736,7 @@ export interface EngineTranscribeSettings {
    *          <p>Language identification can't be combined with custom language models or redaction.</p>
    * @public
    */
-  IdentifyLanguage?: boolean;
+  IdentifyLanguage?: boolean | undefined;
 
   /**
    * <p>Specify two or more language codes that represent the languages you think may be present in your media; including more than five is not recommended. If you're unsure what languages
@@ -1748,14 +1748,14 @@ export interface EngineTranscribeSettings {
    *          </important>
    * @public
    */
-  LanguageOptions?: string;
+  LanguageOptions?: string | undefined;
 
   /**
    * <p>Specify a preferred language from the subset of languages codes you specified in <code>LanguageOptions</code>.</p>
    *          <p>You can only use this parameter if you include <code>IdentifyLanguage</code> and <code>LanguageOptions</code>.</p>
    * @public
    */
-  PreferredLanguage?: TranscribeLanguageCode;
+  PreferredLanguage?: TranscribeLanguageCode | undefined;
 
   /**
    * <p>Specify the names of the custom vocabularies that you want to use when processing your transcription. Note that vocabulary names are case sensitive.</p>
@@ -1763,7 +1763,7 @@ export interface EngineTranscribeSettings {
    *          <p>If you don't include <code>IdentifyLanguage</code> and want to use a custom vocabulary with your transcription, use the <code>VocabularyName</code> parameter instead.</p>
    * @public
    */
-  VocabularyNames?: string;
+  VocabularyNames?: string | undefined;
 
   /**
    * <p>Specify the names of the custom vocabulary filters that you want to use when processing your transcription. Note that vocabulary filter names are case sensitive.</p>
@@ -1772,7 +1772,7 @@ export interface EngineTranscribeSettings {
    *             parameter instead.</p>
    * @public
    */
-  VocabularyFilterNames?: string;
+  VocabularyFilterNames?: string | undefined;
 }
 
 /**
@@ -1784,13 +1784,13 @@ export interface TranscriptionConfiguration {
    * <p>The transcription configuration settings passed to Amazon Transcribe.</p>
    * @public
    */
-  EngineTranscribeSettings?: EngineTranscribeSettings;
+  EngineTranscribeSettings?: EngineTranscribeSettings | undefined;
 
   /**
    * <p>The transcription configuration settings passed to Amazon Transcribe Medical.</p>
    * @public
    */
-  EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings;
+  EngineTranscribeMedicalSettings?: EngineTranscribeMedicalSettings | undefined;
 }
 
 /**
@@ -1851,19 +1851,19 @@ export interface TagResourceResponse {}
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Code?: string;
-  Message?: string;
+  Code?: string | undefined;
+  Message?: string | undefined;
   /**
    * <p>The ID of the request that contains too many tags.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The name of the resource that received too many tags.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
   /**
    * @internal
    */
@@ -1934,7 +1934,7 @@ export interface UpdateAttendeeCapabilitiesResponse {
    * <p>The updated attendee data.</p>
    * @public
    */
-  Attendee?: Attendee;
+  Attendee?: Attendee | undefined;
 }
 
 /**

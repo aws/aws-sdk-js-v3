@@ -86,13 +86,13 @@ export interface MetricQuery {
    * <p>The start time of metrics to retrieve.</p>
    * @public
    */
-  Start?: number;
+  Start?: number | undefined;
 
   /**
    * <p>The end time of metrics to retrieve.</p>
    * @public
    */
-  End?: number;
+  End?: number | undefined;
 }
 
 /**
@@ -137,7 +137,7 @@ export interface MetricQueryResult {
    * <p>A message describing the status of the metric query.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The values for the x-axis of the metrics.</p>
@@ -160,7 +160,7 @@ export interface BatchGetMetricsResponse {
    * <p>The results of a query to retrieve training metrics from SageMaker.</p>
    * @public
    */
-  MetricQueryResults?: MetricQueryResult[];
+  MetricQueryResults?: MetricQueryResult[] | undefined;
 }
 
 /**
@@ -185,7 +185,7 @@ export interface RawMetricData {
    *       </p>
    * @public
    */
-  Step?: number;
+  Step?: number | undefined;
 
   /**
    * <p>The metric value.</p>
@@ -256,13 +256,13 @@ export interface BatchPutMetricsError {
    *          </ul>
    * @public
    */
-  Code?: PutMetricsErrorCode;
+  Code?: PutMetricsErrorCode | undefined;
 
   /**
    * <p>An index that corresponds to the metric in the request.</p>
    * @public
    */
-  MetricIndex?: number;
+  MetricIndex?: number | undefined;
 }
 
 /**
@@ -273,5 +273,5 @@ export interface BatchPutMetricsResponse {
    * <p>Lists any errors that occur when inserting metric data.</p>
    * @public
    */
-  Errors?: BatchPutMetricsError[];
+  Errors?: BatchPutMetricsError[] | undefined;
 }

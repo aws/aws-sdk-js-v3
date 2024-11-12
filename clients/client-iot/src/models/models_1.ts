@@ -92,7 +92,7 @@ export interface DeleteBillingGroupRequest {
    * 				<code>VersionConflictException</code>.</p>
    * @public
    */
-  expectedVersion?: number;
+  expectedVersion?: number | undefined;
 }
 
 /**
@@ -156,7 +156,7 @@ export interface DeleteCertificateRequest {
    *          thing.</p>
    * @public
    */
-  forceDelete?: boolean;
+  forceDelete?: boolean | undefined;
 }
 
 /**
@@ -239,7 +239,7 @@ export interface DeleteDynamicThingGroupRequest {
    * <p>The expected version of the dynamic thing group to delete.</p>
    * @public
    */
-  expectedVersion?: number;
+  expectedVersion?: number | undefined;
 }
 
 /**
@@ -261,7 +261,7 @@ export interface DeleteFleetMetricRequest {
    * <p>The expected version of the fleet metric to delete.</p>
    * @public
    */
-  expectedVersion?: number;
+  expectedVersion?: number | undefined;
 }
 
 /**
@@ -289,7 +289,7 @@ export interface DeleteJobRequest {
    *          </note>
    * @public
    */
-  force?: boolean;
+  force?: boolean | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -306,7 +306,7 @@ export interface DeleteJobRequest {
    *          </note>
    * @public
    */
-  namespaceId?: string;
+  namespaceId?: string | undefined;
 }
 
 /**
@@ -345,7 +345,7 @@ export interface DeleteJobExecutionRequest {
    *          </note>
    * @public
    */
-  force?: boolean;
+  force?: boolean | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -362,7 +362,7 @@ export interface DeleteJobExecutionRequest {
    *          </note>
    * @public
    */
-  namespaceId?: string;
+  namespaceId?: string | undefined;
 }
 
 /**
@@ -407,14 +407,14 @@ export interface DeleteOTAUpdateRequest {
    *             Ignored if the stream specified in the OTAUpdate is supplied by the user.</p>
    * @public
    */
-  deleteStream?: boolean;
+  deleteStream?: boolean | undefined;
 
   /**
    * <p>When true, deletes the IoT job created by the OTAUpdate process even if it is "IN_PROGRESS". Otherwise, if the
    *             job is not in a terminal state ("COMPLETED" or "CANCELED") an exception will occur. The default is false.</p>
    * @public
    */
-  forceDeleteAWSJob?: boolean;
+  forceDeleteAWSJob?: boolean | undefined;
 }
 
 /**
@@ -437,7 +437,7 @@ export interface DeletePackageRequest {
    *       Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -466,7 +466,7 @@ export interface DeletePackageVersionRequest {
    *       Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -602,7 +602,7 @@ export interface DeleteSecurityProfileRequest {
    *         version, a <code>VersionConflictException</code> is thrown.</p>
    * @public
    */
-  expectedVersion?: number;
+  expectedVersion?: number | undefined;
 }
 
 /**
@@ -644,7 +644,7 @@ export interface DeleteThingRequest {
    * 				<code>VersionConflictException</code>.</p>
    * @public
    */
-  expectedVersion?: number;
+  expectedVersion?: number | undefined;
 }
 
 /**
@@ -667,7 +667,7 @@ export interface DeleteThingGroupRequest {
    * <p>The expected version of the thing group to delete.</p>
    * @public
    */
-  expectedVersion?: number;
+  expectedVersion?: number | undefined;
 }
 
 /**
@@ -772,7 +772,7 @@ export interface DeprecateThingTypeRequest {
    * 			associate it with things.</p>
    * @public
    */
-  undoDeprecate?: boolean;
+  undoDeprecate?: boolean | undefined;
 }
 
 /**
@@ -798,20 +798,20 @@ export interface DescribeAccountAuditConfigurationResponse {
    *             this parameter is required.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>Information about the targets to which audit notifications are sent for
    *             this account.</p>
    * @public
    */
-  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>>;
+  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>> | undefined;
 
   /**
    * <p>Which audit checks are enabled and disabled for this account.</p>
    * @public
    */
-  auditCheckConfigurations?: Record<string, AuditCheckConfiguration>;
+  auditCheckConfigurations?: Record<string, AuditCheckConfiguration> | undefined;
 }
 
 /**
@@ -833,7 +833,7 @@ export interface DescribeAuditFindingResponse {
    * <p>The findings (results) of the audit.</p>
    * @public
    */
-  finding?: AuditFinding;
+  finding?: AuditFinding | undefined;
 }
 
 /**
@@ -856,25 +856,25 @@ export interface MitigationAction {
    * <p>A user-friendly name for the mitigation action.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A unique identifier for the mitigation action.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The IAM role ARN used to apply this mitigation action.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The set of parameters for this mitigation action. The parameters vary, depending on the kind of action you apply.</p>
    * @public
    */
-  actionParams?: MitigationActionParams;
+  actionParams?: MitigationActionParams | undefined;
 }
 
 /**
@@ -885,43 +885,43 @@ export interface DescribeAuditMitigationActionsTaskResponse {
    * <p>The current status of the task.</p>
    * @public
    */
-  taskStatus?: AuditMitigationActionsTaskStatus;
+  taskStatus?: AuditMitigationActionsTaskStatus | undefined;
 
   /**
    * <p>The date and time when the task was started.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The date and time when the task was completed or canceled.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>Aggregate counts of the results when the mitigation tasks were applied to the findings for this audit mitigation actions task.</p>
    * @public
    */
-  taskStatistics?: Record<string, TaskStatisticsForAuditCheck>;
+  taskStatistics?: Record<string, TaskStatisticsForAuditCheck> | undefined;
 
   /**
    * <p>Identifies the findings to which the mitigation actions are applied. This can be by audit checks, by audit task, or a set of findings.</p>
    * @public
    */
-  target?: AuditMitigationActionsTaskTarget;
+  target?: AuditMitigationActionsTaskTarget | undefined;
 
   /**
    * <p>Specifies the mitigation actions that should be applied to specific audit checks.</p>
    * @public
    */
-  auditCheckToActionsMapping?: Record<string, string[]>;
+  auditCheckToActionsMapping?: Record<string, string[]> | undefined;
 
   /**
    * <p>Specifies the mitigation actions and their parameters that are applied as part of this task.</p>
    * @public
    */
-  actionsDefinition?: MitigationAction[];
+  actionsDefinition?: MitigationAction[] | undefined;
 }
 
 /**
@@ -955,13 +955,13 @@ export interface DescribeAuditSuppressionResponse {
    *         to select which checks are enabled.)</p>
    * @public
    */
-  checkName?: string;
+  checkName?: string | undefined;
 
   /**
    * <p>Information that identifies the noncompliant resource.</p>
    * @public
    */
-  resourceIdentifier?: ResourceIdentifier;
+  resourceIdentifier?: ResourceIdentifier | undefined;
 
   /**
    * <p>
@@ -969,7 +969,7 @@ export interface DescribeAuditSuppressionResponse {
    *     </p>
    * @public
    */
-  expirationDate?: Date;
+  expirationDate?: Date | undefined;
 
   /**
    * <p>
@@ -977,7 +977,7 @@ export interface DescribeAuditSuppressionResponse {
    *     </p>
    * @public
    */
-  suppressIndefinitely?: boolean;
+  suppressIndefinitely?: boolean | undefined;
 
   /**
    * <p>
@@ -985,7 +985,7 @@ export interface DescribeAuditSuppressionResponse {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1008,43 +1008,43 @@ export interface TaskStatistics {
    * <p>The number of checks in this audit.</p>
    * @public
    */
-  totalChecks?: number;
+  totalChecks?: number | undefined;
 
   /**
    * <p>The number of checks in progress.</p>
    * @public
    */
-  inProgressChecks?: number;
+  inProgressChecks?: number | undefined;
 
   /**
    * <p>The number of checks waiting for data collection.</p>
    * @public
    */
-  waitingForDataCollectionChecks?: number;
+  waitingForDataCollectionChecks?: number | undefined;
 
   /**
    * <p>The number of checks that found compliant resources.</p>
    * @public
    */
-  compliantChecks?: number;
+  compliantChecks?: number | undefined;
 
   /**
    * <p>The number of checks that found noncompliant resources.</p>
    * @public
    */
-  nonCompliantChecks?: number;
+  nonCompliantChecks?: number | undefined;
 
   /**
    * <p>The number of checks.</p>
    * @public
    */
-  failedChecks?: number;
+  failedChecks?: number | undefined;
 
   /**
    * <p>The number of checks that did not run because the audit was canceled.</p>
    * @public
    */
-  canceledChecks?: number;
+  canceledChecks?: number | undefined;
 }
 
 /**
@@ -1056,37 +1056,37 @@ export interface DescribeAuditTaskResponse {
    *             "FAILED", or "CANCELED".</p>
    * @public
    */
-  taskStatus?: AuditTaskStatus;
+  taskStatus?: AuditTaskStatus | undefined;
 
   /**
    * <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    * @public
    */
-  taskType?: AuditTaskType;
+  taskType?: AuditTaskType | undefined;
 
   /**
    * <p>The time the audit started.</p>
    * @public
    */
-  taskStartTime?: Date;
+  taskStartTime?: Date | undefined;
 
   /**
    * <p>Statistical information about the audit.</p>
    * @public
    */
-  taskStatistics?: TaskStatistics;
+  taskStatistics?: TaskStatistics | undefined;
 
   /**
    * <p>The name of the scheduled audit (only if the audit was a scheduled audit).</p>
    * @public
    */
-  scheduledAuditName?: string;
+  scheduledAuditName?: string | undefined;
 
   /**
    * <p>Detailed information about each check performed during this audit.</p>
    * @public
    */
-  auditDetails?: Record<string, AuditCheckDetails>;
+  auditDetails?: Record<string, AuditCheckDetails> | undefined;
 }
 
 /**
@@ -1108,7 +1108,7 @@ export interface DescribeAuthorizerResponse {
    * <p>The authorizer description.</p>
    * @public
    */
-  authorizerDescription?: AuthorizerDescription;
+  authorizerDescription?: AuthorizerDescription | undefined;
 }
 
 /**
@@ -1131,7 +1131,7 @@ export interface BillingGroupMetadata {
    * <p>The date the billing group was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 }
 
 /**
@@ -1142,37 +1142,37 @@ export interface DescribeBillingGroupResponse {
    * <p>The name of the billing group.</p>
    * @public
    */
-  billingGroupName?: string;
+  billingGroupName?: string | undefined;
 
   /**
    * <p>The ID of the billing group.</p>
    * @public
    */
-  billingGroupId?: string;
+  billingGroupId?: string | undefined;
 
   /**
    * <p>The ARN of the billing group.</p>
    * @public
    */
-  billingGroupArn?: string;
+  billingGroupArn?: string | undefined;
 
   /**
    * <p>The version of the billing group.</p>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>The properties of the billing group.</p>
    * @public
    */
-  billingGroupProperties?: BillingGroupProperties;
+  billingGroupProperties?: BillingGroupProperties | undefined;
 
   /**
    * <p>Additional information about the billing group.</p>
    * @public
    */
-  billingGroupMetadata?: BillingGroupMetadata;
+  billingGroupMetadata?: BillingGroupMetadata | undefined;
 }
 
 /**
@@ -1224,13 +1224,13 @@ export interface CertificateValidity {
    * <p>The certificate is not valid before this date.</p>
    * @public
    */
-  notBefore?: Date;
+  notBefore?: Date | undefined;
 
   /**
    * <p>The certificate is not valid after this date.</p>
    * @public
    */
-  notAfter?: Date;
+  notAfter?: Date | undefined;
 }
 
 /**
@@ -1242,68 +1242,68 @@ export interface CACertificateDescription {
    * <p>The CA certificate ARN.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The CA certificate ID.</p>
    * @public
    */
-  certificateId?: string;
+  certificateId?: string | undefined;
 
   /**
    * <p>The status of a CA certificate.</p>
    * @public
    */
-  status?: CACertificateStatus;
+  status?: CACertificateStatus | undefined;
 
   /**
    * <p>The CA certificate data, in PEM format.</p>
    * @public
    */
-  certificatePem?: string;
+  certificatePem?: string | undefined;
 
   /**
    * <p>The owner of the CA certificate.</p>
    * @public
    */
-  ownedBy?: string;
+  ownedBy?: string | undefined;
 
   /**
    * <p>The date the CA certificate was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>Whether the CA certificate configured for auto registration of device certificates.
    *          Valid values are "ENABLE" and "DISABLE"</p>
    * @public
    */
-  autoRegistrationStatus?: AutoRegistrationStatus;
+  autoRegistrationStatus?: AutoRegistrationStatus | undefined;
 
   /**
    * <p>The date the CA certificate was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The customer version of the CA certificate.</p>
    * @public
    */
-  customerVersion?: number;
+  customerVersion?: number | undefined;
 
   /**
    * <p>The generation ID of the CA certificate.</p>
    * @public
    */
-  generationId?: string;
+  generationId?: string | undefined;
 
   /**
    * <p>When the CA certificate is valid.</p>
    * @public
    */
-  validity?: CertificateValidity;
+  validity?: CertificateValidity | undefined;
 
   /**
    * <p>The mode of the CA. </p>
@@ -1311,7 +1311,7 @@ export interface CACertificateDescription {
    *          in the same mode as the CA. For more information about certificate mode for device certificates, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">certificate mode</a>.</p>
    * @public
    */
-  certificateMode?: CertificateMode;
+  certificateMode?: CertificateMode | undefined;
 }
 
 /**
@@ -1323,19 +1323,19 @@ export interface RegistrationConfig {
    * <p>The template body.</p>
    * @public
    */
-  templateBody?: string;
+  templateBody?: string | undefined;
 
   /**
    * <p>The ARN of the role.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The name of the provisioning template.</p>
    * @public
    */
-  templateName?: string;
+  templateName?: string | undefined;
 }
 
 /**
@@ -1347,13 +1347,13 @@ export interface DescribeCACertificateResponse {
    * <p>The CA certificate description.</p>
    * @public
    */
-  certificateDescription?: CACertificateDescription;
+  certificateDescription?: CACertificateDescription | undefined;
 
   /**
    * <p>Information about the registration configuration.</p>
    * @public
    */
-  registrationConfig?: RegistrationConfig;
+  registrationConfig?: RegistrationConfig | undefined;
 }
 
 /**
@@ -1396,31 +1396,31 @@ export interface TransferData {
    * <p>The transfer message.</p>
    * @public
    */
-  transferMessage?: string;
+  transferMessage?: string | undefined;
 
   /**
    * <p>The reason why the transfer was rejected.</p>
    * @public
    */
-  rejectReason?: string;
+  rejectReason?: string | undefined;
 
   /**
    * <p>The date the transfer took place.</p>
    * @public
    */
-  transferDate?: Date;
+  transferDate?: Date | undefined;
 
   /**
    * <p>The date the transfer was accepted.</p>
    * @public
    */
-  acceptDate?: Date;
+  acceptDate?: Date | undefined;
 
   /**
    * <p>The date the transfer was rejected.</p>
    * @public
    */
-  rejectDate?: Date;
+  rejectDate?: Date | undefined;
 }
 
 /**
@@ -1432,79 +1432,79 @@ export interface CertificateDescription {
    * <p>The ARN of the certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The ID of the certificate.</p>
    * @public
    */
-  certificateId?: string;
+  certificateId?: string | undefined;
 
   /**
    * <p>The certificate ID of the CA certificate used to sign this certificate.</p>
    * @public
    */
-  caCertificateId?: string;
+  caCertificateId?: string | undefined;
 
   /**
    * <p>The status of the certificate.</p>
    * @public
    */
-  status?: CertificateStatus;
+  status?: CertificateStatus | undefined;
 
   /**
    * <p>The certificate data, in PEM format.</p>
    * @public
    */
-  certificatePem?: string;
+  certificatePem?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the certificate.</p>
    * @public
    */
-  ownedBy?: string;
+  ownedBy?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account of the previous owner of the certificate.</p>
    * @public
    */
-  previousOwnedBy?: string;
+  previousOwnedBy?: string | undefined;
 
   /**
    * <p>The date and time the certificate was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date and time the certificate was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The customer version of the certificate.</p>
    * @public
    */
-  customerVersion?: number;
+  customerVersion?: number | undefined;
 
   /**
    * <p>The transfer data.</p>
    * @public
    */
-  transferData?: TransferData;
+  transferData?: TransferData | undefined;
 
   /**
    * <p>The generation ID of the certificate.</p>
    * @public
    */
-  generationId?: string;
+  generationId?: string | undefined;
 
   /**
    * <p>When the certificate is valid.</p>
    * @public
    */
-  validity?: CertificateValidity;
+  validity?: CertificateValidity | undefined;
 
   /**
    * <p>The mode of the certificate.</p>
@@ -1521,7 +1521,7 @@ export interface CertificateDescription {
    *          <p>For more information about the value for SNI extension, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html">Transport security in IoT</a>.</p>
    * @public
    */
-  certificateMode?: CertificateMode;
+  certificateMode?: CertificateMode | undefined;
 }
 
 /**
@@ -1533,7 +1533,7 @@ export interface DescribeCertificateResponse {
    * <p>The description of the certificate.</p>
    * @public
    */
-  certificateDescription?: CertificateDescription;
+  certificateDescription?: CertificateDescription | undefined;
 }
 
 /**
@@ -1555,38 +1555,38 @@ export interface DescribeCertificateProviderResponse {
    * <p>The name of the certificate provider.</p>
    * @public
    */
-  certificateProviderName?: string;
+  certificateProviderName?: string | undefined;
 
   /**
    * <p>The ARN of the certificate provider.</p>
    * @public
    */
-  certificateProviderArn?: string;
+  certificateProviderArn?: string | undefined;
 
   /**
    * <p>The Lambda function ARN that's associated with the certificate provider.</p>
    * @public
    */
-  lambdaFunctionArn?: string;
+  lambdaFunctionArn?: string | undefined;
 
   /**
    * <p>A list of the operations that the certificate provider will use to generate certificates.
    *          Valid value: <code>CreateCertificateFromCsr</code>.</p>
    * @public
    */
-  accountDefaultForOperations?: CertificateProviderOperation[];
+  accountDefaultForOperations?: CertificateProviderOperation[] | undefined;
 
   /**
    * <p>The date-time string that indicates when the certificate provider was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date-time string that indicates when the certificate provider was last updated.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -1612,7 +1612,7 @@ export interface DescribeCustomMetricResponse {
    *     </p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>
@@ -1620,7 +1620,7 @@ export interface DescribeCustomMetricResponse {
    *     </p>
    * @public
    */
-  metricArn?: string;
+  metricArn?: string | undefined;
 
   /**
    * <p> The type of the custom metric. </p>
@@ -1629,7 +1629,7 @@ export interface DescribeCustomMetricResponse {
    *          </important>
    * @public
    */
-  metricType?: CustomMetricType;
+  metricType?: CustomMetricType | undefined;
 
   /**
    * <p>
@@ -1637,7 +1637,7 @@ export interface DescribeCustomMetricResponse {
    *     </p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>
@@ -1645,7 +1645,7 @@ export interface DescribeCustomMetricResponse {
    *     </p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>
@@ -1653,7 +1653,7 @@ export interface DescribeCustomMetricResponse {
    *     </p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -1669,7 +1669,7 @@ export interface DescribeDefaultAuthorizerResponse {
    * <p>The default authorizer's description.</p>
    * @public
    */
-  authorizerDescription?: AuthorizerDescription;
+  authorizerDescription?: AuthorizerDescription | undefined;
 }
 
 /**
@@ -1698,7 +1698,7 @@ export interface DetectMitigationActionsTaskTarget {
    *         </p>
    * @public
    */
-  violationIds?: string[];
+  violationIds?: string[] | undefined;
 
   /**
    * <p>
@@ -1706,7 +1706,7 @@ export interface DetectMitigationActionsTaskTarget {
    *         </p>
    * @public
    */
-  securityProfileName?: string;
+  securityProfileName?: string | undefined;
 
   /**
    * <p>
@@ -1714,7 +1714,7 @@ export interface DetectMitigationActionsTaskTarget {
    *         </p>
    * @public
    */
-  behaviorName?: string;
+  behaviorName?: string | undefined;
 }
 
 /**
@@ -1730,7 +1730,7 @@ export interface DetectMitigationActionsTaskStatistics {
    *         </p>
    * @public
    */
-  actionsExecuted?: number;
+  actionsExecuted?: number | undefined;
 
   /**
    * <p>
@@ -1738,7 +1738,7 @@ export interface DetectMitigationActionsTaskStatistics {
    *         </p>
    * @public
    */
-  actionsSkipped?: number;
+  actionsSkipped?: number | undefined;
 
   /**
    * <p>
@@ -1746,7 +1746,7 @@ export interface DetectMitigationActionsTaskStatistics {
    *         </p>
    * @public
    */
-  actionsFailed?: number;
+  actionsFailed?: number | undefined;
 }
 
 /**
@@ -1803,7 +1803,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>
@@ -1811,7 +1811,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  taskStatus?: DetectMitigationActionsTaskStatus;
+  taskStatus?: DetectMitigationActionsTaskStatus | undefined;
 
   /**
    * <p>
@@ -1819,7 +1819,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  taskStartTime?: Date;
+  taskStartTime?: Date | undefined;
 
   /**
    * <p>
@@ -1827,7 +1827,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  taskEndTime?: Date;
+  taskEndTime?: Date | undefined;
 
   /**
    * <p>
@@ -1835,7 +1835,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  target?: DetectMitigationActionsTaskTarget;
+  target?: DetectMitigationActionsTaskTarget | undefined;
 
   /**
    * <p>
@@ -1843,7 +1843,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  violationEventOccurrenceRange?: ViolationEventOccurrenceRange;
+  violationEventOccurrenceRange?: ViolationEventOccurrenceRange | undefined;
 
   /**
    * <p>
@@ -1851,7 +1851,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  onlyActiveViolationsIncluded?: boolean;
+  onlyActiveViolationsIncluded?: boolean | undefined;
 
   /**
    * <p>
@@ -1859,7 +1859,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  suppressedAlertsIncluded?: boolean;
+  suppressedAlertsIncluded?: boolean | undefined;
 
   /**
    * <p>
@@ -1867,7 +1867,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  actionsDefinition?: MitigationAction[];
+  actionsDefinition?: MitigationAction[] | undefined;
 
   /**
    * <p>
@@ -1875,7 +1875,7 @@ export interface DetectMitigationActionsTaskSummary {
    *         </p>
    * @public
    */
-  taskStatistics?: DetectMitigationActionsTaskStatistics;
+  taskStatistics?: DetectMitigationActionsTaskStatistics | undefined;
 }
 
 /**
@@ -1888,7 +1888,7 @@ export interface DescribeDetectMitigationActionsTaskResponse {
    *     </p>
    * @public
    */
-  taskSummary?: DetectMitigationActionsTaskSummary;
+  taskSummary?: DetectMitigationActionsTaskSummary | undefined;
 }
 
 /**
@@ -1910,7 +1910,7 @@ export interface DescribeDimensionResponse {
    * <p>The unique identifier for the dimension.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name
@@ -1919,31 +1919,31 @@ export interface DescribeDimensionResponse {
    *       the dimension.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The type of the dimension.</p>
    * @public
    */
-  type?: DimensionType;
+  type?: DimensionType | undefined;
 
   /**
    * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
    * @public
    */
-  stringValues?: string[];
+  stringValues?: string[] | undefined;
 
   /**
    * <p>The date the dimension was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date the dimension was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -2009,19 +2009,19 @@ export interface ServerCertificateSummary {
    * <p>The ARN of the server certificate.</p>
    * @public
    */
-  serverCertificateArn?: string;
+  serverCertificateArn?: string | undefined;
 
   /**
    * <p>The status of the server certificate.</p>
    * @public
    */
-  serverCertificateStatus?: ServerCertificateStatus;
+  serverCertificateStatus?: ServerCertificateStatus | undefined;
 
   /**
    * <p>Details that explain the status of the server certificate.</p>
    * @public
    */
-  serverCertificateStatusDetail?: string;
+  serverCertificateStatusDetail?: string | undefined;
 }
 
 /**
@@ -2032,67 +2032,67 @@ export interface DescribeDomainConfigurationResponse {
    * <p>The name of the domain configuration.</p>
    * @public
    */
-  domainConfigurationName?: string;
+  domainConfigurationName?: string | undefined;
 
   /**
    * <p>The ARN of the domain configuration.</p>
    * @public
    */
-  domainConfigurationArn?: string;
+  domainConfigurationArn?: string | undefined;
 
   /**
    * <p>The name of the domain.</p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>A list containing summary information about the server certificate included in the domain configuration.</p>
    * @public
    */
-  serverCertificates?: ServerCertificateSummary[];
+  serverCertificates?: ServerCertificateSummary[] | undefined;
 
   /**
    * <p>An object that specifies the authorization service for a domain.</p>
    * @public
    */
-  authorizerConfig?: AuthorizerConfig;
+  authorizerConfig?: AuthorizerConfig | undefined;
 
   /**
    * <p>A Boolean value that specifies the current state of the domain configuration.</p>
    * @public
    */
-  domainConfigurationStatus?: DomainConfigurationStatus;
+  domainConfigurationStatus?: DomainConfigurationStatus | undefined;
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
    * @public
    */
-  serviceType?: ServiceType;
+  serviceType?: ServiceType | undefined;
 
   /**
    * <p>The type of the domain.</p>
    * @public
    */
-  domainType?: DomainType;
+  domainType?: DomainType | undefined;
 
   /**
    * <p>The date and time the domain configuration's status was last changed.</p>
    * @public
    */
-  lastStatusChangeDate?: Date;
+  lastStatusChangeDate?: Date | undefined;
 
   /**
    * <p>An object that specifies the TLS configuration for a domain.</p>
    * @public
    */
-  tlsConfig?: TlsConfig;
+  tlsConfig?: TlsConfig | undefined;
 
   /**
    * <p>The server certificate configuration.</p>
    * @public
    */
-  serverCertificateConfig?: ServerCertificateConfig;
+  serverCertificateConfig?: ServerCertificateConfig | undefined;
 
   /**
    * <p>An enumerated string that speciﬁes the authentication type.</p>
@@ -2131,7 +2131,7 @@ export interface DescribeDomainConfigurationResponse {
    *          </ul>
    * @public
    */
-  authenticationType?: AuthenticationType;
+  authenticationType?: AuthenticationType | undefined;
 
   /**
    * <p>An enumerated string that speciﬁes the application-layer protocol.</p>
@@ -2162,13 +2162,13 @@ export interface DescribeDomainConfigurationResponse {
    *          </ul>
    * @public
    */
-  applicationProtocol?: ApplicationProtocol;
+  applicationProtocol?: ApplicationProtocol | undefined;
 
   /**
    * <p>An object that speciﬁes the client certificate conﬁguration for a domain.</p>
    * @public
    */
-  clientCertificateConfig?: ClientCertificateConfig;
+  clientCertificateConfig?: ClientCertificateConfig | undefined;
 }
 
 /**
@@ -2209,7 +2209,7 @@ export interface DescribeEndpointRequest {
    *          are more secure and are trusted by most popular browsers.</p>
    * @public
    */
-  endpointType?: string;
+  endpointType?: string | undefined;
 }
 
 /**
@@ -2222,7 +2222,7 @@ export interface DescribeEndpointResponse {
    *             <i>identifier</i>.iot.<i>region</i>.amazonaws.com.</p>
    * @public
    */
-  endpointAddress?: string;
+  endpointAddress?: string | undefined;
 }
 
 /**
@@ -2262,7 +2262,7 @@ export interface Configuration {
    * <p>True to enable the configuration.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -2273,19 +2273,19 @@ export interface DescribeEventConfigurationsResponse {
    * <p>The event configurations.</p>
    * @public
    */
-  eventConfigurations?: Partial<Record<EventType, Configuration>>;
+  eventConfigurations?: Partial<Record<EventType, Configuration>> | undefined;
 
   /**
    * <p>The creation date of the event configuration.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date the event configurations were last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -2307,80 +2307,80 @@ export interface DescribeFleetMetricResponse {
    * <p>The name of the fleet metric to describe.</p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>The search query string.</p>
    * @public
    */
-  queryString?: string;
+  queryString?: string | undefined;
 
   /**
    * <p>The type of the aggregation query.</p>
    * @public
    */
-  aggregationType?: AggregationType;
+  aggregationType?: AggregationType | undefined;
 
   /**
    * <p>The time in seconds between fleet metric emissions. Range [60(1 min), 86400(1 day)] and must be multiple of 60.</p>
    * @public
    */
-  period?: number;
+  period?: number | undefined;
 
   /**
    * <p>The field to aggregate.</p>
    * @public
    */
-  aggregationField?: string;
+  aggregationField?: string | undefined;
 
   /**
    * <p>The fleet metric description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The query version.</p>
    * @public
    */
-  queryVersion?: string;
+  queryVersion?: string | undefined;
 
   /**
    * <p>The name of the index to search.</p>
    * @public
    */
-  indexName?: string;
+  indexName?: string | undefined;
 
   /**
    * <p>The date when the fleet metric is created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date when the fleet metric is last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    * @public
    */
-  unit?: FleetMetricUnit;
+  unit?: FleetMetricUnit | undefined;
 
   /**
    * <p>The version of the fleet metric.</p>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>The ARN of the fleet metric to describe.</p>
    * @public
    */
-  metricArn?: string;
+  metricArn?: string | undefined;
 }
 
 /**
@@ -2417,13 +2417,13 @@ export interface DescribeIndexResponse {
    * <p>The index name.</p>
    * @public
    */
-  indexName?: string;
+  indexName?: string | undefined;
 
   /**
    * <p>The index status.</p>
    * @public
    */
-  indexStatus?: IndexStatus;
+  indexStatus?: IndexStatus | undefined;
 
   /**
    * <p>Contains a value that specifies the type of indexing performed. Valid values
@@ -2450,7 +2450,7 @@ export interface DescribeIndexResponse {
    *          </ul>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 }
 
 /**
@@ -2467,7 +2467,7 @@ export interface DescribeJobRequest {
    * <p>A flag that provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
    * @public
    */
-  beforeSubstitution?: boolean;
+  beforeSubstitution?: boolean | undefined;
 }
 
 /**
@@ -2479,56 +2479,56 @@ export interface JobProcessDetails {
    * <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
    * @public
    */
-  processingTargets?: string[];
+  processingTargets?: string[] | undefined;
 
   /**
    * <p>The number of things that cancelled the job.</p>
    * @public
    */
-  numberOfCanceledThings?: number;
+  numberOfCanceledThings?: number | undefined;
 
   /**
    * <p>The number of things which successfully completed the job.</p>
    * @public
    */
-  numberOfSucceededThings?: number;
+  numberOfSucceededThings?: number | undefined;
 
   /**
    * <p>The number of things that failed executing the job.</p>
    * @public
    */
-  numberOfFailedThings?: number;
+  numberOfFailedThings?: number | undefined;
 
   /**
    * <p>The number of things that rejected the job.</p>
    * @public
    */
-  numberOfRejectedThings?: number;
+  numberOfRejectedThings?: number | undefined;
 
   /**
    * <p>The number of things that are awaiting execution of the job.</p>
    * @public
    */
-  numberOfQueuedThings?: number;
+  numberOfQueuedThings?: number | undefined;
 
   /**
    * <p>The number of things currently executing the job.</p>
    * @public
    */
-  numberOfInProgressThings?: number;
+  numberOfInProgressThings?: number | undefined;
 
   /**
    * <p>The number of things that are no longer scheduled to execute the job because they have been deleted or
    *             have been removed from the group that was a target of the job.</p>
    * @public
    */
-  numberOfRemovedThings?: number;
+  numberOfRemovedThings?: number | undefined;
 
   /**
    * <p>The number of things whose job execution status is <code>TIMED_OUT</code>.</p>
    * @public
    */
-  numberOfTimedOutThings?: number;
+  numberOfTimedOutThings?: number | undefined;
 }
 
 /**
@@ -2540,7 +2540,7 @@ export interface ScheduledJobRollout {
    * <p>Displays the start times of the next seven maintenance window occurrences.</p>
    * @public
    */
-  startTime?: string;
+  startTime?: string | undefined;
 }
 
 /**
@@ -2569,13 +2569,13 @@ export interface Job {
    * <p>An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
@@ -2590,87 +2590,87 @@ export interface Job {
    *          </note>
    * @public
    */
-  targetSelection?: TargetSelection;
+  targetSelection?: TargetSelection | undefined;
 
   /**
    * <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
    *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
    * @public
    */
-  status?: JobStatus;
+  status?: JobStatus | undefined;
 
   /**
    * <p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to
    *           <code>true</code>.</p>
    * @public
    */
-  forceCanceled?: boolean;
+  forceCanceled?: boolean | undefined;
 
   /**
    * <p>If the job was updated, provides the reason code for the update.</p>
    * @public
    */
-  reasonCode?: string;
+  reasonCode?: string | undefined;
 
   /**
    * <p>If the job was updated, describes the reason for the update.</p>
    * @public
    */
-  comment?: string;
+  comment?: string | undefined;
 
   /**
    * <p>A list of IoT things and thing groups to which the job should be sent.</p>
    * @public
    */
-  targets?: string[];
+  targets?: string[] | undefined;
 
   /**
    * <p>A short text description of the job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configuration for pre-signed S3 URLs.</p>
    * @public
    */
-  presignedUrlConfig?: PresignedUrlConfig;
+  presignedUrlConfig?: PresignedUrlConfig | undefined;
 
   /**
    * <p>Allows you to create a staged rollout of a job.</p>
    * @public
    */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig | undefined;
 
   /**
    * <p>Configuration for criteria to abort the job.</p>
    * @public
    */
-  abortConfig?: AbortConfig;
+  abortConfig?: AbortConfig | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job was completed.</p>
    * @public
    */
-  completedAt?: Date;
+  completedAt?: Date | undefined;
 
   /**
    * <p>Details about the job process.</p>
    * @public
    */
-  jobProcessDetails?: JobProcessDetails;
+  jobProcessDetails?: JobProcessDetails | undefined;
 
   /**
    * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
@@ -2679,7 +2679,7 @@ export interface Job {
    *            be automatically set to <code>TIMED_OUT</code>.</p>
    * @public
    */
-  timeoutConfig?: TimeoutConfig;
+  timeoutConfig?: TimeoutConfig | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -2696,19 +2696,19 @@ export interface Job {
    *          </note>
    * @public
    */
-  namespaceId?: string;
+  namespaceId?: string | undefined;
 
   /**
    * <p>The ARN of the job template used to create the job.</p>
    * @public
    */
-  jobTemplateArn?: string;
+  jobTemplateArn?: string | undefined;
 
   /**
    * <p>The configuration for the criteria to retry the job.</p>
    * @public
    */
-  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig | undefined;
 
   /**
    * <p>A key-value map that pairs the patterns that need to be replaced in a managed
@@ -2722,7 +2722,7 @@ export interface Job {
    *          </note>
    * @public
    */
-  documentParameters?: Record<string, string>;
+  documentParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Indicates whether a job is concurrent. Will be true when a job is
@@ -2730,20 +2730,20 @@ export interface Job {
    *             otherwise false.</p>
    * @public
    */
-  isConcurrent?: boolean;
+  isConcurrent?: boolean | undefined;
 
   /**
    * <p>The configuration that allows you to schedule a job for a future date and time in
    *             addition to specifying the end behavior for each job execution.</p>
    * @public
    */
-  schedulingConfig?: SchedulingConfig;
+  schedulingConfig?: SchedulingConfig | undefined;
 
   /**
    * <p>Displays the next seven maintenance window occurrences and their start times.</p>
    * @public
    */
-  scheduledJobRollouts?: ScheduledJobRollout[];
+  scheduledJobRollouts?: ScheduledJobRollout[] | undefined;
 
   /**
    * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
@@ -2753,7 +2753,7 @@ export interface Job {
    *             Up to 25  package version ARNs are allowed.</p>
    * @public
    */
-  destinationPackageVersions?: string[];
+  destinationPackageVersions?: string[] | undefined;
 }
 
 /**
@@ -2764,13 +2764,13 @@ export interface DescribeJobResponse {
    * <p>An S3 link to the job document.</p>
    * @public
    */
-  documentSource?: string;
+  documentSource?: string | undefined;
 
   /**
    * <p>Information about the job.</p>
    * @public
    */
-  job?: Job;
+  job?: Job | undefined;
 }
 
 /**
@@ -2794,7 +2794,7 @@ export interface DescribeJobExecutionRequest {
    *             on a particular device.</p>
    * @public
    */
-  executionNumber?: number;
+  executionNumber?: number | undefined;
 }
 
 /**
@@ -2826,7 +2826,7 @@ export interface JobExecutionStatusDetails {
    * <p>The job execution status.</p>
    * @public
    */
-  detailsMap?: Record<string, string>;
+  detailsMap?: Record<string, string> | undefined;
 }
 
 /**
@@ -2838,51 +2838,51 @@ export interface JobExecution {
    * <p>The unique identifier you assigned to the job when it was created.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT,
    *             CANCELED, or REJECTED).</p>
    * @public
    */
-  status?: JobExecutionStatus;
+  status?: JobExecutionStatus | undefined;
 
   /**
    * <p>Will be <code>true</code> if the job execution was canceled with the optional <code>force</code>
    *           parameter set to <code>true</code>.</p>
    * @public
    */
-  forceCanceled?: boolean;
+  forceCanceled?: boolean | undefined;
 
   /**
    * <p>A collection of name/value pairs that describe the status of the job execution.</p>
    * @public
    */
-  statusDetails?: JobExecutionStatusDetails;
+  statusDetails?: JobExecutionStatusDetails | undefined;
 
   /**
    * <p>The ARN of the thing on which the job execution is running.</p>
    * @public
    */
-  thingArn?: string;
+  thingArn?: string | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
    * @public
    */
-  queuedAt?: Date;
+  queuedAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution started.</p>
    * @public
    */
-  startedAt?: Date;
+  startedAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
@@ -2890,14 +2890,14 @@ export interface JobExecution {
    *         </p>
    * @public
    */
-  executionNumber?: number;
+  executionNumber?: number | undefined;
 
   /**
    * <p>The version of the job execution. Job execution versions are incremented each time they are updated
    *       by a device.</p>
    * @public
    */
-  versionNumber?: number;
+  versionNumber?: number | undefined;
 
   /**
    * <p>The estimated number of seconds that remain before the job execution status will be
@@ -2906,7 +2906,7 @@ export interface JobExecution {
    *        This value will not be included if the job execution has reached a terminal status.</p>
    * @public
    */
-  approximateSecondsBeforeTimedOut?: number;
+  approximateSecondsBeforeTimedOut?: number | undefined;
 }
 
 /**
@@ -2917,7 +2917,7 @@ export interface DescribeJobExecutionResponse {
    * <p>Information about the job execution.</p>
    * @public
    */
-  execution?: JobExecution;
+  execution?: JobExecution | undefined;
 }
 
 /**
@@ -2939,55 +2939,55 @@ export interface DescribeJobTemplateResponse {
    * <p>The ARN of the job template.</p>
    * @public
    */
-  jobTemplateArn?: string;
+  jobTemplateArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the job template.</p>
    * @public
    */
-  jobTemplateId?: string;
+  jobTemplateId?: string | undefined;
 
   /**
    * <p>A description of the job template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>An S3 link to the job document.</p>
    * @public
    */
-  documentSource?: string;
+  documentSource?: string | undefined;
 
   /**
    * <p>The job document.</p>
    * @public
    */
-  document?: string;
+  document?: string | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job template was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Configuration for pre-signed S3 URLs.</p>
    * @public
    */
-  presignedUrlConfig?: PresignedUrlConfig;
+  presignedUrlConfig?: PresignedUrlConfig | undefined;
 
   /**
    * <p>Allows you to create a staged rollout of a job.</p>
    * @public
    */
-  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig;
+  jobExecutionsRolloutConfig?: JobExecutionsRolloutConfig | undefined;
 
   /**
    * <p>The criteria that determine when and how a job abort takes place.</p>
    * @public
    */
-  abortConfig?: AbortConfig;
+  abortConfig?: AbortConfig | undefined;
 
   /**
    * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
@@ -2996,20 +2996,20 @@ export interface DescribeJobTemplateResponse {
    *            be automatically set to <code>TIMED_OUT</code>.</p>
    * @public
    */
-  timeoutConfig?: TimeoutConfig;
+  timeoutConfig?: TimeoutConfig | undefined;
 
   /**
    * <p>The configuration that determines how many retries are allowed for each failure type
    *             for a job.</p>
    * @public
    */
-  jobExecutionsRetryConfig?: JobExecutionsRetryConfig;
+  jobExecutionsRetryConfig?: JobExecutionsRetryConfig | undefined;
 
   /**
    * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
    * @public
    */
-  maintenanceWindows?: MaintenanceWindow[];
+  maintenanceWindows?: MaintenanceWindow[] | undefined;
 
   /**
    * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
@@ -3019,7 +3019,7 @@ export interface DescribeJobTemplateResponse {
    *             Up to 25  package version ARNs are allowed.</p>
    * @public
    */
-  destinationPackageVersions?: string[];
+  destinationPackageVersions?: string[] | undefined;
 }
 
 /**
@@ -3037,7 +3037,7 @@ export interface DescribeManagedJobTemplateRequest {
    *             pre-defined default version is returned.</p>
    * @public
    */
-  templateVersion?: string;
+  templateVersion?: string | undefined;
 }
 
 /**
@@ -3058,35 +3058,35 @@ export interface DocumentParameter {
    *             template job document schema.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>Description of the map field containing the patterns that need to be replaced in a
    *             managed template job document schema.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A regular expression of the patterns that need to be replaced in a managed template
    *             job document schema.</p>
    * @public
    */
-  regex?: string;
+  regex?: string | undefined;
 
   /**
    * <p>An example illustrating a pattern that need to be replaced in a managed template
    *             job document schema.</p>
    * @public
    */
-  example?: string;
+  example?: string | undefined;
 
   /**
    * <p>Specifies whether a pattern that needs to be replaced in a managed template job document
    *             schema is optional or required.</p>
    * @public
    */
-  optional?: boolean;
+  optional?: boolean | undefined;
 }
 
 /**
@@ -3097,31 +3097,31 @@ export interface DescribeManagedJobTemplateResponse {
    * <p>The unique name of a managed template, such as <code>AWS-Reboot</code>.</p>
    * @public
    */
-  templateName?: string;
+  templateName?: string | undefined;
 
   /**
    * <p>The unique Amazon Resource Name (ARN) of the managed template.</p>
    * @public
    */
-  templateArn?: string;
+  templateArn?: string | undefined;
 
   /**
    * <p>The unique description of a managed template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The version for a managed template.</p>
    * @public
    */
-  templateVersion?: string;
+  templateVersion?: string | undefined;
 
   /**
    * <p>A list of environments that are supported with the managed job template.</p>
    * @public
    */
-  environments?: string[];
+  environments?: string[] | undefined;
 
   /**
    * <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating
@@ -3134,13 +3134,13 @@ export interface DescribeManagedJobTemplateResponse {
    *          </note>
    * @public
    */
-  documentParameters?: DocumentParameter[];
+  documentParameters?: DocumentParameter[] | undefined;
 
   /**
    * <p>The document schema for a managed job template.</p>
    * @public
    */
-  document?: string;
+  document?: string | undefined;
 }
 
 /**
@@ -3180,49 +3180,49 @@ export interface DescribeMitigationActionResponse {
    * <p>The friendly name that uniquely identifies the mitigation action.</p>
    * @public
    */
-  actionName?: string;
+  actionName?: string | undefined;
 
   /**
    * <p>The type of mitigation action.</p>
    * @public
    */
-  actionType?: MitigationActionType;
+  actionType?: MitigationActionType | undefined;
 
   /**
    * <p>The ARN that identifies this migration action.</p>
    * @public
    */
-  actionArn?: string;
+  actionArn?: string | undefined;
 
   /**
    * <p>A unique identifier for this action.</p>
    * @public
    */
-  actionId?: string;
+  actionId?: string | undefined;
 
   /**
    * <p>The ARN of the IAM role used to apply this action.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>Parameters that control how the mitigation action is applied, specific to the type of mitigation action.</p>
    * @public
    */
-  actionParams?: MitigationActionParams;
+  actionParams?: MitigationActionParams | undefined;
 
   /**
    * <p>The date and time when the mitigation action was added to your Amazon Web Services accounts.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date and time when the mitigation action was last changed.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -3244,62 +3244,62 @@ export interface DescribeProvisioningTemplateResponse {
    * <p>The ARN of the provisioning template.</p>
    * @public
    */
-  templateArn?: string;
+  templateArn?: string | undefined;
 
   /**
    * <p>The name of the provisioning template.</p>
    * @public
    */
-  templateName?: string;
+  templateName?: string | undefined;
 
   /**
    * <p>The description of the provisioning template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date when the provisioning template was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date when the provisioning template was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The default fleet template version ID.</p>
    * @public
    */
-  defaultVersionId?: number;
+  defaultVersionId?: number | undefined;
 
   /**
    * <p>The JSON formatted contents of the provisioning template.</p>
    * @public
    */
-  templateBody?: string;
+  templateBody?: string | undefined;
 
   /**
    * <p>True if the provisioning template is enabled, otherwise false.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The ARN of the role associated with the provisioning template. This IoT role grants
    *          permission to provision a device.</p>
    * @public
    */
-  provisioningRoleArn?: string;
+  provisioningRoleArn?: string | undefined;
 
   /**
    * <p>Gets information about a pre-provisioned hook.</p>
    * @public
    */
-  preProvisioningHook?: ProvisioningHook;
+  preProvisioningHook?: ProvisioningHook | undefined;
 
   /**
    * <p>The type you define in a provisioning template. You can create a template with only one type.
@@ -3308,7 +3308,7 @@ export interface DescribeProvisioningTemplateResponse {
    *       </p>
    * @public
    */
-  type?: TemplateType;
+  type?: TemplateType | undefined;
 }
 
 /**
@@ -3336,25 +3336,25 @@ export interface DescribeProvisioningTemplateVersionResponse {
    * <p>The provisioning template version ID.</p>
    * @public
    */
-  versionId?: number;
+  versionId?: number | undefined;
 
   /**
    * <p>The date when the provisioning template version was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The JSON formatted contents of the provisioning template version.</p>
    * @public
    */
-  templateBody?: string;
+  templateBody?: string | undefined;
 
   /**
    * <p>True if the provisioning template version is the default version.</p>
    * @public
    */
-  isDefaultVersion?: boolean;
+  isDefaultVersion?: boolean | undefined;
 }
 
 /**
@@ -3377,43 +3377,43 @@ export interface RoleAliasDescription {
    * <p>The role alias.</p>
    * @public
    */
-  roleAlias?: string;
+  roleAlias?: string | undefined;
 
   /**
    * <p>The ARN of the role alias.</p>
    * @public
    */
-  roleAliasArn?: string;
+  roleAliasArn?: string | undefined;
 
   /**
    * <p>The role ARN.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The role alias owner.</p>
    * @public
    */
-  owner?: string;
+  owner?: string | undefined;
 
   /**
    * <p>The number of seconds for which the credential is valid.</p>
    * @public
    */
-  credentialDurationSeconds?: number;
+  credentialDurationSeconds?: number | undefined;
 
   /**
    * <p>The UNIX timestamp of when the role alias was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The UNIX timestamp of when the role alias was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -3424,7 +3424,7 @@ export interface DescribeRoleAliasResponse {
    * <p>The role alias description.</p>
    * @public
    */
-  roleAliasDescription?: RoleAliasDescription;
+  roleAliasDescription?: RoleAliasDescription | undefined;
 }
 
 /**
@@ -3450,7 +3450,7 @@ export interface DescribeScheduledAuditResponse {
    *       system.</p>
    * @public
    */
-  frequency?: AuditFrequency;
+  frequency?: AuditFrequency | undefined;
 
   /**
    * <p>The day of the month on which the scheduled audit takes place.
@@ -3462,7 +3462,7 @@ export interface DescribeScheduledAuditResponse {
    *       day of the month.</p>
    * @public
    */
-  dayOfMonth?: string;
+  dayOfMonth?: string | undefined;
 
   /**
    * <p>The day of the week on which the scheduled audit takes
@@ -3471,7 +3471,7 @@ export interface DescribeScheduledAuditResponse {
    *             <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.</p>
    * @public
    */
-  dayOfWeek?: DayOfWeek;
+  dayOfWeek?: DayOfWeek | undefined;
 
   /**
    * <p>Which checks are performed during the scheduled audit. Checks must be
@@ -3480,19 +3480,19 @@ export interface DescribeScheduledAuditResponse {
    *             to select which checks are enabled.)</p>
    * @public
    */
-  targetCheckNames?: string[];
+  targetCheckNames?: string[] | undefined;
 
   /**
    * <p>The name of the scheduled audit.</p>
    * @public
    */
-  scheduledAuditName?: string;
+  scheduledAuditName?: string | undefined;
 
   /**
    * <p>The ARN of the scheduled audit.</p>
    * @public
    */
-  scheduledAuditArn?: string;
+  scheduledAuditArn?: string | undefined;
 }
 
 /**
@@ -3515,32 +3515,32 @@ export interface DescribeSecurityProfileResponse {
    * <p>The name of the security profile.</p>
    * @public
    */
-  securityProfileName?: string;
+  securityProfileName?: string | undefined;
 
   /**
    * <p>The ARN of the security profile.</p>
    * @public
    */
-  securityProfileArn?: string;
+  securityProfileArn?: string | undefined;
 
   /**
    * <p>A description of the security profile (associated with the security profile
    *         when it was created or updated).</p>
    * @public
    */
-  securityProfileDescription?: string;
+  securityProfileDescription?: string | undefined;
 
   /**
    * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    * @public
    */
-  behaviors?: Behavior[];
+  behaviors?: Behavior[] | undefined;
 
   /**
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    * @public
    */
-  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>> | undefined;
 
   /**
    * @deprecated
@@ -3557,7 +3557,7 @@ export interface DescribeSecurityProfileResponse {
    *       also retained for any metric specified here.</p>
    * @public
    */
-  additionalMetricsToRetain?: string[];
+  additionalMetricsToRetain?: string[] | undefined;
 
   /**
    * <p>A list of metrics whose data is retained (stored). By default, data is retained for any
@@ -3566,32 +3566,32 @@ export interface DescribeSecurityProfileResponse {
    *       also retained for any metric specified here.</p>
    * @public
    */
-  additionalMetricsToRetainV2?: MetricToRetain[];
+  additionalMetricsToRetainV2?: MetricToRetain[] | undefined;
 
   /**
    * <p>The version of the security profile. A new version is generated whenever the
    *         security profile is updated.</p>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>The time the security profile was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The time the security profile was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>Specifies the MQTT topic and role ARN required for metric export.</p>
    * @public
    */
-  metricsExportConfig?: MetricsExportConfig;
+  metricsExportConfig?: MetricsExportConfig | undefined;
 }
 
 /**
@@ -3614,49 +3614,49 @@ export interface StreamInfo {
    * <p>The stream ID.</p>
    * @public
    */
-  streamId?: string;
+  streamId?: string | undefined;
 
   /**
    * <p>The stream ARN.</p>
    * @public
    */
-  streamArn?: string;
+  streamArn?: string | undefined;
 
   /**
    * <p>The stream version.</p>
    * @public
    */
-  streamVersion?: number;
+  streamVersion?: number | undefined;
 
   /**
    * <p>The description of the stream.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The files to stream.</p>
    * @public
    */
-  files?: StreamFile[];
+  files?: StreamFile[] | undefined;
 
   /**
    * <p>The date when the stream was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The date when the stream was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>An IAM role IoT assumes to access your S3 files.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -3667,7 +3667,7 @@ export interface DescribeStreamResponse {
    * <p>Information about the stream.</p>
    * @public
    */
-  streamInfo?: StreamInfo;
+  streamInfo?: StreamInfo | undefined;
 }
 
 /**
@@ -3694,37 +3694,37 @@ export interface DescribeThingResponse {
    *          <p>This lets you better organize your IoT fleet without removing the flexibility of the underlying device certificate model or shadows.</p>
    * @public
    */
-  defaultClientId?: string;
+  defaultClientId?: string | undefined;
 
   /**
    * <p>The name of the thing.</p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 
   /**
    * <p>The ID of the thing to describe.</p>
    * @public
    */
-  thingId?: string;
+  thingId?: string | undefined;
 
   /**
    * <p>The ARN of the thing to describe.</p>
    * @public
    */
-  thingArn?: string;
+  thingArn?: string | undefined;
 
   /**
    * <p>The thing type name.</p>
    * @public
    */
-  thingTypeName?: string;
+  thingTypeName?: string | undefined;
 
   /**
    * <p>The thing attributes.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The current version of the thing record in the registry.</p>
@@ -3735,13 +3735,13 @@ export interface DescribeThingResponse {
    *          </note>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>The name of the billing group the thing belongs to.</p>
    * @public
    */
-  billingGroupName?: string;
+  billingGroupName?: string | undefined;
 }
 
 /**
@@ -3779,13 +3779,13 @@ export interface GroupNameAndArn {
    * <p>The group name.</p>
    * @public
    */
-  groupName?: string;
+  groupName?: string | undefined;
 
   /**
    * <p>The group ARN.</p>
    * @public
    */
-  groupArn?: string;
+  groupArn?: string | undefined;
 }
 
 /**
@@ -3797,19 +3797,19 @@ export interface ThingGroupMetadata {
    * <p>The parent thing group name.</p>
    * @public
    */
-  parentGroupName?: string;
+  parentGroupName?: string | undefined;
 
   /**
    * <p>The root parent thing group.</p>
    * @public
    */
-  rootToParentThingGroups?: GroupNameAndArn[];
+  rootToParentThingGroups?: GroupNameAndArn[] | undefined;
 
   /**
    * <p>The UNIX timestamp of when the thing group was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 }
 
 /**
@@ -3820,61 +3820,61 @@ export interface DescribeThingGroupResponse {
    * <p>The name of the thing group.</p>
    * @public
    */
-  thingGroupName?: string;
+  thingGroupName?: string | undefined;
 
   /**
    * <p>The thing group ID.</p>
    * @public
    */
-  thingGroupId?: string;
+  thingGroupId?: string | undefined;
 
   /**
    * <p>The thing group ARN.</p>
    * @public
    */
-  thingGroupArn?: string;
+  thingGroupArn?: string | undefined;
 
   /**
    * <p>The version of the thing group.</p>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>The thing group properties.</p>
    * @public
    */
-  thingGroupProperties?: ThingGroupProperties;
+  thingGroupProperties?: ThingGroupProperties | undefined;
 
   /**
    * <p>Thing group metadata.</p>
    * @public
    */
-  thingGroupMetadata?: ThingGroupMetadata;
+  thingGroupMetadata?: ThingGroupMetadata | undefined;
 
   /**
    * <p>The dynamic thing group index name.</p>
    * @public
    */
-  indexName?: string;
+  indexName?: string | undefined;
 
   /**
    * <p>The dynamic thing group search query string.</p>
    * @public
    */
-  queryString?: string;
+  queryString?: string | undefined;
 
   /**
    * <p>The dynamic thing group query version.</p>
    * @public
    */
-  queryVersion?: string;
+  queryVersion?: string | undefined;
 
   /**
    * <p>The dynamic thing group status.</p>
    * @public
    */
-  status?: DynamicGroupStatus;
+  status?: DynamicGroupStatus | undefined;
 }
 
 /**
@@ -3913,73 +3913,73 @@ export interface DescribeThingRegistrationTaskResponse {
    * <p>The task ID.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The task creation date.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date when the task was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The task's template.</p>
    * @public
    */
-  templateBody?: string;
+  templateBody?: string | undefined;
 
   /**
    * <p>The S3 bucket that contains the input file.</p>
    * @public
    */
-  inputFileBucket?: string;
+  inputFileBucket?: string | undefined;
 
   /**
    * <p>The input file key.</p>
    * @public
    */
-  inputFileKey?: string;
+  inputFileKey?: string | undefined;
 
   /**
    * <p>The role ARN that grants access to the input file bucket.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The status of the bulk thing provisioning task.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The number of things successfully provisioned.</p>
    * @public
    */
-  successCount?: number;
+  successCount?: number | undefined;
 
   /**
    * <p>The number of things that failed to be provisioned.</p>
    * @public
    */
-  failureCount?: number;
+  failureCount?: number | undefined;
 
   /**
    * <p>The progress of the bulk provisioning task expressed as a percentage.</p>
    * @public
    */
-  percentageProgress?: number;
+  percentageProgress?: number | undefined;
 }
 
 /**
@@ -4006,19 +4006,19 @@ export interface ThingTypeMetadata {
    * 			associated with this type.</p>
    * @public
    */
-  deprecated?: boolean;
+  deprecated?: boolean | undefined;
 
   /**
    * <p>The date and time when the thing type was deprecated.</p>
    * @public
    */
-  deprecationDate?: Date;
+  deprecationDate?: Date | undefined;
 
   /**
    * <p>The date and time when the thing type was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 }
 
 /**
@@ -4030,26 +4030,26 @@ export interface DescribeThingTypeResponse {
    * <p>The name of the thing type.</p>
    * @public
    */
-  thingTypeName?: string;
+  thingTypeName?: string | undefined;
 
   /**
    * <p>The thing type ID.</p>
    * @public
    */
-  thingTypeId?: string;
+  thingTypeId?: string | undefined;
 
   /**
    * <p>The thing type ARN.</p>
    * @public
    */
-  thingTypeArn?: string;
+  thingTypeArn?: string | undefined;
 
   /**
    * <p>The ThingTypeProperties contains information about the thing type including
    * 			description, and a list of searchable thing attribute names.</p>
    * @public
    */
-  thingTypeProperties?: ThingTypeProperties;
+  thingTypeProperties?: ThingTypeProperties | undefined;
 
   /**
    * <p>The ThingTypeMetadata contains additional information about the thing type
@@ -4057,7 +4057,7 @@ export interface DescribeThingTypeResponse {
    * 			deprecated, and a date and time when it was deprecated.</p>
    * @public
    */
-  thingTypeMetadata?: ThingTypeMetadata;
+  thingTypeMetadata?: ThingTypeMetadata | undefined;
 }
 
 /**
@@ -4176,7 +4176,7 @@ export interface DisassociateSbomFromPackageVersionRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -4206,7 +4206,7 @@ export interface GetBehaviorModelTrainingSummariesRequest {
    *     </p>
    * @public
    */
-  securityProfileName?: string;
+  securityProfileName?: string | undefined;
 
   /**
    * <p>
@@ -4214,7 +4214,7 @@ export interface GetBehaviorModelTrainingSummariesRequest {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -4222,7 +4222,7 @@ export interface GetBehaviorModelTrainingSummariesRequest {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4253,7 +4253,7 @@ export interface BehaviorModelTrainingSummary {
    *         </p>
    * @public
    */
-  securityProfileName?: string;
+  securityProfileName?: string | undefined;
 
   /**
    * <p>
@@ -4261,7 +4261,7 @@ export interface BehaviorModelTrainingSummary {
    *         </p>
    * @public
    */
-  behaviorName?: string;
+  behaviorName?: string | undefined;
 
   /**
    * <p>
@@ -4269,7 +4269,7 @@ export interface BehaviorModelTrainingSummary {
    *         </p>
    * @public
    */
-  trainingDataCollectionStartDate?: Date;
+  trainingDataCollectionStartDate?: Date | undefined;
 
   /**
    * <p>
@@ -4277,7 +4277,7 @@ export interface BehaviorModelTrainingSummary {
    *         </p>
    * @public
    */
-  modelStatus?: ModelStatus;
+  modelStatus?: ModelStatus | undefined;
 
   /**
    * <p>
@@ -4285,7 +4285,7 @@ export interface BehaviorModelTrainingSummary {
    *         </p>
    * @public
    */
-  datapointsCollectionPercentage?: number;
+  datapointsCollectionPercentage?: number | undefined;
 
   /**
    * <p>
@@ -4293,7 +4293,7 @@ export interface BehaviorModelTrainingSummary {
    *         </p>
    * @public
    */
-  lastModelRefreshDate?: Date;
+  lastModelRefreshDate?: Date | undefined;
 }
 
 /**
@@ -4306,7 +4306,7 @@ export interface GetBehaviorModelTrainingSummariesResponse {
    *     </p>
    * @public
    */
-  summaries?: BehaviorModelTrainingSummary[];
+  summaries?: BehaviorModelTrainingSummary[] | undefined;
 
   /**
    * <p>
@@ -4314,7 +4314,7 @@ export interface GetBehaviorModelTrainingSummariesResponse {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4326,7 +4326,7 @@ export interface TermsAggregation {
    * <p>The number of buckets to return in the response. Default to 10.</p>
    * @public
    */
-  maxBuckets?: number;
+  maxBuckets?: number | undefined;
 }
 
 /**
@@ -4338,7 +4338,7 @@ export interface BucketsAggregationType {
    * <p>Performs an aggregation that will return a list of buckets. The list of buckets is a ranked list of the number of occurrences of an aggregation field value.</p>
    * @public
    */
-  termsAggregation?: TermsAggregation;
+  termsAggregation?: TermsAggregation | undefined;
 }
 
 /**
@@ -4349,7 +4349,7 @@ export interface GetBucketsAggregationRequest {
    * <p>The name of the index to search.</p>
    * @public
    */
-  indexName?: string;
+  indexName?: string | undefined;
 
   /**
    * <p>The search query string.</p>
@@ -4367,7 +4367,7 @@ export interface GetBucketsAggregationRequest {
    * <p>The version of the query.</p>
    * @public
    */
-  queryVersion?: string;
+  queryVersion?: string | undefined;
 
   /**
    * <p>The basic control of the response shape and the bucket aggregation type to perform. </p>
@@ -4385,13 +4385,13 @@ export interface Bucket {
    * <p>The value counted for the particular bucket.</p>
    * @public
    */
-  keyValue?: string;
+  keyValue?: string | undefined;
 
   /**
    * <p>The number of documents that have the value counted for the particular bucket.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 }
 
 /**
@@ -4402,7 +4402,7 @@ export interface GetBucketsAggregationResponse {
    * <p>The total number of things that fit the query string criteria.</p>
    * @public
    */
-  totalCount?: number;
+  totalCount?: number | undefined;
 
   /**
    * <p>The main part of the response with a list of buckets. Each bucket contains a <code>keyValue</code> and a <code>count</code>.</p>
@@ -4412,7 +4412,7 @@ export interface GetBucketsAggregationResponse {
    *             <code>count</code>: The number of documents that have that value.</p>
    * @public
    */
-  buckets?: Bucket[];
+  buckets?: Bucket[] | undefined;
 }
 
 /**
@@ -4423,7 +4423,7 @@ export interface GetCardinalityRequest {
    * <p>The name of the index to search.</p>
    * @public
    */
-  indexName?: string;
+  indexName?: string | undefined;
 
   /**
    * <p>The search query string.</p>
@@ -4435,13 +4435,13 @@ export interface GetCardinalityRequest {
    * <p>The field to aggregate.</p>
    * @public
    */
-  aggregationField?: string;
+  aggregationField?: string | undefined;
 
   /**
    * <p>The query version.</p>
    * @public
    */
-  queryVersion?: string;
+  queryVersion?: string | undefined;
 }
 
 /**
@@ -4452,7 +4452,7 @@ export interface GetCardinalityResponse {
    * <p>The approximate count of unique values that match the query.</p>
    * @public
    */
-  cardinality?: number;
+  cardinality?: number | undefined;
 }
 
 /**
@@ -4463,19 +4463,19 @@ export interface GetEffectivePoliciesRequest {
    * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
    * @public
    */
-  principal?: string;
+  principal?: string | undefined;
 
   /**
    * <p>The Cognito identity pool ID.</p>
    * @public
    */
-  cognitoIdentityPoolId?: string;
+  cognitoIdentityPoolId?: string | undefined;
 
   /**
    * <p>The thing name.</p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 }
 
 /**
@@ -4487,19 +4487,19 @@ export interface EffectivePolicy {
    * <p>The policy name.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The policy ARN.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>The IAM policy document.</p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 }
 
 /**
@@ -4510,7 +4510,7 @@ export interface GetEffectivePoliciesResponse {
    * <p>The effective policies.</p>
    * @public
    */
-  effectivePolicies?: EffectivePolicy[];
+  effectivePolicies?: EffectivePolicy[] | undefined;
 }
 
 /**
@@ -4542,13 +4542,13 @@ export interface Field {
    * <p>The name of the field.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The data type of the field.</p>
    * @public
    */
-  type?: FieldType;
+  type?: FieldType | undefined;
 }
 
 /**
@@ -4584,7 +4584,7 @@ export interface ThingGroupIndexingConfiguration {
    *          </note>
    * @public
    */
-  managedFields?: Field[];
+  managedFields?: Field[] | undefined;
 
   /**
    * <p>A list of thing group fields to index. This list cannot contain any managed fields. Use
@@ -4592,7 +4592,7 @@ export interface ThingGroupIndexingConfiguration {
    *          <p>Contains custom field names and their data type.</p>
    * @public
    */
-  customFields?: Field[];
+  customFields?: Field[] | undefined;
 }
 
 /**
@@ -4635,14 +4635,14 @@ export interface GeoLocationTarget {
    *       named shadow, you must select the named shadow using the <code>namedShadow</code> filter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The <code>order</code> of the geolocation target field. This field is optional. The
    *       default value is <code>LatLon</code>.</p>
    * @public
    */
-  order?: TargetFieldOrder;
+  order?: TargetFieldOrder | undefined;
 }
 
 /**
@@ -4674,7 +4674,7 @@ export interface IndexingFilter {
    *     </p>
    * @public
    */
-  namedShadowNames?: string[];
+  namedShadowNames?: string[] | undefined;
 
   /**
    * <p>The list of geolocation targets that you select to index. The default maximum number of
@@ -4682,7 +4682,7 @@ export interface IndexingFilter {
    *         Management Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  geoLocations?: GeoLocationTarget[];
+  geoLocations?: GeoLocationTarget[] | undefined;
 }
 
 /**
@@ -4766,7 +4766,7 @@ export interface ThingIndexingConfiguration {
    *          </ul>
    * @public
    */
-  thingConnectivityIndexingMode?: ThingConnectivityIndexingMode;
+  thingConnectivityIndexingMode?: ThingConnectivityIndexingMode | undefined;
 
   /**
    * <p>Device Defender indexing mode. Valid values are:</p>
@@ -4784,7 +4784,7 @@ export interface ThingIndexingConfiguration {
    *          </p>
    * @public
    */
-  deviceDefenderIndexingMode?: DeviceDefenderIndexingMode;
+  deviceDefenderIndexingMode?: DeviceDefenderIndexingMode | undefined;
 
   /**
    * <p>Named shadow indexing mode. Valid values are:</p>
@@ -4802,7 +4802,7 @@ export interface ThingIndexingConfiguration {
    *          </p>
    * @public
    */
-  namedShadowIndexingMode?: NamedShadowIndexingMode;
+  namedShadowIndexingMode?: NamedShadowIndexingMode | undefined;
 
   /**
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
@@ -4812,13 +4812,13 @@ export interface ThingIndexingConfiguration {
    *          </note>
    * @public
    */
-  managedFields?: Field[];
+  managedFields?: Field[] | undefined;
 
   /**
    * <p>Contains custom field names and their data type.</p>
    * @public
    */
-  customFields?: Field[];
+  customFields?: Field[] | undefined;
 
   /**
    * <p>Provides additional selections for named shadows and geolocation data. </p>
@@ -4840,7 +4840,7 @@ export interface ThingIndexingConfiguration {
    *          </ul>
    * @public
    */
-  filter?: IndexingFilter;
+  filter?: IndexingFilter | undefined;
 }
 
 /**
@@ -4851,13 +4851,13 @@ export interface GetIndexingConfigurationResponse {
    * <p>Thing indexing configuration.</p>
    * @public
    */
-  thingIndexingConfiguration?: ThingIndexingConfiguration;
+  thingIndexingConfiguration?: ThingIndexingConfiguration | undefined;
 
   /**
    * <p>The index configuration.</p>
    * @public
    */
-  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration;
+  thingGroupIndexingConfiguration?: ThingGroupIndexingConfiguration | undefined;
 }
 
 /**
@@ -4874,7 +4874,7 @@ export interface GetJobDocumentRequest {
    * <p>A flag that provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
    * @public
    */
-  beforeSubstitution?: boolean;
+  beforeSubstitution?: boolean | undefined;
 }
 
 /**
@@ -4885,7 +4885,7 @@ export interface GetJobDocumentResponse {
    * <p>The job document content.</p>
    * @public
    */
-  document?: string;
+  document?: string | undefined;
 }
 
 /**
@@ -4903,13 +4903,13 @@ export interface GetLoggingOptionsResponse {
    * <p>The ARN of the IAM role that grants access.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The logging level.</p>
    * @public
    */
-  logLevel?: LogLevel;
+  logLevel?: LogLevel | undefined;
 }
 
 /**
@@ -4932,13 +4932,13 @@ export interface ErrorInfo {
    * <p>The error code.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -4950,57 +4950,57 @@ export interface OTAUpdateInfo {
    * <p>The OTA update ID.</p>
    * @public
    */
-  otaUpdateId?: string;
+  otaUpdateId?: string | undefined;
 
   /**
    * <p>The OTA update ARN.</p>
    * @public
    */
-  otaUpdateArn?: string;
+  otaUpdateArn?: string | undefined;
 
   /**
    * <p>The date when the OTA update was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date when the OTA update was last updated.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>A description of the OTA update.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The targets of the OTA update.</p>
    * @public
    */
-  targets?: string[];
+  targets?: string[] | undefined;
 
   /**
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
    * @public
    */
-  protocols?: Protocol[];
+  protocols?: Protocol[] | undefined;
 
   /**
    * <p>Configuration for the rollout of OTA updates.</p>
    * @public
    */
-  awsJobExecutionsRolloutConfig?: AwsJobExecutionsRolloutConfig;
+  awsJobExecutionsRolloutConfig?: AwsJobExecutionsRolloutConfig | undefined;
 
   /**
    * <p>Configuration information for pre-signed URLs. Valid when <code>protocols</code>
    *              contains HTTP.</p>
    * @public
    */
-  awsJobPresignedUrlConfig?: AwsJobPresignedUrlConfig;
+  awsJobPresignedUrlConfig?: AwsJobPresignedUrlConfig | undefined;
 
   /**
    * <p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those
@@ -5010,43 +5010,43 @@ export interface OTAUpdateInfo {
    *             the group. </p>
    * @public
    */
-  targetSelection?: TargetSelection;
+  targetSelection?: TargetSelection | undefined;
 
   /**
    * <p>A list of files associated with the OTA update.</p>
    * @public
    */
-  otaUpdateFiles?: OTAUpdateFile[];
+  otaUpdateFiles?: OTAUpdateFile[] | undefined;
 
   /**
    * <p>The status of the OTA update.</p>
    * @public
    */
-  otaUpdateStatus?: OTAUpdateStatus;
+  otaUpdateStatus?: OTAUpdateStatus | undefined;
 
   /**
    * <p>The IoT job ID associated with the OTA update.</p>
    * @public
    */
-  awsIotJobId?: string;
+  awsIotJobId?: string | undefined;
 
   /**
    * <p>The IoT job ARN associated with the OTA update.</p>
    * @public
    */
-  awsIotJobArn?: string;
+  awsIotJobArn?: string | undefined;
 
   /**
    * <p>Error information associated with the OTA update.</p>
    * @public
    */
-  errorInfo?: ErrorInfo;
+  errorInfo?: ErrorInfo | undefined;
 
   /**
    * <p>A collection of name/value pairs</p>
    * @public
    */
-  additionalParameters?: Record<string, string>;
+  additionalParameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -5057,7 +5057,7 @@ export interface GetOTAUpdateResponse {
    * <p>The OTA update info.</p>
    * @public
    */
-  otaUpdateInfo?: OTAUpdateInfo;
+  otaUpdateInfo?: OTAUpdateInfo | undefined;
 }
 
 /**
@@ -5079,37 +5079,37 @@ export interface GetPackageResponse {
    * <p>The name of the software package.</p>
    * @public
    */
-  packageName?: string;
+  packageName?: string | undefined;
 
   /**
    * <p>The ARN for the package.</p>
    * @public
    */
-  packageArn?: string;
+  packageArn?: string | undefined;
 
   /**
    * <p>The package description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the default package version.</p>
    * @public
    */
-  defaultVersionName?: string;
+  defaultVersionName?: string | undefined;
 
   /**
    * <p>The date the package was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date when the package was last updated.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 }
 
 /**
@@ -5129,14 +5129,14 @@ export interface VersionUpdateByJobsConfig {
    * <p>Indicates whether the Job is enabled or not.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that grants permission to the IoT
    *       jobs service to update the reserved named shadow when the job successfully completes.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -5147,7 +5147,7 @@ export interface GetPackageConfigurationResponse {
    * <p>The version that is associated to a specific job.</p>
    * @public
    */
-  versionUpdateByJobsConfig?: VersionUpdateByJobsConfig;
+  versionUpdateByJobsConfig?: VersionUpdateByJobsConfig | undefined;
 }
 
 /**
@@ -5175,81 +5175,81 @@ export interface GetPackageVersionResponse {
    * <p>The ARN for the package version.</p>
    * @public
    */
-  packageVersionArn?: string;
+  packageVersionArn?: string | undefined;
 
   /**
    * <p>The name of the software package.</p>
    * @public
    */
-  packageName?: string;
+  packageName?: string | undefined;
 
   /**
    * <p>The name of the package version.</p>
    * @public
    */
-  versionName?: string;
+  versionName?: string | undefined;
 
   /**
    * <p>The package version description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Metadata that were added to the package version that can be used to define a package version’s configuration.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The various components that make up a software package version.</p>
    * @public
    */
-  artifact?: PackageVersionArtifact;
+  artifact?: PackageVersionArtifact | undefined;
 
   /**
    * <p>The status associated to the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    * @public
    */
-  status?: PackageVersionStatus;
+  status?: PackageVersionStatus | undefined;
 
   /**
    * <p>Error reason for a package version failure during creation or update.</p>
    * @public
    */
-  errorReason?: string;
+  errorReason?: string | undefined;
 
   /**
    * <p>The date when the package version was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date when the package version was last updated.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The software bill of materials for a software package version.</p>
    * @public
    */
-  sbom?: Sbom;
+  sbom?: Sbom | undefined;
 
   /**
    * <p>The status of the validation for a new software bill of materials added to a software
    *          package version.</p>
    * @public
    */
-  sbomValidationStatus?: SbomValidationStatus;
+  sbomValidationStatus?: SbomValidationStatus | undefined;
 
   /**
    * <p>The inline job document associated with a software package version used for a quick job
    *          deployment.</p>
    * @public
    */
-  recipe?: string;
+  recipe?: string | undefined;
 }
 
 /**
@@ -5260,7 +5260,7 @@ export interface GetPercentilesRequest {
    * <p>The name of the index to search.</p>
    * @public
    */
-  indexName?: string;
+  indexName?: string | undefined;
 
   /**
    * <p>The search query string.</p>
@@ -5272,19 +5272,19 @@ export interface GetPercentilesRequest {
    * <p>The field to aggregate.</p>
    * @public
    */
-  aggregationField?: string;
+  aggregationField?: string | undefined;
 
   /**
    * <p>The query version.</p>
    * @public
    */
-  queryVersion?: string;
+  queryVersion?: string | undefined;
 
   /**
    * <p>The percentile groups returned.</p>
    * @public
    */
-  percents?: number[];
+  percents?: number[] | undefined;
 }
 
 /**
@@ -5296,13 +5296,13 @@ export interface PercentPair {
    * <p>The percentile.</p>
    * @public
    */
-  percent?: number;
+  percent?: number | undefined;
 
   /**
    * <p>The value of the percentile.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -5313,7 +5313,7 @@ export interface GetPercentilesResponse {
    * <p>The percentile values of the aggregated fields.</p>
    * @public
    */
-  percentiles?: PercentPair[];
+  percentiles?: PercentPair[] | undefined;
 }
 
 /**
@@ -5337,43 +5337,43 @@ export interface GetPolicyResponse {
    * <p>The policy name.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The policy ARN.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>The JSON document that describes the policy.</p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 
   /**
    * <p>The default policy version ID.</p>
    * @public
    */
-  defaultVersionId?: string;
+  defaultVersionId?: string | undefined;
 
   /**
    * <p>The date the policy was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date the policy was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The generation ID of the policy.</p>
    * @public
    */
-  generationId?: string;
+  generationId?: string | undefined;
 }
 
 /**
@@ -5403,49 +5403,49 @@ export interface GetPolicyVersionResponse {
    * <p>The policy ARN.</p>
    * @public
    */
-  policyArn?: string;
+  policyArn?: string | undefined;
 
   /**
    * <p>The policy name.</p>
    * @public
    */
-  policyName?: string;
+  policyName?: string | undefined;
 
   /**
    * <p>The JSON document that describes the policy.</p>
    * @public
    */
-  policyDocument?: string;
+  policyDocument?: string | undefined;
 
   /**
    * <p>The policy version ID.</p>
    * @public
    */
-  policyVersionId?: string;
+  policyVersionId?: string | undefined;
 
   /**
    * <p>Specifies whether the policy version is the default.</p>
    * @public
    */
-  isDefaultVersion?: boolean;
+  isDefaultVersion?: boolean | undefined;
 
   /**
    * <p>The date the policy was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date the policy was last modified.</p>
    * @public
    */
-  lastModifiedDate?: Date;
+  lastModifiedDate?: Date | undefined;
 
   /**
    * <p>The generation ID of the policy version.</p>
    * @public
    */
-  generationId?: string;
+  generationId?: string | undefined;
 }
 
 /**
@@ -5463,7 +5463,7 @@ export interface GetRegistrationCodeResponse {
    * <p>The CA certificate registration code.</p>
    * @public
    */
-  registrationCode?: string;
+  registrationCode?: string | undefined;
 }
 
 /**
@@ -5474,7 +5474,7 @@ export interface GetStatisticsRequest {
    * <p>The name of the index to search. The default value is <code>AWS_Things</code>.</p>
    * @public
    */
-  indexName?: string;
+  indexName?: string | undefined;
 
   /**
    * <p>The query used to search. You can specify "*" for the query string to get the count of all
@@ -5487,13 +5487,13 @@ export interface GetStatisticsRequest {
    * <p>The aggregation field name.</p>
    * @public
    */
-  aggregationField?: string;
+  aggregationField?: string | undefined;
 
   /**
    * <p>The version of the query used to search.</p>
    * @public
    */
-  queryVersion?: string;
+  queryVersion?: string | undefined;
 }
 
 /**
@@ -5507,49 +5507,49 @@ export interface Statistics {
    * <p>The count of things that match the query string criteria and contain a valid aggregation field value.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 
   /**
    * <p>The average of the aggregated field values.</p>
    * @public
    */
-  average?: number;
+  average?: number | undefined;
 
   /**
    * <p>The sum of the aggregated field values.</p>
    * @public
    */
-  sum?: number;
+  sum?: number | undefined;
 
   /**
    * <p>The minimum aggregated field value.</p>
    * @public
    */
-  minimum?: number;
+  minimum?: number | undefined;
 
   /**
    * <p>The maximum aggregated field value.</p>
    * @public
    */
-  maximum?: number;
+  maximum?: number | undefined;
 
   /**
    * <p>The sum of the squares of the aggregated field values.</p>
    * @public
    */
-  sumOfSquares?: number;
+  sumOfSquares?: number | undefined;
 
   /**
    * <p>The variance of the aggregated field values.</p>
    * @public
    */
-  variance?: number;
+  variance?: number | undefined;
 
   /**
    * <p>The standard deviation of the aggregated field values.</p>
    * @public
    */
-  stdDeviation?: number;
+  stdDeviation?: number | undefined;
 }
 
 /**
@@ -5561,7 +5561,7 @@ export interface GetStatisticsResponse {
    *       field.</p>
    * @public
    */
-  statistics?: Statistics;
+  statistics?: Statistics | undefined;
 }
 
 /**
@@ -5585,50 +5585,50 @@ export interface TopicRule {
    * <p>The name of the rule.</p>
    * @public
    */
-  ruleName?: string;
+  ruleName?: string | undefined;
 
   /**
    * <p>The SQL statement used to query the topic. When using a SQL query with multiple
    *          lines, be sure to escape the newline characters.</p>
    * @public
    */
-  sql?: string;
+  sql?: string | undefined;
 
   /**
    * <p>The description of the rule.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time the rule was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The actions associated with the rule.</p>
    * @public
    */
-  actions?: Action[];
+  actions?: Action[] | undefined;
 
   /**
    * <p>Specifies whether the rule is disabled.</p>
    * @public
    */
-  ruleDisabled?: boolean;
+  ruleDisabled?: boolean | undefined;
 
   /**
    * <p>The version of the SQL rules engine to use when evaluating the rule.</p>
    * @public
    */
-  awsIotSqlVersion?: string;
+  awsIotSqlVersion?: string | undefined;
 
   /**
    * <p>The action to perform when an error occurs.</p>
    * @public
    */
-  errorAction?: Action;
+  errorAction?: Action | undefined;
 }
 
 /**
@@ -5640,13 +5640,13 @@ export interface GetTopicRuleResponse {
    * <p>The rule ARN.</p>
    * @public
    */
-  ruleArn?: string;
+  ruleArn?: string | undefined;
 
   /**
    * <p>The rule.</p>
    * @public
    */
-  rule?: TopicRule;
+  rule?: TopicRule | undefined;
 }
 
 /**
@@ -5668,7 +5668,7 @@ export interface GetTopicRuleDestinationResponse {
    * <p>The topic rule destination.</p>
    * @public
    */
-  topicRuleDestination?: TopicRuleDestination;
+  topicRuleDestination?: TopicRuleDestination | undefined;
 }
 
 /**
@@ -5684,19 +5684,19 @@ export interface GetV2LoggingOptionsResponse {
    * <p>The IAM role ARN IoT uses to write to your CloudWatch logs.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The default log level.</p>
    * @public
    */
-  defaultLogLevel?: LogLevel;
+  defaultLogLevel?: LogLevel | undefined;
 
   /**
    * <p>Disables all logs.</p>
    * @public
    */
-  disableAllLogs?: boolean;
+  disableAllLogs?: boolean | undefined;
 }
 
 /**
@@ -5742,13 +5742,13 @@ export interface ListActiveViolationsRequest {
    * <p>The name of the thing whose active violations are listed.</p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 
   /**
    * <p>The name of the Device Defender security profile for which violations are listed.</p>
    * @public
    */
-  securityProfileName?: string;
+  securityProfileName?: string | undefined;
 
   /**
    * <p>
@@ -5756,7 +5756,7 @@ export interface ListActiveViolationsRequest {
    *     </p>
    * @public
    */
-  behaviorCriteriaType?: BehaviorCriteriaType;
+  behaviorCriteriaType?: BehaviorCriteriaType | undefined;
 
   /**
    * <p>
@@ -5764,25 +5764,25 @@ export interface ListActiveViolationsRequest {
    *     </p>
    * @public
    */
-  listSuppressedAlerts?: boolean;
+  listSuppressedAlerts?: boolean | undefined;
 
   /**
    * <p>The verification state of the violation (detect alarm).</p>
    * @public
    */
-  verificationState?: VerificationState;
+  verificationState?: VerificationState | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return at one time.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -5793,14 +5793,14 @@ export interface ListActiveViolationsResponse {
    * <p>The list of active violations.</p>
    * @public
    */
-  activeViolations?: ActiveViolation[];
+  activeViolations?: ActiveViolation[] | undefined;
 
   /**
    * <p>A token that can be used to retrieve the next set of results,
    *             or <code>null</code> if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5817,19 +5817,19 @@ export interface ListAttachedPoliciesRequest {
    * <p>When true, recursively list attached policies.</p>
    * @public
    */
-  recursive?: boolean;
+  recursive?: boolean | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  marker?: string;
+  marker?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  pageSize?: number;
+  pageSize?: number | undefined;
 }
 
 /**
@@ -5840,14 +5840,14 @@ export interface ListAttachedPoliciesResponse {
    * <p>The policies.</p>
    * @public
    */
-  policies?: Policy[];
+  policies?: Policy[] | undefined;
 
   /**
    * <p>The token to retrieve the next set of results, or ``null`` if there are no more
    *          results.</p>
    * @public
    */
-  nextMarker?: string;
+  nextMarker?: string | undefined;
 }
 
 /**
@@ -5859,45 +5859,45 @@ export interface ListAuditFindingsRequest {
    *             specify either the taskId or the startTime and endTime, but not both.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>A filter to limit results to the findings for the specified audit check.</p>
    * @public
    */
-  checkName?: string;
+  checkName?: string | undefined;
 
   /**
    * <p>Information identifying the noncompliant resource.</p>
    * @public
    */
-  resourceIdentifier?: ResourceIdentifier;
+  resourceIdentifier?: ResourceIdentifier | undefined;
 
   /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A filter to limit results to those found after the specified time. You must
    *             specify either the startTime and endTime or the taskId, but not both.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>A filter to limit results to those found before the specified time. You must
    *             specify either the startTime and endTime or the taskId, but not both.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>
@@ -5905,7 +5905,7 @@ export interface ListAuditFindingsRequest {
    *     </p>
    * @public
    */
-  listSuppressedFindings?: boolean;
+  listSuppressedFindings?: boolean | undefined;
 }
 
 /**
@@ -5916,14 +5916,14 @@ export interface ListAuditFindingsResponse {
    * <p>The findings (results) of the audit.</p>
    * @public
    */
-  findings?: AuditFinding[];
+  findings?: AuditFinding[] | undefined;
 
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
    *             if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5940,7 +5940,7 @@ export interface ListAuditMitigationActionsExecutionsRequest {
    * <p>Specify this filter to limit results to those with a specific status.</p>
    * @public
    */
-  actionStatus?: AuditMitigationActionsExecutionStatus;
+  actionStatus?: AuditMitigationActionsExecutionStatus | undefined;
 
   /**
    * <p>Specify this filter to limit results to those that were applied to a specific audit finding.</p>
@@ -5952,13 +5952,13 @@ export interface ListAuditMitigationActionsExecutionsRequest {
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5969,13 +5969,13 @@ export interface ListAuditMitigationActionsExecutionsResponse {
    * <p>A set of task execution results based on the input parameters. Details include the mitigation action applied, start time, and task status.</p>
    * @public
    */
-  actionsExecutions?: AuditMitigationActionExecutionMetadata[];
+  actionsExecutions?: AuditMitigationActionExecutionMetadata[] | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5986,31 +5986,31 @@ export interface ListAuditMitigationActionsTasksRequest {
    * <p>Specify this filter to limit results to tasks that were applied to results for a specific audit.</p>
    * @public
    */
-  auditTaskId?: string;
+  auditTaskId?: string | undefined;
 
   /**
    * <p>Specify this filter to limit results to tasks that were applied to a specific audit finding.</p>
    * @public
    */
-  findingId?: string;
+  findingId?: string | undefined;
 
   /**
    * <p>Specify this filter to limit results to tasks that are in a specific state.</p>
    * @public
    */
-  taskStatus?: AuditMitigationActionsTaskStatus;
+  taskStatus?: AuditMitigationActionsTaskStatus | undefined;
 
   /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specify this filter to limit results to tasks that began on or after a specific date and time.</p>
@@ -6033,13 +6033,13 @@ export interface ListAuditMitigationActionsTasksResponse {
    * <p>The collection of audit mitigation tasks that matched the filter criteria.</p>
    * @public
    */
-  tasks?: AuditMitigationActionsTaskMetadata[];
+  tasks?: AuditMitigationActionsTaskMetadata[] | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6053,13 +6053,13 @@ export interface ListAuditSuppressionsRequest {
    *         to select which checks are enabled.)</p>
    * @public
    */
-  checkName?: string;
+  checkName?: string | undefined;
 
   /**
    * <p>Information that identifies the noncompliant resource.</p>
    * @public
    */
-  resourceIdentifier?: ResourceIdentifier;
+  resourceIdentifier?: ResourceIdentifier | undefined;
 
   /**
    * <p>
@@ -6067,7 +6067,7 @@ export interface ListAuditSuppressionsRequest {
    *     </p>
    * @public
    */
-  ascendingOrder?: boolean;
+  ascendingOrder?: boolean | undefined;
 
   /**
    * <p>
@@ -6075,7 +6075,7 @@ export interface ListAuditSuppressionsRequest {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6083,7 +6083,7 @@ export interface ListAuditSuppressionsRequest {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6096,7 +6096,7 @@ export interface ListAuditSuppressionsResponse {
    *     </p>
    * @public
    */
-  suppressions?: AuditSuppression[];
+  suppressions?: AuditSuppression[] | undefined;
 
   /**
    * <p>
@@ -6104,7 +6104,7 @@ export interface ListAuditSuppressionsResponse {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6130,26 +6130,26 @@ export interface ListAuditTasksRequest {
    *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
    * @public
    */
-  taskType?: AuditTaskType;
+  taskType?: AuditTaskType | undefined;
 
   /**
    * <p>A filter to limit the output to audits with the specified completion
    *             status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
    * @public
    */
-  taskStatus?: AuditTaskStatus;
+  taskStatus?: AuditTaskStatus | undefined;
 
   /**
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6160,14 +6160,14 @@ export interface ListAuditTasksResponse {
    * <p>The audits that were performed during the specified time period.</p>
    * @public
    */
-  tasks?: AuditTaskMetadata[];
+  tasks?: AuditTaskMetadata[] | undefined;
 
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code>
    *             if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6178,25 +6178,25 @@ export interface ListAuthorizersRequest {
    * <p>The maximum number of results to return at one time.</p>
    * @public
    */
-  pageSize?: number;
+  pageSize?: number | undefined;
 
   /**
    * <p>A marker used to get the next set of results.</p>
    * @public
    */
-  marker?: string;
+  marker?: string | undefined;
 
   /**
    * <p>Return the list of authorizers in ascending alphabetical order.</p>
    * @public
    */
-  ascendingOrder?: boolean;
+  ascendingOrder?: boolean | undefined;
 
   /**
    * <p>The status of the list authorizers request.</p>
    * @public
    */
-  status?: AuthorizerStatus;
+  status?: AuthorizerStatus | undefined;
 }
 
 /**
@@ -6207,13 +6207,13 @@ export interface ListAuthorizersResponse {
    * <p>The authorizers.</p>
    * @public
    */
-  authorizers?: AuthorizerSummary[];
+  authorizers?: AuthorizerSummary[] | undefined;
 
   /**
    * <p>A marker used to get the next set of results.</p>
    * @public
    */
-  nextMarker?: string;
+  nextMarker?: string | undefined;
 }
 
 /**
@@ -6226,19 +6226,19 @@ export interface ListBillingGroupsRequest {
    * 			the first set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Limit the results to billing groups whose names have the given prefix.</p>
    * @public
    */
-  namePrefixFilter?: string;
+  namePrefixFilter?: string | undefined;
 }
 
 /**
@@ -6249,13 +6249,13 @@ export interface ListBillingGroupsResponse {
    * <p>The list of billing groups.</p>
    * @public
    */
-  billingGroups?: GroupNameAndArn[];
+  billingGroups?: GroupNameAndArn[] | undefined;
 
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6267,25 +6267,25 @@ export interface ListCACertificatesRequest {
    * <p>The result page size.</p>
    * @public
    */
-  pageSize?: number;
+  pageSize?: number | undefined;
 
   /**
    * <p>The marker for the next set of results.</p>
    * @public
    */
-  marker?: string;
+  marker?: string | undefined;
 
   /**
    * <p>Determines the order of the results.</p>
    * @public
    */
-  ascendingOrder?: boolean;
+  ascendingOrder?: boolean | undefined;
 
   /**
    * <p>The name of the provisioning template.</p>
    * @public
    */
-  templateName?: string;
+  templateName?: string | undefined;
 }
 
 /**
@@ -6297,26 +6297,26 @@ export interface CACertificate {
    * <p>The ARN of the CA certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The ID of the CA certificate.</p>
    * @public
    */
-  certificateId?: string;
+  certificateId?: string | undefined;
 
   /**
    * <p>The status of the CA certificate.</p>
    *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
    * @public
    */
-  status?: CACertificateStatus;
+  status?: CACertificateStatus | undefined;
 
   /**
    * <p>The date the CA certificate was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 }
 
 /**
@@ -6328,13 +6328,13 @@ export interface ListCACertificatesResponse {
    * <p>The CA certificates registered in your Amazon Web Services account.</p>
    * @public
    */
-  certificates?: CACertificate[];
+  certificates?: CACertificate[] | undefined;
 
   /**
    * <p>The current position within the list of CA certificates.</p>
    * @public
    */
-  nextMarker?: string;
+  nextMarker?: string | undefined;
 }
 
 /**
@@ -6345,13 +6345,13 @@ export interface ListCertificateProvidersRequest {
    * <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Returns the list of certificate providers in ascending alphabetical order.</p>
    * @public
    */
-  ascendingOrder?: boolean;
+  ascendingOrder?: boolean | undefined;
 }
 
 /**
@@ -6363,13 +6363,13 @@ export interface CertificateProviderSummary {
    * <p>The name of the certificate provider.</p>
    * @public
    */
-  certificateProviderName?: string;
+  certificateProviderName?: string | undefined;
 
   /**
    * <p>The ARN of the certificate provider.</p>
    * @public
    */
-  certificateProviderArn?: string;
+  certificateProviderArn?: string | undefined;
 }
 
 /**
@@ -6380,13 +6380,13 @@ export interface ListCertificateProvidersResponse {
    * <p>The list of certificate providers in your Amazon Web Services account.</p>
    * @public
    */
-  certificateProviders?: CertificateProviderSummary[];
+  certificateProviders?: CertificateProviderSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6398,20 +6398,20 @@ export interface ListCertificatesRequest {
    * <p>The result page size.</p>
    * @public
    */
-  pageSize?: number;
+  pageSize?: number | undefined;
 
   /**
    * <p>The marker for the next set of results.</p>
    * @public
    */
-  marker?: string;
+  marker?: string | undefined;
 
   /**
    * <p>Specifies the order for results. If True, the results are returned in ascending
    *          order, based on the creation date.</p>
    * @public
    */
-  ascendingOrder?: boolean;
+  ascendingOrder?: boolean | undefined;
 }
 
 /**
@@ -6423,21 +6423,21 @@ export interface Certificate {
    * <p>The ARN of the certificate.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The ID of the certificate. (The last part of the certificate ARN contains the
    *          certificate ID.)</p>
    * @public
    */
-  certificateId?: string;
+  certificateId?: string | undefined;
 
   /**
    * <p>The status of the certificate.</p>
    *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
    * @public
    */
-  status?: CertificateStatus;
+  status?: CertificateStatus | undefined;
 
   /**
    * <p>The mode of the certificate.</p>
@@ -6453,13 +6453,13 @@ export interface Certificate {
    *          in <code>SNI_ONLY</code> mode must send the SNI extension when connecting to Amazon Web Services IoT Core. </p>
    * @public
    */
-  certificateMode?: CertificateMode;
+  certificateMode?: CertificateMode | undefined;
 
   /**
    * <p>The date and time the certificate was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 }
 
 /**
@@ -6471,14 +6471,14 @@ export interface ListCertificatesResponse {
    * <p>The descriptions of the certificates.</p>
    * @public
    */
-  certificates?: Certificate[];
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
    * @public
    */
-  nextMarker?: string;
+  nextMarker?: string | undefined;
 }
 
 /**
@@ -6497,20 +6497,20 @@ export interface ListCertificatesByCARequest {
    * <p>The result page size.</p>
    * @public
    */
-  pageSize?: number;
+  pageSize?: number | undefined;
 
   /**
    * <p>The marker for the next set of results.</p>
    * @public
    */
-  marker?: string;
+  marker?: string | undefined;
 
   /**
    * <p>Specifies the order for results. If True, the results are returned in ascending
    *          order, based on the creation date.</p>
    * @public
    */
-  ascendingOrder?: boolean;
+  ascendingOrder?: boolean | undefined;
 }
 
 /**
@@ -6522,14 +6522,14 @@ export interface ListCertificatesByCAResponse {
    * <p>The device certificates signed by the specified CA certificate.</p>
    * @public
    */
-  certificates?: Certificate[];
+  certificates?: Certificate[] | undefined;
 
   /**
    * <p>The marker for the next set of results, or null if there are no additional
    *          results.</p>
    * @public
    */
-  nextMarker?: string;
+  nextMarker?: string | undefined;
 }
 
 /**
@@ -6542,7 +6542,7 @@ export interface ListCustomMetricsRequest {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6550,7 +6550,7 @@ export interface ListCustomMetricsRequest {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6563,7 +6563,7 @@ export interface ListCustomMetricsResponse {
    *     </p>
    * @public
    */
-  metricNames?: string[];
+  metricNames?: string[] | undefined;
 
   /**
    * <p>
@@ -6572,7 +6572,7 @@ export interface ListCustomMetricsResponse {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6585,7 +6585,7 @@ export interface ListDetectMitigationActionsExecutionsRequest {
    *     </p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>
@@ -6593,7 +6593,7 @@ export interface ListDetectMitigationActionsExecutionsRequest {
    *     </p>
    * @public
    */
-  violationId?: string;
+  violationId?: string | undefined;
 
   /**
    * <p>
@@ -6601,7 +6601,7 @@ export interface ListDetectMitigationActionsExecutionsRequest {
    *     </p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 
   /**
    * <p>
@@ -6610,7 +6610,7 @@ export interface ListDetectMitigationActionsExecutionsRequest {
    *     </p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>
@@ -6618,7 +6618,7 @@ export interface ListDetectMitigationActionsExecutionsRequest {
    *     </p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>
@@ -6626,7 +6626,7 @@ export interface ListDetectMitigationActionsExecutionsRequest {
    *     </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -6634,7 +6634,7 @@ export interface ListDetectMitigationActionsExecutionsRequest {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6667,7 +6667,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>
@@ -6675,7 +6675,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  violationId?: string;
+  violationId?: string | undefined;
 
   /**
    * <p>
@@ -6683,7 +6683,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  actionName?: string;
+  actionName?: string | undefined;
 
   /**
    * <p>
@@ -6691,7 +6691,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 
   /**
    * <p>
@@ -6699,7 +6699,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  executionStartDate?: Date;
+  executionStartDate?: Date | undefined;
 
   /**
    * <p>
@@ -6707,7 +6707,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  executionEndDate?: Date;
+  executionEndDate?: Date | undefined;
 
   /**
    * <p>
@@ -6715,7 +6715,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  status?: DetectMitigationActionExecutionStatus;
+  status?: DetectMitigationActionExecutionStatus | undefined;
 
   /**
    * <p>
@@ -6723,7 +6723,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>
@@ -6731,7 +6731,7 @@ export interface DetectMitigationActionExecution {
    *         </p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -6744,7 +6744,7 @@ export interface ListDetectMitigationActionsExecutionsResponse {
    *     </p>
    * @public
    */
-  actionsExecutions?: DetectMitigationActionExecution[];
+  actionsExecutions?: DetectMitigationActionExecution[] | undefined;
 
   /**
    * <p>
@@ -6752,7 +6752,7 @@ export interface ListDetectMitigationActionsExecutionsResponse {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6763,7 +6763,7 @@ export interface ListDetectMitigationActionsTasksRequest {
    * <p>The maximum number of results to return at one time. The default is 25.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -6771,7 +6771,7 @@ export interface ListDetectMitigationActionsTasksRequest {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -6801,7 +6801,7 @@ export interface ListDetectMitigationActionsTasksResponse {
    *     </p>
    * @public
    */
-  tasks?: DetectMitigationActionsTaskSummary[];
+  tasks?: DetectMitigationActionsTaskSummary[] | undefined;
 
   /**
    * <p>
@@ -6809,7 +6809,7 @@ export interface ListDetectMitigationActionsTasksResponse {
    *     </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6820,13 +6820,13 @@ export interface ListDimensionsRequest {
    * <p>The token for the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve at one time.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6837,13 +6837,13 @@ export interface ListDimensionsResponse {
    * <p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.</p>
    * @public
    */
-  dimensionNames?: string[];
+  dimensionNames?: string[] | undefined;
 
   /**
    * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6854,19 +6854,19 @@ export interface ListDomainConfigurationsRequest {
    * <p>The marker for the next set of results.</p>
    * @public
    */
-  marker?: string;
+  marker?: string | undefined;
 
   /**
    * <p>The result page size.</p>
    * @public
    */
-  pageSize?: number;
+  pageSize?: number | undefined;
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
    * @public
    */
-  serviceType?: ServiceType;
+  serviceType?: ServiceType | undefined;
 }
 
 /**
@@ -6891,19 +6891,19 @@ export interface DomainConfigurationSummary {
    * <p>The name of the domain configuration. This value must be unique to a region.</p>
    * @public
    */
-  domainConfigurationName?: string;
+  domainConfigurationName?: string | undefined;
 
   /**
    * <p>The ARN of the domain configuration.</p>
    * @public
    */
-  domainConfigurationArn?: string;
+  domainConfigurationArn?: string | undefined;
 
   /**
    * <p>The type of service delivered by the endpoint.</p>
    * @public
    */
-  serviceType?: ServiceType;
+  serviceType?: ServiceType | undefined;
 }
 
 /**
@@ -6914,13 +6914,13 @@ export interface ListDomainConfigurationsResponse {
    * <p>A list of objects that contain summary information about the user's domain configurations.</p>
    * @public
    */
-  domainConfigurations?: DomainConfigurationSummary[];
+  domainConfigurations?: DomainConfigurationSummary[] | undefined;
 
   /**
    * <p>The marker for the next set of results.</p>
    * @public
    */
-  nextMarker?: string;
+  nextMarker?: string | undefined;
 }
 
 /**
@@ -6932,13 +6932,13 @@ export interface ListFleetMetricsRequest {
    *        otherwise <code>null</code> to receive the first set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in this operation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -6950,13 +6950,13 @@ export interface FleetMetricNameAndArn {
    * <p>The fleet metric name.</p>
    * @public
    */
-  metricName?: string;
+  metricName?: string | undefined;
 
   /**
    * <p>The fleet metric ARN.</p>
    * @public
    */
-  metricArn?: string;
+  metricArn?: string | undefined;
 }
 
 /**
@@ -6967,14 +6967,14 @@ export interface ListFleetMetricsResponse {
    * <p>The list of fleet metrics objects.</p>
    * @public
    */
-  fleetMetrics?: FleetMetricNameAndArn[];
+  fleetMetrics?: FleetMetricNameAndArn[] | undefined;
 
   /**
    * <p>The token for the next set of results. Will not be returned if the operation has returned
    *       all results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6986,13 +6986,13 @@ export interface ListIndicesRequest {
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return at one time.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -7003,14 +7003,14 @@ export interface ListIndicesResponse {
    * <p>The index names.</p>
    * @public
    */
-  indexNames?: string[];
+  indexNames?: string[] | undefined;
 
   /**
    * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
    *       results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7027,19 +7027,19 @@ export interface ListJobExecutionsForJobRequest {
    * <p>The status of the job.</p>
    * @public
    */
-  status?: JobExecutionStatus;
+  status?: JobExecutionStatus | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7051,25 +7051,25 @@ export interface JobExecutionSummary {
    * <p>The status of the job execution.</p>
    * @public
    */
-  status?: JobExecutionStatus;
+  status?: JobExecutionStatus | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
    * @public
    */
-  queuedAt?: Date;
+  queuedAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution started.</p>
    * @public
    */
-  startedAt?: Date;
+  startedAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
@@ -7077,14 +7077,14 @@ export interface JobExecutionSummary {
    *             information.</p>
    * @public
    */
-  executionNumber?: number;
+  executionNumber?: number | undefined;
 
   /**
    * <p>The number that indicates how many retry attempts have been completed for this
    *         job on this device.</p>
    * @public
    */
-  retryAttempt?: number;
+  retryAttempt?: number | undefined;
 }
 
 /**
@@ -7096,13 +7096,13 @@ export interface JobExecutionSummaryForJob {
    * <p>The ARN of the thing on which the job execution is running.</p>
    * @public
    */
-  thingArn?: string;
+  thingArn?: string | undefined;
 
   /**
    * <p>Contains a subset of information about a job execution.</p>
    * @public
    */
-  jobExecutionSummary?: JobExecutionSummary;
+  jobExecutionSummary?: JobExecutionSummary | undefined;
 }
 
 /**
@@ -7113,14 +7113,14 @@ export interface ListJobExecutionsForJobResponse {
    * <p>A list of job execution summaries.</p>
    * @public
    */
-  executionSummaries?: JobExecutionSummaryForJob[];
+  executionSummaries?: JobExecutionSummaryForJob[] | undefined;
 
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
    *             additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7137,7 +7137,7 @@ export interface ListJobExecutionsForThingRequest {
    * <p>An optional filter that lets you search for jobs that have the specified status.</p>
    * @public
    */
-  status?: JobExecutionStatus;
+  status?: JobExecutionStatus | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -7154,25 +7154,25 @@ export interface ListJobExecutionsForThingRequest {
    *          </note>
    * @public
    */
-  namespaceId?: string;
+  namespaceId?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 }
 
 /**
@@ -7184,13 +7184,13 @@ export interface JobExecutionSummaryForThing {
    * <p>The unique identifier you assigned to this job when it was created.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>Contains a subset of information about a job execution.</p>
    * @public
    */
-  jobExecutionSummary?: JobExecutionSummary;
+  jobExecutionSummary?: JobExecutionSummary | undefined;
 }
 
 /**
@@ -7201,14 +7201,14 @@ export interface ListJobExecutionsForThingResponse {
    * <p>A list of job execution summaries.</p>
    * @public
    */
-  executionSummaries?: JobExecutionSummaryForThing[];
+  executionSummaries?: JobExecutionSummaryForThing[] | undefined;
 
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
    *             additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7219,7 +7219,7 @@ export interface ListJobsRequest {
    * <p>An optional filter that lets you search for jobs that have the specified status.</p>
    * @public
    */
-  status?: JobStatus;
+  status?: JobStatus | undefined;
 
   /**
    * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
@@ -7233,31 +7233,31 @@ export interface ListJobsRequest {
    *          </note>
    * @public
    */
-  targetSelection?: TargetSelection;
+  targetSelection?: TargetSelection | undefined;
 
   /**
    * <p>The maximum number of results to return per request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A filter that limits the returned jobs to those for the specified group.</p>
    * @public
    */
-  thingGroupName?: string;
+  thingGroupName?: string | undefined;
 
   /**
    * <p>A filter that limits the returned jobs to those for the specified group.</p>
    * @public
    */
-  thingGroupId?: string;
+  thingGroupId?: string | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
@@ -7273,7 +7273,7 @@ export interface ListJobsRequest {
    *          </note>
    * @public
    */
-  namespaceId?: string;
+  namespaceId?: string | undefined;
 }
 
 /**
@@ -7285,19 +7285,19 @@ export interface JobSummary {
    * <p>The job ARN.</p>
    * @public
    */
-  jobArn?: string;
+  jobArn?: string | undefined;
 
   /**
    * <p>The unique identifier you assigned to this job when it was created.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The ID of the thing group.</p>
    * @public
    */
-  thingGroupId?: string;
+  thingGroupId?: string | undefined;
 
   /**
    * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
@@ -7311,31 +7311,31 @@ export interface JobSummary {
    *          </note>
    * @public
    */
-  targetSelection?: TargetSelection;
+  targetSelection?: TargetSelection | undefined;
 
   /**
    * <p>The job summary status.</p>
    * @public
    */
-  status?: JobStatus;
+  status?: JobStatus | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job completed.</p>
    * @public
    */
-  completedAt?: Date;
+  completedAt?: Date | undefined;
 
   /**
    * <p>Indicates whether a job is concurrent. Will be true when a job is
@@ -7343,7 +7343,7 @@ export interface JobSummary {
    *             otherwise false.</p>
    * @public
    */
-  isConcurrent?: boolean;
+  isConcurrent?: boolean | undefined;
 }
 
 /**
@@ -7354,14 +7354,14 @@ export interface ListJobsResponse {
    * <p>A list of jobs.</p>
    * @public
    */
-  jobs?: JobSummary[];
+  jobs?: JobSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
    *             additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7372,13 +7372,13 @@ export interface ListJobTemplatesRequest {
    * <p>The maximum number of results to return in the list.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to use to return the next set of results in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7390,25 +7390,25 @@ export interface JobTemplateSummary {
    * <p>The ARN of the job template.</p>
    * @public
    */
-  jobTemplateArn?: string;
+  jobTemplateArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the job template.</p>
    * @public
    */
-  jobTemplateId?: string;
+  jobTemplateId?: string | undefined;
 
   /**
    * <p>A description of the job template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time, in seconds since the epoch, when the job template was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -7419,14 +7419,14 @@ export interface ListJobTemplatesResponse {
    * <p>A list of objects that contain information about the job templates.</p>
    * @public
    */
-  jobTemplates?: JobTemplateSummary[];
+  jobTemplates?: JobTemplateSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or <b>null</b> if there are no
    *             additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7438,19 +7438,19 @@ export interface ListManagedJobTemplatesRequest {
    *             managed job templates that have the specified template name will be returned.</p>
    * @public
    */
-  templateName?: string;
+  templateName?: string | undefined;
 
   /**
    * <p>Maximum number of entries that can be returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7462,31 +7462,31 @@ export interface ManagedJobTemplateSummary {
    * <p>The Amazon Resource Name (ARN) for a managed template.</p>
    * @public
    */
-  templateArn?: string;
+  templateArn?: string | undefined;
 
   /**
    * <p>The unique Name for a managed template.</p>
    * @public
    */
-  templateName?: string;
+  templateName?: string | undefined;
 
   /**
    * <p>The description for a managed template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of environments that are supported with the managed job template.</p>
    * @public
    */
-  environments?: string[];
+  environments?: string[] | undefined;
 
   /**
    * <p>The version for a managed template.</p>
    * @public
    */
-  templateVersion?: string;
+  templateVersion?: string | undefined;
 }
 
 /**

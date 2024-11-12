@@ -104,31 +104,31 @@ export interface DescribeTopicPermissionsResponse {
    * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>A list of resource permissions that are configured to the topic.</p>
    * @public
    */
-  Permissions?: ResourcePermission[];
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -181,19 +181,19 @@ export interface TopicRefreshDetails {
    * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
    * @public
    */
-  RefreshArn?: string;
+  RefreshArn?: string | undefined;
 
   /**
    * <p>The ID of the refresh, which occurs as a result of topic creation or topic update.</p>
    * @public
    */
-  RefreshId?: string;
+  RefreshId?: string | undefined;
 
   /**
    * <p>The status of the refresh job that indicates whether the job is still running, completed successfully, or failed.</p>
    * @public
    */
-  RefreshStatus?: TopicRefreshStatus;
+  RefreshStatus?: TopicRefreshStatus | undefined;
 }
 
 /**
@@ -204,19 +204,19 @@ export interface DescribeTopicRefreshResponse {
    * <p>Details of the refresh, which is performed when the topic is created or updated.</p>
    * @public
    */
-  RefreshDetails?: TopicRefreshDetails;
+  RefreshDetails?: TopicRefreshDetails | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -252,37 +252,37 @@ export interface DescribeTopicRefreshScheduleResponse {
    *          ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The definition of a refresh schedule.</p>
    * @public
    */
-  RefreshSchedule?: TopicRefreshSchedule;
+  RefreshSchedule?: TopicRefreshSchedule | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -353,7 +353,7 @@ export interface User {
    * <p>The Amazon Resource Name (ARN) for the user.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The user's user name. This value is required if you are registering a user that will be managed in Amazon QuickSight. In the output, the value for <code>UserName</code> is
@@ -361,13 +361,13 @@ export interface User {
    *             and the corresponding IAM user is deleted.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The user's email address.</p>
    * @public
    */
-  Email?: string;
+  Email?: string | undefined;
 
   /**
    * <p>The Amazon QuickSight role for the user. The user role can be one of the
@@ -412,32 +412,32 @@ export interface User {
    *          </ul>
    * @public
    */
-  Role?: UserRole;
+  Role?: UserRole | undefined;
 
   /**
    * <p>The type of identity authentication used by the user.</p>
    * @public
    */
-  IdentityType?: IdentityType;
+  IdentityType?: IdentityType | undefined;
 
   /**
    * <p>The active status of user. When you create an Amazon QuickSight user that's not an IAM user or an Active Directory user, that user is inactive until they sign in and provide a
    *             password.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 
   /**
    * <p>The principal ID of the user.</p>
    * @public
    */
-  PrincipalId?: string;
+  PrincipalId?: string | undefined;
 
   /**
    * <p>The custom permissions profile associated with this user.</p>
    * @public
    */
-  CustomPermissionsName?: string;
+  CustomPermissionsName?: string | undefined;
 
   /**
    * <p>The type of supported external login provider that provides identity to let the user
@@ -454,19 +454,19 @@ export interface User {
    *          </ul>
    * @public
    */
-  ExternalLoginFederationProviderType?: string;
+  ExternalLoginFederationProviderType?: string | undefined;
 
   /**
    * <p>The URL of the external login provider.</p>
    * @public
    */
-  ExternalLoginFederationProviderUrl?: string;
+  ExternalLoginFederationProviderUrl?: string | undefined;
 
   /**
    * <p>The identity ID for the user in the external login provider.</p>
    * @public
    */
-  ExternalLoginId?: string;
+  ExternalLoginId?: string | undefined;
 }
 
 /**
@@ -477,19 +477,19 @@ export interface DescribeUserResponse {
    * <p>The user name.</p>
    * @public
    */
-  User?: User;
+  User?: User | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -542,31 +542,31 @@ export interface NetworkInterface {
    * <p>The subnet ID associated with the network interface.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The availability zone that the network interface resides in.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>An error message.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The status of the network interface.</p>
    * @public
    */
-  Status?: NetworkInterfaceStatus;
+  Status?: NetworkInterfaceStatus | undefined;
 
   /**
    * <p>The network interface ID.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 }
 
 /**
@@ -579,55 +579,55 @@ export interface VPCConnection {
    *                 Amazon Web Services account.</p>
    * @public
    */
-  VPCConnectionId?: string;
+  VPCConnectionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The display name for the VPC connection.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
    * @public
    */
-  VPCId?: string;
+  VPCId?: string | undefined;
 
   /**
    * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
    * @public
    */
-  DnsResolvers?: string[];
+  DnsResolvers?: string[] | undefined;
 
   /**
    * <p>The status of the VPC connection.</p>
    * @public
    */
-  Status?: VPCConnectionResourceStatus;
+  Status?: VPCConnectionResourceStatus | undefined;
 
   /**
    * <p>The availability status of the VPC connection.</p>
    * @public
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
 
   /**
    * <p>A list of network interfaces.</p>
    * @public
    */
-  NetworkInterfaces?: NetworkInterface[];
+  NetworkInterfaces?: NetworkInterface[] | undefined;
 
   /**
    * <p>The ARN of the
@@ -635,19 +635,19 @@ export interface VPCConnection {
    *             connection.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The time that the VPC connection was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The time that the VPC connection was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -658,19 +658,19 @@ export interface DescribeVPCConnectionResponse {
    * <p>A response object that provides information for the specified VPC connection.</p>
    * @public
    */
-  VPCConnection?: VPCConnection;
+  VPCConnection?: VPCConnection | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -681,12 +681,12 @@ export interface DescribeVPCConnectionResponse {
 export class DomainNotWhitelistedException extends __BaseException {
   readonly name: "DomainNotWhitelistedException" = "DomainNotWhitelistedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -726,7 +726,7 @@ export interface FailedKeyRegistrationEntry {
    * <p>The ARN of the KMS key that failed to update.</p>
    * @public
    */
-  KeyArn?: string;
+  KeyArn?: string | undefined;
 
   /**
    * <p>A message that provides information about why a <code>FailedKeyRegistrationEntry</code> error occurred.</p>
@@ -776,13 +776,13 @@ export interface MemberIdArnPair {
    * <p>The ID of the member.</p>
    * @public
    */
-  MemberId?: string;
+  MemberId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the member.</p>
    * @public
    */
-  MemberArn?: string;
+  MemberArn?: string | undefined;
 }
 
 /**
@@ -796,7 +796,7 @@ export interface FolderSearchFilter {
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"FOLDER_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>FOLDER_NAME</code>.</p>
    * @public
    */
-  Operator?: FilterOperator;
+  Operator?: FilterOperator | undefined;
 
   /**
    * <p>The name of a value that you want to use in the filter. For example, <code>"Name": "QUICKSIGHT_OWNER"</code>.</p>
@@ -833,13 +833,13 @@ export interface FolderSearchFilter {
    *          </ul>
    * @public
    */
-  Name?: FolderFilterAttribute;
+  Name?: FolderFilterAttribute | undefined;
 
   /**
    * <p>The value of the named item (in this example, <code>PARENT_FOLDER_ARN</code>), that you want to use as a filter. For example, <code>"Value": "arn:aws:quicksight:us-east-1:1:folder/folderId"</code>.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -851,43 +851,43 @@ export interface FolderSummary {
    * <p>The Amazon Resource Name (ARN) of the folder.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the folder.</p>
    * @public
    */
-  FolderId?: string;
+  FolderId?: string | undefined;
 
   /**
    * <p>The display name of the folder.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of folder.</p>
    * @public
    */
-  FolderType?: FolderType;
+  FolderType?: FolderType | undefined;
 
   /**
    * <p>The time that the folder was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The time that the folder was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The sharing scope of the folder.</p>
    * @public
    */
-  SharingModel?: SharingModel;
+  SharingModel?: SharingModel | undefined;
 }
 
 /**
@@ -922,7 +922,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
    * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
    * @public
    */
-  SessionLifetimeInMinutes?: number;
+  SessionLifetimeInMinutes?: number | undefined;
 
   /**
    * <p>The Amazon QuickSight namespace that the anonymous user virtually belongs to. If you are not using an Amazon QuickSight custom namespace, set this to <code>default</code>.</p>
@@ -935,7 +935,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
    *          <p>These are not the tags used for the Amazon Web Services resource tagging feature. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
    * @public
    */
-  SessionTags?: SessionTag[];
+  SessionTags?: SessionTag[] | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
@@ -965,7 +965,7 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
    *             <code>https://sapp.amazon.com</code>.</p>
    * @public
    */
-  AllowedDomains?: string[];
+  AllowedDomains?: string[] | undefined;
 }
 
 /**
@@ -1005,12 +1005,12 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
 export class SessionLifetimeInMinutesInvalidException extends __BaseException {
   readonly name: "SessionLifetimeInMinutesInvalidException" = "SessionLifetimeInMinutesInvalidException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1041,12 +1041,12 @@ export class SessionLifetimeInMinutesInvalidException extends __BaseException {
 export class UnsupportedPricingPlanException extends __BaseException {
   readonly name: "UnsupportedPricingPlanException" = "UnsupportedPricingPlanException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1083,19 +1083,19 @@ export interface RegisteredUserDashboardFeatureConfigurations {
    * <p>The state persistence settings of an embedded dashboard.</p>
    * @public
    */
-  StatePersistence?: StatePersistenceConfigurations;
+  StatePersistence?: StatePersistenceConfigurations | undefined;
 
   /**
    * <p>The shared view settings of an embedded dashboard.</p>
    * @public
    */
-  SharedView?: SharedViewConfigurations;
+  SharedView?: SharedViewConfigurations | undefined;
 
   /**
    * <p>The bookmarks configuration for an embedded dashboard in Amazon QuickSight.</p>
    * @public
    */
-  Bookmarks?: BookmarksConfigurations;
+  Bookmarks?: BookmarksConfigurations | undefined;
 }
 
 /**
@@ -1114,7 +1114,7 @@ export interface RegisteredUserDashboardEmbeddingConfiguration {
    * <p>The feature configurations of an embbedded Amazon QuickSight dashboard.</p>
    * @public
    */
-  FeatureConfigurations?: RegisteredUserDashboardFeatureConfigurations;
+  FeatureConfigurations?: RegisteredUserDashboardFeatureConfigurations | undefined;
 }
 
 /**
@@ -1142,7 +1142,7 @@ export interface RegisteredUserGenerativeQnAEmbeddingConfiguration {
    *          <p>If you don't specify an initial topic or you specify a legacy topic, a list of all shared new reader experience topics is shown in the Generative Q&A experience for your readers. When you select an initial new reader experience topic, you can specify whether or not readers are allowed to select other new reader experience topics from the available ones in the list.</p>
    * @public
    */
-  InitialTopicId?: string;
+  InitialTopicId?: string | undefined;
 }
 
 /**
@@ -1156,7 +1156,7 @@ export interface RegisteredUserQSearchBarEmbeddingConfiguration {
    *          <p>If you don't specify an initial topic or if you specify a new reader experience topic, a list of all shared legacy topics is shown in the Q bar. </p>
    * @public
    */
-  InitialTopicId?: string;
+  InitialTopicId?: string | undefined;
 }
 
 /**
@@ -1168,13 +1168,13 @@ export interface RegisteredUserConsoleFeatureConfigurations {
    * <p>The state persistence configurations of an embedded Amazon QuickSight console.</p>
    * @public
    */
-  StatePersistence?: StatePersistenceConfigurations;
+  StatePersistence?: StatePersistenceConfigurations | undefined;
 
   /**
    * <p>The shared view settings of an embedded dashboard.</p>
    * @public
    */
-  SharedView?: SharedViewConfigurations;
+  SharedView?: SharedViewConfigurations | undefined;
 }
 
 /**
@@ -1217,13 +1217,13 @@ export interface RegisteredUserQuickSightConsoleEmbeddingConfiguration {
    *          </ul>
    * @public
    */
-  InitialPath?: string;
+  InitialPath?: string | undefined;
 
   /**
    * <p>The embedding configuration of an embedded Amazon QuickSight console.</p>
    * @public
    */
-  FeatureConfigurations?: RegisteredUserConsoleFeatureConfigurations;
+  FeatureConfigurations?: RegisteredUserConsoleFeatureConfigurations | undefined;
 }
 
 /**
@@ -1240,7 +1240,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    * <p>The configuration details for providing a dashboard embedding experience.</p>
    * @public
    */
-  Dashboard?: RegisteredUserDashboardEmbeddingConfiguration;
+  Dashboard?: RegisteredUserDashboardEmbeddingConfiguration | undefined;
 
   /**
    * <p>The configuration details for providing each Amazon QuickSight console embedding experience. This can be used along with custom permissions to restrict access to certain features. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/customizing-permissions-to-the-quicksight-console.html">Customizing Access to the Amazon QuickSight Console</a> in the <i>Amazon QuickSight User
@@ -1275,7 +1275,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *          <p>For more information about the high-level steps for embedding and for an interactive demo of the ways you can customize embedding, visit the <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-portal.html">Amazon QuickSight Developer Portal</a>.</p>
    * @public
    */
-  QuickSightConsole?: RegisteredUserQuickSightConsoleEmbeddingConfiguration;
+  QuickSightConsole?: RegisteredUserQuickSightConsoleEmbeddingConfiguration | undefined;
 
   /**
    * <p>The configuration details for embedding the Q search bar.</p>
@@ -1283,13 +1283,13 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *             the <i>Amazon QuickSight User Guide</i>.</p>
    * @public
    */
-  QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration;
+  QSearchBar?: RegisteredUserQSearchBarEmbeddingConfiguration | undefined;
 
   /**
    * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
    * @public
    */
-  DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration;
+  DashboardVisual?: RegisteredUserDashboardVisualEmbeddingConfiguration | undefined;
 
   /**
    * <p>The configuration details for embedding the Generative Q&A experience.</p>
@@ -1297,7 +1297,7 @@ export interface RegisteredUserEmbeddingExperienceConfiguration {
    *                 the <i>Amazon QuickSight User Guide</i>.</p>
    * @public
    */
-  GenerativeQnA?: RegisteredUserGenerativeQnAEmbeddingConfiguration;
+  GenerativeQnA?: RegisteredUserGenerativeQnAEmbeddingConfiguration | undefined;
 }
 
 /**
@@ -1314,7 +1314,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
    * <p>How many minutes the session is valid. The session lifetime must be in [15-600] minutes range.</p>
    * @public
    */
-  SessionLifetimeInMinutes?: number;
+  SessionLifetimeInMinutes?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name for the registered user.</p>
@@ -1339,7 +1339,7 @@ export interface GenerateEmbedUrlForRegisteredUserRequest {
    *             <code>https://sapp.amazon.com</code>.</p>
    * @public
    */
-  AllowedDomains?: string[];
+  AllowedDomains?: string[] | undefined;
 }
 
 /**
@@ -1374,12 +1374,12 @@ export interface GenerateEmbedUrlForRegisteredUserResponse {
 export class QuickSightUserNotFoundException extends __BaseException {
   readonly name: "QuickSightUserNotFoundException" = "QuickSightUserNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1422,21 +1422,21 @@ export interface GetDashboardEmbedUrlRequest {
    * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
    * @public
    */
-  SessionLifetimeInMinutes?: number;
+  SessionLifetimeInMinutes?: number | undefined;
 
   /**
    * <p>Remove the undo/redo button on the embedded dashboard. The default is FALSE, which enables
    * 			the undo/redo button.</p>
    * @public
    */
-  UndoRedoDisabled?: boolean;
+  UndoRedoDisabled?: boolean | undefined;
 
   /**
    * <p>Remove the reset button on the embedded dashboard. The default is FALSE, which enables the
    * 			reset button.</p>
    * @public
    */
-  ResetDisabled?: boolean;
+  ResetDisabled?: boolean | undefined;
 
   /**
    * <p>Adds persistence of state for the user session in an embedded dashboard. Persistence
@@ -1448,7 +1448,7 @@ export interface GetDashboardEmbedUrlRequest {
    *                 <code>FALSE</code>.</p>
    * @public
    */
-  StatePersistenceEnabled?: boolean;
+  StatePersistenceEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
@@ -1470,20 +1470,20 @@ export interface GetDashboardEmbedUrlRequest {
    *             role-based sessions.</p>
    * @public
    */
-  UserArn?: string;
+  UserArn?: string | undefined;
 
   /**
    * <p>The Amazon QuickSight namespace that contains the dashboard IDs in this request.
    *     	   If you're not using a custom namespace, set <code>Namespace = default</code>.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>A list of one or more dashboard IDs that you want anonymous users to have tempporary access to. Currently, the <code>IdentityType</code> parameter must be set to <code>ANONYMOUS</code> because other identity types authenticate as Amazon QuickSight or IAM users. For example, if you set "<code>--dashboard-id dash_id1 --dashboard-id dash_id2 dash_id3 identity-type ANONYMOUS</code>", the session can access all three dashboards.</p>
    * @public
    */
-  AdditionalDashboardIds?: string[];
+  AdditionalDashboardIds?: string[] | undefined;
 }
 
 /**
@@ -1498,19 +1498,19 @@ export interface GetDashboardEmbedUrlResponse {
    * 			that is valid for 10 hours. </p>
    * @public
    */
-  EmbedUrl?: string;
+  EmbedUrl?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -1521,12 +1521,12 @@ export interface GetDashboardEmbedUrlResponse {
 export class IdentityTypeNotSupportedException extends __BaseException {
   readonly name: "IdentityTypeNotSupportedException" = "IdentityTypeNotSupportedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1589,13 +1589,13 @@ export interface GetSessionEmbedUrlRequest {
    *          </ul>
    * @public
    */
-  EntryPoint?: string;
+  EntryPoint?: string | undefined;
 
   /**
    * <p>How many minutes the session is valid. The session lifetime must be 15-600 minutes.</p>
    * @public
    */
-  SessionLifetimeInMinutes?: number;
+  SessionLifetimeInMinutes?: number | undefined;
 
   /**
    * <p>The Amazon QuickSight user's Amazon Resource Name (ARN), for use with <code>QUICKSIGHT</code> identity type.
@@ -1618,7 +1618,7 @@ export interface GetSessionEmbedUrlRequest {
    *             sessions.</p>
    * @public
    */
-  UserArn?: string;
+  UserArn?: string | undefined;
 }
 
 /**
@@ -1632,19 +1632,19 @@ export interface GetSessionEmbedUrlResponse {
    * 			that is valid for 10 hours. </p>
    * @public
    */
-  EmbedUrl?: string;
+  EmbedUrl?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -1710,13 +1710,13 @@ export interface IAMPolicyAssignmentSummary {
    * <p>Assignment name.</p>
    * @public
    */
-  AssignmentName?: string;
+  AssignmentName?: string | undefined;
 
   /**
    * <p>Assignment status.</p>
    * @public
    */
-  AssignmentStatus?: AssignmentStatus;
+  AssignmentStatus?: AssignmentStatus | undefined;
 }
 
 /**
@@ -1726,12 +1726,12 @@ export interface IAMPolicyAssignmentSummary {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The Amazon Web Services request ID for this request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1761,13 +1761,13 @@ export interface ListAnalysesRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1778,25 +1778,25 @@ export interface ListAnalysesResponse {
    * <p>Metadata describing each of the analyses that are listed.</p>
    * @public
    */
-  AnalysisSummaryList?: AnalysisSummary[];
+  AnalysisSummaryList?: AnalysisSummary[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -1813,13 +1813,13 @@ export interface ListAssetBundleExportJobsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1830,25 +1830,25 @@ export interface ListAssetBundleExportJobsResponse {
    * <p>A list of export job summaries.</p>
    * @public
    */
-  AssetBundleExportJobSummaryList?: AssetBundleExportJobSummary[];
+  AssetBundleExportJobSummaryList?: AssetBundleExportJobSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -1865,13 +1865,13 @@ export interface ListAssetBundleImportJobsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1882,25 +1882,25 @@ export interface ListAssetBundleImportJobsResponse {
    * <p>A list of import job summaries.</p>
    * @public
    */
-  AssetBundleImportJobSummaryList?: AssetBundleImportJobSummary[];
+  AssetBundleImportJobSummaryList?: AssetBundleImportJobSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the response.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -1918,13 +1918,13 @@ export interface ListDashboardsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1936,25 +1936,25 @@ export interface ListDashboardsResponse {
    *             provides basic information about the dashboards.</p>
    * @public
    */
-  DashboardSummaryList?: DashboardSummary[];
+  DashboardSummaryList?: DashboardSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -1978,13 +1978,13 @@ export interface ListDashboardVersionsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1995,25 +1995,25 @@ export interface ListDashboardVersionsResponse {
    * <p>A structure that contains information about each version of the dashboard.</p>
    * @public
    */
-  DashboardVersionSummaryList?: DashboardVersionSummary[];
+  DashboardVersionSummaryList?: DashboardVersionSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -2030,13 +2030,13 @@ export interface ListDataSetsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2047,25 +2047,25 @@ export interface ListDataSetsResponse {
    * <p>The list of dataset summaries.</p>
    * @public
    */
-  DataSetSummaries?: DataSetSummary[];
+  DataSetSummaries?: DataSetSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2082,13 +2082,13 @@ export interface ListDataSourcesRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2099,25 +2099,25 @@ export interface ListDataSourcesResponse {
    * <p>A list of data sources.</p>
    * @public
    */
-  DataSources?: DataSource[];
+  DataSources?: DataSource[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2140,13 +2140,13 @@ export interface ListFolderMembersRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2157,25 +2157,25 @@ export interface ListFolderMembersResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>A structure that contains all of the folder members (dashboards, analyses, and datasets) in the folder.</p>
    * @public
    */
-  FolderMemberList?: MemberIdArnPair[];
+  FolderMemberList?: MemberIdArnPair[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -2192,13 +2192,13 @@ export interface ListFoldersRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2209,25 +2209,25 @@ export interface ListFoldersResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
    * @public
    */
-  FolderSummaryList?: FolderSummary[];
+  FolderSummaryList?: FolderSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -2250,13 +2250,13 @@ export interface ListFoldersForResourceRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2267,25 +2267,25 @@ export interface ListFoldersForResourceResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>A list that contains the Amazon Resource Names (ARNs) of all folders that the resource is a member of.</p>
    * @public
    */
-  Folders?: string[];
+  Folders?: string[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -2302,13 +2302,13 @@ export interface ListGroupMembershipsRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return from this request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
@@ -2332,25 +2332,25 @@ export interface ListGroupMembershipsResponse {
    * <p>The list of the members of the group.</p>
    * @public
    */
-  GroupMemberList?: GroupMember[];
+  GroupMemberList?: GroupMember[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2368,13 +2368,13 @@ export interface ListGroupsRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The namespace that you want a list of groups from.</p>
@@ -2391,25 +2391,25 @@ export interface ListGroupsResponse {
    * <p>The list of the groups.</p>
    * @public
    */
-  GroupList?: Group[];
+  GroupList?: Group[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2427,7 +2427,7 @@ export interface ListIAMPolicyAssignmentsRequest {
    * <p>The status of the assignments.</p>
    * @public
    */
-  AssignmentStatus?: AssignmentStatus;
+  AssignmentStatus?: AssignmentStatus | undefined;
 
   /**
    * <p>The namespace for the assignments.</p>
@@ -2439,13 +2439,13 @@ export interface ListIAMPolicyAssignmentsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2456,25 +2456,25 @@ export interface ListIAMPolicyAssignmentsResponse {
    * <p>Information describing the IAM policy assignments.</p>
    * @public
    */
-  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[];
+  IAMPolicyAssignments?: IAMPolicyAssignmentSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2497,13 +2497,13 @@ export interface ListIAMPolicyAssignmentsForUserRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The namespace of the assignment.</p>
@@ -2520,25 +2520,25 @@ export interface ListIAMPolicyAssignmentsForUserResponse {
    * <p>The active assignments for this user.</p>
    * @public
    */
-  ActiveAssignments?: ActiveIAMPolicyAssignment[];
+  ActiveAssignments?: ActiveIAMPolicyAssignment[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2555,13 +2555,13 @@ export interface ListIdentityPropagationConfigsRequest {
    * <p>The maximum number of results to be returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2572,25 +2572,25 @@ export interface ListIdentityPropagationConfigsResponse {
    * <p>A list of services and their authorized targets that the Amazon QuickSight IAM Identity Center application can access.</p>
    * @public
    */
-  Services?: AuthorizedTargetsByService[];
+  Services?: AuthorizedTargetsByService[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -2607,7 +2607,7 @@ export interface ListIngestionsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID.</p>
@@ -2619,7 +2619,7 @@ export interface ListIngestionsRequest {
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2630,25 +2630,25 @@ export interface ListIngestionsResponse {
    * <p>A list of the ingestions.</p>
    * @public
    */
-  Ingestions?: Ingestion[];
+  Ingestions?: Ingestion[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2665,13 +2665,13 @@ export interface ListNamespacesRequest {
    * <p>A unique pagination token that can be used in a subsequent request. You will receive a pagination token in the response body of a previous <code>ListNameSpaces</code> API call if there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2684,25 +2684,25 @@ export interface ListNamespacesResponse {
    *         identity store.</p>
    * @public
    */
-  Namespaces?: NamespaceInfoV2[];
+  Namespaces?: NamespaceInfoV2[] | undefined;
 
   /**
    * <p>A unique pagination token that can be used in a subsequent request. Receiving <code>NextToken</code> in your response inticates that there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2730,19 +2730,19 @@ export interface ListRefreshSchedulesResponse {
    * <p>The list of refresh schedules for the dataset.</p>
    * @public
    */
-  RefreshSchedules?: RefreshSchedule[];
+  RefreshSchedules?: RefreshSchedule[] | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -2759,13 +2759,13 @@ export interface ListRoleMembershipsRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
@@ -2788,25 +2788,25 @@ export interface ListRoleMembershipsResponse {
    * <p>The list of groups associated with a role</p>
    * @public
    */
-  MembersList?: string[];
+  MembersList?: string[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2829,19 +2829,19 @@ export interface ListTagsForResourceResponse {
    * 			resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -2864,13 +2864,13 @@ export interface ListTemplateAliasesRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2881,25 +2881,25 @@ export interface ListTemplateAliasesResponse {
    * <p>A structure containing the list of the template's aliases.</p>
    * @public
    */
-  TemplateAliasList?: TemplateAlias[];
+  TemplateAliasList?: TemplateAlias[] | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2916,13 +2916,13 @@ export interface ListTemplatesRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2934,37 +2934,37 @@ export interface TemplateSummary {
    * <p>A summary of a template.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the template. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TemplateId?: string;
+  TemplateId?: string | undefined;
 
   /**
    * <p>A display name for the template.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A structure containing a list of version numbers for the template summary.</p>
    * @public
    */
-  LatestVersionNumber?: number;
+  LatestVersionNumber?: number | undefined;
 
   /**
    * <p>The last time that this template was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The last time that this template was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -2975,25 +2975,25 @@ export interface ListTemplatesResponse {
    * <p>A structure containing information about the templates in the list.</p>
    * @public
    */
-  TemplateSummaryList?: TemplateSummary[];
+  TemplateSummaryList?: TemplateSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -3016,13 +3016,13 @@ export interface ListTemplateVersionsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3034,31 +3034,31 @@ export interface TemplateVersionSummary {
    * <p>The Amazon Resource Name (ARN) of the template version.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The version number of the template version.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The time that this template version was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The status of the template version.</p>
    * @public
    */
-  Status?: ResourceStatus;
+  Status?: ResourceStatus | undefined;
 
   /**
    * <p>The description of the template version.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -3069,25 +3069,25 @@ export interface ListTemplateVersionsResponse {
    * <p>A structure containing a list of all the versions of the specified template.</p>
    * @public
    */
-  TemplateVersionSummaryList?: TemplateVersionSummary[];
+  TemplateVersionSummaryList?: TemplateVersionSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -3110,13 +3110,13 @@ export interface ListThemeAliasesRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3127,25 +3127,25 @@ export interface ListThemeAliasesResponse {
    * <p>A structure containing the list of the theme's aliases.</p>
    * @public
    */
-  ThemeAliasList?: ThemeAlias[];
+  ThemeAliasList?: ThemeAlias[] | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3162,13 +3162,13 @@ export interface ListThemesRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The type of themes that you want to list. Valid options include the following:</p>
@@ -3188,7 +3188,7 @@ export interface ListThemesRequest {
    *          </ul>
    * @public
    */
-  Type?: ThemeType;
+  Type?: ThemeType | undefined;
 }
 
 /**
@@ -3200,37 +3200,37 @@ export interface ThemeSummary {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>the display name for the theme.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of the theme. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  ThemeId?: string;
+  ThemeId?: string | undefined;
 
   /**
    * <p>The latest version number for the theme. </p>
    * @public
    */
-  LatestVersionNumber?: number;
+  LatestVersionNumber?: number | undefined;
 
   /**
    * <p>The date and time that this theme was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The last date and time that this theme was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -3241,25 +3241,25 @@ export interface ListThemesResponse {
    * <p>Information about the themes in the list.</p>
    * @public
    */
-  ThemeSummaryList?: ThemeSummary[];
+  ThemeSummaryList?: ThemeSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -3282,13 +3282,13 @@ export interface ListThemeVersionsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3300,31 +3300,31 @@ export interface ThemeVersionSummary {
    * <p>The version number of the theme version.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the theme version.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The description of the theme version.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time that this theme version was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The status of the theme version.</p>
    * @public
    */
-  Status?: ResourceStatus;
+  Status?: ResourceStatus | undefined;
 }
 
 /**
@@ -3335,25 +3335,25 @@ export interface ListThemeVersionsResponse {
    * <p>A structure containing a list of all the versions of the specified theme.</p>
    * @public
    */
-  ThemeVersionSummaryList?: ThemeVersionSummary[];
+  ThemeVersionSummaryList?: ThemeVersionSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -3383,25 +3383,25 @@ export interface TopicRefreshScheduleSummary {
    * <p>The ID of the dataset.</p>
    * @public
    */
-  DatasetId?: string;
+  DatasetId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The name of the dataset.</p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The definition of a refresh schedule.</p>
    * @public
    */
-  RefreshSchedule?: TopicRefreshSchedule;
+  RefreshSchedule?: TopicRefreshSchedule | undefined;
 }
 
 /**
@@ -3412,31 +3412,31 @@ export interface ListTopicRefreshSchedulesResponse {
    * <p>The ID for the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>The list of topic refresh schedules.</p>
    * @public
    */
-  RefreshSchedules?: TopicRefreshScheduleSummary[];
+  RefreshSchedules?: TopicRefreshScheduleSummary[] | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -3471,13 +3471,13 @@ export interface ListTopicsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3489,25 +3489,25 @@ export interface TopicSummary {
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID for the topic. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The name of the topic.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The user experience version of the topic.</p>
    * @public
    */
-  UserExperienceVersion?: TopicUserExperienceVersion;
+  UserExperienceVersion?: TopicUserExperienceVersion | undefined;
 }
 
 /**
@@ -3518,25 +3518,25 @@ export interface ListTopicsResponse {
    * <p>A list of topic summaries.</p>
    * @public
    */
-  TopicsSummaries?: TopicSummary[];
+  TopicsSummaries?: TopicSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -3566,13 +3566,13 @@ export interface ListUserGroupsRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return from this request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3583,25 +3583,25 @@ export interface ListUserGroupsResponse {
    * <p>The list of groups the user is a member of.</p>
    * @public
    */
-  GroupList?: Group[];
+  GroupList?: Group[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -3619,13 +3619,13 @@ export interface ListUsersRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return from this request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
@@ -3642,25 +3642,25 @@ export interface ListUsersResponse {
    * <p>The list of users.</p>
    * @public
    */
-  UserList?: User[];
+  UserList?: User[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -3678,13 +3678,13 @@ export interface ListVPCConnectionsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3699,74 +3699,74 @@ export interface VPCConnectionSummary {
    *                 Amazon Web Services account.</p>
    * @public
    */
-  VPCConnectionId?: string;
+  VPCConnectionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The display name for the VPC connection.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
    * @public
    */
-  VPCId?: string;
+  VPCId?: string | undefined;
 
   /**
    * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
    * @public
    */
-  SecurityGroupIds?: string[];
+  SecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
    * @public
    */
-  DnsResolvers?: string[];
+  DnsResolvers?: string[] | undefined;
 
   /**
    * <p>The status of the VPC connection.</p>
    * @public
    */
-  Status?: VPCConnectionResourceStatus;
+  Status?: VPCConnectionResourceStatus | undefined;
 
   /**
    * <p>The availability status of the VPC connection.</p>
    * @public
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
 
   /**
    * <p>A list of network interfaces.</p>
    * @public
    */
-  NetworkInterfaces?: NetworkInterface[];
+  NetworkInterfaces?: NetworkInterface[] | undefined;
 
   /**
    * <p>The ARN of the IAM role associated
    *             with the VPC connection.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The time that the VPC connection was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The time that the VPC connection was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -3778,26 +3778,26 @@ export interface ListVPCConnectionsResponse {
    * 			objects.</p>
    * @public
    */
-  VPCConnectionSummaries?: VPCConnectionSummary[];
+  VPCConnectionSummaries?: VPCConnectionSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more
    * 			results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -3845,13 +3845,13 @@ export interface PutDataSetRefreshPropertiesResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -3919,7 +3919,7 @@ export interface RegisterUserRequest {
    * <p>The ARN of the IAM user or role that you are registering with Amazon QuickSight. </p>
    * @public
    */
-  IamArn?: string;
+  IamArn?: string | undefined;
 
   /**
    * <p>You need to use this parameter only when you register one or more users using an assumed
@@ -3932,7 +3932,7 @@ export interface RegisterUserRequest {
    *          </p>
    * @public
    */
-  SessionName?: string;
+  SessionName?: string | undefined;
 
   /**
    * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
@@ -3952,7 +3952,7 @@ export interface RegisterUserRequest {
    * 			registering.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>(Enterprise edition only) The name of the custom permissions profile that you want to
@@ -3985,7 +3985,7 @@ export interface RegisterUserRequest {
    *          <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
    * @public
    */
-  CustomPermissionsName?: string;
+  CustomPermissionsName?: string | undefined;
 
   /**
    * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
@@ -4001,7 +4001,7 @@ export interface RegisterUserRequest {
    *          </ul>
    * @public
    */
-  ExternalLoginFederationProviderType?: string;
+  ExternalLoginFederationProviderType?: string | undefined;
 
   /**
    * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
@@ -4009,19 +4009,19 @@ export interface RegisterUserRequest {
    *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
    * @public
    */
-  CustomFederationProviderUrl?: string;
+  CustomFederationProviderUrl?: string | undefined;
 
   /**
    * <p>The identity ID for a user in the external login provider.</p>
    * @public
    */
-  ExternalLoginId?: string;
+  ExternalLoginId?: string | undefined;
 
   /**
    * <p>The tags to associate with the user.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4032,26 +4032,26 @@ export interface RegisterUserResponse {
    * <p>The user's user name.</p>
    * @public
    */
-  User?: User;
+  User?: User | undefined;
 
   /**
    * <p>The URL the user visits to complete registration and provide a password. This is
    * 			returned only for users with an identity type of <code>QUICKSIGHT</code>.</p>
    * @public
    */
-  UserInvitationUrl?: string;
+  UserInvitationUrl?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4074,7 +4074,7 @@ export interface RestoreAnalysisRequest {
    * <p>A boolean value that determines if the analysis will be restored to folders that it previously resided in. A <code>True</code> value restores analysis back to all folders that it previously resided in. A <code>False</code> value restores the analysis but does not restore the analysis back to all previously resided folders. Restoring a restricted analysis requires this parameter to be set to <code>True</code>.</p>
    * @public
    */
-  RestoreToFolders?: boolean;
+  RestoreToFolders?: boolean | undefined;
 }
 
 /**
@@ -4085,32 +4085,32 @@ export interface RestoreAnalysisResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the analysis that you're restoring.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the analysis that you're restoring.
    *         </p>
    * @public
    */
-  AnalysisId?: string;
+  AnalysisId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>A list of folder arns thatthe analysis failed to be restored to.</p>
    * @public
    */
-  RestorationFailedFolderArns?: string[];
+  RestorationFailedFolderArns?: string[] | undefined;
 }
 
 /**
@@ -4134,13 +4134,13 @@ export interface SearchAnalysesRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4151,26 +4151,26 @@ export interface SearchAnalysesResponse {
    * <p>Metadata describing the analyses that you searched for.</p>
    * @public
    */
-  AnalysisSummaryList?: AnalysisSummary[];
+  AnalysisSummaryList?: AnalysisSummary[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.
    *             </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -4197,13 +4197,13 @@ export interface SearchDashboardsRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4215,25 +4215,25 @@ export interface SearchDashboardsResponse {
    *             request.</p>
    * @public
    */
-  DashboardSummaryList?: DashboardSummary[];
+  DashboardSummaryList?: DashboardSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -4256,13 +4256,13 @@ export interface SearchDataSetsRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4273,25 +4273,25 @@ export interface SearchDataSetsResponse {
    * <p>A <code>DataSetSummaries</code> object that returns a summary of a dataset.</p>
    * @public
    */
-  DataSetSummaries?: DataSetSummary[];
+  DataSetSummaries?: DataSetSummary[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -4314,13 +4314,13 @@ export interface SearchDataSourcesRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4331,25 +4331,25 @@ export interface SearchDataSourcesResponse {
    * <p>A <code>DataSourceSummaries</code> object that returns a summary of a data source.</p>
    * @public
    */
-  DataSourceSummaries?: DataSourceSummary[];
+  DataSourceSummaries?: DataSourceSummary[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -4372,13 +4372,13 @@ export interface SearchFoldersRequest {
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4389,25 +4389,25 @@ export interface SearchFoldersResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
    * @public
    */
-  FolderSummaryList?: FolderSummary[];
+  FolderSummaryList?: FolderSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -4425,13 +4425,13 @@ export interface SearchGroupsRequest {
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return from this request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The namespace that you want to search.</p>
@@ -4454,25 +4454,25 @@ export interface SearchGroupsResponse {
    * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
    * @public
    */
-  GroupList?: Group[];
+  GroupList?: Group[] | undefined;
 
   /**
    * <p>A pagination token that can be used in a subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4543,7 +4543,7 @@ export interface StartAssetBundleExportJobRequest {
    *          exported.</p>
    * @public
    */
-  IncludeAllDependencies?: boolean;
+  IncludeAllDependencies?: boolean | undefined;
 
   /**
    * <p>The export data format.</p>
@@ -4556,38 +4556,38 @@ export interface StartAssetBundleExportJobRequest {
    *          <p>Use this field if the <code>ExportFormat</code> field of a <code>StartAssetBundleExportJobRequest</code> API call is set to <code>CLOUDFORMATION_JSON</code>.</p>
    * @public
    */
-  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration;
+  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration | undefined;
 
   /**
    * <p>A Boolean that determines whether all permissions for each resource ARN are exported with the job. If you set <code>IncludePermissions</code> to <code>TRUE</code>, any permissions associated with each resource are exported.
    *       </p>
    * @public
    */
-  IncludePermissions?: boolean;
+  IncludePermissions?: boolean | undefined;
 
   /**
    * <p> A Boolean that determines whether all tags for each resource ARN are exported with the job. If you set <code>IncludeTags</code> to <code>TRUE</code>, any tags associated with each resource are exported.</p>
    * @public
    */
-  IncludeTags?: boolean;
+  IncludeTags?: boolean | undefined;
 
   /**
    * <p>An optional parameter that determines which validation strategy to use for the export job. If <code>StrictModeForAllResources</code> is set to <code>TRUE</code>, strict validation for every error is enforced. If it is set to <code>FALSE</code>, validation is skipped for specific UI errors that are shown as warnings. The default value for <code>StrictModeForAllResources</code> is <code>FALSE</code>.</p>
    * @public
    */
-  ValidationStrategy?: AssetBundleExportJobValidationStrategy;
+  ValidationStrategy?: AssetBundleExportJobValidationStrategy | undefined;
 
   /**
    * <p>A Boolean that determines if the exported asset carries over information about the folders that the asset is a member of. </p>
    * @public
    */
-  IncludeFolderMemberships?: boolean;
+  IncludeFolderMemberships?: boolean | undefined;
 
   /**
    * <p>A setting that indicates whether you want to include folder assets. You can also use this setting to recusrsively include all subfolders of an exported folder.</p>
    * @public
    */
-  IncludeFolderMembers?: IncludeFolderMembers;
+  IncludeFolderMembers?: IncludeFolderMembers | undefined;
 }
 
 /**
@@ -4598,25 +4598,25 @@ export interface StartAssetBundleExportJobResponse {
    * <p>The Amazon Resource Name (ARN) for the export job.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
    * @public
    */
-  AssetBundleExportJobId?: string;
+  AssetBundleExportJobId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services response ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the response.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4646,7 +4646,7 @@ export interface StartAssetBundleImportJobRequest {
    * <p>Optional overrides that are applied to the resource configuration before import.</p>
    * @public
    */
-  OverrideParameters?: AssetBundleImportJobOverrideParameters;
+  OverrideParameters?: AssetBundleImportJobOverrideParameters | undefined;
 
   /**
    * <p>The failure action for the import job.</p>
@@ -4655,25 +4655,25 @@ export interface StartAssetBundleImportJobRequest {
    *          any asset changes caused by the failed job, possibly keeping the Amazon QuickSight account in an inconsistent state.</p>
    * @public
    */
-  FailureAction?: AssetBundleImportFailureAction;
+  FailureAction?: AssetBundleImportFailureAction | undefined;
 
   /**
    * <p>Optional permission overrides that are applied to the resource configuration before import.</p>
    * @public
    */
-  OverridePermissions?: AssetBundleImportJobOverridePermissions;
+  OverridePermissions?: AssetBundleImportJobOverridePermissions | undefined;
 
   /**
    * <p>Optional tag overrides that are applied to the resource configuration before import.</p>
    * @public
    */
-  OverrideTags?: AssetBundleImportJobOverrideTags;
+  OverrideTags?: AssetBundleImportJobOverrideTags | undefined;
 
   /**
    * <p>An optional validation strategy override for all analyses and dashboards that is applied to the resource configuration before import. </p>
    * @public
    */
-  OverrideValidationStrategy?: AssetBundleImportJobOverrideValidationStrategy;
+  OverrideValidationStrategy?: AssetBundleImportJobOverrideValidationStrategy | undefined;
 }
 
 /**
@@ -4684,25 +4684,25 @@ export interface StartAssetBundleImportJobResponse {
    * <p>The Amazon Resource Name (ARN) for the import job.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the job. This ID is unique while the job is running. After the job is completed, you can reuse this ID for another job.</p>
    * @public
    */
-  AssetBundleImportJobId?: string;
+  AssetBundleImportJobId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services response ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the response.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4715,7 +4715,7 @@ export interface SnapshotAnonymousUser {
    *          <p>These are not the tags that are used for Amazon Web Services resource tagging. For more information on row level security in Amazon QuickSight, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/quicksight-dev-rls-tags.html">Using Row-Level Security (RLS) with Tags</a>in the <i>Amazon QuickSight User Guide</i>.</p>
    * @public
    */
-  RowLevelPermissionTags?: SessionTag[];
+  RowLevelPermissionTags?: SessionTag[] | undefined;
 }
 
 /**
@@ -4727,7 +4727,7 @@ export interface SnapshotUserConfiguration {
    * <p>An array of records that describe the anonymous users that the dashboard snapshot is generated for.</p>
    * @public
    */
-  AnonymousUsers?: SnapshotAnonymousUser[];
+  AnonymousUsers?: SnapshotAnonymousUser[] | undefined;
 }
 
 /**
@@ -4775,13 +4775,13 @@ export interface StartDashboardSnapshotJobResponse {
    * <p>The Amazon Resource Name (ARN) for the dashboard snapshot job.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the job. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
    * @public
    */
-  SnapshotJobId?: string;
+  SnapshotJobId?: string | undefined;
 
   /**
    * <p>
@@ -4789,13 +4789,13 @@ export interface StartDashboardSnapshotJobResponse {
    *         </p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4832,13 +4832,13 @@ export interface StartDashboardSnapshotJobScheduleResponse {
    *         </p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4866,13 +4866,13 @@ export interface TagResourceResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4900,13 +4900,13 @@ export interface UntagResourceResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -4924,7 +4924,7 @@ export interface UpdateAccountCustomizationRequest {
    * <p>The namespace that you want to update Amazon QuickSight customizations for.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
@@ -4941,38 +4941,38 @@ export interface UpdateAccountCustomizationResponse {
    * <p>The Amazon Resource Name (ARN) for the updated customization for this Amazon Web Services account.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID for the Amazon Web Services account that you want to update Amazon QuickSight customizations
    *             for.</p>
    * @public
    */
-  AwsAccountId?: string;
+  AwsAccountId?: string | undefined;
 
   /**
    * <p>The namespace associated with the customization that you're updating.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 
   /**
    * <p>The Amazon QuickSight customizations you're updating in the current Amazon Web Services Region. </p>
    * @public
    */
-  AccountCustomization?: AccountCustomization;
+  AccountCustomization?: AccountCustomization | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -5001,13 +5001,13 @@ export interface UpdateAccountSettingsRequest {
    *             Amazon Web Services account or Amazon QuickSight subscription.</p>
    * @public
    */
-  NotificationEmail?: string;
+  NotificationEmail?: string | undefined;
 
   /**
    * <p>A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -5018,13 +5018,13 @@ export interface UpdateAccountSettingsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -5056,14 +5056,14 @@ export interface UpdateAnalysisRequest {
    *             any parameter type, and some parameters might accept multiple values. </p>
    * @public
    */
-  Parameters?: _Parameters;
+  Parameters?: _Parameters | undefined;
 
   /**
    * <p>A source entity to use for the analysis that you're updating. This metadata structure
    *             contains details that describe a source template and one or more datasets.</p>
    * @public
    */
-  SourceEntity?: AnalysisSourceEntity;
+  SourceEntity?: AnalysisSourceEntity | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the theme to apply to the analysis that you're
@@ -5071,20 +5071,20 @@ export interface UpdateAnalysisRequest {
    *             it.</p>
    * @public
    */
-  ThemeArn?: string;
+  ThemeArn?: string | undefined;
 
   /**
    * <p>The definition of an analysis.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    * @public
    */
-  Definition?: AnalysisDefinition;
+  Definition?: AnalysisDefinition | undefined;
 
   /**
    * <p>The option to relax the validation needed to update an analysis with definition objects. This skips the validation step for specific errors.</p>
    * @public
    */
-  ValidationStrategy?: ValidationStrategy;
+  ValidationStrategy?: ValidationStrategy | undefined;
 }
 
 /**
@@ -5095,31 +5095,31 @@ export interface UpdateAnalysisResponse {
    * <p>The ARN of the analysis that you're updating.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the analysis.</p>
    * @public
    */
-  AnalysisId?: string;
+  AnalysisId?: string | undefined;
 
   /**
    * <p>The update status of the last update that was made to the analysis.</p>
    * @public
    */
-  UpdateStatus?: ResourceStatus;
+  UpdateStatus?: ResourceStatus | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -5145,14 +5145,14 @@ export interface UpdateAnalysisPermissionsRequest {
    *             to.</p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>A structure that describes the permissions to remove and the principal to remove them
    *             from.</p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -5163,32 +5163,32 @@ export interface UpdateAnalysisPermissionsResponse {
    * <p>The Amazon Resource Name (ARN) of the analysis that you updated.</p>
    * @public
    */
-  AnalysisArn?: string;
+  AnalysisArn?: string | undefined;
 
   /**
    * <p>The ID of the analysis that you updated permissions for.</p>
    * @public
    */
-  AnalysisId?: string;
+  AnalysisId?: string | undefined;
 
   /**
    * <p>A structure that describes the principals and the resource-level permissions on an
    *             analysis.</p>
    * @public
    */
-  Permissions?: ResourcePermission[];
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -5230,7 +5230,7 @@ export interface UpdateDashboardRequest {
    *             each dataset must match its placeholder. </p>
    * @public
    */
-  SourceEntity?: DashboardSourceEntity;
+  SourceEntity?: DashboardSourceEntity | undefined;
 
   /**
    * <p>A structure that contains the parameters of the dashboard. These are parameter
@@ -5238,13 +5238,13 @@ export interface UpdateDashboardRequest {
    *             parameters might accept multiple values.</p>
    * @public
    */
-  Parameters?: _Parameters;
+  Parameters?: _Parameters | undefined;
 
   /**
    * <p>A description for the first version of the dashboard being created.</p>
    * @public
    */
-  VersionDescription?: string;
+  VersionDescription?: string | undefined;
 
   /**
    * <p>Options for publishing the dashboard when you create it:</p>
@@ -5273,7 +5273,7 @@ export interface UpdateDashboardRequest {
    *          </ul>
    * @public
    */
-  DashboardPublishOptions?: DashboardPublishOptions;
+  DashboardPublishOptions?: DashboardPublishOptions | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. If
@@ -5282,20 +5282,20 @@ export interface UpdateDashboardRequest {
    *             dashboard.</p>
    * @public
    */
-  ThemeArn?: string;
+  ThemeArn?: string | undefined;
 
   /**
    * <p>The definition of a dashboard.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    * @public
    */
-  Definition?: DashboardVersionDefinition;
+  Definition?: DashboardVersionDefinition | undefined;
 
   /**
    * <p>The option to relax the validation needed to update a dashboard with definition objects. This skips the validation step for specific errors.</p>
    * @public
    */
-  ValidationStrategy?: ValidationStrategy;
+  ValidationStrategy?: ValidationStrategy | undefined;
 }
 
 /**
@@ -5306,37 +5306,37 @@ export interface UpdateDashboardResponse {
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ARN of the dashboard, including the version number.</p>
    * @public
    */
-  VersionArn?: string;
+  VersionArn?: string | undefined;
 
   /**
    * <p>The ID for the dashboard.</p>
    * @public
    */
-  DashboardId?: string;
+  DashboardId?: string | undefined;
 
   /**
    * <p>The creation status of the request.</p>
    * @public
    */
-  CreationStatus?: ResourceStatus;
+  CreationStatus?: ResourceStatus | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -5370,25 +5370,25 @@ export interface UpdateDashboardLinksResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    * @public
    */
-  DashboardArn?: string;
+  DashboardArn?: string | undefined;
 
   /**
    * <p>A list of analysis Amazon Resource Names (ARNs) to be linked to the dashboard.</p>
    * @public
    */
-  LinkEntities?: string[];
+  LinkEntities?: string[] | undefined;
 }
 
 /**
@@ -5412,25 +5412,25 @@ export interface UpdateDashboardPermissionsRequest {
    * <p>The permissions that you want to grant on this resource.</p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The permissions that you want to revoke from this resource.</p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>Grants link permissions to all users in a defined namespace.</p>
    * @public
    */
-  GrantLinkPermissions?: ResourcePermission[];
+  GrantLinkPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>Revokes link permissions from all users in a defined namespace.</p>
    * @public
    */
-  RevokeLinkPermissions?: ResourcePermission[];
+  RevokeLinkPermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -5441,37 +5441,37 @@ export interface UpdateDashboardPermissionsResponse {
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    * @public
    */
-  DashboardArn?: string;
+  DashboardArn?: string | undefined;
 
   /**
    * <p>The ID for the dashboard.</p>
    * @public
    */
-  DashboardId?: string;
+  DashboardId?: string | undefined;
 
   /**
    * <p>Information about the permissions on the dashboard.</p>
    * @public
    */
-  Permissions?: ResourcePermission[];
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>Updates the permissions of a shared link to an Amazon QuickSight dashboard.</p>
    * @public
    */
-  LinkSharingConfiguration?: LinkSharingConfiguration;
+  LinkSharingConfiguration?: LinkSharingConfiguration | undefined;
 }
 
 /**
@@ -5506,25 +5506,25 @@ export interface UpdateDashboardPublishedVersionResponse {
    * <p>The ID for the dashboard.</p>
    * @public
    */
-  DashboardId?: string;
+  DashboardId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
    * @public
    */
-  DashboardArn?: string;
+  DashboardArn?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -5560,7 +5560,7 @@ export interface UpdateDataSetRequest {
    * <p>Configures the combination and transformation of the data from the physical tables.</p>
    * @public
    */
-  LogicalTableMap?: Record<string, LogicalTable>;
+  LogicalTableMap?: Record<string, LogicalTable> | undefined;
 
   /**
    * <p>Indicates whether you want to import the data into SPICE.</p>
@@ -5572,25 +5572,25 @@ export interface UpdateDataSetRequest {
    * <p>Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported.</p>
    * @public
    */
-  ColumnGroups?: ColumnGroup[];
+  ColumnGroups?: ColumnGroup[] | undefined;
 
   /**
    * <p>The folder that contains fields and nested subfolders for your dataset.</p>
    * @public
    */
-  FieldFolders?: Record<string, FieldFolder>;
+  FieldFolders?: Record<string, FieldFolder> | undefined;
 
   /**
    * <p>The row-level security configuration for the data you want to create.</p>
    * @public
    */
-  RowLevelPermissionDataSet?: RowLevelPermissionDataSet;
+  RowLevelPermissionDataSet?: RowLevelPermissionDataSet | undefined;
 
   /**
    * <p>The configuration of tags on a dataset to set row-level security. Row-level security tags are currently supported for anonymous embedding only.</p>
    * @public
    */
-  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration;
+  RowLevelPermissionTagConfiguration?: RowLevelPermissionTagConfiguration | undefined;
 
   /**
    * <p>A set of one or more definitions of a <code>
@@ -5598,19 +5598,19 @@ export interface UpdateDataSetRequest {
    *             </code>.</p>
    * @public
    */
-  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[];
+  ColumnLevelPermissionRules?: ColumnLevelPermissionRule[] | undefined;
 
   /**
    * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
    * @public
    */
-  DataSetUsageConfiguration?: DataSetUsageConfiguration;
+  DataSetUsageConfiguration?: DataSetUsageConfiguration | undefined;
 
   /**
    * <p>The parameter declarations of the dataset.</p>
    * @public
    */
-  DatasetParameters?: DatasetParameter[];
+  DatasetParameters?: DatasetParameter[] | undefined;
 }
 
 /**
@@ -5621,39 +5621,39 @@ export interface UpdateDataSetResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID for the dataset that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>The ARN for the ingestion, which is triggered as a result of dataset creation if the import
    * 			mode is SPICE.</p>
    * @public
    */
-  IngestionArn?: string;
+  IngestionArn?: string | undefined;
 
   /**
    * <p>The ID of the ingestion, which is triggered as a result of dataset creation if the import
    * 			mode is SPICE.</p>
    * @public
    */
-  IngestionId?: string;
+  IngestionId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -5677,13 +5677,13 @@ export interface UpdateDataSetPermissionsRequest {
    * <p>The resource permissions that you want to grant to the dataset.</p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The resource permissions that you want to revoke from the dataset.</p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -5694,26 +5694,26 @@ export interface UpdateDataSetPermissionsResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  DataSetArn?: string;
+  DataSetArn?: string | undefined;
 
   /**
    * <p>The ID for the dataset whose permissions you want to update. This ID is unique per
    * 			Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -5742,28 +5742,28 @@ export interface UpdateDataSourceRequest {
    * <p>The parameters that Amazon QuickSight uses to connect to your underlying source.</p>
    * @public
    */
-  DataSourceParameters?: DataSourceParameters;
+  DataSourceParameters?: DataSourceParameters | undefined;
 
   /**
    * <p>The credentials that Amazon QuickSight that uses to connect to your underlying source. Currently,
    * 			only credentials based on user name and password are supported.</p>
    * @public
    */
-  Credentials?: DataSourceCredentials;
+  Credentials?: DataSourceCredentials | undefined;
 
   /**
    * <p>Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to
    * 			your underlying source.</p>
    * @public
    */
-  VpcConnectionProperties?: VpcConnectionProperties;
+  VpcConnectionProperties?: VpcConnectionProperties | undefined;
 
   /**
    * <p>Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying
    * 			source.</p>
    * @public
    */
-  SslProperties?: SslProperties;
+  SslProperties?: SslProperties | undefined;
 }
 
 /**
@@ -5774,31 +5774,31 @@ export interface UpdateDataSourceResponse {
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  DataSourceId?: string;
+  DataSourceId?: string | undefined;
 
   /**
    * <p>The update status of the data source's last update.</p>
    * @public
    */
-  UpdateStatus?: ResourceStatus;
+  UpdateStatus?: ResourceStatus | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -5821,13 +5821,13 @@ export interface UpdateDataSourcePermissionsRequest {
    * <p>A list of resource permissions that you want to grant on the data source.</p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>A list of resource permissions that you want to revoke on the data source.</p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -5838,25 +5838,25 @@ export interface UpdateDataSourcePermissionsResponse {
    * <p>The Amazon Resource Name (ARN) of the data source.</p>
    * @public
    */
-  DataSourceArn?: string;
+  DataSourceArn?: string | undefined;
 
   /**
    * <p>The ID of the data source. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  DataSourceId?: string;
+  DataSourceId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -5890,25 +5890,25 @@ export interface UpdateFolderResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the folder.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the folder.</p>
    * @public
    */
-  FolderId?: string;
+  FolderId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -5931,13 +5931,13 @@ export interface UpdateFolderPermissionsRequest {
    * <p>The permissions that you want to grant on a resource. Namespace ARNs are not supported <code>Principal</code> values for folder permissions.</p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The permissions that you want to revoke from a resource.  Namespace ARNs are not supported <code>Principal</code> values for folder permissions.</p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -5948,31 +5948,31 @@ export interface UpdateFolderPermissionsResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the folder.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the folder.</p>
    * @public
    */
-  FolderId?: string;
+  FolderId?: string | undefined;
 
   /**
    * <p>Information about the permissions for the folder.</p>
    * @public
    */
-  Permissions?: ResourcePermission[];
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -5989,7 +5989,7 @@ export interface UpdateGroupRequest {
    * <p>The description for the group that you want to update.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
@@ -6013,19 +6013,19 @@ export interface UpdateGroupResponse {
    * <p>The name of the group.</p>
    * @public
    */
-  Group?: Group;
+  Group?: Group | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6075,21 +6075,21 @@ export interface UpdateIAMPolicyAssignmentRequest {
    *          </ul>
    * @public
    */
-  AssignmentStatus?: AssignmentStatus;
+  AssignmentStatus?: AssignmentStatus | undefined;
 
   /**
    * <p>The ARN for the IAM policy to apply to the Amazon QuickSight users and
    * 			groups specified in this assignment.</p>
    * @public
    */
-  PolicyArn?: string;
+  PolicyArn?: string | undefined;
 
   /**
    * <p>The Amazon QuickSight users, groups, or both that you want to assign the policy
    * 			to.</p>
    * @public
    */
-  Identities?: Record<string, string[]>;
+  Identities?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -6100,27 +6100,27 @@ export interface UpdateIAMPolicyAssignmentResponse {
    * <p>The name of the assignment or rule.</p>
    * @public
    */
-  AssignmentName?: string;
+  AssignmentName?: string | undefined;
 
   /**
    * <p>The ID of the assignment.</p>
    * @public
    */
-  AssignmentId?: string;
+  AssignmentId?: string | undefined;
 
   /**
    * <p>The ARN for the IAM policy applied to the Amazon QuickSight users and
    * 			groups specified in this assignment.</p>
    * @public
    */
-  PolicyArn?: string;
+  PolicyArn?: string | undefined;
 
   /**
    * <p>The Amazon QuickSight users, groups, or both that the IAM policy is
    * 			assigned to.</p>
    * @public
    */
-  Identities?: Record<string, string[]>;
+  Identities?: Record<string, string[]> | undefined;
 
   /**
    * <p>The status of the assignment. Possible values are as follows:</p>
@@ -6143,19 +6143,19 @@ export interface UpdateIAMPolicyAssignmentResponse {
    *          </ul>
    * @public
    */
-  AssignmentStatus?: AssignmentStatus;
+  AssignmentStatus?: AssignmentStatus | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6178,7 +6178,7 @@ export interface UpdateIdentityPropagationConfigRequest {
    * <p>Specifies a list of application ARNs that represent the authorized targets for a service.</p>
    * @public
    */
-  AuthorizedTargets?: string[];
+  AuthorizedTargets?: string[] | undefined;
 }
 
 /**
@@ -6189,13 +6189,13 @@ export interface UpdateIdentityPropagationConfigResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6212,25 +6212,25 @@ export interface UpdateIpRestrictionRequest {
    * <p>A map that describes the updated IP rules with CIDR ranges and descriptions.</p>
    * @public
    */
-  IpRestrictionRuleMap?: Record<string, string>;
+  IpRestrictionRuleMap?: Record<string, string> | undefined;
 
   /**
    * <p>A map of VPC IDs and their corresponding rules. When you configure this parameter, traffic from all VPC endpoints that are present in the specified VPC is allowed.</p>
    * @public
    */
-  VpcIdRestrictionRuleMap?: Record<string, string>;
+  VpcIdRestrictionRuleMap?: Record<string, string> | undefined;
 
   /**
    * <p>A map of allowed VPC endpoint IDs and their corresponding rule descriptions.</p>
    * @public
    */
-  VpcEndpointIdRestrictionRuleMap?: Record<string, string>;
+  VpcEndpointIdRestrictionRuleMap?: Record<string, string> | undefined;
 
   /**
    * <p>A value that specifies whether IP rules are turned on.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -6241,19 +6241,19 @@ export interface UpdateIpRestrictionResponse {
    * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
    * @public
    */
-  AwsAccountId?: string;
+  AwsAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request. </p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6299,19 +6299,19 @@ export interface UpdateKeyRegistrationResponse {
    * <p>A list of all customer managed key registrations that failed to update.</p>
    * @public
    */
-  FailedKeyRegistration?: FailedKeyRegistrationEntry[];
+  FailedKeyRegistration?: FailedKeyRegistrationEntry[] | undefined;
 
   /**
    * <p>A list of all customer managed key registrations that were successfully updated.</p>
    * @public
    */
-  SuccessfulKeyRegistration?: SuccessfulKeyRegistrationEntry[];
+  SuccessfulKeyRegistration?: SuccessfulKeyRegistrationEntry[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -6328,7 +6328,7 @@ export interface UpdatePublicSharingSettingsRequest {
    * <p>A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account.</p>
    * @public
    */
-  PublicSharingEnabled?: boolean;
+  PublicSharingEnabled?: boolean | undefined;
 }
 
 /**
@@ -6339,13 +6339,13 @@ export interface UpdatePublicSharingSettingsResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6373,19 +6373,19 @@ export interface UpdateQPersonalizationConfigurationResponse {
    * <p>The personalization mode that is used for the personalization configuration.</p>
    * @public
    */
-  PersonalizationMode?: PersonalizationMode;
+  PersonalizationMode?: PersonalizationMode | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6419,25 +6419,25 @@ export interface UpdateRefreshScheduleResponse {
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The ID of the refresh schedule.</p>
    * @public
    */
-  ScheduleId?: string;
+  ScheduleId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -6477,13 +6477,13 @@ export interface UpdateRoleCustomPermissionResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6521,13 +6521,13 @@ export interface UpdateSPICECapacityConfigurationResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6559,7 +6559,7 @@ export interface UpdateTemplateRequest {
    * 			in the original. The schema in each dataset must match its placeholder. </p>
    * @public
    */
-  SourceEntity?: TemplateSourceEntity;
+  SourceEntity?: TemplateSourceEntity | undefined;
 
   /**
    * <p>A description of the current template version that is being updated. Every time you call
@@ -6568,26 +6568,26 @@ export interface UpdateTemplateRequest {
    * 				<code>VersionDescription</code> field.</p>
    * @public
    */
-  VersionDescription?: string;
+  VersionDescription?: string | undefined;
 
   /**
    * <p>The name for the template.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The definition of a template.</p>
    *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
    * @public
    */
-  Definition?: TemplateVersionDefinition;
+  Definition?: TemplateVersionDefinition | undefined;
 
   /**
    * <p>The option to relax the validation needed to update a template with definition objects. This skips the validation step for specific errors.</p>
    * @public
    */
-  ValidationStrategy?: ValidationStrategy;
+  ValidationStrategy?: ValidationStrategy | undefined;
 }
 
 /**
@@ -6598,37 +6598,37 @@ export interface UpdateTemplateResponse {
    * <p>The ID for the template.</p>
    * @public
    */
-  TemplateId?: string;
+  TemplateId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the template.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ARN for the template, including the version information of the first version.</p>
    * @public
    */
-  VersionArn?: string;
+  VersionArn?: string | undefined;
 
   /**
    * <p>The creation status of the template.</p>
    * @public
    */
-  CreationStatus?: ResourceStatus;
+  CreationStatus?: ResourceStatus | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -6671,19 +6671,19 @@ export interface UpdateTemplateAliasResponse {
    * <p>The template alias.</p>
    * @public
    */
-  TemplateAlias?: TemplateAlias;
+  TemplateAlias?: TemplateAlias | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -6706,13 +6706,13 @@ export interface UpdateTemplatePermissionsRequest {
    * <p>A list of resource permissions to be granted on the template. </p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>A list of resource permissions to be revoked from the template. </p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -6723,31 +6723,31 @@ export interface UpdateTemplatePermissionsResponse {
    * <p>The ID for the template.</p>
    * @public
    */
-  TemplateId?: string;
+  TemplateId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the template.</p>
    * @public
    */
-  TemplateArn?: string;
+  TemplateArn?: string | undefined;
 
   /**
    * <p>A list of resource permissions to be set on the template.</p>
    * @public
    */
-  Permissions?: ResourcePermission[];
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6770,7 +6770,7 @@ export interface UpdateThemeRequest {
    * <p>The name for the theme.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The theme ID, defined by Amazon QuickSight, that a custom theme inherits from.
@@ -6785,13 +6785,13 @@ export interface UpdateThemeRequest {
    * 			theme maintains a description of the version in <code>VersionDescription</code>.</p>
    * @public
    */
-  VersionDescription?: string;
+  VersionDescription?: string | undefined;
 
   /**
    * <p>The theme configuration, which contains the theme display properties.</p>
    * @public
    */
-  Configuration?: ThemeConfiguration;
+  Configuration?: ThemeConfiguration | undefined;
 }
 
 /**
@@ -6802,37 +6802,37 @@ export interface UpdateThemeResponse {
    * <p>The ID for the theme.</p>
    * @public
    */
-  ThemeId?: string;
+  ThemeId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the theme.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the new version of the theme.</p>
    * @public
    */
-  VersionArn?: string;
+  VersionArn?: string | undefined;
 
   /**
    * <p>The creation status of the theme.</p>
    * @public
    */
-  CreationStatus?: ResourceStatus;
+  CreationStatus?: ResourceStatus | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -6872,19 +6872,19 @@ export interface UpdateThemeAliasResponse {
    * <p>Information about the theme alias.</p>
    * @public
    */
-  ThemeAlias?: ThemeAlias;
+  ThemeAlias?: ThemeAlias | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -6907,13 +6907,13 @@ export interface UpdateThemePermissionsRequest {
    * <p>A list of resource permissions to be granted for the theme.</p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>A list of resource permissions to be revoked from the theme.</p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -6924,31 +6924,31 @@ export interface UpdateThemePermissionsResponse {
    * <p>The ID for the theme.</p>
    * @public
    */
-  ThemeId?: string;
+  ThemeId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the theme.</p>
    * @public
    */
-  ThemeArn?: string;
+  ThemeArn?: string | undefined;
 
   /**
    * <p>The resulting list of resource permissions for the theme.</p>
    * @public
    */
-  Permissions?: ResourcePermission[];
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -6983,31 +6983,31 @@ export interface UpdateTopicResponse {
    * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic refresh.</p>
    * @public
    */
-  RefreshArn?: string;
+  RefreshArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -7031,13 +7031,13 @@ export interface UpdateTopicPermissionsRequest {
    * <p>The resource permissions that you want to grant to the topic.</p>
    * @public
    */
-  GrantPermissions?: ResourcePermission[];
+  GrantPermissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The resource permissions that you want to revoke from the topic.</p>
    * @public
    */
-  RevokePermissions?: ResourcePermission[];
+  RevokePermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -7048,31 +7048,31 @@ export interface UpdateTopicPermissionsResponse {
    * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>A list of resource permissions on the topic.</p>
    * @public
    */
-  Permissions?: ResourcePermission[];
+  Permissions?: ResourcePermission[] | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -7113,31 +7113,31 @@ export interface UpdateTopicRefreshScheduleResponse {
    * <p>The ID of the topic that you want to modify. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**
@@ -7234,7 +7234,7 @@ export interface UpdateUserRequest {
    *          <p>This feature is available only to Amazon QuickSight Enterprise edition subscriptions.</p>
    * @public
    */
-  CustomPermissionsName?: string;
+  CustomPermissionsName?: string | undefined;
 
   /**
    * <p>A flag that you use to indicate that you want to remove all custom permissions
@@ -7243,7 +7243,7 @@ export interface UpdateUserRequest {
    *             NULL and it doesn't accept any other value.</p>
    * @public
    */
-  UnapplyCustomPermissions?: boolean;
+  UnapplyCustomPermissions?: boolean | undefined;
 
   /**
    * <p>The type of supported external login provider that provides identity to let a user federate into Amazon QuickSight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
@@ -7267,7 +7267,7 @@ export interface UpdateUserRequest {
    *          </ul>
    * @public
    */
-  ExternalLoginFederationProviderType?: string;
+  ExternalLoginFederationProviderType?: string | undefined;
 
   /**
    * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
@@ -7275,13 +7275,13 @@ export interface UpdateUserRequest {
    *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
    * @public
    */
-  CustomFederationProviderUrl?: string;
+  CustomFederationProviderUrl?: string | undefined;
 
   /**
    * <p>The identity ID for a user in the external login provider.</p>
    * @public
    */
-  ExternalLoginId?: string;
+  ExternalLoginId?: string | undefined;
 }
 
 /**
@@ -7292,19 +7292,19 @@ export interface UpdateUserResponse {
    * <p>The Amazon QuickSight user.</p>
    * @public
    */
-  User?: User;
+  User?: User | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -7348,7 +7348,7 @@ export interface UpdateVPCConnectionRequest {
    * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
    * @public
    */
-  DnsResolvers?: string[];
+  DnsResolvers?: string[] | undefined;
 
   /**
    * <p>An IAM role associated with the VPC connection.</p>
@@ -7365,37 +7365,37 @@ export interface UpdateVPCConnectionResponse {
    * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the VPC connection that you are updating. This ID is a unique identifier for each Amazon Web Services Region in anAmazon Web Services account.</p>
    * @public
    */
-  VPCConnectionId?: string;
+  VPCConnectionId?: string | undefined;
 
   /**
    * <p>The update status of the VPC connection's last update.</p>
    * @public
    */
-  UpdateStatus?: VPCConnectionResourceStatus;
+  UpdateStatus?: VPCConnectionResourceStatus | undefined;
 
   /**
    * <p>The availability status of the VPC connection.</p>
    * @public
    */
-  AvailabilityStatus?: VPCConnectionAvailabilityStatus;
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 }
 
 /**
@@ -7407,25 +7407,25 @@ export interface TopicVisual {
    * <p>The visual ID for the <code>TopicVisual</code>.</p>
    * @public
    */
-  VisualId?: string;
+  VisualId?: string | undefined;
 
   /**
    * <p>The role for the <code>TopicVisual</code>.</p>
    * @public
    */
-  Role?: VisualRole;
+  Role?: VisualRole | undefined;
 
   /**
    * <p>The ir for the <code>TopicVisual</code>.</p>
    * @public
    */
-  Ir?: TopicIR;
+  Ir?: TopicIR | undefined;
 
   /**
    * <p>The supporting visuals for the <code>TopicVisual</code>.</p>
    * @public
    */
-  SupportingVisuals?: TopicVisual[];
+  SupportingVisuals?: TopicVisual[] | undefined;
 }
 
 /**
@@ -7455,19 +7455,19 @@ export interface CreateTopicReviewedAnswer {
    * <p>The Mir for the <code>CreateTopicReviewedAnswer</code>.</p>
    * @public
    */
-  Mir?: TopicIR;
+  Mir?: TopicIR | undefined;
 
   /**
    * <p>The <code>PrimaryVisual</code> for the <code>CreateTopicReviewedAnswer</code>.</p>
    * @public
    */
-  PrimaryVisual?: TopicVisual;
+  PrimaryVisual?: TopicVisual | undefined;
 
   /**
    * <p>The template for the <code>CreateTopicReviewedAnswer</code>.</p>
    * @public
    */
-  Template?: TopicTemplate;
+  Template?: TopicTemplate | undefined;
 }
 
 /**
@@ -7479,7 +7479,7 @@ export interface TopicReviewedAnswer {
    * <p>The Amazon Resource Name (ARN) of the reviewed answer.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The answer ID of the reviewed answer.</p>
@@ -7503,19 +7503,19 @@ export interface TopicReviewedAnswer {
    * <p>The mir for the <code>TopicReviewedAnswer</code>.</p>
    * @public
    */
-  Mir?: TopicIR;
+  Mir?: TopicIR | undefined;
 
   /**
    * <p>The primary visual for the <code>TopicReviewedAnswer</code>.</p>
    * @public
    */
-  PrimaryVisual?: TopicVisual;
+  PrimaryVisual?: TopicVisual | undefined;
 
   /**
    * <p>The template for the <code>TopicReviewedAnswer</code>.</p>
    * @public
    */
-  Template?: TopicTemplate;
+  Template?: TopicTemplate | undefined;
 }
 
 /**
@@ -7549,31 +7549,31 @@ export interface ListTopicReviewedAnswersResponse {
    * <p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
    * @public
    */
-  TopicId?: string;
+  TopicId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>The definition of all Answers in the topic.</p>
    * @public
    */
-  Answers?: TopicReviewedAnswer[];
+  Answers?: TopicReviewedAnswer[] | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
    * @public
    */
-  Status?: number;
+  Status?: number | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 }
 
 /**

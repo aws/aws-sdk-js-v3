@@ -34,13 +34,13 @@ export interface CustomerNodeEndpoint {
    * <p>The address of the node endpoint</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The port of the node endpoint</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 }
 
 /**
@@ -69,7 +69,7 @@ export interface StartMigrationResponse {
    * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
    * @public
    */
-  ReplicationGroup?: ReplicationGroup;
+  ReplicationGroup?: ReplicationGroup | undefined;
 }
 
 /**
@@ -162,7 +162,7 @@ export interface TestFailoverResult {
    * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
    * @public
    */
-  ReplicationGroup?: ReplicationGroup;
+  ReplicationGroup?: ReplicationGroup | undefined;
 }
 
 /**
@@ -191,5 +191,5 @@ export interface TestMigrationResponse {
    * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
    * @public
    */
-  ReplicationGroup?: ReplicationGroup;
+  ReplicationGroup?: ReplicationGroup | undefined;
 }

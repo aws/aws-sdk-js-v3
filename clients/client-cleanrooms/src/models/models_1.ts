@@ -193,13 +193,13 @@ export interface StartProtectedQueryInput {
    * <p>The details needed to write the query results.</p>
    * @public
    */
-  resultConfiguration?: ProtectedQueryResultConfiguration;
+  resultConfiguration?: ProtectedQueryResultConfiguration | undefined;
 
   /**
    * <p> The compute configuration for the protected query.</p>
    * @public
    */
-  computeConfiguration?: ComputeConfiguration;
+  computeConfiguration?: ComputeConfiguration | undefined;
 }
 
 /**
@@ -228,14 +228,14 @@ export interface UpdateMembershipInput {
    *          membership.</p>
    * @public
    */
-  queryLogStatus?: MembershipQueryLogStatus;
+  queryLogStatus?: MembershipQueryLogStatus | undefined;
 
   /**
    * <p>The default protected query result configuration as specified by the member who can
    *          receive results.</p>
    * @public
    */
-  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration;
+  defaultResultConfiguration?: MembershipProtectedQueryResultConfiguration | undefined;
 }
 
 /**
@@ -393,7 +393,7 @@ export interface CreatePrivacyBudgetTemplateInput {
    *          to this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -546,14 +546,14 @@ export interface ListPrivacyBudgetTemplatesInput {
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a `nextToken` even if the
    * `maxResults` value has not been met.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -624,7 +624,7 @@ export interface ListPrivacyBudgetTemplatesOutput {
    * <p>The pagination token that's used to fetch the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array that summarizes the privacy budget templates. The summary includes collaboration information, creation information, and privacy budget type.</p>
@@ -642,13 +642,13 @@ export interface DifferentialPrivacyTemplateUpdateParameters {
    * <p>The updated epsilon value that you want to use.</p>
    * @public
    */
-  epsilon?: number;
+  epsilon?: number | undefined;
 
   /**
    * <p>The updated value of noise added per query. It is measured in terms of the number of users whose contributions you want to obscure. This value governs the rate at which the privacy budget is depleted.</p>
    * @public
    */
-  usersNoisePerQuery?: number;
+  usersNoisePerQuery?: number | undefined;
 }
 
 /**
@@ -717,7 +717,7 @@ export interface UpdatePrivacyBudgetTemplateInput {
    * <p>Specifies the epsilon and noise parameters for the privacy budget template.</p>
    * @public
    */
-  parameters?: PrivacyBudgetTemplateUpdateParameters;
+  parameters?: PrivacyBudgetTemplateUpdateParameters | undefined;
 }
 
 /**

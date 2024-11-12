@@ -47,37 +47,37 @@ export interface BatchLoadProgressReport {
    * <p></p>
    * @public
    */
-  RecordsProcessed?: number;
+  RecordsProcessed?: number | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  RecordsIngested?: number;
+  RecordsIngested?: number | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  ParseFailures?: number;
+  ParseFailures?: number | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  RecordIngestionFailures?: number;
+  RecordIngestionFailures?: number | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  FileFailures?: number;
+  FileFailures?: number | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  BytesMetered?: number;
+  BytesMetered?: number | undefined;
 }
 
 /**
@@ -107,44 +107,44 @@ export interface BatchLoadTask {
    * <p>The ID of the batch load task.</p>
    * @public
    */
-  TaskId?: string;
+  TaskId?: string | undefined;
 
   /**
    * <p>Status of the batch load task.</p>
    * @public
    */
-  TaskStatus?: BatchLoadStatus;
+  TaskStatus?: BatchLoadStatus | undefined;
 
   /**
    * <p>Database name for the database into which a batch load task loads data.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Table name for the table into which a batch load task loads data.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The time when the Timestream batch load task was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time when the Timestream batch load task was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>
    *       </p>
    * @public
    */
-  ResumableUntil?: Date;
+  ResumableUntil?: Date | undefined;
 }
 
 /**
@@ -156,14 +156,14 @@ export interface DimensionMapping {
    * <p></p>
    * @public
    */
-  SourceColumn?: string;
+  SourceColumn?: string | undefined;
 
   /**
    * <p>
    *       </p>
    * @public
    */
-  DestinationColumn?: string;
+  DestinationColumn?: string | undefined;
 }
 
 /**
@@ -216,13 +216,13 @@ export interface MultiMeasureAttributeMapping {
    * <p></p>
    * @public
    */
-  TargetMultiMeasureAttributeName?: string;
+  TargetMultiMeasureAttributeName?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  MeasureValueType?: ScalarMeasureValueType;
+  MeasureValueType?: ScalarMeasureValueType | undefined;
 }
 
 /**
@@ -234,19 +234,19 @@ export interface MixedMeasureMapping {
    * <p></p>
    * @public
    */
-  MeasureName?: string;
+  MeasureName?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  SourceColumn?: string;
+  SourceColumn?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  TargetMeasureName?: string;
+  TargetMeasureName?: string | undefined;
 
   /**
    * <p></p>
@@ -258,7 +258,7 @@ export interface MixedMeasureMapping {
    * <p></p>
    * @public
    */
-  MultiMeasureAttributeMappings?: MultiMeasureAttributeMapping[];
+  MultiMeasureAttributeMappings?: MultiMeasureAttributeMapping[] | undefined;
 }
 
 /**
@@ -270,7 +270,7 @@ export interface MultiMeasureMappings {
    * <p></p>
    * @public
    */
-  TargetMultiMeasureName?: string;
+  TargetMultiMeasureName?: string | undefined;
 
   /**
    * <p></p>
@@ -304,7 +304,7 @@ export interface DataModel {
    * <p>Source column to be mapped to time.</p>
    * @public
    */
-  TimeColumn?: string;
+  TimeColumn?: string | undefined;
 
   /**
    * <p> The granularity of the timestamp unit. It indicates if the time value is in seconds,
@@ -312,7 +312,7 @@ export interface DataModel {
    *       </p>
    * @public
    */
-  TimeUnit?: TimeUnit;
+  TimeUnit?: TimeUnit | undefined;
 
   /**
    * <p>Source to target mappings for dimensions.</p>
@@ -324,19 +324,19 @@ export interface DataModel {
    * <p>Source to target mappings for multi-measure records.</p>
    * @public
    */
-  MultiMeasureMappings?: MultiMeasureMappings;
+  MultiMeasureMappings?: MultiMeasureMappings | undefined;
 
   /**
    * <p>Source to target mappings for measures.</p>
    * @public
    */
-  MixedMeasureMappings?: MixedMeasureMapping[];
+  MixedMeasureMappings?: MixedMeasureMapping[] | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  MeasureNameColumn?: string;
+  MeasureNameColumn?: string | undefined;
 }
 
 /**
@@ -348,13 +348,13 @@ export interface DataModelS3Configuration {
    * <p></p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  ObjectKey?: string;
+  ObjectKey?: string | undefined;
 }
 
 /**
@@ -366,13 +366,13 @@ export interface DataModelConfiguration {
    * <p></p>
    * @public
    */
-  DataModel?: DataModel;
+  DataModel?: DataModel | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  DataModelS3Configuration?: DataModelS3Configuration;
+  DataModelS3Configuration?: DataModelS3Configuration | undefined;
 }
 
 /**
@@ -386,31 +386,31 @@ export interface CsvConfiguration {
    *          blank space (' '). </p>
    * @public
    */
-  ColumnSeparator?: string;
+  ColumnSeparator?: string | undefined;
 
   /**
    * <p>Escape character can be one of </p>
    * @public
    */
-  EscapeChar?: string;
+  EscapeChar?: string | undefined;
 
   /**
    * <p>Can be single quote (') or double quote (").</p>
    * @public
    */
-  QuoteChar?: string;
+  QuoteChar?: string | undefined;
 
   /**
    * <p>Can be blank space (' ').</p>
    * @public
    */
-  NullValue?: string;
+  NullValue?: string | undefined;
 
   /**
    * <p>Specifies to trim leading and trailing white space.</p>
    * @public
    */
-  TrimWhiteSpace?: boolean;
+  TrimWhiteSpace?: boolean | undefined;
 }
 
 /**
@@ -430,7 +430,7 @@ export interface DataSourceS3Configuration {
    *       </p>
    * @public
    */
-  ObjectKeyPrefix?: string;
+  ObjectKeyPrefix?: string | undefined;
 }
 
 /**
@@ -449,7 +449,7 @@ export interface DataSourceConfiguration {
    *          separator is a newline character.</p>
    * @public
    */
-  CsvConfiguration?: CsvConfiguration;
+  CsvConfiguration?: CsvConfiguration | undefined;
 
   /**
    * <p>This is currently CSV.</p>
@@ -487,19 +487,19 @@ export interface ReportS3Configuration {
    * <p></p>
    * @public
    */
-  ObjectKeyPrefix?: string;
+  ObjectKeyPrefix?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  EncryptionOption?: S3EncryptionOption;
+  EncryptionOption?: S3EncryptionOption | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -513,7 +513,7 @@ export interface ReportConfiguration {
    *          load.</p>
    * @public
    */
-  ReportS3Configuration?: ReportS3Configuration;
+  ReportS3Configuration?: ReportS3Configuration | undefined;
 }
 
 /**
@@ -525,82 +525,82 @@ export interface BatchLoadTaskDescription {
    * <p>The ID of the batch load task.</p>
    * @public
    */
-  TaskId?: string;
+  TaskId?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>Configuration details about the data source for a batch load task.</p>
    * @public
    */
-  DataSourceConfiguration?: DataSourceConfiguration;
+  DataSourceConfiguration?: DataSourceConfiguration | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  ProgressReport?: BatchLoadProgressReport;
+  ProgressReport?: BatchLoadProgressReport | undefined;
 
   /**
    * <p>Report configuration for a batch load task. This contains details about where error
    *          reports are stored.</p>
    * @public
    */
-  ReportConfiguration?: ReportConfiguration;
+  ReportConfiguration?: ReportConfiguration | undefined;
 
   /**
    * <p>Data model configuration for a batch load task. This contains details about where a data
    *          model for a batch load task is stored.</p>
    * @public
    */
-  DataModelConfiguration?: DataModelConfiguration;
+  DataModelConfiguration?: DataModelConfiguration | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  TargetDatabaseName?: string;
+  TargetDatabaseName?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  TargetTableName?: string;
+  TargetTableName?: string | undefined;
 
   /**
    * <p>Status of the batch load task.</p>
    * @public
    */
-  TaskStatus?: BatchLoadStatus;
+  TaskStatus?: BatchLoadStatus | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  RecordVersion?: number;
+  RecordVersion?: number | undefined;
 
   /**
    * <p>The time when the Timestream batch load task was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time when the Timestream batch load task was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>
    *       </p>
    * @public
    */
-  ResumableUntil?: Date;
+  ResumableUntil?: Date | undefined;
 }
 
 /**
@@ -634,13 +634,13 @@ export interface CreateBatchLoadTaskRequest {
    * <p></p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p></p>
    * @public
    */
-  DataModelConfiguration?: DataModelConfiguration;
+  DataModelConfiguration?: DataModelConfiguration | undefined;
 
   /**
    * <p>Defines configuration details about the data source for a batch load task.</p>
@@ -671,7 +671,7 @@ export interface CreateBatchLoadTaskRequest {
    * <p></p>
    * @public
    */
-  RecordVersion?: number;
+  RecordVersion?: number | undefined;
 }
 
 /**
@@ -716,7 +716,7 @@ export class InternalServerException extends __BaseException {
 export class InvalidEndpointException extends __BaseException {
   readonly name: "InvalidEndpointException" = "InvalidEndpointException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -739,7 +739,7 @@ export class InvalidEndpointException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -761,7 +761,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -856,13 +856,13 @@ export interface CreateDatabaseRequest {
    *          specified, the database will be encrypted with a Timestream managed KMS key located in your account. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed keys</a>.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p> A list of key-value pairs to label the table. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -876,38 +876,38 @@ export interface Database {
    * <p>The Amazon Resource Name that uniquely identifies this database.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the Timestream database.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The total number of tables found within a Timestream database. </p>
    * @public
    */
-  TableCount?: number;
+  TableCount?: number | undefined;
 
   /**
    * <p>The identifier of the KMS key used to encrypt the data stored in the
    *          database.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The time when the database was created, calculated from the Unix epoch time.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p> The last time that this database was updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -918,7 +918,7 @@ export interface CreateDatabaseResponse {
    * <p>The newly created Timestream database.</p>
    * @public
    */
-  Database?: Database;
+  Database?: Database | undefined;
 }
 
 /**
@@ -930,27 +930,27 @@ export interface S3Configuration {
    * <p>The bucket name of the customer S3 bucket.</p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p>The object key preview for the customer S3 location.</p>
    * @public
    */
-  ObjectKeyPrefix?: string;
+  ObjectKeyPrefix?: string | undefined;
 
   /**
    * <p>The encryption option for the customer S3 location. Options are S3 server-side
    *          encryption with an S3 managed key or Amazon Web Services managed key.</p>
    * @public
    */
-  EncryptionOption?: S3EncryptionOption;
+  EncryptionOption?: S3EncryptionOption | undefined;
 
   /**
    * <p>The KMS key ID for the customer S3 location when encrypting with an
    *             Amazon Web Services managed key.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -964,7 +964,7 @@ export interface MagneticStoreRejectedDataLocation {
    *          asynchronously, during magnetic store writes.</p>
    * @public
    */
-  S3Configuration?: S3Configuration;
+  S3Configuration?: S3Configuration | undefined;
 }
 
 /**
@@ -983,7 +983,7 @@ export interface MagneticStoreWriteProperties {
    *          store writes.</p>
    * @public
    */
-  MagneticStoreRejectedDataLocation?: MagneticStoreRejectedDataLocation;
+  MagneticStoreRejectedDataLocation?: MagneticStoreRejectedDataLocation | undefined;
 }
 
 /**
@@ -1053,7 +1053,7 @@ export interface PartitionKey {
    * <p> The name of the attribute used for a dimension key. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p> The level of enforcement for the specification of a dimension key in ingested records.
@@ -1061,7 +1061,7 @@ export interface PartitionKey {
    *          have to be specified). </p>
    * @public
    */
-  EnforcementInRecord?: PartitionKeyEnforcementLevel;
+  EnforcementInRecord?: PartitionKeyEnforcementLevel | undefined;
 }
 
 /**
@@ -1076,7 +1076,7 @@ export interface Schema {
    *          created. However, the enforcement level of each partition key can be changed. </p>
    * @public
    */
-  CompositePartitionKey?: PartitionKey[];
+  CompositePartitionKey?: PartitionKey[] | undefined;
 }
 
 /**
@@ -1100,25 +1100,25 @@ export interface CreateTableRequest {
    *          magnetic store.</p>
    * @public
    */
-  RetentionProperties?: RetentionProperties;
+  RetentionProperties?: RetentionProperties | undefined;
 
   /**
    * <p> A list of key-value pairs to label the table. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
    * @public
    */
-  MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
+  MagneticStoreWriteProperties?: MagneticStoreWriteProperties | undefined;
 
   /**
    * <p> The schema of the table. </p>
    * @public
    */
-  Schema?: Schema;
+  Schema?: Schema | undefined;
 }
 
 /**
@@ -1147,19 +1147,19 @@ export interface Table {
    * <p>The Amazon Resource Name that uniquely identifies this table.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the Timestream table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The name of the Timestream database that contains this table.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The current state of the table:</p>
@@ -1175,37 +1175,37 @@ export interface Table {
    *          </ul>
    * @public
    */
-  TableStatus?: TableStatus;
+  TableStatus?: TableStatus | undefined;
 
   /**
    * <p>The retention duration for the memory store and magnetic store.</p>
    * @public
    */
-  RetentionProperties?: RetentionProperties;
+  RetentionProperties?: RetentionProperties | undefined;
 
   /**
    * <p>The time when the Timestream table was created. </p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time when the Timestream table was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
    * @public
    */
-  MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
+  MagneticStoreWriteProperties?: MagneticStoreWriteProperties | undefined;
 
   /**
    * <p> The schema of the table. </p>
    * @public
    */
-  Schema?: Schema;
+  Schema?: Schema | undefined;
 }
 
 /**
@@ -1216,7 +1216,7 @@ export interface CreateTableResponse {
    * <p>The newly created Timestream table.</p>
    * @public
    */
-  Table?: Table;
+  Table?: Table | undefined;
 }
 
 /**
@@ -1288,7 +1288,7 @@ export interface DescribeDatabaseResponse {
    * <p>The name of the Timestream table.</p>
    * @public
    */
-  Database?: Database;
+  Database?: Database | undefined;
 }
 
 /**
@@ -1352,7 +1352,7 @@ export interface DescribeTableResponse {
    * <p>The Timestream table.</p>
    * @public
    */
-  Table?: Table;
+  Table?: Table | undefined;
 }
 
 /**
@@ -1395,7 +1395,7 @@ export interface Dimension {
    * <p>The data type of the dimension for the time-series data point.</p>
    * @public
    */
-  DimensionValueType?: DimensionValueType;
+  DimensionValueType?: DimensionValueType | undefined;
 }
 
 /**
@@ -1407,7 +1407,7 @@ export interface ListBatchLoadTasksRequest {
    *          truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of items to return in the output. If the total number of items
@@ -1416,13 +1416,13 @@ export interface ListBatchLoadTasksRequest {
    *          invocation.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Status of the batch load task.</p>
    * @public
    */
-  TaskStatus?: BatchLoadStatus;
+  TaskStatus?: BatchLoadStatus | undefined;
 }
 
 /**
@@ -1434,13 +1434,13 @@ export interface ListBatchLoadTasksResponse {
    *          ListBatchLoadTasksRequest.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of batch load task details.</p>
    * @public
    */
-  BatchLoadTasks?: BatchLoadTask[];
+  BatchLoadTasks?: BatchLoadTask[] | undefined;
 }
 
 /**
@@ -1452,7 +1452,7 @@ export interface ListDatabasesRequest {
    *          subsequent API invocation.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of items to return in the output. If the total number of items
@@ -1461,7 +1461,7 @@ export interface ListDatabasesRequest {
    *          invocation.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1472,13 +1472,13 @@ export interface ListDatabasesResponse {
    * <p>A list of database names.</p>
    * @public
    */
-  Databases?: Database[];
+  Databases?: Database[] | undefined;
 
   /**
    * <p>The pagination token. This parameter is returned when the response is truncated.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1489,14 +1489,14 @@ export interface ListTablesRequest {
    * <p>The name of the Timestream database.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a
    *          subsequent API invocation.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of items to return in the output. If the total number of items
@@ -1505,7 +1505,7 @@ export interface ListTablesRequest {
    *          invocation.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1516,14 +1516,14 @@ export interface ListTablesResponse {
    * <p>A list of tables.</p>
    * @public
    */
-  Tables?: Table[];
+  Tables?: Table[] | undefined;
 
   /**
    * <p>A token to specify where to start paginating. This is the NextToken from a previously
    *          truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1546,7 +1546,7 @@ export interface ListTagsForResourceResponse {
    * <p> The tags currently associated with the Timestream resource. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1602,20 +1602,20 @@ export interface _Record {
    * <p>Contains the list of dimensions for time-series data points.</p>
    * @public
    */
-  Dimensions?: Dimension[];
+  Dimensions?: Dimension[] | undefined;
 
   /**
    * <p>Measure represents the data attribute of the time series. For example, the CPU
    *          utilization of an EC2 instance or the RPM of a wind turbine are measures. </p>
    * @public
    */
-  MeasureName?: string;
+  MeasureName?: string | undefined;
 
   /**
    * <p> Contains the measure value for the time-series data point. </p>
    * @public
    */
-  MeasureValue?: string;
+  MeasureValue?: string | undefined;
 
   /**
    * <p> Contains the data type of the measure value for the time-series data point. Default
@@ -1623,7 +1623,7 @@ export interface _Record {
    *          types</a>.</p>
    * @public
    */
-  MeasureValueType?: MeasureValueType;
+  MeasureValueType?: MeasureValueType | undefined;
 
   /**
    * <p> Contains the time at which the measure value for the data point was collected. The time
@@ -1632,7 +1632,7 @@ export interface _Record {
    *          have elapsed since the epoch. </p>
    * @public
    */
-  Time?: string;
+  Time?: string | undefined;
 
   /**
    * <p> The granularity of the timestamp unit. It indicates if the time value is in seconds,
@@ -1640,7 +1640,7 @@ export interface _Record {
    *       </p>
    * @public
    */
-  TimeUnit?: TimeUnit;
+  TimeUnit?: TimeUnit | undefined;
 
   /**
    * <p>64-bit attribute used for record updates. Write requests for duplicate data with a
@@ -1654,7 +1654,7 @@ export interface _Record {
    *          </note>
    * @public
    */
-  Version?: number;
+  Version?: number | undefined;
 
   /**
    * <p> Contains the list of MeasureValue for time-series data points. </p>
@@ -1662,7 +1662,7 @@ export interface _Record {
    *             <code>MeasureValue</code> attribute of the record directly. </p>
    * @public
    */
-  MeasureValues?: MeasureValue[];
+  MeasureValues?: MeasureValue[] | undefined;
 }
 
 /**
@@ -1674,19 +1674,19 @@ export interface RecordsIngested {
    * <p>Total count of successfully ingested records.</p>
    * @public
    */
-  Total?: number;
+  Total?: number | undefined;
 
   /**
    * <p>Count of records ingested into the memory store.</p>
    * @public
    */
-  MemoryStore?: number;
+  MemoryStore?: number | undefined;
 
   /**
    * <p>Count of records ingested into the magnetic store.</p>
    * @public
    */
-  MagneticStore?: number;
+  MagneticStore?: number | undefined;
 }
 
 /**
@@ -1701,7 +1701,7 @@ export interface RejectedRecord {
    *       </p>
    * @public
    */
-  RecordIndex?: number;
+  RecordIndex?: number | undefined;
 
   /**
    * <p> The reason why a record was not successfully inserted into Timestream.
@@ -1747,14 +1747,14 @@ export interface RejectedRecord {
    *             Timestream Developer Guide. </p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 
   /**
    * <p>The existing version of the record. This value is populated in scenarios where an
    *          identical record exists with a higher version than the version in the write request.</p>
    * @public
    */
-  ExistingVersion?: number;
+  ExistingVersion?: number | undefined;
 }
 
 /**
@@ -1793,13 +1793,13 @@ export interface RejectedRecord {
 export class RejectedRecordsException extends __BaseException {
   readonly name: "RejectedRecordsException" = "RejectedRecordsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>
    *       </p>
    * @public
    */
-  RejectedRecords?: RejectedRecord[];
+  RejectedRecords?: RejectedRecord[] | undefined;
   /**
    * @internal
    */
@@ -1929,7 +1929,7 @@ export interface UpdateDatabaseResponse {
    *          same KMS key.</p>
    * @public
    */
-  Database?: Database;
+  Database?: Database | undefined;
 }
 
 /**
@@ -1952,19 +1952,19 @@ export interface UpdateTableRequest {
    * <p>The retention duration of the memory store and the magnetic store.</p>
    * @public
    */
-  RetentionProperties?: RetentionProperties;
+  RetentionProperties?: RetentionProperties | undefined;
 
   /**
    * <p>Contains properties to set on the table when enabling magnetic store writes.</p>
    * @public
    */
-  MagneticStoreWriteProperties?: MagneticStoreWriteProperties;
+  MagneticStoreWriteProperties?: MagneticStoreWriteProperties | undefined;
 
   /**
    * <p> The schema of the table. </p>
    * @public
    */
-  Schema?: Schema;
+  Schema?: Schema | undefined;
 }
 
 /**
@@ -1975,7 +1975,7 @@ export interface UpdateTableResponse {
    * <p>The updated Timestream table.</p>
    * @public
    */
-  Table?: Table;
+  Table?: Table | undefined;
 }
 
 /**
@@ -2003,7 +2003,7 @@ export interface WriteRecordsRequest {
    *          dimensions with unique names. </p>
    * @public
    */
-  CommonAttributes?: _Record;
+  CommonAttributes?: _Record | undefined;
 
   /**
    * <p>An array of records that contain the unique measure, dimension, time, and version
@@ -2021,7 +2021,7 @@ export interface WriteRecordsResponse {
    * <p>Information on the records ingested by this request.</p>
    * @public
    */
-  RecordsIngested?: RecordsIngested;
+  RecordsIngested?: RecordsIngested | undefined;
 }
 
 /**

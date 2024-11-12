@@ -72,19 +72,19 @@ export interface FileUploadCard {
    * <p>The name of the file being uploaded.</p>
    * @public
    */
-  filename?: string;
+  filename?: string | undefined;
 
   /**
    * <p>The unique identifier of the file associated with the card.</p>
    * @public
    */
-  fileId?: string;
+  fileId?: string | undefined;
 
   /**
    * <p>A flag indicating if the user can override the default file for the upload card.</p>
    * @public
    */
-  allowOverride?: boolean;
+  allowOverride?: boolean | undefined;
 }
 
 /**
@@ -312,13 +312,13 @@ export interface TextInputCard {
    * <p>The placeholder text to display in the text input field.</p>
    * @public
    */
-  placeholder?: string;
+  placeholder?: string | undefined;
 
   /**
    * <p>The default value to pre-populate in the text input field.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 }
 
 /**
@@ -351,19 +351,19 @@ export interface FileUploadCardInput {
    * <p>The default filename to use for the file upload card.</p>
    * @public
    */
-  filename?: string;
+  filename?: string | undefined;
 
   /**
    * <p>The identifier of a pre-uploaded file associated with the card.</p>
    * @public
    */
-  fileId?: string;
+  fileId?: string | undefined;
 
   /**
    * <p>A flag indicating if the user can override the default file for the upload card.</p>
    * @public
    */
-  allowOverride?: boolean;
+  allowOverride?: boolean | undefined;
 }
 
 /**
@@ -429,13 +429,13 @@ export interface TextInputCardInput {
    * <p>The placeholder text to display in the text input field.</p>
    * @public
    */
-  placeholder?: string;
+  placeholder?: string | undefined;
 
   /**
    * <p>The default value to pre-populate in the text input field.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 }
 
 /**
@@ -533,7 +533,7 @@ export class InternalServerException extends __BaseException {
    * <p>The number of seconds to wait before retrying the operation</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -659,7 +659,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds to wait before retrying the operation</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -743,7 +743,7 @@ export interface BatchCreateCategoryInputCategory {
    * <p>The unique identifier to be associated with a category. If you don't include a value, the category is automatically assigned a unique identifier.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the category.</p>
@@ -755,7 +755,7 @@ export interface BatchCreateCategoryInputCategory {
    * <p>The color to be associated with a category. The color must be a hexadecimal value of either 3 or 6 digits.</p>
    * @public
    */
-  color?: string;
+  color?: string | undefined;
 }
 
 /**
@@ -813,7 +813,7 @@ export interface CategoryInput {
    * <p>The color of the category, represented as a hexadecimal value of either 3 or 6 digits.</p>
    * @public
    */
-  color?: string;
+  color?: string | undefined;
 }
 
 /**
@@ -905,13 +905,13 @@ export interface Category {
    * <p>The color of the category</p>
    * @public
    */
-  color?: string;
+  color?: string | undefined;
 
   /**
    * <p>The number of published Amazon Q Apps associated with a category</p>
    * @public
    */
-  appCount?: number;
+  appCount?: number | undefined;
 }
 
 /**
@@ -1042,13 +1042,13 @@ export interface CreateLibraryItemOutput {
    * <p>The date and time the library item was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The user who last updated the library item.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The number of ratings the library item has received from users.</p>
@@ -1060,7 +1060,7 @@ export interface CreateLibraryItemOutput {
    * <p>Indicates whether the library item has been verified.</p>
    * @public
    */
-  isVerified?: boolean;
+  isVerified?: boolean | undefined;
 }
 
 /**
@@ -1089,13 +1089,13 @@ export interface CreateQAppOutput {
    * <p>The description of the new Q App.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The initial prompt displayed when the Q App is started.</p>
    * @public
    */
-  initialPrompt?: string;
+  initialPrompt?: string | undefined;
 
   /**
    * <p>The version of the new Q App.</p>
@@ -1137,7 +1137,7 @@ export interface CreateQAppOutput {
    * <p>The capabilities required to run the Q App, such as file upload or third-party integrations.</p>
    * @public
    */
-  requiredCapabilities?: AppRequiredCapability[];
+  requiredCapabilities?: AppRequiredCapability[] | undefined;
 }
 
 /**
@@ -1242,7 +1242,7 @@ export interface GetLibraryItemInput {
    * <p>The unique identifier of the Amazon Q App associated with the library item.</p>
    * @public
    */
-  appId?: string;
+  appId?: string | undefined;
 }
 
 /**
@@ -1295,13 +1295,13 @@ export interface GetLibraryItemOutput {
    * <p>The date and time the library item was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The user who last updated the library item.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The number of ratings the library item has received from users.</p>
@@ -1313,19 +1313,19 @@ export interface GetLibraryItemOutput {
    * <p>Whether the current user has rated the library item.</p>
    * @public
    */
-  isRatedByUser?: boolean;
+  isRatedByUser?: boolean | undefined;
 
   /**
    * <p>The number of users who have associated the Q App with their account.</p>
    * @public
    */
-  userCount?: number;
+  userCount?: number | undefined;
 
   /**
    * <p>Indicates whether the library item has been verified.</p>
    * @public
    */
-  isVerified?: boolean;
+  isVerified?: boolean | undefined;
 }
 
 /**
@@ -1435,7 +1435,7 @@ export interface ImportDocumentInput {
    * <p>The unique identifier of the Q App session the file is associated with, if applicable.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 }
 
 /**
@@ -1446,7 +1446,7 @@ export interface ImportDocumentOutput {
    * <p>The unique identifier assigned to the uploaded file.</p>
    * @public
    */
-  fileId?: string;
+  fileId?: string | undefined;
 }
 
 /**
@@ -1502,13 +1502,13 @@ export interface LibraryItemMember {
    * <p>The date and time the library item was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The user who last updated the library item.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The number of ratings the library item has received.</p>
@@ -1520,19 +1520,19 @@ export interface LibraryItemMember {
    * <p>Whether the current user has rated the library item.</p>
    * @public
    */
-  isRatedByUser?: boolean;
+  isRatedByUser?: boolean | undefined;
 
   /**
    * <p>The number of users who have the associated Q App.</p>
    * @public
    */
-  userCount?: number;
+  userCount?: number | undefined;
 
   /**
    * <p>Indicates whether the library item has been verified.</p>
    * @public
    */
-  isVerified?: boolean;
+  isVerified?: boolean | undefined;
 }
 
 /**
@@ -1568,7 +1568,7 @@ export interface ListCategoriesOutput {
    * <p>The categories of a Amazon Q Business application environment instance.</p>
    * @public
    */
-  categories?: Category[];
+  categories?: Category[] | undefined;
 }
 
 /**
@@ -1585,19 +1585,19 @@ export interface ListLibraryItemsInput {
    * <p>The maximum number of library items to return in the response.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Optional category to filter the library items by.</p>
    * @public
    */
-  categoryId?: string;
+  categoryId?: string | undefined;
 }
 
 /**
@@ -1608,13 +1608,13 @@ export interface ListLibraryItemsOutput {
    * <p>The list of library items meeting the request criteria.</p>
    * @public
    */
-  libraryItems?: LibraryItemMember[];
+  libraryItems?: LibraryItemMember[] | undefined;
 
   /**
    * <p>The token to use to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1631,13 +1631,13 @@ export interface ListQAppsInput {
    * <p>The maximum number of Q Apps to return in the response.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1667,7 +1667,7 @@ export interface UserAppItem {
    * <p>The description of the Q App.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time the user's association with the Q App was created.</p>
@@ -1679,19 +1679,19 @@ export interface UserAppItem {
    * <p>A flag indicating whether the user can edit the Q App.</p>
    * @public
    */
-  canEdit?: boolean;
+  canEdit?: boolean | undefined;
 
   /**
    * <p>The status of the user's association with the Q App.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>Indicates whether the Q App has been verified.</p>
    * @public
    */
-  isVerified?: boolean;
+  isVerified?: boolean | undefined;
 }
 
 /**
@@ -1708,7 +1708,7 @@ export interface ListQAppsOutput {
    * <p>The token to use to request the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1730,7 +1730,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags that are assigned to the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1802,7 +1802,7 @@ export interface PredictQAppInput {
    * <p>The input to generate the Q App definition from, either a conversation or problem statement.</p>
    * @public
    */
-  options?: PredictQAppInputOptions;
+  options?: PredictQAppInputOptions | undefined;
 }
 
 /**
@@ -1831,13 +1831,13 @@ export interface StartQAppSessionInput {
    * <p>Optional initial input values to provide for the Q App session.</p>
    * @public
    */
-  initialValues?: CardValue[];
+  initialValues?: CardValue[] | undefined;
 
   /**
    * <p>Optional tags to associate with the new Q App session.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1938,13 +1938,13 @@ export interface UpdateLibraryItemInput {
    * <p>The new status to set for the library item, such as "Published" or "Hidden".</p>
    * @public
    */
-  status?: LibraryItemStatus;
+  status?: LibraryItemStatus | undefined;
 
   /**
    * <p>The new categories to associate with the library item.</p>
    * @public
    */
-  categories?: string[];
+  categories?: string[] | undefined;
 }
 
 /**
@@ -1997,13 +1997,13 @@ export interface UpdateLibraryItemOutput {
    * <p>The date and time the library item was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The user who last updated the library item.</p>
    * @public
    */
-  updatedBy?: string;
+  updatedBy?: string | undefined;
 
   /**
    * <p>The number of ratings the library item has received.</p>
@@ -2015,19 +2015,19 @@ export interface UpdateLibraryItemOutput {
    * <p>Whether the current user has rated the library item.</p>
    * @public
    */
-  isRatedByUser?: boolean;
+  isRatedByUser?: boolean | undefined;
 
   /**
    * <p>The number of users who have the associated Q App.</p>
    * @public
    */
-  userCount?: number;
+  userCount?: number | undefined;
 
   /**
    * <p>Indicates whether the library item has been verified.</p>
    * @public
    */
-  isVerified?: boolean;
+  isVerified?: boolean | undefined;
 }
 
 /**
@@ -2050,7 +2050,7 @@ export interface UpdateLibraryItemMetadataInput {
    * <p>The verification status of the library item</p>
    * @public
    */
-  isVerified?: boolean;
+  isVerified?: boolean | undefined;
 }
 
 /**
@@ -2079,13 +2079,13 @@ export interface UpdateQAppOutput {
    * <p>The new description of the updated Q App.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The initial prompt for the updated Q App.</p>
    * @public
    */
-  initialPrompt?: string;
+  initialPrompt?: string | undefined;
 
   /**
    * <p>The new version of the updated Q App.</p>
@@ -2127,7 +2127,7 @@ export interface UpdateQAppOutput {
    * <p>The capabilities required for the updated Q App.</p>
    * @public
    */
-  requiredCapabilities?: AppRequiredCapability[];
+  requiredCapabilities?: AppRequiredCapability[] | undefined;
 }
 
 /**
@@ -2150,7 +2150,7 @@ export interface UpdateQAppSessionInput {
    * <p>The input values to provide for the current state of the Q App session.</p>
    * @public
    */
-  values?: CardValue[];
+  values?: CardValue[] | undefined;
 }
 
 /**
@@ -2179,19 +2179,19 @@ export interface AttributeFilter {
    * <p>Performs a logical <code>AND</code> operation on all supplied filters.</p>
    * @public
    */
-  andAllFilters?: AttributeFilter[];
+  andAllFilters?: AttributeFilter[] | undefined;
 
   /**
    * <p> Performs a logical <code>OR</code> operation on all supplied filters. </p>
    * @public
    */
-  orAllFilters?: AttributeFilter[];
+  orAllFilters?: AttributeFilter[] | undefined;
 
   /**
    * <p>Performs a logical <code>NOT</code> operation on all supplied filters. </p>
    * @public
    */
-  notFilter?: AttributeFilter;
+  notFilter?: AttributeFilter | undefined;
 
   /**
    * <p>Performs an <i>equals</i> operation on two document attributes or metadata fields. Supported
@@ -2200,7 +2200,7 @@ export interface AttributeFilter {
    *       <code>stringValue</code>.</p>
    * @public
    */
-  equalsTo?: DocumentAttribute;
+  equalsTo?: DocumentAttribute | undefined;
 
   /**
    * <p>Returns <code>true</code> when a document contains all the specified document
@@ -2208,7 +2208,7 @@ export interface AttributeFilter {
    *       <code>stringListValue</code>.</p>
    * @public
    */
-  containsAll?: DocumentAttribute;
+  containsAll?: DocumentAttribute | undefined;
 
   /**
    * <p>Returns <code>true</code> when a document contains any of the specified document
@@ -2216,7 +2216,7 @@ export interface AttributeFilter {
    *       <code>stringListValue</code>.</p>
    * @public
    */
-  containsAny?: DocumentAttribute;
+  containsAny?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a <i>greater than</i> operation on two document attributes or metadata fields.
@@ -2224,7 +2224,7 @@ export interface AttributeFilter {
    *       and <code>longValue</code>.</p>
    * @public
    */
-  greaterThan?: DocumentAttribute;
+  greaterThan?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a <i>greater than or equals</i> operation on two document attributes or metadata
@@ -2232,7 +2232,7 @@ export interface AttributeFilter {
    *       and <code>longValue</code>. </p>
    * @public
    */
-  greaterThanOrEquals?: DocumentAttribute;
+  greaterThanOrEquals?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a <i>less than</i> operation on two document attributes or metadata fields.
@@ -2240,7 +2240,7 @@ export interface AttributeFilter {
    *       and <code>longValue</code>.</p>
    * @public
    */
-  lessThan?: DocumentAttribute;
+  lessThan?: DocumentAttribute | undefined;
 
   /**
    * <p>Performs a <i>less than or equals</i> operation on two document attributes or metadata
@@ -2248,7 +2248,7 @@ export interface AttributeFilter {
    *       and <code>longValue</code>. </p>
    * @public
    */
-  lessThanOrEquals?: DocumentAttribute;
+  lessThanOrEquals?: DocumentAttribute | undefined;
 }
 
 /**
@@ -2297,7 +2297,7 @@ export interface QQueryCard {
    * <p>The Amazon Q Business filters applied in this query card when resolving data sources</p>
    * @public
    */
-  attributeFilter?: AttributeFilter;
+  attributeFilter?: AttributeFilter | undefined;
 }
 
 /**
@@ -2333,13 +2333,13 @@ export interface QQueryCardInput {
    * <p>The source or type of output to generate for the query card.</p>
    * @public
    */
-  outputSource?: CardOutputSource;
+  outputSource?: CardOutputSource | undefined;
 
   /**
    * <p>Turns on filtering of responses based on document attributes or metadata fields.</p>
    * @public
    */
-  attributeFilter?: AttributeFilter;
+  attributeFilter?: AttributeFilter | undefined;
 }
 
 /**
@@ -2545,7 +2545,7 @@ export interface AppDefinition {
    * <p>A flag indicating whether the Q App's definition can be edited by the user.</p>
    * @public
    */
-  canEdit?: boolean;
+  canEdit?: boolean | undefined;
 }
 
 /**
@@ -2563,7 +2563,7 @@ export interface AppDefinitionInput {
    * <p>The initial prompt displayed when the Q App is started.</p>
    * @public
    */
-  initialPrompt?: string;
+  initialPrompt?: string | undefined;
 }
 
 /**
@@ -2586,7 +2586,7 @@ export interface CreateQAppInput {
    * <p>The description of the new Q App.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The definition of the new Q App, specifying the cards and flow.</p>
@@ -2598,7 +2598,7 @@ export interface CreateQAppInput {
    * <p>Optional tags to associate with the new Q App.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2627,13 +2627,13 @@ export interface GetQAppOutput {
    * <p>The description of the Q App.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The initial prompt displayed when the Q App is started.</p>
    * @public
    */
-  initialPrompt?: string;
+  initialPrompt?: string | undefined;
 
   /**
    * <p>The version of the Q App.</p>
@@ -2675,7 +2675,7 @@ export interface GetQAppOutput {
    * <p>The capabilities required to run the Q App, such as file upload or third-party integrations.</p>
    * @public
    */
-  requiredCapabilities?: AppRequiredCapability[];
+  requiredCapabilities?: AppRequiredCapability[] | undefined;
 
   /**
    * <p>The full definition of the Q App, specifying the cards and flow.</p>
@@ -2700,7 +2700,7 @@ export interface PredictAppDefinition {
    * <p>The description of the generated Q App definition.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The definition specifying the cards and flow of the generated Q App.</p>
@@ -2729,19 +2729,19 @@ export interface UpdateQAppInput {
    * <p>The new title for the Q App.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The new description for the Q App.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The new definition specifying the cards and flow for the Q App.</p>
    * @public
    */
-  appDefinition?: AppDefinitionInput;
+  appDefinition?: AppDefinitionInput | undefined;
 }
 
 /**

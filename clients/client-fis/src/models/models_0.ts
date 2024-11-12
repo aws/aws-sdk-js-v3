@@ -26,13 +26,13 @@ export interface ActionParameter {
    * <p>The parameter description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Indicates whether the parameter is required.</p>
    * @public
    */
-  required?: boolean;
+  required?: boolean | undefined;
 }
 
 /**
@@ -44,7 +44,7 @@ export interface ActionTarget {
    * <p>The resource type of the target.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 }
 
 /**
@@ -57,37 +57,37 @@ export interface Action {
    * <p>The ID of the action.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the action.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The description for the action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The action parameters, if applicable.</p>
    * @public
    */
-  parameters?: Record<string, ActionParameter>;
+  parameters?: Record<string, ActionParameter> | undefined;
 
   /**
    * <p>The supported targets for the action.</p>
    * @public
    */
-  targets?: Record<string, ActionTarget>;
+  targets?: Record<string, ActionTarget> | undefined;
 
   /**
    * <p>The tags for the action.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -113,31 +113,31 @@ export interface ActionSummary {
    * <p>The ID of the action.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the action.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The description for the action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The targets for the action.</p>
    * @public
    */
-  targets?: Record<string, ActionTarget>;
+  targets?: Record<string, ActionTarget> | undefined;
 
   /**
    * <p>The tags for the action.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -177,25 +177,25 @@ export interface CreateExperimentTemplateActionInput {
    * <p>A description for the action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The parameters for the action, if applicable.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The targets for the action.</p>
    * @public
    */
-  targets?: Record<string, string>;
+  targets?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>
    * @public
    */
-  startAfter?: string[];
+  startAfter?: string[] | undefined;
 }
 
 /**
@@ -221,13 +221,13 @@ export interface CreateExperimentTemplateExperimentOptionsInput {
    * <p>Specifies the account targeting setting for experiment options.</p>
    * @public
    */
-  accountTargeting?: AccountTargeting;
+  accountTargeting?: AccountTargeting | undefined;
 
   /**
    * <p>Specifies the empty target resolution mode for experiment options.</p>
    * @public
    */
-  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode | undefined;
 }
 
 /**
@@ -239,7 +239,7 @@ export interface ReportConfigurationCloudWatchDashboardInput {
    * <p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>
    * @public
    */
-  dashboardIdentifier?: string;
+  dashboardIdentifier?: string | undefined;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface ExperimentTemplateReportConfigurationDataSourcesInput {
    * <p>The CloudWatch dashboards to include as data sources in the experiment report.</p>
    * @public
    */
-  cloudWatchDashboards?: ReportConfigurationCloudWatchDashboardInput[];
+  cloudWatchDashboards?: ReportConfigurationCloudWatchDashboardInput[] | undefined;
 }
 
 /**
@@ -263,13 +263,13 @@ export interface ReportConfigurationS3OutputInput {
    * <p>The name of the S3 bucket where the experiment report will be stored.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>The prefix of the S3 bucket where the experiment report will be stored.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -281,7 +281,7 @@ export interface ExperimentTemplateReportConfigurationOutputsInput {
    * <p>The S3 destination for the experiment report.</p>
    * @public
    */
-  s3Configuration?: ReportConfigurationS3OutputInput;
+  s3Configuration?: ReportConfigurationS3OutputInput | undefined;
 }
 
 /**
@@ -293,25 +293,25 @@ export interface CreateExperimentTemplateReportConfigurationInput {
    * <p>The output destinations of the experiment report. </p>
    * @public
    */
-  outputs?: ExperimentTemplateReportConfigurationOutputsInput;
+  outputs?: ExperimentTemplateReportConfigurationOutputsInput | undefined;
 
   /**
    * <p>The data sources for the experiment report.</p>
    * @public
    */
-  dataSources?: ExperimentTemplateReportConfigurationDataSourcesInput;
+  dataSources?: ExperimentTemplateReportConfigurationDataSourcesInput | undefined;
 
   /**
    * <p>The duration before the experiment start time for the data sources to include in the report. </p>
    * @public
    */
-  preExperimentDuration?: string;
+  preExperimentDuration?: string | undefined;
 
   /**
    * <p>The duration after the experiment end time for the data sources to include in the report. </p>
    * @public
    */
-  postExperimentDuration?: string;
+  postExperimentDuration?: string | undefined;
 }
 
 /**
@@ -341,7 +341,7 @@ export interface ExperimentTemplateS3LogConfigurationInput {
    * <p>The bucket prefix.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -353,13 +353,13 @@ export interface CreateExperimentTemplateLogConfigurationInput {
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
    * @public
    */
-  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput;
+  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput | undefined;
 
   /**
    * <p>The configuration for experiment logging to Amazon S3.</p>
    * @public
    */
-  s3Configuration?: ExperimentTemplateS3LogConfigurationInput;
+  s3Configuration?: ExperimentTemplateS3LogConfigurationInput | undefined;
 
   /**
    * <p>The schema version.</p>
@@ -386,7 +386,7 @@ export interface CreateExperimentTemplateStopConditionInput {
    *          a CloudWatch alarm.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -427,19 +427,19 @@ export interface CreateExperimentTemplateTargetInput {
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>The tags for the target resources.</p>
    * @public
    */
-  resourceTags?: Record<string, string>;
+  resourceTags?: Record<string, string> | undefined;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
    * @public
    */
-  filters?: ExperimentTemplateTargetInputFilter[];
+  filters?: ExperimentTemplateTargetInputFilter[] | undefined;
 
   /**
    * <p>Scopes the identified resources to a specific count of the resources at random, or a percentage of the resources. All identified resources are included in the target.</p>
@@ -464,7 +464,7 @@ export interface CreateExperimentTemplateTargetInput {
    * <p>The resource type parameters.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -475,7 +475,7 @@ export interface CreateExperimentTemplateRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A description for the experiment template.</p>
@@ -493,7 +493,7 @@ export interface CreateExperimentTemplateRequest {
    * <p>The targets for the experiment.</p>
    * @public
    */
-  targets?: Record<string, CreateExperimentTemplateTargetInput>;
+  targets?: Record<string, CreateExperimentTemplateTargetInput> | undefined;
 
   /**
    * <p>The actions for the experiment.</p>
@@ -511,25 +511,25 @@ export interface CreateExperimentTemplateRequest {
    * <p>The tags to apply to the experiment template.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration for experiment logging.</p>
    * @public
    */
-  logConfiguration?: CreateExperimentTemplateLogConfigurationInput;
+  logConfiguration?: CreateExperimentTemplateLogConfigurationInput | undefined;
 
   /**
    * <p>The experiment options for the experiment template.</p>
    * @public
    */
-  experimentOptions?: CreateExperimentTemplateExperimentOptionsInput;
+  experimentOptions?: CreateExperimentTemplateExperimentOptionsInput | undefined;
 
   /**
    * <p>The experiment report configuration for the experiment template.</p>
    * @public
    */
-  experimentReportConfiguration?: CreateExperimentTemplateReportConfigurationInput;
+  experimentReportConfiguration?: CreateExperimentTemplateReportConfigurationInput | undefined;
 }
 
 /**
@@ -541,31 +541,31 @@ export interface ExperimentTemplateAction {
    * <p>The ID of the action.</p>
    * @public
    */
-  actionId?: string;
+  actionId?: string | undefined;
 
   /**
    * <p>A description for the action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The parameters for the action.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The targets for the action.</p>
    * @public
    */
-  targets?: Record<string, string>;
+  targets?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the action that must be completed before the current action starts.</p>
    * @public
    */
-  startAfter?: string[];
+  startAfter?: string[] | undefined;
 }
 
 /**
@@ -577,13 +577,13 @@ export interface ExperimentTemplateExperimentOptions {
    * <p>The account targeting setting for an experiment template. </p>
    * @public
    */
-  accountTargeting?: AccountTargeting;
+  accountTargeting?: AccountTargeting | undefined;
 
   /**
    * <p>The empty target resolution mode for an experiment template.</p>
    * @public
    */
-  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode | undefined;
 }
 
 /**
@@ -595,7 +595,7 @@ export interface ExperimentTemplateReportConfigurationCloudWatchDashboard {
    * <p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>
    * @public
    */
-  dashboardIdentifier?: string;
+  dashboardIdentifier?: string | undefined;
 }
 
 /**
@@ -607,7 +607,7 @@ export interface ExperimentTemplateReportConfigurationDataSources {
    * <p>The CloudWatch dashboards to include as data sources in the experiment report.</p>
    * @public
    */
-  cloudWatchDashboards?: ExperimentTemplateReportConfigurationCloudWatchDashboard[];
+  cloudWatchDashboards?: ExperimentTemplateReportConfigurationCloudWatchDashboard[] | undefined;
 }
 
 /**
@@ -619,13 +619,13 @@ export interface ReportConfigurationS3Output {
    * <p>The name of the S3 bucket where the experiment report will be stored.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>The prefix of the S3 bucket where the experiment report will be stored.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -637,7 +637,7 @@ export interface ExperimentTemplateReportConfigurationOutputs {
    * <p>The S3 destination for the experiment report.</p>
    * @public
    */
-  s3Configuration?: ReportConfigurationS3Output;
+  s3Configuration?: ReportConfigurationS3Output | undefined;
 }
 
 /**
@@ -649,25 +649,25 @@ export interface ExperimentTemplateReportConfiguration {
    * <p>Describes the output destinations of the experiment report.</p>
    * @public
    */
-  outputs?: ExperimentTemplateReportConfigurationOutputs;
+  outputs?: ExperimentTemplateReportConfigurationOutputs | undefined;
 
   /**
    * <p>The data sources for the experiment report.</p>
    * @public
    */
-  dataSources?: ExperimentTemplateReportConfigurationDataSources;
+  dataSources?: ExperimentTemplateReportConfigurationDataSources | undefined;
 
   /**
    * <p>The duration before the experiment start time for the data sources to include in the report.</p>
    * @public
    */
-  preExperimentDuration?: string;
+  preExperimentDuration?: string | undefined;
 
   /**
    * <p>The duration after the experiment end time for the data sources to include in the report.</p>
    * @public
    */
-  postExperimentDuration?: string;
+  postExperimentDuration?: string | undefined;
 }
 
 /**
@@ -679,7 +679,7 @@ export interface ExperimentTemplateCloudWatchLogsLogConfiguration {
    * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
    * @public
    */
-  logGroupArn?: string;
+  logGroupArn?: string | undefined;
 }
 
 /**
@@ -691,13 +691,13 @@ export interface ExperimentTemplateS3LogConfiguration {
    * <p>The name of the destination bucket.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>The bucket prefix.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -709,19 +709,19 @@ export interface ExperimentTemplateLogConfiguration {
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
    * @public
    */
-  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfiguration;
+  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfiguration | undefined;
 
   /**
    * <p>The configuration for experiment logging to Amazon S3.</p>
    * @public
    */
-  s3Configuration?: ExperimentTemplateS3LogConfiguration;
+  s3Configuration?: ExperimentTemplateS3LogConfiguration | undefined;
 
   /**
    * <p>The schema version.</p>
    * @public
    */
-  logSchemaVersion?: number;
+  logSchemaVersion?: number | undefined;
 }
 
 /**
@@ -733,13 +733,13 @@ export interface ExperimentTemplateStopCondition {
    * <p>The source for the stop condition.</p>
    * @public
    */
-  source?: string;
+  source?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -751,13 +751,13 @@ export interface ExperimentTemplateTargetFilter {
    * <p>The attribute path for the filter.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The attribute values for the filter.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -769,37 +769,37 @@ export interface ExperimentTemplateTarget {
    * <p>The resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the targets.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>The tags for the target resources.</p>
    * @public
    */
-  resourceTags?: Record<string, string>;
+  resourceTags?: Record<string, string> | undefined;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
    * @public
    */
-  filters?: ExperimentTemplateTargetFilter[];
+  filters?: ExperimentTemplateTargetFilter[] | undefined;
 
   /**
    * <p>Scopes the identified resources to a specific count or percentage.</p>
    * @public
    */
-  selectionMode?: string;
+  selectionMode?: string | undefined;
 
   /**
    * <p>The resource type parameters.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -811,85 +811,85 @@ export interface ExperimentTemplate {
    * <p>The ID of the experiment template.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment template.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The description for the experiment template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The targets for the experiment.</p>
    * @public
    */
-  targets?: Record<string, ExperimentTemplateTarget>;
+  targets?: Record<string, ExperimentTemplateTarget> | undefined;
 
   /**
    * <p>The actions for the experiment.</p>
    * @public
    */
-  actions?: Record<string, ExperimentTemplateAction>;
+  actions?: Record<string, ExperimentTemplateAction> | undefined;
 
   /**
    * <p>The stop conditions for the experiment.</p>
    * @public
    */
-  stopConditions?: ExperimentTemplateStopCondition[];
+  stopConditions?: ExperimentTemplateStopCondition[] | undefined;
 
   /**
    * <p>The time the experiment template was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The time the experiment template was last updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The tags for the experiment template.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration for experiment logging.</p>
    * @public
    */
-  logConfiguration?: ExperimentTemplateLogConfiguration;
+  logConfiguration?: ExperimentTemplateLogConfiguration | undefined;
 
   /**
    * <p>The experiment options for an experiment template.</p>
    * @public
    */
-  experimentOptions?: ExperimentTemplateExperimentOptions;
+  experimentOptions?: ExperimentTemplateExperimentOptions | undefined;
 
   /**
    * <p>The count of target account configurations for the experiment template.</p>
    * @public
    */
-  targetAccountConfigurationsCount?: number;
+  targetAccountConfigurationsCount?: number | undefined;
 
   /**
    * <p>Describes the report configuration for the experiment template.</p>
    * @public
    */
-  experimentReportConfiguration?: ExperimentTemplateReportConfiguration;
+  experimentReportConfiguration?: ExperimentTemplateReportConfiguration | undefined;
 }
 
 /**
@@ -900,7 +900,7 @@ export interface CreateExperimentTemplateResponse {
    * <p>Information about the experiment template.</p>
    * @public
    */
-  experimentTemplate?: ExperimentTemplate;
+  experimentTemplate?: ExperimentTemplate | undefined;
 }
 
 /**
@@ -971,7 +971,7 @@ export interface CreateTargetAccountConfigurationRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The experiment template ID.</p>
@@ -995,7 +995,7 @@ export interface CreateTargetAccountConfigurationRequest {
    * <p>The description of the target account.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1007,19 +1007,19 @@ export interface TargetAccountConfiguration {
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the target account.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The description of the target account.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1030,7 +1030,7 @@ export interface CreateTargetAccountConfigurationResponse {
    * <p>Information about the target account configuration.</p>
    * @public
    */
-  targetAccountConfiguration?: TargetAccountConfiguration;
+  targetAccountConfiguration?: TargetAccountConfiguration | undefined;
 }
 
 /**
@@ -1052,7 +1052,7 @@ export interface DeleteExperimentTemplateResponse {
    * <p>Information about the experiment template.</p>
    * @public
    */
-  experimentTemplate?: ExperimentTemplate;
+  experimentTemplate?: ExperimentTemplate | undefined;
 }
 
 /**
@@ -1080,7 +1080,7 @@ export interface DeleteTargetAccountConfigurationResponse {
    * <p>Information about the target account configuration.</p>
    * @public
    */
-  targetAccountConfiguration?: TargetAccountConfiguration;
+  targetAccountConfiguration?: TargetAccountConfiguration | undefined;
 }
 
 /**
@@ -1113,13 +1113,13 @@ export interface ExperimentActionState {
    * <p>The state of the action.</p>
    * @public
    */
-  status?: ExperimentActionStatus;
+  status?: ExperimentActionStatus | undefined;
 
   /**
    * <p>The reason for the state.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -1131,49 +1131,49 @@ export interface ExperimentAction {
    * <p>The ID of the action.</p>
    * @public
    */
-  actionId?: string;
+  actionId?: string | undefined;
 
   /**
    * <p>The description for the action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The parameters for the action.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The targets for the action.</p>
    * @public
    */
-  targets?: Record<string, string>;
+  targets?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the action that must be completed before this action starts.</p>
    * @public
    */
-  startAfter?: string[];
+  startAfter?: string[] | undefined;
 
   /**
    * <p>The state of the action.</p>
    * @public
    */
-  state?: ExperimentActionState;
+  state?: ExperimentActionState | undefined;
 
   /**
    * <p>The time that the action started.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The time that the action ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 }
 
 /**
@@ -1185,19 +1185,19 @@ export interface ExperimentOptions {
    * <p>The account targeting setting for an experiment.</p>
    * @public
    */
-  accountTargeting?: AccountTargeting;
+  accountTargeting?: AccountTargeting | undefined;
 
   /**
    * <p>The empty target resolution mode for an experiment.</p>
    * @public
    */
-  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode | undefined;
 
   /**
    * <p>The actions mode of the experiment that is set from the StartExperiment API command.</p>
    * @public
    */
-  actionsMode?: ActionsMode;
+  actionsMode?: ActionsMode | undefined;
 }
 
 /**
@@ -1209,13 +1209,13 @@ export interface ExperimentReportS3Report {
    * <p>The Amazon Resource Name (ARN) of the generated report.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The report type for the experiment report.</p>
    * @public
    */
-  reportType?: string;
+  reportType?: string | undefined;
 }
 
 /**
@@ -1227,7 +1227,7 @@ export interface ExperimentReportError {
    * <p>The error code for the failed experiment report generation.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 }
 
 /**
@@ -1256,19 +1256,19 @@ export interface ExperimentReportState {
    * <p>The state of the experiment report generation.</p>
    * @public
    */
-  status?: ExperimentReportStatus;
+  status?: ExperimentReportStatus | undefined;
 
   /**
    * <p>The reason for the state of the experiment report generation.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The error information of the experiment when the experiment report generation has failed.</p>
    * @public
    */
-  error?: ExperimentReportError;
+  error?: ExperimentReportError | undefined;
 }
 
 /**
@@ -1280,13 +1280,13 @@ export interface ExperimentReport {
    * <p>The state of the experiment report.</p>
    * @public
    */
-  state?: ExperimentReportState;
+  state?: ExperimentReportState | undefined;
 
   /**
    * <p>The S3 destination of the experiment report.</p>
    * @public
    */
-  s3Reports?: ExperimentReportS3Report[];
+  s3Reports?: ExperimentReportS3Report[] | undefined;
 }
 
 /**
@@ -1298,7 +1298,7 @@ export interface ExperimentReportConfigurationCloudWatchDashboard {
    * <p>The Amazon Resource Name (ARN) of the CloudWatch dashboard to include in the experiment report.</p>
    * @public
    */
-  dashboardIdentifier?: string;
+  dashboardIdentifier?: string | undefined;
 }
 
 /**
@@ -1310,7 +1310,7 @@ export interface ExperimentReportConfigurationDataSources {
    * <p>The CloudWatch dashboards to include as data sources in the experiment report.</p>
    * @public
    */
-  cloudWatchDashboards?: ExperimentReportConfigurationCloudWatchDashboard[];
+  cloudWatchDashboards?: ExperimentReportConfigurationCloudWatchDashboard[] | undefined;
 }
 
 /**
@@ -1322,13 +1322,13 @@ export interface ExperimentReportConfigurationOutputsS3Configuration {
    * <p>The name of the S3 bucket where the experiment report will be stored.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>The prefix of the S3 bucket where the experiment report will be stored.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -1340,7 +1340,7 @@ export interface ExperimentReportConfigurationOutputs {
    * <p>The S3 destination for the experiment report.</p>
    * @public
    */
-  s3Configuration?: ExperimentReportConfigurationOutputsS3Configuration;
+  s3Configuration?: ExperimentReportConfigurationOutputsS3Configuration | undefined;
 }
 
 /**
@@ -1352,25 +1352,25 @@ export interface ExperimentReportConfiguration {
    * <p>The output destinations of the experiment report.</p>
    * @public
    */
-  outputs?: ExperimentReportConfigurationOutputs;
+  outputs?: ExperimentReportConfigurationOutputs | undefined;
 
   /**
    * <p>The data sources for the experiment report.</p>
    * @public
    */
-  dataSources?: ExperimentReportConfigurationDataSources;
+  dataSources?: ExperimentReportConfigurationDataSources | undefined;
 
   /**
    * <p>The duration before the experiment start time for the data sources to include in the report.</p>
    * @public
    */
-  preExperimentDuration?: string;
+  preExperimentDuration?: string | undefined;
 
   /**
    * <p>The duration after the experiment end time for the data sources to include in the report.</p>
    * @public
    */
-  postExperimentDuration?: string;
+  postExperimentDuration?: string | undefined;
 }
 
 /**
@@ -1382,7 +1382,7 @@ export interface ExperimentCloudWatchLogsLogConfiguration {
    * <p>The Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group.</p>
    * @public
    */
-  logGroupArn?: string;
+  logGroupArn?: string | undefined;
 }
 
 /**
@@ -1394,13 +1394,13 @@ export interface ExperimentS3LogConfiguration {
    * <p>The name of the destination bucket.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>The bucket prefix.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -1412,19 +1412,19 @@ export interface ExperimentLogConfiguration {
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
    * @public
    */
-  cloudWatchLogsConfiguration?: ExperimentCloudWatchLogsLogConfiguration;
+  cloudWatchLogsConfiguration?: ExperimentCloudWatchLogsLogConfiguration | undefined;
 
   /**
    * <p>The configuration for experiment logging to Amazon S3.</p>
    * @public
    */
-  s3Configuration?: ExperimentS3LogConfiguration;
+  s3Configuration?: ExperimentS3LogConfiguration | undefined;
 
   /**
    * <p>The schema version.</p>
    * @public
    */
-  logSchemaVersion?: number;
+  logSchemaVersion?: number | undefined;
 }
 
 /**
@@ -1436,19 +1436,19 @@ export interface ExperimentError {
    * <p>The Amazon Web Services Account ID where the experiment failure occurred.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The error code for the failed experiment.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>Context for the section of the experiment template that failed.</p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 }
 
 /**
@@ -1480,19 +1480,19 @@ export interface ExperimentState {
    * <p>The state of the experiment.</p>
    * @public
    */
-  status?: ExperimentStatus;
+  status?: ExperimentStatus | undefined;
 
   /**
    * <p>The reason for the state.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The error information of the experiment when the action has <code>failed</code>.</p>
    * @public
    */
-  error?: ExperimentError;
+  error?: ExperimentError | undefined;
 }
 
 /**
@@ -1504,13 +1504,13 @@ export interface ExperimentStopCondition {
    * <p>The source for the stop condition.</p>
    * @public
    */
-  source?: string;
+  source?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch alarm, if applicable.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1522,13 +1522,13 @@ export interface ExperimentTargetFilter {
    * <p>The attribute path for the filter.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The attribute values for the filter.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -1540,37 +1540,37 @@ export interface ExperimentTarget {
    * <p>The resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of the resources.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>The tags for the target resources.</p>
    * @public
    */
-  resourceTags?: Record<string, string>;
+  resourceTags?: Record<string, string> | undefined;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
    * @public
    */
-  filters?: ExperimentTargetFilter[];
+  filters?: ExperimentTargetFilter[] | undefined;
 
   /**
    * <p>Scopes the identified resources to a specific count or percentage.</p>
    * @public
    */
-  selectionMode?: string;
+  selectionMode?: string | undefined;
 
   /**
    * <p>The resource type parameters.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -1582,103 +1582,103 @@ export interface Experiment {
    * <p>The ID of the experiment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the experiment template.</p>
    * @public
    */
-  experimentTemplateId?: string;
+  experimentTemplateId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The state of the experiment.</p>
    * @public
    */
-  state?: ExperimentState;
+  state?: ExperimentState | undefined;
 
   /**
    * <p>The targets for the experiment.</p>
    * @public
    */
-  targets?: Record<string, ExperimentTarget>;
+  targets?: Record<string, ExperimentTarget> | undefined;
 
   /**
    * <p>The actions for the experiment.</p>
    * @public
    */
-  actions?: Record<string, ExperimentAction>;
+  actions?: Record<string, ExperimentAction> | undefined;
 
   /**
    * <p>The stop conditions for the experiment.</p>
    * @public
    */
-  stopConditions?: ExperimentStopCondition[];
+  stopConditions?: ExperimentStopCondition[] | undefined;
 
   /**
    * <p>The time that the experiment was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The time that the experiment started.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The time that the experiment ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The tags for the experiment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration for experiment logging.</p>
    * @public
    */
-  logConfiguration?: ExperimentLogConfiguration;
+  logConfiguration?: ExperimentLogConfiguration | undefined;
 
   /**
    * <p>The experiment options for the experiment.</p>
    * @public
    */
-  experimentOptions?: ExperimentOptions;
+  experimentOptions?: ExperimentOptions | undefined;
 
   /**
    * <p>The count of target account configurations for the experiment.</p>
    * @public
    */
-  targetAccountConfigurationsCount?: number;
+  targetAccountConfigurationsCount?: number | undefined;
 
   /**
    * <p>The experiment report configuration for the experiment.</p>
    * @public
    */
-  experimentReportConfiguration?: ExperimentReportConfiguration;
+  experimentReportConfiguration?: ExperimentReportConfiguration | undefined;
 
   /**
    * <p>The experiment report for the experiment.</p>
    * @public
    */
-  experimentReport?: ExperimentReport;
+  experimentReport?: ExperimentReport | undefined;
 }
 
 /**
@@ -1690,43 +1690,43 @@ export interface ExperimentSummary {
    * <p>The ID of the experiment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The ID of the experiment template.</p>
    * @public
    */
-  experimentTemplateId?: string;
+  experimentTemplateId?: string | undefined;
 
   /**
    * <p>The state of the experiment.</p>
    * @public
    */
-  state?: ExperimentState;
+  state?: ExperimentState | undefined;
 
   /**
    * <p>The time that the experiment was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The tags for the experiment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The experiment options for the experiment.</p>
    * @public
    */
-  experimentOptions?: ExperimentOptions;
+  experimentOptions?: ExperimentOptions | undefined;
 }
 
 /**
@@ -1738,19 +1738,19 @@ export interface ExperimentTargetAccountConfiguration {
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the target account.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The description of the target account.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1762,19 +1762,19 @@ export interface ExperimentTargetAccountConfigurationSummary {
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the target account.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The description of the target account.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1786,37 +1786,37 @@ export interface ExperimentTemplateSummary {
    * <p>The ID of the experiment template.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the experiment template.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The description of the experiment template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time that the experiment template was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The time that the experiment template was last updated.</p>
    * @public
    */
-  lastUpdateTime?: Date;
+  lastUpdateTime?: Date | undefined;
 
   /**
    * <p>The tags for the experiment template.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1838,7 +1838,7 @@ export interface GetActionResponse {
    * <p>Information about the action.</p>
    * @public
    */
-  action?: Action;
+  action?: Action | undefined;
 }
 
 /**
@@ -1860,7 +1860,7 @@ export interface GetExperimentResponse {
    * <p>Information about the experiment.</p>
    * @public
    */
-  experiment?: Experiment;
+  experiment?: Experiment | undefined;
 }
 
 /**
@@ -1888,7 +1888,7 @@ export interface GetExperimentTargetAccountConfigurationResponse {
    * <p>Information about the target account configuration.</p>
    * @public
    */
-  targetAccountConfiguration?: ExperimentTargetAccountConfiguration;
+  targetAccountConfiguration?: ExperimentTargetAccountConfiguration | undefined;
 }
 
 /**
@@ -1910,7 +1910,7 @@ export interface GetExperimentTemplateResponse {
    * <p>Information about the experiment template.</p>
    * @public
    */
-  experimentTemplate?: ExperimentTemplate;
+  experimentTemplate?: ExperimentTemplate | undefined;
 }
 
 /**
@@ -1954,7 +1954,7 @@ export interface SafetyLeverState {
    *       </p>
    * @public
    */
-  status?: SafetyLeverStatus;
+  status?: SafetyLeverStatus | undefined;
 
   /**
    * <p>
@@ -1962,7 +1962,7 @@ export interface SafetyLeverState {
    *       </p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 }
 
 /**
@@ -1978,7 +1978,7 @@ export interface SafetyLever {
    *       </p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>
@@ -1986,7 +1986,7 @@ export interface SafetyLever {
    *       </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -1994,7 +1994,7 @@ export interface SafetyLever {
    *       </p>
    * @public
    */
-  state?: SafetyLeverState;
+  state?: SafetyLeverState | undefined;
 }
 
 /**
@@ -2007,7 +2007,7 @@ export interface GetSafetyLeverResponse {
    *       </p>
    * @public
    */
-  safetyLever?: SafetyLever;
+  safetyLever?: SafetyLever | undefined;
 }
 
 /**
@@ -2035,7 +2035,7 @@ export interface GetTargetAccountConfigurationResponse {
    * <p>Information about the target account configuration.</p>
    * @public
    */
-  targetAccountConfiguration?: TargetAccountConfiguration;
+  targetAccountConfiguration?: TargetAccountConfiguration | undefined;
 }
 
 /**
@@ -2059,13 +2059,13 @@ export interface TargetResourceTypeParameter {
    * <p>A description of the parameter.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Indicates whether the parameter is required.</p>
    * @public
    */
-  required?: boolean;
+  required?: boolean | undefined;
 }
 
 /**
@@ -2077,19 +2077,19 @@ export interface TargetResourceType {
    * <p>The resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>A description of the resource type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The parameters for the resource type.</p>
    * @public
    */
-  parameters?: Record<string, TargetResourceTypeParameter>;
+  parameters?: Record<string, TargetResourceTypeParameter> | undefined;
 }
 
 /**
@@ -2100,7 +2100,7 @@ export interface GetTargetResourceTypeResponse {
    * <p>Information about the resource type.</p>
    * @public
    */
-  targetResourceType?: TargetResourceType;
+  targetResourceType?: TargetResourceType | undefined;
 }
 
 /**
@@ -2111,13 +2111,13 @@ export interface ListActionsRequest {
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2128,13 +2128,13 @@ export interface ListActionsResponse {
    * <p>The actions.</p>
    * @public
    */
-  actions?: ActionSummary[];
+  actions?: ActionSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2152,19 +2152,19 @@ export interface ListExperimentResolvedTargetsRequest {
    *       make another call with the returned nextToken value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The name of the target.</p>
    * @public
    */
-  targetName?: string;
+  targetName?: string | undefined;
 }
 
 /**
@@ -2176,19 +2176,19 @@ export interface ResolvedTarget {
    * <p>The resource type of the target.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The name of the target.</p>
    * @public
    */
-  targetName?: string;
+  targetName?: string | undefined;
 
   /**
    * <p>Information about the target.</p>
    * @public
    */
-  targetInformation?: Record<string, string>;
+  targetInformation?: Record<string, string> | undefined;
 }
 
 /**
@@ -2199,14 +2199,14 @@ export interface ListExperimentResolvedTargetsResponse {
    * <p>The resolved targets.</p>
    * @public
    */
-  resolvedTargets?: ResolvedTarget[];
+  resolvedTargets?: ResolvedTarget[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results.
    *       This value is null when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2217,19 +2217,19 @@ export interface ListExperimentsRequest {
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The ID of the experiment template.</p>
    * @public
    */
-  experimentTemplateId?: string;
+  experimentTemplateId?: string | undefined;
 }
 
 /**
@@ -2240,13 +2240,13 @@ export interface ListExperimentsResponse {
    * <p>The experiments.</p>
    * @public
    */
-  experiments?: ExperimentSummary[];
+  experiments?: ExperimentSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2263,7 +2263,7 @@ export interface ListExperimentTargetAccountConfigurationsRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2274,14 +2274,14 @@ export interface ListExperimentTargetAccountConfigurationsResponse {
    * <p>The target account configurations.</p>
    * @public
    */
-  targetAccountConfigurations?: ExperimentTargetAccountConfigurationSummary[];
+  targetAccountConfigurations?: ExperimentTargetAccountConfigurationSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results.
    *       This value is null when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2292,13 +2292,13 @@ export interface ListExperimentTemplatesRequest {
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2309,13 +2309,13 @@ export interface ListExperimentTemplatesResponse {
    * <p>The experiment templates.</p>
    * @public
    */
-  experimentTemplates?: ExperimentTemplateSummary[];
+  experimentTemplates?: ExperimentTemplateSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2337,7 +2337,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags for the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2355,13 +2355,13 @@ export interface ListTargetAccountConfigurationsRequest {
    *       make another call with the returned nextToken value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2373,19 +2373,19 @@ export interface TargetAccountConfigurationSummary {
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the target account.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The description of the target account.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2396,14 +2396,14 @@ export interface ListTargetAccountConfigurationsResponse {
    * <p>The target account configurations.</p>
    * @public
    */
-  targetAccountConfigurations?: TargetAccountConfigurationSummary[];
+  targetAccountConfigurations?: TargetAccountConfigurationSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results.
    *       This value is null when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2414,13 +2414,13 @@ export interface ListTargetResourceTypesRequest {
    * <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2432,13 +2432,13 @@ export interface TargetResourceTypeSummary {
    * <p>The resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>A description of the resource type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2449,13 +2449,13 @@ export interface ListTargetResourceTypesResponse {
    * <p>The target resource types.</p>
    * @public
    */
-  targetResourceTypes?: TargetResourceTypeSummary[];
+  targetResourceTypes?: TargetResourceTypeSummary[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2467,7 +2467,7 @@ export interface StartExperimentExperimentOptionsInput {
    * <p>Specifies the actions mode for experiment options.</p>
    * @public
    */
-  actionsMode?: ActionsMode;
+  actionsMode?: ActionsMode | undefined;
 }
 
 /**
@@ -2478,7 +2478,7 @@ export interface StartExperimentRequest {
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The ID of the experiment template.</p>
@@ -2490,13 +2490,13 @@ export interface StartExperimentRequest {
    * <p>The experiment options for running the experiment.</p>
    * @public
    */
-  experimentOptions?: StartExperimentExperimentOptionsInput;
+  experimentOptions?: StartExperimentExperimentOptionsInput | undefined;
 
   /**
    * <p>The tags to apply to the experiment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2507,7 +2507,7 @@ export interface StartExperimentResponse {
    * <p>Information about the experiment.</p>
    * @public
    */
-  experiment?: Experiment;
+  experiment?: Experiment | undefined;
 }
 
 /**
@@ -2529,7 +2529,7 @@ export interface StopExperimentResponse {
    * <p>Information about the experiment.</p>
    * @public
    */
-  experiment?: Experiment;
+  experiment?: Experiment | undefined;
 }
 
 /**
@@ -2568,7 +2568,7 @@ export interface UntagResourceRequest {
    * <p>The tag keys to remove.</p>
    * @public
    */
-  tagKeys?: string[];
+  tagKeys?: string[] | undefined;
 }
 
 /**
@@ -2585,31 +2585,31 @@ export interface UpdateExperimentTemplateActionInputItem {
    * <p>The ID of the action.</p>
    * @public
    */
-  actionId?: string;
+  actionId?: string | undefined;
 
   /**
    * <p>A description for the action.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The parameters for the action, if applicable.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The targets for the action.</p>
    * @public
    */
-  targets?: Record<string, string>;
+  targets?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the action that must be completed before the current action starts. Omit this parameter to run the action at the start of the experiment.</p>
    * @public
    */
-  startAfter?: string[];
+  startAfter?: string[] | undefined;
 }
 
 /**
@@ -2621,7 +2621,7 @@ export interface UpdateExperimentTemplateExperimentOptionsInput {
    * <p>The empty target resolution mode of the experiment template.</p>
    * @public
    */
-  emptyTargetResolutionMode?: EmptyTargetResolutionMode;
+  emptyTargetResolutionMode?: EmptyTargetResolutionMode | undefined;
 }
 
 /**
@@ -2634,25 +2634,25 @@ export interface UpdateExperimentTemplateReportConfigurationInput {
    * <p>Describes the output destinations of the experiment report. </p>
    * @public
    */
-  outputs?: ExperimentTemplateReportConfigurationOutputsInput;
+  outputs?: ExperimentTemplateReportConfigurationOutputsInput | undefined;
 
   /**
    * <p>The data sources for the experiment report.</p>
    * @public
    */
-  dataSources?: ExperimentTemplateReportConfigurationDataSourcesInput;
+  dataSources?: ExperimentTemplateReportConfigurationDataSourcesInput | undefined;
 
   /**
    * <p>The duration before the experiment start time for the data sources to include in the report. </p>
    * @public
    */
-  preExperimentDuration?: string;
+  preExperimentDuration?: string | undefined;
 
   /**
    * <p>The duration after the experiment end time for the data sources to include in the report. </p>
    * @public
    */
-  postExperimentDuration?: string;
+  postExperimentDuration?: string | undefined;
 }
 
 /**
@@ -2664,19 +2664,19 @@ export interface UpdateExperimentTemplateLogConfigurationInput {
    * <p>The configuration for experiment logging to Amazon CloudWatch Logs.</p>
    * @public
    */
-  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput;
+  cloudWatchLogsConfiguration?: ExperimentTemplateCloudWatchLogsLogConfigurationInput | undefined;
 
   /**
    * <p>The configuration for experiment logging to Amazon S3.</p>
    * @public
    */
-  s3Configuration?: ExperimentTemplateS3LogConfigurationInput;
+  s3Configuration?: ExperimentTemplateS3LogConfigurationInput | undefined;
 
   /**
    * <p>The schema version.</p>
    * @public
    */
-  logSchemaVersion?: number;
+  logSchemaVersion?: number | undefined;
 }
 
 /**
@@ -2696,7 +2696,7 @@ export interface UpdateExperimentTemplateStopConditionInput {
    * <p>The Amazon Resource Name (ARN) of the CloudWatch alarm.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -2714,19 +2714,19 @@ export interface UpdateExperimentTemplateTargetInput {
    * <p>The Amazon Resource Names (ARNs) of the targets.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>The tags for the target resources.</p>
    * @public
    */
-  resourceTags?: Record<string, string>;
+  resourceTags?: Record<string, string> | undefined;
 
   /**
    * <p>The filters to apply to identify target resources using specific attributes.</p>
    * @public
    */
-  filters?: ExperimentTemplateTargetInputFilter[];
+  filters?: ExperimentTemplateTargetInputFilter[] | undefined;
 
   /**
    * <p>Scopes the identified resources to a specific count or percentage.</p>
@@ -2738,7 +2738,7 @@ export interface UpdateExperimentTemplateTargetInput {
    * <p>The resource type parameters.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -2755,49 +2755,49 @@ export interface UpdateExperimentTemplateRequest {
    * <p>A description for the template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The stop conditions for the experiment.</p>
    * @public
    */
-  stopConditions?: UpdateExperimentTemplateStopConditionInput[];
+  stopConditions?: UpdateExperimentTemplateStopConditionInput[] | undefined;
 
   /**
    * <p>The targets for the experiment.</p>
    * @public
    */
-  targets?: Record<string, UpdateExperimentTemplateTargetInput>;
+  targets?: Record<string, UpdateExperimentTemplateTargetInput> | undefined;
 
   /**
    * <p>The actions for the experiment.</p>
    * @public
    */
-  actions?: Record<string, UpdateExperimentTemplateActionInputItem>;
+  actions?: Record<string, UpdateExperimentTemplateActionInputItem> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that grants the FIS service permission to perform service actions on your behalf.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The configuration for experiment logging.</p>
    * @public
    */
-  logConfiguration?: UpdateExperimentTemplateLogConfigurationInput;
+  logConfiguration?: UpdateExperimentTemplateLogConfigurationInput | undefined;
 
   /**
    * <p>The experiment options for the experiment template.</p>
    * @public
    */
-  experimentOptions?: UpdateExperimentTemplateExperimentOptionsInput;
+  experimentOptions?: UpdateExperimentTemplateExperimentOptionsInput | undefined;
 
   /**
    * <p>The experiment report configuration for the experiment template.</p>
    * @public
    */
-  experimentReportConfiguration?: UpdateExperimentTemplateReportConfigurationInput;
+  experimentReportConfiguration?: UpdateExperimentTemplateReportConfigurationInput | undefined;
 }
 
 /**
@@ -2808,7 +2808,7 @@ export interface UpdateExperimentTemplateResponse {
    * <p>Information about the experiment template.</p>
    * @public
    */
-  experimentTemplate?: ExperimentTemplate;
+  experimentTemplate?: ExperimentTemplate | undefined;
 }
 
 /**
@@ -2880,7 +2880,7 @@ export interface UpdateSafetyLeverStateResponse {
    *       </p>
    * @public
    */
-  safetyLever?: SafetyLever;
+  safetyLever?: SafetyLever | undefined;
 }
 
 /**
@@ -2903,13 +2903,13 @@ export interface UpdateTargetAccountConfigurationRequest {
    * <p>The Amazon Resource Name (ARN) of an IAM role for the target account.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The description of the target account.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2920,5 +2920,5 @@ export interface UpdateTargetAccountConfigurationResponse {
    * <p>Information about the target account configuration.</p>
    * @public
    */
-  targetAccountConfiguration?: TargetAccountConfiguration;
+  targetAccountConfiguration?: TargetAccountConfiguration | undefined;
 }

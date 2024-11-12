@@ -12,13 +12,13 @@ export interface Tag {
    * <p>The tag's key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The tag's value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -192,7 +192,7 @@ export interface Alarm {
    *             only once in a list of alarms.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -204,7 +204,7 @@ export interface AlarmConfiguration {
    * <p>Indicates whether the alarm configuration is enabled.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether a deployment should continue if information about the current state
@@ -223,14 +223,14 @@ export interface AlarmConfiguration {
    *          </ul>
    * @public
    */
-  ignorePollAlarmFailure?: boolean;
+  ignorePollAlarmFailure?: boolean | undefined;
 
   /**
    * <p>A list of alarms configured for the deployment or deployment group. A maximum of 10
    *             alarms can be added.</p>
    * @public
    */
-  alarms?: Alarm[];
+  alarms?: Alarm[] | undefined;
 }
 
 /**
@@ -318,38 +318,38 @@ export interface ApplicationInfo {
    * <p>The application ID.</p>
    * @public
    */
-  applicationId?: string;
+  applicationId?: string | undefined;
 
   /**
    * <p>The application name.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>The time at which the application was created.</p>
    * @public
    */
-  createTime?: Date;
+  createTime?: Date | undefined;
 
   /**
    * <p>True if the user has authenticated with GitHub for the specified application.
    *             Otherwise, false.</p>
    * @public
    */
-  linkedToGitHub?: boolean;
+  linkedToGitHub?: boolean | undefined;
 
   /**
    * <p>The name for a connection to a GitHub account.</p>
    * @public
    */
-  gitHubAccountName?: string;
+  gitHubAccountName?: string | undefined;
 
   /**
    * <p>The destination platform type for deployment of the application (<code>Lambda</code> or <code>Server</code>).</p>
    * @public
    */
-  computePlatform?: ComputePlatform;
+  computePlatform?: ComputePlatform | undefined;
 }
 
 /**
@@ -426,13 +426,13 @@ export interface AppSpecContent {
    *         </p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 
   /**
    * <p> The SHA256 hash value of the revision content. </p>
    * @public
    */
-  sha256?: string;
+  sha256?: string | undefined;
 }
 
 /**
@@ -482,13 +482,13 @@ export interface AutoRollbackConfiguration {
    *             enabled.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The event type or types that trigger a rollback.</p>
    * @public
    */
-  events?: AutoRollbackEvent[];
+  events?: AutoRollbackEvent[] | undefined;
 }
 
 /**
@@ -500,7 +500,7 @@ export interface AutoScalingGroup {
    * <p>The Auto Scaling group name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The name of the launch hook that CodeDeploy installed into the Auto Scaling group.</p>
@@ -508,7 +508,7 @@ export interface AutoScalingGroup {
    *                     <i>CodeDeploy User Guide</i>.</p>
    * @public
    */
-  hook?: string;
+  hook?: string | undefined;
 
   /**
    * <p>The name of the termination hook that CodeDeploy installed into the Auto Scaling group.</p>
@@ -516,7 +516,7 @@ export interface AutoScalingGroup {
    *             <i>CodeDeploy User Guide</i>.</p>
    * @public
    */
-  terminationHook?: string;
+  terminationHook?: string | undefined;
 }
 
 /**
@@ -530,14 +530,14 @@ export interface GitHubLocation {
    *          <p>Specified as account/repository.</p>
    * @public
    */
-  repository?: string;
+  repository?: string | undefined;
 
   /**
    * <p>The SHA1 commit ID of the GitHub commit that represents the bundled artifacts for the
    *             application revision.</p>
    * @public
    */
-  commitId?: string;
+  commitId?: string | undefined;
 }
 
 /**
@@ -583,14 +583,14 @@ export interface S3Location {
    *             stored.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The name of the Amazon S3 object that represents the bundled artifacts for the
    *             application revision.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The file type of the application revision. Must be one of the following:</p>
@@ -618,7 +618,7 @@ export interface S3Location {
    *          </ul>
    * @public
    */
-  bundleType?: BundleType;
+  bundleType?: BundleType | undefined;
 
   /**
    * <p>A specific version of the Amazon S3 object that represents the bundled
@@ -627,7 +627,7 @@ export interface S3Location {
    *             default.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The ETag of the Amazon S3 object that represents the bundled artifacts for the
@@ -636,7 +636,7 @@ export interface S3Location {
    *             skipped.</p>
    * @public
    */
-  eTag?: string;
+  eTag?: string | undefined;
 }
 
 /**
@@ -654,13 +654,13 @@ export interface RawString {
    *             that validate deployment lifecycle events.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 
   /**
    * <p>The SHA256 hash value of the revision content.</p>
    * @public
    */
-  sha256?: string;
+  sha256?: string | undefined;
 }
 
 /**
@@ -691,19 +691,19 @@ export interface RevisionLocation {
    *          </ul>
    * @public
    */
-  revisionType?: RevisionLocationType;
+  revisionType?: RevisionLocationType | undefined;
 
   /**
    * <p>Information about the location of a revision stored in Amazon S3. </p>
    * @public
    */
-  s3Location?: S3Location;
+  s3Location?: S3Location | undefined;
 
   /**
    * <p>Information about the location of application artifacts stored in GitHub.</p>
    * @public
    */
-  gitHubLocation?: GitHubLocation;
+  gitHubLocation?: GitHubLocation | undefined;
 
   /**
    * @deprecated
@@ -712,14 +712,14 @@ export interface RevisionLocation {
    *             as a RawString.</p>
    * @public
    */
-  string?: RawString;
+  string?: RawString | undefined;
 
   /**
    * <p> The content of an AppSpec file for an Lambda or Amazon ECS
    *             deployment. The content is formatted as JSON or YAML and stored as a RawString. </p>
    * @public
    */
-  appSpecContent?: AppSpecContent;
+  appSpecContent?: AppSpecContent | undefined;
 }
 
 /**
@@ -752,31 +752,31 @@ export interface GenericRevisionInfo {
    * <p>A comment about the revision.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The deployment groups for which this is the current target revision.</p>
    * @public
    */
-  deploymentGroups?: string[];
+  deploymentGroups?: string[] | undefined;
 
   /**
    * <p>When the revision was first used by CodeDeploy.</p>
    * @public
    */
-  firstUsedTime?: Date;
+  firstUsedTime?: Date | undefined;
 
   /**
    * <p>When the revision was last used by CodeDeploy.</p>
    * @public
    */
-  lastUsedTime?: Date;
+  lastUsedTime?: Date | undefined;
 
   /**
    * <p>When the revision was registered with CodeDeploy.</p>
    * @public
    */
-  registerTime?: Date;
+  registerTime?: Date | undefined;
 }
 
 /**
@@ -788,14 +788,14 @@ export interface RevisionInfo {
    * <p>Information about the location and type of an application revision.</p>
    * @public
    */
-  revisionLocation?: RevisionLocation;
+  revisionLocation?: RevisionLocation | undefined;
 
   /**
    * <p>Information about an application revision, including usage details and associated
    *             deployment groups.</p>
    * @public
    */
-  genericRevisionInfo?: GenericRevisionInfo;
+  genericRevisionInfo?: GenericRevisionInfo | undefined;
 }
 
 /**
@@ -807,19 +807,19 @@ export interface BatchGetApplicationRevisionsOutput {
    * <p>The name of the application that corresponds to the revisions.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>Information about errors that might have occurred during the API call.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>Additional information about the revisions, including the type and location.</p>
    * @public
    */
-  revisions?: RevisionInfo[];
+  revisions?: RevisionInfo[] | undefined;
 }
 
 /**
@@ -924,7 +924,7 @@ export interface BatchGetApplicationsOutput {
    * <p>Information about the applications.</p>
    * @public
    */
-  applicationsInfo?: ApplicationInfo[];
+  applicationsInfo?: ApplicationInfo[] | undefined;
 }
 
 /**
@@ -984,7 +984,7 @@ export interface DeploymentReadyOption {
    *          </ul>
    * @public
    */
-  actionOnTimeout?: DeploymentReadyAction;
+  actionOnTimeout?: DeploymentReadyAction | undefined;
 
   /**
    * <p>The number of minutes to wait before the status of a blue/green deployment is changed
@@ -992,7 +992,7 @@ export interface DeploymentReadyOption {
    *                 <code>STOP_DEPLOYMENT</code> option for <code>actionOnTimeout</code>.</p>
    * @public
    */
-  waitTimeInMinutes?: number;
+  waitTimeInMinutes?: number | undefined;
 }
 
 /**
@@ -1032,7 +1032,7 @@ export interface GreenFleetProvisioningOption {
    *          </ul>
    * @public
    */
-  action?: GreenFleetProvisioningAction;
+  action?: GreenFleetProvisioningAction | undefined;
 }
 
 /**
@@ -1074,7 +1074,7 @@ export interface BlueInstanceTerminationOption {
    *          </ul>
    * @public
    */
-  action?: InstanceAction;
+  action?: InstanceAction | undefined;
 
   /**
    * <p>For an Amazon EC2 deployment, the number of minutes to wait after a successful
@@ -1085,7 +1085,7 @@ export interface BlueInstanceTerminationOption {
    *          <p> The maximum setting is 2880 minutes (2 days). </p>
    * @public
    */
-  terminationWaitTimeInMinutes?: number;
+  terminationWaitTimeInMinutes?: number | undefined;
 }
 
 /**
@@ -1098,21 +1098,21 @@ export interface BlueGreenDeploymentConfiguration {
    *             blue/green deployment.</p>
    * @public
    */
-  terminateBlueInstancesOnDeploymentSuccess?: BlueInstanceTerminationOption;
+  terminateBlueInstancesOnDeploymentSuccess?: BlueInstanceTerminationOption | undefined;
 
   /**
    * <p>Information about the action to take when newly provisioned instances are ready to
    *             receive traffic in a blue/green deployment.</p>
    * @public
    */
-  deploymentReadyOption?: DeploymentReadyOption;
+  deploymentReadyOption?: DeploymentReadyOption | undefined;
 
   /**
    * <p>Information about how instances are provisioned for a replacement environment in a
    *             blue/green deployment.</p>
    * @public
    */
-  greenFleetProvisioningOption?: GreenFleetProvisioningOption;
+  greenFleetProvisioningOption?: GreenFleetProvisioningOption | undefined;
 }
 
 /**
@@ -1153,13 +1153,13 @@ export interface DeploymentStyle {
    * <p>Indicates whether to run an in-place deployment or a blue/green deployment.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 
   /**
    * <p>Indicates whether to route deployment traffic behind a load balancer.</p>
    * @public
    */
-  deploymentOption?: DeploymentOption;
+  deploymentOption?: DeploymentOption | undefined;
 }
 
 /**
@@ -1186,13 +1186,13 @@ export interface EC2TagFilter {
    * <p>The tag filter key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The tag filter value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The tag filter type:</p>
@@ -1212,7 +1212,7 @@ export interface EC2TagFilter {
    *          </ul>
    * @public
    */
-  Type?: EC2TagFilterType;
+  Type?: EC2TagFilterType | undefined;
 }
 
 /**
@@ -1226,7 +1226,7 @@ export interface EC2TagSet {
    *             groups in the list.</p>
    * @public
    */
-  ec2TagSetList?: EC2TagFilter[][];
+  ec2TagSetList?: EC2TagFilter[][] | undefined;
 }
 
 /**
@@ -1239,14 +1239,14 @@ export interface ECSService {
    * <p> The name of the target Amazon ECS service. </p>
    * @public
    */
-  serviceName?: string;
+  serviceName?: string | undefined;
 
   /**
    * <p> The name of the cluster that the Amazon ECS service is associated with.
    *         </p>
    * @public
    */
-  clusterName?: string;
+  clusterName?: string | undefined;
 }
 
 /**
@@ -1279,27 +1279,27 @@ export interface LastDeploymentInfo {
    * <p> The unique ID of a deployment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>The status of the most recent deployment.</p>
    * @public
    */
-  status?: DeploymentStatus;
+  status?: DeploymentStatus | undefined;
 
   /**
    * <p>A timestamp that indicates when the most recent deployment to the deployment group was
    *             complete.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the most recent deployment to the deployment group
    *             started.</p>
    * @public
    */
-  createTime?: Date;
+  createTime?: Date | undefined;
 }
 
 /**
@@ -1317,7 +1317,7 @@ export interface ELBInfo {
    *             then re-registered with after the deployment is complete.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -1335,7 +1335,7 @@ export interface TargetGroupInfo {
    *             and then re-registered with after the deployment is complete. </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -1350,7 +1350,7 @@ export interface TrafficRoute {
    *             size of one. </p>
    * @public
    */
-  listenerArns?: string[];
+  listenerArns?: string[] | undefined;
 }
 
 /**
@@ -1364,20 +1364,20 @@ export interface TargetGroupPairInfo {
    *         </p>
    * @public
    */
-  targetGroups?: TargetGroupInfo[];
+  targetGroups?: TargetGroupInfo[] | undefined;
 
   /**
    * <p> The path used by a load balancer to route production traffic when an Amazon ECS deployment is complete. </p>
    * @public
    */
-  prodTrafficRoute?: TrafficRoute;
+  prodTrafficRoute?: TrafficRoute | undefined;
 
   /**
    * <p> An optional path used by a load balancer to route test traffic after an Amazon ECS deployment. Validation can occur while test traffic is served during a
    *             deployment. </p>
    * @public
    */
-  testTrafficRoute?: TrafficRoute;
+  testTrafficRoute?: TrafficRoute | undefined;
 }
 
 /**
@@ -1403,7 +1403,7 @@ export interface LoadBalancerInfo {
    *          </note>
    * @public
    */
-  elbInfoList?: ELBInfo[];
+  elbInfoList?: ELBInfo[] | undefined;
 
   /**
    * <p>An array that contains information about the target groups to use for load balancing
@@ -1418,14 +1418,14 @@ export interface LoadBalancerInfo {
    *          </note>
    * @public
    */
-  targetGroupInfoList?: TargetGroupInfo[];
+  targetGroupInfoList?: TargetGroupInfo[] | undefined;
 
   /**
    * <p> The target group pair information. This is an array of
    *                 <code>TargeGroupPairInfo</code> objects with a maximum size of one. </p>
    * @public
    */
-  targetGroupPairInfoList?: TargetGroupPairInfo[];
+  targetGroupPairInfoList?: TargetGroupPairInfo[] | undefined;
 }
 
 /**
@@ -1452,13 +1452,13 @@ export interface TagFilter {
    * <p>The on-premises instance tag filter key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The on-premises instance tag filter value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The on-premises instance tag filter type:</p>
@@ -1475,7 +1475,7 @@ export interface TagFilter {
    *          </ul>
    * @public
    */
-  Type?: TagFilterType;
+  Type?: TagFilterType | undefined;
 }
 
 /**
@@ -1489,7 +1489,7 @@ export interface OnPremisesTagSet {
    *             in the list.</p>
    * @public
    */
-  onPremisesTagSetList?: TagFilter[][];
+  onPremisesTagSetList?: TagFilter[][] | undefined;
 }
 
 /**
@@ -1537,20 +1537,20 @@ export interface TriggerConfig {
    * <p>The name of the notification trigger.</p>
    * @public
    */
-  triggerName?: string;
+  triggerName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic through
    *             which notifications about deployment or instance events are sent.</p>
    * @public
    */
-  triggerTargetArn?: string;
+  triggerTargetArn?: string | undefined;
 
   /**
    * <p>The event type or types for which notifications are triggered.</p>
    * @public
    */
-  triggerEvents?: TriggerEventType[];
+  triggerEvents?: TriggerEventType[] | undefined;
 }
 
 /**
@@ -1562,45 +1562,45 @@ export interface DeploymentGroupInfo {
    * <p>The application name.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>The deployment group ID.</p>
    * @public
    */
-  deploymentGroupId?: string;
+  deploymentGroupId?: string | undefined;
 
   /**
    * <p>The deployment group name.</p>
    * @public
    */
-  deploymentGroupName?: string;
+  deploymentGroupName?: string | undefined;
 
   /**
    * <p>The deployment configuration name.</p>
    * @public
    */
-  deploymentConfigName?: string;
+  deploymentConfigName?: string | undefined;
 
   /**
    * <p>The Amazon EC2 tags on which to filter. The deployment group includes EC2
    *             instances with any of the specified tags.</p>
    * @public
    */
-  ec2TagFilters?: EC2TagFilter[];
+  ec2TagFilters?: EC2TagFilter[] | undefined;
 
   /**
    * <p>The on-premises instance tags on which to filter. The deployment group includes
    *             on-premises instances with any of the specified tags.</p>
    * @public
    */
-  onPremisesInstanceTagFilters?: TagFilter[];
+  onPremisesInstanceTagFilters?: TagFilter[] | undefined;
 
   /**
    * <p>A list of associated Auto Scaling groups.</p>
    * @public
    */
-  autoScalingGroups?: AutoScalingGroup[];
+  autoScalingGroups?: AutoScalingGroup[] | undefined;
 
   /**
    * <p>A service role Amazon Resource Name (ARN) that grants CodeDeploy permission to make
@@ -1608,40 +1608,40 @@ export interface DeploymentGroupInfo {
    *                 Service Role for CodeDeploy</a> in the <i>CodeDeploy User Guide</i>.</p>
    * @public
    */
-  serviceRoleArn?: string;
+  serviceRoleArn?: string | undefined;
 
   /**
    * <p>Information about the deployment group's target revision, including type and
    *             location.</p>
    * @public
    */
-  targetRevision?: RevisionLocation;
+  targetRevision?: RevisionLocation | undefined;
 
   /**
    * <p>Information about triggers associated with the deployment group.</p>
    * @public
    */
-  triggerConfigurations?: TriggerConfig[];
+  triggerConfigurations?: TriggerConfig[] | undefined;
 
   /**
    * <p>A list of alarms associated with the deployment group.</p>
    * @public
    */
-  alarmConfiguration?: AlarmConfiguration;
+  alarmConfiguration?: AlarmConfiguration | undefined;
 
   /**
    * <p>Information about the automatic rollback configuration associated with the deployment
    *             group.</p>
    * @public
    */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
+  autoRollbackConfiguration?: AutoRollbackConfiguration | undefined;
 
   /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
    *             run and whether to route deployment traffic behind a load balancer.</p>
    * @public
    */
-  deploymentStyle?: DeploymentStyle;
+  deploymentStyle?: DeploymentStyle | undefined;
 
   /**
    * <p>Indicates what happens when new Amazon EC2 instances are launched
@@ -1654,32 +1654,32 @@ export interface DeploymentGroupInfo {
    *             having different revisions.</p>
    * @public
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy | undefined;
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
    * @public
    */
-  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration | undefined;
 
   /**
    * <p>Information about the load balancer to use in a deployment.</p>
    * @public
    */
-  loadBalancerInfo?: LoadBalancerInfo;
+  loadBalancerInfo?: LoadBalancerInfo | undefined;
 
   /**
    * <p>Information about the most recent successful deployment to the deployment
    *             group.</p>
    * @public
    */
-  lastSuccessfulDeployment?: LastDeploymentInfo;
+  lastSuccessfulDeployment?: LastDeploymentInfo | undefined;
 
   /**
    * <p>Information about the most recent attempted deployment to the deployment group.</p>
    * @public
    */
-  lastAttemptedDeployment?: LastDeploymentInfo;
+  lastAttemptedDeployment?: LastDeploymentInfo | undefined;
 
   /**
    * <p>Information about groups of tags applied to an Amazon EC2 instance. The
@@ -1687,7 +1687,7 @@ export interface DeploymentGroupInfo {
    *             groups. Cannot be used in the same call as ec2TagFilters.</p>
    * @public
    */
-  ec2TagSet?: EC2TagSet;
+  ec2TagSet?: EC2TagSet | undefined;
 
   /**
    * <p>Information about groups of tags applied to an on-premises instance. The deployment
@@ -1695,14 +1695,14 @@ export interface DeploymentGroupInfo {
    *             used in the same call as onPremisesInstanceTagFilters.</p>
    * @public
    */
-  onPremisesTagSet?: OnPremisesTagSet;
+  onPremisesTagSet?: OnPremisesTagSet | undefined;
 
   /**
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    * @public
    */
-  computePlatform?: ComputePlatform;
+  computePlatform?: ComputePlatform | undefined;
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
@@ -1710,7 +1710,7 @@ export interface DeploymentGroupInfo {
    *             pair using the format <code><clustername>:<servicename></code>. </p>
    * @public
    */
-  ecsServices?: ECSService[];
+  ecsServices?: ECSService[] | undefined;
 
   /**
    * <p>Indicates whether the deployment group was configured to have CodeDeploy
@@ -1719,7 +1719,7 @@ export interface DeploymentGroupInfo {
    *                     <i>CodeDeploy User Guide</i>.</p>
    * @public
    */
-  terminationHookEnabled?: boolean;
+  terminationHookEnabled?: boolean | undefined;
 }
 
 /**
@@ -1731,13 +1731,13 @@ export interface BatchGetDeploymentGroupsOutput {
    * <p>Information about the deployment groups.</p>
    * @public
    */
-  deploymentGroupsInfo?: DeploymentGroupInfo[];
+  deploymentGroupsInfo?: DeploymentGroupInfo[] | undefined;
 
   /**
    * <p>Information about errors that might have occurred during the API call.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1883,19 +1883,19 @@ export interface Diagnostics {
    *          </ul>
    * @public
    */
-  errorCode?: LifecycleErrorCode;
+  errorCode?: LifecycleErrorCode | undefined;
 
   /**
    * <p>The name of the script.</p>
    * @public
    */
-  scriptName?: string;
+  scriptName?: string | undefined;
 
   /**
    * <p>The message associated with the error.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The last portion of the diagnostic log.</p>
@@ -1903,7 +1903,7 @@ export interface Diagnostics {
    *             log.</p>
    * @public
    */
-  logTail?: string;
+  logTail?: string | undefined;
 }
 
 /**
@@ -1935,25 +1935,25 @@ export interface LifecycleEvent {
    *             <code>ApplicationStart</code>, or <code>ValidateService</code>.</p>
    * @public
    */
-  lifecycleEventName?: string;
+  lifecycleEventName?: string | undefined;
 
   /**
    * <p>Diagnostic information about the deployment lifecycle event.</p>
    * @public
    */
-  diagnostics?: Diagnostics;
+  diagnostics?: Diagnostics | undefined;
 
   /**
    * <p>A timestamp that indicates when the deployment lifecycle event started.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the deployment lifecycle event ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The deployment lifecycle event status:</p>
@@ -1979,7 +1979,7 @@ export interface LifecycleEvent {
    *          </ul>
    * @public
    */
-  status?: LifecycleEventStatus;
+  status?: LifecycleEventStatus | undefined;
 }
 
 /**
@@ -2012,13 +2012,13 @@ export interface InstanceSummary {
    * <p> The unique ID of a deployment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>The instance ID.</p>
    * @public
    */
-  instanceId?: string;
+  instanceId?: string | undefined;
 
   /**
    * @deprecated
@@ -2055,19 +2055,19 @@ export interface InstanceSummary {
    *          </ul>
    * @public
    */
-  status?: InstanceStatus;
+  status?: InstanceStatus | undefined;
 
   /**
    * <p>A timestamp that indicates when the instance information was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p>A list of lifecycle events for this instance.</p>
    * @public
    */
-  lifecycleEvents?: LifecycleEvent[];
+  lifecycleEvents?: LifecycleEvent[] | undefined;
 
   /**
    * <p>Information about which environment an instance belongs to in a blue/green
@@ -2082,7 +2082,7 @@ export interface InstanceSummary {
    *          </ul>
    * @public
    */
-  instanceType?: _InstanceType;
+  instanceType?: _InstanceType | undefined;
 }
 
 /**
@@ -2094,13 +2094,13 @@ export interface BatchGetDeploymentInstancesOutput {
    * <p>Information about the instance.</p>
    * @public
    */
-  instancesSummary?: InstanceSummary[];
+  instancesSummary?: InstanceSummary[] | undefined;
 
   /**
    * <p>Information about errors that might have occurred during the API call.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -2247,39 +2247,39 @@ export interface DeploymentOverview {
    * <p>The number of instances in the deployment in a pending state.</p>
    * @public
    */
-  Pending?: number;
+  Pending?: number | undefined;
 
   /**
    * <p>The number of instances in which the deployment is in progress.</p>
    * @public
    */
-  InProgress?: number;
+  InProgress?: number | undefined;
 
   /**
    * <p>The number of instances in the deployment to which revisions have been successfully
    *             deployed.</p>
    * @public
    */
-  Succeeded?: number;
+  Succeeded?: number | undefined;
 
   /**
    * <p>The number of instances in the deployment in a failed state.</p>
    * @public
    */
-  Failed?: number;
+  Failed?: number | undefined;
 
   /**
    * <p>The number of instances in the deployment in a skipped state.</p>
    * @public
    */
-  Skipped?: number;
+  Skipped?: number | undefined;
 
   /**
    * <p>The number of instances in a replacement environment ready to receive traffic in a
    *             blue/green deployment.</p>
    * @public
    */
-  Ready?: number;
+  Ready?: number | undefined;
 }
 
 /**
@@ -2390,13 +2390,13 @@ export interface ErrorInformation {
    *          </ul>
    * @public
    */
-  code?: ErrorCode;
+  code?: ErrorCode | undefined;
 
   /**
    * <p>An accompanying error message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -2423,14 +2423,14 @@ export interface RelatedDeployments {
    * <p>The deployment ID of the root deployment that triggered this deployment.</p>
    * @public
    */
-  autoUpdateOutdatedInstancesRootDeploymentId?: string;
+  autoUpdateOutdatedInstancesRootDeploymentId?: string | undefined;
 
   /**
    * <p>The deployment IDs of 'auto-update outdated instances' deployments triggered by this
    *             deployment.</p>
    * @public
    */
-  autoUpdateOutdatedInstancesDeploymentIds?: string[];
+  autoUpdateOutdatedInstancesDeploymentIds?: string[] | undefined;
 }
 
 /**
@@ -2442,21 +2442,21 @@ export interface RollbackInfo {
    * <p>The ID of the deployment rollback.</p>
    * @public
    */
-  rollbackDeploymentId?: string;
+  rollbackDeploymentId?: string | undefined;
 
   /**
    * <p>The deployment ID of the deployment that was underway and triggered a rollback
    *             deployment because it failed or was stopped.</p>
    * @public
    */
-  rollbackTriggeringDeploymentId?: string;
+  rollbackTriggeringDeploymentId?: string | undefined;
 
   /**
    * <p>Information that describes the status of a deployment rollback (for example, whether
    *             the deployment can't be rolled back, is in progress, failed, or succeeded). </p>
    * @public
    */
-  rollbackMessage?: string;
+  rollbackMessage?: string | undefined;
 }
 
 /**
@@ -2471,14 +2471,14 @@ export interface TargetInstances {
    *                 <code>ec2TagSet</code>.</p>
    * @public
    */
-  tagFilters?: EC2TagFilter[];
+  tagFilters?: EC2TagFilter[] | undefined;
 
   /**
    * <p>The names of one or more Auto Scaling groups to identify a replacement
    *             environment for a blue/green deployment.</p>
    * @public
    */
-  autoScalingGroups?: string[];
+  autoScalingGroups?: string[] | undefined;
 
   /**
    * <p>Information about the groups of Amazon EC2 instance tags that an instance must
@@ -2487,7 +2487,7 @@ export interface TargetInstances {
    *             <code>tagFilters</code>.</p>
    * @public
    */
-  ec2TagSet?: EC2TagSet;
+  ec2TagSet?: EC2TagSet | undefined;
 }
 
 /**
@@ -2499,57 +2499,57 @@ export interface DeploymentInfo {
    * <p>The application name.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p> The deployment group name. </p>
    * @public
    */
-  deploymentGroupName?: string;
+  deploymentGroupName?: string | undefined;
 
   /**
    * <p> The deployment configuration name. </p>
    * @public
    */
-  deploymentConfigName?: string;
+  deploymentConfigName?: string | undefined;
 
   /**
    * <p> The unique ID of a deployment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>Information about the application revision that was deployed to the deployment group
    *             before the most recent successful deployment.</p>
    * @public
    */
-  previousRevision?: RevisionLocation;
+  previousRevision?: RevisionLocation | undefined;
 
   /**
    * <p>Information about the location of stored application artifacts and the service from
    *             which to retrieve them.</p>
    * @public
    */
-  revision?: RevisionLocation;
+  revision?: RevisionLocation | undefined;
 
   /**
    * <p>The current state of the deployment as a whole.</p>
    * @public
    */
-  status?: DeploymentStatus;
+  status?: DeploymentStatus | undefined;
 
   /**
    * <p>Information about any error associated with this deployment.</p>
    * @public
    */
-  errorInformation?: ErrorInformation;
+  errorInformation?: ErrorInformation | undefined;
 
   /**
    * <p>A timestamp that indicates when the deployment was created.</p>
    * @public
    */
-  createTime?: Date;
+  createTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the deployment was deployed to the deployment
@@ -2559,25 +2559,25 @@ export interface DeploymentInfo {
    *             participate in the deployment process.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the deployment was complete.</p>
    * @public
    */
-  completeTime?: Date;
+  completeTime?: Date | undefined;
 
   /**
    * <p>A summary of the deployment status of the instances in the deployment.</p>
    * @public
    */
-  deploymentOverview?: DeploymentOverview;
+  deploymentOverview?: DeploymentOverview | undefined;
 
   /**
    * <p>A comment about the deployment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The means by which the deployment was created:</p>
@@ -2603,7 +2603,7 @@ export interface DeploymentInfo {
    *          </ul>
    * @public
    */
-  creator?: DeploymentCreator;
+  creator?: DeploymentCreator | undefined;
 
   /**
    * <p> If true, then if an <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, or
@@ -2630,41 +2630,41 @@ export interface DeploymentInfo {
    *                 <code>AfterBlockTraffic</code> failures should be ignored. </p>
    * @public
    */
-  ignoreApplicationStopFailures?: boolean;
+  ignoreApplicationStopFailures?: boolean | undefined;
 
   /**
    * <p>Information about the automatic rollback configuration associated with the
    *             deployment.</p>
    * @public
    */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
+  autoRollbackConfiguration?: AutoRollbackConfiguration | undefined;
 
   /**
    * <p>Indicates whether only instances that are not running the latest application revision
    *             are to be deployed to.</p>
    * @public
    */
-  updateOutdatedInstancesOnly?: boolean;
+  updateOutdatedInstancesOnly?: boolean | undefined;
 
   /**
    * <p>Information about a deployment rollback.</p>
    * @public
    */
-  rollbackInfo?: RollbackInfo;
+  rollbackInfo?: RollbackInfo | undefined;
 
   /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
    *             run and whether to route deployment traffic behind a load balancer.</p>
    * @public
    */
-  deploymentStyle?: DeploymentStyle;
+  deploymentStyle?: DeploymentStyle | undefined;
 
   /**
    * <p>Information about the instances that belong to the replacement environment in a
    *             blue/green deployment.</p>
    * @public
    */
-  targetInstances?: TargetInstances;
+  targetInstances?: TargetInstances | undefined;
 
   /**
    * <p>Indicates whether the wait period set for the termination of instances in the original
@@ -2672,19 +2672,19 @@ export interface DeploymentInfo {
    *             Otherwise, 'true' as soon as the termination wait period starts.</p>
    * @public
    */
-  instanceTerminationWaitTimeStarted?: boolean;
+  instanceTerminationWaitTimeStarted?: boolean | undefined;
 
   /**
    * <p>Information about blue/green deployment options for this deployment.</p>
    * @public
    */
-  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration | undefined;
 
   /**
    * <p>Information about the load balancer used in the deployment.</p>
    * @public
    */
-  loadBalancerInfo?: LoadBalancerInfo;
+  loadBalancerInfo?: LoadBalancerInfo | undefined;
 
   /**
    * @deprecated
@@ -2693,7 +2693,7 @@ export interface DeploymentInfo {
    *             the original environment in a blue/green deployment were not terminated.</p>
    * @public
    */
-  additionalDeploymentStatusInfo?: string;
+  additionalDeploymentStatusInfo?: string | undefined;
 
   /**
    * <p>Information about how CodeDeploy handles files that already exist in a
@@ -2718,39 +2718,39 @@ export interface DeploymentInfo {
    *          </ul>
    * @public
    */
-  fileExistsBehavior?: FileExistsBehavior;
+  fileExistsBehavior?: FileExistsBehavior | undefined;
 
   /**
    * <p>Messages that contain information about the status of a deployment.</p>
    * @public
    */
-  deploymentStatusMessages?: string[];
+  deploymentStatusMessages?: string[] | undefined;
 
   /**
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    * @public
    */
-  computePlatform?: ComputePlatform;
+  computePlatform?: ComputePlatform | undefined;
 
   /**
    * <p>The unique ID for an external resource (for example, a CloudFormation stack
    *             ID) that is linked to this deployment.</p>
    * @public
    */
-  externalId?: string;
+  externalId?: string | undefined;
 
   /**
    * <p>Information about deployments related to the specified deployment.</p>
    * @public
    */
-  relatedDeployments?: RelatedDeployments;
+  relatedDeployments?: RelatedDeployments | undefined;
 
   /**
    * <p>Information about alarms associated with a deployment or deployment group.</p>
    * @public
    */
-  overrideAlarmConfiguration?: AlarmConfiguration;
+  overrideAlarmConfiguration?: AlarmConfiguration | undefined;
 }
 
 /**
@@ -2762,7 +2762,7 @@ export interface BatchGetDeploymentsOutput {
    * <p> Information about the deployments. </p>
    * @public
    */
-  deploymentsInfo?: DeploymentInfo[];
+  deploymentsInfo?: DeploymentInfo[] | undefined;
 }
 
 /**
@@ -2836,48 +2836,48 @@ export interface CloudFormationTarget {
    * <p>The unique ID of an CloudFormation blue/green deployment.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p> The unique ID of a deployment target that has a type
    *                 of <code>CloudFormationTarget</code>. </p>
    * @public
    */
-  targetId?: string;
+  targetId?: string | undefined;
 
   /**
    * <p> The date and time when the target application was updated by an CloudFormation
    *             blue/green deployment. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p> The lifecycle events of the CloudFormation blue/green deployment to this target
    *             application. </p>
    * @public
    */
-  lifecycleEvents?: LifecycleEvent[];
+  lifecycleEvents?: LifecycleEvent[] | undefined;
 
   /**
    * <p> The status of an CloudFormation blue/green deployment's target application.
    *         </p>
    * @public
    */
-  status?: TargetStatus;
+  status?: TargetStatus | undefined;
 
   /**
    * <p>The resource type for the CloudFormation blue/green deployment.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The percentage of production traffic that the target version of an CloudFormation
    *             blue/green deployment receives.</p>
    * @public
    */
-  targetVersionWeight?: number;
+  targetVersionWeight?: number | undefined;
 }
 
 /**
@@ -2924,7 +2924,7 @@ export interface ECSTaskSet {
    * <p> A unique ID of an <code>ECSTaskSet</code>. </p>
    * @public
    */
-  identifer?: string;
+  identifer?: string | undefined;
 
   /**
    * <p> The number of tasks in a task set. During a deployment that uses the Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new task set and
@@ -2932,7 +2932,7 @@ export interface ECSTaskSet {
    *             created, CodeDeploy shifts traffic to the new task set. </p>
    * @public
    */
-  desiredCount?: number;
+  desiredCount?: number | undefined;
 
   /**
    * <p> The number of tasks in the task set that are in the <code>PENDING</code> status
@@ -2942,7 +2942,7 @@ export interface ECSTaskSet {
    *             restarted after being in the <code>STOPPED</code> state. </p>
    * @public
    */
-  pendingCount?: number;
+  pendingCount?: number | undefined;
 
   /**
    * <p> The number of tasks in the task set that are in the <code>RUNNING</code> status
@@ -2950,7 +2950,7 @@ export interface ECSTaskSet {
    *             running and ready for use. </p>
    * @public
    */
-  runningCount?: number;
+  runningCount?: number | undefined;
 
   /**
    * <p> The status of the task set. There are three valid task set statuses: </p>
@@ -2974,26 +2974,26 @@ export interface ECSTaskSet {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p> The percentage of traffic served by this task set. </p>
    * @public
    */
-  trafficWeight?: number;
+  trafficWeight?: number | undefined;
 
   /**
    * <p> The target group associated with the task set. The target group is used by CodeDeploy to manage traffic to a task set. </p>
    * @public
    */
-  targetGroup?: TargetGroupInfo;
+  targetGroup?: TargetGroupInfo | undefined;
 
   /**
    * <p> A label that identifies whether the ECS task set is an original target
    *                 (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    * @public
    */
-  taskSetLabel?: TargetLabel;
+  taskSetLabel?: TargetLabel | undefined;
 }
 
 /**
@@ -3005,46 +3005,46 @@ export interface ECSTarget {
    * <p> The unique ID of a deployment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p> The unique ID of a deployment target that has a type of <code>ecsTarget</code>.
    *         </p>
    * @public
    */
-  targetId?: string;
+  targetId?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the target. </p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p> The date and time when the target Amazon ECS application was updated by a
    *             deployment. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p> The lifecycle events of the deployment to this target Amazon ECS application.
    *         </p>
    * @public
    */
-  lifecycleEvents?: LifecycleEvent[];
+  lifecycleEvents?: LifecycleEvent[] | undefined;
 
   /**
    * <p> The status an Amazon ECS deployment's target ECS application. </p>
    * @public
    */
-  status?: TargetStatus;
+  status?: TargetStatus | undefined;
 
   /**
    * <p> The <code>ECSTaskSet</code> objects associated with the ECS target. </p>
    * @public
    */
-  taskSetsInfo?: ECSTaskSet[];
+  taskSetsInfo?: ECSTaskSet[] | undefined;
 }
 
 /**
@@ -3057,45 +3057,45 @@ export interface InstanceTarget {
    * <p> The unique ID of a deployment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p> The unique ID of a deployment target that has a type of <code>instanceTarget</code>.
    *         </p>
    * @public
    */
-  targetId?: string;
+  targetId?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the target. </p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p> The status an EC2/On-premises deployment's target instance. </p>
    * @public
    */
-  status?: TargetStatus;
+  status?: TargetStatus | undefined;
 
   /**
    * <p> The date and time when the target instance was updated by a deployment. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p> The lifecycle events of the deployment to this target instance. </p>
    * @public
    */
-  lifecycleEvents?: LifecycleEvent[];
+  lifecycleEvents?: LifecycleEvent[] | undefined;
 
   /**
    * <p> A label that identifies whether the instance is an original target
    *             (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    * @public
    */
-  instanceLabel?: TargetLabel;
+  instanceLabel?: TargetLabel | undefined;
 }
 
 /**
@@ -3107,35 +3107,35 @@ export interface LambdaFunctionInfo {
    * <p> The name of a Lambda function. </p>
    * @public
    */
-  functionName?: string;
+  functionName?: string | undefined;
 
   /**
    * <p> The alias of a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Lambda Function Aliases</a> in the <i>Lambda Developer
    *                 Guide</i>.</p>
    * @public
    */
-  functionAlias?: string;
+  functionAlias?: string | undefined;
 
   /**
    * <p> The version of a Lambda function that production traffic points to.
    *         </p>
    * @public
    */
-  currentVersion?: string;
+  currentVersion?: string | undefined;
 
   /**
    * <p> The version of a Lambda function that production traffic points to after
    *             the Lambda function is deployed. </p>
    * @public
    */
-  targetVersion?: string;
+  targetVersion?: string | undefined;
 
   /**
    * <p> The percentage of production traffic that the target version of a Lambda
    *             function receives. </p>
    * @public
    */
-  targetVersionWeight?: number;
+  targetVersionWeight?: number | undefined;
 }
 
 /**
@@ -3147,48 +3147,48 @@ export interface LambdaTarget {
    * <p> The unique ID of a deployment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p> The unique ID of a deployment target that has a type of <code>lambdaTarget</code>.
    *         </p>
    * @public
    */
-  targetId?: string;
+  targetId?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the target. </p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p> The status an Lambda deployment's target Lambda function.
    *         </p>
    * @public
    */
-  status?: TargetStatus;
+  status?: TargetStatus | undefined;
 
   /**
    * <p> The date and time when the target Lambda function was updated by a
    *             deployment. </p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 
   /**
    * <p> The lifecycle events of the deployment to this target Lambda function.
    *         </p>
    * @public
    */
-  lifecycleEvents?: LifecycleEvent[];
+  lifecycleEvents?: LifecycleEvent[] | undefined;
 
   /**
    * <p> A <code>LambdaFunctionInfo</code> object that describes a target Lambda
    *             function. </p>
    * @public
    */
-  lambdaFunctionInfo?: LambdaFunctionInfo;
+  lambdaFunctionInfo?: LambdaFunctionInfo | undefined;
 }
 
 /**
@@ -3201,35 +3201,35 @@ export interface DeploymentTarget {
    *             deployments initiated by a CloudFormation stack update.</p>
    * @public
    */
-  deploymentTargetType?: DeploymentTargetType;
+  deploymentTargetType?: DeploymentTargetType | undefined;
 
   /**
    * <p> Information about the target for a deployment that uses the EC2/On-premises compute
    *             platform. </p>
    * @public
    */
-  instanceTarget?: InstanceTarget;
+  instanceTarget?: InstanceTarget | undefined;
 
   /**
    * <p> Information about the target for a deployment that uses the Lambda
    *             compute platform. </p>
    * @public
    */
-  lambdaTarget?: LambdaTarget;
+  lambdaTarget?: LambdaTarget | undefined;
 
   /**
    * <p> Information about the target for a deployment that uses the Amazon ECS
    *             compute platform. </p>
    * @public
    */
-  ecsTarget?: ECSTarget;
+  ecsTarget?: ECSTarget | undefined;
 
   /**
    * <p> Information about the target to be updated by an CloudFormation blue/green
    *             deployment. This target type is used for all deployments initiated by a CloudFormation stack update.</p>
    * @public
    */
-  cloudFormationTarget?: CloudFormationTarget;
+  cloudFormationTarget?: CloudFormationTarget | undefined;
 }
 
 /**
@@ -3264,7 +3264,7 @@ export interface BatchGetDeploymentTargetsOutput {
    *          </ul>
    * @public
    */
-  deploymentTargets?: DeploymentTarget[];
+  deploymentTargets?: DeploymentTarget[] | undefined;
 }
 
 /**
@@ -3414,45 +3414,45 @@ export interface InstanceInfo {
    * <p>The name of the on-premises instance.</p>
    * @public
    */
-  instanceName?: string;
+  instanceName?: string | undefined;
 
   /**
    * <p>The ARN of the IAM session associated with the on-premises
    *             instance.</p>
    * @public
    */
-  iamSessionArn?: string;
+  iamSessionArn?: string | undefined;
 
   /**
    * <p>The user ARN associated with the on-premises instance.</p>
    * @public
    */
-  iamUserArn?: string;
+  iamUserArn?: string | undefined;
 
   /**
    * <p>The ARN of the on-premises instance.</p>
    * @public
    */
-  instanceArn?: string;
+  instanceArn?: string | undefined;
 
   /**
    * <p>The time at which the on-premises instance was registered.</p>
    * @public
    */
-  registerTime?: Date;
+  registerTime?: Date | undefined;
 
   /**
    * <p>If the on-premises instance was deregistered, the time at which the on-premises
    *             instance was deregistered.</p>
    * @public
    */
-  deregisterTime?: Date;
+  deregisterTime?: Date | undefined;
 
   /**
    * <p>The tags currently associated with the on-premises instance.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3464,7 +3464,7 @@ export interface BatchGetOnPremisesInstancesOutput {
    * <p>Information about the on-premises instances.</p>
    * @public
    */
-  instanceInfos?: InstanceInfo[];
+  instanceInfos?: InstanceInfo[] | undefined;
 }
 
 /**
@@ -3510,7 +3510,7 @@ export interface ContinueDeploymentInput {
    *             traffic to the replacement environment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p> The status of the deployment's waiting period. <code>READY_WAIT</code> indicates that
@@ -3519,7 +3519,7 @@ export interface ContinueDeploymentInput {
    *         </p>
    * @public
    */
-  deploymentWaitType?: DeploymentWaitType;
+  deploymentWaitType?: DeploymentWaitType | undefined;
 }
 
 /**
@@ -3639,7 +3639,7 @@ export interface CreateApplicationInput {
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    * @public
    */
-  computePlatform?: ComputePlatform;
+  computePlatform?: ComputePlatform | undefined;
 
   /**
    * <p> The metadata that you apply to CodeDeploy applications to help you organize and
@@ -3647,7 +3647,7 @@ export interface CreateApplicationInput {
    *             define. </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3659,7 +3659,7 @@ export interface CreateApplicationOutput {
    * <p>A unique application ID.</p>
    * @public
    */
-  applicationId?: string;
+  applicationId?: string | undefined;
 }
 
 /**
@@ -3697,13 +3697,13 @@ export interface CreateDeploymentInput {
    * <p>The name of the deployment group.</p>
    * @public
    */
-  deploymentGroupName?: string;
+  deploymentGroupName?: string | undefined;
 
   /**
    * <p> The type and location of the revision to deploy. </p>
    * @public
    */
-  revision?: RevisionLocation;
+  revision?: RevisionLocation | undefined;
 
   /**
    * <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
@@ -3712,13 +3712,13 @@ export interface CreateDeploymentInput {
    *                 <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</p>
    * @public
    */
-  deploymentConfigName?: string;
+  deploymentConfigName?: string | undefined;
 
   /**
    * <p>A comment about the deployment.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> If true, then if an <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, or
@@ -3745,28 +3745,28 @@ export interface CreateDeploymentInput {
    *                 <code>AfterBlockTraffic</code> failures should be ignored. </p>
    * @public
    */
-  ignoreApplicationStopFailures?: boolean;
+  ignoreApplicationStopFailures?: boolean | undefined;
 
   /**
    * <p> Information about the instances that belong to the replacement environment in a
    *             blue/green deployment. </p>
    * @public
    */
-  targetInstances?: TargetInstances;
+  targetInstances?: TargetInstances | undefined;
 
   /**
    * <p>Configuration information for an automatic rollback that is added when a deployment is
    *             created.</p>
    * @public
    */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
+  autoRollbackConfiguration?: AutoRollbackConfiguration | undefined;
 
   /**
    * <p> Indicates whether to deploy to all instances or only to instances that are not
    *             running the latest application revision. </p>
    * @public
    */
-  updateOutdatedInstancesOnly?: boolean;
+  updateOutdatedInstancesOnly?: boolean | undefined;
 
   /**
    * <p>Information about how CodeDeploy handles files that already exist in a
@@ -3790,7 +3790,7 @@ export interface CreateDeploymentInput {
    *          </ul>
    * @public
    */
-  fileExistsBehavior?: FileExistsBehavior;
+  fileExistsBehavior?: FileExistsBehavior | undefined;
 
   /**
    * <p>Allows you to specify information about alarms associated with a deployment. The alarm
@@ -3809,7 +3809,7 @@ export interface CreateDeploymentInput {
    *          </note>
    * @public
    */
-  overrideAlarmConfiguration?: AlarmConfiguration;
+  overrideAlarmConfiguration?: AlarmConfiguration | undefined;
 }
 
 /**
@@ -3821,7 +3821,7 @@ export interface CreateDeploymentOutput {
    * <p> The unique ID of a deployment. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 }
 
 /**
@@ -4266,13 +4266,13 @@ export interface MinimumHealthyHosts {
    *                 Guide</i>.</p>
    * @public
    */
-  type?: MinimumHealthyHostsType;
+  type?: MinimumHealthyHostsType | undefined;
 
   /**
    * <p>The minimum healthy instance value.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -4288,14 +4288,14 @@ export interface TimeBasedCanary {
    *                 <code>TimeBasedCanary</code> deployment.</p>
    * @public
    */
-  canaryPercentage?: number;
+  canaryPercentage?: number | undefined;
 
   /**
    * <p>The number of minutes between the first and second traffic shifts of a
    *                 <code>TimeBasedCanary</code> deployment.</p>
    * @public
    */
-  canaryInterval?: number;
+  canaryInterval?: number | undefined;
 }
 
 /**
@@ -4311,14 +4311,14 @@ export interface TimeBasedLinear {
    *                 <code>TimeBasedLinear</code> deployment.</p>
    * @public
    */
-  linearPercentage?: number;
+  linearPercentage?: number | undefined;
 
   /**
    * <p>The number of minutes between each incremental traffic shift of a
    *                 <code>TimeBasedLinear</code> deployment.</p>
    * @public
    */
-  linearInterval?: number;
+  linearInterval?: number | undefined;
 }
 
 /**
@@ -4348,7 +4348,7 @@ export interface TrafficRoutingConfig {
    *                 <code>TimeBasedLinear</code>) used by a deployment configuration.</p>
    * @public
    */
-  type?: TrafficRoutingType;
+  type?: TrafficRoutingType | undefined;
 
   /**
    * <p>A configuration that shifts traffic from one version of a Lambda function
@@ -4357,7 +4357,7 @@ export interface TrafficRoutingConfig {
    *             file.</p>
    * @public
    */
-  timeBasedCanary?: TimeBasedCanary;
+  timeBasedCanary?: TimeBasedCanary | undefined;
 
   /**
    * <p>A configuration that shifts traffic from one version of a Lambda function
@@ -4367,7 +4367,7 @@ export interface TrafficRoutingConfig {
    *             file.</p>
    * @public
    */
-  timeBasedLinear?: TimeBasedLinear;
+  timeBasedLinear?: TimeBasedLinear | undefined;
 }
 
 /**
@@ -4396,14 +4396,14 @@ export interface MinimumHealthyHostsPerZone {
    *             option.</p>
    * @public
    */
-  type?: MinimumHealthyHostsPerZoneType;
+  type?: MinimumHealthyHostsPerZoneType | undefined;
 
   /**
    * <p>The <code>value</code> associated with the <code>MinimumHealthyHostsPerZone</code>
    *             option.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -4430,7 +4430,7 @@ export interface ZonalConfig {
    *                 Guide</i>.</p>
    * @public
    */
-  firstZoneMonitorDurationInSeconds?: number;
+  firstZoneMonitorDurationInSeconds?: number | undefined;
 
   /**
    * <p>The period of time, in seconds, that CodeDeploy must wait after completing a
@@ -4444,7 +4444,7 @@ export interface ZonalConfig {
    *                 Guide</i>.</p>
    * @public
    */
-  monitorDurationInSeconds?: number;
+  monitorDurationInSeconds?: number | undefined;
 
   /**
    * <p>The number or percentage of instances that must remain available per Availability Zone
@@ -4456,7 +4456,7 @@ export interface ZonalConfig {
    *                 Guide</i>.</p>
    * @public
    */
-  minimumHealthyHostsPerZone?: MinimumHealthyHostsPerZone;
+  minimumHealthyHostsPerZone?: MinimumHealthyHostsPerZone | undefined;
 }
 
 /**
@@ -4491,20 +4491,20 @@ export interface CreateDeploymentConfigInput {
    *             and a value of 95.</p>
    * @public
    */
-  minimumHealthyHosts?: MinimumHealthyHosts;
+  minimumHealthyHosts?: MinimumHealthyHosts | undefined;
 
   /**
    * <p>The configuration that specifies how the deployment traffic is routed.</p>
    * @public
    */
-  trafficRoutingConfig?: TrafficRoutingConfig;
+  trafficRoutingConfig?: TrafficRoutingConfig | undefined;
 
   /**
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    * @public
    */
-  computePlatform?: ComputePlatform;
+  computePlatform?: ComputePlatform | undefined;
 
   /**
    * <p>Configure the <code>ZonalConfig</code> object if you want CodeDeploy to
@@ -4513,7 +4513,7 @@ export interface CreateDeploymentConfigInput {
    *                 Guide</i>.</p>
    * @public
    */
-  zonalConfig?: ZonalConfig;
+  zonalConfig?: ZonalConfig | undefined;
 }
 
 /**
@@ -4525,7 +4525,7 @@ export interface CreateDeploymentConfigOutput {
    * <p>A unique deployment configuration ID.</p>
    * @public
    */
-  deploymentConfigId?: string;
+  deploymentConfigId?: string | undefined;
 }
 
 /**
@@ -4657,14 +4657,14 @@ export interface CreateDeploymentGroupInput {
    *                 Deployment Configurations in CodeDeploy</a> in the <i>CodeDeploy User Guide</i>.</p>
    * @public
    */
-  deploymentConfigName?: string;
+  deploymentConfigName?: string | undefined;
 
   /**
    * <p>The Amazon EC2 tags on which to filter. The deployment group includes Amazon EC2 instances with any of the specified tags. Cannot be used in the same call
    *             as ec2TagSet.</p>
    * @public
    */
-  ec2TagFilters?: EC2TagFilter[];
+  ec2TagFilters?: EC2TagFilter[] | undefined;
 
   /**
    * <p>The on-premises instance tags on which to filter. The deployment group includes
@@ -4672,13 +4672,13 @@ export interface CreateDeploymentGroupInput {
    *                 <code>OnPremisesTagSet</code>.</p>
    * @public
    */
-  onPremisesInstanceTagFilters?: TagFilter[];
+  onPremisesInstanceTagFilters?: TagFilter[] | undefined;
 
   /**
    * <p>A list of associated Amazon EC2 Auto Scaling groups.</p>
    * @public
    */
-  autoScalingGroups?: string[];
+  autoScalingGroups?: string[] | undefined;
 
   /**
    * <p>A service role Amazon Resource Name (ARN) that allows CodeDeploy to act on
@@ -4694,21 +4694,21 @@ export interface CreateDeploymentGroupInput {
    *                 User Guide</i>.</p>
    * @public
    */
-  triggerConfigurations?: TriggerConfig[];
+  triggerConfigurations?: TriggerConfig[] | undefined;
 
   /**
    * <p>Information to add about Amazon CloudWatch alarms when the deployment group is
    *             created.</p>
    * @public
    */
-  alarmConfiguration?: AlarmConfiguration;
+  alarmConfiguration?: AlarmConfiguration | undefined;
 
   /**
    * <p>Configuration information for an automatic rollback that is added when a deployment
    *             group is created.</p>
    * @public
    */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
+  autoRollbackConfiguration?: AutoRollbackConfiguration | undefined;
 
   /**
    * <p>Indicates what happens when new Amazon EC2 instances are launched
@@ -4721,26 +4721,26 @@ export interface CreateDeploymentGroupInput {
    *             having different revisions.</p>
    * @public
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy | undefined;
 
   /**
    * <p>Information about the type of deployment, in-place or blue/green, that you want to run
    *             and whether to route deployment traffic behind a load balancer.</p>
    * @public
    */
-  deploymentStyle?: DeploymentStyle;
+  deploymentStyle?: DeploymentStyle | undefined;
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
    * @public
    */
-  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration | undefined;
 
   /**
    * <p>Information about the load balancer used in a deployment.</p>
    * @public
    */
-  loadBalancerInfo?: LoadBalancerInfo;
+  loadBalancerInfo?: LoadBalancerInfo | undefined;
 
   /**
    * <p>Information about groups of tags applied to Amazon EC2 instances. The
@@ -4748,7 +4748,7 @@ export interface CreateDeploymentGroupInput {
    *             groups. Cannot be used in the same call as <code>ec2TagFilters</code>.</p>
    * @public
    */
-  ec2TagSet?: EC2TagSet;
+  ec2TagSet?: EC2TagSet | undefined;
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
@@ -4756,7 +4756,7 @@ export interface CreateDeploymentGroupInput {
    *             pair using the format <code><clustername>:<servicename></code>. </p>
    * @public
    */
-  ecsServices?: ECSService[];
+  ecsServices?: ECSService[] | undefined;
 
   /**
    * <p>Information about groups of tags applied to on-premises instances. The deployment
@@ -4764,7 +4764,7 @@ export interface CreateDeploymentGroupInput {
    *             used in the same call as <code>onPremisesInstanceTagFilters</code>.</p>
    * @public
    */
-  onPremisesTagSet?: OnPremisesTagSet;
+  onPremisesTagSet?: OnPremisesTagSet | undefined;
 
   /**
    * <p> The metadata that you apply to CodeDeploy deployment groups to help you organize and
@@ -4772,7 +4772,7 @@ export interface CreateDeploymentGroupInput {
    *             define. </p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
@@ -4786,7 +4786,7 @@ export interface CreateDeploymentGroupInput {
    *             Guide</i>.</p>
    * @public
    */
-  terminationHookEnabled?: boolean;
+  terminationHookEnabled?: boolean | undefined;
 }
 
 /**
@@ -4798,7 +4798,7 @@ export interface CreateDeploymentGroupOutput {
    * <p>A unique deployment group ID.</p>
    * @public
    */
-  deploymentGroupId?: string;
+  deploymentGroupId?: string | undefined;
 }
 
 /**
@@ -5225,7 +5225,7 @@ export interface DeleteDeploymentGroupOutput {
    *             the Amazon EC2 instances in the Auto Scaling group.</p>
    * @public
    */
-  hooksNotCleanedUp?: AutoScalingGroup[];
+  hooksNotCleanedUp?: AutoScalingGroup[] | undefined;
 }
 
 /**
@@ -5237,7 +5237,7 @@ export interface DeleteGitHubAccountTokenInput {
    * <p>The name of the GitHub account connection to delete.</p>
    * @public
    */
-  tokenName?: string;
+  tokenName?: string | undefined;
 }
 
 /**
@@ -5249,7 +5249,7 @@ export interface DeleteGitHubAccountTokenOutput {
    * <p>The name of the GitHub account connection that was deleted.</p>
    * @public
    */
-  tokenName?: string;
+  tokenName?: string | undefined;
 }
 
 /**
@@ -5361,7 +5361,7 @@ export interface DeleteResourcesByExternalIdInput {
    *             ID) that is linked to one or more CodeDeploy resources.</p>
    * @public
    */
-  externalId?: string;
+  externalId?: string | undefined;
 }
 
 /**
@@ -5402,7 +5402,7 @@ export interface GetApplicationOutput {
    * <p>Information about the application.</p>
    * @public
    */
-  application?: ApplicationInfo;
+  application?: ApplicationInfo | undefined;
 }
 
 /**
@@ -5432,19 +5432,19 @@ export interface GetApplicationRevisionOutput {
    * <p>The name of the application that corresponds to the revision.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>Additional information about the revision, including type and location.</p>
    * @public
    */
-  revision?: RevisionLocation;
+  revision?: RevisionLocation | undefined;
 
   /**
    * <p>General information about the revision.</p>
    * @public
    */
-  revisionInfo?: GenericRevisionInfo;
+  revisionInfo?: GenericRevisionInfo | undefined;
 }
 
 /**
@@ -5469,7 +5469,7 @@ export interface GetDeploymentOutput {
    * <p>Information about the deployment.</p>
    * @public
    */
-  deploymentInfo?: DeploymentInfo;
+  deploymentInfo?: DeploymentInfo | undefined;
 }
 
 /**
@@ -5493,32 +5493,32 @@ export interface DeploymentConfigInfo {
    * <p>The deployment configuration ID.</p>
    * @public
    */
-  deploymentConfigId?: string;
+  deploymentConfigId?: string | undefined;
 
   /**
    * <p>The deployment configuration name.</p>
    * @public
    */
-  deploymentConfigName?: string;
+  deploymentConfigName?: string | undefined;
 
   /**
    * <p>Information about the number or percentage of minimum healthy instances.</p>
    * @public
    */
-  minimumHealthyHosts?: MinimumHealthyHosts;
+  minimumHealthyHosts?: MinimumHealthyHosts | undefined;
 
   /**
    * <p>The time at which the deployment configuration was created.</p>
    * @public
    */
-  createTime?: Date;
+  createTime?: Date | undefined;
 
   /**
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    * @public
    */
-  computePlatform?: ComputePlatform;
+  computePlatform?: ComputePlatform | undefined;
 
   /**
    * <p>The configuration that specifies how the deployment traffic is routed. Used for
@@ -5526,13 +5526,13 @@ export interface DeploymentConfigInfo {
    *             only.</p>
    * @public
    */
-  trafficRoutingConfig?: TrafficRoutingConfig;
+  trafficRoutingConfig?: TrafficRoutingConfig | undefined;
 
   /**
    * <p>Information about a zonal configuration.</p>
    * @public
    */
-  zonalConfig?: ZonalConfig;
+  zonalConfig?: ZonalConfig | undefined;
 }
 
 /**
@@ -5544,7 +5544,7 @@ export interface GetDeploymentConfigOutput {
    * <p>Information about the deployment configuration.</p>
    * @public
    */
-  deploymentConfigInfo?: DeploymentConfigInfo;
+  deploymentConfigInfo?: DeploymentConfigInfo | undefined;
 }
 
 /**
@@ -5574,7 +5574,7 @@ export interface GetDeploymentGroupOutput {
    * <p>Information about the deployment group.</p>
    * @public
    */
-  deploymentGroupInfo?: DeploymentGroupInfo;
+  deploymentGroupInfo?: DeploymentGroupInfo | undefined;
 }
 
 /**
@@ -5606,7 +5606,7 @@ export interface GetDeploymentInstanceOutput {
    * <p> Information about the instance. </p>
    * @public
    */
-  instanceSummary?: InstanceSummary;
+  instanceSummary?: InstanceSummary | undefined;
 }
 
 /**
@@ -5638,7 +5638,7 @@ export interface GetDeploymentTargetOutput {
    *             <code>ecsTarget</code>). </p>
    * @public
    */
-  deploymentTarget?: DeploymentTarget;
+  deploymentTarget?: DeploymentTarget | undefined;
 }
 
 /**
@@ -5662,7 +5662,7 @@ export interface GetOnPremisesInstanceOutput {
    * <p> Information about the on-premises instance. </p>
    * @public
    */
-  instanceInfo?: InstanceInfo;
+  instanceInfo?: InstanceInfo | undefined;
 }
 
 /**
@@ -5849,7 +5849,7 @@ export interface ListApplicationRevisionsInput {
    *         </p>
    * @public
    */
-  sortBy?: ApplicationRevisionSortBy;
+  sortBy?: ApplicationRevisionSortBy | undefined;
 
   /**
    * <p> The order in which to sort the list results: </p>
@@ -5867,21 +5867,21 @@ export interface ListApplicationRevisionsInput {
    *          <p>If set to null, the results are sorted in an arbitrary order.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p> An Amazon S3 bucket name to limit the search for revisions. </p>
    *          <p> If set to null, all of the user's buckets are searched. </p>
    * @public
    */
-  s3Bucket?: string;
+  s3Bucket?: string | undefined;
 
   /**
    * <p> A key prefix for the set of Amazon S3 objects to limit the search for
    *             revisions. </p>
    * @public
    */
-  s3KeyPrefix?: string;
+  s3KeyPrefix?: string | undefined;
 
   /**
    * <p> Whether to list revisions based on whether the revision is the target revision of a
@@ -5904,14 +5904,14 @@ export interface ListApplicationRevisionsInput {
    *          </ul>
    * @public
    */
-  deployed?: ListStateFilterAction;
+  deployed?: ListStateFilterAction | undefined;
 
   /**
    * <p>An identifier returned from the previous <code>ListApplicationRevisions</code> call.
    *             It can be used to return the next set of applications in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5923,7 +5923,7 @@ export interface ListApplicationRevisionsOutput {
    * <p>A list of locations that contain the matching revisions.</p>
    * @public
    */
-  revisions?: RevisionLocation[];
+  revisions?: RevisionLocation[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5931,7 +5931,7 @@ export interface ListApplicationRevisionsOutput {
    *             application revisions in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5944,7 +5944,7 @@ export interface ListApplicationsInput {
    *             return the next set of applications in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5956,7 +5956,7 @@ export interface ListApplicationsOutput {
    * <p>A list of application names.</p>
    * @public
    */
-  applications?: string[];
+  applications?: string[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5964,7 +5964,7 @@ export interface ListApplicationsOutput {
    *             the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5977,7 +5977,7 @@ export interface ListDeploymentConfigsInput {
    *             can be used to return the next set of deployment configurations in the list. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5990,7 +5990,7 @@ export interface ListDeploymentConfigsOutput {
    *                 <code>CodeDeployDefault.OneAtATime</code>.</p>
    * @public
    */
-  deploymentConfigsList?: string[];
+  deploymentConfigsList?: string[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -5998,7 +5998,7 @@ export interface ListDeploymentConfigsOutput {
    *             deployment configurations in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6017,7 +6017,7 @@ export interface ListDeploymentGroupsInput {
    *             to return the next set of deployment groups in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6029,13 +6029,13 @@ export interface ListDeploymentGroupsOutput {
    * <p>The application name.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>A list of deployment group names.</p>
    * @public
    */
-  deploymentGroups?: string[];
+  deploymentGroups?: string[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -6043,7 +6043,7 @@ export interface ListDeploymentGroupsOutput {
    *             groups in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6145,7 +6145,7 @@ export interface ListDeploymentInstancesInput {
    *             used to return the next set of deployment instances in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A subset of instances to list by status:</p>
@@ -6180,7 +6180,7 @@ export interface ListDeploymentInstancesInput {
    *          </ul>
    * @public
    */
-  instanceStatusFilter?: InstanceStatus[];
+  instanceStatusFilter?: InstanceStatus[] | undefined;
 
   /**
    * <p>The set of instances in a blue/green deployment, either those in the original
@@ -6188,7 +6188,7 @@ export interface ListDeploymentInstancesInput {
    *             want to view instance information.</p>
    * @public
    */
-  instanceTypeFilter?: _InstanceType[];
+  instanceTypeFilter?: _InstanceType[] | undefined;
 }
 
 /**
@@ -6200,7 +6200,7 @@ export interface ListDeploymentInstancesOutput {
    * <p>A list of instance IDs.</p>
    * @public
    */
-  instancesList?: string[];
+  instancesList?: string[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -6208,7 +6208,7 @@ export interface ListDeploymentInstancesOutput {
    *             deployment instances in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6263,7 +6263,7 @@ export interface TimeRange {
    *          </note>
    * @public
    */
-  start?: Date;
+  start?: Date | undefined;
 
   /**
    * <p>The end time of the time range.</p>
@@ -6272,7 +6272,7 @@ export interface TimeRange {
    *          </note>
    * @public
    */
-  end?: Date;
+  end?: Date | undefined;
 }
 
 /**
@@ -6289,7 +6289,7 @@ export interface ListDeploymentsInput {
    *          </note>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>The name of a deployment group for the specified application.</p>
@@ -6300,14 +6300,14 @@ export interface ListDeploymentsInput {
    *          </note>
    * @public
    */
-  deploymentGroupName?: string;
+  deploymentGroupName?: string | undefined;
 
   /**
    * <p>The unique ID of an external resource for returning deployments linked to the external
    *             resource.</p>
    * @public
    */
-  externalId?: string;
+  externalId?: string | undefined;
 
   /**
    * <p>A subset of deployments to list by status:</p>
@@ -6343,20 +6343,20 @@ export interface ListDeploymentsInput {
    *          </ul>
    * @public
    */
-  includeOnlyStatuses?: DeploymentStatus[];
+  includeOnlyStatuses?: DeploymentStatus[] | undefined;
 
   /**
    * <p>A time range (start and end) for returning a subset of the list of deployments.</p>
    * @public
    */
-  createTimeRange?: TimeRange;
+  createTimeRange?: TimeRange | undefined;
 
   /**
    * <p>An identifier returned from the previous list deployments call. It can be used to
    *             return the next set of deployments in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6368,7 +6368,7 @@ export interface ListDeploymentsOutput {
    * <p>A list of deployment IDs.</p>
    * @public
    */
-  deployments?: string[];
+  deployments?: string[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -6376,7 +6376,7 @@ export interface ListDeploymentsOutput {
    *             the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6408,7 +6408,7 @@ export interface ListDeploymentTargetsInput {
    *             call. It can be used to return the next set of deployment targets in the list. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p> A key used to filter the returned targets. The two valid values are:</p>
@@ -6428,7 +6428,7 @@ export interface ListDeploymentTargetsInput {
    *          </ul>
    * @public
    */
-  targetFilters?: Partial<Record<TargetFilterName, string[]>>;
+  targetFilters?: Partial<Record<TargetFilterName, string[]>> | undefined;
 }
 
 /**
@@ -6439,7 +6439,7 @@ export interface ListDeploymentTargetsOutput {
    * <p> The unique IDs of deployment targets. </p>
    * @public
    */
-  targetIds?: string[];
+  targetIds?: string[] | undefined;
 
   /**
    * <p> If a large amount of information is returned, a token identifier is also returned. It
@@ -6447,7 +6447,7 @@ export interface ListDeploymentTargetsOutput {
    *             set of deployment targets in the list. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6460,7 +6460,7 @@ export interface ListGitHubAccountTokenNamesInput {
    *             call. It can be used to return the next set of names in the list. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6472,7 +6472,7 @@ export interface ListGitHubAccountTokenNamesOutput {
    * <p>A list of names of connections to GitHub accounts.</p>
    * @public
    */
-  tokenNameList?: string[];
+  tokenNameList?: string[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -6480,7 +6480,7 @@ export interface ListGitHubAccountTokenNamesOutput {
    *             set of names in the list. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6558,21 +6558,21 @@ export interface ListOnPremisesInstancesInput {
    *          </ul>
    * @public
    */
-  registrationStatus?: RegistrationStatus;
+  registrationStatus?: RegistrationStatus | undefined;
 
   /**
    * <p>The on-premises instance tags that are used to restrict the on-premises instance names
    *             returned.</p>
    * @public
    */
-  tagFilters?: TagFilter[];
+  tagFilters?: TagFilter[] | undefined;
 
   /**
    * <p>An identifier returned from the previous list on-premises instances call. It can be
    *             used to return the next set of on-premises instances in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6584,7 +6584,7 @@ export interface ListOnPremisesInstancesOutput {
    * <p>The list of matching on-premises instance names.</p>
    * @public
    */
-  instanceNames?: string[];
+  instanceNames?: string[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -6592,7 +6592,7 @@ export interface ListOnPremisesInstancesOutput {
    *             on-premises instances in the list.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6632,7 +6632,7 @@ export interface ListTagsForResourceInput {
    *             be used to return the next set of applications in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6644,7 +6644,7 @@ export interface ListTagsForResourceOutput {
    *             with the resource identified by the input <code>ResourceArn</code> parameter. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If a large amount of information is returned, an identifier is also returned. It can
@@ -6652,7 +6652,7 @@ export interface ListTagsForResourceOutput {
    *             application revisions in the list.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6749,14 +6749,14 @@ export interface PutLifecycleEventHookExecutionStatusInput {
    *             validates a deployment lifecycle event. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p> The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is
    *             specified in the <code>hooks</code> section of the AppSpec file. </p>
    * @public
    */
-  lifecycleEventHookExecutionId?: string;
+  lifecycleEventHookExecutionId?: string | undefined;
 
   /**
    * <p>The result of a Lambda function that validates a deployment lifecycle
@@ -6765,7 +6765,7 @@ export interface PutLifecycleEventHookExecutionStatusInput {
    *                 <code>Failed</code> can be passed successfully in your API call.</p>
    * @public
    */
-  status?: LifecycleEventStatus;
+  status?: LifecycleEventStatus | undefined;
 }
 
 /**
@@ -6777,7 +6777,7 @@ export interface PutLifecycleEventHookExecutionStatusOutput {
    *                 <code>hooks</code> section of the deployment's AppSpec file.</p>
    * @public
    */
-  lifecycleEventHookExecutionId?: string;
+  lifecycleEventHookExecutionId?: string | undefined;
 }
 
 /**
@@ -6795,7 +6795,7 @@ export interface RegisterApplicationRevisionInput {
    * <p>A comment about the revision.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Information about the application revision to register, including type and
@@ -6983,13 +6983,13 @@ export interface RegisterOnPremisesInstanceInput {
    *             instance.</p>
    * @public
    */
-  iamSessionArn?: string;
+  iamSessionArn?: string | undefined;
 
   /**
    * <p>The ARN of the user to associate with the on-premises instance.</p>
    * @public
    */
-  iamUserArn?: string;
+  iamUserArn?: string | undefined;
 }
 
 /**
@@ -7020,7 +7020,7 @@ export interface SkipWaitTimeForInstanceTerminationInput {
    *             termination wait time. </p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 }
 
 /**
@@ -7039,7 +7039,7 @@ export interface StopDeploymentInput {
    *             should be rolled back to the previous version of the application revision. </p>
    * @public
    */
-  autoRollbackEnabled?: boolean;
+  autoRollbackEnabled?: boolean | undefined;
 }
 
 /**
@@ -7073,13 +7073,13 @@ export interface StopDeploymentOutput {
    *          </ul>
    * @public
    */
-  status?: StopStatus;
+  status?: StopStatus | undefined;
 
   /**
    * <p>An accompanying status message.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 }
 
 /**
@@ -7139,13 +7139,13 @@ export interface UpdateApplicationInput {
    * <p>The current name of the application you want to change.</p>
    * @public
    */
-  applicationName?: string;
+  applicationName?: string | undefined;
 
   /**
    * <p>The new name to give the application.</p>
    * @public
    */
-  newApplicationName?: string;
+  newApplicationName?: string | undefined;
 }
 
 /**
@@ -7169,13 +7169,13 @@ export interface UpdateDeploymentGroupInput {
    * <p>The new name of the deployment group, if you want to change it.</p>
    * @public
    */
-  newDeploymentGroupName?: string;
+  newDeploymentGroupName?: string | undefined;
 
   /**
    * <p>The replacement deployment configuration name to use, if you want to change it.</p>
    * @public
    */
-  deploymentConfigName?: string;
+  deploymentConfigName?: string | undefined;
 
   /**
    * <p>The replacement set of Amazon EC2 tags on which to filter, if you want to
@@ -7183,7 +7183,7 @@ export interface UpdateDeploymentGroupInput {
    *             any tag names.</p>
    * @public
    */
-  ec2TagFilters?: EC2TagFilter[];
+  ec2TagFilters?: EC2TagFilter[] | undefined;
 
   /**
    * <p>The replacement set of on-premises instance tags on which to filter, if you want to
@@ -7191,7 +7191,7 @@ export interface UpdateDeploymentGroupInput {
    *             any tag names.</p>
    * @public
    */
-  onPremisesInstanceTagFilters?: TagFilter[];
+  onPremisesInstanceTagFilters?: TagFilter[] | undefined;
 
   /**
    * <p>The replacement list of Auto Scaling groups to be included in the deployment
@@ -7209,13 +7209,13 @@ export interface UpdateDeploymentGroupInput {
    *          </ul>
    * @public
    */
-  autoScalingGroups?: string[];
+  autoScalingGroups?: string[] | undefined;
 
   /**
    * <p>A replacement ARN for the service role, if you want to change it.</p>
    * @public
    */
-  serviceRoleArn?: string;
+  serviceRoleArn?: string | undefined;
 
   /**
    * <p>Information about triggers to change when the deployment group is updated. For
@@ -7224,21 +7224,21 @@ export interface UpdateDeploymentGroupInput {
    *                 Guide</i>.</p>
    * @public
    */
-  triggerConfigurations?: TriggerConfig[];
+  triggerConfigurations?: TriggerConfig[] | undefined;
 
   /**
    * <p>Information to add or change about Amazon CloudWatch alarms when the deployment group
    *             is updated.</p>
    * @public
    */
-  alarmConfiguration?: AlarmConfiguration;
+  alarmConfiguration?: AlarmConfiguration | undefined;
 
   /**
    * <p>Information for an automatic rollback configuration that is added or changed when a
    *             deployment group is updated.</p>
    * @public
    */
-  autoRollbackConfiguration?: AutoRollbackConfiguration;
+  autoRollbackConfiguration?: AutoRollbackConfiguration | undefined;
 
   /**
    * <p>Indicates what happens when new Amazon EC2 instances are launched
@@ -7251,26 +7251,26 @@ export interface UpdateDeploymentGroupInput {
    *             having different revisions.</p>
    * @public
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy | undefined;
 
   /**
    * <p>Information about the type of deployment, either in-place or blue/green, you want to
    *             run and whether to route deployment traffic behind a load balancer.</p>
    * @public
    */
-  deploymentStyle?: DeploymentStyle;
+  deploymentStyle?: DeploymentStyle | undefined;
 
   /**
    * <p>Information about blue/green deployment options for a deployment group.</p>
    * @public
    */
-  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration;
+  blueGreenDeploymentConfiguration?: BlueGreenDeploymentConfiguration | undefined;
 
   /**
    * <p>Information about the load balancer used in a deployment.</p>
    * @public
    */
-  loadBalancerInfo?: LoadBalancerInfo;
+  loadBalancerInfo?: LoadBalancerInfo | undefined;
 
   /**
    * <p>Information about groups of tags applied to on-premises instances. The deployment
@@ -7278,7 +7278,7 @@ export interface UpdateDeploymentGroupInput {
    *             groups.</p>
    * @public
    */
-  ec2TagSet?: EC2TagSet;
+  ec2TagSet?: EC2TagSet | undefined;
 
   /**
    * <p> The target Amazon ECS services in the deployment group. This applies only to
@@ -7286,14 +7286,14 @@ export interface UpdateDeploymentGroupInput {
    *             pair using the format <code><clustername>:<servicename></code>. </p>
    * @public
    */
-  ecsServices?: ECSService[];
+  ecsServices?: ECSService[] | undefined;
 
   /**
    * <p>Information about an on-premises instance tag set. The deployment group includes only
    *             on-premises instances identified by all the tag groups.</p>
    * @public
    */
-  onPremisesTagSet?: OnPremisesTagSet;
+  onPremisesTagSet?: OnPremisesTagSet | undefined;
 
   /**
    * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
@@ -7307,7 +7307,7 @@ export interface UpdateDeploymentGroupInput {
    *                 Guide</i>.</p>
    * @public
    */
-  terminationHookEnabled?: boolean;
+  terminationHookEnabled?: boolean | undefined;
 }
 
 /**
@@ -7321,5 +7321,5 @@ export interface UpdateDeploymentGroupOutput {
    *             corresponding Auto Scaling lifecycle event hooks from the Amazon Web Services account. If the output contains data, CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon Web Services account.</p>
    * @public
    */
-  hooksNotCleanedUp?: AutoScalingGroup[];
+  hooksNotCleanedUp?: AutoScalingGroup[] | undefined;
 }

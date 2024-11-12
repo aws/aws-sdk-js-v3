@@ -34,7 +34,7 @@ export interface AcceptDomainTransferFromAnotherAwsAccountResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -131,7 +131,7 @@ export interface DnssecSigningAttributes {
    * <p> Algorithm which was used to generate the digest from the public key. </p>
    * @public
    */
-  Algorithm?: number;
+  Algorithm?: number | undefined;
 
   /**
    * <p>Defines the type of key. It can be either a KSK (key-signing-key, value 257) or ZSK
@@ -141,14 +141,14 @@ export interface DnssecSigningAttributes {
    * 			record. If you have ZSK keys only – use ZSK to create a DS record.</p>
    * @public
    */
-  Flags?: number;
+  Flags?: number | undefined;
 
   /**
    * <p> The base64-encoded public key part of the key pair that is passed to the registry.
    * 		</p>
    * @public
    */
-  PublicKey?: string;
+  PublicKey?: string | undefined;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface AssociateDelegationSignerToDomainResponse {
    * 			status, use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -214,7 +214,7 @@ export class DuplicateRequest extends __BaseException {
    * <p>ID of the request operation.</p>
    * @public
    */
-  requestId?: string;
+  requestId?: string | undefined;
 
   /**
    * @internal
@@ -295,32 +295,32 @@ export interface BillingRecord {
    * 				Guide</i>.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The operation that you were charged for.</p>
    * @public
    */
-  Operation?: OperationType;
+  Operation?: OperationType | undefined;
 
   /**
    * <p>The ID of the invoice that is associated with the billing record.</p>
    * @public
    */
-  InvoiceId?: string;
+  InvoiceId?: string | undefined;
 
   /**
    * <p>The date that the operation was billed, in Unix format.</p>
    * @public
    */
-  BillDate?: Date;
+  BillDate?: Date | undefined;
 
   /**
    * <p>The price that you were charged for the operation, in US dollars.</p>
    *          <p>Example value: 12.0</p>
    * @public
    */
-  Price?: number;
+  Price?: number | undefined;
 }
 
 /**
@@ -349,7 +349,7 @@ export interface CancelDomainTransferToAnotherAwsAccountResponse {
    * 			status.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -392,7 +392,7 @@ export interface CheckDomainAvailabilityRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  IdnLangCode?: string;
+  IdnLangCode?: string | undefined;
 }
 
 /**
@@ -478,7 +478,7 @@ export interface CheckDomainAvailabilityResponse {
    *          </dl>
    * @public
    */
-  Availability?: DomainAvailability;
+  Availability?: DomainAvailability | undefined;
 }
 
 /**
@@ -519,7 +519,7 @@ export interface CheckDomainTransferabilityRequest {
    * 			domain.</p>
    * @public
    */
-  AuthCode?: string;
+  AuthCode?: string | undefined;
 }
 
 /**
@@ -581,7 +581,7 @@ export interface DomainTransferability {
    *          </dl>
    * @public
    */
-  Transferable?: Transferable;
+  Transferable?: Transferable | undefined;
 }
 
 /**
@@ -594,13 +594,13 @@ export interface CheckDomainTransferabilityResponse {
    * 			transferred to Route 53.</p>
    * @public
    */
-  Transferability?: DomainTransferability;
+  Transferability?: DomainTransferability | undefined;
 
   /**
    * <p>Provides an explanation for when a domain can't be transferred.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -1787,13 +1787,13 @@ export interface ContactDetail {
    * <p>First name of contact.</p>
    * @public
    */
-  FirstName?: string;
+  FirstName?: string | undefined;
 
   /**
    * <p>Last name of contact.</p>
    * @public
    */
-  LastName?: string;
+  LastName?: string | undefined;
 
   /**
    * <p>Indicates whether the contact is a person, company, association, or public
@@ -1818,49 +1818,49 @@ export interface ContactDetail {
    *          </ul>
    * @public
    */
-  ContactType?: ContactType;
+  ContactType?: ContactType | undefined;
 
   /**
    * <p>Name of the organization for contact types other than <code>PERSON</code>.</p>
    * @public
    */
-  OrganizationName?: string;
+  OrganizationName?: string | undefined;
 
   /**
    * <p>First line of the contact's address.</p>
    * @public
    */
-  AddressLine1?: string;
+  AddressLine1?: string | undefined;
 
   /**
    * <p>Second line of contact's address, if any.</p>
    * @public
    */
-  AddressLine2?: string;
+  AddressLine2?: string | undefined;
 
   /**
    * <p>The city of the contact's address.</p>
    * @public
    */
-  City?: string;
+  City?: string | undefined;
 
   /**
    * <p>The state or province of the contact's city.</p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>Code for the country of the contact's address.</p>
    * @public
    */
-  CountryCode?: CountryCode;
+  CountryCode?: CountryCode | undefined;
 
   /**
    * <p>The zip or postal code of the contact's address.</p>
    * @public
    */
-  ZipCode?: string;
+  ZipCode?: string | undefined;
 
   /**
    * <p>The phone number of the contact.</p>
@@ -1869,13 +1869,13 @@ export interface ContactDetail {
    * 			as <code>"+1.1234567890"</code>.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>Email address of the contact.</p>
    * @public
    */
-  Email?: string;
+  Email?: string | undefined;
 
   /**
    * <p>Fax number of the contact.</p>
@@ -1884,14 +1884,14 @@ export interface ContactDetail {
    * 				<code>"+1.1234567890"</code>.</p>
    * @public
    */
-  Fax?: string;
+  Fax?: string | undefined;
 
   /**
    * <p>A list of name-value pairs for parameters required by certain top-level
    * 			domains.</p>
    * @public
    */
-  ExtraParams?: ExtraParam[];
+  ExtraParams?: ExtraParam[] | undefined;
 }
 
 /**
@@ -1914,7 +1914,7 @@ export interface DeleteDomainResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -1978,7 +1978,7 @@ export interface DisableDomainTransferLockResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -2008,7 +2008,7 @@ export interface DisassociateDelegationSignerFromDomainResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -2025,7 +2025,7 @@ export interface DnssecKey {
    *          <p>For more information about enabling DNSSEC signing, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec-enable-signing.html">Enabling DNSSEC signing and establishing a chain of trust</a>.</p>
    * @public
    */
-  Algorithm?: number;
+  Algorithm?: number | undefined;
 
   /**
    * <p>Defines the type of key. It can be either a KSK (key-signing-key, value 257) or ZSK
@@ -2035,14 +2035,14 @@ export interface DnssecKey {
    * 			record. If you have ZSK keys only – use ZSK to create a DS record.</p>
    * @public
    */
-  Flags?: number;
+  Flags?: number | undefined;
 
   /**
    * <p>The base64-encoded public key part of the key pair that is passed to the registry
    * 			.</p>
    * @public
    */
-  PublicKey?: string;
+  PublicKey?: string | undefined;
 
   /**
    * <p> The number of the DS digest algorithm according to an IANA assignment.</p>
@@ -2050,7 +2050,7 @@ export interface DnssecKey {
    * 			for DNSSEC Delegation Signer (DS) Resource Record (RR) Type Digest Algorithms. </p>
    * @public
    */
-  DigestType?: number;
+  DigestType?: number | undefined;
 
   /**
    * <p> The delegation signer digest.</p>
@@ -2059,19 +2059,19 @@ export interface DnssecKey {
    * 			DS records. </p>
    * @public
    */
-  Digest?: string;
+  Digest?: string | undefined;
 
   /**
    * <p> A numeric identification of the DNSKEY record referred to by this DS record. </p>
    * @public
    */
-  KeyTag?: number;
+  KeyTag?: number | undefined;
 
   /**
    * <p> An ID assigned to each DS record created by <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AssociateDelegationSignerToDomain.html">AssociateDelegationSignerToDomain</a>. </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -2101,37 +2101,37 @@ export interface DomainPrice {
    * <p>The name of the TLD for which the prices apply.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The price for domain registration with Route 53.</p>
    * @public
    */
-  RegistrationPrice?: PriceWithCurrency;
+  RegistrationPrice?: PriceWithCurrency | undefined;
 
   /**
    * <p>The price for transferring the domain registration to Route 53.</p>
    * @public
    */
-  TransferPrice?: PriceWithCurrency;
+  TransferPrice?: PriceWithCurrency | undefined;
 
   /**
    * <p>The price for renewing domain registration with Route 53.</p>
    * @public
    */
-  RenewalPrice?: PriceWithCurrency;
+  RenewalPrice?: PriceWithCurrency | undefined;
 
   /**
    * <p>The price for changing domain ownership.</p>
    * @public
    */
-  ChangeOwnershipPrice?: PriceWithCurrency;
+  ChangeOwnershipPrice?: PriceWithCurrency | undefined;
 
   /**
    * <p>The price for restoring the domain with Route 53.</p>
    * @public
    */
-  RestorationPrice?: PriceWithCurrency;
+  RestorationPrice?: PriceWithCurrency | undefined;
 }
 
 /**
@@ -2143,7 +2143,7 @@ export interface DomainSuggestion {
    * <p>A suggested domain name.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>Whether the domain name is available for registering.</p>
@@ -2198,7 +2198,7 @@ export interface DomainSuggestion {
    *          </dl>
    * @public
    */
-  Availability?: string;
+  Availability?: string | undefined;
 }
 
 /**
@@ -2210,27 +2210,27 @@ export interface DomainSummary {
    * <p>The name of the domain that the summary information applies to.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>Indicates whether the domain is automatically renewed upon expiration.</p>
    * @public
    */
-  AutoRenew?: boolean;
+  AutoRenew?: boolean | undefined;
 
   /**
    * <p>Indicates whether a domain is locked from unauthorized transfer to another
    * 			party.</p>
    * @public
    */
-  TransferLock?: boolean;
+  TransferLock?: boolean | undefined;
 
   /**
    * <p>Expiration date of the domain in Unix time format and Coordinated Universal Time
    * 			(UTC).</p>
    * @public
    */
-  Expiry?: Date;
+  Expiry?: Date | undefined;
 }
 
 /**
@@ -2271,7 +2271,7 @@ export interface EnableDomainTransferLockResponse {
    * 			operation status, use GetOperationDetail.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -2351,7 +2351,7 @@ export interface GetContactReachabilityStatusRequest {
    * 			confirmed that the email address is valid.</p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 }
 
 /**
@@ -2377,7 +2377,7 @@ export interface GetContactReachabilityStatusResponse {
    * <p>The domain name for which you requested the reachability status.</p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>Whether the registrant contact has responded. Values include the following:</p>
@@ -2397,7 +2397,7 @@ export interface GetContactReachabilityStatusResponse {
    *          </dl>
    * @public
    */
-  status?: ReachabilityStatus;
+  status?: ReachabilityStatus | undefined;
 }
 
 /**
@@ -2432,7 +2432,7 @@ export interface Nameserver {
    *          <p>Constraints: The list can contain only one IPv4 and one IPv6 address.</p>
    * @public
    */
-  GlueIps?: string[];
+  GlueIps?: string[] | undefined;
 }
 
 /**
@@ -2444,37 +2444,37 @@ export interface GetDomainDetailResponse {
    * <p>The name of a domain.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The name servers of the domain.</p>
    * @public
    */
-  Nameservers?: Nameserver[];
+  Nameservers?: Nameserver[] | undefined;
 
   /**
    * <p>Specifies whether the domain registration is set to renew automatically.</p>
    * @public
    */
-  AutoRenew?: boolean;
+  AutoRenew?: boolean | undefined;
 
   /**
    * <p>Provides details about the domain administrative contact.</p>
    * @public
    */
-  AdminContact?: ContactDetail;
+  AdminContact?: ContactDetail | undefined;
 
   /**
    * <p>Provides details about the domain registrant.</p>
    * @public
    */
-  RegistrantContact?: ContactDetail;
+  RegistrantContact?: ContactDetail | undefined;
 
   /**
    * <p>Provides details about the domain technical contact.</p>
    * @public
    */
-  TechContact?: ContactDetail;
+  TechContact?: ContactDetail | undefined;
 
   /**
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
@@ -2484,7 +2484,7 @@ export interface GetDomainDetailResponse {
    * 			information that you entered for the admin contact.</p>
    * @public
    */
-  AdminPrivacy?: boolean;
+  AdminPrivacy?: boolean | undefined;
 
   /**
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
@@ -2494,7 +2494,7 @@ export interface GetDomainDetailResponse {
    * 			information that you entered for the registrant contact (domain owner).</p>
    * @public
    */
-  RegistrantPrivacy?: boolean;
+  RegistrantPrivacy?: boolean | undefined;
 
   /**
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
@@ -2504,26 +2504,26 @@ export interface GetDomainDetailResponse {
    * 			information that you entered for the technical contact.</p>
    * @public
    */
-  TechPrivacy?: boolean;
+  TechPrivacy?: boolean | undefined;
 
   /**
    * <p>Name of the registrar of the domain as identified in the registry. </p>
    * @public
    */
-  RegistrarName?: string;
+  RegistrarName?: string | undefined;
 
   /**
    * <p>The fully qualified name of the WHOIS server that can answer the WHOIS query for the
    * 			domain.</p>
    * @public
    */
-  WhoIsServer?: string;
+  WhoIsServer?: string | undefined;
 
   /**
    * <p>Web address of the registrar.</p>
    * @public
    */
-  RegistrarUrl?: string;
+  RegistrarUrl?: string | undefined;
 
   /**
    * <p>Email address to contact to report incorrect contact information for a domain, to
@@ -2531,53 +2531,53 @@ export interface GetDomainDetailResponse {
    * 			cybersquatting on a domain name, or report some other type of abuse.</p>
    * @public
    */
-  AbuseContactEmail?: string;
+  AbuseContactEmail?: string | undefined;
 
   /**
    * <p>Phone number for reporting abuse.</p>
    * @public
    */
-  AbuseContactPhone?: string;
+  AbuseContactPhone?: string | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  RegistryDomainId?: string;
+  RegistryDomainId?: string | undefined;
 
   /**
    * <p>The date when the domain was created as found in the response to a WHOIS query. The
    * 			date and time is in Unix time format and Coordinated Universal time (UTC).</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The last updated date of the domain as found in the response to a WHOIS query. The
    * 			date and time is in Unix time format and Coordinated Universal time (UTC).</p>
    * @public
    */
-  UpdatedDate?: Date;
+  UpdatedDate?: Date | undefined;
 
   /**
    * <p>The date when the registration for the domain is set to expire. The date and time is
    * 			in Unix time format and Coordinated Universal time (UTC).</p>
    * @public
    */
-  ExpirationDate?: Date;
+  ExpirationDate?: Date | undefined;
 
   /**
    * <p>Reseller of the domain. Domains registered or transferred using Route 53 domains will
    * 			have <code>"Amazon"</code> as the reseller. </p>
    * @public
    */
-  Reseller?: string;
+  Reseller?: string | undefined;
 
   /**
    * <p>Deprecated.</p>
    * @public
    */
-  DnsSec?: string;
+  DnsSec?: string | undefined;
 
   /**
    * <p>An array of domain name status codes, also known as Extensible Provisioning Protocol
@@ -2593,19 +2593,19 @@ export interface GetDomainDetailResponse {
    * 			return an old version of the document.)</p>
    * @public
    */
-  StatusList?: string[];
+  StatusList?: string[] | undefined;
 
   /**
    * <p>A complex type that contains information about the DNSSEC configuration.</p>
    * @public
    */
-  DnssecKeys?: DnssecKey[];
+  DnssecKeys?: DnssecKey[] | undefined;
 
   /**
    * <p>Provides details about the domain billing contact.</p>
    * @public
    */
-  BillingContact?: ContactDetail;
+  BillingContact?: ContactDetail | undefined;
 
   /**
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
@@ -2615,7 +2615,7 @@ export interface GetDomainDetailResponse {
    * 		information that you entered for the billing contact.</p>
    * @public
    */
-  BillingPrivacy?: boolean;
+  BillingPrivacy?: boolean | undefined;
 }
 
 /**
@@ -2681,7 +2681,7 @@ export interface GetDomainSuggestionsResponse {
    * 			available for registration.</p>
    * @public
    */
-  SuggestionsList?: DomainSuggestion[];
+  SuggestionsList?: DomainSuggestion[] | undefined;
 }
 
 /**
@@ -2740,43 +2740,43 @@ export interface GetOperationDetailResponse {
    * <p>The identifier for the operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>The current status of the requested operation in the system.</p>
    * @public
    */
-  Status?: OperationStatus;
+  Status?: OperationStatus | undefined;
 
   /**
    * <p>Detailed information on the status including possible errors.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The name of a domain.</p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p>The type of operation that was requested.</p>
    * @public
    */
-  Type?: OperationType;
+  Type?: OperationType | undefined;
 
   /**
    * <p>The date when the request was submitted.</p>
    * @public
    */
-  SubmittedDate?: Date;
+  SubmittedDate?: Date | undefined;
 
   /**
    * <p> The date when the operation was last updated. </p>
    * @public
    */
-  LastUpdatedDate?: Date;
+  LastUpdatedDate?: Date | undefined;
 
   /**
    * <p> Lists any outstanding operations that require customer action. Valid values
@@ -2810,7 +2810,7 @@ export interface GetOperationDetailResponse {
    *          </ul>
    * @public
    */
-  StatusFlag?: StatusFlag;
+  StatusFlag?: StatusFlag | undefined;
 }
 
 /**
@@ -2861,14 +2861,14 @@ export interface ListDomainsRequest {
    * 			domain expiration.</p>
    * @public
    */
-  FilterConditions?: FilterCondition[];
+  FilterConditions?: FilterCondition[] | undefined;
 
   /**
    * <p>A complex type that contains information about the requested ordering of domains in
    * 			the returned list.</p>
    * @public
    */
-  SortCondition?: SortCondition;
+  SortCondition?: SortCondition | undefined;
 
   /**
    * <p>For an initial request for a list of domains, omit this element. If the number of
@@ -2880,14 +2880,14 @@ export interface ListDomainsRequest {
    *          <p>Constraints: The marker must match the value specified in the previous request.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Number of domains to be returned.</p>
    *          <p>Default: 20</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -2899,7 +2899,7 @@ export interface ListDomainsResponse {
    * <p>A list of domains.</p>
    * @public
    */
-  Domains?: DomainSummary[];
+  Domains?: DomainSummary[] | undefined;
 
   /**
    * <p>If there are more domains than you specified for <code>MaxItems</code> in the request,
@@ -2907,7 +2907,7 @@ export interface ListDomainsResponse {
    * 			of <code>Marker</code>.</p>
    * @public
    */
-  NextPageMarker?: string;
+  NextPageMarker?: string | undefined;
 }
 
 /**
@@ -2935,7 +2935,7 @@ export interface ListOperationsRequest {
    * 			and Coordinated Universal time (UTC).</p>
    * @public
    */
-  SubmittedSince?: Date;
+  SubmittedSince?: Date | undefined;
 
   /**
    * <p>For an initial request for a list of operations, omit this element. If the number of
@@ -2946,38 +2946,38 @@ export interface ListOperationsRequest {
    * 				<code>Marker</code> element.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Number of domains to be returned.</p>
    *          <p>Default: 20</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p> The status of the operations. </p>
    * @public
    */
-  Status?: OperationStatus[];
+  Status?: OperationStatus[] | undefined;
 
   /**
    * <p> An arrays of the domains operation types. </p>
    * @public
    */
-  Type?: OperationType[];
+  Type?: OperationType[] | undefined;
 
   /**
    * <p> The sort type for returned values. </p>
    * @public
    */
-  SortBy?: ListOperationsSortAttributeName;
+  SortBy?: ListOperationsSortAttributeName | undefined;
 
   /**
    * <p> The sort order for returned values, either ascending or descending. </p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2989,37 +2989,37 @@ export interface OperationSummary {
    * <p>Identifier returned to track the requested action.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>The current status of the requested operation in the system.</p>
    * @public
    */
-  Status?: OperationStatus;
+  Status?: OperationStatus | undefined;
 
   /**
    * <p>Type of the action requested.</p>
    * @public
    */
-  Type?: OperationType;
+  Type?: OperationType | undefined;
 
   /**
    * <p>The date when the request was submitted.</p>
    * @public
    */
-  SubmittedDate?: Date;
+  SubmittedDate?: Date | undefined;
 
   /**
    * <p> Name of the domain. </p>
    * @public
    */
-  DomainName?: string;
+  DomainName?: string | undefined;
 
   /**
    * <p> Message about the operation. </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p> Automatically checks whether there are no outstanding operations on domains that need
@@ -3054,14 +3054,14 @@ export interface OperationSummary {
    *          </ul>
    * @public
    */
-  StatusFlag?: StatusFlag;
+  StatusFlag?: StatusFlag | undefined;
 
   /**
    * <p> The date when the last change was made in Unix time format and Coordinated Universal
    * 			Time (UTC). </p>
    * @public
    */
-  LastUpdatedDate?: Date;
+  LastUpdatedDate?: Date | undefined;
 }
 
 /**
@@ -3073,7 +3073,7 @@ export interface ListOperationsResponse {
    * <p>Lists summaries of the operations.</p>
    * @public
    */
-  Operations?: OperationSummary[];
+  Operations?: OperationSummary[] | undefined;
 
   /**
    * <p>If there are more operations than you specified for <code>MaxItems</code> in the
@@ -3081,7 +3081,7 @@ export interface ListOperationsResponse {
    * 			the value of <code>Marker</code>.</p>
    * @public
    */
-  NextPageMarker?: string;
+  NextPageMarker?: string | undefined;
 }
 
 /**
@@ -3095,7 +3095,7 @@ export interface ListPricesRequest {
    * 			by Route 53 is returned.</p>
    * @public
    */
-  Tld?: string;
+  Tld?: string | undefined;
 
   /**
    * <p>For an initial request for a list of prices, omit this element. If the number of
@@ -3108,7 +3108,7 @@ export interface ListPricesRequest {
    * 			<code>Marker</code>.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Number of <code>Prices</code> to be returned.</p>
@@ -3116,7 +3116,7 @@ export interface ListPricesRequest {
    * 			<code>MaxItems</code>.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -3128,7 +3128,7 @@ export interface ListPricesResponse {
    * 			array contains only the pricing for that TLD.</p>
    * @public
    */
-  Prices?: DomainPrice[];
+  Prices?: DomainPrice[] | undefined;
 
   /**
    * <p>If there are more prices than you specified for <code>MaxItems</code> in the request,
@@ -3138,7 +3138,7 @@ export interface ListPricesResponse {
    * 				<code>NextPageMarker</code>.</p>
    * @public
    */
-  NextPageMarker?: string;
+  NextPageMarker?: string | undefined;
 }
 
 /**
@@ -3164,7 +3164,7 @@ export interface Tag {
    *          <p>Constraints: Each key can be 1-128 characters long.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of a tag.</p>
@@ -3172,7 +3172,7 @@ export interface Tag {
    *          <p>Constraints: Each value can be 0-256 characters long.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -3184,7 +3184,7 @@ export interface ListTagsForDomainResponse {
    * <p>A list of the tags that are associated with the specified domain.</p>
    * @public
    */
-  TagList?: Tag[];
+  TagList?: Tag[] | undefined;
 }
 
 /**
@@ -3242,7 +3242,7 @@ export interface RegisterDomainRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  IdnLangCode?: string;
+  IdnLangCode?: string | undefined;
 
   /**
    * <p>The number of years that you want to register the domain for. Domains are registered
@@ -3263,7 +3263,7 @@ export interface RegisterDomainRequest {
    *          </p>
    * @public
    */
-  AutoRenew?: boolean;
+  AutoRenew?: boolean | undefined;
 
   /**
    * <p>Provides detailed contact information. For information about the values that you
@@ -3300,7 +3300,7 @@ export interface RegisterDomainRequest {
    *          </p>
    * @public
    */
-  PrivacyProtectAdminContact?: boolean;
+  PrivacyProtectAdminContact?: boolean | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -3316,7 +3316,7 @@ export interface RegisterDomainRequest {
    *          </p>
    * @public
    */
-  PrivacyProtectRegistrantContact?: boolean;
+  PrivacyProtectRegistrantContact?: boolean | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -3332,14 +3332,14 @@ export interface RegisterDomainRequest {
    *          </p>
    * @public
    */
-  PrivacyProtectTechContact?: boolean;
+  PrivacyProtectTechContact?: boolean | undefined;
 
   /**
    * <p>Provides detailed contact information. For information about the values that you
    * 			specify for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
    * @public
    */
-  BillingContact?: ContactDetail;
+  BillingContact?: ContactDetail | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -3353,7 +3353,7 @@ export interface RegisterDomainRequest {
    *          </note>
    * @public
    */
-  PrivacyProtectBillingContact?: boolean;
+  PrivacyProtectBillingContact?: boolean | undefined;
 }
 
 /**
@@ -3366,7 +3366,7 @@ export interface RegisterDomainResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3396,7 +3396,7 @@ export interface RejectDomainTransferFromAnotherAwsAccountResponse {
    * 			status.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3420,7 +3420,7 @@ export interface RenewDomainRequest {
    *          <p>Default: 1</p>
    * @public
    */
-  DurationInYears?: number;
+  DurationInYears?: number | undefined;
 
   /**
    * <p>The year when the registration for the domain is set to expire. This value must match
@@ -3439,7 +3439,7 @@ export interface RenewDomainResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3451,7 +3451,7 @@ export interface ResendContactReachabilityEmailRequest {
    * 			the registrant contact.</p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 }
 
 /**
@@ -3462,14 +3462,14 @@ export interface ResendContactReachabilityEmailResponse {
    * <p>The domain name for which you requested a confirmation email.</p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>The email address for the registrant contact at the time that we sent the verification
    * 			email.</p>
    * @public
    */
-  emailAddress?: string;
+  emailAddress?: string | undefined;
 
   /**
    * <p>
@@ -3478,7 +3478,7 @@ export interface ResendContactReachabilityEmailResponse {
    * 			verified, we don't send another confirmation email.</p>
    * @public
    */
-  isAlreadyVerified?: boolean;
+  isAlreadyVerified?: boolean | undefined;
 }
 
 /**
@@ -3514,7 +3514,7 @@ export interface RetrieveDomainAuthCodeResponse {
    * <p>The authorization code for the domain.</p>
    * @public
    */
-  AuthCode?: string;
+  AuthCode?: string | undefined;
 }
 
 /**
@@ -3553,7 +3553,7 @@ export interface TransferDomainRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  IdnLangCode?: string;
+  IdnLangCode?: string | undefined;
 
   /**
    * <p>The number of years that you want to register the domain for. Domains are registered
@@ -3567,14 +3567,14 @@ export interface TransferDomainRequest {
    * <p>Contains details for the host and glue IP addresses.</p>
    * @public
    */
-  Nameservers?: Nameserver[];
+  Nameservers?: Nameserver[] | undefined;
 
   /**
    * <p>The authorization code for the domain. You get this value from the current
    * 			registrar.</p>
    * @public
    */
-  AuthCode?: string;
+  AuthCode?: string | undefined;
 
   /**
    * <p>Indicates whether the domain will be automatically renewed (true) or not (false). Auto
@@ -3582,7 +3582,7 @@ export interface TransferDomainRequest {
    *          <p>Default: true</p>
    * @public
    */
-  AutoRenew?: boolean;
+  AutoRenew?: boolean | undefined;
 
   /**
    * <p>Provides detailed contact information.</p>
@@ -3615,7 +3615,7 @@ export interface TransferDomainRequest {
    *          </p>
    * @public
    */
-  PrivacyProtectAdminContact?: boolean;
+  PrivacyProtectAdminContact?: boolean | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -3631,7 +3631,7 @@ export interface TransferDomainRequest {
    *          </p>
    * @public
    */
-  PrivacyProtectRegistrantContact?: boolean;
+  PrivacyProtectRegistrantContact?: boolean | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -3647,13 +3647,13 @@ export interface TransferDomainRequest {
    *          </p>
    * @public
    */
-  PrivacyProtectTechContact?: boolean;
+  PrivacyProtectTechContact?: boolean | undefined;
 
   /**
    * <p>Provides detailed contact information.</p>
    * @public
    */
-  BillingContact?: ContactDetail;
+  BillingContact?: ContactDetail | undefined;
 
   /**
    * <p>
@@ -3669,7 +3669,7 @@ export interface TransferDomainRequest {
    *          </note>
    * @public
    */
-  PrivacyProtectBillingContact?: boolean;
+  PrivacyProtectBillingContact?: boolean | undefined;
 }
 
 /**
@@ -3682,7 +3682,7 @@ export interface TransferDomainResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3715,7 +3715,7 @@ export interface TransferDomainToAnotherAwsAccountResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>To finish transferring a domain to another Amazon Web Services account, the account
@@ -3724,7 +3724,7 @@ export interface TransferDomainToAnotherAwsAccountResponse {
    * 				<code>TransferDomainToAnotherAwsAccount</code> response.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 }
 
 /**
@@ -3742,31 +3742,31 @@ export interface UpdateDomainContactRequest {
    * <p>Provides detailed contact information.</p>
    * @public
    */
-  AdminContact?: ContactDetail;
+  AdminContact?: ContactDetail | undefined;
 
   /**
    * <p>Provides detailed contact information.</p>
    * @public
    */
-  RegistrantContact?: ContactDetail;
+  RegistrantContact?: ContactDetail | undefined;
 
   /**
    * <p>Provides detailed contact information.</p>
    * @public
    */
-  TechContact?: ContactDetail;
+  TechContact?: ContactDetail | undefined;
 
   /**
    * <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
    * @public
    */
-  Consent?: Consent;
+  Consent?: Consent | undefined;
 
   /**
    * <p>Provides detailed contact information.</p>
    * @public
    */
-  BillingContact?: ContactDetail;
+  BillingContact?: ContactDetail | undefined;
 }
 
 /**
@@ -3779,7 +3779,7 @@ export interface UpdateDomainContactResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3805,7 +3805,7 @@ export interface UpdateDomainContactPrivacyRequest {
    *          </note>
    * @public
    */
-  AdminPrivacy?: boolean;
+  AdminPrivacy?: boolean | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -3819,7 +3819,7 @@ export interface UpdateDomainContactPrivacyRequest {
    *          </note>
    * @public
    */
-  RegistrantPrivacy?: boolean;
+  RegistrantPrivacy?: boolean | undefined;
 
   /**
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
@@ -3833,7 +3833,7 @@ export interface UpdateDomainContactPrivacyRequest {
    *          </note>
    * @public
    */
-  TechPrivacy?: boolean;
+  TechPrivacy?: boolean | undefined;
 
   /**
    * <p>
@@ -3849,7 +3849,7 @@ export interface UpdateDomainContactPrivacyRequest {
    *          </note>
    * @public
    */
-  BillingPrivacy?: boolean;
+  BillingPrivacy?: boolean | undefined;
 }
 
 /**
@@ -3862,7 +3862,7 @@ export interface UpdateDomainContactPrivacyResponse {
    * 			operation status, use GetOperationDetail.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3887,7 +3887,7 @@ export interface UpdateDomainNameserversRequest {
    * <p>The authorization key for .fi domains</p>
    * @public
    */
-  FIAuthKey?: string;
+  FIAuthKey?: string | undefined;
 
   /**
    * <p>A list of new name servers for the domain.</p>
@@ -3906,7 +3906,7 @@ export interface UpdateDomainNameserversResponse {
    * 			use <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3925,7 +3925,7 @@ export interface UpdateTagsForDomainRequest {
    * 			that already exists, the corresponding value will be replaced.</p>
    * @public
    */
-  TagsToUpdate?: Tag[];
+  TagsToUpdate?: Tag[] | undefined;
 }
 
 /**
@@ -3944,7 +3944,7 @@ export interface ViewBillingRequest {
    * 			(UTC).</p>
    * @public
    */
-  Start?: Date;
+  Start?: Date | undefined;
 
   /**
    * <p>The end date and time for the time period for which you want a list of billing
@@ -3952,7 +3952,7 @@ export interface ViewBillingRequest {
    * 			(UTC).</p>
    * @public
    */
-  End?: Date;
+  End?: Date | undefined;
 
   /**
    * <p>For an initial request for a list of billing records, omit this element. If the number
@@ -3966,14 +3966,14 @@ export interface ViewBillingRequest {
    * 			returned in the previous response.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The number of billing records to be returned.</p>
    *          <p>Default: 20</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -3987,13 +3987,13 @@ export interface ViewBillingResponse {
    * 			the value of <code>Marker</code>.</p>
    * @public
    */
-  NextPageMarker?: string;
+  NextPageMarker?: string | undefined;
 
   /**
    * <p>A summary of billing records.</p>
    * @public
    */
-  BillingRecords?: BillingRecord[];
+  BillingRecords?: BillingRecord[] | undefined;
 }
 
 /**

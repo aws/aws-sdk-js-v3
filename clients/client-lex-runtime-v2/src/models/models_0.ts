@@ -96,7 +96,7 @@ export interface AudioInputEvent {
    * <p>An encoded stream of audio.</p>
    * @public
    */
-  audioChunk?: Uint8Array;
+  audioChunk?: Uint8Array | undefined;
 
   /**
    * <p>The encoding used for the audio chunk. You must use 8 KHz PCM 16-bit
@@ -115,14 +115,14 @@ export interface AudioInputEvent {
    *          can use this to identify events in logs.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
    * @public
    */
-  clientTimestampMillis?: number;
+  clientTimestampMillis?: number | undefined;
 }
 
 /**
@@ -135,7 +135,7 @@ export interface AudioResponseEvent {
    * <p>A chunk of the audio to play. </p>
    * @public
    */
-  audioChunk?: Uint8Array;
+  audioChunk?: Uint8Array | undefined;
 
   /**
    * <p>The encoding of the audio chunk. This is the same as the encoding
@@ -143,7 +143,7 @@ export interface AudioResponseEvent {
    *             <code>ConfigurationEvent</code>.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
@@ -152,7 +152,7 @@ export interface AudioResponseEvent {
    *          session.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 }
 
 /**
@@ -213,26 +213,26 @@ export interface DeleteSessionResponse {
    * <p>The identifier of the bot that contained the session data.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The alias identifier in use for the bot that contained the session
    *          data.</p>
    * @public
    */
-  botAliasId?: string;
+  botAliasId?: string | undefined;
 
   /**
    * <p>The locale where the session was used.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>The identifier of the deleted session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 }
 
 /**
@@ -384,7 +384,7 @@ export interface Value {
    * <p>The part of the user's response to the slot elicitation that Amazon Lex V2 determines is relevant to the slot value.</p>
    * @public
    */
-  originalValue?: string;
+  originalValue?: string | undefined;
 
   /**
    * <p>The value that Amazon Lex V2 determines for the slot, given the user input. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex V2 choose the first value in the <code>resolvedValues</code> list.</p>
@@ -396,7 +396,7 @@ export interface Value {
    * <p>A list of values that Amazon Lex V2 determines are possible resolutions for the user input. The first value matches the <code>interpretedValue</code>.</p>
    * @public
    */
-  resolvedValues?: string[];
+  resolvedValues?: string[] | undefined;
 }
 
 /**
@@ -443,7 +443,7 @@ export interface ConfidenceScore {
    *          scores indicate higher confidence.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 }
 
 /**
@@ -472,28 +472,28 @@ export interface SentimentScore {
    *          of its detection of the <code>POSITIVE</code> sentiment.</p>
    * @public
    */
-  positive?: number;
+  positive?: number | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy
    *          of its detection of the <code>NEGATIVE</code> sentiment.</p>
    * @public
    */
-  negative?: number;
+  negative?: number | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy
    *          of its detection of the <code>NEUTRAL</code> sentiment.</p>
    * @public
    */
-  neutral?: number;
+  neutral?: number | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend has in the accuracy
    *          of its detection of the <code>MIXED</code> sentiment.</p>
    * @public
    */
-  mixed?: number;
+  mixed?: number | undefined;
 }
 
 /**
@@ -513,13 +513,13 @@ export interface SentimentResponse {
    *          Amazon Comprehend.</p>
    * @public
    */
-  sentiment?: SentimentType;
+  sentiment?: SentimentType | undefined;
 
   /**
    * <p>The individual sentiment responses for the utterance.</p>
    * @public
    */
-  sentimentScore?: SentimentScore;
+  sentimentScore?: SentimentScore | undefined;
 }
 
 /**
@@ -577,7 +577,7 @@ export interface ImageResponseCard {
    *             card.</p>
    * @public
    */
-  subtitle?: string;
+  subtitle?: string | undefined;
 
   /**
    * <p>The URL of an image to display on the response card. The image URL
@@ -585,7 +585,7 @@ export interface ImageResponseCard {
    *             card has access to the image.</p>
    * @public
    */
-  imageUrl?: string;
+  imageUrl?: string | undefined;
 
   /**
    * <p>A list of buttons that should be displayed on the response card. The
@@ -593,7 +593,7 @@ export interface ImageResponseCard {
    *             the button.</p>
    * @public
    */
-  buttons?: Button[];
+  buttons?: Button[] | undefined;
 }
 
 /**
@@ -605,7 +605,7 @@ export interface Message {
    * <p>The text of the message.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 
   /**
    * <p>Indicates the type of response.</p>
@@ -620,7 +620,7 @@ export interface Message {
    *             constrained to the text associated with a button on the card.</p>
    * @public
    */
-  imageResponseCard?: ImageResponseCard;
+  imageResponseCard?: ImageResponseCard | undefined;
 }
 
 /**
@@ -719,7 +719,7 @@ export interface PutSessionResponse {
    *             <code>responseContentType</code> field in the request.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>A list of messages that were last sent to the user. The messages are
@@ -727,7 +727,7 @@ export interface PutSessionResponse {
    *          or the order that the messages are defined in the bot.</p>
    * @public
    */
-  messages?: string;
+  messages?: string | undefined;
 
   /**
    * <p>A base-64-encoded gzipped field that represents the current state of
@@ -735,7 +735,7 @@ export interface PutSessionResponse {
    *          of the conversation and what the next action may be.</p>
    * @public
    */
-  sessionState?: string;
+  sessionState?: string | undefined;
 
   /**
    * <p>A base-64-encoded gzipped field that provides request-specific information
@@ -744,20 +744,20 @@ export interface PutSessionResponse {
    *          <code>PutSession</code> operation.</p>
    * @public
    */
-  requestAttributes?: string;
+  requestAttributes?: string | undefined;
 
   /**
    * <p>The identifier of the session that received the data.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>If the requested content type was audio, the audio version of the
    *          message to convey to the user.</p>
    * @public
    */
-  audioStream?: StreamingBlobTypes;
+  audioStream?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -775,7 +775,7 @@ export interface RecognizedBotMember {
    * <p>The name of the bot member that processes the request.</p>
    * @public
    */
-  botName?: string;
+  botName?: string | undefined;
 }
 
 /**
@@ -816,7 +816,7 @@ export interface RecognizeUtteranceRequest {
    *          and then base64 encoded before sending to Amazon Lex V2.</p>
    * @public
    */
-  sessionState?: string;
+  sessionState?: string | undefined;
 
   /**
    * <p>Request-specific information passed between the client application
@@ -828,7 +828,7 @@ export interface RecognizeUtteranceRequest {
    *          gzip and then base64 encoded before sending to Amazon Lex V2.</p>
    * @public
    */
-  requestAttributes?: string;
+  requestAttributes?: string | undefined;
 
   /**
    * <p>Indicates the format for audio input or that the content is text.
@@ -915,14 +915,14 @@ export interface RecognizeUtteranceRequest {
    *          </ul>
    * @public
    */
-  responseContentType?: string;
+  responseContentType?: string | undefined;
 
   /**
    * <p>User input in PCM or Opus audio format or text format as described
    *          in the <code>requestContentType</code> parameter.</p>
    * @public
    */
-  inputStream?: StreamingBlobTypes;
+  inputStream?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -934,14 +934,14 @@ export interface RecognizeUtteranceResponse {
    *       </p>
    * @public
    */
-  inputMode?: string;
+  inputMode?: string | undefined;
 
   /**
    * <p>Content type as specified in the <code>responseContentType</code> in
    *          the request.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>A list of messages that were last sent to the user. The messages are
@@ -954,7 +954,7 @@ export interface RecognizeUtteranceResponse {
    *          function to decode and decompress the contents.</p>
    * @public
    */
-  messages?: string;
+  messages?: string | undefined;
 
   /**
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
@@ -969,7 +969,7 @@ export interface RecognizeUtteranceResponse {
    *          function to decode and decompress the contents.</p>
    * @public
    */
-  interpretations?: string;
+  interpretations?: string | undefined;
 
   /**
    * <p>Represents the current state of the dialog between the user and the
@@ -982,7 +982,7 @@ export interface RecognizeUtteranceResponse {
    *          function to decode and decompress the contents.</p>
    * @public
    */
-  sessionState?: string;
+  sessionState?: string | undefined;
 
   /**
    * <p>The attributes sent in the request.</p>
@@ -991,13 +991,13 @@ export interface RecognizeUtteranceResponse {
    *          must decode and decompress the contents.</p>
    * @public
    */
-  requestAttributes?: string;
+  requestAttributes?: string | undefined;
 
   /**
    * <p>The identifier of the session in use.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The text used to process the request.</p>
@@ -1012,7 +1012,7 @@ export interface RecognizeUtteranceResponse {
    *          function to decode and decompress the contents.</p>
    * @public
    */
-  inputTranscript?: string;
+  inputTranscript?: string | undefined;
 
   /**
    * <p>The prompt or statement to send to the user. This is based on the
@@ -1026,13 +1026,13 @@ export interface RecognizeUtteranceResponse {
    *          response.</p>
    * @public
    */
-  audioStream?: StreamingBlobTypes;
+  audioStream?: StreamingBlobTypes | undefined;
 
   /**
    * <p>The bot member that recognized the utterance.</p>
    * @public
    */
-  recognizedBotMember?: string;
+  recognizedBotMember?: string | undefined;
 }
 
 /**
@@ -1061,14 +1061,14 @@ export interface DisconnectionEvent {
    *          can use this to identify events in logs.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
    * @public
    */
-  clientTimestampMillis?: number;
+  clientTimestampMillis?: number | undefined;
 }
 
 /**
@@ -1091,14 +1091,14 @@ export interface DTMFInputEvent {
    *          can use this to identify events in logs.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
    * @public
    */
-  clientTimestampMillis?: number;
+  clientTimestampMillis?: number | undefined;
 }
 
 /**
@@ -1113,14 +1113,14 @@ export interface PlaybackCompletionEvent {
    *          can use this to identify events in logs.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
    * @public
    */
-  clientTimestampMillis?: number;
+  clientTimestampMillis?: number | undefined;
 }
 
 /**
@@ -1141,14 +1141,14 @@ export interface TextInputEvent {
    *          can use this to identify events in logs.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
    * @public
    */
-  clientTimestampMillis?: number;
+  clientTimestampMillis?: number | undefined;
 }
 
 /**
@@ -1164,7 +1164,7 @@ export interface HeartbeatEvent {
    *          session.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 }
 
 /**
@@ -1211,14 +1211,14 @@ export interface PlaybackInterruptionEvent {
    * <p>Indicates the type of user input that Amazon Lex V2 detected.</p>
    * @public
    */
-  eventReason?: PlaybackInterruptionReason;
+  eventReason?: PlaybackInterruptionReason | undefined;
 
   /**
    * <p>The identifier of the event that contained the audio, DTMF, or text
    *          that caused the interruption.</p>
    * @public
    */
-  causedByEventId?: string;
+  causedByEventId?: string | undefined;
 
   /**
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
@@ -1227,7 +1227,7 @@ export interface PlaybackInterruptionEvent {
    *          session.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 }
 
 /**
@@ -1242,7 +1242,7 @@ export interface TextResponseEvent {
    *          or the order that the messages are defined in the bot.</p>
    * @public
    */
-  messages?: Message[];
+  messages?: Message[] | undefined;
 
   /**
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
@@ -1251,7 +1251,7 @@ export interface TextResponseEvent {
    *          session.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 }
 
 /**
@@ -1264,7 +1264,7 @@ export interface TranscriptEvent {
    * <p>The transcript of the voice audio from the user.</p>
    * @public
    */
-  transcript?: string;
+  transcript?: string | undefined;
 
   /**
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
@@ -1273,7 +1273,7 @@ export interface TranscriptEvent {
    *          session.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 }
 
 /**
@@ -1291,7 +1291,7 @@ export interface ElicitSubSlot {
    * <p>The field is not supported.</p>
    * @public
    */
-  subSlotToElicit?: ElicitSubSlot;
+  subSlotToElicit?: ElicitSubSlot | undefined;
 }
 
 /**
@@ -1339,7 +1339,7 @@ export interface DialogAction {
    * <p>The name of the slot that should be elicited from the user.</p>
    * @public
    */
-  slotToElicit?: string;
+  slotToElicit?: string | undefined;
 
   /**
    * <p>Configures the slot to use spell-by-letter or spell-by-word style.
@@ -1358,14 +1358,14 @@ export interface DialogAction {
    *             Using spelling to enter slot values </a>.</p>
    * @public
    */
-  slotElicitationStyle?: StyleType;
+  slotElicitationStyle?: StyleType | undefined;
 
   /**
    * <p>The name of the constituent sub slot of the composite slot
    *       specified in slotToElicit that should be elicited from the user.</p>
    * @public
    */
-  subSlotToElicit?: ElicitSubSlot;
+  subSlotToElicit?: ElicitSubSlot | undefined;
 }
 
 /**
@@ -1380,7 +1380,7 @@ export interface RuntimeHintDetails {
    *          values.</p>
    * @public
    */
-  runtimeHintValues?: RuntimeHintValue[];
+  runtimeHintValues?: RuntimeHintValue[] | undefined;
 
   /**
    * <p>A map of constituent sub slot names inside a composite slot in the intent and the phrases
@@ -1389,7 +1389,7 @@ export interface RuntimeHintDetails {
    *       The intent name, composite slot name and the constituent sub slot names must exist.</p>
    * @public
    */
-  subSlotHints?: Record<string, RuntimeHintDetails>;
+  subSlotHints?: Record<string, RuntimeHintDetails> | undefined;
 }
 
 /**
@@ -1415,7 +1415,7 @@ export interface RuntimeHints {
    *          <p>The intent name and slot name must exist.</p>
    * @public
    */
-  slotHints?: Record<string, Record<string, RuntimeHintDetails>>;
+  slotHints?: Record<string, Record<string, RuntimeHintDetails>> | undefined;
 }
 
 /**
@@ -1427,7 +1427,7 @@ export interface Slot {
    * <p>The current value of the slot.</p>
    * @public
    */
-  value?: Value;
+  value?: Value | undefined;
 
   /**
    * <p>When the <code>shape</code> value is <code>List</code>, it indicates
@@ -1436,7 +1436,7 @@ export interface Slot {
    *             <code>value</code> field contains a single value.</p>
    * @public
    */
-  shape?: Shape;
+  shape?: Shape | undefined;
 
   /**
    * <p>A list of one or more values that the user provided for the slot.
@@ -1444,13 +1444,13 @@ export interface Slot {
    *          might be "pepperoni" and "pineapple." </p>
    * @public
    */
-  values?: Slot[];
+  values?: Slot[] | undefined;
 
   /**
    * <p>The constituent sub slots of a composite slot.</p>
    * @public
    */
-  subSlots?: Record<string, Slot>;
+  subSlots?: Record<string, Slot> | undefined;
 }
 
 /**
@@ -1470,7 +1470,7 @@ export interface Intent {
    *          null.</p>
    * @public
    */
-  slots?: Record<string, Slot>;
+  slots?: Record<string, Slot> | undefined;
 
   /**
    * <p>Indicates the fulfillment state for the intent. The meanings of each value are as follows:</p>
@@ -1502,13 +1502,13 @@ export interface Intent {
    *          </ul>
    * @public
    */
-  state?: IntentState;
+  state?: IntentState | undefined;
 
   /**
    * <p>Indicates whether the intent has been <code>Confirmed</code>, <code>Denied</code>, or <code>None</code> if the confirmation stage has not yet been reached.</p>
    * @public
    */
-  confirmationState?: ConfirmationState;
+  confirmationState?: ConfirmationState | undefined;
 }
 
 /**
@@ -1526,7 +1526,7 @@ export interface Interpretation {
    *          are configured for the bot.</p>
    * @public
    */
-  nluConfidence?: ConfidenceScore;
+  nluConfidence?: ConfidenceScore | undefined;
 
   /**
    * <p>The sentiment expressed in an utterance. </p>
@@ -1535,20 +1535,20 @@ export interface Interpretation {
    *          analysis.</p>
    * @public
    */
-  sentimentResponse?: SentimentResponse;
+  sentimentResponse?: SentimentResponse | undefined;
 
   /**
    * <p>A list of intents that might satisfy the user's utterance. The
    *          intents are ordered by the confidence score.</p>
    * @public
    */
-  intent?: Intent;
+  intent?: Intent | undefined;
 
   /**
    * <p>Specifies the service that interpreted the input.</p>
    * @public
    */
-  interpretationSource?: InterpretationSource;
+  interpretationSource?: InterpretationSource | undefined;
 }
 
 /**
@@ -1561,13 +1561,13 @@ export interface SessionState {
    *          user.</p>
    * @public
    */
-  dialogAction?: DialogAction;
+  dialogAction?: DialogAction | undefined;
 
   /**
    * <p>The active intent that Amazon Lex V2 is processing.</p>
    * @public
    */
-  intent?: Intent;
+  intent?: Intent | undefined;
 
   /**
    * <p>One or more contexts that indicate to Amazon Lex V2 the context of a
@@ -1575,7 +1575,7 @@ export interface SessionState {
    *          matching context as a trigger as the next intent in a session.</p>
    * @public
    */
-  activeContexts?: ActiveContext[];
+  activeContexts?: ActiveContext[] | undefined;
 
   /**
    * <p>Map of key/value pairs representing session-specific context
@@ -1583,20 +1583,20 @@ export interface SessionState {
    *          and a client application.</p>
    * @public
    */
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>A unique identifier for a specific request.</p>
    * @public
    */
-  originatingRequestId?: string;
+  originatingRequestId?: string | undefined;
 
   /**
    * <p>Hints for phrases that a customer is likely to use for a slot. Amazon Lex V2
    *          uses the hints to help determine the correct value of a slot.</p>
    * @public
    */
-  runtimeHints?: RuntimeHints;
+  runtimeHints?: RuntimeHints | undefined;
 }
 
 /**
@@ -1614,7 +1614,7 @@ export interface ConfigurationEvent {
    *             <code>x-amz-lex:</code>.</p>
    * @public
    */
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The message that Amazon Lex V2 returns in the response can be either text or
@@ -1665,7 +1665,7 @@ export interface ConfigurationEvent {
    * <p>The state of the user's session with Amazon Lex V2.</p>
    * @public
    */
-  sessionState?: SessionState;
+  sessionState?: SessionState | undefined;
 
   /**
    * <p>A list of messages to send to the user.</p>
@@ -1677,7 +1677,7 @@ export interface ConfigurationEvent {
    *             </a> field.</p>
    * @public
    */
-  welcomeMessages?: Message[];
+  welcomeMessages?: Message[] | undefined;
 
   /**
    * <p>Determines whether Amazon Lex V2 should send audio responses to the client
@@ -1690,21 +1690,21 @@ export interface ConfigurationEvent {
    *          the client.</p>
    * @public
    */
-  disablePlayback?: boolean;
+  disablePlayback?: boolean | undefined;
 
   /**
    * <p>A unique identifier that your application assigns to the event. You
    *          can use this to identify events in logs.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>A timestamp set by the client of the date and time that the event
    *          was sent to Amazon Lex V2.</p>
    * @public
    */
-  clientTimestampMillis?: number;
+  clientTimestampMillis?: number | undefined;
 }
 
 /**
@@ -1741,7 +1741,7 @@ export interface PutSessionRequest {
    *          order that they are defined in the list.</p>
    * @public
    */
-  messages?: Message[];
+  messages?: Message[] | undefined;
 
   /**
    * <p>Sets the state of the session with the user. You can use this to set
@@ -1760,7 +1760,7 @@ export interface PutSessionRequest {
    *             <code>x-amz-lex:</code>.</p>
    * @public
    */
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The message that Amazon Lex V2 returns in the response can be either text or
@@ -1773,7 +1773,7 @@ export interface PutSessionRequest {
    *          </ul>
    * @public
    */
-  responseContentType?: string;
+  responseContentType?: string | undefined;
 }
 
 /**
@@ -1816,7 +1816,7 @@ export interface RecognizeTextRequest {
    * <p>The current state of the dialog between the user and the bot.</p>
    * @public
    */
-  sessionState?: SessionState;
+  sessionState?: SessionState | undefined;
 
   /**
    * <p>Request-specific information passed between the client application
@@ -1826,7 +1826,7 @@ export interface RecognizeTextRequest {
    *             <code>x-amz-lex:</code>.</p>
    * @public
    */
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -2026,7 +2026,7 @@ export interface StartConversationRequest {
    *          text.</p>
    * @public
    */
-  conversationMode?: ConversationMode;
+  conversationMode?: ConversationMode | undefined;
 
   /**
    * <p>Represents the stream of events to Amazon Lex V2 from your application. The
@@ -2044,7 +2044,7 @@ export interface GetSessionResponse {
    * <p>The identifier of the returned session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>A list of messages that were last sent to the user. The messages are
@@ -2053,7 +2053,7 @@ export interface GetSessionResponse {
    *       </p>
    * @public
    */
-  messages?: Message[];
+  messages?: Message[] | undefined;
 
   /**
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
@@ -2064,7 +2064,7 @@ export interface GetSessionResponse {
    *          the utterance.</p>
    * @public
    */
-  interpretations?: Interpretation[];
+  interpretations?: Interpretation[] | undefined;
 
   /**
    * <p>Represents the current state of the dialog between the user and the
@@ -2073,7 +2073,7 @@ export interface GetSessionResponse {
    *          what the next action might be.</p>
    * @public
    */
-  sessionState?: SessionState;
+  sessionState?: SessionState | undefined;
 }
 
 /**
@@ -2086,7 +2086,7 @@ export interface IntentResultEvent {
    * <p>Indicates whether the input to the operation was text, speech, or from a touch-tone keypad.</p>
    * @public
    */
-  inputMode?: InputMode;
+  inputMode?: InputMode | undefined;
 
   /**
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
@@ -2097,25 +2097,25 @@ export interface IntentResultEvent {
    *          the utterance.</p>
    * @public
    */
-  interpretations?: Interpretation[];
+  interpretations?: Interpretation[] | undefined;
 
   /**
    * <p>The state of the user's session with Amazon Lex V2.</p>
    * @public
    */
-  sessionState?: SessionState;
+  sessionState?: SessionState | undefined;
 
   /**
    * <p>The attributes sent in the request.</p>
    * @public
    */
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The identifier of the session in use.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>A unique identifier of the event sent by Amazon Lex V2. The identifier is in
@@ -2124,13 +2124,13 @@ export interface IntentResultEvent {
    *          session.</p>
    * @public
    */
-  eventId?: string;
+  eventId?: string | undefined;
 
   /**
    * <p>The bot member that is processing the intent.</p>
    * @public
    */
-  recognizedBotMember?: RecognizedBotMember;
+  recognizedBotMember?: RecognizedBotMember | undefined;
 }
 
 /**
@@ -2143,7 +2143,7 @@ export interface RecognizeTextResponse {
    *          function or the order that the messages are defined in the bot.</p>
    * @public
    */
-  messages?: Message[];
+  messages?: Message[] | undefined;
 
   /**
    * <p>Represents the current state of the dialog between the user and the
@@ -2152,7 +2152,7 @@ export interface RecognizeTextResponse {
    *          next action may be.</p>
    * @public
    */
-  sessionState?: SessionState;
+  sessionState?: SessionState | undefined;
 
   /**
    * <p>A list of intents that Amazon Lex V2 determined might satisfy the user's
@@ -2163,25 +2163,25 @@ export interface RecognizeTextResponse {
    *          the utterance.</p>
    * @public
    */
-  interpretations?: Interpretation[];
+  interpretations?: Interpretation[] | undefined;
 
   /**
    * <p>The attributes sent in the request.</p>
    * @public
    */
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The identifier of the session in use.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The bot member that recognized the text.</p>
    * @public
    */
-  recognizedBotMember?: RecognizedBotMember;
+  recognizedBotMember?: RecognizedBotMember | undefined;
 }
 
 /**
@@ -2608,7 +2608,7 @@ export interface StartConversationResponse {
    *          events are encoded as HTTP/2 data frames.</p>
    * @public
    */
-  responseEventStream?: AsyncIterable<StartConversationResponseEventStream>;
+  responseEventStream?: AsyncIterable<StartConversationResponseEventStream> | undefined;
 }
 
 /**

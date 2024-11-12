@@ -24,7 +24,7 @@ export type AcceptAction = (typeof AcceptAction)[keyof typeof AcceptAction];
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -83,31 +83,31 @@ export interface AddonInstance {
    * <p>The unique ID of the Add On instance.</p>
    * @public
    */
-  AddonInstanceId?: string;
+  AddonInstanceId?: string | undefined;
 
   /**
    * <p>The subscription ID for the instance.</p>
    * @public
    */
-  AddonSubscriptionId?: string;
+  AddonSubscriptionId?: string | undefined;
 
   /**
    * <p>The name of the Add On for the instance.</p>
    * @public
    */
-  AddonName?: string;
+  AddonName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Add On instance.</p>
    * @public
    */
-  AddonInstanceArn?: string;
+  AddonInstanceArn?: string | undefined;
 
   /**
    * <p>The timestamp of when the Add On instance was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -117,7 +117,7 @@ export interface AddonInstance {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -159,7 +159,7 @@ export interface CreateAddonInstanceRequest {
    *             request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The unique ID of a previously created subscription that an Add On instance is created
@@ -172,7 +172,7 @@ export interface CreateAddonInstanceRequest {
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface CreateAddonInstanceResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -215,7 +215,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -237,7 +237,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -287,25 +287,25 @@ export interface GetAddonInstanceResponse {
    * <p>The subscription ID associated to the instance.</p>
    * @public
    */
-  AddonSubscriptionId?: string;
+  AddonSubscriptionId?: string | undefined;
 
   /**
    * <p>The name of the Add On provider associated to the subscription of the instance.</p>
    * @public
    */
-  AddonName?: string;
+  AddonName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Add On instance.</p>
    * @public
    */
-  AddonInstanceArn?: string;
+  AddonInstanceArn?: string | undefined;
 
   /**
    * <p>The timestamp of when the Add On instance was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -316,14 +316,14 @@ export interface ListAddonInstancesRequest {
    * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of ingress endpoint resources that are returned per call. You can
    *             use NextToken to obtain further ingress endpoints. </p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -334,13 +334,13 @@ export interface ListAddonInstancesResponse {
    * <p>The list of ingress endpoints.</p>
    * @public
    */
-  AddonInstances?: AddonInstance[];
+  AddonInstances?: AddonInstance[] | undefined;
 
   /**
    * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -353,25 +353,25 @@ export interface AddonSubscription {
    * <p>The unique ID of the Add On subscription.</p>
    * @public
    */
-  AddonSubscriptionId?: string;
+  AddonSubscriptionId?: string | undefined;
 
   /**
    * <p>The name of the Add On.</p>
    * @public
    */
-  AddonName?: string;
+  AddonName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Add On subscription.</p>
    * @public
    */
-  AddonSubscriptionArn?: string;
+  AddonSubscriptionArn?: string | undefined;
 
   /**
    * <p>The timestamp of when the Add On subscription was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -383,7 +383,7 @@ export interface CreateAddonSubscriptionRequest {
    *             request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the Add On to subscribe to. You can only have one subscription for each
@@ -396,7 +396,7 @@ export interface CreateAddonSubscriptionRequest {
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -445,19 +445,19 @@ export interface GetAddonSubscriptionResponse {
    * <p>The name of the Add On for the subscription.</p>
    * @public
    */
-  AddonName?: string;
+  AddonName?: string | undefined;
 
   /**
    * <p>Amazon Resource Name (ARN) for the subscription.</p>
    * @public
    */
-  AddonSubscriptionArn?: string;
+  AddonSubscriptionArn?: string | undefined;
 
   /**
    * <p>The timestamp of when the Add On subscription was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -468,14 +468,14 @@ export interface ListAddonSubscriptionsRequest {
    * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of ingress endpoint resources that are returned per call. You can
    *             use NextToken to obtain further ingress endpoints. </p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -486,13 +486,13 @@ export interface ListAddonSubscriptionsResponse {
    * <p>The list of ingress endpoints.</p>
    * @public
    */
-  AddonSubscriptions?: AddonSubscription[];
+  AddonSubscriptions?: AddonSubscription[] | undefined;
 
   /**
    * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -543,7 +543,7 @@ export interface Archive {
    * <p>The unique name assigned to the archive.</p>
    * @public
    */
-  ArchiveName?: string;
+  ArchiveName?: string | undefined;
 
   /**
    * <p>The current state of the archive:</p>
@@ -561,13 +561,13 @@ export interface Archive {
    *          </ul>
    * @public
    */
-  ArchiveState?: ArchiveState;
+  ArchiveState?: ArchiveState | undefined;
 
   /**
    * <p>The timestamp of when the archive was last updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -580,7 +580,7 @@ export interface ArchiveAction {
    *             are configuration errors. For example, the specified archive has been deleted.</p>
    * @public
    */
-  ActionFailurePolicy?: ActionFailurePolicy;
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
    * <p>The identifier of the archive to send the email to.</p>
@@ -833,13 +833,13 @@ export interface ArchiveFilters {
    * <p>The filter conditions for emails to include.</p>
    * @public
    */
-  Include?: ArchiveFilterCondition[];
+  Include?: ArchiveFilterCondition[] | undefined;
 
   /**
    * <p>The filter conditions for emails to exclude.</p>
    * @public
    */
-  Unless?: ArchiveFilterCondition[];
+  Unless?: ArchiveFilterCondition[] | undefined;
 }
 
 /**
@@ -918,7 +918,7 @@ export interface CreateArchiveRequest {
    * <p>A unique token Amazon SES uses to recognize retries of this request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A unique name for the new archive.</p>
@@ -930,19 +930,19 @@ export interface CreateArchiveRequest {
    * <p>The period for retaining emails in the archive before automatic deletion.</p>
    * @public
    */
-  Retention?: ArchiveRetention;
+  Retention?: ArchiveRetention | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key for encrypting emails in the archive.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -964,7 +964,7 @@ export interface CreateArchiveResponse {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1062,19 +1062,19 @@ export interface GetArchiveResponse {
    * <p>The timestamp of when the archive was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the archive was modified.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the archive.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1088,14 +1088,14 @@ export interface ListArchivesRequest {
    *             retrieve the next page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of archives that are returned per call. You can use NextToken to
    *             obtain further pages of archives. </p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -1113,7 +1113,7 @@ export interface ListArchivesResponse {
    * <p>If present, use to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1131,13 +1131,13 @@ export interface UpdateArchiveRequest {
    * <p>A new, unique name for the archive.</p>
    * @public
    */
-  ArchiveName?: string;
+  ArchiveName?: string | undefined;
 
   /**
    * <p>A new retention period for emails in the archive.</p>
    * @public
    */
-  Retention?: ArchiveRetention;
+  Retention?: ArchiveRetention | undefined;
 }
 
 /**
@@ -1226,7 +1226,7 @@ export interface CreateIngressPointRequest {
    *             request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A user friendly name for an ingress endpoint resource.</p>
@@ -1259,13 +1259,13 @@ export interface CreateIngressPointRequest {
    *             ARN.</p>
    * @public
    */
-  IngressPointConfiguration?: IngressPointConfiguration;
+  IngressPointConfiguration?: IngressPointConfiguration | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1350,7 +1350,7 @@ export interface CreateRelayRequest {
    *             request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The unique name of the relay resource.</p>
@@ -1381,7 +1381,7 @@ export interface CreateRelayRequest {
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1405,7 +1405,7 @@ export interface DeliverToMailboxAction {
    *             are configuration errors. For example, the mailbox ARN is no longer valid.</p>
    * @public
    */
-  ActionFailurePolicy?: ActionFailurePolicy;
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a WorkMail organization to deliver the email to.</p>
@@ -1453,7 +1453,7 @@ export interface RelayAction {
    *             are configuration errors. For example, the specified relay has been deleted.</p>
    * @public
    */
-  ActionFailurePolicy?: ActionFailurePolicy;
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
    * <p>The identifier of the relay resource to be used when relaying an email.</p>
@@ -1466,7 +1466,7 @@ export interface RelayAction {
    *             relaying received emails to a destination server.</p>
    * @public
    */
-  MailFrom?: MailFrom;
+  MailFrom?: MailFrom | undefined;
 }
 
 /**
@@ -1482,7 +1482,7 @@ export interface ReplaceRecipientAction {
    * <p>This action specifies the replacement recipient email addresses to insert.</p>
    * @public
    */
-  ReplaceWith?: string[];
+  ReplaceWith?: string[] | undefined;
 }
 
 /**
@@ -1496,7 +1496,7 @@ export interface SendAction {
    *             the sendRawEmail API.</p>
    * @public
    */
-  ActionFailurePolicy?: ActionFailurePolicy;
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role to use for this action. This role must have access to the
@@ -1516,7 +1516,7 @@ export interface S3Action {
    *             are configuration errors. For example, the specified the bucket has been deleted.</p>
    * @public
    */
-  ActionFailurePolicy?: ActionFailurePolicy;
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM Role to use while writing to S3. This role must have access to
@@ -1535,13 +1535,13 @@ export interface S3Action {
    * <p>The S3 prefix to use for the write to the s3 bucket.</p>
    * @public
    */
-  S3Prefix?: string;
+  S3Prefix?: string | undefined;
 
   /**
    * <p>The KMS Key ID to use to encrypt the message in S3.</p>
    * @public
    */
-  S3SseKmsKeyId?: string;
+  S3SseKmsKeyId?: string | undefined;
 }
 
 /**
@@ -2459,7 +2459,7 @@ export interface Rule {
    * <p>The user-friendly name of the rule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The conditions of this rule. All conditions must match the email for the actions to be
@@ -2467,7 +2467,7 @@ export interface Rule {
    *             to any "unless conditions"</p>
    * @public
    */
-  Conditions?: RuleCondition[];
+  Conditions?: RuleCondition[] | undefined;
 
   /**
    * <p>The "unless conditions" of this rule. None of the conditions can match the
@@ -2475,7 +2475,7 @@ export interface Rule {
    *             then the actions are not executed.</p>
    * @public
    */
-  Unless?: RuleCondition[];
+  Unless?: RuleCondition[] | undefined;
 
   /**
    * <p>The list of actions to execute when the conditions match the incoming email, and none
@@ -2494,7 +2494,7 @@ export interface CreateRuleSetRequest {
    *             request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A user-friendly name for the rule set.</p>
@@ -2512,7 +2512,7 @@ export interface CreateRuleSetRequest {
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3039,7 +3039,7 @@ export interface CreateTrafficPolicyRequest {
    *             request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A user-friendly name for the traffic policy resource.</p>
@@ -3064,13 +3064,13 @@ export interface CreateTrafficPolicyRequest {
    *             policy—anything larger will be blocked.</p>
    * @public
    */
-  MaxMessageSizeBytes?: number;
+  MaxMessageSizeBytes?: number | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for the resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3157,19 +3157,19 @@ export interface Envelope {
    * <p>The HELO used by the host from which the email was received.</p>
    * @public
    */
-  Helo?: string;
+  Helo?: string | undefined;
 
   /**
    * <p>The RCPT FROM given by the host from which the email was received.</p>
    * @public
    */
-  From?: string;
+  From?: string | undefined;
 
   /**
    * <p>All SMTP TO entries given by the host from which the email was received.</p>
    * @public
    */
-  To?: string[];
+  To?: string[] | undefined;
 }
 
 /**
@@ -3181,7 +3181,7 @@ export interface S3ExportDestinationConfiguration {
    * <p>The S3 location to deliver the exported email data.</p>
    * @public
    */
-  S3Location?: string;
+  S3Location?: string | undefined;
 }
 
 /**
@@ -3251,25 +3251,25 @@ export interface ExportStatus {
    * <p>The timestamp of when the export job was submitted.</p>
    * @public
    */
-  SubmissionTimestamp?: Date;
+  SubmissionTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the export job completed (if finished).</p>
    * @public
    */
-  CompletionTimestamp?: Date;
+  CompletionTimestamp?: Date | undefined;
 
   /**
    * <p>The current state of the export job.</p>
    * @public
    */
-  State?: ExportState;
+  State?: ExportState | undefined;
 
   /**
    * <p>An error message if the export job failed.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -3281,13 +3281,13 @@ export interface ExportSummary {
    * <p>The unique identifier of the export job.</p>
    * @public
    */
-  ExportId?: string;
+  ExportId?: string | undefined;
 
   /**
    * <p>The current status of the export job.</p>
    * @public
    */
-  Status?: ExportStatus;
+  Status?: ExportStatus | undefined;
 }
 
 /**
@@ -3311,43 +3311,43 @@ export interface GetArchiveExportResponse {
    * <p>The identifier of the archive the email export was performed from.</p>
    * @public
    */
-  ArchiveId?: string;
+  ArchiveId?: string | undefined;
 
   /**
    * <p>The criteria used to filter emails included in the export.</p>
    * @public
    */
-  Filters?: ArchiveFilters;
+  Filters?: ArchiveFilters | undefined;
 
   /**
    * <p>The start of the timestamp range the exported emails cover.</p>
    * @public
    */
-  FromTimestamp?: Date;
+  FromTimestamp?: Date | undefined;
 
   /**
    * <p>The end of the date range the exported emails cover.</p>
    * @public
    */
-  ToTimestamp?: Date;
+  ToTimestamp?: Date | undefined;
 
   /**
    * <p>The maximum number of email items included in the export.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Where the exported emails are being delivered.</p>
    * @public
    */
-  ExportDestinationConfiguration?: ExportDestinationConfiguration;
+  ExportDestinationConfiguration?: ExportDestinationConfiguration | undefined;
 
   /**
    * <p>The current status of the export job.</p>
    * @public
    */
-  Status?: ExportStatus;
+  Status?: ExportStatus | undefined;
 }
 
 /**
@@ -3371,49 +3371,49 @@ export interface Metadata {
    * <p>The timestamp of when the email was received.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The ID of the ingress endpoint through which the email was received.</p>
    * @public
    */
-  IngressPointId?: string;
+  IngressPointId?: string | undefined;
 
   /**
    * <p>The ID of the traffic policy that was in effect when the email was received.</p>
    * @public
    */
-  TrafficPolicyId?: string;
+  TrafficPolicyId?: string | undefined;
 
   /**
    * <p>The ID of the rule set that processed the email.</p>
    * @public
    */
-  RuleSetId?: string;
+  RuleSetId?: string | undefined;
 
   /**
    * <p>The name of the host from which the email was received.</p>
    * @public
    */
-  SenderHostname?: string;
+  SenderHostname?: string | undefined;
 
   /**
    * <p>The IP address of the host from which the email was received.</p>
    * @public
    */
-  SenderIpAddress?: string;
+  SenderIpAddress?: string | undefined;
 
   /**
    * <p>The TLS cipher suite used to communicate with the host from which the email was received.</p>
    * @public
    */
-  TlsCipherSuite?: string;
+  TlsCipherSuite?: string | undefined;
 
   /**
    * <p>The TLS protocol used to communicate with the host from which the email was received.</p>
    * @public
    */
-  TlsProtocol?: string;
+  TlsProtocol?: string | undefined;
 }
 
 /**
@@ -3425,19 +3425,19 @@ export interface GetArchiveMessageResponse {
    * <p>A pre-signed URL to temporarily download the full message content.</p>
    * @public
    */
-  MessageDownloadLink?: string;
+  MessageDownloadLink?: string | undefined;
 
   /**
    * <p>The metadata about the email.</p>
    * @public
    */
-  Metadata?: Metadata;
+  Metadata?: Metadata | undefined;
 
   /**
    * <p>The SMTP envelope information of the email.</p>
    * @public
    */
-  Envelope?: Envelope;
+  Envelope?: Envelope | undefined;
 }
 
 /**
@@ -3461,19 +3461,19 @@ export interface MessageBody {
    * <p>The plain text body content of the message.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>The HTML body content of the message.</p>
    * @public
    */
-  Html?: string;
+  Html?: string | undefined;
 
   /**
    * <p>A flag indicating if the email was malformed.</p>
    * @public
    */
-  MessageMalformed?: boolean;
+  MessageMalformed?: boolean | undefined;
 }
 
 /**
@@ -3485,7 +3485,7 @@ export interface GetArchiveMessageContentResponse {
    * <p>The textual body content of the email message.</p>
    * @public
    */
-  Body?: MessageBody;
+  Body?: MessageBody | undefined;
 }
 
 /**
@@ -3526,25 +3526,25 @@ export interface SearchStatus {
    * <p>The timestamp of when the search was submitted.</p>
    * @public
    */
-  SubmissionTimestamp?: Date;
+  SubmissionTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the search completed (if finished).</p>
    * @public
    */
-  CompletionTimestamp?: Date;
+  CompletionTimestamp?: Date | undefined;
 
   /**
    * <p>The current state of the search job.</p>
    * @public
    */
-  State?: SearchState;
+  State?: SearchState | undefined;
 
   /**
    * <p>An error message if the search failed.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -3556,37 +3556,37 @@ export interface GetArchiveSearchResponse {
    * <p>The identifier of the archive the email search was performed in.</p>
    * @public
    */
-  ArchiveId?: string;
+  ArchiveId?: string | undefined;
 
   /**
    * <p>The criteria used to filter emails included in the search.</p>
    * @public
    */
-  Filters?: ArchiveFilters;
+  Filters?: ArchiveFilters | undefined;
 
   /**
    * <p>The start timestamp of the range the searched emails cover.</p>
    * @public
    */
-  FromTimestamp?: Date;
+  FromTimestamp?: Date | undefined;
 
   /**
    * <p>The end timestamp of the range the searched emails cover.</p>
    * @public
    */
-  ToTimestamp?: Date;
+  ToTimestamp?: Date | undefined;
 
   /**
    * <p>The maximum number of search results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The current status of the search job.</p>
    * @public
    */
-  Status?: SearchStatus;
+  Status?: SearchStatus | undefined;
 }
 
 /**
@@ -3610,109 +3610,109 @@ export interface Row {
    * <p>The unique identifier of the archived message.</p>
    * @public
    */
-  ArchivedMessageId?: string;
+  ArchivedMessageId?: string | undefined;
 
   /**
    * <p>The timestamp of when the email was received.</p>
    * @public
    */
-  ReceivedTimestamp?: Date;
+  ReceivedTimestamp?: Date | undefined;
 
   /**
    * <p>The date the email was sent.</p>
    * @public
    */
-  Date?: string;
+  Date?: string | undefined;
 
   /**
    * <p>The email addresses in the To header.</p>
    * @public
    */
-  To?: string;
+  To?: string | undefined;
 
   /**
    * <p>The email address of the sender.</p>
    * @public
    */
-  From?: string;
+  From?: string | undefined;
 
   /**
    * <p>The email addresses in the CC header.</p>
    * @public
    */
-  Cc?: string;
+  Cc?: string | undefined;
 
   /**
    * <p>The subject header value of the email.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>The unique message ID of the email.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 
   /**
    * <p>A flag indicating if the email has attachments.</p>
    * @public
    */
-  HasAttachments?: boolean;
+  HasAttachments?: boolean | undefined;
 
   /**
    * <p>The received headers from the email delivery path.</p>
    * @public
    */
-  ReceivedHeaders?: string[];
+  ReceivedHeaders?: string[] | undefined;
 
   /**
    * <p>The email message ID this is a reply to.</p>
    * @public
    */
-  InReplyTo?: string;
+  InReplyTo?: string | undefined;
 
   /**
    * <p>The user agent that sent the email.</p>
    * @public
    */
-  XMailer?: string;
+  XMailer?: string | undefined;
 
   /**
    * <p>The original user agent that sent the email.</p>
    * @public
    */
-  XOriginalMailer?: string;
+  XOriginalMailer?: string | undefined;
 
   /**
    * <p>The priority level of the email.</p>
    * @public
    */
-  XPriority?: string;
+  XPriority?: string | undefined;
 
   /**
    * <p>The ID of the ingress endpoint through which the email was received.</p>
    * @public
    */
-  IngressPointId?: string;
+  IngressPointId?: string | undefined;
 
   /**
    * <p>The name of the host from which the email was received.</p>
    * @public
    */
-  SenderHostname?: string;
+  SenderHostname?: string | undefined;
 
   /**
    * <p>The IP address of the host from which the email was received.</p>
    * @public
    */
-  SenderIpAddress?: string;
+  SenderIpAddress?: string | undefined;
 
   /**
    * <p>The SMTP envelope information of the email.</p>
    * @public
    */
-  Envelope?: Envelope;
+  Envelope?: Envelope | undefined;
 }
 
 /**
@@ -3724,7 +3724,7 @@ export interface GetArchiveSearchResultsResponse {
    * <p>The list of email result objects matching the search criteria.</p>
    * @public
    */
-  Rows?: Row[];
+  Rows?: Row[] | undefined;
 }
 
 /**
@@ -3747,19 +3747,19 @@ export interface IngressPointPasswordConfiguration {
    * <p>The current password expiry timestamp of the ingress endpoint resource.</p>
    * @public
    */
-  SmtpPasswordVersion?: string;
+  SmtpPasswordVersion?: string | undefined;
 
   /**
    * <p>The previous password version of the ingress endpoint resource.</p>
    * @public
    */
-  PreviousSmtpPasswordVersion?: string;
+  PreviousSmtpPasswordVersion?: string | undefined;
 
   /**
    * <p>The previous password expiry timestamp of the ingress endpoint resource.</p>
    * @public
    */
-  PreviousSmtpPasswordExpiryTimestamp?: Date;
+  PreviousSmtpPasswordExpiryTimestamp?: Date | undefined;
 }
 
 /**
@@ -3771,14 +3771,14 @@ export interface IngressPointAuthConfiguration {
    * <p>The ingress endpoint password configuration for the ingress endpoint resource.</p>
    * @public
    */
-  IngressPointPasswordConfiguration?: IngressPointPasswordConfiguration;
+  IngressPointPasswordConfiguration?: IngressPointPasswordConfiguration | undefined;
 
   /**
    * <p>The ingress endpoint SecretsManager::Secret ARN configuration for the ingress endpoint
    *             resource.</p>
    * @public
    */
-  SecretArn?: string;
+  SecretArn?: string | undefined;
 }
 
 /**
@@ -3819,19 +3819,19 @@ export interface GetIngressPointResponse {
    * <p>The Amazon Resource Name (ARN) of the ingress endpoint resource.</p>
    * @public
    */
-  IngressPointArn?: string;
+  IngressPointArn?: string | undefined;
 
   /**
    * <p>The status of the ingress endpoint resource.</p>
    * @public
    */
-  Status?: IngressPointStatus;
+  Status?: IngressPointStatus | undefined;
 
   /**
    * <p>The type of ingress endpoint.</p>
    * @public
    */
-  Type?: IngressPointType;
+  Type?: IngressPointType | undefined;
 
   /**
    * <p>
@@ -3839,38 +3839,38 @@ export interface GetIngressPointResponse {
    *         </p>
    * @public
    */
-  ARecord?: string;
+  ARecord?: string | undefined;
 
   /**
    * <p>The identifier of a rule set resource associated with the ingress endpoint.</p>
    * @public
    */
-  RuleSetId?: string;
+  RuleSetId?: string | undefined;
 
   /**
    * <p>The identifier of the traffic policy resource associated with the ingress
    *             endpoint.</p>
    * @public
    */
-  TrafficPolicyId?: string;
+  TrafficPolicyId?: string | undefined;
 
   /**
    * <p>The authentication configuration of the ingress endpoint resource.</p>
    * @public
    */
-  IngressPointAuthConfiguration?: IngressPointAuthConfiguration;
+  IngressPointAuthConfiguration?: IngressPointAuthConfiguration | undefined;
 
   /**
    * <p>The timestamp of when the ingress endpoint was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the ingress endpoint was last updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -3898,44 +3898,44 @@ export interface GetRelayResponse {
    * <p>The Amazon Resource Name (ARN) of the relay.</p>
    * @public
    */
-  RelayArn?: string;
+  RelayArn?: string | undefined;
 
   /**
    * <p>The unique name of the relay.</p>
    * @public
    */
-  RelayName?: string;
+  RelayName?: string | undefined;
 
   /**
    * <p>The destination relay server address.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The destination relay server port.</p>
    * @public
    */
-  ServerPort?: number;
+  ServerPort?: number | undefined;
 
   /**
    * <p>The authentication attribute—contains the secret ARN where the customer relay
    *             server credentials are stored. </p>
    * @public
    */
-  Authentication?: RelayAuthentication;
+  Authentication?: RelayAuthentication | undefined;
 
   /**
    * <p>The timestamp of when the relay was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when relay was last updated.</p>
    * @public
    */
-  LastModifiedTimestamp?: Date;
+  LastModifiedTimestamp?: Date | undefined;
 }
 
 /**
@@ -4021,38 +4021,38 @@ export interface GetTrafficPolicyResponse {
    * <p>The Amazon Resource Name (ARN) of the traffic policy resource.</p>
    * @public
    */
-  TrafficPolicyArn?: string;
+  TrafficPolicyArn?: string | undefined;
 
   /**
    * <p>The list of conditions which are in the traffic policy resource.</p>
    * @public
    */
-  PolicyStatements?: PolicyStatement[];
+  PolicyStatements?: PolicyStatement[] | undefined;
 
   /**
    * <p>The maximum message size in bytes of email which is allowed in by this traffic
    *             policy—anything larger will be blocked.</p>
    * @public
    */
-  MaxMessageSizeBytes?: number;
+  MaxMessageSizeBytes?: number | undefined;
 
   /**
    * <p>The default action of the traffic policy.</p>
    * @public
    */
-  DefaultAction?: AcceptAction;
+  DefaultAction?: AcceptAction | undefined;
 
   /**
    * <p>The timestamp of when the traffic policy was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp of when the traffic policy was last updated.</p>
    * @public
    */
-  LastUpdatedTimestamp?: Date;
+  LastUpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -4090,7 +4090,7 @@ export interface IngressPoint {
    *         </p>
    * @public
    */
-  ARecord?: string;
+  ARecord?: string | undefined;
 }
 
 /**
@@ -4102,13 +4102,13 @@ export interface ListIngressPointsRequest {
    *             use NextToken to obtain further ingress endpoints.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4119,13 +4119,13 @@ export interface ListIngressPointsResponse {
    * <p>The list of ingress endpoints.</p>
    * @public
    */
-  IngressPoints?: IngressPoint[];
+  IngressPoints?: IngressPoint[] | undefined;
 
   /**
    * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4156,34 +4156,34 @@ export interface UpdateIngressPointRequest {
    * <p>A user friendly name for the ingress endpoint resource.</p>
    * @public
    */
-  IngressPointName?: string;
+  IngressPointName?: string | undefined;
 
   /**
    * <p>The update status of an ingress endpoint.</p>
    * @public
    */
-  StatusToUpdate?: IngressPointStatusToUpdate;
+  StatusToUpdate?: IngressPointStatusToUpdate | undefined;
 
   /**
    * <p>The identifier of an existing rule set that you attach to an ingress endpoint
    *             resource.</p>
    * @public
    */
-  RuleSetId?: string;
+  RuleSetId?: string | undefined;
 
   /**
    * <p>The identifier of an existing traffic policy that you attach to an ingress endpoint
    *             resource.</p>
    * @public
    */
-  TrafficPolicyId?: string;
+  TrafficPolicyId?: string | undefined;
 
   /**
    * <p>If you choose an Authenticated ingress endpoint, you must configure either an SMTP password or a secret
    *             ARN.</p>
    * @public
    */
-  IngressPointConfiguration?: IngressPointConfiguration;
+  IngressPointConfiguration?: IngressPointConfiguration | undefined;
 }
 
 /**
@@ -4208,7 +4208,7 @@ export interface ListArchiveExportsRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of archive export jobs that are returned per call. You can use NextToken to obtain
@@ -4216,7 +4216,7 @@ export interface ListArchiveExportsRequest {
    *         </p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -4228,13 +4228,13 @@ export interface ListArchiveExportsResponse {
    * <p>The list of export job identifiers and statuses.</p>
    * @public
    */
-  Exports?: ExportSummary[];
+  Exports?: ExportSummary[] | undefined;
 
   /**
    * <p>If present, use to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4254,7 +4254,7 @@ export interface ListArchiveSearchesRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of archive search jobs that are returned per call. You can use NextToken to obtain
@@ -4262,7 +4262,7 @@ export interface ListArchiveSearchesRequest {
    *         </p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -4274,13 +4274,13 @@ export interface SearchSummary {
    * <p>The unique identifier of the search job.</p>
    * @public
    */
-  SearchId?: string;
+  SearchId?: string | undefined;
 
   /**
    * <p>The current status of the search job.</p>
    * @public
    */
-  Status?: SearchStatus;
+  Status?: SearchStatus | undefined;
 }
 
 /**
@@ -4292,13 +4292,13 @@ export interface ListArchiveSearchesResponse {
    * <p>The list of search job identifiers and statuses.</p>
    * @public
    */
-  Searches?: SearchSummary[];
+  Searches?: SearchSummary[] | undefined;
 
   /**
    * <p>If present, use to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4309,13 +4309,13 @@ export interface ListRelaysRequest {
    * <p>The number of relays to be returned in one request.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4328,19 +4328,19 @@ export interface Relay {
    * <p>The unique relay identifier.</p>
    * @public
    */
-  RelayId?: string;
+  RelayId?: string | undefined;
 
   /**
    * <p>The unique relay name.</p>
    * @public
    */
-  RelayName?: string;
+  RelayName?: string | undefined;
 
   /**
    * <p>The timestamp of when the relay was last modified.</p>
    * @public
    */
-  LastModifiedTimestamp?: Date;
+  LastModifiedTimestamp?: Date | undefined;
 }
 
 /**
@@ -4357,7 +4357,7 @@ export interface ListRelaysResponse {
    * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4368,14 +4368,14 @@ export interface ListRuleSetsRequest {
    * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of rule set resources that are returned per call. You can use
    *             NextToken to obtain further rule sets.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -4388,19 +4388,19 @@ export interface RuleSet {
    * <p>The identifier of the rule set.</p>
    * @public
    */
-  RuleSetId?: string;
+  RuleSetId?: string | undefined;
 
   /**
    * <p>A user-friendly name for the rule set.</p>
    * @public
    */
-  RuleSetName?: string;
+  RuleSetName?: string | undefined;
 
   /**
    * <p>The last modification date of the rule set.</p>
    * @public
    */
-  LastModificationDate?: Date;
+  LastModificationDate?: Date | undefined;
 }
 
 /**
@@ -4417,7 +4417,7 @@ export interface ListRuleSetsResponse {
    * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4451,13 +4451,13 @@ export interface ListTrafficPoliciesRequest {
    *             NextToken to obtain further traffic policies.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>If you received a pagination token from a previous call to this API, you can provide it here to continue paginating through the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4493,13 +4493,13 @@ export interface ListTrafficPoliciesResponse {
    * <p>The list of traffic policies.</p>
    * @public
    */
-  TrafficPolicies?: TrafficPolicy[];
+  TrafficPolicies?: TrafficPolicy[] | undefined;
 
   /**
    * <p>If NextToken is returned, there are more results available. The value of NextToken is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4516,26 +4516,26 @@ export interface UpdateRelayRequest {
    * <p>The name of the relay resource.</p>
    * @public
    */
-  RelayName?: string;
+  RelayName?: string | undefined;
 
   /**
    * <p>The destination relay server address.</p>
    * @public
    */
-  ServerName?: string;
+  ServerName?: string | undefined;
 
   /**
    * <p>The destination relay server port.</p>
    * @public
    */
-  ServerPort?: number;
+  ServerPort?: number | undefined;
 
   /**
    * <p>Authentication for the relay destination server—specify the secretARN where
    *             the SMTP credentials are stored.</p>
    * @public
    */
-  Authentication?: RelayAuthentication;
+  Authentication?: RelayAuthentication | undefined;
 }
 
 /**
@@ -4557,14 +4557,14 @@ export interface UpdateRuleSetRequest {
    * <p>A user-friendly name for the rule set resource.</p>
    * @public
    */
-  RuleSetName?: string;
+  RuleSetName?: string | undefined;
 
   /**
    * <p>A new set of rules to replace the current rules of the rule set—these rules will
    *             override all the rules of the rule set.</p>
    * @public
    */
-  Rules?: Rule[];
+  Rules?: Rule[] | undefined;
 }
 
 /**
@@ -4587,7 +4587,7 @@ export interface StartArchiveExportRequest {
    * <p>Criteria to filter which emails are included in the export.</p>
    * @public
    */
-  Filters?: ArchiveFilters;
+  Filters?: ArchiveFilters | undefined;
 
   /**
    * <p>The start of the timestamp range to include emails from.</p>
@@ -4605,7 +4605,7 @@ export interface StartArchiveExportRequest {
    * <p>The maximum number of email items to include in the export.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Details on where to deliver the exported email data.</p>
@@ -4617,7 +4617,7 @@ export interface StartArchiveExportRequest {
    * <p>Whether to include message metadata as JSON files in the export.</p>
    * @public
    */
-  IncludeMetadata?: boolean;
+  IncludeMetadata?: boolean | undefined;
 }
 
 /**
@@ -4629,7 +4629,7 @@ export interface StartArchiveExportResponse {
    * <p>The unique identifier for the initiated export job.</p>
    * @public
    */
-  ExportId?: string;
+  ExportId?: string | undefined;
 }
 
 /**
@@ -4647,7 +4647,7 @@ export interface StartArchiveSearchRequest {
    * <p>Criteria to filter which emails are included in the search results.</p>
    * @public
    */
-  Filters?: ArchiveFilters;
+  Filters?: ArchiveFilters | undefined;
 
   /**
    * <p>The start timestamp of the range to search emails from.</p>
@@ -4677,7 +4677,7 @@ export interface StartArchiveSearchResponse {
    * <p>The unique identifier for the initiated search job.</p>
    * @public
    */
-  SearchId?: string;
+  SearchId?: string | undefined;
 }
 
 /**
@@ -4754,26 +4754,26 @@ export interface UpdateTrafficPolicyRequest {
    * <p>A user-friendly name for the traffic policy resource.</p>
    * @public
    */
-  TrafficPolicyName?: string;
+  TrafficPolicyName?: string | undefined;
 
   /**
    * <p>The list of conditions to be updated for filtering email traffic.</p>
    * @public
    */
-  PolicyStatements?: PolicyStatement[];
+  PolicyStatements?: PolicyStatement[] | undefined;
 
   /**
    * <p>Default action instructs the traﬃc policy to either Allow or Deny (block) messages that fall outside of (or not addressed by) the conditions of your policy statements</p>
    * @public
    */
-  DefaultAction?: AcceptAction;
+  DefaultAction?: AcceptAction | undefined;
 
   /**
    * <p>The maximum message size in bytes of email which is allowed in by this traffic
    *             policy—anything larger will be blocked.</p>
    * @public
    */
-  MaxMessageSizeBytes?: number;
+  MaxMessageSizeBytes?: number | undefined;
 }
 
 /**

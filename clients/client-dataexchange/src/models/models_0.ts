@@ -70,7 +70,7 @@ export interface AcceptDataGrantResponse {
    * <p>The Amazon Web Services account ID of the data grant sender.</p>
    * @public
    */
-  SenderPrincipal?: string;
+  SenderPrincipal?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the data grant receiver.</p>
@@ -82,7 +82,7 @@ export interface AcceptDataGrantResponse {
    * <p>The description of the accepted data grant.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The acceptance state of the data grant.</p>
@@ -94,13 +94,13 @@ export interface AcceptDataGrantResponse {
    * <p>The timestamp of when the data grant was accepted.</p>
    * @public
    */
-  AcceptedAt?: Date;
+  AcceptedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  EndsAt?: Date;
+  EndsAt?: Date | undefined;
 
   /**
    * <p>The distribution scope for the data grant.</p>
@@ -202,13 +202,13 @@ export class ConflictException extends __BaseException {
    * <p>The unique identifier for the resource with the conflict.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of the resource with the conflict.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
   /**
    * @internal
    */
@@ -268,13 +268,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The unique identifier for the resource that couldn't be found.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of resource that couldn't be found.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
   /**
    * @internal
    */
@@ -348,7 +348,7 @@ export class ValidationException extends __BaseException {
    * <p>The unique identifier for the resource that couldn't be found.</p>
    * @public
    */
-  ExceptionCause?: ExceptionCause;
+  ExceptionCause?: ExceptionCause | undefined;
   /**
    * @internal
    */
@@ -389,7 +389,7 @@ export interface ExportServerSideEncryption {
    *          S3 objects. This parameter is required if you choose aws:kms as an encryption type.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The type of server side encryption used for encrypting the objects in Amazon S3.</p>
@@ -415,7 +415,7 @@ export interface AutoExportRevisionDestinationEntry {
    *          revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
    * @public
    */
-  KeyPattern?: string;
+  KeyPattern?: string | undefined;
 }
 
 /**
@@ -427,7 +427,7 @@ export interface AutoExportRevisionToS3RequestDetails {
    * <p>Encryption configuration for the auto export job.</p>
    * @public
    */
-  Encryption?: ExportServerSideEncryption;
+  Encryption?: ExportServerSideEncryption | undefined;
 
   /**
    * <p>A revision destination is the Amazon S3 bucket folder destination to where the export
@@ -446,7 +446,7 @@ export interface Action {
    * <p>Details for the export revision to Amazon S3 action.</p>
    * @public
    */
-  ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails;
+  ExportRevisionToS3?: AutoExportRevisionToS3RequestDetails | undefined;
 }
 
 /**
@@ -471,55 +471,55 @@ export interface ApiGatewayApiAsset {
    * <p>The API description of the API asset.</p>
    * @public
    */
-  ApiDescription?: string;
+  ApiDescription?: string | undefined;
 
   /**
    * <p>The API endpoint of the API asset.</p>
    * @public
    */
-  ApiEndpoint?: string;
+  ApiEndpoint?: string | undefined;
 
   /**
    * <p>The unique identifier of the API asset.</p>
    * @public
    */
-  ApiId?: string;
+  ApiId?: string | undefined;
 
   /**
    * <p>The API key of the API asset.</p>
    * @public
    */
-  ApiKey?: string;
+  ApiKey?: string | undefined;
 
   /**
    * <p>The API name of the API asset.</p>
    * @public
    */
-  ApiName?: string;
+  ApiName?: string | undefined;
 
   /**
    * <p>The download URL of the API specification of the API asset.</p>
    * @public
    */
-  ApiSpecificationDownloadUrl?: string;
+  ApiSpecificationDownloadUrl?: string | undefined;
 
   /**
    * <p>The date and time that the upload URL expires, in ISO 8601 format.</p>
    * @public
    */
-  ApiSpecificationDownloadUrlExpiresAt?: Date;
+  ApiSpecificationDownloadUrlExpiresAt?: Date | undefined;
 
   /**
    * <p>The protocol type of the API asset.</p>
    * @public
    */
-  ProtocolType?: ProtocolType;
+  ProtocolType?: ProtocolType | undefined;
 
   /**
    * <p>The stage of the API asset.</p>
    * @public
    */
-  Stage?: string;
+  Stage?: string | undefined;
 }
 
 /**
@@ -543,7 +543,7 @@ export interface AssetDestinationEntry {
    * <p>The name of the object in Amazon S3 for the asset.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -599,14 +599,14 @@ export interface LFResourceDetails {
    *          permission.</p>
    * @public
    */
-  Database?: DatabaseLFTagPolicy;
+  Database?: DatabaseLFTagPolicy | undefined;
 
   /**
    * <p>Details about the table resource included in the AWS Lake Formation data
    *          permission.</p>
    * @public
    */
-  Table?: TableLFTagPolicy;
+  Table?: TableLFTagPolicy | undefined;
 }
 
 /**
@@ -656,7 +656,7 @@ export interface LakeFormationDataPermissionDetails {
    * <p>Details about the LF-tag policy.</p>
    * @public
    */
-  LFTagPolicy?: LFTagPolicyDetails;
+  LFTagPolicy?: LFTagPolicyDetails | undefined;
 }
 
 /**
@@ -715,7 +715,7 @@ export interface LakeFormationDataPermissionAsset {
    *          permissions to AWS Lake Formation data permissions.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -761,27 +761,27 @@ export interface S3DataAccessAsset {
    * <p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>
    * @public
    */
-  KeyPrefixes?: string[];
+  KeyPrefixes?: string[] | undefined;
 
   /**
    * <p>S3 keys made available using this asset.</p>
    * @public
    */
-  Keys?: string[];
+  Keys?: string[] | undefined;
 
   /**
    * <p>The automatically-generated bucket-style alias for your Amazon S3 Access Point.
    *          Customers can access their entitled data using the S3 Access Point alias.</p>
    * @public
    */
-  S3AccessPointAlias?: string;
+  S3AccessPointAlias?: string | undefined;
 
   /**
    * <p>The ARN for your Amazon S3 Access Point. Customers can also access their entitled data
    *          using the S3 Access Point ARN.</p>
    * @public
    */
-  S3AccessPointArn?: string;
+  S3AccessPointArn?: string | undefined;
 
   /**
    * <p> List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
@@ -789,7 +789,7 @@ export interface S3DataAccessAsset {
    *          AWS KMS keys used to encrypt these shared S3 objects.</p>
    * @public
    */
-  KmsKeysToGrant?: KmsKeyToGrant[];
+  KmsKeysToGrant?: KmsKeyToGrant[] | undefined;
 }
 
 /**
@@ -813,31 +813,31 @@ export interface AssetDetails {
    * <p>The Amazon S3 object that is the asset.</p>
    * @public
    */
-  S3SnapshotAsset?: S3SnapshotAsset;
+  S3SnapshotAsset?: S3SnapshotAsset | undefined;
 
   /**
    * <p>The Amazon Redshift datashare that is the asset.</p>
    * @public
    */
-  RedshiftDataShareAsset?: RedshiftDataShareAsset;
+  RedshiftDataShareAsset?: RedshiftDataShareAsset | undefined;
 
   /**
    * <p>Information about the API Gateway API asset.</p>
    * @public
    */
-  ApiGatewayApiAsset?: ApiGatewayApiAsset;
+  ApiGatewayApiAsset?: ApiGatewayApiAsset | undefined;
 
   /**
    * <p>The Amazon S3 data access that is the asset.</p>
    * @public
    */
-  S3DataAccessAsset?: S3DataAccessAsset;
+  S3DataAccessAsset?: S3DataAccessAsset | undefined;
 
   /**
    * <p>The AWS Lake Formation data permission that is the asset.</p>
    * @public
    */
-  LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset;
+  LakeFormationDataPermissionAsset?: LakeFormationDataPermissionAsset | undefined;
 }
 
 /**
@@ -929,7 +929,7 @@ export interface AssetEntry {
    *          asset.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
@@ -1018,19 +1018,19 @@ export interface CreateDataGrantRequest {
    * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  EndsAt?: Date;
+  EndsAt?: Date | undefined;
 
   /**
    * <p>The description of the data grant.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The tags to add to the data grant. A tag is a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1059,7 +1059,7 @@ export interface CreateDataGrantResponse {
    * <p>The description of the data grant.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The acceptance state of the data grant.</p>
@@ -1071,13 +1071,13 @@ export interface CreateDataGrantResponse {
    * <p>The timestamp of when the data grant was accepted.</p>
    * @public
    */
-  AcceptedAt?: Date;
+  AcceptedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  EndsAt?: Date;
+  EndsAt?: Date | undefined;
 
   /**
    * <p>The distribution scope for the data grant.</p>
@@ -1125,7 +1125,7 @@ export interface CreateDataGrantResponse {
    * <p>The tags associated to the data grant. A tag is a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1192,13 +1192,13 @@ export class ServiceLimitExceededException extends __BaseException {
    * <p>The name of the limit that was reached.</p>
    * @public
    */
-  LimitName?: LimitName;
+  LimitName?: LimitName | undefined;
 
   /**
    * <p>The value of the exceeded limit.</p>
    * @public
    */
-  LimitValue?: number;
+  LimitValue?: number | undefined;
 
   /**
    * <p>The request has exceeded the quotas imposed by the service.</p>
@@ -1250,7 +1250,7 @@ export interface CreateDataSetRequest {
    *          these data sets and revisions.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1276,13 +1276,13 @@ export interface OriginDetails {
    * <p>The product ID of the origin of the data set.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The ID of the data grant.</p>
    * @public
    */
-  DataGrantId?: string;
+  DataGrantId?: string | undefined;
 }
 
 /**
@@ -1293,51 +1293,51 @@ export interface CreateDataSetResponse {
    * <p>The ARN for the data set.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The type of asset that is added to a data set.</p>
    * @public
    */
-  AssetType?: AssetType;
+  AssetType?: AssetType | undefined;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The description for the data set.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier for the data set.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the data set.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
    *          to the account (for subscribers).</p>
    * @public
    */
-  Origin?: Origin;
+  Origin?: Origin | undefined;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS
    *          Marketplace.</p>
    * @public
    */
-  OriginDetails?: OriginDetails;
+  OriginDetails?: OriginDetails | undefined;
 
   /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being
@@ -1345,19 +1345,19 @@ export interface CreateDataSetResponse {
    *          its owned data set.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The tags for the data set.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -1381,7 +1381,7 @@ export interface Event {
    * <p>What occurs to start the revision publish action.</p>
    * @public
    */
-  RevisionPublished?: RevisionPublished;
+  RevisionPublished?: RevisionPublished | undefined;
 }
 
 /**
@@ -1409,37 +1409,37 @@ export interface CreateEventActionResponse {
    * <p>What occurs after a certain event.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The ARN for the event action.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date and time that the event action was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>What occurs to start an action.</p>
    * @public
    */
-  Event?: Event;
+  Event?: Event | undefined;
 
   /**
    * <p>The unique identifier for the event action.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -1457,20 +1457,20 @@ export interface S3DataAccessAssetSourceEntry {
    * <p>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</p>
    * @public
    */
-  KeyPrefixes?: string[];
+  KeyPrefixes?: string[] | undefined;
 
   /**
    * <p>The keys used to create the Amazon S3 data access.</p>
    * @public
    */
-  Keys?: string[];
+  Keys?: string[] | undefined;
 
   /**
    * <p>List of AWS KMS CMKs (Key Management System Customer Managed Keys) and ARNs used to
    *          encrypt S3 objects being shared in this S3 Data Access asset.</p>
    * @public
    */
-  KmsKeysToGrant?: KmsKeyToGrant[];
+  KmsKeysToGrant?: KmsKeyToGrant[] | undefined;
 }
 
 /**
@@ -1519,7 +1519,7 @@ export interface ExportAssetsToS3RequestDetails {
    * <p>Encryption configuration for the export job.</p>
    * @public
    */
-  Encryption?: ExportServerSideEncryption;
+  Encryption?: ExportServerSideEncryption | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this export request.</p>
@@ -1568,7 +1568,7 @@ export interface RevisionDestinationEntry {
    *          revision. For more information about key patterns, see <a href="https://docs.aws.amazon.com/data-exchange/latest/userguide/jobs.html#revision-export-keypatterns">Key patterns when exporting revisions</a>.</p>
    * @public
    */
-  KeyPattern?: string;
+  KeyPattern?: string | undefined;
 
   /**
    * <p>The unique identifier for the revision.</p>
@@ -1592,7 +1592,7 @@ export interface ExportRevisionsToS3RequestDetails {
    * <p>Encryption configuration for the export job.</p>
    * @public
    */
-  Encryption?: ExportServerSideEncryption;
+  Encryption?: ExportServerSideEncryption | undefined;
 
   /**
    * <p>The destination for the revision.</p>
@@ -1610,7 +1610,7 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
    * <p>The API description. Markdown supported.</p>
    * @public
    */
-  ApiDescription?: string;
+  ApiDescription?: string | undefined;
 
   /**
    * <p>The API Gateway API ID.</p>
@@ -1622,7 +1622,7 @@ export interface ImportAssetFromApiGatewayApiRequestDetails {
    * <p>The API Gateway API key.</p>
    * @public
    */
-  ApiKey?: string;
+  ApiKey?: string | undefined;
 
   /**
    * <p>The API name.</p>
@@ -1773,13 +1773,13 @@ export interface ImportAssetsFromLakeFormationTagPolicyRequestDetails {
    * <p>A structure for the database object.</p>
    * @public
    */
-  Database?: DatabaseLFTagPolicyAndPermissions;
+  Database?: DatabaseLFTagPolicyAndPermissions | undefined;
 
   /**
    * <p>A structure for the table object.</p>
    * @public
    */
-  Table?: TableLFTagPolicyAndPermissions;
+  Table?: TableLFTagPolicyAndPermissions | undefined;
 
   /**
    * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke
@@ -1870,55 +1870,55 @@ export interface RequestDetails {
    * <p>Details about the export to signed URL request.</p>
    * @public
    */
-  ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails;
+  ExportAssetToSignedUrl?: ExportAssetToSignedUrlRequestDetails | undefined;
 
   /**
    * <p>Details about the export to Amazon S3 request.</p>
    * @public
    */
-  ExportAssetsToS3?: ExportAssetsToS3RequestDetails;
+  ExportAssetsToS3?: ExportAssetsToS3RequestDetails | undefined;
 
   /**
    * <p>Details about the export to Amazon S3 request.</p>
    * @public
    */
-  ExportRevisionsToS3?: ExportRevisionsToS3RequestDetails;
+  ExportRevisionsToS3?: ExportRevisionsToS3RequestDetails | undefined;
 
   /**
    * <p>Details about the import from Amazon S3 request.</p>
    * @public
    */
-  ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails;
+  ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlRequestDetails | undefined;
 
   /**
    * <p>Details about the import asset from API Gateway API request.</p>
    * @public
    */
-  ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails;
+  ImportAssetsFromS3?: ImportAssetsFromS3RequestDetails | undefined;
 
   /**
    * <p>Details from an import from Amazon Redshift datashare request.</p>
    * @public
    */
-  ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesRequestDetails;
+  ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesRequestDetails | undefined;
 
   /**
    * <p>Details about the import from signed URL request.</p>
    * @public
    */
-  ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiRequestDetails;
+  ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiRequestDetails | undefined;
 
   /**
    * <p>Details of the request to create S3 data access from the Amazon S3 bucket.</p>
    * @public
    */
-  CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketRequestDetails;
+  CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketRequestDetails | undefined;
 
   /**
    * <p>Request details for the ImportAssetsFromLakeFormationTagPolicy job.</p>
    * @public
    */
-  ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyRequestDetails;
+  ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyRequestDetails | undefined;
 }
 
 /**
@@ -2005,7 +2005,7 @@ export interface ExportAssetsToS3ResponseDetails {
    * <p>Encryption configuration of the export job.</p>
    * @public
    */
-  Encryption?: ExportServerSideEncryption;
+  Encryption?: ExportServerSideEncryption | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this export response.</p>
@@ -2041,13 +2041,13 @@ export interface ExportAssetToSignedUrlResponseDetails {
    * <p>The signed URL for the export request.</p>
    * @public
    */
-  SignedUrl?: string;
+  SignedUrl?: string | undefined;
 
   /**
    * <p>The date and time that the signed URL expires, in ISO 8601 format.</p>
    * @public
    */
-  SignedUrlExpiresAt?: Date;
+  SignedUrlExpiresAt?: Date | undefined;
 }
 
 /**
@@ -2065,7 +2065,7 @@ export interface ExportRevisionsToS3ResponseDetails {
    * <p>Encryption configuration of the export job.</p>
    * @public
    */
-  Encryption?: ExportServerSideEncryption;
+  Encryption?: ExportServerSideEncryption | undefined;
 
   /**
    * <p>The destination in Amazon S3 where the revision is exported.</p>
@@ -2077,7 +2077,7 @@ export interface ExportRevisionsToS3ResponseDetails {
    * <p>The Amazon Resource Name (ARN) of the event action.</p>
    * @public
    */
-  EventActionArn?: string;
+  EventActionArn?: string | undefined;
 }
 
 /**
@@ -2089,7 +2089,7 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
    * <p>The API description.</p>
    * @public
    */
-  ApiDescription?: string;
+  ApiDescription?: string | undefined;
 
   /**
    * <p>The API ID.</p>
@@ -2101,7 +2101,7 @@ export interface ImportAssetFromApiGatewayApiResponseDetails {
    * <p>The API key.</p>
    * @public
    */
-  ApiKey?: string;
+  ApiKey?: string | undefined;
 
   /**
    * <p>The API name.</p>
@@ -2176,7 +2176,7 @@ export interface ImportAssetFromSignedUrlResponseDetails {
    *          that location.</p>
    * @public
    */
-  Md5Hash?: string;
+  Md5Hash?: string | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this import response.</p>
@@ -2188,13 +2188,13 @@ export interface ImportAssetFromSignedUrlResponseDetails {
    * <p>The signed URL.</p>
    * @public
    */
-  SignedUrl?: string;
+  SignedUrl?: string | undefined;
 
   /**
    * <p>The time and date at which the signed URL expires, in ISO 8601 format.</p>
    * @public
    */
-  SignedUrlExpiresAt?: Date;
+  SignedUrlExpiresAt?: Date | undefined;
 }
 
 /**
@@ -2212,13 +2212,13 @@ export interface ImportAssetsFromLakeFormationTagPolicyResponseDetails {
    * <p>A structure for the database object.</p>
    * @public
    */
-  Database?: DatabaseLFTagPolicyAndPermissions;
+  Database?: DatabaseLFTagPolicyAndPermissions | undefined;
 
   /**
    * <p>A structure for the table object.</p>
    * @public
    */
-  Table?: TableLFTagPolicyAndPermissions;
+  Table?: TableLFTagPolicyAndPermissions | undefined;
 
   /**
    * <p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke
@@ -2297,55 +2297,55 @@ export interface ResponseDetails {
    * <p>Details for the export to signed URL response.</p>
    * @public
    */
-  ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails;
+  ExportAssetToSignedUrl?: ExportAssetToSignedUrlResponseDetails | undefined;
 
   /**
    * <p>Details for the export to Amazon S3 response.</p>
    * @public
    */
-  ExportAssetsToS3?: ExportAssetsToS3ResponseDetails;
+  ExportAssetsToS3?: ExportAssetsToS3ResponseDetails | undefined;
 
   /**
    * <p>Details for the export revisions to Amazon S3 response.</p>
    * @public
    */
-  ExportRevisionsToS3?: ExportRevisionsToS3ResponseDetails;
+  ExportRevisionsToS3?: ExportRevisionsToS3ResponseDetails | undefined;
 
   /**
    * <p>Details for the import from signed URL response.</p>
    * @public
    */
-  ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlResponseDetails;
+  ImportAssetFromSignedUrl?: ImportAssetFromSignedUrlResponseDetails | undefined;
 
   /**
    * <p>Details for the import from Amazon S3 response.</p>
    * @public
    */
-  ImportAssetsFromS3?: ImportAssetsFromS3ResponseDetails;
+  ImportAssetsFromS3?: ImportAssetsFromS3ResponseDetails | undefined;
 
   /**
    * <p>Details from an import from Amazon Redshift datashare response.</p>
    * @public
    */
-  ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesResponseDetails;
+  ImportAssetsFromRedshiftDataShares?: ImportAssetsFromRedshiftDataSharesResponseDetails | undefined;
 
   /**
    * <p>The response details.</p>
    * @public
    */
-  ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiResponseDetails;
+  ImportAssetFromApiGatewayApi?: ImportAssetFromApiGatewayApiResponseDetails | undefined;
 
   /**
    * <p>Response details from the CreateS3DataAccessFromS3Bucket job.</p>
    * @public
    */
-  CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketResponseDetails;
+  CreateS3DataAccessFromS3Bucket?: CreateS3DataAccessFromS3BucketResponseDetails | undefined;
 
   /**
    * <p>Response details from the ImportAssetsFromLakeFormationTagPolicy job.</p>
    * @public
    */
-  ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyResponseDetails;
+  ImportAssetsFromLakeFormationTagPolicy?: ImportAssetsFromLakeFormationTagPolicyResponseDetails | undefined;
 }
 
 /**
@@ -2369,13 +2369,13 @@ export interface Details {
    * <p>Information about the job error.</p>
    * @public
    */
-  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails;
+  ImportAssetFromSignedUrlJobErrorDetails?: ImportAssetFromSignedUrlJobErrorDetails | undefined;
 
   /**
    * <p>Details about the job error.</p>
    * @public
    */
-  ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[];
+  ImportAssetsFromS3JobErrorDetails?: AssetSourceEntry[] | undefined;
 }
 
 /**
@@ -2425,19 +2425,19 @@ export interface JobError {
    * <p>The details about the job error.</p>
    * @public
    */
-  Details?: Details;
+  Details?: Details | undefined;
 
   /**
    * <p>The name of the limit that was reached.</p>
    * @public
    */
-  LimitName?: JobErrorLimitName;
+  LimitName?: JobErrorLimitName | undefined;
 
   /**
    * <p>The value of the exceeded limit.</p>
    * @public
    */
-  LimitValue?: number;
+  LimitValue?: number | undefined;
 
   /**
    * <p>The message related to the job error.</p>
@@ -2449,13 +2449,13 @@ export interface JobError {
    * <p>The unique identifier for the resource related to the error.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of resource related to the error.</p>
    * @public
    */
-  ResourceType?: JobErrorResourceTypes;
+  ResourceType?: JobErrorResourceTypes | undefined;
 }
 
 /**
@@ -2484,49 +2484,49 @@ export interface CreateJobResponse {
    * <p>The ARN for the job.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date and time that the job was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Details about the job.</p>
    * @public
    */
-  Details?: ResponseDetails;
+  Details?: ResponseDetails | undefined;
 
   /**
    * <p>The errors associated with jobs.</p>
    * @public
    */
-  Errors?: JobError[];
+  Errors?: JobError[] | undefined;
 
   /**
    * <p>The unique identifier for the job.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The state of the job.</p>
    * @public
    */
-  State?: State;
+  State?: State | undefined;
 
   /**
    * <p>The job type.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 
   /**
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2537,7 +2537,7 @@ export interface CreateRevisionRequest {
    * <p>An optional comment about the revision.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The unique identifier for a data set.</p>
@@ -2552,7 +2552,7 @@ export interface CreateRevisionRequest {
    *          these data sets and revisions.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2563,25 +2563,25 @@ export interface CreateRevisionResponse {
    * <p>The ARN for the revision.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>An optional comment about the revision.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The date and time that the revision was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with the data set revision.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>To publish a revision to a data set in a product, the revision must first be finalized.
@@ -2592,13 +2592,13 @@ export interface CreateRevisionResponse {
    *          action. When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
-  Finalized?: boolean;
+  Finalized?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the revision.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The revision ID of the owned revision corresponding to the entitled revision being
@@ -2606,38 +2606,38 @@ export interface CreateRevisionResponse {
    *          its owned revision.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The tags for the revision.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>A required comment to inform subscribers of the reason their access to the revision was
    *          revoked.</p>
    * @public
    */
-  RevocationComment?: string;
+  RevocationComment?: string | undefined;
 
   /**
    * <p>A status indicating that subscribers' access to the revision was revoked.</p>
    * @public
    */
-  Revoked?: boolean;
+  Revoked?: boolean | undefined;
 
   /**
    * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
    * @public
    */
-  RevokedAt?: Date;
+  RevokedAt?: Date | undefined;
 }
 
 /**
@@ -2744,37 +2744,37 @@ export interface GetAssetResponse {
    * <p>The ARN for the asset.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Details about the asset.</p>
    * @public
    */
-  AssetDetails?: AssetDetails;
+  AssetDetails?: AssetDetails | undefined;
 
   /**
    * <p>The type of asset that is added to a data set.</p>
    * @public
    */
-  AssetType?: AssetType;
+  AssetType?: AssetType | undefined;
 
   /**
    * <p>The date and time that the asset was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with this asset.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>The unique identifier for the asset.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
@@ -2786,13 +2786,13 @@ export interface GetAssetResponse {
    *          asset name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this asset.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 
   /**
    * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This
@@ -2800,13 +2800,13 @@ export interface GetAssetResponse {
    *          asset.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2846,7 +2846,7 @@ export interface GetDataGrantResponse {
    * <p>The description of the data grant.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The acceptance state of the data grant.</p>
@@ -2858,13 +2858,13 @@ export interface GetDataGrantResponse {
    * <p>The timestamp of when the data grant was accepted.</p>
    * @public
    */
-  AcceptedAt?: Date;
+  AcceptedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  EndsAt?: Date;
+  EndsAt?: Date | undefined;
 
   /**
    * <p>The distribution scope for the data grant.</p>
@@ -2912,7 +2912,7 @@ export interface GetDataGrantResponse {
    * <p>The tags associated to the data grant. A tag is a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2934,51 +2934,51 @@ export interface GetDataSetResponse {
    * <p>The ARN for the data set.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The type of asset that is added to a data set.</p>
    * @public
    */
-  AssetType?: AssetType;
+  AssetType?: AssetType | undefined;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The description for the data set.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier for the data set.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the data set.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
    *          to the account (for subscribers).</p>
    * @public
    */
-  Origin?: Origin;
+  Origin?: Origin | undefined;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS
    *          Marketplace.</p>
    * @public
    */
-  OriginDetails?: OriginDetails;
+  OriginDetails?: OriginDetails | undefined;
 
   /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being
@@ -2986,19 +2986,19 @@ export interface GetDataSetResponse {
    *          its owned data set.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The tags for the data set.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3020,37 +3020,37 @@ export interface GetEventActionResponse {
    * <p>What occurs after a certain event.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The ARN for the event action.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date and time that the event action was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>What occurs to start an action.</p>
    * @public
    */
-  Event?: Event;
+  Event?: Event | undefined;
 
   /**
    * <p>The unique identifier for the event action.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3072,49 +3072,49 @@ export interface GetJobResponse {
    * <p>The ARN for the job.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date and time that the job was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Details about the job.</p>
    * @public
    */
-  Details?: ResponseDetails;
+  Details?: ResponseDetails | undefined;
 
   /**
    * <p>The errors associated with jobs.</p>
    * @public
    */
-  Errors?: JobError[];
+  Errors?: JobError[] | undefined;
 
   /**
    * <p>The unique identifier for the job.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The state of the job.</p>
    * @public
    */
-  State?: State;
+  State?: State | undefined;
 
   /**
    * <p>The job type.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 
   /**
    * <p>The date and time that the job was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3142,7 +3142,7 @@ export interface GetReceivedDataGrantResponse {
    * <p>The Amazon Web Services account ID of the data grant sender.</p>
    * @public
    */
-  SenderPrincipal?: string;
+  SenderPrincipal?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the data grant receiver.</p>
@@ -3154,7 +3154,7 @@ export interface GetReceivedDataGrantResponse {
    * <p>The description of the data grant.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The acceptance state of the data grant.</p>
@@ -3166,13 +3166,13 @@ export interface GetReceivedDataGrantResponse {
    * <p>The timestamp of when the data grant was accepted.</p>
    * @public
    */
-  AcceptedAt?: Date;
+  AcceptedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  EndsAt?: Date;
+  EndsAt?: Date | undefined;
 
   /**
    * <p>The distribution scope for the data grant.</p>
@@ -3236,25 +3236,25 @@ export interface GetRevisionResponse {
    * <p>The ARN for the revision.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>An optional comment about the revision.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The date and time that the revision was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with the data set revision.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>To publish a revision to a data set in a product, the revision must first be finalized.
@@ -3265,13 +3265,13 @@ export interface GetRevisionResponse {
    *          action. When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
-  Finalized?: boolean;
+  Finalized?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the revision.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The revision ID of the owned revision corresponding to the entitled revision being
@@ -3279,38 +3279,38 @@ export interface GetRevisionResponse {
    *          its owned revision.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The tags for the revision.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>A required comment to inform subscribers of the reason their access to the revision was
    *          revoked.</p>
    * @public
    */
-  RevocationComment?: string;
+  RevocationComment?: string | undefined;
 
   /**
    * <p>A status indicating that subscribers' access to the revision was revoked.</p>
    * @public
    */
-  Revoked?: boolean;
+  Revoked?: boolean | undefined;
 
   /**
    * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
    * @public
    */
-  RevokedAt?: Date;
+  RevokedAt?: Date | undefined;
 }
 
 /**
@@ -3321,14 +3321,14 @@ export interface ListDataGrantsRequest {
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3364,13 +3364,13 @@ export interface DataGrantSummaryEntry {
    * <p>The timestamp of when the data grant was accepted.</p>
    * @public
    */
-  AcceptedAt?: Date;
+  AcceptedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  EndsAt?: Date;
+  EndsAt?: Date | undefined;
 
   /**
    * <p>The ID of the data set associated to the data grant.</p>
@@ -3417,14 +3417,14 @@ export interface ListDataGrantsResponse {
    * <p>An object that contains a list of data grant information.</p>
    * @public
    */
-  DataGrantSummaries?: DataGrantSummaryEntry[];
+  DataGrantSummaries?: DataGrantSummaryEntry[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3441,14 +3441,14 @@ export interface ListDataSetRevisionsRequest {
    * <p>The maximum number of results returned by a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3466,7 +3466,7 @@ export interface RevisionEntry {
    * <p>An optional comment about the revision.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The date and time that the revision was created, in ISO 8601 format.</p>
@@ -3489,7 +3489,7 @@ export interface RevisionEntry {
    *          action. When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
-  Finalized?: boolean;
+  Finalized?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the revision.</p>
@@ -3503,7 +3503,7 @@ export interface RevisionEntry {
    *          its owned revision.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
@@ -3516,19 +3516,19 @@ export interface RevisionEntry {
    *          revoked.</p>
    * @public
    */
-  RevocationComment?: string;
+  RevocationComment?: string | undefined;
 
   /**
    * <p>A status indicating that subscribers' access to the revision was revoked.</p>
    * @public
    */
-  Revoked?: boolean;
+  Revoked?: boolean | undefined;
 
   /**
    * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
    * @public
    */
-  RevokedAt?: Date;
+  RevokedAt?: Date | undefined;
 }
 
 /**
@@ -3540,13 +3540,13 @@ export interface ListDataSetRevisionsResponse {
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The asset objects listed by the request.</p>
    * @public
    */
-  Revisions?: RevisionEntry[];
+  Revisions?: RevisionEntry[] | undefined;
 }
 
 /**
@@ -3557,21 +3557,21 @@ export interface ListDataSetsRequest {
    * <p>The maximum number of results returned by a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
    *          to the account (for subscribers).</p>
    * @public
    */
-  Origin?: string;
+  Origin?: string | undefined;
 }
 
 /**
@@ -3627,7 +3627,7 @@ export interface DataSetEntry {
    *          Marketplace.</p>
    * @public
    */
-  OriginDetails?: OriginDetails;
+  OriginDetails?: OriginDetails | undefined;
 
   /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being
@@ -3635,7 +3635,7 @@ export interface DataSetEntry {
    *          its owned data set.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
@@ -3652,14 +3652,14 @@ export interface ListDataSetsResponse {
    * <p>The data set objects listed by the request.</p>
    * @public
    */
-  DataSets?: DataSetEntry[];
+  DataSets?: DataSetEntry[] | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3670,20 +3670,20 @@ export interface ListEventActionsRequest {
    * <p>The unique identifier for the event source.</p>
    * @public
    */
-  EventSourceId?: string;
+  EventSourceId?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3737,14 +3737,14 @@ export interface ListEventActionsResponse {
    * <p>The event action objects listed by the request.</p>
    * @public
    */
-  EventActions?: EventActionEntry[];
+  EventActions?: EventActionEntry[] | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3755,26 +3755,26 @@ export interface ListJobsRequest {
    * <p>The unique identifier for a data set.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>The maximum number of results returned by a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The unique identifier for a revision.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 }
 
 /**
@@ -3808,7 +3808,7 @@ export interface JobEntry {
    * <p>Errors for jobs.</p>
    * @public
    */
-  Errors?: JobError[];
+  Errors?: JobError[] | undefined;
 
   /**
    * <p>The unique identifier for the job.</p>
@@ -3843,14 +3843,14 @@ export interface ListJobsResponse {
    * <p>The jobs listed by the request.</p>
    * @public
    */
-  Jobs?: JobEntry[];
+  Jobs?: JobEntry[] | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3861,20 +3861,20 @@ export interface ListReceivedDataGrantsRequest {
    * <p>The maximum number of results to be included in the next page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The acceptance state of the data grants to list.</p>
    * @public
    */
-  AcceptanceState?: AcceptanceStateFilterValue[];
+  AcceptanceState?: AcceptanceStateFilterValue[] | undefined;
 }
 
 /**
@@ -3910,13 +3910,13 @@ export interface ReceivedDataGrantSummariesEntry {
    * <p>The timestamp of when the data grant was accepted.</p>
    * @public
    */
-  AcceptedAt?: Date;
+  AcceptedAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when access to the associated data set ends.</p>
    * @public
    */
-  EndsAt?: Date;
+  EndsAt?: Date | undefined;
 
   /**
    * <p>The ID of the data set associated to the data grant.</p>
@@ -3957,14 +3957,14 @@ export interface ListReceivedDataGrantsResponse {
    * <p>An object that contains a list of received data grant information.</p>
    * @public
    */
-  DataGrantSummaries?: ReceivedDataGrantSummariesEntry[];
+  DataGrantSummaries?: ReceivedDataGrantSummariesEntry[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the next page of results for this
    *          operation.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3981,14 +3981,14 @@ export interface ListRevisionAssetsRequest {
    * <p>The maximum number of results returned by a single call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The unique identifier for a revision.</p>
@@ -4005,14 +4005,14 @@ export interface ListRevisionAssetsResponse {
    * <p>The asset objects listed by the request.</p>
    * @public
    */
-  Assets?: AssetEntry[];
+  Assets?: AssetEntry[] | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *          results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4034,7 +4034,7 @@ export interface ListTagsForResourceResponse {
    * <p>A label that consists of a customer-defined key and an optional value.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4069,25 +4069,25 @@ export interface RevokeRevisionResponse {
    * <p>The ARN for the revision.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>An optional comment about the revision.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The date and time that the revision was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with the data set revision.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>To publish a revision to a data set in a product, the revision must first be finalized.
@@ -4098,13 +4098,13 @@ export interface RevokeRevisionResponse {
    *          When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
-  Finalized?: boolean;
+  Finalized?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the revision.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The revision ID of the owned revision corresponding to the entitled revision being
@@ -4112,32 +4112,32 @@ export interface RevokeRevisionResponse {
    *          its owned revision.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>A required comment to inform subscribers of the reason their access to the revision was
    *          revoked.</p>
    * @public
    */
-  RevocationComment?: string;
+  RevocationComment?: string | undefined;
 
   /**
    * <p>A status indicating that subscribers' access to the revision was revoked.</p>
    * @public
    */
-  Revoked?: boolean;
+  Revoked?: boolean | undefined;
 
   /**
    * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
    * @public
    */
-  RevokedAt?: Date;
+  RevokedAt?: Date | undefined;
 }
 
 /**
@@ -4148,14 +4148,14 @@ export interface SendApiAssetRequest {
    * <p>The request body.</p>
    * @public
    */
-  Body?: string;
+  Body?: string | undefined;
 
   /**
    * <p>Attach query string parameters to the end of the URI (for example,
    *          /v1/examplePath?exampleParam=exampleValue).</p>
    * @public
    */
-  QueryStringParameters?: Record<string, string>;
+  QueryStringParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Asset ID value for the API request.</p>
@@ -4176,21 +4176,21 @@ export interface SendApiAssetRequest {
    *          request.</p>
    * @public
    */
-  RequestHeaders?: Record<string, string>;
+  RequestHeaders?: Record<string, string> | undefined;
 
   /**
    * <p>HTTP method value for the API request. Alternatively, you can use the appropriate verb
    *          in your request.</p>
    * @public
    */
-  Method?: string;
+  Method?: string | undefined;
 
   /**
    * <p>URI path value for the API request. Alternatively, you can set the URI path directly by
    *          invoking /v1/\{pathValue\}.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>Revision ID value for the API request.</p>
@@ -4207,13 +4207,13 @@ export interface SendApiAssetResponse {
    * <p>The response body from the underlying API tracked by the API asset.</p>
    * @public
    */
-  Body?: string;
+  Body?: string | undefined;
 
   /**
    * <p>The response headers from the underlying API tracked by the API asset.</p>
    * @public
    */
-  ResponseHeaders?: Record<string, string>;
+  ResponseHeaders?: Record<string, string> | undefined;
 }
 
 /**
@@ -4227,7 +4227,7 @@ export interface DataUpdateRequestDetails {
    *          resource supporting the data set was updated.</p>
    * @public
    */
-  DataUpdatedAt?: Date;
+  DataUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -4287,7 +4287,7 @@ export interface SchemaChangeDetails {
    *          can be up to 512 characters long.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4302,7 +4302,7 @@ export interface SchemaChangeRequestDetails {
    *          can have up to 100 entries.</p>
    * @public
    */
-  Changes?: SchemaChangeDetails[];
+  Changes?: SchemaChangeDetails[] | undefined;
 
   /**
    * <p>A
@@ -4322,21 +4322,21 @@ export interface NotificationDetails {
    *          details specific to a data update type notification.</p>
    * @public
    */
-  DataUpdate?: DataUpdateRequestDetails;
+  DataUpdate?: DataUpdateRequestDetails | undefined;
 
   /**
    * <p>Extra
    *          details specific to a deprecation type notification.</p>
    * @public
    */
-  Deprecation?: DeprecationRequestDetails;
+  Deprecation?: DeprecationRequestDetails | undefined;
 
   /**
    * <p>Extra
    *          details specific to a schema change type notification.</p>
    * @public
    */
-  SchemaChange?: SchemaChangeRequestDetails;
+  SchemaChange?: SchemaChangeRequestDetails | undefined;
 }
 
 /**
@@ -4349,14 +4349,14 @@ export interface LakeFormationTagPolicyDetails {
    *          underlying Glue database that the notification is referring to.</p>
    * @public
    */
-  Database?: string;
+  Database?: string | undefined;
 
   /**
    * <p>The
    *          underlying Glue table that the notification is referring to.</p>
    * @public
    */
-  Table?: string;
+  Table?: string | undefined;
 }
 
 /**
@@ -4385,28 +4385,28 @@ export interface RedshiftDataShareDetails {
    *          function name in the Redshift database that is being affected by this notification.</p>
    * @public
    */
-  Function?: string;
+  Function?: string | undefined;
 
   /**
    * <p>A
    *          table name in the Redshift database that is being affected by this notification.</p>
    * @public
    */
-  Table?: string;
+  Table?: string | undefined;
 
   /**
    * <p>A
    *          schema name in the Redshift database that is being affected by this notification.</p>
    * @public
    */
-  Schema?: string;
+  Schema?: string | undefined;
 
   /**
    * <p>A
    *          view name in the Redshift database that is being affected by this notification.</p>
    * @public
    */
-  View?: string;
+  View?: string | undefined;
 }
 
 /**
@@ -4421,7 +4421,7 @@ export interface S3DataAccessDetails {
    *          can have up to 50 entries.</p>
    * @public
    */
-  KeyPrefixes?: string[];
+  KeyPrefixes?: string[] | undefined;
 
   /**
    * <p>A
@@ -4430,7 +4430,7 @@ export interface S3DataAccessDetails {
    *          can have up to 50 entries.</p>
    * @public
    */
-  Keys?: string[];
+  Keys?: string[] | undefined;
 }
 
 /**
@@ -4443,21 +4443,21 @@ export interface ScopeDetails {
    *          LF resources that will be affected by this notification.</p>
    * @public
    */
-  LakeFormationTagPolicies?: LakeFormationTagPolicyDetails[];
+  LakeFormationTagPolicies?: LakeFormationTagPolicyDetails[] | undefined;
 
   /**
    * <p>Underlying
    *          Redshift resources that will be affected by this notification.</p>
    * @public
    */
-  RedshiftDataShares?: RedshiftDataShareDetails[];
+  RedshiftDataShares?: RedshiftDataShareDetails[] | undefined;
 
   /**
    * <p>Underlying
    *          S3 resources that will be affected by this notification.</p>
    * @public
    */
-  S3DataAccesses?: S3DataAccessDetails[];
+  S3DataAccesses?: S3DataAccessDetails[] | undefined;
 }
 
 /**
@@ -4486,7 +4486,7 @@ export interface SendDataSetNotificationRequest {
    *          event.</p>
    * @public
    */
-  Scope?: ScopeDetails;
+  Scope?: ScopeDetails | undefined;
 
   /**
    * <p>Idempotency
@@ -4494,14 +4494,14 @@ export interface SendDataSetNotificationRequest {
    *          quick succession erroneously.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Free-form
    *          text field for providers to add information about their notifications.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>Affected
@@ -4515,7 +4515,7 @@ export interface SendDataSetNotificationRequest {
    *          details specific to this notification type.</p>
    * @public
    */
-  Details?: NotificationDetails;
+  Details?: NotificationDetails | undefined;
 
   /**
    * <p>The
@@ -4624,37 +4624,37 @@ export interface UpdateAssetResponse {
    * <p>The ARN for the asset.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Details about the asset.</p>
    * @public
    */
-  AssetDetails?: AssetDetails;
+  AssetDetails?: AssetDetails | undefined;
 
   /**
    * <p>The type of asset that is added to a data set.</p>
    * @public
    */
-  AssetType?: AssetType;
+  AssetType?: AssetType | undefined;
 
   /**
    * <p>The date and time that the asset was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with this asset.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>The unique identifier for the asset.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used
@@ -4666,13 +4666,13 @@ export interface UpdateAssetResponse {
    *          asset name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier for the revision associated with this asset.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 
   /**
    * <p>The asset ID of the owned asset corresponding to the entitled asset being viewed. This
@@ -4680,13 +4680,13 @@ export interface UpdateAssetResponse {
    *          asset.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the asset was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -4703,13 +4703,13 @@ export interface UpdateDataSetRequest {
    * <p>The description for the data set.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the data set.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -4720,51 +4720,51 @@ export interface UpdateDataSetResponse {
    * <p>The ARN for the data set.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The type of asset that is added to a data set.</p>
    * @public
    */
-  AssetType?: AssetType;
+  AssetType?: AssetType | undefined;
 
   /**
    * <p>The date and time that the data set was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The description for the data set.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier for the data set.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the data set.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A property that defines the data set as OWNED by the account (for providers) or ENTITLED
    *          to the account (for subscribers).</p>
    * @public
    */
-  Origin?: Origin;
+  Origin?: Origin | undefined;
 
   /**
    * <p>If the origin of this data set is ENTITLED, includes the details for the product on AWS
    *          Marketplace.</p>
    * @public
    */
-  OriginDetails?: OriginDetails;
+  OriginDetails?: OriginDetails | undefined;
 
   /**
    * <p>The data set ID of the owned data set corresponding to the entitled data set being
@@ -4772,13 +4772,13 @@ export interface UpdateDataSetResponse {
    *          its owned data set.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the data set was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -4789,7 +4789,7 @@ export interface UpdateEventActionRequest {
    * <p>What occurs after a certain event.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The unique identifier for the event action.</p>
@@ -4806,37 +4806,37 @@ export interface UpdateEventActionResponse {
    * <p>What occurs after a certain event.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The ARN for the event action.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The date and time that the event action was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>What occurs to start an action.</p>
    * @public
    */
-  Event?: Event;
+  Event?: Event | undefined;
 
   /**
    * <p>The unique identifier for the event action.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The date and time that the event action was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -4847,7 +4847,7 @@ export interface UpdateRevisionRequest {
    * <p>An optional comment about the revision.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The unique identifier for a data set.</p>
@@ -4861,7 +4861,7 @@ export interface UpdateRevisionRequest {
    *          your products.</p>
    * @public
    */
-  Finalized?: boolean;
+  Finalized?: boolean | undefined;
 
   /**
    * <p>The unique identifier for a revision.</p>
@@ -4878,25 +4878,25 @@ export interface UpdateRevisionResponse {
    * <p>The ARN for the revision.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>An optional comment about the revision.</p>
    * @public
    */
-  Comment?: string;
+  Comment?: string | undefined;
 
   /**
    * <p>The date and time that the revision was created, in ISO 8601 format.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The unique identifier for the data set associated with the data set revision.</p>
    * @public
    */
-  DataSetId?: string;
+  DataSetId?: string | undefined;
 
   /**
    * <p>To publish a revision to a data set in a product, the revision must first be finalized.
@@ -4907,13 +4907,13 @@ export interface UpdateRevisionResponse {
    *          When using the API, revisions are uniquely identified by their ARN.</p>
    * @public
    */
-  Finalized?: boolean;
+  Finalized?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the revision.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The revision ID of the owned revision corresponding to the entitled revision being
@@ -4921,30 +4921,30 @@ export interface UpdateRevisionResponse {
    *          its owned revision.</p>
    * @public
    */
-  SourceId?: string;
+  SourceId?: string | undefined;
 
   /**
    * <p>The date and time that the revision was last updated, in ISO 8601 format.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>A required comment to inform subscribers of the reason their access to the revision was
    *          revoked.</p>
    * @public
    */
-  RevocationComment?: string;
+  RevocationComment?: string | undefined;
 
   /**
    * <p>A status indicating that subscribers' access to the revision was revoked.</p>
    * @public
    */
-  Revoked?: boolean;
+  Revoked?: boolean | undefined;
 
   /**
    * <p>The date and time that the revision was revoked, in ISO 8601 format.</p>
    * @public
    */
-  RevokedAt?: Date;
+  RevokedAt?: Date | undefined;
 }

@@ -10,7 +10,7 @@ import { ForecastqueryServiceException as __BaseException } from "./Forecastquer
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -32,7 +32,7 @@ export class InvalidInputException extends __BaseException {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -54,7 +54,7 @@ export class InvalidNextTokenException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -84,14 +84,14 @@ export interface QueryForecastRequest {
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
    * @public
    */
-  StartDate?: string;
+  StartDate?: string | undefined;
 
   /**
    * <p>The end date for the forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
    * @public
    */
-  EndDate?: string;
+  EndDate?: string | undefined;
 
   /**
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
@@ -113,7 +113,7 @@ export interface QueryForecastRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -126,13 +126,13 @@ export interface DataPoint {
    * <p>The timestamp of the specific forecast.</p>
    * @public
    */
-  Timestamp?: string;
+  Timestamp?: string | undefined;
 
   /**
    * <p>The forecast value.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface Forecast {
    *          </p>
    * @public
    */
-  Predictions?: Record<string, DataPoint[]>;
+  Predictions?: Record<string, DataPoint[]> | undefined;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface QueryForecastResponse {
    * <p>The forecast.</p>
    * @public
    */
-  Forecast?: Forecast;
+  Forecast?: Forecast | undefined;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface QueryForecastResponse {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -203,7 +203,7 @@ export class ResourceInUseException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -233,14 +233,14 @@ export interface QueryWhatIfForecastRequest {
    *       (ISO 8601 format). For example, 2015-01-01T08:00:00.</p>
    * @public
    */
-  StartDate?: string;
+  StartDate?: string | undefined;
 
   /**
    * <p>The end date for the what-if forecast. Specify the date using this format: yyyy-MM-dd'T'HH:mm:ss
    *       (ISO 8601 format). For example, 2015-01-01T20:00:00. </p>
    * @public
    */
-  EndDate?: string;
+  EndDate?: string | undefined;
 
   /**
    * <p>The filtering criteria to apply when retrieving the forecast. For example, to get the
@@ -260,7 +260,7 @@ export interface QueryWhatIfForecastRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -271,5 +271,5 @@ export interface QueryWhatIfForecastResponse {
    * <p>Provides information about a forecast. Returned as part of the <a>QueryForecast</a> response.</p>
    * @public
    */
-  Forecast?: Forecast;
+  Forecast?: Forecast | undefined;
 }

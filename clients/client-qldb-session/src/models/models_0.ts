@@ -21,7 +21,7 @@ export interface TimingInformation {
    *          milliseconds.</p>
    * @public
    */
-  ProcessingTimeMilliseconds?: number;
+  ProcessingTimeMilliseconds?: number | undefined;
 }
 
 /**
@@ -33,7 +33,7 @@ export interface AbortTransactionResult {
    * <p>Contains server-side performance information for the command.</p>
    * @public
    */
-  TimingInformation?: TimingInformation;
+  TimingInformation?: TimingInformation | undefined;
 }
 
 /**
@@ -44,8 +44,8 @@ export interface AbortTransactionResult {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -68,7 +68,7 @@ export class BadRequestException extends __BaseException {
 export class CapacityExceededException extends __BaseException {
   readonly name: "CapacityExceededException" = "CapacityExceededException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -116,13 +116,13 @@ export interface IOUsage {
    * <p>The number of read I/O requests that the command made.</p>
    * @public
    */
-  ReadIOs?: number;
+  ReadIOs?: number | undefined;
 
   /**
    * <p>The number of write I/O requests that the command made.</p>
    * @public
    */
-  WriteIOs?: number;
+  WriteIOs?: number | undefined;
 }
 
 /**
@@ -134,25 +134,25 @@ export interface CommitTransactionResult {
    * <p>The transaction ID of the committed transaction.</p>
    * @public
    */
-  TransactionId?: string;
+  TransactionId?: string | undefined;
 
   /**
    * <p>The commit digest of the committed transaction.</p>
    * @public
    */
-  CommitDigest?: Uint8Array;
+  CommitDigest?: Uint8Array | undefined;
 
   /**
    * <p>Contains server-side performance information for the command.</p>
    * @public
    */
-  TimingInformation?: TimingInformation;
+  TimingInformation?: TimingInformation | undefined;
 
   /**
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    * @public
    */
-  ConsumedIOs?: IOUsage;
+  ConsumedIOs?: IOUsage | undefined;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface EndSessionResult {
    * <p>Contains server-side performance information for the command.</p>
    * @public
    */
-  TimingInformation?: TimingInformation;
+  TimingInformation?: TimingInformation | undefined;
 }
 
 /**
@@ -182,13 +182,13 @@ export interface ValueHolder {
    * <p>An Amazon Ion binary value contained in a <code>ValueHolder</code> structure.</p>
    * @public
    */
-  IonBinary?: Uint8Array;
+  IonBinary?: Uint8Array | undefined;
 
   /**
    * <p>An Amazon Ion plaintext value contained in a <code>ValueHolder</code> structure.</p>
    * @public
    */
-  IonText?: string;
+  IonText?: string | undefined;
 }
 
 /**
@@ -212,7 +212,7 @@ export interface ExecuteStatementRequest {
    * <p>Specifies the parameters for the parameterized statement in the request.</p>
    * @public
    */
-  Parameters?: ValueHolder[];
+  Parameters?: ValueHolder[] | undefined;
 }
 
 /**
@@ -224,13 +224,13 @@ export interface Page {
    * <p>A structure that contains values in multiple encoding formats.</p>
    * @public
    */
-  Values?: ValueHolder[];
+  Values?: ValueHolder[] | undefined;
 
   /**
    * <p>The token of the next page.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -242,19 +242,19 @@ export interface ExecuteStatementResult {
    * <p>Contains the details of the first fetched page.</p>
    * @public
    */
-  FirstPage?: Page;
+  FirstPage?: Page | undefined;
 
   /**
    * <p>Contains server-side performance information for the command.</p>
    * @public
    */
-  TimingInformation?: TimingInformation;
+  TimingInformation?: TimingInformation | undefined;
 
   /**
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    * @public
    */
-  ConsumedIOs?: IOUsage;
+  ConsumedIOs?: IOUsage | undefined;
 }
 
 /**
@@ -284,19 +284,19 @@ export interface FetchPageResult {
    * <p>Contains details of the fetched page.</p>
    * @public
    */
-  Page?: Page;
+  Page?: Page | undefined;
 
   /**
    * <p>Contains server-side performance information for the command.</p>
    * @public
    */
-  TimingInformation?: TimingInformation;
+  TimingInformation?: TimingInformation | undefined;
 
   /**
    * <p>Contains metrics about the number of I/O requests that were consumed.</p>
    * @public
    */
-  ConsumedIOs?: IOUsage;
+  ConsumedIOs?: IOUsage | undefined;
 }
 
 /**
@@ -306,8 +306,8 @@ export interface FetchPageResult {
 export class InvalidSessionException extends __BaseException {
   readonly name: "InvalidSessionException" = "InvalidSessionException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -330,7 +330,7 @@ export class InvalidSessionException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -353,7 +353,7 @@ export class LimitExceededException extends __BaseException {
 export class OccConflictException extends __BaseException {
   readonly name: "OccConflictException" = "OccConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -375,7 +375,7 @@ export class OccConflictException extends __BaseException {
 export class RateExceededException extends __BaseException {
   readonly name: "RateExceededException" = "RateExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -420,50 +420,50 @@ export interface SendCommandRequest {
    *          the current session.</p>
    * @public
    */
-  SessionToken?: string;
+  SessionToken?: string | undefined;
 
   /**
    * <p>Command to start a new session. A session token is obtained as part of the
    *          response.</p>
    * @public
    */
-  StartSession?: StartSessionRequest;
+  StartSession?: StartSessionRequest | undefined;
 
   /**
    * <p>Command to start a new transaction.</p>
    * @public
    */
-  StartTransaction?: StartTransactionRequest;
+  StartTransaction?: StartTransactionRequest | undefined;
 
   /**
    * <p>Command to end the current session.</p>
    * @public
    */
-  EndSession?: EndSessionRequest;
+  EndSession?: EndSessionRequest | undefined;
 
   /**
    * <p>Command to commit the specified transaction.</p>
    * @public
    */
-  CommitTransaction?: CommitTransactionRequest;
+  CommitTransaction?: CommitTransactionRequest | undefined;
 
   /**
    * <p>Command to abort the current transaction.</p>
    * @public
    */
-  AbortTransaction?: AbortTransactionRequest;
+  AbortTransaction?: AbortTransactionRequest | undefined;
 
   /**
    * <p>Command to execute a statement in the specified transaction.</p>
    * @public
    */
-  ExecuteStatement?: ExecuteStatementRequest;
+  ExecuteStatement?: ExecuteStatementRequest | undefined;
 
   /**
    * <p>Command to fetch a page.</p>
    * @public
    */
-  FetchPage?: FetchPageRequest;
+  FetchPage?: FetchPageRequest | undefined;
 }
 
 /**
@@ -476,13 +476,13 @@ export interface StartSessionResult {
    *          every subsequent command that is issued during the current session.</p>
    * @public
    */
-  SessionToken?: string;
+  SessionToken?: string | undefined;
 
   /**
    * <p>Contains server-side performance information for the command.</p>
    * @public
    */
-  TimingInformation?: TimingInformation;
+  TimingInformation?: TimingInformation | undefined;
 }
 
 /**
@@ -494,13 +494,13 @@ export interface StartTransactionResult {
    * <p>The transaction ID of the started transaction.</p>
    * @public
    */
-  TransactionId?: string;
+  TransactionId?: string | undefined;
 
   /**
    * <p>Contains server-side performance information for the command.</p>
    * @public
    */
-  TimingInformation?: TimingInformation;
+  TimingInformation?: TimingInformation | undefined;
 }
 
 /**
@@ -513,41 +513,41 @@ export interface SendCommandResult {
    *          the current session.</p>
    * @public
    */
-  StartSession?: StartSessionResult;
+  StartSession?: StartSessionResult | undefined;
 
   /**
    * <p>Contains the details of the started transaction.</p>
    * @public
    */
-  StartTransaction?: StartTransactionResult;
+  StartTransaction?: StartTransactionResult | undefined;
 
   /**
    * <p>Contains the details of the ended session.</p>
    * @public
    */
-  EndSession?: EndSessionResult;
+  EndSession?: EndSessionResult | undefined;
 
   /**
    * <p>Contains the details of the committed transaction.</p>
    * @public
    */
-  CommitTransaction?: CommitTransactionResult;
+  CommitTransaction?: CommitTransactionResult | undefined;
 
   /**
    * <p>Contains the details of the aborted transaction.</p>
    * @public
    */
-  AbortTransaction?: AbortTransactionResult;
+  AbortTransaction?: AbortTransactionResult | undefined;
 
   /**
    * <p>Contains the details of the executed statement.</p>
    * @public
    */
-  ExecuteStatement?: ExecuteStatementResult;
+  ExecuteStatement?: ExecuteStatementResult | undefined;
 
   /**
    * <p>Contains the details of the fetched page.</p>
    * @public
    */
-  FetchPage?: FetchPageResult;
+  FetchPage?: FetchPageResult | undefined;
 }

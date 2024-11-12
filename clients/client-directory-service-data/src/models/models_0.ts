@@ -30,12 +30,12 @@ export type AccessDeniedReason = (typeof AccessDeniedReason)[keyof typeof Access
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p> Reason the request was unauthorized. </p>
    * @public
    */
-  Reason?: AccessDeniedReason;
+  Reason?: AccessDeniedReason | undefined;
   /**
    * @internal
    */
@@ -83,7 +83,7 @@ export interface AddGroupMemberRequest {
    *          </note>
    * @public
    */
-  MemberRealm?: string;
+  MemberRealm?: string | undefined;
 
   /**
    * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
@@ -98,7 +98,7 @@ export interface AddGroupMemberRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -119,7 +119,7 @@ export interface AddGroupMemberResult {}
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -160,12 +160,12 @@ export class DirectoryUnavailableException extends __BaseException {
   readonly name: "DirectoryUnavailableException" = "DirectoryUnavailableException";
   readonly $fault: "client" = "client";
   $retryable = {};
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p> Reason the request failed for the specified directory. </p>
    * @public
    */
-  Reason?: DirectoryUnavailableReason;
+  Reason?: DirectoryUnavailableReason | undefined;
   /**
    * @internal
    */
@@ -189,7 +189,7 @@ export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -211,7 +211,7 @@ export class InternalServerException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -241,7 +241,7 @@ export class ThrottlingException extends __BaseException {
    * <p> The recommended amount of seconds to retry after a throttling exception. </p>
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -292,12 +292,12 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p> Reason the request failed validation. </p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
   /**
    * @internal
    */
@@ -470,20 +470,20 @@ export interface CreateGroupRequest {
    * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>.</p>
    * @public
    */
-  GroupType?: GroupType;
+  GroupType?: GroupType | undefined;
 
   /**
    * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security group scope</a>. </p>
    * @public
    */
-  GroupScope?: GroupScope;
+  GroupScope?: GroupScope | undefined;
 
   /**
    * <p> An expression that defines one or more attributes with the data type and value of each
    *       attribute. </p>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
@@ -498,7 +498,7 @@ export interface CreateGroupRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -509,19 +509,19 @@ export interface CreateGroupResult {
    * <p> The identifier (ID) of the directory that's associated with the group. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The name of the group. </p>
    * @public
    */
-  SAMAccountName?: string;
+  SAMAccountName?: string | undefined;
 
   /**
    * <p> The unique security identifier (SID) of the group. </p>
    * @public
    */
-  SID?: string;
+  SID?: string | undefined;
 }
 
 /**
@@ -544,19 +544,19 @@ export interface CreateUserRequest {
    * <p> The email address of the user. </p>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p> The first name of the user. </p>
    * @public
    */
-  GivenName?: string;
+  GivenName?: string | undefined;
 
   /**
    * <p> The last name of the user. </p>
    * @public
    */
-  Surname?: string;
+  Surname?: string | undefined;
 
   /**
    * <p> An expression that defines one or more attribute names with the data type and value of
@@ -567,7 +567,7 @@ export interface CreateUserRequest {
    *          </note>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
@@ -582,7 +582,7 @@ export interface CreateUserRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -593,19 +593,19 @@ export interface CreateUserResult {
    * <p> The identifier (ID) of the directory where the address block is added. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The unique security identifier (SID) of the user. </p>
    * @public
    */
-  SID?: string;
+  SID?: string | undefined;
 
   /**
    * <p> The name of the user. </p>
    * @public
    */
-  SAMAccountName?: string;
+  SAMAccountName?: string | undefined;
 }
 
 /**
@@ -637,7 +637,7 @@ export interface DeleteGroupRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -674,7 +674,7 @@ export interface DeleteUserRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -701,7 +701,7 @@ export interface DescribeGroupRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The name of the group. </p>
@@ -715,7 +715,7 @@ export interface DescribeGroupRequest {
    *     </p>
    * @public
    */
-  OtherAttributes?: string[];
+  OtherAttributes?: string[] | undefined;
 }
 
 /**
@@ -726,50 +726,50 @@ export interface DescribeGroupResult {
    * <p> The identifier (ID) of the directory that's associated with the group. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The domain name that's associated with the group. </p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The unique security identifier (SID) of the group. </p>
    * @public
    */
-  SID?: string;
+  SID?: string | undefined;
 
   /**
    * <p> The name of the group. </p>
    * @public
    */
-  SAMAccountName?: string;
+  SAMAccountName?: string | undefined;
 
   /**
    * <p> The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
    * @public
    */
-  DistinguishedName?: string;
+  DistinguishedName?: string | undefined;
 
   /**
    * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>. </p>
    * @public
    */
-  GroupType?: GroupType;
+  GroupType?: GroupType | undefined;
 
   /**
    * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security groups</a>. </p>
    * @public
    */
-  GroupScope?: GroupScope;
+  GroupScope?: GroupScope | undefined;
 
   /**
    * <p> The attribute values that are returned for the attribute names that are included in the
    *       request. </p>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -793,7 +793,7 @@ export interface DescribeUserRequest {
    *       the value is a list of maps. For a list of supported attributes, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ad_data_attributes.html">Directory Service Data Attributes</a>. </p>
    * @public
    */
-  OtherAttributes?: string[];
+  OtherAttributes?: string[] | undefined;
 
   /**
    * <p> The domain name that's associated with the user. </p>
@@ -804,7 +804,7 @@ export interface DescribeUserRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 }
 
 /**
@@ -815,31 +815,31 @@ export interface DescribeUserResult {
    * <p> The identifier (ID) of the directory that's associated with the user. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The domain name that's associated with the user. </p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The unique security identifier (SID) of the user. </p>
    * @public
    */
-  SID?: string;
+  SID?: string | undefined;
 
   /**
    * <p> The name of the user. </p>
    * @public
    */
-  SAMAccountName?: string;
+  SAMAccountName?: string | undefined;
 
   /**
    * <p> The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
    * @public
    */
-  DistinguishedName?: string;
+  DistinguishedName?: string | undefined;
 
   /**
    * <p> The UPN that is an Internet-style login name for a user and is based on the Internet
@@ -847,31 +847,31 @@ export interface DescribeUserResult {
    *       than the distinguished name and easier to remember. </p>
    * @public
    */
-  UserPrincipalName?: string;
+  UserPrincipalName?: string | undefined;
 
   /**
    * <p> The email address of the user. </p>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p> The first name of the user. </p>
    * @public
    */
-  GivenName?: string;
+  GivenName?: string | undefined;
 
   /**
    * <p> The last name of the user. </p>
    * @public
    */
-  Surname?: string;
+  Surname?: string | undefined;
 
   /**
    * <p> Indicates whether the user account is active. </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p> The attribute values that are returned for the attribute names that are included in the
@@ -881,7 +881,7 @@ export interface DescribeUserResult {
    *          </note>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -913,7 +913,7 @@ export interface DisableUserRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -941,7 +941,7 @@ export interface ListGroupMembersRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The domain name that's associated with the group member. This parameter defaults to the
@@ -951,7 +951,7 @@ export interface ListGroupMembersRequest {
    *          </note>
    * @public
    */
-  MemberRealm?: string;
+  MemberRealm?: string | undefined;
 
   /**
    * <p> The name of the group. </p>
@@ -964,13 +964,13 @@ export interface ListGroupMembersRequest {
    *       page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to be returned per request. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1020,32 +1020,32 @@ export interface ListGroupMembersResult {
    * <p>Identifier (ID) of the directory associated with the group.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The domain name that's associated with the group. </p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The domain name that's associated with the member. </p>
    * @public
    */
-  MemberRealm?: string;
+  MemberRealm?: string | undefined;
 
   /**
    * <p> The member information that the request returns. </p>
    * @public
    */
-  Members?: Member[];
+  Members?: Member[] | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1067,20 +1067,20 @@ export interface ListGroupsRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to be returned per request. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1121,26 +1121,26 @@ export interface ListGroupsResult {
    * <p> The identifier (ID) of the directory that's associated with the group. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The domain name associated with the group.</p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The group information that the request returns. </p>
    * @public
    */
-  Groups?: GroupSummary[];
+  Groups?: GroupSummary[] | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1162,7 +1162,7 @@ export interface ListGroupsForMemberRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The domain name that's associated with the group member. </p>
@@ -1174,7 +1174,7 @@ export interface ListGroupsForMemberRequest {
    *          </note>
    * @public
    */
-  MemberRealm?: string;
+  MemberRealm?: string | undefined;
 
   /**
    * <p> The <code>SAMAccountName</code> of the user, group, or computer that's a member of the
@@ -1188,13 +1188,13 @@ export interface ListGroupsForMemberRequest {
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to be returned per request. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1205,32 +1205,32 @@ export interface ListGroupsForMemberResult {
    * <p> The identifier (ID) of the directory that's associated with the member. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The domain that's associated with the group. </p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The domain that's associated with the member. </p>
    * @public
    */
-  MemberRealm?: string;
+  MemberRealm?: string | undefined;
 
   /**
    * <p> The group information that the request returns. </p>
    * @public
    */
-  Groups?: GroupSummary[];
+  Groups?: GroupSummary[] | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1252,20 +1252,20 @@ export interface ListUsersRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to be returned per request. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1289,13 +1289,13 @@ export interface UserSummary {
    * <p>The first name of the user. </p>
    * @public
    */
-  GivenName?: string;
+  GivenName?: string | undefined;
 
   /**
    * <p>The last name of the user.</p>
    * @public
    */
-  Surname?: string;
+  Surname?: string | undefined;
 
   /**
    * <p>Indicates whether the user account is active.</p>
@@ -1312,26 +1312,26 @@ export interface ListUsersResult {
    * <p> The identifier (ID) of the directory that's associated with the user. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The domain that's associated with the user. </p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The user information that the request returns. </p>
    * @public
    */
-  Users?: UserSummary[];
+  Users?: UserSummary[] | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1365,7 +1365,7 @@ export interface RemoveGroupMemberRequest {
    *          </note>
    * @public
    */
-  MemberRealm?: string;
+  MemberRealm?: string | undefined;
 
   /**
    * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
@@ -1380,7 +1380,7 @@ export interface RemoveGroupMemberRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1426,20 +1426,20 @@ export interface SearchGroupsRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to be returned per request. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1452,7 +1452,7 @@ export interface Group {
    * <p> The unique security identifier (SID) of the group. </p>
    * @public
    */
-  SID?: string;
+  SID?: string | undefined;
 
   /**
    * <p> The name of the group. </p>
@@ -1464,26 +1464,26 @@ export interface Group {
    * <p>The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
    * @public
    */
-  DistinguishedName?: string;
+  DistinguishedName?: string | undefined;
 
   /**
    * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>. </p>
    * @public
    */
-  GroupType?: GroupType;
+  GroupType?: GroupType | undefined;
 
   /**
    * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security groups</a>
    *          </p>
    * @public
    */
-  GroupScope?: GroupScope;
+  GroupScope?: GroupScope | undefined;
 
   /**
    * <p> An expression of one or more attributes, data types, and the values of a group. </p>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -1494,26 +1494,26 @@ export interface SearchGroupsResult {
    * <p> The identifier (ID) of the directory that's associated with the group. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The domain that's associated with the group. </p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The group information that the request returns. </p>
    * @public
    */
-  Groups?: Group[];
+  Groups?: Group[] | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface SearchUsersRequest {
    *          </note>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The attribute value that you want to search for. </p>
@@ -1561,13 +1561,13 @@ export interface SearchUsersRequest {
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to be returned per request. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1580,7 +1580,7 @@ export interface User {
    * <p> The unique security identifier (SID) of the user. </p>
    * @public
    */
-  SID?: string;
+  SID?: string | undefined;
 
   /**
    * <p> The name of the user. </p>
@@ -1592,7 +1592,7 @@ export interface User {
    * <p> The <a href="https://learn.microsoft.com/en-us/windows/win32/ad/object-names-and-identities#distinguished-name">distinguished name</a> of the object. </p>
    * @public
    */
-  DistinguishedName?: string;
+  DistinguishedName?: string | undefined;
 
   /**
    * <p> The UPN that is an internet-style login name for a user and based on the internet
@@ -1600,38 +1600,38 @@ export interface User {
    *       than the distinguished name and easier to remember. </p>
    * @public
    */
-  UserPrincipalName?: string;
+  UserPrincipalName?: string | undefined;
 
   /**
    * <p> The email address of the user. </p>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p> The first name of the user. </p>
    * @public
    */
-  GivenName?: string;
+  GivenName?: string | undefined;
 
   /**
    * <p> The last name of the user. </p>
    * @public
    */
-  Surname?: string;
+  Surname?: string | undefined;
 
   /**
    * <p> Indicates whether the user account is active. </p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p> An expression that includes one or more attributes, data types, and values of a
    *       user.</p>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -1642,26 +1642,26 @@ export interface SearchUsersResult {
    * <p> The identifier (ID) of the directory where the address block is added. </p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p> The domain that's associated with the user. </p>
    * @public
    */
-  Realm?: string;
+  Realm?: string | undefined;
 
   /**
    * <p> The user information that the request returns. </p>
    * @public
    */
-  Users?: User[];
+  Users?: User[] | undefined;
 
   /**
    * <p> An encoded paging token for paginated calls that can be passed back to retrieve the next
    *       page. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1699,20 +1699,20 @@ export interface UpdateGroupRequest {
    * <p> The AD group type. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#how-active-directory-security-groups-work">Active Directory security group type</a>. </p>
    * @public
    */
-  GroupType?: GroupType;
+  GroupType?: GroupType | undefined;
 
   /**
    * <p> The scope of the AD group. For details, see <a href="https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/manage/understand-security-groups#group-scope">Active Directory security groups</a>. </p>
    * @public
    */
-  GroupScope?: GroupScope;
+  GroupScope?: GroupScope | undefined;
 
   /**
    * <p> An expression that defines one or more attributes with the data type and the value of
    *       each attribute. </p>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p> The type of update to be performed. If no value exists for the attribute, use
@@ -1720,7 +1720,7 @@ export interface UpdateGroupRequest {
    *         <code>REMOVE</code> to clear the attribute value. </p>
    * @public
    */
-  UpdateType?: UpdateType;
+  UpdateType?: UpdateType | undefined;
 
   /**
    * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
@@ -1735,7 +1735,7 @@ export interface UpdateGroupRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1763,19 +1763,19 @@ export interface UpdateUserRequest {
    * <p> The email address of the user. </p>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p> The first name of the user. </p>
    * @public
    */
-  GivenName?: string;
+  GivenName?: string | undefined;
 
   /**
    * <p> The last name of the user. </p>
    * @public
    */
-  Surname?: string;
+  Surname?: string | undefined;
 
   /**
    * <p> An expression that defines one or more attribute names with the data type and value of
@@ -1786,7 +1786,7 @@ export interface UpdateUserRequest {
    *          </note>
    * @public
    */
-  OtherAttributes?: Record<string, AttributeValue>;
+  OtherAttributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p> The type of update to be performed. If no value exists for the attribute, use
@@ -1794,7 +1794,7 @@ export interface UpdateUserRequest {
    *         <code>REMOVE</code> to clear the attribute value. </p>
    * @public
    */
-  UpdateType?: UpdateType;
+  UpdateType?: UpdateType | undefined;
 
   /**
    * <p> A unique and case-sensitive identifier that you provide to make sure the idempotency of
@@ -1809,7 +1809,7 @@ export interface UpdateUserRequest {
    *          </note>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**

@@ -41,26 +41,26 @@ export interface ListTimeSeriesRequest {
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return for each paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
    *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  assetId?: string;
+  assetId?: string | undefined;
 
   /**
    * <p>The alias prefix of the time series.</p>
    * @public
    */
-  aliasPrefix?: string;
+  aliasPrefix?: string | undefined;
 
   /**
    * <p>The type of the time series. The time series type can be one of the following
@@ -79,7 +79,7 @@ export interface ListTimeSeriesRequest {
    *          </ul>
    * @public
    */
-  timeSeriesType?: ListTimeSeriesType;
+  timeSeriesType?: ListTimeSeriesType | undefined;
 }
 
 /**
@@ -91,19 +91,19 @@ export interface TimeSeriesSummary {
    * <p>The ID of the asset in which the asset property was created.</p>
    * @public
    */
-  assetId?: string;
+  assetId?: string | undefined;
 
   /**
    * <p>The ID of the asset property, in UUID format.</p>
    * @public
    */
-  propertyId?: string;
+  propertyId?: string | undefined;
 
   /**
    * <p>The alias that identifies the time series.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>The ID of the time series.</p>
@@ -126,7 +126,7 @@ export interface TimeSeriesSummary {
    *       Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite models.</p>
    * @public
    */
-  dataTypeSpec?: string;
+  dataTypeSpec?: string | undefined;
 
   /**
    * <p>The date that the time series was created, in Unix epoch time.</p>
@@ -164,7 +164,7 @@ export interface ListTimeSeriesResponse {
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -182,7 +182,7 @@ export interface PutDefaultEncryptionConfigurationRequest {
    *       use <code>KMS_BASED_ENCRYPTION</code>.</p>
    * @public
    */
-  kmsKeyId?: string;
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -200,7 +200,7 @@ export interface PutDefaultEncryptionConfigurationResponse {
    *         <code>KMS_BASED_ENCRYPTION</code>.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The status of the account configuration. This contains the
@@ -255,7 +255,7 @@ export interface PutStorageConfigurationRequest {
    *       you must specify a <code>MultiLayerStorage</code> object.</p>
    * @public
    */
-  multiLayerStorage?: MultiLayerStorage;
+  multiLayerStorage?: MultiLayerStorage | undefined;
 
   /**
    * <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties.
@@ -277,25 +277,25 @@ export interface PutStorageConfigurationRequest {
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState;
+  disassociatedDataStorage?: DisassociatedDataStorageState | undefined;
 
   /**
    * <p>The number of days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>A service managed storage tier optimized for analytical queries. It stores periodically uploaded, buffered and historical data ingested with the CreaeBulkImportJob API.</p>
    * @public
    */
-  warmTier?: WarmTierState;
+  warmTier?: WarmTierState | undefined;
 
   /**
    * <p>Set this period to specify how long your data is stored in the warm tier before it is deleted. You can set this only if cold tier is enabled.</p>
    * @public
    */
-  warmTierRetentionPeriod?: WarmTierRetentionPeriod;
+  warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
 }
 
 /**
@@ -325,7 +325,7 @@ export interface PutStorageConfigurationResponse {
    * <p>Contains information about the storage destination.</p>
    * @public
    */
-  multiLayerStorage?: MultiLayerStorage;
+  multiLayerStorage?: MultiLayerStorage | undefined;
 
   /**
    * <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties.
@@ -347,13 +347,13 @@ export interface PutStorageConfigurationResponse {
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  disassociatedDataStorage?: DisassociatedDataStorageState;
+  disassociatedDataStorage?: DisassociatedDataStorageState | undefined;
 
   /**
    * <p>The number of days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
    * @public
    */
-  retentionPeriod?: RetentionPeriod;
+  retentionPeriod?: RetentionPeriod | undefined;
 
   /**
    * <p>Contains current status information for the configuration.</p>
@@ -365,13 +365,13 @@ export interface PutStorageConfigurationResponse {
    * <p>A service managed storage tier optimized for analytical queries. It stores periodically uploaded, buffered and historical data ingested with the CreaeBulkImportJob API.</p>
    * @public
    */
-  warmTier?: WarmTierState;
+  warmTier?: WarmTierState | undefined;
 
   /**
    * <p>Set this period to specify how long your data is stored in the warm tier before it is deleted. You can set this only if cold tier is enabled.</p>
    * @public
    */
-  warmTierRetentionPeriod?: WarmTierRetentionPeriod;
+  warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
 }
 
 /**
@@ -411,7 +411,7 @@ export class TooManyTagsException extends __BaseException {
    * <p>The name of the resource with too many tags.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -481,7 +481,7 @@ export interface UpdateAccessPolicyRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -510,20 +510,20 @@ export interface UpdateAssetRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A description for the asset.</p>
    * @public
    */
-  assetDescription?: string;
+  assetDescription?: string | undefined;
 
   /**
    * <p>An external ID to assign to the asset. The asset must not already have an external ID.
    *       The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  assetExternalId?: string;
+  assetExternalId?: string | undefined;
 }
 
 /**
@@ -554,7 +554,7 @@ export interface UpdateAssetModelRequest {
    *       external ID. The external ID must be unique within your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-ids">Using external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  assetModelExternalId?: string;
+  assetModelExternalId?: string | undefined;
 
   /**
    * <p>A unique name for the asset model.</p>
@@ -566,7 +566,7 @@ export interface UpdateAssetModelRequest {
    * <p>A description for the asset model.</p>
    * @public
    */
-  assetModelDescription?: string;
+  assetModelDescription?: string | undefined;
 
   /**
    * <p>The updated property definitions of the asset model. For more information, see
@@ -575,7 +575,7 @@ export interface UpdateAssetModelRequest {
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  assetModelProperties?: AssetModelProperty[];
+  assetModelProperties?: AssetModelProperty[] | undefined;
 
   /**
    * <p>The updated hierarchy definitions of the asset model. Each hierarchy specifies an asset
@@ -585,7 +585,7 @@ export interface UpdateAssetModelRequest {
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  assetModelHierarchies?: AssetModelHierarchy[];
+  assetModelHierarchies?: AssetModelHierarchy[] | undefined;
 
   /**
    * <p>The composite models that are part of this asset model. It groups properties
@@ -599,13 +599,13 @@ export interface UpdateAssetModelRequest {
    *          </note>
    * @public
    */
-  assetModelCompositeModels?: AssetModelCompositeModel[];
+  assetModelCompositeModels?: AssetModelCompositeModel[] | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>).
@@ -614,21 +614,21 @@ export interface UpdateAssetModelRequest {
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  ifMatch?: string;
+  ifMatch?: string | undefined;
 
   /**
    * <p>Accepts <b>*</b> to reject the update request if an active version
    *     (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
    * @public
    */
-  ifNoneMatch?: string;
+  ifNoneMatch?: string | undefined;
 
   /**
    * <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in
    *   conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the update operation.</p>
    * @public
    */
-  matchForVersionType?: AssetModelVersionType;
+  matchForVersionType?: AssetModelVersionType | undefined;
 }
 
 /**
@@ -665,13 +665,13 @@ export interface UpdateAssetModelCompositeModelRequest {
    *       when it was created.</p>
    * @public
    */
-  assetModelCompositeModelExternalId?: string;
+  assetModelCompositeModelExternalId?: string | undefined;
 
   /**
    * <p>A description for the composite model.</p>
    * @public
    */
-  assetModelCompositeModelDescription?: string;
+  assetModelCompositeModelDescription?: string | undefined;
 
   /**
    * <p>A unique name for the composite model.</p>
@@ -683,7 +683,7 @@ export interface UpdateAssetModelCompositeModelRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The property definitions of the composite model. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/custom-composite-models.html#inline-composite-models">
@@ -692,7 +692,7 @@ export interface UpdateAssetModelCompositeModelRequest {
    *       information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  assetModelCompositeModelProperties?: AssetModelProperty[];
+  assetModelCompositeModelProperties?: AssetModelProperty[] | undefined;
 
   /**
    * <p>The expected current entity tag (ETag) for the asset model’s latest or active version (specified using <code>matchForVersionType</code>).
@@ -701,21 +701,21 @@ export interface UpdateAssetModelCompositeModelRequest {
    *     in the <i>IoT SiteWise User Guide</i>.</p>
    * @public
    */
-  ifMatch?: string;
+  ifMatch?: string | undefined;
 
   /**
    * <p>Accepts <b>*</b> to reject the update request if an active version
    *     (specified using <code>matchForVersionType</code> as <code>ACTIVE</code>) already exists for the asset model.</p>
    * @public
    */
-  ifNoneMatch?: string;
+  ifNoneMatch?: string | undefined;
 
   /**
    * <p>Specifies the asset model version type (<code>LATEST</code> or <code>ACTIVE</code>) used in
    *   conjunction with <code>If-Match</code> or <code>If-None-Match</code> headers to determine the target ETag for the update operation.</p>
    * @public
    */
-  matchForVersionType?: AssetModelVersionType;
+  matchForVersionType?: AssetModelVersionType | undefined;
 }
 
 /**
@@ -762,7 +762,7 @@ export interface UpdateAssetPropertyRequest {
    *          <p>If you omit this parameter, the alias is removed from the property.</p>
    * @public
    */
-  propertyAlias?: string;
+  propertyAlias?: string | undefined;
 
   /**
    * <p>The MQTT notification state (enabled or disabled) for this asset property.
@@ -771,13 +771,13 @@ export interface UpdateAssetPropertyRequest {
    *          <p>If you omit this parameter, the notification state is set to <code>DISABLED</code>.</p>
    * @public
    */
-  propertyNotificationState?: PropertyNotificationState;
+  propertyNotificationState?: PropertyNotificationState | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The unit of measure (such as Newtons or RPM) of the asset property. If you don't specify a
@@ -785,7 +785,7 @@ export interface UpdateAssetPropertyRequest {
    *       the asset model.</p>
    * @public
    */
-  propertyUnit?: string;
+  propertyUnit?: string | undefined;
 }
 
 /**
@@ -808,7 +808,7 @@ export interface UpdateDashboardRequest {
    * <p>A new description for the dashboard.</p>
    * @public
    */
-  dashboardDescription?: string;
+  dashboardDescription?: string | undefined;
 
   /**
    * <p>The new dashboard definition, as specified in a JSON literal. For detailed information,
@@ -821,7 +821,7 @@ export interface UpdateDashboardRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -924,13 +924,13 @@ export interface Image {
    * <p>The ID of an existing image. Specify this parameter to keep an existing image.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Contains an image file.</p>
    * @public
    */
-  file?: ImageFile;
+  file?: ImageFile | undefined;
 }
 
 /**
@@ -953,7 +953,7 @@ export interface UpdatePortalRequest {
    * <p>A new description for the portal.</p>
    * @public
    */
-  portalDescription?: string;
+  portalDescription?: string | undefined;
 
   /**
    * <p>The Amazon Web Services administrator's contact email address.</p>
@@ -973,7 +973,7 @@ export interface UpdatePortalRequest {
    *          </ul>
    * @public
    */
-  portalLogoImage?: Image;
+  portalLogoImage?: Image | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of a service role that allows the portal's users to access your IoT SiteWise
@@ -987,13 +987,13 @@ export interface UpdatePortalRequest {
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The email address that sends alarm notifications.</p>
    * @public
    */
-  notificationSenderEmail?: string;
+  notificationSenderEmail?: string | undefined;
 
   /**
    * <p>Contains the configuration information of an alarm created in an IoT SiteWise Monitor portal.
@@ -1001,7 +1001,7 @@ export interface UpdatePortalRequest {
    *   For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/monitor-alarms.html">Monitoring with alarms</a> in the <i>IoT SiteWise Application Guide</i>.</p>
    * @public
    */
-  alarms?: Alarms;
+  alarms?: Alarms | undefined;
 }
 
 /**
@@ -1036,13 +1036,13 @@ export interface UpdateProjectRequest {
    * <p>A new description for the project.</p>
    * @public
    */
-  projectDescription?: string;
+  projectDescription?: string | undefined;
 
   /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1060,25 +1060,25 @@ export interface Datum {
    *     </p>
    * @public
    */
-  scalarValue?: string;
+  scalarValue?: string | undefined;
 
   /**
    * <p>Indicates if the data point is an array. </p>
    * @public
    */
-  arrayValue?: Datum[];
+  arrayValue?: Datum[] | undefined;
 
   /**
    * <p>Indicates if the data point is a row.</p>
    * @public
    */
-  rowValue?: Row;
+  rowValue?: Row | undefined;
 
   /**
    * <p>Indicates if the data point is null.</p>
    * @public
    */
-  nullValue?: boolean;
+  nullValue?: boolean | undefined;
 }
 
 /**
@@ -1101,17 +1101,17 @@ export interface ExecuteQueryResponse {
    * <p>Represents a single column in the query results.</p>
    * @public
    */
-  columns?: ColumnInfo[];
+  columns?: ColumnInfo[] | undefined;
 
   /**
    * <p>Represents a single row in the query results.</p>
    * @public
    */
-  rows?: Row[];
+  rows?: Row[] | undefined;
 
   /**
    * <p>The string that specifies the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }

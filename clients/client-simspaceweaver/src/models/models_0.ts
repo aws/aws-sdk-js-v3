@@ -10,7 +10,7 @@ import { SimSpaceWeaverServiceException as __BaseException } from "./SimSpaceWea
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -36,7 +36,7 @@ export interface SimulationAppPortMapping {
    *          app should bind to the <code>Declared</code> port.</p>
    * @public
    */
-  Declared?: number;
+  Declared?: number | undefined;
 
   /**
    * <p>The TCP/UDP port number of the running app. SimSpace Weaver dynamically assigns this port
@@ -45,7 +45,7 @@ export interface SimulationAppPortMapping {
    *          and the <code>Actual</code> port number.</p>
    * @public
    */
-  Actual?: number;
+  Actual?: number | undefined;
 }
 
 /**
@@ -93,7 +93,7 @@ export interface CloudWatchLogsLogGroup {
    *    groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
    * @public
    */
-  LogGroupArn?: string;
+  LogGroupArn?: string | undefined;
 }
 
 /**
@@ -103,7 +103,7 @@ export interface CloudWatchLogsLogGroup {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -137,7 +137,7 @@ export interface S3Destination {
    *    in the <i>Amazon Simple Storage Service User Guide</i>.</p>
    * @public
    */
-  ObjectKeyPrefix?: string;
+  ObjectKeyPrefix?: string | undefined;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface CreateSnapshotOutput {}
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -192,7 +192,7 @@ export class InternalServerException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -214,7 +214,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -308,14 +308,14 @@ export interface SimulationAppEndpointInfo {
    *          app starts.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The inbound TCP/UDP port numbers of the app. The combination of an IP address and
    *          a port number form a network endpoint.</p>
    * @public
    */
-  IngressPortMappings?: SimulationAppPortMapping[];
+  IngressPortMappings?: SimulationAppPortMapping[] | undefined;
 }
 
 /**
@@ -328,7 +328,7 @@ export interface LaunchOverrides {
    *          configured in the simulation schema.</p>
    * @public
    */
-  LaunchCommands?: string[];
+  LaunchCommands?: string[] | undefined;
 }
 
 /**
@@ -372,49 +372,49 @@ export interface DescribeAppOutput {
    * <p>The name of the app.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The name of the simulation of the app.</p>
    * @public
    */
-  Simulation?: string;
+  Simulation?: string | undefined;
 
   /**
    * <p>The name of the domain of the app.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The current lifecycle state of the custom app.</p>
    * @public
    */
-  Status?: SimulationAppStatus;
+  Status?: SimulationAppStatus | undefined;
 
   /**
    * <p>The desired lifecycle state of the custom app.</p>
    * @public
    */
-  TargetStatus?: SimulationAppTargetStatus;
+  TargetStatus?: SimulationAppTargetStatus | undefined;
 
   /**
    * <p>Options that apply when the app starts. These options override default behavior.</p>
    * @public
    */
-  LaunchOverrides?: LaunchOverrides;
+  LaunchOverrides?: LaunchOverrides | undefined;
 
   /**
    * <p>The description of the app.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Information about the network endpoint for the custom app. You can use the endpoint to connect to the custom app.</p>
    * @public
    */
-  EndpointInfo?: SimulationAppEndpointInfo;
+  EndpointInfo?: SimulationAppEndpointInfo | undefined;
 }
 
 /**
@@ -437,13 +437,13 @@ export interface SimulationClock {
    * <p>The current status of the simulation clock.</p>
    * @public
    */
-  Status?: ClockStatus;
+  Status?: ClockStatus | undefined;
 
   /**
    * <p>The desired status of the simulation clock.</p>
    * @public
    */
-  TargetStatus?: ClockTargetStatus;
+  TargetStatus?: ClockTargetStatus | undefined;
 }
 
 /**
@@ -475,7 +475,7 @@ export interface Domain {
    * <p>The name of the domain.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of lifecycle management for apps in the domain. Indicates whether apps in this
@@ -503,7 +503,7 @@ export interface Domain {
    *          </ul>
    * @public
    */
-  Lifecycle?: LifecycleManagementStrategy;
+  Lifecycle?: LifecycleManagementStrategy | undefined;
 }
 
 /**
@@ -517,7 +517,7 @@ export interface LiveSimulationState {
    *    in the <i>SimSpace Weaver User Guide</i>.</p>
    * @public
    */
-  Domains?: Domain[];
+  Domains?: Domain[] | undefined;
 
   /**
    * <p>A list of simulation clocks.</p>
@@ -526,7 +526,7 @@ export interface LiveSimulationState {
    *          </note>
    * @public
    */
-  Clocks?: SimulationClock[];
+  Clocks?: SimulationClock[] | undefined;
 }
 
 /**
@@ -539,7 +539,7 @@ export interface LogDestination {
    *    groups and log streams</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
    * @public
    */
-  CloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
+  CloudWatchLogsLogGroup?: CloudWatchLogsLogGroup | undefined;
 }
 
 /**
@@ -551,7 +551,7 @@ export interface LoggingConfiguration {
    * <p>A list of the locations where SimSpace Weaver sends simulation log data.</p>
    * @public
    */
-  Destinations?: LogDestination[];
+  Destinations?: LogDestination[] | undefined;
 }
 
 /**
@@ -625,26 +625,26 @@ export interface DescribeSimulationOutput {
    * <p>The name of the simulation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A universally unique identifier (UUID) for this simulation.</p>
    * @public
    */
-  ExecutionId?: string;
+  ExecutionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
    *    in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The description of the simulation.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
@@ -654,26 +654,26 @@ export interface DescribeSimulationOutput {
    *    <i>Identity and Access Management User Guide</i>.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The time when the simulation was created, expressed as the
    *    number of seconds and milliseconds in UTC since the Unix epoch (0:0:0.000, January 1, 1970).</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The current lifecycle state of the simulation.</p>
    * @public
    */
-  Status?: SimulationStatus;
+  Status?: SimulationStatus | undefined;
 
   /**
    * <p>The desired lifecycle state of the simulation.</p>
    * @public
    */
-  TargetStatus?: SimulationTargetStatus;
+  TargetStatus?: SimulationTargetStatus | undefined;
 
   /**
    * <p>The location of the simulation schema in Amazon Simple Storage Service (Amazon S3).
@@ -682,7 +682,7 @@ export interface DescribeSimulationOutput {
    *             </a>.</p>
    * @public
    */
-  SchemaS3Location?: S3Location;
+  SchemaS3Location?: S3Location | undefined;
 
   /**
    * @deprecated
@@ -691,20 +691,20 @@ export interface DescribeSimulationOutput {
    *          schema.</p>
    * @public
    */
-  SchemaError?: string;
+  SchemaError?: string | undefined;
 
   /**
    * <p>Settings that control how SimSpace Weaver handles your simulation log data.</p>
    * @public
    */
-  LoggingConfiguration?: LoggingConfiguration;
+  LoggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
    * <p>A collection of additional state information, such as
    * domain and clock configuration.</p>
    * @public
    */
-  LiveSimulationState?: LiveSimulationState;
+  LiveSimulationState?: LiveSimulationState | undefined;
 
   /**
    * <p>The maximum running time of the simulation,
@@ -714,7 +714,7 @@ export interface DescribeSimulationOutput {
    *    simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
    * @public
    */
-  MaximumDuration?: string;
+  MaximumDuration?: string | undefined;
 
   /**
    * <p>A location in Amazon Simple Storage Service (Amazon S3) where SimSpace Weaver stores simulation data, such as your app .zip
@@ -723,13 +723,13 @@ export interface DescribeSimulationOutput {
    *             </a>.</p>
    * @public
    */
-  SnapshotS3Location?: S3Location;
+  SnapshotS3Location?: S3Location | undefined;
 
   /**
    * <p>An error message that SimSpace Weaver returns only if a problem occurs when the simulation is in the <code>STARTING</code> state.</p>
    * @public
    */
-  StartError?: string;
+  StartError?: string | undefined;
 }
 
 /**
@@ -746,13 +746,13 @@ export interface ListAppsInput {
    * <p>The name of the domain that you want to list apps for.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The maximum number of apps to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
@@ -762,7 +762,7 @@ export interface ListAppsInput {
    *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -774,32 +774,32 @@ export interface SimulationAppMetadata {
    * <p>The name of the app.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The name of the simulation of the app.</p>
    * @public
    */
-  Simulation?: string;
+  Simulation?: string | undefined;
 
   /**
    * <p>The domain of the app. For more information about domains, see <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/what-is_key-concepts.html#what-is_key-concepts_domains">Key concepts: Domains</a>
    *    in the <i>SimSpace Weaver User Guide</i>.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The current status of the app.</p>
    * @public
    */
-  Status?: SimulationAppStatus;
+  Status?: SimulationAppStatus | undefined;
 
   /**
    * <p>The desired status of the app.</p>
    * @public
    */
-  TargetStatus?: SimulationAppTargetStatus;
+  TargetStatus?: SimulationAppTargetStatus | undefined;
 }
 
 /**
@@ -810,7 +810,7 @@ export interface ListAppsOutput {
    * <p>The list of apps for the given simulation and domain.</p>
    * @public
    */
-  Apps?: SimulationAppMetadata[];
+  Apps?: SimulationAppMetadata[] | undefined;
 
   /**
    * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
@@ -820,7 +820,7 @@ export interface ListAppsOutput {
    *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -831,7 +831,7 @@ export interface ListSimulationsInput {
    * <p>The maximum number of simulations to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
@@ -841,7 +841,7 @@ export interface ListSimulationsInput {
    *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -853,33 +853,33 @@ export interface SimulationMetadata {
    * <p>The name of the simulation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the simulation. For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
    *    in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The time when the simulation was created, expressed as the
    *    number of seconds and milliseconds in UTC since the Unix epoch (0:0:0.000, January 1, 1970).</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The current status of the simulation.</p>
    * @public
    */
-  Status?: SimulationStatus;
+  Status?: SimulationStatus | undefined;
 
   /**
    * <p>The desired status of the simulation.</p>
    * @public
    */
-  TargetStatus?: SimulationTargetStatus;
+  TargetStatus?: SimulationTargetStatus | undefined;
 }
 
 /**
@@ -890,7 +890,7 @@ export interface ListSimulationsOutput {
    * <p>The list of simulations.</p>
    * @public
    */
-  Simulations?: SimulationMetadata[];
+  Simulations?: SimulationMetadata[] | undefined;
 
   /**
    * <p>If SimSpace Weaver returns <code>nextToken</code>, then there are more results available.
@@ -900,7 +900,7 @@ export interface ListSimulationsOutput {
    *    If you provide a token that isn't valid, then you receive an <i>HTTP 400 ValidationException</i> error.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -923,7 +923,7 @@ export interface ListTagsForResourceOutput {
    * <p>The list of tags for the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -933,7 +933,7 @@ export interface ListTagsForResourceOutput {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -958,7 +958,7 @@ export interface StartAppInput {
    *    <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the simulation of the app.</p>
@@ -982,13 +982,13 @@ export interface StartAppInput {
    * <p>The description of the app.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Options that apply when the app starts. These options override default behavior.</p>
    * @public
    */
-  LaunchOverrides?: LaunchOverrides;
+  LaunchOverrides?: LaunchOverrides | undefined;
 }
 
 /**
@@ -999,19 +999,19 @@ export interface StartAppOutput {
    * <p>The name of the app.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The name of the domain of the app.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The name of the simulation of the app.</p>
    * @public
    */
-  Simulation?: string;
+  Simulation?: string | undefined;
 }
 
 /**
@@ -1040,7 +1040,7 @@ export interface StartSimulationInput {
    *    <i>idempotency token</i>. A <code>ClientToken</code> expires after 24 hours.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the simulation.</p>
@@ -1052,7 +1052,7 @@ export interface StartSimulationInput {
    * <p>The description of the simulation.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role
@@ -1073,7 +1073,7 @@ export interface StartSimulationInput {
    *          <p>If you provide a <code>SchemaS3Location</code> then you can't provide a <code>SnapshotS3Location</code>.</p>
    * @public
    */
-  SchemaS3Location?: S3Location;
+  SchemaS3Location?: S3Location | undefined;
 
   /**
    * <p>The maximum running time of the simulation,
@@ -1083,14 +1083,14 @@ export interface StartSimulationInput {
    *    simulation immediately transition to <code>Stopping</code> as soon as it reaches <code>Started</code>.</p>
    * @public
    */
-  MaximumDuration?: string;
+  MaximumDuration?: string | undefined;
 
   /**
    * <p>A list of tags for the simulation. For more information about tags, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the
    *    <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The location of the snapshot .zip file in Amazon Simple Storage Service (Amazon S3).
@@ -1102,7 +1102,7 @@ export interface StartSimulationInput {
    *          <p>If you provide a <code>SnapshotS3Location</code> then you can't provide a <code>SchemaS3Location</code>.</p>
    * @public
    */
-  SnapshotS3Location?: S3Location;
+  SnapshotS3Location?: S3Location | undefined;
 }
 
 /**
@@ -1114,20 +1114,20 @@ export interface StartSimulationOutput {
    *    in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>A universally unique identifier (UUID) for this simulation.</p>
    * @public
    */
-  ExecutionId?: string;
+  ExecutionId?: string | undefined;
 
   /**
    * <p>The time when the simulation was created, expressed as the
    *    number of seconds and milliseconds in UTC since the Unix epoch (0:0:0.000, January 1, 1970).</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -1221,7 +1221,7 @@ export interface TagResourceOutput {}
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */

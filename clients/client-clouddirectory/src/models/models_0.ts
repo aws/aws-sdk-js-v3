@@ -10,7 +10,7 @@ import { CloudDirectoryServiceException as __BaseException } from "./CloudDirect
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -205,7 +205,7 @@ export interface ObjectReference {
    *          </ul>
    * @public
    */
-  Selector?: string;
+  Selector?: string | undefined;
 }
 
 /**
@@ -218,13 +218,13 @@ export interface SchemaFacet {
    *      If this value is set, FacetName must also be set.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The name of the facet. If this value is set, SchemaArn must also be set.</p>
    * @public
    */
-  FacetName?: string;
+  FacetName?: string | undefined;
 }
 
 /**
@@ -248,7 +248,7 @@ export interface AddFacetToObjectRequest {
    * <p>Attributes on the facet that you are adding to the object.</p>
    * @public
    */
-  ObjectAttributeList?: AttributeKeyAndValue[];
+  ObjectAttributeList?: AttributeKeyAndValue[] | undefined;
 
   /**
    * <p>A reference to the object you are adding the specified facet to.</p>
@@ -269,7 +269,7 @@ export interface AddFacetToObjectResponse {}
 export class DirectoryNotEnabledException extends __BaseException {
   readonly name: "DirectoryNotEnabledException" = "DirectoryNotEnabledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -292,7 +292,7 @@ export class DirectoryNotEnabledException extends __BaseException {
 export class FacetValidationException extends __BaseException {
   readonly name: "FacetValidationException" = "FacetValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -314,7 +314,7 @@ export class FacetValidationException extends __BaseException {
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -336,7 +336,7 @@ export class InternalServiceException extends __BaseException {
 export class InvalidArnException extends __BaseException {
   readonly name: "InvalidArnException" = "InvalidArnException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -358,7 +358,7 @@ export class InvalidArnException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -380,7 +380,7 @@ export class LimitExceededException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -402,7 +402,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class RetryableConflictException extends __BaseException {
   readonly name: "RetryableConflictException" = "RetryableConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -425,7 +425,7 @@ export class RetryableConflictException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -468,14 +468,14 @@ export interface ApplySchemaResponse {
    *       this directory. For more information, see <a>arns</a>.</p>
    * @public
    */
-  AppliedSchemaArn?: string;
+  AppliedSchemaArn?: string | undefined;
 
   /**
    * <p>The ARN that is associated with the <a>Directory</a>. For more information,
    *       see <a>arns</a>.</p>
    * @public
    */
-  DirectoryArn?: string;
+  DirectoryArn?: string | undefined;
 }
 
 /**
@@ -486,7 +486,7 @@ export interface ApplySchemaResponse {
 export class InvalidAttachmentException extends __BaseException {
   readonly name: "InvalidAttachmentException" = "InvalidAttachmentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -509,7 +509,7 @@ export class InvalidAttachmentException extends __BaseException {
 export class SchemaAlreadyExistsException extends __BaseException {
   readonly name: "SchemaAlreadyExistsException" = "SchemaAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -563,7 +563,7 @@ export interface AttachObjectResponse {
    *         <code>ObjectIdentifier</code>.</p>
    * @public
    */
-  AttachedObjectIdentifier?: string;
+  AttachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -574,7 +574,7 @@ export interface AttachObjectResponse {
 export class LinkNameAlreadyInUseException extends __BaseException {
   readonly name: "LinkNameAlreadyInUseException" = "LinkNameAlreadyInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -626,7 +626,7 @@ export interface AttachPolicyResponse {}
 export class NotPolicyException extends __BaseException {
   readonly name: "NotPolicyException" = "NotPolicyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -673,7 +673,7 @@ export interface AttachToIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
    * @public
    */
-  AttachedObjectIdentifier?: string;
+  AttachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -683,7 +683,7 @@ export interface AttachToIndexResponse {
 export class IndexedAttributeMissingException extends __BaseException {
   readonly name: "IndexedAttributeMissingException" = "IndexedAttributeMissingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -705,7 +705,7 @@ export class IndexedAttributeMissingException extends __BaseException {
 export class NotIndexException extends __BaseException {
   readonly name: "NotIndexException" = "NotIndexException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -836,7 +836,7 @@ export interface AttachTypedLinkResponse {
    * <p>Returns a typed link specifier as output.</p>
    * @public
    */
-  TypedLinkSpecifier?: TypedLinkSpecifier;
+  TypedLinkSpecifier?: TypedLinkSpecifier | undefined;
 }
 
 /**
@@ -922,13 +922,13 @@ export interface BatchListAttachedIndices {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -963,7 +963,7 @@ export interface TypedAttributeValueRange {
    * <p>The value to start the range at.</p>
    * @public
    */
-  StartValue?: TypedAttributeValue;
+  StartValue?: TypedAttributeValue | undefined;
 
   /**
    * <p>The inclusive or exclusive range end.</p>
@@ -975,7 +975,7 @@ export interface TypedAttributeValueRange {
    * <p>The attribute value to terminate the range at.</p>
    * @public
    */
-  EndValue?: TypedAttributeValue;
+  EndValue?: TypedAttributeValue | undefined;
 }
 
 /**
@@ -987,7 +987,7 @@ export interface TypedLinkAttributeRange {
    * <p>The unique name of the typed link attribute.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The range of attribute values that are being selected.</p>
@@ -1013,26 +1013,26 @@ export interface BatchListIncomingTypedLinks {
    *        range specified are presumed to match the entire range.</p>
    * @public
    */
-  FilterAttributeRanges?: TypedLinkAttributeRange[];
+  FilterAttributeRanges?: TypedLinkAttributeRange[] | undefined;
 
   /**
    * <p>Filters are interpreted in the order of the attributes on the typed link facet, not the
    *        order in which they are supplied to any API calls.</p>
    * @public
    */
-  FilterTypedLink?: TypedLinkSchemaAndFacetName;
+  FilterTypedLink?: TypedLinkSchemaAndFacetName | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1044,13 +1044,13 @@ export interface ObjectAttributeRange {
    * <p>The key of the attribute that the attribute range covers.</p>
    * @public
    */
-  AttributeKey?: AttributeKey;
+  AttributeKey?: AttributeKey | undefined;
 
   /**
    * <p>The range of attribute values being selected.</p>
    * @public
    */
-  Range?: TypedAttributeValueRange;
+  Range?: TypedAttributeValueRange | undefined;
 }
 
 /**
@@ -1062,7 +1062,7 @@ export interface BatchListIndex {
    * <p>Specifies the ranges of indexed values that you want to query.</p>
    * @public
    */
-  RangesOnIndexedValues?: ObjectAttributeRange[];
+  RangesOnIndexedValues?: ObjectAttributeRange[] | undefined;
 
   /**
    * <p>The reference to the index to list.</p>
@@ -1074,13 +1074,13 @@ export interface BatchListIndex {
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1098,21 +1098,21 @@ export interface BatchListObjectAttributes {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Used to filter the list of object attributes that are associated with a certain
    *       facet.</p>
    * @public
    */
-  FacetFilter?: SchemaFacet;
+  FacetFilter?: SchemaFacet | undefined;
 }
 
 /**
@@ -1130,14 +1130,14 @@ export interface BatchListObjectChildren {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of items to be retrieved in a single call. This is an approximate
    *        number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1155,13 +1155,13 @@ export interface BatchListObjectParentPaths {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1180,14 +1180,14 @@ export interface BatchListObjectParents {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1205,13 +1205,13 @@ export interface BatchListObjectPolicies {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1231,26 +1231,26 @@ export interface BatchListOutgoingTypedLinks {
    *        range specified are presumed to match the entire range.</p>
    * @public
    */
-  FilterAttributeRanges?: TypedLinkAttributeRange[];
+  FilterAttributeRanges?: TypedLinkAttributeRange[] | undefined;
 
   /**
    * <p>Filters are interpreted in the order of the attributes defined on the typed link facet,
    *        not the order they are supplied to any API calls.</p>
    * @public
    */
-  FilterTypedLink?: TypedLinkSchemaAndFacetName;
+  FilterTypedLink?: TypedLinkSchemaAndFacetName | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1268,13 +1268,13 @@ export interface BatchListPolicyAttachments {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1292,13 +1292,13 @@ export interface BatchLookupPolicy {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1310,58 +1310,58 @@ export interface BatchReadOperation {
    * <p>Lists all attributes that are associated with an object.</p>
    * @public
    */
-  ListObjectAttributes?: BatchListObjectAttributes;
+  ListObjectAttributes?: BatchListObjectAttributes | undefined;
 
   /**
    * <p>Returns a paginated list of child objects that are associated with a given
    *       object.</p>
    * @public
    */
-  ListObjectChildren?: BatchListObjectChildren;
+  ListObjectChildren?: BatchListObjectChildren | undefined;
 
   /**
    * <p>Lists indices attached to an object.</p>
    * @public
    */
-  ListAttachedIndices?: BatchListAttachedIndices;
+  ListAttachedIndices?: BatchListAttachedIndices | undefined;
 
   /**
    * <p>Retrieves all available parent paths for any object type such as node, leaf node,
    *        policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
    * @public
    */
-  ListObjectParentPaths?: BatchListObjectParentPaths;
+  ListObjectParentPaths?: BatchListObjectParentPaths | undefined;
 
   /**
    * <p>Retrieves metadata about an object.</p>
    * @public
    */
-  GetObjectInformation?: BatchGetObjectInformation;
+  GetObjectInformation?: BatchGetObjectInformation | undefined;
 
   /**
    * <p>Retrieves attributes within a facet that are associated with an object.</p>
    * @public
    */
-  GetObjectAttributes?: BatchGetObjectAttributes;
+  GetObjectAttributes?: BatchGetObjectAttributes | undefined;
 
   /**
    * <p>Lists parent objects that are associated with a given object in pagination
    *       fashion.</p>
    * @public
    */
-  ListObjectParents?: BatchListObjectParents;
+  ListObjectParents?: BatchListObjectParents | undefined;
 
   /**
    * <p>Returns policies attached to an object in pagination fashion.</p>
    * @public
    */
-  ListObjectPolicies?: BatchListObjectPolicies;
+  ListObjectPolicies?: BatchListObjectPolicies | undefined;
 
   /**
    * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
    * @public
    */
-  ListPolicyAttachments?: BatchListPolicyAttachments;
+  ListPolicyAttachments?: BatchListPolicyAttachments | undefined;
 
   /**
    * <p>Lists all policies from the root of the <a>Directory</a> to the object
@@ -1372,13 +1372,13 @@ export interface BatchReadOperation {
    *        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
    * @public
    */
-  LookupPolicy?: BatchLookupPolicy;
+  LookupPolicy?: BatchLookupPolicy | undefined;
 
   /**
    * <p>Lists objects attached to the specified index.</p>
    * @public
    */
-  ListIndex?: BatchListIndex;
+  ListIndex?: BatchListIndex | undefined;
 
   /**
    * <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
@@ -1386,7 +1386,7 @@ export interface BatchReadOperation {
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  ListOutgoingTypedLinks?: BatchListOutgoingTypedLinks;
+  ListOutgoingTypedLinks?: BatchListOutgoingTypedLinks | undefined;
 
   /**
    * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
@@ -1394,13 +1394,13 @@ export interface BatchReadOperation {
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  ListIncomingTypedLinks?: BatchListIncomingTypedLinks;
+  ListIncomingTypedLinks?: BatchListIncomingTypedLinks | undefined;
 
   /**
    * <p>Retrieves attributes that are associated with a typed link.</p>
    * @public
    */
-  GetLinkAttributes?: BatchGetLinkAttributes;
+  GetLinkAttributes?: BatchGetLinkAttributes | undefined;
 }
 
 /**
@@ -1425,7 +1425,7 @@ export interface BatchReadRequest {
    *       is reflected in a subsequent read operation of that same object.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -1463,13 +1463,13 @@ export interface BatchReadException {
    * <p>A type of exception, such as <code>InvalidArnException</code>.</p>
    * @public
    */
-  Type?: BatchReadExceptionType;
+  Type?: BatchReadExceptionType | undefined;
 
   /**
    * <p>An exception message that is associated with the failure.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -1481,7 +1481,7 @@ export interface BatchGetLinkAttributesResponse {
    * <p>The attributes that are associated with the typed link.</p>
    * @public
    */
-  Attributes?: AttributeKeyAndValue[];
+  Attributes?: AttributeKeyAndValue[] | undefined;
 }
 
 /**
@@ -1493,7 +1493,7 @@ export interface BatchGetObjectAttributesResponse {
    * <p>The attribute values that are associated with an object.</p>
    * @public
    */
-  Attributes?: AttributeKeyAndValue[];
+  Attributes?: AttributeKeyAndValue[] | undefined;
 }
 
 /**
@@ -1505,13 +1505,13 @@ export interface BatchGetObjectInformationResponse {
    * <p>The facets attached to the specified object.</p>
    * @public
    */
-  SchemaFacets?: SchemaFacet[];
+  SchemaFacets?: SchemaFacet[] | undefined;
 
   /**
    * <p>The <code>ObjectIdentifier</code> of the specified object.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -1523,13 +1523,13 @@ export interface IndexAttachment {
    * <p>The indexed attribute values.</p>
    * @public
    */
-  IndexedAttributes?: AttributeKeyAndValue[];
+  IndexedAttributes?: AttributeKeyAndValue[] | undefined;
 
   /**
    * <p>In response to <a>ListIndex</a>, the <code>ObjectIdentifier</code> of the object attached to the index. In response to <a>ListAttachedIndices</a>, the <code>ObjectIdentifier</code> of the index attached to the object. This field will always contain the <code>ObjectIdentifier</code> of the object on the opposite side of the attachment specified in the query.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -1541,13 +1541,13 @@ export interface BatchListAttachedIndicesResponse {
    * <p>The indices attached to the specified object.</p>
    * @public
    */
-  IndexAttachments?: IndexAttachment[];
+  IndexAttachments?: IndexAttachment[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1559,13 +1559,13 @@ export interface BatchListIncomingTypedLinksResponse {
    * <p>Returns one or more typed link specifiers as output.</p>
    * @public
    */
-  LinkSpecifiers?: TypedLinkSpecifier[];
+  LinkSpecifiers?: TypedLinkSpecifier[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1577,13 +1577,13 @@ export interface BatchListIndexResponse {
    * <p>The objects and indexed values attached to the index.</p>
    * @public
    */
-  IndexAttachments?: IndexAttachment[];
+  IndexAttachments?: IndexAttachment[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1596,13 +1596,13 @@ export interface BatchListObjectAttributesResponse {
    *       key; attribute value is the value.</p>
    * @public
    */
-  Attributes?: AttributeKeyAndValue[];
+  Attributes?: AttributeKeyAndValue[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1615,13 +1615,13 @@ export interface BatchListObjectChildrenResponse {
    *         <code>ObjectIdentifier</code> as the value.</p>
    * @public
    */
-  Children?: Record<string, string>;
+  Children?: Record<string, string> | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1634,14 +1634,14 @@ export interface PathToObjectIdentifiers {
    * <p>The path that is used to identify the object starting from directory root.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>Lists <code>ObjectIdentifiers</code> starting from directory root to the object in the
    *       request.</p>
    * @public
    */
-  ObjectIdentifiers?: string[];
+  ObjectIdentifiers?: string[] | undefined;
 }
 
 /**
@@ -1654,13 +1654,13 @@ export interface BatchListObjectParentPathsResponse {
    *        directory.</p>
    * @public
    */
-  PathToObjectIdentifiersList?: PathToObjectIdentifiers[];
+  PathToObjectIdentifiersList?: PathToObjectIdentifiers[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1672,13 +1672,13 @@ export interface ObjectIdentifierAndLinkNameTuple {
    * <p>The ID that is associated with the object.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 
   /**
    * <p>The name of the link between the parent and the child object.</p>
    * @public
    */
-  LinkName?: string;
+  LinkName?: string | undefined;
 }
 
 /**
@@ -1690,13 +1690,13 @@ export interface BatchListObjectParentsResponse {
    * <p>Returns a list of parent reference and LinkName Tuples.</p>
    * @public
    */
-  ParentLinks?: ObjectIdentifierAndLinkNameTuple[];
+  ParentLinks?: ObjectIdentifierAndLinkNameTuple[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1709,13 +1709,13 @@ export interface BatchListObjectPoliciesResponse {
    *        object.</p>
    * @public
    */
-  AttachedPolicyIds?: string[];
+  AttachedPolicyIds?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1727,13 +1727,13 @@ export interface BatchListOutgoingTypedLinksResponse {
    * <p>Returns a typed link specifier as output.</p>
    * @public
    */
-  TypedLinkSpecifiers?: TypedLinkSpecifier[];
+  TypedLinkSpecifiers?: TypedLinkSpecifier[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1745,13 +1745,13 @@ export interface BatchListPolicyAttachmentsResponse {
    * <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
    * @public
    */
-  ObjectIdentifiers?: string[];
+  ObjectIdentifiers?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1765,20 +1765,20 @@ export interface PolicyAttachment {
    * <p>The ID of <code>PolicyAttachment</code>.</p>
    * @public
    */
-  PolicyId?: string;
+  PolicyId?: string | undefined;
 
   /**
    * <p>The <code>ObjectIdentifier</code> that is associated with
    *       <code>PolicyAttachment</code>.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 
   /**
    * <p>The type of policy that can be associated with <code>PolicyAttachment</code>.</p>
    * @public
    */
-  PolicyType?: string;
+  PolicyType?: string | undefined;
 }
 
 /**
@@ -1792,13 +1792,13 @@ export interface PolicyToPath {
    * <p>The path that is referenced from the root.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>List of policy objects.</p>
    * @public
    */
-  Policies?: PolicyAttachment[];
+  Policies?: PolicyAttachment[] | undefined;
 }
 
 /**
@@ -1812,13 +1812,13 @@ export interface BatchLookupPolicyResponse {
    *        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
    * @public
    */
-  PolicyToPathList?: PolicyToPath[];
+  PolicyToPathList?: PolicyToPath[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1830,51 +1830,51 @@ export interface BatchReadSuccessfulResponse {
    * <p>Lists all attributes that are associated with an object.</p>
    * @public
    */
-  ListObjectAttributes?: BatchListObjectAttributesResponse;
+  ListObjectAttributes?: BatchListObjectAttributesResponse | undefined;
 
   /**
    * <p>Returns a paginated list of child objects that are associated with a given
    *       object.</p>
    * @public
    */
-  ListObjectChildren?: BatchListObjectChildrenResponse;
+  ListObjectChildren?: BatchListObjectChildrenResponse | undefined;
 
   /**
    * <p>Retrieves metadata about an object.</p>
    * @public
    */
-  GetObjectInformation?: BatchGetObjectInformationResponse;
+  GetObjectInformation?: BatchGetObjectInformationResponse | undefined;
 
   /**
    * <p>Retrieves attributes within a facet that are associated with an object.</p>
    * @public
    */
-  GetObjectAttributes?: BatchGetObjectAttributesResponse;
+  GetObjectAttributes?: BatchGetObjectAttributesResponse | undefined;
 
   /**
    * <p>Lists indices attached to an object.</p>
    * @public
    */
-  ListAttachedIndices?: BatchListAttachedIndicesResponse;
+  ListAttachedIndices?: BatchListAttachedIndicesResponse | undefined;
 
   /**
    * <p>Retrieves all available parent paths for any object type such as node, leaf node,
    *        policy node, and index node objects. For more information about objects, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html">Directory Structure</a>.</p>
    * @public
    */
-  ListObjectParentPaths?: BatchListObjectParentPathsResponse;
+  ListObjectParentPaths?: BatchListObjectParentPathsResponse | undefined;
 
   /**
    * <p>Returns policies attached to an object in pagination fashion.</p>
    * @public
    */
-  ListObjectPolicies?: BatchListObjectPoliciesResponse;
+  ListObjectPolicies?: BatchListObjectPoliciesResponse | undefined;
 
   /**
    * <p>Returns all of the <code>ObjectIdentifiers</code> to which a given policy is attached.</p>
    * @public
    */
-  ListPolicyAttachments?: BatchListPolicyAttachmentsResponse;
+  ListPolicyAttachments?: BatchListPolicyAttachmentsResponse | undefined;
 
   /**
    * <p>Lists all policies from the root of the <a>Directory</a> to the object
@@ -1885,13 +1885,13 @@ export interface BatchReadSuccessfulResponse {
    *        information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
    * @public
    */
-  LookupPolicy?: BatchLookupPolicyResponse;
+  LookupPolicy?: BatchLookupPolicyResponse | undefined;
 
   /**
    * <p>Lists objects attached to the specified index.</p>
    * @public
    */
-  ListIndex?: BatchListIndexResponse;
+  ListIndex?: BatchListIndexResponse | undefined;
 
   /**
    * <p>Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a>
@@ -1899,7 +1899,7 @@ export interface BatchReadSuccessfulResponse {
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  ListOutgoingTypedLinks?: BatchListOutgoingTypedLinksResponse;
+  ListOutgoingTypedLinks?: BatchListOutgoingTypedLinksResponse | undefined;
 
   /**
    * <p>Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a>
@@ -1907,19 +1907,19 @@ export interface BatchReadSuccessfulResponse {
    *        attributes. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  ListIncomingTypedLinks?: BatchListIncomingTypedLinksResponse;
+  ListIncomingTypedLinks?: BatchListIncomingTypedLinksResponse | undefined;
 
   /**
    * <p>The list of attributes to retrieve from the typed link.</p>
    * @public
    */
-  GetLinkAttributes?: BatchGetLinkAttributesResponse;
+  GetLinkAttributes?: BatchGetLinkAttributesResponse | undefined;
 
   /**
    * <p>The list of parent objects to retrieve.</p>
    * @public
    */
-  ListObjectParents?: BatchListObjectParentsResponse;
+  ListObjectParents?: BatchListObjectParentsResponse | undefined;
 }
 
 /**
@@ -1931,13 +1931,13 @@ export interface BatchReadOperationResponse {
    * <p>Identifies which operation in a batch has succeeded.</p>
    * @public
    */
-  SuccessfulResponse?: BatchReadSuccessfulResponse;
+  SuccessfulResponse?: BatchReadSuccessfulResponse | undefined;
 
   /**
    * <p>Identifies which operation in a batch has failed.</p>
    * @public
    */
-  ExceptionResponse?: BatchReadException;
+  ExceptionResponse?: BatchReadException | undefined;
 }
 
 /**
@@ -1948,7 +1948,7 @@ export interface BatchReadResponse {
    * <p>A list of all the responses for each batch read.</p>
    * @public
    */
-  Responses?: BatchReadOperationResponse[];
+  Responses?: BatchReadOperationResponse[] | undefined;
 }
 
 /**
@@ -1988,9 +1988,9 @@ export type BatchWriteExceptionType = (typeof BatchWriteExceptionType)[keyof typ
 export class BatchWriteException extends __BaseException {
   readonly name: "BatchWriteException" = "BatchWriteException";
   readonly $fault: "client" = "client";
-  Index?: number;
-  Type?: BatchWriteExceptionType;
-  Message?: string;
+  Index?: number | undefined;
+  Type?: BatchWriteExceptionType | undefined;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2145,19 +2145,19 @@ export interface BatchCreateIndex {
    * <p>A reference to the parent object that contains the index object.</p>
    * @public
    */
-  ParentReference?: ObjectReference;
+  ParentReference?: ObjectReference | undefined;
 
   /**
    * <p>The name of the link between the parent object and the index object.</p>
    * @public
    */
-  LinkName?: string;
+  LinkName?: string | undefined;
 
   /**
    * <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
    * @public
    */
-  BatchReferenceName?: string;
+  BatchReferenceName?: string | undefined;
 }
 
 /**
@@ -2183,19 +2183,19 @@ export interface BatchCreateObject {
    * <p>If specified, the parent reference to which this object will be attached.</p>
    * @public
    */
-  ParentReference?: ObjectReference;
+  ParentReference?: ObjectReference | undefined;
 
   /**
    * <p>The name of the link.</p>
    * @public
    */
-  LinkName?: string;
+  LinkName?: string | undefined;
 
   /**
    * <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
    * @public
    */
-  BatchReferenceName?: string;
+  BatchReferenceName?: string | undefined;
 }
 
 /**
@@ -2250,7 +2250,7 @@ export interface BatchDetachObject {
    * <p>The batch reference name. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/transaction_support.html">Transaction Support</a> for more information.</p>
    * @public
    */
-  BatchReferenceName?: string;
+  BatchReferenceName?: string | undefined;
 }
 
 /**
@@ -2324,13 +2324,13 @@ export interface LinkAttributeAction {
    * <p>A type that can be either <code>UPDATE_OR_CREATE</code> or <code>DELETE</code>.</p>
    * @public
    */
-  AttributeActionType?: UpdateActionType;
+  AttributeActionType?: UpdateActionType | undefined;
 
   /**
    * <p>The value that you want to update to.</p>
    * @public
    */
-  AttributeUpdateValue?: TypedAttributeValue;
+  AttributeUpdateValue?: TypedAttributeValue | undefined;
 }
 
 /**
@@ -2342,13 +2342,13 @@ export interface LinkAttributeUpdate {
    * <p>The key of the attribute being updated.</p>
    * @public
    */
-  AttributeKey?: AttributeKey;
+  AttributeKey?: AttributeKey | undefined;
 
   /**
    * <p>The action to perform as part of the attribute update.</p>
    * @public
    */
-  AttributeAction?: LinkAttributeAction;
+  AttributeAction?: LinkAttributeAction | undefined;
 }
 
 /**
@@ -2378,13 +2378,13 @@ export interface ObjectAttributeAction {
    * <p>A type that can be either <code>Update</code> or <code>Delete</code>.</p>
    * @public
    */
-  ObjectAttributeActionType?: UpdateActionType;
+  ObjectAttributeActionType?: UpdateActionType | undefined;
 
   /**
    * <p>The value that you want to update to.</p>
    * @public
    */
-  ObjectAttributeUpdateValue?: TypedAttributeValue;
+  ObjectAttributeUpdateValue?: TypedAttributeValue | undefined;
 }
 
 /**
@@ -2396,13 +2396,13 @@ export interface ObjectAttributeUpdate {
    * <p>The key of the attribute being updated.</p>
    * @public
    */
-  ObjectAttributeKey?: AttributeKey;
+  ObjectAttributeKey?: AttributeKey | undefined;
 
   /**
    * <p>The action to perform as part of the attribute update.</p>
    * @public
    */
-  ObjectAttributeAction?: ObjectAttributeAction;
+  ObjectAttributeAction?: ObjectAttributeAction | undefined;
 }
 
 /**
@@ -2432,92 +2432,92 @@ export interface BatchWriteOperation {
    * <p>Creates an object.</p>
    * @public
    */
-  CreateObject?: BatchCreateObject;
+  CreateObject?: BatchCreateObject | undefined;
 
   /**
    * <p>Attaches an object to a <a>Directory</a>.</p>
    * @public
    */
-  AttachObject?: BatchAttachObject;
+  AttachObject?: BatchAttachObject | undefined;
 
   /**
    * <p>Detaches an object from a <a>Directory</a>.</p>
    * @public
    */
-  DetachObject?: BatchDetachObject;
+  DetachObject?: BatchDetachObject | undefined;
 
   /**
    * <p>Updates a given object's attributes.</p>
    * @public
    */
-  UpdateObjectAttributes?: BatchUpdateObjectAttributes;
+  UpdateObjectAttributes?: BatchUpdateObjectAttributes | undefined;
 
   /**
    * <p>Deletes an object in a <a>Directory</a>.</p>
    * @public
    */
-  DeleteObject?: BatchDeleteObject;
+  DeleteObject?: BatchDeleteObject | undefined;
 
   /**
    * <p>A batch operation that adds a facet to an object.</p>
    * @public
    */
-  AddFacetToObject?: BatchAddFacetToObject;
+  AddFacetToObject?: BatchAddFacetToObject | undefined;
 
   /**
    * <p>A batch operation that removes a facet from an object.</p>
    * @public
    */
-  RemoveFacetFromObject?: BatchRemoveFacetFromObject;
+  RemoveFacetFromObject?: BatchRemoveFacetFromObject | undefined;
 
   /**
    * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
    *        policies.</p>
    * @public
    */
-  AttachPolicy?: BatchAttachPolicy;
+  AttachPolicy?: BatchAttachPolicy | undefined;
 
   /**
    * <p>Detaches a policy from a <a>Directory</a>.</p>
    * @public
    */
-  DetachPolicy?: BatchDetachPolicy;
+  DetachPolicy?: BatchDetachPolicy | undefined;
 
   /**
    * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
    * @public
    */
-  CreateIndex?: BatchCreateIndex;
+  CreateIndex?: BatchCreateIndex | undefined;
 
   /**
    * <p>Attaches the specified object to the specified index.</p>
    * @public
    */
-  AttachToIndex?: BatchAttachToIndex;
+  AttachToIndex?: BatchAttachToIndex | undefined;
 
   /**
    * <p>Detaches the specified object from the specified index.</p>
    * @public
    */
-  DetachFromIndex?: BatchDetachFromIndex;
+  DetachFromIndex?: BatchDetachFromIndex | undefined;
 
   /**
    * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  AttachTypedLink?: BatchAttachTypedLink;
+  AttachTypedLink?: BatchAttachTypedLink | undefined;
 
   /**
    * <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  DetachTypedLink?: BatchDetachTypedLink;
+  DetachTypedLink?: BatchDetachTypedLink | undefined;
 
   /**
    * <p>Updates a given object's attributes.</p>
    * @public
    */
-  UpdateLinkAttributes?: BatchUpdateLinkAttributes;
+  UpdateLinkAttributes?: BatchUpdateLinkAttributes | undefined;
 }
 
 /**
@@ -2553,7 +2553,7 @@ export interface BatchAttachObjectResponse {
    * <p>The <code>ObjectIdentifier</code> of the object that has been attached.</p>
    * @public
    */
-  attachedObjectIdentifier?: string;
+  attachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -2572,7 +2572,7 @@ export interface BatchAttachToIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the object that was attached to the index.</p>
    * @public
    */
-  AttachedObjectIdentifier?: string;
+  AttachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -2584,7 +2584,7 @@ export interface BatchAttachTypedLinkResponse {
    * <p>Returns a typed link specifier as output.</p>
    * @public
    */
-  TypedLinkSpecifier?: TypedLinkSpecifier;
+  TypedLinkSpecifier?: TypedLinkSpecifier | undefined;
 }
 
 /**
@@ -2596,7 +2596,7 @@ export interface BatchCreateIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -2608,7 +2608,7 @@ export interface BatchCreateObjectResponse {
    * <p>The ID that is associated with the object.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -2626,7 +2626,7 @@ export interface BatchDetachFromIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
    * @public
    */
-  DetachedObjectIdentifier?: string;
+  DetachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -2638,7 +2638,7 @@ export interface BatchDetachObjectResponse {
    * <p>The <code>ObjectIdentifier</code> of the detached object.</p>
    * @public
    */
-  detachedObjectIdentifier?: string;
+  detachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -2674,7 +2674,7 @@ export interface BatchUpdateObjectAttributesResponse {
    * <p>ID that is associated with the object.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -2686,92 +2686,92 @@ export interface BatchWriteOperationResponse {
    * <p>Creates an object in a <a>Directory</a>.</p>
    * @public
    */
-  CreateObject?: BatchCreateObjectResponse;
+  CreateObject?: BatchCreateObjectResponse | undefined;
 
   /**
    * <p>Attaches an object to a <a>Directory</a>.</p>
    * @public
    */
-  AttachObject?: BatchAttachObjectResponse;
+  AttachObject?: BatchAttachObjectResponse | undefined;
 
   /**
    * <p>Detaches an object from a <a>Directory</a>.</p>
    * @public
    */
-  DetachObject?: BatchDetachObjectResponse;
+  DetachObject?: BatchDetachObjectResponse | undefined;
 
   /**
    * <p>Updates a given object’s attributes.</p>
    * @public
    */
-  UpdateObjectAttributes?: BatchUpdateObjectAttributesResponse;
+  UpdateObjectAttributes?: BatchUpdateObjectAttributesResponse | undefined;
 
   /**
    * <p>Deletes an object in a <a>Directory</a>.</p>
    * @public
    */
-  DeleteObject?: BatchDeleteObjectResponse;
+  DeleteObject?: BatchDeleteObjectResponse | undefined;
 
   /**
    * <p>The result of an add facet to object batch operation.</p>
    * @public
    */
-  AddFacetToObject?: BatchAddFacetToObjectResponse;
+  AddFacetToObject?: BatchAddFacetToObjectResponse | undefined;
 
   /**
    * <p>The result of a batch remove facet from object operation.</p>
    * @public
    */
-  RemoveFacetFromObject?: BatchRemoveFacetFromObjectResponse;
+  RemoveFacetFromObject?: BatchRemoveFacetFromObjectResponse | undefined;
 
   /**
    * <p>Attaches a policy object to a regular object. An object can have a limited number of attached
    *        policies.</p>
    * @public
    */
-  AttachPolicy?: BatchAttachPolicyResponse;
+  AttachPolicy?: BatchAttachPolicyResponse | undefined;
 
   /**
    * <p>Detaches a policy from a <a>Directory</a>.</p>
    * @public
    */
-  DetachPolicy?: BatchDetachPolicyResponse;
+  DetachPolicy?: BatchDetachPolicyResponse | undefined;
 
   /**
    * <p>Creates an index object. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/indexing_search.htm">Indexing and search</a> for more information.</p>
    * @public
    */
-  CreateIndex?: BatchCreateIndexResponse;
+  CreateIndex?: BatchCreateIndexResponse | undefined;
 
   /**
    * <p>Attaches the specified object to the specified index.</p>
    * @public
    */
-  AttachToIndex?: BatchAttachToIndexResponse;
+  AttachToIndex?: BatchAttachToIndexResponse | undefined;
 
   /**
    * <p>Detaches the specified object from the specified index.</p>
    * @public
    */
-  DetachFromIndex?: BatchDetachFromIndexResponse;
+  DetachFromIndex?: BatchDetachFromIndexResponse | undefined;
 
   /**
    * <p>Attaches a typed link to a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  AttachTypedLink?: BatchAttachTypedLinkResponse;
+  AttachTypedLink?: BatchAttachTypedLinkResponse | undefined;
 
   /**
    * <p>Detaches a typed link from a specified source and target object. For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  DetachTypedLink?: BatchDetachTypedLinkResponse;
+  DetachTypedLink?: BatchDetachTypedLinkResponse | undefined;
 
   /**
    * <p>Represents the output of a <code>BatchWrite</code> response operation.</p>
    * @public
    */
-  UpdateLinkAttributes?: BatchUpdateLinkAttributesResponse;
+  UpdateLinkAttributes?: BatchUpdateLinkAttributesResponse | undefined;
 }
 
 /**
@@ -2782,7 +2782,7 @@ export interface BatchWriteResponse {
    * <p>A list of all the responses for each batch write.</p>
    * @public
    */
-  Responses?: BatchWriteOperationResponse[];
+  Responses?: BatchWriteOperationResponse[] | undefined;
 }
 
 /**
@@ -2844,7 +2844,7 @@ export interface CreateDirectoryResponse {
 export class DirectoryAlreadyExistsException extends __BaseException {
   readonly name: "DirectoryAlreadyExistsException" = "DirectoryAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2885,13 +2885,13 @@ export interface Rule {
    * <p>The type of attribute validation rule.</p>
    * @public
    */
-  Type?: RuleType;
+  Type?: RuleType | undefined;
 
   /**
    * <p>The minimum and maximum parameters that are associated with the rule.</p>
    * @public
    */
-  Parameters?: Record<string, string>;
+  Parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -2927,19 +2927,19 @@ export interface FacetAttributeDefinition {
    * <p>The default value of the attribute (if configured).</p>
    * @public
    */
-  DefaultValue?: TypedAttributeValue;
+  DefaultValue?: TypedAttributeValue | undefined;
 
   /**
    * <p>Whether the attribute is mutable or not.</p>
    * @public
    */
-  IsImmutable?: boolean;
+  IsImmutable?: boolean | undefined;
 
   /**
    * <p>Validation rules attached to the attribute definition.</p>
    * @public
    */
-  Rules?: Record<string, Rule>;
+  Rules?: Record<string, Rule> | undefined;
 }
 
 /**
@@ -2991,19 +2991,19 @@ export interface FacetAttribute {
    *       contains the attribute definition. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
    * @public
    */
-  AttributeDefinition?: FacetAttributeDefinition;
+  AttributeDefinition?: FacetAttributeDefinition | undefined;
 
   /**
    * <p>An attribute reference that is associated with the attribute. See <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_attributereferences.html">Attribute References</a> for more information.</p>
    * @public
    */
-  AttributeReference?: FacetAttributeReference;
+  AttributeReference?: FacetAttributeReference | undefined;
 
   /**
    * <p>The required behavior of the <code>FacetAttribute</code>.</p>
    * @public
    */
-  RequiredBehavior?: RequiredAttributeBehavior;
+  RequiredBehavior?: RequiredAttributeBehavior | undefined;
 }
 
 /**
@@ -3057,7 +3057,7 @@ export interface CreateFacetRequest {
    * <p>The attributes that are associated with the <a>Facet</a>.</p>
    * @public
    */
-  Attributes?: FacetAttribute[];
+  Attributes?: FacetAttribute[] | undefined;
 
   /**
    * <p>Specifies whether a given object created from this facet is of type node, leaf node,
@@ -3085,13 +3085,13 @@ export interface CreateFacetRequest {
    *          </ul>
    * @public
    */
-  ObjectType?: ObjectType;
+  ObjectType?: ObjectType | undefined;
 
   /**
    * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    * @public
    */
-  FacetStyle?: FacetStyle;
+  FacetStyle?: FacetStyle | undefined;
 }
 
 /**
@@ -3106,7 +3106,7 @@ export interface CreateFacetResponse {}
 export class FacetAlreadyExistsException extends __BaseException {
   readonly name: "FacetAlreadyExistsException" = "FacetAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3128,7 +3128,7 @@ export class FacetAlreadyExistsException extends __BaseException {
 export class InvalidRuleException extends __BaseException {
   readonly name: "InvalidRuleException" = "InvalidRuleException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3171,13 +3171,13 @@ export interface CreateIndexRequest {
    * <p>A reference to the parent object that contains the index object.</p>
    * @public
    */
-  ParentReference?: ObjectReference;
+  ParentReference?: ObjectReference | undefined;
 
   /**
    * <p>The name of the link between the parent object and the index object.</p>
    * @public
    */
-  LinkName?: string;
+  LinkName?: string | undefined;
 }
 
 /**
@@ -3188,7 +3188,7 @@ export interface CreateIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the index created by this operation.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -3198,7 +3198,7 @@ export interface CreateIndexResponse {
 export class UnsupportedIndexTypeException extends __BaseException {
   readonly name: "UnsupportedIndexTypeException" = "UnsupportedIndexTypeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3235,19 +3235,19 @@ export interface CreateObjectRequest {
    *       value.</p>
    * @public
    */
-  ObjectAttributeList?: AttributeKeyAndValue[];
+  ObjectAttributeList?: AttributeKeyAndValue[] | undefined;
 
   /**
    * <p>If specified, the parent reference to which this object will be attached.</p>
    * @public
    */
-  ParentReference?: ObjectReference;
+  ParentReference?: ObjectReference | undefined;
 
   /**
    * <p>The name of link that is used to attach this object to a parent.</p>
    * @public
    */
-  LinkName?: string;
+  LinkName?: string | undefined;
 }
 
 /**
@@ -3258,7 +3258,7 @@ export interface CreateObjectResponse {
    * <p>The identifier that is associated with the object.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -3282,7 +3282,7 @@ export interface CreateSchemaResponse {
    *       information, see <a>arns</a>.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 }
 
 /**
@@ -3306,19 +3306,19 @@ export interface TypedLinkAttributeDefinition {
    * <p>The default value of the attribute (if configured).</p>
    * @public
    */
-  DefaultValue?: TypedAttributeValue;
+  DefaultValue?: TypedAttributeValue | undefined;
 
   /**
    * <p>Whether the attribute is mutable or not.</p>
    * @public
    */
-  IsImmutable?: boolean;
+  IsImmutable?: boolean | undefined;
 
   /**
    * <p>Validation rules that are attached to the attribute definition.</p>
    * @public
    */
-  Rules?: Record<string, Rule>;
+  Rules?: Record<string, Rule> | undefined;
 
   /**
    * <p>The required behavior of the <code>TypedLinkAttributeDefinition</code>.</p>
@@ -3407,7 +3407,7 @@ export interface DeleteDirectoryResponse {
 export class DirectoryDeletedException extends __BaseException {
   readonly name: "DirectoryDeletedException" = "DirectoryDeletedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3429,7 +3429,7 @@ export class DirectoryDeletedException extends __BaseException {
 export class DirectoryNotDisabledException extends __BaseException {
   readonly name: "DirectoryNotDisabledException" = "DirectoryNotDisabledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3475,7 +3475,7 @@ export interface DeleteFacetResponse {}
 export class FacetInUseException extends __BaseException {
   readonly name: "FacetInUseException" = "FacetInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3497,7 +3497,7 @@ export class FacetInUseException extends __BaseException {
 export class FacetNotFoundException extends __BaseException {
   readonly name: "FacetNotFoundException" = "FacetNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3543,7 +3543,7 @@ export interface DeleteObjectResponse {}
 export class ObjectNotDetachedException extends __BaseException {
   readonly name: "ObjectNotDetachedException" = "ObjectNotDetachedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3579,7 +3579,7 @@ export interface DeleteSchemaResponse {
    *         <a>arns</a>.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 }
 
 /**
@@ -3590,7 +3590,7 @@ export interface DeleteSchemaResponse {
 export class StillContainsLinksException extends __BaseException {
   readonly name: "StillContainsLinksException" = "StillContainsLinksException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3660,7 +3660,7 @@ export interface DetachFromIndexResponse {
    * <p>The <code>ObjectIdentifier</code> of the object that was detached from the index.</p>
    * @public
    */
-  DetachedObjectIdentifier?: string;
+  DetachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -3670,7 +3670,7 @@ export interface DetachFromIndexResponse {
 export class ObjectAlreadyDetachedException extends __BaseException {
   readonly name: "ObjectAlreadyDetachedException" = "ObjectAlreadyDetachedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3718,7 +3718,7 @@ export interface DetachObjectResponse {
    * <p>The <code>ObjectIdentifier</code> that was detached from the object.</p>
    * @public
    */
-  DetachedObjectIdentifier?: string;
+  DetachedObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -3729,7 +3729,7 @@ export interface DetachObjectResponse {
 export class NotNodeException extends __BaseException {
   readonly name: "NotNodeException" = "NotNodeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3854,7 +3854,7 @@ export interface GetAppliedSchemaVersionResponse {
    * <p>Current applied schema ARN, including the minor version in use if one was provided.</p>
    * @public
    */
-  AppliedSchemaArn?: string;
+  AppliedSchemaArn?: string | undefined;
 }
 
 /**
@@ -3892,26 +3892,26 @@ export interface Directory {
    * <p>The name of the directory.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that is associated with the directory. For more
    *       information, see <a>arns</a>.</p>
    * @public
    */
-  DirectoryArn?: string;
+  DirectoryArn?: string | undefined;
 
   /**
    * <p>The state of the directory. Can be either <code>Enabled</code>, <code>Disabled</code>, or <code>Deleted</code>.</p>
    * @public
    */
-  State?: DirectoryState;
+  State?: DirectoryState | undefined;
 
   /**
    * <p>The date and time when the directory was created.</p>
    * @public
    */
-  CreationDateTime?: Date;
+  CreationDateTime?: Date | undefined;
 }
 
 /**
@@ -3954,19 +3954,19 @@ export interface Facet {
    * <p>The name of the <a>Facet</a>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    * @public
    */
-  ObjectType?: ObjectType;
+  ObjectType?: ObjectType | undefined;
 
   /**
    * <p>There are two different styles that you can define on any given facet, <code>Static</code> and <code>Dynamic</code>. For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.</p>
    * @public
    */
-  FacetStyle?: FacetStyle;
+  FacetStyle?: FacetStyle | undefined;
 }
 
 /**
@@ -3977,7 +3977,7 @@ export interface GetFacetResponse {
    * <p>The <a>Facet</a> structure that is associated with the facet.</p>
    * @public
    */
-  Facet?: Facet;
+  Facet?: Facet | undefined;
 }
 
 /**
@@ -4006,7 +4006,7 @@ export interface GetLinkAttributesRequest {
    * <p>The consistency level at which to retrieve the attributes on a typed link.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4017,7 +4017,7 @@ export interface GetLinkAttributesResponse {
    * <p>The attributes that are associated with the typed link.</p>
    * @public
    */
-  Attributes?: AttributeKeyAndValue[];
+  Attributes?: AttributeKeyAndValue[] | undefined;
 }
 
 /**
@@ -4040,7 +4040,7 @@ export interface GetObjectAttributesRequest {
    * <p>The consistency level at which to retrieve the attributes on an object.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 
   /**
    * <p>Identifier for the facet whose attributes will be retrieved. See <a>SchemaFacet</a> for details.</p>
@@ -4063,7 +4063,7 @@ export interface GetObjectAttributesResponse {
    * <p>The attributes that are associated with the object.</p>
    * @public
    */
-  Attributes?: AttributeKeyAndValue[];
+  Attributes?: AttributeKeyAndValue[] | undefined;
 }
 
 /**
@@ -4086,7 +4086,7 @@ export interface GetObjectInformationRequest {
    * <p>The consistency level at which to retrieve the object information.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4097,13 +4097,13 @@ export interface GetObjectInformationResponse {
    * <p>The facets attached to the specified object. Although the response does not include minor version information, the most recently applied minor version of each Facet is in effect. See <a>GetAppliedSchemaVersion</a> for details.</p>
    * @public
    */
-  SchemaFacets?: SchemaFacet[];
+  SchemaFacets?: SchemaFacet[] | undefined;
 
   /**
    * <p>The <code>ObjectIdentifier</code> of the specified object.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -4125,13 +4125,13 @@ export interface GetSchemaAsJsonResponse {
    * <p>The name of the retrieved schema.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The JSON representation of the schema document.</p>
    * @public
    */
-  Document?: string;
+  Document?: string | undefined;
 }
 
 /**
@@ -4165,7 +4165,7 @@ export interface GetTypedLinkFacetInformationResponse {
    *       they are supplied to any API calls. For more information about identity attributes, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed Links</a>.</p>
    * @public
    */
-  IdentityAttributeOrder?: string[];
+  IdentityAttributeOrder?: string[] | undefined;
 }
 
 /**
@@ -4175,7 +4175,7 @@ export interface GetTypedLinkFacetInformationResponse {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4204,19 +4204,19 @@ export interface ListAppliedSchemaArnsRequest {
    * <p>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4227,13 +4227,13 @@ export interface ListAppliedSchemaArnsResponse {
    * <p>The ARNs of schemas that are applied to the directory.</p>
    * @public
    */
-  SchemaArns?: string[];
+  SchemaArns?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4256,19 +4256,19 @@ export interface ListAttachedIndicesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The consistency level to use for this operation.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4279,13 +4279,13 @@ export interface ListAttachedIndicesResponse {
    * <p>The indices attached to the specified object.</p>
    * @public
    */
-  IndexAttachments?: IndexAttachment[];
+  IndexAttachments?: IndexAttachment[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4296,13 +4296,13 @@ export interface ListDevelopmentSchemaArnsRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4313,13 +4313,13 @@ export interface ListDevelopmentSchemaArnsResponse {
    * <p>The ARNs of retrieved development schemas.</p>
    * @public
    */
-  SchemaArns?: string[];
+  SchemaArns?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4330,20 +4330,20 @@ export interface ListDirectoriesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The state of the directories in the list. Can be either Enabled, Disabled, or
    *       Deleted.</p>
    * @public
    */
-  state?: DirectoryState;
+  state?: DirectoryState | undefined;
 }
 
 /**
@@ -4361,7 +4361,7 @@ export interface ListDirectoriesResponse {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4384,13 +4384,13 @@ export interface ListFacetAttributesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4401,13 +4401,13 @@ export interface ListFacetAttributesResponse {
    * <p>The attributes attached to the facet.</p>
    * @public
    */
-  Attributes?: FacetAttribute[];
+  Attributes?: FacetAttribute[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4424,13 +4424,13 @@ export interface ListFacetNamesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4441,13 +4441,13 @@ export interface ListFacetNamesResponse {
    * <p>The names of facets that exist within the schema.</p>
    * @public
    */
-  FacetNames?: string[];
+  FacetNames?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4473,32 +4473,32 @@ export interface ListIncomingTypedLinksRequest {
    *       range specified are presumed to match the entire range.</p>
    * @public
    */
-  FilterAttributeRanges?: TypedLinkAttributeRange[];
+  FilterAttributeRanges?: TypedLinkAttributeRange[] | undefined;
 
   /**
    * <p>Filters are interpreted in the order of the attributes on the typed link facet, not the
    *       order in which they are supplied to any API calls.</p>
    * @public
    */
-  FilterTypedLink?: TypedLinkSchemaAndFacetName;
+  FilterTypedLink?: TypedLinkSchemaAndFacetName | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The consistency level to execute the request at.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4509,13 +4509,13 @@ export interface ListIncomingTypedLinksResponse {
    * <p>Returns one or more typed link specifiers as output.</p>
    * @public
    */
-  LinkSpecifiers?: TypedLinkSpecifier[];
+  LinkSpecifiers?: TypedLinkSpecifier[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4532,7 +4532,7 @@ export interface ListIndexRequest {
    * <p>Specifies the ranges of indexed values that you want to query.</p>
    * @public
    */
-  RangesOnIndexedValues?: ObjectAttributeRange[];
+  RangesOnIndexedValues?: ObjectAttributeRange[] | undefined;
 
   /**
    * <p>The reference to the index to list.</p>
@@ -4544,19 +4544,19 @@ export interface ListIndexRequest {
    * <p>The maximum number of objects in a single page to retrieve from the index during a request. For more information, see <a href="http://docs.aws.amazon.com/clouddirectory/latest/developerguide/limits.html">Amazon Cloud Directory Limits</a>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The consistency level to execute the request at.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4567,13 +4567,13 @@ export interface ListIndexResponse {
    * <p>The objects and indexed values attached to the index.</p>
    * @public
    */
-  IndexAttachments?: IndexAttachment[];
+  IndexAttachments?: IndexAttachment[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4584,19 +4584,19 @@ export interface ListManagedSchemaArnsRequest {
    * <p>The response for ListManagedSchemaArns. When this parameter is used, all minor version ARNs for a major version are listed.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4607,13 +4607,13 @@ export interface ListManagedSchemaArnsResponse {
    * <p>The ARNs for all AWS managed schemas.</p>
    * @public
    */
-  SchemaArns?: string[];
+  SchemaArns?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4637,28 +4637,28 @@ export interface ListObjectAttributesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 
   /**
    * <p>Used to filter the list of object attributes that are associated with a certain
    *       facet.</p>
    * @public
    */
-  FacetFilter?: SchemaFacet;
+  FacetFilter?: SchemaFacet | undefined;
 }
 
 /**
@@ -4670,13 +4670,13 @@ export interface ListObjectAttributesResponse {
    *       key, and attribute value is the value.</p>
    * @public
    */
-  Attributes?: AttributeKeyAndValue[];
+  Attributes?: AttributeKeyAndValue[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4701,21 +4701,21 @@ export interface ListObjectChildrenRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4727,13 +4727,13 @@ export interface ListObjectChildrenResponse {
    *         <code>ObjectIdentifier</code> as the value.</p>
    * @public
    */
-  Children?: Record<string, string>;
+  Children?: Record<string, string> | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4756,14 +4756,14 @@ export interface ListObjectParentPathsRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4775,13 +4775,13 @@ export interface ListObjectParentPathsResponse {
    *       directory.</p>
    * @public
    */
-  PathToObjectIdentifiersList?: PathToObjectIdentifiers[];
+  PathToObjectIdentifiersList?: PathToObjectIdentifiers[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4791,7 +4791,7 @@ export interface ListObjectParentPathsResponse {
 export class CannotListParentOfRootException extends __BaseException {
   readonly name: "CannotListParentOfRootException" = "CannotListParentOfRootException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4828,27 +4828,27 @@ export interface ListObjectParentsRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 
   /**
    * <p>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There could be multiple links between a parent-child pair.</p>
    * @public
    */
-  IncludeAllLinksToEachParent?: boolean;
+  IncludeAllLinksToEachParent?: boolean | undefined;
 }
 
 /**
@@ -4860,19 +4860,19 @@ export interface ListObjectParentsResponse {
    *       LinkName as the value.</p>
    * @public
    */
-  Parents?: Record<string, string>;
+  Parents?: Record<string, string> | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Returns a list of parent reference and LinkName Tuples.</p>
    * @public
    */
-  ParentLinks?: ObjectIdentifierAndLinkNameTuple[];
+  ParentLinks?: ObjectIdentifierAndLinkNameTuple[] | undefined;
 }
 
 /**
@@ -4896,21 +4896,21 @@ export interface ListObjectPoliciesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4922,13 +4922,13 @@ export interface ListObjectPoliciesResponse {
    *       object.</p>
    * @public
    */
-  AttachedPolicyIds?: string[];
+  AttachedPolicyIds?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4954,32 +4954,32 @@ export interface ListOutgoingTypedLinksRequest {
    *       range specified are presumed to match the entire range.</p>
    * @public
    */
-  FilterAttributeRanges?: TypedLinkAttributeRange[];
+  FilterAttributeRanges?: TypedLinkAttributeRange[] | undefined;
 
   /**
    * <p>Filters are interpreted in the order of the attributes defined on the typed link facet,
    *       not the order they are supplied to any API calls.</p>
    * @public
    */
-  FilterTypedLink?: TypedLinkSchemaAndFacetName;
+  FilterTypedLink?: TypedLinkSchemaAndFacetName | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The consistency level to execute the request at.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -4990,13 +4990,13 @@ export interface ListOutgoingTypedLinksResponse {
    * <p>Returns a typed link specifier as output.</p>
    * @public
    */
-  TypedLinkSpecifiers?: TypedLinkSpecifier[];
+  TypedLinkSpecifiers?: TypedLinkSpecifier[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5020,21 +5020,21 @@ export interface ListPolicyAttachmentsRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Represents the manner and timing in which the successful write or update of an object
    *       is reflected in a subsequent read operation of that same object.</p>
    * @public
    */
-  ConsistencyLevel?: ConsistencyLevel;
+  ConsistencyLevel?: ConsistencyLevel | undefined;
 }
 
 /**
@@ -5045,13 +5045,13 @@ export interface ListPolicyAttachmentsResponse {
    * <p>A list of <code>ObjectIdentifiers</code> to which the policy is attached.</p>
    * @public
    */
-  ObjectIdentifiers?: string[];
+  ObjectIdentifiers?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5062,19 +5062,19 @@ export interface ListPublishedSchemaArnsRequest {
    * <p>The response for <code>ListPublishedSchemaArns</code> when this parameter is used will list all minor version ARNs for a major version.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5085,13 +5085,13 @@ export interface ListPublishedSchemaArnsResponse {
    * <p>The ARNs of published schemas.</p>
    * @public
    */
-  SchemaArns?: string[];
+  SchemaArns?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5101,7 +5101,7 @@ export interface ListPublishedSchemaArnsResponse {
 export class InvalidTaggingRequestException extends __BaseException {
   readonly name: "InvalidTaggingRequestException" = "InvalidTaggingRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5132,14 +5132,14 @@ export interface ListTagsForResourceRequest {
    *       tagging.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The <code>MaxResults</code> parameter sets the maximum number of results returned in a
    *       single page. This is for future use and is not supported currently.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5151,13 +5151,13 @@ export interface Tag {
    * <p>The key that is associated with the tag.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value that is associated with the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -5168,13 +5168,13 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tag key value pairs that are associated with the response.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5198,13 +5198,13 @@ export interface ListTypedLinkFacetAttributesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5215,13 +5215,13 @@ export interface ListTypedLinkFacetAttributesResponse {
    * <p>An ordered set of attributes associate with the typed link.</p>
    * @public
    */
-  Attributes?: TypedLinkAttributeDefinition[];
+  Attributes?: TypedLinkAttributeDefinition[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5239,13 +5239,13 @@ export interface ListTypedLinkFacetNamesRequest {
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to retrieve.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5256,13 +5256,13 @@ export interface ListTypedLinkFacetNamesResponse {
    * <p>The names of typed link facets that exist within the schema.</p>
    * @public
    */
-  FacetNames?: string[];
+  FacetNames?: string[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5286,14 +5286,14 @@ export interface LookupPolicyRequest {
    * <p>The token to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to be retrieved in a single call. This is an approximate
    *       number.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5306,13 +5306,13 @@ export interface LookupPolicyResponse {
    *       information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</p>
    * @public
    */
-  PolicyToPathList?: PolicyToPath[];
+  PolicyToPathList?: PolicyToPath[] | undefined;
 
   /**
    * <p>The pagination token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5336,14 +5336,14 @@ export interface PublishSchemaRequest {
    * <p>The minor version under which the schema will be published. This parameter is recommended. Schemas have both a major and minor version associated with them.</p>
    * @public
    */
-  MinorVersion?: string;
+  MinorVersion?: string | undefined;
 
   /**
    * <p>The new name under which the schema will be published. If this is not provided, the
    *       development schema is considered.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -5354,7 +5354,7 @@ export interface PublishSchemaResponse {
    * <p>The ARN that is associated with the published schema. For more information, see <a>arns</a>.</p>
    * @public
    */
-  PublishedSchemaArn?: string;
+  PublishedSchemaArn?: string | undefined;
 }
 
 /**
@@ -5364,7 +5364,7 @@ export interface PublishSchemaResponse {
 export class SchemaAlreadyPublishedException extends __BaseException {
   readonly name: "SchemaAlreadyPublishedException" = "SchemaAlreadyPublishedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5386,7 +5386,7 @@ export class SchemaAlreadyPublishedException extends __BaseException {
 export class InvalidSchemaDocException extends __BaseException {
   readonly name: "InvalidSchemaDocException" = "InvalidSchemaDocException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5426,7 +5426,7 @@ export interface PutSchemaFromJsonResponse {
    * <p>The ARN of the schema to update.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -5511,7 +5511,7 @@ export interface UntagResourceResponse {}
 export class InvalidFacetUpdateException extends __BaseException {
   readonly name: "InvalidFacetUpdateException" = "InvalidFacetUpdateException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5535,13 +5535,13 @@ export interface FacetAttributeUpdate {
    * <p>The attribute to update.</p>
    * @public
    */
-  Attribute?: FacetAttribute;
+  Attribute?: FacetAttribute | undefined;
 
   /**
    * <p>The action to perform when updating the attribute.</p>
    * @public
    */
-  Action?: UpdateActionType;
+  Action?: UpdateActionType | undefined;
 }
 
 /**
@@ -5567,13 +5567,13 @@ export interface UpdateFacetRequest {
    *       operation to perform. </p>
    * @public
    */
-  AttributeUpdates?: FacetAttributeUpdate[];
+  AttributeUpdates?: FacetAttributeUpdate[] | undefined;
 
   /**
    * <p>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a> for more details.</p>
    * @public
    */
-  ObjectType?: ObjectType;
+  ObjectType?: ObjectType | undefined;
 }
 
 /**
@@ -5641,7 +5641,7 @@ export interface UpdateObjectAttributesResponse {
    * <p>The <code>ObjectIdentifier</code> of the updated object.</p>
    * @public
    */
-  ObjectIdentifier?: string;
+  ObjectIdentifier?: string | undefined;
 }
 
 /**
@@ -5670,7 +5670,7 @@ export interface UpdateSchemaResponse {
    * <p>The ARN that is associated with the updated schema. For more information, see <a>arns</a>.</p>
    * @public
    */
-  SchemaArn?: string;
+  SchemaArn?: string | undefined;
 }
 
 /**
@@ -5738,7 +5738,7 @@ export interface UpdateTypedLinkFacetResponse {}
 export class IncompatibleSchemaException extends __BaseException {
   readonly name: "IncompatibleSchemaException" = "IncompatibleSchemaException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5773,7 +5773,7 @@ export interface UpgradeAppliedSchemaRequest {
    * <p>Used for testing whether the major version schemas are backward compatible or not. If schema compatibility fails, an exception would be thrown else the call would succeed but no changes will be saved. This parameter is optional.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5784,13 +5784,13 @@ export interface UpgradeAppliedSchemaResponse {
    * <p>The ARN of the upgraded schema that is returned as part of the response.</p>
    * @public
    */
-  UpgradedSchemaArn?: string;
+  UpgradedSchemaArn?: string | undefined;
 
   /**
    * <p>The ARN of the directory that is returned as part of the response.</p>
    * @public
    */
-  DirectoryArn?: string;
+  DirectoryArn?: string | undefined;
 }
 
 /**
@@ -5819,7 +5819,7 @@ export interface UpgradePublishedSchemaRequest {
    * <p>Used for testing whether the Development schema provided is backwards compatible, or not, with the publish schema provided by the user to be upgraded. If schema compatibility fails, an exception would be thrown else the call would succeed. This parameter is optional and defaults to false.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -5830,5 +5830,5 @@ export interface UpgradePublishedSchemaResponse {
    * <p>The ARN of the upgraded schema that is returned as part of the response.</p>
    * @public
    */
-  UpgradedSchemaArn?: string;
+  UpgradedSchemaArn?: string | undefined;
 }

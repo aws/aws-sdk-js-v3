@@ -18,21 +18,21 @@ export interface AccessLog {
    * <p>The name of the Amazon S3 bucket where the access logs are stored.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>The interval for publishing the access logs. You can specify an interval of either 5 minutes or 60 minutes.</p>
    *         <p>Default: 60 minutes</p>
    * @public
    */
-  EmitInterval?: number;
+  EmitInterval?: number | undefined;
 
   /**
    * <p>The logical hierarchy you created for your Amazon S3 bucket, for example <code>my-bucket-prefix/prod</code>.
    *             If the prefix is not provided, the log is placed at the root level of the bucket.</p>
    * @public
    */
-  S3BucketPrefix?: string;
+  S3BucketPrefix?: string | undefined;
 }
 
 /**
@@ -42,7 +42,7 @@ export interface AccessLog {
 export class AccessPointNotFoundException extends __BaseException {
   readonly name: "AccessPointNotFoundException" = "AccessPointNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -84,7 +84,7 @@ export interface AddAvailabilityZonesOutput {
    * <p>The updated list of Availability Zones for the load balancer.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 }
 
 /**
@@ -105,13 +105,13 @@ export interface AdditionalAttribute {
    *          </ul>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>This value of the attribute.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -129,7 +129,7 @@ export interface Tag {
    * <p>The value of the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -163,7 +163,7 @@ export interface AddTagsOutput {}
 export class DuplicateTagKeysException extends __BaseException {
   readonly name: "DuplicateTagKeysException" = "DuplicateTagKeysException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -185,7 +185,7 @@ export class DuplicateTagKeysException extends __BaseException {
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -209,13 +209,13 @@ export interface AppCookieStickinessPolicy {
    * <p>The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>The name of the application cookie used for stickiness.</p>
    * @public
    */
-  CookieName?: string;
+  CookieName?: string | undefined;
 }
 
 /**
@@ -245,7 +245,7 @@ export interface ApplySecurityGroupsToLoadBalancerOutput {
    * <p>The IDs of the security groups associated with the load balancer.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -255,7 +255,7 @@ export interface ApplySecurityGroupsToLoadBalancerOutput {
 export class InvalidConfigurationRequestException extends __BaseException {
   readonly name: "InvalidConfigurationRequestException" = "InvalidConfigurationRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -277,7 +277,7 @@ export class InvalidConfigurationRequestException extends __BaseException {
 export class InvalidSecurityGroupException extends __BaseException {
   readonly name: "InvalidSecurityGroupException" = "InvalidSecurityGroupException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -319,7 +319,7 @@ export interface AttachLoadBalancerToSubnetsOutput {
    * <p>The IDs of the subnets attached to the load balancer.</p>
    * @public
    */
-  Subnets?: string[];
+  Subnets?: string[] | undefined;
 }
 
 /**
@@ -329,7 +329,7 @@ export interface AttachLoadBalancerToSubnetsOutput {
 export class InvalidSubnetException extends __BaseException {
   readonly name: "InvalidSubnetException" = "InvalidSubnetException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -351,7 +351,7 @@ export class InvalidSubnetException extends __BaseException {
 export class SubnetNotFoundException extends __BaseException {
   readonly name: "SubnetNotFoundException" = "SubnetNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -375,13 +375,13 @@ export interface BackendServerDescription {
    * <p>The port on which the EC2 instance is listening.</p>
    * @public
    */
-  InstancePort?: number;
+  InstancePort?: number | undefined;
 
   /**
    * <p>The names of the policies enabled for the EC2 instance.</p>
    * @public
    */
-  PolicyNames?: string[];
+  PolicyNames?: string[] | undefined;
 }
 
 /**
@@ -393,7 +393,7 @@ export interface BackendServerDescription {
 export class CertificateNotFoundException extends __BaseException {
   readonly name: "CertificateNotFoundException" = "CertificateNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -476,7 +476,7 @@ export interface ConfigureHealthCheckOutput {
    * <p>The updated health check.</p>
    * @public
    */
-  HealthCheck?: HealthCheck;
+  HealthCheck?: HealthCheck | undefined;
 }
 
 /**
@@ -494,7 +494,7 @@ export interface ConnectionDraining {
    * <p>The maximum time, in seconds, to keep the existing connections open before deregistering the instances.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 }
 
 /**
@@ -538,7 +538,7 @@ export interface Listener {
    *            the listener's <code>InstanceProtocol</code> must be HTTP or TCP.</p>
    * @public
    */
-  InstanceProtocol?: string;
+  InstanceProtocol?: string | undefined;
 
   /**
    * <p>The port on which the instance is listening.</p>
@@ -550,7 +550,7 @@ export interface Listener {
    * <p>The Amazon Resource Name (ARN) of the server certificate.</p>
    * @public
    */
-  SSLCertificateId?: string;
+  SSLCertificateId?: string | undefined;
 }
 
 /**
@@ -580,20 +580,20 @@ export interface CreateAccessPointInput {
    *             <a>EnableAvailabilityZonesForLoadBalancer</a>.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The IDs of the subnets in your VPC to attach to the load balancer.
    *             Specify one subnet per Availability Zone specified in <code>AvailabilityZones</code>.</p>
    * @public
    */
-  Subnets?: string[];
+  Subnets?: string[] | undefined;
 
   /**
    * <p>The IDs of the security groups to assign to the load balancer.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The type of a load balancer. Valid only for load balancers in a VPC.</p>
@@ -603,7 +603,7 @@ export interface CreateAccessPointInput {
    *         <p>Specify <code>internal</code> to create a load balancer with a DNS name that resolves to private IP addresses.</p>
    * @public
    */
-  Scheme?: string;
+  Scheme?: string | undefined;
 
   /**
    * <p>A list of tags to assign to the load balancer.</p>
@@ -611,7 +611,7 @@ export interface CreateAccessPointInput {
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -623,7 +623,7 @@ export interface CreateAccessPointOutput {
    * <p>The DNS name of the load balancer.</p>
    * @public
    */
-  DNSName?: string;
+  DNSName?: string | undefined;
 }
 
 /**
@@ -663,7 +663,7 @@ export interface CreateAppCookieStickinessPolicyOutput {}
 export class DuplicatePolicyNameException extends __BaseException {
   readonly name: "DuplicatePolicyNameException" = "DuplicatePolicyNameException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -685,7 +685,7 @@ export class DuplicatePolicyNameException extends __BaseException {
 export class TooManyPoliciesException extends __BaseException {
   readonly name: "TooManyPoliciesException" = "TooManyPoliciesException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -721,7 +721,7 @@ export interface CreateLBCookieStickinessPolicyInput {
    * <p>The time period, in seconds, after which the cookie should be considered stale. If you do not specify this parameter, the default value is 0, which indicates that the sticky session should last for the duration of the browser session.</p>
    * @public
    */
-  CookieExpirationPeriod?: number;
+  CookieExpirationPeriod?: number | undefined;
 }
 
 /**
@@ -737,7 +737,7 @@ export interface CreateLBCookieStickinessPolicyOutput {}
 export class DuplicateAccessPointNameException extends __BaseException {
   readonly name: "DuplicateAccessPointNameException" = "DuplicateAccessPointNameException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -759,7 +759,7 @@ export class DuplicateAccessPointNameException extends __BaseException {
 export class InvalidSchemeException extends __BaseException {
   readonly name: "InvalidSchemeException" = "InvalidSchemeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -781,7 +781,7 @@ export class InvalidSchemeException extends __BaseException {
 export class OperationNotPermittedException extends __BaseException {
   readonly name: "OperationNotPermittedException" = "OperationNotPermittedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -803,7 +803,7 @@ export class OperationNotPermittedException extends __BaseException {
 export class TooManyAccessPointsException extends __BaseException {
   readonly name: "TooManyAccessPointsException" = "TooManyAccessPointsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -825,7 +825,7 @@ export class TooManyAccessPointsException extends __BaseException {
 export class UnsupportedProtocolException extends __BaseException {
   readonly name: "UnsupportedProtocolException" = "UnsupportedProtocolException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -871,7 +871,7 @@ export interface CreateLoadBalancerListenerOutput {}
 export class DuplicateListenerException extends __BaseException {
   readonly name: "DuplicateListenerException" = "DuplicateListenerException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -895,13 +895,13 @@ export interface PolicyAttribute {
    * <p>The name of the attribute.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The value of the attribute.</p>
    * @public
    */
-  AttributeValue?: string;
+  AttributeValue?: string | undefined;
 }
 
 /**
@@ -932,7 +932,7 @@ export interface CreateLoadBalancerPolicyInput {
    * <p>The policy attributes.</p>
    * @public
    */
-  PolicyAttributes?: PolicyAttribute[];
+  PolicyAttributes?: PolicyAttribute[] | undefined;
 }
 
 /**
@@ -948,7 +948,7 @@ export interface CreateLoadBalancerPolicyOutput {}
 export class PolicyTypeNotFoundException extends __BaseException {
   readonly name: "PolicyTypeNotFoundException" = "PolicyTypeNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1048,7 +1048,7 @@ export interface DeleteLoadBalancerPolicyOutput {}
 export class DependencyThrottleException extends __BaseException {
   readonly name: "DependencyThrottleException" = "DependencyThrottleException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1072,7 +1072,7 @@ export interface Instance {
    * <p>The instance ID.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -1102,7 +1102,7 @@ export interface DeregisterEndPointsOutput {
    * <p>The remaining instances registered with the load balancer.</p>
    * @public
    */
-  Instances?: Instance[];
+  Instances?: Instance[] | undefined;
 }
 
 /**
@@ -1112,7 +1112,7 @@ export interface DeregisterEndPointsOutput {
 export class InvalidEndPointException extends __BaseException {
   readonly name: "InvalidEndPointException" = "InvalidEndPointException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1136,19 +1136,19 @@ export interface DescribeAccessPointsInput {
    * <p>The names of the load balancers.</p>
    * @public
    */
-  LoadBalancerNames?: string[];
+  LoadBalancerNames?: string[] | undefined;
 
   /**
    * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with this call (a number from 1 to 400). The default is 400.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -1160,13 +1160,13 @@ export interface ListenerDescription {
    * <p>The listener.</p>
    * @public
    */
-  Listener?: Listener;
+  Listener?: Listener | undefined;
 
   /**
    * <p>The policies. If there are no policies enabled, the list is empty.</p>
    * @public
    */
-  PolicyNames?: string[];
+  PolicyNames?: string[] | undefined;
 }
 
 /**
@@ -1178,13 +1178,13 @@ export interface LBCookieStickinessPolicy {
    * <p>The name of the policy. This name must be unique within the set of policies for this load balancer.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.</p>
    * @public
    */
-  CookieExpirationPeriod?: number;
+  CookieExpirationPeriod?: number | undefined;
 }
 
 /**
@@ -1196,19 +1196,19 @@ export interface Policies {
    * <p>The stickiness policies created using <a>CreateAppCookieStickinessPolicy</a>.</p>
    * @public
    */
-  AppCookieStickinessPolicies?: AppCookieStickinessPolicy[];
+  AppCookieStickinessPolicies?: AppCookieStickinessPolicy[] | undefined;
 
   /**
    * <p>The stickiness policies created using <a>CreateLBCookieStickinessPolicy</a>.</p>
    * @public
    */
-  LBCookieStickinessPolicies?: LBCookieStickinessPolicy[];
+  LBCookieStickinessPolicies?: LBCookieStickinessPolicy[] | undefined;
 
   /**
    * <p>The policies other than the stickiness policies.</p>
    * @public
    */
-  OtherPolicies?: string[];
+  OtherPolicies?: string[] | undefined;
 }
 
 /**
@@ -1220,13 +1220,13 @@ export interface SourceSecurityGroup {
    * <p>The owner of the security group.</p>
    * @public
    */
-  OwnerAlias?: string;
+  OwnerAlias?: string | undefined;
 
   /**
    * <p>The name of the security group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 }
 
 /**
@@ -1238,13 +1238,13 @@ export interface LoadBalancerDescription {
    * <p>The name of the load balancer.</p>
    * @public
    */
-  LoadBalancerName?: string;
+  LoadBalancerName?: string | undefined;
 
   /**
    * <p>The DNS name of the load balancer.</p>
    * @public
    */
-  DNSName?: string;
+  DNSName?: string | undefined;
 
   /**
    * <p>The DNS name of the load balancer.</p>
@@ -1252,80 +1252,80 @@ export interface LoadBalancerDescription {
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    * @public
    */
-  CanonicalHostedZoneName?: string;
+  CanonicalHostedZoneName?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Route 53 hosted zone for the load balancer.</p>
    * @public
    */
-  CanonicalHostedZoneNameID?: string;
+  CanonicalHostedZoneNameID?: string | undefined;
 
   /**
    * <p>The listeners for the load balancer.</p>
    * @public
    */
-  ListenerDescriptions?: ListenerDescription[];
+  ListenerDescriptions?: ListenerDescription[] | undefined;
 
   /**
    * <p>The policies defined for the load balancer.</p>
    * @public
    */
-  Policies?: Policies;
+  Policies?: Policies | undefined;
 
   /**
    * <p>Information about your EC2 instances.</p>
    * @public
    */
-  BackendServerDescriptions?: BackendServerDescription[];
+  BackendServerDescriptions?: BackendServerDescription[] | undefined;
 
   /**
    * <p>The Availability Zones for the load balancer.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The IDs of the subnets for the load balancer.</p>
    * @public
    */
-  Subnets?: string[];
+  Subnets?: string[] | undefined;
 
   /**
    * <p>The ID of the VPC for the load balancer.</p>
    * @public
    */
-  VPCId?: string;
+  VPCId?: string | undefined;
 
   /**
    * <p>The IDs of the instances for the load balancer.</p>
    * @public
    */
-  Instances?: Instance[];
+  Instances?: Instance[] | undefined;
 
   /**
    * <p>Information about the health checks conducted on the load balancer.</p>
    * @public
    */
-  HealthCheck?: HealthCheck;
+  HealthCheck?: HealthCheck | undefined;
 
   /**
    * <p>The security group for the load balancer, which you can use as part of your inbound rules for your registered instances.
    *             To only allow traffic from load balancers, add a security group rule that specifies this source security group as the inbound source.</p>
    * @public
    */
-  SourceSecurityGroup?: SourceSecurityGroup;
+  SourceSecurityGroup?: SourceSecurityGroup | undefined;
 
   /**
    * <p>The security groups for the load balancer. Valid only for load balancers in a VPC.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The date and time the load balancer was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The type of load balancer. Valid only for load balancers in a VPC.</p>
@@ -1335,7 +1335,7 @@ export interface LoadBalancerDescription {
    *            DNS name that resolves to a private IP address.</p>
    * @public
    */
-  Scheme?: string;
+  Scheme?: string | undefined;
 }
 
 /**
@@ -1347,13 +1347,13 @@ export interface DescribeAccessPointsOutput {
    * <p>Information about the load balancers.</p>
    * @public
    */
-  LoadBalancerDescriptions?: LoadBalancerDescription[];
+  LoadBalancerDescriptions?: LoadBalancerDescription[] | undefined;
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -1364,13 +1364,13 @@ export interface DescribeAccountLimitsInput {
    * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -1393,13 +1393,13 @@ export interface Limit {
    *          </ul>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The maximum value of the limit.</p>
    * @public
    */
-  Max?: string;
+  Max?: string | undefined;
 }
 
 /**
@@ -1410,13 +1410,13 @@ export interface DescribeAccountLimitsOutput {
    * <p>Information about the limits.</p>
    * @public
    */
-  Limits?: Limit[];
+  Limits?: Limit[] | undefined;
 
   /**
    * <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -1434,7 +1434,7 @@ export interface DescribeEndPointStateInput {
    * <p>The IDs of the instances.</p>
    * @public
    */
-  Instances?: Instance[];
+  Instances?: Instance[] | undefined;
 }
 
 /**
@@ -1446,7 +1446,7 @@ export interface InstanceState {
    * <p>The ID of the instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The current state of the instance.</p>
@@ -1454,7 +1454,7 @@ export interface InstanceState {
    *          </p>
    * @public
    */
-  State?: string;
+  State?: string | undefined;
 
   /**
    * <p>Information about the cause of <code>OutOfService</code> instances.
@@ -1463,7 +1463,7 @@ export interface InstanceState {
    *          </p>
    * @public
    */
-  ReasonCode?: string;
+  ReasonCode?: string | undefined;
 
   /**
    * <p>A description of the instance state. This string can contain one or more of the following messages.</p>
@@ -1531,7 +1531,7 @@ export interface InstanceState {
    *          </ul>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -1543,7 +1543,7 @@ export interface DescribeEndPointStateOutput {
    * <p>Information about the health of the instances.</p>
    * @public
    */
-  InstanceStates?: InstanceState[];
+  InstanceStates?: InstanceState[] | undefined;
 }
 
 /**
@@ -1569,7 +1569,7 @@ export interface LoadBalancerAttributes {
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    * @public
    */
-  CrossZoneLoadBalancing?: CrossZoneLoadBalancing;
+  CrossZoneLoadBalancing?: CrossZoneLoadBalancing | undefined;
 
   /**
    * <p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p>
@@ -1577,7 +1577,7 @@ export interface LoadBalancerAttributes {
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    * @public
    */
-  AccessLog?: AccessLog;
+  AccessLog?: AccessLog | undefined;
 
   /**
    * <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p>
@@ -1585,7 +1585,7 @@ export interface LoadBalancerAttributes {
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    * @public
    */
-  ConnectionDraining?: ConnectionDraining;
+  ConnectionDraining?: ConnectionDraining | undefined;
 
   /**
    * <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p>
@@ -1594,13 +1594,13 @@ export interface LoadBalancerAttributes {
    *             in the <i>Classic Load Balancers Guide</i>.</p>
    * @public
    */
-  ConnectionSettings?: ConnectionSettings;
+  ConnectionSettings?: ConnectionSettings | undefined;
 
   /**
    * <p>Any additional attributes.</p>
    * @public
    */
-  AdditionalAttributes?: AdditionalAttribute[];
+  AdditionalAttributes?: AdditionalAttribute[] | undefined;
 }
 
 /**
@@ -1612,7 +1612,7 @@ export interface DescribeLoadBalancerAttributesOutput {
    * <p>Information about the load balancer attributes.</p>
    * @public
    */
-  LoadBalancerAttributes?: LoadBalancerAttributes;
+  LoadBalancerAttributes?: LoadBalancerAttributes | undefined;
 }
 
 /**
@@ -1622,7 +1622,7 @@ export interface DescribeLoadBalancerAttributesOutput {
 export class LoadBalancerAttributeNotFoundException extends __BaseException {
   readonly name: "LoadBalancerAttributeNotFoundException" = "LoadBalancerAttributeNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1646,13 +1646,13 @@ export interface DescribeLoadBalancerPoliciesInput {
    * <p>The name of the load balancer.</p>
    * @public
    */
-  LoadBalancerName?: string;
+  LoadBalancerName?: string | undefined;
 
   /**
    * <p>The names of the policies.</p>
    * @public
    */
-  PolicyNames?: string[];
+  PolicyNames?: string[] | undefined;
 }
 
 /**
@@ -1664,13 +1664,13 @@ export interface PolicyAttributeDescription {
    * <p>The name of the attribute.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The value of the attribute.</p>
    * @public
    */
-  AttributeValue?: string;
+  AttributeValue?: string | undefined;
 }
 
 /**
@@ -1682,19 +1682,19 @@ export interface PolicyDescription {
    * <p>The name of the policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>The name of the policy type.</p>
    * @public
    */
-  PolicyTypeName?: string;
+  PolicyTypeName?: string | undefined;
 
   /**
    * <p>The policy attributes.</p>
    * @public
    */
-  PolicyAttributeDescriptions?: PolicyAttributeDescription[];
+  PolicyAttributeDescriptions?: PolicyAttributeDescription[] | undefined;
 }
 
 /**
@@ -1706,7 +1706,7 @@ export interface DescribeLoadBalancerPoliciesOutput {
    * <p>Information about the policies.</p>
    * @public
    */
-  PolicyDescriptions?: PolicyDescription[];
+  PolicyDescriptions?: PolicyDescription[] | undefined;
 }
 
 /**
@@ -1716,7 +1716,7 @@ export interface DescribeLoadBalancerPoliciesOutput {
 export class PolicyNotFoundException extends __BaseException {
   readonly name: "PolicyNotFoundException" = "PolicyNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1740,7 +1740,7 @@ export interface DescribeLoadBalancerPolicyTypesInput {
    * <p>The names of the policy types. If no names are specified, describes all policy types defined by Elastic Load Balancing.</p>
    * @public
    */
-  PolicyTypeNames?: string[];
+  PolicyTypeNames?: string[] | undefined;
 }
 
 /**
@@ -1752,25 +1752,25 @@ export interface PolicyAttributeTypeDescription {
    * <p>The name of the attribute.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The type of the attribute. For example, <code>Boolean</code> or <code>Integer</code>.</p>
    * @public
    */
-  AttributeType?: string;
+  AttributeType?: string | undefined;
 
   /**
    * <p>A description of the attribute.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The default value of the attribute, if applicable.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>The cardinality of the attribute.</p>
@@ -1791,7 +1791,7 @@ export interface PolicyAttributeTypeDescription {
    *          </ul>
    * @public
    */
-  Cardinality?: string;
+  Cardinality?: string | undefined;
 }
 
 /**
@@ -1803,19 +1803,19 @@ export interface PolicyTypeDescription {
    * <p>The name of the policy type.</p>
    * @public
    */
-  PolicyTypeName?: string;
+  PolicyTypeName?: string | undefined;
 
   /**
    * <p>A description of the policy type.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The description of the policy attributes associated with the policies defined by Elastic Load Balancing.</p>
    * @public
    */
-  PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescription[];
+  PolicyAttributeTypeDescriptions?: PolicyAttributeTypeDescription[] | undefined;
 }
 
 /**
@@ -1827,7 +1827,7 @@ export interface DescribeLoadBalancerPolicyTypesOutput {
    * <p>Information about the policy types.</p>
    * @public
    */
-  PolicyTypeDescriptions?: PolicyTypeDescription[];
+  PolicyTypeDescriptions?: PolicyTypeDescription[] | undefined;
 }
 
 /**
@@ -1851,13 +1851,13 @@ export interface TagDescription {
    * <p>The name of the load balancer.</p>
    * @public
    */
-  LoadBalancerName?: string;
+  LoadBalancerName?: string | undefined;
 
   /**
    * <p>The tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1869,7 +1869,7 @@ export interface DescribeTagsOutput {
    * <p>Information about the tags.</p>
    * @public
    */
-  TagDescriptions?: TagDescription[];
+  TagDescriptions?: TagDescription[] | undefined;
 }
 
 /**
@@ -1899,7 +1899,7 @@ export interface DetachLoadBalancerFromSubnetsOutput {
    * <p>The IDs of the remaining subnets for the load balancer.</p>
    * @public
    */
-  Subnets?: string[];
+  Subnets?: string[] | undefined;
 }
 
 /**
@@ -1929,7 +1929,7 @@ export interface RemoveAvailabilityZonesOutput {
    * <p>The remaining Availability Zones for the load balancer.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 }
 
 /**
@@ -1959,13 +1959,13 @@ export interface ModifyLoadBalancerAttributesOutput {
    * <p>The name of the load balancer.</p>
    * @public
    */
-  LoadBalancerName?: string;
+  LoadBalancerName?: string | undefined;
 
   /**
    * <p>Information about the load balancer attributes.</p>
    * @public
    */
-  LoadBalancerAttributes?: LoadBalancerAttributes;
+  LoadBalancerAttributes?: LoadBalancerAttributes | undefined;
 }
 
 /**
@@ -1995,7 +1995,7 @@ export interface RegisterEndPointsOutput {
    * <p>The updated list of instances for the load balancer.</p>
    * @public
    */
-  Instances?: Instance[];
+  Instances?: Instance[] | undefined;
 }
 
 /**
@@ -2007,7 +2007,7 @@ export interface TagKeyOnly {
    * <p>The name of the key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -2041,7 +2041,7 @@ export interface RemoveTagsOutput {}
 export class ListenerNotFoundException extends __BaseException {
   readonly name: "ListenerNotFoundException" = "ListenerNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */

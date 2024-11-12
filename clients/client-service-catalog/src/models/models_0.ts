@@ -36,7 +36,7 @@ export interface AcceptPortfolioShareInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -65,7 +65,7 @@ export interface AcceptPortfolioShareInput {
    *          </p>
    * @public
    */
-  PortfolioShareType?: PortfolioShareType;
+  PortfolioShareType?: PortfolioShareType | undefined;
 }
 
 /**
@@ -80,7 +80,7 @@ export interface AcceptPortfolioShareOutput {}
 export class InvalidParametersException extends __BaseException {
   readonly name: "InvalidParametersException" = "InvalidParametersException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -103,7 +103,7 @@ export class InvalidParametersException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -125,7 +125,7 @@ export class LimitExceededException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -178,13 +178,13 @@ export interface AccessLevelFilter {
    *          </ul>
    * @public
    */
-  Key?: AccessLevelFilterKey;
+  Key?: AccessLevelFilterKey | undefined;
 
   /**
    * <p>The user to which the access level applies. The only supported value is <code>self</code>.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -250,7 +250,7 @@ export interface AssociateBudgetWithResourceOutput {}
 export class DuplicateResourceException extends __BaseException {
   readonly name: "DuplicateResourceException" = "DuplicateResourceException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -297,7 +297,7 @@ export interface AssociatePrincipalWithPortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -396,7 +396,7 @@ export interface AssociateProductWithPortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -414,7 +414,7 @@ export interface AssociateProductWithPortfolioInput {
    * <p>The identifier of the source portfolio.</p>
    * @public
    */
-  SourcePortfolioId?: string;
+  SourcePortfolioId?: string | undefined;
 }
 
 /**
@@ -458,13 +458,13 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -502,7 +502,7 @@ export interface AssociateTagOptionWithResourceOutput {}
 export class InvalidStateException extends __BaseException {
   readonly name: "InvalidStateException" = "InvalidStateException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -526,7 +526,7 @@ export class InvalidStateException extends __BaseException {
 export class TagOptionNotMigratedException extends __BaseException {
   readonly name: "TagOptionNotMigratedException" = "TagOptionNotMigratedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -589,7 +589,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 }
 
 /**
@@ -620,31 +620,31 @@ export interface FailedServiceActionAssociation {
    * <p>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</p>
    * @public
    */
-  ServiceActionId?: string;
+  ServiceActionId?: string | undefined;
 
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The error code. Valid values are listed below.</p>
    * @public
    */
-  ErrorCode?: ServiceActionAssociationErrorCode;
+  ErrorCode?: ServiceActionAssociationErrorCode | undefined;
 
   /**
    * <p>A text description of the error.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -655,7 +655,7 @@ export interface BatchAssociateServiceActionWithProvisioningArtifactOutput {
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    * @public
    */
-  FailedServiceActionAssociations?: FailedServiceActionAssociation[];
+  FailedServiceActionAssociations?: FailedServiceActionAssociation[] | undefined;
 }
 
 /**
@@ -682,7 +682,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 }
 
 /**
@@ -693,7 +693,7 @@ export interface BatchDisassociateServiceActionFromProvisioningArtifactOutput {
    * <p>An object that contains a list of errors, along with information to help you identify the self-service action.</p>
    * @public
    */
-  FailedServiceActionAssociations?: FailedServiceActionAssociation[];
+  FailedServiceActionAssociations?: FailedServiceActionAssociation[] | undefined;
 }
 
 /**
@@ -741,7 +741,7 @@ export interface CopyProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source product.</p>
@@ -753,34 +753,34 @@ export interface CopyProductInput {
    * <p>The identifier of the target product. By default, a new product is created.</p>
    * @public
    */
-  TargetProductId?: string;
+  TargetProductId?: string | undefined;
 
   /**
    * <p>A name for the target product. The default is the name of the source product.</p>
    * @public
    */
-  TargetProductName?: string;
+  TargetProductName?: string | undefined;
 
   /**
    * <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy.
    *          By default, all provisioning artifacts are copied.</p>
    * @public
    */
-  SourceProvisioningArtifactIdentifiers?: Partial<Record<ProvisioningArtifactPropertyName, string>>[];
+  SourceProvisioningArtifactIdentifiers?: Partial<Record<ProvisioningArtifactPropertyName, string>>[] | undefined;
 
   /**
    * <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source
    *          product are copied to the target product.</p>
    * @public
    */
-  CopyOptions?: CopyOption[];
+  CopyOptions?: CopyOption[] | undefined;
 
   /**
    * <p> A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request. </p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -791,7 +791,7 @@ export interface CopyProductOutput {
    * <p>The token to use to track the progress of the operation.</p>
    * @public
    */
-  CopyProductToken?: string;
+  CopyProductToken?: string | undefined;
 }
 
 /**
@@ -812,7 +812,7 @@ export interface CreateConstraintInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -920,14 +920,14 @@ export interface CreateConstraintInput {
    * <p>The description of the constraint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -939,7 +939,7 @@ export interface ConstraintDetail {
    * <p>The identifier of the constraint.</p>
    * @public
    */
-  ConstraintId?: string;
+  ConstraintId?: string | undefined;
 
   /**
    * <p>The type of constraint.</p>
@@ -965,31 +965,31 @@ export interface ConstraintDetail {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The description of the constraint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The owner of the constraint.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.</p>
    * @public
    */
-  PortfolioId?: string;
+  PortfolioId?: string | undefined;
 }
 
 /**
@@ -1015,19 +1015,19 @@ export interface CreateConstraintOutput {
    * <p>Information about the constraint.</p>
    * @public
    */
-  ConstraintDetail?: ConstraintDetail;
+  ConstraintDetail?: ConstraintDetail | undefined;
 
   /**
    * <p>The constraint parameters.</p>
    * @public
    */
-  ConstraintParameters?: string;
+  ConstraintParameters?: string | undefined;
 
   /**
    * <p>The status of the current request.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 }
 
 /**
@@ -1048,7 +1048,7 @@ export interface CreatePortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The name to use for display purposes.</p>
@@ -1060,7 +1060,7 @@ export interface CreatePortfolioInput {
    * <p>The description of the portfolio.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the portfolio provider.</p>
@@ -1072,14 +1072,14 @@ export interface CreatePortfolioInput {
    * <p>One or more tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -1091,37 +1091,37 @@ export interface PortfolioDetail {
    * <p>The portfolio identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ARN assigned to the portfolio.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name to use for display purposes.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The description of the portfolio.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The name of the portfolio provider.</p>
    * @public
    */
-  ProviderName?: string;
+  ProviderName?: string | undefined;
 }
 
 /**
@@ -1132,13 +1132,13 @@ export interface CreatePortfolioOutput {
    * <p>Information about the portfolio.</p>
    * @public
    */
-  PortfolioDetail?: PortfolioDetail;
+  PortfolioDetail?: PortfolioDetail | undefined;
 
   /**
    * <p>Information about the tags associated with the portfolio.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1165,13 +1165,13 @@ export interface OrganizationNode {
    * <p>The organization node type.</p>
    * @public
    */
-  Type?: OrganizationNodeType;
+  Type?: OrganizationNodeType | undefined;
 
   /**
    * <p>The identifier of the organization node.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -1192,7 +1192,7 @@ export interface CreatePortfolioShareInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -1204,21 +1204,21 @@ export interface CreatePortfolioShareInput {
    * <p>The Amazon Web Services account ID. For example, <code>123456789012</code>.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The organization node to whom you are going to share. When you pass <code>OrganizationNode</code>, it creates <code>PortfolioShare</code> for all of the Amazon Web Services accounts that are associated to the <code>OrganizationNode</code>.
    *       The output returns a <code>PortfolioShareToken</code>, which enables the administrator to monitor the status of the <code>PortfolioShare</code> creation process.</p>
    * @public
    */
-  OrganizationNode?: OrganizationNode;
+  OrganizationNode?: OrganizationNode | undefined;
 
   /**
    * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not
    *          provided, TagOptions sharing is disabled.</p>
    * @public
    */
-  ShareTagOptions?: boolean;
+  ShareTagOptions?: boolean | undefined;
 
   /**
    * <p>This parameter is only supported for portfolios with an <b>OrganizationalNode</b>
@@ -1233,7 +1233,7 @@ export interface CreatePortfolioShareInput {
    *          after creating the share. </p>
    * @public
    */
-  SharePrincipals?: boolean;
+  SharePrincipals?: boolean | undefined;
 }
 
 /**
@@ -1244,7 +1244,7 @@ export interface CreatePortfolioShareOutput {
    * <p>The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.</p>
    * @public
    */
-  PortfolioShareToken?: string;
+  PortfolioShareToken?: string | undefined;
 }
 
 /**
@@ -1254,7 +1254,7 @@ export interface CreatePortfolioShareOutput {
 export class OperationNotSupportedException extends __BaseException {
   readonly name: "OperationNotSupportedException" = "OperationNotSupportedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1313,13 +1313,13 @@ export interface ProvisioningArtifactProperties {
    * <p>The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the provisioning artifact, including how it differs from the previous provisioning artifact.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specify the template source with one of the following options, but not both.
@@ -1336,7 +1336,7 @@ export interface ProvisioningArtifactProperties {
    *          </p>
    * @public
    */
-  Info?: Record<string, string>;
+  Info?: Record<string, string> | undefined;
 
   /**
    * <p>The type of provisioning artifact.</p>
@@ -1360,14 +1360,14 @@ export interface ProvisioningArtifactProperties {
    *          </ul>
    * @public
    */
-  Type?: ProvisioningArtifactType;
+  Type?: ProvisioningArtifactType | undefined;
 
   /**
    * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid. </p>
    *          <p>Service Catalog does not support template validation for the <code>TERRAFORM_OS</code> product type. </p>
    * @public
    */
-  DisableTemplateValidation?: boolean;
+  DisableTemplateValidation?: boolean | undefined;
 }
 
 /**
@@ -1411,7 +1411,7 @@ export interface SourceConnectionParameters {
    * <p>Provides <code>ConnectionType</code> details.</p>
    * @public
    */
-  CodeStar?: CodeStarParameters;
+  CodeStar?: CodeStarParameters | undefined;
 }
 
 /**
@@ -1440,7 +1440,7 @@ export interface SourceConnection {
    * <p>The only supported <code>SourceConnection</code> type is Codestar. </p>
    * @public
    */
-  Type?: SourceType;
+  Type?: SourceType | undefined;
 
   /**
    * <p>The connection details based on the connection <code>Type</code>. </p>
@@ -1467,7 +1467,7 @@ export interface CreateProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The name of the product.</p>
@@ -1485,25 +1485,25 @@ export interface CreateProductInput {
    * <p>The description of the product.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The distributor of the product.</p>
    * @public
    */
-  Distributor?: string;
+  Distributor?: string | undefined;
 
   /**
    * <p>The support information about the product.</p>
    * @public
    */
-  SupportDescription?: string;
+  SupportDescription?: string | undefined;
 
   /**
    * <p>The contact email for product support.</p>
    * @public
    */
-  SupportEmail?: string;
+  SupportEmail?: string | undefined;
 
   /**
    * <p>The contact URL for product support.</p>
@@ -1511,7 +1511,7 @@ export interface CreateProductInput {
    *             <code>^https?:\/\// </code>/ is the pattern used to validate SupportUrl.</p>
    * @public
    */
-  SupportUrl?: string;
+  SupportUrl?: string | undefined;
 
   /**
    * <p>The type of product.</p>
@@ -1523,20 +1523,20 @@ export interface CreateProductInput {
    * <p>One or more tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The configuration of the provisioning artifact. </p>
    * @public
    */
-  ProvisioningArtifactParameters?: ProvisioningArtifactProperties;
+  ProvisioningArtifactParameters?: ProvisioningArtifactProperties | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>Specifies connection details for the created product and syncs the product to the connection source
@@ -1556,7 +1556,7 @@ export interface CreateProductInput {
    *          </ul>
    * @public
    */
-  SourceConnection?: SourceConnection;
+  SourceConnection?: SourceConnection | undefined;
 }
 
 /**
@@ -1568,46 +1568,46 @@ export interface ProductViewSummary {
    * <p>The product view identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The name of the product.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The owner of the product. Contact the product administrator for the significance of
    *          this value.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>Short description of the product.</p>
    * @public
    */
-  ShortDescription?: string;
+  ShortDescription?: string | undefined;
 
   /**
    * <p>The product type. Contact the product administrator for the significance of this
    *          value. If this value is <code>MARKETPLACE</code>, the product was created by Amazon Web Services Marketplace.</p>
    * @public
    */
-  Type?: ProductType;
+  Type?: ProductType | undefined;
 
   /**
    * <p>The distributor of the product. Contact the product administrator for the
    *          significance of this value.</p>
    * @public
    */
-  Distributor?: string;
+  Distributor?: string | undefined;
 
   /**
    * <p>Indicates whether the product has a default path.
@@ -1617,25 +1617,25 @@ export interface ProductViewSummary {
    *          <a>DescribeProvisioningParameters</a>.</p>
    * @public
    */
-  HasDefaultPath?: boolean;
+  HasDefaultPath?: boolean | undefined;
 
   /**
    * <p>The email contact information to obtain support for this Product.</p>
    * @public
    */
-  SupportEmail?: string;
+  SupportEmail?: string | undefined;
 
   /**
    * <p>The description of the support for this Product.</p>
    * @public
    */
-  SupportDescription?: string;
+  SupportDescription?: string | undefined;
 
   /**
    * <p>The URL information to obtain support for this Product.</p>
    * @public
    */
-  SupportUrl?: string;
+  SupportUrl?: string | undefined;
 }
 
 /**
@@ -1688,31 +1688,31 @@ export interface LastSync {
    * <p>The time of the last attempted sync from the repository to the Service Catalog product. </p>
    * @public
    */
-  LastSyncTime?: Date;
+  LastSyncTime?: Date | undefined;
 
   /**
    * <p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>
    * @public
    */
-  LastSyncStatus?: LastSyncStatus;
+  LastSyncStatus?: LastSyncStatus | undefined;
 
   /**
    * <p>The sync's status message. </p>
    * @public
    */
-  LastSyncStatusMessage?: string;
+  LastSyncStatusMessage?: string | undefined;
 
   /**
    * <p>The time of the latest successful sync from the source repo artifact to the Service Catalog product.</p>
    * @public
    */
-  LastSuccessfulSyncTime?: Date;
+  LastSuccessfulSyncTime?: Date | undefined;
 
   /**
    * <p>The ProvisioningArtifactID of the ProvisioningArtifact created from the latest successful sync. </p>
    * @public
    */
-  LastSuccessfulSyncProvisioningArtifactId?: string;
+  LastSuccessfulSyncProvisioningArtifactId?: string | undefined;
 }
 
 /**
@@ -1724,13 +1724,13 @@ export interface SourceConnectionDetail {
    * <p>The only supported <code>SourceConnection</code> type is Codestar.</p>
    * @public
    */
-  Type?: SourceType;
+  Type?: SourceType | undefined;
 
   /**
    * <p>The connection details based on the connection <code>Type</code>.</p>
    * @public
    */
-  ConnectionParameters?: SourceConnectionParameters;
+  ConnectionParameters?: SourceConnectionParameters | undefined;
 
   /**
    * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
@@ -1763,7 +1763,7 @@ export interface SourceConnectionDetail {
    *          </ul>
    * @public
    */
-  LastSync?: LastSync;
+  LastSync?: LastSync | undefined;
 }
 
 /**
@@ -1775,7 +1775,7 @@ export interface ProductViewDetail {
    * <p>Summary information about the product view.</p>
    * @public
    */
-  ProductViewSummary?: ProductViewSummary;
+  ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
    * <p>The status of the product.</p>
@@ -1795,19 +1795,19 @@ export interface ProductViewDetail {
    *          </ul>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>The ARN of the product.</p>
    * @public
    */
-  ProductARN?: string;
+  ProductARN?: string | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
@@ -1817,7 +1817,7 @@ export interface ProductViewDetail {
    *          addition of the <code>LastSync</code> response.</p>
    * @public
    */
-  SourceConnection?: SourceConnectionDetail;
+  SourceConnection?: SourceConnectionDetail | undefined;
 }
 
 /**
@@ -1844,19 +1844,19 @@ export interface ProvisioningArtifactDetail {
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the provisioning artifact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the provisioning artifact.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of provisioning artifact.</p>
@@ -1880,25 +1880,25 @@ export interface ProvisioningArtifactDetail {
    *          </ul>
    * @public
    */
-  Type?: ProvisioningArtifactType;
+  Type?: ProvisioningArtifactType | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>Indicates whether the product version is active.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 
   /**
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    * @public
    */
-  Guidance?: ProvisioningArtifactGuidance;
+  Guidance?: ProvisioningArtifactGuidance | undefined;
 
   /**
    * <p>Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product
@@ -1910,7 +1910,7 @@ export interface ProvisioningArtifactDetail {
    *          <p>This field only exists for Repo-Synced products. </p>
    * @public
    */
-  SourceRevision?: string;
+  SourceRevision?: string | undefined;
 }
 
 /**
@@ -1921,19 +1921,19 @@ export interface CreateProductOutput {
    * <p>Information about the product view.</p>
    * @public
    */
-  ProductViewDetail?: ProductViewDetail;
+  ProductViewDetail?: ProductViewDetail | undefined;
 
   /**
    * <p>Information about the provisioning artifact. </p>
    * @public
    */
-  ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
+  ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
    * <p>Information about the tags associated with the product.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1958,19 +1958,19 @@ export interface UpdateProvisioningParameter {
    * <p>The parameter key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The parameter value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>If set to true, <code>Value</code> is ignored and the previous parameter value is kept.</p>
    * @public
    */
-  UsePreviousValue?: boolean;
+  UsePreviousValue?: boolean | undefined;
 }
 
 /**
@@ -1991,7 +1991,7 @@ export interface CreateProvisionedProductPlanInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The name of the plan.</p>
@@ -2010,7 +2010,7 @@ export interface CreateProvisionedProductPlanInput {
    *          events.</p>
    * @public
    */
-  NotificationArns?: string[];
+  NotificationArns?: string[] | undefined;
 
   /**
    * <p>The path identifier of the product. This value is optional if the product
@@ -2018,7 +2018,7 @@ export interface CreateProvisionedProductPlanInput {
    *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
    * @public
    */
-  PathId?: string;
+  PathId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -2044,21 +2044,21 @@ export interface CreateProvisionedProductPlanInput {
    *          product.</p>
    * @public
    */
-  ProvisioningParameters?: UpdateProvisioningParameter[];
+  ProvisioningParameters?: UpdateProvisioningParameter[] | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>One or more tags.</p>
    *          <p>If the plan is for an existing provisioned product, the product must have a <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2069,31 +2069,31 @@ export interface CreateProvisionedProductPlanOutput {
    * <p>The name of the plan.</p>
    * @public
    */
-  PlanName?: string;
+  PlanName?: string | undefined;
 
   /**
    * <p>The plan identifier.</p>
    * @public
    */
-  PlanId?: string;
+  PlanId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProvisionProductId?: string;
+  ProvisionProductId?: string | undefined;
 
   /**
    * <p>The user-friendly name of the provisioned product.</p>
    * @public
    */
-  ProvisionedProductName?: string;
+  ProvisionedProductName?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 }
 
 /**
@@ -2114,7 +2114,7 @@ export interface CreateProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -2133,7 +2133,7 @@ export interface CreateProvisioningArtifactInput {
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -2144,7 +2144,7 @@ export interface CreateProvisioningArtifactOutput {
    * <p>Information about the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
+  ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
    * <p>Specify the template source with one of the following options, but not both. Keys
@@ -2160,13 +2160,13 @@ export interface CreateProvisioningArtifactOutput {
    *          <p>Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.</p>
    * @public
    */
-  Info?: Record<string, string>;
+  Info?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the current request.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 }
 
 /**
@@ -2247,7 +2247,7 @@ export interface CreateServiceActionInput {
    * <p>The self-service action description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The language code.</p>
@@ -2263,14 +2263,14 @@ export interface CreateServiceActionInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -2282,25 +2282,25 @@ export interface ServiceActionSummary {
    * <p>The self-service action identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The self-service action name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The self-service action description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The self-service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
    * @public
    */
-  DefinitionType?: ServiceActionDefinitionType;
+  DefinitionType?: ServiceActionDefinitionType | undefined;
 }
 
 /**
@@ -2312,13 +2312,13 @@ export interface ServiceActionDetail {
    * <p>Summary information about the self-service action.</p>
    * @public
    */
-  ServiceActionSummary?: ServiceActionSummary;
+  ServiceActionSummary?: ServiceActionSummary | undefined;
 
   /**
    * <p>A map that defines the self-service action.</p>
    * @public
    */
-  Definition?: Partial<Record<ServiceActionDefinitionKey, string>>;
+  Definition?: Partial<Record<ServiceActionDefinitionKey, string>> | undefined;
 }
 
 /**
@@ -2329,7 +2329,7 @@ export interface CreateServiceActionOutput {
    * <p>An object containing information about the self-service action.</p>
    * @public
    */
-  ServiceActionDetail?: ServiceActionDetail;
+  ServiceActionDetail?: ServiceActionDetail | undefined;
 }
 
 /**
@@ -2358,31 +2358,31 @@ export interface TagOptionDetail {
    * <p>The TagOption key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The TagOption value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The TagOption active state.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 
   /**
    * <p>The TagOption identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account Id of the owner account that created the TagOption.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 }
 
 /**
@@ -2393,7 +2393,7 @@ export interface CreateTagOptionOutput {
    * <p>Information about the TagOption.</p>
    * @public
    */
-  TagOptionDetail?: TagOptionDetail;
+  TagOptionDetail?: TagOptionDetail | undefined;
 }
 
 /**
@@ -2414,7 +2414,7 @@ export interface DeleteConstraintInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The identifier of the constraint.</p>
@@ -2446,7 +2446,7 @@ export interface DeletePortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -2467,7 +2467,7 @@ export interface DeletePortfolioOutput {}
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2500,7 +2500,7 @@ export interface DeletePortfolioShareInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -2512,13 +2512,13 @@ export interface DeletePortfolioShareInput {
    * <p>The Amazon Web Services account ID.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The organization node to whom you are going to stop sharing.</p>
    * @public
    */
-  OrganizationNode?: OrganizationNode;
+  OrganizationNode?: OrganizationNode | undefined;
 }
 
 /**
@@ -2529,7 +2529,7 @@ export interface DeletePortfolioShareOutput {
    * <p>The portfolio share unique identifier. This will only be returned if delete is made to an organization node.</p>
    * @public
    */
-  PortfolioShareToken?: string;
+  PortfolioShareToken?: string | undefined;
 }
 
 /**
@@ -2550,7 +2550,7 @@ export interface DeleteProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -2582,7 +2582,7 @@ export interface DeleteProvisionedProductPlanInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The plan identifier.</p>
@@ -2595,7 +2595,7 @@ export interface DeleteProvisionedProductPlanInput {
    *          if it cannot delete the underlying resources.</p>
    * @public
    */
-  IgnoreErrors?: boolean;
+  IgnoreErrors?: boolean | undefined;
 }
 
 /**
@@ -2621,7 +2621,7 @@ export interface DeleteProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -2665,13 +2665,13 @@ export interface DeleteServiceActionInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -2713,7 +2713,7 @@ export interface DescribeConstraintInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The identifier of the constraint.</p>
@@ -2730,19 +2730,19 @@ export interface DescribeConstraintOutput {
    * <p>Information about the constraint.</p>
    * @public
    */
-  ConstraintDetail?: ConstraintDetail;
+  ConstraintDetail?: ConstraintDetail | undefined;
 
   /**
    * <p>The constraint parameters.</p>
    * @public
    */
-  ConstraintParameters?: string;
+  ConstraintParameters?: string | undefined;
 
   /**
    * <p>The status of the current request.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 }
 
 /**
@@ -2763,7 +2763,7 @@ export interface DescribeCopyProductStatusInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The token for the copy product operation. This token is returned by <a>CopyProduct</a>.</p>
@@ -2795,19 +2795,19 @@ export interface DescribeCopyProductStatusOutput {
    * <p>The status of the copy product operation.</p>
    * @public
    */
-  CopyProductStatus?: CopyProductStatus;
+  CopyProductStatus?: CopyProductStatus | undefined;
 
   /**
    * <p>The identifier of the copied product.</p>
    * @public
    */
-  TargetProductId?: string;
+  TargetProductId?: string | undefined;
 
   /**
    * <p>The status message.</p>
    * @public
    */
-  StatusDetail?: string;
+  StatusDetail?: string | undefined;
 }
 
 /**
@@ -2828,7 +2828,7 @@ export interface DescribePortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -2846,7 +2846,7 @@ export interface BudgetDetail {
    * <p>Name of the associated budget.</p>
    * @public
    */
-  BudgetName?: string;
+  BudgetName?: string | undefined;
 }
 
 /**
@@ -2857,25 +2857,25 @@ export interface DescribePortfolioOutput {
    * <p>Information about the portfolio.</p>
    * @public
    */
-  PortfolioDetail?: PortfolioDetail;
+  PortfolioDetail?: PortfolioDetail | undefined;
 
   /**
    * <p>Information about the tags associated with the portfolio.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Information about the TagOptions associated with the portfolio.</p>
    * @public
    */
-  TagOptions?: TagOptionDetail[];
+  TagOptions?: TagOptionDetail[] | undefined;
 
   /**
    * <p>Information about the associated budgets.</p>
    * @public
    */
-  Budgets?: BudgetDetail[];
+  Budgets?: BudgetDetail[] | undefined;
 }
 
 /**
@@ -2918,13 +2918,13 @@ export interface DescribePortfolioSharesInput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -2941,31 +2941,31 @@ export interface PortfolioShareDetail {
    *          <p>4. The organization itself. (This shares with every account in the organization).</p>
    * @public
    */
-  PrincipalId?: string;
+  PrincipalId?: string | undefined;
 
   /**
    * <p>The type of the portfolio share.</p>
    * @public
    */
-  Type?: DescribePortfolioShareType;
+  Type?: DescribePortfolioShareType | undefined;
 
   /**
    * <p>Indicates whether the shared portfolio is imported by the recipient account. If the recipient is in an organization node, the share is automatically imported, and the field is always set to true.</p>
    * @public
    */
-  Accepted?: boolean;
+  Accepted?: boolean | undefined;
 
   /**
    * <p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>
    * @public
    */
-  ShareTagOptions?: boolean;
+  ShareTagOptions?: boolean | undefined;
 
   /**
    * <p>Indicates if <code>Principal</code> sharing is enabled or disabled for the portfolio share. </p>
    * @public
    */
-  SharePrincipals?: boolean;
+  SharePrincipals?: boolean | undefined;
 }
 
 /**
@@ -2976,13 +2976,13 @@ export interface DescribePortfolioSharesOutput {
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 
   /**
    * <p>Summaries about each of the portfolio shares.</p>
    * @public
    */
-  PortfolioShareDetails?: PortfolioShareDetail[];
+  PortfolioShareDetails?: PortfolioShareDetail[] | undefined;
 }
 
 /**
@@ -3005,19 +3005,19 @@ export interface ShareError {
    * <p>List of accounts impacted by the error.</p>
    * @public
    */
-  Accounts?: string[];
+  Accounts?: string[] | undefined;
 
   /**
    * <p>Information about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>Error type that happened when processing the operation.</p>
    * @public
    */
-  Error?: string;
+  Error?: string | undefined;
 }
 
 /**
@@ -3029,13 +3029,13 @@ export interface ShareDetails {
    * <p>List of accounts for whom the operation succeeded.</p>
    * @public
    */
-  SuccessfulShares?: string[];
+  SuccessfulShares?: string[] | undefined;
 
   /**
    * <p>List of errors.</p>
    * @public
    */
-  ShareErrors?: ShareError[];
+  ShareErrors?: ShareError[] | undefined;
 }
 
 /**
@@ -3063,31 +3063,31 @@ export interface DescribePortfolioShareStatusOutput {
    * <p>The token for the portfolio share operation. For example, <code>share-6v24abcdefghi</code>.</p>
    * @public
    */
-  PortfolioShareToken?: string;
+  PortfolioShareToken?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
    * @public
    */
-  PortfolioId?: string;
+  PortfolioId?: string | undefined;
 
   /**
    * <p>Organization node identifier. It can be either account id, organizational unit id or organization id.</p>
    * @public
    */
-  OrganizationNodeValue?: string;
+  OrganizationNodeValue?: string | undefined;
 
   /**
    * <p>Status of the portfolio share operation.</p>
    * @public
    */
-  Status?: ShareStatus;
+  Status?: ShareStatus | undefined;
 
   /**
    * <p>Information about the portfolio share operation.</p>
    * @public
    */
-  ShareDetails?: ShareDetails;
+  ShareDetails?: ShareDetails | undefined;
 }
 
 /**
@@ -3108,19 +3108,19 @@ export interface DescribeProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The product name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -3132,13 +3132,13 @@ export interface LaunchPath {
    * <p>The identifier of the launch path.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the launch path.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -3150,31 +3150,31 @@ export interface ProvisioningArtifact {
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the provisioning artifact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the provisioning artifact.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    * @public
    */
-  Guidance?: ProvisioningArtifactGuidance;
+  Guidance?: ProvisioningArtifactGuidance | undefined;
 }
 
 /**
@@ -3185,25 +3185,25 @@ export interface DescribeProductOutput {
    * <p>Summary information about the product view.</p>
    * @public
    */
-  ProductViewSummary?: ProductViewSummary;
+  ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
    * <p>Information about the provisioning artifacts for the specified product.</p>
    * @public
    */
-  ProvisioningArtifacts?: ProvisioningArtifact[];
+  ProvisioningArtifacts?: ProvisioningArtifact[] | undefined;
 
   /**
    * <p>Information about the associated budgets.</p>
    * @public
    */
-  Budgets?: BudgetDetail[];
+  Budgets?: BudgetDetail[] | undefined;
 
   /**
    * <p>Information about the associated launch paths.</p>
    * @public
    */
-  LaunchPaths?: LaunchPath[];
+  LaunchPaths?: LaunchPath[] | undefined;
 }
 
 /**
@@ -3224,19 +3224,19 @@ export interface DescribeProductAsAdminInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The product name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The unique identifier of the shared portfolio that the specified product is associated
@@ -3247,7 +3247,7 @@ export interface DescribeProductAsAdminInput {
    *          product. Otherwise only local TagOptions will be returned. </p>
    * @public
    */
-  SourcePortfolioId?: string;
+  SourcePortfolioId?: string | undefined;
 }
 
 /**
@@ -3259,31 +3259,31 @@ export interface ProvisioningArtifactSummary {
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the provisioning artifact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the provisioning artifact.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The metadata for the provisioning artifact. This is used with Amazon Web Services Marketplace products.</p>
    * @public
    */
-  ProvisioningArtifactMetadata?: Record<string, string>;
+  ProvisioningArtifactMetadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -3294,31 +3294,31 @@ export interface DescribeProductAsAdminOutput {
    * <p>Information about the product view.</p>
    * @public
    */
-  ProductViewDetail?: ProductViewDetail;
+  ProductViewDetail?: ProductViewDetail | undefined;
 
   /**
    * <p>Information about the provisioning artifacts (also known as versions) for the specified product.</p>
    * @public
    */
-  ProvisioningArtifactSummaries?: ProvisioningArtifactSummary[];
+  ProvisioningArtifactSummaries?: ProvisioningArtifactSummary[] | undefined;
 
   /**
    * <p>Information about the tags associated with the product.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Information about the TagOptions associated with the product.</p>
    * @public
    */
-  TagOptions?: TagOptionDetail[];
+  TagOptions?: TagOptionDetail[] | undefined;
 
   /**
    * <p>Information about the associated budgets.</p>
    * @public
    */
-  Budgets?: BudgetDetail[];
+  Budgets?: BudgetDetail[] | undefined;
 }
 
 /**
@@ -3339,7 +3339,7 @@ export interface DescribeProductViewInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product view identifier.</p>
@@ -3356,13 +3356,13 @@ export interface DescribeProductViewOutput {
    * <p>Summary information about the product.</p>
    * @public
    */
-  ProductViewSummary?: ProductViewSummary;
+  ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
    * <p>Information about the provisioning artifacts for the product.</p>
    * @public
    */
-  ProvisioningArtifacts?: ProvisioningArtifact[];
+  ProvisioningArtifacts?: ProvisioningArtifact[] | undefined;
 }
 
 /**
@@ -3393,21 +3393,21 @@ export interface DescribeProvisionedProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The provisioned product identifier. You must provide the name or ID, but not both.</p>
    *          <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The name of the provisioned product. You must provide the name or ID, but not both.</p>
    *          <p>If you do not provide a name or ID, or you provide both name and ID, an <code>InvalidParametersException</code> will occur.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -3419,7 +3419,7 @@ export interface CloudWatchDashboard {
    * <p>The name of the CloudWatch dashboard.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -3448,13 +3448,13 @@ export interface ProvisionedProductDetail {
    * <p>The user-friendly name of the provisioned product.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ARN of the provisioned product.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The type of provisioned product.
@@ -3462,13 +3462,13 @@ export interface ProvisionedProductDetail {
    *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The current status of the provisioned product.</p>
@@ -3502,32 +3502,32 @@ export interface ProvisionedProductDetail {
    *          </ul>
    * @public
    */
-  Status?: ProvisionedProductStatus;
+  Status?: ProvisionedProductStatus | undefined;
 
   /**
    * <p>The current status message of the provisioned product.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>The record identifier of the last request performed on this provisioned product.</p>
    * @public
    */
-  LastRecordId?: string;
+  LastRecordId?: string | undefined;
 
   /**
    * <p>The record identifier of the last request performed on this provisioned product of the following types:</p>
@@ -3555,7 +3555,7 @@ export interface ProvisionedProductDetail {
    *          </ul>
    * @public
    */
-  LastProvisioningRecordId?: string;
+  LastProvisioningRecordId?: string | undefined;
 
   /**
    * <p>The record identifier of the last successful request performed on this provisioned product of the following types:</p>
@@ -3583,25 +3583,25 @@ export interface ProvisionedProductDetail {
    *          </ul>
    * @public
    */
-  LastSuccessfulProvisioningRecordId?: string;
+  LastSuccessfulProvisioningRecordId?: string | undefined;
 
   /**
    * <p>The product identifier. For example, <code>prod-abcdzk7xy33qa</code>.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact. For example, <code>pa-4abcdjnxjj6ne</code>.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The ARN of the launch role associated with the provisioned product.</p>
    * @public
    */
-  LaunchRoleArn?: string;
+  LaunchRoleArn?: string | undefined;
 }
 
 /**
@@ -3612,13 +3612,13 @@ export interface DescribeProvisionedProductOutput {
    * <p>Information about the provisioned product.</p>
    * @public
    */
-  ProvisionedProductDetail?: ProvisionedProductDetail;
+  ProvisionedProductDetail?: ProvisionedProductDetail | undefined;
 
   /**
    * <p>Any CloudWatch dashboards that were created when provisioning the product.</p>
    * @public
    */
-  CloudWatchDashboards?: CloudWatchDashboard[];
+  CloudWatchDashboards?: CloudWatchDashboard[] | undefined;
 }
 
 /**
@@ -3639,7 +3639,7 @@ export interface DescribeProvisionedProductPlanInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The plan identifier.</p>
@@ -3651,13 +3651,13 @@ export interface DescribeProvisionedProductPlanInput {
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -3688,7 +3688,7 @@ export interface ProvisionedProductPlanDetails {
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The path identifier of the product. This value is optional if the product
@@ -3696,87 +3696,87 @@ export interface ProvisionedProductPlanDetails {
    *          To list the paths for a product, use <a>ListLaunchPaths</a>.</p>
    * @public
    */
-  PathId?: string;
+  PathId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The name of the plan.</p>
    * @public
    */
-  PlanName?: string;
+  PlanName?: string | undefined;
 
   /**
    * <p>The plan identifier.</p>
    * @public
    */
-  PlanId?: string;
+  PlanId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProvisionProductId?: string;
+  ProvisionProductId?: string | undefined;
 
   /**
    * <p>The user-friendly name of the provisioned product.</p>
    * @public
    */
-  ProvisionProductName?: string;
+  ProvisionProductName?: string | undefined;
 
   /**
    * <p>The plan type.</p>
    * @public
    */
-  PlanType?: ProvisionedProductPlanType;
+  PlanType?: ProvisionedProductPlanType | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  Status?: ProvisionedProductPlanStatus;
+  Status?: ProvisionedProductPlanStatus | undefined;
 
   /**
    * <p>The UTC time stamp when the plan was last updated.</p>
    * @public
    */
-  UpdatedTime?: Date;
+  UpdatedTime?: Date | undefined;
 
   /**
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    * @public
    */
-  NotificationArns?: string[];
+  NotificationArns?: string[] | undefined;
 
   /**
    * <p>Parameters specified by the administrator that are required for provisioning the
    *          product.</p>
    * @public
    */
-  ProvisioningParameters?: UpdateProvisioningParameter[];
+  ProvisioningParameters?: UpdateProvisioningParameter[] | undefined;
 
   /**
    * <p>One or more tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The status message.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -3850,21 +3850,21 @@ export interface ResourceTargetDefinition {
    * <p>The attribute to be changed.</p>
    * @public
    */
-  Attribute?: ResourceAttribute;
+  Attribute?: ResourceAttribute | undefined;
 
   /**
    * <p>If the attribute is <code>Properties</code>, the value is the name of the property.
    *          Otherwise, the value is null.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>If the attribute is <code>Properties</code>, indicates whether a change to this property
    *          causes the resource to be re-created.</p>
    * @public
    */
-  RequiresRecreation?: RequiresRecreation;
+  RequiresRecreation?: RequiresRecreation | undefined;
 }
 
 /**
@@ -3876,20 +3876,20 @@ export interface ResourceChangeDetail {
    * <p>Information about the resource attribute to be modified.</p>
    * @public
    */
-  Target?: ResourceTargetDefinition;
+  Target?: ResourceTargetDefinition | undefined;
 
   /**
    * <p>For static evaluations, the value of the resource attribute will change and the new value is known.
    *          For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.</p>
    * @public
    */
-  Evaluation?: EvaluationType;
+  Evaluation?: EvaluationType | undefined;
 
   /**
    * <p>The ID of the entity that caused the change.</p>
    * @public
    */
-  CausingEntity?: string;
+  CausingEntity?: string | undefined;
 }
 
 /**
@@ -3916,44 +3916,44 @@ export interface ResourceChange {
    * <p>The change action.</p>
    * @public
    */
-  Action?: ChangeAction;
+  Action?: ChangeAction | undefined;
 
   /**
    * <p>The ID of the resource, as defined in the CloudFormation template.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 
   /**
    * <p>The ID of the resource, if it was already created.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>The type of resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>If the change type is <code>Modify</code>, indicates whether the existing resource
    *          is deleted and replaced with a new one.</p>
    * @public
    */
-  Replacement?: Replacement;
+  Replacement?: Replacement | undefined;
 
   /**
    * <p>The change scope.</p>
    * @public
    */
-  Scope?: ResourceAttribute[];
+  Scope?: ResourceAttribute[] | undefined;
 
   /**
    * <p>Information about the resource changes.</p>
    * @public
    */
-  Details?: ResourceChangeDetail[];
+  Details?: ResourceChangeDetail[] | undefined;
 }
 
 /**
@@ -3964,19 +3964,19 @@ export interface DescribeProvisionedProductPlanOutput {
    * <p>Information about the plan.</p>
    * @public
    */
-  ProvisionedProductPlanDetails?: ProvisionedProductPlanDetails;
+  ProvisionedProductPlanDetails?: ProvisionedProductPlanDetails | undefined;
 
   /**
    * <p>Information about the resource changes that will occur when the plan is executed.</p>
    * @public
    */
-  ResourceChanges?: ResourceChange[];
+  ResourceChanges?: ResourceChange[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -3997,43 +3997,43 @@ export interface DescribeProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The provisioning artifact name.</p>
    * @public
    */
-  ProvisioningArtifactName?: string;
+  ProvisioningArtifactName?: string | undefined;
 
   /**
    * <p>The product name.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>Indicates whether a verbose level of detail is enabled.</p>
    * @public
    */
-  Verbose?: boolean;
+  Verbose?: boolean | undefined;
 
   /**
    * <p>Indicates if the API call response does or does not include additional details about the provisioning parameters. </p>
    * @public
    */
-  IncludeProvisioningArtifactParameters?: boolean;
+  IncludeProvisioningArtifactParameters?: boolean | undefined;
 }
 
 /**
@@ -4045,13 +4045,13 @@ export interface ParameterConstraints {
    * <p>The values that the administrator has allowed for the parameter.</p>
    * @public
    */
-  AllowedValues?: string[];
+  AllowedValues?: string[] | undefined;
 
   /**
    * <p>A regular expression that represents the patterns that allow for <code>String</code> types. The pattern must match the entire parameter value provided.</p>
    * @public
    */
-  AllowedPattern?: string;
+  AllowedPattern?: string | undefined;
 
   /**
    * <p>A string that explains a constraint when the constraint is violated. For example, without a constraint description, a parameter that has an allowed pattern of <code>[A-Za-z0-9]+</code> displays the following error message when the user specifies an invalid value:</p>
@@ -4064,31 +4064,31 @@ export interface ParameterConstraints {
    *          </p>
    * @public
    */
-  ConstraintDescription?: string;
+  ConstraintDescription?: string | undefined;
 
   /**
    * <p>An integer value that determines the largest number of characters you want to allow for <code>String</code> types. </p>
    * @public
    */
-  MaxLength?: string;
+  MaxLength?: string | undefined;
 
   /**
    * <p>An integer value that determines the smallest number of characters you want to allow for <code>String</code> types.</p>
    * @public
    */
-  MinLength?: string;
+  MinLength?: string | undefined;
 
   /**
    * <p>A numeric value that determines the largest numeric value you want to allow for <code>Number</code> types.</p>
    * @public
    */
-  MaxValue?: string;
+  MaxValue?: string | undefined;
 
   /**
    * <p>A numeric value that determines the smallest numeric value you want to allow for <code>Number</code> types. </p>
    * @public
    */
-  MinValue?: string;
+  MinValue?: string | undefined;
 }
 
 /**
@@ -4100,38 +4100,38 @@ export interface ProvisioningArtifactParameter {
    * <p>The parameter key.</p>
    * @public
    */
-  ParameterKey?: string;
+  ParameterKey?: string | undefined;
 
   /**
    * <p>The default value.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>The parameter type.</p>
    * @public
    */
-  ParameterType?: string;
+  ParameterType?: string | undefined;
 
   /**
    * <p>If this value is true, the value for this parameter is obfuscated from view when the
    *          parameter is retrieved. This parameter is used to hide sensitive information.</p>
    * @public
    */
-  IsNoEcho?: boolean;
+  IsNoEcho?: boolean | undefined;
 
   /**
    * <p>The description of the parameter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Constraints that the administrator has put on a parameter.</p>
    * @public
    */
-  ParameterConstraints?: ParameterConstraints;
+  ParameterConstraints?: ParameterConstraints | undefined;
 }
 
 /**
@@ -4142,25 +4142,25 @@ export interface DescribeProvisioningArtifactOutput {
    * <p>Information about the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
+  ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
    * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    * @public
    */
-  Info?: Record<string, string>;
+  Info?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the current request.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>Information about the parameters used to provision the product.  </p>
    * @public
    */
-  ProvisioningArtifactParameters?: ProvisioningArtifactParameter[];
+  ProvisioningArtifactParameters?: ProvisioningArtifactParameter[] | undefined;
 }
 
 /**
@@ -4181,31 +4181,31 @@ export interface DescribeProvisioningParametersInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier. You must provide the product name or ID, but not both.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The name of the product. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProvisioningArtifactName?: string;
+  ProvisioningArtifactName?: string | undefined;
 
   /**
    * <p>The path identifier of the product. This value is optional if the product
@@ -4213,13 +4213,13 @@ export interface DescribeProvisioningParametersInput {
    *          To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
    * @public
    */
-  PathId?: string;
+  PathId?: string | undefined;
 
   /**
    * <p>The name of the path. You must provide the name or ID, but not both.</p>
    * @public
    */
-  PathName?: string;
+  PathName?: string | undefined;
 }
 
 /**
@@ -4251,13 +4251,13 @@ export interface ConstraintSummary {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The description of the constraint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4269,13 +4269,13 @@ export interface ProvisioningArtifactOutput {
    * <p>The provisioning artifact output key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Description of the provisioning artifact output key.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4289,14 +4289,14 @@ export interface ProvisioningArtifactPreferences {
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    * @public
    */
-  StackSetAccounts?: string[];
+  StackSetAccounts?: string[] | undefined;
 
   /**
    * <p>One or more Amazon Web Services Regions where stack instances are deployed from the stack set. These Regions can be scoped in <code>ProvisioningPreferences$StackSetRegions</code> and <code>UpdateProvisioningPreferences$StackSetRegions</code>.</p>
    *          <p>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</p>
    * @public
    */
-  StackSetRegions?: string[];
+  StackSetRegions?: string[] | undefined;
 }
 
 /**
@@ -4308,13 +4308,13 @@ export interface TagOptionSummary {
    * <p>The TagOption key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The TagOption value.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -4326,13 +4326,13 @@ export interface UsageInstruction {
    * <p>The usage instruction type for the value.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The usage instruction value for this type.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -4343,32 +4343,32 @@ export interface DescribeProvisioningParametersOutput {
    * <p>Information about the parameters used to provision the product.</p>
    * @public
    */
-  ProvisioningArtifactParameters?: ProvisioningArtifactParameter[];
+  ProvisioningArtifactParameters?: ProvisioningArtifactParameter[] | undefined;
 
   /**
    * <p>Information about the constraints used to provision the product.</p>
    * @public
    */
-  ConstraintSummaries?: ConstraintSummary[];
+  ConstraintSummaries?: ConstraintSummary[] | undefined;
 
   /**
    * <p>Any additional metadata specifically related to the provisioning of the product. For
    *          example, see the <code>Version</code> field of the CloudFormation template.</p>
    * @public
    */
-  UsageInstructions?: UsageInstruction[];
+  UsageInstructions?: UsageInstruction[] | undefined;
 
   /**
    * <p>Information about the TagOptions associated with the resource.</p>
    * @public
    */
-  TagOptions?: TagOptionSummary[];
+  TagOptions?: TagOptionSummary[] | undefined;
 
   /**
    * <p>An object that contains information about preferences, such as Regions and accounts, for the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences;
+  ProvisioningArtifactPreferences?: ProvisioningArtifactPreferences | undefined;
 
   /**
    * @deprecated
@@ -4376,13 +4376,13 @@ export interface DescribeProvisioningParametersOutput {
    * <p>The output of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[];
+  ProvisioningArtifactOutputs?: ProvisioningArtifactOutput[] | undefined;
 
   /**
    * <p>A list of the keys and descriptions of the outputs. These outputs can be referenced from a provisioned product launched from this provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[];
+  ProvisioningArtifactOutputKeys?: ProvisioningArtifactOutput[] | undefined;
 }
 
 /**
@@ -4403,7 +4403,7 @@ export interface DescribeRecordInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The record identifier of the provisioned product. This identifier is returned by the
@@ -4416,13 +4416,13 @@ export interface DescribeRecordInput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -4434,13 +4434,13 @@ export interface RecordError {
    * <p>The numeric value of the error.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The description of the error.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4452,13 +4452,13 @@ export interface RecordTag {
    * <p>The key for this tag.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value for this tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -4487,13 +4487,13 @@ export interface RecordDetail {
    * <p>The identifier of the record.</p>
    * @public
    */
-  RecordId?: string;
+  RecordId?: string | undefined;
 
   /**
    * <p>The user-friendly name of the provisioned product.</p>
    * @public
    */
-  ProvisionedProductName?: string;
+  ProvisionedProductName?: string | undefined;
 
   /**
    * <p>The status of the provisioned product.</p>
@@ -4523,26 +4523,26 @@ export interface RecordDetail {
    *          </ul>
    * @public
    */
-  Status?: RecordStatus;
+  Status?: RecordStatus | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>The time when the record was last updated.</p>
    * @public
    */
-  UpdatedTime?: Date;
+  UpdatedTime?: Date | undefined;
 
   /**
    * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>,
    *          <code>TERRAFORM_OPEN_SOURCE</code>, <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    * @public
    */
-  ProvisionedProductType?: string;
+  ProvisionedProductType?: string | undefined;
 
   /**
    * <p>The record type.</p>
@@ -4565,49 +4565,49 @@ export interface RecordDetail {
    *          </ul>
    * @public
    */
-  RecordType?: string;
+  RecordType?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product.</p>
    * @public
    */
-  ProvisionedProductId?: string;
+  ProvisionedProductId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The path identifier.</p>
    * @public
    */
-  PathId?: string;
+  PathId?: string | undefined;
 
   /**
    * <p>The errors that occurred.</p>
    * @public
    */
-  RecordErrors?: RecordError[];
+  RecordErrors?: RecordError[] | undefined;
 
   /**
    * <p>One or more tags.</p>
    * @public
    */
-  RecordTags?: RecordTag[];
+  RecordTags?: RecordTag[] | undefined;
 
   /**
    * <p>The ARN of the launch role associated with the provisioned product.</p>
    * @public
    */
-  LaunchRoleArn?: string;
+  LaunchRoleArn?: string | undefined;
 }
 
 /**
@@ -4620,19 +4620,19 @@ export interface RecordOutput {
    * <p>The output key.</p>
    * @public
    */
-  OutputKey?: string;
+  OutputKey?: string | undefined;
 
   /**
    * <p>The output value.</p>
    * @public
    */
-  OutputValue?: string;
+  OutputValue?: string | undefined;
 
   /**
    * <p>The description of the output.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4643,20 +4643,20 @@ export interface DescribeRecordOutput {
    * <p>Information about the product.</p>
    * @public
    */
-  RecordDetail?: RecordDetail;
+  RecordDetail?: RecordDetail | undefined;
 
   /**
    * <p>Information about the product created as the result of a request. For example, the output for
    *          a CloudFormation-backed product that creates an S3 bucket would include the S3 bucket URL.</p>
    * @public
    */
-  RecordOutputs?: RecordOutput[];
+  RecordOutputs?: RecordOutput[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -4683,7 +4683,7 @@ export interface DescribeServiceActionInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 }
 
 /**
@@ -4694,7 +4694,7 @@ export interface DescribeServiceActionOutput {
    * <p>Detailed information about the self-service action.</p>
    * @public
    */
-  ServiceActionDetail?: ServiceActionDetail;
+  ServiceActionDetail?: ServiceActionDetail | undefined;
 }
 
 /**
@@ -4727,7 +4727,7 @@ export interface DescribeServiceActionExecutionParametersInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 }
 
 /**
@@ -4739,19 +4739,19 @@ export interface ExecutionParameter {
    * <p>The name of the execution parameter.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The execution parameter type.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The default values for the execution parameter.</p>
    * @public
    */
-  DefaultValues?: string[];
+  DefaultValues?: string[] | undefined;
 }
 
 /**
@@ -4762,7 +4762,7 @@ export interface DescribeServiceActionExecutionParametersOutput {
    * <p>The parameters of the self-service action.</p>
    * @public
    */
-  ServiceActionParameters?: ExecutionParameter[];
+  ServiceActionParameters?: ExecutionParameter[] | undefined;
 }
 
 /**
@@ -4784,7 +4784,7 @@ export interface DescribeTagOptionOutput {
    * <p>Information about the TagOption.</p>
    * @public
    */
-  TagOptionDetail?: TagOptionDetail;
+  TagOptionDetail?: TagOptionDetail | undefined;
 }
 
 /**
@@ -4837,7 +4837,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -4857,7 +4857,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
    *          if you specify an <code>IAM</code> ARN with no AccountId, with or without wildcard characters. </p>
    * @public
    */
-  PrincipalType?: PrincipalType;
+  PrincipalType?: PrincipalType | undefined;
 }
 
 /**
@@ -4883,7 +4883,7 @@ export interface DisassociateProductFromPortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -4939,13 +4939,13 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -5003,7 +5003,7 @@ export interface ExecuteProvisionedProductPlanInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The plan identifier.</p>
@@ -5016,7 +5016,7 @@ export interface ExecuteProvisionedProductPlanInput {
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -5027,7 +5027,7 @@ export interface ExecuteProvisionedProductPlanOutput {
    * <p>Information about the result of provisioning the product.</p>
    * @public
    */
-  RecordDetail?: RecordDetail;
+  RecordDetail?: RecordDetail | undefined;
 }
 
 /**
@@ -5050,7 +5050,7 @@ export interface ExecuteProvisionedProductServiceActionInput {
    * <p>An idempotency token that uniquely identifies the execute request.</p>
    * @public
    */
-  ExecuteToken?: string;
+  ExecuteToken?: string | undefined;
 
   /**
    * <p>The language code.</p>
@@ -5066,7 +5066,7 @@ export interface ExecuteProvisionedProductServiceActionInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>A map of all self-service action parameters and their values. If a provided parameter is of a special type, such as <code>TARGET</code>, the provided value will
@@ -5074,7 +5074,7 @@ export interface ExecuteProvisionedProductServiceActionInput {
    *             any special parameters such as <code>TARGET</code>.</p>
    * @public
    */
-  Parameters?: Record<string, string[]>;
+  Parameters?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -5085,7 +5085,7 @@ export interface ExecuteProvisionedProductServiceActionOutput {
    * <p>An object containing detailed information about the result of provisioning the product.</p>
    * @public
    */
-  RecordDetail?: RecordDetail;
+  RecordDetail?: RecordDetail | undefined;
 }
 
 /**
@@ -5101,7 +5101,7 @@ export interface GetAWSOrganizationsAccessStatusOutput {
    * <p>The status of the portfolio share feature.</p>
    * @public
    */
-  AccessStatus?: AccessStatus;
+  AccessStatus?: AccessStatus | undefined;
 }
 
 /**
@@ -5122,37 +5122,37 @@ export interface GetProvisionedProductOutputsInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product that you want the outputs from.</p>
    * @public
    */
-  ProvisionedProductId?: string;
+  ProvisionedProductId?: string | undefined;
 
   /**
    * <p>The name of the provisioned product that you want the outputs from.</p>
    * @public
    */
-  ProvisionedProductName?: string;
+  ProvisionedProductName?: string | undefined;
 
   /**
    * <p>The list of keys that the API should return with their values. If none are provided, the API will return all outputs of the provisioned product.</p>
    * @public
    */
-  OutputKeys?: string[];
+  OutputKeys?: string[] | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -5164,13 +5164,13 @@ export interface GetProvisionedProductOutputsOutput {
    *       </p>
    * @public
    */
-  Outputs?: RecordOutput[];
+  Outputs?: RecordOutput[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5191,7 +5191,7 @@ export interface ImportAsProvisionedProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -5224,7 +5224,7 @@ export interface ImportAsProvisionedProductInput {
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -5235,7 +5235,7 @@ export interface ImportAsProvisionedProductOutput {
    * <p>Information about a request operation.</p>
    * @public
    */
-  RecordDetail?: RecordDetail;
+  RecordDetail?: RecordDetail | undefined;
 }
 
 /**
@@ -5256,19 +5256,19 @@ export interface ListAcceptedPortfolioSharesInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The type of shared portfolios to list. The default is to list imported portfolios.</p>
@@ -5289,7 +5289,7 @@ export interface ListAcceptedPortfolioSharesInput {
    *          </ul>
    * @public
    */
-  PortfolioShareType?: PortfolioShareType;
+  PortfolioShareType?: PortfolioShareType | undefined;
 }
 
 /**
@@ -5300,13 +5300,13 @@ export interface ListAcceptedPortfolioSharesOutput {
    * <p>Information about the portfolios.</p>
    * @public
    */
-  PortfolioDetails?: PortfolioDetail[];
+  PortfolioDetails?: PortfolioDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5327,7 +5327,7 @@ export interface ListBudgetsForResourceInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The resource identifier.</p>
@@ -5339,13 +5339,13 @@ export interface ListBudgetsForResourceInput {
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -5356,13 +5356,13 @@ export interface ListBudgetsForResourceOutput {
    * <p>Information about the associated budgets.</p>
    * @public
    */
-  Budgets?: BudgetDetail[];
+  Budgets?: BudgetDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5383,7 +5383,7 @@ export interface ListConstraintsForPortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -5395,19 +5395,19 @@ export interface ListConstraintsForPortfolioInput {
    * <p>The product identifier.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -5418,13 +5418,13 @@ export interface ListConstraintsForPortfolioOutput {
    * <p>Information about the constraints.</p>
    * @public
    */
-  ConstraintDetails?: ConstraintDetail[];
+  ConstraintDetails?: ConstraintDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5445,7 +5445,7 @@ export interface ListLaunchPathsInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -5457,13 +5457,13 @@ export interface ListLaunchPathsInput {
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -5475,25 +5475,25 @@ export interface LaunchPathSummary {
    * <p>The identifier of the product path.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The constraints on the portfolio-product relationship.</p>
    * @public
    */
-  ConstraintSummaries?: ConstraintSummary[];
+  ConstraintSummaries?: ConstraintSummary[] | undefined;
 
   /**
    * <p>The tags associated with this product path.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The name of the portfolio that contains the product. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -5504,13 +5504,13 @@ export interface ListLaunchPathsOutput {
    * <p>Information about the launch path.</p>
    * @public
    */
-  LaunchPathSummaries?: LaunchPathSummary[];
+  LaunchPathSummaries?: LaunchPathSummary[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5531,7 +5531,7 @@ export interface ListOrganizationPortfolioAccessInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier. For example, <code>port-2abcdext3y5fk</code>.</p>
@@ -5563,13 +5563,13 @@ export interface ListOrganizationPortfolioAccessInput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -5580,13 +5580,13 @@ export interface ListOrganizationPortfolioAccessOutput {
    * <p>Displays information about the organization nodes.</p>
    * @public
    */
-  OrganizationNodes?: OrganizationNode[];
+  OrganizationNodes?: OrganizationNode[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5607,7 +5607,7 @@ export interface ListPortfolioAccessInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -5619,19 +5619,19 @@ export interface ListPortfolioAccessInput {
    * <p>The ID of an organization node the portfolio is shared with. All children of this node with an inherited portfolio share will be returned.</p>
    * @public
    */
-  OrganizationParentId?: string;
+  OrganizationParentId?: string | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -5642,13 +5642,13 @@ export interface ListPortfolioAccessOutput {
    * <p>Information about the Amazon Web Services accounts with access to the portfolio.</p>
    * @public
    */
-  AccountIds?: string[];
+  AccountIds?: string[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5669,19 +5669,19 @@ export interface ListPortfoliosInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -5692,13 +5692,13 @@ export interface ListPortfoliosOutput {
    * <p>Information about the portfolios.</p>
    * @public
    */
-  PortfolioDetails?: PortfolioDetail[];
+  PortfolioDetails?: PortfolioDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5719,7 +5719,7 @@ export interface ListPortfoliosForProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -5731,13 +5731,13 @@ export interface ListPortfoliosForProductInput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -5748,13 +5748,13 @@ export interface ListPortfoliosForProductOutput {
    * <p>Information about the portfolios.</p>
    * @public
    */
-  PortfolioDetails?: PortfolioDetail[];
+  PortfolioDetails?: PortfolioDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5775,7 +5775,7 @@ export interface ListPrincipalsForPortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -5787,13 +5787,13 @@ export interface ListPrincipalsForPortfolioInput {
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -5808,14 +5808,14 @@ export interface Principal {
    *       in the Amazon Web Services CLI Command Reference. </p>
    * @public
    */
-  PrincipalARN?: string;
+  PrincipalARN?: string | undefined;
 
   /**
    * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
    *          <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
    * @public
    */
-  PrincipalType?: PrincipalType;
+  PrincipalType?: PrincipalType | undefined;
 }
 
 /**
@@ -5826,13 +5826,13 @@ export interface ListPrincipalsForPortfolioOutput {
    * <p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>
    * @public
    */
-  Principals?: Principal[];
+  Principals?: Principal[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5853,31 +5853,31 @@ export interface ListProvisionedProductPlansInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProvisionProductId?: string;
+  ProvisionProductId?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    * @public
    */
-  AccessLevelFilter?: AccessLevelFilter;
+  AccessLevelFilter?: AccessLevelFilter | undefined;
 }
 
 /**
@@ -5889,37 +5889,37 @@ export interface ProvisionedProductPlanSummary {
    * <p>The name of the plan.</p>
    * @public
    */
-  PlanName?: string;
+  PlanName?: string | undefined;
 
   /**
    * <p>The plan identifier.</p>
    * @public
    */
-  PlanId?: string;
+  PlanId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProvisionProductId?: string;
+  ProvisionProductId?: string | undefined;
 
   /**
    * <p>The user-friendly name of the provisioned product.</p>
    * @public
    */
-  ProvisionProductName?: string;
+  ProvisionProductName?: string | undefined;
 
   /**
    * <p>The plan type.</p>
    * @public
    */
-  PlanType?: ProvisionedProductPlanType;
+  PlanType?: ProvisionedProductPlanType | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 }
 
 /**
@@ -5930,13 +5930,13 @@ export interface ListProvisionedProductPlansOutput {
    * <p>Information about the plans.</p>
    * @public
    */
-  ProvisionedProductPlans?: ProvisionedProductPlanSummary[];
+  ProvisionedProductPlans?: ProvisionedProductPlanSummary[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5957,7 +5957,7 @@ export interface ListProvisioningArtifactsInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -5974,13 +5974,13 @@ export interface ListProvisioningArtifactsOutput {
    * <p>Information about the provisioning artifacts.</p>
    * @public
    */
-  ProvisioningArtifactDetails?: ProvisioningArtifactDetail[];
+  ProvisioningArtifactDetails?: ProvisioningArtifactDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -5997,13 +5997,13 @@ export interface ListProvisioningArtifactsForServiceActionInput {
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The language code.</p>
@@ -6019,7 +6019,7 @@ export interface ListProvisioningArtifactsForServiceActionInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 }
 
 /**
@@ -6031,13 +6031,13 @@ export interface ProvisioningArtifactView {
    * <p>Summary information about a product view.</p>
    * @public
    */
-  ProductViewSummary?: ProductViewSummary;
+  ProductViewSummary?: ProductViewSummary | undefined;
 
   /**
    * <p>Information about a provisioning artifact. A provisioning artifact is also known as a product version.</p>
    * @public
    */
-  ProvisioningArtifact?: ProvisioningArtifact;
+  ProvisioningArtifact?: ProvisioningArtifact | undefined;
 }
 
 /**
@@ -6048,13 +6048,13 @@ export interface ListProvisioningArtifactsForServiceActionOutput {
    * <p>An array of objects with information about product views and provisioning artifacts.</p>
    * @public
    */
-  ProvisioningArtifactViews?: ProvisioningArtifactView[];
+  ProvisioningArtifactViews?: ProvisioningArtifactView[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6076,13 +6076,13 @@ export interface ListRecordHistorySearchFilter {
    *          </ul>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The filter value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -6103,31 +6103,31 @@ export interface ListRecordHistoryInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    * @public
    */
-  AccessLevelFilter?: AccessLevelFilter;
+  AccessLevelFilter?: AccessLevelFilter | undefined;
 
   /**
    * <p>The search filter to scope the results.</p>
    * @public
    */
-  SearchFilter?: ListRecordHistorySearchFilter;
+  SearchFilter?: ListRecordHistorySearchFilter | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -6138,13 +6138,13 @@ export interface ListRecordHistoryOutput {
    * <p>The records, in reverse chronological order.</p>
    * @public
    */
-  RecordDetails?: RecordDetail[];
+  RecordDetails?: RecordDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6173,19 +6173,19 @@ export interface ListResourcesForTagOptionInput {
    *          </ul>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -6197,31 +6197,31 @@ export interface ResourceDetail {
    * <p>The identifier of the resource.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 
   /**
    * <p>The name of the resource.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The creation time of the resource.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -6232,13 +6232,13 @@ export interface ListResourcesForTagOptionOutput {
    * <p>Information about the resources.</p>
    * @public
    */
-  ResourceDetails?: ResourceDetail[];
+  ResourceDetails?: ResourceDetail[] | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -6259,19 +6259,19 @@ export interface ListServiceActionsInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -6282,13 +6282,13 @@ export interface ListServiceActionsOutput {
    * <p>An object containing information about the service actions associated with the provisioning artifact.</p>
    * @public
    */
-  ServiceActionSummaries?: ServiceActionSummary[];
+  ServiceActionSummaries?: ServiceActionSummary[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6311,13 +6311,13 @@ export interface ListServiceActionsForProvisioningArtifactInput {
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The language code.</p>
@@ -6333,7 +6333,7 @@ export interface ListServiceActionsForProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 }
 
 /**
@@ -6344,13 +6344,13 @@ export interface ListServiceActionsForProvisioningArtifactOutput {
    * <p>An object containing information about the self-service actions associated with the provisioning artifact.</p>
    * @public
    */
-  ServiceActionSummaries?: ServiceActionSummary[];
+  ServiceActionSummaries?: ServiceActionSummary[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6371,7 +6371,7 @@ export interface ListStackInstancesForProvisionedProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product.</p>
@@ -6383,13 +6383,13 @@ export interface ListStackInstancesForProvisionedProductInput {
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 }
 
 /**
@@ -6416,13 +6416,13 @@ export interface StackInstance {
    * <p>The name of the Amazon Web Services account that the stack instance is associated with.</p>
    * @public
    */
-  Account?: string;
+  Account?: string | undefined;
 
   /**
    * <p>The name of the Amazon Web Services Region that the stack instance is associated with.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The status of the stack instance, in terms of its synchronization with its associated stack set. </p>
@@ -6444,7 +6444,7 @@ export interface StackInstance {
    *          </ul>
    * @public
    */
-  StackInstanceStatus?: StackInstanceStatus;
+  StackInstanceStatus?: StackInstanceStatus | undefined;
 }
 
 /**
@@ -6455,13 +6455,13 @@ export interface ListStackInstancesForProvisionedProductOutput {
    * <p>List of stack instances.</p>
    * @public
    */
-  StackInstances?: StackInstance[];
+  StackInstances?: StackInstance[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -6473,19 +6473,19 @@ export interface ListTagOptionsFilters {
    * <p>The TagOption key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The TagOption value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The active state.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 }
 
 /**
@@ -6496,19 +6496,19 @@ export interface ListTagOptionsInput {
    * <p>The search filters. If no search filters are specified, the output includes all TagOptions.</p>
    * @public
    */
-  Filters?: ListTagOptionsFilters;
+  Filters?: ListTagOptionsFilters | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -6519,13 +6519,13 @@ export interface ListTagOptionsOutput {
    * <p>Information about the TagOptions.</p>
    * @public
    */
-  TagOptionDetails?: TagOptionDetail[];
+  TagOptionDetails?: TagOptionDetail[] | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -6545,7 +6545,7 @@ export interface UniqueTagResourceIdentifier {
    *       </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>
@@ -6555,7 +6555,7 @@ export interface UniqueTagResourceIdentifier {
    *       </p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -6576,7 +6576,7 @@ export interface EngineWorkflowResourceIdentifier {
    *       </p>
    * @public
    */
-  UniqueTag?: UniqueTagResourceIdentifier;
+  UniqueTag?: UniqueTagResourceIdentifier | undefined;
 }
 
 /**
@@ -6633,7 +6633,7 @@ export interface NotifyProvisionProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>
@@ -6644,7 +6644,7 @@ export interface NotifyProvisionProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  ResourceIdentifier?: EngineWorkflowResourceIdentifier;
+  ResourceIdentifier?: EngineWorkflowResourceIdentifier | undefined;
 
   /**
    * <p>
@@ -6653,7 +6653,7 @@ export interface NotifyProvisionProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  Outputs?: RecordOutput[];
+  Outputs?: RecordOutput[] | undefined;
 
   /**
    * <p>
@@ -6662,7 +6662,7 @@ export interface NotifyProvisionProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -6710,7 +6710,7 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>
@@ -6719,7 +6719,7 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -6767,7 +6767,7 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>
@@ -6776,7 +6776,7 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  Outputs?: RecordOutput[];
+  Outputs?: RecordOutput[] | undefined;
 
   /**
    * <p>
@@ -6785,7 +6785,7 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
    *       </p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -6802,13 +6802,13 @@ export interface ProvisioningParameter {
    * <p>The parameter key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The parameter value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -6832,7 +6832,7 @@ export interface ProvisioningPreferences {
    *          <p>If no values are specified, the default value is all acounts from the <code>STACKSET</code> constraint.</p>
    * @public
    */
-  StackSetAccounts?: string[];
+  StackSetAccounts?: string[] | undefined;
 
   /**
    * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
@@ -6841,7 +6841,7 @@ export interface ProvisioningPreferences {
    *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
    * @public
    */
-  StackSetRegions?: string[];
+  StackSetRegions?: string[] | undefined;
 
   /**
    * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
@@ -6850,7 +6850,7 @@ export interface ProvisioningPreferences {
    *          <p>The default value is <code>0</code> if no value is specified.</p>
    * @public
    */
-  StackSetFailureToleranceCount?: number;
+  StackSetFailureToleranceCount?: number | undefined;
 
   /**
    * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
@@ -6859,7 +6859,7 @@ export interface ProvisioningPreferences {
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    * @public
    */
-  StackSetFailureTolerancePercentage?: number;
+  StackSetFailureTolerancePercentage?: number | undefined;
 
   /**
    * <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p>
@@ -6868,7 +6868,7 @@ export interface ProvisioningPreferences {
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
    * @public
    */
-  StackSetMaxConcurrencyCount?: number;
+  StackSetMaxConcurrencyCount?: number | undefined;
 
   /**
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
@@ -6878,7 +6878,7 @@ export interface ProvisioningPreferences {
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
    * @public
    */
-  StackSetMaxConcurrencyPercentage?: number;
+  StackSetMaxConcurrencyPercentage?: number | undefined;
 }
 
 /**
@@ -6899,31 +6899,31 @@ export interface ProvisionProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The name of the product. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProvisioningArtifactName?: string;
+  ProvisioningArtifactName?: string | undefined;
 
   /**
    * <p>The path identifier of the product. This value is optional if the product
@@ -6931,13 +6931,13 @@ export interface ProvisionProductInput {
    *          To list the paths for a product, use <a>ListLaunchPaths</a>. You must provide the name or ID, but not both.</p>
    * @public
    */
-  PathId?: string;
+  PathId?: string | undefined;
 
   /**
    * <p>The name of the path. You must provide the name or ID, but not both.</p>
    * @public
    */
-  PathName?: string;
+  PathName?: string | undefined;
 
   /**
    * <p>A user-friendly name for the provisioned product. This value must be
@@ -6951,32 +6951,32 @@ export interface ProvisionProductInput {
    *          product.</p>
    * @public
    */
-  ProvisioningParameters?: ProvisioningParameter[];
+  ProvisioningParameters?: ProvisioningParameter[] | undefined;
 
   /**
    * <p>An object that contains information about the provisioning preferences for a stack set.</p>
    * @public
    */
-  ProvisioningPreferences?: ProvisioningPreferences;
+  ProvisioningPreferences?: ProvisioningPreferences | undefined;
 
   /**
    * <p>One or more tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Passed to CloudFormation. The SNS topic ARNs to which to publish stack-related
    *          events.</p>
    * @public
    */
-  NotificationArns?: string[];
+  NotificationArns?: string[] | undefined;
 
   /**
    * <p>An idempotency token that uniquely identifies the provisioning request.</p>
    * @public
    */
-  ProvisionToken?: string;
+  ProvisionToken?: string | undefined;
 }
 
 /**
@@ -6987,7 +6987,7 @@ export interface ProvisionProductOutput {
    * <p>Information about the result of provisioning the product.</p>
    * @public
    */
-  RecordDetail?: RecordDetail;
+  RecordDetail?: RecordDetail | undefined;
 }
 
 /**
@@ -7008,7 +7008,7 @@ export interface RejectPortfolioShareInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -7037,7 +7037,7 @@ export interface RejectPortfolioShareInput {
    *          </p>
    * @public
    */
-  PortfolioShareType?: PortfolioShareType;
+  PortfolioShareType?: PortfolioShareType | undefined;
 }
 
 /**
@@ -7063,25 +7063,25 @@ export interface ScanProvisionedProductsInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    * @public
    */
-  AccessLevelFilter?: AccessLevelFilter;
+  AccessLevelFilter?: AccessLevelFilter | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -7092,13 +7092,13 @@ export interface ScanProvisionedProductsOutput {
    * <p>Information about the provisioned products.</p>
    * @public
    */
-  ProvisionedProducts?: ProvisionedProductDetail[];
+  ProvisionedProducts?: ProvisionedProductDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -7164,38 +7164,38 @@ export interface SearchProductsInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The search filters. If no search filters are specified, the output includes
    *          all products to which the caller has access.</p>
    * @public
    */
-  Filters?: Partial<Record<ProductViewFilterBy, string[]>>;
+  Filters?: Partial<Record<ProductViewFilterBy, string[]>> | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    * @public
    */
-  SortBy?: ProductViewSortBy;
+  SortBy?: ProductViewSortBy | undefined;
 
   /**
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -7208,13 +7208,13 @@ export interface ProductViewAggregationValue {
    * <p>The value of the product view aggregation.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>An approximate count of the products that match the value.</p>
    * @public
    */
-  ApproximateCount?: number;
+  ApproximateCount?: number | undefined;
 }
 
 /**
@@ -7225,19 +7225,19 @@ export interface SearchProductsOutput {
    * <p>Information about the product views.</p>
    * @public
    */
-  ProductViewSummaries?: ProductViewSummary[];
+  ProductViewSummaries?: ProductViewSummary[] | undefined;
 
   /**
    * <p>The product view aggregations.</p>
    * @public
    */
-  ProductViewAggregations?: Record<string, ProductViewAggregationValue[]>;
+  ProductViewAggregations?: Record<string, ProductViewAggregationValue[]> | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -7271,50 +7271,50 @@ export interface SearchProductsAsAdminInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
    * @public
    */
-  PortfolioId?: string;
+  PortfolioId?: string | undefined;
 
   /**
    * <p>The search filters. If no search filters are specified, the output includes all products
    *          to which the administrator has access.</p>
    * @public
    */
-  Filters?: Partial<Record<ProductViewFilterBy, string[]>>;
+  Filters?: Partial<Record<ProductViewFilterBy, string[]>> | undefined;
 
   /**
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    * @public
    */
-  SortBy?: ProductViewSortBy;
+  SortBy?: ProductViewSortBy | undefined;
 
   /**
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>Access level of the source of the product.</p>
    * @public
    */
-  ProductSource?: ProductSource;
+  ProductSource?: ProductSource | undefined;
 }
 
 /**
@@ -7325,13 +7325,13 @@ export interface SearchProductsAsAdminOutput {
    * <p>Information about the product views.</p>
    * @public
    */
-  ProductViewDetails?: ProductViewDetail[];
+  ProductViewDetails?: ProductViewDetail[] | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -7366,13 +7366,13 @@ export interface SearchProvisionedProductsInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The access level to use to obtain results. The default is <code>User</code>.</p>
    * @public
    */
-  AccessLevelFilter?: AccessLevelFilter;
+  AccessLevelFilter?: AccessLevelFilter | undefined;
 
   /**
    * <p>The search filters.</p>
@@ -7386,32 +7386,32 @@ export interface SearchProvisionedProductsInput {
    *          </p>
    * @public
    */
-  Filters?: Partial<Record<ProvisionedProductViewFilterBy, string[]>>;
+  Filters?: Partial<Record<ProvisionedProductViewFilterBy, string[]>> | undefined;
 
   /**
    * <p>The sort field. If no value is specified, the results are not sorted. The valid values are <code>arn</code>, <code>id</code>, <code>name</code>,
    *          and <code>lastRecordId</code>.</p>
    * @public
    */
-  SortBy?: string;
+  SortBy?: string | undefined;
 
   /**
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of items to return with this call.</p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p>The page token for the next set of results. To retrieve the first set of results, use null.</p>
    * @public
    */
-  PageToken?: string;
+  PageToken?: string | undefined;
 }
 
 /**
@@ -7423,13 +7423,13 @@ export interface ProvisionedProductAttribute {
    * <p>The user-friendly name of the provisioned product.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ARN of the provisioned product.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The type of provisioned product.
@@ -7437,13 +7437,13 @@ export interface ProvisionedProductAttribute {
    *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The current status of the provisioned product.</p>
@@ -7477,32 +7477,32 @@ export interface ProvisionedProductAttribute {
    *          </ul>
    * @public
    */
-  Status?: ProvisionedProductStatus;
+  Status?: ProvisionedProductStatus | undefined;
 
   /**
    * <p>The current status message of the provisioned product.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The UTC time stamp of the creation time.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 
   /**
    * <p>The record identifier of the last request performed on this provisioned product.</p>
    * @public
    */
-  LastRecordId?: string;
+  LastRecordId?: string | undefined;
 
   /**
    * <p>The record identifier of the last request performed on this provisioned product of the following types:</p>
@@ -7530,7 +7530,7 @@ export interface ProvisionedProductAttribute {
    *          </ul>
    * @public
    */
-  LastProvisioningRecordId?: string;
+  LastProvisioningRecordId?: string | undefined;
 
   /**
    * <p>The record identifier of the last successful request performed on this provisioned product of the following types:</p>
@@ -7558,55 +7558,55 @@ export interface ProvisionedProductAttribute {
    *          </ul>
    * @public
    */
-  LastSuccessfulProvisioningRecordId?: string;
+  LastSuccessfulProvisioningRecordId?: string | undefined;
 
   /**
    * <p>One or more tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The assigned identifier for the resource, such as an EC2 instance ID or an S3 bucket name.</p>
    * @public
    */
-  PhysicalId?: string;
+  PhysicalId?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The name of the product.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The name of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactName?: string;
+  ProvisioningArtifactName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    * @public
    */
-  UserArn?: string;
+  UserArn?: string | undefined;
 
   /**
    * <p>The ARN of the user in the session. This ARN might contain a session ID.</p>
    * @public
    */
-  UserArnSession?: string;
+  UserArnSession?: string | undefined;
 }
 
 /**
@@ -7617,19 +7617,19 @@ export interface SearchProvisionedProductsOutput {
    * <p>Information about the provisioned products.</p>
    * @public
    */
-  ProvisionedProducts?: ProvisionedProductAttribute[];
+  ProvisionedProducts?: ProvisionedProductAttribute[] | undefined;
 
   /**
    * <p>The number of provisioned products found.</p>
    * @public
    */
-  TotalResultsCount?: number;
+  TotalResultsCount?: number | undefined;
 
   /**
    * <p>The page token to use to retrieve the next set of results. If there are no additional results, this value is null.</p>
    * @public
    */
-  NextPageToken?: string;
+  NextPageToken?: string | undefined;
 }
 
 /**
@@ -7641,14 +7641,14 @@ export interface TerminateProvisionedProductInput {
    *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
    * @public
    */
-  ProvisionedProductName?: string;
+  ProvisionedProductName?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product. You cannot specify both
    *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
    * @public
    */
-  ProvisionedProductId?: string;
+  ProvisionedProductId?: string | undefined;
 
   /**
    * <p>An idempotency token that uniquely identifies the termination request. This token is
@@ -7657,14 +7657,14 @@ export interface TerminateProvisionedProductInput {
    *          <b>ResourceNotFound</b>.</p>
    * @public
    */
-  TerminateToken?: string;
+  TerminateToken?: string | undefined;
 
   /**
    * <p>If set to true, Service Catalog stops managing the specified provisioned product even
    *          if it cannot delete the underlying resources.</p>
    * @public
    */
-  IgnoreErrors?: boolean;
+  IgnoreErrors?: boolean | undefined;
 
   /**
    * <p>The language code.</p>
@@ -7680,7 +7680,7 @@ export interface TerminateProvisionedProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>When this boolean parameter is set to true, the <code>TerminateProvisionedProduct</code> API deletes
@@ -7689,7 +7689,7 @@ export interface TerminateProvisionedProductInput {
    *          default value is false.</p>
    * @public
    */
-  RetainPhysicalResources?: boolean;
+  RetainPhysicalResources?: boolean | undefined;
 }
 
 /**
@@ -7700,7 +7700,7 @@ export interface TerminateProvisionedProductOutput {
    * <p>Information about the result of this request.</p>
    * @public
    */
-  RecordDetail?: RecordDetail;
+  RecordDetail?: RecordDetail | undefined;
 }
 
 /**
@@ -7721,7 +7721,7 @@ export interface UpdateConstraintInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The identifier of the constraint.</p>
@@ -7733,7 +7733,7 @@ export interface UpdateConstraintInput {
    * <p>The updated description of the constraint.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:</p>
@@ -7790,7 +7790,7 @@ export interface UpdateConstraintInput {
    *          </dl>
    * @public
    */
-  Parameters?: string;
+  Parameters?: string | undefined;
 }
 
 /**
@@ -7801,19 +7801,19 @@ export interface UpdateConstraintOutput {
    * <p>Information about the constraint.</p>
    * @public
    */
-  ConstraintDetail?: ConstraintDetail;
+  ConstraintDetail?: ConstraintDetail | undefined;
 
   /**
    * <p>The constraint parameters.</p>
    * @public
    */
-  ConstraintParameters?: string;
+  ConstraintParameters?: string | undefined;
 
   /**
    * <p>The status of the current request.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 }
 
 /**
@@ -7834,7 +7834,7 @@ export interface UpdatePortfolioInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The portfolio identifier.</p>
@@ -7846,31 +7846,31 @@ export interface UpdatePortfolioInput {
    * <p>The name to use for display purposes.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The updated description of the portfolio.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The updated name of the portfolio provider.</p>
    * @public
    */
-  ProviderName?: string;
+  ProviderName?: string | undefined;
 
   /**
    * <p>The tags to add.</p>
    * @public
    */
-  AddTags?: Tag[];
+  AddTags?: Tag[] | undefined;
 
   /**
    * <p>The tags to remove.</p>
    * @public
    */
-  RemoveTags?: string[];
+  RemoveTags?: string[] | undefined;
 }
 
 /**
@@ -7881,13 +7881,13 @@ export interface UpdatePortfolioOutput {
    * <p>Information about the portfolio.</p>
    * @public
    */
-  PortfolioDetail?: PortfolioDetail;
+  PortfolioDetail?: PortfolioDetail | undefined;
 
   /**
    * <p>Information about the tags associated with the portfolio.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -7908,7 +7908,7 @@ export interface UpdatePortfolioShareInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The unique identifier of the portfolio for which the share will be updated.</p>
@@ -7920,27 +7920,27 @@ export interface UpdatePortfolioShareInput {
    * <p>The Amazon Web Services account Id of the recipient account. This field is required when updating an external account to account type share.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Information about the organization node.</p>
    * @public
    */
-  OrganizationNode?: OrganizationNode;
+  OrganizationNode?: OrganizationNode | undefined;
 
   /**
    * <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of
    *          TagOptions sharing on the portfolio share will not be modified.</p>
    * @public
    */
-  ShareTagOptions?: boolean;
+  ShareTagOptions?: boolean | undefined;
 
   /**
    * <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided,
    *          the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
    * @public
    */
-  SharePrincipals?: boolean;
+  SharePrincipals?: boolean | undefined;
 }
 
 /**
@@ -7951,7 +7951,7 @@ export interface UpdatePortfolioShareOutput {
    * <p>The token that tracks the status of the <code>UpdatePortfolioShare</code> operation for external account to account or  organizational type sharing.</p>
    * @public
    */
-  PortfolioShareToken?: string;
+  PortfolioShareToken?: string | undefined;
 
   /**
    * <p>The status of <code>UpdatePortfolioShare</code> operation.
@@ -7959,7 +7959,7 @@ export interface UpdatePortfolioShareOutput {
    *       </p>
    * @public
    */
-  Status?: ShareStatus;
+  Status?: ShareStatus | undefined;
 }
 
 /**
@@ -7980,7 +7980,7 @@ export interface UpdateProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -7992,55 +7992,55 @@ export interface UpdateProductInput {
    * <p>The updated product name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated owner of the product.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The updated description of the product.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The updated distributor of the product.</p>
    * @public
    */
-  Distributor?: string;
+  Distributor?: string | undefined;
 
   /**
    * <p>The updated support description for the product.</p>
    * @public
    */
-  SupportDescription?: string;
+  SupportDescription?: string | undefined;
 
   /**
    * <p>The updated support email for the product.</p>
    * @public
    */
-  SupportEmail?: string;
+  SupportEmail?: string | undefined;
 
   /**
    * <p>The updated support URL for the product.</p>
    * @public
    */
-  SupportUrl?: string;
+  SupportUrl?: string | undefined;
 
   /**
    * <p>The tags to add to the product.</p>
    * @public
    */
-  AddTags?: Tag[];
+  AddTags?: Tag[] | undefined;
 
   /**
    * <p>The tags to remove from the product.</p>
    * @public
    */
-  RemoveTags?: string[];
+  RemoveTags?: string[] | undefined;
 
   /**
    * <p>Specifies connection details for the updated product and syncs the product to the connection source
@@ -8060,7 +8060,7 @@ export interface UpdateProductInput {
    *          </ul>
    * @public
    */
-  SourceConnection?: SourceConnection;
+  SourceConnection?: SourceConnection | undefined;
 }
 
 /**
@@ -8071,13 +8071,13 @@ export interface UpdateProductOutput {
    * <p>Information about the product view.</p>
    * @public
    */
-  ProductViewDetail?: ProductViewDetail;
+  ProductViewDetail?: ProductViewDetail | undefined;
 
   /**
    * <p>Information about the tags associated with the product.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -8107,7 +8107,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>If no values are specified, the default value is all accounts from the <code>STACKSET</code> constraint.</p>
    * @public
    */
-  StackSetAccounts?: string[];
+  StackSetAccounts?: string[] | undefined;
 
   /**
    * <p>One or more Amazon Web Services Regions where the provisioned product will be available.</p>
@@ -8116,7 +8116,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>If no values are specified, the default value is all Regions from the <code>STACKSET</code> constraint.</p>
    * @public
    */
-  StackSetRegions?: string[];
+  StackSetRegions?: string[] | undefined;
 
   /**
    * <p>The number of accounts, per Region, for which this operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
@@ -8125,7 +8125,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>The default value is <code>0</code> if no value is specified.</p>
    * @public
    */
-  StackSetFailureToleranceCount?: number;
+  StackSetFailureToleranceCount?: number | undefined;
 
   /**
    * <p>The percentage of accounts, per Region, for which this stack operation can fail before Service Catalog stops the operation in that Region. If the operation is stopped in a Region, Service Catalog doesn't attempt the operation in any subsequent Regions.</p>
@@ -8134,7 +8134,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or <code>StackSetFailureTolerancePercentage</code>, but not both.</p>
    * @public
    */
-  StackSetFailureTolerancePercentage?: number;
+  StackSetFailureTolerancePercentage?: number | undefined;
 
   /**
    * <p>The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code> is at most one more than the <code>StackSetFailureToleranceCount</code>.</p>
@@ -8143,7 +8143,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
    * @public
    */
-  StackSetMaxConcurrencyCount?: number;
+  StackSetMaxConcurrencyCount?: number | undefined;
 
   /**
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
@@ -8153,7 +8153,7 @@ export interface UpdateProvisioningPreferences {
    *          <p>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>, but not both.</p>
    * @public
    */
-  StackSetMaxConcurrencyPercentage?: number;
+  StackSetMaxConcurrencyPercentage?: number | undefined;
 
   /**
    * <p>Determines what action Service Catalog performs to a stack set or a stack instance represented by the provisioned product. The default value is <code>UPDATE</code> if nothing is specified.</p>
@@ -8174,7 +8174,7 @@ export interface UpdateProvisioningPreferences {
    *          </dl>
    * @public
    */
-  StackSetOperationType?: StackSetOperationType;
+  StackSetOperationType?: StackSetOperationType | undefined;
 }
 
 /**
@@ -8195,81 +8195,81 @@ export interface UpdateProvisionedProductInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The name of the provisioned product. You cannot specify both
    *          <code>ProvisionedProductName</code> and <code>ProvisionedProductId</code>.</p>
    * @public
    */
-  ProvisionedProductName?: string;
+  ProvisionedProductName?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProvisionedProductId?: string;
+  ProvisionedProductId?: string | undefined;
 
   /**
    * <p>The identifier of the product. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The name of the product. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>The identifier of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>The name of the provisioning artifact. You must provide the name or ID, but not both.</p>
    * @public
    */
-  ProvisioningArtifactName?: string;
+  ProvisioningArtifactName?: string | undefined;
 
   /**
    * <p>The path identifier. This value is optional if the product
    *          has a default path, and required if the product has more than one path. You must provide the name or ID, but not both.</p>
    * @public
    */
-  PathId?: string;
+  PathId?: string | undefined;
 
   /**
    * <p>The name of the path. You must provide the name or ID, but not both.</p>
    * @public
    */
-  PathName?: string;
+  PathName?: string | undefined;
 
   /**
    * <p>The new parameters.</p>
    * @public
    */
-  ProvisioningParameters?: UpdateProvisioningParameter[];
+  ProvisioningParameters?: UpdateProvisioningParameter[] | undefined;
 
   /**
    * <p>An object that contains information about the provisioning preferences for a stack set.</p>
    * @public
    */
-  ProvisioningPreferences?: UpdateProvisioningPreferences;
+  ProvisioningPreferences?: UpdateProvisioningPreferences | undefined;
 
   /**
    * <p>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow tag updates.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The idempotency token that uniquely identifies the provisioning update request.</p>
    * @public
    */
-  UpdateToken?: string;
+  UpdateToken?: string | undefined;
 }
 
 /**
@@ -8280,7 +8280,7 @@ export interface UpdateProvisionedProductOutput {
    * <p>Information about the result of the request.</p>
    * @public
    */
-  RecordDetail?: RecordDetail;
+  RecordDetail?: RecordDetail | undefined;
 }
 
 /**
@@ -8315,7 +8315,7 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The identifier of the provisioned product.</p>
@@ -8352,7 +8352,7 @@ export interface UpdateProvisionedProductPropertiesInput {
    * <p>The idempotency token that uniquely identifies the provisioning product update request.</p>
    * @public
    */
-  IdempotencyToken?: string;
+  IdempotencyToken?: string | undefined;
 }
 
 /**
@@ -8363,25 +8363,25 @@ export interface UpdateProvisionedProductPropertiesOutput {
    * <p>The provisioned product identifier.</p>
    * @public
    */
-  ProvisionedProductId?: string;
+  ProvisionedProductId?: string | undefined;
 
   /**
    * <p>A map that contains the properties updated.</p>
    * @public
    */
-  ProvisionedProductProperties?: Partial<Record<PropertyKey, string>>;
+  ProvisionedProductProperties?: Partial<Record<PropertyKey, string>> | undefined;
 
   /**
    * <p>The identifier of the record.</p>
    * @public
    */
-  RecordId?: string;
+  RecordId?: string | undefined;
 
   /**
    * <p>The status of the request.</p>
    * @public
    */
-  Status?: RecordStatus;
+  Status?: RecordStatus | undefined;
 }
 
 /**
@@ -8402,7 +8402,7 @@ export interface UpdateProvisioningArtifactInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 
   /**
    * <p>The product identifier.</p>
@@ -8420,20 +8420,20 @@ export interface UpdateProvisioningArtifactInput {
    * <p>The updated name of the provisioning artifact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated description of the provisioning artifact.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Indicates whether the product version is active.</p>
    *          <p>Inactive provisioning artifacts are invisible to end users. End users cannot launch or update a provisioned product from an inactive provisioning artifact.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 
   /**
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
@@ -8443,7 +8443,7 @@ export interface UpdateProvisioningArtifactInput {
    *           of a deprecated version but cannot launch new provisioned products using a deprecated version.</p>
    * @public
    */
-  Guidance?: ProvisioningArtifactGuidance;
+  Guidance?: ProvisioningArtifactGuidance | undefined;
 }
 
 /**
@@ -8454,19 +8454,19 @@ export interface UpdateProvisioningArtifactOutput {
    * <p>Information about the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
+  ProvisioningArtifactDetail?: ProvisioningArtifactDetail | undefined;
 
   /**
    * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    * @public
    */
-  Info?: Record<string, string>;
+  Info?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the current request.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 }
 
 /**
@@ -8483,19 +8483,19 @@ export interface UpdateServiceActionInput {
    * <p>The self-service action name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A map that defines the self-service action.</p>
    * @public
    */
-  Definition?: Partial<Record<ServiceActionDefinitionKey, string>>;
+  Definition?: Partial<Record<ServiceActionDefinitionKey, string>> | undefined;
 
   /**
    * <p>The self-service action description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The language code.</p>
@@ -8511,7 +8511,7 @@ export interface UpdateServiceActionInput {
    *          </ul>
    * @public
    */
-  AcceptLanguage?: string;
+  AcceptLanguage?: string | undefined;
 }
 
 /**
@@ -8522,7 +8522,7 @@ export interface UpdateServiceActionOutput {
    * <p>Detailed information about the self-service action.</p>
    * @public
    */
-  ServiceActionDetail?: ServiceActionDetail;
+  ServiceActionDetail?: ServiceActionDetail | undefined;
 }
 
 /**
@@ -8539,13 +8539,13 @@ export interface UpdateTagOptionInput {
    * <p>The updated value.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The updated active state.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 }
 
 /**
@@ -8556,5 +8556,5 @@ export interface UpdateTagOptionOutput {
    * <p>Information about the TagOption.</p>
    * @public
    */
-  TagOptionDetail?: TagOptionDetail;
+  TagOptionDetail?: TagOptionDetail | undefined;
 }

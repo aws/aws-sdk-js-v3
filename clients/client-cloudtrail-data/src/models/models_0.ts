@@ -30,7 +30,7 @@ export interface AuditEvent {
    *          </p>
    * @public
    */
-  eventDataChecksum?: string;
+  eventDataChecksum?: string | undefined;
 }
 
 /**
@@ -175,7 +175,7 @@ export interface PutAuditEventsRequest {
    *          such as a passphrase or account number.</p>
    * @public
    */
-  externalId?: string;
+  externalId?: string | undefined;
 }
 
 /**

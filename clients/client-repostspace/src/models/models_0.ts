@@ -115,7 +115,7 @@ export class InternalServerException extends __BaseException {
    * <p>Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -179,19 +179,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The code to identify the service.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The code to identify the quota.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p> Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -260,7 +260,7 @@ export class ValidationException extends __BaseException {
    * <p>The field that caused the error, if applicable.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -405,25 +405,25 @@ export interface CreateSpaceInput {
    * <p>A description for the private re:Post. This is used only to help you identify this private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The AWS KMS key ARN that’s used for the AWS KMS encryption. If you don't provide a key, your data is encrypted by default with a key that AWS owns and manages for you.</p>
    * @public
    */
-  userKMSKey?: string;
+  userKMSKey?: string | undefined;
 
   /**
    * <p>The list of tags associated with the private re:Post.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -583,7 +583,7 @@ export interface GetSpaceOutput {
    * <p>The description of the private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The approval status of the custom subdomain.</p>
@@ -607,7 +607,7 @@ export interface GetSpaceOutput {
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
    * @public
    */
-  customerRoleArn?: string;
+  customerRoleArn?: string | undefined;
 
   /**
    * <p>The date when the private re:Post was created.</p>
@@ -619,7 +619,7 @@ export interface GetSpaceOutput {
    * <p>The date when the private re:Post was deleted.</p>
    * @public
    */
-  deleteDateTime?: Date;
+  deleteDateTime?: Date | undefined;
 
   /**
    * <p>The pricing tier of the private re:Post.</p>
@@ -639,7 +639,7 @@ export interface GetSpaceOutput {
    * <p>The list of users that are administrators of the private re:Post.</p>
    * @public
    */
-  userAdmins?: string[];
+  userAdmins?: string[] | undefined;
 
   /**
    * @deprecated
@@ -647,31 +647,31 @@ export interface GetSpaceOutput {
    * <p>The list of groups that are administrators of the private re:Post.</p>
    * @public
    */
-  groupAdmins?: string[];
+  groupAdmins?: string[] | undefined;
 
   /**
    * <p>A map of accessor identifiers and their roles.</p>
    * @public
    */
-  roles?: Record<string, Role[]>;
+  roles?: Record<string, Role[]> | undefined;
 
   /**
    * <p>The custom AWS KMS key ARN that’s used for the AWS KMS encryption.</p>
    * @public
    */
-  userKMSKey?: string;
+  userKMSKey?: string | undefined;
 
   /**
    * <p>The number of users that have onboarded to the private re:Post.</p>
    * @public
    */
-  userCount?: number;
+  userCount?: number | undefined;
 
   /**
    * <p>The content size of the private re:Post.</p>
    * @public
    */
-  contentSize?: number;
+  contentSize?: number | undefined;
 }
 
 /**
@@ -682,13 +682,13 @@ export interface ListSpacesInput {
    * <p>The token for the next set of private re:Posts to return. You receive this token from a previous ListSpaces operation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of private re:Posts to include in the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -718,7 +718,7 @@ export interface SpaceData {
    * <p>The description for the private re:Post. This is used only to help you identify this private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The creation/deletion status of the private re:Post.</p>
@@ -772,25 +772,25 @@ export interface SpaceData {
    * <p>The date when the private re:Post was deleted.</p>
    * @public
    */
-  deleteDateTime?: Date;
+  deleteDateTime?: Date | undefined;
 
   /**
    * <p>The custom AWS KMS key ARN that’s used for the AWS KMS encryption.</p>
    * @public
    */
-  userKMSKey?: string;
+  userKMSKey?: string | undefined;
 
   /**
    * <p>The number of onboarded users to the private re:Post.</p>
    * @public
    */
-  userCount?: number;
+  userCount?: number | undefined;
 
   /**
    * <p>The content size of the private re:Post.</p>
    * @public
    */
-  contentSize?: number;
+  contentSize?: number | undefined;
 }
 
 /**
@@ -807,7 +807,7 @@ export interface ListSpacesOutput {
    * <p>The token that you use when you request the next set of private re:Posts.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -829,7 +829,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags that are associated with the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -936,19 +936,19 @@ export interface UpdateSpaceInput {
    * <p>A description for the private re:Post. This is used only to help you identify this private re:Post.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The pricing tier of this private re:Post.</p>
    * @public
    */
-  tier?: TierLevel;
+  tier?: TierLevel | undefined;
 
   /**
    * <p>The IAM role that grants permissions to the private re:Post to convert unanswered questions into AWS support tickets.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**

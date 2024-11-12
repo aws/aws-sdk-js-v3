@@ -41,13 +41,13 @@ export interface UpdateClusterRequest {
    * <p>The cluster settings for your cluster.</p>
    * @public
    */
-  settings?: ClusterSetting[];
+  settings?: ClusterSetting[] | undefined;
 
   /**
    * <p>The execute command configuration for the cluster.</p>
    * @public
    */
-  configuration?: ClusterConfiguration;
+  configuration?: ClusterConfiguration | undefined;
 
   /**
    * <p>Use this parameter to set a default Service Connect namespace. After you set a default
@@ -64,7 +64,7 @@ export interface UpdateClusterRequest {
    * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  serviceConnectDefaults?: ClusterServiceConnectDefaultsRequest;
+  serviceConnectDefaults?: ClusterServiceConnectDefaultsRequest | undefined;
 }
 
 /**
@@ -75,7 +75,7 @@ export interface UpdateClusterResponse {
    * <p>Details about the cluster.</p>
    * @public
    */
-  cluster?: Cluster;
+  cluster?: Cluster | undefined;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface UpdateClusterSettingsResponse {
    * <p>Details about the cluster</p>
    * @public
    */
-  cluster?: Cluster;
+  cluster?: Cluster | undefined;
 }
 
 /**
@@ -170,7 +170,7 @@ export interface UpdateContainerAgentRequest {
    * 			running on. If you do not specify a cluster, the default cluster is assumed.</p>
    * @public
    */
-  cluster?: string;
+  cluster?: string | undefined;
 
   /**
    * <p>The container instance ID or full ARN entries for the container instance where you
@@ -188,7 +188,7 @@ export interface UpdateContainerAgentResponse {
    * <p>The container instance that the container agent was updated for.</p>
    * @public
    */
-  containerInstance?: ContainerInstance;
+  containerInstance?: ContainerInstance | undefined;
 }
 
 /**
@@ -200,7 +200,7 @@ export interface UpdateContainerInstancesStateRequest {
    * 			update. If you do not specify a cluster, the default cluster is assumed.</p>
    * @public
    */
-  cluster?: string;
+  cluster?: string | undefined;
 
   /**
    * <p>A list of up to 10 container instance IDs or full ARN entries.</p>
@@ -228,13 +228,13 @@ export interface UpdateContainerInstancesStateResponse {
    * <p>The list of container instances.</p>
    * @public
    */
-  containerInstances?: ContainerInstance[];
+  containerInstances?: ContainerInstance[] | undefined;
 
   /**
    * <p>Any failures associated with the call.</p>
    * @public
    */
-  failures?: Failure[];
+  failures?: Failure[] | undefined;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface UpdateServiceRequest {
    * 			If you do not specify a cluster, the default cluster is assumed.</p>
    * @public
    */
-  cluster?: string;
+  cluster?: string | undefined;
 
   /**
    * <p>The name of the service to update.</p>
@@ -259,7 +259,7 @@ export interface UpdateServiceRequest {
    * 			service.</p>
    * @public
    */
-  desiredCount?: number;
+  desiredCount?: number | undefined;
 
   /**
    * <p>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
@@ -269,7 +269,7 @@ export interface UpdateServiceRequest {
    * 			the task definition and then stops an old task after the new version is running.</p>
    * @public
    */
-  taskDefinition?: string;
+  taskDefinition?: string | undefined;
 
   /**
    * <p>The capacity provider strategy to update the service to use.</p>
@@ -295,20 +295,20 @@ export interface UpdateServiceRequest {
    *          <p></p>
    * @public
    */
-  capacityProviderStrategy?: CapacityProviderStrategyItem[];
+  capacityProviderStrategy?: CapacityProviderStrategyItem[] | undefined;
 
   /**
    * <p>Optional deployment parameters that control how many tasks run during the deployment and the
    * 			failure detection methods.</p>
    * @public
    */
-  deploymentConfiguration?: DeploymentConfiguration;
+  deploymentConfiguration?: DeploymentConfiguration | undefined;
 
   /**
    * <p>An object representing the network configuration for the service.</p>
    * @public
    */
-  networkConfiguration?: NetworkConfiguration;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>An array of task placement constraint objects to update the service to use. If no
@@ -320,7 +320,7 @@ export interface UpdateServiceRequest {
    * 			constraints in the task definition and those specified at runtime.</p>
    * @public
    */
-  placementConstraints?: PlacementConstraint[];
+  placementConstraints?: PlacementConstraint[] | undefined;
 
   /**
    * <p>The task placement strategy objects to update the service to use. If no value is
@@ -330,7 +330,7 @@ export interface UpdateServiceRequest {
    *          <p>You can specify a maximum of five strategy rules for each service.</p>
    * @public
    */
-  placementStrategy?: PlacementStrategy[];
+  placementStrategy?: PlacementStrategy[] | undefined;
 
   /**
    * <p>The platform version that your tasks in the service run on. A platform version is only
@@ -340,7 +340,7 @@ export interface UpdateServiceRequest {
    * 				Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  platformVersion?: string;
+  platformVersion?: string | undefined;
 
   /**
    * <p>Determines whether to force a new deployment of the service. By default, deployments
@@ -350,7 +350,7 @@ export interface UpdateServiceRequest {
    * 			Fargate tasks onto a newer platform version.</p>
    * @public
    */
-  forceNewDeployment?: boolean;
+  forceNewDeployment?: boolean | undefined;
 
   /**
    * <p>The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy
@@ -363,7 +363,7 @@ export interface UpdateServiceRequest {
    * 			up.</p>
    * @public
    */
-  healthCheckGracePeriodSeconds?: number;
+  healthCheckGracePeriodSeconds?: number | undefined;
 
   /**
    * <p>If <code>true</code>, this enables execute command functionality on all task
@@ -372,7 +372,7 @@ export interface UpdateServiceRequest {
    * 			you can set this to <code>null</code> when performing this action.</p>
    * @public
    */
-  enableExecuteCommand?: boolean;
+  enableExecuteCommand?: boolean | undefined;
 
   /**
    * <p>Determines whether to turn on Amazon ECS managed tags for the tasks in the service. For
@@ -383,7 +383,7 @@ export interface UpdateServiceRequest {
    * 			starts new tasks with the updated tags.</p>
    * @public
    */
-  enableECSManagedTags?: boolean;
+  enableECSManagedTags?: boolean | undefined;
 
   /**
    * <p>A list of Elastic Load Balancing load balancer objects. It contains the load balancer name, the
@@ -409,7 +409,7 @@ export interface UpdateServiceRequest {
    *          <p>You can remove existing <code>loadBalancers</code> by passing an empty list.</p>
    * @public
    */
-  loadBalancers?: LoadBalancer[];
+  loadBalancers?: LoadBalancer[] | undefined;
 
   /**
    * <p>Determines whether to propagate the tags from the task definition or the service to
@@ -419,7 +419,7 @@ export interface UpdateServiceRequest {
    * 			starts new tasks with the updated tags.</p>
    * @public
    */
-  propagateTags?: PropagateTags;
+  propagateTags?: PropagateTags | undefined;
 
   /**
    * <p>The details for the service discovery registries to assign to this service. For more
@@ -432,7 +432,7 @@ export interface UpdateServiceRequest {
    * 			list.</p>
    * @public
    */
-  serviceRegistries?: ServiceRegistry[];
+  serviceRegistries?: ServiceRegistry[] | undefined;
 
   /**
    * <p>The configuration for this service to discover and connect to
@@ -445,7 +445,7 @@ export interface UpdateServiceRequest {
    * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * @public
    */
-  serviceConnectConfiguration?: ServiceConnectConfiguration;
+  serviceConnectConfiguration?: ServiceConnectConfiguration | undefined;
 
   /**
    * <p>The details of the volume that was <code>configuredAtLaunch</code>. You can configure
@@ -455,7 +455,7 @@ export interface UpdateServiceRequest {
    * 			it triggers a new deployment.</p>
    * @public
    */
-  volumeConfigurations?: ServiceVolumeConfiguration[];
+  volumeConfigurations?: ServiceVolumeConfiguration[] | undefined;
 }
 
 /**
@@ -466,7 +466,7 @@ export interface UpdateServiceResponse {
    * <p>The full description of your service following the update call.</p>
    * @public
    */
-  service?: Service;
+  service?: Service | undefined;
 }
 
 /**
@@ -502,7 +502,7 @@ export interface UpdateServicePrimaryTaskSetResponse {
    * <p>The details about the task set.</p>
    * @public
    */
-  taskSet?: TaskSet;
+  taskSet?: TaskSet | undefined;
 }
 
 /**
@@ -539,7 +539,7 @@ export interface UpdateTaskProtectionRequest {
    * 			minutes (2 hours).</p>
    * @public
    */
-  expiresInMinutes?: number;
+  expiresInMinutes?: number | undefined;
 }
 
 /**
@@ -567,13 +567,13 @@ export interface UpdateTaskProtectionResponse {
    *          </ul>
    * @public
    */
-  protectedTasks?: ProtectedTask[];
+  protectedTasks?: ProtectedTask[] | undefined;
 
   /**
    * <p>Any failures associated with the call.</p>
    * @public
    */
-  failures?: Failure[];
+  failures?: Failure[] | undefined;
 }
 
 /**
@@ -615,5 +615,5 @@ export interface UpdateTaskSetResponse {
    * <p>Details about the task set.</p>
    * @public
    */
-  taskSet?: TaskSet;
+  taskSet?: TaskSet | undefined;
 }

@@ -42,7 +42,7 @@ export interface DeleteReportDefinitionResult {
    * <p>ID of the report that was deleted.</p>
    * @public
    */
-  reportId?: string;
+  reportId?: string | undefined;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface SourceS3Location {
    *           Enabling a Region</a> in the <i>AWS General Reference guide</i>.</p>
    * @public
    */
-  region?: S3BucketRegion;
+  region?: S3BucketRegion | undefined;
 }
 
 /**
@@ -284,13 +284,13 @@ export interface ListReportDefinitionsRequest {
    * <p>The token value from a previous call to access the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -302,43 +302,43 @@ export interface ReportDefinition {
    * <p>The ID of the report.</p>
    * @public
    */
-  reportId?: string;
+  reportId?: string | undefined;
 
   /**
    * <p>Description of the report</p>
    * @public
    */
-  reportDescription?: string;
+  reportDescription?: string | undefined;
 
   /**
    * <p>The cadence at which the report is generated.</p>
    * @public
    */
-  reportFrequency?: ReportFrequency;
+  reportFrequency?: ReportFrequency | undefined;
 
   /**
    * <p>The format used for the generated reports.</p>
    * @public
    */
-  format?: Format;
+  format?: Format | undefined;
 
   /**
    * <p>The location in Amazon Simple Storage Service (Amazon S3) the reports should be saved to.</p>
    * @public
    */
-  destinationS3Location?: S3Location;
+  destinationS3Location?: S3Location | undefined;
 
   /**
    * <p>Timestamp (milliseconds) when this report definition was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Timestamp (milliseconds) when this report definition was last updated.</p>
    * @public
    */
-  lastUpdatedAt?: Date;
+  lastUpdatedAt?: Date | undefined;
 }
 
 /**
@@ -349,13 +349,13 @@ export interface ListReportDefinitionsResult {
    * <p>The retrieved reports.</p>
    * @public
    */
-  reportDefinitions?: ReportDefinition[];
+  reportDefinitions?: ReportDefinition[] | undefined;
 
   /**
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -403,7 +403,7 @@ export interface PutReportDefinitionResult {
    * <p>ID of the report.</p>
    * @public
    */
-  reportId?: string;
+  reportId?: string | undefined;
 }
 
 /**
@@ -470,5 +470,5 @@ export interface UpdateReportDefinitionResult {
    * <p>ID of the report.</p>
    * @public
    */
-  reportId?: string;
+  reportId?: string | undefined;
 }

@@ -85,13 +85,13 @@ export interface AccountGateResult {
    *          </ul>
    * @public
    */
-  Status?: AccountGateStatus;
+  Status?: AccountGateStatus | undefined;
 
   /**
    * <p>The reason for the account gate status assigned to this account and Region for the stack set operation.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 }
 
 /**
@@ -119,13 +119,13 @@ export interface AccountLimit {
    *          </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value that's associated with the account limit name.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 }
 
 /**
@@ -145,7 +145,7 @@ export interface ActivateOrganizationsAccessOutput {}
 export class InvalidOperationException extends __BaseException {
   readonly name: "InvalidOperationException" = "InvalidOperationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -167,7 +167,7 @@ export class InvalidOperationException extends __BaseException {
 export class OperationNotFoundException extends __BaseException {
   readonly name: "OperationNotFoundException" = "OperationNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -241,7 +241,7 @@ export interface ActivateTypeInput {
    *         <code>Type</code>, and <code>PublisherId</code>.</p>
    * @public
    */
-  Type?: ThirdPartyType;
+  Type?: ThirdPartyType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the public extension.</p>
@@ -249,7 +249,7 @@ export interface ActivateTypeInput {
    *         <code>Type</code>, and <code>PublisherId</code>.</p>
    * @public
    */
-  PublicTypeArn?: string;
+  PublicTypeArn?: string | undefined;
 
   /**
    * <p>The ID of the extension publisher.</p>
@@ -257,7 +257,7 @@ export interface ActivateTypeInput {
    *         <code>Type</code>, and <code>PublisherId</code>.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -265,7 +265,7 @@ export interface ActivateTypeInput {
    *         <code>Type</code>, and <code>PublisherId</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>An alias to assign to the public extension, in this account and Region. If you specify an
@@ -277,7 +277,7 @@ export interface ActivateTypeInput {
    *       aliases.</p>
    * @public
    */
-  TypeNameAlias?: string;
+  TypeNameAlias?: string | undefined;
 
   /**
    * <p>Whether to automatically update the extension in this account and Region when a new
@@ -286,19 +286,19 @@ export interface ActivateTypeInput {
    *          <p>The default is <code>true</code>.</p>
    * @public
    */
-  AutoUpdate?: boolean;
+  AutoUpdate?: boolean | undefined;
 
   /**
    * <p>Contains logging configuration information for an extension.</p>
    * @public
    */
-  LoggingConfig?: LoggingConfig;
+  LoggingConfig?: LoggingConfig | undefined;
 
   /**
    * <p>The name of the IAM execution role to use to activate the extension.</p>
    * @public
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn?: string | undefined;
 
   /**
    * <p>Manually updates a previously-activated type to a new major or minor version, if
@@ -318,7 +318,7 @@ export interface ActivateTypeInput {
    *          </ul>
    * @public
    */
-  VersionBump?: VersionBump;
+  VersionBump?: VersionBump | undefined;
 
   /**
    * <p>The major version of this extension you want to activate, if multiple major versions are
@@ -328,7 +328,7 @@ export interface ActivateTypeInput {
    *       both.</p>
    * @public
    */
-  MajorVersion?: number;
+  MajorVersion?: number | undefined;
 }
 
 /**
@@ -340,7 +340,7 @@ export interface ActivateTypeOutput {
    *       Region.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -354,7 +354,7 @@ export class CFNRegistryException extends __BaseException {
    * <p>A message with details about the error that occurred.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -380,7 +380,7 @@ export class TypeNotFoundException extends __BaseException {
    * <p>A message with details about the error that occurred.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -402,7 +402,7 @@ export class TypeNotFoundException extends __BaseException {
 export class AlreadyExistsException extends __BaseException {
   readonly name: "AlreadyExistsException" = "AlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -445,7 +445,7 @@ export interface AutoDeployment {
    *    Regions.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>If set to <code>true</code>, stack resources are retained when an account is removed from a target organization
@@ -453,7 +453,7 @@ export interface AutoDeployment {
    *     <code>True</code>.</p>
    * @public
    */
-  RetainStacksOnAccountRemoval?: boolean;
+  RetainStacksOnAccountRemoval?: boolean | undefined;
 }
 
 /**
@@ -468,32 +468,32 @@ export interface TypeConfigurationIdentifier {
    *    operation in this account and Region.</p>
    * @public
    */
-  TypeArn?: string;
+  TypeArn?: string | undefined;
 
   /**
    * <p>The alias specified for this configuration, if one was specified when the configuration was
    *    set.</p>
    * @public
    */
-  TypeConfigurationAlias?: string;
+  TypeConfigurationAlias?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the configuration, in this account and Region.</p>
    * @public
    */
-  TypeConfigurationArn?: string;
+  TypeConfigurationArn?: string | undefined;
 
   /**
    * <p>The type of extension.</p>
    * @public
    */
-  Type?: ThirdPartyType;
+  Type?: ThirdPartyType | undefined;
 
   /**
    * <p>The name of the extension type to which this configuration applies.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 }
 
 /**
@@ -517,19 +517,19 @@ export interface BatchDescribeTypeConfigurationsError {
    * <p>The error code.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>Identifying information for the configuration of a CloudFormation extension.</p>
    * @public
    */
-  TypeConfigurationIdentifier?: TypeConfigurationIdentifier;
+  TypeConfigurationIdentifier?: TypeConfigurationIdentifier | undefined;
 }
 
 /**
@@ -545,14 +545,14 @@ export interface TypeConfigurationDetails {
    *    Region.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The alias specified for this configuration, if one was specified when the configuration was
    *    set.</p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 
   /**
    * <p>A JSON string specifying the configuration data for the extension, in this account and
@@ -561,7 +561,7 @@ export interface TypeConfigurationDetails {
    *     <code>\{\}</code>.</p>
    * @public
    */
-  Configuration?: string;
+  Configuration?: string | undefined;
 
   /**
    * <p>When the configuration data was last updated for this extension.</p>
@@ -569,7 +569,7 @@ export interface TypeConfigurationDetails {
    *     <code>null</code>.</p>
    * @public
    */
-  LastUpdated?: Date;
+  LastUpdated?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
@@ -578,19 +578,19 @@ export interface TypeConfigurationDetails {
    *    operation in this account and Region.</p>
    * @public
    */
-  TypeArn?: string;
+  TypeArn?: string | undefined;
 
   /**
    * <p>The name of the extension.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>Whether this configuration data is the default configuration for the extension.</p>
    * @public
    */
-  IsDefaultConfiguration?: boolean;
+  IsDefaultConfiguration?: boolean | undefined;
 }
 
 /**
@@ -602,21 +602,21 @@ export interface BatchDescribeTypeConfigurationsOutput {
    *       configurations.</p>
    * @public
    */
-  Errors?: BatchDescribeTypeConfigurationsError[];
+  Errors?: BatchDescribeTypeConfigurationsError[] | undefined;
 
   /**
    * <p>A list of any of the specified extension configurations that CloudFormation could not process
    *       for any reason.</p>
    * @public
    */
-  UnprocessedTypeConfigurations?: TypeConfigurationIdentifier[];
+  UnprocessedTypeConfigurations?: TypeConfigurationIdentifier[] | undefined;
 
   /**
    * <p>A list of any of the specified extension configurations from the CloudFormation
    *       registry.</p>
    * @public
    */
-  TypeConfigurations?: TypeConfigurationDetails[];
+  TypeConfigurations?: TypeConfigurationDetails[] | undefined;
 }
 
 /**
@@ -630,7 +630,7 @@ export class TypeConfigurationNotFoundException extends __BaseException {
    * <p>A message with details about the error that occurred.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -689,7 +689,7 @@ export interface CancelUpdateStackInput {
    *       to ensure that CloudFormation successfully received them.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -699,7 +699,7 @@ export interface CancelUpdateStackInput {
 export class TokenAlreadyExistsException extends __BaseException {
   readonly name: "TokenAlreadyExistsException" = "TokenAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -838,14 +838,14 @@ export interface ResourceTargetDefinition {
    *    resource attribute's <code>Metadata</code>, <code>Properties</code>, or <code>Tags</code>.</p>
    * @public
    */
-  Attribute?: ResourceAttribute;
+  Attribute?: ResourceAttribute | undefined;
 
   /**
    * <p>If the <code>Attribute</code> value is <code>Properties</code>, the name of the property.
    *    For all other attributes, the value is null.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>If the <code>Attribute</code> value is <code>Properties</code>, indicates whether a change
@@ -855,27 +855,27 @@ export interface ResourceTargetDefinition {
    *     property types reference</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  RequiresRecreation?: RequiresRecreation;
+  RequiresRecreation?: RequiresRecreation | undefined;
 
   /**
    * <p>The property path of the property.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>The value of the property before the change is executed. Large values can be
    *    truncated.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 
   /**
    * <p>The value of the property after the change is executed. Large values can be
    *    truncated.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>The type of change to be made to the property if the change is executed.</p>
@@ -895,7 +895,7 @@ export interface ResourceTargetDefinition {
    *          </ul>
    * @public
    */
-  AttributeChangeType?: AttributeChangeType;
+  AttributeChangeType?: AttributeChangeType | undefined;
 }
 
 /**
@@ -909,7 +909,7 @@ export interface ResourceChangeDetail {
    *    will change and whether the resource will be recreated.</p>
    * @public
    */
-  Target?: ResourceTargetDefinition;
+  Target?: ResourceTargetDefinition | undefined;
 
   /**
    * <p>Indicates whether CloudFormation can determine the target value, and whether the target value
@@ -926,7 +926,7 @@ export interface ResourceChangeDetail {
    *    it will have a new physical ID, so all references to that resource will also be updated.</p>
    * @public
    */
-  Evaluation?: EvaluationType;
+  Evaluation?: EvaluationType | undefined;
 
   /**
    * <p>The group to which the <code>CausingEntity</code> value belongs. There are five entity
@@ -965,7 +965,7 @@ export interface ResourceChangeDetail {
    *          </ul>
    * @public
    */
-  ChangeSource?: ChangeSource;
+  ChangeSource?: ChangeSource | undefined;
 
   /**
    * <p>The identity of the entity that triggered this change. This entity is a member of the group
@@ -976,7 +976,7 @@ export interface ResourceChangeDetail {
    *    for <code>CausingEntity</code>.</p>
    * @public
    */
-  CausingEntity?: string;
+  CausingEntity?: string | undefined;
 }
 
 /**
@@ -999,7 +999,7 @@ export interface ModuleInfo {
    *          </p>
    * @public
    */
-  TypeHierarchy?: string;
+  TypeHierarchy?: string | undefined;
 
   /**
    * <p>A concatenated list of the logical IDs of the module or modules containing the resource.
@@ -1014,7 +1014,7 @@ export interface ModuleInfo {
    *     CloudFormation templates</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  LogicalIdHierarchy?: string;
+  LogicalIdHierarchy?: string | undefined;
 }
 
 /**
@@ -1088,7 +1088,7 @@ export interface ResourceChange {
    *          </ul>
    * @public
    */
-  PolicyAction?: PolicyAction;
+  PolicyAction?: PolicyAction | undefined;
 
   /**
    * <p>The action that CloudFormation takes on the resource, such as <code>Add</code> (adds a new
@@ -1097,26 +1097,26 @@ export interface ResourceChange {
    *    can't be determined).</p>
    * @public
    */
-  Action?: ChangeAction;
+  Action?: ChangeAction | undefined;
 
   /**
    * <p>The resource's logical ID, which is defined in the stack's template.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 
   /**
    * <p>The resource's physical ID (resource name). Resources that you are adding don't have
    *    physical IDs because they haven't been created.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>The type of CloudFormation resource, such as <code>AWS::S3::Bucket</code>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>For the <code>Modify</code> action, indicates whether CloudFormation will replace the resource
@@ -1133,7 +1133,7 @@ export interface ResourceChange {
    *     <code>Conditional</code>, and then <code>Never</code>.</p>
    * @public
    */
-  Replacement?: Replacement;
+  Replacement?: Replacement | undefined;
 
   /**
    * <p>For the <code>Modify</code> action, indicates which resource attribute is triggering this
@@ -1141,41 +1141,41 @@ export interface ResourceChange {
    *     <code>Properties</code>, or <code>Tags</code>.</p>
    * @public
    */
-  Scope?: ResourceAttribute[];
+  Scope?: ResourceAttribute[] | undefined;
 
   /**
    * <p>For the <code>Modify</code> action, a list of <code>ResourceChangeDetail</code> structures
    *    that describes the changes that CloudFormation will make to the resource.</p>
    * @public
    */
-  Details?: ResourceChangeDetail[];
+  Details?: ResourceChangeDetail[] | undefined;
 
   /**
    * <p>The change set ID of the nested change set.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>Contains information about the module from which the resource was created, if the resource
    *    was created from a module included in the stack template.</p>
    * @public
    */
-  ModuleInfo?: ModuleInfo;
+  ModuleInfo?: ModuleInfo | undefined;
 
   /**
    * <p>An encoded JSON string containing the context of the resource before the change is
    *    executed.</p>
    * @public
    */
-  BeforeContext?: string;
+  BeforeContext?: string | undefined;
 
   /**
    * <p>An encoded JSON string containing the context of the resource after the change is
    *    executed.</p>
    * @public
    */
-  AfterContext?: string;
+  AfterContext?: string | undefined;
 }
 
 /**
@@ -1207,21 +1207,21 @@ export interface Change {
    *          </ul>
    * @public
    */
-  Type?: ChangeType;
+  Type?: ChangeType | undefined;
 
   /**
    * <p>Is either <code>null</code>, if no hooks invoke for the resource, or contains the number of
    *    hooks that will invoke for the resource.</p>
    * @public
    */
-  HookInvocationCount?: number;
+  HookInvocationCount?: number | undefined;
 
   /**
    * <p>A <code>ResourceChange</code> structure that describes the resource and action that
    *    CloudFormation will perform.</p>
    * @public
    */
-  ResourceChange?: ResourceChange;
+  ResourceChange?: ResourceChange | undefined;
 }
 
 /**
@@ -1260,19 +1260,19 @@ export interface ChangeSetHookResourceTargetDetails {
    * <p>The resource's logical ID, which is defined in the stack's template.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 
   /**
    * <p>The type of CloudFormation resource, such as <code>AWS::S3::Bucket</code>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Specifies the action of the resource.</p>
    * @public
    */
-  ResourceAction?: ChangeAction;
+  ResourceAction?: ChangeAction | undefined;
 }
 
 /**
@@ -1297,13 +1297,13 @@ export interface ChangeSetHookTargetDetails {
    * <p>The name of the type.</p>
    * @public
    */
-  TargetType?: HookTargetType;
+  TargetType?: HookTargetType | undefined;
 
   /**
    * <p>Required if <code>TargetType</code> is <code>RESOURCE</code>.</p>
    * @public
    */
-  ResourceTargetDetails?: ChangeSetHookResourceTargetDetails;
+  ResourceTargetDetails?: ChangeSetHookResourceTargetDetails | undefined;
 }
 
 /**
@@ -1315,7 +1315,7 @@ export interface ChangeSetHook {
    * <p>Specifies the points in provisioning logic where a hook is invoked.</p>
    * @public
    */
-  InvocationPoint?: HookInvocationPoint;
+  InvocationPoint?: HookInvocationPoint | undefined;
 
   /**
    * <p>Specify the hook failure mode for non-compliant resources in the followings ways.</p>
@@ -1331,7 +1331,7 @@ export interface ChangeSetHook {
    *          </ul>
    * @public
    */
-  FailureMode?: HookFailureMode;
+  FailureMode?: HookFailureMode | undefined;
 
   /**
    * <p>The unique name for your hook. Specifies a three-part namespace for your hook, with a
@@ -1379,25 +1379,25 @@ export interface ChangeSetHook {
    *          </note>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The version ID of the type specified.</p>
    * @public
    */
-  TypeVersionId?: string;
+  TypeVersionId?: string | undefined;
 
   /**
    * <p>The version ID of the type configuration.</p>
    * @public
    */
-  TypeConfigurationVersionId?: string;
+  TypeConfigurationVersionId?: string | undefined;
 
   /**
    * <p>Specifies details about the target that the hook will run against.</p>
    * @public
    */
-  TargetDetails?: ChangeSetHookTargetDetails;
+  TargetDetails?: ChangeSetHookTargetDetails | undefined;
 }
 
 /**
@@ -1423,7 +1423,7 @@ export type ChangeSetHooksStatus = (typeof ChangeSetHooksStatus)[keyof typeof Ch
 export class ChangeSetNotFoundException extends __BaseException {
   readonly name: "ChangeSetNotFoundException" = "ChangeSetNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1486,25 +1486,25 @@ export interface ChangeSetSummary {
    * <p>The ID of the stack with which the change set is associated.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The name of the stack with which the change set is associated.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>The ID of the change set.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The name of the change set.</p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>If the change set execution status is <code>AVAILABLE</code>, you can execute the change
@@ -1513,57 +1513,57 @@ export interface ChangeSetSummary {
    *     <code>OBSOLETE</code> state because the stack was already updated.</p>
    * @public
    */
-  ExecutionStatus?: ExecutionStatus;
+  ExecutionStatus?: ExecutionStatus | undefined;
 
   /**
    * <p>The state of the change set, such as <code>CREATE_IN_PROGRESS</code>,
    *     <code>CREATE_COMPLETE</code>, or <code>FAILED</code>.</p>
    * @public
    */
-  Status?: ChangeSetStatus;
+  Status?: ChangeSetStatus | undefined;
 
   /**
    * <p>A description of the change set's status. For example, if your change set is in the
    *     <code>FAILED</code> state, CloudFormation shows the error message.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The start time when the change set was created, in UTC.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Descriptive information about the change set.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Specifies the current setting of <code>IncludeNestedStacks</code> for the change set.</p>
    * @public
    */
-  IncludeNestedStacks?: boolean;
+  IncludeNestedStacks?: boolean | undefined;
 
   /**
    * <p>The parent change set ID.</p>
    * @public
    */
-  ParentChangeSetId?: string;
+  ParentChangeSetId?: string | undefined;
 
   /**
    * <p>The root change set ID.</p>
    * @public
    */
-  RootChangeSetId?: string;
+  RootChangeSetId?: string | undefined;
 
   /**
    * <p>Indicates if the change set imports resources that already exist.</p>
    * @public
    */
-  ImportExistingResources?: boolean;
+  ImportExistingResources?: boolean | undefined;
 }
 
 /**
@@ -1609,7 +1609,7 @@ export interface ContinueUpdateRollbackInput {
    *       your user credentials.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>A list of the logical IDs of the resources that CloudFormation skips during the continue
@@ -1642,7 +1642,7 @@ export interface ContinueUpdateRollbackInput {
    *          </note>
    * @public
    */
-  ResourcesToSkip?: string[];
+  ResourcesToSkip?: string[] | undefined;
 
   /**
    * <p>A unique identifier for this <code>ContinueUpdateRollback</code> request. Specify this
@@ -1652,7 +1652,7 @@ export interface ContinueUpdateRollbackInput {
    *       them.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -1686,20 +1686,20 @@ export interface Parameter {
    *    parameter, CloudFormation uses the default value that's specified in your template.</p>
    * @public
    */
-  ParameterKey?: string;
+  ParameterKey?: string | undefined;
 
   /**
    * <p>The input value associated with the parameter.</p>
    * @public
    */
-  ParameterValue?: string;
+  ParameterValue?: string | undefined;
 
   /**
    * <p>During a stack update, use the existing parameter value that the stack is using for a given
    *    parameter key. If you specify <code>true</code>, do not specify a parameter value.</p>
    * @public
    */
-  UsePreviousValue?: boolean;
+  UsePreviousValue?: boolean | undefined;
 
   /**
    * <p>Read-only. The value that corresponds to a Systems Manager parameter key. This field is returned only
@@ -1707,7 +1707,7 @@ export interface Parameter {
    *     CloudFormation-supplied parameter types</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  ResolvedValue?: string;
+  ResolvedValue?: string | undefined;
 }
 
 /**
@@ -1796,7 +1796,7 @@ export interface RollbackConfiguration {
    *    back.</p>
    * @public
    */
-  RollbackTriggers?: RollbackTrigger[];
+  RollbackTriggers?: RollbackTrigger[] | undefined;
 
   /**
    * <p>The amount of time, in minutes, during which CloudFormation should monitor all the rollback
@@ -1811,7 +1811,7 @@ export interface RollbackConfiguration {
    *    disposing of old resources immediately once the operation completes.</p>
    * @public
    */
-  MonitoringTimeInMinutes?: number;
+  MonitoringTimeInMinutes?: number | undefined;
 }
 
 /**
@@ -1859,7 +1859,7 @@ export interface CreateChangeSetInput {
    *       <code>TemplateURL</code>.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>The location of the file that contains the revised template. The URL must point to a
@@ -1870,21 +1870,21 @@ export interface CreateChangeSetInput {
    *       <code>TemplateURL</code>.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 
   /**
    * <p>Whether to reuse the template that's associated with the stack to create the change
    *       set.</p>
    * @public
    */
-  UsePreviousTemplate?: boolean;
+  UsePreviousTemplate?: boolean | undefined;
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the change
    *       set. For more information, see the <a>Parameter</a> data type.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
@@ -1987,7 +1987,7 @@ export interface CreateChangeSetInput {
    *          </note>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>The template resource types that you have permissions to work with if you execute this
@@ -2004,7 +2004,7 @@ export interface CreateChangeSetInput {
    *          </note>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes when executing the
@@ -2017,28 +2017,28 @@ export interface CreateChangeSetInput {
    *       your user credentials.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>The rollback triggers for CloudFormation to monitor during stack creation and updating
    *       operations, and for the specified monitoring period afterwards.</p>
    * @public
    */
-  RollbackConfiguration?: RollbackConfiguration;
+  RollbackConfiguration?: RollbackConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Names (ARNs) of Amazon SNS topics that CloudFormation associates with the
    *       stack. To remove all associated notification topics, specify an empty list.</p>
    * @public
    */
-  NotificationARNs?: string[];
+  NotificationARNs?: string[] | undefined;
 
   /**
    * <p>Key-value pairs to associate with this stack. CloudFormation also propagates these tags to
    *       resources in the stack. You can specify a maximum of 50 tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The name of the change set. The name must be unique among all change sets that are
@@ -2056,13 +2056,13 @@ export interface CreateChangeSetInput {
    *       to ensure that CloudFormation successfully received them.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A description to help you identify this change set.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of change set operation. To create a change set for a new stack, specify
@@ -2077,13 +2077,13 @@ export interface CreateChangeSetInput {
    *       type to create a change set for an existing stack.</p>
    * @public
    */
-  ChangeSetType?: ChangeSetType;
+  ChangeSetType?: ChangeSetType | undefined;
 
   /**
    * <p>The resources to import into your stack.</p>
    * @public
    */
-  ResourcesToImport?: ResourceToImport[];
+  ResourcesToImport?: ResourceToImport[] | undefined;
 
   /**
    * <p>Creates a change set for the all nested stacks specified in the template. The default
@@ -2091,7 +2091,7 @@ export interface CreateChangeSetInput {
    *       specify <code>True</code>.</p>
    * @public
    */
-  IncludeNestedStacks?: boolean;
+  IncludeNestedStacks?: boolean | undefined;
 
   /**
    * <p>Determines what action will be taken if stack creation fails. If this parameter is
@@ -2122,7 +2122,7 @@ export interface CreateChangeSetInput {
    *       will cause the parent stack creation to fail and all stacks to be deleted.</p>
    * @public
    */
-  OnStackFailure?: OnStackFailure;
+  OnStackFailure?: OnStackFailure | undefined;
 
   /**
    * <p>Indicates if the change set imports resources that already exist.</p>
@@ -2137,7 +2137,7 @@ export interface CreateChangeSetInput {
    *          </note>
    * @public
    */
-  ImportExistingResources?: boolean;
+  ImportExistingResources?: boolean | undefined;
 }
 
 /**
@@ -2149,13 +2149,13 @@ export interface CreateChangeSetOutput {
    * <p>The Amazon Resource Name (ARN) of the change set.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The unique ID of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -2165,7 +2165,7 @@ export interface CreateChangeSetOutput {
 export class InsufficientCapabilitiesException extends __BaseException {
   readonly name: "InsufficientCapabilitiesException" = "InsufficientCapabilitiesException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2189,7 +2189,7 @@ export class InsufficientCapabilitiesException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2213,7 +2213,7 @@ export class LimitExceededException extends __BaseException {
 export class ConcurrentResourcesLimitExceededException extends __BaseException {
   readonly name: "ConcurrentResourcesLimitExceededException" = "ConcurrentResourcesLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2249,7 +2249,7 @@ export interface ResourceDefinition {
    * <p>The logical resource id for this resource in the generated template.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 
   /**
    * <p>A list of up to 256 key-value pairs that identifies the scanned resource. The key is the
@@ -2315,7 +2315,7 @@ export interface TemplateConfiguration {
    *     attribute</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  DeletionPolicy?: GeneratedTemplateDeletionPolicy;
+  DeletionPolicy?: GeneratedTemplateDeletionPolicy | undefined;
 
   /**
    * <p>The <code>UpdateReplacePolicy</code> assigned to resources in the generated template.
@@ -2335,7 +2335,7 @@ export interface TemplateConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html">UpdateReplacePolicy attribute</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  UpdateReplacePolicy?: GeneratedTemplateUpdateReplacePolicy;
+  UpdateReplacePolicy?: GeneratedTemplateUpdateReplacePolicy | undefined;
 }
 
 /**
@@ -2349,7 +2349,7 @@ export interface CreateGeneratedTemplateInput {
    *       action.</p>
    * @public
    */
-  Resources?: ResourceDefinition[];
+  Resources?: ResourceDefinition[] | undefined;
 
   /**
    * <p>The name assigned to the generated template.</p>
@@ -2362,14 +2362,14 @@ export interface CreateGeneratedTemplateInput {
    *       template.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>The configuration details of the generated template, including the
    *         <code>DeletionPolicy</code> and <code>UpdateReplacePolicy</code>.</p>
    * @public
    */
-  TemplateConfiguration?: TemplateConfiguration;
+  TemplateConfiguration?: TemplateConfiguration | undefined;
 }
 
 /**
@@ -2380,7 +2380,7 @@ export interface CreateGeneratedTemplateOutput {
    * <p>The ID of the generated template.</p>
    * @public
    */
-  GeneratedTemplateId?: string;
+  GeneratedTemplateId?: string | undefined;
 }
 
 /**
@@ -2421,7 +2421,7 @@ export interface CreateStackInput {
    *         <code>TemplateURL</code> parameter, but not both.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>Location of file containing the template body. The URL must point to a template (max size:
@@ -2431,7 +2431,7 @@ export interface CreateStackInput {
    *         <code>TemplateURL</code> parameter, but not both.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters for the stack.
@@ -2439,7 +2439,7 @@ export interface CreateStackInput {
    *       type.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>Set to <code>true</code> to disable rollback of the stack if stack creation failed. You
@@ -2449,14 +2449,14 @@ export interface CreateStackInput {
    *          </p>
    * @public
    */
-  DisableRollback?: boolean;
+  DisableRollback?: boolean | undefined;
 
   /**
    * <p>The rollback triggers for CloudFormation to monitor during stack creation and updating
    *       operations, and for the specified monitoring period afterwards.</p>
    * @public
    */
-  RollbackConfiguration?: RollbackConfiguration;
+  RollbackConfiguration?: RollbackConfiguration | undefined;
 
   /**
    * <p>The amount of time that can pass before the stack status becomes
@@ -2464,14 +2464,14 @@ export interface CreateStackInput {
    *         <code>false</code>, the stack will be rolled back.</p>
    * @public
    */
-  TimeoutInMinutes?: number;
+  TimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The Amazon SNS topic ARNs to publish stack related events. You can find your Amazon SNS topic ARNs
    *       using the Amazon SNS console or your Command Line Interface (CLI).</p>
    * @public
    */
-  NotificationARNs?: string[];
+  NotificationARNs?: string[] | undefined;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
@@ -2572,7 +2572,7 @@ export interface CreateStackInput {
    *          </note>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>The template resource types that you have permissions to work with for this create stack
@@ -2596,7 +2596,7 @@ export interface CreateStackInput {
    *          </note>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to create the
@@ -2609,7 +2609,7 @@ export interface CreateStackInput {
    *       your user credentials.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>Determines what action will be taken if stack creation fails. This must be one of:
@@ -2619,7 +2619,7 @@ export interface CreateStackInput {
    *          </p>
    * @public
    */
-  OnFailure?: OnFailure;
+  OnFailure?: OnFailure | undefined;
 
   /**
    * <p>Structure containing the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>.
@@ -2627,7 +2627,7 @@ export interface CreateStackInput {
    *       parameter, but not both.</p>
    * @public
    */
-  StackPolicyBody?: string;
+  StackPolicyBody?: string | undefined;
 
   /**
    * <p>Location of a file containing the stack policy. The URL must point to a policy (maximum
@@ -2637,14 +2637,14 @@ export interface CreateStackInput {
    *       both.</p>
    * @public
    */
-  StackPolicyURL?: string;
+  StackPolicyURL?: string | undefined;
 
   /**
    * <p>Key-value pairs to associate with this stack. CloudFormation also propagates these tags to the
    *       resources created in the stack. A maximum number of 50 tags can be specified.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A unique identifier for this <code>CreateStack</code> request. Specify this token if you
@@ -2664,7 +2664,7 @@ export interface CreateStackInput {
    *         <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>Whether to enable termination protection on the specified stack. If a user attempts to
@@ -2677,7 +2677,7 @@ export interface CreateStackInput {
    *       stack.</p>
    * @public
    */
-  EnableTerminationProtection?: boolean;
+  EnableTerminationProtection?: boolean | undefined;
 
   /**
    * <p>When set to <code>true</code>, newly created resources are deleted when the operation
@@ -2687,7 +2687,7 @@ export interface CreateStackInput {
    *          </p>
    * @public
    */
-  RetainExceptOnCreate?: boolean;
+  RetainExceptOnCreate?: boolean | undefined;
 }
 
 /**
@@ -2699,7 +2699,7 @@ export interface CreateStackOutput {
    * <p>Unique identifier of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -2714,19 +2714,19 @@ export interface DeploymentTargets {
    * <p>The names of one or more Amazon Web Services accounts for which you want to deploy stack set updates.</p>
    * @public
    */
-  Accounts?: string[];
+  Accounts?: string[] | undefined;
 
   /**
    * <p>Returns the value of the <code>AccountsUrl</code> property.</p>
    * @public
    */
-  AccountsUrl?: string;
+  AccountsUrl?: string | undefined;
 
   /**
    * <p>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</p>
    * @public
    */
-  OrganizationalUnitIds?: string[];
+  OrganizationalUnitIds?: string[] | undefined;
 
   /**
    * <p>Limit deployment targets to individual accounts or include additional accounts with provided OUs.</p>
@@ -2756,7 +2756,7 @@ export interface DeploymentTargets {
    *          </ul>
    * @public
    */
-  AccountFilterType?: AccountFilterType;
+  AccountFilterType?: AccountFilterType | undefined;
 }
 
 /**
@@ -2799,7 +2799,7 @@ export interface StackSetOperationPreferences {
    *    time.</p>
    * @public
    */
-  RegionConcurrencyType?: RegionConcurrencyType;
+  RegionConcurrencyType?: RegionConcurrencyType | undefined;
 
   /**
    * <p>The order of the Regions where you want to perform the stack operation.</p>
@@ -2809,7 +2809,7 @@ export interface StackSetOperationPreferences {
    *          </note>
    * @public
    */
-  RegionOrder?: string[];
+  RegionOrder?: string[] | undefined;
 
   /**
    * <p>The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in
@@ -2820,7 +2820,7 @@ export interface StackSetOperationPreferences {
    *          <p>By default, <code>0</code> is specified.</p>
    * @public
    */
-  FailureToleranceCount?: number;
+  FailureToleranceCount?: number | undefined;
 
   /**
    * <p>The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation
@@ -2833,7 +2833,7 @@ export interface StackSetOperationPreferences {
    *          <p>By default, <code>0</code> is specified.</p>
    * @public
    */
-  FailureTolerancePercentage?: number;
+  FailureTolerancePercentage?: number | undefined;
 
   /**
    * <p>The maximum number of accounts in which to perform this operation at one time. This can depend on the value of
@@ -2848,7 +2848,7 @@ export interface StackSetOperationPreferences {
    *          <p>By default, <code>1</code> is specified.</p>
    * @public
    */
-  MaxConcurrentCount?: number;
+  MaxConcurrentCount?: number | undefined;
 
   /**
    * <p>The maximum percentage of accounts in which to perform this operation at one time.</p>
@@ -2862,7 +2862,7 @@ export interface StackSetOperationPreferences {
    *          <p>By default, <code>1</code> is specified.</p>
    * @public
    */
-  MaxConcurrentPercentage?: number;
+  MaxConcurrentPercentage?: number | undefined;
 
   /**
    * <p>Specifies how the concurrency level behaves during the operation execution.</p>
@@ -2886,7 +2886,7 @@ export interface StackSetOperationPreferences {
    *          </ul>
    * @public
    */
-  ConcurrencyMode?: ConcurrencyMode;
+  ConcurrencyMode?: ConcurrencyMode | undefined;
 }
 
 /**
@@ -2907,7 +2907,7 @@ export interface CreateStackInstancesInput {
    *       both.</p>
    * @public
    */
-  Accounts?: string[];
+  Accounts?: string[] | undefined;
 
   /**
    * <p>[Service-managed permissions] The Organizations accounts for which to create stack
@@ -2916,7 +2916,7 @@ export interface CreateStackInstancesInput {
    *       both.</p>
    * @public
    */
-  DeploymentTargets?: DeploymentTargets;
+  DeploymentTargets?: DeploymentTargets | undefined;
 
   /**
    * <p>The names of one or more Amazon Web Services Regions where you want to create stack instances using the
@@ -2957,13 +2957,13 @@ export interface CreateStackInstancesInput {
    *       to update the stack set template.</p>
    * @public
    */
-  ParameterOverrides?: Parameter[];
+  ParameterOverrides?: Parameter[] | undefined;
 
   /**
    * <p>Preferences for how CloudFormation performs this stack set operation.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>The unique identifier for this stack set operation.</p>
@@ -2977,7 +2977,7 @@ export interface CreateStackInstancesInput {
    *       whose status is <code>OUTDATED</code>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -2999,7 +2999,7 @@ export interface CreateStackInstancesInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -3010,7 +3010,7 @@ export interface CreateStackInstancesOutput {
    * <p>The unique identifier for this stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3020,7 +3020,7 @@ export interface CreateStackInstancesOutput {
 export class OperationIdAlreadyExistsException extends __BaseException {
   readonly name: "OperationIdAlreadyExistsException" = "OperationIdAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3043,7 +3043,7 @@ export class OperationIdAlreadyExistsException extends __BaseException {
 export class OperationInProgressException extends __BaseException {
   readonly name: "OperationInProgressException" = "OperationInProgressException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3065,7 +3065,7 @@ export class OperationInProgressException extends __BaseException {
 export class StackSetNotFoundException extends __BaseException {
   readonly name: "StackSetNotFoundException" = "StackSetNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3087,7 +3087,7 @@ export class StackSetNotFoundException extends __BaseException {
 export class StaleRequestException extends __BaseException {
   readonly name: "StaleRequestException" = "StaleRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3109,7 +3109,7 @@ export class StaleRequestException extends __BaseException {
 export class CreatedButModifiedException extends __BaseException {
   readonly name: "CreatedButModifiedException" = "CreatedButModifiedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3142,7 +3142,7 @@ export interface ManagedExecution {
    *          <p>When <code>false</code> (default), StackSets performs one operation at a time in request order.</p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 }
 
 /**
@@ -3179,7 +3179,7 @@ export interface CreateStackSetInput {
    *       purpose or other important information.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a
@@ -3188,7 +3188,7 @@ export interface CreateStackSetInput {
    *       not both.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>The location of the file that contains the template body. The URL must point to a template
@@ -3198,20 +3198,20 @@ export interface CreateStackSetInput {
    *       not both.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 
   /**
    * <p>The stack ID you are importing into a new stack set. Specify the Amazon Resource Name
    *       (ARN) of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The input parameters for the stack set template.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack set template contains
@@ -3300,7 +3300,7 @@ export interface CreateStackSetInput {
    *          </ul>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>The key-value pairs to associate with this stack set and the stacks created from it.
@@ -3312,7 +3312,7 @@ export interface CreateStackSetInput {
    *       stack set is not created.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to use to create this stack set.</p>
@@ -3323,7 +3323,7 @@ export interface CreateStackSetInput {
    *       <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  AdministrationRoleARN?: string;
+  AdministrationRoleARN?: string | undefined;
 
   /**
    * <p>The name of the IAM execution role to use to create the stack set. If you do not specify
@@ -3333,7 +3333,7 @@ export interface CreateStackSetInput {
    *       stack resources users and groups can include in their stack sets.</p>
    * @public
    */
-  ExecutionRoleName?: string;
+  ExecutionRoleName?: string | undefined;
 
   /**
    * <p>Describes how the IAM roles required for stack set operations are created. By default,
@@ -3353,7 +3353,7 @@ export interface CreateStackSetInput {
    *          </ul>
    * @public
    */
-  PermissionModel?: PermissionModels;
+  PermissionModel?: PermissionModels | undefined;
 
   /**
    * <p>Describes whether StackSets automatically deploys to Organizations accounts that
@@ -3361,7 +3361,7 @@ export interface CreateStackSetInput {
    *         <code>PermissionModel</code> is <code>SERVICE_MANAGED</code>.</p>
    * @public
    */
-  AutoDeployment?: AutoDeployment;
+  AutoDeployment?: AutoDeployment | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -3384,7 +3384,7 @@ export interface CreateStackSetInput {
    *       administrators.</p>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 
   /**
    * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token if
@@ -3395,14 +3395,14 @@ export interface CreateStackSetInput {
    *       automatically.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues
    *       conflicting operations.</p>
    * @public
    */
-  ManagedExecution?: ManagedExecution;
+  ManagedExecution?: ManagedExecution | undefined;
 }
 
 /**
@@ -3413,7 +3413,7 @@ export interface CreateStackSetOutput {
    * <p>The ID of the stack set that you're creating.</p>
    * @public
    */
-  StackSetId?: string;
+  StackSetId?: string | undefined;
 }
 
 /**
@@ -3423,7 +3423,7 @@ export interface CreateStackSetOutput {
 export class NameAlreadyExistsException extends __BaseException {
   readonly name: "NameAlreadyExistsException" = "NameAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3459,7 +3459,7 @@ export interface DeactivateTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The extension type.</p>
@@ -3467,7 +3467,7 @@ export interface DeactivateTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  Type?: ThirdPartyType;
+  Type?: ThirdPartyType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the extension, in this account and Region.</p>
@@ -3475,7 +3475,7 @@ export interface DeactivateTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -3499,7 +3499,7 @@ export interface DeleteChangeSetInput {
    *       Resource Name (ARN) that's associated with it.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 }
 
 /**
@@ -3516,7 +3516,7 @@ export interface DeleteChangeSetOutput {}
 export class InvalidChangeSetStatusException extends __BaseException {
   readonly name: "InvalidChangeSetStatusException" = "InvalidChangeSetStatusException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3549,7 +3549,7 @@ export interface DeleteGeneratedTemplateInput {
 export class GeneratedTemplateNotFoundException extends __BaseException {
   readonly name: "GeneratedTemplateNotFoundException" = "GeneratedTemplateNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3597,7 +3597,7 @@ export interface DeleteStackInput {
    *       bucket, but you want to delete the stack.</p>
    * @public
    */
-  RetainResources?: string[];
+  RetainResources?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to delete the
@@ -3607,7 +3607,7 @@ export interface DeleteStackInput {
    *       your user credentials.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>A unique identifier for this <code>DeleteStack</code> request. Specify this token if you
@@ -3627,7 +3627,7 @@ export interface DeleteStackInput {
    *         <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>Specifies the deletion mode for the stack. Possible values are:</p>
@@ -3645,7 +3645,7 @@ export interface DeleteStackInput {
    *          </ul>
    * @public
    */
-  DeletionMode?: DeletionMode;
+  DeletionMode?: DeletionMode | undefined;
 }
 
 /**
@@ -3665,7 +3665,7 @@ export interface DeleteStackInstancesInput {
    *       both.</p>
    * @public
    */
-  Accounts?: string[];
+  Accounts?: string[] | undefined;
 
   /**
    * <p>[Service-managed permissions] The Organizations accounts from which to delete
@@ -3674,7 +3674,7 @@ export interface DeleteStackInstancesInput {
    *       both.</p>
    * @public
    */
-  DeploymentTargets?: DeploymentTargets;
+  DeploymentTargets?: DeploymentTargets | undefined;
 
   /**
    * <p>The Amazon Web Services Regions where you want to delete stack set instances.</p>
@@ -3686,7 +3686,7 @@ export interface DeleteStackInstancesInput {
    * <p>Preferences for how CloudFormation performs this stack set operation.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>Removes the stack instances from the specified stack set, but doesn't delete the stacks.
@@ -3709,7 +3709,7 @@ export interface DeleteStackInstancesInput {
    *       whose status is <code>OUTDATED</code>.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -3731,7 +3731,7 @@ export interface DeleteStackInstancesInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -3742,7 +3742,7 @@ export interface DeleteStackInstancesOutput {
    * <p>The unique identifier for this stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3776,7 +3776,7 @@ export interface DeleteStackSetInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -3792,7 +3792,7 @@ export interface DeleteStackSetOutput {}
 export class StackSetNotEmptyException extends __BaseException {
   readonly name: "StackSetNotEmptyException" = "StackSetNotEmptyException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3832,7 +3832,7 @@ export interface DeregisterTypeInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The kind of extension.</p>
@@ -3840,7 +3840,7 @@ export interface DeregisterTypeInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -3848,14 +3848,14 @@ export interface DeregisterTypeInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The ID of a specific version of the extension. The version ID is the value at the end of
    *       the Amazon Resource Name (ARN) assigned to the extension version when it is registered.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -3872,7 +3872,7 @@ export interface DescribeAccountLimitsInput {
    * <p>A string that identifies the next page of limits that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3885,14 +3885,14 @@ export interface DescribeAccountLimitsOutput {
    *       values.</p>
    * @public
    */
-  AccountLimits?: AccountLimit[];
+  AccountLimits?: AccountLimit[] | undefined;
 
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of limits. If
    *       no additional page exists, this value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3911,21 +3911,21 @@ export interface DescribeChangeSetInput {
    *       change set you want to describe.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>A string (provided by the <a>DescribeChangeSet</a> response output) that
    *       identifies the next page of information that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>If <code>true</code>, the returned changes include detailed changes in the property
    *       values.</p>
    * @public
    */
-  IncludePropertyValues?: boolean;
+  IncludePropertyValues?: boolean | undefined;
 }
 
 /**
@@ -3937,44 +3937,44 @@ export interface DescribeChangeSetOutput {
    * <p>The name of the change set.</p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the change set.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stack that's associated with the change set.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The name of the stack that's associated with the change set.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>Information about the change set.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A list of <code>Parameter</code> structures that describes the input parameters and their
    *       values used to create the change set. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data type.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>The start time when the change set was created, in UTC.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>If the change set execution status is <code>AVAILABLE</code>, you can execute the change
@@ -3983,82 +3983,82 @@ export interface DescribeChangeSetOutput {
    *         <code>OBSOLETE</code> state because the stack was already updated.</p>
    * @public
    */
-  ExecutionStatus?: ExecutionStatus;
+  ExecutionStatus?: ExecutionStatus | undefined;
 
   /**
    * <p>The current status of the change set, such as <code>CREATE_IN_PROGRESS</code>,
    *         <code>CREATE_COMPLETE</code>, or <code>FAILED</code>.</p>
    * @public
    */
-  Status?: ChangeSetStatus;
+  Status?: ChangeSetStatus | undefined;
 
   /**
    * <p>A description of the change set's status. For example, if your attempt to create a change
    *       set failed, CloudFormation shows the error message.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The ARNs of the Amazon SNS topics that will be associated with the stack if you execute the
    *       change set.</p>
    * @public
    */
-  NotificationARNs?: string[];
+  NotificationARNs?: string[] | undefined;
 
   /**
    * <p>The rollback triggers for CloudFormation to monitor during stack creation and updating
    *       operations, and for the specified monitoring period afterwards.</p>
    * @public
    */
-  RollbackConfiguration?: RollbackConfiguration;
+  RollbackConfiguration?: RollbackConfiguration | undefined;
 
   /**
    * <p>If you execute the change set, the list of capabilities that were explicitly acknowledged
    *       when the change set was created.</p>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>If you execute the change set, the tags that will be associated with the stack.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A list of <code>Change</code> structures that describes the resources CloudFormation changes
    *       if you execute the change set.</p>
    * @public
    */
-  Changes?: Change[];
+  Changes?: Change[] | undefined;
 
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of changes. If there is
    *       no additional page, this value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Verifies if <code>IncludeNestedStacks</code> is set to <code>True</code>.</p>
    * @public
    */
-  IncludeNestedStacks?: boolean;
+  IncludeNestedStacks?: boolean | undefined;
 
   /**
    * <p>Specifies the change set ID of the parent change set in the current nested change set
    *       hierarchy.</p>
    * @public
    */
-  ParentChangeSetId?: string;
+  ParentChangeSetId?: string | undefined;
 
   /**
    * <p>Specifies the change set ID of the root change set in the current nested change set
    *       hierarchy.</p>
    * @public
    */
-  RootChangeSetId?: string;
+  RootChangeSetId?: string | undefined;
 
   /**
    * <p>Determines what action will be taken if stack creation fails. When this parameter is
@@ -4086,7 +4086,7 @@ export interface DescribeChangeSetOutput {
    *          </ul>
    * @public
    */
-  OnStackFailure?: OnStackFailure;
+  OnStackFailure?: OnStackFailure | undefined;
 
   /**
    * <p>Indicates if the change set imports resources that already exist.</p>
@@ -4098,7 +4098,7 @@ export interface DescribeChangeSetOutput {
    *          </note>
    * @public
    */
-  ImportExistingResources?: boolean;
+  ImportExistingResources?: boolean | undefined;
 }
 
 /**
@@ -4116,21 +4116,21 @@ export interface DescribeChangeSetHooksInput {
    *       change set you want to describe.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>A string, provided by the <code>DescribeChangeSetHooks</code> response output, that
    *       identifies the next page of information that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>If specified, lists only the hooks related to the specified
    *       <code>LogicalResourceId</code>.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 }
 
 /**
@@ -4141,43 +4141,43 @@ export interface DescribeChangeSetHooksOutput {
    * <p>The change set identifier (stack ID).</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The change set name.</p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>List of hook objects.</p>
    * @public
    */
-  Hooks?: ChangeSetHook[];
+  Hooks?: ChangeSetHook[] | undefined;
 
   /**
    * <p>Provides the status of the change set hook.</p>
    * @public
    */
-  Status?: ChangeSetHooksStatus;
+  Status?: ChangeSetHooksStatus | undefined;
 
   /**
    * <p>Pagination token, <code>null</code> or empty if no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The stack identifier (stack ID).</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The stack name.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 }
 
 /**
@@ -4200,25 +4200,25 @@ export interface TemplateProgress {
    * <p>The number of resources that succeeded the template generation.</p>
    * @public
    */
-  ResourcesSucceeded?: number;
+  ResourcesSucceeded?: number | undefined;
 
   /**
    * <p>The number of resources that failed the template generation.</p>
    * @public
    */
-  ResourcesFailed?: number;
+  ResourcesFailed?: number | undefined;
 
   /**
    * <p>The number of resources that are in-process for the template generation.</p>
    * @public
    */
-  ResourcesProcessing?: number;
+  ResourcesProcessing?: number | undefined;
 
   /**
    * <p>The number of resources that are still pending the template generation.</p>
    * @public
    */
-  ResourcesPending?: number;
+  ResourcesPending?: number | undefined;
 }
 
 /**
@@ -4248,19 +4248,19 @@ export interface WarningProperty {
    *    the <code>Code</code> property, the property path would be <code>Code/S3Bucket</code>.</p>
    * @public
    */
-  PropertyPath?: string;
+  PropertyPath?: string | undefined;
 
   /**
    * <p>If <code>true</code>, the specified property is required.</p>
    * @public
    */
-  Required?: boolean;
+  Required?: boolean | undefined;
 
   /**
    * <p>The description of the property from the resource provider schema.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4315,13 +4315,13 @@ export interface WarningDetail {
    *          </note>
    * @public
    */
-  Type?: WarningType;
+  Type?: WarningType | undefined;
 
   /**
    * <p>The properties of the resource that are impacted by this warning.</p>
    * @public
    */
-  Properties?: WarningProperty[];
+  Properties?: WarningProperty[] | undefined;
 }
 
 /**
@@ -4337,13 +4337,13 @@ export interface ResourceDetail {
    *          </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The logical id for this resource in the final generated template.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 
   /**
    * <p>A list of up to 256 key-value pairs that identifies the resource in the generated template.
@@ -4354,7 +4354,7 @@ export interface ResourceDetail {
    *     <code>"TableName": "MyDDBTable"</code>. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-primaryidentifier">primaryIdentifier</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
    * @public
    */
-  ResourceIdentifier?: Record<string, string>;
+  ResourceIdentifier?: Record<string, string> | undefined;
 
   /**
    * <p>Status of the processing of a resource in a generated template.</p>
@@ -4394,19 +4394,19 @@ export interface ResourceDetail {
    *          </dl>
    * @public
    */
-  ResourceStatus?: GeneratedTemplateResourceStatus;
+  ResourceStatus?: GeneratedTemplateResourceStatus | undefined;
 
   /**
    * <p>The reason for the resource detail, providing more information if a failure happened.</p>
    * @public
    */
-  ResourceStatusReason?: string;
+  ResourceStatusReason?: string | undefined;
 
   /**
    * <p>The warnings generated for this resource.</p>
    * @public
    */
-  Warnings?: WarningDetail[];
+  Warnings?: WarningDetail[] | undefined;
 }
 
 /**
@@ -4441,20 +4441,20 @@ export interface DescribeGeneratedTemplateOutput {
    *             </code>.</p>
    * @public
    */
-  GeneratedTemplateId?: string;
+  GeneratedTemplateId?: string | undefined;
 
   /**
    * <p>The name of the generated template.</p>
    * @public
    */
-  GeneratedTemplateName?: string;
+  GeneratedTemplateName?: string | undefined;
 
   /**
    * <p>A list of objects describing the details of the resources in the template
    *       generation.</p>
    * @public
    */
-  Resources?: ResourceDetail[];
+  Resources?: ResourceDetail[] | undefined;
 
   /**
    * <p>The status of the template generation. Supported values are:</p>
@@ -4494,53 +4494,53 @@ export interface DescribeGeneratedTemplateOutput {
    *          </ul>
    * @public
    */
-  Status?: GeneratedTemplateStatus;
+  Status?: GeneratedTemplateStatus | undefined;
 
   /**
    * <p>The reason for the current template generation status. This will provide more details if a
    *       failure happened.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The time the generated template was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time the generated template was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>An object describing the progress of the template generation.</p>
    * @public
    */
-  Progress?: TemplateProgress;
+  Progress?: TemplateProgress | undefined;
 
   /**
    * <p>The stack ARN of the base stack if a base stack was provided when generating the
    *       template.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The configuration details of the generated template, including the
    *         <code>DeletionPolicy</code> and <code>UpdateReplacePolicy</code>.</p>
    * @public
    */
-  TemplateConfiguration?: TemplateConfiguration;
+  TemplateConfiguration?: TemplateConfiguration | undefined;
 
   /**
    * <p>The number of warnings generated for this template. The warnings are found in the details
    *       of each of the resources in the template.</p>
    * @public
    */
-  TotalWarnings?: number;
+  TotalWarnings?: number | undefined;
 }
 
 /**
@@ -4566,7 +4566,7 @@ export interface DescribeOrganizationsAccessInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -4592,7 +4592,7 @@ export interface DescribeOrganizationsAccessOutput {
    * <p>Presents the status of the <code>OrganizationAccess</code>.</p>
    * @public
    */
-  Status?: OrganizationStatus;
+  Status?: OrganizationStatus | undefined;
 }
 
 /**
@@ -4606,7 +4606,7 @@ export interface DescribePublisherInput {
    *       account.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 }
 
 /**
@@ -4646,27 +4646,27 @@ export interface DescribePublisherOutput {
    * <p>The ID of the extension publisher.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 
   /**
    * <p>Whether the publisher is verified. Currently, all registered publishers are
    *       verified.</p>
    * @public
    */
-  PublisherStatus?: PublisherStatus;
+  PublisherStatus?: PublisherStatus | undefined;
 
   /**
    * <p>The type of account used as the identity provider when registering this publisher with
    *       CloudFormation.</p>
    * @public
    */
-  IdentityProvider?: IdentityProvider;
+  IdentityProvider?: IdentityProvider | undefined;
 
   /**
    * <p>The URL to the publisher's profile with the identity provider.</p>
    * @public
    */
-  PublisherProfile?: string;
+  PublisherProfile?: string | undefined;
 }
 
 /**
@@ -4708,7 +4708,7 @@ export interface DescribeResourceScanOutput {
    *             </code>.</p>
    * @public
    */
-  ResourceScanId?: string;
+  ResourceScanId?: string | undefined;
 
   /**
    * <p>Status of the resource scan.</p>
@@ -4748,39 +4748,39 @@ export interface DescribeResourceScanOutput {
    *          </dl>
    * @public
    */
-  Status?: ResourceScanStatus;
+  Status?: ResourceScanStatus | undefined;
 
   /**
    * <p>The reason for the resource scan status, providing more information if a failure
    *       happened.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The time that the resource scan was started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time that the resource scan was finished.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The percentage of the resource scan that has been completed.</p>
    * @public
    */
-  PercentageCompleted?: number;
+  PercentageCompleted?: number | undefined;
 
   /**
    * <p>The list of resource types for the specified scan. Resource types are only available for
    *       scans with a <code>Status</code> set to <code>COMPLETE</code> or <code>FAILED </code>.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The number of resources that were listed. This is only available for scans with a
@@ -4788,7 +4788,7 @@ export interface DescribeResourceScanOutput {
    *       </code>.</p>
    * @public
    */
-  ResourcesScanned?: number;
+  ResourcesScanned?: number | undefined;
 
   /**
    * <p>The number of resources that were read. This is only available for scans with a
@@ -4800,7 +4800,7 @@ export interface DescribeResourceScanOutput {
    *          </note>
    * @public
    */
-  ResourcesRead?: number;
+  ResourcesRead?: number | undefined;
 }
 
 /**
@@ -4810,7 +4810,7 @@ export interface DescribeResourceScanOutput {
 export class ResourceScanNotFoundException extends __BaseException {
   readonly name: "ResourceScanNotFoundException" = "ResourceScanNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4914,7 +4914,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    *          </ul>
    * @public
    */
-  StackDriftStatus?: StackDriftStatus;
+  StackDriftStatus?: StackDriftStatus | undefined;
 
   /**
    * <p>The status of the stack drift detection operation.</p>
@@ -4948,7 +4948,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    * <p>The reason the stack drift detection operation has its current status.</p>
    * @public
    */
-  DetectionStatusReason?: string;
+  DetectionStatusReason?: string | undefined;
 
   /**
    * <p>Total number of stack resources that have drifted. This is NULL until the drift detection
@@ -4956,7 +4956,7 @@ export interface DescribeStackDriftDetectionStatusOutput {
    *       whose drift status is <code>IN_SYNC</code>.</p>
    * @public
    */
-  DriftedStackResourceCount?: number;
+  DriftedStackResourceCount?: number | undefined;
 
   /**
    * <p>Time at which the stack drift detection operation was initiated.</p>
@@ -4984,13 +4984,13 @@ export interface DescribeStackEventsInput {
    *          <p>Default: There is no default value.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>A string that identifies the next page of events that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5084,20 +5084,20 @@ export interface StackEvent {
    * <p>The logical name of the resource specified in the template.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 
   /**
    * <p>The name or unique identifier associated with the physical instance of the resource.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>Type of resource. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
    *     property types reference</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Time the status was updated.</p>
@@ -5109,19 +5109,19 @@ export interface StackEvent {
    * <p>Current status of the resource.</p>
    * @public
    */
-  ResourceStatus?: ResourceStatus;
+  ResourceStatus?: ResourceStatus | undefined;
 
   /**
    * <p>Success/failure message associated with the resource.</p>
    * @public
    */
-  ResourceStatusReason?: string;
+  ResourceStatusReason?: string | undefined;
 
   /**
    * <p>BLOB of the properties used to create the resource.</p>
    * @public
    */
-  ResourceProperties?: string;
+  ResourceProperties?: string | undefined;
 
   /**
    * <p>The token passed to the operation that generated this event.</p>
@@ -5137,31 +5137,31 @@ export interface StackEvent {
    *     <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>The name of the hook.</p>
    * @public
    */
-  HookType?: string;
+  HookType?: string | undefined;
 
   /**
    * <p>Provides the status of the change set hook.</p>
    * @public
    */
-  HookStatus?: HookStatus;
+  HookStatus?: HookStatus | undefined;
 
   /**
    * <p>Provides the reason for the hook status.</p>
    * @public
    */
-  HookStatusReason?: string;
+  HookStatusReason?: string | undefined;
 
   /**
    * <p>Invocation points are points in provisioning logic where hooks are initiated.</p>
    * @public
    */
-  HookInvocationPoint?: HookInvocationPoint;
+  HookInvocationPoint?: HookInvocationPoint | undefined;
 
   /**
    * <p>Specify the hook failure mode for non-compliant resources in the followings ways.</p>
@@ -5177,7 +5177,7 @@ export interface StackEvent {
    *          </ul>
    * @public
    */
-  HookFailureMode?: HookFailureMode;
+  HookFailureMode?: HookFailureMode | undefined;
 
   /**
    * <p>An optional field containing information about the detailed status of the stack
@@ -5200,7 +5200,7 @@ export interface StackEvent {
    *          </ul>
    * @public
    */
-  DetailedStatus?: DetailedStatus;
+  DetailedStatus?: DetailedStatus | undefined;
 }
 
 /**
@@ -5212,14 +5212,14 @@ export interface DescribeStackEventsOutput {
    * <p>A list of <code>StackEvents</code> structures.</p>
    * @public
    */
-  StackEvents?: StackEvent[];
+  StackEvents?: StackEvent[] | undefined;
 
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of events. If
    *       no additional page exists, this value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5265,7 +5265,7 @@ export interface DescribeStackInstanceInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -5342,7 +5342,7 @@ export interface StackInstanceComprehensiveStatus {
    *          </ul>
    * @public
    */
-  DetailedStatus?: StackInstanceDetailedStatus;
+  DetailedStatus?: StackInstanceDetailedStatus | undefined;
 }
 
 /**
@@ -5373,33 +5373,33 @@ export interface StackInstance {
    * <p>The name or unique ID of the stack set that the stack instance is associated with.</p>
    * @public
    */
-  StackSetId?: string;
+  StackSetId?: string | undefined;
 
   /**
    * <p>The name of the Amazon Web Services Region that the stack instance is associated with.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>[Self-managed permissions] The name of the Amazon Web Services account that the stack instance is associated
    *    with.</p>
    * @public
    */
-  Account?: string;
+  Account?: string | undefined;
 
   /**
    * <p>The ID of the stack instance.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>A list of parameters from the stack set template whose values have been overridden in this stack
    *    instance.</p>
    * @public
    */
-  ParameterOverrides?: Parameter[];
+  ParameterOverrides?: Parameter[] | undefined;
 
   /**
    * <p>The status of the stack instance, in terms of its synchronization with its associated stack set.</p>
@@ -5436,26 +5436,26 @@ export interface StackInstance {
    *          </ul>
    * @public
    */
-  Status?: StackInstanceStatus;
+  Status?: StackInstanceStatus | undefined;
 
   /**
    * <p>The detailed status of the stack instance.</p>
    * @public
    */
-  StackInstanceStatus?: StackInstanceComprehensiveStatus;
+  StackInstanceStatus?: StackInstanceComprehensiveStatus | undefined;
 
   /**
    * <p>The explanation for the specific status code that's assigned to this stack instance.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
    *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
-  OrganizationalUnitId?: string;
+  OrganizationalUnitId?: string | undefined;
 
   /**
    * <p>Status of the stack instance's actual configuration compared to the expected template and parameter
@@ -5484,20 +5484,20 @@ export interface StackInstance {
    *          </ul>
    * @public
    */
-  DriftStatus?: StackDriftStatus;
+  DriftStatus?: StackDriftStatus | undefined;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be
    *     <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
    * @public
    */
-  LastDriftCheckTimestamp?: Date;
+  LastDriftCheckTimestamp?: Date | undefined;
 
   /**
    * <p>The last unique ID of a StackSet operation performed on a stack instance.</p>
    * @public
    */
-  LastOperationId?: string;
+  LastOperationId?: string | undefined;
 }
 
 /**
@@ -5508,7 +5508,7 @@ export interface DescribeStackInstanceOutput {
    * <p>The stack instance that matches the specified request parameters.</p>
    * @public
    */
-  StackInstance?: StackInstance;
+  StackInstance?: StackInstance | undefined;
 }
 
 /**
@@ -5518,7 +5518,7 @@ export interface DescribeStackInstanceOutput {
 export class StackInstanceNotFoundException extends __BaseException {
   readonly name: "StackInstanceNotFoundException" = "StackInstanceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5619,7 +5619,7 @@ export interface StackResourceDriftInformation {
    *    configuration.</p>
    * @public
    */
-  LastCheckTimestamp?: Date;
+  LastCheckTimestamp?: Date | undefined;
 }
 
 /**
@@ -5631,13 +5631,13 @@ export interface StackResourceDetail {
    * <p>The name associated with the stack.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>Unique identifier of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The logical name of the resource specified in the template.</p>
@@ -5650,7 +5650,7 @@ export interface StackResourceDetail {
    *    supported by CloudFormation.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>Type of resource. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
@@ -5675,13 +5675,13 @@ export interface StackResourceDetail {
    * <p>Success/failure message associated with the resource.</p>
    * @public
    */
-  ResourceStatusReason?: string;
+  ResourceStatusReason?: string | undefined;
 
   /**
    * <p>User defined description associated with the resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The content of the <code>Metadata</code> attribute declared for the resource. For more
@@ -5689,7 +5689,7 @@ export interface StackResourceDetail {
    *    in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  Metadata?: string;
+  Metadata?: string | undefined;
 
   /**
    * <p>Information about whether the resource's actual configuration differs, or has
@@ -5698,14 +5698,14 @@ export interface StackResourceDetail {
    *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
    * @public
    */
-  DriftInformation?: StackResourceDriftInformation;
+  DriftInformation?: StackResourceDriftInformation | undefined;
 
   /**
    * <p>Contains information about the module from which the resource was created, if the resource
    *    was created from a module included in the stack template.</p>
    * @public
    */
-  ModuleInfo?: ModuleInfo;
+  ModuleInfo?: ModuleInfo | undefined;
 }
 
 /**
@@ -5718,7 +5718,7 @@ export interface DescribeStackResourceOutput {
    *       resource in the specified stack.</p>
    * @public
    */
-  StackResourceDetail?: StackResourceDetail;
+  StackResourceDetail?: StackResourceDetail | undefined;
 }
 
 /**
@@ -5757,13 +5757,13 @@ export interface DescribeStackResourceDriftsInput {
    *          </ul>
    * @public
    */
-  StackResourceDriftStatusFilters?: StackResourceDriftStatus[];
+  StackResourceDriftStatusFilters?: StackResourceDriftStatus[] | undefined;
 
   /**
    * <p>A string that identifies the next page of stack resource drift results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -5772,7 +5772,7 @@ export interface DescribeStackResourceDriftsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5895,7 +5895,7 @@ export interface StackResourceDrift {
    *    supported by CloudFormation.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses
@@ -5904,7 +5904,7 @@ export interface StackResourceDrift {
    *    contains the targeted resource.</p>
    * @public
    */
-  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
+  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[] | undefined;
 
   /**
    * <p>The type of the resource.</p>
@@ -5919,7 +5919,7 @@ export interface StackResourceDrift {
    *    structure will not be present.</p>
    * @public
    */
-  ExpectedProperties?: string;
+  ExpectedProperties?: string | undefined;
 
   /**
    * <p>A JSON structure containing the actual property values of the stack resource.</p>
@@ -5927,7 +5927,7 @@ export interface StackResourceDrift {
    *    structure will not be present.</p>
    * @public
    */
-  ActualProperties?: string;
+  ActualProperties?: string | undefined;
 
   /**
    * <p>A collection of the resource properties whose actual values differ from their expected
@@ -5935,7 +5935,7 @@ export interface StackResourceDrift {
    *     <code>MODIFIED</code>.</p>
    * @public
    */
-  PropertyDifferences?: PropertyDifference[];
+  PropertyDifferences?: PropertyDifference[] | undefined;
 
   /**
    * <p>Status of the resource's actual configuration compared to its expected configuration.</p>
@@ -5975,7 +5975,7 @@ export interface StackResourceDrift {
    *    was created from a module included in the stack template.</p>
    * @public
    */
-  ModuleInfo?: ModuleInfo;
+  ModuleInfo?: ModuleInfo | undefined;
 }
 
 /**
@@ -6002,7 +6002,7 @@ export interface DescribeStackResourceDriftsOutput {
    *       request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6026,14 +6026,14 @@ export interface DescribeStackResourcesInput {
    *         <code>PhysicalResourceId</code>.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>The logical name of the resource as specified in the template.</p>
    *          <p>Default: There is no default value.</p>
    * @public
    */
-  LogicalResourceId?: string;
+  LogicalResourceId?: string | undefined;
 
   /**
    * <p>The name or unique identifier that corresponds to a physical instance ID of a resource
@@ -6047,7 +6047,7 @@ export interface DescribeStackResourcesInput {
    *          <p>Default: There is no default value.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 }
 
 /**
@@ -6059,13 +6059,13 @@ export interface StackResource {
    * <p>The name associated with the stack.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>Unique identifier of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The logical name of the resource specified in the template.</p>
@@ -6078,7 +6078,7 @@ export interface StackResource {
    *    supported by CloudFormation.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>Type of resource. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
@@ -6103,13 +6103,13 @@ export interface StackResource {
    * <p>Success/failure message associated with the resource.</p>
    * @public
    */
-  ResourceStatusReason?: string;
+  ResourceStatusReason?: string | undefined;
 
   /**
    * <p>User defined description associated with the resource.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Information about whether the resource's actual configuration differs, or has
@@ -6118,14 +6118,14 @@ export interface StackResource {
    *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
    * @public
    */
-  DriftInformation?: StackResourceDriftInformation;
+  DriftInformation?: StackResourceDriftInformation | undefined;
 
   /**
    * <p>Contains information about the module from which the resource was created, if the resource
    *    was created from a module included in the stack template.</p>
    * @public
    */
-  ModuleInfo?: ModuleInfo;
+  ModuleInfo?: ModuleInfo | undefined;
 }
 
 /**
@@ -6137,7 +6137,7 @@ export interface DescribeStackResourcesOutput {
    * <p>A list of <code>StackResource</code> structures.</p>
    * @public
    */
-  StackResources?: StackResource[];
+  StackResources?: StackResource[] | undefined;
 }
 
 /**
@@ -6172,13 +6172,13 @@ export interface DescribeStacksInput {
    *          <p>Default: There is no default value.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>A string that identifies the next page of stacks that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6222,7 +6222,7 @@ export interface StackDriftInformation {
    *    individual resources that support drift detection.</p>
    * @public
    */
-  LastCheckTimestamp?: Date;
+  LastCheckTimestamp?: Date | undefined;
 }
 
 /**
@@ -6234,25 +6234,25 @@ export interface Output {
    * <p>The key associated with the output.</p>
    * @public
    */
-  OutputKey?: string;
+  OutputKey?: string | undefined;
 
   /**
    * <p>The value associated with the output.</p>
    * @public
    */
-  OutputValue?: string;
+  OutputValue?: string | undefined;
 
   /**
    * <p>User defined description associated with the output.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the export associated with the output.</p>
    * @public
    */
-  ExportName?: string;
+  ExportName?: string | undefined;
 }
 
 /**
@@ -6299,7 +6299,7 @@ export interface Stack {
    * <p>Unique identifier of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The name associated with the stack.</p>
@@ -6311,19 +6311,19 @@ export interface Stack {
    * <p>The unique ID of the change set.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>A user-defined description associated with the stack.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A list of <code>Parameter</code> structures.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>The time at which the stack was created.</p>
@@ -6335,21 +6335,21 @@ export interface Stack {
    * <p>The time the stack was deleted.</p>
    * @public
    */
-  DeletionTime?: Date;
+  DeletionTime?: Date | undefined;
 
   /**
    * <p>The time the stack was last updated. This field will only be returned if the stack has been
    *    updated at least once.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The rollback triggers for CloudFormation to monitor during stack creation and updating
    *    operations, and for the specified monitoring period afterwards.</p>
    * @public
    */
-  RollbackConfiguration?: RollbackConfiguration;
+  RollbackConfiguration?: RollbackConfiguration | undefined;
 
   /**
    * <p>Current status of the stack.</p>
@@ -6361,7 +6361,7 @@ export interface Stack {
    * <p>Success/failure message associated with the stack status.</p>
    * @public
    */
-  StackStatusReason?: string;
+  StackStatusReason?: string | undefined;
 
   /**
    * <p>Boolean to enable or disable rollback on stack creation failures:</p>
@@ -6377,44 +6377,44 @@ export interface Stack {
    *          </ul>
    * @public
    */
-  DisableRollback?: boolean;
+  DisableRollback?: boolean | undefined;
 
   /**
    * <p>Amazon SNS topic Amazon Resource Names (ARNs) to which stack related events are published.</p>
    * @public
    */
-  NotificationARNs?: string[];
+  NotificationARNs?: string[] | undefined;
 
   /**
    * <p>The amount of time within which stack creation should complete.</p>
    * @public
    */
-  TimeoutInMinutes?: number;
+  TimeoutInMinutes?: number | undefined;
 
   /**
    * <p>The capabilities allowed in the stack.</p>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>A list of output structures.</p>
    * @public
    */
-  Outputs?: Output[];
+  Outputs?: Output[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that's associated with the stack. During a
    *    stack operation, CloudFormation uses this role's credentials to make calls on your behalf.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>A list of <code>Tag</code>s that specify information about the stack.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Whether termination protection is enabled for the stack.</p>
@@ -6424,7 +6424,7 @@ export interface Stack {
    *     stack from being deleted</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  EnableTerminationProtection?: boolean;
+  EnableTerminationProtection?: boolean | undefined;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the direct
@@ -6434,7 +6434,7 @@ export interface Stack {
    *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  ParentId?: string;
+  ParentId?: string | undefined;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
@@ -6443,7 +6443,7 @@ export interface Stack {
    *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  RootId?: string;
+  RootId?: string | undefined;
 
   /**
    * <p>Information about whether a stack's actual configuration differs, or has
@@ -6452,7 +6452,7 @@ export interface Stack {
    *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
    * @public
    */
-  DriftInformation?: StackDriftInformation;
+  DriftInformation?: StackDriftInformation | undefined;
 
   /**
    * <p>When set to <code>true</code>, newly created resources are deleted when the operation rolls
@@ -6462,7 +6462,7 @@ export interface Stack {
    *          </p>
    * @public
    */
-  RetainExceptOnCreate?: boolean;
+  RetainExceptOnCreate?: boolean | undefined;
 
   /**
    * <p>Specifies the deletion mode for the stack. Possible values are:</p>
@@ -6480,7 +6480,7 @@ export interface Stack {
    *          </ul>
    * @public
    */
-  DeletionMode?: DeletionMode;
+  DeletionMode?: DeletionMode | undefined;
 
   /**
    * <p>The detailed status of the resource or stack. If <code>CONFIGURATION_COMPLETE</code> is
@@ -6490,7 +6490,7 @@ export interface Stack {
    *     CloudFormation stack creation events</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  DetailedStatus?: DetailedStatus;
+  DetailedStatus?: DetailedStatus | undefined;
 }
 
 /**
@@ -6502,14 +6502,14 @@ export interface DescribeStacksOutput {
    * <p>A list of stack structures.</p>
    * @public
    */
-  Stacks?: Stack[];
+  Stacks?: Stack[] | undefined;
 
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If
    *       no additional page exists, this value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6542,7 +6542,7 @@ export interface DescribeStackSetInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -6612,7 +6612,7 @@ export interface StackSetDriftDetectionDetails {
    *          </ul>
    * @public
    */
-  DriftStatus?: StackSetDriftStatus;
+  DriftStatus?: StackSetDriftStatus | undefined;
 
   /**
    * <p>The status of the stack set drift detection operation.</p>
@@ -6641,14 +6641,14 @@ export interface StackSetDriftDetectionDetails {
    *          </ul>
    * @public
    */
-  DriftDetectionStatus?: StackSetDriftDetectionStatus;
+  DriftDetectionStatus?: StackSetDriftDetectionStatus | undefined;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be
    *     <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
    * @public
    */
-  LastDriftCheckTimestamp?: Date;
+  LastDriftCheckTimestamp?: Date | undefined;
 
   /**
    * <p>The total number of stack instances belonging to this stack set.</p>
@@ -6669,7 +6669,7 @@ export interface StackSetDriftDetectionDetails {
    *          </ul>
    * @public
    */
-  TotalStackInstancesCount?: number;
+  TotalStackInstancesCount?: number | undefined;
 
   /**
    * <p>The number of stack instances that have drifted from the expected template and parameter configuration of the
@@ -6677,26 +6677,26 @@ export interface StackSetDriftDetectionDetails {
    *    don't match their expected configuration.</p>
    * @public
    */
-  DriftedStackInstancesCount?: number;
+  DriftedStackInstancesCount?: number | undefined;
 
   /**
    * <p>The number of stack instances which match the expected template and parameter configuration of the stack
    *    set.</p>
    * @public
    */
-  InSyncStackInstancesCount?: number;
+  InSyncStackInstancesCount?: number | undefined;
 
   /**
    * <p>The number of stack instances that are currently being checked for drift.</p>
    * @public
    */
-  InProgressStackInstancesCount?: number;
+  InProgressStackInstancesCount?: number | undefined;
 
   /**
    * <p>The number of stack instances for which the drift detection operation failed.</p>
    * @public
    */
-  FailedStackInstancesCount?: number;
+  FailedStackInstancesCount?: number | undefined;
 }
 
 /**
@@ -6724,37 +6724,37 @@ export interface StackSet {
    * <p>The name that's associated with the stack set.</p>
    * @public
    */
-  StackSetName?: string;
+  StackSetName?: string | undefined;
 
   /**
    * <p>The ID of the stack set.</p>
    * @public
    */
-  StackSetId?: string;
+  StackSetId?: string | undefined;
 
   /**
    * <p>A description of the stack set that you specify when the stack set is created or updated.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the stack set.</p>
    * @public
    */
-  Status?: StackSetStatus;
+  Status?: StackSetStatus | undefined;
 
   /**
    * <p>The structure that contains the body of the template that was used to create or update the stack set.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>A list of input parameters for a stack set.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 
   /**
    * <p>The capabilities that are allowed in the stack set. Some stack set templates might include resources that can
@@ -6762,20 +6762,20 @@ export interface StackSet {
    *      CloudFormation templates</a>.</p>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>A list of tags that specify information about the stack set. A maximum number of 50 tags can be
    *    specified.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stack set.</p>
    * @public
    */
-  StackSetARN?: string;
+  StackSetARN?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to create or update the stack set.</p>
@@ -6784,7 +6784,7 @@ export interface StackSet {
    *     Operations</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  AdministrationRoleARN?: string;
+  AdministrationRoleARN?: string | undefined;
 
   /**
    * <p>The name of the IAM execution role used to create or update the stack set.</p>
@@ -6792,7 +6792,7 @@ export interface StackSet {
    *    sets.</p>
    * @public
    */
-  ExecutionRoleName?: string;
+  ExecutionRoleName?: string | undefined;
 
   /**
    * <p>Detailed information about the drift status of the stack set.</p>
@@ -6800,14 +6800,14 @@ export interface StackSet {
    *    the stack set. Information about drift operations currently in progress isn't included.</p>
    * @public
    */
-  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
+  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails | undefined;
 
   /**
    * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations
    *    accounts that are added to a target organization or organizational unit (OU).</p>
    * @public
    */
-  AutoDeployment?: AutoDeployment;
+  AutoDeployment?: AutoDeployment | undefined;
 
   /**
    * <p>Describes how the IAM roles required for stack set operations are created.</p>
@@ -6825,27 +6825,27 @@ export interface StackSet {
    *          </ul>
    * @public
    */
-  PermissionModel?: PermissionModels;
+  PermissionModel?: PermissionModels | undefined;
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
    *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
-  OrganizationalUnitIds?: string[];
+  OrganizationalUnitIds?: string[] | undefined;
 
   /**
    * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting
    *    operations.</p>
    * @public
    */
-  ManagedExecution?: ManagedExecution;
+  ManagedExecution?: ManagedExecution | undefined;
 
   /**
    * <p>Returns a list of all Amazon Web Services Regions the given StackSet has stack instances deployed in. The Amazon Web Services Regions list output is in no particular order.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -6856,7 +6856,7 @@ export interface DescribeStackSetOutput {
    * <p>The specified stack set.</p>
    * @public
    */
-  StackSet?: StackSet;
+  StackSet?: StackSet | undefined;
 }
 
 /**
@@ -6895,7 +6895,7 @@ export interface DescribeStackSetOperationInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -6941,7 +6941,7 @@ export interface StackSetOperationStatusDetails {
    * <p>The number of stack instances for which the StackSet operation failed.</p>
    * @public
    */
-  FailedStackInstancesCount?: number;
+  FailedStackInstancesCount?: number | undefined;
 }
 
 /**
@@ -6953,13 +6953,13 @@ export interface StackSetOperation {
    * <p>The unique ID of a stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>The ID of the stack set.</p>
    * @public
    */
-  StackSetId?: string;
+  StackSetId?: string | undefined;
 
   /**
    * <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and
@@ -6968,7 +6968,7 @@ export interface StackSetOperation {
    *    instances.</p>
    * @public
    */
-  Action?: StackSetOperationAction;
+  Action?: StackSetOperationAction | undefined;
 
   /**
    * <p>The status of the operation.</p>
@@ -7006,13 +7006,13 @@ export interface StackSetOperation {
    *          </ul>
    * @public
    */
-  Status?: StackSetOperationStatus;
+  Status?: StackSetOperationStatus | undefined;
 
   /**
    * <p>The preferences for how CloudFormation performs this stack set operation.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>For stack set operations of action type <code>DELETE</code>, specifies whether to remove the stack instances
@@ -7020,7 +7020,7 @@ export interface StackSetOperation {
    *    existing, saved stack to a new stack set.</p>
    * @public
    */
-  RetainStacks?: boolean;
+  RetainStacks?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to perform this stack set operation.</p>
@@ -7029,7 +7029,7 @@ export interface StackSetOperation {
    *     Administrators</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  AdministrationRoleARN?: string;
+  AdministrationRoleARN?: string | undefined;
 
   /**
    * <p>The name of the IAM execution role used to create or update the stack set.</p>
@@ -7037,7 +7037,7 @@ export interface StackSetOperation {
    *    sets.</p>
    * @public
    */
-  ExecutionRoleName?: string;
+  ExecutionRoleName?: string | undefined;
 
   /**
    * <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might
@@ -7046,7 +7046,7 @@ export interface StackSetOperation {
    *    stacks.</p>
    * @public
    */
-  CreationTimestamp?: Date;
+  CreationTimestamp?: Date | undefined;
 
   /**
    * <p>The time at which the stack set operation ended, across all accounts and Regions specified. Note that this
@@ -7054,13 +7054,13 @@ export interface StackSetOperation {
    *    Region.</p>
    * @public
    */
-  EndTimestamp?: Date;
+  EndTimestamp?: Date | undefined;
 
   /**
    * <p>[Service-managed permissions] The Organizations accounts affected by the stack operation.</p>
    * @public
    */
-  DeploymentTargets?: DeploymentTargets;
+  DeploymentTargets?: DeploymentTargets | undefined;
 
   /**
    * <p>Detailed information about the drift status of the stack set. This includes information about drift operations
@@ -7071,19 +7071,19 @@ export interface StackSetOperation {
    *    the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
+  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails | undefined;
 
   /**
    * <p>The status of the operation in details.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>Detailed information about the StackSet operation.</p>
    * @public
    */
-  StatusDetails?: StackSetOperationStatusDetails;
+  StatusDetails?: StackSetOperationStatusDetails | undefined;
 }
 
 /**
@@ -7094,7 +7094,7 @@ export interface DescribeStackSetOperationOutput {
    * <p>The specified stack set operation.</p>
    * @public
    */
-  StackSetOperation?: StackSetOperation;
+  StackSetOperation?: StackSetOperation | undefined;
 }
 
 /**
@@ -7107,7 +7107,7 @@ export interface DescribeTypeInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -7115,7 +7115,7 @@ export interface DescribeTypeInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -7123,7 +7123,7 @@ export interface DescribeTypeInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of a specific version of the extension. The version ID is the value at the end of
@@ -7133,20 +7133,20 @@ export interface DescribeTypeInput {
    *       extension version.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The publisher ID of the extension publisher.</p>
    *          <p>Extensions provided by Amazon Web Services are not assigned a publisher ID.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 
   /**
    * <p>The version number of a public third-party extension.</p>
    * @public
    */
-  PublicVersionNumber?: string;
+  PublicVersionNumber?: string | undefined;
 }
 
 /**
@@ -7193,7 +7193,7 @@ export interface RequiredActivatedType {
    *    calls, and CloudFormation console.</p>
    * @public
    */
-  TypeNameAlias?: string;
+  TypeNameAlias?: string | undefined;
 
   /**
    * <p>The type name of the public extension.</p>
@@ -7203,19 +7203,19 @@ export interface RequiredActivatedType {
    *     aliases to refer to extensions</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  OriginalTypeName?: string;
+  OriginalTypeName?: string | undefined;
 
   /**
    * <p>The publisher ID of the extension publisher.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 
   /**
    * <p>A list of the major versions of the extension type that the macro supports.</p>
    * @public
    */
-  SupportedMajorVersions?: number[];
+  SupportedMajorVersions?: number[] | undefined;
 }
 
 /**
@@ -7256,13 +7256,13 @@ export interface DescribeTypeOutput {
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The kind of extension.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -7270,7 +7270,7 @@ export interface DescribeTypeOutput {
    *       CloudFormation returns the type name alias. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_ActivateType.html">ActivateType</a>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The ID of the default version of the extension. The default version is used when the
@@ -7281,7 +7281,7 @@ export interface DescribeTypeOutput {
    *          <p>To set the default version of an extension, use <a>SetTypeDefaultVersion</a>.</p>
    * @public
    */
-  DefaultVersionId?: string;
+  DefaultVersionId?: string | undefined;
 
   /**
    * <p>Whether the specified extension version is set as the default version.</p>
@@ -7290,7 +7290,7 @@ export interface DescribeTypeOutput {
    *       in your account, CloudFormation returns <code>null</code>.</p>
    * @public
    */
-  IsDefaultVersion?: boolean;
+  IsDefaultVersion?: boolean | undefined;
 
   /**
    * <p>The contract test status of the registered extension version. To return the extension test
@@ -7323,7 +7323,7 @@ export interface DescribeTypeOutput {
    *          </ul>
    * @public
    */
-  TypeTestsStatus?: TypeTestsStatus;
+  TypeTestsStatus?: TypeTestsStatus | undefined;
 
   /**
    * <p>The description of the test status. To return the extension test status of a specific
@@ -7332,13 +7332,13 @@ export interface DescribeTypeOutput {
    *       information for public extensions, whether they are activated in your account.</p>
    * @public
    */
-  TypeTestsStatusDescription?: string;
+  TypeTestsStatusDescription?: string | undefined;
 
   /**
    * <p>The description of the extension.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The schema that defines the extension.</p>
@@ -7346,7 +7346,7 @@ export interface DescribeTypeOutput {
    *         schema</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
    * @public
    */
-  Schema?: string;
+  Schema?: string | undefined;
 
   /**
    * <p>For resource type extensions, the provisioning behavior of the resource type. CloudFormation
@@ -7383,7 +7383,7 @@ export interface DescribeTypeOutput {
    *          </ul>
    * @public
    */
-  ProvisioningType?: ProvisioningType;
+  ProvisioningType?: ProvisioningType | undefined;
 
   /**
    * <p>The deprecation status of the extension version.</p>
@@ -7403,7 +7403,7 @@ export interface DescribeTypeOutput {
    *          <p>For public third-party extensions, CloudFormation returns <code>null</code>.</p>
    * @public
    */
-  DeprecatedStatus?: DeprecatedStatus;
+  DeprecatedStatus?: DeprecatedStatus | undefined;
 
   /**
    * <p>Contains logging configuration information for private extensions. This applies only to
@@ -7412,14 +7412,14 @@ export interface DescribeTypeOutput {
    *       more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
    * @public
    */
-  LoggingConfig?: LoggingConfig;
+  LoggingConfig?: LoggingConfig | undefined;
 
   /**
    * <p>For extensions that are modules, the public third-party extensions that must be activated
    *       in your account in order for the module itself to be activated.</p>
    * @public
    */
-  RequiredActivatedTypes?: RequiredActivatedType[];
+  RequiredActivatedTypes?: RequiredActivatedType[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM execution role used to register the extension.
@@ -7433,7 +7433,7 @@ export interface DescribeTypeOutput {
    *       to provide your extension with the appropriate credentials.</p>
    * @public
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn?: string | undefined;
 
   /**
    * <p>The scope at which the extension is visible and usable in CloudFormation operations.</p>
@@ -7453,19 +7453,19 @@ export interface DescribeTypeOutput {
    *          </ul>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>The URL of the source code for the extension.</p>
    * @public
    */
-  SourceUrl?: string;
+  SourceUrl?: string | undefined;
 
   /**
    * <p>The URL of a page providing detailed documentation for this extension.</p>
    * @public
    */
-  DocumentationUrl?: string;
+  DocumentationUrl?: string | undefined;
 
   /**
    * <p>When the specified extension version was registered. This applies only to:</p>
@@ -7481,14 +7481,14 @@ export interface DescribeTypeOutput {
    *          </ul>
    * @public
    */
-  LastUpdated?: Date;
+  LastUpdated?: Date | undefined;
 
   /**
    * <p>When the specified private extension version was registered or activated in your
    *       account.</p>
    * @public
    */
-  TimeCreated?: Date;
+  TimeCreated?: Date | undefined;
 
   /**
    * <p>A JSON string that represent the current configuration data for the extension in this
@@ -7498,7 +7498,7 @@ export interface DescribeTypeOutput {
    *       <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  ConfigurationSchema?: string;
+  ConfigurationSchema?: string | undefined;
 
   /**
    * <p>The publisher ID of the extension publisher.</p>
@@ -7506,7 +7506,7 @@ export interface DescribeTypeOutput {
    *       extensions provided by Amazon Web Services, CloudFormation returns <code>null</code>.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 
   /**
    * <p>For public extensions that have been activated for this account and Region, the type name
@@ -7517,14 +7517,14 @@ export interface DescribeTypeOutput {
    *       <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  OriginalTypeName?: string;
+  OriginalTypeName?: string | undefined;
 
   /**
    * <p>For public extensions that have been activated for this account and Region, the Amazon
    *       Resource Name (ARN) of the public extension.</p>
    * @public
    */
-  OriginalTypeArn?: string;
+  OriginalTypeArn?: string | undefined;
 
   /**
    * <p>The version number of a public third-party extension.</p>
@@ -7533,7 +7533,7 @@ export interface DescribeTypeOutput {
    *       returns <code>null</code>.</p>
    * @public
    */
-  PublicVersionNumber?: string;
+  PublicVersionNumber?: string | undefined;
 
   /**
    * <p>The latest version of a public extension <i>that is available</i> for
@@ -7542,7 +7542,7 @@ export interface DescribeTypeOutput {
    *       all other requests, CloudFormation returns <code>null</code>.</p>
    * @public
    */
-  LatestPublicVersion?: string;
+  LatestPublicVersion?: string | undefined;
 
   /**
    * <p>Whether the extension is activated in the account and Region.</p>
@@ -7550,7 +7550,7 @@ export interface DescribeTypeOutput {
    *       returns <code>null</code>.</p>
    * @public
    */
-  IsActivated?: boolean;
+  IsActivated?: boolean | undefined;
 
   /**
    * <p>Whether CloudFormation automatically updates the extension in this account and Region when a
@@ -7559,7 +7559,7 @@ export interface DescribeTypeOutput {
    *         <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  AutoUpdate?: boolean;
+  AutoUpdate?: boolean | undefined;
 }
 
 /**
@@ -7598,13 +7598,13 @@ export interface DescribeTypeRegistrationOutput {
    * <p>The current status of the extension registration request.</p>
    * @public
    */
-  ProgressStatus?: RegistrationStatus;
+  ProgressStatus?: RegistrationStatus | undefined;
 
   /**
    * <p>The description of the extension registration request.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension being registered.</p>
@@ -7612,7 +7612,7 @@ export interface DescribeTypeRegistrationOutput {
    *         <code>COMPLETE</code>, this will be <code>null</code>.</p>
    * @public
    */
-  TypeArn?: string;
+  TypeArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of this specific version of the extension being
@@ -7621,7 +7621,7 @@ export interface DescribeTypeRegistrationOutput {
    *         <code>COMPLETE</code>, this will be <code>null</code>.</p>
    * @public
    */
-  TypeVersionArn?: string;
+  TypeVersionArn?: string | undefined;
 }
 
 /**
@@ -7638,7 +7638,7 @@ export interface DetectStackDriftInput {
    * <p>The logical names of any resources you want to use as filters.</p>
    * @public
    */
-  LogicalResourceIds?: string[];
+  LogicalResourceIds?: string[] | undefined;
 }
 
 /**
@@ -7700,7 +7700,7 @@ export interface DetectStackSetDriftInput {
    *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html#stackset-ops-options">Stack set operation options</a>.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>
@@ -7708,7 +7708,7 @@ export interface DetectStackSetDriftInput {
    *          </p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -7730,7 +7730,7 @@ export interface DetectStackSetDriftInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -7743,7 +7743,7 @@ export interface DetectStackSetDriftOutput {
    *       the progress of the drift detection operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -7758,7 +7758,7 @@ export interface EstimateTemplateCostInput {
    *       are passed, only <code>TemplateBody</code> is used.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>Location of file containing the template body. The URL must point to a template that's
@@ -7768,13 +7768,13 @@ export interface EstimateTemplateCostInput {
    *       are passed, only <code>TemplateBody</code> is used.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 
   /**
    * <p>A list of <code>Parameter</code> structures that specify input parameters.</p>
    * @public
    */
-  Parameters?: Parameter[];
+  Parameters?: Parameter[] | undefined;
 }
 
 /**
@@ -7787,7 +7787,7 @@ export interface EstimateTemplateCostOutput {
    *       required to run the template.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -7807,7 +7807,7 @@ export interface ExecuteChangeSetInput {
    *       (ARN) that's associated with the change set you want to execute.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>A unique identifier for this <code>ExecuteChangeSet</code> request. Specify this token if
@@ -7816,7 +7816,7 @@ export interface ExecuteChangeSetInput {
    *       requests to ensure that CloudFormation successfully received them.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>Preserves the state of previously provisioned resources when an operation fails. This
@@ -7839,7 +7839,7 @@ export interface ExecuteChangeSetInput {
    *          </p>
    * @public
    */
-  DisableRollback?: boolean;
+  DisableRollback?: boolean | undefined;
 
   /**
    * <p>When set to <code>true</code>, newly created resources are deleted when the operation
@@ -7849,7 +7849,7 @@ export interface ExecuteChangeSetInput {
    *          </p>
    * @public
    */
-  RetainExceptOnCreate?: boolean;
+  RetainExceptOnCreate?: boolean | undefined;
 }
 
 /**
@@ -7892,7 +7892,7 @@ export interface GetGeneratedTemplateInput {
    *          </ul>
    * @public
    */
-  Format?: TemplateFormat;
+  Format?: TemplateFormat | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the generated template. The format is
@@ -7947,14 +7947,14 @@ export interface GetGeneratedTemplateOutput {
    *          </ul>
    * @public
    */
-  Status?: GeneratedTemplateStatus;
+  Status?: GeneratedTemplateStatus | undefined;
 
   /**
    * <p>The template body of the generated template, in the language specified by the
    *         <code>Language</code> parameter.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 }
 
 /**
@@ -7980,7 +7980,7 @@ export interface GetStackPolicyOutput {
    *       <i>CloudFormation User Guide</i>.)</p>
    * @public
    */
-  StackPolicyBody?: string;
+  StackPolicyBody?: string | undefined;
 }
 
 /**
@@ -8016,7 +8016,7 @@ export interface GetTemplateInput {
    *          <p>Default: There is no default value.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of a change set for which CloudFormation returns the
@@ -8024,7 +8024,7 @@ export interface GetTemplateInput {
    *       <code>StackName</code>.</p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>For templates that include transforms, the stage of the template that CloudFormation returns.
@@ -8035,7 +8035,7 @@ export interface GetTemplateInput {
    *         <code>Processed</code>.</p>
    * @public
    */
-  TemplateStage?: TemplateStage;
+  TemplateStage?: TemplateStage | undefined;
 }
 
 /**
@@ -8048,7 +8048,7 @@ export interface GetTemplateOutput {
    *          <p>CloudFormation returns the same template that was used when the stack was created.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>The stage of the template that you can retrieve. For stacks, the <code>Original</code> and
@@ -8057,7 +8057,7 @@ export interface GetTemplateOutput {
    *       change set, the <code>Processed</code> template becomes available.</p>
    * @public
    */
-  StagesAvailable?: TemplateStage[];
+  StagesAvailable?: TemplateStage[] | undefined;
 }
 
 /**
@@ -8071,7 +8071,7 @@ export interface TemplateSummaryConfig {
    *    parameter.</p>
    * @public
    */
-  TreatUnrecognizedResourceTypesAsWarnings?: boolean;
+  TreatUnrecognizedResourceTypesAsWarnings?: boolean | undefined;
 }
 
 /**
@@ -8087,7 +8087,7 @@ export interface GetTemplateSummaryInput {
    *         <code>TemplateURL</code>.</p>
    * @public
    */
-  TemplateBody?: string;
+  TemplateBody?: string | undefined;
 
   /**
    * <p>Location of file containing the template body. The URL must point to a template (max size:
@@ -8098,7 +8098,7 @@ export interface GetTemplateSummaryInput {
    *         <code>TemplateURL</code>.</p>
    * @public
    */
-  TemplateURL?: string;
+  TemplateURL?: string | undefined;
 
   /**
    * <p>The name or the stack ID that's associated with the stack, which aren't always
@@ -8109,7 +8109,7 @@ export interface GetTemplateSummaryInput {
    *         <code>TemplateURL</code>.</p>
    * @public
    */
-  StackName?: string;
+  StackName?: string | undefined;
 
   /**
    * <p>The name or unique ID of the stack set from which the stack was created.</p>
@@ -8118,7 +8118,7 @@ export interface GetTemplateSummaryInput {
    *         <code>TemplateURL</code>.</p>
    * @public
    */
-  StackSetName?: string;
+  StackSetName?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -8140,13 +8140,13 @@ export interface GetTemplateSummaryInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 
   /**
    * <p>Specifies options for the <code>GetTemplateSummary</code> API action.</p>
    * @public
    */
-  TemplateSummaryConfig?: TemplateSummaryConfig;
+  TemplateSummaryConfig?: TemplateSummaryConfig | undefined;
 }
 
 /**
@@ -8160,7 +8160,7 @@ export interface ParameterConstraints {
    * <p>A list of values that are permitted for a parameter.</p>
    * @public
    */
-  AllowedValues?: string[];
+  AllowedValues?: string[] | undefined;
 }
 
 /**
@@ -8172,38 +8172,38 @@ export interface ParameterDeclaration {
    * <p>The name that's associated with the parameter.</p>
    * @public
    */
-  ParameterKey?: string;
+  ParameterKey?: string | undefined;
 
   /**
    * <p>The default value of the parameter.</p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>The type of parameter.</p>
    * @public
    */
-  ParameterType?: string;
+  ParameterType?: string | undefined;
 
   /**
    * <p>Flag that indicates whether the parameter value is shown as plain text in logs and in the
    *    Amazon Web Services Management Console.</p>
    * @public
    */
-  NoEcho?: boolean;
+  NoEcho?: boolean | undefined;
 
   /**
    * <p>The description that's associate with the parameter.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The criteria that CloudFormation uses to validate parameter values.</p>
    * @public
    */
-  ParameterConstraints?: ParameterConstraints;
+  ParameterConstraints?: ParameterConstraints | undefined;
 }
 
 /**
@@ -8218,14 +8218,14 @@ export interface ResourceIdentifierSummary {
    *       <code>AWS::S3::Bucket</code>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The logical IDs of the target resources of the specified <code>ResourceType</code>, as
    *       defined in the import template.</p>
    * @public
    */
-  LogicalResourceIds?: string[];
+  LogicalResourceIds?: string[] | undefined;
 
   /**
    * <p>The resource properties you can provide during the import to identify your target
@@ -8233,7 +8233,7 @@ export interface ResourceIdentifierSummary {
    *         <code>AWS::S3::Bucket</code> resources.</p>
    * @public
    */
-  ResourceIdentifiers?: string[];
+  ResourceIdentifiers?: string[] | undefined;
 }
 
 /**
@@ -8248,7 +8248,7 @@ export interface Warnings {
    *    <code>True</code>.</p>
    * @public
    */
-  UnrecognizedResourceTypes?: string[];
+  UnrecognizedResourceTypes?: string[] | undefined;
 }
 
 /**
@@ -8261,13 +8261,13 @@ export interface GetTemplateSummaryOutput {
    *       parameter.</p>
    * @public
    */
-  Parameters?: ParameterDeclaration[];
+  Parameters?: ParameterDeclaration[] | undefined;
 
   /**
    * <p>The value that's defined in the <code>Description</code> property of the template.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The capabilities found within the template. If your template contains IAM resources, you
@@ -8278,14 +8278,14 @@ export interface GetTemplateSummaryOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">Acknowledging IAM resources in CloudFormation templates</a>.</p>
    * @public
    */
-  Capabilities?: Capability[];
+  Capabilities?: Capability[] | undefined;
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code> response
    *       element.</p>
    * @public
    */
-  CapabilitiesReason?: string;
+  CapabilitiesReason?: string | undefined;
 
   /**
    * <p>A list of all the template resource types that are defined in the template, such as
@@ -8293,26 +8293,26 @@ export interface GetTemplateSummaryOutput {
    *         <code>Custom::MyCustomInstance</code>.</p>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services template format version, which identifies the capabilities of the
    *       template.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The value that's defined for the <code>Metadata</code> property of the template.</p>
    * @public
    */
-  Metadata?: string;
+  Metadata?: string | undefined;
 
   /**
    * <p>A list of the transforms that are declared in the template.</p>
    * @public
    */
-  DeclaredTransforms?: string[];
+  DeclaredTransforms?: string[] | undefined;
 
   /**
    * <p>A list of resource identifier summaries that describe the target resources of an import
@@ -8321,13 +8321,13 @@ export interface GetTemplateSummaryOutput {
    *         <code>AWS::S3::Bucket</code> resource.</p>
    * @public
    */
-  ResourceIdentifierSummaries?: ResourceIdentifierSummary[];
+  ResourceIdentifierSummaries?: ResourceIdentifierSummary[] | undefined;
 
   /**
    * <p>An object containing any warnings returned.</p>
    * @public
    */
-  Warnings?: Warnings;
+  Warnings?: Warnings | undefined;
 }
 
 /**
@@ -8347,34 +8347,34 @@ export interface ImportStacksToStackSetInput {
    *          <p>Specify either <code>StackIds</code> or <code>StackIdsUrl</code>.</p>
    * @public
    */
-  StackIds?: string[];
+  StackIds?: string[] | undefined;
 
   /**
    * <p>The Amazon S3 URL which contains list of stack ids to be inputted.</p>
    *          <p>Specify either <code>StackIds</code> or <code>StackIdsUrl</code>.</p>
    * @public
    */
-  StackIdsUrl?: string;
+  StackIdsUrl?: string | undefined;
 
   /**
    * <p>The list of OU ID's to which the stacks being imported has to be mapped as deployment
    *       target.</p>
    * @public
    */
-  OrganizationalUnitIds?: string[];
+  OrganizationalUnitIds?: string[] | undefined;
 
   /**
    * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
    *          <p>For more information about maximum concurrent accounts and failure tolerance, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html#stackset-ops-options">Stack set operation options</a>.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 
   /**
    * <p>A unique, user defined, identifier for the stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>By default, <code>SELF</code> is specified. Use <code>SELF</code> for stack sets with
@@ -8390,7 +8390,7 @@ export interface ImportStacksToStackSetInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -8401,7 +8401,7 @@ export interface ImportStacksToStackSetOutput {
    * <p>The unique identifier for the stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 }
 
 /**
@@ -8411,7 +8411,7 @@ export interface ImportStacksToStackSetOutput {
 export class StackNotFoundException extends __BaseException {
   readonly name: "StackNotFoundException" = "StackNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -8443,7 +8443,7 @@ export interface ListChangeSetsInput {
    *       identifies the next page of change sets that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8456,14 +8456,14 @@ export interface ListChangeSetsOutput {
    *       change set for the specified stack.</p>
    * @public
    */
-  Summaries?: ChangeSetSummary[];
+  Summaries?: ChangeSetSummary[] | undefined;
 
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of change sets. If
    *       there is no additional page, this value is <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8475,7 +8475,7 @@ export interface ListExportsInput {
    *       the next page of exported output values that you asked to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8487,7 +8487,7 @@ export interface Export {
    * <p>The stack that contains the exported output name and value.</p>
    * @public
    */
-  ExportingStackId?: string;
+  ExportingStackId?: string | undefined;
 
   /**
    * <p>The name of exported output value. Use this name and the <code>Fn::ImportValue</code>
@@ -8495,14 +8495,14 @@ export interface Export {
    *     <code>Export</code> field in the associated stack's <code>Outputs</code> section.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the exported output, such as a resource physical ID. This value is defined in
    *    the <code>Export</code> field in the associated stack's <code>Outputs</code> section.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -8513,14 +8513,14 @@ export interface ListExportsOutput {
    * <p>The output for the <a>ListExports</a> action.</p>
    * @public
    */
-  Exports?: Export[];
+  Exports?: Export[] | undefined;
 
   /**
    * <p>If the output exceeds 100 exported output values, a string that identifies the next page
    *       of exports. If there is no additional page, this value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8531,7 +8531,7 @@ export interface ListGeneratedTemplatesInput {
    * <p>A string that identifies the next page of resource scan results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> If the number of available results exceeds this maximum, the response includes a
@@ -8540,7 +8540,7 @@ export interface ListGeneratedTemplatesInput {
    *       will return at most 50 results in each response. The maximum value is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8556,13 +8556,13 @@ export interface TemplateSummary {
    *             </code>.</p>
    * @public
    */
-  GeneratedTemplateId?: string;
+  GeneratedTemplateId?: string | undefined;
 
   /**
    * <p>The name of the generated template.</p>
    * @public
    */
-  GeneratedTemplateName?: string;
+  GeneratedTemplateName?: string | undefined;
 
   /**
    * <p>The status of the template generation. Supported values are:</p>
@@ -8602,33 +8602,33 @@ export interface TemplateSummary {
    *          </ul>
    * @public
    */
-  Status?: GeneratedTemplateStatus;
+  Status?: GeneratedTemplateStatus | undefined;
 
   /**
    * <p>The reason for the current template generation status. This will provide more details if a
    *    failure happened.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The time the generated template was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time the generated template was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The number of resources in the generated template. This is a total of resources in pending,
    *    in-progress, completed, and failed states.</p>
    * @public
    */
-  NumberOfResources?: number;
+  NumberOfResources?: number | undefined;
 }
 
 /**
@@ -8639,7 +8639,7 @@ export interface ListGeneratedTemplatesOutput {
    * <p>A list of summaries of the generated templates.</p>
    * @public
    */
-  Summaries?: TemplateSummary[];
+  Summaries?: TemplateSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -8648,7 +8648,7 @@ export interface ListGeneratedTemplatesOutput {
    *       results, <code>NextToken</code> is set to an empty string.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8667,7 +8667,7 @@ export interface ListImportsInput {
    *       the next page of stacks that are importing the specified exported output value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8678,14 +8678,14 @@ export interface ListImportsOutput {
    * <p>A list of stack names that are importing the specified exported output value.</p>
    * @public
    */
-  Imports?: string[];
+  Imports?: string[] | undefined;
 
   /**
    * <p>A string that identifies the next page of exports. If there is no additional page, this
    *       value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8736,7 +8736,7 @@ export interface ListResourceScanRelatedResourcesInput {
    * <p>A string that identifies the next page of resource scan results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> If the number of available results exceeds this maximum, the response includes a
@@ -8745,7 +8745,7 @@ export interface ListResourceScanRelatedResourcesInput {
    *       action will return up to 100 results in each response. The maximum value is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8762,7 +8762,7 @@ export interface ScannedResource {
    *          </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>A list of up to 256 key-value pairs that identifies for the scanned resource. The key is the
@@ -8773,13 +8773,13 @@ export interface ScannedResource {
    *     "MyDDBTable"</code>. For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html#schema-properties-primaryidentifier">primaryIdentifier</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
    * @public
    */
-  ResourceIdentifier?: Record<string, string>;
+  ResourceIdentifier?: Record<string, string> | undefined;
 
   /**
    * <p>If <code>true</code>, the resource is managed by a CloudFormation stack.</p>
    * @public
    */
-  ManagedByStack?: boolean;
+  ManagedByStack?: boolean | undefined;
 }
 
 /**
@@ -8791,7 +8791,7 @@ export interface ListResourceScanRelatedResourcesOutput {
    *       the specified resources.</p>
    * @public
    */
-  RelatedResources?: ScannedResource[];
+  RelatedResources?: ScannedResource[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -8801,7 +8801,7 @@ export interface ListResourceScanRelatedResourcesOutput {
    *       is set to an empty string.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8811,7 +8811,7 @@ export interface ListResourceScanRelatedResourcesOutput {
 export class ResourceScanInProgressException extends __BaseException {
   readonly name: "ResourceScanInProgressException" = "ResourceScanInProgressException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -8841,32 +8841,32 @@ export interface ListResourceScanResourcesInput {
    *       of them in the case where the resource has multiple identifiers).</p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>If specified, the returned resources will be of any of the resource types with the
    *       specified prefix.</p>
    * @public
    */
-  ResourceTypePrefix?: string;
+  ResourceTypePrefix?: string | undefined;
 
   /**
    * <p>If specified, the returned resources will have a matching tag key.</p>
    * @public
    */
-  TagKey?: string;
+  TagKey?: string | undefined;
 
   /**
    * <p>If specified, the returned resources will have a matching tag value.</p>
    * @public
    */
-  TagValue?: string;
+  TagValue?: string | undefined;
 
   /**
    * <p>A string that identifies the next page of resource scan results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> If the number of available results exceeds this maximum, the response includes a
@@ -8875,7 +8875,7 @@ export interface ListResourceScanResourcesInput {
    *       will return at most 100 results in each response. The maximum value is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8887,7 +8887,7 @@ export interface ListResourceScanResourcesOutput {
    *       all of the specified filters.</p>
    * @public
    */
-  Resources?: ScannedResource[];
+  Resources?: ScannedResource[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -8896,7 +8896,7 @@ export interface ListResourceScanResourcesOutput {
    *       results, <code>NextToken</code> is set to an empty string.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8907,7 +8907,7 @@ export interface ListResourceScansInput {
    * <p>A string that identifies the next page of resource scan results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> If the number of available results exceeds this maximum, the response includes a
@@ -8915,7 +8915,7 @@ export interface ListResourceScansInput {
    *       get the next set of results. The default value is 10. The maximum value is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8928,7 +8928,7 @@ export interface ResourceScanSummary {
    * <p>The Amazon Resource Name (ARN) of the resource scan.</p>
    * @public
    */
-  ResourceScanId?: string;
+  ResourceScanId?: string | undefined;
 
   /**
    * <p>Status of the resource scan.</p>
@@ -8968,32 +8968,32 @@ export interface ResourceScanSummary {
    *          </dl>
    * @public
    */
-  Status?: ResourceScanStatus;
+  Status?: ResourceScanStatus | undefined;
 
   /**
    * <p>The reason for the resource scan status, providing more information if a failure
    *    happened.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The time that the resource scan was started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time that the resource scan was finished.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The percentage of the resource scan that has been completed.</p>
    * @public
    */
-  PercentageCompleted?: number;
+  PercentageCompleted?: number | undefined;
 }
 
 /**
@@ -9004,7 +9004,7 @@ export interface ListResourceScansOutput {
    * <p>The list of scans returned.</p>
    * @public
    */
-  ResourceScanSummaries?: ResourceScanSummary[];
+  ResourceScanSummaries?: ResourceScanSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -9013,7 +9013,7 @@ export interface ListResourceScansOutput {
    *         <code>NextToken</code> is set to an empty string.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9034,7 +9034,7 @@ export interface ListStackInstanceResourceDriftsInput {
    *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -9043,7 +9043,7 @@ export interface ListStackInstanceResourceDriftsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The resource drift status of the stack instance. </p>
@@ -9070,7 +9070,7 @@ export interface ListStackInstanceResourceDriftsInput {
    *          </ul>
    * @public
    */
-  StackInstanceResourceDriftStatuses?: StackResourceDriftStatus[];
+  StackInstanceResourceDriftStatuses?: StackResourceDriftStatus[] | undefined;
 
   /**
    * <p>The name of the Amazon Web Services account that you want to list resource drifts for.</p>
@@ -9110,7 +9110,7 @@ export interface ListStackInstanceResourceDriftsInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -9134,7 +9134,7 @@ export interface StackInstanceResourceDriftsSummary {
    * <p>The name or unique identifier that corresponds to a physical instance ID of a resource supported by CloudFormation.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>Context information that enables CloudFormation to uniquely identify a resource. CloudFormation uses context key-value pairs in
@@ -9142,7 +9142,7 @@ export interface StackInstanceResourceDriftsSummary {
    *    key-value pair specifies a unique resource that contains the targeted resource.</p>
    * @public
    */
-  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
+  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[] | undefined;
 
   /**
    * <p>Type of resource. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
@@ -9156,7 +9156,7 @@ export interface StackInstanceResourceDriftsSummary {
    *    only for resources whose <code>StackInstanceResourceDriftStatus</code> is <code>MODIFIED</code>. </p>
    * @public
    */
-  PropertyDifferences?: PropertyDifference[];
+  PropertyDifferences?: PropertyDifference[] | undefined;
 
   /**
    * <p>The drift status of the resource in a stack instance.</p>
@@ -9199,7 +9199,7 @@ export interface ListStackInstanceResourceDriftsOutput {
    *       information about the specified stack instances.</p>
    * @public
    */
-  Summaries?: StackInstanceResourceDriftsSummary[];
+  Summaries?: StackInstanceResourceDriftsSummary[] | undefined;
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response
@@ -9209,7 +9209,7 @@ export interface ListStackInstanceResourceDriftsOutput {
    *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9236,13 +9236,13 @@ export interface StackInstanceFilter {
    * <p>The type of filter to apply.</p>
    * @public
    */
-  Name?: StackInstanceFilterName;
+  Name?: StackInstanceFilterName | undefined;
 
   /**
    * <p>The status to filter by.</p>
    * @public
    */
-  Values?: string;
+  Values?: string | undefined;
 }
 
 /**
@@ -9263,7 +9263,7 @@ export interface ListStackInstancesInput {
    *       response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -9272,25 +9272,25 @@ export interface ListStackInstancesInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The filter to apply to stack instances</p>
    * @public
    */
-  Filters?: StackInstanceFilter[];
+  Filters?: StackInstanceFilter[] | undefined;
 
   /**
    * <p>The name of the Amazon Web Services account that you want to list stack instances for.</p>
    * @public
    */
-  StackInstanceAccount?: string;
+  StackInstanceAccount?: string | undefined;
 
   /**
    * <p>The name of the Region where you want to list stack instances.</p>
    * @public
    */
-  StackInstanceRegion?: string;
+  StackInstanceRegion?: string | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -9312,7 +9312,7 @@ export interface ListStackInstancesInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -9324,26 +9324,26 @@ export interface StackInstanceSummary {
    * <p>The name or unique ID of the stack set that the stack instance is associated with.</p>
    * @public
    */
-  StackSetId?: string;
+  StackSetId?: string | undefined;
 
   /**
    * <p>The name of the Amazon Web Services Region that the stack instance is associated with.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>[Self-managed permissions] The name of the Amazon Web Services account that the stack instance is associated
    *    with.</p>
    * @public
    */
-  Account?: string;
+  Account?: string | undefined;
 
   /**
    * <p>The ID of the stack instance.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The status of the stack instance, in terms of its synchronization with its associated stack set.</p>
@@ -9379,26 +9379,26 @@ export interface StackInstanceSummary {
    *          </ul>
    * @public
    */
-  Status?: StackInstanceStatus;
+  Status?: StackInstanceStatus | undefined;
 
   /**
    * <p>The explanation for the specific status code assigned to this stack instance.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The detailed status of the stack instance.</p>
    * @public
    */
-  StackInstanceStatus?: StackInstanceComprehensiveStatus;
+  StackInstanceStatus?: StackInstanceComprehensiveStatus | undefined;
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
    *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
-  OrganizationalUnitId?: string;
+  OrganizationalUnitId?: string | undefined;
 
   /**
    * <p>Status of the stack instance's actual configuration compared to the expected template and parameter
@@ -9427,20 +9427,20 @@ export interface StackInstanceSummary {
    *          </ul>
    * @public
    */
-  DriftStatus?: StackDriftStatus;
+  DriftStatus?: StackDriftStatus | undefined;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be
    *     <code>NULL</code> for any stack instance on which drift detection hasn't yet been performed.</p>
    * @public
    */
-  LastDriftCheckTimestamp?: Date;
+  LastDriftCheckTimestamp?: Date | undefined;
 
   /**
    * <p>The last unique ID of a StackSet operation performed on a stack instance.</p>
    * @public
    */
-  LastOperationId?: string;
+  LastOperationId?: string | undefined;
 }
 
 /**
@@ -9452,7 +9452,7 @@ export interface ListStackInstancesOutput {
    *       specified stack instances.</p>
    * @public
    */
-  Summaries?: StackInstanceSummary[];
+  Summaries?: StackInstanceSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -9461,7 +9461,7 @@ export interface ListStackInstancesOutput {
    *       returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9490,7 +9490,7 @@ export interface ListStackResourcesInput {
    *       retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9536,7 +9536,7 @@ export interface StackResourceDriftInformationSummary {
    *    configuration.</p>
    * @public
    */
-  LastCheckTimestamp?: Date;
+  LastCheckTimestamp?: Date | undefined;
 }
 
 /**
@@ -9555,7 +9555,7 @@ export interface StackResourceSummary {
    *    resource.</p>
    * @public
    */
-  PhysicalResourceId?: string;
+  PhysicalResourceId?: string | undefined;
 
   /**
    * <p>Type of resource. (For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and
@@ -9580,7 +9580,7 @@ export interface StackResourceSummary {
    * <p>Success/failure message associated with the resource.</p>
    * @public
    */
-  ResourceStatusReason?: string;
+  ResourceStatusReason?: string | undefined;
 
   /**
    * <p>Information about whether the resource's actual configuration differs, or has
@@ -9589,14 +9589,14 @@ export interface StackResourceSummary {
    *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
    * @public
    */
-  DriftInformation?: StackResourceDriftInformationSummary;
+  DriftInformation?: StackResourceDriftInformationSummary | undefined;
 
   /**
    * <p>Contains information about the module from which the resource was created, if the resource
    *    was created from a module included in the stack template.</p>
    * @public
    */
-  ModuleInfo?: ModuleInfo;
+  ModuleInfo?: ModuleInfo | undefined;
 }
 
 /**
@@ -9608,14 +9608,14 @@ export interface ListStackResourcesOutput {
    * <p>A list of <code>StackResourceSummary</code> structures.</p>
    * @public
    */
-  StackResourceSummaries?: StackResourceSummary[];
+  StackResourceSummaries?: StackResourceSummary[] | undefined;
 
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of stack resources. If
    *       no additional page exists, this value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9627,7 +9627,7 @@ export interface ListStacksInput {
    * <p>A string that identifies the next page of stacks that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Stack status to use as a filter. Specify one or more stack status codes to list only
@@ -9635,7 +9635,7 @@ export interface ListStacksInput {
    *         <code>StackStatus</code> parameter of the <a>Stack</a> data type.</p>
    * @public
    */
-  StackStatusFilter?: StackStatus[];
+  StackStatusFilter?: StackStatus[] | undefined;
 }
 
 /**
@@ -9679,7 +9679,7 @@ export interface StackDriftInformationSummary {
    *    individual resources that support drift detection.</p>
    * @public
    */
-  LastCheckTimestamp?: Date;
+  LastCheckTimestamp?: Date | undefined;
 }
 
 /**
@@ -9691,7 +9691,7 @@ export interface StackSummary {
    * <p>Unique stack identifier.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 
   /**
    * <p>The name associated with the stack.</p>
@@ -9703,7 +9703,7 @@ export interface StackSummary {
    * <p>The template description of the template used to create the stack.</p>
    * @public
    */
-  TemplateDescription?: string;
+  TemplateDescription?: string | undefined;
 
   /**
    * <p>The time the stack was created.</p>
@@ -9716,13 +9716,13 @@ export interface StackSummary {
    *    updated at least once.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The time the stack was deleted.</p>
    * @public
    */
-  DeletionTime?: Date;
+  DeletionTime?: Date | undefined;
 
   /**
    * <p>The current status of the stack.</p>
@@ -9734,7 +9734,7 @@ export interface StackSummary {
    * <p>Success/Failure message associated with the stack status.</p>
    * @public
    */
-  StackStatusReason?: string;
+  StackStatusReason?: string | undefined;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the direct
@@ -9744,7 +9744,7 @@ export interface StackSummary {
    *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  ParentId?: string;
+  ParentId?: string | undefined;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
@@ -9753,7 +9753,7 @@ export interface StackSummary {
    *     stacks using nested stacks</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  RootId?: string;
+  RootId?: string | undefined;
 
   /**
    * <p>Summarizes information about whether a stack's actual configuration differs, or has
@@ -9762,7 +9762,7 @@ export interface StackSummary {
    *     unmanaged configuration changes to stacks and resources with drift detection</a>.</p>
    * @public
    */
-  DriftInformation?: StackDriftInformationSummary;
+  DriftInformation?: StackDriftInformationSummary | undefined;
 }
 
 /**
@@ -9775,14 +9775,14 @@ export interface ListStacksOutput {
    *       stacks.</p>
    * @public
    */
-  StackSummaries?: StackSummary[];
+  StackSummaries?: StackSummary[] | undefined;
 
   /**
    * <p>If the output exceeds 1 MB in size, a string that identifies the next page of stacks. If
    *       no additional page exists, this value is null.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9801,7 +9801,7 @@ export interface ListStackSetAutoDeploymentTargetsInput {
    *       retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -9810,7 +9810,7 @@ export interface ListStackSetAutoDeploymentTargetsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account.</p>
@@ -9830,7 +9830,7 @@ export interface ListStackSetAutoDeploymentTargetsInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -9842,13 +9842,13 @@ export interface StackSetAutoDeploymentTargetSummary {
    * <p>The organization root ID or organizational unit (OU) IDs where the stack set is targeted.</p>
    * @public
    */
-  OrganizationalUnitId?: string;
+  OrganizationalUnitId?: string | undefined;
 
   /**
    * <p>The list of Regions targeted for this organization or OU.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -9859,7 +9859,7 @@ export interface ListStackSetAutoDeploymentTargetsOutput {
    * <p>An array of summaries of the deployment targets for the stack set.</p>
    * @public
    */
-  Summaries?: StackSetAutoDeploymentTargetSummary[];
+  Summaries?: StackSetAutoDeploymentTargetSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -9868,7 +9868,7 @@ export interface ListStackSetAutoDeploymentTargetsOutput {
    *       is set to an empty string.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9893,13 +9893,13 @@ export interface OperationResultFilter {
    * <p>The type of filter to apply.</p>
    * @public
    */
-  Name?: OperationResultFilterName;
+  Name?: OperationResultFilterName | undefined;
 
   /**
    * <p>The value to filter by.</p>
    * @public
    */
-  Values?: string;
+  Values?: string | undefined;
 }
 
 /**
@@ -9927,7 +9927,7 @@ export interface ListStackSetOperationResultsInput {
    *       <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -9936,7 +9936,7 @@ export interface ListStackSetOperationResultsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -9958,13 +9958,13 @@ export interface ListStackSetOperationResultsInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 
   /**
    * <p>The filter to apply to operation results.</p>
    * @public
    */
-  Filters?: OperationResultFilter[];
+  Filters?: OperationResultFilter[] | undefined;
 }
 
 /**
@@ -9995,13 +9995,13 @@ export interface StackSetOperationResultSummary {
    * <p>[Self-managed permissions] The name of the Amazon Web Services account for this operation result.</p>
    * @public
    */
-  Account?: string;
+  Account?: string | undefined;
 
   /**
    * <p>The name of the Amazon Web Services Region for this operation result.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The result status of the stack set operation for the given account in the given Region.</p>
@@ -10033,27 +10033,27 @@ export interface StackSetOperationResultSummary {
    *          </ul>
    * @public
    */
-  Status?: StackSetOperationResultStatus;
+  Status?: StackSetOperationResultStatus | undefined;
 
   /**
    * <p>The reason for the assigned result status.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>The results of the account gate function CloudFormation invokes, if present, before proceeding with stack set operations
    *    in an account.</p>
    * @public
    */
-  AccountGateResult?: AccountGateResult;
+  AccountGateResult?: AccountGateResult | undefined;
 
   /**
    * <p>[Service-managed permissions] The organization root ID or organizational unit (OU) IDs that you specified for
    *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    * @public
    */
-  OrganizationalUnitId?: string;
+  OrganizationalUnitId?: string | undefined;
 }
 
 /**
@@ -10066,7 +10066,7 @@ export interface ListStackSetOperationResultsOutput {
    *       operation.</p>
    * @public
    */
-  Summaries?: StackSetOperationResultSummary[];
+  Summaries?: StackSetOperationResultSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To
@@ -10075,7 +10075,7 @@ export interface ListStackSetOperationResultsOutput {
    *       results, <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10097,7 +10097,7 @@ export interface ListStackSetOperationsInput {
    *       response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -10106,7 +10106,7 @@ export interface ListStackSetOperationsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -10128,7 +10128,7 @@ export interface ListStackSetOperationsInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -10140,7 +10140,7 @@ export interface StackSetOperationSummary {
    * <p>The unique ID of the stack set operation.</p>
    * @public
    */
-  OperationId?: string;
+  OperationId?: string | undefined;
 
   /**
    * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or <code>DELETE</code>. Create and delete
@@ -10148,7 +10148,7 @@ export interface StackSetOperationSummary {
    *    operations affect both the stack set itself and <i>all</i> associated stack set instances.</p>
    * @public
    */
-  Action?: StackSetOperationAction;
+  Action?: StackSetOperationAction | undefined;
 
   /**
    * <p>The overall status of the operation.</p>
@@ -10186,7 +10186,7 @@ export interface StackSetOperationSummary {
    *          </ul>
    * @public
    */
-  Status?: StackSetOperationStatus;
+  Status?: StackSetOperationStatus | undefined;
 
   /**
    * <p>The time at which the operation was initiated. Note that the creation times for the stack set operation might
@@ -10195,7 +10195,7 @@ export interface StackSetOperationSummary {
    *    stacks.</p>
    * @public
    */
-  CreationTimestamp?: Date;
+  CreationTimestamp?: Date | undefined;
 
   /**
    * <p>The time at which the stack set operation ended, across all accounts and Regions specified. Note that this
@@ -10203,19 +10203,19 @@ export interface StackSetOperationSummary {
    *    Region.</p>
    * @public
    */
-  EndTimestamp?: Date;
+  EndTimestamp?: Date | undefined;
 
   /**
    * <p>The status of the operation in details.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>Detailed information about the stack set operation.</p>
    * @public
    */
-  StatusDetails?: StackSetOperationStatusDetails;
+  StatusDetails?: StackSetOperationStatusDetails | undefined;
 
   /**
    * <p>The user-specified preferences for how CloudFormation performs a stack set operation.</p>
@@ -10223,7 +10223,7 @@ export interface StackSetOperationSummary {
    *     options</a>.</p>
    * @public
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  OperationPreferences?: StackSetOperationPreferences | undefined;
 }
 
 /**
@@ -10235,7 +10235,7 @@ export interface ListStackSetOperationsOutput {
    *       information about operations for the specified stack set.</p>
    * @public
    */
-  Summaries?: StackSetOperationSummary[];
+  Summaries?: StackSetOperationSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token. To
@@ -10244,7 +10244,7 @@ export interface ListStackSetOperationsOutput {
    *       results, <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10259,7 +10259,7 @@ export interface ListStackSetsInput {
    *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -10268,13 +10268,13 @@ export interface ListStackSetsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The status of the stack sets that you want to get summary information about.</p>
    * @public
    */
-  Status?: StackSetStatus;
+  Status?: StackSetStatus | undefined;
 
   /**
    * <p>[Service-managed permissions] Specifies whether you are acting as an account administrator
@@ -10296,7 +10296,7 @@ export interface ListStackSetsInput {
    *          </ul>
    * @public
    */
-  CallAs?: CallAs;
+  CallAs?: CallAs | undefined;
 }
 
 /**
@@ -10308,32 +10308,32 @@ export interface StackSetSummary {
    * <p>The name of the stack set.</p>
    * @public
    */
-  StackSetName?: string;
+  StackSetName?: string | undefined;
 
   /**
    * <p>The ID of the stack set.</p>
    * @public
    */
-  StackSetId?: string;
+  StackSetId?: string | undefined;
 
   /**
    * <p>A description of the stack set that you specify when the stack set is created or updated.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the stack set.</p>
    * @public
    */
-  Status?: StackSetStatus;
+  Status?: StackSetStatus | undefined;
 
   /**
    * <p>[Service-managed permissions] Describes whether StackSets automatically deploys to Organizations
    *    accounts that are added to a target organizational unit (OU).</p>
    * @public
    */
-  AutoDeployment?: AutoDeployment;
+  AutoDeployment?: AutoDeployment | undefined;
 
   /**
    * <p>Describes how the IAM roles required for stack set operations are created.</p>
@@ -10351,7 +10351,7 @@ export interface StackSetSummary {
    *          </ul>
    * @public
    */
-  PermissionModel?: PermissionModels;
+  PermissionModel?: PermissionModels | undefined;
 
   /**
    * <p>Status of the stack set's actual configuration compared to its expected template and parameter configuration. A
@@ -10380,21 +10380,21 @@ export interface StackSetSummary {
    *          </ul>
    * @public
    */
-  DriftStatus?: StackDriftStatus;
+  DriftStatus?: StackDriftStatus | undefined;
 
   /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack set. This value will be
    *     <code>NULL</code> for any stack set on which drift detection hasn't yet been performed.</p>
    * @public
    */
-  LastDriftCheckTimestamp?: Date;
+  LastDriftCheckTimestamp?: Date | undefined;
 
   /**
    * <p>Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting
    *    operations.</p>
    * @public
    */
-  ManagedExecution?: ManagedExecution;
+  ManagedExecution?: ManagedExecution | undefined;
 }
 
 /**
@@ -10406,7 +10406,7 @@ export interface ListStackSetsOutput {
    *       user's stack sets.</p>
    * @public
    */
-  Summaries?: StackSetSummary[];
+  Summaries?: StackSetSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set
@@ -10415,7 +10415,7 @@ export interface ListStackSetsOutput {
    *       returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10428,7 +10428,7 @@ export interface ListTypeRegistrationsInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -10436,7 +10436,7 @@ export interface ListTypeRegistrationsInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -10444,14 +10444,14 @@ export interface ListTypeRegistrationsInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  TypeArn?: string;
+  TypeArn?: string | undefined;
 
   /**
    * <p>The current status of the extension registration request.</p>
    *          <p>The default is <code>IN_PROGRESS</code>.</p>
    * @public
    */
-  RegistrationStatusFilter?: RegistrationStatus;
+  RegistrationStatusFilter?: RegistrationStatus | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -10460,7 +10460,7 @@ export interface ListTypeRegistrationsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous paginated request didn't return all the remaining results, the response
@@ -10470,7 +10470,7 @@ export interface ListTypeRegistrationsInput {
    *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10483,7 +10483,7 @@ export interface ListTypeRegistrationsOutput {
    *       registration request.</p>
    * @public
    */
-  RegistrationTokenList?: string[];
+  RegistrationTokenList?: string[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -10492,7 +10492,7 @@ export interface ListTypeRegistrationsOutput {
    *         <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10533,7 +10533,7 @@ export interface TypeFilters {
    *          </ul>
    * @public
    */
-  Category?: Category;
+  Category?: Category | undefined;
 
   /**
    * <p>The id of the publisher of the extension.</p>
@@ -10541,13 +10541,13 @@ export interface TypeFilters {
    *     <code>AWS_TYPES</code> category to specify a list of types published by Amazon.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 
   /**
    * <p>A prefix to use as a filter for results.</p>
    * @public
    */
-  TypeNamePrefix?: string;
+  TypeNamePrefix?: string | undefined;
 }
 
 /**
@@ -10581,7 +10581,7 @@ export interface ListTypesInput {
    *          <p>The default is <code>PRIVATE</code>.</p>
    * @public
    */
-  Visibility?: Visibility;
+  Visibility?: Visibility | undefined;
 
   /**
    * <p>For resource types, the provisioning behavior of the resource type. CloudFormation determines
@@ -10608,7 +10608,7 @@ export interface ListTypesInput {
    *          <p>The default is <code>FULLY_MUTABLE</code>.</p>
    * @public
    */
-  ProvisioningType?: ProvisioningType;
+  ProvisioningType?: ProvisioningType | undefined;
 
   /**
    * <p>The deprecation status of the extension that you want to get summary information
@@ -10628,13 +10628,13 @@ export interface ListTypesInput {
    *          </ul>
    * @public
    */
-  DeprecatedStatus?: DeprecatedStatus;
+  DeprecatedStatus?: DeprecatedStatus | undefined;
 
   /**
    * <p>The type of extension.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>Filter criteria to use in determining which extensions to return.</p>
@@ -10644,7 +10644,7 @@ export interface ListTypesInput {
    *       for <code>Visibility</code> returns the desired list.</p>
    * @public
    */
-  Filters?: TypeFilters;
+  Filters?: TypeFilters | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -10653,7 +10653,7 @@ export interface ListTypesInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous paginated request didn't return all the remaining results, the response
@@ -10663,7 +10663,7 @@ export interface ListTypesInput {
    *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10675,7 +10675,7 @@ export interface TypeSummary {
    * <p>The kind of extension.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -10683,7 +10683,7 @@ export interface TypeSummary {
    *    operation in your account and Region, CloudFormation considers that alias as the type name.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The ID of the default version of the extension. The default version is used when the
@@ -10694,13 +10694,13 @@ export interface TypeSummary {
    *          <p>To set the default version of an extension, use <a>SetTypeDefaultVersion</a>.</p>
    * @public
    */
-  DefaultVersionId?: string;
+  DefaultVersionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
    * @public
    */
-  TypeArn?: string;
+  TypeArn?: string | undefined;
 
   /**
    * <p>When the specified extension version was registered. This applies only to:</p>
@@ -10716,20 +10716,20 @@ export interface TypeSummary {
    *          <p>For all other extension types, CloudFormation returns <code>null</code>.</p>
    * @public
    */
-  LastUpdated?: Date;
+  LastUpdated?: Date | undefined;
 
   /**
    * <p>The description of the extension.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the extension publisher, if the extension is published by a third party.
    *    Extensions published by Amazon don't return a publisher ID.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 
   /**
    * <p>For public extensions that have been activated for this account and Region, the type name of
@@ -10740,7 +10740,7 @@ export interface TypeSummary {
    *     aliases to refer to extensions</a> in the <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  OriginalTypeName?: string;
+  OriginalTypeName?: string | undefined;
 
   /**
    * <p>For public extensions that have been activated for this account and Region, the version of
@@ -10751,7 +10751,7 @@ export interface TypeSummary {
    *     <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  PublicVersionNumber?: string;
+  PublicVersionNumber?: string | undefined;
 
   /**
    * <p>For public extensions that have been activated for this account and Region, the latest
@@ -10763,7 +10763,7 @@ export interface TypeSummary {
    *     <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  LatestPublicVersion?: string;
+  LatestPublicVersion?: string | undefined;
 
   /**
    * <p>The service used to verify the publisher identity.</p>
@@ -10771,14 +10771,14 @@ export interface TypeSummary {
    *     them available for public use</a> in the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
    * @public
    */
-  PublisherIdentity?: IdentityProvider;
+  PublisherIdentity?: IdentityProvider | undefined;
 
   /**
    * <p>The publisher name, as defined in the public profile for that publisher in the service used
    *    to verify the publisher identity.</p>
    * @public
    */
-  PublisherName?: string;
+  PublisherName?: string | undefined;
 
   /**
    * <p>Whether the extension is activated for this account and Region.</p>
@@ -10786,7 +10786,7 @@ export interface TypeSummary {
    *    activated by default.</p>
    * @public
    */
-  IsActivated?: boolean;
+  IsActivated?: boolean | undefined;
 }
 
 /**
@@ -10798,7 +10798,7 @@ export interface ListTypesOutput {
    *       extensions.</p>
    * @public
    */
-  TypeSummaries?: TypeSummary[];
+  TypeSummaries?: TypeSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all the remaining results, <code>NextToken</code> is set to
@@ -10807,7 +10807,7 @@ export interface ListTypesOutput {
    *         <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10820,7 +10820,7 @@ export interface ListTypeVersionsInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension for which you want version summary information.</p>
@@ -10828,7 +10828,7 @@ export interface ListTypeVersionsInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension for which you want version summary
@@ -10837,7 +10837,7 @@ export interface ListTypeVersionsInput {
    *         <code>Arn</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -10846,7 +10846,7 @@ export interface ListTypeVersionsInput {
    *       results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous paginated request didn't return all of the remaining results, the response
@@ -10856,7 +10856,7 @@ export interface ListTypeVersionsInput {
    *       object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The deprecation status of the extension versions that you want to get summary information
@@ -10877,14 +10877,14 @@ export interface ListTypeVersionsInput {
    *          <p>The default is <code>LIVE</code>.</p>
    * @public
    */
-  DeprecatedStatus?: DeprecatedStatus;
+  DeprecatedStatus?: DeprecatedStatus | undefined;
 
   /**
    * <p>The publisher ID of the extension publisher.</p>
    *          <p>Extensions published by Amazon aren't assigned a publisher ID.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 }
 
 /**
@@ -10896,20 +10896,20 @@ export interface TypeVersionSummary {
    * <p>The kind of extension.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The ID of a specific version of the extension. The version ID is the value at the end of the
    *    Amazon Resource Name (ARN) assigned to the extension version when it's registered.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Whether the specified extension version is set as the default version.</p>
@@ -10918,25 +10918,25 @@ export interface TypeVersionSummary {
    *    <code>null</code>.</p>
    * @public
    */
-  IsDefaultVersion?: boolean;
+  IsDefaultVersion?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension version.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>When the version was registered.</p>
    * @public
    */
-  TimeCreated?: Date;
+  TimeCreated?: Date | undefined;
 
   /**
    * <p>The description of the extension version.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>For public extensions that have been activated for this account and Region, the version of
@@ -10949,7 +10949,7 @@ export interface TypeVersionSummary {
    *     <i>CloudFormation User Guide</i>.</p>
    * @public
    */
-  PublicVersionNumber?: string;
+  PublicVersionNumber?: string | undefined;
 }
 
 /**
@@ -10961,7 +10961,7 @@ export interface ListTypeVersionsOutput {
    *       specified extension's versions.</p>
    * @public
    */
-  TypeVersionSummaries?: TypeVersionSummary[];
+  TypeVersionSummaries?: TypeVersionSummary[] | undefined;
 
   /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set
@@ -10970,7 +10970,7 @@ export interface ListTypeVersionsOutput {
    *         <code>NextToken</code> is set to <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10983,7 +10983,7 @@ export interface PublishTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  Type?: ThirdPartyType;
+  Type?: ThirdPartyType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the extension.</p>
@@ -10991,7 +10991,7 @@ export interface PublishTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the extension.</p>
@@ -10999,7 +10999,7 @@ export interface PublishTypeInput {
    *         <code>Type</code>.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The version number to assign to this version of the extension.</p>
@@ -11016,7 +11016,7 @@ export interface PublishTypeInput {
    *       automatically sets the first version number to be <code>1.0.0</code>.</p>
    * @public
    */
-  PublicVersionNumber?: string;
+  PublicVersionNumber?: string | undefined;
 }
 
 /**
@@ -11027,7 +11027,7 @@ export interface PublishTypeOutput {
    * <p>The Amazon Resource Name (ARN) assigned to the public extension upon publication.</p>
    * @public
    */
-  PublicTypeArn?: string;
+  PublicTypeArn?: string | undefined;
 }
 
 /**
@@ -11038,7 +11038,7 @@ export interface PublishTypeOutput {
 export class InvalidStateTransitionException extends __BaseException {
   readonly name: "InvalidStateTransitionException" = "InvalidStateTransitionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -11061,7 +11061,7 @@ export class InvalidStateTransitionException extends __BaseException {
 export class OperationStatusCheckFailedException extends __BaseException {
   readonly name: "OperationStatusCheckFailedException" = "OperationStatusCheckFailedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -11146,35 +11146,35 @@ export interface RecordHandlerProgressInput {
    *         CLI</a>.</p>
    * @public
    */
-  CurrentOperationStatus?: OperationStatus;
+  CurrentOperationStatus?: OperationStatus | undefined;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
    *         CLI</a>.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
    *         CLI</a>.</p>
    * @public
    */
-  ErrorCode?: HandlerErrorCode;
+  ErrorCode?: HandlerErrorCode | undefined;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
    *         CLI</a>.</p>
    * @public
    */
-  ResourceModel?: string;
+  ResourceModel?: string | undefined;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation
    *         CLI</a>.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -11193,7 +11193,7 @@ export interface RegisterPublisherInput {
    *          <p>The default is <code>false</code>.</p>
    * @public
    */
-  AcceptTermsAndConditions?: boolean;
+  AcceptTermsAndConditions?: boolean | undefined;
 
   /**
    * <p>If you are using a Bitbucket or GitHub account for identity verification, the Amazon
@@ -11202,7 +11202,7 @@ export interface RegisterPublisherInput {
    *         <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
    * @public
    */
-  ConnectionArn?: string;
+  ConnectionArn?: string | undefined;
 }
 
 /**
@@ -11213,7 +11213,7 @@ export interface RegisterPublisherOutput {
    * <p>The ID assigned this account by CloudFormation for publishing extensions.</p>
    * @public
    */
-  PublisherId?: string;
+  PublisherId?: string | undefined;
 }
 
 /**
@@ -11224,7 +11224,7 @@ export interface RegisterTypeInput {
    * <p>The kind of extension.</p>
    * @public
    */
-  Type?: RegistryType;
+  Type?: RegistryType | undefined;
 
   /**
    * <p>The name of the extension being registered.</p>
@@ -11300,7 +11300,7 @@ export interface RegisterTypeInput {
    * <p>Specifies logging configuration information for an extension.</p>
    * @public
    */
-  LoggingConfig?: LoggingConfig;
+  LoggingConfig?: LoggingConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking
@@ -11321,7 +11321,7 @@ export interface RegisterTypeInput {
    *       resource type with the appropriate credentials.</p>
    * @public
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn?: string | undefined;
 
   /**
    * <p>A unique identifier that acts as an idempotency key for this registration request.
@@ -11330,7 +11330,7 @@ export interface RegisterTypeInput {
    *       times.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -11343,7 +11343,7 @@ export interface RegisterTypeOutput {
    *       returns information about the status and IDs of the extension registration.</p>
    * @public
    */
-  RegistrationToken?: string;
+  RegistrationToken?: string | undefined;
 }
 
 /**
@@ -11361,13 +11361,13 @@ export interface RollbackStackInput {
    *       stack.</p>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 
   /**
    * <p>A unique identifier for this <code>RollbackStack</code> request.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>When set to <code>true</code>, newly created resources are deleted when the operation
@@ -11377,7 +11377,7 @@ export interface RollbackStackInput {
    *          </p>
    * @public
    */
-  RetainExceptOnCreate?: boolean;
+  RetainExceptOnCreate?: boolean | undefined;
 }
 
 /**
@@ -11388,7 +11388,7 @@ export interface RollbackStackOutput {
    * <p>Unique identifier of the stack.</p>
    * @public
    */
-  StackId?: string;
+  StackId?: string | undefined;
 }
 
 /**
@@ -11408,7 +11408,7 @@ export interface SetStackPolicyInput {
    *       parameter, but not both.</p>
    * @public
    */
-  StackPolicyBody?: string;
+  StackPolicyBody?: string | undefined;
 
   /**
    * <p>Location of a file containing the stack policy. The URL must point to a policy (maximum
@@ -11418,5 +11418,5 @@ export interface SetStackPolicyInput {
    *       both.</p>
    * @public
    */
-  StackPolicyURL?: string;
+  StackPolicyURL?: string | undefined;
 }

@@ -107,7 +107,7 @@ export interface ListTagsForResourceResponse {
    * <p>Information about the tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -129,7 +129,7 @@ export interface ListTaskTemplatesRequest {
    *          </important>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
@@ -138,7 +138,7 @@ export interface ListTaskTemplatesRequest {
    *          </important>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
@@ -146,13 +146,13 @@ export interface ListTaskTemplatesRequest {
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    * @public
    */
-  Status?: TaskTemplateStatus;
+  Status?: TaskTemplateStatus | undefined;
 
   /**
    * <p>The name of the task template.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -164,25 +164,25 @@ export interface TaskTemplateMetadata {
    * <p>A unique identifier for the task template.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the task template.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the task template.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the task template.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
@@ -190,19 +190,19 @@ export interface TaskTemplateMetadata {
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    * @public
    */
-  Status?: TaskTemplateStatus;
+  Status?: TaskTemplateStatus | undefined;
 
   /**
    * <p>The timestamp when the task template was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The timestamp when the task template was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -213,7 +213,7 @@ export interface ListTaskTemplatesResponse {
    * <p>Provides details about a list of task templates belonging to an instance.</p>
    * @public
    */
-  TaskTemplates?: TaskTemplateMetadata[];
+  TaskTemplates?: TaskTemplateMetadata[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
@@ -222,7 +222,7 @@ export interface ListTaskTemplatesResponse {
    *          </important>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -233,20 +233,20 @@ export interface ListTrafficDistributionGroupsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 }
 
 /**
@@ -260,25 +260,25 @@ export interface TrafficDistributionGroupSummary {
    * The ARN must be provided if the call is from the replicated Region.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the traffic distribution group.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
    * @public
    */
-  InstanceArn?: string;
+  InstanceArn?: string | undefined;
 
   /**
    * <p>The status of the traffic distribution group. </p>
@@ -313,7 +313,7 @@ export interface TrafficDistributionGroupSummary {
    *          </ul>
    * @public
    */
-  Status?: TrafficDistributionGroupStatus;
+  Status?: TrafficDistributionGroupStatus | undefined;
 
   /**
    * <p>Whether this is the default traffic distribution group created during instance
@@ -322,7 +322,7 @@ export interface TrafficDistributionGroupSummary {
    *    part of the process for deleting a replica.</p>
    * @public
    */
-  IsDefault?: boolean;
+  IsDefault?: boolean | undefined;
 }
 
 /**
@@ -333,13 +333,13 @@ export interface ListTrafficDistributionGroupsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of traffic distribution groups.</p>
    * @public
    */
-  TrafficDistributionGroupSummaryList?: TrafficDistributionGroupSummary[];
+  TrafficDistributionGroupSummaryList?: TrafficDistributionGroupSummary[] | undefined;
 }
 
 /**
@@ -358,14 +358,14 @@ export interface ListTrafficDistributionGroupUsersRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -377,7 +377,7 @@ export interface TrafficDistributionGroupUserSummary {
    * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 }
 
 /**
@@ -388,13 +388,13 @@ export interface ListTrafficDistributionGroupUsersResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of traffic distribution group users.</p>
    * @public
    */
-  TrafficDistributionGroupUserSummaryList?: TrafficDistributionGroupUserSummary[];
+  TrafficDistributionGroupUserSummaryList?: TrafficDistributionGroupUserSummary[] | undefined;
 }
 
 /**
@@ -420,13 +420,13 @@ export interface ListUseCasesRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -440,20 +440,20 @@ export interface UseCase {
    * <p>The identifier for the use case.</p>
    * @public
    */
-  UseCaseId?: string;
+  UseCaseId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the use case.</p>
    * @public
    */
-  UseCaseArn?: string;
+  UseCaseArn?: string | undefined;
 
   /**
    * <p>The type of use case to associate to the integration association. Each integration
    *    association can have only one of each use case type.</p>
    * @public
    */
-  UseCaseType?: UseCaseType;
+  UseCaseType?: UseCaseType | undefined;
 }
 
 /**
@@ -464,13 +464,13 @@ export interface ListUseCasesResponse {
    * <p>The use cases.</p>
    * @public
    */
-  UseCaseSummaryList?: UseCase[];
+  UseCaseSummaryList?: UseCase[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -488,13 +488,13 @@ export interface ListUserHierarchyGroupsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -505,13 +505,13 @@ export interface ListUserHierarchyGroupsResponse {
    * <p>Information about the hierarchy groups.</p>
    * @public
    */
-  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[];
+  UserHierarchyGroupSummaryList?: HierarchyGroupSummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -536,13 +536,13 @@ export interface ListUserProficienciesRequest {
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -553,25 +553,25 @@ export interface ListUserProficienciesResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Information about the user proficiencies.</p>
    * @public
    */
-  UserProficiencyList?: UserProficiency[];
+  UserProficiencyList?: UserProficiency[] | undefined;
 
   /**
    * <p>The last time that the user's proficiencies are were modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The region in which a user's proficiencies were last modified.</p>
    * @public
    */
-  LastModifiedRegion?: string;
+  LastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -589,13 +589,13 @@ export interface ListUsersRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -607,31 +607,31 @@ export interface UserSummary {
    * <p>The identifier of the user account.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the user account.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Connect user name of the user account.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>The timestamp when this resource was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The Amazon Web Services Region where this resource was last modified.</p>
    * @public
    */
-  LastModifiedRegion?: string;
+  LastModifiedRegion?: string | undefined;
 }
 
 /**
@@ -642,13 +642,13 @@ export interface ListUsersResponse {
    * <p>Information about the users.</p>
    * @public
    */
-  UserSummaryList?: UserSummary[];
+  UserSummaryList?: UserSummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -666,20 +666,20 @@ export interface ListViewsRequest {
    * <p>The type of the view.</p>
    * @public
    */
-  Type?: ViewType;
+  Type?: ViewType | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -691,38 +691,38 @@ export interface ViewSummary {
    * <p>The identifier of the view.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the view.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the view.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of the view.</p>
    * @public
    */
-  Type?: ViewType;
+  Type?: ViewType | undefined;
 
   /**
    * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The
    *     <code>PUBLISHED</code> status will initiate validation on the content.</p>
    * @public
    */
-  Status?: ViewStatus;
+  Status?: ViewStatus | undefined;
 
   /**
    * <p>The description of the view.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -733,14 +733,14 @@ export interface ListViewsResponse {
    * <p>A list of view summaries.</p>
    * @public
    */
-  ViewsSummaryList?: ViewSummary[];
+  ViewsSummaryList?: ViewSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -766,13 +766,13 @@ export interface ListViewVersionsRequest {
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -784,43 +784,43 @@ export interface ViewVersionSummary {
    * <p>The identifier of the view version.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the view version.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The description of the view version.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The name of the view version.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of the view version.</p>
    * @public
    */
-  Type?: ViewType;
+  Type?: ViewType | undefined;
 
   /**
    * <p>The sequentially incremented version of the view version.</p>
    * @public
    */
-  Version?: number;
+  Version?: number | undefined;
 
   /**
    * <p>The description of the view version.</p>
    * @public
    */
-  VersionDescription?: string;
+  VersionDescription?: string | undefined;
 }
 
 /**
@@ -831,14 +831,14 @@ export interface ListViewVersionsResponse {
    * <p>A list of view version summaries.</p>
    * @public
    */
-  ViewVersionSummaryList?: ViewVersionSummary[];
+  ViewVersionSummaryList?: ViewVersionSummary[] | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -870,7 +870,7 @@ export interface MonitorContactRequest {
    *    barge is enabled.</p>
    * @public
    */
-  AllowedMonitorCapabilities?: MonitorCapability[];
+  AllowedMonitorCapabilities?: MonitorCapability[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -879,7 +879,7 @@ export interface MonitorContactRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -890,13 +890,13 @@ export interface MonitorContactResponse {
    * <p>The identifier of the contact.</p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 
   /**
    * <p>The ARN of the contact.</p>
    * @public
    */
-  ContactArn?: string;
+  ContactArn?: string | undefined;
 }
 
 /**
@@ -907,7 +907,7 @@ export interface MonitorContactResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -943,7 +943,7 @@ export interface PauseContactRequest {
    * <p>The identifier of the flow.</p>
    * @public
    */
-  ContactFlowId?: string;
+  ContactFlowId?: string | undefined;
 }
 
 /**
@@ -996,7 +996,7 @@ export interface ReleasePhoneNumberRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1022,7 +1022,7 @@ export interface ReplicateInstanceRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The alias for the replicated instance. The <code>ReplicaAlias</code> must be unique.</p>
@@ -1041,13 +1041,13 @@ export interface ReplicateInstanceResponse {
    *    replicated from.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the replicated instance.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -1071,7 +1071,7 @@ export interface ResumeContactRequest {
    * <p>The identifier of the flow.</p>
    * @public
    */
-  ContactFlowId?: string;
+  ContactFlowId?: string | undefined;
 }
 
 /**
@@ -1116,19 +1116,19 @@ export interface SearchAgentStatusesResponse {
    * <p>The search criteria to be used to return agent statuses.</p>
    * @public
    */
-  AgentStatuses?: AgentStatus[];
+  AgentStatuses?: AgentStatus[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of agent statuses which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -1139,7 +1139,7 @@ export interface SearchAvailablePhoneNumbersRequest {
    * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    * @public
    */
-  TargetArn?: string;
+  TargetArn?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
@@ -1147,7 +1147,7 @@ export interface SearchAvailablePhoneNumbersRequest {
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The ISO country code.</p>
@@ -1165,20 +1165,20 @@ export interface SearchAvailablePhoneNumbersRequest {
    * <p>The prefix of the phone number. If provided, it must contain <code>+</code> as part of the country code.</p>
    * @public
    */
-  PhoneNumberPrefix?: string;
+  PhoneNumberPrefix?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1190,19 +1190,19 @@ export interface AvailableNumberSummary {
    * <p>The phone number. Phone numbers are formatted <code>[+] [country code] [subscriber number including area code]</code>.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The ISO country code.</p>
    * @public
    */
-  PhoneNumberCountryCode?: PhoneNumberCountryCode;
+  PhoneNumberCountryCode?: PhoneNumberCountryCode | undefined;
 
   /**
    * <p>The type of phone number.</p>
    * @public
    */
-  PhoneNumberType?: PhoneNumberType;
+  PhoneNumberType?: PhoneNumberType | undefined;
 }
 
 /**
@@ -1213,13 +1213,13 @@ export interface SearchAvailablePhoneNumbersResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of available phone numbers that you can claim to your Amazon Connect instance or traffic distribution group.</p>
    * @public
    */
-  AvailableNumbersList?: AvailableNumberSummary[];
+  AvailableNumbersList?: AvailableNumberSummary[] | undefined;
 }
 
 /**
@@ -1243,20 +1243,20 @@ export interface ControlPlaneTagFilter {
    *   </p>
    * @public
    */
-  OrConditions?: TagCondition[][];
+  OrConditions?: TagCondition[][] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an <code>AND</code>
    *    condition.</p>
    * @public
    */
-  AndConditions?: TagCondition[];
+  AndConditions?: TagCondition[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a tag condition. </p>
    * @public
    */
-  TagCondition?: TagCondition;
+  TagCondition?: TagCondition | undefined;
 }
 
 /**
@@ -1279,7 +1279,7 @@ export interface ContactFlowModuleSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -1290,19 +1290,19 @@ export interface SearchContactFlowModulesResponse {
    * <p>The search criteria to be used to return contact flow modules.</p>
    * @public
    */
-  ContactFlowModules?: ContactFlowModule[];
+  ContactFlowModules?: ContactFlowModule[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of contact flows which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -1325,7 +1325,7 @@ export interface ContactFlowSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -1336,19 +1336,19 @@ export interface SearchContactFlowsResponse {
    * <p>Information about the flows.</p>
    * @public
    */
-  ContactFlows?: ContactFlow[];
+  ContactFlows?: ContactFlow[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of contact flows which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -1408,7 +1408,7 @@ export interface Transcript {
    * <p>The match type combining search criteria using multiple transcript criteria.</p>
    * @public
    */
-  MatchType?: SearchContactsMatchType;
+  MatchType?: SearchContactsMatchType | undefined;
 }
 
 /**
@@ -1421,7 +1421,7 @@ export interface ContactAnalysis {
    * <p>Search criteria based on transcript analyzed by Amazon Connect Contact Lens.</p>
    * @public
    */
-  Transcript?: Transcript;
+  Transcript?: Transcript | undefined;
 }
 
 /**
@@ -1461,7 +1461,7 @@ export interface SearchableContactAttributes {
    *    attributes.</p>
    * @public
    */
-  MatchType?: SearchContactsMatchType;
+  MatchType?: SearchContactsMatchType | undefined;
 }
 
 /**
@@ -1473,37 +1473,37 @@ export interface SearchCriteria {
    * <p>The identifiers of agents who handled the contacts.</p>
    * @public
    */
-  AgentIds?: string[];
+  AgentIds?: string[] | undefined;
 
   /**
    * <p>The agent hierarchy groups of the agent at the time of handling the contact.</p>
    * @public
    */
-  AgentHierarchyGroups?: AgentHierarchyGroups;
+  AgentHierarchyGroups?: AgentHierarchyGroups | undefined;
 
   /**
    * <p>The list of channels associated with contacts.</p>
    * @public
    */
-  Channels?: Channel[];
+  Channels?: Channel[] | undefined;
 
   /**
    * <p>Search criteria based on analysis outputs from Amazon Connect Contact Lens.</p>
    * @public
    */
-  ContactAnalysis?: ContactAnalysis;
+  ContactAnalysis?: ContactAnalysis | undefined;
 
   /**
    * <p>The list of initiation methods associated with contacts.</p>
    * @public
    */
-  InitiationMethods?: ContactInitiationMethod[];
+  InitiationMethods?: ContactInitiationMethod[] | undefined;
 
   /**
    * <p>The list of queue IDs associated with contacts.</p>
    * @public
    */
-  QueueIds?: string[];
+  QueueIds?: string[] | undefined;
 
   /**
    * <p>The search criteria based on user-defined contact attributes that have been configured for
@@ -1516,7 +1516,7 @@ export interface SearchCriteria {
    *          </important>
    * @public
    */
-  SearchableContactAttributes?: SearchableContactAttributes;
+  SearchableContactAttributes?: SearchableContactAttributes | undefined;
 }
 
 /**
@@ -1617,26 +1617,26 @@ export interface SearchContactsRequest {
    * <p>The search criteria to be used to return contacts.</p>
    * @public
    */
-  SearchCriteria?: SearchCriteria;
+  SearchCriteria?: SearchCriteria | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies a field to sort by and a sort order.</p>
    * @public
    */
-  Sort?: Sort;
+  Sort?: Sort | undefined;
 }
 
 /**
@@ -1648,13 +1648,13 @@ export interface ContactSearchSummaryAgentInfo {
    * <p>The identifier of the agent who accepted the contact.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The timestamp when the contact was connected to the agent.</p>
    * @public
    */
-  ConnectedToAgentTimestamp?: Date;
+  ConnectedToAgentTimestamp?: Date | undefined;
 }
 
 /**
@@ -1666,13 +1666,13 @@ export interface ContactSearchSummaryQueueInfo {
    * <p>The unique identifier for the queue.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The timestamp when the contact was added to the queue.</p>
    * @public
    */
-  EnqueueTimestamp?: Date;
+  EnqueueTimestamp?: Date | undefined;
 }
 
 /**
@@ -1684,49 +1684,49 @@ export interface ContactSearchSummary {
    * <p>The Amazon Resource Name (ARN) of the contact.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The identifier of the contact summary.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
    * @public
    */
-  InitialContactId?: string;
+  InitialContactId?: string | undefined;
 
   /**
    * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
    * @public
    */
-  PreviousContactId?: string;
+  PreviousContactId?: string | undefined;
 
   /**
    * <p>Indicates how the contact was initiated.</p>
    * @public
    */
-  InitiationMethod?: ContactInitiationMethod;
+  InitiationMethod?: ContactInitiationMethod | undefined;
 
   /**
    * <p>How the contact reached your contact center.</p>
    * @public
    */
-  Channel?: Channel;
+  Channel?: Channel | undefined;
 
   /**
    * <p>If this contact was queued, this contains information about the queue.</p>
    * @public
    */
-  QueueInfo?: ContactSearchSummaryQueueInfo;
+  QueueInfo?: ContactSearchSummaryQueueInfo | undefined;
 
   /**
    * <p>Information about the agent who accepted the contact.</p>
    * @public
    */
-  AgentInfo?: ContactSearchSummaryAgentInfo;
+  AgentInfo?: ContactSearchSummaryAgentInfo | undefined;
 
   /**
    * <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is
@@ -1738,19 +1738,19 @@ export interface ContactSearchSummary {
    *    to a contact.</p>
    * @public
    */
-  InitiationTimestamp?: Date;
+  InitiationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
    * @public
    */
-  DisconnectTimestamp?: Date;
+  DisconnectTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.</p>
    * @public
    */
-  ScheduledTimestamp?: Date;
+  ScheduledTimestamp?: Date | undefined;
 }
 
 /**
@@ -1767,13 +1767,13 @@ export interface SearchContactsResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of contacts which matched your search query.</p>
    * @public
    */
-  TotalCount?: number;
+  TotalCount?: number | undefined;
 }
 
 /**
@@ -1796,7 +1796,7 @@ export interface HoursOfOperationSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -1807,19 +1807,19 @@ export interface SearchHoursOfOperationsResponse {
    * <p>Information about the hours of operations.</p>
    * @public
    */
-  HoursOfOperations?: HoursOfOperation[];
+  HoursOfOperations?: HoursOfOperation[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of hours of operations which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -1830,20 +1830,20 @@ export interface SearchPredefinedAttributesResponse {
    * <p>Predefined attributes matched by the search criteria.</p>
    * @public
    */
-  PredefinedAttributes?: PredefinedAttribute[];
+  PredefinedAttributes?: PredefinedAttribute[] | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The approximate number of predefined attributes which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -1866,7 +1866,7 @@ export interface PromptSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -1877,19 +1877,19 @@ export interface SearchPromptsResponse {
    * <p>Information about the prompts.</p>
    * @public
    */
-  Prompts?: Prompt[];
+  Prompts?: Prompt[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of quick connects which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -1925,7 +1925,7 @@ export interface QueueSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -1936,19 +1936,19 @@ export interface SearchQueuesResponse {
    * <p>Information about the queues.</p>
    * @public
    */
-  Queues?: Queue[];
+  Queues?: Queue[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of queues which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -1971,7 +1971,7 @@ export interface QuickConnectSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -1982,19 +1982,19 @@ export interface SearchQuickConnectsResponse {
    * <p>Information about the quick connects.</p>
    * @public
    */
-  QuickConnects?: QuickConnect[];
+  QuickConnects?: QuickConnect[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of quick connects which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -2005,7 +2005,7 @@ export interface SearchQuickConnectsResponse {
 export class MaximumResultReturnedException extends __BaseException {
   readonly name: "MaximumResultReturnedException" = "MaximumResultReturnedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2029,27 +2029,27 @@ export interface TagSearchCondition {
    * <p>The tag key used in the tag search condition.</p>
    * @public
    */
-  tagKey?: string;
+  tagKey?: string | undefined;
 
   /**
    * <p>The tag value used in the tag search condition.</p>
    * @public
    */
-  tagValue?: string;
+  tagValue?: string | undefined;
 
   /**
    * <p>The type of comparison to be made when evaluating the tag key in tag search
    *    condition.</p>
    * @public
    */
-  tagKeyComparisonType?: StringComparisonType;
+  tagKeyComparisonType?: StringComparisonType | undefined;
 
   /**
    * <p>The type of comparison to be made when evaluating the tag value in tag search
    *    condition.</p>
    * @public
    */
-  tagValueComparisonType?: StringComparisonType;
+  tagValueComparisonType?: StringComparisonType | undefined;
 }
 
 /**
@@ -2061,7 +2061,7 @@ export interface ResourceTagsSearchCriteria {
    * <p>The search criteria to be used to return tags.</p>
    * @public
    */
-  TagSearchCondition?: TagSearchCondition;
+  TagSearchCondition?: TagSearchCondition | undefined;
 }
 
 /**
@@ -2109,26 +2109,26 @@ export interface SearchResourceTagsRequest {
    *          </ul>
    * @public
    */
-  ResourceTypes?: string[];
+  ResourceTypes?: string[] | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The search criteria to be used to return tags.</p>
    * @public
    */
-  SearchCriteria?: ResourceTagsSearchCriteria;
+  SearchCriteria?: ResourceTagsSearchCriteria | undefined;
 }
 
 /**
@@ -2140,13 +2140,13 @@ export interface TagSet {
    * <p>The tag key in the tagSet.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The tag value in the tagSet.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -2157,13 +2157,13 @@ export interface SearchResourceTagsResponse {
    * <p>A list of tags used in the Amazon Connect instance.</p>
    * @public
    */
-  Tags?: TagSet[];
+  Tags?: TagSet[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2186,7 +2186,7 @@ export interface RoutingProfileSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -2197,19 +2197,19 @@ export interface SearchRoutingProfilesResponse {
    * <p>Information about the routing profiles.</p>
    * @public
    */
-  RoutingProfiles?: RoutingProfile[];
+  RoutingProfiles?: RoutingProfile[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of routing profiles which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -2232,7 +2232,7 @@ export interface SecurityProfilesSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 }
 
 /**
@@ -2244,37 +2244,37 @@ export interface SecurityProfileSearchSummary {
    * <p>The identifier of the security profile.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The organization resource identifier.</p>
    * @public
    */
-  OrganizationResourceId?: string;
+  OrganizationResourceId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the security profile.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the security profile.</p>
    * @public
    */
-  SecurityProfileName?: string;
+  SecurityProfileName?: string | undefined;
 
   /**
    * <p>The description of the security profile.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2285,19 +2285,19 @@ export interface SearchSecurityProfilesResponse {
    * <p>Information about the security profiles.</p>
    * @public
    */
-  SecurityProfiles?: SecurityProfileSearchSummary[];
+  SecurityProfiles?: SecurityProfileSearchSummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of security profiles which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -2320,7 +2320,7 @@ export interface UserHierarchyGroupSearchFilter {
    *          </ul>
    * @public
    */
-  AttributeFilter?: ControlPlaneAttributeFilter;
+  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
 }
 
 /**
@@ -2331,19 +2331,19 @@ export interface SearchUserHierarchyGroupsResponse {
    * <p>Information about the userHierarchyGroups.</p>
    * @public
    */
-  UserHierarchyGroups?: HierarchyGroup[];
+  UserHierarchyGroups?: HierarchyGroup[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of userHierarchyGroups which matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -2369,13 +2369,13 @@ export interface HierarchyGroupCondition {
    * <p>The value in the hierarchy group condition.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The type of hierarchy group match.</p>
    * @public
    */
-  HierarchyGroupMatchType?: HierarchyGroupMatchType;
+  HierarchyGroupMatchType?: HierarchyGroupMatchType | undefined;
 }
 
 /**
@@ -2409,25 +2409,25 @@ export interface NumberCondition {
    * <p>The name of the field in the number condition.</p>
    * @public
    */
-  FieldName?: string;
+  FieldName?: string | undefined;
 
   /**
    * <p>The minValue to be used while evaluating the number condition.</p>
    * @public
    */
-  MinValue?: number;
+  MinValue?: number | undefined;
 
   /**
    * <p>The maxValue to be used while evaluating the number condition.</p>
    * @public
    */
-  MaxValue?: number;
+  MaxValue?: number | undefined;
 
   /**
    * <p>The type of comparison to be made when evaluating the number condition.</p>
    * @public
    */
-  ComparisonType?: NumberComparisonType;
+  ComparisonType?: NumberComparisonType | undefined;
 }
 
 /**
@@ -2444,13 +2444,13 @@ export interface Condition {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a numeric condition.</p>
    * @public
    */
-  NumberCondition?: NumberCondition;
+  NumberCondition?: NumberCondition | undefined;
 }
 
 /**
@@ -2476,13 +2476,13 @@ export interface ListCondition {
    * <p>The type of target list that will be used to filter the users.</p>
    * @public
    */
-  TargetListType?: TargetListType;
+  TargetListType?: TargetListType | undefined;
 
   /**
    * <p>A list of Condition objects which would be applied together with an AND condition.</p>
    * @public
    */
-  Conditions?: Condition[];
+  Conditions?: Condition[] | undefined;
 }
 
 /**
@@ -2495,13 +2495,13 @@ export interface AttributeAndCondition {
    * <p>A leaf node condition which can be used to specify a tag condition.</p>
    * @public
    */
-  TagConditions?: TagCondition[];
+  TagConditions?: TagCondition[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
    * @public
    */
-  HierarchyGroupCondition?: HierarchyGroupCondition;
+  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
 }
 
 /**
@@ -2530,27 +2530,27 @@ export interface ControlPlaneUserAttributeFilter {
    *    condition.</p>
    * @public
    */
-  OrConditions?: AttributeAndCondition[];
+  OrConditions?: AttributeAndCondition[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an <code>AND</code>
    *    condition.</p>
    * @public
    */
-  AndCondition?: AttributeAndCondition;
+  AndCondition?: AttributeAndCondition | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
    *     BPO = 123</code>. </p>
    * @public
    */
-  TagCondition?: TagCondition;
+  TagCondition?: TagCondition | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
    * @public
    */
-  HierarchyGroupCondition?: HierarchyGroupCondition;
+  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
 }
 
 /**
@@ -2573,7 +2573,7 @@ export interface UserSearchFilter {
    *          </ul>
    * @public
    */
-  TagFilter?: ControlPlaneTagFilter;
+  TagFilter?: ControlPlaneTagFilter | undefined;
 
   /**
    * <p>An object that can be used to specify Tag conditions or Hierarchy Group conditions inside
@@ -2596,7 +2596,7 @@ export interface UserSearchFilter {
    *          </note>
    * @public
    */
-  UserAttributeFilter?: ControlPlaneUserAttributeFilter;
+  UserAttributeFilter?: ControlPlaneUserAttributeFilter | undefined;
 }
 
 /**
@@ -2608,13 +2608,13 @@ export interface UserIdentityInfoLite {
    * <p>The user's first name.</p>
    * @public
    */
-  FirstName?: string;
+  FirstName?: string | undefined;
 
   /**
    * <p>The user's last name.</p>
    * @public
    */
-  LastName?: string;
+  LastName?: string | undefined;
 }
 
 /**
@@ -2626,61 +2626,61 @@ export interface UserSearchSummary {
    * <p>The Amazon Resource Name (ARN) of the user.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The directory identifier of the user.</p>
    * @public
    */
-  DirectoryUserId?: string;
+  DirectoryUserId?: string | undefined;
 
   /**
    * <p>The identifier of the user's hierarchy group.</p>
    * @public
    */
-  HierarchyGroupId?: string;
+  HierarchyGroupId?: string | undefined;
 
   /**
    * <p>The identifier of the user's summary.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The user's first name and last name.</p>
    * @public
    */
-  IdentityInfo?: UserIdentityInfoLite;
+  IdentityInfo?: UserIdentityInfoLite | undefined;
 
   /**
    * <p>Contains information about the phone configuration settings for a user.</p>
    * @public
    */
-  PhoneConfig?: UserPhoneConfig;
+  PhoneConfig?: UserPhoneConfig | undefined;
 
   /**
    * <p>The identifier of the user's routing profile.</p>
    * @public
    */
-  RoutingProfileId?: string;
+  RoutingProfileId?: string | undefined;
 
   /**
    * <p>The identifiers of the user's security profiles.</p>
    * @public
    */
-  SecurityProfileIds?: string[];
+  SecurityProfileIds?: string[] | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the user.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 }
 
 /**
@@ -2691,19 +2691,19 @@ export interface SearchUsersResponse {
    * <p>Information about the users.</p>
    * @public
    */
-  Users?: UserSearchSummary[];
+  Users?: UserSearchSummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The total number of users who matched your search query.</p>
    * @public
    */
-  ApproximateTotalCount?: number;
+  ApproximateTotalCount?: number | undefined;
 }
 
 /**
@@ -2720,26 +2720,26 @@ export interface SearchVocabulariesRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The current state of the custom vocabulary.</p>
    * @public
    */
-  State?: VocabularyState;
+  State?: VocabularyState | undefined;
 
   /**
    * <p>The starting pattern of the name of the vocabulary.</p>
    * @public
    */
-  NameStartsWith?: string;
+  NameStartsWith?: string | undefined;
 
   /**
    * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
@@ -2747,7 +2747,7 @@ export interface SearchVocabulariesRequest {
    *          </p>
    * @public
    */
-  LanguageCode?: VocabularyLanguageCode;
+  LanguageCode?: VocabularyLanguageCode | undefined;
 }
 
 /**
@@ -2797,7 +2797,7 @@ export interface VocabularySummary {
    * <p>The reason why the custom vocabulary was not created.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -2808,13 +2808,13 @@ export interface SearchVocabulariesResponse {
    * <p>The list of the available custom vocabularies.</p>
    * @public
    */
-  VocabularySummaryList?: VocabularySummary[];
+  VocabularySummaryList?: VocabularySummary[] | undefined;
 
   /**
    * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2870,7 +2870,7 @@ export interface ChatEvent {
    *          </ul>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Content of the message or event. This is required when <code>Type</code> is
@@ -2888,7 +2888,7 @@ export interface ChatEvent {
    *          </ul>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 }
 
 /**
@@ -2933,13 +2933,13 @@ export interface NewSessionDetails {
    *     application/vnd.amazonaws.connect.message.interactive.response]</code>. </p>
    * @public
    */
-  SupportedMessagingContentTypes?: string[];
+  SupportedMessagingContentTypes?: string[] | undefined;
 
   /**
    * <p>The customer's details.</p>
    * @public
    */
-  ParticipantDetails?: ParticipantDetails;
+  ParticipantDetails?: ParticipantDetails | undefined;
 
   /**
    * <p> A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows just like any other contact attributes. </p>
@@ -2947,13 +2947,13 @@ export interface NewSessionDetails {
    *    keys can include only alphanumeric, dash, and underscore characters. </p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The streaming configuration, such as the Amazon SNS streaming endpoint.</p>
    * @public
    */
-  StreamingConfiguration?: ChatStreamingConfiguration;
+  StreamingConfiguration?: ChatStreamingConfiguration | undefined;
 }
 
 /**
@@ -2982,7 +2982,7 @@ export interface SendChatIntegrationEventRequest {
    *          </p>
    * @public
    */
-  Subtype?: string;
+  Subtype?: string | undefined;
 
   /**
    * <p>Chat integration event payload</p>
@@ -2995,7 +2995,7 @@ export interface SendChatIntegrationEventRequest {
    *    with an existing chat, this is ignored.</p>
    * @public
    */
-  NewSessionDetails?: NewSessionDetails;
+  NewSessionDetails?: NewSessionDetails | undefined;
 }
 
 /**
@@ -3007,14 +3007,14 @@ export interface SendChatIntegrationEventResponse {
    *    integration event is not valid without an already existing chat contact.</p>
    * @public
    */
-  InitialContactId?: string;
+  InitialContactId?: string | undefined;
 
   /**
    * <p>Whether handling the integration event resulted in creating a new chat or acting on existing
    *    chat.</p>
    * @public
    */
-  NewChatCreated?: boolean;
+  NewChatCreated?: boolean | undefined;
 }
 
 /**
@@ -3028,7 +3028,7 @@ export interface StartAttachedFileUploadRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The unique identifier of the Amazon Connect instance.</p>
@@ -3053,7 +3053,7 @@ export interface StartAttachedFileUploadRequest {
    *    300.</p>
    * @public
    */
-  UrlExpiryInSeconds?: number;
+  UrlExpiryInSeconds?: number | undefined;
 
   /**
    * <p>The use case for the file.</p>
@@ -3075,14 +3075,14 @@ export interface StartAttachedFileUploadRequest {
    * <p>Represents the identity that created the file.</p>
    * @public
    */
-  CreatedBy?: CreatedByInfo;
+  CreatedBy?: CreatedByInfo | undefined;
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, <code>\{
    *     "Tags": \{"key1":"value1", "key2":"value2"\} \}</code>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3094,7 +3094,7 @@ export interface UploadUrlMetadata {
    * <p>A pre-signed S3 URL that should be used for uploading the attached file. </p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format:
@@ -3102,13 +3102,13 @@ export interface UploadUrlMetadata {
    *    <code>2019-11-08T02:41:28.172Z</code>.</p>
    * @public
    */
-  UrlExpiry?: string;
+  UrlExpiry?: string | undefined;
 
   /**
    * <p>A map of headers that should be provided when uploading the attached file. </p>
    * @public
    */
-  HeadersToInclude?: Record<string, string>;
+  HeadersToInclude?: Record<string, string> | undefined;
 }
 
 /**
@@ -3120,13 +3120,13 @@ export interface StartAttachedFileUploadResponse {
    * <p>The unique identifier of the attached file resource (ARN).</p>
    * @public
    */
-  FileArn?: string;
+  FileArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the attached file resource.</p>
    * @public
    */
-  FileId?: string;
+  FileId?: string | undefined;
 
   /**
    * <p>The time of Creation of the file resource as an ISO timestamp. It's specified in ISO 8601
@@ -3134,25 +3134,25 @@ export interface StartAttachedFileUploadResponse {
    *    <code>2024-05-03T02:41:28.172Z</code>.</p>
    * @public
    */
-  CreationTime?: string;
+  CreationTime?: string | undefined;
 
   /**
    * <p>The current status of the attached file.</p>
    * @public
    */
-  FileStatus?: FileStatusType;
+  FileStatus?: FileStatusType | undefined;
 
   /**
    * <p>Represents the identity that created the file.</p>
    * @public
    */
-  CreatedBy?: CreatedByInfo;
+  CreatedBy?: CreatedByInfo | undefined;
 
   /**
    * <p>Information to be used while uploading the attached file. </p>
    * @public
    */
-  UploadUrlMetadata?: UploadUrlMetadata;
+  UploadUrlMetadata?: UploadUrlMetadata | undefined;
 }
 
 /**
@@ -3217,13 +3217,13 @@ export interface PersistentChat {
    *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
    * @public
    */
-  RehydrationType?: RehydrationType;
+  RehydrationType?: RehydrationType | undefined;
 
   /**
    * <p>The contactId from which a persistent chat session must be started.</p>
    * @public
    */
-  SourceContactId?: string;
+  SourceContactId?: string | undefined;
 }
 
 /**
@@ -3254,7 +3254,7 @@ export interface StartChatContactRequest {
    *    can include only alphanumeric, dash, and underscore characters.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>Information identifying the participant.</p>
@@ -3267,7 +3267,7 @@ export interface StartChatContactRequest {
    *    flow, the initial message is not delivered to the Lex bot.</p>
    * @public
    */
-  InitialMessage?: ChatMessage;
+  InitialMessage?: ChatMessage | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3276,7 +3276,7 @@ export interface StartChatContactRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The total duration of the newly started chat session. If not specified, the chat session
@@ -3284,7 +3284,7 @@ export interface StartChatContactRequest {
    *    configurable time is 10,080 minutes (7 days).</p>
    * @public
    */
-  ChatDurationInMinutes?: number;
+  ChatDurationInMinutes?: number | undefined;
 
   /**
    * <p>The supported chat message content types. Supported types are <code>text/plain</code>,
@@ -3303,14 +3303,14 @@ export interface StartChatContactRequest {
    *          </note>
    * @public
    */
-  SupportedMessagingContentTypes?: string[];
+  SupportedMessagingContentTypes?: string[] | undefined;
 
   /**
    * <p>Enable persistent chats. For more information about enabling persistent chat, and for
    *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
    * @public
    */
-  PersistentChat?: PersistentChat;
+  PersistentChat?: PersistentChat | undefined;
 
   /**
    * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
@@ -3320,7 +3320,7 @@ export interface StartChatContactRequest {
    *          </note>
    * @public
    */
-  RelatedContactId?: string;
+  RelatedContactId?: string | undefined;
 
   /**
    * <p>A set of system defined key-value pairs stored on individual contact segments using an
@@ -3337,7 +3337,7 @@ export interface StartChatContactRequest {
    *          </note>
    * @public
    */
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
 }
 
 /**
@@ -3348,28 +3348,28 @@ export interface StartChatContactResponse {
    * <p>The identifier of this contact within the Amazon Connect instance. </p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 
   /**
    * <p>The identifier for a chat participant. The participantId for a chat participant is the same
    *    throughout the chat lifecycle.</p>
    * @public
    */
-  ParticipantId?: string;
+  ParticipantId?: string | undefined;
 
   /**
    * <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat
    *    participant.</p>
    * @public
    */
-  ParticipantToken?: string;
+  ParticipantToken?: string | undefined;
 
   /**
    * <p>The contactId from which a persistent chat session is started. This field is populated only
    *    for persistent chats.</p>
    * @public
    */
-  ContinuedFromContactId?: string;
+  ContinuedFromContactId?: string | undefined;
 }
 
 /**
@@ -3401,7 +3401,7 @@ export interface StartContactEvaluationRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3445,7 +3445,7 @@ export interface VoiceRecordingConfiguration {
    * <p>Identifies which track is being recorded.</p>
    * @public
    */
-  VoiceRecordingTrack?: VoiceRecordingTrack;
+  VoiceRecordingTrack?: VoiceRecordingTrack | undefined;
 }
 
 /**
@@ -3513,7 +3513,7 @@ export interface StartContactStreamingRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3571,7 +3571,7 @@ export interface StartOutboundChatContactRequest {
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect
@@ -3595,26 +3595,26 @@ export interface StartOutboundChatContactRequest {
    *    configurable time is 10,080 minutes (7 days).</p>
    * @public
    */
-  ChatDurationInMinutes?: number;
+  ChatDurationInMinutes?: number | undefined;
 
   /**
    * <p>The customer's details.</p>
    * @public
    */
-  ParticipantDetails?: ParticipantDetails;
+  ParticipantDetails?: ParticipantDetails | undefined;
 
   /**
    * <p>A chat message.</p>
    * @public
    */
-  InitialSystemMessage?: ChatMessage;
+  InitialSystemMessage?: ChatMessage | undefined;
 
   /**
    * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
    *    contact starting.</p>
    * @public
    */
-  RelatedContactId?: string;
+  RelatedContactId?: string | undefined;
 
   /**
    * <p>The supported chat message content types. Supported types are:</p>
@@ -3664,7 +3664,7 @@ export interface StartOutboundChatContactRequest {
    *          </ul>
    * @public
    */
-  SupportedMessagingContentTypes?: string[];
+  SupportedMessagingContentTypes?: string[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -3674,7 +3674,7 @@ export interface StartOutboundChatContactRequest {
    *    contact is already started, the contact ID is returned.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3685,7 +3685,7 @@ export interface StartOutboundChatContactResponse {
    * <p>The identifier of this contact within the Amazon Connect instance.</p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 }
 
 /**
@@ -3699,7 +3699,7 @@ export class DestinationNotAllowedException extends __BaseException {
    * <p>The message about the outbound calls.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3725,7 +3725,7 @@ export class OutboundContactNotPermittedException extends __BaseException {
    * <p>The message about the contact.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3751,13 +3751,13 @@ export interface AnswerMachineDetectionConfig {
    *   </p>
    * @public
    */
-  EnableAnswerMachineDetection?: boolean;
+  EnableAnswerMachineDetection?: boolean | undefined;
 
   /**
    * <p>Wait for the answering machine prompt.</p>
    * @public
    */
-  AwaitAnswerMachinePrompt?: boolean;
+  AwaitAnswerMachinePrompt?: boolean | undefined;
 }
 
 /**
@@ -3783,14 +3783,14 @@ export interface StartOutboundVoiceContactRequest {
    *    (CCP).</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the voice contact that is shown to an agent in the Contact Control Panel
    *    (CCP).</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Contacts can
@@ -3799,7 +3799,7 @@ export interface StartOutboundVoiceContactRequest {
    *     <code>ATTACHMENT</code> is not a supported reference type during voice contact creation.</p>
    * @public
    */
-  References?: Record<string, Reference>;
+  References?: Record<string, Reference> | undefined;
 
   /**
    * <p>The <code>contactId</code> that is related to this contact. Linking voice, task, or chat by
@@ -3809,7 +3809,7 @@ export interface StartOutboundVoiceContactRequest {
    *     <code>RelatedContactId</code>. </p>
    * @public
    */
-  RelatedContactId?: string;
+  RelatedContactId?: string | undefined;
 
   /**
    * <p>The phone number of the customer, in E.164 format.</p>
@@ -3845,14 +3845,14 @@ export interface StartOutboundVoiceContactRequest {
    *    </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The phone number associated with the Amazon Connect instance, in E.164 format. If you do
    *    not specify a source phone number, you must specify a queue.</p>
    * @public
    */
-  SourcePhoneNumber?: string;
+  SourcePhoneNumber?: string | undefined;
 
   /**
    * <p>The queue for the call. If you specify a queue, the phone displayed for caller ID is the
@@ -3860,7 +3860,7 @@ export interface StartOutboundVoiceContactRequest {
    *    is used. If you do not specify a queue, you must specify a source phone number.</p>
    * @public
    */
-  QueueId?: string;
+  QueueId?: string | undefined;
 
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
@@ -3868,19 +3868,19 @@ export interface StartOutboundVoiceContactRequest {
    *    can include only alphanumeric, dash, and underscore characters.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>Configuration of the answering machine detection for this outbound call. </p>
    * @public
    */
-  AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig;
+  AnswerMachineDetectionConfig?: AnswerMachineDetectionConfig | undefined;
 
   /**
    * <p>The campaign identifier of the outbound communication.</p>
    * @public
    */
-  CampaignId?: string;
+  CampaignId?: string | undefined;
 
   /**
    * <p>Denotes the class of traffic. Calls with different traffic types are handled differently by
@@ -3889,7 +3889,7 @@ export interface StartOutboundVoiceContactRequest {
    *     <code>GENERAL</code>. </p>
    * @public
    */
-  TrafficType?: TrafficType;
+  TrafficType?: TrafficType | undefined;
 }
 
 /**
@@ -3900,7 +3900,7 @@ export interface StartOutboundVoiceContactResponse {
    * <p>The identifier of this contact within the Amazon Connect instance.</p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 }
 
 /**
@@ -3914,7 +3914,7 @@ export interface StartScreenSharingRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -3950,7 +3950,7 @@ export interface StartTaskContactRequest {
    *    every contact in the chain. There can be a maximum of 12 linked task contacts in a chain.</p>
    * @public
    */
-  PreviousContactId?: string;
+  PreviousContactId?: string | undefined;
 
   /**
    * <p>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect admin website,
@@ -3961,7 +3961,7 @@ export interface StartTaskContactRequest {
    *          </p>
    * @public
    */
-  ContactFlowId?: string;
+  ContactFlowId?: string | undefined;
 
   /**
    * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
@@ -3969,7 +3969,7 @@ export interface StartTaskContactRequest {
    *    can include only alphanumeric, dash, and underscore characters.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
@@ -3984,14 +3984,14 @@ export interface StartTaskContactRequest {
    *    supported reference type during task creation.</p>
    * @public
    */
-  References?: Record<string, Reference>;
+  References?: Record<string, Reference> | undefined;
 
   /**
    * <p>A description of the task that is shown to an agent in the Contact Control Panel
    *    (CCP).</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4000,20 +4000,20 @@ export interface StartTaskContactRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
    * @public
    */
-  ScheduledTime?: Date;
+  ScheduledTime?: Date | undefined;
 
   /**
    * <p>A unique identifier for the task template. For more information about task templates, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html">Create task templates</a> in the
    *      <i>Amazon Connect Administrator Guide</i>. </p>
    * @public
    */
-  TaskTemplateId?: string;
+  TaskTemplateId?: string | undefined;
 
   /**
    * <p>The identifier for the quick connect. Tasks that are created by using <code>QuickConnectId</code> will use the
@@ -4022,7 +4022,7 @@ export interface StartTaskContactRequest {
    *     connects</a>.</p>
    * @public
    */
-  QuickConnectId?: string;
+  QuickConnectId?: string | undefined;
 
   /**
    * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a> to this contact. Linking
@@ -4033,7 +4033,7 @@ export interface StartTaskContactRequest {
    *    be linked by using <code>RelatedContactId</code>. </p>
    * @public
    */
-  RelatedContactId?: string;
+  RelatedContactId?: string | undefined;
 }
 
 /**
@@ -4044,7 +4044,7 @@ export interface StartTaskContactResponse {
    * <p>The identifier of this contact within the Amazon Connect instance.</p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 }
 
 /**
@@ -4057,7 +4057,7 @@ export interface StartWebRTCContactRequest {
    *    can include only alphanumeric, -, and _ characters.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -4068,7 +4068,7 @@ export interface StartWebRTCContactRequest {
    *    ID is returned.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect admin website, on the
@@ -4092,7 +4092,7 @@ export interface StartWebRTCContactRequest {
    *    agent).</p>
    * @public
    */
-  AllowedCapabilities?: AllowedCapabilities;
+  AllowedCapabilities?: AllowedCapabilities | undefined;
 
   /**
    * <p>The customer's details.</p>
@@ -4105,7 +4105,7 @@ export interface StartWebRTCContactRequest {
    *    contact starting.</p>
    * @public
    */
-  RelatedContactId?: string;
+  RelatedContactId?: string | undefined;
 
   /**
    * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
@@ -4114,14 +4114,14 @@ export interface StartWebRTCContactRequest {
    *    supported reference type during task creation.</p>
    * @public
    */
-  References?: Record<string, Reference>;
+  References?: Record<string, Reference> | undefined;
 
   /**
    * <p>A description of the task that is shown to an agent in the Contact Control Panel
    *    (CCP).</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4133,13 +4133,13 @@ export interface Attendee {
    * <p>The Amazon Chime SDK attendee ID.</p>
    * @public
    */
-  AttendeeId?: string;
+  AttendeeId?: string | undefined;
 
   /**
    * <p>The join token used by the Amazon Chime SDK attendee.</p>
    * @public
    */
-  JoinToken?: string;
+  JoinToken?: string | undefined;
 }
 
 /**
@@ -4151,31 +4151,31 @@ export interface MediaPlacement {
    * <p>The audio host URL.</p>
    * @public
    */
-  AudioHostUrl?: string;
+  AudioHostUrl?: string | undefined;
 
   /**
    * <p>The audio fallback URL.</p>
    * @public
    */
-  AudioFallbackUrl?: string;
+  AudioFallbackUrl?: string | undefined;
 
   /**
    * <p>The signaling URL.</p>
    * @public
    */
-  SignalingUrl?: string;
+  SignalingUrl?: string | undefined;
 
   /**
    * <p>The turn control URL.</p>
    * @public
    */
-  TurnControlUrl?: string;
+  TurnControlUrl?: string | undefined;
 
   /**
    * <p>The event ingestion URL to which you send client meeting events.</p>
    * @public
    */
-  EventIngestionUrl?: string;
+  EventIngestionUrl?: string | undefined;
 }
 
 /**
@@ -4201,7 +4201,7 @@ export interface AudioFeatures {
    * <p>Makes echo reduction available to clients who connect to the meeting.</p>
    * @public
    */
-  EchoReduction?: MeetingFeatureStatus;
+  EchoReduction?: MeetingFeatureStatus | undefined;
 }
 
 /**
@@ -4213,7 +4213,7 @@ export interface MeetingFeaturesConfiguration {
    * <p>The configuration settings for the audio features available to a meeting.</p>
    * @public
    */
-  Audio?: AudioFeatures;
+  Audio?: AudioFeatures | undefined;
 }
 
 /**
@@ -4225,25 +4225,25 @@ export interface Meeting {
    * <p>The Amazon Web Services Region in which you create the meeting.</p>
    * @public
    */
-  MediaRegion?: string;
+  MediaRegion?: string | undefined;
 
   /**
    * <p>The media placement for the meeting.</p>
    * @public
    */
-  MediaPlacement?: MediaPlacement;
+  MediaPlacement?: MediaPlacement | undefined;
 
   /**
    * <p>The configuration settings of the features available to a meeting.</p>
    * @public
    */
-  MeetingFeatures?: MeetingFeaturesConfiguration;
+  MeetingFeatures?: MeetingFeaturesConfiguration | undefined;
 
   /**
    * <p>The Amazon Chime SDK meeting ID.</p>
    * @public
    */
-  MeetingId?: string;
+  MeetingId?: string | undefined;
 }
 
 /**
@@ -4255,13 +4255,13 @@ export interface ConnectionData {
    * <p>The attendee information, including attendee ID and join token.</p>
    * @public
    */
-  Attendee?: Attendee;
+  Attendee?: Attendee | undefined;
 
   /**
    * <p>A meeting created using the Amazon Chime SDK.</p>
    * @public
    */
-  Meeting?: Meeting;
+  Meeting?: Meeting | undefined;
 }
 
 /**
@@ -4273,27 +4273,27 @@ export interface StartWebRTCContactResponse {
    *    to the call.</p>
    * @public
    */
-  ConnectionData?: ConnectionData;
+  ConnectionData?: ConnectionData | undefined;
 
   /**
    * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 
   /**
    * <p>The identifier for a contact participant. The <code>ParticipantId</code> for a contact
    *    participant is the same throughout the contact lifecycle.</p>
    * @public
    */
-  ParticipantId?: string;
+  ParticipantId?: string | undefined;
 
   /**
    * <p>The token used by the contact participant to call the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API. The participant token is valid for the lifetime of a
    *    contact participant.</p>
    * @public
    */
-  ParticipantToken?: string;
+  ParticipantToken?: string | undefined;
 }
 
 /**
@@ -4308,7 +4308,7 @@ export class ContactNotFoundException extends __BaseException {
    * <p>The message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4333,7 +4333,7 @@ export interface DisconnectReason {
    * <p>A code that indicates how the contact was terminated.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 }
 
 /**
@@ -4357,7 +4357,7 @@ export interface StopContactRequest {
    *    provide this field.</p>
    * @public
    */
-  DisconnectReason?: DisconnectReason;
+  DisconnectReason?: DisconnectReason | undefined;
 }
 
 /**
@@ -4432,7 +4432,7 @@ export interface EvaluationAnswerInput {
    * <p>The value for an answer in a contact evaluation.</p>
    * @public
    */
-  Value?: EvaluationAnswerData;
+  Value?: EvaluationAnswerData | undefined;
 }
 
 /**
@@ -4455,13 +4455,13 @@ export interface SubmitContactEvaluationRequest {
    * <p>A map of question identifiers to answer value.</p>
    * @public
    */
-  Answers?: Record<string, EvaluationAnswerInput>;
+  Answers?: Record<string, EvaluationAnswerInput> | undefined;
 
   /**
    * <p>A map of question identifiers to note value.</p>
    * @public
    */
-  Notes?: Record<string, EvaluationNote>;
+  Notes?: Record<string, EvaluationNote> | undefined;
 }
 
 /**
@@ -4579,13 +4579,13 @@ export interface TransferContactRequest {
    * <p>The identifier for the queue.</p>
    * @public
    */
-  QueueId?: string;
+  QueueId?: string | undefined;
 
   /**
    * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
    * @public
    */
-  UserId?: string;
+  UserId?: string | undefined;
 
   /**
    * <p>The identifier of the flow.</p>
@@ -4600,7 +4600,7 @@ export interface TransferContactRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -4611,13 +4611,13 @@ export interface TransferContactResponse {
    * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
-  ContactId?: string;
+  ContactId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the contact.</p>
    * @public
    */
-  ContactArn?: string;
+  ContactArn?: string | undefined;
 }
 
 /**
@@ -4686,31 +4686,31 @@ export interface UpdateAgentStatusRequest {
    * <p>The name of the agent status.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the agent status.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The state of the agent status.</p>
    * @public
    */
-  State?: AgentStatusState;
+  State?: AgentStatusState | undefined;
 
   /**
    * <p>The display order of the agent status.</p>
    * @public
    */
-  DisplayOrder?: number;
+  DisplayOrder?: number | undefined;
 
   /**
    * <p>A number indicating the reset order of the agent status.</p>
    * @public
    */
-  ResetOrderNumber?: boolean;
+  ResetOrderNumber?: boolean | undefined;
 }
 
 /**
@@ -4733,13 +4733,13 @@ export interface UpdateAuthenticationProfileRequest {
    * <p>The name for the authentication profile.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description for the authentication profile.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A list of IP address range strings that are allowed to access the instance. For more
@@ -4747,7 +4747,7 @@ export interface UpdateAuthenticationProfileRequest {
    *     Guide</i>.</p>
    * @public
    */
-  AllowedIps?: string[];
+  AllowedIps?: string[] | undefined;
 
   /**
    * <p>A list of IP address range strings that are blocked from accessing the instance. For more
@@ -4757,7 +4757,7 @@ export interface UpdateAuthenticationProfileRequest {
    *     Guide</i>. </p>
    * @public
    */
-  BlockedIps?: string[];
+  BlockedIps?: string[] | undefined;
 
   /**
    * <p>The short lived session duration configuration for users logged in to Amazon Connect, in
@@ -4766,7 +4766,7 @@ export interface UpdateAuthenticationProfileRequest {
    *     Guide</i>. </p>
    * @public
    */
-  PeriodicSessionDuration?: number;
+  PeriodicSessionDuration?: number | undefined;
 }
 
 /**
@@ -4790,19 +4790,19 @@ export interface UpdateContactRequest {
    * <p>The name of the contact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the contact.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Well-formed data on contact, shown to agents on Contact Control Panel (CCP).</p>
    * @public
    */
-  References?: Record<string, Reference>;
+  References?: Record<string, Reference> | undefined;
 }
 
 /**
@@ -4876,13 +4876,13 @@ export interface UpdateContactEvaluationRequest {
    * <p>A map of question identifiers to answer value.</p>
    * @public
    */
-  Answers?: Record<string, EvaluationAnswerInput>;
+  Answers?: Record<string, EvaluationAnswerInput> | undefined;
 
   /**
    * <p>A map of question identifiers to note value.</p>
    * @public
    */
-  Notes?: Record<string, EvaluationNote>;
+  Notes?: Record<string, EvaluationNote> | undefined;
 }
 
 /**
@@ -4952,19 +4952,19 @@ export interface UpdateContactFlowMetadataRequest {
    * <p>The name of the flow.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the flow.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The state of flow.</p>
    * @public
    */
-  ContactFlowState?: ContactFlowState;
+  ContactFlowState?: ContactFlowState | undefined;
 }
 
 /**
@@ -5021,19 +5021,19 @@ export interface UpdateContactFlowModuleMetadataRequest {
    * <p>The name of the flow module.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the flow module.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The state of flow module.</p>
    * @public
    */
-  State?: ContactFlowModuleState;
+  State?: ContactFlowModuleState | undefined;
 }
 
 /**
@@ -5061,13 +5061,13 @@ export interface UpdateContactFlowNameRequest {
    * <p>The name of the flow.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the flow.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -5086,7 +5086,7 @@ export interface RoutingCriteriaInputStepExpiry {
    *    step, if expiry was configured for this routing step.</p>
    * @public
    */
-  DurationInSeconds?: number;
+  DurationInSeconds?: number | undefined;
 }
 
 /**
@@ -5165,25 +5165,25 @@ export interface UpdateHoursOfOperationRequest {
    * <p>The name of the hours of operation.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the hours of operation.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The time zone of the hours of operation.</p>
    * @public
    */
-  TimeZone?: string;
+  TimeZone?: string | undefined;
 
   /**
    * <p>Configuration information of the hours of operation.</p>
    * @public
    */
-  Config?: HoursOfOperationConfig[];
+  Config?: HoursOfOperationConfig[] | undefined;
 }
 
 /**
@@ -5470,7 +5470,7 @@ export interface UpdatePhoneNumberRequest {
    * <p>The Amazon Resource Name (ARN) for Amazon Connect instances or traffic distribution groups that phone number inbound traffic is routed through. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    * @public
    */
-  TargetArn?: string;
+  TargetArn?: string | undefined;
 
   /**
    * <p>The identifier of the Amazon Connect instance that phone numbers are claimed to. You
@@ -5478,7 +5478,7 @@ export interface UpdatePhoneNumberRequest {
    *     instance ID</a> in the Amazon Resource Name (ARN) of the instance. You must enter <code>InstanceId</code> or <code>TargetArn</code>. </p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -5487,7 +5487,7 @@ export interface UpdatePhoneNumberRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -5498,13 +5498,13 @@ export interface UpdatePhoneNumberResponse {
    * <p>A unique identifier for the phone number.</p>
    * @public
    */
-  PhoneNumberId?: string;
+  PhoneNumberId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the phone number.</p>
    * @public
    */
-  PhoneNumberArn?: string;
+  PhoneNumberArn?: string | undefined;
 }
 
 /**
@@ -5521,7 +5521,7 @@ export interface UpdatePhoneNumberMetadataRequest {
    * <p>The description of the phone number.</p>
    * @public
    */
-  PhoneNumberDescription?: string;
+  PhoneNumberDescription?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -5530,7 +5530,7 @@ export interface UpdatePhoneNumberMetadataRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -5554,7 +5554,7 @@ export interface UpdatePredefinedAttributeRequest {
    * <p>The values of the predefined attribute.</p>
    * @public
    */
-  Values?: PredefinedAttributeValues;
+  Values?: PredefinedAttributeValues | undefined;
 }
 
 /**
@@ -5577,13 +5577,13 @@ export interface UpdatePromptRequest {
    * <p>The name of the prompt.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the prompt.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The URI for the S3 bucket where the prompt is stored. You can provide S3 pre-signed URLs returned by the
@@ -5591,7 +5591,7 @@ export interface UpdatePromptRequest {
    *  API instead of providing S3 URIs.</p>
    * @public
    */
-  S3Uri?: string;
+  S3Uri?: string | undefined;
 }
 
 /**
@@ -5602,13 +5602,13 @@ export interface UpdatePromptResponse {
    * <p>The Amazon Resource Name (ARN) of the prompt.</p>
    * @public
    */
-  PromptARN?: string;
+  PromptARN?: string | undefined;
 
   /**
    * <p>A unique identifier for the prompt.</p>
    * @public
    */
-  PromptId?: string;
+  PromptId?: string | undefined;
 }
 
 /**
@@ -5654,7 +5654,7 @@ export interface UpdateQueueMaxContactsRequest {
    * <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
    * @public
    */
-  MaxContacts?: number;
+  MaxContacts?: number | undefined;
 }
 
 /**
@@ -5677,13 +5677,13 @@ export interface UpdateQueueNameRequest {
    * <p>The name of the queue.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the queue.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -5775,13 +5775,13 @@ export interface UpdateQuickConnectNameRequest {
    * <p>The name of the quick connect.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the quick connect.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -5875,13 +5875,13 @@ export interface UpdateRoutingProfileNameRequest {
    * <p>The name of the routing profile. Must not be more than 127 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the routing profile. Must not be more than 250 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -5961,14 +5961,14 @@ export interface UpdateSecurityProfileRequest {
    * <p>The description of the security profile.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The permissions granted to a security profile. For a list of valid permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security
    *     profile permissions</a>.</p>
    * @public
    */
-  Permissions?: string[];
+  Permissions?: string[] | undefined;
 
   /**
    * <p>The identifier for the security profle.</p>
@@ -5986,32 +5986,32 @@ export interface UpdateSecurityProfileRequest {
    * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
    * @public
    */
-  AllowedAccessControlTags?: Record<string, string>;
+  AllowedAccessControlTags?: Record<string, string> | undefined;
 
   /**
    * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
    * @public
    */
-  TagRestrictedResources?: string[];
+  TagRestrictedResources?: string[] | undefined;
 
   /**
    * <p>A list of the third-party application's metadata.</p>
    * @public
    */
-  Applications?: Application[];
+  Applications?: Application[] | undefined;
 
   /**
    * <p>The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code>.</p>
    * @public
    */
-  HierarchyRestrictedResources?: string[];
+  HierarchyRestrictedResources?: string[] | undefined;
 
   /**
    * <p>The identifier of the hierarchy group that a security profile uses to restrict access to
    *    resources in Amazon Connect.</p>
    * @public
    */
-  AllowedAccessControlHierarchyGroupId?: string;
+  AllowedAccessControlHierarchyGroupId?: string | undefined;
 }
 
 /**
@@ -6034,31 +6034,31 @@ export interface UpdateTaskTemplateRequest {
    * <p>The name of the task template.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the task template.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
    * @public
    */
-  ContactFlowId?: string;
+  ContactFlowId?: string | undefined;
 
   /**
    * <p>Constraints that are applicable to the fields listed.</p>
    * @public
    */
-  Constraints?: TaskTemplateConstraints;
+  Constraints?: TaskTemplateConstraints | undefined;
 
   /**
    * <p>The default values for fields when a task is created by referencing this template.</p>
    * @public
    */
-  Defaults?: TaskTemplateDefaults;
+  Defaults?: TaskTemplateDefaults | undefined;
 
   /**
    * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
@@ -6066,13 +6066,13 @@ export interface UpdateTaskTemplateRequest {
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    * @public
    */
-  Status?: TaskTemplateStatus;
+  Status?: TaskTemplateStatus | undefined;
 
   /**
    * <p>Fields that are part of the template.</p>
    * @public
    */
-  Fields?: TaskTemplateField[];
+  Fields?: TaskTemplateField[] | undefined;
 }
 
 /**
@@ -6083,55 +6083,55 @@ export interface UpdateTaskTemplateResponse {
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
-  InstanceId?: string;
+  InstanceId?: string | undefined;
 
   /**
    * <p>The identifier of the task template resource.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the task template resource.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the task template.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the task template.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
    * @public
    */
-  ContactFlowId?: string;
+  ContactFlowId?: string | undefined;
 
   /**
    * <p>Constraints that are applicable to the fields listed.</p>
    * @public
    */
-  Constraints?: TaskTemplateConstraints;
+  Constraints?: TaskTemplateConstraints | undefined;
 
   /**
    * <p>The default values for fields when a task is created by referencing this template.</p>
    * @public
    */
-  Defaults?: TaskTemplateDefaults;
+  Defaults?: TaskTemplateDefaults | undefined;
 
   /**
    * <p>Fields that are part of the template.</p>
    * @public
    */
-  Fields?: TaskTemplateField[];
+  Fields?: TaskTemplateField[] | undefined;
 
   /**
    * <p>Marks a template as <code>ACTIVE</code> or <code>INACTIVE</code> for a task to refer to it.
@@ -6139,19 +6139,19 @@ export interface UpdateTaskTemplateResponse {
    * If a template is marked as <code>INACTIVE</code>, then a task that refers to this template cannot be created.</p>
    * @public
    */
-  Status?: TaskTemplateStatus;
+  Status?: TaskTemplateStatus | undefined;
 
   /**
    * <p>The timestamp when the task template was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The timestamp when the task template was created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -6170,20 +6170,20 @@ export interface UpdateTrafficDistributionRequest {
    * <p>The distribution of traffic between the instance and its replica(s).</p>
    * @public
    */
-  TelephonyConfig?: TelephonyConfig;
+  TelephonyConfig?: TelephonyConfig | undefined;
 
   /**
    * <p>The distribution that determines which Amazon Web Services Regions should be used to sign in
    *    agents in to both the instance and its replica(s).</p>
    * @public
    */
-  SignInConfig?: SignInConfig;
+  SignInConfig?: SignInConfig | undefined;
 
   /**
    * <p>The distribution of agents between the instance and its replica(s).</p>
    * @public
    */
-  AgentConfig?: AgentConfig;
+  AgentConfig?: AgentConfig | undefined;
 }
 
 /**
@@ -6199,7 +6199,7 @@ export interface UpdateUserHierarchyRequest {
    * <p>The identifier of the hierarchy group.</p>
    * @public
    */
-  HierarchyGroupId?: string;
+  HierarchyGroupId?: string | undefined;
 
   /**
    * <p>The identifier of the user account.</p>
@@ -6260,31 +6260,31 @@ export interface HierarchyStructureUpdate {
    *    for level one.</p>
    * @public
    */
-  LevelOne?: HierarchyLevelUpdate;
+  LevelOne?: HierarchyLevelUpdate | undefined;
 
   /**
    * <p>The update for level two.</p>
    * @public
    */
-  LevelTwo?: HierarchyLevelUpdate;
+  LevelTwo?: HierarchyLevelUpdate | undefined;
 
   /**
    * <p>The update for level three.</p>
    * @public
    */
-  LevelThree?: HierarchyLevelUpdate;
+  LevelThree?: HierarchyLevelUpdate | undefined;
 
   /**
    * <p>The update for level four.</p>
    * @public
    */
-  LevelFour?: HierarchyLevelUpdate;
+  LevelFour?: HierarchyLevelUpdate | undefined;
 
   /**
    * <p>The update for level five.</p>
    * @public
    */
-  LevelFive?: HierarchyLevelUpdate;
+  LevelFive?: HierarchyLevelUpdate | undefined;
 }
 
 /**
@@ -6463,7 +6463,7 @@ export interface UpdateViewContentResponse {
    * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
    * @public
    */
-  View?: View;
+  View?: View | undefined;
 }
 
 /**
@@ -6488,13 +6488,13 @@ export interface UpdateViewMetadataRequest {
    * <p>The name of the view.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the view.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -6581,7 +6581,7 @@ export interface EvaluationFormSection {
    * <p>The instructions of the section.</p>
    * @public
    */
-  Instructions?: string;
+  Instructions?: string | undefined;
 
   /**
    * <p>The items of the section.</p>
@@ -6593,7 +6593,7 @@ export interface EvaluationFormSection {
    * <p>The scoring weight of the section.</p>
    * @public
    */
-  Weight?: number;
+  Weight?: number | undefined;
 }
 
 /**
@@ -6606,7 +6606,7 @@ export interface AgentStatusSearchCriteria {
    *    condition.</p>
    * @public
    */
-  OrConditions?: AgentStatusSearchCriteria[];
+  OrConditions?: AgentStatusSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -6617,7 +6617,7 @@ export interface AgentStatusSearchCriteria {
    *          </note>
    * @public
    */
-  AndConditions?: AgentStatusSearchCriteria[];
+  AndConditions?: AgentStatusSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -6628,7 +6628,7 @@ export interface AgentStatusSearchCriteria {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -6641,20 +6641,20 @@ export interface ContactFlowModuleSearchCriteria {
    *    condition.</p>
    * @public
    */
-  OrConditions?: ContactFlowModuleSearchCriteria[];
+  OrConditions?: ContactFlowModuleSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an <code>AND</code>
    *    condition.</p>
    * @public
    */
-  AndConditions?: ContactFlowModuleSearchCriteria[];
+  AndConditions?: ContactFlowModuleSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -6667,38 +6667,38 @@ export interface ContactFlowSearchCriteria {
    *    condition.</p>
    * @public
    */
-  OrConditions?: ContactFlowSearchCriteria[];
+  OrConditions?: ContactFlowSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an <code>AND</code>
    *    condition.</p>
    * @public
    */
-  AndConditions?: ContactFlowSearchCriteria[];
+  AndConditions?: ContactFlowSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 
   /**
    * <p>The type of flow.</p>
    * @public
    */
-  TypeCondition?: ContactFlowType;
+  TypeCondition?: ContactFlowType | undefined;
 
   /**
    * <p>The state of the flow.</p>
    * @public
    */
-  StateCondition?: ContactFlowState;
+  StateCondition?: ContactFlowState | undefined;
 
   /**
    * <p>The status of the flow.</p>
    * @public
    */
-  StatusCondition?: ContactFlowStatus;
+  StatusCondition?: ContactFlowStatus | undefined;
 }
 
 /**
@@ -6721,7 +6721,7 @@ export interface CreateEvaluationFormRequest {
    * <p>The description of the evaluation form.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
@@ -6733,7 +6733,7 @@ export interface CreateEvaluationFormRequest {
    * <p>A scoring strategy of the evaluation form.</p>
    * @public
    */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -6742,7 +6742,7 @@ export interface CreateEvaluationFormRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -6784,7 +6784,7 @@ export interface EvaluationForm {
    * <p>The description of the evaluation form.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The status of the evaluation form.</p>
@@ -6802,7 +6802,7 @@ export interface EvaluationForm {
    * <p>A scoring strategy of the evaluation form.</p>
    * @public
    */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
 
   /**
    * <p>The timestamp for when the evaluation form was created.</p>
@@ -6832,7 +6832,7 @@ export interface EvaluationForm {
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6868,7 +6868,7 @@ export interface EvaluationFormContent {
    * <p>The description of the evaluation form.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
@@ -6880,7 +6880,7 @@ export interface EvaluationFormContent {
    * <p>A scoring strategy of the evaluation form.</p>
    * @public
    */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
 }
 
 /**
@@ -6892,19 +6892,19 @@ export interface Expression {
    * <p>An object to specify the predefined attribute condition.</p>
    * @public
    */
-  AttributeCondition?: AttributeCondition;
+  AttributeCondition?: AttributeCondition | undefined;
 
   /**
    * <p>List of routing expressions which will be AND-ed together.</p>
    * @public
    */
-  AndExpression?: Expression[];
+  AndExpression?: Expression[] | undefined;
 
   /**
    * <p>List of routing expressions which will be OR-ed together.</p>
    * @public
    */
-  OrExpression?: Expression[];
+  OrExpression?: Expression[] | undefined;
 }
 
 /**
@@ -6916,13 +6916,13 @@ export interface HoursOfOperationSearchCriteria {
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
-  OrConditions?: HoursOfOperationSearchCriteria[];
+  OrConditions?: HoursOfOperationSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    * @public
    */
-  AndConditions?: HoursOfOperationSearchCriteria[];
+  AndConditions?: HoursOfOperationSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -6932,7 +6932,7 @@ export interface HoursOfOperationSearchCriteria {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -6945,20 +6945,20 @@ export interface PredefinedAttributeSearchCriteria {
    *    condition.</p>
    * @public
    */
-  OrConditions?: PredefinedAttributeSearchCriteria[];
+  OrConditions?: PredefinedAttributeSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an <code>AND</code>
    *    condition.</p>
    * @public
    */
-  AndConditions?: PredefinedAttributeSearchCriteria[];
+  AndConditions?: PredefinedAttributeSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -6970,13 +6970,13 @@ export interface PromptSearchCriteria {
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
-  OrConditions?: PromptSearchCriteria[];
+  OrConditions?: PromptSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    * @public
    */
-  AndConditions?: PromptSearchCriteria[];
+  AndConditions?: PromptSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -6986,7 +6986,7 @@ export interface PromptSearchCriteria {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -7003,13 +7003,13 @@ export interface QueueSearchCriteria {
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
-  OrConditions?: QueueSearchCriteria[];
+  OrConditions?: QueueSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    * @public
    */
-  AndConditions?: QueueSearchCriteria[];
+  AndConditions?: QueueSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -7019,13 +7019,13 @@ export interface QueueSearchCriteria {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 
   /**
    * <p>The type of queue.</p>
    * @public
    */
-  QueueTypeCondition?: SearchableQueueType;
+  QueueTypeCondition?: SearchableQueueType | undefined;
 }
 
 /**
@@ -7037,13 +7037,13 @@ export interface QuickConnectSearchCriteria {
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
-  OrConditions?: QuickConnectSearchCriteria[];
+  OrConditions?: QuickConnectSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    * @public
    */
-  AndConditions?: QuickConnectSearchCriteria[];
+  AndConditions?: QuickConnectSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -7053,7 +7053,7 @@ export interface QuickConnectSearchCriteria {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -7070,13 +7070,13 @@ export interface RoutingProfileSearchCriteria {
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
-  OrConditions?: RoutingProfileSearchCriteria[];
+  OrConditions?: RoutingProfileSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    * @public
    */
-  AndConditions?: RoutingProfileSearchCriteria[];
+  AndConditions?: RoutingProfileSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -7087,7 +7087,7 @@ export interface RoutingProfileSearchCriteria {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -7104,19 +7104,19 @@ export interface SecurityProfileSearchCriteria {
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
-  OrConditions?: SecurityProfileSearchCriteria[];
+  OrConditions?: SecurityProfileSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    * @public
    */
-  AndConditions?: SecurityProfileSearchCriteria[];
+  AndConditions?: SecurityProfileSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -7145,7 +7145,7 @@ export interface UpdateEvaluationFormRequest {
    * <p>A flag indicating whether the operation must create a new version.</p>
    * @public
    */
-  CreateNewVersion?: boolean;
+  CreateNewVersion?: boolean | undefined;
 
   /**
    * <p>A title of the evaluation form.</p>
@@ -7157,7 +7157,7 @@ export interface UpdateEvaluationFormRequest {
    * <p>The description of the evaluation form.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
@@ -7169,7 +7169,7 @@ export interface UpdateEvaluationFormRequest {
    * <p>A scoring strategy of the evaluation form.</p>
    * @public
    */
-  ScoringStrategy?: EvaluationFormScoringStrategy;
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -7178,7 +7178,7 @@ export interface UpdateEvaluationFormRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -7190,13 +7190,13 @@ export interface UserHierarchyGroupSearchCriteria {
    * <p>A list of conditions which would be applied together with an OR condition.</p>
    * @public
    */
-  OrConditions?: UserHierarchyGroupSearchCriteria[];
+  OrConditions?: UserHierarchyGroupSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an AND condition.</p>
    * @public
    */
-  AndConditions?: UserHierarchyGroupSearchCriteria[];
+  AndConditions?: UserHierarchyGroupSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -7206,7 +7206,7 @@ export interface UserHierarchyGroupSearchCriteria {
    *          </note>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 }
 
 /**
@@ -7224,14 +7224,14 @@ export interface UserSearchCriteria {
    *    condition.</p>
    * @public
    */
-  OrConditions?: UserSearchCriteria[];
+  OrConditions?: UserSearchCriteria[] | undefined;
 
   /**
    * <p>A list of conditions which would be applied together with an <code>AND</code> condition.
    *   </p>
    * @public
    */
-  AndConditions?: UserSearchCriteria[];
+  AndConditions?: UserSearchCriteria[] | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a string condition.</p>
@@ -7240,20 +7240,20 @@ export interface UserSearchCriteria {
    *     <code>SecurityProfileId</code>, <code>ResourceId</code>.</p>
    * @public
    */
-  StringCondition?: StringCondition;
+  StringCondition?: StringCondition | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a List condition to search users with
    *    attributes included in Lists like Proficiencies.</p>
    * @public
    */
-  ListCondition?: ListCondition;
+  ListCondition?: ListCondition | undefined;
 
   /**
    * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
    * @public
    */
-  HierarchyGroupCondition?: HierarchyGroupCondition;
+  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
 }
 
 /**
@@ -7294,13 +7294,13 @@ export interface RoutingCriteriaInputStep {
    * <p>An object to specify the expiration of a routing step.</p>
    * @public
    */
-  Expiry?: RoutingCriteriaInputStepExpiry;
+  Expiry?: RoutingCriteriaInputStepExpiry | undefined;
 
   /**
    * <p>A tagged union to specify expression for a routing step.</p>
    * @public
    */
-  Expression?: Expression;
+  Expression?: Expression | undefined;
 }
 
 /**
@@ -7319,25 +7319,25 @@ export interface SearchAgentStatusesRequest {
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: AgentStatusSearchFilter;
+  SearchFilter?: AgentStatusSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return agent statuses.</p>
    * @public
    */
-  SearchCriteria?: AgentStatusSearchCriteria;
+  SearchCriteria?: AgentStatusSearchCriteria | undefined;
 }
 
 /**
@@ -7356,19 +7356,19 @@ export interface SearchContactFlowModulesRequest {
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: ContactFlowModuleSearchFilter;
+  SearchFilter?: ContactFlowModuleSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return contact flow modules.</p>
@@ -7379,7 +7379,7 @@ export interface SearchContactFlowModulesRequest {
    *          </note>
    * @public
    */
-  SearchCriteria?: ContactFlowModuleSearchCriteria;
+  SearchCriteria?: ContactFlowModuleSearchCriteria | undefined;
 }
 
 /**
@@ -7398,19 +7398,19 @@ export interface SearchContactFlowsRequest {
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: ContactFlowSearchFilter;
+  SearchFilter?: ContactFlowSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return flows.</p>
@@ -7421,7 +7421,7 @@ export interface SearchContactFlowsRequest {
    *          </note>
    * @public
    */
-  SearchCriteria?: ContactFlowSearchCriteria;
+  SearchCriteria?: ContactFlowSearchCriteria | undefined;
 }
 
 /**
@@ -7439,25 +7439,25 @@ export interface SearchHoursOfOperationsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: HoursOfOperationSearchFilter;
+  SearchFilter?: HoursOfOperationSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return hours of operations.</p>
    * @public
    */
-  SearchCriteria?: HoursOfOperationSearchCriteria;
+  SearchCriteria?: HoursOfOperationSearchCriteria | undefined;
 }
 
 /**
@@ -7476,19 +7476,19 @@ export interface SearchPredefinedAttributesRequest {
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The search criteria to be used to return predefined attributes.</p>
    * @public
    */
-  SearchCriteria?: PredefinedAttributeSearchCriteria;
+  SearchCriteria?: PredefinedAttributeSearchCriteria | undefined;
 }
 
 /**
@@ -7506,25 +7506,25 @@ export interface SearchPromptsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: PromptSearchFilter;
+  SearchFilter?: PromptSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return prompts.</p>
    * @public
    */
-  SearchCriteria?: PromptSearchCriteria;
+  SearchCriteria?: PromptSearchCriteria | undefined;
 }
 
 /**
@@ -7542,19 +7542,19 @@ export interface SearchQueuesRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: QueueSearchFilter;
+  SearchFilter?: QueueSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return queues.</p>
@@ -7565,7 +7565,7 @@ export interface SearchQueuesRequest {
    *          </note>
    * @public
    */
-  SearchCriteria?: QueueSearchCriteria;
+  SearchCriteria?: QueueSearchCriteria | undefined;
 }
 
 /**
@@ -7583,25 +7583,25 @@ export interface SearchQuickConnectsRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: QuickConnectSearchFilter;
+  SearchFilter?: QuickConnectSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return quick connects.</p>
    * @public
    */
-  SearchCriteria?: QuickConnectSearchCriteria;
+  SearchCriteria?: QuickConnectSearchCriteria | undefined;
 }
 
 /**
@@ -7619,19 +7619,19 @@ export interface SearchRoutingProfilesRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: RoutingProfileSearchFilter;
+  SearchFilter?: RoutingProfileSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return routing profiles.</p>
@@ -7642,7 +7642,7 @@ export interface SearchRoutingProfilesRequest {
    *          </note>
    * @public
    */
-  SearchCriteria?: RoutingProfileSearchCriteria;
+  SearchCriteria?: RoutingProfileSearchCriteria | undefined;
 }
 
 /**
@@ -7660,13 +7660,13 @@ export interface SearchSecurityProfilesRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The search criteria to be used to return security profiles. </p>
@@ -7681,13 +7681,13 @@ export interface SearchSecurityProfilesRequest {
    *          </note>
    * @public
    */
-  SearchCriteria?: SecurityProfileSearchCriteria;
+  SearchCriteria?: SecurityProfileSearchCriteria | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: SecurityProfilesSearchFilter;
+  SearchFilter?: SecurityProfilesSearchFilter | undefined;
 }
 
 /**
@@ -7706,25 +7706,25 @@ export interface SearchUserHierarchyGroupsRequest {
    *    the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: UserHierarchyGroupSearchFilter;
+  SearchFilter?: UserHierarchyGroupSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return UserHierarchyGroups.</p>
    * @public
    */
-  SearchCriteria?: UserHierarchyGroupSearchCriteria;
+  SearchCriteria?: UserHierarchyGroupSearchCriteria | undefined;
 }
 
 /**
@@ -7745,19 +7745,19 @@ export interface SearchUsersRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters to be applied to search results.</p>
    * @public
    */
-  SearchFilter?: UserSearchFilter;
+  SearchFilter?: UserSearchFilter | undefined;
 
   /**
    * <p>The search criteria to be used to return users.</p>
@@ -7768,7 +7768,7 @@ export interface SearchUsersRequest {
    *          </note>
    * @public
    */
-  SearchCriteria?: UserSearchCriteria;
+  SearchCriteria?: UserSearchCriteria | undefined;
 }
 
 /**
@@ -7780,19 +7780,19 @@ export interface Step {
    * <p>An object to specify the expiration of a routing step.</p>
    * @public
    */
-  Expiry?: Expiry;
+  Expiry?: Expiry | undefined;
 
   /**
    * <p>A tagged union to specify expression for a routing step.</p>
    * @public
    */
-  Expression?: Expression;
+  Expression?: Expression | undefined;
 
   /**
    * <p>Represents status of the Routing step.</p>
    * @public
    */
-  Status?: RoutingCriteriaStepStatus;
+  Status?: RoutingCriteriaStepStatus | undefined;
 }
 
 /**
@@ -7807,7 +7807,7 @@ export interface RoutingCriteria {
    *    contact will be offered to any agent in the queue.</p>
    * @public
    */
-  Steps?: Step[];
+  Steps?: Step[] | undefined;
 
   /**
    * <p>The timestamp indicating when the routing criteria is set to active. A routing criteria is
@@ -7816,13 +7816,13 @@ export interface RoutingCriteria {
    *    in agent queue.</p>
    * @public
    */
-  ActivationTimestamp?: Date;
+  ActivationTimestamp?: Date | undefined;
 
   /**
    * <p>Information about the index of the routing criteria.</p>
    * @public
    */
-  Index?: number;
+  Index?: number | undefined;
 }
 
 /**
@@ -7837,7 +7837,7 @@ export interface RoutingCriteriaInput {
    *    any agent in the queue.</p>
    * @public
    */
-  Steps?: RoutingCriteriaInputStep[];
+  Steps?: RoutingCriteriaInputStep[] | undefined;
 }
 
 /**
@@ -7849,61 +7849,61 @@ export interface Contact {
    * <p>The Amazon Resource Name (ARN) for the contact.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The identifier for the contact.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
    * @public
    */
-  InitialContactId?: string;
+  InitialContactId?: string | undefined;
 
   /**
    * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
    * @public
    */
-  PreviousContactId?: string;
+  PreviousContactId?: string | undefined;
 
   /**
    * <p>Indicates how the contact was initiated.</p>
    * @public
    */
-  InitiationMethod?: ContactInitiationMethod;
+  InitiationMethod?: ContactInitiationMethod | undefined;
 
   /**
    * <p>The name of the contact.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description of the contact.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>How the contact reached your contact center.</p>
    * @public
    */
-  Channel?: Channel;
+  Channel?: Channel | undefined;
 
   /**
    * <p>If this contact was queued, this contains information about the queue. </p>
    * @public
    */
-  QueueInfo?: QueueInfo;
+  QueueInfo?: QueueInfo | undefined;
 
   /**
    * <p>Information about the agent who accepted the contact.</p>
    * @public
    */
-  AgentInfo?: AgentInfo;
+  AgentInfo?: AgentInfo | undefined;
 
   /**
    * <p>The date and time this contact was initiated, in UTC time. For <code>INBOUND</code>, this is
@@ -7915,63 +7915,63 @@ export interface Contact {
    *    started listening to a contact.</p>
    * @public
    */
-  InitiationTimestamp?: Date;
+  InitiationTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
    * @public
    */
-  DisconnectTimestamp?: Date;
+  DisconnectTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp when contact was last updated.</p>
    * @public
    */
-  LastUpdateTimestamp?: Date;
+  LastUpdateTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp when the contact was last paused.</p>
    * @public
    */
-  LastPausedTimestamp?: Date;
+  LastPausedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp when the contact was last resumed.</p>
    * @public
    */
-  LastResumedTimestamp?: Date;
+  LastResumedTimestamp?: Date | undefined;
 
   /**
    * <p>Total pause count for a contact.</p>
    * @public
    */
-  TotalPauseCount?: number;
+  TotalPauseCount?: number | undefined;
 
   /**
    * <p>Total pause duration for a contact in seconds.</p>
    * @public
    */
-  TotalPauseDurationInSeconds?: number;
+  TotalPauseDurationInSeconds?: number | undefined;
 
   /**
    * <p>The timestamp, in Unix epoch time format, at which to start running the inbound flow.
    *   </p>
    * @public
    */
-  ScheduledTimestamp?: Date;
+  ScheduledTimestamp?: Date | undefined;
 
   /**
    * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html#relatedcontactid">related</a> to this
    *    contact.</p>
    * @public
    */
-  RelatedContactId?: string;
+  RelatedContactId?: string | undefined;
 
   /**
    * <p>Information about Amazon Connect Wisdom.</p>
    * @public
    */
-  WisdomInfo?: WisdomInfo;
+  WisdomInfo?: WisdomInfo | undefined;
 
   /**
    * <p>An integer that represents the queue time adjust to be applied to the contact, in seconds
@@ -7979,7 +7979,7 @@ export interface Contact {
    *    is specified. Must be statically defined and a valid integer value.</p>
    * @public
    */
-  QueueTimeAdjustmentSeconds?: number;
+  QueueTimeAdjustmentSeconds?: number | undefined;
 
   /**
    * <p>An integer that represents the queue priority to be applied to the contact (lower priorities
@@ -7988,63 +7988,63 @@ export interface Contact {
    *    5.</p>
    * @public
    */
-  QueuePriority?: number;
+  QueuePriority?: number | undefined;
 
   /**
    * <p>Tags associated with the contact. This contains both Amazon Web Services generated and
    *    user-defined tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp when customer endpoint connected to Amazon Connect.</p>
    * @public
    */
-  ConnectedToSystemTimestamp?: Date;
+  ConnectedToSystemTimestamp?: Date | undefined;
 
   /**
    * <p>Latest routing criteria on the contact.</p>
    * @public
    */
-  RoutingCriteria?: RoutingCriteria;
+  RoutingCriteria?: RoutingCriteria | undefined;
 
   /**
    * <p>Information about the Customer on the contact.</p>
    * @public
    */
-  Customer?: Customer;
+  Customer?: Customer | undefined;
 
   /**
    * <p>Information associated with a campaign.</p>
    * @public
    */
-  Campaign?: Campaign;
+  Campaign?: Campaign | undefined;
 
   /**
    * <p>Indicates how an <a href="https://docs.aws.amazon.com/connect/latest/adminguide/how-to-create-campaigns.html">outbound campaign</a> call is
    *    actually disposed if the contact is connected to Amazon Connect.</p>
    * @public
    */
-  AnsweringMachineDetectionStatus?: AnsweringMachineDetectionStatus;
+  AnsweringMachineDetectionStatus?: AnsweringMachineDetectionStatus | undefined;
 
   /**
    * <p>Information about customer’s voice activity.</p>
    * @public
    */
-  CustomerVoiceActivity?: CustomerVoiceActivity;
+  CustomerVoiceActivity?: CustomerVoiceActivity | undefined;
 
   /**
    * <p>Information about the quality of the participant's media connection.</p>
    * @public
    */
-  QualityMetrics?: QualityMetrics;
+  QualityMetrics?: QualityMetrics | undefined;
 
   /**
    * <p>Information about the call disconnect experience.</p>
    * @public
    */
-  DisconnectDetails?: DisconnectDetails;
+  DisconnectDetails?: DisconnectDetails | undefined;
 
   /**
    * <p>A set of system defined key-value pairs stored on individual contact segments using an
@@ -8054,7 +8054,7 @@ export interface Contact {
    *    <code>connect:SMS</code>.</p>
    * @public
    */
-  SegmentAttributes?: Record<string, SegmentAttributeValue>;
+  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
 }
 
 /**
@@ -8079,7 +8079,7 @@ export interface UpdateContactRoutingDataRequest {
    *    queue compared to others also changes their position in queue.</p>
    * @public
    */
-  QueueTimeAdjustmentSeconds?: number;
+  QueueTimeAdjustmentSeconds?: number | undefined;
 
   /**
    * <p>Priority of the contact in the queue. The default priority for new contacts is 5. You can
@@ -8087,14 +8087,14 @@ export interface UpdateContactRoutingDataRequest {
    *    higher priority, such as 1 or 2.</p>
    * @public
    */
-  QueuePriority?: number;
+  QueuePriority?: number | undefined;
 
   /**
    * <p>Updates the routing criteria on the contact. These properties can be used to change how a
    *    contact is routed within the queue.</p>
    * @public
    */
-  RoutingCriteria?: RoutingCriteriaInput;
+  RoutingCriteria?: RoutingCriteriaInput | undefined;
 }
 
 /**
@@ -8105,7 +8105,7 @@ export interface DescribeContactResponse {
    * <p>Information about the contact.</p>
    * @public
    */
-  Contact?: Contact;
+  Contact?: Contact | undefined;
 }
 
 /**

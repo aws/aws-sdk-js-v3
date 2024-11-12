@@ -152,27 +152,27 @@ export interface AwsWafRegionalWebAclRulesListDetails {
    *       </p>
    * @public
    */
-  Action?: AwsWafRegionalWebAclRulesListActionDetails;
+  Action?: AwsWafRegionalWebAclRulesListActionDetails | undefined;
 
   /**
    * <p>Overrides the rule evaluation result in the rule group.
    *       </p>
    * @public
    */
-  OverrideAction?: AwsWafRegionalWebAclRulesListOverrideActionDetails;
+  OverrideAction?: AwsWafRegionalWebAclRulesListOverrideActionDetails | undefined;
 
   /**
    * <p>The order in which WAF evaluates the rules in a web ACL.
    *       </p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The ID of an WAF Regional rule to associate with a web ACL. </p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>For actions that are associated with a rule, the action that WAF takes when a web
@@ -180,7 +180,7 @@ export interface AwsWafRegionalWebAclRulesListDetails {
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -194,21 +194,21 @@ export interface AwsWafRegionalWebAclDetails {
    *       </p>
    * @public
    */
-  DefaultAction?: string;
+  DefaultAction?: string | undefined;
 
   /**
    * <p>A name for the metrics for this web ACL.
    *       </p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>A descriptive name for the web ACL.
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of
@@ -216,14 +216,14 @@ export interface AwsWafRegionalWebAclDetails {
    *       </p>
    * @public
    */
-  RulesList?: AwsWafRegionalWebAclRulesListDetails[];
+  RulesList?: AwsWafRegionalWebAclRulesListDetails[] | undefined;
 
   /**
    * <p>The ID of the web ACL.
    *       </p>
    * @public
    */
-  WebAclId?: string;
+  WebAclId?: string | undefined;
 }
 
 /**
@@ -239,7 +239,7 @@ export interface AwsWafRulePredicateListDetails {
    *       </p>
    * @public
    */
-  DataId?: string;
+  DataId?: string | undefined;
 
   /**
    * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
@@ -248,14 +248,14 @@ export interface AwsWafRulePredicateListDetails {
    *       </p>
    * @public
    */
-  Negated?: boolean;
+  Negated?: boolean | undefined;
 
   /**
    * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -269,14 +269,14 @@ export interface AwsWafRuleDetails {
    *       </p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>A descriptive name for the rule.
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
@@ -285,14 +285,14 @@ export interface AwsWafRuleDetails {
    *       </p>
    * @public
    */
-  PredicateList?: AwsWafRulePredicateListDetails[];
+  PredicateList?: AwsWafRulePredicateListDetails[] | undefined;
 
   /**
    * <p>The ID of the WAF rule.
    *       </p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface AwsWafRuleGroupRulesActionDetails {
    *          statement.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -321,28 +321,28 @@ export interface AwsWafRuleGroupRulesDetails {
    *       </p>
    * @public
    */
-  Action?: AwsWafRuleGroupRulesActionDetails;
+  Action?: AwsWafRuleGroupRulesActionDetails | undefined;
 
   /**
    * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
    *          based on the value of <code>Priority</code>.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The rule ID for a rule.
    *       </p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>The type of rule.
    *       </p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -356,21 +356,21 @@ export interface AwsWafRuleGroupDetails {
    *       </p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The name of the rule group.
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The ID of the rule group.
    *       </p>
    * @public
    */
-  RuleGroupId?: string;
+  RuleGroupId?: string | undefined;
 
   /**
    * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
@@ -378,7 +378,7 @@ export interface AwsWafRuleGroupDetails {
    *       </p>
    * @public
    */
-  Rules?: AwsWafRuleGroupRulesDetails[];
+  Rules?: AwsWafRuleGroupRulesDetails[] | undefined;
 }
 
 /**
@@ -394,7 +394,7 @@ export interface AwsWafv2CustomHttpHeader {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -402,7 +402,7 @@ export interface AwsWafv2CustomHttpHeader {
    *       </p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -418,7 +418,7 @@ export interface AwsWafv2CustomRequestHandlingDetails {
    *       </p>
    * @public
    */
-  InsertHeaders?: AwsWafv2CustomHttpHeader[];
+  InsertHeaders?: AwsWafv2CustomHttpHeader[] | undefined;
 }
 
 /**
@@ -435,7 +435,7 @@ export interface AwsWafv2ActionAllowDetails {
    *       </p>
    * @public
    */
-  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails | undefined;
 }
 
 /**
@@ -451,7 +451,7 @@ export interface AwsWafv2CustomResponseDetails {
    *       </p>
    * @public
    */
-  CustomResponseBodyKey?: string;
+  CustomResponseBodyKey?: string | undefined;
 
   /**
    * <p>
@@ -460,7 +460,7 @@ export interface AwsWafv2CustomResponseDetails {
    *          </p>
    * @public
    */
-  ResponseCode?: number;
+  ResponseCode?: number | undefined;
 
   /**
    * <p>
@@ -468,7 +468,7 @@ export interface AwsWafv2CustomResponseDetails {
    *       </p>
    * @public
    */
-  ResponseHeaders?: AwsWafv2CustomHttpHeader[];
+  ResponseHeaders?: AwsWafv2CustomHttpHeader[] | undefined;
 }
 
 /**
@@ -485,7 +485,7 @@ export interface AwsWafv2ActionBlockDetails {
    *       </p>
    * @public
    */
-  CustomResponse?: AwsWafv2CustomResponseDetails;
+  CustomResponse?: AwsWafv2CustomResponseDetails | undefined;
 }
 
 /**
@@ -502,7 +502,7 @@ export interface AwsWafv2RulesActionCaptchaDetails {
    *       </p>
    * @public
    */
-  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails | undefined;
 }
 
 /**
@@ -519,7 +519,7 @@ export interface AwsWafv2RulesActionCountDetails {
    *       </p>
    * @public
    */
-  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails | undefined;
 }
 
 /**
@@ -536,7 +536,7 @@ export interface AwsWafv2RulesActionDetails {
    *       </p>
    * @public
    */
-  Allow?: AwsWafv2ActionAllowDetails;
+  Allow?: AwsWafv2ActionAllowDetails | undefined;
 
   /**
    * <p>
@@ -544,7 +544,7 @@ export interface AwsWafv2RulesActionDetails {
    *       </p>
    * @public
    */
-  Block?: AwsWafv2ActionBlockDetails;
+  Block?: AwsWafv2ActionBlockDetails | undefined;
 
   /**
    * <p>
@@ -552,7 +552,7 @@ export interface AwsWafv2RulesActionDetails {
    *       </p>
    * @public
    */
-  Captcha?: AwsWafv2RulesActionCaptchaDetails;
+  Captcha?: AwsWafv2RulesActionCaptchaDetails | undefined;
 
   /**
    * <p>
@@ -560,7 +560,7 @@ export interface AwsWafv2RulesActionDetails {
    *       </p>
    * @public
    */
-  Count?: AwsWafv2RulesActionCountDetails;
+  Count?: AwsWafv2RulesActionCountDetails | undefined;
 }
 
 /**
@@ -577,7 +577,7 @@ export interface AwsWafv2VisibilityConfigDetails {
    *       </p>
    * @public
    */
-  CloudWatchMetricsEnabled?: boolean;
+  CloudWatchMetricsEnabled?: boolean | undefined;
 
   /**
    * <p>
@@ -585,7 +585,7 @@ export interface AwsWafv2VisibilityConfigDetails {
    *       </p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>
@@ -594,7 +594,7 @@ export interface AwsWafv2VisibilityConfigDetails {
    *       </p>
    * @public
    */
-  SampledRequestsEnabled?: boolean;
+  SampledRequestsEnabled?: boolean | undefined;
 }
 
 /**
@@ -610,7 +610,7 @@ export interface AwsWafv2RulesDetails {
    *       </p>
    * @public
    */
-  Action?: AwsWafv2RulesActionDetails;
+  Action?: AwsWafv2RulesActionDetails | undefined;
 
   /**
    * <p>
@@ -618,7 +618,7 @@ export interface AwsWafv2RulesDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -626,7 +626,7 @@ export interface AwsWafv2RulesDetails {
    *       </p>
    * @public
    */
-  OverrideAction?: string;
+  OverrideAction?: string | undefined;
 
   /**
    * <p>
@@ -635,7 +635,7 @@ export interface AwsWafv2RulesDetails {
    *       </p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>
@@ -643,7 +643,7 @@ export interface AwsWafv2RulesDetails {
    *       </p>
    * @public
    */
-  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails | undefined;
 }
 
 /**
@@ -659,7 +659,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  Capacity?: number;
+  Capacity?: number | undefined;
 
   /**
    * <p>
@@ -667,7 +667,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -675,7 +675,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -683,7 +683,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -691,7 +691,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -701,7 +701,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  Rules?: AwsWafv2RulesDetails[];
+  Rules?: AwsWafv2RulesDetails[] | undefined;
 
   /**
    * <p>
@@ -711,7 +711,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  Scope?: string;
+  Scope?: string | undefined;
 
   /**
    * <p>
@@ -719,7 +719,7 @@ export interface AwsWafv2RuleGroupDetails {
    *       </p>
    * @public
    */
-  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails | undefined;
 }
 
 /**
@@ -735,7 +735,7 @@ export interface AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails {
    *       </p>
    * @public
    */
-  ImmunityTime?: number;
+  ImmunityTime?: number | undefined;
 }
 
 /**
@@ -751,7 +751,7 @@ export interface AwsWafv2WebAclCaptchaConfigDetails {
    *       </p>
    * @public
    */
-  ImmunityTimeProperty?: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails;
+  ImmunityTimeProperty?: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails | undefined;
 }
 
 /**
@@ -767,7 +767,7 @@ export interface AwsWafv2WebAclActionDetails {
    *       </p>
    * @public
    */
-  Allow?: AwsWafv2ActionAllowDetails;
+  Allow?: AwsWafv2ActionAllowDetails | undefined;
 
   /**
    * <p>
@@ -775,7 +775,7 @@ export interface AwsWafv2WebAclActionDetails {
    *       </p>
    * @public
    */
-  Block?: AwsWafv2ActionBlockDetails;
+  Block?: AwsWafv2ActionBlockDetails | undefined;
 }
 
 /**
@@ -791,7 +791,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -799,7 +799,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -807,7 +807,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  ManagedbyFirewallManager?: boolean;
+  ManagedbyFirewallManager?: boolean | undefined;
 
   /**
    * <p>
@@ -815,7 +815,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -823,7 +823,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  Capacity?: number;
+  Capacity?: number | undefined;
 
   /**
    * <p>
@@ -832,7 +832,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  CaptchaConfig?: AwsWafv2WebAclCaptchaConfigDetails;
+  CaptchaConfig?: AwsWafv2WebAclCaptchaConfigDetails | undefined;
 
   /**
    * <p>
@@ -840,7 +840,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  DefaultAction?: AwsWafv2WebAclActionDetails;
+  DefaultAction?: AwsWafv2WebAclActionDetails | undefined;
 
   /**
    * <p>
@@ -848,7 +848,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -858,7 +858,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  Rules?: AwsWafv2RulesDetails[];
+  Rules?: AwsWafv2RulesDetails[] | undefined;
 
   /**
    * <p>
@@ -866,7 +866,7 @@ export interface AwsWafv2WebAclDetails {
    *       </p>
    * @public
    */
-  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails | undefined;
 }
 
 /**
@@ -898,7 +898,7 @@ export interface WafAction {
    *          </ul>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -910,7 +910,7 @@ export interface WafExcludedRule {
    * <p>The unique identifier for the rule to exclude from the rule group.</p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 }
 
 /**
@@ -925,7 +925,7 @@ export interface WafOverrideAction {
    *          <p>If set to <code>NONE</code>, the rule's action takes place.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -938,13 +938,13 @@ export interface AwsWafWebAclRule {
    *          conditions in the rule. </p>
    * @public
    */
-  Action?: WafAction;
+  Action?: WafAction | undefined;
 
   /**
    * <p>Rules to exclude from a rule group.</p>
    * @public
    */
-  ExcludedRules?: WafExcludedRule[];
+  ExcludedRules?: WafExcludedRule[] | undefined;
 
   /**
    * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
@@ -965,7 +965,7 @@ export interface AwsWafWebAclRule {
    *             <code>OverrideAction</code>.</p>
    * @public
    */
-  OverrideAction?: WafOverrideAction;
+  OverrideAction?: WafOverrideAction | undefined;
 
   /**
    * <p>Specifies the order in which the rules in a web
@@ -974,13 +974,13 @@ export interface AwsWafWebAclRule {
    *          multiple rules to a web ACL, the values don't need to be consecutive.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The identifier for a rule.</p>
    * @public
    */
-  RuleId?: string;
+  RuleId?: string | undefined;
 
   /**
    * <p>The rule type.</p>
@@ -989,7 +989,7 @@ export interface AwsWafWebAclRule {
    *          <p>The default is <code>REGULAR</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -1001,25 +1001,25 @@ export interface AwsWafWebAclDetails {
    * <p>A friendly name or description of the web ACL. You can't change the name of a web ACL  after you create it.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The action to perform if none of the rules contained in the web ACL match.</p>
    * @public
    */
-  DefaultAction?: string;
+  DefaultAction?: string | undefined;
 
   /**
    * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of the rule.</p>
    * @public
    */
-  Rules?: AwsWafWebAclRule[];
+  Rules?: AwsWafWebAclRule[] | undefined;
 
   /**
    * <p>A unique identifier for a web ACL.</p>
    * @public
    */
-  WebAclId?: string;
+  WebAclId?: string | undefined;
 }
 
 /**
@@ -1031,20 +1031,20 @@ export interface AwsXrayEncryptionConfigDetails {
    * <p>The identifier of the KMS key that is used for encryption. Provided if <code>Type</code> is <code>KMS</code>.</p>
    * @public
    */
-  KeyId?: string;
+  KeyId?: string | undefined;
 
   /**
    * <p>The current status of the encryption configuration. Valid values are <code>ACTIVE</code> or <code>UPDATING</code>.</p>
    *          <p>When <code>Status</code> is equal to <code>UPDATING</code>, X-Ray might use both the old and new encryption.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The type of encryption. <code>KMS</code> indicates that the encryption uses KMS keys. <code>NONE</code> indicates the default encryption.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 }
 
 /**
@@ -1058,14 +1058,14 @@ export interface VolumeMount {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The path in the container at which the volume should be mounted.
    *       </p>
    * @public
    */
-  MountPath?: string;
+  MountPath?: string | undefined;
 }
 
 /**
@@ -1078,25 +1078,25 @@ export interface ContainerDetails {
    *       </p>
    * @public
    */
-  ContainerRuntime?: string;
+  ContainerRuntime?: string | undefined;
 
   /**
    * <p>The name of the container related to a finding.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The identifier of the container image related to a finding.</p>
    * @public
    */
-  ImageId?: string;
+  ImageId?: string | undefined;
 
   /**
    * <p>The name of the container image related to a finding.</p>
    * @public
    */
-  ImageName?: string;
+  ImageName?: string | undefined;
 
   /**
    * <p>Indicates when the container started.</p>
@@ -1127,14 +1127,14 @@ export interface ContainerDetails {
    *          </ul>
    * @public
    */
-  LaunchedAt?: string;
+  LaunchedAt?: string | undefined;
 
   /**
    * <p>Provides information about the mounting of a volume in a container.
    *       </p>
    * @public
    */
-  VolumeMounts?: VolumeMount[];
+  VolumeMounts?: VolumeMount[] | undefined;
 
   /**
    * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the host
@@ -1142,7 +1142,7 @@ export interface ContainerDetails {
    *       </p>
    * @public
    */
-  Privileged?: boolean;
+  Privileged?: boolean | undefined;
 }
 
 /**
@@ -1161,284 +1161,284 @@ export interface ResourceDetails {
    * <p>Details for an autoscaling group.</p>
    * @public
    */
-  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails;
+  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails | undefined;
 
   /**
    * <p>Details for an CodeBuild project.</p>
    * @public
    */
-  AwsCodeBuildProject?: AwsCodeBuildProjectDetails;
+  AwsCodeBuildProject?: AwsCodeBuildProjectDetails | undefined;
 
   /**
    * <p>Details about a CloudFront distribution.</p>
    * @public
    */
-  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
+  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails | undefined;
 
   /**
    * <p>Details about an EC2 instance related to a finding.</p>
    * @public
    */
-  AwsEc2Instance?: AwsEc2InstanceDetails;
+  AwsEc2Instance?: AwsEc2InstanceDetails | undefined;
 
   /**
    * <p>Details for an EC2 network interface.</p>
    * @public
    */
-  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails;
+  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails | undefined;
 
   /**
    * <p>Details for an EC2 security group.</p>
    * @public
    */
-  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
+  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails | undefined;
 
   /**
    * <p>Details for an Amazon EC2 volume.</p>
    * @public
    */
-  AwsEc2Volume?: AwsEc2VolumeDetails;
+  AwsEc2Volume?: AwsEc2VolumeDetails | undefined;
 
   /**
    * <p>Details for an Amazon EC2 VPC.</p>
    * @public
    */
-  AwsEc2Vpc?: AwsEc2VpcDetails;
+  AwsEc2Vpc?: AwsEc2VpcDetails | undefined;
 
   /**
    * <p>Details about an Elastic IP address.</p>
    * @public
    */
-  AwsEc2Eip?: AwsEc2EipDetails;
+  AwsEc2Eip?: AwsEc2EipDetails | undefined;
 
   /**
    * <p>Details about a subnet in Amazon EC2.</p>
    * @public
    */
-  AwsEc2Subnet?: AwsEc2SubnetDetails;
+  AwsEc2Subnet?: AwsEc2SubnetDetails | undefined;
 
   /**
    * <p>Details about an EC2 network access control list (ACL).</p>
    * @public
    */
-  AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails;
+  AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails | undefined;
 
   /**
    * <p>Details about a load balancer.</p>
    * @public
    */
-  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
+  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails | undefined;
 
   /**
    * <p>Details about an Elastic Beanstalk environment.</p>
    * @public
    */
-  AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails;
+  AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails | undefined;
 
   /**
    * <p>Details for an Elasticsearch domain.</p>
    * @public
    */
-  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails;
+  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails | undefined;
 
   /**
    * <p>Details about an S3 bucket related to a finding.</p>
    * @public
    */
-  AwsS3Bucket?: AwsS3BucketDetails;
+  AwsS3Bucket?: AwsS3BucketDetails | undefined;
 
   /**
    * <p>Details about the Amazon S3 Public Access Block configuration for an account.</p>
    * @public
    */
-  AwsS3AccountPublicAccessBlock?: AwsS3AccountPublicAccessBlockDetails;
+  AwsS3AccountPublicAccessBlock?: AwsS3AccountPublicAccessBlockDetails | undefined;
 
   /**
    * <p>Details about an S3 object related to a finding.</p>
    * @public
    */
-  AwsS3Object?: AwsS3ObjectDetails;
+  AwsS3Object?: AwsS3ObjectDetails | undefined;
 
   /**
    * <p>Details about a Secrets Manager secret.</p>
    * @public
    */
-  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails;
+  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails | undefined;
 
   /**
    * <p>Details about an IAM access key related to a finding.</p>
    * @public
    */
-  AwsIamAccessKey?: AwsIamAccessKeyDetails;
+  AwsIamAccessKey?: AwsIamAccessKeyDetails | undefined;
 
   /**
    * <p>Details about an IAM user.</p>
    * @public
    */
-  AwsIamUser?: AwsIamUserDetails;
+  AwsIamUser?: AwsIamUserDetails | undefined;
 
   /**
    * <p>Details about an IAM permissions policy.</p>
    * @public
    */
-  AwsIamPolicy?: AwsIamPolicyDetails;
+  AwsIamPolicy?: AwsIamPolicyDetails | undefined;
 
   /**
    * <p>Provides information about a version 2 stage for Amazon API Gateway.</p>
    * @public
    */
-  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails;
+  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails | undefined;
 
   /**
    * <p>Provides information about a version 2 API in Amazon API Gateway.</p>
    * @public
    */
-  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails;
+  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails | undefined;
 
   /**
    * <p>Details about a DynamoDB table.</p>
    * @public
    */
-  AwsDynamoDbTable?: AwsDynamoDbTableDetails;
+  AwsDynamoDbTable?: AwsDynamoDbTableDetails | undefined;
 
   /**
    * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
    * @public
    */
-  AwsApiGatewayStage?: AwsApiGatewayStageDetails;
+  AwsApiGatewayStage?: AwsApiGatewayStageDetails | undefined;
 
   /**
    * <p>Provides information about a REST API in version 1 of Amazon API Gateway.</p>
    * @public
    */
-  AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails;
+  AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails | undefined;
 
   /**
    * <p>Provides details about a CloudTrail trail.</p>
    * @public
    */
-  AwsCloudTrailTrail?: AwsCloudTrailTrailDetails;
+  AwsCloudTrailTrail?: AwsCloudTrailTrailDetails | undefined;
 
   /**
    * <p>Provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.</p>
    * @public
    */
-  AwsSsmPatchCompliance?: AwsSsmPatchComplianceDetails;
+  AwsSsmPatchCompliance?: AwsSsmPatchComplianceDetails | undefined;
 
   /**
    * <p>Provides details about an Certificate Manager certificate.</p>
    * @public
    */
-  AwsCertificateManagerCertificate?: AwsCertificateManagerCertificateDetails;
+  AwsCertificateManagerCertificate?: AwsCertificateManagerCertificateDetails | undefined;
 
   /**
    * <p>Contains details about an Amazon Redshift cluster.</p>
    * @public
    */
-  AwsRedshiftCluster?: AwsRedshiftClusterDetails;
+  AwsRedshiftCluster?: AwsRedshiftClusterDetails | undefined;
 
   /**
    * <p>Contains details about a Classic Load Balancer.</p>
    * @public
    */
-  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
+  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails | undefined;
 
   /**
    * <p>Contains details about an IAM group.</p>
    * @public
    */
-  AwsIamGroup?: AwsIamGroupDetails;
+  AwsIamGroup?: AwsIamGroupDetails | undefined;
 
   /**
    * <p>Details about an IAM role.</p>
    * @public
    */
-  AwsIamRole?: AwsIamRoleDetails;
+  AwsIamRole?: AwsIamRoleDetails | undefined;
 
   /**
    * <p>Details about an KMS key.</p>
    * @public
    */
-  AwsKmsKey?: AwsKmsKeyDetails;
+  AwsKmsKey?: AwsKmsKeyDetails | undefined;
 
   /**
    * <p>Details about a Lambda function.</p>
    * @public
    */
-  AwsLambdaFunction?: AwsLambdaFunctionDetails;
+  AwsLambdaFunction?: AwsLambdaFunctionDetails | undefined;
 
   /**
    * <p>Details for a Lambda layer version.</p>
    * @public
    */
-  AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails;
+  AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails | undefined;
 
   /**
    * <p>Details about an Amazon RDS database instance.</p>
    * @public
    */
-  AwsRdsDbInstance?: AwsRdsDbInstanceDetails;
+  AwsRdsDbInstance?: AwsRdsDbInstanceDetails | undefined;
 
   /**
    * <p>Details about an SNS topic.</p>
    * @public
    */
-  AwsSnsTopic?: AwsSnsTopicDetails;
+  AwsSnsTopic?: AwsSnsTopicDetails | undefined;
 
   /**
    * <p>Details about an SQS queue.</p>
    * @public
    */
-  AwsSqsQueue?: AwsSqsQueueDetails;
+  AwsSqsQueue?: AwsSqsQueueDetails | undefined;
 
   /**
    * <p>Details for an WAF web ACL.</p>
    * @public
    */
-  AwsWafWebAcl?: AwsWafWebAclDetails;
+  AwsWafWebAcl?: AwsWafWebAclDetails | undefined;
 
   /**
    * <p>Details about an Amazon RDS database snapshot.</p>
    * @public
    */
-  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails;
+  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails | undefined;
 
   /**
    * <p>Details about an Amazon RDS database cluster snapshot.</p>
    * @public
    */
-  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails;
+  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails | undefined;
 
   /**
    * <p>Details about an Amazon RDS database cluster.</p>
    * @public
    */
-  AwsRdsDbCluster?: AwsRdsDbClusterDetails;
+  AwsRdsDbCluster?: AwsRdsDbClusterDetails | undefined;
 
   /**
    * <p>Details about an Amazon ECS cluster.</p>
    * @public
    */
-  AwsEcsCluster?: AwsEcsClusterDetails;
+  AwsEcsCluster?: AwsEcsClusterDetails | undefined;
 
   /**
    * <p>Provides information about a Docker container that's part of a task.
    *       </p>
    * @public
    */
-  AwsEcsContainer?: AwsEcsContainerDetails;
+  AwsEcsContainer?: AwsEcsContainerDetails | undefined;
 
   /**
    * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
    * @public
    */
-  AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails;
+  AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails | undefined;
 
   /**
    * <p>Details about a container resource related to a finding.</p>
    * @public
    */
-  Container?: ContainerDetails;
+  Container?: ContainerDetails | undefined;
 
   /**
    * <p>Details about a resource that are not available in a type-specific details object. Use
@@ -1457,115 +1457,115 @@ export interface ResourceDetails {
    *          </ul>
    * @public
    */
-  Other?: Record<string, string>;
+  Other?: Record<string, string> | undefined;
 
   /**
    * <p>Details about an RDS event notification subscription.</p>
    * @public
    */
-  AwsRdsEventSubscription?: AwsRdsEventSubscriptionDetails;
+  AwsRdsEventSubscription?: AwsRdsEventSubscriptionDetails | undefined;
 
   /**
    * <p>Details about a service within an ECS cluster.</p>
    * @public
    */
-  AwsEcsService?: AwsEcsServiceDetails;
+  AwsEcsService?: AwsEcsServiceDetails | undefined;
 
   /**
    * <p>Provides details about a launch configuration.</p>
    * @public
    */
-  AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails;
+  AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails | undefined;
 
   /**
    * <p>Details about an Amazon EC2 VPN connection.</p>
    * @public
    */
-  AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails;
+  AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails | undefined;
 
   /**
    * <p>Information about an Amazon ECR image.</p>
    * @public
    */
-  AwsEcrContainerImage?: AwsEcrContainerImageDetails;
+  AwsEcrContainerImage?: AwsEcrContainerImageDetails | undefined;
 
   /**
    * <p>Details about an Amazon OpenSearch Service domain.</p>
    * @public
    */
-  AwsOpenSearchServiceDomain?: AwsOpenSearchServiceDomainDetails;
+  AwsOpenSearchServiceDomain?: AwsOpenSearchServiceDomainDetails | undefined;
 
   /**
    * <p>Details about the service configuration for a VPC endpoint service.</p>
    * @public
    */
-  AwsEc2VpcEndpointService?: AwsEc2VpcEndpointServiceDetails;
+  AwsEc2VpcEndpointService?: AwsEc2VpcEndpointServiceDetails | undefined;
 
   /**
    * <p>Information about the encryption configuration for X-Ray.</p>
    * @public
    */
-  AwsXrayEncryptionConfig?: AwsXrayEncryptionConfigDetails;
+  AwsXrayEncryptionConfig?: AwsXrayEncryptionConfigDetails | undefined;
 
   /**
    * <p>Details about a rate-based rule for global resources.</p>
    * @public
    */
-  AwsWafRateBasedRule?: AwsWafRateBasedRuleDetails;
+  AwsWafRateBasedRule?: AwsWafRateBasedRuleDetails | undefined;
 
   /**
    * <p>Details about a rate-based rule for Regional resources.</p>
    * @public
    */
-  AwsWafRegionalRateBasedRule?: AwsWafRegionalRateBasedRuleDetails;
+  AwsWafRegionalRateBasedRule?: AwsWafRegionalRateBasedRuleDetails | undefined;
 
   /**
    * <p>Information about an Amazon Elastic Container Registry repository.</p>
    * @public
    */
-  AwsEcrRepository?: AwsEcrRepositoryDetails;
+  AwsEcrRepository?: AwsEcrRepositoryDetails | undefined;
 
   /**
    * <p>Details about an Amazon EKS cluster.</p>
    * @public
    */
-  AwsEksCluster?: AwsEksClusterDetails;
+  AwsEksCluster?: AwsEksClusterDetails | undefined;
 
   /**
    * <p>Details about an Network Firewall firewall policy.</p>
    * @public
    */
-  AwsNetworkFirewallFirewallPolicy?: AwsNetworkFirewallFirewallPolicyDetails;
+  AwsNetworkFirewallFirewallPolicy?: AwsNetworkFirewallFirewallPolicyDetails | undefined;
 
   /**
    * <p>Details about an Network Firewall firewall.</p>
    * @public
    */
-  AwsNetworkFirewallFirewall?: AwsNetworkFirewallFirewallDetails;
+  AwsNetworkFirewallFirewall?: AwsNetworkFirewallFirewallDetails | undefined;
 
   /**
    * <p>Details about an Network Firewall rule group.</p>
    * @public
    */
-  AwsNetworkFirewallRuleGroup?: AwsNetworkFirewallRuleGroupDetails;
+  AwsNetworkFirewallRuleGroup?: AwsNetworkFirewallRuleGroupDetails | undefined;
 
   /**
    * <p>Details about an Amazon RDS DB security group.</p>
    * @public
    */
-  AwsRdsDbSecurityGroup?: AwsRdsDbSecurityGroupDetails;
+  AwsRdsDbSecurityGroup?: AwsRdsDbSecurityGroupDetails | undefined;
 
   /**
    * <p>Details about an Amazon Kinesis data stream.</p>
    * @public
    */
-  AwsKinesisStream?: AwsKinesisStreamDetails;
+  AwsKinesisStream?: AwsKinesisStreamDetails | undefined;
 
   /**
    * <p>Details about an Amazon EC2 transit gateway that interconnects your virtual private clouds (VPC) and on-premises networks.</p>
    * @public
    */
-  AwsEc2TransitGateway?: AwsEc2TransitGatewayDetails;
+  AwsEc2TransitGateway?: AwsEc2TransitGatewayDetails | undefined;
 
   /**
    * <p>Details about an Amazon EFS access point. An access point is an application-specific view into an EFS file system that
@@ -1573,19 +1573,19 @@ export interface ResourceDetails {
    *       </p>
    * @public
    */
-  AwsEfsAccessPoint?: AwsEfsAccessPointDetails;
+  AwsEfsAccessPoint?: AwsEfsAccessPointDetails | undefined;
 
   /**
    * <p>Details about an CloudFormation stack. A stack is a collection of Amazon Web Services resources that you can manage as a single unit.</p>
    * @public
    */
-  AwsCloudFormationStack?: AwsCloudFormationStackDetails;
+  AwsCloudFormationStack?: AwsCloudFormationStackDetails | undefined;
 
   /**
    * <p>Details about an Amazon CloudWatch alarm. An alarm allows you to monitor and receive alerts about your Amazon Web Services resources and applications across multiple Regions.</p>
    * @public
    */
-  AwsCloudWatchAlarm?: AwsCloudWatchAlarmDetails;
+  AwsCloudWatchAlarm?: AwsCloudWatchAlarmDetails | undefined;
 
   /**
    * <p>Details about an Amazon EC2 VPC peering connection. A VPC peering connection is
@@ -1594,68 +1594,68 @@ export interface ResourceDetails {
    *       </p>
    * @public
    */
-  AwsEc2VpcPeeringConnection?: AwsEc2VpcPeeringConnectionDetails;
+  AwsEc2VpcPeeringConnection?: AwsEc2VpcPeeringConnectionDetails | undefined;
 
   /**
    * <p>Details about an WAF rule group for Regional resources.
    *       </p>
    * @public
    */
-  AwsWafRegionalRuleGroup?: AwsWafRegionalRuleGroupDetails;
+  AwsWafRegionalRuleGroup?: AwsWafRegionalRuleGroupDetails | undefined;
 
   /**
    * <p>Details about an WAF rule for Regional resources.
    *       </p>
    * @public
    */
-  AwsWafRegionalRule?: AwsWafRegionalRuleDetails;
+  AwsWafRegionalRule?: AwsWafRegionalRuleDetails | undefined;
 
   /**
    * <p>Details about an WAF web access control list (web ACL) for Regional resources. </p>
    * @public
    */
-  AwsWafRegionalWebAcl?: AwsWafRegionalWebAclDetails;
+  AwsWafRegionalWebAcl?: AwsWafRegionalWebAclDetails | undefined;
 
   /**
    * <p>Details about an WAF rule for global resources.
    *       </p>
    * @public
    */
-  AwsWafRule?: AwsWafRuleDetails;
+  AwsWafRule?: AwsWafRuleDetails | undefined;
 
   /**
    * <p>Details about an WAF rule group for global resources.
    *       </p>
    * @public
    */
-  AwsWafRuleGroup?: AwsWafRuleGroupDetails;
+  AwsWafRuleGroup?: AwsWafRuleGroupDetails | undefined;
 
   /**
    * <p>Details about a task in a cluster. </p>
    * @public
    */
-  AwsEcsTask?: AwsEcsTaskDetails;
+  AwsEcsTask?: AwsEcsTaskDetails | undefined;
 
   /**
    * <p>Provides details about an Backup backup vault.
    *       </p>
    * @public
    */
-  AwsBackupBackupVault?: AwsBackupBackupVaultDetails;
+  AwsBackupBackupVault?: AwsBackupBackupVaultDetails | undefined;
 
   /**
    * <p>Provides details about an Backup backup plan.
    *       </p>
    * @public
    */
-  AwsBackupBackupPlan?: AwsBackupBackupPlanDetails;
+  AwsBackupBackupPlan?: AwsBackupBackupPlanDetails | undefined;
 
   /**
    * <p>Provides details about an Backup backup, or recovery point.
    *       </p>
    * @public
    */
-  AwsBackupRecoveryPoint?: AwsBackupRecoveryPointDetails;
+  AwsBackupRecoveryPoint?: AwsBackupRecoveryPointDetails | undefined;
 
   /**
    * <p>
@@ -1663,7 +1663,7 @@ export interface ResourceDetails {
    *       </p>
    * @public
    */
-  AwsEc2LaunchTemplate?: AwsEc2LaunchTemplateDetails;
+  AwsEc2LaunchTemplate?: AwsEc2LaunchTemplateDetails | undefined;
 
   /**
    * <p>
@@ -1671,7 +1671,7 @@ export interface ResourceDetails {
    *       </p>
    * @public
    */
-  AwsSageMakerNotebookInstance?: AwsSageMakerNotebookInstanceDetails;
+  AwsSageMakerNotebookInstance?: AwsSageMakerNotebookInstanceDetails | undefined;
 
   /**
    * <p>
@@ -1679,7 +1679,7 @@ export interface ResourceDetails {
    *       </p>
    * @public
    */
-  AwsWafv2WebAcl?: AwsWafv2WebAclDetails;
+  AwsWafv2WebAcl?: AwsWafv2WebAclDetails | undefined;
 
   /**
    * <p>
@@ -1687,7 +1687,7 @@ export interface ResourceDetails {
    *       </p>
    * @public
    */
-  AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails;
+  AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails | undefined;
 
   /**
    * <p>
@@ -1696,7 +1696,7 @@ export interface ResourceDetails {
    *       </p>
    * @public
    */
-  AwsEc2RouteTable?: AwsEc2RouteTableDetails;
+  AwsEc2RouteTable?: AwsEc2RouteTableDetails | undefined;
 
   /**
    * <p>
@@ -1705,7 +1705,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsAmazonMqBroker?: AwsAmazonMqBrokerDetails;
+  AwsAmazonMqBroker?: AwsAmazonMqBrokerDetails | undefined;
 
   /**
    * <p>
@@ -1714,7 +1714,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsAppSyncGraphQlApi?: AwsAppSyncGraphQlApiDetails;
+  AwsAppSyncGraphQlApi?: AwsAppSyncGraphQlApiDetails | undefined;
 
   /**
    * <p>
@@ -1723,7 +1723,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsEventSchemasRegistry?: AwsEventSchemasRegistryDetails;
+  AwsEventSchemasRegistry?: AwsEventSchemasRegistryDetails | undefined;
 
   /**
    * <p>
@@ -1732,7 +1732,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsGuardDutyDetector?: AwsGuardDutyDetectorDetails;
+  AwsGuardDutyDetector?: AwsGuardDutyDetectorDetails | undefined;
 
   /**
    * <p>
@@ -1740,7 +1740,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsStepFunctionStateMachine?: AwsStepFunctionStateMachineDetails;
+  AwsStepFunctionStateMachine?: AwsStepFunctionStateMachineDetails | undefined;
 
   /**
    * <p>
@@ -1749,7 +1749,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsAthenaWorkGroup?: AwsAthenaWorkGroupDetails;
+  AwsAthenaWorkGroup?: AwsAthenaWorkGroupDetails | undefined;
 
   /**
    * <p>
@@ -1757,7 +1757,7 @@ export interface ResourceDetails {
    * and delivers them to zero or more destinations, or targets.</p>
    * @public
    */
-  AwsEventsEventbus?: AwsEventsEventbusDetails;
+  AwsEventsEventbus?: AwsEventsEventbusDetails | undefined;
 
   /**
    * <p>
@@ -1765,7 +1765,7 @@ export interface ResourceDetails {
    * store type, and location information about your data store.</p>
    * @public
    */
-  AwsDmsEndpoint?: AwsDmsEndpointDetails;
+  AwsDmsEndpoint?: AwsDmsEndpointDetails | undefined;
 
   /**
    * <p>
@@ -1773,7 +1773,7 @@ export interface ResourceDetails {
    * availability by making it Regional-fault tolerant.</p>
    * @public
    */
-  AwsEventsEndpoint?: AwsEventsEndpointDetails;
+  AwsEventsEndpoint?: AwsEventsEndpointDetails | undefined;
 
   /**
    * <p>
@@ -1781,7 +1781,7 @@ export interface ResourceDetails {
    * endpoint to the target endpoint.</p>
    * @public
    */
-  AwsDmsReplicationTask?: AwsDmsReplicationTaskDetails;
+  AwsDmsReplicationTask?: AwsDmsReplicationTaskDetails | undefined;
 
   /**
    * <p>
@@ -1789,7 +1789,7 @@ export interface ResourceDetails {
    * source data store, read the source data, and format the data for consumption by the target data store.</p>
    * @public
    */
-  AwsDmsReplicationInstance?: AwsDmsReplicationInstanceDetails;
+  AwsDmsReplicationInstance?: AwsDmsReplicationInstanceDetails | undefined;
 
   /**
    * <p>
@@ -1797,14 +1797,14 @@ export interface ResourceDetails {
    * zone. A hosted zone represents a collection of records that can be managed together, belonging to a single parent domain name.</p>
    * @public
    */
-  AwsRoute53HostedZone?: AwsRoute53HostedZoneDetails;
+  AwsRoute53HostedZone?: AwsRoute53HostedZoneDetails | undefined;
 
   /**
    * <p>
    *             Provides details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.</p>
    * @public
    */
-  AwsMskCluster?: AwsMskClusterDetails;
+  AwsMskCluster?: AwsMskClusterDetails | undefined;
 
   /**
    * <p>
@@ -1813,7 +1813,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsS3AccessPoint?: AwsS3AccessPointDetails;
+  AwsS3AccessPoint?: AwsS3AccessPointDetails | undefined;
 
   /**
    * <p>
@@ -1822,7 +1822,7 @@ export interface ResourceDetails {
    *         </p>
    * @public
    */
-  AwsEc2ClientVpnEndpoint?: AwsEc2ClientVpnEndpointDetails;
+  AwsEc2ClientVpnEndpoint?: AwsEc2ClientVpnEndpointDetails | undefined;
 }
 
 /**
@@ -1866,39 +1866,39 @@ export interface Resource {
    * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
    * @public
    */
-  Partition?: Partition;
+  Partition?: Partition | undefined;
 
   /**
    * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 16.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>
    * @public
    */
-  ResourceRole?: string;
+  ResourceRole?: string | undefined;
 
   /**
    * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
    *           processed. Tags must follow <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions">Amazon Web Services tag naming limits and requirements</a>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Contains information about sensitive data that was detected on the resource.</p>
    * @public
    */
-  DataClassification?: DataClassificationDetails;
+  DataClassification?: DataClassificationDetails | undefined;
 
   /**
    * <p>Additional details about the resource related to a finding.</p>
    * @public
    */
-  Details?: ResourceDetails;
+  Details?: ResourceDetails | undefined;
 
   /**
    * <p>
@@ -1906,7 +1906,7 @@ export interface Resource {
    *         </p>
    * @public
    */
-  ApplicationName?: string;
+  ApplicationName?: string | undefined;
 
   /**
    * <p>
@@ -1914,7 +1914,7 @@ export interface Resource {
    *         </p>
    * @public
    */
-  ApplicationArn?: string;
+  ApplicationArn?: string | undefined;
 }
 
 /**
@@ -1936,7 +1936,7 @@ export interface Severity {
    *          generated the finding.</p>
    * @public
    */
-  Product?: number;
+  Product?: number | undefined;
 
   /**
    * <p>The severity value of the finding. The allowed values are the following.</p>
@@ -1989,7 +1989,7 @@ export interface Severity {
    *          </ul>
    * @public
    */
-  Label?: SeverityLabel;
+  Label?: SeverityLabel | undefined;
 
   /**
    * <p>Deprecated. The normalized severity of a finding.
@@ -2021,14 +2021,14 @@ export interface Severity {
    *          </ul>
    * @public
    */
-  Normalized?: number;
+  Normalized?: number | undefined;
 
   /**
    * <p>The native severity from the finding product that generated the finding.</p>
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 64.</p>
    * @public
    */
-  Original?: string;
+  Original?: string | undefined;
 }
 
 /**
@@ -2082,20 +2082,20 @@ export interface ThreatIntelIndicator {
    * <p>The type of threat intelligence indicator.</p>
    * @public
    */
-  Type?: ThreatIntelIndicatorType;
+  Type?: ThreatIntelIndicatorType | undefined;
 
   /**
    * <p>The value of a threat intelligence indicator.</p>
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 512 length.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 
   /**
    * <p>The category of a threat intelligence indicator.</p>
    * @public
    */
-  Category?: ThreatIntelIndicatorCategory;
+  Category?: ThreatIntelIndicatorCategory | undefined;
 
   /**
    * <p>Indicates when the most recent instance of a threat intelligence indicator was
@@ -2127,21 +2127,21 @@ export interface ThreatIntelIndicator {
    *          </ul>
    * @public
    */
-  LastObservedAt?: string;
+  LastObservedAt?: string | undefined;
 
   /**
    * <p>The source of the threat intelligence indicator.</p>
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 64 length.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The URL to the page or site where you can get more information about the threat
    *          intelligence indicator.</p>
    * @public
    */
-  SourceUrl?: string;
+  SourceUrl?: string | undefined;
 }
 
 /**
@@ -2156,7 +2156,7 @@ export interface FilePaths {
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
-  FilePath?: string;
+  FilePath?: string | undefined;
 
   /**
    * <p>The name of the infected or suspicious file corresponding to the hash.
@@ -2164,7 +2164,7 @@ export interface FilePaths {
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
-  FileName?: string;
+  FileName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource on which the threat was detected.
@@ -2172,7 +2172,7 @@ export interface FilePaths {
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The hash value for the infected or suspicious file.
@@ -2180,7 +2180,7 @@ export interface FilePaths {
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
-  Hash?: string;
+  Hash?: string | undefined;
 }
 
 /**
@@ -2195,7 +2195,7 @@ export interface Threat {
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The severity of the threat.
@@ -2203,14 +2203,14 @@ export interface Threat {
    *          <p>Length Constraints: Minimum of 1 length. Maximum of 128 length.</p>
    * @public
    */
-  Severity?: string;
+  Severity?: string | undefined;
 
   /**
    * <p>This total number of items in which the threat has been detected.
    * 		</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>Provides information about the file paths that were affected by the threat.
@@ -2218,7 +2218,7 @@ export interface Threat {
    *          <p>Array Members: Minimum number of 1 item. Maximum number of 5 items.</p>
    * @public
    */
-  FilePaths?: FilePaths[];
+  FilePaths?: FilePaths[] | undefined;
 }
 
 /**
@@ -2234,7 +2234,7 @@ export interface CodeVulnerabilitiesFilePath {
    *         </p>
    * @public
    */
-  EndLine?: number;
+  EndLine?: number | undefined;
 
   /**
    * <p>
@@ -2242,7 +2242,7 @@ export interface CodeVulnerabilitiesFilePath {
    *         </p>
    * @public
    */
-  FileName?: string;
+  FileName?: string | undefined;
 
   /**
    * <p>
@@ -2250,7 +2250,7 @@ export interface CodeVulnerabilitiesFilePath {
    *         </p>
    * @public
    */
-  FilePath?: string;
+  FilePath?: string | undefined;
 
   /**
    * <p>
@@ -2258,7 +2258,7 @@ export interface CodeVulnerabilitiesFilePath {
    *         </p>
    * @public
    */
-  StartLine?: number;
+  StartLine?: number | undefined;
 }
 
 /**
@@ -2274,7 +2274,7 @@ export interface VulnerabilityCodeVulnerabilities {
    *         </p>
    * @public
    */
-  Cwes?: string[];
+  Cwes?: string[] | undefined;
 
   /**
    * <p>
@@ -2282,7 +2282,7 @@ export interface VulnerabilityCodeVulnerabilities {
    *         </p>
    * @public
    */
-  FilePath?: CodeVulnerabilitiesFilePath;
+  FilePath?: CodeVulnerabilitiesFilePath | undefined;
 
   /**
    * <p>
@@ -2290,7 +2290,7 @@ export interface VulnerabilityCodeVulnerabilities {
    *         </p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 }
 
 /**
@@ -2302,31 +2302,31 @@ export interface Cvss {
    * <p>The version of CVSS for the CVSS score.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The base CVSS score.</p>
    * @public
    */
-  BaseScore?: number;
+  BaseScore?: number | undefined;
 
   /**
    * <p>The base scoring vector for the CVSS score.</p>
    * @public
    */
-  BaseVector?: string;
+  BaseVector?: string | undefined;
 
   /**
    * <p>The origin of the original CVSS score and vector.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>Adjustments to the CVSS metrics.</p>
    * @public
    */
-  Adjustments?: Adjustment[];
+  Adjustments?: Adjustment[] | undefined;
 }
 
 /**
@@ -2374,13 +2374,13 @@ export interface VulnerabilityVendor {
    * <p>The URL of the vulnerability advisory.</p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The severity that the vendor assigned to the vulnerability.</p>
    * @public
    */
-  VendorSeverity?: string;
+  VendorSeverity?: string | undefined;
 
   /**
    * <p>Indicates when the vulnerability advisory was created.</p>
@@ -2411,7 +2411,7 @@ export interface VulnerabilityVendor {
    *          </ul>
    * @public
    */
-  VendorCreatedAt?: string;
+  VendorCreatedAt?: string | undefined;
 
   /**
    * <p>Indicates when the vulnerability advisory was last updated.</p>
@@ -2442,7 +2442,7 @@ export interface VulnerabilityVendor {
    *          </ul>
    * @public
    */
-  VendorUpdatedAt?: string;
+  VendorUpdatedAt?: string | undefined;
 }
 
 /**
@@ -2454,71 +2454,71 @@ export interface SoftwarePackage {
    * <p>The name of the software package.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The version of the software package.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The epoch of the software package.</p>
    * @public
    */
-  Epoch?: string;
+  Epoch?: string | undefined;
 
   /**
    * <p>The release of the software package.</p>
    * @public
    */
-  Release?: string;
+  Release?: string | undefined;
 
   /**
    * <p>The architecture used for the software package.</p>
    * @public
    */
-  Architecture?: string;
+  Architecture?: string | undefined;
 
   /**
    * <p>The source of the package.</p>
    * @public
    */
-  PackageManager?: string;
+  PackageManager?: string | undefined;
 
   /**
    * <p>The file system path to the package manager inventory file.</p>
    * @public
    */
-  FilePath?: string;
+  FilePath?: string | undefined;
 
   /**
    * <p>The version of the software package in which the vulnerability has been resolved.
    *       </p>
    * @public
    */
-  FixedInVersion?: string;
+  FixedInVersion?: string | undefined;
 
   /**
    * <p>Describes the actions a customer can take to resolve the vulnerability in the software package.
    *       </p>
    * @public
    */
-  Remediation?: string;
+  Remediation?: string | undefined;
 
   /**
    * <p>The source layer hash of the vulnerable package.
    *       </p>
    * @public
    */
-  SourceLayerHash?: string;
+  SourceLayerHash?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source layer.
    *       </p>
    * @public
    */
-  SourceLayerArn?: string;
+  SourceLayerArn?: string | undefined;
 }
 
 /**
@@ -2536,31 +2536,31 @@ export interface Vulnerability {
    * <p>List of software packages that have the vulnerability.</p>
    * @public
    */
-  VulnerablePackages?: SoftwarePackage[];
+  VulnerablePackages?: SoftwarePackage[] | undefined;
 
   /**
    * <p>CVSS scores from the advisory related to the vulnerability.</p>
    * @public
    */
-  Cvss?: Cvss[];
+  Cvss?: Cvss[] | undefined;
 
   /**
    * <p>List of vulnerabilities that are related to this vulnerability.</p>
    * @public
    */
-  RelatedVulnerabilities?: string[];
+  RelatedVulnerabilities?: string[] | undefined;
 
   /**
    * <p>Information about the vendor that generates the vulnerability report.</p>
    * @public
    */
-  Vendor?: VulnerabilityVendor;
+  Vendor?: VulnerabilityVendor | undefined;
 
   /**
    * <p>A list of URLs that provide additional information about the vulnerability.</p>
    * @public
    */
-  ReferenceUrls?: string[];
+  ReferenceUrls?: string[] | undefined;
 
   /**
    * <p>Specifies if all vulnerable packages in a finding have a value for <code>FixedInVersion</code>
@@ -2585,21 +2585,21 @@ export interface Vulnerability {
    *          </ul>
    * @public
    */
-  FixAvailable?: VulnerabilityFixAvailable;
+  FixAvailable?: VulnerabilityFixAvailable | undefined;
 
   /**
    * <p>The Exploit Prediction Scoring System (EPSS) score for a finding.
    * 		</p>
    * @public
    */
-  EpssScore?: number;
+  EpssScore?: number | undefined;
 
   /**
    * <p>Whether an exploit is available for a finding.
    * 		</p>
    * @public
    */
-  ExploitAvailable?: VulnerabilityExploitAvailable;
+  ExploitAvailable?: VulnerabilityExploitAvailable | undefined;
 
   /**
    * <p>
@@ -2607,7 +2607,7 @@ export interface Vulnerability {
    *         </p>
    * @public
    */
-  LastKnownExploitAt?: string;
+  LastKnownExploitAt?: string | undefined;
 
   /**
    * <p>The vulnerabilities found in your Lambda function code. This field pertains to findings that
@@ -2615,7 +2615,7 @@ export interface Vulnerability {
    *         </p>
    * @public
    */
-  CodeVulnerabilities?: VulnerabilityCodeVulnerabilities[];
+  CodeVulnerabilities?: VulnerabilityCodeVulnerabilities[] | undefined;
 }
 
 /**
@@ -2664,7 +2664,7 @@ export interface Workflow {
    *          </ul>
    * @public
    */
-  Status?: WorkflowStatus;
+  Status?: WorkflowStatus | undefined;
 }
 
 /**
@@ -2724,7 +2724,7 @@ export interface AwsSecurityFinding {
    *          <p>Length Constraints: Minimum length of 1. Maximum length of 128.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>The name of the company for the product that generated the finding.</p>
@@ -2734,7 +2734,7 @@ export interface AwsSecurityFinding {
    *        </p>
    * @public
    */
-  CompanyName?: string;
+  CompanyName?: string | undefined;
 
   /**
    * <p>The Region from which the finding was generated.</p>
@@ -2743,7 +2743,7 @@ export interface AwsSecurityFinding {
    *        </p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
@@ -2769,7 +2769,7 @@ export interface AwsSecurityFinding {
    *          <p>Array Members: Maximum number of 50 items.</p>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 
   /**
    * <p>Indicates when the security findings provider first observed the potential security
@@ -2801,7 +2801,7 @@ export interface AwsSecurityFinding {
    *          </ul>
    * @public
    */
-  FirstObservedAt?: string;
+  FirstObservedAt?: string | undefined;
 
   /**
    * <p>Indicates when the security findings provider most recently observed the potential
@@ -2833,7 +2833,7 @@ export interface AwsSecurityFinding {
    *          </ul>
    * @public
    */
-  LastObservedAt?: string;
+  LastObservedAt?: string | undefined;
 
   /**
    * <p>Indicates when the security findings provider created the potential security issue that
@@ -2902,7 +2902,7 @@ export interface AwsSecurityFinding {
    * <p>A finding's severity.</p>
    * @public
    */
-  Severity?: Severity;
+  Severity?: Severity | undefined;
 
   /**
    * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
@@ -2911,7 +2911,7 @@ export interface AwsSecurityFinding {
    *          confidence and 100 means 100 percent confidence.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>The level of importance assigned to the resources associated with the finding.</p>
@@ -2919,7 +2919,7 @@ export interface AwsSecurityFinding {
    *          is reserved for the most critical resources.</p>
    * @public
    */
-  Criticality?: number;
+  Criticality?: number | undefined;
 
   /**
    * <p>A finding's title. <code>Title</code> is a required property.</p>
@@ -2939,14 +2939,14 @@ export interface AwsSecurityFinding {
    * <p>A data type that describes the remediation options for a finding.</p>
    * @public
    */
-  Remediation?: Remediation;
+  Remediation?: Remediation | undefined;
 
   /**
    * <p>A URL that links to a page about the current finding in the security findings provider's
    *          solution.</p>
    * @public
    */
-  SourceUrl?: string;
+  SourceUrl?: string | undefined;
 
   /**
    * <p>A data type where security findings providers can include additional solution-specific
@@ -2954,7 +2954,7 @@ export interface AwsSecurityFinding {
    *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 2048 characters.</p>
    * @public
    */
-  ProductFields?: Record<string, string>;
+  ProductFields?: Record<string, string> | undefined;
 
   /**
    * <p>A list of name/value string pairs associated with the finding. These are custom,
@@ -2962,33 +2962,33 @@ export interface AwsSecurityFinding {
    *          <p>Can contain up to 50 key-value pairs. For each key-value pair, the key can contain up to 128 characters, and the value can contain up to 1024 characters.</p>
    * @public
    */
-  UserDefinedFields?: Record<string, string>;
+  UserDefinedFields?: Record<string, string> | undefined;
 
   /**
    * <p>A list of malware related to a finding.</p>
    *          <p>Array Members: Maximum number of 5 items.</p>
    * @public
    */
-  Malware?: Malware[];
+  Malware?: Malware[] | undefined;
 
   /**
    * <p>The details of network-related information about a finding.</p>
    * @public
    */
-  Network?: Network;
+  Network?: Network | undefined;
 
   /**
    * <p>Provides information about a network path that is relevant to a finding. Each entry
    *          under <code>NetworkPath</code> represents a component of that path.</p>
    * @public
    */
-  NetworkPath?: NetworkPathComponent[];
+  NetworkPath?: NetworkPathComponent[] | undefined;
 
   /**
    * <p>The details of process-related information about a finding.</p>
    * @public
    */
-  Process?: ProcessDetails;
+  Process?: ProcessDetails | undefined;
 
   /**
    * <p>Details about the threat detected in a security finding and the file paths that were affected by the threat.
@@ -2996,14 +2996,14 @@ export interface AwsSecurityFinding {
    *          <p>Array Members: Minimum number of 1 item. Maximum number of 32 items.</p>
    * @public
    */
-  Threats?: Threat[];
+  Threats?: Threat[] | undefined;
 
   /**
    * <p>Threat intelligence details related to a finding.</p>
    *          <p>Array Members: Minimum number of 1 item. Maximum number of 5 items.</p>
    * @public
    */
-  ThreatIntelIndicators?: ThreatIntelIndicator[];
+  ThreatIntelIndicators?: ThreatIntelIndicator[] | undefined;
 
   /**
    * <p>A set of resource data types that describe the resources that the finding refers
@@ -3019,13 +3019,13 @@ export interface AwsSecurityFinding {
    *          Contains security standard-related finding details.</p>
    * @public
    */
-  Compliance?: Compliance;
+  Compliance?: Compliance | undefined;
 
   /**
    * <p>Indicates the veracity of a finding. </p>
    * @public
    */
-  VerificationState?: VerificationState;
+  VerificationState?: VerificationState | undefined;
 
   /**
    * @deprecated
@@ -3033,63 +3033,63 @@ export interface AwsSecurityFinding {
    * <p>The workflow state of a finding. </p>
    * @public
    */
-  WorkflowState?: WorkflowState;
+  WorkflowState?: WorkflowState | undefined;
 
   /**
    * <p>Provides information about the status of the investigation into a finding.</p>
    * @public
    */
-  Workflow?: Workflow;
+  Workflow?: Workflow | undefined;
 
   /**
    * <p>The record state of a finding.</p>
    * @public
    */
-  RecordState?: RecordState;
+  RecordState?: RecordState | undefined;
 
   /**
    * <p>A list of related findings.</p>
    *          <p>Array Members: Minimum number of 1 item. Maximum number of 10 items.</p>
    * @public
    */
-  RelatedFindings?: RelatedFinding[];
+  RelatedFindings?: RelatedFinding[] | undefined;
 
   /**
    * <p>A user-defined note added to a finding.</p>
    * @public
    */
-  Note?: Note;
+  Note?: Note | undefined;
 
   /**
    * <p>Provides a list of vulnerabilities associated with the findings.</p>
    * @public
    */
-  Vulnerabilities?: Vulnerability[];
+  Vulnerabilities?: Vulnerability[] | undefined;
 
   /**
    * <p>Provides an overview of the patch compliance status for an instance against a selected
    *          compliance standard.</p>
    * @public
    */
-  PatchSummary?: PatchSummary;
+  PatchSummary?: PatchSummary | undefined;
 
   /**
    * <p>Provides details about an action that affects or that was taken on a resource.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>In a <code>BatchImportFindings</code> request, finding providers use <code>FindingProviderFields</code> to provide and update their own values for confidence, criticality, related findings, severity, and types.</p>
    * @public
    */
-  FindingProviderFields?: FindingProviderFields;
+  FindingProviderFields?: FindingProviderFields | undefined;
 
   /**
    * <p>Indicates whether the finding is a sample finding.</p>
    * @public
    */
-  Sample?: boolean;
+  Sample?: boolean | undefined;
 
   /**
    * <p>Provides metadata for the Amazon CodeGuru detector associated with a finding. This field pertains to
@@ -3099,7 +3099,7 @@ export interface AwsSecurityFinding {
    *         </p>
    * @public
    */
-  GeneratorDetails?: GeneratorDetails;
+  GeneratorDetails?: GeneratorDetails | undefined;
 
   /**
    * <p>A timestamp that indicates when Security Hub received a finding and begins to process it.</p>
@@ -3130,7 +3130,7 @@ export interface AwsSecurityFinding {
    *          </ul>
    * @public
    */
-  ProcessedAt?: string;
+  ProcessedAt?: string | undefined;
 
   /**
    * <p>The name of the Amazon Web Services account from which a finding was generated.
@@ -3139,7 +3139,7 @@ export interface AwsSecurityFinding {
    *         </p>
    * @public
    */
-  AwsAccountName?: string;
+  AwsAccountName?: string | undefined;
 }
 
 /**
@@ -3151,7 +3151,7 @@ export interface KeywordFilter {
    * <p>A value for the keyword.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -3163,7 +3163,7 @@ export interface IpFilter {
    * <p>A finding's CIDR value.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 }
 
 /**
@@ -3175,7 +3175,7 @@ export interface BooleanFilter {
    * <p>The value of the boolean.</p>
    * @public
    */
-  Value?: boolean;
+  Value?: boolean | undefined;
 }
 
 /**
@@ -3191,19 +3191,19 @@ export interface AwsSecurityFindingFilters {
    *          findings) is registered with Security Hub.</p>
    * @public
    */
-  ProductArn?: StringFilter[];
+  ProductArn?: StringFilter[] | undefined;
 
   /**
    * <p>The Amazon Web Services account ID in which a finding is generated.</p>
    * @public
    */
-  AwsAccountId?: StringFilter[];
+  AwsAccountId?: StringFilter[] | undefined;
 
   /**
    * <p>The security findings provider-specific identifier for a finding.</p>
    * @public
    */
-  Id?: StringFilter[];
+  Id?: StringFilter[] | undefined;
 
   /**
    * <p>The identifier for the solution-specific component (a discrete unit of logic) that
@@ -3211,20 +3211,20 @@ export interface AwsSecurityFindingFilters {
    *          be called a rule, a check, a detector, a plugin, etc.</p>
    * @public
    */
-  GeneratorId?: StringFilter[];
+  GeneratorId?: StringFilter[] | undefined;
 
   /**
    * <p>The Region from which the finding was generated.</p>
    * @public
    */
-  Region?: StringFilter[];
+  Region?: StringFilter[] | undefined;
 
   /**
    * <p>A finding type in the format of <code>namespace/category/classifier</code> that
    *          classifies a finding.</p>
    * @public
    */
-  Type?: StringFilter[];
+  Type?: StringFilter[] | undefined;
 
   /**
    * <p>A timestamp that indicates when the security findings provider first
@@ -3256,7 +3256,7 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  FirstObservedAt?: DateFilter[];
+  FirstObservedAt?: DateFilter[] | undefined;
 
   /**
    * <p>A timestamp that indicates when the security findings provider most
@@ -3288,7 +3288,7 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  LastObservedAt?: DateFilter[];
+  LastObservedAt?: DateFilter[] | undefined;
 
   /**
    * <p>A timestamp that indicates when the security findings provider
@@ -3320,7 +3320,7 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  CreatedAt?: DateFilter[];
+  CreatedAt?: DateFilter[] | undefined;
 
   /**
    * <p>A timestamp that indicates when the security findings provider last
@@ -3352,7 +3352,7 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  UpdatedAt?: DateFilter[];
+  UpdatedAt?: DateFilter[] | undefined;
 
   /**
    * @deprecated
@@ -3361,7 +3361,7 @@ export interface AwsSecurityFindingFilters {
    *          generated the finding.</p>
    * @public
    */
-  SeverityProduct?: NumberFilter[];
+  SeverityProduct?: NumberFilter[] | undefined;
 
   /**
    * @deprecated
@@ -3369,13 +3369,13 @@ export interface AwsSecurityFindingFilters {
    * <p>The normalized severity of a finding.</p>
    * @public
    */
-  SeverityNormalized?: NumberFilter[];
+  SeverityNormalized?: NumberFilter[] | undefined;
 
   /**
    * <p>The label of a finding's severity.</p>
    * @public
    */
-  SeverityLabel?: StringFilter[];
+  SeverityLabel?: StringFilter[] | undefined;
 
   /**
    * <p>A finding's confidence. Confidence is defined as the likelihood that a finding
@@ -3384,7 +3384,7 @@ export interface AwsSecurityFindingFilters {
    *          confidence and 100 means 100 percent confidence.</p>
    * @public
    */
-  Confidence?: NumberFilter[];
+  Confidence?: NumberFilter[] | undefined;
 
   /**
    * <p>The level of importance assigned to the resources associated with the finding.</p>
@@ -3392,174 +3392,174 @@ export interface AwsSecurityFindingFilters {
    *          is reserved for the most critical resources.</p>
    * @public
    */
-  Criticality?: NumberFilter[];
+  Criticality?: NumberFilter[] | undefined;
 
   /**
    * <p>A finding's title.</p>
    * @public
    */
-  Title?: StringFilter[];
+  Title?: StringFilter[] | undefined;
 
   /**
    * <p>A finding's description.</p>
    * @public
    */
-  Description?: StringFilter[];
+  Description?: StringFilter[] | undefined;
 
   /**
    * <p>The recommendation of what to do about the issue described in a finding.</p>
    * @public
    */
-  RecommendationText?: StringFilter[];
+  RecommendationText?: StringFilter[] | undefined;
 
   /**
    * <p>A URL that links to a page about the current finding in the security findings provider's
    *          solution.</p>
    * @public
    */
-  SourceUrl?: StringFilter[];
+  SourceUrl?: StringFilter[] | undefined;
 
   /**
    * <p>A data type where security findings providers can include additional solution-specific
    *          details that aren't part of the defined <code>AwsSecurityFinding</code> format.</p>
    * @public
    */
-  ProductFields?: MapFilter[];
+  ProductFields?: MapFilter[] | undefined;
 
   /**
    * <p>The name of the solution (product) that generates findings.</p>
    * @public
    */
-  ProductName?: StringFilter[];
+  ProductName?: StringFilter[] | undefined;
 
   /**
    * <p>The name of the findings provider (company) that owns the solution (product) that
    *          generates findings.</p>
    * @public
    */
-  CompanyName?: StringFilter[];
+  CompanyName?: StringFilter[] | undefined;
 
   /**
    * <p>A list of name/value string pairs associated with the finding. These are custom,
    *          user-defined fields added to a finding. </p>
    * @public
    */
-  UserDefinedFields?: MapFilter[];
+  UserDefinedFields?: MapFilter[] | undefined;
 
   /**
    * <p>The name of the malware that was observed.</p>
    * @public
    */
-  MalwareName?: StringFilter[];
+  MalwareName?: StringFilter[] | undefined;
 
   /**
    * <p>The type of the malware that was observed.</p>
    * @public
    */
-  MalwareType?: StringFilter[];
+  MalwareType?: StringFilter[] | undefined;
 
   /**
    * <p>The filesystem path of the malware that was observed.</p>
    * @public
    */
-  MalwarePath?: StringFilter[];
+  MalwarePath?: StringFilter[] | undefined;
 
   /**
    * <p>The state of the malware that was observed.</p>
    * @public
    */
-  MalwareState?: StringFilter[];
+  MalwareState?: StringFilter[] | undefined;
 
   /**
    * <p>Indicates the direction of network traffic associated with a finding.</p>
    * @public
    */
-  NetworkDirection?: StringFilter[];
+  NetworkDirection?: StringFilter[] | undefined;
 
   /**
    * <p>The protocol of network-related information about a finding.</p>
    * @public
    */
-  NetworkProtocol?: StringFilter[];
+  NetworkProtocol?: StringFilter[] | undefined;
 
   /**
    * <p>The source IPv4 address of network-related information about a finding.</p>
    * @public
    */
-  NetworkSourceIpV4?: IpFilter[];
+  NetworkSourceIpV4?: IpFilter[] | undefined;
 
   /**
    * <p>The source IPv6 address of network-related information about a finding.</p>
    * @public
    */
-  NetworkSourceIpV6?: IpFilter[];
+  NetworkSourceIpV6?: IpFilter[] | undefined;
 
   /**
    * <p>The source port of network-related information about a finding.</p>
    * @public
    */
-  NetworkSourcePort?: NumberFilter[];
+  NetworkSourcePort?: NumberFilter[] | undefined;
 
   /**
    * <p>The source domain of network-related information about a finding.</p>
    * @public
    */
-  NetworkSourceDomain?: StringFilter[];
+  NetworkSourceDomain?: StringFilter[] | undefined;
 
   /**
    * <p>The source media access control (MAC) address of network-related information about a
    *          finding.</p>
    * @public
    */
-  NetworkSourceMac?: StringFilter[];
+  NetworkSourceMac?: StringFilter[] | undefined;
 
   /**
    * <p>The destination IPv4 address of network-related information about a finding.</p>
    * @public
    */
-  NetworkDestinationIpV4?: IpFilter[];
+  NetworkDestinationIpV4?: IpFilter[] | undefined;
 
   /**
    * <p>The destination IPv6 address of network-related information about a finding.</p>
    * @public
    */
-  NetworkDestinationIpV6?: IpFilter[];
+  NetworkDestinationIpV6?: IpFilter[] | undefined;
 
   /**
    * <p>The destination port of network-related information about a finding.</p>
    * @public
    */
-  NetworkDestinationPort?: NumberFilter[];
+  NetworkDestinationPort?: NumberFilter[] | undefined;
 
   /**
    * <p>The destination domain of network-related information about a finding.</p>
    * @public
    */
-  NetworkDestinationDomain?: StringFilter[];
+  NetworkDestinationDomain?: StringFilter[] | undefined;
 
   /**
    * <p>The name of the process.</p>
    * @public
    */
-  ProcessName?: StringFilter[];
+  ProcessName?: StringFilter[] | undefined;
 
   /**
    * <p>The path to the process executable.</p>
    * @public
    */
-  ProcessPath?: StringFilter[];
+  ProcessPath?: StringFilter[] | undefined;
 
   /**
    * <p>The process ID.</p>
    * @public
    */
-  ProcessPid?: NumberFilter[];
+  ProcessPid?: NumberFilter[] | undefined;
 
   /**
    * <p>The parent process ID. This field accepts positive integers between <code>O</code> and <code>2147483647</code>.</p>
    * @public
    */
-  ProcessParentPid?: NumberFilter[];
+  ProcessParentPid?: NumberFilter[] | undefined;
 
   /**
    * <p>A timestamp that identifies when the process was launched.</p>
@@ -3590,7 +3590,7 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  ProcessLaunchedAt?: DateFilter[];
+  ProcessLaunchedAt?: DateFilter[] | undefined;
 
   /**
    * <p>A timestamp that identifies when the process was terminated.</p>
@@ -3621,140 +3621,140 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  ProcessTerminatedAt?: DateFilter[];
+  ProcessTerminatedAt?: DateFilter[] | undefined;
 
   /**
    * <p>The type of a threat intelligence indicator.</p>
    * @public
    */
-  ThreatIntelIndicatorType?: StringFilter[];
+  ThreatIntelIndicatorType?: StringFilter[] | undefined;
 
   /**
    * <p>The value of a threat intelligence indicator.</p>
    * @public
    */
-  ThreatIntelIndicatorValue?: StringFilter[];
+  ThreatIntelIndicatorValue?: StringFilter[] | undefined;
 
   /**
    * <p>The category of a threat intelligence indicator.</p>
    * @public
    */
-  ThreatIntelIndicatorCategory?: StringFilter[];
+  ThreatIntelIndicatorCategory?: StringFilter[] | undefined;
 
   /**
    * <p>A timestamp that identifies the last observation of a threat intelligence indicator.</p>
    * @public
    */
-  ThreatIntelIndicatorLastObservedAt?: DateFilter[];
+  ThreatIntelIndicatorLastObservedAt?: DateFilter[] | undefined;
 
   /**
    * <p>The source of the threat intelligence.</p>
    * @public
    */
-  ThreatIntelIndicatorSource?: StringFilter[];
+  ThreatIntelIndicatorSource?: StringFilter[] | undefined;
 
   /**
    * <p>The URL for more details from the source of the threat intelligence.</p>
    * @public
    */
-  ThreatIntelIndicatorSourceUrl?: StringFilter[];
+  ThreatIntelIndicatorSourceUrl?: StringFilter[] | undefined;
 
   /**
    * <p>Specifies the type of the resource that details are provided for.</p>
    * @public
    */
-  ResourceType?: StringFilter[];
+  ResourceType?: StringFilter[] | undefined;
 
   /**
    * <p>The canonical identifier for the given resource type.</p>
    * @public
    */
-  ResourceId?: StringFilter[];
+  ResourceId?: StringFilter[] | undefined;
 
   /**
    * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
    * @public
    */
-  ResourcePartition?: StringFilter[];
+  ResourcePartition?: StringFilter[] | undefined;
 
   /**
    * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
    * @public
    */
-  ResourceRegion?: StringFilter[];
+  ResourceRegion?: StringFilter[] | undefined;
 
   /**
    * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
    *          processed.</p>
    * @public
    */
-  ResourceTags?: MapFilter[];
+  ResourceTags?: MapFilter[] | undefined;
 
   /**
    * <p>The instance type of the instance.</p>
    * @public
    */
-  ResourceAwsEc2InstanceType?: StringFilter[];
+  ResourceAwsEc2InstanceType?: StringFilter[] | undefined;
 
   /**
    * <p>The Amazon Machine Image (AMI) ID of the instance.</p>
    * @public
    */
-  ResourceAwsEc2InstanceImageId?: StringFilter[];
+  ResourceAwsEc2InstanceImageId?: StringFilter[] | undefined;
 
   /**
    * <p>The IPv4 addresses associated with the instance.</p>
    * @public
    */
-  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[];
+  ResourceAwsEc2InstanceIpV4Addresses?: IpFilter[] | undefined;
 
   /**
    * <p>The IPv6 addresses associated with the instance.</p>
    * @public
    */
-  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[];
+  ResourceAwsEc2InstanceIpV6Addresses?: IpFilter[] | undefined;
 
   /**
    * <p>The key name associated with the instance.</p>
    * @public
    */
-  ResourceAwsEc2InstanceKeyName?: StringFilter[];
+  ResourceAwsEc2InstanceKeyName?: StringFilter[] | undefined;
 
   /**
    * <p>The IAM profile ARN of the instance.</p>
    * @public
    */
-  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[];
+  ResourceAwsEc2InstanceIamInstanceProfileArn?: StringFilter[] | undefined;
 
   /**
    * <p>The identifier of the VPC that the instance was launched in.</p>
    * @public
    */
-  ResourceAwsEc2InstanceVpcId?: StringFilter[];
+  ResourceAwsEc2InstanceVpcId?: StringFilter[] | undefined;
 
   /**
    * <p>The identifier of the subnet that the instance was launched in.</p>
    * @public
    */
-  ResourceAwsEc2InstanceSubnetId?: StringFilter[];
+  ResourceAwsEc2InstanceSubnetId?: StringFilter[] | undefined;
 
   /**
    * <p>The date and time the instance was launched.</p>
    * @public
    */
-  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[];
+  ResourceAwsEc2InstanceLaunchedAt?: DateFilter[] | undefined;
 
   /**
    * <p>The canonical user ID of the owner of the S3 bucket.</p>
    * @public
    */
-  ResourceAwsS3BucketOwnerId?: StringFilter[];
+  ResourceAwsS3BucketOwnerId?: StringFilter[] | undefined;
 
   /**
    * <p>The display name of the owner of the S3 bucket.</p>
    * @public
    */
-  ResourceAwsS3BucketOwnerName?: StringFilter[];
+  ResourceAwsS3BucketOwnerName?: StringFilter[] | undefined;
 
   /**
    * @deprecated
@@ -3762,49 +3762,49 @@ export interface AwsSecurityFindingFilters {
    * <p>The user associated with the IAM access key related to a finding.</p>
    * @public
    */
-  ResourceAwsIamAccessKeyUserName?: StringFilter[];
+  ResourceAwsIamAccessKeyUserName?: StringFilter[] | undefined;
 
   /**
    * <p>The name of the principal that is associated with an IAM access key.</p>
    * @public
    */
-  ResourceAwsIamAccessKeyPrincipalName?: StringFilter[];
+  ResourceAwsIamAccessKeyPrincipalName?: StringFilter[] | undefined;
 
   /**
    * <p>The status of the IAM access key related to a finding.</p>
    * @public
    */
-  ResourceAwsIamAccessKeyStatus?: StringFilter[];
+  ResourceAwsIamAccessKeyStatus?: StringFilter[] | undefined;
 
   /**
    * <p>The creation date/time of the IAM access key related to a finding.</p>
    * @public
    */
-  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[];
+  ResourceAwsIamAccessKeyCreatedAt?: DateFilter[] | undefined;
 
   /**
    * <p>The name of an IAM user.</p>
    * @public
    */
-  ResourceAwsIamUserUserName?: StringFilter[];
+  ResourceAwsIamUserUserName?: StringFilter[] | undefined;
 
   /**
    * <p>The name of the container related to a finding.</p>
    * @public
    */
-  ResourceContainerName?: StringFilter[];
+  ResourceContainerName?: StringFilter[] | undefined;
 
   /**
    * <p>The identifier of the image related to a finding.</p>
    * @public
    */
-  ResourceContainerImageId?: StringFilter[];
+  ResourceContainerImageId?: StringFilter[] | undefined;
 
   /**
    * <p>The name of the image related to a finding.</p>
    * @public
    */
-  ResourceContainerImageName?: StringFilter[];
+  ResourceContainerImageName?: StringFilter[] | undefined;
 
   /**
    * <p>A timestamp that identifies when the container was started.</p>
@@ -3835,14 +3835,14 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  ResourceContainerLaunchedAt?: DateFilter[];
+  ResourceContainerLaunchedAt?: DateFilter[] | undefined;
 
   /**
    * <p>The details of a resource that doesn't have a specific subfield for the resource type
    *          defined.</p>
    * @public
    */
-  ResourceDetailsOther?: MapFilter[];
+  ResourceDetailsOther?: MapFilter[] | undefined;
 
   /**
    * <p>Exclusive to findings that are generated as the result of a check run against a specific
@@ -3850,13 +3850,13 @@ export interface AwsSecurityFindingFilters {
    *          standard-related finding details.</p>
    * @public
    */
-  ComplianceStatus?: StringFilter[];
+  ComplianceStatus?: StringFilter[] | undefined;
 
   /**
    * <p>The veracity of a finding.</p>
    * @public
    */
-  VerificationState?: StringFilter[];
+  VerificationState?: StringFilter[] | undefined;
 
   /**
    * <p>The workflow state of a finding.</p>
@@ -3864,7 +3864,7 @@ export interface AwsSecurityFindingFilters {
    *          status, use <code>WorkflowStatus</code>.</p>
    * @public
    */
-  WorkflowState?: StringFilter[];
+  WorkflowState?: StringFilter[] | undefined;
 
   /**
    * <p>The status of the investigation into a finding. Allowed values are the following.</p>
@@ -3938,43 +3938,43 @@ export interface AwsSecurityFindingFilters {
    *          </ul>
    * @public
    */
-  WorkflowStatus?: StringFilter[];
+  WorkflowStatus?: StringFilter[] | undefined;
 
   /**
    * <p>The updated record state for the finding.</p>
    * @public
    */
-  RecordState?: StringFilter[];
+  RecordState?: StringFilter[] | undefined;
 
   /**
    * <p>The ARN of the solution that generated a related finding.</p>
    * @public
    */
-  RelatedFindingsProductArn?: StringFilter[];
+  RelatedFindingsProductArn?: StringFilter[] | undefined;
 
   /**
    * <p>The solution-generated identifier for a related finding.</p>
    * @public
    */
-  RelatedFindingsId?: StringFilter[];
+  RelatedFindingsId?: StringFilter[] | undefined;
 
   /**
    * <p>The text of a note.</p>
    * @public
    */
-  NoteText?: StringFilter[];
+  NoteText?: StringFilter[] | undefined;
 
   /**
    * <p>The timestamp of when the note was updated.</p>
    * @public
    */
-  NoteUpdatedAt?: DateFilter[];
+  NoteUpdatedAt?: DateFilter[] | undefined;
 
   /**
    * <p>The principal that created a note.</p>
    * @public
    */
-  NoteUpdatedBy?: StringFilter[];
+  NoteUpdatedBy?: StringFilter[] | undefined;
 
   /**
    * @deprecated
@@ -3982,7 +3982,7 @@ export interface AwsSecurityFindingFilters {
    * <p>A keyword for a finding.</p>
    * @public
    */
-  Keyword?: KeywordFilter[];
+  Keyword?: KeywordFilter[] | undefined;
 
   /**
    * <p>The finding provider value for the finding confidence. Confidence is defined as the likelihood
@@ -3992,7 +3992,7 @@ export interface AwsSecurityFindingFilters {
    *          confidence and 100 means 100 percent confidence.</p>
    * @public
    */
-  FindingProviderFieldsConfidence?: NumberFilter[];
+  FindingProviderFieldsConfidence?: NumberFilter[] | undefined;
 
   /**
    * <p>The finding provider value for the level of importance assigned to the resources associated with
@@ -4001,31 +4001,31 @@ export interface AwsSecurityFindingFilters {
    *          is reserved for the most critical resources. </p>
    * @public
    */
-  FindingProviderFieldsCriticality?: NumberFilter[];
+  FindingProviderFieldsCriticality?: NumberFilter[] | undefined;
 
   /**
    * <p>The finding identifier of a related finding that is identified by the finding provider.</p>
    * @public
    */
-  FindingProviderFieldsRelatedFindingsId?: StringFilter[];
+  FindingProviderFieldsRelatedFindingsId?: StringFilter[] | undefined;
 
   /**
    * <p>The ARN of the solution that generated a related finding that is identified by the finding provider.</p>
    * @public
    */
-  FindingProviderFieldsRelatedFindingsProductArn?: StringFilter[];
+  FindingProviderFieldsRelatedFindingsProductArn?: StringFilter[] | undefined;
 
   /**
    * <p>The finding provider value for the severity label.</p>
    * @public
    */
-  FindingProviderFieldsSeverityLabel?: StringFilter[];
+  FindingProviderFieldsSeverityLabel?: StringFilter[] | undefined;
 
   /**
    * <p>The finding provider's original value for the severity.</p>
    * @public
    */
-  FindingProviderFieldsSeverityOriginal?: StringFilter[];
+  FindingProviderFieldsSeverityOriginal?: StringFilter[] | undefined;
 
   /**
    * <p>One or more finding types that the finding provider assigned to the finding. Uses the format of <code>namespace/category/classifier</code>
@@ -4034,13 +4034,13 @@ export interface AwsSecurityFindingFilters {
    *          Behaviors | Sensitive Data Identifications</p>
    * @public
    */
-  FindingProviderFieldsTypes?: StringFilter[];
+  FindingProviderFieldsTypes?: StringFilter[] | undefined;
 
   /**
    * <p>Indicates whether or not sample findings are included in the filter results.</p>
    * @public
    */
-  Sample?: BooleanFilter[];
+  Sample?: BooleanFilter[] | undefined;
 
   /**
    * <p>
@@ -4049,7 +4049,7 @@ export interface AwsSecurityFindingFilters {
    *       </p>
    * @public
    */
-  ComplianceSecurityControlId?: StringFilter[];
+  ComplianceSecurityControlId?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -4058,7 +4058,7 @@ export interface AwsSecurityFindingFilters {
    *       </p>
    * @public
    */
-  ComplianceAssociatedStandardsId?: StringFilter[];
+  ComplianceAssociatedStandardsId?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -4067,7 +4067,7 @@ export interface AwsSecurityFindingFilters {
    *         </p>
    * @public
    */
-  VulnerabilitiesExploitAvailable?: StringFilter[];
+  VulnerabilitiesExploitAvailable?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -4077,7 +4077,7 @@ export interface AwsSecurityFindingFilters {
    *         </p>
    * @public
    */
-  VulnerabilitiesFixAvailable?: StringFilter[];
+  VulnerabilitiesFixAvailable?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -4085,7 +4085,7 @@ export interface AwsSecurityFindingFilters {
    *         </p>
    * @public
    */
-  ComplianceSecurityControlParametersName?: StringFilter[];
+  ComplianceSecurityControlParametersName?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -4093,13 +4093,13 @@ export interface AwsSecurityFindingFilters {
    *         </p>
    * @public
    */
-  ComplianceSecurityControlParametersValue?: StringFilter[];
+  ComplianceSecurityControlParametersValue?: StringFilter[] | undefined;
 
   /**
    * <p>The name of the Amazon Web Services account in which a finding is generated.</p>
    * @public
    */
-  AwsAccountName?: StringFilter[];
+  AwsAccountName?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -4107,7 +4107,7 @@ export interface AwsSecurityFindingFilters {
    *         </p>
    * @public
    */
-  ResourceApplicationName?: StringFilter[];
+  ResourceApplicationName?: StringFilter[] | undefined;
 
   /**
    * <p>
@@ -4115,7 +4115,7 @@ export interface AwsSecurityFindingFilters {
    *         </p>
    * @public
    */
-  ResourceApplicationArn?: StringFilter[];
+  ResourceApplicationArn?: StringFilter[] | undefined;
 }
 
 /**
@@ -4165,7 +4165,7 @@ export interface UnprocessedAutomationRule {
    *       </p>
    * @public
    */
-  RuleArn?: string;
+  RuleArn?: string | undefined;
 
   /**
    * <p>
@@ -4173,7 +4173,7 @@ export interface UnprocessedAutomationRule {
    *       </p>
    * @public
    */
-  ErrorCode?: number;
+  ErrorCode?: number | undefined;
 
   /**
    * <p>
@@ -4181,7 +4181,7 @@ export interface UnprocessedAutomationRule {
    *       </p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -4194,7 +4194,7 @@ export interface BatchDeleteAutomationRulesResponse {
    *       </p>
    * @public
    */
-  ProcessedAutomationRules?: string[];
+  ProcessedAutomationRules?: string[] | undefined;
 
   /**
    * <p>
@@ -4203,7 +4203,7 @@ export interface BatchDeleteAutomationRulesResponse {
    *       </p>
    * @public
    */
-  UnprocessedAutomationRules?: UnprocessedAutomationRule[];
+  UnprocessedAutomationRules?: UnprocessedAutomationRule[] | undefined;
 }
 
 /**
@@ -4316,7 +4316,7 @@ export interface StandardsSubscription {
    * <p>The reason for the current status.</p>
    * @public
    */
-  StandardsStatusReason?: StandardsStatusReason;
+  StandardsStatusReason?: StandardsStatusReason | undefined;
 }
 
 /**
@@ -4327,7 +4327,7 @@ export interface BatchDisableStandardsResponse {
    * <p>The details of the standards subscriptions that were disabled.</p>
    * @public
    */
-  StandardsSubscriptions?: StandardsSubscription[];
+  StandardsSubscriptions?: StandardsSubscription[] | undefined;
 }
 
 /**
@@ -4346,7 +4346,7 @@ export interface StandardsSubscriptionRequest {
    * <p>A key-value pair of input for the standard.</p>
    * @public
    */
-  StandardsInput?: Record<string, string>;
+  StandardsInput?: Record<string, string> | undefined;
 }
 
 /**
@@ -4368,7 +4368,7 @@ export interface BatchEnableStandardsResponse {
    * <p>The details of the standards subscriptions that were enabled.</p>
    * @public
    */
-  StandardsSubscriptions?: StandardsSubscription[];
+  StandardsSubscriptions?: StandardsSubscription[] | undefined;
 }
 
 /**
@@ -4394,7 +4394,7 @@ export interface BatchGetAutomationRulesResponse {
    *       </p>
    * @public
    */
-  Rules?: AutomationRulesConfig[];
+  Rules?: AutomationRulesConfig[] | undefined;
 
   /**
    * <p>
@@ -4403,7 +4403,7 @@ export interface BatchGetAutomationRulesResponse {
    *       </p>
    * @public
    */
-  UnprocessedAutomationRules?: UnprocessedAutomationRule[];
+  UnprocessedAutomationRules?: UnprocessedAutomationRule[] | undefined;
 }
 
 /**
@@ -4502,7 +4502,7 @@ export interface ConfigurationPolicyAssociation {
    *         </p>
    * @public
    */
-  Target?: Target;
+  Target?: Target | undefined;
 }
 
 /**
@@ -4547,7 +4547,7 @@ export interface ConfigurationPolicyAssociationSummary {
    *         </p>
    * @public
    */
-  ConfigurationPolicyId?: string;
+  ConfigurationPolicyId?: string | undefined;
 
   /**
    * <p>
@@ -4555,7 +4555,7 @@ export interface ConfigurationPolicyAssociationSummary {
    *         </p>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 
   /**
    * <p>
@@ -4563,7 +4563,7 @@ export interface ConfigurationPolicyAssociationSummary {
    *         </p>
    * @public
    */
-  TargetType?: TargetType;
+  TargetType?: TargetType | undefined;
 
   /**
    * <p>
@@ -4572,7 +4572,7 @@ export interface ConfigurationPolicyAssociationSummary {
    *         </p>
    * @public
    */
-  AssociationType?: AssociationType;
+  AssociationType?: AssociationType | undefined;
 
   /**
    * <p>
@@ -4580,7 +4580,7 @@ export interface ConfigurationPolicyAssociationSummary {
    *         </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -4588,7 +4588,7 @@ export interface ConfigurationPolicyAssociationSummary {
    *         </p>
    * @public
    */
-  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 
   /**
    * <p>
@@ -4596,7 +4596,7 @@ export interface ConfigurationPolicyAssociationSummary {
    *         </p>
    * @public
    */
-  AssociationStatusMessage?: string;
+  AssociationStatusMessage?: string | undefined;
 }
 
 /**
@@ -4615,7 +4615,7 @@ export interface UnprocessedConfigurationPolicyAssociation {
    *         </p>
    * @public
    */
-  ConfigurationPolicyAssociationIdentifiers?: ConfigurationPolicyAssociation;
+  ConfigurationPolicyAssociationIdentifiers?: ConfigurationPolicyAssociation | undefined;
 
   /**
    * <p>
@@ -4623,7 +4623,7 @@ export interface UnprocessedConfigurationPolicyAssociation {
    *         </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>
@@ -4631,7 +4631,7 @@ export interface UnprocessedConfigurationPolicyAssociation {
    *         </p>
    * @public
    */
-  ErrorReason?: string;
+  ErrorReason?: string | undefined;
 }
 
 /**
@@ -4644,7 +4644,7 @@ export interface BatchGetConfigurationPolicyAssociationsResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicyAssociations?: ConfigurationPolicyAssociationSummary[];
+  ConfigurationPolicyAssociations?: ConfigurationPolicyAssociationSummary[] | undefined;
 
   /**
    * <p>
@@ -4653,7 +4653,7 @@ export interface BatchGetConfigurationPolicyAssociationsResponse {
    *         </p>
    * @public
    */
-  UnprocessedConfigurationPolicyAssociations?: UnprocessedConfigurationPolicyAssociation[];
+  UnprocessedConfigurationPolicyAssociations?: UnprocessedConfigurationPolicyAssociation[] | undefined;
 }
 
 /**
@@ -4914,7 +4914,7 @@ export interface ParameterConfiguration {
    *         </p>
    * @public
    */
-  Value?: ParameterValue;
+  Value?: ParameterValue | undefined;
 }
 
 /**
@@ -5034,7 +5034,7 @@ export interface SecurityControl {
    *         </p>
    * @public
    */
-  UpdateStatus?: UpdateStatus;
+  UpdateStatus?: UpdateStatus | undefined;
 
   /**
    * <p>
@@ -5042,7 +5042,7 @@ export interface SecurityControl {
    *         </p>
    * @public
    */
-  Parameters?: Record<string, ParameterConfiguration>;
+  Parameters?: Record<string, ParameterConfiguration> | undefined;
 
   /**
    * <p>
@@ -5055,7 +5055,7 @@ export interface SecurityControl {
    *         </p>
    * @public
    */
-  LastUpdateReason?: string;
+  LastUpdateReason?: string | undefined;
 }
 
 /**
@@ -5101,7 +5101,7 @@ export interface UnprocessedSecurityControl {
    *       </p>
    * @public
    */
-  ErrorReason?: string;
+  ErrorReason?: string | undefined;
 }
 
 /**
@@ -5124,7 +5124,7 @@ export interface BatchGetSecurityControlsResponse {
    *       </p>
    * @public
    */
-  UnprocessedIds?: UnprocessedSecurityControl[];
+  UnprocessedIds?: UnprocessedSecurityControl[] | undefined;
 }
 
 /**
@@ -5211,7 +5211,7 @@ export interface StandardsControlAssociationDetail {
    *       </p>
    * @public
    */
-  RelatedRequirements?: string[];
+  RelatedRequirements?: string[] | undefined;
 
   /**
    * <p>
@@ -5219,7 +5219,7 @@ export interface StandardsControlAssociationDetail {
    *       </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -5227,7 +5227,7 @@ export interface StandardsControlAssociationDetail {
    *       </p>
    * @public
    */
-  UpdatedReason?: string;
+  UpdatedReason?: string | undefined;
 
   /**
    * <p>
@@ -5235,7 +5235,7 @@ export interface StandardsControlAssociationDetail {
    *       </p>
    * @public
    */
-  StandardsControlTitle?: string;
+  StandardsControlTitle?: string | undefined;
 
   /**
    * <p>
@@ -5244,14 +5244,14 @@ export interface StandardsControlAssociationDetail {
    *       </p>
    * @public
    */
-  StandardsControlDescription?: string;
+  StandardsControlDescription?: string | undefined;
 
   /**
    * <p> Provides the input parameter that Security Hub uses to call the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_UpdateStandardsControl.html">UpdateStandardsControl</a> API. This API can be used to enable or disable a control
    *          in a specified standard. </p>
    * @public
    */
-  StandardsControlArns?: string[];
+  StandardsControlArns?: string[] | undefined;
 }
 
 /**
@@ -5282,7 +5282,7 @@ export interface UnprocessedStandardsControlAssociation {
    * <p>The reason why the standard and control association was unprocessed. </p>
    * @public
    */
-  ErrorReason?: string;
+  ErrorReason?: string | undefined;
 }
 
 /**
@@ -5304,7 +5304,7 @@ export interface BatchGetStandardsControlAssociationsResponse {
    *       </p>
    * @public
    */
-  UnprocessedAssociations?: UnprocessedStandardsControlAssociation[];
+  UnprocessedAssociations?: UnprocessedStandardsControlAssociation[] | undefined;
 }
 
 /**
@@ -5365,7 +5365,7 @@ export interface BatchImportFindingsResponse {
    * <p>The list of findings that failed to import.</p>
    * @public
    */
-  FailedFindings?: ImportFindingsError[];
+  FailedFindings?: ImportFindingsError[] | undefined;
 }
 
 /**
@@ -5394,7 +5394,7 @@ export interface UpdateAutomationRulesRequestItem {
    *       </p>
    * @public
    */
-  RuleStatus?: RuleStatus;
+  RuleStatus?: RuleStatus | undefined;
 
   /**
    * <p> An integer ranging from 1 to 1000 that represents the order in which the rule action is
@@ -5402,7 +5402,7 @@ export interface UpdateAutomationRulesRequestItem {
    *          first. </p>
    * @public
    */
-  RuleOrder?: number;
+  RuleOrder?: number | undefined;
 
   /**
    * <p>
@@ -5410,7 +5410,7 @@ export interface UpdateAutomationRulesRequestItem {
    *       </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -5418,7 +5418,7 @@ export interface UpdateAutomationRulesRequestItem {
    *       </p>
    * @public
    */
-  RuleName?: string;
+  RuleName?: string | undefined;
 
   /**
    * <p>Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding
@@ -5427,7 +5427,7 @@ export interface UpdateAutomationRulesRequestItem {
    *         </p>
    * @public
    */
-  IsTerminal?: boolean;
+  IsTerminal?: boolean | undefined;
 
   /**
    * <p>
@@ -5437,7 +5437,7 @@ export interface UpdateAutomationRulesRequestItem {
    *       </p>
    * @public
    */
-  Criteria?: AutomationRulesFindingFilters;
+  Criteria?: AutomationRulesFindingFilters | undefined;
 
   /**
    * <p>
@@ -5446,7 +5446,7 @@ export interface UpdateAutomationRulesRequestItem {
    *       </p>
    * @public
    */
-  Actions?: AutomationRulesAction[];
+  Actions?: AutomationRulesAction[] | undefined;
 }
 
 /**
@@ -5473,7 +5473,7 @@ export interface BatchUpdateAutomationRulesResponse {
    *       </p>
    * @public
    */
-  ProcessedAutomationRules?: string[];
+  ProcessedAutomationRules?: string[] | undefined;
 
   /**
    * <p>
@@ -5482,7 +5482,7 @@ export interface BatchUpdateAutomationRulesResponse {
    *       </p>
    * @public
    */
-  UnprocessedAutomationRules?: UnprocessedAutomationRule[];
+  UnprocessedAutomationRules?: UnprocessedAutomationRule[] | undefined;
 }
 
 /**
@@ -5502,13 +5502,13 @@ export interface BatchUpdateFindingsRequest {
    * <p>The updated note.</p>
    * @public
    */
-  Note?: NoteUpdate;
+  Note?: NoteUpdate | undefined;
 
   /**
    * <p>Used to update the finding severity.</p>
    * @public
    */
-  Severity?: SeverityUpdate;
+  Severity?: SeverityUpdate | undefined;
 
   /**
    * <p>Indicates the veracity of a finding.</p>
@@ -5535,7 +5535,7 @@ export interface BatchUpdateFindingsRequest {
    *          </ul>
    * @public
    */
-  VerificationState?: VerificationState;
+  VerificationState?: VerificationState | undefined;
 
   /**
    * <p>The updated value for the finding confidence. Confidence is defined as the likelihood
@@ -5545,7 +5545,7 @@ export interface BatchUpdateFindingsRequest {
    *          confidence and 100 means 100 percent confidence.</p>
    * @public
    */
-  Confidence?: number;
+  Confidence?: number | undefined;
 
   /**
    * <p>The updated value for the level of importance assigned to the resources associated with
@@ -5554,7 +5554,7 @@ export interface BatchUpdateFindingsRequest {
    *          is reserved for the most critical resources. </p>
    * @public
    */
-  Criticality?: number;
+  Criticality?: number | undefined;
 
   /**
    * <p>One or more finding types in the format of namespace/category/classifier that classify a
@@ -5579,27 +5579,27 @@ export interface BatchUpdateFindingsRequest {
    *          </ul>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 
   /**
    * <p>A list of name/value string pairs associated with the finding. These are custom,
    *          user-defined fields added to a finding.</p>
    * @public
    */
-  UserDefinedFields?: Record<string, string>;
+  UserDefinedFields?: Record<string, string> | undefined;
 
   /**
    * <p>Used to update the workflow status of a finding.</p>
    *          <p>The workflow status indicates the progress of the investigation into the finding. </p>
    * @public
    */
-  Workflow?: WorkflowUpdate;
+  Workflow?: WorkflowUpdate | undefined;
 
   /**
    * <p>A list of findings that are related to the updated findings.</p>
    * @public
    */
-  RelatedFindings?: RelatedFinding[];
+  RelatedFindings?: RelatedFinding[] | undefined;
 }
 
 /**
@@ -5738,7 +5738,7 @@ export interface StandardsControlAssociationUpdate {
    * <p>The reason for updating the control's enablement status in the standard.</p>
    * @public
    */
-  UpdatedReason?: string;
+  UpdatedReason?: string | undefined;
 }
 
 /**
@@ -5780,7 +5780,7 @@ export interface UnprocessedStandardsControlAssociationUpdate {
    * <p>The reason why a control's enablement status in the specified standard couldn't be updated. </p>
    * @public
    */
-  ErrorReason?: string;
+  ErrorReason?: string | undefined;
 }
 
 /**
@@ -5793,7 +5793,7 @@ export interface BatchUpdateStandardsControlAssociationsResponse {
    *       </p>
    * @public
    */
-  UnprocessedAssociationUpdates?: UnprocessedStandardsControlAssociationUpdate[];
+  UnprocessedAssociationUpdates?: UnprocessedStandardsControlAssociationUpdate[] | undefined;
 }
 
 /**
@@ -5810,7 +5810,7 @@ export interface BooleanConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: boolean;
+  DefaultValue?: boolean | undefined;
 }
 
 /**
@@ -5826,7 +5826,7 @@ export interface DoubleConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: number;
+  DefaultValue?: number | undefined;
 
   /**
    * <p>
@@ -5834,7 +5834,7 @@ export interface DoubleConfigurationOptions {
    *         </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>
@@ -5842,7 +5842,7 @@ export interface DoubleConfigurationOptions {
    *         </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -5858,7 +5858,7 @@ export interface EnumConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>
@@ -5866,7 +5866,7 @@ export interface EnumConfigurationOptions {
    *         </p>
    * @public
    */
-  AllowedValues?: string[];
+  AllowedValues?: string[] | undefined;
 }
 
 /**
@@ -5882,7 +5882,7 @@ export interface EnumListConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: string[];
+  DefaultValue?: string[] | undefined;
 
   /**
    * <p>
@@ -5890,7 +5890,7 @@ export interface EnumListConfigurationOptions {
    *         </p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>
@@ -5898,7 +5898,7 @@ export interface EnumListConfigurationOptions {
    *         </p>
    * @public
    */
-  AllowedValues?: string[];
+  AllowedValues?: string[] | undefined;
 }
 
 /**
@@ -5914,7 +5914,7 @@ export interface IntegerConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: number;
+  DefaultValue?: number | undefined;
 
   /**
    * <p>
@@ -5922,7 +5922,7 @@ export interface IntegerConfigurationOptions {
    *         </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>
@@ -5930,7 +5930,7 @@ export interface IntegerConfigurationOptions {
    *         </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 }
 
 /**
@@ -5946,7 +5946,7 @@ export interface IntegerListConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: number[];
+  DefaultValue?: number[] | undefined;
 
   /**
    * <p>
@@ -5954,7 +5954,7 @@ export interface IntegerListConfigurationOptions {
    *         </p>
    * @public
    */
-  Min?: number;
+  Min?: number | undefined;
 
   /**
    * <p>
@@ -5962,7 +5962,7 @@ export interface IntegerListConfigurationOptions {
    *         </p>
    * @public
    */
-  Max?: number;
+  Max?: number | undefined;
 
   /**
    * <p>
@@ -5970,7 +5970,7 @@ export interface IntegerListConfigurationOptions {
    *         </p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 }
 
 /**
@@ -5986,7 +5986,7 @@ export interface StringConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: string;
+  DefaultValue?: string | undefined;
 
   /**
    * <p>
@@ -5994,7 +5994,7 @@ export interface StringConfigurationOptions {
    *         </p>
    * @public
    */
-  Re2Expression?: string;
+  Re2Expression?: string | undefined;
 
   /**
    * <p>
@@ -6002,7 +6002,7 @@ export interface StringConfigurationOptions {
    *         </p>
    * @public
    */
-  ExpressionDescription?: string;
+  ExpressionDescription?: string | undefined;
 }
 
 /**
@@ -6018,7 +6018,7 @@ export interface StringListConfigurationOptions {
    *         </p>
    * @public
    */
-  DefaultValue?: string[];
+  DefaultValue?: string[] | undefined;
 
   /**
    * <p>
@@ -6027,7 +6027,7 @@ export interface StringListConfigurationOptions {
    *         </p>
    * @public
    */
-  Re2Expression?: string;
+  Re2Expression?: string | undefined;
 
   /**
    * <p>
@@ -6035,7 +6035,7 @@ export interface StringListConfigurationOptions {
    *         </p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>
@@ -6043,7 +6043,7 @@ export interface StringListConfigurationOptions {
    *         </p>
    * @public
    */
-  ExpressionDescription?: string;
+  ExpressionDescription?: string | undefined;
 }
 
 /**
@@ -6266,7 +6266,7 @@ export interface ConfigurationPolicySummary {
    *         </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -6274,7 +6274,7 @@ export interface ConfigurationPolicySummary {
    *         </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -6283,7 +6283,7 @@ export interface ConfigurationPolicySummary {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -6291,7 +6291,7 @@ export interface ConfigurationPolicySummary {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -6299,7 +6299,7 @@ export interface ConfigurationPolicySummary {
    *         </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -6307,7 +6307,7 @@ export interface ConfigurationPolicySummary {
    *         </p>
    * @public
    */
-  ServiceEnabled?: boolean;
+  ServiceEnabled?: boolean | undefined;
 }
 
 /**
@@ -6365,8 +6365,8 @@ export interface CreateActionTargetResponse {
 export class ResourceConflictException extends __BaseException {
   readonly name: "ResourceConflictException" = "ResourceConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -6392,7 +6392,7 @@ export interface CreateAutomationRuleRequest {
    *         </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>
@@ -6405,7 +6405,7 @@ export interface CreateAutomationRuleRequest {
    *       </p>
    * @public
    */
-  RuleStatus?: RuleStatus;
+  RuleStatus?: RuleStatus | undefined;
 
   /**
    * <p>An integer ranging from 1 to 1000 that represents the order in which the rule action is
@@ -6438,7 +6438,7 @@ export interface CreateAutomationRuleRequest {
    *         </p>
    * @public
    */
-  IsTerminal?: boolean;
+  IsTerminal?: boolean | undefined;
 
   /**
    * <p>
@@ -6470,7 +6470,7 @@ export interface CreateAutomationRuleResponse {
    *       </p>
    * @public
    */
-  RuleArn?: string;
+  RuleArn?: string | undefined;
 }
 
 /**
@@ -6486,7 +6486,7 @@ export interface SecurityControlCustomParameter {
    *         </p>
    * @public
    */
-  SecurityControlId?: string;
+  SecurityControlId?: string | undefined;
 
   /**
    * <p>
@@ -6494,7 +6494,7 @@ export interface SecurityControlCustomParameter {
    *         </p>
    * @public
    */
-  Parameters?: Record<string, ParameterConfiguration>;
+  Parameters?: Record<string, ParameterConfiguration> | undefined;
 }
 
 /**
@@ -6512,7 +6512,7 @@ export interface SecurityControlsConfiguration {
    *         </p>
    * @public
    */
-  EnabledSecurityControlIdentifiers?: string[];
+  EnabledSecurityControlIdentifiers?: string[] | undefined;
 
   /**
    * <p>
@@ -6521,7 +6521,7 @@ export interface SecurityControlsConfiguration {
    *         </p>
    * @public
    */
-  DisabledSecurityControlIdentifiers?: string[];
+  DisabledSecurityControlIdentifiers?: string[] | undefined;
 
   /**
    * <p>
@@ -6529,7 +6529,7 @@ export interface SecurityControlsConfiguration {
    *         </p>
    * @public
    */
-  SecurityControlCustomParameters?: SecurityControlCustomParameter[];
+  SecurityControlCustomParameters?: SecurityControlCustomParameter[] | undefined;
 }
 
 /**
@@ -6550,7 +6550,7 @@ export interface SecurityHubPolicy {
    *         </p>
    * @public
    */
-  ServiceEnabled?: boolean;
+  ServiceEnabled?: boolean | undefined;
 
   /**
    * <p>
@@ -6558,7 +6558,7 @@ export interface SecurityHubPolicy {
    *         </p>
    * @public
    */
-  EnabledStandardIdentifiers?: string[];
+  EnabledStandardIdentifiers?: string[] | undefined;
 
   /**
    * <p>
@@ -6567,7 +6567,7 @@ export interface SecurityHubPolicy {
    *         </p>
    * @public
    */
-  SecurityControlsConfiguration?: SecurityControlsConfiguration;
+  SecurityControlsConfiguration?: SecurityControlsConfiguration | undefined;
 }
 
 /**
@@ -6636,7 +6636,7 @@ export interface CreateConfigurationPolicyRequest {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -6658,7 +6658,7 @@ export interface CreateConfigurationPolicyRequest {
    *         </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6671,7 +6671,7 @@ export interface CreateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -6679,7 +6679,7 @@ export interface CreateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -6687,7 +6687,7 @@ export interface CreateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -6695,7 +6695,7 @@ export interface CreateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -6703,7 +6703,7 @@ export interface CreateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -6711,7 +6711,7 @@ export interface CreateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -6723,7 +6723,7 @@ export interface CreateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicy?: Policy;
+  ConfigurationPolicy?: Policy | undefined;
 }
 
 /**
@@ -6768,7 +6768,7 @@ export interface CreateFindingAggregatorRequest {
    *            <code>NO_REGIONS</code>.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -6779,25 +6779,25 @@ export interface CreateFindingAggregatorResponse {
    * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and stop cross-Region aggregation.</p>
    * @public
    */
-  FindingAggregatorArn?: string;
+  FindingAggregatorArn?: string | undefined;
 
   /**
    * <p>The home Region. Findings generated in linked Regions are replicated and sent to the home Region.</p>
    * @public
    */
-  FindingAggregationRegion?: string;
+  FindingAggregationRegion?: string | undefined;
 
   /**
    * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
    * @public
    */
-  RegionLinkingMode?: string;
+  RegionLinkingMode?: string | undefined;
 
   /**
    * <p>The list of excluded Regions or included Regions.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -6859,13 +6859,13 @@ export interface Result {
    * <p>An Amazon Web Services account ID of the account that was not processed.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The reason that the account was not processed.</p>
    * @public
    */
-  ProcessingResult?: string;
+  ProcessingResult?: string | undefined;
 }
 
 /**
@@ -6877,7 +6877,7 @@ export interface CreateMembersResponse {
    *          the account ID and the email address.</p>
    * @public
    */
-  UnprocessedAccounts?: Result[];
+  UnprocessedAccounts?: Result[] | undefined;
 }
 
 /**
@@ -6913,7 +6913,7 @@ export interface DeclineInvitationsResponse {
    *          the account ID and the email address.</p>
    * @public
    */
-  UnprocessedAccounts?: Result[];
+  UnprocessedAccounts?: Result[] | undefined;
 }
 
 /**
@@ -7014,7 +7014,7 @@ export interface DeleteInvitationsResponse {
    *          the list includes the account ID and the email address.</p>
    * @public
    */
-  UnprocessedAccounts?: Result[];
+  UnprocessedAccounts?: Result[] | undefined;
 }
 
 /**
@@ -7037,7 +7037,7 @@ export interface DeleteMembersResponse {
    *          account ID and the email address.</p>
    * @public
    */
-  UnprocessedAccounts?: Result[];
+  UnprocessedAccounts?: Result[] | undefined;
 }
 
 /**
@@ -7048,7 +7048,7 @@ export interface DescribeActionTargetsRequest {
    * <p>A list of custom action target ARNs for the custom action targets to retrieve.</p>
    * @public
    */
-  ActionTargetArns?: string[];
+  ActionTargetArns?: string[] | undefined;
 
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -7058,13 +7058,13 @@ export interface DescribeActionTargetsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -7083,7 +7083,7 @@ export interface DescribeActionTargetsResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7094,7 +7094,7 @@ export interface DescribeHubRequest {
    * <p>The ARN of the Hub resource to retrieve.</p>
    * @public
    */
-  HubArn?: string;
+  HubArn?: string | undefined;
 }
 
 /**
@@ -7105,13 +7105,13 @@ export interface DescribeHubResponse {
    * <p>The ARN of the Hub resource that was retrieved.</p>
    * @public
    */
-  HubArn?: string;
+  HubArn?: string | undefined;
 
   /**
    * <p>The date and time when Security Hub was enabled in the account.</p>
    * @public
    */
-  SubscribedAt?: string;
+  SubscribedAt?: string | undefined;
 
   /**
    * <p>Whether to automatically enable new controls when they are added to standards that are
@@ -7120,7 +7120,7 @@ export interface DescribeHubResponse {
    *          automatically. If set to <code>false</code>, then new controls are not enabled.</p>
    * @public
    */
-  AutoEnableControls?: boolean;
+  AutoEnableControls?: boolean | undefined;
 
   /**
    * <p>Specifies whether the calling account has consolidated control findings turned on. If the value for this field is set to
@@ -7134,7 +7134,7 @@ export interface DescribeHubResponse {
    *          2023.</p>
    * @public
    */
-  ControlFindingGenerator?: ControlFindingGenerator;
+  ControlFindingGenerator?: ControlFindingGenerator | undefined;
 }
 
 /**
@@ -7199,7 +7199,7 @@ export interface OrganizationConfiguration {
    *         </p>
    * @public
    */
-  ConfigurationType?: OrganizationConfigurationConfigurationType;
+  ConfigurationType?: OrganizationConfigurationConfigurationType | undefined;
 
   /**
    * <p>
@@ -7209,7 +7209,7 @@ export interface OrganizationConfiguration {
    *         </p>
    * @public
    */
-  Status?: OrganizationConfigurationStatus;
+  Status?: OrganizationConfigurationStatus | undefined;
 
   /**
    * <p>
@@ -7218,7 +7218,7 @@ export interface OrganizationConfiguration {
    *         </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -7234,14 +7234,14 @@ export interface DescribeOrganizationConfigurationResponse {
    *             policy in which Security Hub is enabled and associate the policy with new organization accounts.</p>
    * @public
    */
-  AutoEnable?: boolean;
+  AutoEnable?: boolean | undefined;
 
   /**
    * <p>Whether the maximum number of allowed member accounts are already associated with the
    *          Security Hub administrator account.</p>
    * @public
    */
-  MemberAccountLimitReached?: boolean;
+  MemberAccountLimitReached?: boolean | undefined;
 
   /**
    * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
@@ -7254,7 +7254,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
    * @public
    */
-  AutoEnableStandards?: AutoEnableStandards;
+  AutoEnableStandards?: AutoEnableStandards | undefined;
 
   /**
    * <p>
@@ -7262,7 +7262,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *         </p>
    * @public
    */
-  OrganizationConfiguration?: OrganizationConfiguration;
+  OrganizationConfiguration?: OrganizationConfiguration | undefined;
 }
 
 /**
@@ -7277,19 +7277,19 @@ export interface DescribeProductsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The ARN of the integration to return.</p>
    * @public
    */
-  ProductArn?: string;
+  ProductArn?: string | undefined;
 }
 
 /**
@@ -7322,25 +7322,25 @@ export interface Product {
    * <p>The name of the product.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>The name of the company that provides the product.</p>
    * @public
    */
-  CompanyName?: string;
+  CompanyName?: string | undefined;
 
   /**
    * <p>A description of the product.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The categories assigned to the product.</p>
    * @public
    */
-  Categories?: string[];
+  Categories?: string[] | undefined;
 
   /**
    * <p>The types of integration that the product supports. Available values are the
@@ -7363,26 +7363,26 @@ export interface Product {
    *          </ul>
    * @public
    */
-  IntegrationTypes?: IntegrationType[];
+  IntegrationTypes?: IntegrationType[] | undefined;
 
   /**
    * <p>For integrations with Amazon Web Services services, the Amazon Web Services Console URL from which to activate the service.</p>
    *          <p>For integrations with third-party products, the Amazon Web Services Marketplace URL from which to subscribe to or purchase the product.</p>
    * @public
    */
-  MarketplaceUrl?: string;
+  MarketplaceUrl?: string | undefined;
 
   /**
    * <p>The URL to the service or product documentation about the integration with Security Hub, including how to activate the integration.</p>
    * @public
    */
-  ActivationUrl?: string;
+  ActivationUrl?: string | undefined;
 
   /**
    * <p>The resource policy associated with the product.</p>
    * @public
    */
-  ProductSubscriptionResourcePolicy?: string;
+  ProductSubscriptionResourcePolicy?: string | undefined;
 }
 
 /**
@@ -7399,7 +7399,7 @@ export interface DescribeProductsResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7414,13 +7414,13 @@ export interface DescribeStandardsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of standards to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -7433,7 +7433,7 @@ export interface StandardsManagedBy {
    *          standards, the value is equal to <code>Amazon Web Services</code>.</p>
    * @public
    */
-  Company?: string;
+  Company?: string | undefined;
 
   /**
    * <p>An identifier for the product that manages a specific security standard. For existing
@@ -7441,7 +7441,7 @@ export interface StandardsManagedBy {
    *          standard.</p>
    * @public
    */
-  Product?: string;
+  Product?: string | undefined;
 }
 
 /**
@@ -7453,19 +7453,19 @@ export interface Standard {
    * <p>The ARN of a standard.</p>
    * @public
    */
-  StandardsArn?: string;
+  StandardsArn?: string | undefined;
 
   /**
    * <p>The name of the standard.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A description of the standard.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Whether the standard is enabled by default. When Security Hub is enabled from the console, if a
@@ -7476,14 +7476,14 @@ export interface Standard {
    *             <code>false</code>.</p>
    * @public
    */
-  EnabledByDefault?: boolean;
+  EnabledByDefault?: boolean | undefined;
 
   /**
    * <p>Provides details about the management of a standard.
    *       </p>
    * @public
    */
-  StandardsManagedBy?: StandardsManagedBy;
+  StandardsManagedBy?: StandardsManagedBy | undefined;
 }
 
 /**
@@ -7494,13 +7494,13 @@ export interface DescribeStandardsResponse {
    * <p>A list of available standards.</p>
    * @public
    */
-  Standards?: Standard[];
+  Standards?: Standard[] | undefined;
 
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7522,13 +7522,13 @@ export interface DescribeStandardsControlsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of security standard controls to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -7540,53 +7540,53 @@ export interface StandardsControl {
    * <p>The ARN of the security standard control.</p>
    * @public
    */
-  StandardsControlArn?: string;
+  StandardsControlArn?: string | undefined;
 
   /**
    * <p>The current status of the security standard control. Indicates whether the control is
    *          enabled or disabled. Security Hub does not check against disabled controls.</p>
    * @public
    */
-  ControlStatus?: ControlStatus;
+  ControlStatus?: ControlStatus | undefined;
 
   /**
    * <p>The reason provided for the most recent change in status for the control.</p>
    * @public
    */
-  DisabledReason?: string;
+  DisabledReason?: string | undefined;
 
   /**
    * <p>The date and time that the status of the security standard control was most recently
    *          updated.</p>
    * @public
    */
-  ControlStatusUpdatedAt?: Date;
+  ControlStatusUpdatedAt?: Date | undefined;
 
   /**
    * <p>The identifier of the security standard control.</p>
    * @public
    */
-  ControlId?: string;
+  ControlId?: string | undefined;
 
   /**
    * <p>The title of the security standard control.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>The longer description of the security standard control. Provides information about what
    *          the control is checking for.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A link to remediation information for the control in the Security Hub user
    *          documentation.</p>
    * @public
    */
-  RemediationUrl?: string;
+  RemediationUrl?: string | undefined;
 
   /**
    * <p>The severity of findings generated from this security standard control.</p>
@@ -7594,13 +7594,13 @@ export interface StandardsControl {
    *          resources if the issue is detected.</p>
    * @public
    */
-  SeverityRating?: SeverityRating;
+  SeverityRating?: SeverityRating | undefined;
 
   /**
    * <p>The list of requirements that are related to this control.</p>
    * @public
    */
-  RelatedRequirements?: string[];
+  RelatedRequirements?: string[] | undefined;
 }
 
 /**
@@ -7611,13 +7611,13 @@ export interface DescribeStandardsControlsResponse {
    * <p>A list of security standards controls.</p>
    * @public
    */
-  Controls?: StandardsControl[];
+  Controls?: StandardsControl[] | undefined;
 
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7717,7 +7717,7 @@ export interface EnableImportFindingsForProductResponse {
    * <p>The ARN of your subscription to the product to enable integrations for.</p>
    * @public
    */
-  ProductSubscriptionArn?: string;
+  ProductSubscriptionArn?: string | undefined;
 }
 
 /**
@@ -7745,7 +7745,7 @@ export interface EnableSecurityHubRequest {
    * <p>The tags to add to the hub resource when you enable Security Hub.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Whether to enable the security standards that Security Hub has designated as automatically
@@ -7754,7 +7754,7 @@ export interface EnableSecurityHubRequest {
    *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
    * @public
    */
-  EnableDefaultStandards?: boolean;
+  EnableDefaultStandards?: boolean | undefined;
 
   /**
    * <p>This field, used when enabling Security Hub, specifies whether the calling account has consolidated control findings turned on.
@@ -7769,7 +7769,7 @@ export interface EnableSecurityHubRequest {
    *          2023.</p>
    * @public
    */
-  ControlFindingGenerator?: ControlFindingGenerator;
+  ControlFindingGenerator?: ControlFindingGenerator | undefined;
 }
 
 /**
@@ -7787,7 +7787,7 @@ export interface FindingAggregator {
    * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.</p>
    * @public
    */
-  FindingAggregatorArn?: string;
+  FindingAggregatorArn?: string | undefined;
 }
 
 /**
@@ -7803,7 +7803,7 @@ export interface FindingHistoryUpdate {
    *       </p>
    * @public
    */
-  UpdatedField?: string;
+  UpdatedField?: string | undefined;
 
   /**
    * <p>
@@ -7811,7 +7811,7 @@ export interface FindingHistoryUpdate {
    *       </p>
    * @public
    */
-  OldValue?: string;
+  OldValue?: string | undefined;
 
   /**
    * <p>
@@ -7822,7 +7822,7 @@ export interface FindingHistoryUpdate {
    *       </p>
    * @public
    */
-  NewValue?: string;
+  NewValue?: string | undefined;
 }
 
 /**
@@ -7857,7 +7857,7 @@ export interface FindingHistoryUpdateSource {
    *       </p>
    * @public
    */
-  Type?: FindingHistoryUpdateSourceType;
+  Type?: FindingHistoryUpdateSourceType | undefined;
 
   /**
    * <p>
@@ -7865,7 +7865,7 @@ export interface FindingHistoryUpdateSource {
    *       </p>
    * @public
    */
-  Identity?: string;
+  Identity?: string | undefined;
 }
 
 /**
@@ -7880,7 +7880,7 @@ export interface FindingHistoryRecord {
    * <p>Identifies which finding to get the finding history for.</p>
    * @public
    */
-  FindingIdentifier?: AwsSecurityFindingIdentifier;
+  FindingIdentifier?: AwsSecurityFindingIdentifier | undefined;
 
   /**
    * <p> A timestamp that indicates when Security Hub
@@ -7912,7 +7912,7 @@ export interface FindingHistoryRecord {
    *          </ul>
    * @public
    */
-  UpdateTime?: Date;
+  UpdateTime?: Date | undefined;
 
   /**
    * <p>
@@ -7921,7 +7921,7 @@ export interface FindingHistoryRecord {
    *       </p>
    * @public
    */
-  FindingCreated?: boolean;
+  FindingCreated?: boolean | undefined;
 
   /**
    * <p> Identifies the source of the event that changed the finding. For example, an integrated
@@ -7933,7 +7933,7 @@ export interface FindingHistoryRecord {
    *             </a>. </p>
    * @public
    */
-  UpdateSource?: FindingHistoryUpdateSource;
+  UpdateSource?: FindingHistoryUpdateSource | undefined;
 
   /**
    * <p>
@@ -7943,7 +7943,7 @@ export interface FindingHistoryRecord {
    *       </p>
    * @public
    */
-  Updates?: FindingHistoryUpdate[];
+  Updates?: FindingHistoryUpdate[] | undefined;
 
   /**
    * <p>
@@ -7954,7 +7954,7 @@ export interface FindingHistoryRecord {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7971,25 +7971,25 @@ export interface Invitation {
    * <p>The account ID of the Security Hub administrator account that the invitation was sent from.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID of the invitation sent to the member account.</p>
    * @public
    */
-  InvitationId?: string;
+  InvitationId?: string | undefined;
 
   /**
    * <p>The timestamp of when the invitation was sent.</p>
    * @public
    */
-  InvitedAt?: Date;
+  InvitedAt?: Date | undefined;
 
   /**
    * <p>The current status of the association between the member and administrator accounts.</p>
    * @public
    */
-  MemberStatus?: string;
+  MemberStatus?: string | undefined;
 }
 
 /**
@@ -8000,7 +8000,7 @@ export interface GetAdministratorAccountResponse {
    * <p>Details about an invitation.</p>
    * @public
    */
-  Administrator?: Invitation;
+  Administrator?: Invitation | undefined;
 }
 
 /**
@@ -8026,7 +8026,7 @@ export interface GetConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -8034,7 +8034,7 @@ export interface GetConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -8042,7 +8042,7 @@ export interface GetConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -8050,7 +8050,7 @@ export interface GetConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -8058,7 +8058,7 @@ export interface GetConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -8066,7 +8066,7 @@ export interface GetConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -8078,7 +8078,7 @@ export interface GetConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicy?: Policy;
+  ConfigurationPolicy?: Policy | undefined;
 }
 
 /**
@@ -8105,7 +8105,7 @@ export interface GetConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicyId?: string;
+  ConfigurationPolicyId?: string | undefined;
 
   /**
    * <p>
@@ -8113,7 +8113,7 @@ export interface GetConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 
   /**
    * <p>
@@ -8121,7 +8121,7 @@ export interface GetConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  TargetType?: TargetType;
+  TargetType?: TargetType | undefined;
 
   /**
    * <p>
@@ -8130,7 +8130,7 @@ export interface GetConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  AssociationType?: AssociationType;
+  AssociationType?: AssociationType | undefined;
 
   /**
    * <p>
@@ -8138,7 +8138,7 @@ export interface GetConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -8146,7 +8146,7 @@ export interface GetConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 
   /**
    * <p>
@@ -8154,7 +8154,7 @@ export interface GetConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  AssociationStatusMessage?: string;
+  AssociationStatusMessage?: string | undefined;
 }
 
 /**
@@ -8165,7 +8165,7 @@ export interface GetEnabledStandardsRequest {
    * <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
    * @public
    */
-  StandardsSubscriptionArns?: string[];
+  StandardsSubscriptionArns?: string[] | undefined;
 
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -8175,13 +8175,13 @@ export interface GetEnabledStandardsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8193,13 +8193,13 @@ export interface GetEnabledStandardsResponse {
    *          the enabled standards.</p>
    * @public
    */
-  StandardsSubscriptions?: StandardsSubscription[];
+  StandardsSubscriptions?: StandardsSubscription[] | undefined;
 
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8221,25 +8221,25 @@ export interface GetFindingAggregatorResponse {
    * <p>The ARN of the finding aggregator.</p>
    * @public
    */
-  FindingAggregatorArn?: string;
+  FindingAggregatorArn?: string | undefined;
 
   /**
    * <p>The home Region. Findings generated in linked Regions are replicated and sent to the home Region.</p>
    * @public
    */
-  FindingAggregationRegion?: string;
+  FindingAggregationRegion?: string | undefined;
 
   /**
    * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
    * @public
    */
-  RegionLinkingMode?: string;
+  RegionLinkingMode?: string | undefined;
 
   /**
    * <p>The list of excluded Regions or included Regions.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -8290,7 +8290,7 @@ export interface GetFindingHistoryRequest {
    *          </ul>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>
@@ -8331,7 +8331,7 @@ export interface GetFindingHistoryRequest {
    *          </ul>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>
@@ -8341,7 +8341,7 @@ export interface GetFindingHistoryRequest {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -8349,7 +8349,7 @@ export interface GetFindingHistoryRequest {
    *       </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8362,7 +8362,7 @@ export interface GetFindingHistoryResponse {
    *       </p>
    * @public
    */
-  Records?: FindingHistoryRecord[];
+  Records?: FindingHistoryRecord[] | undefined;
 
   /**
    * <p>
@@ -8371,7 +8371,7 @@ export interface GetFindingHistoryResponse {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8397,13 +8397,13 @@ export interface SortCriterion {
    * <p>The finding attribute used to sort findings.</p>
    * @public
    */
-  Field?: string;
+  Field?: string | undefined;
 
   /**
    * <p>The order used to sort findings.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -8419,13 +8419,13 @@ export interface GetFindingsRequest {
    *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
    * @public
    */
-  Filters?: AwsSecurityFindingFilters;
+  Filters?: AwsSecurityFindingFilters | undefined;
 
   /**
    * <p>The finding attributes used to sort the list of returned findings.</p>
    * @public
    */
-  SortCriteria?: SortCriterion[];
+  SortCriteria?: SortCriterion[] | undefined;
 
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -8435,13 +8435,13 @@ export interface GetFindingsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of findings to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8458,7 +8458,7 @@ export interface GetFindingsResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8540,7 +8540,7 @@ export interface GetInsightsRequest {
    *          managed insights.</p>
    * @public
    */
-  InsightArns?: string[];
+  InsightArns?: string[] | undefined;
 
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -8550,13 +8550,13 @@ export interface GetInsightsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8607,7 +8607,7 @@ export interface GetInsightsResponse {
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8624,7 +8624,7 @@ export interface GetInvitationsCountResponse {
    *          including the currently accepted invitation.</p>
    * @public
    */
-  InvitationsCount?: number;
+  InvitationsCount?: number | undefined;
 }
 
 /**
@@ -8641,7 +8641,7 @@ export interface GetMasterAccountResponse {
    *       </p>
    * @public
    */
-  Master?: Invitation;
+  Master?: Invitation | undefined;
 }
 
 /**
@@ -8664,13 +8664,13 @@ export interface Member {
    * <p>The Amazon Web Services account ID of the member account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The email address of the member account.</p>
    * @public
    */
-  Email?: string;
+  Email?: string | undefined;
 
   /**
    * @deprecated
@@ -8679,13 +8679,13 @@ export interface Member {
    *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
    * @public
    */
-  MasterId?: string;
+  MasterId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
    * @public
    */
-  AdministratorId?: string;
+  AdministratorId?: string | undefined;
 
   /**
    * <p>The status of the relationship between the member account and its administrator account.
@@ -8730,20 +8730,20 @@ export interface Member {
    *          </ul>
    * @public
    */
-  MemberStatus?: string;
+  MemberStatus?: string | undefined;
 
   /**
    * <p>A timestamp for the date and time when the invitation was sent to the member
    *          account.</p>
    * @public
    */
-  InvitedAt?: Date;
+  InvitedAt?: Date | undefined;
 
   /**
    * <p>The timestamp for the date and time when the member account was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -8754,14 +8754,14 @@ export interface GetMembersResponse {
    * <p>The list of details about the Security Hub member accounts.</p>
    * @public
    */
-  Members?: Member[];
+  Members?: Member[] | undefined;
 
   /**
    * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
    *          includes the account ID and the email address.</p>
    * @public
    */
-  UnprocessedAccounts?: Result[];
+  UnprocessedAccounts?: Result[] | undefined;
 }
 
 /**
@@ -8883,7 +8883,7 @@ export interface SecurityControlDefinition {
    *         </p>
    * @public
    */
-  CustomizableProperties?: SecurityControlProperty[];
+  CustomizableProperties?: SecurityControlProperty[] | undefined;
 
   /**
    * <p>
@@ -8892,7 +8892,7 @@ export interface SecurityControlDefinition {
    *         </p>
    * @public
    */
-  ParameterDefinitions?: Record<string, ParameterDefinition>;
+  ParameterDefinitions?: Record<string, ParameterDefinition> | undefined;
 }
 
 /**
@@ -8929,7 +8929,7 @@ export interface InviteMembersResponse {
    *          includes the account ID and the email address.</p>
    * @public
    */
-  UnprocessedAccounts?: Result[];
+  UnprocessedAccounts?: Result[] | undefined;
 }
 
 /**
@@ -8944,14 +8944,14 @@ export interface ListAutomationRulesRequest {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of rules to return in the response. This currently ranges from 1 to
    *          100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -8965,7 +8965,7 @@ export interface ListAutomationRulesResponse {
    *       </p>
    * @public
    */
-  AutomationRulesMetadata?: AutomationRulesMetadata[];
+  AutomationRulesMetadata?: AutomationRulesMetadata[] | undefined;
 
   /**
    * <p>
@@ -8973,7 +8973,7 @@ export interface ListAutomationRulesResponse {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8990,7 +8990,7 @@ export interface ListConfigurationPoliciesRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -9002,7 +9002,7 @@ export interface ListConfigurationPoliciesRequest {
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -9015,7 +9015,7 @@ export interface ListConfigurationPoliciesResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicySummaries?: ConfigurationPolicySummary[];
+  ConfigurationPolicySummaries?: ConfigurationPolicySummary[] | undefined;
 
   /**
    * <p>
@@ -9025,7 +9025,7 @@ export interface ListConfigurationPoliciesResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9041,7 +9041,7 @@ export interface ListConfigurationPolicyAssociationsRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -9053,7 +9053,7 @@ export interface ListConfigurationPolicyAssociationsRequest {
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -9062,7 +9062,7 @@ export interface ListConfigurationPolicyAssociationsRequest {
    *         </p>
    * @public
    */
-  Filters?: AssociationFilters;
+  Filters?: AssociationFilters | undefined;
 }
 
 /**
@@ -9076,7 +9076,7 @@ export interface ListConfigurationPolicyAssociationsResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[];
+  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[] | undefined;
 
   /**
    * <p>
@@ -9086,7 +9086,7 @@ export interface ListConfigurationPolicyAssociationsResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9101,13 +9101,13 @@ export interface ListEnabledProductsForImportRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -9118,13 +9118,13 @@ export interface ListEnabledProductsForImportResponse {
    * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
    * @public
    */
-  ProductSubscriptions?: string[];
+  ProductSubscriptions?: string[] | undefined;
 
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9135,13 +9135,13 @@ export interface ListFindingAggregatorsRequest {
    * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -9152,7 +9152,7 @@ export interface ListFindingAggregatorsResponse {
    * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
    * @public
    */
-  FindingAggregators?: FindingAggregator[];
+  FindingAggregators?: FindingAggregator[] | undefined;
 
   /**
    * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
@@ -9160,7 +9160,7 @@ export interface ListFindingAggregatorsResponse {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9171,7 +9171,7 @@ export interface ListInvitationsRequest {
    * <p>The maximum number of items to return in the response. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -9181,7 +9181,7 @@ export interface ListInvitationsRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9192,13 +9192,13 @@ export interface ListInvitationsResponse {
    * <p>The details of the invitations returned by the operation.</p>
    * @public
    */
-  Invitations?: Invitation[];
+  Invitations?: Invitation[] | undefined;
 
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9214,13 +9214,13 @@ export interface ListMembersRequest {
    *          existing member accounts. </p>
    * @public
    */
-  OnlyAssociated?: boolean;
+  OnlyAssociated?: boolean | undefined;
 
   /**
    * <p>The maximum number of items to return in the response. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -9230,7 +9230,7 @@ export interface ListMembersRequest {
    *          parameter to the value returned from the previous response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9241,13 +9241,13 @@ export interface ListMembersResponse {
    * <p>Member details returned by the operation.</p>
    * @public
    */
-  Members?: Member[];
+  Members?: Member[] | undefined;
 
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9258,7 +9258,7 @@ export interface ListOrganizationAdminAccountsRequest {
    * <p>The maximum number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that is required for pagination. On your first call to the
@@ -9267,7 +9267,7 @@ export interface ListOrganizationAdminAccountsRequest {
    *          the value of this parameter to the value returned from the previous response. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9278,13 +9278,13 @@ export interface ListOrganizationAdminAccountsResponse {
    * <p>The list of Security Hub administrator accounts.</p>
    * @public
    */
-  AdminAccounts?: AdminAccount[];
+  AdminAccounts?: AdminAccount[] | undefined;
 
   /**
    * <p>The pagination token to use to request the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9297,7 +9297,7 @@ export interface ListSecurityControlDefinitionsRequest {
    *       </p>
    * @public
    */
-  StandardsArn?: string;
+  StandardsArn?: string | undefined;
 
   /**
    * <p>
@@ -9305,7 +9305,7 @@ export interface ListSecurityControlDefinitionsRequest {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> An optional parameter that limits the total results of the API response to the
@@ -9315,7 +9315,7 @@ export interface ListSecurityControlDefinitionsRequest {
    *          next 25 controls. This repeats until all controls for the standard are returned. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -9335,7 +9335,7 @@ export interface ListSecurityControlDefinitionsResponse {
    *          request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9357,7 +9357,7 @@ export interface ListStandardsControlAssociationsRequest {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> An optional parameter that limits the total results of the API response to the
@@ -9369,7 +9369,7 @@ export interface ListStandardsControlAssociationsRequest {
    *          standards that you've enabled in the calling account. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -9417,19 +9417,19 @@ export interface StandardsControlAssociationSummary {
    *       </p>
    * @public
    */
-  RelatedRequirements?: string[];
+  RelatedRequirements?: string[] | undefined;
 
   /**
    * <p>The last time that a control's enablement status in a specified standard was updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The reason for updating a control's enablement status in a specified standard.</p>
    * @public
    */
-  UpdatedReason?: string;
+  UpdatedReason?: string | undefined;
 
   /**
    * <p>
@@ -9437,7 +9437,7 @@ export interface StandardsControlAssociationSummary {
    *       </p>
    * @public
    */
-  StandardsControlTitle?: string;
+  StandardsControlTitle?: string | undefined;
 
   /**
    * <p>
@@ -9446,7 +9446,7 @@ export interface StandardsControlAssociationSummary {
    *       </p>
    * @public
    */
-  StandardsControlDescription?: string;
+  StandardsControlDescription?: string | undefined;
 }
 
 /**
@@ -9465,7 +9465,7 @@ export interface ListStandardsControlAssociationsResponse {
    *          request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -9487,7 +9487,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with a resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -9500,8 +9500,8 @@ export interface ListTagsForResourceResponse {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -9549,7 +9549,7 @@ export interface StartConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicyId?: string;
+  ConfigurationPolicyId?: string | undefined;
 
   /**
    * <p>
@@ -9557,7 +9557,7 @@ export interface StartConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 
   /**
    * <p>
@@ -9565,7 +9565,7 @@ export interface StartConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  TargetType?: TargetType;
+  TargetType?: TargetType | undefined;
 
   /**
    * <p>
@@ -9574,7 +9574,7 @@ export interface StartConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  AssociationType?: AssociationType;
+  AssociationType?: AssociationType | undefined;
 
   /**
    * <p>
@@ -9582,7 +9582,7 @@ export interface StartConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -9590,7 +9590,7 @@ export interface StartConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+  AssociationStatus?: ConfigurationPolicyAssociationStatus | undefined;
 
   /**
    * <p>
@@ -9598,7 +9598,7 @@ export interface StartConfigurationPolicyAssociationResponse {
    *         </p>
    * @public
    */
-  AssociationStatusMessage?: string;
+  AssociationStatusMessage?: string | undefined;
 }
 
 /**
@@ -9611,7 +9611,7 @@ export interface StartConfigurationPolicyDisassociationRequest {
    *         </p>
    * @public
    */
-  Target?: Target;
+  Target?: Target | undefined;
 
   /**
    * <p>
@@ -9686,13 +9686,13 @@ export interface UpdateActionTargetRequest {
    * <p>The updated name of the custom action target.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated description for the custom action target.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -9719,7 +9719,7 @@ export interface UpdateConfigurationPolicyRequest {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -9727,7 +9727,7 @@ export interface UpdateConfigurationPolicyRequest {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -9735,7 +9735,7 @@ export interface UpdateConfigurationPolicyRequest {
    *         </p>
    * @public
    */
-  UpdatedReason?: string;
+  UpdatedReason?: string | undefined;
 
   /**
    * <p>
@@ -9749,7 +9749,7 @@ export interface UpdateConfigurationPolicyRequest {
    *             of controls that you want to enable or disable. The updated configuration replaces the current configuration.</p>
    * @public
    */
-  ConfigurationPolicy?: Policy;
+  ConfigurationPolicy?: Policy | undefined;
 }
 
 /**
@@ -9762,7 +9762,7 @@ export interface UpdateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -9770,7 +9770,7 @@ export interface UpdateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -9778,7 +9778,7 @@ export interface UpdateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -9786,7 +9786,7 @@ export interface UpdateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -9794,7 +9794,7 @@ export interface UpdateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -9802,7 +9802,7 @@ export interface UpdateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>
@@ -9814,7 +9814,7 @@ export interface UpdateConfigurationPolicyResponse {
    *         </p>
    * @public
    */
-  ConfigurationPolicy?: Policy;
+  ConfigurationPolicy?: Policy | undefined;
 }
 
 /**
@@ -9864,7 +9864,7 @@ export interface UpdateFindingAggregatorRequest {
    *         <code>NO_REGIONS</code>.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -9875,25 +9875,25 @@ export interface UpdateFindingAggregatorResponse {
    * <p>The ARN of the finding aggregator.</p>
    * @public
    */
-  FindingAggregatorArn?: string;
+  FindingAggregatorArn?: string | undefined;
 
   /**
    * <p>The home Region. Findings generated in linked Regions are replicated and sent to the home Region.</p>
    * @public
    */
-  FindingAggregationRegion?: string;
+  FindingAggregationRegion?: string | undefined;
 
   /**
    * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
    * @public
    */
-  RegionLinkingMode?: string;
+  RegionLinkingMode?: string | undefined;
 
   /**
    * <p>The list of excluded Regions or included Regions.</p>
    * @public
    */
-  Regions?: string[];
+  Regions?: string[] | undefined;
 }
 
 /**
@@ -9910,13 +9910,13 @@ export interface UpdateFindingsRequest {
    * <p>The updated note for the finding.</p>
    * @public
    */
-  Note?: NoteUpdate;
+  Note?: NoteUpdate | undefined;
 
   /**
    * <p>The updated record state for the finding.</p>
    * @public
    */
-  RecordState?: RecordState;
+  RecordState?: RecordState | undefined;
 }
 
 /**
@@ -9938,19 +9938,19 @@ export interface UpdateInsightRequest {
    * <p>The updated name for the insight.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated filters that define this insight.</p>
    * @public
    */
-  Filters?: AwsSecurityFindingFilters;
+  Filters?: AwsSecurityFindingFilters | undefined;
 
   /**
    * <p>The updated <code>GroupBy</code> attribute that defines this insight.</p>
    * @public
    */
-  GroupByAttribute?: string;
+  GroupByAttribute?: string | undefined;
 }
 
 /**
@@ -9985,7 +9985,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
    * @public
    */
-  AutoEnableStandards?: AutoEnableStandards;
+  AutoEnableStandards?: AutoEnableStandards | undefined;
 
   /**
    * <p>
@@ -9993,7 +9993,7 @@ export interface UpdateOrganizationConfigurationRequest {
    *         </p>
    * @public
    */
-  OrganizationConfiguration?: OrganizationConfiguration;
+  OrganizationConfiguration?: OrganizationConfiguration | undefined;
 }
 
 /**
@@ -10028,7 +10028,7 @@ export interface UpdateSecurityControlRequest {
    *         </p>
    * @public
    */
-  LastUpdateReason?: string;
+  LastUpdateReason?: string | undefined;
 }
 
 /**
@@ -10048,7 +10048,7 @@ export interface UpdateSecurityHubConfigurationRequest {
    *       </p>
    * @public
    */
-  AutoEnableControls?: boolean;
+  AutoEnableControls?: boolean | undefined;
 
   /**
    * <p>Updates whether the calling account has consolidated control findings turned on.
@@ -10060,7 +10060,7 @@ export interface UpdateSecurityHubConfigurationRequest {
    *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
    * @public
    */
-  ControlFindingGenerator?: ControlFindingGenerator;
+  ControlFindingGenerator?: ControlFindingGenerator | undefined;
 }
 
 /**
@@ -10082,14 +10082,14 @@ export interface UpdateStandardsControlRequest {
    * <p>The updated status of the security standard control.</p>
    * @public
    */
-  ControlStatus?: ControlStatus;
+  ControlStatus?: ControlStatus | undefined;
 
   /**
    * <p>A description of the reason why you are disabling a security standard control. If you
    *          are disabling a control, then this is required.</p>
    * @public
    */
-  DisabledReason?: string;
+  DisabledReason?: string | undefined;
 }
 
 /**

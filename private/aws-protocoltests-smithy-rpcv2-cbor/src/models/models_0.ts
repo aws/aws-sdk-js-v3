@@ -35,7 +35,7 @@ export class ValidationException extends __BaseException {
    * A member can appear in this list more than once if it failed to satisfy multiple constraints.
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -55,14 +55,14 @@ export class ValidationException extends __BaseException {
  * @public
  */
 export interface ClientOptionalDefaults {
-  member?: number;
+  member?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface ComplexNestedErrorData {
-  Foo?: string;
+  Foo?: string | undefined;
 }
 
 /**
@@ -72,8 +72,8 @@ export interface ComplexNestedErrorData {
 export class ComplexError extends __BaseException {
   readonly name: "ComplexError" = "ComplexError";
   readonly $fault: "client" = "client";
-  TopLevel?: string;
-  Nested?: ComplexNestedErrorData;
+  TopLevel?: string | undefined;
+  Nested?: ComplexNestedErrorData | undefined;
   /**
    * @internal
    */
@@ -112,36 +112,36 @@ export enum TestIntEnum {
  * @public
  */
 export interface Defaults {
-  defaultString?: string;
-  defaultBoolean?: boolean;
-  defaultList?: string[];
-  defaultTimestamp?: Date;
-  defaultBlob?: Uint8Array;
-  defaultByte?: number;
-  defaultShort?: number;
-  defaultInteger?: number;
-  defaultLong?: number;
-  defaultFloat?: number;
-  defaultDouble?: number;
-  defaultMap?: Record<string, string>;
-  defaultEnum?: TestEnum;
-  defaultIntEnum?: TestIntEnum;
-  emptyString?: string;
-  falseBoolean?: boolean;
-  emptyBlob?: Uint8Array;
-  zeroByte?: number;
-  zeroShort?: number;
-  zeroInteger?: number;
-  zeroLong?: number;
-  zeroFloat?: number;
-  zeroDouble?: number;
+  defaultString?: string | undefined;
+  defaultBoolean?: boolean | undefined;
+  defaultList?: string[] | undefined;
+  defaultTimestamp?: Date | undefined;
+  defaultBlob?: Uint8Array | undefined;
+  defaultByte?: number | undefined;
+  defaultShort?: number | undefined;
+  defaultInteger?: number | undefined;
+  defaultLong?: number | undefined;
+  defaultFloat?: number | undefined;
+  defaultDouble?: number | undefined;
+  defaultMap?: Record<string, string> | undefined;
+  defaultEnum?: TestEnum | undefined;
+  defaultIntEnum?: TestIntEnum | undefined;
+  emptyString?: string | undefined;
+  falseBoolean?: boolean | undefined;
+  emptyBlob?: Uint8Array | undefined;
+  zeroByte?: number | undefined;
+  zeroShort?: number | undefined;
+  zeroInteger?: number | undefined;
+  zeroLong?: number | undefined;
+  zeroFloat?: number | undefined;
+  zeroDouble?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface GreetingStruct {
-  hi?: string;
+  hi?: string | undefined;
 }
 
 /**
@@ -153,21 +153,21 @@ export interface EmptyStructure {}
  * @public
  */
 export interface Float16Output {
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface FractionalSecondsOutput {
-  datetime?: Date;
+  datetime?: Date | undefined;
 }
 
 /**
  * @public
  */
 export interface GreetingWithErrorsOutput {
-  greeting?: string;
+  greeting?: string | undefined;
 }
 
 /**
@@ -177,7 +177,7 @@ export interface GreetingWithErrorsOutput {
 export class InvalidGreeting extends __BaseException {
   readonly name: "InvalidGreeting" = "InvalidGreeting";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -196,57 +196,57 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export interface OperationWithDefaultsInput {
-  defaults?: Defaults;
-  clientOptionalDefaults?: ClientOptionalDefaults;
-  topLevelDefault?: string;
-  otherTopLevelDefault?: number;
+  defaults?: Defaults | undefined;
+  clientOptionalDefaults?: ClientOptionalDefaults | undefined;
+  topLevelDefault?: string | undefined;
+  otherTopLevelDefault?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface OperationWithDefaultsOutput {
-  defaultString?: string;
-  defaultBoolean?: boolean;
-  defaultList?: string[];
-  defaultTimestamp?: Date;
-  defaultBlob?: Uint8Array;
-  defaultByte?: number;
-  defaultShort?: number;
-  defaultInteger?: number;
-  defaultLong?: number;
-  defaultFloat?: number;
-  defaultDouble?: number;
-  defaultMap?: Record<string, string>;
-  defaultEnum?: TestEnum;
-  defaultIntEnum?: TestIntEnum;
-  emptyString?: string;
-  falseBoolean?: boolean;
-  emptyBlob?: Uint8Array;
-  zeroByte?: number;
-  zeroShort?: number;
-  zeroInteger?: number;
-  zeroLong?: number;
-  zeroFloat?: number;
-  zeroDouble?: number;
+  defaultString?: string | undefined;
+  defaultBoolean?: boolean | undefined;
+  defaultList?: string[] | undefined;
+  defaultTimestamp?: Date | undefined;
+  defaultBlob?: Uint8Array | undefined;
+  defaultByte?: number | undefined;
+  defaultShort?: number | undefined;
+  defaultInteger?: number | undefined;
+  defaultLong?: number | undefined;
+  defaultFloat?: number | undefined;
+  defaultDouble?: number | undefined;
+  defaultMap?: Record<string, string> | undefined;
+  defaultEnum?: TestEnum | undefined;
+  defaultIntEnum?: TestIntEnum | undefined;
+  emptyString?: string | undefined;
+  falseBoolean?: boolean | undefined;
+  emptyBlob?: Uint8Array | undefined;
+  zeroByte?: number | undefined;
+  zeroShort?: number | undefined;
+  zeroInteger?: number | undefined;
+  zeroLong?: number | undefined;
+  zeroFloat?: number | undefined;
+  zeroDouble?: number | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleStructure {
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface RpcV2CborDenseMapsInputOutput {
-  denseStructMap?: Record<string, GreetingStruct>;
-  denseNumberMap?: Record<string, number>;
-  denseBooleanMap?: Record<string, boolean>;
-  denseStringMap?: Record<string, string>;
-  denseSetMap?: Record<string, string[]>;
+  denseStructMap?: Record<string, GreetingStruct> | undefined;
+  denseNumberMap?: Record<string, number> | undefined;
+  denseBooleanMap?: Record<string, boolean> | undefined;
+  denseStringMap?: Record<string, string> | undefined;
+  denseSetMap?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -275,85 +275,85 @@ export enum IntegerEnum {
  * @public
  */
 export interface StructureListMember {
-  a?: string;
-  b?: string;
+  a?: string | undefined;
+  b?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface RpcV2CborListInputOutput {
-  stringList?: string[];
-  stringSet?: string[];
-  integerList?: number[];
-  booleanList?: boolean[];
-  timestampList?: Date[];
-  enumList?: FooEnum[];
-  intEnumList?: IntegerEnum[];
+  stringList?: string[] | undefined;
+  stringSet?: string[] | undefined;
+  integerList?: number[] | undefined;
+  booleanList?: boolean[] | undefined;
+  timestampList?: Date[] | undefined;
+  enumList?: FooEnum[] | undefined;
+  intEnumList?: IntegerEnum[] | undefined;
   /**
    * A list of lists of strings.
    * @public
    */
-  nestedStringList?: string[][];
+  nestedStringList?: string[][] | undefined;
 
-  structureList?: StructureListMember[];
-  blobList?: Uint8Array[];
+  structureList?: StructureListMember[] | undefined;
+  blobList?: Uint8Array[] | undefined;
 }
 
 /**
  * @public
  */
 export interface RpcV2CborSparseMapsInputOutput {
-  sparseStructMap?: Record<string, GreetingStruct>;
-  sparseNumberMap?: Record<string, number>;
-  sparseBooleanMap?: Record<string, boolean>;
-  sparseStringMap?: Record<string, string>;
-  sparseSetMap?: Record<string, string[]>;
+  sparseStructMap?: Record<string, GreetingStruct> | undefined;
+  sparseNumberMap?: Record<string, number> | undefined;
+  sparseBooleanMap?: Record<string, boolean> | undefined;
+  sparseStringMap?: Record<string, string> | undefined;
+  sparseSetMap?: Record<string, string[]> | undefined;
 }
 
 /**
  * @public
  */
 export interface SimpleScalarStructure {
-  trueBooleanValue?: boolean;
-  falseBooleanValue?: boolean;
-  byteValue?: number;
-  doubleValue?: number;
-  floatValue?: number;
-  integerValue?: number;
-  longValue?: number;
-  shortValue?: number;
-  stringValue?: string;
-  blobValue?: Uint8Array;
+  trueBooleanValue?: boolean | undefined;
+  falseBooleanValue?: boolean | undefined;
+  byteValue?: number | undefined;
+  doubleValue?: number | undefined;
+  floatValue?: number | undefined;
+  integerValue?: number | undefined;
+  longValue?: number | undefined;
+  shortValue?: number | undefined;
+  stringValue?: string | undefined;
+  blobValue?: Uint8Array | undefined;
 }
 
 /**
  * @public
  */
 export interface SparseNullsOperationInputOutput {
-  sparseStringList?: string[];
-  sparseStringMap?: Record<string, string>;
+  sparseStringList?: string[] | undefined;
+  sparseStringMap?: Record<string, string> | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesInputOutputNested1 {
-  foo?: string;
-  nested?: RecursiveShapesInputOutputNested2;
+  foo?: string | undefined;
+  nested?: RecursiveShapesInputOutputNested2 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesInputOutputNested2 {
-  bar?: string;
-  recursiveMember?: RecursiveShapesInputOutputNested1;
+  bar?: string | undefined;
+  recursiveMember?: RecursiveShapesInputOutputNested1 | undefined;
 }
 
 /**
  * @public
  */
 export interface RecursiveShapesInputOutput {
-  nested?: RecursiveShapesInputOutputNested1;
+  nested?: RecursiveShapesInputOutputNested1 | undefined;
 }

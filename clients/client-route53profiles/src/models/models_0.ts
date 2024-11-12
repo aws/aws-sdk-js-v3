@@ -12,7 +12,7 @@ import { Route53ProfilesServiceException as __BaseException } from "./Route53Pro
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -85,7 +85,7 @@ export interface AssociateProfileRequest {
    * </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -119,7 +119,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -127,7 +127,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -135,7 +135,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>
@@ -143,7 +143,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  ProfileId?: string;
+  ProfileId?: string | undefined;
 
   /**
    * <p>
@@ -151,7 +151,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>
@@ -159,7 +159,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  Status?: ProfileStatus;
+  Status?: ProfileStatus | undefined;
 
   /**
    * <p>
@@ -167,7 +167,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>
@@ -175,7 +175,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>
@@ -183,7 +183,7 @@ export interface ProfileAssociation {
    * </p>
    * @public
    */
-  ModificationTime?: Date;
+  ModificationTime?: Date | undefined;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface AssociateProfileResponse {
    * </p>
    * @public
    */
-  ProfileAssociation?: ProfileAssociation;
+  ProfileAssociation?: ProfileAssociation | undefined;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface AssociateProfileResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -239,7 +239,7 @@ export class InvalidParameterException extends __BaseException {
    *     </p>
    * @public
    */
-  FieldName?: string;
+  FieldName?: string | undefined;
   /**
    * @internal
    */
@@ -264,14 +264,14 @@ export class InvalidParameterException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>
    *       The resource type that caused the limits to be exceeded.
    *     </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -296,14 +296,14 @@ export class LimitExceededException extends __BaseException {
 export class ResourceExistsException extends __BaseException {
   readonly name: "ResourceExistsException" = "ResourceExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>
    *       The resource type that caused the resource exists exception.
    *     </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -328,14 +328,14 @@ export class ResourceExistsException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>
    *       The resource type that caused the resource not found exception.
    *     </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -360,7 +360,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -384,7 +384,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -434,7 +434,7 @@ export interface AssociateResourceToProfileRequest {
    *          <p>The allowed values for priority are between 100 and 9900.</p>
    * @public
    */
-  ResourceProperties?: string;
+  ResourceProperties?: string | undefined;
 }
 
 /**
@@ -450,7 +450,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -458,7 +458,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -466,7 +466,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>
@@ -474,7 +474,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  ProfileId?: string;
+  ProfileId?: string | undefined;
 
   /**
    * <p>
@@ -482,7 +482,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>
@@ -490,7 +490,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>
@@ -498,7 +498,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  ResourceProperties?: string;
+  ResourceProperties?: string | undefined;
 
   /**
    * <p>
@@ -506,7 +506,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  Status?: ProfileStatus;
+  Status?: ProfileStatus | undefined;
 
   /**
    * <p>
@@ -514,7 +514,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>
@@ -522,7 +522,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>
@@ -530,7 +530,7 @@ export interface ProfileResourceAssociation {
    * </p>
    * @public
    */
-  ModificationTime?: Date;
+  ModificationTime?: Date | undefined;
 }
 
 /**
@@ -543,7 +543,7 @@ export interface AssociateResourceToProfileResponse {
    * </p>
    * @public
    */
-  ProfileResourceAssociation?: ProfileResourceAssociation;
+  ProfileResourceAssociation?: ProfileResourceAssociation | undefined;
 }
 
 /**
@@ -555,7 +555,7 @@ export interface AssociateResourceToProfileResponse {
 export class InternalServiceErrorException extends __BaseException {
   readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -590,7 +590,7 @@ export interface CreateProfileRequest {
    * </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>
@@ -598,7 +598,7 @@ export interface CreateProfileRequest {
    * </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -629,7 +629,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -637,7 +637,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -645,7 +645,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -653,7 +653,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>
@@ -661,7 +661,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  Status?: ProfileStatus;
+  Status?: ProfileStatus | undefined;
 
   /**
    * <p>
@@ -669,7 +669,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>
@@ -677,7 +677,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 
   /**
    * <p>
@@ -685,7 +685,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>
@@ -693,7 +693,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  ModificationTime?: Date;
+  ModificationTime?: Date | undefined;
 
   /**
    * <p>
@@ -701,7 +701,7 @@ export interface Profile {
    * </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -714,7 +714,7 @@ export interface CreateProfileResponse {
    * </p>
    * @public
    */
-  Profile?: Profile;
+  Profile?: Profile | undefined;
 }
 
 /**
@@ -740,7 +740,7 @@ export interface DeleteProfileResponse {
    * </p>
    * @public
    */
-  Profile?: Profile;
+  Profile?: Profile | undefined;
 }
 
 /**
@@ -774,7 +774,7 @@ export interface DisassociateProfileResponse {
    * </p>
    * @public
    */
-  ProfileAssociation?: ProfileAssociation;
+  ProfileAssociation?: ProfileAssociation | undefined;
 }
 
 /**
@@ -807,7 +807,7 @@ export interface DisassociateResourceFromProfileResponse {
    * </p>
    * @public
    */
-  ProfileResourceAssociation?: ProfileResourceAssociation;
+  ProfileResourceAssociation?: ProfileResourceAssociation | undefined;
 }
 
 /**
@@ -833,7 +833,7 @@ export interface GetProfileResponse {
    * </p>
    * @public
    */
-  Profile?: Profile;
+  Profile?: Profile | undefined;
 }
 
 /**
@@ -859,7 +859,7 @@ export interface GetProfileAssociationResponse {
    * </p>
    * @public
    */
-  ProfileAssociation?: ProfileAssociation;
+  ProfileAssociation?: ProfileAssociation | undefined;
 }
 
 /**
@@ -886,7 +886,7 @@ export interface GetProfileResourceAssociationResponse {
    * </p>
    * @public
    */
-  ProfileResourceAssociation?: ProfileResourceAssociation;
+  ProfileResourceAssociation?: ProfileResourceAssociation | undefined;
 }
 
 /**
@@ -898,7 +898,7 @@ export interface GetProfileResourceAssociationResponse {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -923,7 +923,7 @@ export interface ListProfileAssociationsRequest {
    * </p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>
@@ -931,7 +931,7 @@ export interface ListProfileAssociationsRequest {
    * </p>
    * @public
    */
-  ProfileId?: string;
+  ProfileId?: string | undefined;
 
   /**
    * <p>
@@ -942,7 +942,7 @@ export interface ListProfileAssociationsRequest {
    * </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -953,7 +953,7 @@ export interface ListProfileAssociationsRequest {
    *     To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -966,7 +966,7 @@ export interface ListProfileAssociationsResponse {
    * </p>
    * @public
    */
-  ProfileAssociations?: ProfileAssociation[];
+  ProfileAssociations?: ProfileAssociation[] | undefined;
 
   /**
    * <p>
@@ -975,7 +975,7 @@ export interface ListProfileAssociationsResponse {
    * </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -996,7 +996,7 @@ export interface ListProfileResourceAssociationsRequest {
    * </p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>
@@ -1007,7 +1007,7 @@ export interface ListProfileResourceAssociationsRequest {
    *   </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -1018,7 +1018,7 @@ export interface ListProfileResourceAssociationsRequest {
    *     To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1031,7 +1031,7 @@ export interface ListProfileResourceAssociationsResponse {
    * </p>
    * @public
    */
-  ProfileResourceAssociations?: ProfileResourceAssociation[];
+  ProfileResourceAssociations?: ProfileResourceAssociation[] | undefined;
 
   /**
    * <p>
@@ -1040,7 +1040,7 @@ export interface ListProfileResourceAssociationsResponse {
    *   </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1056,7 +1056,7 @@ export interface ListProfilesRequest {
    *   </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -1067,7 +1067,7 @@ export interface ListProfilesRequest {
    *     To retrieve the next batch of objects, use the token that was returned for the prior request in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1083,7 +1083,7 @@ export interface ProfileSummary {
    * </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>
@@ -1091,7 +1091,7 @@ export interface ProfileSummary {
    * </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>
@@ -1099,7 +1099,7 @@ export interface ProfileSummary {
    * </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -1107,7 +1107,7 @@ export interface ProfileSummary {
    * </p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 }
 
 /**
@@ -1120,7 +1120,7 @@ export interface ListProfilesResponse {
    * </p>
    * @public
    */
-  ProfileSummaries?: ProfileSummary[];
+  ProfileSummaries?: ProfileSummary[] | undefined;
 
   /**
    * <p>
@@ -1129,7 +1129,7 @@ export interface ListProfilesResponse {
    *   </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1228,7 +1228,7 @@ export interface UpdateProfileResourceAssociationRequest {
    * </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -1237,7 +1237,7 @@ export interface UpdateProfileResourceAssociationRequest {
    *          <p>The allowed values for priority are between 100 and 9900.</p>
    * @public
    */
-  ResourceProperties?: string;
+  ResourceProperties?: string | undefined;
 }
 
 /**
@@ -1250,5 +1250,5 @@ export interface UpdateProfileResourceAssociationResponse {
    * </p>
    * @public
    */
-  ProfileResourceAssociation?: ProfileResourceAssociation;
+  ProfileResourceAssociation?: ProfileResourceAssociation | undefined;
 }

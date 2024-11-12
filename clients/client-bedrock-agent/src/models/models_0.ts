@@ -136,13 +136,13 @@ export interface S3Identifier {
    * <p>The name of the S3 bucket.</p>
    * @public
    */
-  s3BucketName?: string;
+  s3BucketName?: string | undefined;
 
   /**
    * <p>The S3 object key for the S3 resource.</p>
    * @public
    */
-  s3ObjectKey?: string;
+  s3ObjectKey?: string | undefined;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface ParameterDetail {
    * <p>A description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The data type of the parameter.</p>
@@ -263,7 +263,7 @@ export interface ParameterDetail {
    * <p>Whether the parameter is required for the agent to complete the function for action group invocation.</p>
    * @public
    */
-  required?: boolean;
+  required?: boolean | undefined;
 }
 
 /**
@@ -323,19 +323,19 @@ export interface Function {
    * <p>A description of the function and its purpose.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The parameters that the agent elicits from the user to fulfill the function.</p>
    * @public
    */
-  parameters?: Record<string, ParameterDetail>;
+  parameters?: Record<string, ParameterDetail> | undefined;
 
   /**
    * <p>Contains information if user confirmation is required to invoke the function.</p>
    * @public
    */
-  requireConfirmation?: RequireConfirmation;
+  requireConfirmation?: RequireConfirmation | undefined;
 }
 
 /**
@@ -445,13 +445,13 @@ export interface CreateAgentActionGroupRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A description of the action group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
@@ -459,31 +459,31 @@ export interface CreateAgentActionGroupRequest {
    *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
-  parentActionGroupSignature?: ActionGroupSignature;
+  parentActionGroupSignature?: ActionGroupSignature | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
    * @public
    */
-  actionGroupExecutor?: ActionGroupExecutor;
+  actionGroupExecutor?: ActionGroupExecutor | undefined;
 
   /**
    * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
-  apiSchema?: APISchema;
+  apiSchema?: APISchema | undefined;
 
   /**
    * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
-  actionGroupState?: ActionGroupState;
+  actionGroupState?: ActionGroupState | undefined;
 
   /**
    * <p>Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.</p>
    * @public
    */
-  functionSchema?: FunctionSchema;
+  functionSchema?: FunctionSchema | undefined;
 }
 
 /**
@@ -520,13 +520,13 @@ export interface AgentActionGroup {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The description of the action group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time at which the action group was created.</p>
@@ -545,25 +545,25 @@ export interface AgentActionGroup {
    *          <p>During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
-  parentActionSignature?: ActionGroupSignature;
+  parentActionSignature?: ActionGroupSignature | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.</p>
    * @public
    */
-  actionGroupExecutor?: ActionGroupExecutor;
+  actionGroupExecutor?: ActionGroupExecutor | undefined;
 
   /**
    * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
-  apiSchema?: APISchema;
+  apiSchema?: APISchema | undefined;
 
   /**
    * <p>Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.</p>
    * @public
    */
-  functionSchema?: FunctionSchema;
+  functionSchema?: FunctionSchema | undefined;
 
   /**
    * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
@@ -692,7 +692,7 @@ export class ValidationException extends __BaseException {
    * <p>A list of objects containing fields that caused validation errors and their corresponding validation error messages.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -734,7 +734,7 @@ export interface DeleteAgentActionGroupRequest {
    * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -796,13 +796,13 @@ export interface ListAgentActionGroupsRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -834,7 +834,7 @@ export interface ActionGroupSummary {
    * <p>The description of the action group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time at which the action group was last updated.</p>
@@ -857,7 +857,7 @@ export interface ListAgentActionGroupsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -892,38 +892,38 @@ export interface UpdateAgentActionGroupRequest {
    * <p>Specifies a new name for the action group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>. You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
    *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
    * @public
    */
-  parentActionGroupSignature?: ActionGroupSignature;
+  parentActionGroupSignature?: ActionGroupSignature | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.</p>
    * @public
    */
-  actionGroupExecutor?: ActionGroupExecutor;
+  actionGroupExecutor?: ActionGroupExecutor | undefined;
 
   /**
    * <p>Specifies whether the action group is available for the agent to invoke or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
-  actionGroupState?: ActionGroupState;
+  actionGroupState?: ActionGroupState | undefined;
 
   /**
    * <p>Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.</p>
    * @public
    */
-  apiSchema?: APISchema;
+  apiSchema?: APISchema | undefined;
 
   /**
    * <p>Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.</p>
    * @public
    */
-  functionSchema?: FunctionSchema;
+  functionSchema?: FunctionSchema | undefined;
 }
 
 /**
@@ -966,13 +966,13 @@ export interface GuardrailConfiguration {
    * <p>The unique identifier of the guardrail.</p>
    * @public
    */
-  guardrailIdentifier?: string;
+  guardrailIdentifier?: string | undefined;
 
   /**
    * <p>The version of the guardrail.</p>
    * @public
    */
-  guardrailVersion?: string;
+  guardrailVersion?: string | undefined;
 }
 
 /**
@@ -1003,7 +1003,7 @@ export interface MemoryConfiguration {
    * <p>The number of days the agent is configured to retain the conversational context.</p>
    * @public
    */
-  storageDays?: number;
+  storageDays?: number | undefined;
 }
 
 /**
@@ -1015,31 +1015,31 @@ export interface InferenceConfiguration {
    * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
    * @public
    */
-  temperature?: number;
+  temperature?: number | undefined;
 
   /**
    * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 80, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
    * @public
    */
-  topP?: number;
+  topP?: number | undefined;
 
   /**
    * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>topK</code> is the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topK</code> to 50, the model selects the next token from among the top 50 most likely choices.</p>
    * @public
    */
-  topK?: number;
+  topK?: number | undefined;
 
   /**
    * <p>The maximum number of tokens to allow in the generated response.</p>
    * @public
    */
-  maximumLength?: number;
+  maximumLength?: number | undefined;
 
   /**
    * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
    * @public
    */
-  stopSequences?: string[];
+  stopSequences?: string[] | undefined;
 }
 
 /**
@@ -1095,13 +1095,13 @@ export interface PromptConfiguration {
    * <p>The step in the agent sequence that this prompt configuration applies to.</p>
    * @public
    */
-  promptType?: PromptType;
+  promptType?: PromptType | undefined;
 
   /**
    * <p>Specifies whether to override the default prompt template for this <code>promptType</code>. Set this value to <code>OVERRIDDEN</code> to use the prompt that you provide in the <code>basePromptTemplate</code>. If you leave it as <code>DEFAULT</code>, the agent uses a default prompt template.</p>
    * @public
    */
-  promptCreationMode?: CreationMode;
+  promptCreationMode?: CreationMode | undefined;
 
   /**
    * <p>Specifies whether to allow the agent to carry out the step specified in the <code>promptType</code>. If you set this value to <code>DISABLED</code>, the agent skips that step. The default state for each <code>promptType</code> is as follows.</p>
@@ -1129,25 +1129,25 @@ export interface PromptConfiguration {
    *          </ul>
    * @public
    */
-  promptState?: PromptState;
+  promptState?: PromptState | undefined;
 
   /**
    * <p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts-configure.html">Configure the prompt templates</a>.</p>
    * @public
    */
-  basePromptTemplate?: string;
+  basePromptTemplate?: string | undefined;
 
   /**
    * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
    * @public
    */
-  inferenceConfiguration?: InferenceConfiguration;
+  inferenceConfiguration?: InferenceConfiguration | undefined;
 
   /**
    * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>. If you set the field as <code>OVERRIDEN</code>, the <code>overrideLambda</code> field in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> must be specified with the ARN of a Lambda function.</p>
    * @public
    */
-  parserMode?: CreationMode;
+  parserMode?: CreationMode | undefined;
 }
 
 /**
@@ -1165,7 +1165,7 @@ export interface PromptOverrideConfiguration {
    * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence. If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is set to <code>OVERRIDDEN</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser Lambda function in Amazon Bedrock Agents</a>.</p>
    * @public
    */
-  overrideLambda?: string;
+  overrideLambda?: string | undefined;
 }
 
 /**
@@ -1202,13 +1202,13 @@ export interface Agent {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Instructions that tell the agent what it should do and how it should interact with users.</p>
    * @public
    */
-  instruction?: string;
+  instruction?: string | undefined;
 
   /**
    * <p>The status of the agent and whether it is ready for use. The following statuses are possible:</p>
@@ -1243,13 +1243,13 @@ export interface Agent {
    * <p>The foundation model used for orchestration by the agent.</p>
    * @public
    */
-  foundationModel?: string;
+  foundationModel?: string | undefined;
 
   /**
    * <p>The description of the agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
@@ -1268,7 +1268,7 @@ export interface Agent {
    * <p>The Amazon Resource Name (ARN) of the KMS key that encrypts the agent.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The time at which the agent was created.</p>
@@ -1286,37 +1286,37 @@ export interface Agent {
    * <p>The time at which the agent was last prepared.</p>
    * @public
    */
-  preparedAt?: Date;
+  preparedAt?: Date | undefined;
 
   /**
    * <p>Contains reasons that the agent-related API that you invoked failed.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 
   /**
    * <p>Contains recommended actions to take for the agent-related API that you invoked to succeed.</p>
    * @public
    */
-  recommendedActions?: string[];
+  recommendedActions?: string[] | undefined;
 
   /**
    * <p>Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
-  promptOverrideConfiguration?: PromptOverrideConfiguration;
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 
   /**
    * <p>Details about the guardrail associated with the agent.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
    * <p>Contains memory configuration for the agent.</p>
    * @public
    */
-  memoryConfiguration?: MemoryConfiguration;
+  memoryConfiguration?: MemoryConfiguration | undefined;
 }
 
 /**
@@ -1328,13 +1328,13 @@ export interface AgentAliasRoutingConfigurationListItem {
    * <p>The version of the agent with which the alias is associated.</p>
    * @public
    */
-  agentVersion?: string;
+  agentVersion?: string | undefined;
 
   /**
    * <p>Information on the Provisioned Throughput assigned to an agent alias.</p>
    * @public
    */
-  provisionedThroughput?: string;
+  provisionedThroughput?: string | undefined;
 }
 
 /**
@@ -1346,19 +1346,19 @@ export interface AgentAliasHistoryEvent {
    * <p>Contains details about the version of the agent with which the alias is associated.</p>
    * @public
    */
-  routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
+  routingConfiguration?: AgentAliasRoutingConfigurationListItem[] | undefined;
 
   /**
    * <p>The date that the alias stopped being associated to the version in the <code>routingConfiguration</code> object</p>
    * @public
    */
-  endDate?: Date;
+  endDate?: Date | undefined;
 
   /**
    * <p>The date that the alias began being associated to the version in the <code>routingConfiguration</code> object.</p>
    * @public
    */
-  startDate?: Date;
+  startDate?: Date | undefined;
 }
 
 /**
@@ -1412,13 +1412,13 @@ export interface AgentAlias {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The description of the alias of the agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains details about the routing configuration of the alias.</p>
@@ -1442,7 +1442,7 @@ export interface AgentAlias {
    * <p>Contains details about the history of the alias.</p>
    * @public
    */
-  agentAliasHistoryEvents?: AgentAliasHistoryEvent[];
+  agentAliasHistoryEvents?: AgentAliasHistoryEvent[] | undefined;
 
   /**
    * <p>The status of the alias of the agent and whether it is ready for use. The following statuses are possible:</p>
@@ -1471,7 +1471,7 @@ export interface AgentAlias {
    * <p>Information on the failure of Provisioned Throughput assigned to an agent alias.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 }
 
 /**
@@ -1495,13 +1495,13 @@ export interface AgentAliasSummary {
    * <p>The description of the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains details about the version of the agent with which the alias is associated.</p>
    * @public
    */
-  routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
+  routingConfiguration?: AgentAliasRoutingConfigurationListItem[] | undefined;
 
   /**
    * <p>The status of the alias.</p>
@@ -1611,7 +1611,7 @@ export interface AgentKnowledgeBaseSummary {
    * <p>The description of the knowledge base associated with an agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies whether the agent uses the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
@@ -1641,13 +1641,13 @@ export interface CreateAgentRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Instructions that tell the agent what it should do and how it should interact with users.</p>
    * @public
    */
-  instruction?: string;
+  instruction?: string | undefined;
 
   /**
    * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p>
@@ -1671,56 +1671,56 @@ export interface CreateAgentRequest {
    *          </ul>
    * @public
    */
-  foundationModel?: string;
+  foundationModel?: string | undefined;
 
   /**
    * <p>A description of the agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
    *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
-  idleSessionTTLInSeconds?: number;
+  idleSessionTTLInSeconds?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the agent.</p>
    * @public
    */
-  agentResourceRoleArn?: string;
+  agentResourceRoleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the agent.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Any tags that you want to attach to the agent.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
-  promptOverrideConfiguration?: PromptOverrideConfiguration;
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 
   /**
    * <p>The unique Guardrail configuration assigned to the agent when it is created.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
    * <p> Contains the details of the memory configured for the agent.</p>
    * @public
    */
-  memoryConfiguration?: MemoryConfiguration;
+  memoryConfiguration?: MemoryConfiguration | undefined;
 }
 
 /**
@@ -1748,7 +1748,7 @@ export interface DeleteAgentRequest {
    * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -1798,13 +1798,13 @@ export interface ListAgentsRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1834,7 +1834,7 @@ export interface AgentSummary {
    * <p>The description of the agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time at which the agent was last updated.</p>
@@ -1846,13 +1846,13 @@ export interface AgentSummary {
    * <p>The latest version of the agent.</p>
    * @public
    */
-  latestAgentVersion?: string;
+  latestAgentVersion?: string | undefined;
 
   /**
    * <p>Details about the guardrail associated with the agent.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 }
 
 /**
@@ -1869,7 +1869,7 @@ export interface ListAgentsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1932,7 +1932,7 @@ export interface UpdateAgentRequest {
    * <p>Specifies new instructions that tell the agent what it should do and how it should interact with users.</p>
    * @public
    */
-  instruction?: string;
+  instruction?: string | undefined;
 
   /**
    * <p>The identifier for the model that you want to be used for orchestration by the agent you create.</p>
@@ -1962,14 +1962,14 @@ export interface UpdateAgentRequest {
    * <p>Specifies a new description of the agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
    *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
    */
-  idleSessionTTLInSeconds?: number;
+  idleSessionTTLInSeconds?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the agent.</p>
@@ -1981,25 +1981,25 @@ export interface UpdateAgentRequest {
    * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the agent.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
-  promptOverrideConfiguration?: PromptOverrideConfiguration;
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 
   /**
    * <p>The unique Guardrail configuration assigned to the agent when it is updated.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
    * <p>Specifies the new memory configuration for the agent. </p>
    * @public
    */
-  memoryConfiguration?: MemoryConfiguration;
+  memoryConfiguration?: MemoryConfiguration | undefined;
 }
 
 /**
@@ -2046,7 +2046,7 @@ export interface AgentVersion {
    * <p>The instructions provided to the agent.</p>
    * @public
    */
-  instruction?: string;
+  instruction?: string | undefined;
 
   /**
    * <p>The status of the agent that the version belongs to.</p>
@@ -2058,13 +2058,13 @@ export interface AgentVersion {
    * <p>The foundation model that the version invokes.</p>
    * @public
    */
-  foundationModel?: string;
+  foundationModel?: string | undefined;
 
   /**
    * <p>The description of the version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
@@ -2083,7 +2083,7 @@ export interface AgentVersion {
    * <p>The Amazon Resource Name (ARN) of the KMS key that encrypts the agent.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The time at which the version was created.</p>
@@ -2101,25 +2101,25 @@ export interface AgentVersion {
    * <p>A list of reasons that the API operation on the version failed.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 
   /**
    * <p>A list of recommended actions to take for the failed API operation on the version to succeed.</p>
    * @public
    */
-  recommendedActions?: string[];
+  recommendedActions?: string[] | undefined;
 
   /**
    * <p>Contains configurations to override prompt templates in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
    * @public
    */
-  promptOverrideConfiguration?: PromptOverrideConfiguration;
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 
   /**
    * <p>Details about the guardrail associated with the agent.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
    * <p>
@@ -2127,7 +2127,7 @@ export interface AgentVersion {
    *       </p>
    * @public
    */
-  memoryConfiguration?: MemoryConfiguration;
+  memoryConfiguration?: MemoryConfiguration | undefined;
 }
 
 /**
@@ -2169,13 +2169,13 @@ export interface AgentVersionSummary {
    * <p>The description of the version of the agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Details about the guardrail associated with the agent.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 }
 
 /**
@@ -2199,25 +2199,25 @@ export interface CreateAgentAliasRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A description of the alias of the agent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains details about the routing configuration of the alias.</p>
    * @public
    */
-  routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
+  routingConfiguration?: AgentAliasRoutingConfigurationListItem[] | undefined;
 
   /**
    * <p>Any tags that you want to attach to the alias of the agent.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2313,13 +2313,13 @@ export interface ListAgentAliasesRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2336,7 +2336,7 @@ export interface ListAgentAliasesResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2365,13 +2365,13 @@ export interface UpdateAgentAliasRequest {
    * <p>Specifies a new description for the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains details about the routing configuration of the alias.</p>
    * @public
    */
-  routingConfiguration?: AgentAliasRoutingConfigurationListItem[];
+  routingConfiguration?: AgentAliasRoutingConfigurationListItem[] | undefined;
 }
 
 /**
@@ -2418,7 +2418,7 @@ export interface PatternObjectFilter {
    *             and the document isn’t crawled.</p>
    * @public
    */
-  inclusionFilters?: string[];
+  inclusionFilters?: string[] | undefined;
 
   /**
    * <p>A list of one or more exclusion regular expression patterns to exclude certain
@@ -2427,7 +2427,7 @@ export interface PatternObjectFilter {
    *             and the document isn’t crawled.</p>
    * @public
    */
-  exclusionFilters?: string[];
+  exclusionFilters?: string[] | undefined;
 }
 
 /**
@@ -2475,7 +2475,7 @@ export interface CrawlFilterConfiguration {
    * <p>The configuration of filtering certain objects or content types of the data source.</p>
    * @public
    */
-  patternObjectFilter?: PatternObjectFilterConfiguration;
+  patternObjectFilter?: PatternObjectFilterConfiguration | undefined;
 }
 
 /**
@@ -2489,7 +2489,7 @@ export interface ConfluenceCrawlerConfiguration {
    *             regular expression patterns to include or exclude certain content.</p>
    * @public
    */
-  filterConfiguration?: CrawlFilterConfiguration;
+  filterConfiguration?: CrawlFilterConfiguration | undefined;
 }
 
 /**
@@ -2570,7 +2570,7 @@ export interface ConfluenceDataSourceConfiguration {
    *             specific types of Confluence content.</p>
    * @public
    */
-  crawlerConfiguration?: ConfluenceCrawlerConfiguration;
+  crawlerConfiguration?: ConfluenceCrawlerConfiguration | undefined;
 }
 
 /**
@@ -2589,13 +2589,13 @@ export interface S3DataSourceConfiguration {
    *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a>.</p>
    * @public
    */
-  inclusionPrefixes?: string[];
+  inclusionPrefixes?: string[] | undefined;
 
   /**
    * <p>The account ID for the owner of the S3 bucket.</p>
    * @public
    */
-  bucketOwnerAccountId?: string;
+  bucketOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -2610,7 +2610,7 @@ export interface SalesforceCrawlerConfiguration {
    *             content.</p>
    * @public
    */
-  filterConfiguration?: CrawlFilterConfiguration;
+  filterConfiguration?: CrawlFilterConfiguration | undefined;
 }
 
 /**
@@ -2671,7 +2671,7 @@ export interface SalesforceDataSourceConfiguration {
    *             specific types of Salesforce content.</p>
    * @public
    */
-  crawlerConfiguration?: SalesforceCrawlerConfiguration;
+  crawlerConfiguration?: SalesforceCrawlerConfiguration | undefined;
 }
 
 /**
@@ -2685,7 +2685,7 @@ export interface SharePointCrawlerConfiguration {
    *             configuring regular expression patterns to include or exclude certain content.</p>
    * @public
    */
-  filterConfiguration?: CrawlFilterConfiguration;
+  filterConfiguration?: CrawlFilterConfiguration | undefined;
 }
 
 /**
@@ -2723,7 +2723,7 @@ export interface SharePointSourceConfiguration {
    * <p>The identifier of your Microsoft 365 tenant.</p>
    * @public
    */
-  tenantId?: string;
+  tenantId?: string | undefined;
 
   /**
    * <p>The domain of your SharePoint instance or site URL/URLs.</p>
@@ -2777,7 +2777,7 @@ export interface SharePointDataSourceConfiguration {
    *             specific types of SharePoint content.</p>
    * @public
    */
-  crawlerConfiguration?: SharePointCrawlerConfiguration;
+  crawlerConfiguration?: SharePointCrawlerConfiguration | undefined;
 }
 
 /**
@@ -2807,7 +2807,7 @@ export interface WebCrawlerLimits {
    * <p>The max rate at which pages are crawled, up to 300 per minute per host.</p>
    * @public
    */
-  rateLimit?: number;
+  rateLimit?: number | undefined;
 }
 
 /**
@@ -2834,7 +2834,7 @@ export interface WebCrawlerConfiguration {
    * <p>The configuration of crawl limits for the web URLs.</p>
    * @public
    */
-  crawlerLimits?: WebCrawlerLimits;
+  crawlerLimits?: WebCrawlerLimits | undefined;
 
   /**
    * <p>A list of one or more inclusion regular expression patterns to include
@@ -2843,7 +2843,7 @@ export interface WebCrawlerConfiguration {
    *             content of the URL isn’t crawled.</p>
    * @public
    */
-  inclusionFilters?: string[];
+  inclusionFilters?: string[] | undefined;
 
   /**
    * <p>A list of one or more exclusion regular expression patterns to exclude
@@ -2852,7 +2852,7 @@ export interface WebCrawlerConfiguration {
    *             content of the URL isn’t crawled.</p>
    * @public
    */
-  exclusionFilters?: string[];
+  exclusionFilters?: string[] | undefined;
 
   /**
    * <p>The scope of what is crawled for your URLs.</p>
@@ -2864,7 +2864,7 @@ export interface WebCrawlerConfiguration {
    *             "docs.aws.amazon.com".</p>
    * @public
    */
-  scope?: WebScopeType;
+  scope?: WebScopeType | undefined;
 }
 
 /**
@@ -2877,7 +2877,7 @@ export interface SeedUrl {
    * <p>A seed or starting point URL.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -2890,7 +2890,7 @@ export interface UrlConfiguration {
    * <p>One or more seed or starting point URLs.</p>
    * @public
    */
-  seedUrls?: SeedUrl[];
+  seedUrls?: SeedUrl[] | undefined;
 }
 
 /**
@@ -2921,7 +2921,7 @@ export interface WebDataSourceConfiguration {
    * <p>The Web Crawler configuration details for the web data source.</p>
    * @public
    */
-  crawlerConfiguration?: WebCrawlerConfiguration;
+  crawlerConfiguration?: WebCrawlerConfiguration | undefined;
 }
 
 /**
@@ -2939,7 +2939,7 @@ export interface DataSourceConfiguration {
    * <p>The configuration information to connect to Amazon S3 as your data source.</p>
    * @public
    */
-  s3Configuration?: S3DataSourceConfiguration;
+  s3Configuration?: S3DataSourceConfiguration | undefined;
 
   /**
    * <p>The configuration of web URLs to crawl for your data source.
@@ -2950,7 +2950,7 @@ export interface DataSourceConfiguration {
    *          </note>
    * @public
    */
-  webConfiguration?: WebDataSourceConfiguration;
+  webConfiguration?: WebDataSourceConfiguration | undefined;
 
   /**
    * <p>The configuration information to connect to Confluence as your data source.</p>
@@ -2959,7 +2959,7 @@ export interface DataSourceConfiguration {
    *          </note>
    * @public
    */
-  confluenceConfiguration?: ConfluenceDataSourceConfiguration;
+  confluenceConfiguration?: ConfluenceDataSourceConfiguration | undefined;
 
   /**
    * <p>The configuration information to connect to Salesforce as your data source.</p>
@@ -2968,7 +2968,7 @@ export interface DataSourceConfiguration {
    *          </note>
    * @public
    */
-  salesforceConfiguration?: SalesforceDataSourceConfiguration;
+  salesforceConfiguration?: SalesforceDataSourceConfiguration | undefined;
 
   /**
    * <p>The configuration information to connect to SharePoint as your data source.</p>
@@ -2977,7 +2977,7 @@ export interface DataSourceConfiguration {
    *          </note>
    * @public
    */
-  sharePointConfiguration?: SharePointDataSourceConfiguration;
+  sharePointConfiguration?: SharePointDataSourceConfiguration | undefined;
 }
 
 /**
@@ -2989,7 +2989,7 @@ export interface ServerSideEncryptionConfiguration {
    * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the resource.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -3130,7 +3130,7 @@ export interface ChunkingConfiguration {
    * <p>Configurations for when you choose fixed-size chunking. If you set the <code>chunkingStrategy</code> as <code>NONE</code>, exclude this field.</p>
    * @public
    */
-  fixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration;
+  fixedSizeChunkingConfiguration?: FixedSizeChunkingConfiguration | undefined;
 
   /**
    * <p>Settings for hierarchical document chunking for a data source. Hierarchical chunking splits documents
@@ -3138,7 +3138,7 @@ export interface ChunkingConfiguration {
    *     chunks derived from the first layer.</p>
    * @public
    */
-  hierarchicalChunkingConfiguration?: HierarchicalChunkingConfiguration;
+  hierarchicalChunkingConfiguration?: HierarchicalChunkingConfiguration | undefined;
 
   /**
    * <p>Settings for semantic document chunking for a data source. Semantic chunking splits
@@ -3146,7 +3146,7 @@ export interface ChunkingConfiguration {
    *     with natural language processing.</p>
    * @public
    */
-  semanticChunkingConfiguration?: SemanticChunkingConfiguration;
+  semanticChunkingConfiguration?: SemanticChunkingConfiguration | undefined;
 }
 
 /**
@@ -3284,7 +3284,7 @@ export interface BedrockFoundationModelConfiguration {
    * <p>Instructions for interpreting the contents of a document.</p>
    * @public
    */
-  parsingPrompt?: ParsingPrompt;
+  parsingPrompt?: ParsingPrompt | undefined;
 }
 
 /**
@@ -3333,7 +3333,7 @@ export interface ParsingConfiguration {
    * <p>Settings for a foundation model used to parse documents for a data source.</p>
    * @public
    */
-  bedrockFoundationModelConfiguration?: BedrockFoundationModelConfiguration;
+  bedrockFoundationModelConfiguration?: BedrockFoundationModelConfiguration | undefined;
 }
 
 /**
@@ -3345,19 +3345,19 @@ export interface VectorIngestionConfiguration {
    * <p>Details about how to chunk the documents in the data source. A <i>chunk</i> refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.</p>
    * @public
    */
-  chunkingConfiguration?: ChunkingConfiguration;
+  chunkingConfiguration?: ChunkingConfiguration | undefined;
 
   /**
    * <p>A custom document transformer for parsed data source documents.</p>
    * @public
    */
-  customTransformationConfiguration?: CustomTransformationConfiguration;
+  customTransformationConfiguration?: CustomTransformationConfiguration | undefined;
 
   /**
    * <p>A custom parser for data source documents.</p>
    * @public
    */
-  parsingConfiguration?: ParsingConfiguration;
+  parsingConfiguration?: ParsingConfiguration | undefined;
 }
 
 /**
@@ -3375,7 +3375,7 @@ export interface CreateDataSourceRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The name of the data source.</p>
@@ -3387,7 +3387,7 @@ export interface CreateDataSourceRequest {
    * <p>A description of the data source.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The connection configuration for the data source.</p>
@@ -3414,19 +3414,19 @@ export interface CreateDataSourceRequest {
    *          </ul>
    * @public
    */
-  dataDeletionPolicy?: DataDeletionPolicy;
+  dataDeletionPolicy?: DataDeletionPolicy | undefined;
 
   /**
    * <p>Contains details about the server-side encryption for the data source.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>Contains details about how to ingest the documents in the data source.</p>
    * @public
    */
-  vectorIngestionConfiguration?: VectorIngestionConfiguration;
+  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
 }
 
 /**
@@ -3485,7 +3485,7 @@ export interface DataSource {
    * <p>The description of the data source.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The connection configuration for the data source.</p>
@@ -3497,19 +3497,19 @@ export interface DataSource {
    * <p>Contains details about the configuration of the server-side encryption.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>Contains details about how to ingest the documents in the data source.</p>
    * @public
    */
-  vectorIngestionConfiguration?: VectorIngestionConfiguration;
+  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
 
   /**
    * <p>The data deletion policy for the data source.</p>
    * @public
    */
-  dataDeletionPolicy?: DataDeletionPolicy;
+  dataDeletionPolicy?: DataDeletionPolicy | undefined;
 
   /**
    * <p>The time at which the data source was created.</p>
@@ -3527,7 +3527,7 @@ export interface DataSource {
    * <p>The detailed reasons on the failure to delete a data source.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 }
 
 /**
@@ -3623,13 +3623,13 @@ export interface ListDataSourcesRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3665,7 +3665,7 @@ export interface DataSourceSummary {
    * <p>The description of the data source.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The time at which the data source was last updated.</p>
@@ -3688,7 +3688,7 @@ export interface ListDataSourcesResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3717,7 +3717,7 @@ export interface UpdateDataSourceRequest {
    * <p>Specifies a new description for the data source.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The connection configuration for the data source that you want to update.</p>
@@ -3729,19 +3729,19 @@ export interface UpdateDataSourceRequest {
    * <p>The data deletion policy for the data source that you want to update.</p>
    * @public
    */
-  dataDeletionPolicy?: DataDeletionPolicy;
+  dataDeletionPolicy?: DataDeletionPolicy | undefined;
 
   /**
    * <p>Contains details about server-side encryption of the data source.</p>
    * @public
    */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 
   /**
    * <p>Contains details about how to ingest the documents in the data source.</p>
    * @public
    */
-  vectorIngestionConfiguration?: VectorIngestionConfiguration;
+  vectorIngestionConfiguration?: VectorIngestionConfiguration | undefined;
 }
 
 /**
@@ -3887,7 +3887,7 @@ export interface FlowConnection {
    * <p>The configuration of the connection.</p>
    * @public
    */
-  configuration?: FlowConnectionConfiguration;
+  configuration?: FlowConnectionConfiguration | undefined;
 }
 
 /**
@@ -3911,7 +3911,7 @@ export interface FlowCondition {
    * <p>Defines the condition. You must refer to at least one of the inputs in the condition. For more information, expand the Condition node section in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-how-it-works.html#flows-nodes">Node types in prompt flows</a>.</p>
    * @public
    */
-  expression?: string;
+  expression?: string | undefined;
 }
 
 /**
@@ -3954,13 +3954,13 @@ export interface KnowledgeBaseFlowNodeConfiguration {
    * <p>The unique identifier of the model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a> to use to generate a response from the query results. Omit this field if you want to return the retrieved results as an array.</p>
    * @public
    */
-  modelId?: string;
+  modelId?: string | undefined;
 
   /**
    * <p>Contains configurations for a guardrail to apply during query and response generation for the knowledge base in this configuration.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 }
 
 /**
@@ -4008,25 +4008,25 @@ export interface PromptModelInferenceConfiguration {
    * <p>Controls the randomness of the response. Choose a lower value for more predictable outputs and a higher value for more surprising outputs.</p>
    * @public
    */
-  temperature?: number;
+  temperature?: number | undefined;
 
   /**
    * <p>The percentage of most-likely candidates that the model considers for the next token.</p>
    * @public
    */
-  topP?: number;
+  topP?: number | undefined;
 
   /**
    * <p>The maximum number of tokens to return in the response.</p>
    * @public
    */
-  maxTokens?: number;
+  maxTokens?: number | undefined;
 
   /**
    * <p>A list of strings that define sequences after which the model will stop generating.</p>
    * @public
    */
-  stopSequences?: string[];
+  stopSequences?: string[] | undefined;
 }
 
 /**
@@ -4078,7 +4078,7 @@ export interface PromptInputVariable {
    * <p>The name of the variable.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -4338,7 +4338,7 @@ export interface ToolSpecification {
    * <p>The description of the tool.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The input schema for the tool.</p>
@@ -4400,7 +4400,7 @@ export interface ToolConfiguration {
    * <p>Defines which tools the model should request when invoked.</p>
    * @public
    */
-  toolChoice?: ToolChoice;
+  toolChoice?: ToolChoice | undefined;
 }
 
 /**
@@ -4418,19 +4418,19 @@ export interface ChatPromptTemplateConfiguration {
    * <p>Contains system prompts to provide context to the model or to describe how it should behave.</p>
    * @public
    */
-  system?: SystemContentBlock[];
+  system?: SystemContentBlock[] | undefined;
 
   /**
    * <p>An array of the variables in the prompt template.</p>
    * @public
    */
-  inputVariables?: PromptInputVariable[];
+  inputVariables?: PromptInputVariable[] | undefined;
 
   /**
    * <p>Configuration information for the tools that the model can use when generating a response.</p>
    * @public
    */
-  toolConfiguration?: ToolConfiguration;
+  toolConfiguration?: ToolConfiguration | undefined;
 }
 
 /**
@@ -4448,7 +4448,7 @@ export interface TextPromptTemplateConfiguration {
    * <p>An array of the variables in the prompt template.</p>
    * @public
    */
-  inputVariables?: PromptInputVariable[];
+  inputVariables?: PromptInputVariable[] | undefined;
 }
 
 /**
@@ -4547,13 +4547,13 @@ export interface PromptFlowNodeInlineConfiguration {
    * <p>Contains inference configurations for the prompt.</p>
    * @public
    */
-  inferenceConfiguration?: PromptInferenceConfiguration;
+  inferenceConfiguration?: PromptInferenceConfiguration | undefined;
 
   /**
    * <p>Additional fields to be included in the model request for the Prompt node.</p>
    * @public
    */
-  additionalModelRequestFields?: __DocumentType;
+  additionalModelRequestFields?: __DocumentType | undefined;
 }
 
 /**
@@ -4638,7 +4638,7 @@ export interface PromptFlowNodeConfiguration {
    * <p>Contains configurations for a guardrail to apply to the prompt in this node and the response generated from it.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 }
 
 /**
@@ -5189,19 +5189,19 @@ export interface FlowNode {
    * <p>Contains configurations for the node.</p>
    * @public
    */
-  configuration?: FlowNodeConfiguration;
+  configuration?: FlowNodeConfiguration | undefined;
 
   /**
    * <p>An array of objects, each of which contains information about an input into the node.</p>
    * @public
    */
-  inputs?: FlowNodeInput[];
+  inputs?: FlowNodeInput[] | undefined;
 
   /**
    * <p>A list of objects, each of which contains information about an output from the node.</p>
    * @public
    */
-  outputs?: FlowNodeOutput[];
+  outputs?: FlowNodeOutput[] | undefined;
 }
 
 /**
@@ -5213,13 +5213,13 @@ export interface FlowDefinition {
    * <p>An array of node definitions in the flow.</p>
    * @public
    */
-  nodes?: FlowNode[];
+  nodes?: FlowNode[] | undefined;
 
   /**
    * <p>An array of connection definitions in the flow.</p>
    * @public
    */
-  connections?: FlowConnection[];
+  connections?: FlowConnection[] | undefined;
 }
 
 /**
@@ -5236,7 +5236,7 @@ export interface CreateFlowRequest {
    * <p>A description for the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
@@ -5248,26 +5248,26 @@ export interface CreateFlowRequest {
    * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>A definition of the nodes and connections between nodes in the flow.</p>
    * @public
    */
-  definition?: FlowDefinition;
+  definition?: FlowDefinition | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Any tags that you want to attach to the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5300,7 +5300,7 @@ export interface CreateFlowResponse {
    * <p>The description of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
@@ -5312,7 +5312,7 @@ export interface CreateFlowResponse {
    * <p>The Amazon Resource Name (ARN) of the KMS key that you encrypted the flow with.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -5354,7 +5354,7 @@ export interface CreateFlowResponse {
    * <p>A definition of the nodes and connections between nodes in the flow.</p>
    * @public
    */
-  definition?: FlowDefinition;
+  definition?: FlowDefinition | undefined;
 }
 
 /**
@@ -5371,7 +5371,7 @@ export interface DeleteFlowRequest {
    * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -5394,7 +5394,7 @@ export interface FlowAliasRoutingConfigurationListItem {
    * <p>The version that the alias maps to.</p>
    * @public
    */
-  flowVersion?: string;
+  flowVersion?: string | undefined;
 }
 
 /**
@@ -5411,7 +5411,7 @@ export interface CreateFlowAliasRequest {
    * <p>A description for the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains information about the version to which to map the alias.</p>
@@ -5430,13 +5430,13 @@ export interface CreateFlowAliasRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Any tags that you want to attach to the alias of the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources in Amazon Bedrock</a>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5453,7 +5453,7 @@ export interface CreateFlowAliasResponse {
    * <p>The description of the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains information about the version that the alias is mapped to.</p>
@@ -5557,7 +5557,7 @@ export interface GetFlowAliasResponse {
    * <p>The description of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains information about the version that the alias is mapped to.</p>
@@ -5610,13 +5610,13 @@ export interface ListFlowAliasesRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5642,7 +5642,7 @@ export interface FlowAliasSummary {
    * <p>A description of the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of configurations about the versions that the alias maps to. Currently, you can only specify one.</p>
@@ -5695,7 +5695,7 @@ export interface ListFlowAliasesResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5712,7 +5712,7 @@ export interface UpdateFlowAliasRequest {
    * <p>A description for the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains information about the version to which to map the alias.</p>
@@ -5747,7 +5747,7 @@ export interface UpdateFlowAliasResponse {
    * <p>The description of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Contains information about the version that the alias is mapped to.</p>
@@ -5800,14 +5800,14 @@ export interface CreateFlowVersionRequest {
    * <p>A description of the version of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request,
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -5824,7 +5824,7 @@ export interface CreateFlowVersionResponse {
    * <p>The description of the version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
@@ -5836,7 +5836,7 @@ export interface CreateFlowVersionResponse {
    * <p>The KMS key that the flow is encrypted with.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -5872,7 +5872,7 @@ export interface CreateFlowVersionResponse {
    * <p>A definition of the nodes and connections in the flow.</p>
    * @public
    */
-  definition?: FlowDefinition;
+  definition?: FlowDefinition | undefined;
 }
 
 /**
@@ -5895,7 +5895,7 @@ export interface DeleteFlowVersionRequest {
    * <p>By default, this value is <code>false</code> and deletion is stopped if the resource is in use. If you set it to <code>true</code>, the resource will be deleted even if the resource is in use.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -5946,7 +5946,7 @@ export interface GetFlowVersionResponse {
    * <p>The description of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
@@ -5958,7 +5958,7 @@ export interface GetFlowVersionResponse {
    * <p>The Amazon Resource Name (ARN) of the KMS key that the version of the flow is encrypted with.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -5994,7 +5994,7 @@ export interface GetFlowVersionResponse {
    * <p>The definition of the nodes and connections between nodes in the flow.</p>
    * @public
    */
-  definition?: FlowDefinition;
+  definition?: FlowDefinition | undefined;
 }
 
 /**
@@ -6011,13 +6011,13 @@ export interface ListFlowVersionsRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6078,7 +6078,7 @@ export interface ListFlowVersionsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7511,13 +7511,13 @@ export interface FlowValidation {
    * <p>Specific details about the validation issue encountered in the flow.</p>
    * @public
    */
-  details?: FlowValidationDetails;
+  details?: FlowValidationDetails | undefined;
 
   /**
    * <p>The type of validation issue encountered in the flow.</p>
    * @public
    */
-  type?: FlowValidationType;
+  type?: FlowValidationType | undefined;
 }
 
 /**
@@ -7534,7 +7534,7 @@ export interface GetFlowResponse {
    * <p>The description of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow.  For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service row for flows</a> in the Amazon Bedrock User Guide.</p>
@@ -7546,7 +7546,7 @@ export interface GetFlowResponse {
    * <p>The Amazon Resource Name (ARN) of the KMS key that the flow is encrypted with.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -7602,13 +7602,13 @@ export interface GetFlowResponse {
    * <p>The definition of the nodes and connections between the nodes in the flow.</p>
    * @public
    */
-  definition?: FlowDefinition;
+  definition?: FlowDefinition | undefined;
 
   /**
    * <p>A list of validation error messages related to the last failed operation on the flow.</p>
    * @public
    */
-  validations?: FlowValidation[];
+  validations?: FlowValidation[] | undefined;
 }
 
 /**
@@ -7619,13 +7619,13 @@ export interface ListFlowsRequest {
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7643,7 +7643,7 @@ export interface FlowSummary {
    * <p>A description of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -7710,7 +7710,7 @@ export interface ListFlowsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -7755,7 +7755,7 @@ export interface UpdateFlowRequest {
    * <p>A description for the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
@@ -7767,13 +7767,13 @@ export interface UpdateFlowRequest {
    * <p>The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>A definition of the nodes and the connections between the nodes in the flow.</p>
    * @public
    */
-  definition?: FlowDefinition;
+  definition?: FlowDefinition | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -7796,7 +7796,7 @@ export interface UpdateFlowResponse {
    * <p>The description of the flow.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service role with permissions to create a flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html">Create a service role for flows in Amazon Bedrock</a> in the Amazon Bedrock User Guide.</p>
@@ -7808,7 +7808,7 @@ export interface UpdateFlowResponse {
    * <p>The Amazon Resource Name (ARN) of the KMS key that the flow was encrypted with.</p>
    * @public
    */
-  customerEncryptionKeyArn?: string;
+  customerEncryptionKeyArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the flow.</p>
@@ -7850,7 +7850,7 @@ export interface UpdateFlowResponse {
    * <p>A definition of the nodes and the connections between nodes in the flow.</p>
    * @public
    */
-  definition?: FlowDefinition;
+  definition?: FlowDefinition | undefined;
 }
 
 /**
@@ -7885,43 +7885,43 @@ export interface IngestionJobStatistics {
    * <p>The total number of source documents that were scanned. Includes new, updated, and unchanged documents.</p>
    * @public
    */
-  numberOfDocumentsScanned?: number;
+  numberOfDocumentsScanned?: number | undefined;
 
   /**
    * <p>The total number of metadata files that were scanned. Includes new, updated, and unchanged files.</p>
    * @public
    */
-  numberOfMetadataDocumentsScanned?: number;
+  numberOfMetadataDocumentsScanned?: number | undefined;
 
   /**
    * <p>The number of new source documents in the data source that were successfully indexed.</p>
    * @public
    */
-  numberOfNewDocumentsIndexed?: number;
+  numberOfNewDocumentsIndexed?: number | undefined;
 
   /**
    * <p>The number of modified source documents in the data source that were successfully indexed.</p>
    * @public
    */
-  numberOfModifiedDocumentsIndexed?: number;
+  numberOfModifiedDocumentsIndexed?: number | undefined;
 
   /**
    * <p>The number of metadata files that were updated or deleted.</p>
    * @public
    */
-  numberOfMetadataDocumentsModified?: number;
+  numberOfMetadataDocumentsModified?: number | undefined;
 
   /**
    * <p>The number of source documents that were deleted.</p>
    * @public
    */
-  numberOfDocumentsDeleted?: number;
+  numberOfDocumentsDeleted?: number | undefined;
 
   /**
    * <p>The number of source documents that failed to be ingested.</p>
    * @public
    */
-  numberOfDocumentsFailed?: number;
+  numberOfDocumentsFailed?: number | undefined;
 }
 
 /**
@@ -7987,7 +7987,7 @@ export interface IngestionJob {
    * <p>The description of the data ingestion job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the data ingestion job.</p>
@@ -7999,13 +7999,13 @@ export interface IngestionJob {
    * <p>Contains statistics about the data ingestion job.</p>
    * @public
    */
-  statistics?: IngestionJobStatistics;
+  statistics?: IngestionJobStatistics | undefined;
 
   /**
    * <p>A list of reasons that the data ingestion job failed.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 
   /**
    * <p>The time the data ingestion job started.</p>
@@ -8151,25 +8151,25 @@ export interface ListIngestionJobsRequest {
    * <p>Contains information about the filters for filtering the data.</p>
    * @public
    */
-  filters?: IngestionJobFilter[];
+  filters?: IngestionJobFilter[] | undefined;
 
   /**
    * <p>Contains details about how to sort the data.</p>
    * @public
    */
-  sortBy?: IngestionJobSortBy;
+  sortBy?: IngestionJobSortBy | undefined;
 
   /**
    * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8199,7 +8199,7 @@ export interface IngestionJobSummary {
    * <p>The description of the data ingestion job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the data ingestion job.</p>
@@ -8223,7 +8223,7 @@ export interface IngestionJobSummary {
    * <p>Contains statistics for the data ingestion job.</p>
    * @public
    */
-  statistics?: IngestionJobStatistics;
+  statistics?: IngestionJobStatistics | undefined;
 }
 
 /**
@@ -8240,7 +8240,7 @@ export interface ListIngestionJobsResponse {
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -8264,13 +8264,13 @@ export interface StartIngestionJobRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A description of the data ingestion job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -8350,7 +8350,7 @@ export interface AssociateAgentKnowledgeBaseRequest {
    * <p>Specifies whether to use the knowledge base or not when sending an <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html">InvokeAgent</a> request.</p>
    * @public
    */
-  knowledgeBaseState?: KnowledgeBaseState;
+  knowledgeBaseState?: KnowledgeBaseState | undefined;
 }
 
 /**
@@ -8386,7 +8386,7 @@ export interface BedrockEmbeddingModelConfiguration {
    * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
    * @public
    */
-  dimensions?: number;
+  dimensions?: number | undefined;
 }
 
 /**
@@ -8398,7 +8398,7 @@ export interface EmbeddingModelConfiguration {
    * <p>The vector configuration details on the Bedrock embeddings model.</p>
    * @public
    */
-  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration;
+  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
 }
 
 /**
@@ -8416,7 +8416,7 @@ export interface VectorKnowledgeBaseConfiguration {
    * <p>The embeddings model configuration details for the vector model used in Knowledge Base.</p>
    * @public
    */
-  embeddingModelConfiguration?: EmbeddingModelConfiguration;
+  embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
 }
 
 /**
@@ -8434,7 +8434,7 @@ export interface KnowledgeBaseConfiguration {
    * <p>Contains details about the model that's used to convert the data source into vector embeddings.</p>
    * @public
    */
-  vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration;
+  vectorKnowledgeBaseConfiguration?: VectorKnowledgeBaseConfiguration | undefined;
 }
 
 /**
@@ -8506,7 +8506,7 @@ export interface MongoDbAtlasConfiguration {
    * <p>The name of the VPC endpoint service in your account that is connected to your MongoDB Atlas cluster.</p>
    * @public
    */
-  endpointServiceName?: string;
+  endpointServiceName?: string | undefined;
 }
 
 /**
@@ -8596,7 +8596,7 @@ export interface PineconeConfiguration {
    * <p>The namespace to be used to write new data to your database.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>Contains the names of the fields to which to map information about the vector store.</p>
@@ -8757,31 +8757,31 @@ export interface StorageConfiguration {
    * <p>Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.</p>
    * @public
    */
-  opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration;
+  opensearchServerlessConfiguration?: OpenSearchServerlessConfiguration | undefined;
 
   /**
    * <p>Contains the storage configuration of the knowledge base in Pinecone.</p>
    * @public
    */
-  pineconeConfiguration?: PineconeConfiguration;
+  pineconeConfiguration?: PineconeConfiguration | undefined;
 
   /**
    * <p>Contains the storage configuration of the knowledge base in Redis Enterprise Cloud.</p>
    * @public
    */
-  redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration;
+  redisEnterpriseCloudConfiguration?: RedisEnterpriseCloudConfiguration | undefined;
 
   /**
    * <p>Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html">Create a vector index in Amazon RDS</a>.</p>
    * @public
    */
-  rdsConfiguration?: RdsConfiguration;
+  rdsConfiguration?: RdsConfiguration | undefined;
 
   /**
    * <p>Contains the storage configuration of the knowledge base in MongoDB Atlas.</p>
    * @public
    */
-  mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration;
+  mongoDbAtlasConfiguration?: MongoDbAtlasConfiguration | undefined;
 }
 
 /**
@@ -8793,7 +8793,7 @@ export interface CreateKnowledgeBaseRequest {
    *       Amazon Bedrock ignores the request, but does not return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A name for the knowledge base.</p>
@@ -8805,7 +8805,7 @@ export interface CreateKnowledgeBaseRequest {
    * <p>A description of the knowledge base.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
@@ -8829,7 +8829,7 @@ export interface CreateKnowledgeBaseRequest {
    * <p>Specify the key-value pairs for the tags that you want to attach to your knowledge base in this object.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -8877,7 +8877,7 @@ export interface KnowledgeBase {
    * <p>The description of the knowledge base.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role with permissions to invoke API operations on the knowledge base.</p>
@@ -8936,7 +8936,7 @@ export interface KnowledgeBase {
    * <p>A list of reasons that the API operation on the knowledge base failed.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 }
 
 /**

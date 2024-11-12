@@ -32,7 +32,7 @@ export class AccessDeniedException extends __BaseException {
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -54,7 +54,7 @@ export class InternalServiceException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -89,14 +89,14 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface PostContactSummary {
    * <p>The content of the summary.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>Whether the summary was successfully COMPLETED or FAILED to be generated.</p>
@@ -232,7 +232,7 @@ export interface PostContactSummary {
    *          </ul>
    * @public
    */
-  FailureCode?: PostContactSummaryFailureCode;
+  FailureCode?: PostContactSummaryFailureCode | undefined;
 }
 
 /**
@@ -333,7 +333,7 @@ export interface Transcript {
    * <p>List of positions where issues were detected on the transcript.</p>
    * @public
    */
-  IssuesDetected?: IssueDetected[];
+  IssuesDetected?: IssueDetected[] | undefined;
 }
 
 /**
@@ -345,19 +345,19 @@ export interface RealtimeContactAnalysisSegment {
    * <p>The analyzed transcript.</p>
    * @public
    */
-  Transcript?: Transcript;
+  Transcript?: Transcript | undefined;
 
   /**
    * <p>The matched category rules.</p>
    * @public
    */
-  Categories?: Categories;
+  Categories?: Categories | undefined;
 
   /**
    * <p>Information about the post-contact summary.</p>
    * @public
    */
-  PostContactSummary?: PostContactSummary;
+  PostContactSummary?: PostContactSummary | undefined;
 }
 
 /**
@@ -387,7 +387,7 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
    *             (successfully or failed) and there are no more segments to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -397,7 +397,7 @@ export interface ListRealtimeContactAnalysisSegmentsResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */

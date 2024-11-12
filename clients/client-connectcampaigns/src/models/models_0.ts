@@ -14,7 +14,7 @@ export class AccessDeniedException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -39,7 +39,7 @@ export interface AgentlessDialerConfig {
    * Allocates dialing capacity for this campaign between multiple active campaigns
    * @public
    */
-  dialingCapacity?: number;
+  dialingCapacity?: number | undefined;
 }
 
 /**
@@ -53,7 +53,7 @@ export class ConflictException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -84,7 +84,7 @@ export interface PredictiveDialerConfig {
    * Allocates dialing capacity for this campaign between multiple active campaigns
    * @public
    */
-  dialingCapacity?: number;
+  dialingCapacity?: number | undefined;
 }
 
 /**
@@ -102,7 +102,7 @@ export interface ProgressiveDialerConfig {
    * Allocates dialing capacity for this campaign between multiple active campaigns
    * @public
    */
-  dialingCapacity?: number;
+  dialingCapacity?: number | undefined;
 }
 
 /**
@@ -193,7 +193,7 @@ export interface AnswerMachineDetectionConfig {
    * Enable or disable await answer machine prompt
    * @public
    */
-  awaitAnswerMachinePrompt?: boolean;
+  awaitAnswerMachinePrompt?: boolean | undefined;
 }
 
 /**
@@ -211,19 +211,19 @@ export interface OutboundCallConfig {
    * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
    * @public
    */
-  connectSourcePhoneNumber?: string;
+  connectSourcePhoneNumber?: string | undefined;
 
   /**
    * The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
    * @public
    */
-  connectQueueId?: string;
+  connectQueueId?: string | undefined;
 
   /**
    * Answering Machine Detection config
    * @public
    */
-  answerMachineDetectionConfig?: AnswerMachineDetectionConfig;
+  answerMachineDetectionConfig?: AnswerMachineDetectionConfig | undefined;
 }
 
 /**
@@ -259,7 +259,7 @@ export interface CreateCampaignRequest {
    * Tag map with key and value.
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -271,19 +271,19 @@ export interface CreateCampaignResponse {
    * Identifier representing a Campaign
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * The resource name of an Amazon Connect campaign.
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * Tag map with key and value.
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -298,7 +298,7 @@ export class InternalServerException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -325,7 +325,7 @@ export class ResourceNotFoundException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -352,7 +352,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -380,7 +380,7 @@ export class ThrottlingException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -407,7 +407,7 @@ export class ValidationException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -458,7 +458,7 @@ export class InvalidStateException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -543,7 +543,7 @@ export interface Campaign {
    * Tag map with key and value.
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -555,7 +555,7 @@ export interface DescribeCampaignResponse {
    * An Amazon Connect campaign.
    * @public
    */
-  campaign?: Campaign;
+  campaign?: Campaign | undefined;
 }
 
 /**
@@ -611,7 +611,7 @@ export interface GetCampaignStateResponse {
    * State of a campaign
    * @public
    */
-  state?: CampaignState;
+  state?: CampaignState | undefined;
 }
 
 /**
@@ -656,13 +656,13 @@ export interface FailedCampaignStateResponse {
    * Identifier representing a Campaign
    * @public
    */
-  campaignId?: string;
+  campaignId?: string | undefined;
 
   /**
    * A predefined code indicating the error that caused the failure in getting state of campaigns
    * @public
    */
-  failureCode?: GetCampaignStateBatchFailureCode;
+  failureCode?: GetCampaignStateBatchFailureCode | undefined;
 }
 
 /**
@@ -674,13 +674,13 @@ export interface SuccessfulCampaignStateResponse {
    * Identifier representing a Campaign
    * @public
    */
-  campaignId?: string;
+  campaignId?: string | undefined;
 
   /**
    * State of a campaign
    * @public
    */
-  state?: CampaignState;
+  state?: CampaignState | undefined;
 }
 
 /**
@@ -692,13 +692,13 @@ export interface GetCampaignStateBatchResponse {
    * List of successful response of campaign state
    * @public
    */
-  successfulRequests?: SuccessfulCampaignStateResponse[];
+  successfulRequests?: SuccessfulCampaignStateResponse[] | undefined;
 
   /**
    * List of failed requests of campaign state
    * @public
    */
-  failedRequests?: FailedCampaignStateResponse[];
+  failedRequests?: FailedCampaignStateResponse[] | undefined;
 }
 
 /**
@@ -744,13 +744,13 @@ export interface EncryptionConfig {
    * Server-side encryption type.
    * @public
    */
-  encryptionType?: EncryptionType;
+  encryptionType?: EncryptionType | undefined;
 
   /**
    * KMS key id/arn for encryption config.
    * @public
    */
-  keyArn?: string;
+  keyArn?: string | undefined;
 }
 
 /**
@@ -789,7 +789,7 @@ export interface GetConnectInstanceConfigResponse {
    * Instance config object
    * @public
    */
-  connectInstanceConfig?: InstanceConfig;
+  connectInstanceConfig?: InstanceConfig | undefined;
 }
 
 /**
@@ -860,7 +860,7 @@ export interface InstanceOnboardingJobStatus {
    * Enumeration of the possible failure codes for instance onboarding job
    * @public
    */
-  failureCode?: InstanceOnboardingJobFailureCode;
+  failureCode?: InstanceOnboardingJobFailureCode | undefined;
 }
 
 /**
@@ -872,7 +872,7 @@ export interface GetInstanceOnboardingJobStatusResponse {
    * Instance onboarding job status object
    * @public
    */
-  connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
+  connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus | undefined;
 }
 
 /**
@@ -918,7 +918,7 @@ export interface CampaignFilters {
    * Connect instance identifier filter
    * @public
    */
-  instanceIdFilter?: InstanceIdFilter;
+  instanceIdFilter?: InstanceIdFilter | undefined;
 }
 
 /**
@@ -930,19 +930,19 @@ export interface ListCampaignsRequest {
    * The maximum number of results to return per page.
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * The token for the next set of results.
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * Filter model by type
    * @public
    */
-  filters?: CampaignFilters;
+  filters?: CampaignFilters | undefined;
 }
 
 /**
@@ -984,13 +984,13 @@ export interface ListCampaignsResponse {
    * The token for the next set of results.
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * A list of Amazon Connect campaigns.
    * @public
    */
-  campaignSummaryList?: CampaignSummary[];
+  campaignSummaryList?: CampaignSummary[] | undefined;
 }
 
 /**
@@ -1014,7 +1014,7 @@ export interface ListTagsForResourceResponse {
    * Tag map with key and value.
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1034,7 +1034,7 @@ export class InvalidCampaignStateException extends __BaseException {
    * A header that defines the error encountered while processing the request.
    * @public
    */
-  xAmzErrorType?: string;
+  xAmzErrorType?: string | undefined;
 
   /**
    * @internal
@@ -1144,19 +1144,19 @@ export interface FailedRequest {
    * Client provided parameter used for idempotency. Its value must be unique for each request.
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * Identifier representing a Dial request
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * A predefined code indicating the error that caused the failure.
    * @public
    */
-  failureCode?: FailureCode;
+  failureCode?: FailureCode | undefined;
 }
 
 /**
@@ -1168,13 +1168,13 @@ export interface SuccessfulRequest {
    * Client provided parameter used for idempotency. Its value must be unique for each request.
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * Identifier representing a Dial request
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -1186,13 +1186,13 @@ export interface PutDialRequestBatchResponse {
    * A list of successful requests identified by the unique client token.
    * @public
    */
-  successfulRequests?: SuccessfulRequest[];
+  successfulRequests?: SuccessfulRequest[] | undefined;
 
   /**
    * A list of failed requests.
    * @public
    */
-  failedRequests?: FailedRequest[];
+  failedRequests?: FailedRequest[] | undefined;
 }
 
 /**
@@ -1249,7 +1249,7 @@ export interface StartInstanceOnboardingJobResponse {
    * Instance onboarding job status object
    * @public
    */
-  connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus;
+  connectInstanceOnboardingJobStatus?: InstanceOnboardingJobStatus | undefined;
 }
 
 /**
@@ -1351,19 +1351,19 @@ export interface UpdateCampaignOutboundCallConfigRequest {
    * The identifier of the contact flow for the outbound call.
    * @public
    */
-  connectContactFlowId?: string;
+  connectContactFlowId?: string | undefined;
 
   /**
    * The phone number associated with the Amazon Connect instance, in E.164 format. If you do not specify a source phone number, you must specify a queue.
    * @public
    */
-  connectSourcePhoneNumber?: string;
+  connectSourcePhoneNumber?: string | undefined;
 
   /**
    * Answering Machine Detection config
    * @public
    */
-  answerMachineDetectionConfig?: AnswerMachineDetectionConfig;
+  answerMachineDetectionConfig?: AnswerMachineDetectionConfig | undefined;
 }
 
 /**

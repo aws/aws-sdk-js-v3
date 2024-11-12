@@ -22,7 +22,7 @@ export interface ActiveContextTimeToLive {
    *       hours).</p>
    * @public
    */
-  timeToLiveInSeconds?: number;
+  timeToLiveInSeconds?: number | undefined;
 
   /**
    * <p>The number of conversation turns that the context should be active. A
@@ -30,7 +30,7 @@ export interface ActiveContextTimeToLive {
    *       request and the corresponding response from Amazon Lex.</p>
    * @public
    */
-  turnsToLive?: number;
+  turnsToLive?: number | undefined;
 }
 
 /**
@@ -137,25 +137,25 @@ export interface DeleteSessionResponse {
    * <p>The name of the bot associated with the session data.</p>
    * @public
    */
-  botName?: string;
+  botName?: string | undefined;
 
   /**
    * <p>The alias in use for the bot associated with the session data.</p>
    * @public
    */
-  botAlias?: string;
+  botAlias?: string | undefined;
 
   /**
    * <p>The ID of the client application user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The unique identifier for the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 }
 
 /**
@@ -185,7 +185,7 @@ export class InternalFailureException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  retryAfterSeconds?: string;
+  retryAfterSeconds?: string | undefined;
   /**
    * @internal
    */
@@ -252,7 +252,7 @@ export interface GetSessionRequest {
    *       returned.</p>
    * @public
    */
-  checkpointLabelFilter?: string;
+  checkpointLabelFilter?: string | undefined;
 }
 
 /**
@@ -352,19 +352,19 @@ export interface DialogAction {
    * <p>The name of the intent.</p>
    * @public
    */
-  intentName?: string;
+  intentName?: string | undefined;
 
   /**
    * <p>Map of the slots that have been gathered and their values. </p>
    * @public
    */
-  slots?: Record<string, string>;
+  slots?: Record<string, string> | undefined;
 
   /**
    * <p>The name of the slot that should be elicited from the user.</p>
    * @public
    */
-  slotToElicit?: string;
+  slotToElicit?: string | undefined;
 
   /**
    * <p>The fulfillment state of the intent. The possible values are:</p>
@@ -388,14 +388,14 @@ export interface DialogAction {
    *          </ul>
    * @public
    */
-  fulfillmentState?: FulfillmentState;
+  fulfillmentState?: FulfillmentState | undefined;
 
   /**
    * <p>The message that should be shown to the user. If you don't specify a
    *       message, Amazon Lex will use the message configured for the intent.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <ul>
@@ -423,7 +423,7 @@ export interface DialogAction {
    *          </ul>
    * @public
    */
-  messageFormat?: MessageFormatType;
+  messageFormat?: MessageFormatType | undefined;
 }
 
 /**
@@ -453,7 +453,7 @@ export interface IntentSummary {
    * <p>The name of the intent.</p>
    * @public
    */
-  intentName?: string;
+  intentName?: string | undefined;
 
   /**
    * <p>A user-defined label that identifies a particular intent. You can use
@@ -463,13 +463,13 @@ export interface IntentSummary {
    *       by the operation to those with only the specified label.</p>
    * @public
    */
-  checkpointLabel?: string;
+  checkpointLabel?: string | undefined;
 
   /**
    * <p>Map of the slots that have been gathered and their values. </p>
    * @public
    */
-  slots?: Record<string, string>;
+  slots?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the intent after the user responds to the confirmation
@@ -497,7 +497,7 @@ export interface IntentSummary {
    *          </ul>
    * @public
    */
-  confirmationStatus?: ConfirmationStatus;
+  confirmationStatus?: ConfirmationStatus | undefined;
 
   /**
    * <p>The next action that the bot should take in its interaction with the
@@ -552,14 +552,14 @@ export interface IntentSummary {
    *          </ul>
    * @public
    */
-  fulfillmentState?: FulfillmentState;
+  fulfillmentState?: FulfillmentState | undefined;
 
   /**
    * <p>The next slot to elicit from the user. If there is not slot to elicit,
    *       the field is blank.</p>
    * @public
    */
-  slotToElicit?: string;
+  slotToElicit?: string | undefined;
 }
 
 /**
@@ -576,7 +576,7 @@ export interface GetSessionResponse {
    *       label.</p>
    * @public
    */
-  recentIntentSummaryView?: IntentSummary[];
+  recentIntentSummaryView?: IntentSummary[] | undefined;
 
   /**
    * <p>Map of key/value pairs representing the session-specific context
@@ -584,19 +584,19 @@ export interface GetSessionResponse {
    *       a client application.</p>
    * @public
    */
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>A unique identifier for the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>Describes the current state of the bot.</p>
    * @public
    */
-  dialogAction?: DialogAction;
+  dialogAction?: DialogAction | undefined;
 
   /**
    * <p>A list of active contexts for the session. A context can be set when
@@ -606,7 +606,7 @@ export interface GetSessionResponse {
    *       intent, or to modify the operation of your application.</p>
    * @public
    */
-  activeContexts?: ActiveContext[];
+  activeContexts?: ActiveContext[] | undefined;
 }
 
 /**
@@ -618,7 +618,7 @@ export interface GetSessionResponse {
 export class BadGatewayException extends __BaseException {
   readonly name: "BadGatewayException" = "BadGatewayException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -655,7 +655,7 @@ export class BadGatewayException extends __BaseException {
 export class DependencyFailedException extends __BaseException {
   readonly name: "DependencyFailedException" = "DependencyFailedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -677,7 +677,7 @@ export class DependencyFailedException extends __BaseException {
 export class LoopDetectedException extends __BaseException {
   readonly name: "LoopDetectedException" = "LoopDetectedException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -773,7 +773,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session Attributes</a>.</p>
    * @public
    */
-  sessionAttributes?: __LazyJsonString | string;
+  sessionAttributes?: __LazyJsonString | string | undefined;
 
   /**
    * <p>You pass this value as the <code>x-amz-lex-request-attributes</code>
@@ -789,7 +789,7 @@ export interface PostContentRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request Attributes</a>.</p>
    * @public
    */
-  requestAttributes?: __LazyJsonString | string;
+  requestAttributes?: __LazyJsonString | string | undefined;
 
   /**
    * <p> You pass this value as the <code>Content-Type</code> HTTP header. </p>
@@ -877,7 +877,7 @@ export interface PostContentRequest {
    *          </ul>
    * @public
    */
-  accept?: string;
+  accept?: string | undefined;
 
   /**
    * <p> User input in PCM or Opus audio format or text format as described in
@@ -899,7 +899,7 @@ export interface PostContentRequest {
    *       contexts for the session are cleared.</p>
    * @public
    */
-  activeContexts?: __LazyJsonString | string;
+  activeContexts?: __LazyJsonString | string | undefined;
 }
 
 /**
@@ -929,13 +929,13 @@ export interface PostContentResponse {
    *       the request.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>Current user intent that Amazon Lex is aware of.</p>
    * @public
    */
-  intentName?: string;
+  intentName?: string | undefined;
 
   /**
    * <p>Provides a score that indicates how confident Amazon Lex is that the
@@ -945,7 +945,7 @@ export interface PostContentResponse {
    *       change based on improvements to Amazon Lex. </p>
    * @public
    */
-  nluIntentConfidence?: __LazyJsonString | string;
+  nluIntentConfidence?: __LazyJsonString | string | undefined;
 
   /**
    * <p>One to four alternative intents that may be applicable to the user's
@@ -955,7 +955,7 @@ export interface PostContentResponse {
    *       the confidence score.</p>
    * @public
    */
-  alternativeIntents?: __LazyJsonString | string;
+  alternativeIntents?: __LazyJsonString | string | undefined;
 
   /**
    * <p>Map of zero or more intent slots (name/value pairs) Amazon Lex detected
@@ -974,14 +974,14 @@ export interface PostContentResponse {
    *         <code>ORIGINAL_VALUE</code>.</p>
    * @public
    */
-  slots?: __LazyJsonString | string;
+  slots?: __LazyJsonString | string | undefined;
 
   /**
    * <p> Map of key/value pairs representing the session-specific context
    *       information. </p>
    * @public
    */
-  sessionAttributes?: __LazyJsonString | string;
+  sessionAttributes?: __LazyJsonString | string | undefined;
 
   /**
    * <p>The sentiment expressed in an utterance.</p>
@@ -989,7 +989,7 @@ export interface PostContentResponse {
    *       sentiment analysis, this field contains the result of the analysis.</p>
    * @public
    */
-  sentimentResponse?: string;
+  sentimentResponse?: string | undefined;
 
   /**
    * @deprecated
@@ -1016,7 +1016,7 @@ export interface PostContentResponse {
    *       in its response.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The message to convey to the user. The message can come from the bot's
@@ -1039,7 +1039,7 @@ export interface PostContentResponse {
    *       decode the field before you can use the value.</p>
    * @public
    */
-  encodedMessage?: string;
+  encodedMessage?: string | undefined;
 
   /**
    * <p>The format of the response message. One of the following
@@ -1069,7 +1069,7 @@ export interface PostContentResponse {
    *          </ul>
    * @public
    */
-  messageFormat?: MessageFormatType;
+  messageFormat?: MessageFormatType | undefined;
 
   /**
    * <p>Identifies the current state of the user interaction. Amazon Lex returns
@@ -1129,14 +1129,14 @@ export interface PostContentResponse {
    *          </ul>
    * @public
    */
-  dialogState?: DialogState;
+  dialogState?: DialogState | undefined;
 
   /**
    * <p> If the <code>dialogState</code> value is <code>ElicitSlot</code>,
    *       returns the name of the slot for which Amazon Lex is eliciting a value. </p>
    * @public
    */
-  slotToElicit?: string;
+  slotToElicit?: string | undefined;
 
   /**
    * @deprecated
@@ -1153,7 +1153,7 @@ export interface PostContentResponse {
    *       audio that you send.</p>
    * @public
    */
-  inputTranscript?: string;
+  inputTranscript?: string | undefined;
 
   /**
    * <p>The text used to process the request.</p>
@@ -1166,7 +1166,7 @@ export interface PostContentResponse {
    *       decode the field before you can use the value.</p>
    * @public
    */
-  encodedInputTranscript?: string;
+  encodedInputTranscript?: string | undefined;
 
   /**
    * <p>The prompt (or statement) to convey to the user. This is based on the
@@ -1179,7 +1179,7 @@ export interface PostContentResponse {
    *       message in the response. </p>
    * @public
    */
-  audioStream?: StreamingBlobTypes;
+  audioStream?: StreamingBlobTypes | undefined;
 
   /**
    * <p>The version of the bot that responded to the conversation. You can use
@@ -1187,13 +1187,13 @@ export interface PostContentResponse {
    *       better than another version.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The unique identifier for the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>A list of active contexts for the session. A context can be set when
@@ -1203,7 +1203,7 @@ export interface PostContentResponse {
    *       intent, or to modify the operation of your application.</p>
    * @public
    */
-  activeContexts?: __LazyJsonString | string;
+  activeContexts?: __LazyJsonString | string | undefined;
 }
 
 /**
@@ -1303,7 +1303,7 @@ export interface PostTextRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting Session Attributes</a>.</p>
    * @public
    */
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>Request-specific information passed between Amazon Lex and a client
@@ -1314,7 +1314,7 @@ export interface PostTextRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting Request Attributes</a>.</p>
    * @public
    */
-  requestAttributes?: Record<string, string>;
+  requestAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The text that the user entered (Amazon Lex interprets this text).</p>
@@ -1331,7 +1331,7 @@ export interface PostTextRequest {
    *       contexts for the session are cleared.</p>
    * @public
    */
-  activeContexts?: ActiveContext[];
+  activeContexts?: ActiveContext[] | undefined;
 }
 
 /**
@@ -1346,7 +1346,7 @@ export interface IntentConfidence {
    *       higher confidence.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 }
 
 /**
@@ -1361,20 +1361,20 @@ export interface PredictedIntent {
    *       intent.</p>
    * @public
    */
-  intentName?: string;
+  intentName?: string | undefined;
 
   /**
    * <p>Indicates how confident Amazon Lex is that an intent satisfies the user's
    *       intent.</p>
    * @public
    */
-  nluIntentConfidence?: IntentConfidence;
+  nluIntentConfidence?: IntentConfidence | undefined;
 
   /**
    * <p>The slot and slot values associated with the predicted intent.</p>
    * @public
    */
-  slots?: Record<string, string>;
+  slots?: Record<string, string> | undefined;
 }
 
 /**
@@ -1421,31 +1421,31 @@ export interface GenericAttachment {
    * <p>The title of the option.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>The subtitle shown below the title.</p>
    * @public
    */
-  subTitle?: string;
+  subTitle?: string | undefined;
 
   /**
    * <p>The URL of an attachment to the response card.</p>
    * @public
    */
-  attachmentLinkUrl?: string;
+  attachmentLinkUrl?: string | undefined;
 
   /**
    * <p>The URL of an image that is displayed to the user.</p>
    * @public
    */
-  imageUrl?: string;
+  imageUrl?: string | undefined;
 
   /**
    * <p>The list of options to show to the user.</p>
    * @public
    */
-  buttons?: Button[];
+  buttons?: Button[] | undefined;
 }
 
 /**
@@ -1461,19 +1461,19 @@ export interface ResponseCard {
    * <p>The version of the response card format.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The content type of the response.</p>
    * @public
    */
-  contentType?: ContentType;
+  contentType?: ContentType | undefined;
 
   /**
    * <p>An array of attachment objects representing options.</p>
    * @public
    */
-  genericAttachments?: GenericAttachment[];
+  genericAttachments?: GenericAttachment[] | undefined;
 }
 
 /**
@@ -1489,13 +1489,13 @@ export interface SentimentResponse {
    *       confidence in.</p>
    * @public
    */
-  sentimentLabel?: string;
+  sentimentLabel?: string | undefined;
 
   /**
    * <p>The likelihood that the sentiment was correctly inferred.</p>
    * @public
    */
-  sentimentScore?: string;
+  sentimentScore?: string | undefined;
 }
 
 /**
@@ -1506,7 +1506,7 @@ export interface PostTextResponse {
    * <p>The current user intent that Amazon Lex is aware of.</p>
    * @public
    */
-  intentName?: string;
+  intentName?: string | undefined;
 
   /**
    * <p>Provides a score that indicates how confident Amazon Lex is that the
@@ -1516,7 +1516,7 @@ export interface PostTextResponse {
    *       change based on improvements to Amazon Lex.</p>
    * @public
    */
-  nluIntentConfidence?: IntentConfidence;
+  nluIntentConfidence?: IntentConfidence | undefined;
 
   /**
    * <p>One to four alternative intents that may be applicable to the user's
@@ -1526,7 +1526,7 @@ export interface PostTextResponse {
    *       the confidence score.</p>
    * @public
    */
-  alternativeIntents?: PredictedIntent[];
+  alternativeIntents?: PredictedIntent[] | undefined;
 
   /**
    * <p> The intent slots that Amazon Lex detected from the user input in the
@@ -1544,14 +1544,14 @@ export interface PostTextResponse {
    *         <code>ORIGINAL_VALUE</code>.</p>
    * @public
    */
-  slots?: Record<string, string>;
+  slots?: Record<string, string> | undefined;
 
   /**
    * <p>A map of key-value pairs representing the session-specific context
    *       information.</p>
    * @public
    */
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The message to convey to the user. The message can come from the bot's
@@ -1572,7 +1572,7 @@ export interface PostTextResponse {
    *       in its response.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The sentiment expressed in and utterance.</p>
@@ -1580,7 +1580,7 @@ export interface PostTextResponse {
    *       sentiment analysis, this field contains the result of the analysis.</p>
    * @public
    */
-  sentimentResponse?: SentimentResponse;
+  sentimentResponse?: SentimentResponse | undefined;
 
   /**
    * <p>The format of the response message. One of the following
@@ -1610,7 +1610,7 @@ export interface PostTextResponse {
    *          </ul>
    * @public
    */
-  messageFormat?: MessageFormatType;
+  messageFormat?: MessageFormatType | undefined;
 
   /**
    * <p> Identifies the current state of the user interaction. Amazon Lex returns
@@ -1671,14 +1671,14 @@ export interface PostTextResponse {
    *          </ul>
    * @public
    */
-  dialogState?: DialogState;
+  dialogState?: DialogState | undefined;
 
   /**
    * <p>If the <code>dialogState</code> value is <code>ElicitSlot</code>,
    *       returns the name of the slot for which Amazon Lex is eliciting a value. </p>
    * @public
    */
-  slotToElicit?: string;
+  slotToElicit?: string | undefined;
 
   /**
    * <p>Represents the options that the user has to respond to the current
@@ -1687,13 +1687,13 @@ export interface PostTextResponse {
    *       code hook (Lambda function). </p>
    * @public
    */
-  responseCard?: ResponseCard;
+  responseCard?: ResponseCard | undefined;
 
   /**
    * <p>A unique identifier for the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The version of the bot that responded to the conversation. You can use
@@ -1701,7 +1701,7 @@ export interface PostTextResponse {
    *       better than another version.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>A list of active contexts for the session. A context can be set when
@@ -1711,7 +1711,7 @@ export interface PostTextResponse {
    *       intent, or to modify the operation of your application.</p>
    * @public
    */
-  activeContexts?: ActiveContext[];
+  activeContexts?: ActiveContext[] | undefined;
 }
 
 /**
@@ -1743,14 +1743,14 @@ export interface PutSessionRequest {
    *       a client application.</p>
    * @public
    */
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>Sets the next action that the bot should take to fulfill the
    *       conversation.</p>
    * @public
    */
-  dialogAction?: DialogAction;
+  dialogAction?: DialogAction | undefined;
 
   /**
    * <p>A summary of the recent intents for the bot. You can use the intent
@@ -1783,7 +1783,7 @@ export interface PutSessionRequest {
    *       call to <code>GetSession</code> will only return one intent.</p>
    * @public
    */
-  recentIntentSummaryView?: IntentSummary[];
+  recentIntentSummaryView?: IntentSummary[] | undefined;
 
   /**
    * <p>The message that Amazon Lex returns in the response can be either text or
@@ -1836,7 +1836,7 @@ export interface PutSessionRequest {
    *          </ul>
    * @public
    */
-  accept?: string;
+  accept?: string | undefined;
 
   /**
    * <p>A list of contexts active for the request. A context can be activated
@@ -1847,7 +1847,7 @@ export interface PutSessionRequest {
    *       contexts for the session are cleared.</p>
    * @public
    */
-  activeContexts?: ActiveContext[];
+  activeContexts?: ActiveContext[] | undefined;
 }
 
 /**
@@ -1859,13 +1859,13 @@ export interface PutSessionResponse {
    *       the request.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The name of the current intent.</p>
    * @public
    */
-  intentName?: string;
+  intentName?: string | undefined;
 
   /**
    * <p>Map of zero or more intent slots Amazon Lex detected from the user input
@@ -1883,14 +1883,14 @@ export interface PutSessionResponse {
    *         <code>ORIGINAL_VALUE</code>. </p>
    * @public
    */
-  slots?: __LazyJsonString | string;
+  slots?: __LazyJsonString | string | undefined;
 
   /**
    * <p>Map of key/value pairs representing session-specific context
    *       information.</p>
    * @public
    */
-  sessionAttributes?: __LazyJsonString | string;
+  sessionAttributes?: __LazyJsonString | string | undefined;
 
   /**
    * @deprecated
@@ -1902,7 +1902,7 @@ export interface PutSessionResponse {
    *         <code>encodedMessage</code> field instead.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The next message that should be presented to the user.</p>
@@ -1910,7 +1910,7 @@ export interface PutSessionResponse {
    *       decode the field before you can use the value.</p>
    * @public
    */
-  encodedMessage?: string;
+  encodedMessage?: string | undefined;
 
   /**
    * <p>The format of the response message. One of the following
@@ -1940,7 +1940,7 @@ export interface PutSessionResponse {
    *          </ul>
    * @public
    */
-  messageFormat?: MessageFormatType;
+  messageFormat?: MessageFormatType | undefined;
 
   /**
    * <p></p>
@@ -1980,32 +1980,32 @@ export interface PutSessionResponse {
    *          </ul>
    * @public
    */
-  dialogState?: DialogState;
+  dialogState?: DialogState | undefined;
 
   /**
    * <p>If the <code>dialogState</code> is <code>ElicitSlot</code>, returns
    *       the name of the slot for which Amazon Lex is eliciting a value.</p>
    * @public
    */
-  slotToElicit?: string;
+  slotToElicit?: string | undefined;
 
   /**
    * <p>The audio version of the message to convey to the user.</p>
    * @public
    */
-  audioStream?: StreamingBlobTypes;
+  audioStream?: StreamingBlobTypes | undefined;
 
   /**
    * <p>A unique identifier for the session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>A list of active contexts for the session.</p>
    * @public
    */
-  activeContexts?: __LazyJsonString | string;
+  activeContexts?: __LazyJsonString | string | undefined;
 }
 
 /**

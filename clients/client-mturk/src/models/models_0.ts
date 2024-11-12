@@ -20,7 +20,7 @@ export interface AcceptQualificationRequestRequest {
    *         </p>
    * @public
    */
-  IntegerValue?: number;
+  IntegerValue?: number | undefined;
 }
 
 /**
@@ -35,8 +35,8 @@ export interface AcceptQualificationRequestResponse {}
 export class RequestError extends __BaseException {
   readonly name: "RequestError" = "RequestError";
   readonly $fault: "client" = "client";
-  Message?: string;
-  TurkErrorCode?: string;
+  Message?: string | undefined;
+  TurkErrorCode?: string | undefined;
   /**
    * @internal
    */
@@ -59,8 +59,8 @@ export class RequestError extends __BaseException {
 export class ServiceFault extends __BaseException {
   readonly name: "ServiceFault" = "ServiceFault";
   readonly $fault: "server" = "server";
-  Message?: string;
-  TurkErrorCode?: string;
+  Message?: string | undefined;
+  TurkErrorCode?: string | undefined;
   /**
    * @internal
    */
@@ -94,7 +94,7 @@ export interface ApproveAssignmentRequest {
    *         </p>
    * @public
    */
-  RequesterFeedback?: string;
+  RequesterFeedback?: string | undefined;
 
   /**
    * <p>
@@ -102,7 +102,7 @@ export interface ApproveAssignmentRequest {
    *         </p>
    * @public
    */
-  OverrideRejection?: boolean;
+  OverrideRejection?: boolean | undefined;
 }
 
 /**
@@ -137,25 +137,25 @@ export interface Assignment {
    * <p> A unique identifier for the assignment.</p>
    * @public
    */
-  AssignmentId?: string;
+  AssignmentId?: string | undefined;
 
   /**
    * <p> The ID of the Worker who accepted the HIT.</p>
    * @public
    */
-  WorkerId?: string;
+  WorkerId?: string | undefined;
 
   /**
    * <p> The ID of the HIT.</p>
    * @public
    */
-  HITId?: string;
+  HITId?: string | undefined;
 
   /**
    * <p> The status of the assignment.</p>
    * @public
    */
-  AssignmentStatus?: AssignmentStatus;
+  AssignmentStatus?: AssignmentStatus | undefined;
 
   /**
    * <p> If results have been submitted, AutoApprovalTime is the date
@@ -167,13 +167,13 @@ export interface Assignment {
    *             results.</p>
    * @public
    */
-  AutoApprovalTime?: Date;
+  AutoApprovalTime?: Date | undefined;
 
   /**
    * <p> The date and time the Worker accepted the assignment.</p>
    * @public
    */
-  AcceptTime?: Date;
+  AcceptTime?: Date | undefined;
 
   /**
    * <p> If the Worker has submitted results, SubmitTime is the date
@@ -181,7 +181,7 @@ export interface Assignment {
    *             assignment if the Worker has not yet submitted results.</p>
    * @public
    */
-  SubmitTime?: Date;
+  SubmitTime?: Date | undefined;
 
   /**
    * <p> If the Worker has submitted results and the Requester has
@@ -190,7 +190,7 @@ export interface Assignment {
    *             the Requester has not yet approved the results.</p>
    * @public
    */
-  ApprovalTime?: Date;
+  ApprovalTime?: Date | undefined;
 
   /**
    * <p> If the Worker has submitted results and the Requester has
@@ -198,7 +198,7 @@ export interface Assignment {
    *             Requester rejected the results.</p>
    * @public
    */
-  RejectionTime?: Date;
+  RejectionTime?: Date | undefined;
 
   /**
    * <p> The date and time of the deadline for the assignment. This
@@ -206,7 +206,7 @@ export interface Assignment {
    *             date and time the Worker accepted the HIT.</p>
    * @public
    */
-  Deadline?: Date;
+  Deadline?: Date | undefined;
 
   /**
    * <p> The Worker's answers submitted for the HIT contained in a
@@ -215,7 +215,7 @@ export interface Assignment {
    *             QuestionFormAnswers document, or Answer may be empty.</p>
    * @public
    */
-  Answer?: string;
+  Answer?: string | undefined;
 
   /**
    * <p> The feedback string included with the call to the
@@ -223,7 +223,7 @@ export interface Assignment {
    *             Requester approved or rejected the assignment and specified feedback.</p>
    * @public
    */
-  RequesterFeedback?: string;
+  RequesterFeedback?: string | undefined;
 }
 
 /**
@@ -249,7 +249,7 @@ export interface AssociateQualificationWithWorkerRequest {
    * <p>The value of the Qualification to assign.</p>
    * @public
    */
-  IntegerValue?: number;
+  IntegerValue?: number | undefined;
 
   /**
    * <p>
@@ -259,7 +259,7 @@ export interface AssociateQualificationWithWorkerRequest {
    *         </p>
    * @public
    */
-  SendNotification?: boolean;
+  SendNotification?: boolean | undefined;
 }
 
 /**
@@ -276,31 +276,31 @@ export interface BonusPayment {
    * <p>The ID of the Worker to whom the bonus was paid.</p>
    * @public
    */
-  WorkerId?: string;
+  WorkerId?: string | undefined;
 
   /**
    * <p>A string representing a currency amount.</p>
    * @public
    */
-  BonusAmount?: string;
+  BonusAmount?: string | undefined;
 
   /**
    * <p>The ID of the assignment associated with this bonus payment.</p>
    * @public
    */
-  AssignmentId?: string;
+  AssignmentId?: string | undefined;
 
   /**
    * <p>The Reason text given when the bonus was granted, if any.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 
   /**
    * <p>The date and time of when the bonus was granted.</p>
    * @public
    */
-  GrantTime?: Date;
+  GrantTime?: Date | undefined;
 }
 
 /**
@@ -352,7 +352,7 @@ export interface CreateAdditionalAssignmentsForHITRequest {
    *         </p>
    * @public
    */
-  UniqueRequestToken?: string;
+  UniqueRequestToken?: string | undefined;
 }
 
 /**
@@ -374,7 +374,7 @@ export interface ParameterMapEntry {
    *         </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p> The list of answers to the question specified in the
@@ -383,7 +383,7 @@ export interface ParameterMapEntry {
    *         </p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -397,20 +397,20 @@ export interface PolicyParameter {
    *         </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p> The list of values of the Parameter</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 
   /**
    * <p> List of ParameterMapEntry objects.
    *         </p>
    * @public
    */
-  MapEntries?: ParameterMapEntry[];
+  MapEntries?: ParameterMapEntry[] | undefined;
 }
 
 /**
@@ -432,7 +432,7 @@ export interface ReviewPolicy {
    * <p>Name of the parameter from the Review policy.</p>
    * @public
    */
-  Parameters?: PolicyParameter[];
+  Parameters?: PolicyParameter[] | undefined;
 }
 
 /**
@@ -495,7 +495,7 @@ export interface Locale {
    *             Washington.</p>
    * @public
    */
-  Subdivision?: string;
+  Subdivision?: string | undefined;
 }
 
 /**
@@ -543,7 +543,7 @@ export interface QualificationRequirement {
    *         </p>
    * @public
    */
-  IntegerValues?: number[];
+  IntegerValues?: number[] | undefined;
 
   /**
    * <p> The locale value to compare against the Qualification's
@@ -558,7 +558,7 @@ export interface QualificationRequirement {
    *         </p>
    * @public
    */
-  LocaleValues?: Locale[];
+  LocaleValues?: Locale[] | undefined;
 
   /**
    * @deprecated
@@ -577,7 +577,7 @@ export interface QualificationRequirement {
    *         </p>
    * @public
    */
-  RequiredToPreview?: boolean;
+  RequiredToPreview?: boolean | undefined;
 
   /**
    * <p> Setting this attribute prevents Workers whose Qualifications do not meet
@@ -595,7 +595,7 @@ export interface QualificationRequirement {
    *         </p>
    * @public
    */
-  ActionsGuarded?: HITAccessActions;
+  ActionsGuarded?: HITAccessActions | undefined;
 }
 
 /**
@@ -608,7 +608,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  MaxAssignments?: number;
+  MaxAssignments?: number | undefined;
 
   /**
    * <p>
@@ -618,7 +618,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  AutoApprovalDelayInSeconds?: number;
+  AutoApprovalDelayInSeconds?: number | undefined;
 
   /**
    * <p>
@@ -667,7 +667,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  Keywords?: string;
+  Keywords?: string | undefined;
 
   /**
    * <p>
@@ -692,7 +692,7 @@ export interface CreateHITRequest {
    *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
    * @public
    */
-  Question?: string;
+  Question?: string | undefined;
 
   /**
    * <p>
@@ -712,7 +712,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  RequesterAnnotation?: string;
+  RequesterAnnotation?: string | undefined;
 
   /**
    * <p>
@@ -725,7 +725,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  QualificationRequirements?: QualificationRequirement[];
+  QualificationRequirements?: QualificationRequirement[] | undefined;
 
   /**
    * <p>
@@ -746,7 +746,7 @@ export interface CreateHITRequest {
    *         </note>
    * @public
    */
-  UniqueRequestToken?: string;
+  UniqueRequestToken?: string | undefined;
 
   /**
    * <p>
@@ -755,7 +755,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  AssignmentReviewPolicy?: ReviewPolicy;
+  AssignmentReviewPolicy?: ReviewPolicy | undefined;
 
   /**
    * <p>
@@ -764,7 +764,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  HITReviewPolicy?: ReviewPolicy;
+  HITReviewPolicy?: ReviewPolicy | undefined;
 
   /**
    * <p>
@@ -776,7 +776,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  HITLayoutId?: string;
+  HITLayoutId?: string | undefined;
 
   /**
    * <p>
@@ -785,7 +785,7 @@ export interface CreateHITRequest {
    *         </p>
    * @public
    */
-  HITLayoutParameters?: HITLayoutParameter[];
+  HITLayoutParameters?: HITLayoutParameter[] | undefined;
 }
 
 /**
@@ -832,43 +832,43 @@ export interface HIT {
    * <p> A unique identifier for the HIT.</p>
    * @public
    */
-  HITId?: string;
+  HITId?: string | undefined;
 
   /**
    * <p>The ID of the HIT type of this HIT</p>
    * @public
    */
-  HITTypeId?: string;
+  HITTypeId?: string | undefined;
 
   /**
    * <p> The ID of the HIT Group of this HIT.</p>
    * @public
    */
-  HITGroupId?: string;
+  HITGroupId?: string | undefined;
 
   /**
    * <p> The ID of the HIT Layout of this HIT.</p>
    * @public
    */
-  HITLayoutId?: string;
+  HITLayoutId?: string | undefined;
 
   /**
    * <p> The date and time the HIT was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p> The title of the HIT.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p> A general description of the HIT.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p> The data the Worker completing the HIT uses produce the
@@ -876,7 +876,7 @@ export interface HIT {
    *             ExternalQuestion data structure.</p>
    * @public
    */
-  Question?: string;
+  Question?: string | undefined;
 
   /**
    * <p> One or more words or phrases that describe the HIT,
@@ -884,7 +884,7 @@ export interface HIT {
    *             are more likely to have the HIT in the search results.</p>
    * @public
    */
-  Keywords?: string;
+  Keywords?: string | undefined;
 
   /**
    * <p>The status of the HIT and its assignments. Valid Values are
@@ -892,7 +892,7 @@ export interface HIT {
    *         </p>
    * @public
    */
-  HITStatus?: HITStatus;
+  HITStatus?: HITStatus | undefined;
 
   /**
    * <p>The number of times the HIT can be accepted and completed
@@ -900,13 +900,13 @@ export interface HIT {
    *         </p>
    * @public
    */
-  MaxAssignments?: number;
+  MaxAssignments?: number | undefined;
 
   /**
    * <p>A string representing a currency amount.</p>
    * @public
    */
-  Reward?: string;
+  Reward?: string | undefined;
 
   /**
    * <p>The amount of time, in seconds, after the Worker submits an
@@ -917,27 +917,27 @@ export interface HIT {
    *         </p>
    * @public
    */
-  AutoApprovalDelayInSeconds?: number;
+  AutoApprovalDelayInSeconds?: number | undefined;
 
   /**
    * <p>The date and time the HIT expires.</p>
    * @public
    */
-  Expiration?: Date;
+  Expiration?: Date | undefined;
 
   /**
    * <p> The length of time, in seconds, that a Worker has to
    *             complete the HIT after accepting it.</p>
    * @public
    */
-  AssignmentDurationInSeconds?: number;
+  AssignmentDurationInSeconds?: number | undefined;
 
   /**
    * <p> An arbitrary data field the Requester who created the HIT
    *             can use. This field is visible only to the creator of the HIT.</p>
    * @public
    */
-  RequesterAnnotation?: string;
+  RequesterAnnotation?: string | undefined;
 
   /**
    * <p>
@@ -950,7 +950,7 @@ export interface HIT {
    *         </p>
    * @public
    */
-  QualificationRequirements?: QualificationRequirement[];
+  QualificationRequirements?: QualificationRequirement[] | undefined;
 
   /**
    * <p> Indicates the review status of the HIT. Valid Values are
@@ -958,7 +958,7 @@ export interface HIT {
    *             ReviewedInappropriate.</p>
    * @public
    */
-  HITReviewStatus?: HITReviewStatus;
+  HITReviewStatus?: HITReviewStatus | undefined;
 
   /**
    * <p> The number of assignments for this HIT that are being
@@ -966,21 +966,21 @@ export interface HIT {
    *             submitted, returned, or abandoned.</p>
    * @public
    */
-  NumberOfAssignmentsPending?: number;
+  NumberOfAssignmentsPending?: number | undefined;
 
   /**
    * <p> The number of assignments for this HIT that are available
    *             for Workers to accept.</p>
    * @public
    */
-  NumberOfAssignmentsAvailable?: number;
+  NumberOfAssignmentsAvailable?: number | undefined;
 
   /**
    * <p> The number of assignments for this HIT that have been
    *             approved or rejected.</p>
    * @public
    */
-  NumberOfAssignmentsCompleted?: number;
+  NumberOfAssignmentsCompleted?: number | undefined;
 }
 
 /**
@@ -994,7 +994,7 @@ export interface CreateHITResponse {
    *         </p>
    * @public
    */
-  HIT?: HIT;
+  HIT?: HIT | undefined;
 }
 
 /**
@@ -1009,7 +1009,7 @@ export interface CreateHITTypeRequest {
    *         </p>
    * @public
    */
-  AutoApprovalDelayInSeconds?: number;
+  AutoApprovalDelayInSeconds?: number | undefined;
 
   /**
    * <p>
@@ -1048,7 +1048,7 @@ export interface CreateHITTypeRequest {
    *         </p>
    * @public
    */
-  Keywords?: string;
+  Keywords?: string | undefined;
 
   /**
    * <p>
@@ -1072,7 +1072,7 @@ export interface CreateHITTypeRequest {
    *         </p>
    * @public
    */
-  QualificationRequirements?: QualificationRequirement[];
+  QualificationRequirements?: QualificationRequirement[] | undefined;
 }
 
 /**
@@ -1083,7 +1083,7 @@ export interface CreateHITTypeResponse {
    * <p> The ID of the newly registered HIT type.</p>
    * @public
    */
-  HITTypeId?: string;
+  HITTypeId?: string | undefined;
 }
 
 /**
@@ -1102,7 +1102,7 @@ export interface CreateHITWithHITTypeRequest {
    *         </p>
    * @public
    */
-  MaxAssignments?: number;
+  MaxAssignments?: number | undefined;
 
   /**
    * <p>
@@ -1126,7 +1126,7 @@ export interface CreateHITWithHITTypeRequest {
    *         <p>Either a Question parameter or a HITLayoutId parameter must be provided.</p>
    * @public
    */
-  Question?: string;
+  Question?: string | undefined;
 
   /**
    * <p>
@@ -1146,7 +1146,7 @@ export interface CreateHITWithHITTypeRequest {
    *         </p>
    * @public
    */
-  RequesterAnnotation?: string;
+  RequesterAnnotation?: string | undefined;
 
   /**
    * <p>
@@ -1167,7 +1167,7 @@ export interface CreateHITWithHITTypeRequest {
    *         </note>
    * @public
    */
-  UniqueRequestToken?: string;
+  UniqueRequestToken?: string | undefined;
 
   /**
    * <p>
@@ -1176,7 +1176,7 @@ export interface CreateHITWithHITTypeRequest {
    *         </p>
    * @public
    */
-  AssignmentReviewPolicy?: ReviewPolicy;
+  AssignmentReviewPolicy?: ReviewPolicy | undefined;
 
   /**
    * <p>
@@ -1185,7 +1185,7 @@ export interface CreateHITWithHITTypeRequest {
    *         </p>
    * @public
    */
-  HITReviewPolicy?: ReviewPolicy;
+  HITReviewPolicy?: ReviewPolicy | undefined;
 
   /**
    * <p>
@@ -1197,7 +1197,7 @@ export interface CreateHITWithHITTypeRequest {
    *         </p>
    * @public
    */
-  HITLayoutId?: string;
+  HITLayoutId?: string | undefined;
 
   /**
    * <p>
@@ -1206,7 +1206,7 @@ export interface CreateHITWithHITTypeRequest {
    *         </p>
    * @public
    */
-  HITLayoutParameters?: HITLayoutParameter[];
+  HITLayoutParameters?: HITLayoutParameter[] | undefined;
 }
 
 /**
@@ -1220,7 +1220,7 @@ export interface CreateHITWithHITTypeResponse {
    *         </p>
    * @public
    */
-  HIT?: HIT;
+  HIT?: HIT | undefined;
 }
 
 /**
@@ -1256,7 +1256,7 @@ export interface CreateQualificationTypeRequest {
    *             easier to find during a search.</p>
    * @public
    */
-  Keywords?: string;
+  Keywords?: string | undefined;
 
   /**
    * <p>A long description for the Qualification type. On the Amazon
@@ -1286,7 +1286,7 @@ export interface CreateQualificationTypeRequest {
    *             Qualification type with retries disabled.</p>
    * @public
    */
-  RetryDelayInSeconds?: number;
+  RetryDelayInSeconds?: number | undefined;
 
   /**
    * <p>
@@ -1303,7 +1303,7 @@ export interface CreateQualificationTypeRequest {
    *             the Qualification without answering any questions.</p>
    * @public
    */
-  Test?: string;
+  Test?: string | undefined;
 
   /**
    * <p>The answers to the Qualification test specified in the Test
@@ -1313,7 +1313,7 @@ export interface CreateQualificationTypeRequest {
    *             Qualification requests manually.</p>
    * @public
    */
-  AnswerKey?: string;
+  AnswerKey?: string | undefined;
 
   /**
    * <p>The number of seconds the Worker has to complete the
@@ -1321,7 +1321,7 @@ export interface CreateQualificationTypeRequest {
    *             Qualification.</p>
    * @public
    */
-  TestDurationInSeconds?: number;
+  TestDurationInSeconds?: number | undefined;
 
   /**
    * <p>Specifies whether requests for the Qualification type are
@@ -1331,7 +1331,7 @@ export interface CreateQualificationTypeRequest {
    *             parameter cannot be true.</p>
    * @public
    */
-  AutoGranted?: boolean;
+  AutoGranted?: boolean | undefined;
 
   /**
    * <p>The Qualification value to use for automatically granted
@@ -1339,7 +1339,7 @@ export interface CreateQualificationTypeRequest {
    *             parameter is true.</p>
    * @public
    */
-  AutoGrantedValue?: number;
+  AutoGrantedValue?: number | undefined;
 }
 
 /**
@@ -1359,14 +1359,14 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  QualificationTypeId?: string;
+  QualificationTypeId?: string | undefined;
 
   /**
    * <p> The date and time the Qualification type was created.
    *         </p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p> The name of the Qualification type. The type name is used to
@@ -1375,14 +1375,14 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p> A long description for the Qualification type.
    *         </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p> One or more words or phrases that describe theQualification
@@ -1391,7 +1391,7 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  Keywords?: string;
+  Keywords?: string | undefined;
 
   /**
    * <p> The status of the Qualification type. A Qualification type's
@@ -1401,7 +1401,7 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  QualificationTypeStatus?: QualificationTypeStatus;
+  QualificationTypeStatus?: QualificationTypeStatus | undefined;
 
   /**
    * <p> The questions for a Qualification test associated with this
@@ -1412,7 +1412,7 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  Test?: string;
+  Test?: string | undefined;
 
   /**
    * <p> The amount of time, in seconds, given to a Worker to
@@ -1421,14 +1421,14 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  TestDurationInSeconds?: number;
+  TestDurationInSeconds?: number | undefined;
 
   /**
    * <p>The answers to the Qualification test specified in the Test
    *             parameter.</p>
    * @public
    */
-  AnswerKey?: string;
+  AnswerKey?: string | undefined;
 
   /**
    * <p> The amount of time, in seconds, Workers must wait after
@@ -1441,7 +1441,7 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  RetryDelayInSeconds?: number;
+  RetryDelayInSeconds?: number | undefined;
 
   /**
    * <p> Specifies whether the Qualification type is one that a user
@@ -1451,7 +1451,7 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  IsRequestable?: boolean;
+  IsRequestable?: boolean | undefined;
 
   /**
    * <p>Specifies that requests for the Qualification type are
@@ -1459,7 +1459,7 @@ export interface QualificationType {
    *             Qualification test. Valid values are True | False.</p>
    * @public
    */
-  AutoGranted?: boolean;
+  AutoGranted?: boolean | undefined;
 
   /**
    * <p> The Qualification integer value to use for automatically
@@ -1467,7 +1467,7 @@ export interface QualificationType {
    *         </p>
    * @public
    */
-  AutoGrantedValue?: number;
+  AutoGrantedValue?: number | undefined;
 }
 
 /**
@@ -1479,7 +1479,7 @@ export interface CreateQualificationTypeResponse {
    *             QualificationType data structure.</p>
    * @public
    */
-  QualificationType?: QualificationType;
+  QualificationType?: QualificationType | undefined;
 }
 
 /**
@@ -1550,7 +1550,7 @@ export interface DeleteWorkerBlockRequest {
    * <p>A message that explains the reason for unblocking the Worker. The Worker does not see this message.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -1578,7 +1578,7 @@ export interface DisassociateQualificationFromWorkerRequest {
    * <p>A text message that explains why the Qualification was revoked. The user who had the Qualification sees this message.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -1623,13 +1623,13 @@ export interface GetAccountBalanceResponse {
    * <p>A string representing a currency amount.</p>
    * @public
    */
-  AvailableBalance?: string;
+  AvailableBalance?: string | undefined;
 
   /**
    * <p>A string representing a currency amount.</p>
    * @public
    */
-  OnHoldBalance?: string;
+  OnHoldBalance?: string | undefined;
 }
 
 /**
@@ -1653,14 +1653,14 @@ export interface GetAssignmentResponse {
    *         </p>
    * @public
    */
-  Assignment?: Assignment;
+  Assignment?: Assignment | undefined;
 
   /**
    * <p> The HIT associated with this assignment. The response
    *             includes one HIT element.</p>
    * @public
    */
-  HIT?: HIT;
+  HIT?: HIT | undefined;
 }
 
 /**
@@ -1692,7 +1692,7 @@ export interface GetFileUploadURLResponse {
    *         </p>
    * @public
    */
-  FileUploadURL?: string;
+  FileUploadURL?: string | undefined;
 }
 
 /**
@@ -1714,7 +1714,7 @@ export interface GetHITResponse {
    * <p> Contains the requested HIT data.</p>
    * @public
    */
-  HIT?: HIT;
+  HIT?: HIT | undefined;
 }
 
 /**
@@ -1759,14 +1759,14 @@ export interface Qualification {
    * <p> The ID of the Qualification type for the Qualification.</p>
    * @public
    */
-  QualificationTypeId?: string;
+  QualificationTypeId?: string | undefined;
 
   /**
    * <p> The ID of the Worker who possesses the Qualification.
    *         </p>
    * @public
    */
-  WorkerId?: string;
+  WorkerId?: string | undefined;
 
   /**
    * <p> The date and time the Qualification was granted to the
@@ -1776,27 +1776,27 @@ export interface Qualification {
    *             operation.</p>
    * @public
    */
-  GrantTime?: Date;
+  GrantTime?: Date | undefined;
 
   /**
    * <p> The value (score) of the Qualification, if the Qualification
    *             has an integer value.</p>
    * @public
    */
-  IntegerValue?: number;
+  IntegerValue?: number | undefined;
 
   /**
    * <p>The Locale data structure represents a geographical region or location.</p>
    * @public
    */
-  LocaleValue?: Locale;
+  LocaleValue?: Locale | undefined;
 
   /**
    * <p> The status of the Qualification. Valid values are Granted |
    *             Revoked.</p>
    * @public
    */
-  Status?: QualificationStatus;
+  Status?: QualificationStatus | undefined;
 }
 
 /**
@@ -1810,7 +1810,7 @@ export interface GetQualificationScoreResponse {
    *         </p>
    * @public
    */
-  Qualification?: Qualification;
+  Qualification?: Qualification | undefined;
 }
 
 /**
@@ -1832,7 +1832,7 @@ export interface GetQualificationTypeResponse {
    * <p> The returned Qualification Type</p>
    * @public
    */
-  QualificationType?: QualificationType;
+  QualificationType?: QualificationType | undefined;
 }
 
 /**
@@ -1849,15 +1849,15 @@ export interface ListAssignmentsForHITRequest {
    * <p>Pagination token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
-  MaxResults?: number;
+  MaxResults?: number | undefined;
   /**
    * <p>The status of the assignments to return: Submitted | Approved
    *             | Rejected</p>
    * @public
    */
-  AssignmentStatuses?: AssignmentStatus[];
+  AssignmentStatuses?: AssignmentStatus[] | undefined;
 }
 
 /**
@@ -1871,7 +1871,7 @@ export interface ListAssignmentsForHITResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The number of assignments on the page in the filtered
@@ -1879,14 +1879,14 @@ export interface ListAssignmentsForHITResponse {
    *             this call.</p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p> The collection of Assignment data structures returned by
    *             this call.</p>
    * @public
    */
-  Assignments?: Assignment[];
+  Assignments?: Assignment[] | undefined;
 }
 
 /**
@@ -1900,7 +1900,7 @@ export interface ListBonusPaymentsRequest {
    *             AssignmentId parameter must be specified</p>
    * @public
    */
-  HITId?: string;
+  HITId?: string | undefined;
 
   /**
    * <p>The ID of the assignment associated with the bonus payments
@@ -1909,15 +1909,15 @@ export interface ListBonusPaymentsRequest {
    *             AssignmentId parameter must be specified</p>
    * @public
    */
-  AssignmentId?: string;
+  AssignmentId?: string | undefined;
 
   /**
    * <p>Pagination token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1931,7 +1931,7 @@ export interface ListBonusPaymentsResponse {
    *         </p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -1940,7 +1940,7 @@ export interface ListBonusPaymentsResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A successful request to the ListBonusPayments operation
@@ -1948,7 +1948,7 @@ export interface ListBonusPaymentsResponse {
    *         </p>
    * @public
    */
-  BonusPayments?: BonusPayment[];
+  BonusPayments?: BonusPayment[] | undefined;
 }
 
 /**
@@ -1959,9 +1959,9 @@ export interface ListHITsRequest {
    * <p>Pagination token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1975,20 +1975,20 @@ export interface ListHITsResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of HITs on this page in the filtered results list,
    *             equivalent to the number of HITs being returned by this call.</p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p> The list of HIT elements returned by the query.</p>
    * @public
    */
-  HITs?: HIT[];
+  HITs?: HIT[] | undefined;
 }
 
 /**
@@ -2007,7 +2007,7 @@ export interface ListHITsForQualificationTypeRequest {
    * <p>Pagination Token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -2015,7 +2015,7 @@ export interface ListHITsForQualificationTypeRequest {
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2029,20 +2029,20 @@ export interface ListHITsForQualificationTypeResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The number of HITs on this page in the filtered results
    *             list, equivalent to the number of HITs being returned by this call.	</p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p> The list of HIT elements returned by the query.</p>
    * @public
    */
-  HITs?: HIT[];
+  HITs?: HIT[] | undefined;
 }
 
 /**
@@ -2053,7 +2053,7 @@ export interface ListQualificationRequestsRequest {
    * <p>The ID of the QualificationType.</p>
    * @public
    */
-  QualificationTypeId?: string;
+  QualificationTypeId?: string | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2062,14 +2062,14 @@ export interface ListQualificationRequestsRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to return in a single call.
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2086,7 +2086,7 @@ export interface QualificationRequest {
    *         </p>
    * @public
    */
-  QualificationRequestId?: string;
+  QualificationRequestId?: string | undefined;
 
   /**
    * <p> The ID of the Qualification type the Worker is requesting,
@@ -2094,13 +2094,13 @@ export interface QualificationRequest {
    *         </p>
    * @public
    */
-  QualificationTypeId?: string;
+  QualificationTypeId?: string | undefined;
 
   /**
    * <p> The ID of the Worker requesting the Qualification.</p>
    * @public
    */
-  WorkerId?: string;
+  WorkerId?: string | undefined;
 
   /**
    * <p> The contents of the Qualification test that was presented to
@@ -2110,7 +2110,7 @@ export interface QualificationRequest {
    *             Qualification.</p>
    * @public
    */
-  Test?: string;
+  Test?: string | undefined;
 
   /**
    * <p> The Worker's answers for the Qualification type's test
@@ -2120,7 +2120,7 @@ export interface QualificationRequest {
    *         </p>
    * @public
    */
-  Answer?: string;
+  Answer?: string | undefined;
 
   /**
    * <p>The date and time the Qualification request had a status of
@@ -2130,7 +2130,7 @@ export interface QualificationRequest {
    *         </p>
    * @public
    */
-  SubmitTime?: Date;
+  SubmitTime?: Date | undefined;
 }
 
 /**
@@ -2142,7 +2142,7 @@ export interface ListQualificationRequestsResponse {
    *             equivalent to the number of Qualification requests being returned by this call.</p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2151,7 +2151,7 @@ export interface ListQualificationRequestsResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Qualification request. The response includes one
@@ -2160,7 +2160,7 @@ export interface ListQualificationRequestsResponse {
    *             by the query.</p>
    * @public
    */
-  QualificationRequests?: QualificationRequest[];
+  QualificationRequests?: QualificationRequest[] | undefined;
 }
 
 /**
@@ -2173,7 +2173,7 @@ export interface ListQualificationTypesRequest {
    *         </p>
    * @public
    */
-  Query?: string;
+  Query?: string | undefined;
 
   /**
    * <p>Specifies that only Qualification types that a user can
@@ -2195,7 +2195,7 @@ export interface ListQualificationTypesRequest {
    *         </p>
    * @public
    */
-  MustBeOwnedByCaller?: boolean;
+  MustBeOwnedByCaller?: boolean | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2204,14 +2204,14 @@ export interface ListQualificationTypesRequest {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The maximum number of results to return in a single call.
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2225,7 +2225,7 @@ export interface ListQualificationTypesResponse {
    *         </p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2234,7 +2234,7 @@ export interface ListQualificationTypesResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The list of QualificationType elements returned by the
@@ -2242,7 +2242,7 @@ export interface ListQualificationTypesResponse {
    *         </p>
    * @public
    */
-  QualificationTypes?: QualificationType[];
+  QualificationTypes?: QualificationType[] | undefined;
 }
 
 /**
@@ -2270,7 +2270,7 @@ export interface ListReviewableHITsRequest {
    *         </p>
    * @public
    */
-  HITTypeId?: string;
+  HITTypeId?: string | undefined;
 
   /**
    * <p>
@@ -2279,13 +2279,13 @@ export interface ListReviewableHITsRequest {
    *         </p>
    * @public
    */
-  Status?: ReviewableHITStatus;
+  Status?: ReviewableHITStatus | undefined;
 
   /**
    * <p>Pagination Token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -2293,7 +2293,7 @@ export interface ListReviewableHITsRequest {
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2307,7 +2307,7 @@ export interface ListReviewableHITsResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The number of HITs on this page in the filtered results
@@ -2315,13 +2315,13 @@ export interface ListReviewableHITsResponse {
    *         </p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p> The list of HIT elements returned by the query.</p>
    * @public
    */
-  HITs?: HIT[];
+  HITs?: HIT[] | undefined;
 }
 
 /**
@@ -2356,7 +2356,7 @@ export interface ListReviewPolicyResultsForHITRequest {
    *         </p>
    * @public
    */
-  PolicyLevels?: ReviewPolicyLevel[];
+  PolicyLevels?: ReviewPolicyLevel[] | undefined;
 
   /**
    * <p>
@@ -2365,7 +2365,7 @@ export interface ListReviewPolicyResultsForHITRequest {
    *         </p>
    * @public
    */
-  RetrieveActions?: boolean;
+  RetrieveActions?: boolean | undefined;
 
   /**
    * <p>
@@ -2373,19 +2373,19 @@ export interface ListReviewPolicyResultsForHITRequest {
    *         </p>
    * @public
    */
-  RetrieveResults?: boolean;
+  RetrieveResults?: boolean | undefined;
 
   /**
    * <p>Pagination token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Limit the number of results returned.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2417,7 +2417,7 @@ export interface ReviewActionDetail {
    * <p>The unique identifier for the action.</p>
    * @public
    */
-  ActionId?: string;
+  ActionId?: string | undefined;
 
   /**
    * <p> The nature of the action itself. The Review Policy is
@@ -2425,19 +2425,19 @@ export interface ReviewActionDetail {
    *             and deciding which other actions will be necessary. </p>
    * @public
    */
-  ActionName?: string;
+  ActionName?: string | undefined;
 
   /**
    * <p> The specific HITId or AssignmentID targeted by the action.</p>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 
   /**
    * <p> The type of object in TargetId.</p>
    * @public
    */
-  TargetType?: string;
+  TargetType?: string | undefined;
 
   /**
    * <p> The current disposition of the action: INTENDED, SUCCEEDED,
@@ -2445,25 +2445,25 @@ export interface ReviewActionDetail {
    *         </p>
    * @public
    */
-  Status?: ReviewActionStatus;
+  Status?: ReviewActionStatus | undefined;
 
   /**
    * <p> The date when the action was completed.</p>
    * @public
    */
-  CompleteTime?: Date;
+  CompleteTime?: Date | undefined;
 
   /**
    * <p> A description of the outcome of the review.</p>
    * @public
    */
-  Result?: string;
+  Result?: string | undefined;
 
   /**
    * <p> Present only when the Results have a FAILED Status.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 }
 
 /**
@@ -2478,7 +2478,7 @@ export interface ReviewResultDetail {
    *         </p>
    * @public
    */
-  ActionId?: string;
+  ActionId?: string | undefined;
 
   /**
    * <p>The HITID or AssignmentId about which this result was taken.
@@ -2489,13 +2489,13 @@ export interface ReviewResultDetail {
    *         </p>
    * @public
    */
-  SubjectId?: string;
+  SubjectId?: string | undefined;
 
   /**
    * <p> The type of the object from the SubjectId field.</p>
    * @public
    */
-  SubjectType?: string;
+  SubjectType?: string | undefined;
 
   /**
    * <p> Specifies the QuestionId the result is describing. Depending
@@ -2508,14 +2508,14 @@ export interface ReviewResultDetail {
    *         </p>
    * @public
    */
-  QuestionId?: string;
+  QuestionId?: string | undefined;
 
   /**
    * <p> Key identifies the particular piece of reviewed information.
    *         </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p> The values of Key provided by the review policies you have
@@ -2523,7 +2523,7 @@ export interface ReviewResultDetail {
    *         </p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -2539,7 +2539,7 @@ export interface ReviewReport {
    *         </p>
    * @public
    */
-  ReviewResults?: ReviewResultDetail[];
+  ReviewResults?: ReviewResultDetail[] | undefined;
 
   /**
    * <p> A list of ReviewAction objects for each action specified in
@@ -2547,7 +2547,7 @@ export interface ReviewReport {
    *         </p>
    * @public
    */
-  ReviewActions?: ReviewActionDetail[];
+  ReviewActions?: ReviewActionDetail[] | undefined;
 }
 
 /**
@@ -2558,7 +2558,7 @@ export interface ListReviewPolicyResultsForHITResponse {
    * <p>The HITId of the HIT for which results have been returned.</p>
    * @public
    */
-  HITId?: string;
+  HITId?: string | undefined;
 
   /**
    * <p> The name of the Assignment-level Review Policy. This
@@ -2566,14 +2566,14 @@ export interface ListReviewPolicyResultsForHITResponse {
    *         </p>
    * @public
    */
-  AssignmentReviewPolicy?: ReviewPolicy;
+  AssignmentReviewPolicy?: ReviewPolicy | undefined;
 
   /**
    * <p>The name of the HIT-level Review Policy. This contains only
    *             the PolicyName element.</p>
    * @public
    */
-  HITReviewPolicy?: ReviewPolicy;
+  HITReviewPolicy?: ReviewPolicy | undefined;
 
   /**
    * <p> Contains both ReviewResult and ReviewAction elements for an
@@ -2581,14 +2581,14 @@ export interface ListReviewPolicyResultsForHITResponse {
    *         </p>
    * @public
    */
-  AssignmentReviewReport?: ReviewReport;
+  AssignmentReviewReport?: ReviewReport | undefined;
 
   /**
    * <p>Contains both ReviewResult and ReviewAction elements for a particular HIT.
    *         </p>
    * @public
    */
-  HITReviewReport?: ReviewReport;
+  HITReviewReport?: ReviewReport | undefined;
 
   /**
    * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Mechanical Turk
@@ -2597,7 +2597,7 @@ export interface ListReviewPolicyResultsForHITResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2608,9 +2608,9 @@ export interface ListWorkerBlocksRequest {
    * <p>Pagination token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2625,14 +2625,14 @@ export interface WorkerBlock {
    * <p> The ID of the Worker who accepted the HIT.</p>
    * @public
    */
-  WorkerId?: string;
+  WorkerId?: string | undefined;
 
   /**
    * <p> A message explaining the reason the Worker was blocked.
    *         </p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -2646,7 +2646,7 @@ export interface ListWorkerBlocksResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The number of assignments on the page in the filtered
@@ -2654,14 +2654,14 @@ export interface ListWorkerBlocksResponse {
    *             this call.</p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p> The list of WorkerBlocks, containing the collection of
    *             Worker IDs and reasons for blocking.</p>
    * @public
    */
-  WorkerBlocks?: WorkerBlock[];
+  WorkerBlocks?: WorkerBlock[] | undefined;
 }
 
 /**
@@ -2682,13 +2682,13 @@ export interface ListWorkersWithQualificationTypeRequest {
    *         </p>
    * @public
    */
-  Status?: QualificationStatus;
+  Status?: QualificationStatus | undefined;
 
   /**
    * <p>Pagination Token</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -2696,7 +2696,7 @@ export interface ListWorkersWithQualificationTypeRequest {
    *         </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2710,7 +2710,7 @@ export interface ListWorkersWithQualificationTypeResponse {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The number of Qualifications on this page in the filtered
@@ -2718,14 +2718,14 @@ export interface ListWorkersWithQualificationTypeResponse {
    *             returned by this call.</p>
    * @public
    */
-  NumResults?: number;
+  NumResults?: number | undefined;
 
   /**
    * <p> The list of Qualification elements returned by this call.
    *         </p>
    * @public
    */
-  Qualifications?: Qualification[];
+  Qualifications?: Qualification[] | undefined;
 }
 
 /**
@@ -2781,7 +2781,7 @@ export interface NotifyWorkersFailureStatus {
    *         </p>
    * @public
    */
-  NotifyWorkersFailureCode?: NotifyWorkersFailureCode;
+  NotifyWorkersFailureCode?: NotifyWorkersFailureCode | undefined;
 
   /**
    * <p> A message detailing the reason the Worker could not be
@@ -2789,13 +2789,13 @@ export interface NotifyWorkersFailureStatus {
    *         </p>
    * @public
    */
-  NotifyWorkersFailureMessage?: string;
+  NotifyWorkersFailureMessage?: string | undefined;
 
   /**
    * <p> The ID of the Worker.</p>
    * @public
    */
-  WorkerId?: string;
+  WorkerId?: string | undefined;
 }
 
 /**
@@ -2809,7 +2809,7 @@ export interface NotifyWorkersResponse {
    *         </p>
    * @public
    */
-  NotifyWorkersFailureStatuses?: NotifyWorkersFailureStatus[];
+  NotifyWorkersFailureStatuses?: NotifyWorkersFailureStatus[] | undefined;
 }
 
 /**
@@ -2857,7 +2857,7 @@ export interface RejectQualificationRequestRequest {
    *             shown to the Worker who made the request.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -2907,7 +2907,7 @@ export interface SendBonusRequest {
    *             request ID.</p>
    * @public
    */
-  UniqueRequestToken?: string;
+  UniqueRequestToken?: string | undefined;
 }
 
 /**
@@ -3070,7 +3070,7 @@ export interface UpdateHITReviewStatusRequest {
    *          </ul>
    * @public
    */
-  Revert?: boolean;
+  Revert?: boolean | undefined;
 }
 
 /**
@@ -3118,7 +3118,7 @@ export interface UpdateNotificationSettingsRequest {
    *         </p>
    * @public
    */
-  Notification?: NotificationSpecification;
+  Notification?: NotificationSpecification | undefined;
 
   /**
    * <p>
@@ -3129,7 +3129,7 @@ export interface UpdateNotificationSettingsRequest {
    *         </p>
    * @public
    */
-  Active?: boolean;
+  Active?: boolean | undefined;
 }
 
 /**
@@ -3151,13 +3151,13 @@ export interface UpdateQualificationTypeRequest {
    * <p>The new description of the Qualification type.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The new status of the Qualification type - Active | Inactive</p>
    * @public
    */
-  QualificationTypeStatus?: QualificationTypeStatus;
+  QualificationTypeStatus?: QualificationTypeStatus | undefined;
 
   /**
    * <p>The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, <code>TestDurationInSeconds</code> must also be specified.</p>
@@ -3165,19 +3165,19 @@ export interface UpdateQualificationTypeRequest {
    *         <p>Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.</p>
    * @public
    */
-  Test?: string;
+  Test?: string | undefined;
 
   /**
    * <p>The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.</p>
    * @public
    */
-  AnswerKey?: string;
+  AnswerKey?: string | undefined;
 
   /**
    * <p>The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.</p>
    * @public
    */
-  TestDurationInSeconds?: number;
+  TestDurationInSeconds?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, that Workers must wait
@@ -3190,20 +3190,20 @@ export interface UpdateQualificationTypeRequest {
    *             retries disabled using CreateQualificationType.</p>
    * @public
    */
-  RetryDelayInSeconds?: number;
+  RetryDelayInSeconds?: number | undefined;
 
   /**
    * <p>Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.</p>
    *         <p>Constraints: If the Test parameter is specified, this parameter cannot be true.</p>
    * @public
    */
-  AutoGranted?: boolean;
+  AutoGranted?: boolean | undefined;
 
   /**
    * <p>The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.</p>
    * @public
    */
-  AutoGrantedValue?: number;
+  AutoGrantedValue?: number | undefined;
 }
 
 /**
@@ -3214,5 +3214,5 @@ export interface UpdateQualificationTypeResponse {
    * <p> Contains a QualificationType data structure.</p>
    * @public
    */
-  QualificationType?: QualificationType;
+  QualificationType?: QualificationType | undefined;
 }

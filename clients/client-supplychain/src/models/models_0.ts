@@ -73,7 +73,7 @@ export interface BillOfMaterialsImportJob {
    * <p>When the BillOfMaterialsImportJob has reached a terminal state, there will be a message.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -117,7 +117,7 @@ export interface CreateBillOfMaterialsImportJobRequest {
    * <p>An idempotency token ensures the API request is only completed no more than once. This way, retrying the request will not trigger the operation multiple times. A client token is a unique, case-sensitive string of 33 to 128 ASCII characters. To make an idempotent API request, specify a client token in the request. You should not reuse the same client token for other requests. If you retry a successful request with the same client token, the request will succeed with no further actions being taken, and you will receive the same API response as the original successful request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -290,13 +290,13 @@ export interface DataIntegrationFlowDatasetOptions {
    * <p>The dataset data load type in dataset options.</p>
    * @public
    */
-  loadType?: DataIntegrationFlowLoadType;
+  loadType?: DataIntegrationFlowLoadType | undefined;
 
   /**
    * <p>The dataset load option to remove duplicates.</p>
    * @public
    */
-  dedupeRecords?: boolean;
+  dedupeRecords?: boolean | undefined;
 }
 
 /**
@@ -314,7 +314,7 @@ export interface DataIntegrationFlowDatasetSourceConfiguration {
    * <p>The dataset DataIntegrationFlow source options.</p>
    * @public
    */
-  options?: DataIntegrationFlowDatasetOptions;
+  options?: DataIntegrationFlowDatasetOptions | undefined;
 }
 
 /**
@@ -342,7 +342,7 @@ export interface DataIntegrationFlowS3Options {
    * <p>The Amazon S3 file type in S3 options.</p>
    * @public
    */
-  fileType?: DataIntegrationFlowFileType;
+  fileType?: DataIntegrationFlowFileType | undefined;
 }
 
 /**
@@ -366,7 +366,7 @@ export interface DataIntegrationFlowS3SourceConfiguration {
    * <p>The other options of the S3 DataIntegrationFlow source.</p>
    * @public
    */
-  options?: DataIntegrationFlowS3Options;
+  options?: DataIntegrationFlowS3Options | undefined;
 }
 
 /**
@@ -405,13 +405,13 @@ export interface DataIntegrationFlowSource {
    * <p>The S3 DataIntegrationFlow source.</p>
    * @public
    */
-  s3Source?: DataIntegrationFlowS3SourceConfiguration;
+  s3Source?: DataIntegrationFlowS3SourceConfiguration | undefined;
 
   /**
    * <p>The dataset DataIntegrationFlow source.</p>
    * @public
    */
-  datasetSource?: DataIntegrationFlowDatasetSourceConfiguration;
+  datasetSource?: DataIntegrationFlowDatasetSourceConfiguration | undefined;
 }
 
 /**
@@ -429,7 +429,7 @@ export interface DataIntegrationFlowDatasetTargetConfiguration {
    * <p>The dataset DataIntegrationFlow target options.</p>
    * @public
    */
-  options?: DataIntegrationFlowDatasetOptions;
+  options?: DataIntegrationFlowDatasetOptions | undefined;
 }
 
 /**
@@ -453,7 +453,7 @@ export interface DataIntegrationFlowS3TargetConfiguration {
    * <p>The S3 DataIntegrationFlow target options.</p>
    * @public
    */
-  options?: DataIntegrationFlowS3Options;
+  options?: DataIntegrationFlowS3Options | undefined;
 }
 
 /**
@@ -486,13 +486,13 @@ export interface DataIntegrationFlowTarget {
    * <p>The S3 DataIntegrationFlow target.</p>
    * @public
    */
-  s3Target?: DataIntegrationFlowS3TargetConfiguration;
+  s3Target?: DataIntegrationFlowS3TargetConfiguration | undefined;
 
   /**
    * <p>The dataset DataIntegrationFlow target.</p>
    * @public
    */
-  datasetTarget?: DataIntegrationFlowDatasetTargetConfiguration;
+  datasetTarget?: DataIntegrationFlowDatasetTargetConfiguration | undefined;
 }
 
 /**
@@ -537,7 +537,7 @@ export interface DataIntegrationFlowTransformation {
    * <p>The SQL DataIntegrationFlow transformation configuration.</p>
    * @public
    */
-  sqlTransformation?: DataIntegrationFlowSQLTransformationConfiguration;
+  sqlTransformation?: DataIntegrationFlowSQLTransformationConfiguration | undefined;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface CreateDataIntegrationFlowRequest {
    * <p>The tags of the DataIntegrationFlow to be created</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -696,19 +696,19 @@ export interface CreateDataLakeDatasetRequest {
    * <p>The custom schema of the data lake dataset and is only required when the name space is <i>default</i>.</p>
    * @public
    */
-  schema?: DataLakeDatasetSchema;
+  schema?: DataLakeDatasetSchema | undefined;
 
   /**
    * <p>The description of the dataset.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The tags of the dataset.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -760,7 +760,7 @@ export interface DataLakeDataset {
    * <p>The description of the dataset.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The creation time of the dataset.</p>
@@ -796,31 +796,31 @@ export interface CreateInstanceRequest {
    * <p>The AWS Supply Chain instance name.</p>
    * @public
    */
-  instanceName?: string;
+  instanceName?: string | undefined;
 
   /**
    * <p>The AWS Supply Chain instance description.</p>
    * @public
    */
-  instanceDescription?: string;
+  instanceDescription?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon Web Services owned KMS key. If you don't provide anything here, AWS Supply Chain uses the Amazon Web Services owned KMS key.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services tags of an instance to be created.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The client token for idempotency.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -868,49 +868,49 @@ export interface Instance {
    * <p>The Amazon Web Services Supply Chain instance error message. If the instance results in an unhealthy state, customers need to check the error message, delete the current instance, and recreate a new one based on the mitigation from the error message.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The WebApp DNS domain name of the instance.</p>
    * @public
    */
-  webAppDnsDomain?: string;
+  webAppDnsDomain?: string | undefined;
 
   /**
    * <p>The instance creation timestamp.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>The instance last modified timestamp.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 
   /**
    * <p>The Amazon Web Services Supply Chain instance name.</p>
    * @public
    */
-  instanceName?: string;
+  instanceName?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Supply Chain instance description.</p>
    * @public
    */
-  instanceDescription?: string;
+  instanceDescription?: string | undefined;
 
   /**
    * <p>The ARN (Amazon Resource Name) of the Key Management Service (KMS) key you optionally provided for encryption. If you did not provide anything here, AWS Supply Chain uses the Amazon Web Services owned KMS key and nothing is returned.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The version number of the instance.</p>
    * @public
    */
-  versionNumber?: number;
+  versionNumber?: number | undefined;
 }
 
 /**
@@ -986,13 +986,13 @@ export interface SendDataIntegrationEventRequest {
    * <p>The event timestamp (in epoch seconds).</p>
    * @public
    */
-  eventTimestamp?: Date;
+  eventTimestamp?: Date | undefined;
 
   /**
    * <p>The idempotent client token.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1136,13 +1136,13 @@ export interface ListDataIntegrationFlowsRequest {
    * <p>The pagination token to fetch the next page of the DataIntegrationFlows.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specify the maximum number of DataIntegrationFlows to fetch in one paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1160,7 +1160,7 @@ export interface ListDataIntegrationFlowsResponse {
    * <p>The pagination token to fetch the next page of the DataIntegrationFlows.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1184,19 +1184,19 @@ export interface UpdateDataIntegrationFlowRequest {
    * <p>The new source configurations for the DataIntegrationFlow.</p>
    * @public
    */
-  sources?: DataIntegrationFlowSource[];
+  sources?: DataIntegrationFlowSource[] | undefined;
 
   /**
    * <p>The new transformation configurations for the DataIntegrationFlow.</p>
    * @public
    */
-  transformation?: DataIntegrationFlowTransformation;
+  transformation?: DataIntegrationFlowTransformation | undefined;
 
   /**
    * <p>The new target configurations for the DataIntegrationFlow.</p>
    * @public
    */
-  target?: DataIntegrationFlowTarget;
+  target?: DataIntegrationFlowTarget | undefined;
 }
 
 /**
@@ -1347,13 +1347,13 @@ export interface ListDataLakeDatasetsRequest {
    * <p>The pagination token to fetch next page of datasets.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The max number of datasets to fetch in this paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1371,7 +1371,7 @@ export interface ListDataLakeDatasetsResponse {
    * <p>The pagination token to fetch next page of datasets.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1411,7 +1411,7 @@ export interface UpdateDataLakeDatasetRequest {
    * <p>The updated description of the data lake dataset.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1483,25 +1483,25 @@ export interface ListInstancesRequest {
    * <p>The pagination token to fetch the next page of instances.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specify the maximum number of instances to fetch in this paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The filter to ListInstances based on their names.</p>
    * @public
    */
-  instanceNameFilter?: string[];
+  instanceNameFilter?: string[] | undefined;
 
   /**
    * <p>The filter to ListInstances based on their state.</p>
    * @public
    */
-  instanceStateFilter?: InstanceState[];
+  instanceStateFilter?: InstanceState[] | undefined;
 }
 
 /**
@@ -1519,7 +1519,7 @@ export interface ListInstancesResponse {
    * <p>The pagination token to fetch the next page of instances.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1537,13 +1537,13 @@ export interface UpdateInstanceRequest {
    * <p>The AWS Supply Chain instance name.</p>
    * @public
    */
-  instanceName?: string;
+  instanceName?: string | undefined;
 
   /**
    * <p>The AWS Supply Chain instance description.</p>
    * @public
    */
-  instanceDescription?: string;
+  instanceDescription?: string | undefined;
 }
 
 /**

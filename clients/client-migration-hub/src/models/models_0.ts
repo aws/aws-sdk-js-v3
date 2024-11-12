@@ -10,7 +10,7 @@ import { MigrationHubServiceException as __BaseException } from "./MigrationHubS
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -51,19 +51,19 @@ export interface ApplicationState {
    *          application.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The current status of an application.</p>
    * @public
    */
-  ApplicationStatus?: ApplicationStatus;
+  ApplicationStatus?: ApplicationStatus | undefined;
 
   /**
    * <p>The timestamp when the application status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -83,7 +83,7 @@ export interface CreatedArtifact {
    *          for clarity or for later reference.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -116,7 +116,7 @@ export interface AssociateCreatedArtifactRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -132,7 +132,7 @@ export interface AssociateCreatedArtifactResult {}
 export class DryRunOperation extends __BaseException {
   readonly name: "DryRunOperation" = "DryRunOperation";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -154,7 +154,7 @@ export class DryRunOperation extends __BaseException {
 export class HomeRegionNotSetException extends __BaseException {
   readonly name: "HomeRegionNotSetException" = "HomeRegionNotSetException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -177,7 +177,7 @@ export class HomeRegionNotSetException extends __BaseException {
 export class InternalServerError extends __BaseException {
   readonly name: "InternalServerError" = "InternalServerError";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -200,7 +200,7 @@ export class InternalServerError extends __BaseException {
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -224,7 +224,7 @@ export class InvalidInputException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -247,7 +247,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -279,7 +279,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds the caller should wait before retrying.</p>
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -303,7 +303,7 @@ export class ThrottlingException extends __BaseException {
 export class UnauthorizedOperation extends __BaseException {
   readonly name: "UnauthorizedOperation" = "UnauthorizedOperation";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -335,7 +335,7 @@ export interface DiscoveredResource {
    *          discovered resource for clarity or later reference.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -367,7 +367,7 @@ export interface AssociateDiscoveredResourceRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -384,7 +384,7 @@ export interface AssociateDiscoveredResourceResult {}
 export class PolicyErrorException extends __BaseException {
   readonly name: "PolicyErrorException" = "PolicyErrorException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -416,7 +416,7 @@ export interface CreateProgressUpdateStreamRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -441,7 +441,7 @@ export interface DeleteProgressUpdateStreamRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -469,13 +469,13 @@ export interface DescribeApplicationStateResult {
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    * @public
    */
-  ApplicationStatus?: ApplicationStatus;
+  ApplicationStatus?: ApplicationStatus | undefined;
 
   /**
    * <p>The timestamp when the application status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -606,13 +606,13 @@ export interface Task {
    *          explains an error state.</p>
    * @public
    */
-  StatusDetail?: string;
+  StatusDetail?: string | undefined;
 
   /**
    * <p>Indication of the percentage completion of the task.</p>
    * @public
    */
-  ProgressPercent?: number;
+  ProgressPercent?: number | undefined;
 }
 
 /**
@@ -624,7 +624,7 @@ export interface MigrationTask {
    * <p>A name that identifies the vendor of the migration tool being used.</p>
    * @public
    */
-  ProgressUpdateStream?: string;
+  ProgressUpdateStream?: string | undefined;
 
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
@@ -632,26 +632,26 @@ export interface MigrationTask {
    *          </p>
    * @public
    */
-  MigrationTaskName?: string;
+  MigrationTaskName?: string | undefined;
 
   /**
    * <p>Task object encapsulating task information.</p>
    * @public
    */
-  Task?: Task;
+  Task?: Task | undefined;
 
   /**
    * <p>The timestamp when the task was gathered.</p>
    * @public
    */
-  UpdateDateTime?: Date;
+  UpdateDateTime?: Date | undefined;
 
   /**
    * <p>Information about the resource that is being migrated. This data will be used to map the
    *          task to a resource in the Application Discovery Service repository.</p>
    * @public
    */
-  ResourceAttributeList?: ResourceAttribute[];
+  ResourceAttributeList?: ResourceAttribute[] | undefined;
 }
 
 /**
@@ -662,7 +662,7 @@ export interface DescribeMigrationTaskResult {
    * <p>Object encapsulating information about the migration task.</p>
    * @public
    */
-  MigrationTask?: MigrationTask;
+  MigrationTask?: MigrationTask | undefined;
 }
 
 /**
@@ -695,7 +695,7 @@ export interface DisassociateCreatedArtifactRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -733,7 +733,7 @@ export interface DisassociateDiscoveredResourceRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -764,7 +764,7 @@ export interface ImportMigrationTaskRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -781,7 +781,7 @@ export interface ListApplicationStatesRequest {
    *          your applications.</p>
    * @public
    */
-  ApplicationIds?: string[];
+  ApplicationIds?: string[] | undefined;
 
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -789,13 +789,13 @@ export interface ListApplicationStatesRequest {
    *          token in <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to be returned per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -806,7 +806,7 @@ export interface ListApplicationStatesResult {
    * <p>A list of Applications that exist in Application Discovery Service.</p>
    * @public
    */
-  ApplicationStateList?: ApplicationState[];
+  ApplicationStateList?: ApplicationState[] | undefined;
 
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, there are more results
@@ -814,7 +814,7 @@ export interface ListApplicationStatesResult {
    *          token in <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -841,13 +841,13 @@ export interface ListCreatedArtifactsRequest {
    *          token in <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to be returned per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -859,14 +859,14 @@ export interface ListCreatedArtifactsResult {
    *          passed to the next call as a bookmark of where to start from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>List of created artifacts up to the maximum number of results specified in the
    *          request.</p>
    * @public
    */
-  CreatedArtifactList?: CreatedArtifact[];
+  CreatedArtifactList?: CreatedArtifact[] | undefined;
 }
 
 /**
@@ -893,13 +893,13 @@ export interface ListDiscoveredResourcesRequest {
    *          token in <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results returned per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -911,13 +911,13 @@ export interface ListDiscoveredResourcesResult {
    *          passed to the next call as a bookmark of where to start from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Returned list of discovered resources associated with the given MigrationTask.</p>
    * @public
    */
-  DiscoveredResourceList?: DiscoveredResource[];
+  DiscoveredResourceList?: DiscoveredResource[] | undefined;
 }
 
 /**
@@ -930,19 +930,19 @@ export interface ListMigrationTasksRequest {
    *          token in <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Value to specify how many results are returned per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filter migration tasks by discovered resource name.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 }
 
 /**
@@ -957,7 +957,7 @@ export interface MigrationTaskSummary {
    *          as it is used for all updates made by the tool.</p>
    * @public
    */
-  ProgressUpdateStream?: string;
+  ProgressUpdateStream?: string | undefined;
 
   /**
    * <p>Unique identifier that references the migration task. <i>Do not store personal
@@ -965,31 +965,31 @@ export interface MigrationTaskSummary {
    *          </p>
    * @public
    */
-  MigrationTaskName?: string;
+  MigrationTaskName?: string | undefined;
 
   /**
    * <p>Status of the task.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>Indication of the percentage completion of the task.</p>
    * @public
    */
-  ProgressPercent?: number;
+  ProgressPercent?: number | undefined;
 
   /**
    * <p>Detail information of what is being done within the overall status state.</p>
    * @public
    */
-  StatusDetail?: string;
+  StatusDetail?: string | undefined;
 
   /**
    * <p>The timestamp when the task was gathered.</p>
    * @public
    */
-  UpdateDateTime?: Date;
+  UpdateDateTime?: Date | undefined;
 }
 
 /**
@@ -1001,7 +1001,7 @@ export interface ListMigrationTasksResult {
    *          passed to the next call as a bookmark of where to start from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Lists the migration task's summary which includes: <code>MigrationTaskName</code>,
@@ -1009,7 +1009,7 @@ export interface ListMigrationTasksResult {
    *          and the <code>UpdateDateTime</code> for each task.</p>
    * @public
    */
-  MigrationTaskSummaryList?: MigrationTaskSummary[];
+  MigrationTaskSummaryList?: MigrationTaskSummary[] | undefined;
 }
 
 /**
@@ -1022,13 +1022,13 @@ export interface ListProgressUpdateStreamsRequest {
    *          token in <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Filter to limit the maximum number of results to list per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1043,7 +1043,7 @@ export interface ProgressUpdateStreamSummary {
    *          </p>
    * @public
    */
-  ProgressUpdateStreamName?: string;
+  ProgressUpdateStreamName?: string | undefined;
 }
 
 /**
@@ -1055,14 +1055,14 @@ export interface ListProgressUpdateStreamsResult {
    *          input.</p>
    * @public
    */
-  ProgressUpdateStreamSummaryList?: ProgressUpdateStreamSummary[];
+  ProgressUpdateStreamSummaryList?: ProgressUpdateStreamSummary[] | undefined;
 
   /**
    * <p>If there are more streams created than the max result, return the next token to be
    *          passed to the next call as a bookmark of where to start from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1086,14 +1086,14 @@ export interface NotifyApplicationStateRequest {
    * <p>The timestamp when the application state changed.</p>
    * @public
    */
-  UpdateDateTime?: Date;
+  UpdateDateTime?: Date | undefined;
 
   /**
    * <p>Optional boolean flag to indicate whether any effect should take place. Used to test if
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -1144,7 +1144,7 @@ export interface NotifyMigrationTaskStateRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -1208,7 +1208,7 @@ export interface PutResourceAttributesRequest {
    *          the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**

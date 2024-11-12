@@ -81,7 +81,7 @@ export interface CreateAlertManagerDefinitionRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -136,7 +136,7 @@ export interface AlertManagerDefinitionStatus {
    * <p>If there is a failure, the reason for the failure.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -163,7 +163,7 @@ export class InternalServerException extends __BaseException {
    * <p>Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -273,19 +273,19 @@ export class ThrottlingException extends __BaseException {
    * <p>Service quotas code for the originating service.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>Service quotas code for the originating quota.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -355,7 +355,7 @@ export class ValidationException extends __BaseException {
    * <p>The field that caused the error, if applicable.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -388,7 +388,7 @@ export interface DeleteAlertManagerDefinitionRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -471,7 +471,7 @@ export interface PutAlertManagerDefinitionRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -526,7 +526,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tag keys and values associated with the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -635,7 +635,7 @@ export interface EksConfiguration {
    * <p>A list of the security group IDs for the Amazon EKS cluster VPC configuration.</p>
    * @public
    */
-  securityGroupIds?: string[];
+  securityGroupIds?: string[] | undefined;
 
   /**
    * <p>A list of subnet IDs for the Amazon EKS cluster VPC configuration.</p>
@@ -692,7 +692,7 @@ export interface CreateScraperRequest {
    *             need to be unique.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>The configuration file to use in the new scraper. For more information, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-configuration">Scraper configuration</a> in the <i>Amazon Managed Service for Prometheus User
@@ -718,13 +718,13 @@ export interface CreateScraperRequest {
    *             idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>(Optional) The list of tag keys and values to associate with the scraper.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -807,7 +807,7 @@ export interface CreateScraperResponse {
    * <p>The list of tag keys and values that are associated with the scraper.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -826,7 +826,7 @@ export interface DeleteScraperRequest {
    *             idempotency of the request.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -869,7 +869,7 @@ export interface ScraperDescription {
    * <p>(Optional) A name associated with the scraper.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>The ID of the scraper. For example, <code>s-example1-1234-abcd-5678-ef9012abcd34</code>.</p>
@@ -914,13 +914,13 @@ export interface ScraperDescription {
    * <p>(Optional) The list of tag keys and values associated with the scraper.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>If there is a failure, the reason for the failure.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The configuration in use by the scraper.</p>
@@ -975,14 +975,14 @@ export interface ListScrapersRequest {
    *             the filter.</p>
    * @public
    */
-  filters?: Record<string, string[]>;
+  filters?: Record<string, string[]> | undefined;
 
   /**
    * <p>(Optional) The token for the next set of
    *             items to return. (You received this token from a previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Optional) The maximum number of
@@ -991,7 +991,7 @@ export interface ListScrapersRequest {
    *          <p>If you omit this parameter, the default of 100 is used.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1004,7 +1004,7 @@ export interface ScraperSummary {
    * <p>(Optional) A name associated with the scraper.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>The ID of the scraper.</p>
@@ -1047,13 +1047,13 @@ export interface ScraperSummary {
    * <p>(Optional) The list of tag keys and values associated with the scraper.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>If there is a failure, the reason for the failure.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The Amazon EKS cluster from which the scraper collects metrics.</p>
@@ -1086,7 +1086,7 @@ export interface ListScrapersResponse {
    *             <code>ListScrapers</code> operation to retrieve those results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1103,7 +1103,7 @@ export interface UpdateScraperRequest {
    * <p>The new alias of the scraper.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Contains the base-64 encoded YAML configuration for the scraper.</p>
@@ -1114,20 +1114,20 @@ export interface UpdateScraperRequest {
    *          </note>
    * @public
    */
-  scrapeConfiguration?: ScrapeConfiguration;
+  scrapeConfiguration?: ScrapeConfiguration | undefined;
 
   /**
    * <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
    * @public
    */
-  destination?: Destination;
+  destination?: Destination | undefined;
 
   /**
    * <p>A unique identifier that you can provide to ensure the idempotency of the request.
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1156,7 +1156,7 @@ export interface UpdateScraperResponse {
    * <p>The list of tag keys and values that are associated with the scraper.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1216,20 +1216,20 @@ export interface CreateWorkspaceRequest {
    *             from the value used.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>A unique identifier that you can provide to ensure the idempotency of the request.
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The list of tag keys and values to associate with the workspace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>(optional) The ARN for a customer managed KMS key to use for
@@ -1238,7 +1238,7 @@ export interface CreateWorkspaceRequest {
    *                     Guide</i>.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1313,14 +1313,14 @@ export interface CreateWorkspaceResponse {
    * <p>The list of tag keys and values that are associated with the workspace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>(optional) If the workspace was created with a customer managed KMS
    *             key, the ARN for the key used.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1339,7 +1339,7 @@ export interface DeleteWorkspaceRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1371,7 +1371,7 @@ export interface WorkspaceDescription {
    *             to be unique.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>The ARN of the workspace. For example,
@@ -1391,7 +1391,7 @@ export interface WorkspaceDescription {
    *             <code>https://aps-workspaces.&lt;region&gt;.amazonaws.com/workspaces/ws-example1-1234-abcd-5678-ef90abcd1234/api/v1/</code>.</p>
    * @public
    */
-  prometheusEndpoint?: string;
+  prometheusEndpoint?: string | undefined;
 
   /**
    * <p>The date and time that the workspace was created.</p>
@@ -1403,14 +1403,14 @@ export interface WorkspaceDescription {
    * <p>The list of tag keys and values that are associated with the workspace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>(optional) If the workspace was created with a customer managed KMS
    *             key, the ARN for the key used.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1440,7 +1440,7 @@ export interface ListWorkspacesRequest {
    *             remaining 2 workspaces.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>If this is included, it filters the results to only the workspaces with names that
@@ -1449,13 +1449,13 @@ export interface ListWorkspacesRequest {
    *             and end of the alias that you specify.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>The maximum number of workspaces to return per request. The default is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1474,7 +1474,7 @@ export interface WorkspaceSummary {
    *             need to be unique.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>The ARN of the workspace.</p>
@@ -1498,14 +1498,14 @@ export interface WorkspaceSummary {
    * <p>The list of tag keys and values that are associated with the workspace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>(optional) If the workspace was created with a customer managed KMS
    *             key, the ARN for the key used.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -1525,7 +1525,7 @@ export interface ListWorkspacesResponse {
    *             part of your next <code>ListWorkspaces</code> request to retrieve those results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1551,7 +1551,7 @@ export interface CreateLoggingConfigurationRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1606,7 +1606,7 @@ export interface LoggingConfigurationStatus {
    * <p>If failed, the reason for the failure.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -1637,7 +1637,7 @@ export interface DeleteLoggingConfigurationRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1724,7 +1724,7 @@ export interface UpdateLoggingConfigurationRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1769,13 +1769,13 @@ export interface CreateRuleGroupsNamespaceRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The list of tag keys and values to associate with the rule groups namespace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1830,7 +1830,7 @@ export interface RuleGroupsNamespaceStatus {
    * <p>The reason for the failure, if any.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -1860,7 +1860,7 @@ export interface CreateRuleGroupsNamespaceResponse {
    * <p>The list of tag keys and values that are associated with the namespace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1886,7 +1886,7 @@ export interface DeleteRuleGroupsNamespaceRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1955,7 +1955,7 @@ export interface RuleGroupsNamespaceDescription {
    *             namespace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1986,7 +1986,7 @@ export interface ListRuleGroupsNamespacesRequest {
    *             namespaces with names that begin with the value that you specify are returned.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The token for the next set of items to return. You receive this token from a previous
@@ -1998,13 +1998,13 @@ export interface ListRuleGroupsNamespacesRequest {
    *             remaining 2 namespaces.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return. The default is 100.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2048,7 +2048,7 @@ export interface RuleGroupsNamespaceSummary {
    *             namespace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2068,7 +2068,7 @@ export interface ListRuleGroupsNamespacesResponse {
    *             results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2101,7 +2101,7 @@ export interface PutRuleGroupsNamespaceRequest {
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2131,7 +2131,7 @@ export interface PutRuleGroupsNamespaceResponse {
    * <p>The list of tag keys and values that are associated with the namespace.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2151,12 +2151,12 @@ export interface UpdateWorkspaceAliasRequest {
    *             and end of the alias that you specify.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>A unique identifier that you can provide to ensure the idempotency of the request.
    *             Case-sensitive.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }

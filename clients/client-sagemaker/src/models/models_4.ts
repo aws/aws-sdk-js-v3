@@ -204,7 +204,7 @@ export interface ListMlflowTrackingServersRequest {
    *       Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>Use the <code>CreatedBefore</code> filter to only list tracking servers created before a
@@ -213,44 +213,44 @@ export interface ListMlflowTrackingServersRequest {
    *       a Unix timestamp. To convert a date and time into a Unix timestamp, see <a href="https://www.epochconverter.com/">EpochConverter</a>.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>Filter for tracking servers with a specified creation status.</p>
    * @public
    */
-  TrackingServerStatus?: TrackingServerStatus;
+  TrackingServerStatus?: TrackingServerStatus | undefined;
 
   /**
    * <p>Filter for tracking servers using the specified MLflow version.</p>
    * @public
    */
-  MlflowVersion?: string;
+  MlflowVersion?: string | undefined;
 
   /**
    * <p>Filter for trackings servers sorting by name, creation time, or creation status.</p>
    * @public
    */
-  SortBy?: SortTrackingServerBy;
+  SortBy?: SortTrackingServerBy | undefined;
 
   /**
    * <p>Change the order of the listed tracking servers. By default, tracking servers are listed in <code>Descending</code> order by creation time.
    *       To change the list order, you can specify <code>SortOrder</code> to be <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of tracking servers to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -262,43 +262,43 @@ export interface TrackingServerSummary {
    * <p>The ARN of a listed tracking server.</p>
    * @public
    */
-  TrackingServerArn?: string;
+  TrackingServerArn?: string | undefined;
 
   /**
    * <p>The name of a listed tracking server.</p>
    * @public
    */
-  TrackingServerName?: string;
+  TrackingServerName?: string | undefined;
 
   /**
    * <p>The creation time of a listed tracking server.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last modified time of a listed tracking server.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The creation status of a listed tracking server.</p>
    * @public
    */
-  TrackingServerStatus?: TrackingServerStatus;
+  TrackingServerStatus?: TrackingServerStatus | undefined;
 
   /**
    * <p>The activity status of a listed tracking server.</p>
    * @public
    */
-  IsActive?: IsTrackingServerActive;
+  IsActive?: IsTrackingServerActive | undefined;
 
   /**
    * <p>The MLflow version used for a listed tracking server.</p>
    * @public
    */
-  MlflowVersion?: string;
+  MlflowVersion?: string | undefined;
 }
 
 /**
@@ -309,13 +309,13 @@ export interface ListMlflowTrackingServersResponse {
    * <p>A list of tracking servers according to chosen filters.</p>
    * @public
    */
-  TrackingServerSummaries?: TrackingServerSummary[];
+  TrackingServerSummaries?: TrackingServerSummary[] | undefined;
 
   /**
    * <p>If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -326,53 +326,53 @@ export interface ListModelBiasJobDefinitionsRequest {
    * <p>Name of the endpoint to monitor for model bias.</p>
    * @public
    */
-  EndpointName?: string;
+  EndpointName?: string | undefined;
 
   /**
    * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
    *    The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: MonitoringJobDefinitionSortKey;
+  SortBy?: MonitoringJobDefinitionSortKey | undefined;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of model bias jobs to return in the response. The default value is
    *          10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filter for model bias jobs whose name contains a specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only model bias jobs created before a specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only model bias jobs created after a specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 }
 
 /**
@@ -390,7 +390,7 @@ export interface ListModelBiasJobDefinitionsResponse {
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -437,43 +437,43 @@ export interface ListModelCardExportJobsRequest {
    * <p>List export jobs for the model card with the specified version.</p>
    * @public
    */
-  ModelCardVersion?: number;
+  ModelCardVersion?: number | undefined;
 
   /**
    * <p>Only list model card export jobs that were created after the time specified.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>Only list model card export jobs that were created before the time specified.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>Only list model card export jobs with names that contain the specified string.</p>
    * @public
    */
-  ModelCardExportJobNameContains?: string;
+  ModelCardExportJobNameContains?: string | undefined;
 
   /**
    * <p>Only list model card export jobs with the specified status.</p>
    * @public
    */
-  StatusEquals?: ModelCardExportJobStatus;
+  StatusEquals?: ModelCardExportJobStatus | undefined;
 
   /**
    * <p>Sort model card export jobs by either name or creation time. Sorts by creation time by default.</p>
    * @public
    */
-  SortBy?: ModelCardExportJobSortBy;
+  SortBy?: ModelCardExportJobSortBy | undefined;
 
   /**
    * <p>Sort model card export jobs by ascending or descending order.</p>
    * @public
    */
-  SortOrder?: ModelCardExportJobSortOrder;
+  SortOrder?: ModelCardExportJobSortOrder | undefined;
 
   /**
    * <p>If the response to a previous <code>ListModelCardExportJobs</code> request was
@@ -481,13 +481,13 @@ export interface ListModelCardExportJobsRequest {
    *          model card export jobs, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of model card export jobs to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -553,7 +553,7 @@ export interface ListModelCardExportJobsResponse {
    *          card export jobs, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -592,31 +592,31 @@ export interface ListModelCardsRequest {
    * <p>Only list model cards that were created after the time specified.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>Only list model cards that were created before the time specified.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>The maximum number of model cards to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Only list model cards with names that contain the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>Only list model cards with the specified approval status.</p>
    * @public
    */
-  ModelCardStatus?: ModelCardStatus;
+  ModelCardStatus?: ModelCardStatus | undefined;
 
   /**
    * <p>If the response to a previous <code>ListModelCards</code> request was truncated, the
@@ -624,19 +624,19 @@ export interface ListModelCardsRequest {
    *          the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Sort model cards by either name or creation time. Sorts by creation time by default.</p>
    * @public
    */
-  SortBy?: ModelCardSortBy;
+  SortBy?: ModelCardSortBy | undefined;
 
   /**
    * <p>Sort model cards by ascending or descending order.</p>
    * @public
    */
-  SortOrder?: ModelCardSortOrder;
+  SortOrder?: ModelCardSortOrder | undefined;
 }
 
 /**
@@ -691,7 +691,7 @@ export interface ModelCardSummary {
    * <p>The date and time that the model card was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -709,7 +709,7 @@ export interface ListModelCardsResponse {
    *          cards, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -733,19 +733,19 @@ export interface ListModelCardVersionsRequest {
    * <p>Only list model card versions that were created after the time specified.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>Only list model card versions that were created before the time specified.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>The maximum number of model card versions to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>List model card versions for the model card with the specified name or Amazon Resource Name (ARN).</p>
@@ -757,7 +757,7 @@ export interface ListModelCardVersionsRequest {
    * <p>Only list model card versions with the specified approval status.</p>
    * @public
    */
-  ModelCardStatus?: ModelCardStatus;
+  ModelCardStatus?: ModelCardStatus | undefined;
 
   /**
    * <p>If the response to a previous <code>ListModelCardVersions</code> request was truncated,
@@ -765,19 +765,19 @@ export interface ListModelCardVersionsRequest {
    *          versions, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Sort listed model card versions by version. Sorts by version by default.</p>
    * @public
    */
-  SortBy?: ModelCardVersionSortBy;
+  SortBy?: ModelCardVersionSortBy | undefined;
 
   /**
    * <p>Sort model card versions by ascending or descending order.</p>
    * @public
    */
-  SortOrder?: ModelCardSortOrder;
+  SortOrder?: ModelCardSortOrder | undefined;
 }
 
 /**
@@ -838,7 +838,7 @@ export interface ModelCardVersionSummary {
    * <p>The time date and time that the model card version was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -856,7 +856,7 @@ export interface ListModelCardVersionsResponse {
    *          card versions, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -867,54 +867,54 @@ export interface ListModelExplainabilityJobDefinitionsRequest {
    * <p>Name of the endpoint to monitor for model explainability.</p>
    * @public
    */
-  EndpointName?: string;
+  EndpointName?: string | undefined;
 
   /**
    * <p>Whether to sort results by the <code>Name</code> or <code>CreationTime</code> field.
    *    The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: MonitoringJobDefinitionSortKey;
+  SortBy?: MonitoringJobDefinitionSortKey | undefined;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filter for model explainability jobs whose name contains a specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only model explainability jobs created before a specified
    *          time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only model explainability jobs created after a specified
    *          time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 }
 
 /**
@@ -932,7 +932,7 @@ export interface ListModelExplainabilityJobDefinitionsResponse {
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -981,7 +981,7 @@ export interface ModelMetadataSearchExpression {
    * <p>A list of filter objects.</p>
    * @public
    */
-  Filters?: ModelMetadataFilter[];
+  Filters?: ModelMetadataFilter[] | undefined;
 }
 
 /**
@@ -995,7 +995,7 @@ export interface ListModelMetadataRequest {
    *           or Task to filter supported. Filter names and values are case-sensitive.</p>
    * @public
    */
-  SearchExpression?: ModelMetadataSearchExpression;
+  SearchExpression?: ModelMetadataSearchExpression | undefined;
 
   /**
    * <p>If the response to a previous <code>ListModelMetadataResponse</code> request was truncated,
@@ -1003,13 +1003,13 @@ export interface ListModelMetadataRequest {
    *            use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of models to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1062,7 +1062,7 @@ export interface ListModelMetadataResponse {
    * <p>A token for getting the next set of recommendations, if there are any.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1087,26 +1087,26 @@ export interface ListModelPackageGroupsInput {
    * <p>A filter that returns only model groups created after the specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only model groups created before the specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A string in the model group name. This filter returns only model groups whose name
    *             contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>If the result of the previous <code>ListModelPackageGroups</code> request was
@@ -1114,19 +1114,19 @@ export interface ListModelPackageGroupsInput {
    *             model groups, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: ModelPackageGroupSortBy;
+  SortBy?: ModelPackageGroupSortBy | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>A filter that returns either model groups shared with you or model groups in
@@ -1136,7 +1136,7 @@ export interface ListModelPackageGroupsInput {
    *  	  account. The default is <code>SameAccount</code>.</p>
    * @public
    */
-  CrossAccountFilterOption?: CrossAccountFilterOption;
+  CrossAccountFilterOption?: CrossAccountFilterOption | undefined;
 }
 
 /**
@@ -1160,7 +1160,7 @@ export interface ModelPackageGroupSummary {
    * <p>A description of the model group.</p>
    * @public
    */
-  ModelPackageGroupDescription?: string;
+  ModelPackageGroupDescription?: string | undefined;
 
   /**
    * <p>The time that the model group was created.</p>
@@ -1190,7 +1190,7 @@ export interface ListModelPackageGroupsOutput {
    *             of model groups, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1231,40 +1231,40 @@ export interface ListModelPackagesInput {
    *             (timestamp).</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only model packages created before the specified time
    *             (timestamp).</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>The maximum number of model packages to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A string in the model package name. This filter returns only model packages whose name
    *             contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only the model packages with the specified approval
    *             status.</p>
    * @public
    */
-  ModelApprovalStatus?: ModelApprovalStatus;
+  ModelApprovalStatus?: ModelApprovalStatus | undefined;
 
   /**
    * <p>A filter that returns only model versions that belong to the specified model group.</p>
    * @public
    */
-  ModelPackageGroupName?: string;
+  ModelPackageGroupName?: string | undefined;
 
   /**
    * <p>A filter that returns only the model packages of the specified type. This can be one
@@ -1286,7 +1286,7 @@ export interface ListModelPackagesInput {
    *          </ul>
    * @public
    */
-  ModelPackageType?: ModelPackageType;
+  ModelPackageType?: ModelPackageType | undefined;
 
   /**
    * <p>If the response to a previous <code>ListModelPackages</code> request was truncated,
@@ -1294,20 +1294,20 @@ export interface ListModelPackagesInput {
    *             packages, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The parameter by which to sort the results. The default is
    *             <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: ModelPackageSortBy;
+  SortBy?: ModelPackageSortBy | undefined;
 
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -1319,20 +1319,20 @@ export interface ModelPackageSummary {
    * <p>The name of the model package.</p>
    * @public
    */
-  ModelPackageName?: string;
+  ModelPackageName?: string | undefined;
 
   /**
    * <p>If the model package is a versioned model, the model group that the versioned model
    *             belongs to.</p>
    * @public
    */
-  ModelPackageGroupName?: string;
+  ModelPackageGroupName?: string | undefined;
 
   /**
    * <p>If the model package is a versioned model, the version of the model.</p>
    * @public
    */
-  ModelPackageVersion?: number;
+  ModelPackageVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
@@ -1344,7 +1344,7 @@ export interface ModelPackageSummary {
    * <p>A brief description of the model package.</p>
    * @public
    */
-  ModelPackageDescription?: string;
+  ModelPackageDescription?: string | undefined;
 
   /**
    * <p>A timestamp that shows when the model package was created.</p>
@@ -1377,7 +1377,7 @@ export interface ModelPackageSummary {
    *          </ul>
    * @public
    */
-  ModelApprovalStatus?: ModelApprovalStatus;
+  ModelApprovalStatus?: ModelApprovalStatus | undefined;
 }
 
 /**
@@ -1396,7 +1396,7 @@ export interface ListModelPackagesOutput {
    *             model packages, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1408,20 +1408,20 @@ export interface ListModelQualityJobDefinitionsRequest {
    *          with the specified endpoint.</p>
    * @public
    */
-  EndpointName?: string;
+  EndpointName?: string | undefined;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: MonitoringJobDefinitionSortKey;
+  SortBy?: MonitoringJobDefinitionSortKey | undefined;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>If the result of the previous <code>ListModelQualityJobDefinitions</code> request was
@@ -1429,35 +1429,35 @@ export interface ListModelQualityJobDefinitionsRequest {
    *          model quality monitoring job definitions, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in a call to
    *             <code>ListModelQualityJobDefinitions</code>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A string in the transform job name. This filter returns only model quality monitoring
    *          job definitions whose name contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only model quality monitoring job definitions created before the
    *          specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only model quality monitoring job definitions created after the
    *          specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 }
 
 /**
@@ -1475,7 +1475,7 @@ export interface ListModelQualityJobDefinitionsResponse {
    *          next set of model quality monitoring job definitions, use it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1500,13 +1500,13 @@ export interface ListModelsInput {
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: ModelSortKey;
+  SortBy?: ModelSortKey | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: OrderKey;
+  SortOrder?: OrderKey | undefined;
 
   /**
    * <p>If the response to a previous <code>ListModels</code> request was truncated, the
@@ -1514,34 +1514,34 @@ export interface ListModelsInput {
    *             token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of models to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A string in the model name. This filter returns only models whose name contains the
    *             specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only models created before the specified time
    *             (timestamp).</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only models with a creation time greater than or equal to the
    *             specified time (timestamp).</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 }
 
 /**
@@ -1584,7 +1584,7 @@ export interface ListModelsOutput {
    *             models, use it in the subsequent request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1624,26 +1624,26 @@ export interface ListMonitoringAlertHistoryRequest {
    * <p>The name of a monitoring schedule.</p>
    * @public
    */
-  MonitoringScheduleName?: string;
+  MonitoringScheduleName?: string | undefined;
 
   /**
    * <p>The name of a monitoring alert.</p>
    * @public
    */
-  MonitoringAlertName?: string;
+  MonitoringAlertName?: string | undefined;
 
   /**
    * <p>The field used to sort results. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: MonitoringAlertHistorySortKey;
+  SortBy?: MonitoringAlertHistorySortKey | undefined;
 
   /**
    * <p>The sort order, whether <code>Ascending</code> or <code>Descending</code>, of the alert
    *          history. The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>If the result of the previous <code>ListMonitoringAlertHistory</code> request was
@@ -1651,31 +1651,31 @@ export interface ListMonitoringAlertHistoryRequest {
    *          alerts in the history, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to display. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A filter that returns only alerts created on or before the specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only alerts created on or after the specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that retrieves only alerts with a specific status.</p>
    * @public
    */
-  StatusEquals?: MonitoringAlertStatus;
+  StatusEquals?: MonitoringAlertStatus | undefined;
 }
 
 /**
@@ -1718,14 +1718,14 @@ export interface ListMonitoringAlertHistoryResponse {
    * <p>An alert history for a model monitoring schedule.</p>
    * @public
    */
-  MonitoringAlertHistory?: MonitoringAlertHistorySummary[];
+  MonitoringAlertHistory?: MonitoringAlertHistorySummary[] | undefined;
 
   /**
    * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
    *          alerts, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1744,13 +1744,13 @@ export interface ListMonitoringAlertsRequest {
    *          history, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to display. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1763,7 +1763,7 @@ export interface ModelDashboardIndicatorAction {
    * <p>Indicates whether the alert action is turned on.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -1777,7 +1777,7 @@ export interface MonitoringAlertActions {
    *          <code>InAlert</code> status.</p>
    * @public
    */
-  ModelDashboardIndicator?: ModelDashboardIndicatorAction;
+  ModelDashboardIndicator?: ModelDashboardIndicatorAction | undefined;
 }
 
 /**
@@ -1839,14 +1839,14 @@ export interface ListMonitoringAlertsResponse {
    * <p>A JSON array where each element is a summary for a monitoring alert.</p>
    * @public
    */
-  MonitoringAlertSummaries?: MonitoringAlertSummary[];
+  MonitoringAlertSummaries?: MonitoringAlertSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
    *          alerts, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1872,96 +1872,96 @@ export interface ListMonitoringExecutionsRequest {
    * <p>Name of a specific schedule to fetch jobs for.</p>
    * @public
    */
-  MonitoringScheduleName?: string;
+  MonitoringScheduleName?: string | undefined;
 
   /**
    * <p>Name of a specific endpoint to fetch jobs for.</p>
    * @public
    */
-  EndpointName?: string;
+  EndpointName?: string | undefined;
 
   /**
    * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
    *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: MonitoringExecutionSortKey;
+  SortBy?: MonitoringExecutionSortKey | undefined;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filter for jobs scheduled before a specified time.</p>
    * @public
    */
-  ScheduledTimeBefore?: Date;
+  ScheduledTimeBefore?: Date | undefined;
 
   /**
    * <p>Filter for jobs scheduled after a specified time.</p>
    * @public
    */
-  ScheduledTimeAfter?: Date;
+  ScheduledTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only jobs created before a specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only jobs created after a specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only jobs modified after a specified time.</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only jobs modified before a specified time.</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that retrieves only jobs with a specific status.</p>
    * @public
    */
-  StatusEquals?: ExecutionStatus;
+  StatusEquals?: ExecutionStatus | undefined;
 
   /**
    * <p>Gets a list of the monitoring job runs of the specified monitoring job
    *          definitions.</p>
    * @public
    */
-  MonitoringJobDefinitionName?: string;
+  MonitoringJobDefinitionName?: string | undefined;
 
   /**
    * <p>A filter that returns only the monitoring job runs of the specified monitoring
    *          type.</p>
    * @public
    */
-  MonitoringTypeEquals?: MonitoringType;
+  MonitoringTypeEquals?: MonitoringType | undefined;
 }
 
 /**
@@ -1979,7 +1979,7 @@ export interface ListMonitoringExecutionsResponse {
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2005,84 +2005,84 @@ export interface ListMonitoringSchedulesRequest {
    * <p>Name of a specific endpoint to fetch schedules for.</p>
    * @public
    */
-  EndpointName?: string;
+  EndpointName?: string | undefined;
 
   /**
    * <p>Whether to sort the results by the <code>Status</code>, <code>CreationTime</code>, or
    *    <code>ScheduledTime</code> field. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: MonitoringScheduleSortKey;
+  SortBy?: MonitoringScheduleSortKey | undefined;
 
   /**
    * <p>Whether to sort the results in <code>Ascending</code> or <code>Descending</code> order.
    *    The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The token returned if the response is truncated. To retrieve the next set of job executions, use
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of jobs to return in the response. The default value is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filter for monitoring schedules whose name contains a specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only monitoring schedules created before a specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only monitoring schedules created after a specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only monitoring schedules modified after a specified time.</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only monitoring schedules modified before a specified time.</p>
    * @public
    */
-  StatusEquals?: ScheduleStatus;
+  StatusEquals?: ScheduleStatus | undefined;
 
   /**
    * <p>Gets a list of the monitoring schedules for the specified monitoring job
    *          definition.</p>
    * @public
    */
-  MonitoringJobDefinitionName?: string;
+  MonitoringJobDefinitionName?: string | undefined;
 
   /**
    * <p>A filter that returns only the monitoring schedules for the specified monitoring
    *          type.</p>
    * @public
    */
-  MonitoringTypeEquals?: MonitoringType;
+  MonitoringTypeEquals?: MonitoringType | undefined;
 }
 
 /**
@@ -2124,19 +2124,19 @@ export interface MonitoringScheduleSummary {
    * <p>The name of the endpoint using the monitoring schedule.</p>
    * @public
    */
-  EndpointName?: string;
+  EndpointName?: string | undefined;
 
   /**
    * <p>The name of the monitoring job definition that the schedule is for.</p>
    * @public
    */
-  MonitoringJobDefinitionName?: string;
+  MonitoringJobDefinitionName?: string | undefined;
 
   /**
    * <p>The type of the monitoring job definition that the schedule is for.</p>
    * @public
    */
-  MonitoringType?: MonitoringType;
+  MonitoringType?: MonitoringType | undefined;
 }
 
 /**
@@ -2154,7 +2154,7 @@ export interface ListMonitoringSchedulesResponse {
    *    it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2198,60 +2198,60 @@ export interface ListNotebookInstanceLifecycleConfigsInput {
    *             lifecycle configurations, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of lifecycle configurations to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Sorts the list of results. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: NotebookInstanceLifecycleConfigSortKey;
+  SortBy?: NotebookInstanceLifecycleConfigSortKey | undefined;
 
   /**
    * <p>The sort order for results.</p>
    * @public
    */
-  SortOrder?: NotebookInstanceLifecycleConfigSortOrder;
+  SortOrder?: NotebookInstanceLifecycleConfigSortOrder | undefined;
 
   /**
    * <p>A string in the lifecycle configuration name. This filter returns only lifecycle
    *             configurations whose name contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were created before the
    *             specified time (timestamp).</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were created after the
    *             specified time (timestamp).</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were modified before the
    *             specified time (timestamp).</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only lifecycle configurations that were modified after the
    *             specified time (timestamp).</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 }
 
 /**
@@ -2275,13 +2275,13 @@ export interface NotebookInstanceLifecycleConfigSummary {
    * <p>A timestamp that tells when the lifecycle configuration was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>A timestamp that tells when the lifecycle configuration was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -2293,14 +2293,14 @@ export interface ListNotebookInstanceLifecycleConfigsOutput {
    *             set of lifecycle configurations, use it in the next request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of <code>NotebookInstanceLifecycleConfiguration</code> objects, each listing
    *             a lifecycle configuration.</p>
    * @public
    */
-  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[];
+  NotebookInstanceLifecycleConfigs?: NotebookInstanceLifecycleConfigSummary[] | undefined;
 }
 
 /**
@@ -2348,66 +2348,66 @@ export interface ListNotebookInstancesInput {
    *          </note>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of notebook instances to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
    * @public
    */
-  SortBy?: NotebookInstanceSortKey;
+  SortBy?: NotebookInstanceSortKey | undefined;
 
   /**
    * <p>The sort order for results. </p>
    * @public
    */
-  SortOrder?: NotebookInstanceSortOrder;
+  SortOrder?: NotebookInstanceSortOrder | undefined;
 
   /**
    * <p>A string in the notebook instances' name. This filter returns only notebook
    *             instances whose name contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that returns only notebook instances that were created before the
    *             specified time (timestamp). </p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only notebook instances that were created after the specified
    *             time (timestamp).</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only notebook instances that were modified before the
    *             specified time (timestamp).</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only notebook instances that were modified after the
    *             specified time (timestamp).</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only notebook instances with the specified status.</p>
    * @public
    */
-  StatusEquals?: NotebookInstanceStatus;
+  StatusEquals?: NotebookInstanceStatus | undefined;
 
   /**
    * <p>A string in the name of a notebook instances lifecycle configuration associated with
@@ -2415,7 +2415,7 @@ export interface ListNotebookInstancesInput {
    *             lifecycle configuration with a name that contains the specified string.</p>
    * @public
    */
-  NotebookInstanceLifecycleConfigNameContains?: string;
+  NotebookInstanceLifecycleConfigNameContains?: string | undefined;
 
   /**
    * <p>A string in the name or URL of a Git repository associated with this notebook
@@ -2423,14 +2423,14 @@ export interface ListNotebookInstancesInput {
    *             with a name that contains the specified string.</p>
    * @public
    */
-  DefaultCodeRepositoryContains?: string;
+  DefaultCodeRepositoryContains?: string | undefined;
 
   /**
    * <p>A filter that returns only notebook instances with associated with the specified git
    *             repository.</p>
    * @public
    */
-  AdditionalCodeRepositoryEquals?: string;
+  AdditionalCodeRepositoryEquals?: string | undefined;
 }
 
 /**
@@ -2454,32 +2454,32 @@ export interface NotebookInstanceSummary {
    * <p>The status of the notebook instance.</p>
    * @public
    */
-  NotebookInstanceStatus?: NotebookInstanceStatus;
+  NotebookInstanceStatus?: NotebookInstanceStatus | undefined;
 
   /**
    * <p>The URL that you use to connect to the Jupyter notebook running in your notebook
    *             instance. </p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The type of ML compute instance that the notebook instance is running on.</p>
    * @public
    */
-  InstanceType?: _InstanceType;
+  InstanceType?: _InstanceType | undefined;
 
   /**
    * <p>A timestamp that shows when the notebook instance was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>A timestamp that shows when the notebook instance was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The name of a notebook instance lifecycle configuration associated with this notebook
@@ -2488,7 +2488,7 @@ export interface NotebookInstanceSummary {
    *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
    * @public
    */
-  NotebookInstanceLifecycleConfigName?: string;
+  NotebookInstanceLifecycleConfigName?: string | undefined;
 
   /**
    * <p>The Git repository associated with the notebook instance as its default code
@@ -2499,7 +2499,7 @@ export interface NotebookInstanceSummary {
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    * @public
    */
-  DefaultCodeRepository?: string;
+  DefaultCodeRepository?: string | undefined;
 
   /**
    * <p>An array of up to three Git repositories associated with the notebook instance. These
@@ -2510,7 +2510,7 @@ export interface NotebookInstanceSummary {
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    * @public
    */
-  AdditionalCodeRepositories?: string[];
+  AdditionalCodeRepositories?: string[] | undefined;
 }
 
 /**
@@ -2523,14 +2523,14 @@ export interface ListNotebookInstancesOutput {
    *             instances, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of <code>NotebookInstanceSummary</code> objects, one for each notebook
    *             instance.</p>
    * @public
    */
-  NotebookInstances?: NotebookInstanceSummary[];
+  NotebookInstances?: NotebookInstanceSummary[] | undefined;
 }
 
 /**
@@ -2558,42 +2558,42 @@ export interface ListOptimizationJobsRequest {
    *          this token.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of optimization jobs to return in the response. The default is
    *          50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters the results to only those optimization jobs that were created after the
    *          specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>Filters the results to only those optimization jobs that were created before the
    *          specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>Filters the results to only those optimization jobs that were updated after the
    *          specified time.</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>Filters the results to only those optimization jobs that were updated before the
    *          specified time.</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>Filters the results to only those optimization jobs that apply the specified
@@ -2601,20 +2601,20 @@ export interface ListOptimizationJobsRequest {
    *             <code>Compilation</code>.</p>
    * @public
    */
-  OptimizationContains?: string;
+  OptimizationContains?: string | undefined;
 
   /**
    * <p>Filters the results to only those optimization jobs with a name that contains the
    *          specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>Filters the results to only those optimization jobs with the specified status.</p>
    * @public
    */
-  StatusEquals?: OptimizationJobStatus;
+  StatusEquals?: OptimizationJobStatus | undefined;
 
   /**
    * <p>The field by which to sort the optimization jobs in the response. The default is
@@ -2622,14 +2622,14 @@ export interface ListOptimizationJobsRequest {
    *          </p>
    * @public
    */
-  SortBy?: ListOptimizationJobsSortBy;
+  SortBy?: ListOptimizationJobsSortBy | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>
    *          </p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2665,19 +2665,19 @@ export interface OptimizationJobSummary {
    * <p>The time when the optimization job started.</p>
    * @public
    */
-  OptimizationStartTime?: Date;
+  OptimizationStartTime?: Date | undefined;
 
   /**
    * <p>The time when the optimization job finished processing.</p>
    * @public
    */
-  OptimizationEndTime?: Date;
+  OptimizationEndTime?: Date | undefined;
 
   /**
    * <p>The time when the optimization job was last updated.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The type of instance that hosts the optimized model that you create with the optimization job.</p>
@@ -2708,7 +2708,7 @@ export interface ListOptimizationJobsResponse {
    *          truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2740,39 +2740,39 @@ export interface ListPipelineExecutionsRequest {
    *          time.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns the pipeline executions that were created before a specified
    *          time.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    * @public
    */
-  SortBy?: SortPipelineExecutionsBy;
+  SortBy?: SortPipelineExecutionsBy | undefined;
 
   /**
    * <p>The sort order for results.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
    *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of pipeline executions to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2784,37 +2784,37 @@ export interface PipelineExecutionSummary {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 
   /**
    * <p>The start time of the pipeline execution.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The status of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus;
+  PipelineExecutionStatus?: PipelineExecutionStatus | undefined;
 
   /**
    * <p>The description of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDescription?: string;
+  PipelineExecutionDescription?: string | undefined;
 
   /**
    * <p>The display name of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDisplayName?: string;
+  PipelineExecutionDisplayName?: string | undefined;
 
   /**
    * <p>A message generated by SageMaker Pipelines describing why the pipeline execution failed.</p>
    * @public
    */
-  PipelineExecutionFailureReason?: string;
+  PipelineExecutionFailureReason?: string | undefined;
 }
 
 /**
@@ -2827,14 +2827,14 @@ export interface ListPipelineExecutionsResponse {
    *          and the status. This list can be empty. </p>
    * @public
    */
-  PipelineExecutionSummaries?: PipelineExecutionSummary[];
+  PipelineExecutionSummaries?: PipelineExecutionSummary[] | undefined;
 
   /**
    * <p>If the result of the previous <code>ListPipelineExecutions</code> request was truncated,
    *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline executions, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2845,26 +2845,26 @@ export interface ListPipelineExecutionStepsRequest {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 
   /**
    * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
    *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of pipeline execution steps to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2876,7 +2876,7 @@ export interface ModelStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the created model.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -2888,7 +2888,7 @@ export interface ProcessingJobStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the processing job.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -2902,56 +2902,56 @@ export interface QualityCheckStepMetadata {
    * <p>The type of the Quality check step.</p>
    * @public
    */
-  CheckType?: string;
+  CheckType?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of the baseline statistics file used for the drift check.</p>
    * @public
    */
-  BaselineUsedForDriftCheckStatistics?: string;
+  BaselineUsedForDriftCheckStatistics?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of the baseline constraints file used for the drift check.</p>
    * @public
    */
-  BaselineUsedForDriftCheckConstraints?: string;
+  BaselineUsedForDriftCheckConstraints?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of the newly calculated baseline statistics file.</p>
    * @public
    */
-  CalculatedBaselineStatistics?: string;
+  CalculatedBaselineStatistics?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of the newly calculated baseline constraints file.</p>
    * @public
    */
-  CalculatedBaselineConstraints?: string;
+  CalculatedBaselineConstraints?: string | undefined;
 
   /**
    * <p>The model package group name.</p>
    * @public
    */
-  ModelPackageGroupName?: string;
+  ModelPackageGroupName?: string | undefined;
 
   /**
    * <p>The Amazon S3 URI of violation report if violations are detected.</p>
    * @public
    */
-  ViolationReport?: string;
+  ViolationReport?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Quality check processing job that was run by this step execution.</p>
    * @public
    */
-  CheckJobArn?: string;
+  CheckJobArn?: string | undefined;
 
   /**
    * <p>This flag indicates if the drift check against the previous baseline will be skipped or not.
    *          If it is set to <code>False</code>, the previous baseline of the configured check type must be available.</p>
    * @public
    */
-  SkipCheck?: boolean;
+  SkipCheck?: boolean | undefined;
 
   /**
    * <p>This flag indicates if a newly calculated baseline can be accessed through step properties
@@ -2961,7 +2961,7 @@ export interface QualityCheckStepMetadata {
    *             BaselineUsedForDriftCheckStatistics</code> properties. </p>
    * @public
    */
-  RegisterNewBaseline?: boolean;
+  RegisterNewBaseline?: boolean | undefined;
 }
 
 /**
@@ -2973,7 +2973,7 @@ export interface RegisterModelStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -2985,7 +2985,7 @@ export interface TrainingJobStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -2997,7 +2997,7 @@ export interface TransformJobStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -3009,7 +3009,7 @@ export interface TuningJobStepMetaData {
    * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -3021,63 +3021,63 @@ export interface PipelineExecutionStepMetadata {
    * <p>The Amazon Resource Name (ARN) of the training job that was run by this step execution.</p>
    * @public
    */
-  TrainingJob?: TrainingJobStepMetadata;
+  TrainingJob?: TrainingJobStepMetadata | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the processing job that was run by this step execution.</p>
    * @public
    */
-  ProcessingJob?: ProcessingJobStepMetadata;
+  ProcessingJob?: ProcessingJobStepMetadata | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the transform job that was run by this step execution.</p>
    * @public
    */
-  TransformJob?: TransformJobStepMetadata;
+  TransformJob?: TransformJobStepMetadata | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the tuning job that was run by this step execution.</p>
    * @public
    */
-  TuningJob?: TuningJobStepMetaData;
+  TuningJob?: TuningJobStepMetaData | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model that was created by this step execution.</p>
    * @public
    */
-  Model?: ModelStepMetadata;
+  Model?: ModelStepMetadata | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model package that the model was registered to by this step execution.</p>
    * @public
    */
-  RegisterModel?: RegisterModelStepMetadata;
+  RegisterModel?: RegisterModelStepMetadata | undefined;
 
   /**
    * <p>The outcome of the condition evaluation that was run by this step execution.</p>
    * @public
    */
-  Condition?: ConditionStepMetadata;
+  Condition?: ConditionStepMetadata | undefined;
 
   /**
    * <p>The URL of the Amazon SQS queue used by this step execution, the pipeline generated token,
    *         and a list of output parameters.</p>
    * @public
    */
-  Callback?: CallbackStepMetadata;
+  Callback?: CallbackStepMetadata | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function that was run by this step execution and a list of
    *         output parameters.</p>
    * @public
    */
-  Lambda?: LambdaStepMetadata;
+  Lambda?: LambdaStepMetadata | undefined;
 
   /**
    * <p>The configurations and outcomes of an Amazon EMR step execution.</p>
    * @public
    */
-  EMR?: EMRStepMetadata;
+  EMR?: EMRStepMetadata | undefined;
 
   /**
    * <p>The configurations and outcomes of the check step execution. This includes: </p>
@@ -3110,7 +3110,7 @@ export interface PipelineExecutionStepMetadata {
    *          </ul>
    * @public
    */
-  QualityCheck?: QualityCheckStepMetadata;
+  QualityCheck?: QualityCheckStepMetadata | undefined;
 
   /**
    * <p>Container for the metadata for a Clarify check step. The configurations
@@ -3144,31 +3144,31 @@ export interface PipelineExecutionStepMetadata {
    *          </ul>
    * @public
    */
-  ClarifyCheck?: ClarifyCheckStepMetadata;
+  ClarifyCheck?: ClarifyCheckStepMetadata | undefined;
 
   /**
    * <p>The configurations and outcomes of a Fail step execution.</p>
    * @public
    */
-  Fail?: FailStepMetadata;
+  Fail?: FailStepMetadata | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AutoML job that was run by this step.</p>
    * @public
    */
-  AutoMLJob?: AutoMLJobStepMetadata;
+  AutoMLJob?: AutoMLJobStepMetadata | undefined;
 
   /**
    * <p>The endpoint that was invoked during this step execution.</p>
    * @public
    */
-  Endpoint?: EndpointStepMetadata;
+  Endpoint?: EndpointStepMetadata | undefined;
 
   /**
    * <p>The endpoint configuration used to create an endpoint during this step execution.</p>
    * @public
    */
-  EndpointConfig?: EndpointConfigStepMetadata;
+  EndpointConfig?: EndpointConfigStepMetadata | undefined;
 }
 
 /**
@@ -3180,7 +3180,7 @@ export interface SelectiveExecutionResult {
    * <p>The ARN from an execution of the current pipeline.</p>
    * @public
    */
-  SourcePipelineExecutionArn?: string;
+  SourcePipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -3210,68 +3210,68 @@ export interface PipelineExecutionStep {
    * <p>The name of the step that is executed.</p>
    * @public
    */
-  StepName?: string;
+  StepName?: string | undefined;
 
   /**
    * <p>The display name of the step.</p>
    * @public
    */
-  StepDisplayName?: string;
+  StepDisplayName?: string | undefined;
 
   /**
    * <p>The description of the step.</p>
    * @public
    */
-  StepDescription?: string;
+  StepDescription?: string | undefined;
 
   /**
    * <p>The time that the step started executing.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time that the step stopped executing.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The status of the step execution.</p>
    * @public
    */
-  StepStatus?: StepStatus;
+  StepStatus?: StepStatus | undefined;
 
   /**
    * <p>If this pipeline execution step was cached, details on the cache hit.</p>
    * @public
    */
-  CacheHitResult?: CacheHitResult;
+  CacheHitResult?: CacheHitResult | undefined;
 
   /**
    * <p>The reason why the step failed execution. This is only returned if the step failed its execution.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>Metadata to run the pipeline step.</p>
    * @public
    */
-  Metadata?: PipelineExecutionStepMetadata;
+  Metadata?: PipelineExecutionStepMetadata | undefined;
 
   /**
    * <p>The current attempt of the execution step. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pipelines-retry-policy.html">Retry Policy for SageMaker Pipelines steps</a>.</p>
    * @public
    */
-  AttemptCount?: number;
+  AttemptCount?: number | undefined;
 
   /**
    * <p>The ARN from an execution of the current pipeline from which
    *            results are reused for this step.</p>
    * @public
    */
-  SelectiveExecutionResult?: SelectiveExecutionResult;
+  SelectiveExecutionResult?: SelectiveExecutionResult | undefined;
 }
 
 /**
@@ -3285,14 +3285,14 @@ export interface ListPipelineExecutionStepsResponse {
    *          information about the job created by the step.</p>
    * @public
    */
-  PipelineExecutionSteps?: PipelineExecutionStep[];
+  PipelineExecutionSteps?: PipelineExecutionStep[] | undefined;
 
   /**
    * <p>If the result of the previous <code>ListPipelineExecutionSteps</code> request was truncated,
    *          the response includes a <code>NextToken</code>. To retrieve the next set of pipeline execution steps, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3310,13 +3310,13 @@ export interface ListPipelineParametersForExecutionRequest {
    *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of parameters to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3347,14 +3347,14 @@ export interface ListPipelineParametersForExecutionResponse {
    * <p>Contains a list of pipeline parameters. This list can be empty. </p>
    * @public
    */
-  PipelineParameters?: Parameter[];
+  PipelineParameters?: Parameter[] | undefined;
 
   /**
    * <p>If the result of the previous <code>ListPipelineParametersForExecution</code> request was truncated,
    *          the response includes a <code>NextToken</code>. To retrieve the next set of parameters, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3379,46 +3379,46 @@ export interface ListPipelinesRequest {
    * <p>The prefix of the pipeline name.</p>
    * @public
    */
-  PipelineNamePrefix?: string;
+  PipelineNamePrefix?: string | undefined;
 
   /**
    * <p>A filter that returns the pipelines that were created after a specified
    *          time.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns the pipelines that were created before a specified
    *          time.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>The field by which to sort results. The default is <code>CreatedTime</code>.</p>
    * @public
    */
-  SortBy?: SortPipelinesBy;
+  SortBy?: SortPipelinesBy | undefined;
 
   /**
    * <p>The sort order for results.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
    *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of pipelines to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3430,49 +3430,49 @@ export interface PipelineSummary {
    * <p> The Amazon Resource Name (ARN) of the pipeline.</p>
    * @public
    */
-  PipelineArn?: string;
+  PipelineArn?: string | undefined;
 
   /**
    * <p>The name of the pipeline.</p>
    * @public
    */
-  PipelineName?: string;
+  PipelineName?: string | undefined;
 
   /**
    * <p>The display name of the pipeline.</p>
    * @public
    */
-  PipelineDisplayName?: string;
+  PipelineDisplayName?: string | undefined;
 
   /**
    * <p>The description of the pipeline.</p>
    * @public
    */
-  PipelineDescription?: string;
+  PipelineDescription?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that the pipeline used to execute.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The creation time of the pipeline.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time that the pipeline was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The last time that a pipeline execution began.</p>
    * @public
    */
-  LastExecutionTime?: Date;
+  LastExecutionTime?: Date | undefined;
 }
 
 /**
@@ -3486,14 +3486,14 @@ export interface ListPipelinesResponse {
    *          RoleArn. This list can be empty. </p>
    * @public
    */
-  PipelineSummaries?: PipelineSummary[];
+  PipelineSummaries?: PipelineSummary[] | undefined;
 
   /**
    * <p>If the result of the previous <code>ListPipelines</code> request was truncated,
    *          the response includes a <code>NextToken</code>. To retrieve the next set of pipelines, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3504,50 +3504,50 @@ export interface ListProcessingJobsRequest {
    * <p>A filter that returns only processing jobs created after the specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only processing jobs created after the specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only processing jobs modified after the specified time.</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only processing jobs modified before the specified time.</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A string in the processing job name. This filter returns only processing jobs whose
    *             name contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that retrieves only processing jobs with a specific status.</p>
    * @public
    */
-  StatusEquals?: ProcessingJobStatus;
+  StatusEquals?: ProcessingJobStatus | undefined;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: SortBy;
+  SortBy?: SortBy | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>If the result of the previous <code>ListProcessingJobs</code> request was truncated,
@@ -3555,13 +3555,13 @@ export interface ListProcessingJobsRequest {
    *             jobs, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of processing jobs to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3591,13 +3591,13 @@ export interface ProcessingJobSummary {
    * <p>The time at which the processing job completed.</p>
    * @public
    */
-  ProcessingEndTime?: Date;
+  ProcessingEndTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates the last time the processing job was modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The status of the processing job.</p>
@@ -3610,14 +3610,14 @@ export interface ProcessingJobSummary {
    *             it failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>An optional string, up to one KB in size, that contains metadata from the processing
    *             container when the processing job exits.</p>
    * @public
    */
-  ExitMessage?: string;
+  ExitMessage?: string | undefined;
 }
 
 /**
@@ -3636,7 +3636,7 @@ export interface ListProcessingJobsResponse {
    *             processing jobs, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3676,46 +3676,46 @@ export interface ListProjectsInput {
    *             time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns the projects that were created before a specified
    *             time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>The maximum number of projects to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A filter that returns the projects whose name contains a specified
    *             string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>If the result of the previous <code>ListProjects</code> request was truncated,
    *             the response includes a <code>NextToken</code>. To retrieve the next set of projects, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The field by which to sort results. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: ProjectSortBy;
+  SortBy?: ProjectSortBy | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: ProjectSortOrder;
+  SortOrder?: ProjectSortOrder | undefined;
 }
 
 /**
@@ -3733,7 +3733,7 @@ export interface ProjectSummary {
    * <p>The description of the project.</p>
    * @public
    */
-  ProjectDescription?: string;
+  ProjectDescription?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the project.</p>
@@ -3776,7 +3776,7 @@ export interface ListProjectsOutput {
    *             compilation jobs, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3815,45 +3815,45 @@ export interface ListResourceCatalogsRequest {
    *             Filters <code>ResourceCatalog</code> by name. </p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p> Use this parameter to search for <code>ResourceCatalog</code>s created after a
    *             specific date and time. </p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p> Use this parameter to search for <code>ResourceCatalog</code>s created before a
    *             specific date and time. </p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p> The order in which the resource catalogs are listed. </p>
    * @public
    */
-  SortOrder?: ResourceCatalogSortOrder;
+  SortOrder?: ResourceCatalogSortOrder | undefined;
 
   /**
    * <p> The value on which the resource catalog list is sorted. </p>
    * @public
    */
-  SortBy?: ResourceCatalogSortBy;
+  SortBy?: ResourceCatalogSortBy | undefined;
 
   /**
    * <p> The maximum number of results returned by <code>ListResourceCatalogs</code>. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p> A token to resume pagination of <code>ListResourceCatalogs</code> results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3897,13 +3897,13 @@ export interface ListResourceCatalogsResponse {
    * <p> A list of the requested <code>ResourceCatalog</code>s. </p>
    * @public
    */
-  ResourceCatalogs?: ResourceCatalog[];
+  ResourceCatalogs?: ResourceCatalog[] | undefined;
 
   /**
    * <p> A token to resume pagination of <code>ListResourceCatalogs</code> results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3929,7 +3929,7 @@ export interface ListSpacesRequest {
    *       request to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>This parameter defines the maximum number of results that can be return in a single
@@ -3940,32 +3940,32 @@ export interface ListSpacesRequest {
    *         <code>MaxResults</code> is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The parameter by which to sort the results. The default is
    *       <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: SpaceSortKey;
+  SortBy?: SpaceSortKey | undefined;
 
   /**
    * <p>A parameter to search for the domain ID.</p>
    * @public
    */
-  DomainIdEquals?: string;
+  DomainIdEquals?: string | undefined;
 
   /**
    * <p>A parameter by which to filter the results.</p>
    * @public
    */
-  SpaceNameContains?: string;
+  SpaceNameContains?: string | undefined;
 }
 
 /**
@@ -3977,7 +3977,7 @@ export interface OwnershipSettingsSummary {
    * <p>The user profile who is the owner of the space.</p>
    * @public
    */
-  OwnerUserProfileName?: string;
+  OwnerUserProfileName?: string | undefined;
 }
 
 /**
@@ -3989,13 +3989,13 @@ export interface SpaceSettingsSummary {
    * <p>The type of app created within the space.</p>
    * @public
    */
-  AppType?: AppType;
+  AppType?: AppType | undefined;
 
   /**
    * <p>The storage settings for a space.</p>
    * @public
    */
-  SpaceStorageSettings?: SpaceStorageSettings;
+  SpaceStorageSettings?: SpaceStorageSettings | undefined;
 }
 
 /**
@@ -4007,7 +4007,7 @@ export interface SpaceSharingSettingsSummary {
    * <p>Specifies the sharing type of the space.</p>
    * @public
    */
-  SharingType?: SharingType;
+  SharingType?: SharingType | undefined;
 }
 
 /**
@@ -4019,55 +4019,55 @@ export interface SpaceDetails {
    * <p>The ID of the associated domain.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The name of the space.</p>
    * @public
    */
-  SpaceName?: string;
+  SpaceName?: string | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  Status?: SpaceStatus;
+  Status?: SpaceStatus | undefined;
 
   /**
    * <p>The creation time.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last modified time.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Specifies summary information about the space settings.</p>
    * @public
    */
-  SpaceSettingsSummary?: SpaceSettingsSummary;
+  SpaceSettingsSummary?: SpaceSettingsSummary | undefined;
 
   /**
    * <p>Specifies summary information about the space sharing settings.</p>
    * @public
    */
-  SpaceSharingSettingsSummary?: SpaceSharingSettingsSummary;
+  SpaceSharingSettingsSummary?: SpaceSharingSettingsSummary | undefined;
 
   /**
    * <p>Specifies summary information about the ownership settings.</p>
    * @public
    */
-  OwnershipSettingsSummary?: OwnershipSettingsSummary;
+  OwnershipSettingsSummary?: OwnershipSettingsSummary | undefined;
 
   /**
    * <p>The name of the space that appears in the Studio UI.</p>
    * @public
    */
-  SpaceDisplayName?: string;
+  SpaceDisplayName?: string | undefined;
 }
 
 /**
@@ -4078,14 +4078,14 @@ export interface ListSpacesResponse {
    * <p>The list of spaces.</p>
    * @public
    */
-  Spaces?: SpaceDetails[];
+  Spaces?: SpaceDetails[] | undefined;
 
   /**
    * <p>If the previous response was truncated, you will receive this token. Use it in your next
    *       request to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4097,13 +4097,13 @@ export interface ListStageDevicesRequest {
    *             tokening.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of requests to select.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The name of the edge deployment plan.</p>
@@ -4115,7 +4115,7 @@ export interface ListStageDevicesRequest {
    * <p>Toggle for excluding devices deployed in other stages.</p>
    * @public
    */
-  ExcludeDevicesDeployedInOtherStage?: boolean;
+  ExcludeDevicesDeployedInOtherStage?: boolean | undefined;
 
   /**
    * <p>The name of the stage in the deployment.</p>
@@ -4138,7 +4138,7 @@ export interface ListStageDevicesResponse {
    * <p>The token to use when calling the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4168,7 +4168,7 @@ export interface ListStudioLifecycleConfigsRequest {
    *       subsequent call. The default value is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous call to ListStudioLifecycleConfigs didn't return the full set of Lifecycle
@@ -4176,61 +4176,61 @@ export interface ListStudioLifecycleConfigsRequest {
    *       Configurations.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A string in the Lifecycle Configuration name. This filter returns only Lifecycle
    *       Configurations whose name contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A parameter to search for the App Type to which the Lifecycle Configuration is
    *       attached.</p>
    * @public
    */
-  AppTypeEquals?: StudioLifecycleConfigAppType;
+  AppTypeEquals?: StudioLifecycleConfigAppType | undefined;
 
   /**
    * <p>A filter that returns only Lifecycle Configurations created on or before the specified
    *       time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only Lifecycle Configurations created on or after the specified
    *       time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only Lifecycle Configurations modified before the specified
    *       time.</p>
    * @public
    */
-  ModifiedTimeBefore?: Date;
+  ModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only Lifecycle Configurations modified after the specified
    *       time.</p>
    * @public
    */
-  ModifiedTimeAfter?: Date;
+  ModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>The property used to sort results. The default value is CreationTime.</p>
    * @public
    */
-  SortBy?: StudioLifecycleConfigSortKey;
+  SortBy?: StudioLifecycleConfigSortKey | undefined;
 
   /**
    * <p>The sort order. The default value is Descending.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -4242,32 +4242,32 @@ export interface StudioLifecycleConfigDetails {
    * <p> The Amazon Resource Name (ARN) of the Lifecycle Configuration.</p>
    * @public
    */
-  StudioLifecycleConfigArn?: string;
+  StudioLifecycleConfigArn?: string | undefined;
 
   /**
    * <p>The name of the Amazon SageMaker Studio Lifecycle Configuration.</p>
    * @public
    */
-  StudioLifecycleConfigName?: string;
+  StudioLifecycleConfigName?: string | undefined;
 
   /**
    * <p>The creation time of the Amazon SageMaker Studio Lifecycle Configuration.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>This value is equivalent to CreationTime because Amazon SageMaker Studio Lifecycle
    *       Configurations are immutable.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The App type to which the Lifecycle Configuration is attached.</p>
    * @public
    */
-  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType;
+  StudioLifecycleConfigAppType?: StudioLifecycleConfigAppType | undefined;
 }
 
 /**
@@ -4279,13 +4279,13 @@ export interface ListStudioLifecycleConfigsResponse {
    *       request to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of Lifecycle Configurations and their properties.</p>
    * @public
    */
-  StudioLifecycleConfigs?: StudioLifecycleConfigDetails[];
+  StudioLifecycleConfigs?: StudioLifecycleConfigDetails[] | undefined;
 }
 
 /**
@@ -4297,7 +4297,7 @@ export interface ListSubscribedWorkteamsRequest {
    *             contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>If the result of the previous <code>ListSubscribedWorkteams</code> request was
@@ -4305,13 +4305,13 @@ export interface ListSubscribedWorkteamsRequest {
    *             labeling jobs, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of work teams to return in each page of the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4329,7 +4329,7 @@ export interface ListSubscribedWorkteamsResponse {
    *             work teams, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4349,13 +4349,13 @@ export interface ListTagsInput {
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of tags to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4366,14 +4366,14 @@ export interface ListTagsOutput {
    * <p>An array of <code>Tag</code> objects, each with a tag key and a value.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p> If response is truncated, SageMaker includes a token in the response. You can use this
    *             token in your subsequent request to fetch next set of tokens. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4386,72 +4386,72 @@ export interface ListTrainingJobsRequest {
    *             jobs, use the token in the next request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of training jobs to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A filter that returns only training jobs created after the specified time
    *             (timestamp).</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only training jobs created before the specified time
    *             (timestamp).</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only training jobs modified after the specified time
    *             (timestamp).</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only training jobs modified before the specified time
    *             (timestamp).</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A string in the training job name. This filter returns only training jobs whose
    *             name contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that retrieves only training jobs with a specific status.</p>
    * @public
    */
-  StatusEquals?: TrainingJobStatus;
+  StatusEquals?: TrainingJobStatus | undefined;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: SortBy;
+  SortBy?: SortBy | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>A filter that retrieves only training jobs with a specific warm pool status.</p>
    * @public
    */
-  WarmPoolStatusEquals?: WarmPoolResourceStatus;
+  WarmPoolStatusEquals?: WarmPoolResourceStatus | undefined;
 }
 
 /**
@@ -4483,13 +4483,13 @@ export interface TrainingJobSummary {
    *                 <code>Failed</code>, or <code>Stopped</code>). </p>
    * @public
    */
-  TrainingEndTime?: Date;
+  TrainingEndTime?: Date | undefined;
 
   /**
    * <p> Timestamp when the training job was last modified. </p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The status of the training job.</p>
@@ -4501,13 +4501,13 @@ export interface TrainingJobSummary {
    * <p>The secondary status of the training job.</p>
    * @public
    */
-  SecondaryStatus?: SecondaryStatus;
+  SecondaryStatus?: SecondaryStatus | undefined;
 
   /**
    * <p>The status of the warm pool associated with the training job.</p>
    * @public
    */
-  WarmPoolStatus?: WarmPoolStatus;
+  WarmPoolStatus?: WarmPoolStatus | undefined;
 }
 
 /**
@@ -4526,7 +4526,7 @@ export interface ListTrainingJobsResponse {
    *             training jobs, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4561,19 +4561,19 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
    *             next set of training jobs, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of training jobs to return. The default value is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A filter that returns only training jobs with the specified status.</p>
    * @public
    */
-  StatusEquals?: TrainingJobStatus;
+  StatusEquals?: TrainingJobStatus | undefined;
 
   /**
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
@@ -4581,13 +4581,13 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
    *             jobs that did not return an objective metric are not listed.</p>
    * @public
    */
-  SortBy?: TrainingJobSortByOptions;
+  SortBy?: TrainingJobSortByOptions | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -4609,7 +4609,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobResponse {
    *             of training jobs, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4620,50 +4620,50 @@ export interface ListTransformJobsRequest {
    * <p>A filter that returns only transform jobs created after the specified time.</p>
    * @public
    */
-  CreationTimeAfter?: Date;
+  CreationTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only transform jobs created before the specified time.</p>
    * @public
    */
-  CreationTimeBefore?: Date;
+  CreationTimeBefore?: Date | undefined;
 
   /**
    * <p>A filter that returns only transform jobs modified after the specified time.</p>
    * @public
    */
-  LastModifiedTimeAfter?: Date;
+  LastModifiedTimeAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only transform jobs modified before the specified time.</p>
    * @public
    */
-  LastModifiedTimeBefore?: Date;
+  LastModifiedTimeBefore?: Date | undefined;
 
   /**
    * <p>A string in the transform job name. This filter returns only transform jobs whose name
    *             contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A filter that retrieves only transform jobs with a specific status.</p>
    * @public
    */
-  StatusEquals?: TransformJobStatus;
+  StatusEquals?: TransformJobStatus | undefined;
 
   /**
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: SortBy;
+  SortBy?: SortBy | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>If the result of the previous <code>ListTransformJobs</code> request was truncated,
@@ -4671,13 +4671,13 @@ export interface ListTransformJobsRequest {
    *             jobs, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of transform jobs to return in the response. The default value is <code>10</code>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4716,13 +4716,13 @@ export interface TransformJobSummary {
    *             detected that the job failed.</p>
    * @public
    */
-  TransformEndTime?: Date;
+  TransformEndTime?: Date | undefined;
 
   /**
    * <p>Indicates when the transform job was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The status of the transform job.</p>
@@ -4736,7 +4736,7 @@ export interface TransformJobSummary {
    *             reason it failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -4756,7 +4756,7 @@ export interface ListTransformJobsResponse {
    *             transform jobs, use it in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4783,7 +4783,7 @@ export interface ListTrialComponentsRequest {
    *         <code>TrialName</code>.</p>
    * @public
    */
-  ExperimentName?: string;
+  ExperimentName?: string | undefined;
 
   /**
    * <p>A filter that returns only components that are part of the specified trial. If you specify
@@ -4791,7 +4791,7 @@ export interface ListTrialComponentsRequest {
    *         <code>SourceArn</code>.</p>
    * @public
    */
-  TrialName?: string;
+  TrialName?: string | undefined;
 
   /**
    * <p>A filter that returns only components that have the specified source Amazon Resource Name (ARN).
@@ -4799,45 +4799,45 @@ export interface ListTrialComponentsRequest {
    *       or <code>TrialName</code>.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>A filter that returns only components created after the specified time.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only components created before the specified time.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: SortTrialComponentsBy;
+  SortBy?: SortTrialComponentsBy | undefined;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of components to return in the response. The default value is
    *       10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous call to <code>ListTrialComponents</code> didn't return the full set of
    *       components, the call returns a token for getting the next set of components.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4851,26 +4851,26 @@ export interface TrialComponentSummary {
    * <p>The name of the trial component.</p>
    * @public
    */
-  TrialComponentName?: string;
+  TrialComponentName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    * @public
    */
-  TrialComponentArn?: string;
+  TrialComponentArn?: string | undefined;
 
   /**
    * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified,
    *         <code>TrialComponentName</code> is displayed.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
    * @public
    */
-  TrialComponentSource?: TrialComponentSource;
+  TrialComponentSource?: TrialComponentSource | undefined;
 
   /**
    * <p>The status of the component. States include:</p>
@@ -4887,43 +4887,43 @@ export interface TrialComponentSummary {
    *          </ul>
    * @public
    */
-  Status?: TrialComponentStatus;
+  Status?: TrialComponentStatus | undefined;
 
   /**
    * <p>When the component started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>When the component ended.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>When the component was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Who created the trial component.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>When the component was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Who last modified the component.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 }
 
 /**
@@ -4934,13 +4934,13 @@ export interface ListTrialComponentsResponse {
    * <p>A list of the summaries of your trial components.</p>
    * @public
    */
-  TrialComponentSummaries?: TrialComponentSummary[];
+  TrialComponentSummaries?: TrialComponentSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of components, if there are any.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4965,51 +4965,51 @@ export interface ListTrialsRequest {
    * <p>A filter that returns only trials that are part of the specified experiment.</p>
    * @public
    */
-  ExperimentName?: string;
+  ExperimentName?: string | undefined;
 
   /**
    * <p>A filter that returns only trials that are associated with the specified trial
    *       component.</p>
    * @public
    */
-  TrialComponentName?: string;
+  TrialComponentName?: string | undefined;
 
   /**
    * <p>A filter that returns only trials created after the specified time.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>A filter that returns only trials created before the specified time.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>The property used to sort results. The default value is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: SortTrialsBy;
+  SortBy?: SortTrialsBy | undefined;
 
   /**
    * <p>The sort order. The default value is <code>Descending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of trials to return in the response. The default value is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the previous call to <code>ListTrials</code> didn't return the full set of trials, the
    *       call returns a token for getting the next set of trials.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5022,38 +5022,38 @@ export interface TrialSummary {
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
    * @public
    */
-  TrialArn?: string;
+  TrialArn?: string | undefined;
 
   /**
    * <p>The name of the trial.</p>
    * @public
    */
-  TrialName?: string;
+  TrialName?: string | undefined;
 
   /**
    * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified,
    *         <code>TrialName</code> is displayed.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The source of the trial.</p>
    * @public
    */
-  TrialSource?: TrialSource;
+  TrialSource?: TrialSource | undefined;
 
   /**
    * <p>When the trial was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When the trial was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -5064,13 +5064,13 @@ export interface ListTrialsResponse {
    * <p>A list of the summaries of your trials.</p>
    * @public
    */
-  TrialSummaries?: TrialSummary[];
+  TrialSummaries?: TrialSummary[] | undefined;
 
   /**
    * <p>A token for getting the next set of trials, if there are any.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5096,7 +5096,7 @@ export interface ListUserProfilesRequest {
    *       request to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>This parameter defines the maximum number of results that can be return in a single
@@ -5107,31 +5107,31 @@ export interface ListUserProfilesRequest {
    *         <code>MaxResults</code> is 10.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The sort order for the results. The default is Ascending.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>The parameter by which to sort the results. The default is CreationTime.</p>
    * @public
    */
-  SortBy?: UserProfileSortKey;
+  SortBy?: UserProfileSortKey | undefined;
 
   /**
    * <p>A parameter by which to filter the results.</p>
    * @public
    */
-  DomainIdEquals?: string;
+  DomainIdEquals?: string | undefined;
 
   /**
    * <p>A parameter by which to filter the results.</p>
    * @public
    */
-  UserProfileNameContains?: string;
+  UserProfileNameContains?: string | undefined;
 }
 
 /**
@@ -5143,31 +5143,31 @@ export interface UserProfileDetails {
    * <p>The domain ID.</p>
    * @public
    */
-  DomainId?: string;
+  DomainId?: string | undefined;
 
   /**
    * <p>The user profile name.</p>
    * @public
    */
-  UserProfileName?: string;
+  UserProfileName?: string | undefined;
 
   /**
    * <p>The status.</p>
    * @public
    */
-  Status?: UserProfileStatus;
+  Status?: UserProfileStatus | undefined;
 
   /**
    * <p>The creation time.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last modified time.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -5178,14 +5178,14 @@ export interface ListUserProfilesResponse {
    * <p>The list of user profiles.</p>
    * @public
    */
-  UserProfiles?: UserProfileDetails[];
+  UserProfiles?: UserProfileDetails[] | undefined;
 
   /**
    * <p>If the previous response was truncated, you will receive this token. Use it in your next
    *       request to receive the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5211,31 +5211,31 @@ export interface ListWorkforcesRequest {
    * <p>Sort workforces using the workforce name or creation date.</p>
    * @public
    */
-  SortBy?: ListWorkforcesSortByOptions;
+  SortBy?: ListWorkforcesSortByOptions | undefined;
 
   /**
    * <p>Sort workforces in ascending or descending order.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>A filter you can use to search for workforces using part of the workforce name.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>A token to resume pagination.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of workforces returned in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5252,7 +5252,7 @@ export interface ListWorkforcesResponse {
    * <p>A token to resume pagination.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5277,20 +5277,20 @@ export interface ListWorkteamsRequest {
    * <p>The field to sort results by. The default is <code>CreationTime</code>.</p>
    * @public
    */
-  SortBy?: ListWorkteamsSortByOptions;
+  SortBy?: ListWorkteamsSortByOptions | undefined;
 
   /**
    * <p>The sort order for results. The default is <code>Ascending</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 
   /**
    * <p>A string in the work team's name. This filter returns only work teams whose name
    *             contains the specified string.</p>
    * @public
    */
-  NameContains?: string;
+  NameContains?: string | undefined;
 
   /**
    * <p>If the result of the previous <code>ListWorkteams</code> request was truncated, the
@@ -5298,13 +5298,13 @@ export interface ListWorkteamsRequest {
    *             use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of work teams to return in each page of the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5322,7 +5322,7 @@ export interface ListWorkteamsResponse {
    *             work teams, use it in the subsequent request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5334,32 +5334,32 @@ export interface Model {
    * <p>The name of the model.</p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>Describes the container, as part of model definition.</p>
    * @public
    */
-  PrimaryContainer?: ContainerDefinition;
+  PrimaryContainer?: ContainerDefinition | undefined;
 
   /**
    * <p>The containers in the inference pipeline.</p>
    * @public
    */
-  Containers?: ContainerDefinition[];
+  Containers?: ContainerDefinition[] | undefined;
 
   /**
    * <p>Specifies details about how containers in a multi-container endpoint are run.</p>
    * @public
    */
-  InferenceExecutionConfig?: InferenceExecutionConfig;
+  InferenceExecutionConfig?: InferenceExecutionConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that you specified for the
    *             model.</p>
    * @public
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn?: string | undefined;
 
   /**
    * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
@@ -5368,26 +5368,26 @@ export interface Model {
    *                 Resources in your Amazon VPC</a>. </p>
    * @public
    */
-  VpcConfig?: VpcConfig;
+  VpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>A timestamp that indicates when the model was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model.</p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>Isolates the model container. No inbound or outbound network calls can be made to or
    *             from the model container.</p>
    * @public
    */
-  EnableNetworkIsolation?: boolean;
+  EnableNetworkIsolation?: boolean | undefined;
 
   /**
    * <p>A list of key-value pairs associated with the model. For more information, see
@@ -5395,13 +5395,13 @@ export interface Model {
    *                 resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A set of recommended deployment configurations for the model.</p>
    * @public
    */
-  DeploymentRecommendation?: DeploymentRecommendation;
+  DeploymentRecommendation?: DeploymentRecommendation | undefined;
 }
 
 /**
@@ -5413,25 +5413,25 @@ export interface ModelCard {
    * <p>The Amazon Resource Name (ARN) of the model card.</p>
    * @public
    */
-  ModelCardArn?: string;
+  ModelCardArn?: string | undefined;
 
   /**
    * <p>The unique name of the model card.</p>
    * @public
    */
-  ModelCardName?: string;
+  ModelCardName?: string | undefined;
 
   /**
    * <p>The version of the model card.</p>
    * @public
    */
-  ModelCardVersion?: number;
+  ModelCardVersion?: number | undefined;
 
   /**
    * <p>The content of the model card. Content uses the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
@@ -5456,64 +5456,64 @@ export interface ModelCard {
    *          </ul>
    * @public
    */
-  ModelCardStatus?: ModelCardStatus;
+  ModelCardStatus?: ModelCardStatus | undefined;
 
   /**
    * <p>The security configuration used to protect model card data.</p>
    * @public
    */
-  SecurityConfig?: ModelCardSecurityConfig;
+  SecurityConfig?: ModelCardSecurityConfig | undefined;
 
   /**
    * <p>The date and time that the model card was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>The date and time that the model card was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>Key-value pairs used to manage metadata for the model card.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The unique name (ID) of the model.</p>
    * @public
    */
-  ModelId?: string;
+  ModelId?: string | undefined;
 
   /**
    * <p>The risk rating of the model. Different organizations might have different criteria for model card risk ratings. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards-risk-rating.html">Risk ratings</a>.</p>
    * @public
    */
-  RiskRating?: string;
+  RiskRating?: string | undefined;
 
   /**
    * <p>The model package group that contains the model package. Only relevant for model cards created for model packages in the Amazon SageMaker Model Registry.
    *       </p>
    * @public
    */
-  ModelPackageGroupName?: string;
+  ModelPackageGroupName?: string | undefined;
 }
 
 /**
@@ -5562,13 +5562,13 @@ export interface TransformJob {
    * <p>The name of the transform job.</p>
    * @public
    */
-  TransformJobName?: string;
+  TransformJobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the transform job.</p>
    * @public
    */
-  TransformJobArn?: string;
+  TransformJobArn?: string | undefined;
 
   /**
    * <p>The status of the transform job.</p>
@@ -5599,19 +5599,19 @@ export interface TransformJob {
    *          </ul>
    * @public
    */
-  TransformJobStatus?: TransformJobStatus;
+  TransformJobStatus?: TransformJobStatus | undefined;
 
   /**
    * <p>If the transform job failed, the reason it failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>The name of the model associated with the transform job.</p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The maximum number of parallel requests that can be sent to each instance in a transform
@@ -5621,14 +5621,14 @@ export interface TransformJob {
    *       you don't need to set a value for <code>MaxConcurrentTransforms</code>.</p>
    * @public
    */
-  MaxConcurrentTransforms?: number;
+  MaxConcurrentTransforms?: number | undefined;
 
   /**
    * <p>Configures the timeout and maximum number of retries for processing a transform job
    *             invocation.</p>
    * @public
    */
-  ModelClientConfig?: ModelClientConfig;
+  ModelClientConfig?: ModelClientConfig | undefined;
 
   /**
    * <p>The maximum allowed size of the payload, in MB. A payload is the data portion of a record
@@ -5641,7 +5641,7 @@ export interface TransformJob {
    *       algorithms do not support HTTP chunked encoding.</p>
    * @public
    */
-  MaxPayloadInMB?: number;
+  MaxPayloadInMB?: number | undefined;
 
   /**
    * <p>Specifies the number of records to include in a mini-batch for an HTTP inference request.
@@ -5649,53 +5649,53 @@ export interface TransformJob {
    *       line in a CSV file is a record.</p>
    * @public
    */
-  BatchStrategy?: BatchStrategy;
+  BatchStrategy?: BatchStrategy | undefined;
 
   /**
    * <p>The environment variables to set in the Docker container. We support up to 16 key and
    *       values entries in the map.</p>
    * @public
    */
-  Environment?: Record<string, string>;
+  Environment?: Record<string, string> | undefined;
 
   /**
    * <p>Describes the input source of a transform job and the way the transform job consumes
    *             it.</p>
    * @public
    */
-  TransformInput?: TransformInput;
+  TransformInput?: TransformInput | undefined;
 
   /**
    * <p>Describes the results of a transform job.</p>
    * @public
    */
-  TransformOutput?: TransformOutput;
+  TransformOutput?: TransformOutput | undefined;
 
   /**
    * <p>Configuration to control how SageMaker captures inference data for batch transform jobs.</p>
    * @public
    */
-  DataCaptureConfig?: BatchDataCaptureConfig;
+  DataCaptureConfig?: BatchDataCaptureConfig | undefined;
 
   /**
    * <p>Describes the resources, including ML instance types and ML instance count, to use for
    *             transform job.</p>
    * @public
    */
-  TransformResources?: TransformResources;
+  TransformResources?: TransformResources | undefined;
 
   /**
    * <p>A timestamp that shows when the transform Job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Indicates when the transform job starts on ML instances. You are billed for the time
    *       interval between this time and the value of <code>TransformEndTime</code>.</p>
    * @public
    */
-  TransformStartTime?: Date;
+  TransformStartTime?: Date | undefined;
 
   /**
    * <p>Indicates when the transform job has been completed, or has stopped or failed. You are
@@ -5703,19 +5703,19 @@ export interface TransformJob {
    *         <code>TransformStartTime</code>.</p>
    * @public
    */
-  TransformEndTime?: Date;
+  TransformEndTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the  labeling job that created the transform job.</p>
    * @public
    */
-  LabelingJobArn?: string;
+  LabelingJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AutoML job that created the transform job.</p>
    * @public
    */
-  AutoMLJobArn?: string;
+  AutoMLJobArn?: string | undefined;
 
   /**
    * <p>The data structure used to specify the data to be used for inference in a batch
@@ -5727,7 +5727,7 @@ export interface TransformJob {
    *                 Results with their Corresponding Input Records</a>.</p>
    * @public
    */
-  DataProcessing?: DataProcessing;
+  DataProcessing?: DataProcessing | undefined;
 
   /**
    * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
@@ -5751,13 +5751,13 @@ export interface TransformJob {
    *          </ul>
    * @public
    */
-  ExperimentConfig?: ExperimentConfig;
+  ExperimentConfig?: ExperimentConfig | undefined;
 
   /**
    * <p>A list of tags associated with the transform job.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5769,76 +5769,76 @@ export interface ModelDashboardModelCard {
    * <p>The Amazon Resource Name (ARN) for a model card.</p>
    * @public
    */
-  ModelCardArn?: string;
+  ModelCardArn?: string | undefined;
 
   /**
    * <p>The name of a model card.</p>
    * @public
    */
-  ModelCardName?: string;
+  ModelCardName?: string | undefined;
 
   /**
    * <p>The model card version.</p>
    * @public
    */
-  ModelCardVersion?: number;
+  ModelCardVersion?: number | undefined;
 
   /**
    * <p>The model card status.</p>
    * @public
    */
-  ModelCardStatus?: ModelCardStatus;
+  ModelCardStatus?: ModelCardStatus | undefined;
 
   /**
    * <p>The KMS Key ID (<code>KMSKeyId</code>) for encryption of model card information.</p>
    * @public
    */
-  SecurityConfig?: ModelCardSecurityConfig;
+  SecurityConfig?: ModelCardSecurityConfig | undefined;
 
   /**
    * <p>A timestamp that indicates when the model card was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>A timestamp that indicates when the model card was last updated.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>The tags associated with a model card.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>For models created in SageMaker, this is the model ARN. For models created
    *          outside of SageMaker, this is a user-customized string.</p>
    * @public
    */
-  ModelId?: string;
+  ModelId?: string | undefined;
 
   /**
    * <p>A model card's risk rating. Can be low, medium, or high.</p>
    * @public
    */
-  RiskRating?: string;
+  RiskRating?: string | undefined;
 }
 
 /**
@@ -5850,73 +5850,73 @@ export interface ModelDashboardMonitoringSchedule {
    * <p>The Amazon Resource Name (ARN) of a monitoring schedule.</p>
    * @public
    */
-  MonitoringScheduleArn?: string;
+  MonitoringScheduleArn?: string | undefined;
 
   /**
    * <p>The name of a monitoring schedule.</p>
    * @public
    */
-  MonitoringScheduleName?: string;
+  MonitoringScheduleName?: string | undefined;
 
   /**
    * <p>The status of the monitoring schedule.</p>
    * @public
    */
-  MonitoringScheduleStatus?: ScheduleStatus;
+  MonitoringScheduleStatus?: ScheduleStatus | undefined;
 
   /**
    * <p>The monitor type of a model monitor.</p>
    * @public
    */
-  MonitoringType?: MonitoringType;
+  MonitoringType?: MonitoringType | undefined;
 
   /**
    * <p>If a monitoring job failed, provides the reason.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>A timestamp that indicates when the monitoring schedule was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the monitoring schedule was last updated.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Configures the monitoring schedule and defines the monitoring job.</p>
    * @public
    */
-  MonitoringScheduleConfig?: MonitoringScheduleConfig;
+  MonitoringScheduleConfig?: MonitoringScheduleConfig | undefined;
 
   /**
    * <p>The endpoint which is monitored.</p>
    * @public
    */
-  EndpointName?: string;
+  EndpointName?: string | undefined;
 
   /**
    * <p>A JSON array where each element is a summary for a monitoring alert.</p>
    * @public
    */
-  MonitoringAlertSummaries?: MonitoringAlertSummary[];
+  MonitoringAlertSummaries?: MonitoringAlertSummary[] | undefined;
 
   /**
    * <p>Summary of information about the last monitoring job to run.</p>
    * @public
    */
-  LastMonitoringExecutionSummary?: MonitoringExecutionSummary;
+  LastMonitoringExecutionSummary?: MonitoringExecutionSummary | undefined;
 
   /**
    * <p>Input object for the batch transform job.</p>
    * @public
    */
-  BatchTransformInput?: BatchTransformInput;
+  BatchTransformInput?: BatchTransformInput | undefined;
 }
 
 /**
@@ -5928,32 +5928,32 @@ export interface ModelDashboardModel {
    * <p>A model displayed in the Model Dashboard.</p>
    * @public
    */
-  Model?: Model;
+  Model?: Model | undefined;
 
   /**
    * <p>The endpoints that host a model.</p>
    * @public
    */
-  Endpoints?: ModelDashboardEndpoint[];
+  Endpoints?: ModelDashboardEndpoint[] | undefined;
 
   /**
    * <p>A batch transform job. For information about SageMaker batch transform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform.html">Use Batch
    *         Transform</a>.</p>
    * @public
    */
-  LastBatchTransformJob?: TransformJob;
+  LastBatchTransformJob?: TransformJob | undefined;
 
   /**
    * <p>The monitoring schedules for a model.</p>
    * @public
    */
-  MonitoringSchedules?: ModelDashboardMonitoringSchedule[];
+  MonitoringSchedules?: ModelDashboardMonitoringSchedule[] | undefined;
 
   /**
    * <p>The model card for a model.</p>
    * @public
    */
-  ModelCard?: ModelDashboardModelCard;
+  ModelCard?: ModelDashboardModelCard | undefined;
 }
 
 /**
@@ -5965,55 +5965,55 @@ export interface ModelPackage {
    * <p>The name of the model.</p>
    * @public
    */
-  ModelPackageName?: string;
+  ModelPackageName?: string | undefined;
 
   /**
    * <p>The model group to which the model belongs.</p>
    * @public
    */
-  ModelPackageGroupName?: string;
+  ModelPackageGroupName?: string | undefined;
 
   /**
    * <p>The version number of a versioned model.</p>
    * @public
    */
-  ModelPackageVersion?: number;
+  ModelPackageVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model package.</p>
    * @public
    */
-  ModelPackageArn?: string;
+  ModelPackageArn?: string | undefined;
 
   /**
    * <p>The description of the model package.</p>
    * @public
    */
-  ModelPackageDescription?: string;
+  ModelPackageDescription?: string | undefined;
 
   /**
    * <p>The time that the model package was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Defines how to perform inference generation after a training job is run.</p>
    * @public
    */
-  InferenceSpecification?: InferenceSpecification;
+  InferenceSpecification?: InferenceSpecification | undefined;
 
   /**
    * <p>A list of algorithms that were used to create a model package.</p>
    * @public
    */
-  SourceAlgorithmSpecification?: SourceAlgorithmSpecification;
+  SourceAlgorithmSpecification?: SourceAlgorithmSpecification | undefined;
 
   /**
    * <p>Specifies batch transform jobs that SageMaker runs to validate your model package.</p>
    * @public
    */
-  ValidationSpecification?: ModelPackageValidationSpecification;
+  ValidationSpecification?: ModelPackageValidationSpecification | undefined;
 
   /**
    * <p>The status of the model package. This can be one of the following values.</p>
@@ -6042,13 +6042,13 @@ export interface ModelPackage {
    *          </ul>
    * @public
    */
-  ModelPackageStatus?: ModelPackageStatus;
+  ModelPackageStatus?: ModelPackageStatus | undefined;
 
   /**
    * <p>Specifies the validation and image scan statuses of the model package.</p>
    * @public
    */
-  ModelPackageStatusDetails?: ModelPackageStatusDetails;
+  ModelPackageStatusDetails?: ModelPackageStatusDetails | undefined;
 
   /**
    * <p>Whether the model package is to be certified to be listed on Amazon Web Services Marketplace. For
@@ -6056,7 +6056,7 @@ export interface ModelPackage {
    *                 Algorithm or Model Package on Amazon Web Services Marketplace</a>.</p>
    * @public
    */
-  CertifyForMarketplace?: boolean;
+  CertifyForMarketplace?: boolean | undefined;
 
   /**
    * <p>The approval status of the model. This can be one of the following values.</p>
@@ -6077,76 +6077,76 @@ export interface ModelPackage {
    *          </ul>
    * @public
    */
-  ModelApprovalStatus?: ModelApprovalStatus;
+  ModelApprovalStatus?: ModelApprovalStatus | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
    * @public
    */
-  MetadataProperties?: MetadataProperties;
+  MetadataProperties?: MetadataProperties | undefined;
 
   /**
    * <p>Metrics for the model.</p>
    * @public
    */
-  ModelMetrics?: ModelMetrics;
+  ModelMetrics?: ModelMetrics | undefined;
 
   /**
    * <p>The last time the model package was modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial component, lineage group, or project.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>A description provided when the model approval is set.</p>
    * @public
    */
-  ApprovalDescription?: string;
+  ApprovalDescription?: string | undefined;
 
   /**
    * <p>The machine learning domain of your model package and its components. Common
    *             machine learning domains include computer vision and natural language processing.</p>
    * @public
    */
-  Domain?: string;
+  Domain?: string | undefined;
 
   /**
    * <p>The machine learning task your model package accomplishes. Common machine
    *             learning tasks include object detection and image classification.</p>
    * @public
    */
-  Task?: string;
+  Task?: string | undefined;
 
   /**
    * <p>The Amazon Simple Storage Service path where the sample payload are stored. This path must point to
    *            a single gzip compressed tar archive (.tar.gz suffix).</p>
    * @public
    */
-  SamplePayloadUrl?: string;
+  SamplePayloadUrl?: string | undefined;
 
   /**
    * <p>An array of additional Inference Specification objects.</p>
    * @public
    */
-  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[];
+  AdditionalInferenceSpecifications?: AdditionalInferenceSpecificationDefinition[] | undefined;
 
   /**
    * <p>The URI of the source for the model package.</p>
    * @public
    */
-  SourceUri?: string;
+  SourceUri?: string | undefined;
 
   /**
    * <p>An optional Key Management Service
@@ -6154,7 +6154,7 @@ export interface ModelPackage {
    *          highly sensitive data.</p>
    * @public
    */
-  SecurityConfig?: ModelPackageSecurityConfig;
+  SecurityConfig?: ModelPackageSecurityConfig | undefined;
 
   /**
    * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
@@ -6169,7 +6169,7 @@ export interface ModelPackage {
    *                 the Details of a Model Version</a>.</p>
    * @public
    */
-  ModelCard?: ModelPackageModelCard;
+  ModelCard?: ModelPackageModelCard | undefined;
 
   /**
    * <p>
@@ -6177,32 +6177,32 @@ export interface ModelPackage {
    *         </p>
    * @public
    */
-  ModelLifeCycle?: ModelLifeCycle;
+  ModelLifeCycle?: ModelLifeCycle | undefined;
 
   /**
    * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The metadata properties for the model package. </p>
    * @public
    */
-  CustomerMetadataProperties?: Record<string, string>;
+  CustomerMetadataProperties?: Record<string, string> | undefined;
 
   /**
    * <p>Represents the drift check baselines that can be used when the model monitor is set using the model package.</p>
    * @public
    */
-  DriftCheckBaselines?: DriftCheckBaselines;
+  DriftCheckBaselines?: DriftCheckBaselines | undefined;
 
   /**
    * <p>Indicates if you want to skip model validation.</p>
    * @public
    */
-  SkipModelValidation?: SkipModelValidation;
+  SkipModelValidation?: SkipModelValidation | undefined;
 }
 
 /**
@@ -6214,32 +6214,32 @@ export interface ModelPackageGroup {
    * <p>The name of the model group.</p>
    * @public
    */
-  ModelPackageGroupName?: string;
+  ModelPackageGroupName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model group.</p>
    * @public
    */
-  ModelPackageGroupArn?: string;
+  ModelPackageGroupArn?: string | undefined;
 
   /**
    * <p>The description for the model group.</p>
    * @public
    */
-  ModelPackageGroupDescription?: string;
+  ModelPackageGroupDescription?: string | undefined;
 
   /**
    * <p>The time that the model group was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>The status of the model group. This can be one of the following values.</p>
@@ -6272,14 +6272,14 @@ export interface ModelPackageGroup {
    *          </ul>
    * @public
    */
-  ModelPackageGroupStatus?: ModelPackageGroupStatus;
+  ModelPackageGroupStatus?: ModelPackageGroupStatus | undefined;
 
   /**
    * <p>A list of the tags associated with the model group. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6347,7 +6347,7 @@ export interface OnlineStoreConfigUpdate {
    *          information on HardDelete, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_DeleteRecord.html">DeleteRecord</a> API in the Amazon SageMaker API Reference guide.</p>
    * @public
    */
-  TtlDuration?: TtlDuration;
+  TtlDuration?: TtlDuration | undefined;
 }
 
 /**
@@ -6361,13 +6361,13 @@ export interface Parent {
    * <p>The name of the trial.</p>
    * @public
    */
-  TrialName?: string;
+  TrialName?: string | undefined;
 
   /**
    * <p>The name of the experiment.</p>
    * @public
    */
-  ExperimentName?: string;
+  ExperimentName?: string | undefined;
 }
 
 /**
@@ -6379,81 +6379,81 @@ export interface Pipeline {
    * <p>The Amazon Resource Name (ARN) of the pipeline.</p>
    * @public
    */
-  PipelineArn?: string;
+  PipelineArn?: string | undefined;
 
   /**
    * <p>The name of the pipeline.</p>
    * @public
    */
-  PipelineName?: string;
+  PipelineName?: string | undefined;
 
   /**
    * <p>The display name of the pipeline.</p>
    * @public
    */
-  PipelineDisplayName?: string;
+  PipelineDisplayName?: string | undefined;
 
   /**
    * <p>The description of the pipeline.</p>
    * @public
    */
-  PipelineDescription?: string;
+  PipelineDescription?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that created the pipeline.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The status of the pipeline.</p>
    * @public
    */
-  PipelineStatus?: PipelineStatus;
+  PipelineStatus?: PipelineStatus | undefined;
 
   /**
    * <p>The creation time of the pipeline.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time that the pipeline was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The time when the pipeline was last run.</p>
    * @public
    */
-  LastRunTime?: Date;
+  LastRunTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>The parallelism configuration applied to the pipeline.</p>
    * @public
    */
-  ParallelismConfiguration?: ParallelismConfiguration;
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
 
   /**
    * <p>A list of tags that apply to the pipeline.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6465,87 +6465,87 @@ export interface PipelineExecution {
    * <p>The Amazon Resource Name (ARN) of the pipeline that was executed.</p>
    * @public
    */
-  PipelineArn?: string;
+  PipelineArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 
   /**
    * <p>The display name of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDisplayName?: string;
+  PipelineExecutionDisplayName?: string | undefined;
 
   /**
    * <p>The status of the pipeline status.</p>
    * @public
    */
-  PipelineExecutionStatus?: PipelineExecutionStatus;
+  PipelineExecutionStatus?: PipelineExecutionStatus | undefined;
 
   /**
    * <p>The description of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDescription?: string;
+  PipelineExecutionDescription?: string | undefined;
 
   /**
    * <p>Specifies the names of the experiment and trial created by a pipeline.</p>
    * @public
    */
-  PipelineExperimentConfig?: PipelineExperimentConfig;
+  PipelineExperimentConfig?: PipelineExperimentConfig | undefined;
 
   /**
    * <p>If the execution failed, a message describing why.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>The creation time of the pipeline execution.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time that the pipeline execution was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>The parallelism configuration applied to the pipeline execution.</p>
    * @public
    */
-  ParallelismConfiguration?: ParallelismConfiguration;
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
 
   /**
    * <p>The selective execution configuration applied to the pipeline run.</p>
    * @public
    */
-  SelectiveExecutionConfig?: SelectiveExecutionConfig;
+  SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
 
   /**
    * <p>Contains a list of pipeline parameters. This list can be empty. </p>
    * @public
    */
-  PipelineParameters?: Parameter[];
+  PipelineParameters?: Parameter[] | undefined;
 }
 
 /**
@@ -6559,45 +6559,45 @@ export interface ProcessingJob {
    * <p>List of input configurations for the processing job.</p>
    * @public
    */
-  ProcessingInputs?: ProcessingInput[];
+  ProcessingInputs?: ProcessingInput[] | undefined;
 
   /**
    * <p>Configuration for uploading output from the processing container.</p>
    * @public
    */
-  ProcessingOutputConfig?: ProcessingOutputConfig;
+  ProcessingOutputConfig?: ProcessingOutputConfig | undefined;
 
   /**
    * <p>The name of the processing job.</p>
    * @public
    */
-  ProcessingJobName?: string;
+  ProcessingJobName?: string | undefined;
 
   /**
    * <p>Identifies the resources, ML compute instances, and ML storage volumes to deploy for a
    *             processing job. In distributed training, you specify more than one instance.</p>
    * @public
    */
-  ProcessingResources?: ProcessingResources;
+  ProcessingResources?: ProcessingResources | undefined;
 
   /**
    * <p>Configures conditions under which the processing job should be stopped, such as how long
    *             the processing job has been running. After the condition is met, the processing job is stopped.</p>
    * @public
    */
-  StoppingCondition?: ProcessingStoppingCondition;
+  StoppingCondition?: ProcessingStoppingCondition | undefined;
 
   /**
    * <p>Configuration to run a processing job in a specified container image.</p>
    * @public
    */
-  AppSpecification?: AppSpecification;
+  AppSpecification?: AppSpecification | undefined;
 
   /**
    * <p>Sets the environment variables in the Docker container.</p>
    * @public
    */
-  Environment?: Record<string, string>;
+  Environment?: Record<string, string> | undefined;
 
   /**
    * <p>Networking options for a job, such as network traffic encryption between containers,
@@ -6605,13 +6605,13 @@ export interface ProcessingJob {
    *          subnets and security groups to use for VPC-enabled jobs.</p>
    * @public
    */
-  NetworkConfig?: NetworkConfig;
+  NetworkConfig?: NetworkConfig | undefined;
 
   /**
    * <p>The ARN of the role used to create the processing job.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
@@ -6635,83 +6635,83 @@ export interface ProcessingJob {
    *          </ul>
    * @public
    */
-  ExperimentConfig?: ExperimentConfig;
+  ExperimentConfig?: ExperimentConfig | undefined;
 
   /**
    * <p>The ARN of the processing job.</p>
    * @public
    */
-  ProcessingJobArn?: string;
+  ProcessingJobArn?: string | undefined;
 
   /**
    * <p>The status of the processing job.</p>
    * @public
    */
-  ProcessingJobStatus?: ProcessingJobStatus;
+  ProcessingJobStatus?: ProcessingJobStatus | undefined;
 
   /**
    * <p>A string, up to one KB in size, that contains metadata from the processing
    *             container when the processing job exits.</p>
    * @public
    */
-  ExitMessage?: string;
+  ExitMessage?: string | undefined;
 
   /**
    * <p>A string, up to one KB in size, that contains the reason a processing job failed, if
    *             it failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>The time that the processing job ended.</p>
    * @public
    */
-  ProcessingEndTime?: Date;
+  ProcessingEndTime?: Date | undefined;
 
   /**
    * <p>The time that the processing job started.</p>
    * @public
    */
-  ProcessingStartTime?: Date;
+  ProcessingStartTime?: Date | undefined;
 
   /**
    * <p>The time the processing job was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>The time the processing job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The ARN of a monitoring schedule for an endpoint associated with this processing
    *             job.</p>
    * @public
    */
-  MonitoringScheduleArn?: string;
+  MonitoringScheduleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.</p>
    * @public
    */
-  AutoMLJobArn?: string;
+  AutoMLJobArn?: string | undefined;
 
   /**
    * <p>The ARN of the training job associated with this processing job.</p>
    * @public
    */
-  TrainingJobArn?: string;
+  TrainingJobArn?: string | undefined;
 
   /**
    * <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management
    *                 User Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6724,14 +6724,14 @@ export interface ProfilerConfigForUpdate {
    * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
    * @public
    */
-  S3OutputPath?: string;
+  S3OutputPath?: string | undefined;
 
   /**
    * <p>A time interval for capturing system metrics in milliseconds. Available values are
    *             100, 200, 500, 1000 (1 second), 5000 (5 seconds), and 60000 (1 minute) milliseconds. The default value is 500 milliseconds.</p>
    * @public
    */
-  ProfilingIntervalInMilliseconds?: number;
+  ProfilingIntervalInMilliseconds?: number | undefined;
 
   /**
    * <p>Configuration information for capturing framework metrics. Available key strings for different profiling options are
@@ -6742,13 +6742,13 @@ export interface ProfilerConfigForUpdate {
    *         </p>
    * @public
    */
-  ProfilingParameters?: Record<string, string>;
+  ProfilingParameters?: Record<string, string> | undefined;
 
   /**
    * <p>To turn off Amazon SageMaker Debugger monitoring and profiling while a training job is in progress, set to <code>True</code>.</p>
    * @public
    */
-  DisableProfiler?: boolean;
+  DisableProfiler?: boolean | undefined;
 }
 
 /**
@@ -6760,25 +6760,25 @@ export interface Project {
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    * @public
    */
-  ProjectArn?: string;
+  ProjectArn?: string | undefined;
 
   /**
    * <p>The name of the project.</p>
    * @public
    */
-  ProjectName?: string;
+  ProjectName?: string | undefined;
 
   /**
    * <p>The ID of the project.</p>
    * @public
    */
-  ProjectId?: string;
+  ProjectId?: string | undefined;
 
   /**
    * <p>The description of the project.</p>
    * @public
    */
-  ProjectDescription?: string;
+  ProjectDescription?: string | undefined;
 
   /**
    * <p>Details that you specify to provision a service catalog product. For information about
@@ -6786,7 +6786,7 @@ export interface Project {
    *                 Catalog</a>.</p>
    * @public
    */
-  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails;
+  ServiceCatalogProvisioningDetails?: ServiceCatalogProvisioningDetails | undefined;
 
   /**
    * <p>Details of a provisioned service catalog product. For information about service catalog,
@@ -6794,25 +6794,25 @@ export interface Project {
    *                 Catalog</a>.</p>
    * @public
    */
-  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails;
+  ServiceCatalogProvisionedProductDetails?: ServiceCatalogProvisionedProductDetails | undefined;
 
   /**
    * <p>The status of the project.</p>
    * @public
    */
-  ProjectStatus?: ProjectStatus;
+  ProjectStatus?: ProjectStatus | undefined;
 
   /**
    * <p>Who created the project.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>A timestamp specifying when the project was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
@@ -6820,20 +6820,20 @@ export interface Project {
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A timestamp container for when the project was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 }
 
 /**
@@ -6875,44 +6875,44 @@ export interface QueryFilters {
    *          <code>Model</code>, <code>Endpoint</code>, or <code>ModelDeployment</code>.</p>
    * @public
    */
-  Types?: string[];
+  Types?: string[] | undefined;
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by the type of the lineage entity.</p>
    * @public
    */
-  LineageTypes?: LineageType[];
+  LineageTypes?: LineageType[] | undefined;
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by created date.</p>
    * @public
    */
-  CreatedBefore?: Date;
+  CreatedBefore?: Date | undefined;
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the create date.</p>
    * @public
    */
-  CreatedAfter?: Date;
+  CreatedAfter?: Date | undefined;
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) before the last modified date.</p>
    * @public
    */
-  ModifiedBefore?: Date;
+  ModifiedBefore?: Date | undefined;
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) after the last modified date.</p>
    * @public
    */
-  ModifiedAfter?: Date;
+  ModifiedAfter?: Date | undefined;
 
   /**
    * <p>Filter the lineage entities connected to the <code>StartArn</code>(s) by a set if property key value pairs.
    *          If multiple pairs are provided, an entity is included in the results if it matches any of the provided pairs.</p>
    * @public
    */
-  Properties?: Record<string, string>;
+  Properties?: Record<string, string> | undefined;
 }
 
 /**
@@ -6923,14 +6923,14 @@ export interface QueryLineageRequest {
    * <p>A list of resource Amazon Resource Name (ARN) that represent the starting point for your lineage query.</p>
    * @public
    */
-  StartArns?: string[];
+  StartArns?: string[] | undefined;
 
   /**
    * <p>Associations between lineage entities have a direction.  This parameter determines the direction from the
    *          StartArn(s) that the query traverses.</p>
    * @public
    */
-  Direction?: Direction;
+  Direction?: Direction | undefined;
 
   /**
    * <p> Setting this value to <code>True</code> retrieves not only the entities of interest but also the
@@ -6938,7 +6938,7 @@ export interface QueryLineageRequest {
    *          lineage entities on the path. Set to <code>False</code> to only return lineage entities that match your query.</p>
    * @public
    */
-  IncludeEdges?: boolean;
+  IncludeEdges?: boolean | undefined;
 
   /**
    * <p>A set of filtering parameters that allow you to specify which entities should be returned.</p>
@@ -6962,26 +6962,26 @@ export interface QueryLineageRequest {
    *          </ul>
    * @public
    */
-  Filters?: QueryFilters;
+  Filters?: QueryFilters | undefined;
 
   /**
    * <p>The maximum depth in lineage relationships from the <code>StartArns</code> that are traversed. Depth is a measure of the number
    *          of <code>Associations</code> from the <code>StartArn</code> entity to the matched results.</p>
    * @public
    */
-  MaxDepth?: number;
+  MaxDepth?: number | undefined;
 
   /**
    * <p>Limits the number of vertices in the results. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Limits the number of vertices in the request. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6993,20 +6993,20 @@ export interface Vertex {
    * <p>The Amazon Resource Name (ARN) of the lineage entity resource.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The type of the lineage entity resource. For example: <code>DataSet</code>, <code>Model</code>, <code>Endpoint</code>,
    *          etc...</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The type of resource of the lineage entity.</p>
    * @public
    */
-  LineageType?: LineageType;
+  LineageType?: LineageType | undefined;
 }
 
 /**
@@ -7017,19 +7017,19 @@ export interface QueryLineageResponse {
    * <p>A list of vertices connected to the start entity(ies) in the lineage graph.</p>
    * @public
    */
-  Vertices?: Vertex[];
+  Vertices?: Vertex[] | undefined;
 
   /**
    * <p>A list of edges that connect vertices in the response.</p>
    * @public
    */
-  Edges?: Edge[];
+  Edges?: Edge[] | undefined;
 
   /**
    * <p>Limits the number of vertices in the response. Use the <code>NextToken</code> in a response to to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7052,7 +7052,7 @@ export interface RegisterDevicesRequest {
    * <p>The tags associated with devices.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -7067,7 +7067,7 @@ export interface RemoteDebugConfigForUpdate {
    * <p>If set to True, enables remote debugging.</p>
    * @public
    */
-  EnableRemoteDebug?: boolean;
+  EnableRemoteDebug?: boolean | undefined;
 }
 
 /**
@@ -7111,7 +7111,7 @@ export interface RenderUiTemplateRequest {
    * <p>A <code>Template</code> object containing the worker UI template to render.</p>
    * @public
    */
-  UiTemplate?: UiTemplate;
+  UiTemplate?: UiTemplate | undefined;
 
   /**
    * <p>A <code>RenderableTask</code> object containing a representative task to
@@ -7134,7 +7134,7 @@ export interface RenderUiTemplateRequest {
    *          <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UiConfig.html">UiConfig</a>.</p>
    * @public
    */
-  HumanTaskUiArn?: string;
+  HumanTaskUiArn?: string | undefined;
 }
 
 /**
@@ -7184,14 +7184,14 @@ export interface RetryPipelineExecutionRequest {
    *          operation. An idempotent operation completes no more than once.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>This configuration, if specified, overrides the parallelism configuration
    *             of the parent pipeline.</p>
    * @public
    */
-  ParallelismConfiguration?: ParallelismConfiguration;
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
 }
 
 /**
@@ -7202,7 +7202,7 @@ export interface RetryPipelineExecutionResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -7229,13 +7229,13 @@ export interface VisibilityConditions {
    * <p>The key that specifies the tag that you're using to filter the search results. It must be in the following format: <code>Tags.<key></code>.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value for the tag that you're using to filter the search results.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -7247,39 +7247,39 @@ export interface TrainingJob {
    * <p>The name of the training job.</p>
    * @public
    */
-  TrainingJobName?: string;
+  TrainingJobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the training job.</p>
    * @public
    */
-  TrainingJobArn?: string;
+  TrainingJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the associated hyperparameter tuning job if the
    *             training job was launched by a hyperparameter tuning job.</p>
    * @public
    */
-  TuningJobArn?: string;
+  TuningJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the labeling job.</p>
    * @public
    */
-  LabelingJobArn?: string;
+  LabelingJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the job.</p>
    * @public
    */
-  AutoMLJobArn?: string;
+  AutoMLJobArn?: string | undefined;
 
   /**
    * <p>Information about the Amazon S3 location that is configured for storing model
    *             artifacts.</p>
    * @public
    */
-  ModelArtifacts?: ModelArtifacts;
+  ModelArtifacts?: ModelArtifacts | undefined;
 
   /**
    * <p>The status of the
@@ -7314,7 +7314,7 @@ export interface TrainingJob {
    *             more detailed information, see <code>SecondaryStatus</code>. </p>
    * @public
    */
-  TrainingJobStatus?: TrainingJobStatus;
+  TrainingJobStatus?: TrainingJobStatus | undefined;
 
   /**
    * <p> Provides detailed information about the state of the training job. For detailed
@@ -7415,32 +7415,32 @@ export interface TrainingJob {
    *          </ul>
    * @public
    */
-  SecondaryStatus?: SecondaryStatus;
+  SecondaryStatus?: SecondaryStatus | undefined;
 
   /**
    * <p>If the training job failed, the reason it failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>Algorithm-specific parameters.</p>
    * @public
    */
-  HyperParameters?: Record<string, string>;
+  HyperParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Information about the algorithm used for training, and algorithm metadata.</p>
    * @public
    */
-  AlgorithmSpecification?: AlgorithmSpecification;
+  AlgorithmSpecification?: AlgorithmSpecification | undefined;
 
   /**
    * <p>The Amazon Web Services Identity and Access Management (IAM) role configured for the
    *             training job.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>An array of <code>Channel</code> objects that describes each data input
@@ -7448,21 +7448,21 @@ export interface TrainingJob {
    *          <p>Your input must be in the same Amazon Web Services region as your training job.</p>
    * @public
    */
-  InputDataConfig?: Channel[];
+  InputDataConfig?: Channel[] | undefined;
 
   /**
    * <p>The S3 path where model artifacts that you configured when creating the job are
    *             stored. SageMaker creates subfolders for model artifacts.</p>
    * @public
    */
-  OutputDataConfig?: OutputDataConfig;
+  OutputDataConfig?: OutputDataConfig | undefined;
 
   /**
    * <p>Resources, including ML compute instances and ML storage volumes, that are configured
    *             for model training.</p>
    * @public
    */
-  ResourceConfig?: ResourceConfig;
+  ResourceConfig?: ResourceConfig | undefined;
 
   /**
    * <p>A <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_VpcConfig.html">VpcConfig</a> object that specifies the VPC that this training job has access
@@ -7470,7 +7470,7 @@ export interface TrainingJob {
    *                 Virtual Private Cloud</a>.</p>
    * @public
    */
-  VpcConfig?: VpcConfig;
+  VpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>Specifies a limit to how long a model training job can run. It also specifies how long
@@ -7481,13 +7481,13 @@ export interface TrainingJob {
    *             model artifacts, so the results of training are not lost. </p>
    * @public
    */
-  StoppingCondition?: StoppingCondition;
+  StoppingCondition?: StoppingCondition | undefined;
 
   /**
    * <p>A timestamp that indicates when the training job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Indicates the time when the training job starts on training instances. You are billed
@@ -7496,7 +7496,7 @@ export interface TrainingJob {
    *             it takes to download the training data and to the size of the training container.</p>
    * @public
    */
-  TrainingStartTime?: Date;
+  TrainingStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the time when the training job ends on training instances. You are billed
@@ -7505,28 +7505,28 @@ export interface TrainingJob {
    *             uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
    * @public
    */
-  TrainingEndTime?: Date;
+  TrainingEndTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the status of the training job was last
    *             modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>A history of all of the secondary statuses that the training job has transitioned
    *             through.</p>
    * @public
    */
-  SecondaryStatusTransitions?: SecondaryStatusTransition[];
+  SecondaryStatusTransitions?: SecondaryStatusTransition[] | undefined;
 
   /**
    * <p>A list of final metric values that are set when the training job completes. Used only
    *             if the training job was configured to use metrics.</p>
    * @public
    */
-  FinalMetricDataList?: MetricData[];
+  FinalMetricDataList?: MetricData[] | undefined;
 
   /**
    * <p>If the <code>TrainingJob</code> was created with network isolation, the value is set
@@ -7534,7 +7534,7 @@ export interface TrainingJob {
    *             the VPC they run in.</p>
    * @public
    */
-  EnableNetworkIsolation?: boolean;
+  EnableNetworkIsolation?: boolean | undefined;
 
   /**
    * <p>To encrypt all communications between ML compute instances in distributed training,
@@ -7544,33 +7544,33 @@ export interface TrainingJob {
    *             distributed training.</p>
    * @public
    */
-  EnableInterContainerTrafficEncryption?: boolean;
+  EnableInterContainerTrafficEncryption?: boolean | undefined;
 
   /**
    * <p>When true, enables managed spot training using Amazon EC2 Spot instances to run
    *             training jobs instead of on-demand instances. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-managed-spot-training.html">Managed Spot Training</a>.</p>
    * @public
    */
-  EnableManagedSpotTraining?: boolean;
+  EnableManagedSpotTraining?: boolean | undefined;
 
   /**
    * <p>Contains information about the output location for managed spot training checkpoint
    *             data. </p>
    * @public
    */
-  CheckpointConfig?: CheckpointConfig;
+  CheckpointConfig?: CheckpointConfig | undefined;
 
   /**
    * <p>The training time in seconds.</p>
    * @public
    */
-  TrainingTimeInSeconds?: number;
+  TrainingTimeInSeconds?: number | undefined;
 
   /**
    * <p>The billable time in seconds.</p>
    * @public
    */
-  BillableTimeInSeconds?: number;
+  BillableTimeInSeconds?: number | undefined;
 
   /**
    * <p>Configuration information for the Amazon SageMaker Debugger hook parameters, metric and tensor collections, and
@@ -7579,7 +7579,7 @@ export interface TrainingJob {
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/debugger-createtrainingjob-api.html">Use the SageMaker and Debugger Configuration API Operations to Create, Update, and Debug Your Training Job</a>.</p>
    * @public
    */
-  DebugHookConfig?: DebugHookConfig;
+  DebugHookConfig?: DebugHookConfig | undefined;
 
   /**
    * <p>Associates a SageMaker job as a trial component with an experiment and trial. Specified when
@@ -7603,45 +7603,45 @@ export interface TrainingJob {
    *          </ul>
    * @public
    */
-  ExperimentConfig?: ExperimentConfig;
+  ExperimentConfig?: ExperimentConfig | undefined;
 
   /**
    * <p>Information about the debug rule configuration.</p>
    * @public
    */
-  DebugRuleConfigurations?: DebugRuleConfiguration[];
+  DebugRuleConfigurations?: DebugRuleConfiguration[] | undefined;
 
   /**
    * <p>Configuration of storage locations for the Amazon SageMaker Debugger TensorBoard output data.</p>
    * @public
    */
-  TensorBoardOutputConfig?: TensorBoardOutputConfig;
+  TensorBoardOutputConfig?: TensorBoardOutputConfig | undefined;
 
   /**
    * <p>Information about the evaluation status of the rules for the training job.</p>
    * @public
    */
-  DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[];
+  DebugRuleEvaluationStatuses?: DebugRuleEvaluationStatus[] | undefined;
 
   /**
    * <p>Configuration information for Amazon SageMaker Debugger system monitoring, framework profiling, and
    *             storage paths.</p>
    * @public
    */
-  ProfilerConfig?: ProfilerConfig;
+  ProfilerConfig?: ProfilerConfig | undefined;
 
   /**
    * <p>The environment variables to set in the Docker container.</p>
    * @public
    */
-  Environment?: Record<string, string>;
+  Environment?: Record<string, string> | undefined;
 
   /**
    * <p>The number of times to retry the job when the job fails due to an
    *                 <code>InternalServerError</code>.</p>
    * @public
    */
-  RetryStrategy?: RetryStrategy;
+  RetryStrategy?: RetryStrategy | undefined;
 
   /**
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
@@ -7649,7 +7649,7 @@ export interface TrainingJob {
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -7661,32 +7661,32 @@ export interface TrialComponentSimpleSummary {
    * <p>The name of the trial component.</p>
    * @public
    */
-  TrialComponentName?: string;
+  TrialComponentName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    * @public
    */
-  TrialComponentArn?: string;
+  TrialComponentArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) and job type of the source of a trial component.</p>
    * @public
    */
-  TrialComponentSource?: TrialComponentSource;
+  TrialComponentSource?: TrialComponentSource | undefined;
 
   /**
    * <p>When the component was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 }
 
 /**
@@ -7698,77 +7698,77 @@ export interface Trial {
    * <p>The name of the trial.</p>
    * @public
    */
-  TrialName?: string;
+  TrialName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
    * @public
    */
-  TrialArn?: string;
+  TrialArn?: string | undefined;
 
   /**
    * <p>The name of the trial as displayed. If <code>DisplayName</code> isn't specified,
    *         <code>TrialName</code> is displayed.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The name of the experiment the trial is part of.</p>
    * @public
    */
-  ExperimentName?: string;
+  ExperimentName?: string | undefined;
 
   /**
    * <p>The source of the trial.</p>
    * @public
    */
-  Source?: TrialSource;
+  Source?: TrialSource | undefined;
 
   /**
    * <p>When the trial was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Who created the trial.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>Who last modified the trial.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
    * @public
    */
-  MetadataProperties?: MetadataProperties;
+  MetadataProperties?: MetadataProperties | undefined;
 
   /**
    * <p>The list of tags that are associated with the trial. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a>
    *       API to search on the tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A list of the components associated with the trial. For each component, a summary of the
    *       component's properties is included.</p>
    * @public
    */
-  TrialComponentSummaries?: TrialComponentSimpleSummary[];
+  TrialComponentSummaries?: TrialComponentSimpleSummary[] | undefined;
 }
 
 /**
@@ -7781,25 +7781,25 @@ export interface TrialComponentSourceDetail {
    * <p>The Amazon Resource Name (ARN) of the source.</p>
    * @public
    */
-  SourceArn?: string;
+  SourceArn?: string | undefined;
 
   /**
    * <p>Information about a training job that's the source of a trial component.</p>
    * @public
    */
-  TrainingJob?: TrainingJob;
+  TrainingJob?: TrainingJob | undefined;
 
   /**
    * <p>Information about a processing job that's the source of a trial component.</p>
    * @public
    */
-  ProcessingJob?: ProcessingJob;
+  ProcessingJob?: ProcessingJob | undefined;
 
   /**
    * <p>Information about a transform job that's the source of a trial component.</p>
    * @public
    */
-  TransformJob?: TransformJob;
+  TransformJob?: TransformJob | undefined;
 }
 
 /**
@@ -7812,130 +7812,130 @@ export interface TrialComponent {
    * <p>The name of the trial component.</p>
    * @public
    */
-  TrialComponentName?: string;
+  TrialComponentName?: string | undefined;
 
   /**
    * <p>The name of the component as displayed. If <code>DisplayName</code> isn't specified,
    *         <code>TrialComponentName</code> is displayed.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    * @public
    */
-  TrialComponentArn?: string;
+  TrialComponentArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) and job type of the source of the component.</p>
    * @public
    */
-  Source?: TrialComponentSource;
+  Source?: TrialComponentSource | undefined;
 
   /**
    * <p>The status of the trial component.</p>
    * @public
    */
-  Status?: TrialComponentStatus;
+  Status?: TrialComponentStatus | undefined;
 
   /**
    * <p>When the component started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>When the component ended.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>When the component was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>Who created the trial component.</p>
    * @public
    */
-  CreatedBy?: UserContext;
+  CreatedBy?: UserContext | undefined;
 
   /**
    * <p>When the component was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
    *       component, lineage group, project, or model card.</p>
    * @public
    */
-  LastModifiedBy?: UserContext;
+  LastModifiedBy?: UserContext | undefined;
 
   /**
    * <p>The hyperparameters of the component.</p>
    * @public
    */
-  Parameters?: Record<string, TrialComponentParameterValue>;
+  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
 
   /**
    * <p>The input artifacts of the component.</p>
    * @public
    */
-  InputArtifacts?: Record<string, TrialComponentArtifact>;
+  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
 
   /**
    * <p>The output artifacts of the component.</p>
    * @public
    */
-  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
 
   /**
    * <p>The metrics for the component.</p>
    * @public
    */
-  Metrics?: TrialComponentMetricSummary[];
+  Metrics?: TrialComponentMetricSummary[] | undefined;
 
   /**
    * <p>Metadata properties of the tracking entity, trial, or trial component.</p>
    * @public
    */
-  MetadataProperties?: MetadataProperties;
+  MetadataProperties?: MetadataProperties | undefined;
 
   /**
    * <p>Details of the source of the component.</p>
    * @public
    */
-  SourceDetail?: TrialComponentSourceDetail;
+  SourceDetail?: TrialComponentSourceDetail | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the lineage group resource.</p>
    * @public
    */
-  LineageGroupArn?: string;
+  LineageGroupArn?: string | undefined;
 
   /**
    * <p>The list of tags that are associated with the component. You can use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search on the tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>An array of the parents of the component. A parent is a trial the component is associated
    *       with and the experiment the trial is part of. A component might not have any parents.</p>
    * @public
    */
-  Parents?: Parent[];
+  Parents?: Parent[] | undefined;
 
   /**
    * <p>The name of the experiment run.</p>
    * @public
    */
-  RunName?: string;
+  RunName?: string | undefined;
 }
 
 /**
@@ -7947,55 +7947,55 @@ export interface SearchRecord {
    * <p>The properties of a training job.</p>
    * @public
    */
-  TrainingJob?: TrainingJob;
+  TrainingJob?: TrainingJob | undefined;
 
   /**
    * <p>The properties of an experiment.</p>
    * @public
    */
-  Experiment?: Experiment;
+  Experiment?: Experiment | undefined;
 
   /**
    * <p>The properties of a trial.</p>
    * @public
    */
-  Trial?: Trial;
+  Trial?: Trial | undefined;
 
   /**
    * <p>The properties of a trial component.</p>
    * @public
    */
-  TrialComponent?: TrialComponent;
+  TrialComponent?: TrialComponent | undefined;
 
   /**
    * <p>A hosted endpoint for real-time inference.</p>
    * @public
    */
-  Endpoint?: Endpoint;
+  Endpoint?: Endpoint | undefined;
 
   /**
    * <p>A versioned model that can be deployed for SageMaker inference.</p>
    * @public
    */
-  ModelPackage?: ModelPackage;
+  ModelPackage?: ModelPackage | undefined;
 
   /**
    * <p>A group of versioned models in the model registry.</p>
    * @public
    */
-  ModelPackageGroup?: ModelPackageGroup;
+  ModelPackageGroup?: ModelPackageGroup | undefined;
 
   /**
    * <p>A SageMaker Model Building Pipeline instance.</p>
    * @public
    */
-  Pipeline?: Pipeline;
+  Pipeline?: Pipeline | undefined;
 
   /**
    * <p>An execution of a pipeline.</p>
    * @public
    */
-  PipelineExecution?: PipelineExecution;
+  PipelineExecution?: PipelineExecution | undefined;
 
   /**
    * <p>Amazon SageMaker Feature Store stores features in a collection called Feature Group. A
@@ -8004,37 +8004,37 @@ export interface SearchRecord {
    *          composed of features and values per features.</p>
    * @public
    */
-  FeatureGroup?: FeatureGroup;
+  FeatureGroup?: FeatureGroup | undefined;
 
   /**
    * <p>The feature metadata used to search through the features.</p>
    * @public
    */
-  FeatureMetadata?: FeatureMetadata;
+  FeatureMetadata?: FeatureMetadata | undefined;
 
   /**
    * <p>The properties of a project.</p>
    * @public
    */
-  Project?: Project;
+  Project?: Project | undefined;
 
   /**
    * <p>The properties of a hyperparameter tuning job.</p>
    * @public
    */
-  HyperParameterTuningJob?: HyperParameterTuningJobSearchEntity;
+  HyperParameterTuningJob?: HyperParameterTuningJobSearchEntity | undefined;
 
   /**
    * <p>An Amazon SageMaker Model Card that documents details about a machine learning model.</p>
    * @public
    */
-  ModelCard?: ModelCard;
+  ModelCard?: ModelCard | undefined;
 
   /**
    * <p>A model displayed in the Amazon SageMaker Model Dashboard.</p>
    * @public
    */
-  Model?: ModelDashboardModel;
+  Model?: ModelDashboardModel | undefined;
 }
 
 /**
@@ -8045,7 +8045,7 @@ export interface SearchResponse {
    * <p>A list of <code>SearchRecord</code> objects.</p>
    * @public
    */
-  Results?: SearchRecord[];
+  Results?: SearchRecord[] | undefined;
 
   /**
    * <p>If the result of the previous <code>Search</code> request was truncated, the response
@@ -8053,7 +8053,7 @@ export interface SearchResponse {
    *       request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8070,14 +8070,14 @@ export interface SendPipelineExecutionStepFailureRequest {
    * <p>A message describing why the step failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          operation. An idempotent operation completes no more than one time.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -8088,7 +8088,7 @@ export interface SendPipelineExecutionStepFailureResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -8105,14 +8105,14 @@ export interface SendPipelineExecutionStepSuccessRequest {
    * <p>A list of the output parameters of the callback step.</p>
    * @public
    */
-  OutputParameters?: OutputParameter[];
+  OutputParameters?: OutputParameter[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          operation. An idempotent operation completes no more than one time.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -8123,7 +8123,7 @@ export interface SendPipelineExecutionStepSuccessResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -8184,7 +8184,7 @@ export interface StartMlflowTrackingServerResponse {
    * <p>The ARN of the started tracking server.</p>
    * @public
    */
-  TrackingServerArn?: string;
+  TrackingServerArn?: string | undefined;
 }
 
 /**
@@ -8223,39 +8223,39 @@ export interface StartPipelineExecutionRequest {
    * <p>The display name of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDisplayName?: string;
+  PipelineExecutionDisplayName?: string | undefined;
 
   /**
    * <p>Contains a list of pipeline parameters. This list can be empty. </p>
    * @public
    */
-  PipelineParameters?: Parameter[];
+  PipelineParameters?: Parameter[] | undefined;
 
   /**
    * <p>The description of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDescription?: string;
+  PipelineExecutionDescription?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *          operation. An idempotent operation completes no more than once.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>This configuration, if specified, overrides the parallelism configuration
    *             of the parent pipeline for this specific run.</p>
    * @public
    */
-  ParallelismConfiguration?: ParallelismConfiguration;
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
 
   /**
    * <p>The selective execution configuration applied to the pipeline run.</p>
    * @public
    */
-  SelectiveExecutionConfig?: SelectiveExecutionConfig;
+  SelectiveExecutionConfig?: SelectiveExecutionConfig | undefined;
 }
 
 /**
@@ -8266,7 +8266,7 @@ export interface StartPipelineExecutionResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -8370,7 +8370,7 @@ export interface StopInferenceExperimentRequest {
    *        </p>
    * @public
    */
-  DesiredModelVariants?: ModelVariantConfig[];
+  DesiredModelVariants?: ModelVariantConfig[] | undefined;
 
   /**
    * <p>
@@ -8388,13 +8388,13 @@ export interface StopInferenceExperimentRequest {
    *          </ul>
    * @public
    */
-  DesiredState?: InferenceExperimentStopDesiredState;
+  DesiredState?: InferenceExperimentStopDesiredState | undefined;
 
   /**
    * <p>The reason for stopping the experiment.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 }
 
 /**
@@ -8449,7 +8449,7 @@ export interface StopMlflowTrackingServerResponse {
    * <p>The ARN of the stopped tracking server.</p>
    * @public
    */
-  TrackingServerArn?: string;
+  TrackingServerArn?: string | undefined;
 }
 
 /**
@@ -8500,7 +8500,7 @@ export interface StopPipelineExecutionRequest {
    *          operation. An idempotent operation completes no more than once.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }
 
 /**
@@ -8511,7 +8511,7 @@ export interface StopPipelineExecutionResponse {
    * <p>The Amazon Resource Name (ARN) of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -8561,25 +8561,25 @@ export interface UpdateActionRequest {
    * <p>The new description for the action.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The new status for the action.</p>
    * @public
    */
-  Status?: ActionStatus;
+  Status?: ActionStatus | undefined;
 
   /**
    * <p>The new list of properties. Overwrites the current property list.</p>
    * @public
    */
-  Properties?: Record<string, string>;
+  Properties?: Record<string, string> | undefined;
 
   /**
    * <p>A list of properties to remove.</p>
    * @public
    */
-  PropertiesToRemove?: string[];
+  PropertiesToRemove?: string[] | undefined;
 }
 
 /**
@@ -8590,7 +8590,7 @@ export interface UpdateActionResponse {
    * <p>The Amazon Resource Name (ARN) of the action.</p>
    * @public
    */
-  ActionArn?: string;
+  ActionArn?: string | undefined;
 }
 
 /**
@@ -8607,19 +8607,19 @@ export interface UpdateAppImageConfigRequest {
    * <p>The new KernelGateway app to run on the image.</p>
    * @public
    */
-  KernelGatewayImageConfig?: KernelGatewayImageConfig;
+  KernelGatewayImageConfig?: KernelGatewayImageConfig | undefined;
 
   /**
    * <p>The JupyterLab app running on the image.</p>
    * @public
    */
-  JupyterLabAppImageConfig?: JupyterLabAppImageConfig;
+  JupyterLabAppImageConfig?: JupyterLabAppImageConfig | undefined;
 
   /**
    * <p>The Code Editor app running on the image.</p>
    * @public
    */
-  CodeEditorAppImageConfig?: CodeEditorAppImageConfig;
+  CodeEditorAppImageConfig?: CodeEditorAppImageConfig | undefined;
 }
 
 /**
@@ -8630,7 +8630,7 @@ export interface UpdateAppImageConfigResponse {
    * <p>The ARN for the AppImageConfig.</p>
    * @public
    */
-  AppImageConfigArn?: string;
+  AppImageConfigArn?: string | undefined;
 }
 
 /**
@@ -8647,19 +8647,19 @@ export interface UpdateArtifactRequest {
    * <p>The new name for the artifact.</p>
    * @public
    */
-  ArtifactName?: string;
+  ArtifactName?: string | undefined;
 
   /**
    * <p>The new list of properties. Overwrites the current property list.</p>
    * @public
    */
-  Properties?: Record<string, string>;
+  Properties?: Record<string, string> | undefined;
 
   /**
    * <p>A list of properties to remove.</p>
    * @public
    */
-  PropertiesToRemove?: string[];
+  PropertiesToRemove?: string[] | undefined;
 }
 
 /**
@@ -8670,7 +8670,7 @@ export interface UpdateArtifactResponse {
    * <p>The Amazon Resource Name (ARN) of the artifact.</p>
    * @public
    */
-  ArtifactArn?: string;
+  ArtifactArn?: string | undefined;
 }
 
 /**
@@ -8693,7 +8693,7 @@ export interface UpdateClusterRequest {
    * <p>The node recovery mode to be applied to the SageMaker HyperPod cluster.</p>
    * @public
    */
-  NodeRecovery?: ClusterNodeRecovery;
+  NodeRecovery?: ClusterNodeRecovery | undefined;
 }
 
 /**
@@ -8751,7 +8751,7 @@ export interface UpdateCodeRepositoryInput {
    *          </p>
    * @public
    */
-  GitConfig?: GitConfigForUpdate;
+  GitConfig?: GitConfigForUpdate | undefined;
 }
 
 /**
@@ -8779,19 +8779,19 @@ export interface UpdateContextRequest {
    * <p>The new description for the context.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The new list of properties. Overwrites the current property list.</p>
    * @public
    */
-  Properties?: Record<string, string>;
+  Properties?: Record<string, string> | undefined;
 
   /**
    * <p>A list of properties to remove.</p>
    * @public
    */
-  PropertiesToRemove?: string[];
+  PropertiesToRemove?: string[] | undefined;
 }
 
 /**
@@ -8802,7 +8802,7 @@ export interface UpdateContextResponse {
    * <p>The Amazon Resource Name (ARN) of the context.</p>
    * @public
    */
-  ContextArn?: string;
+  ContextArn?: string | undefined;
 }
 
 /**
@@ -8819,13 +8819,13 @@ export interface UpdateDeviceFleetRequest {
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Description of the fleet.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Output configuration  for storing sample data collected by the fleet.</p>
@@ -8841,7 +8841,7 @@ export interface UpdateDeviceFleetRequest {
    *       the role alias will be "SageMakerEdge-demo-fleet".</p>
    * @public
    */
-  EnableIotRoleAlias?: boolean;
+  EnableIotRoleAlias?: boolean | undefined;
 }
 
 /**
@@ -8875,13 +8875,13 @@ export interface UpdateDomainRequest {
    * <p>A collection of settings.</p>
    * @public
    */
-  DefaultUserSettings?: UserSettings;
+  DefaultUserSettings?: UserSettings | undefined;
 
   /**
    * <p>A collection of <code>DomainSettings</code> configuration values to update.</p>
    * @public
    */
-  DomainSettingsForUpdate?: DomainSettingsForUpdate;
+  DomainSettingsForUpdate?: DomainSettingsForUpdate | undefined;
 
   /**
    * <p>The entity that creates and manages the required security groups for inter-app
@@ -8892,13 +8892,13 @@ export interface UpdateDomainRequest {
    *         <code>Service</code>.</p>
    * @public
    */
-  AppSecurityGroupManagement?: AppSecurityGroupManagement;
+  AppSecurityGroupManagement?: AppSecurityGroupManagement | undefined;
 
   /**
    * <p>The default settings for shared spaces that users create in the domain.</p>
    * @public
    */
-  DefaultSpaceSettings?: DefaultSpaceSettings;
+  DefaultSpaceSettings?: DefaultSpaceSettings | undefined;
 
   /**
    * <p>The VPC subnets that Studio uses for communication.</p>
@@ -8906,7 +8906,7 @@ export interface UpdateDomainRequest {
    *         <code>Pending</code>, or <code>Deleting</code> state.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>Specifies the VPC used for non-EFS traffic.</p>
@@ -8929,14 +8929,14 @@ export interface UpdateDomainRequest {
    *       provided as part of the same request.</p>
    * @public
    */
-  AppNetworkAccessType?: AppNetworkAccessType;
+  AppNetworkAccessType?: AppNetworkAccessType | undefined;
 
   /**
    * <p>Indicates whether custom tag propagation is supported for the domain. Defaults to
    *         <code>DISABLED</code>.</p>
    * @public
    */
-  TagPropagation?: TagPropagation;
+  TagPropagation?: TagPropagation | undefined;
 }
 
 /**
@@ -8947,7 +8947,7 @@ export interface UpdateDomainResponse {
    * <p>The Amazon Resource Name (ARN) of the domain.</p>
    * @public
    */
-  DomainArn?: string;
+  DomainArn?: string | undefined;
 }
 
 /**
@@ -9025,7 +9025,7 @@ export interface UpdateEndpointInput {
    *             is <code>false</code>.</p>
    * @public
    */
-  RetainAllVariantProperties?: boolean;
+  RetainAllVariantProperties?: boolean | undefined;
 
   /**
    * <p>When you are updating endpoint resources with <code>RetainAllVariantProperties</code>,
@@ -9036,21 +9036,21 @@ export interface UpdateEndpointInput {
    *             are overridden. </p>
    * @public
    */
-  ExcludeRetainedVariantProperties?: VariantProperty[];
+  ExcludeRetainedVariantProperties?: VariantProperty[] | undefined;
 
   /**
    * <p>The deployment configuration for an endpoint, which contains the desired deployment
    *             strategy and rollback configurations.</p>
    * @public
    */
-  DeploymentConfig?: DeploymentConfig;
+  DeploymentConfig?: DeploymentConfig | undefined;
 
   /**
    * <p>Specifies whether to reuse the last deployment configuration. The default value is
    *             false (the configuration is not reused).</p>
    * @public
    */
-  RetainDeploymentConfig?: boolean;
+  RetainDeploymentConfig?: boolean | undefined;
 }
 
 /**
@@ -9107,13 +9107,13 @@ export interface UpdateExperimentRequest {
    *         <code>DisplayName</code> isn't specified, <code>ExperimentName</code> is displayed.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The description of the experiment.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -9124,7 +9124,7 @@ export interface UpdateExperimentResponse {
    * <p>The Amazon Resource Name (ARN) of the experiment.</p>
    * @public
    */
-  ExperimentArn?: string;
+  ExperimentArn?: string | undefined;
 }
 
 /**
@@ -9141,21 +9141,21 @@ export interface ThroughputConfigUpdate {
    *          throughput while another update is in progress. </p>
    * @public
    */
-  ThroughputMode?: ThroughputMode;
+  ThroughputMode?: ThroughputMode | undefined;
 
   /**
    * <p>For provisioned feature groups with online store enabled, this indicates the read
    *          throughput you are billed for and can consume without throttling. </p>
    * @public
    */
-  ProvisionedReadCapacityUnits?: number;
+  ProvisionedReadCapacityUnits?: number | undefined;
 
   /**
    * <p>For provisioned feature groups, this indicates the write throughput you are billed for
    *          and can consume without throttling. </p>
    * @public
    */
-  ProvisionedWriteCapacityUnits?: number;
+  ProvisionedWriteCapacityUnits?: number | undefined;
 }
 
 /**
@@ -9174,13 +9174,13 @@ export interface UpdateFeatureGroupRequest {
    *          made a valid request for Feature Store to update the feature group.</p>
    * @public
    */
-  FeatureAdditions?: FeatureDefinition[];
+  FeatureAdditions?: FeatureDefinition[] | undefined;
 
   /**
    * <p>Updates the feature group online store configuration.</p>
    * @public
    */
-  OnlineStoreConfig?: OnlineStoreConfigUpdate;
+  OnlineStoreConfig?: OnlineStoreConfigUpdate | undefined;
 
   /**
    * <p>The new throughput configuration for the feature group. You can switch between on-demand
@@ -9188,7 +9188,7 @@ export interface UpdateFeatureGroupRequest {
    *          You can switch a feature group to on-demand only once in a 24 hour period. </p>
    * @public
    */
-  ThroughputConfig?: ThroughputConfigUpdate;
+  ThroughputConfig?: ThroughputConfigUpdate | undefined;
 }
 
 /**
@@ -9223,20 +9223,20 @@ export interface UpdateFeatureMetadataRequest {
    * <p>A description that you can write to better describe the feature.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A list of key-value pairs that you can add to better describe the feature.</p>
    * @public
    */
-  ParameterAdditions?: FeatureParameter[];
+  ParameterAdditions?: FeatureParameter[] | undefined;
 
   /**
    * <p>A list of parameter keys that you can specify to remove parameters that describe your
    *          feature.</p>
    * @public
    */
-  ParameterRemovals?: string[];
+  ParameterRemovals?: string[] | undefined;
 }
 
 /**
@@ -9253,19 +9253,19 @@ export interface UpdateHubRequest {
    * <p>A description of the updated hub.</p>
    * @public
    */
-  HubDescription?: string;
+  HubDescription?: string | undefined;
 
   /**
    * <p>The display name of the hub.</p>
    * @public
    */
-  HubDisplayName?: string;
+  HubDisplayName?: string | undefined;
 
   /**
    * <p>The searchable keywords for the hub.</p>
    * @public
    */
-  HubSearchKeywords?: string[];
+  HubSearchKeywords?: string[] | undefined;
 }
 
 /**
@@ -9288,19 +9288,19 @@ export interface UpdateImageRequest {
    *         <code>DisplayName</code> properties can be deleted.</p>
    * @public
    */
-  DeleteProperties?: string[];
+  DeleteProperties?: string[] | undefined;
 
   /**
    * <p>The new description for the image.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The new display name for the image.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The name of the image to update.</p>
@@ -9312,7 +9312,7 @@ export interface UpdateImageRequest {
    * <p>The new ARN for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -9323,7 +9323,7 @@ export interface UpdateImageResponse {
    * <p>The ARN of the image.</p>
    * @public
    */
-  ImageArn?: string;
+  ImageArn?: string | undefined;
 }
 
 /**
@@ -9340,25 +9340,25 @@ export interface UpdateImageVersionRequest {
    * <p>The alias of the image version.</p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 
   /**
    * <p>The version of the image.</p>
    * @public
    */
-  Version?: number;
+  Version?: number | undefined;
 
   /**
    * <p>A list of aliases to add.</p>
    * @public
    */
-  AliasesToAdd?: string[];
+  AliasesToAdd?: string[] | undefined;
 
   /**
    * <p>A list of aliases to delete.</p>
    * @public
    */
-  AliasesToDelete?: string[];
+  AliasesToDelete?: string[] | undefined;
 
   /**
    * <p>The availability of the image version specified by the maintainer.</p>
@@ -9382,7 +9382,7 @@ export interface UpdateImageVersionRequest {
    *          </ul>
    * @public
    */
-  VendorGuidance?: VendorGuidance;
+  VendorGuidance?: VendorGuidance | undefined;
 
   /**
    * <p>Indicates SageMaker job type compatibility.</p>
@@ -9402,19 +9402,19 @@ export interface UpdateImageVersionRequest {
    *          </ul>
    * @public
    */
-  JobType?: JobType;
+  JobType?: JobType | undefined;
 
   /**
    * <p>The machine learning framework vended in the image version.</p>
    * @public
    */
-  MLFramework?: string;
+  MLFramework?: string | undefined;
 
   /**
    * <p>The supported programming language and its version.</p>
    * @public
    */
-  ProgrammingLang?: string;
+  ProgrammingLang?: string | undefined;
 
   /**
    * <p>Indicates CPU or GPU compatibility.</p>
@@ -9430,19 +9430,19 @@ export interface UpdateImageVersionRequest {
    *          </ul>
    * @public
    */
-  Processor?: Processor;
+  Processor?: Processor | undefined;
 
   /**
    * <p>Indicates Horovod compatibility.</p>
    * @public
    */
-  Horovod?: boolean;
+  Horovod?: boolean | undefined;
 
   /**
    * <p>The maintainer description of the image version.</p>
    * @public
    */
-  ReleaseNotes?: string;
+  ReleaseNotes?: string | undefined;
 }
 
 /**
@@ -9453,7 +9453,7 @@ export interface UpdateImageVersionResponse {
    * <p>The ARN of the image version.</p>
    * @public
    */
-  ImageVersionArn?: string;
+  ImageVersionArn?: string | undefined;
 }
 
 /**
@@ -9471,13 +9471,13 @@ export interface UpdateInferenceComponentInput {
    *          model, container, and compute resources.</p>
    * @public
    */
-  Specification?: InferenceComponentSpecification;
+  Specification?: InferenceComponentSpecification | undefined;
 
   /**
    * <p>Runtime settings for a model that is deployed with an inference component.</p>
    * @public
    */
-  RuntimeConfig?: InferenceComponentRuntimeConfig;
+  RuntimeConfig?: InferenceComponentRuntimeConfig | undefined;
 }
 
 /**
@@ -9537,13 +9537,13 @@ export interface UpdateInferenceExperimentRequest {
    *        </p>
    * @public
    */
-  Schedule?: InferenceExperimentSchedule;
+  Schedule?: InferenceExperimentSchedule | undefined;
 
   /**
    * <p>The description of the inference experiment.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -9552,13 +9552,13 @@ export interface UpdateInferenceExperimentRequest {
    *        </p>
    * @public
    */
-  ModelVariants?: ModelVariantConfig[];
+  ModelVariants?: ModelVariantConfig[] | undefined;
 
   /**
    * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
    * @public
    */
-  DataStorageConfig?: InferenceExperimentDataStorageConfig;
+  DataStorageConfig?: InferenceExperimentDataStorageConfig | undefined;
 
   /**
    * <p>
@@ -9569,7 +9569,7 @@ export interface UpdateInferenceExperimentRequest {
    *        </p>
    * @public
    */
-  ShadowModeConfig?: ShadowModeConfig;
+  ShadowModeConfig?: ShadowModeConfig | undefined;
 }
 
 /**
@@ -9598,13 +9598,13 @@ export interface UpdateMlflowTrackingServerRequest {
    *       Tracking Server.</p>
    * @public
    */
-  ArtifactStoreUri?: string;
+  ArtifactStoreUri?: string | undefined;
 
   /**
    * <p>The new size for the MLflow Tracking Server.</p>
    * @public
    */
-  TrackingServerSize?: TrackingServerSize;
+  TrackingServerSize?: TrackingServerSize | undefined;
 
   /**
    * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry.
@@ -9614,14 +9614,14 @@ export interface UpdateMlflowTrackingServerRequest {
    *          </p>
    * @public
    */
-  AutomaticModelRegistration?: boolean;
+  AutomaticModelRegistration?: boolean | undefined;
 
   /**
    * <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be
    *       in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
    * @public
    */
-  WeeklyMaintenanceWindowStart?: string;
+  WeeklyMaintenanceWindowStart?: string | undefined;
 }
 
 /**
@@ -9632,7 +9632,7 @@ export interface UpdateMlflowTrackingServerResponse {
    * <p>The ARN of the updated MLflow Tracking Server.</p>
    * @public
    */
-  TrackingServerArn?: string;
+  TrackingServerArn?: string | undefined;
 }
 
 /**
@@ -9650,7 +9650,7 @@ export interface UpdateModelCardRequest {
    *          <p>When updating model card content, be sure to include the full content and not just updated content.</p>
    * @public
    */
-  Content?: string;
+  Content?: string | undefined;
 
   /**
    * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p>
@@ -9675,7 +9675,7 @@ export interface UpdateModelCardRequest {
    *          </ul>
    * @public
    */
-  ModelCardStatus?: ModelCardStatus;
+  ModelCardStatus?: ModelCardStatus | undefined;
 }
 
 /**
@@ -9703,25 +9703,25 @@ export interface UpdateModelPackageInput {
    * <p>The approval status of the model.</p>
    * @public
    */
-  ModelApprovalStatus?: ModelApprovalStatus;
+  ModelApprovalStatus?: ModelApprovalStatus | undefined;
 
   /**
    * <p>A description for the approval status of the model.</p>
    * @public
    */
-  ApprovalDescription?: string;
+  ApprovalDescription?: string | undefined;
 
   /**
    * <p>The metadata properties associated with the model package versions.</p>
    * @public
    */
-  CustomerMetadataProperties?: Record<string, string>;
+  CustomerMetadataProperties?: Record<string, string> | undefined;
 
   /**
    * <p>The metadata properties associated with the model package versions to remove.</p>
    * @public
    */
-  CustomerMetadataPropertiesToRemove?: string[];
+  CustomerMetadataPropertiesToRemove?: string[] | undefined;
 
   /**
    * <p>An array of additional Inference Specification objects to be added to the
@@ -9731,7 +9731,7 @@ export interface UpdateModelPackageInput {
    *     Generally used with SageMaker Neo to store the compiled artifacts.</p>
    * @public
    */
-  AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[];
+  AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[] | undefined;
 
   /**
    * <p>Specifies details about inference jobs that you can run with models based on this model
@@ -9752,13 +9752,13 @@ export interface UpdateModelPackageInput {
    *          </ul>
    * @public
    */
-  InferenceSpecification?: InferenceSpecification;
+  InferenceSpecification?: InferenceSpecification | undefined;
 
   /**
    * <p>The URI of the source for the model package.</p>
    * @public
    */
-  SourceUri?: string;
+  SourceUri?: string | undefined;
 
   /**
    * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is
@@ -9773,7 +9773,7 @@ export interface UpdateModelPackageInput {
    *                 the Details of a Model Version</a>.</p>
    * @public
    */
-  ModelCard?: ModelPackageModelCard;
+  ModelCard?: ModelPackageModelCard | undefined;
 
   /**
    * <p>
@@ -9781,7 +9781,7 @@ export interface UpdateModelPackageInput {
    *         </p>
    * @public
    */
-  ModelLifeCycle?: ModelLifeCycle;
+  ModelLifeCycle?: ModelLifeCycle | undefined;
 
   /**
    * <p>
@@ -9789,7 +9789,7 @@ export interface UpdateModelPackageInput {
    *         </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -9848,7 +9848,7 @@ export interface UpdateMonitoringAlertResponse {
    * <p>The name of a monitoring alert.</p>
    * @public
    */
-  MonitoringAlertName?: string;
+  MonitoringAlertName?: string | undefined;
 }
 
 /**
@@ -9895,7 +9895,7 @@ export interface UpdateNotebookInstanceInput {
    * <p>The Amazon ML compute instance type.</p>
    * @public
    */
-  InstanceType?: _InstanceType;
+  InstanceType?: _InstanceType | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to
@@ -9906,7 +9906,7 @@ export interface UpdateNotebookInstanceInput {
    *          </note>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The name of a lifecycle configuration to associate with the notebook instance. For
@@ -9914,7 +9914,7 @@ export interface UpdateNotebookInstanceInput {
    *                 Customize a Notebook Instance</a>.</p>
    * @public
    */
-  LifecycleConfigName?: string;
+  LifecycleConfigName?: string | undefined;
 
   /**
    * <p>Set to <code>true</code> to remove the notebook instance lifecycle configuration
@@ -9923,7 +9923,7 @@ export interface UpdateNotebookInstanceInput {
    *             you call this method, it does not throw an error.</p>
    * @public
    */
-  DisassociateLifecycleConfig?: boolean;
+  DisassociateLifecycleConfig?: boolean | undefined;
 
   /**
    * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The
@@ -9934,7 +9934,7 @@ export interface UpdateNotebookInstanceInput {
    *             new notebook instance with the desired size.</p>
    * @public
    */
-  VolumeSizeInGB?: number;
+  VolumeSizeInGB?: number | undefined;
 
   /**
    * <p>The Git repository to associate with the notebook instance as its default code
@@ -9945,7 +9945,7 @@ export interface UpdateNotebookInstanceInput {
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    * @public
    */
-  DefaultCodeRepository?: string;
+  DefaultCodeRepository?: string | undefined;
 
   /**
    * <p>An array of up to three Git repositories to associate with the notebook instance.
@@ -9956,7 +9956,7 @@ export interface UpdateNotebookInstanceInput {
    *                 Repositories with SageMaker Notebook Instances</a>.</p>
    * @public
    */
-  AdditionalCodeRepositories?: string[];
+  AdditionalCodeRepositories?: string[] | undefined;
 
   /**
    * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer
@@ -9965,7 +9965,7 @@ export interface UpdateNotebookInstanceInput {
    *             this notebook instance.</p>
    * @public
    */
-  AcceleratorTypes?: NotebookInstanceAcceleratorType[];
+  AcceleratorTypes?: NotebookInstanceAcceleratorType[] | undefined;
 
   /**
    * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer
@@ -9974,7 +9974,7 @@ export interface UpdateNotebookInstanceInput {
    *             instance.</p>
    * @public
    */
-  DisassociateAcceleratorTypes?: boolean;
+  DisassociateAcceleratorTypes?: boolean | undefined;
 
   /**
    * <p>The name or URL of the default Git repository to remove from this notebook instance.
@@ -9982,7 +9982,7 @@ export interface UpdateNotebookInstanceInput {
    *             with the notebook instance when you call this method, it does not throw an error.</p>
    * @public
    */
-  DisassociateDefaultCodeRepository?: boolean;
+  DisassociateDefaultCodeRepository?: boolean | undefined;
 
   /**
    * <p>A list of names or URLs of the default Git repositories to remove from this notebook
@@ -9991,7 +9991,7 @@ export interface UpdateNotebookInstanceInput {
    *             error.</p>
    * @public
    */
-  DisassociateAdditionalCodeRepositories?: boolean;
+  DisassociateAdditionalCodeRepositories?: boolean | undefined;
 
   /**
    * <p>Whether root access is enabled or disabled for users of the notebook instance. The
@@ -10003,13 +10003,13 @@ export interface UpdateNotebookInstanceInput {
    *          </note>
    * @public
    */
-  RootAccess?: RootAccess;
+  RootAccess?: RootAccess | undefined;
 
   /**
    * <p>Information on the IMDS configuration of the notebook instance</p>
    * @public
    */
-  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration;
+  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration | undefined;
 }
 
 /**
@@ -10032,7 +10032,7 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
    *             script must be a base64-encoded string.</p>
    * @public
    */
-  OnCreate?: NotebookInstanceLifecycleHook[];
+  OnCreate?: NotebookInstanceLifecycleHook[] | undefined;
 
   /**
    * <p>The shell script that runs every time you start a notebook instance, including when
@@ -10040,7 +10040,7 @@ export interface UpdateNotebookInstanceLifecycleConfigInput {
    *             string.</p>
    * @public
    */
-  OnStart?: NotebookInstanceLifecycleHook[];
+  OnStart?: NotebookInstanceLifecycleHook[] | undefined;
 }
 
 /**
@@ -10062,38 +10062,38 @@ export interface UpdatePipelineRequest {
    * <p>The display name of the pipeline.</p>
    * @public
    */
-  PipelineDisplayName?: string;
+  PipelineDisplayName?: string | undefined;
 
   /**
    * <p>The JSON pipeline definition.</p>
    * @public
    */
-  PipelineDefinition?: string;
+  PipelineDefinition?: string | undefined;
 
   /**
    * <p>The location of the pipeline definition stored in Amazon S3. If specified,
    *             SageMaker will retrieve the pipeline definition from this location.</p>
    * @public
    */
-  PipelineDefinitionS3Location?: PipelineDefinitionS3Location;
+  PipelineDefinitionS3Location?: PipelineDefinitionS3Location | undefined;
 
   /**
    * <p>The description of the pipeline.</p>
    * @public
    */
-  PipelineDescription?: string;
+  PipelineDescription?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that the pipeline uses to execute.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>If specified, it applies to all executions of this pipeline by default.</p>
    * @public
    */
-  ParallelismConfiguration?: ParallelismConfiguration;
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
 }
 
 /**
@@ -10104,7 +10104,7 @@ export interface UpdatePipelineResponse {
    * <p>The Amazon Resource Name (ARN) of the updated pipeline.</p>
    * @public
    */
-  PipelineArn?: string;
+  PipelineArn?: string | undefined;
 }
 
 /**
@@ -10121,20 +10121,20 @@ export interface UpdatePipelineExecutionRequest {
    * <p>The description of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDescription?: string;
+  PipelineExecutionDescription?: string | undefined;
 
   /**
    * <p>The display name of the pipeline execution.</p>
    * @public
    */
-  PipelineExecutionDisplayName?: string;
+  PipelineExecutionDisplayName?: string | undefined;
 
   /**
    * <p>This configuration, if specified, overrides the parallelism configuration
    *             of the parent pipeline for this specific run.</p>
    * @public
    */
-  ParallelismConfiguration?: ParallelismConfiguration;
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
 }
 
 /**
@@ -10145,7 +10145,7 @@ export interface UpdatePipelineExecutionResponse {
    * <p>The Amazon Resource Name (ARN) of the updated pipeline execution.</p>
    * @public
    */
-  PipelineExecutionArn?: string;
+  PipelineExecutionArn?: string | undefined;
 }
 
 /**
@@ -10159,13 +10159,13 @@ export interface ServiceCatalogProvisioningUpdateDetails {
    * <p>The ID of the provisioning artifact.</p>
    * @public
    */
-  ProvisioningArtifactId?: string;
+  ProvisioningArtifactId?: string | undefined;
 
   /**
    * <p>A list of key value pairs that you specify when you provision a product.</p>
    * @public
    */
-  ProvisioningParameters?: ProvisioningParameter[];
+  ProvisioningParameters?: ProvisioningParameter[] | undefined;
 }
 
 /**
@@ -10182,7 +10182,7 @@ export interface UpdateProjectInput {
    * <p>The description for the project.</p>
    * @public
    */
-  ProjectDescription?: string;
+  ProjectDescription?: string | undefined;
 
   /**
    * <p>The product ID and provisioning artifact ID to provision a service catalog.
@@ -10192,7 +10192,7 @@ export interface UpdateProjectInput {
    *         </p>
    * @public
    */
-  ServiceCatalogProvisioningUpdateDetails?: ServiceCatalogProvisioningUpdateDetails;
+  ServiceCatalogProvisioningUpdateDetails?: ServiceCatalogProvisioningUpdateDetails | undefined;
 
   /**
    * <p>An array of key-value pairs. You can use tags to categorize your
@@ -10203,7 +10203,7 @@ export interface UpdateProjectInput {
    *                 Catalog Tag Update Constraints</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -10237,13 +10237,13 @@ export interface UpdateSpaceRequest {
    * <p>A collection of space settings.</p>
    * @public
    */
-  SpaceSettings?: SpaceSettings;
+  SpaceSettings?: SpaceSettings | undefined;
 
   /**
    * <p>The name of the space that appears in the Amazon SageMaker Studio UI.</p>
    * @public
    */
-  SpaceDisplayName?: string;
+  SpaceDisplayName?: string | undefined;
 }
 
 /**
@@ -10254,7 +10254,7 @@ export interface UpdateSpaceResponse {
    * <p>The space's Amazon Resource Name (ARN).</p>
    * @public
    */
-  SpaceArn?: string;
+  SpaceArn?: string | undefined;
 }
 
 /**
@@ -10272,21 +10272,21 @@ export interface UpdateTrainingJobRequest {
    *             storage paths.</p>
    * @public
    */
-  ProfilerConfig?: ProfilerConfigForUpdate;
+  ProfilerConfig?: ProfilerConfigForUpdate | undefined;
 
   /**
    * <p>Configuration information for Amazon SageMaker Debugger rules for profiling system and framework
    *             metrics.</p>
    * @public
    */
-  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[];
+  ProfilerRuleConfigurations?: ProfilerRuleConfiguration[] | undefined;
 
   /**
    * <p>The training job <code>ResourceConfig</code> to update warm pool retention
    *             length.</p>
    * @public
    */
-  ResourceConfig?: ResourceConfigForUpdate;
+  ResourceConfig?: ResourceConfigForUpdate | undefined;
 
   /**
    * <p>Configuration for remote debugging while the training job is running. You can update
@@ -10297,7 +10297,7 @@ export interface UpdateTrainingJobRequest {
    *             debugging</a>.</p>
    * @public
    */
-  RemoteDebugConfig?: RemoteDebugConfigForUpdate;
+  RemoteDebugConfig?: RemoteDebugConfigForUpdate | undefined;
 }
 
 /**
@@ -10326,7 +10326,7 @@ export interface UpdateTrialRequest {
    *         <code>DisplayName</code> isn't specified, <code>TrialName</code> is displayed.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 }
 
 /**
@@ -10337,7 +10337,7 @@ export interface UpdateTrialResponse {
    * <p>The Amazon Resource Name (ARN) of the trial.</p>
    * @public
    */
-  TrialArn?: string;
+  TrialArn?: string | undefined;
 }
 
 /**
@@ -10356,61 +10356,61 @@ export interface UpdateTrialComponentRequest {
    *       displayed.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>The new status of the component.</p>
    * @public
    */
-  Status?: TrialComponentStatus;
+  Status?: TrialComponentStatus | undefined;
 
   /**
    * <p>When the component started.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>When the component ended.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Replaces all of the component's hyperparameters with the specified hyperparameters or add new hyperparameters. Existing hyperparameters are replaced if the trial component is updated with an identical hyperparameter key.</p>
    * @public
    */
-  Parameters?: Record<string, TrialComponentParameterValue>;
+  Parameters?: Record<string, TrialComponentParameterValue> | undefined;
 
   /**
    * <p>The hyperparameters to remove from the component.</p>
    * @public
    */
-  ParametersToRemove?: string[];
+  ParametersToRemove?: string[] | undefined;
 
   /**
    * <p>Replaces all of the component's input artifacts with the specified artifacts or adds new input artifacts. Existing input artifacts are replaced if the trial component is updated with an identical input artifact key.</p>
    * @public
    */
-  InputArtifacts?: Record<string, TrialComponentArtifact>;
+  InputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
 
   /**
    * <p>The input artifacts to remove from the component.</p>
    * @public
    */
-  InputArtifactsToRemove?: string[];
+  InputArtifactsToRemove?: string[] | undefined;
 
   /**
    * <p>Replaces all of the component's output artifacts with the specified artifacts or adds new output artifacts. Existing output artifacts are replaced if the trial component is updated with an identical output artifact key.</p>
    * @public
    */
-  OutputArtifacts?: Record<string, TrialComponentArtifact>;
+  OutputArtifacts?: Record<string, TrialComponentArtifact> | undefined;
 
   /**
    * <p>The output artifacts to remove from the component.</p>
    * @public
    */
-  OutputArtifactsToRemove?: string[];
+  OutputArtifactsToRemove?: string[] | undefined;
 }
 
 /**
@@ -10421,7 +10421,7 @@ export interface UpdateTrialComponentResponse {
    * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    * @public
    */
-  TrialComponentArn?: string;
+  TrialComponentArn?: string | undefined;
 }
 
 /**

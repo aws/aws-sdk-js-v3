@@ -86,13 +86,13 @@ export interface Trait {
    * <p> Provides a name or contextual description about the trait. </p>
    * @public
    */
-  Name?: AttributeName;
+  Name?: AttributeName | undefined;
 
   /**
    * <p> The level of confidence that Amazon Comprehend Medical has in the accuracy of this trait.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -164,21 +164,21 @@ export interface Attribute {
    * <p> The type of attribute. </p>
    * @public
    */
-  Type?: EntitySubType;
+  Type?: EntitySubType | undefined;
 
   /**
    * <p> The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
    *       as an attribute. </p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p> The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this
    *       entity. </p>
    * @public
    */
-  RelationshipScore?: number;
+  RelationshipScore?: number | undefined;
 
   /**
    * <p>The type of relationship between the entity and attribute. Type for the relationship is
@@ -186,46 +186,46 @@ export interface Attribute {
    *         <code>Date_Expression</code>. </p>
    * @public
    */
-  RelationshipType?: RelationshipType;
+  RelationshipType?: RelationshipType | undefined;
 
   /**
    * <p> The numeric identifier for this attribute. This is a monotonically increasing id unique
    *       within this response rather than a global unique identifier. </p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p> The 0-based character offset in the input text that shows where the attribute begins. The
    *       offset returns the UTF-8 code point in the string. </p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p> The 0-based character offset in the input text that shows where the attribute ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p> The segment of input text extracted as this attribute.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p> The category of attribute. </p>
    * @public
    */
-  Category?: EntityType;
+  Category?: EntityType | undefined;
 
   /**
    * <p> Contextual information for this attribute. </p>
    * @public
    */
-  Traits?: Trait[];
+  Traits?: Trait[] | undefined;
 }
 
 /**
@@ -241,7 +241,7 @@ export interface Characters {
    *     </p>
    * @public
    */
-  OriginalTextCharacters?: number;
+  OriginalTextCharacters?: number | undefined;
 }
 
 /**
@@ -274,7 +274,7 @@ export interface InputDataConfig {
    * <p>The path to the input data files in the S3 bucket.</p>
    * @public
    */
-  S3Key?: string;
+  S3Key?: string | undefined;
 }
 
 /**
@@ -329,7 +329,7 @@ export interface OutputDataConfig {
    *       another.</p>
    * @public
    */
-  S3Key?: string;
+  S3Key?: string | undefined;
 }
 
 /**
@@ -341,38 +341,38 @@ export interface ComprehendMedicalAsyncJobProperties {
    * <p>The identifier assigned to the detection job.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The name that you assigned to the detection job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>The current status of the detection job. If the status is <code>FAILED</code>, the
    *         <code>Message</code> field shows the reason for the failure.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>A description of the status of a job.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The time that the detection job was submitted for processing.</p>
    * @public
    */
-  SubmitTime?: Date;
+  SubmitTime?: Date | undefined;
 
   /**
    * <p>The time that the detection job completed.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The date and time that job metadata is deleted from the server. Output files in your S3
@@ -381,43 +381,43 @@ export interface ComprehendMedicalAsyncJobProperties {
    *         <code>ListPHIDetectionJobs</code> operation.</p>
    * @public
    */
-  ExpirationTime?: Date;
+  ExpirationTime?: Date | undefined;
 
   /**
    * <p>The input data configuration that you supplied when you created the detection job.</p>
    * @public
    */
-  InputDataConfig?: InputDataConfig;
+  InputDataConfig?: InputDataConfig | undefined;
 
   /**
    * <p>The output data configuration that you supplied when you created the detection job.</p>
    * @public
    */
-  OutputDataConfig?: OutputDataConfig;
+  OutputDataConfig?: OutputDataConfig | undefined;
 
   /**
    * <p>The language code of the input documents.</p>
    * @public
    */
-  LanguageCode?: LanguageCode;
+  LanguageCode?: LanguageCode | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend Medical read access to your input data.</p>
    * @public
    */
-  DataAccessRoleArn?: string;
+  DataAccessRoleArn?: string | undefined;
 
   /**
    * <p>The path to the file that describes the results of a batch job.</p>
    * @public
    */
-  ManifestFilePath?: string;
+  ManifestFilePath?: string | undefined;
 
   /**
    * <p>The AWS Key Management Service key, if any, used to encrypt the output files. </p>
    * @public
    */
-  KMSKey?: string;
+  KMSKey?: string | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like
@@ -425,7 +425,7 @@ export interface ComprehendMedicalAsyncJobProperties {
    *       documents.</p>
    * @public
    */
-  ModelVersion?: string;
+  ModelVersion?: string | undefined;
 }
 
 /**
@@ -436,7 +436,7 @@ export interface DescribeEntitiesDetectionV2JobResponse {
    * <p>An object that contains the properties associated with a detection job.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
+  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties | undefined;
 }
 
 /**
@@ -446,7 +446,7 @@ export interface DescribeEntitiesDetectionV2JobResponse {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -469,7 +469,7 @@ export class InternalServerException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -492,7 +492,7 @@ export class InvalidRequestException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -516,7 +516,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -551,7 +551,7 @@ export interface DescribeICD10CMInferenceJobResponse {
    * <p>An object that contains the properties associated with a detection job.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
+  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties | undefined;
 }
 
 /**
@@ -574,7 +574,7 @@ export interface DescribePHIDetectionJobResponse {
    * <p>An object that contains the properties associated with a detection job.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
+  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties | undefined;
 }
 
 /**
@@ -597,7 +597,7 @@ export interface DescribeRxNormInferenceJobResponse {
    * <p>An object that contains the properties associated with a detection job.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
+  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties | undefined;
 }
 
 /**
@@ -621,7 +621,7 @@ export interface DescribeSNOMEDCTInferenceJobResponse {
    * <p>Provides information about a detection job.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties;
+  ComprehendMedicalAsyncJobProperties?: ComprehendMedicalAsyncJobProperties | undefined;
 }
 
 /**
@@ -645,57 +645,57 @@ export interface Entity {
    *       within this response rather than a global unique identifier. </p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p> The 0-based character offset in the input text that shows where the entity begins. The
    *       offset returns the UTF-8 code point in the string. </p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p> The 0-based character offset in the input text that shows where the entity ends. The
    *       offset returns the UTF-8 code point in the string. </p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p> The segment of input text extracted as this entity.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p> The category of the entity.</p>
    * @public
    */
-  Category?: EntityType;
+  Category?: EntityType | undefined;
 
   /**
    * <p> Describes the specific type of entity with category of entities.</p>
    * @public
    */
-  Type?: EntitySubType;
+  Type?: EntitySubType | undefined;
 
   /**
    * <p>Contextual information for the entity.</p>
    * @public
    */
-  Traits?: Trait[];
+  Traits?: Trait[] | undefined;
 
   /**
    * <p> The extracted attributes that relate to this entity.</p>
    * @public
    */
-  Attributes?: Attribute[];
+  Attributes?: Attribute[] | undefined;
 }
 
 /**
@@ -709,13 +709,13 @@ export interface UnmappedAttribute {
    *       "PROTECTED_HEALTH_INFORMATION". </p>
    * @public
    */
-  Type?: EntityType;
+  Type?: EntityType | undefined;
 
   /**
    * <p> The specific attribute that has been extracted but not mapped to an entity. </p>
    * @public
    */
-  Attribute?: Attribute;
+  Attribute?: Attribute | undefined;
 }
 
 /**
@@ -736,14 +736,14 @@ export interface DetectEntitiesResponse {
    *       entity.</p>
    * @public
    */
-  UnmappedAttributes?: UnmappedAttribute[];
+  UnmappedAttributes?: UnmappedAttribute[] | undefined;
 
   /**
    * <p>If the result of the previous request to <code>DetectEntities</code> was truncated,
    *       include the <code>PaginationToken</code> to fetch the next page of entities.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like
@@ -762,7 +762,7 @@ export interface DetectEntitiesResponse {
 export class InvalidEncodingException extends __BaseException {
   readonly name: "InvalidEncodingException" = "InvalidEncodingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -785,7 +785,7 @@ export class InvalidEncodingException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -808,7 +808,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class TextSizeLimitExceededException extends __BaseException {
   readonly name: "TextSizeLimitExceededException" = "TextSizeLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -851,14 +851,14 @@ export interface DetectEntitiesV2Response {
    * <p>Attributes extracted from the input text that couldn't be related to an entity.</p>
    * @public
    */
-  UnmappedAttributes?: UnmappedAttribute[];
+  UnmappedAttributes?: UnmappedAttribute[] | undefined;
 
   /**
    * <p>If the result to the <code>DetectEntitiesV2</code> operation was truncated, include the
    *         <code>PaginationToken</code> to fetch the next page of entities.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like
@@ -898,7 +898,7 @@ export interface DetectPHIResponse {
    *       the <code>PaginationToken</code> to fetch the next page of PHI entities. </p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like
@@ -979,14 +979,14 @@ export interface ICD10CMTrait {
    * <p>Provides a name or contextual description about the trait.</p>
    * @public
    */
-  Name?: ICD10CMTraitName;
+  Name?: ICD10CMTraitName | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
    *       as a trait.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -1021,48 +1021,48 @@ export interface ICD10CMAttribute {
    *     </p>
    * @public
    */
-  Type?: ICD10CMAttributeType;
+  Type?: ICD10CMAttributeType | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the segment of text is
    *       correctly recognized as an attribute.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that this attribute is
    *       correctly related to this entity.</p>
    * @public
    */
-  RelationshipScore?: number;
+  RelationshipScore?: number | undefined;
 
   /**
    * <p>The numeric identifier for this attribute. This is a monotonically increasing id unique
    *       within this response rather than a global unique identifier.</p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the attribute begins. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the attribute ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>The segment of input text which contains the detected attribute.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>The contextual information for the attribute. The traits recognized by InferICD10CM are
@@ -1070,20 +1070,20 @@ export interface ICD10CMAttribute {
    *       <code>NEGATION</code>.</p>
    * @public
    */
-  Traits?: ICD10CMTrait[];
+  Traits?: ICD10CMTrait[] | undefined;
 
   /**
    * <p>The category of attribute. Can be either of <code>DX_NAME</code> or <code>TIME_EXPRESSION</code>.</p>
    * @public
    */
-  Category?: ICD10CMEntityType;
+  Category?: ICD10CMEntityType | undefined;
 
   /**
    * <p>The type of relationship between the entity and attribute. Type for the relationship can
    *         be either of <code>OVERLAP</code> or <code>SYSTEM_ORGAN_SITE</code>.</p>
    * @public
    */
-  RelationshipType?: ICD10CMRelationshipType;
+  RelationshipType?: ICD10CMRelationshipType | undefined;
 }
 
 /**
@@ -1109,21 +1109,21 @@ export interface ICD10CMConcept {
    * <p>The long description of the ICD-10-CM code in the ontology.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ICD-10-CM code that identifies the concept found in the knowledge base from the
    *       Centers for Disease Control.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the entity is accurately
    *       linked to an ICD-10-CM concept.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -1140,48 +1140,48 @@ export interface ICD10CMEntity {
    *       this response rather than a global unique identifier.</p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p>The segment of input text that is matched to the detected entity.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p> The category of the entity. InferICD10CM detects entities in the
    *         <code>MEDICAL_CONDITION</code> category. </p>
    * @public
    */
-  Category?: ICD10CMEntityCategory;
+  Category?: ICD10CMEntityCategory | undefined;
 
   /**
    * <p>Describes the specific type of entity with category of entities. InferICD10CM detects
    *       entities of the type <code>DX_NAME</code> and <code>TIME_EXPRESSION</code>.</p>
    * @public
    */
-  Type?: ICD10CMEntityType;
+  Type?: ICD10CMEntityType | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the
    *       detection.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the entity begins. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the entity ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>The detected attributes that relate to the entity. An extracted segment of the text that
@@ -1189,7 +1189,7 @@ export interface ICD10CMEntity {
    *       medical condition.</p>
    * @public
    */
-  Attributes?: ICD10CMAttribute[];
+  Attributes?: ICD10CMAttribute[] | undefined;
 
   /**
    * <p>Provides Contextual information for the entity. The traits recognized by InferICD10CM are
@@ -1198,14 +1198,14 @@ export interface ICD10CMEntity {
    *          </p>
    * @public
    */
-  Traits?: ICD10CMTrait[];
+  Traits?: ICD10CMTrait[] | undefined;
 
   /**
    * <p>The ICD-10-CM concepts that the entity could refer to, along with a score indicating the
    *       likelihood of the match.</p>
    * @public
    */
-  ICD10CMConcepts?: ICD10CMConcept[];
+  ICD10CMConcepts?: ICD10CMConcept[] | undefined;
 }
 
 /**
@@ -1225,7 +1225,7 @@ export interface InferICD10CMResponse {
    *       the <code>PaginationToken</code> to fetch the next page of medical condition entities. </p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents, in the format
@@ -1233,7 +1233,7 @@ export interface InferICD10CMResponse {
    *       information to track the model used for a particular batch of documents.</p>
    * @public
    */
-  ModelVersion?: string;
+  ModelVersion?: string | undefined;
 }
 
 /**
@@ -1272,14 +1272,14 @@ export interface RxNormTrait {
    * <p>Provides a name or contextual description about the trait.</p>
    * @public
    */
-  Name?: RxNormTraitName;
+  Name?: RxNormTraitName | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected
    *       trait.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -1313,48 +1313,48 @@ export interface RxNormAttribute {
    *         <code>BRAND_NAME</code> and <code>GENERIC_NAME</code>.</p>
    * @public
    */
-  Type?: RxNormAttributeType;
+  Type?: RxNormAttributeType | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly
    *       recognized as an attribute.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the attribute is
    *       accurately linked to an entity.</p>
    * @public
    */
-  RelationshipScore?: number;
+  RelationshipScore?: number | undefined;
 
   /**
    * <p>The numeric identifier for this attribute. This is a monotonically increasing id unique
    *       within this response rather than a global unique identifier.</p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the attribute begins. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the attribute ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>The segment of input text which corresponds to the detected attribute.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>Contextual information for the attribute. InferRxNorm recognizes the trait
@@ -1362,7 +1362,7 @@ export interface RxNormAttribute {
    *       form of a medication.</p>
    * @public
    */
-  Traits?: RxNormTrait[];
+  Traits?: RxNormTrait[] | undefined;
 }
 
 /**
@@ -1388,20 +1388,20 @@ export interface RxNormConcept {
    * <p>The description of the RxNorm concept.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>RxNorm concept ID, also known as the RxCUI.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the entity is accurately
    *       linked to the reported RxNorm concept.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -1432,48 +1432,48 @@ export interface RxNormEntity {
    *       this response rather than a global unique identifier.</p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p>The segment of input text extracted from which the entity was detected.</p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>The category of the entity. The recognized categories are <code>GENERIC</code> or
    *         <code>BRAND_NAME</code>.</p>
    * @public
    */
-  Category?: RxNormEntityCategory;
+  Category?: RxNormEntityCategory | undefined;
 
   /**
    * <p> Describes the specific type of entity. For InferRxNorm, the recognized entity type is
    *         <code>MEDICATION</code>.</p>
    * @public
    */
-  Type?: RxNormEntityType;
+  Type?: RxNormEntityType | undefined;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected
    *       entity.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the entity begins. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the entity ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>The extracted attributes that relate to the entity. The attributes recognized by
@@ -1482,20 +1482,20 @@ export interface RxNormEntity {
    *         <code>STRENGTH</code>.</p>
    * @public
    */
-  Attributes?: RxNormAttribute[];
+  Attributes?: RxNormAttribute[] | undefined;
 
   /**
    * <p>Contextual information for the entity.</p>
    * @public
    */
-  Traits?: RxNormTrait[];
+  Traits?: RxNormTrait[] | undefined;
 
   /**
    * <p>The RxNorm concepts that the entity could refer to, along with a score indicating the
    *       likelihood of the match.</p>
    * @public
    */
-  RxNormConcepts?: RxNormConcept[];
+  RxNormConcepts?: RxNormConcept[] | undefined;
 }
 
 /**
@@ -1515,7 +1515,7 @@ export interface InferRxNormResponse {
    *       the <code>PaginationToken</code> to fetch the next page of medication entities.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>The version of the model used to analyze the documents, in the format
@@ -1523,7 +1523,7 @@ export interface InferRxNormResponse {
    *       information to track the model used for a particular batch of documents.</p>
    * @public
    */
-  ModelVersion?: string;
+  ModelVersion?: string | undefined;
 }
 
 /**
@@ -1584,7 +1584,7 @@ export interface SNOMEDCTConcept {
    *     </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>
@@ -1592,7 +1592,7 @@ export interface SNOMEDCTConcept {
    *     </p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>
@@ -1600,7 +1600,7 @@ export interface SNOMEDCTConcept {
    *     </p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -1637,7 +1637,7 @@ export interface SNOMEDCTTrait {
    *     </p>
    * @public
    */
-  Name?: SNOMEDCTTraitName;
+  Name?: SNOMEDCTTraitName | undefined;
 
   /**
    * <p>
@@ -1645,7 +1645,7 @@ export interface SNOMEDCTTrait {
    *     </p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -1679,7 +1679,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  Category?: SNOMEDCTEntityCategory;
+  Category?: SNOMEDCTEntityCategory | undefined;
 
   /**
    * <p>
@@ -1687,7 +1687,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  Type?: SNOMEDCTAttributeType;
+  Type?: SNOMEDCTAttributeType | undefined;
 
   /**
    * <p>
@@ -1695,7 +1695,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p>
@@ -1703,7 +1703,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  RelationshipScore?: number;
+  RelationshipScore?: number | undefined;
 
   /**
    * <p>
@@ -1711,7 +1711,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  RelationshipType?: SNOMEDCTRelationshipType;
+  RelationshipType?: SNOMEDCTRelationshipType | undefined;
 
   /**
    * <p>
@@ -1719,7 +1719,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p>
@@ -1727,7 +1727,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p>
@@ -1735,7 +1735,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>
@@ -1743,7 +1743,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>
@@ -1751,7 +1751,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  Traits?: SNOMEDCTTrait[];
+  Traits?: SNOMEDCTTrait[] | undefined;
 
   /**
    * <p>
@@ -1759,7 +1759,7 @@ export interface SNOMEDCTAttribute {
    *     </p>
    * @public
    */
-  SNOMEDCTConcepts?: SNOMEDCTConcept[];
+  SNOMEDCTConcepts?: SNOMEDCTConcept[] | undefined;
 }
 
 /**
@@ -1791,7 +1791,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  Id?: number;
+  Id?: number | undefined;
 
   /**
    * <p>
@@ -1799,7 +1799,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  Text?: string;
+  Text?: string | undefined;
 
   /**
    * <p>
@@ -1807,7 +1807,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  Category?: SNOMEDCTEntityCategory;
+  Category?: SNOMEDCTEntityCategory | undefined;
 
   /**
    * <p>
@@ -1815,7 +1815,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  Type?: SNOMEDCTEntityType;
+  Type?: SNOMEDCTEntityType | undefined;
 
   /**
    * <p>
@@ -1823,7 +1823,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 
   /**
    * <p>
@@ -1831,7 +1831,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  BeginOffset?: number;
+  BeginOffset?: number | undefined;
 
   /**
    * <p>
@@ -1839,7 +1839,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  EndOffset?: number;
+  EndOffset?: number | undefined;
 
   /**
    * <p>
@@ -1847,7 +1847,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  Attributes?: SNOMEDCTAttribute[];
+  Attributes?: SNOMEDCTAttribute[] | undefined;
 
   /**
    * <p>
@@ -1855,7 +1855,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  Traits?: SNOMEDCTTrait[];
+  Traits?: SNOMEDCTTrait[] | undefined;
 
   /**
    * <p>
@@ -1863,7 +1863,7 @@ export interface SNOMEDCTEntity {
    *     </p>
    * @public
    */
-  SNOMEDCTConcepts?: SNOMEDCTConcept[];
+  SNOMEDCTConcepts?: SNOMEDCTConcept[] | undefined;
 }
 
 /**
@@ -1879,7 +1879,7 @@ export interface SNOMEDCTDetails {
    *     </p>
    * @public
    */
-  Edition?: string;
+  Edition?: string | undefined;
 
   /**
    * <p>
@@ -1887,7 +1887,7 @@ export interface SNOMEDCTDetails {
    *     </p>
    * @public
    */
-  Language?: string;
+  Language?: string | undefined;
 
   /**
    * <p>
@@ -1895,7 +1895,7 @@ export interface SNOMEDCTDetails {
    *     </p>
    * @public
    */
-  VersionDate?: string;
+  VersionDate?: string | undefined;
 }
 
 /**
@@ -1916,7 +1916,7 @@ export interface InferSNOMEDCTResponse {
    *     </p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>
@@ -1924,7 +1924,7 @@ export interface InferSNOMEDCTResponse {
    *     </p>
    * @public
    */
-  ModelVersion?: string;
+  ModelVersion?: string | undefined;
 
   /**
    * <p>
@@ -1932,7 +1932,7 @@ export interface InferSNOMEDCTResponse {
    *     </p>
    * @public
    */
-  SNOMEDCTDetails?: SNOMEDCTDetails;
+  SNOMEDCTDetails?: SNOMEDCTDetails | undefined;
 
   /**
    * <p>
@@ -1940,7 +1940,7 @@ export interface InferSNOMEDCTResponse {
    *     </p>
    * @public
    */
-  Characters?: Characters;
+  Characters?: Characters | undefined;
 }
 
 /**
@@ -1952,14 +1952,14 @@ export interface ComprehendMedicalAsyncJobFilter {
    * <p>Filters on the name of the job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    * @public
    */
-  JobStatus?: JobStatus;
+  JobStatus?: JobStatus | undefined;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -1967,7 +1967,7 @@ export interface ComprehendMedicalAsyncJobFilter {
    *       oldest to newest.</p>
    * @public
    */
-  SubmitTimeBefore?: Date;
+  SubmitTimeBefore?: Date | undefined;
 
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
@@ -1975,7 +1975,7 @@ export interface ComprehendMedicalAsyncJobFilter {
    *       newest to oldest.</p>
    * @public
    */
-  SubmitTimeAfter?: Date;
+  SubmitTimeAfter?: Date | undefined;
 }
 
 /**
@@ -1987,19 +1987,19 @@ export interface ListEntitiesDetectionV2JobsRequest {
    *       the date and time that they were submitted. You can only set one filter at a time.</p>
    * @public
    */
-  Filter?: ComprehendMedicalAsyncJobFilter;
+  Filter?: ComprehendMedicalAsyncJobFilter | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in each page. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2010,13 +2010,13 @@ export interface ListEntitiesDetectionV2JobsResponse {
    * <p>A list containing the properties of each job returned.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[] | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2027,7 +2027,7 @@ export interface ListEntitiesDetectionV2JobsResponse {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2051,19 +2051,19 @@ export interface ListICD10CMInferenceJobsRequest {
    *       the date and time that they were submitted. You can only set one filter at a time.</p>
    * @public
    */
-  Filter?: ComprehendMedicalAsyncJobFilter;
+  Filter?: ComprehendMedicalAsyncJobFilter | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in each page. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2074,13 +2074,13 @@ export interface ListICD10CMInferenceJobsResponse {
    * <p>A list containing the properties of each job that is returned.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[] | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2092,19 +2092,19 @@ export interface ListPHIDetectionJobsRequest {
    *       the date and time that they were submitted. You can only set one filter at a time.</p>
    * @public
    */
-  Filter?: ComprehendMedicalAsyncJobFilter;
+  Filter?: ComprehendMedicalAsyncJobFilter | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in each page. The default is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2115,13 +2115,13 @@ export interface ListPHIDetectionJobsResponse {
    * <p>A list containing the properties of each job returned.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[] | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2133,19 +2133,19 @@ export interface ListRxNormInferenceJobsRequest {
    *       the date and time that they were submitted. You can only set one filter at a time.</p>
    * @public
    */
-  Filter?: ComprehendMedicalAsyncJobFilter;
+  Filter?: ComprehendMedicalAsyncJobFilter | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2156,13 +2156,13 @@ export interface ListRxNormInferenceJobsResponse {
    * <p>The maximum number of results to return in each page. The default is 100.</p>
    * @public
    */
-  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[] | undefined;
 
   /**
    * <p>Identifies the next page of results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2173,7 +2173,7 @@ export interface ListSNOMEDCTInferenceJobsRequest {
    * <p>Provides information for filtering a list of detection jobs.</p>
    * @public
    */
-  Filter?: ComprehendMedicalAsyncJobFilter;
+  Filter?: ComprehendMedicalAsyncJobFilter | undefined;
 
   /**
    * <p>
@@ -2181,7 +2181,7 @@ export interface ListSNOMEDCTInferenceJobsRequest {
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -2189,7 +2189,7 @@ export interface ListSNOMEDCTInferenceJobsRequest {
    *     </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2202,7 +2202,7 @@ export interface ListSNOMEDCTInferenceJobsResponse {
    *     </p>
    * @public
    */
-  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[] | undefined;
 
   /**
    * <p>
@@ -2210,7 +2210,7 @@ export interface ListSNOMEDCTInferenceJobsResponse {
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2240,21 +2240,21 @@ export interface StartEntitiesDetectionV2JobRequest {
    * <p>The identifier of the job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
    *       generates one for you.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a
    *       key, the files are written in plain text.</p>
    * @public
    */
-  KMSKey?: string;
+  KMSKey?: string | undefined;
 
   /**
    * <p>The language of the input documents. All documents must be in the same language. Amazon Comprehend Medical processes files in US English (en).</p>
@@ -2272,7 +2272,7 @@ export interface StartEntitiesDetectionV2JobResponse {
    *       the <code>DescribeEntitiesDetectionV2Job</code> operation.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2302,20 +2302,20 @@ export interface StartICD10CMInferenceJobRequest {
    * <p>The identifier of the job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical generates one.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a
    *       key, the files are written in plain text.</p>
    * @public
    */
-  KMSKey?: string;
+  KMSKey?: string | undefined;
 
   /**
    * <p>The language of the input documents. All documents must be in the same language.</p>
@@ -2333,7 +2333,7 @@ export interface StartICD10CMInferenceJobResponse {
    *       the <code>StartICD10CMInferenceJob</code> operation.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2363,21 +2363,21 @@ export interface StartPHIDetectionJobRequest {
    * <p>The identifier of the job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
    *       generates one.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a
    *       key, the files are written in plain text.</p>
    * @public
    */
-  KMSKey?: string;
+  KMSKey?: string | undefined;
 
   /**
    * <p>The language of the input documents. All documents must be in the same language.</p>
@@ -2395,7 +2395,7 @@ export interface StartPHIDetectionJobResponse {
    *       the <code>DescribePHIDetectionJob</code> operation.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2425,21 +2425,21 @@ export interface StartRxNormInferenceJobRequest {
    * <p>The identifier of the job.</p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
    *       generates one.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a
    *       key, the files are written in plain text.</p>
    * @public
    */
-  KMSKey?: string;
+  KMSKey?: string | undefined;
 
   /**
    * <p>The language of the input documents. All documents must be in the same language.</p>
@@ -2456,7 +2456,7 @@ export interface StartRxNormInferenceJobResponse {
    * <p>The identifier of the job.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2490,7 +2490,7 @@ export interface StartSNOMEDCTInferenceJobRequest {
    *     </p>
    * @public
    */
-  JobName?: string;
+  JobName?: string | undefined;
 
   /**
    * <p>
@@ -2498,7 +2498,7 @@ export interface StartSNOMEDCTInferenceJobRequest {
    *     </p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>
@@ -2506,7 +2506,7 @@ export interface StartSNOMEDCTInferenceJobRequest {
    *     </p>
    * @public
    */
-  KMSKey?: string;
+  KMSKey?: string | undefined;
 
   /**
    * <p>
@@ -2527,7 +2527,7 @@ export interface StartSNOMEDCTInferenceJobResponse {
    *     </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2549,7 +2549,7 @@ export interface StopEntitiesDetectionV2JobResponse {
    * <p>The identifier of the medical entities detection job that was stopped.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2572,7 +2572,7 @@ export interface StopICD10CMInferenceJobResponse {
    *       the <code>DescribeICD10CMInferenceJob</code> operation.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2594,7 +2594,7 @@ export interface StopPHIDetectionJobResponse {
    * <p>The identifier of the PHI detection job that was stopped.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2617,7 +2617,7 @@ export interface StopRxNormInferenceJobResponse {
    *       the <code>DescribeRxNormInferenceJob</code> operation.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2643,5 +2643,5 @@ export interface StopSNOMEDCTInferenceJobResponse {
    *     </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }

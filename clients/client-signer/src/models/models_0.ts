@@ -10,7 +10,7 @@ import { SignerServiceException as __BaseException } from "./SignerServiceExcept
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -39,7 +39,7 @@ export interface AddProfilePermissionRequest {
    * <p>The version of the signing profile.</p>
    * @public
    */
-  profileVersion?: string;
+  profileVersion?: string | undefined;
 
   /**
    * <p>For cross-account signing. Grant a designated account permission to perform one or more of the following actions. Each action is associated with a specific API's operations. For more information about cross-account signing, see <a href="https://docs.aws.amazon.com/signer/latest/developerguide/signing-profile-cross-account.html">Using cross-account signing with signing profiles</a> in the <i>AWS Signer Developer Guide</i>.</p>
@@ -78,7 +78,7 @@ export interface AddProfilePermissionRequest {
    * <p>A unique identifier for the current profile revision.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>A unique identifier for the cross-account permission statement.</p>
@@ -95,7 +95,7 @@ export interface AddProfilePermissionResponse {
    * <p>A unique identifier for the current profile revision.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 }
 
 /**
@@ -105,7 +105,7 @@ export interface AddProfilePermissionResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -127,7 +127,7 @@ export class ConflictException extends __BaseException {
 export class InternalServiceErrorException extends __BaseException {
   readonly name: "InternalServiceErrorException" = "InternalServiceErrorException";
   readonly $fault: "server" = "server";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -149,7 +149,7 @@ export class InternalServiceErrorException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -171,7 +171,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceLimitExceededException extends __BaseException {
   readonly name: "ServiceLimitExceededException" = "ServiceLimitExceededException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -194,7 +194,7 @@ export class ServiceLimitExceededException extends __BaseException {
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -216,7 +216,7 @@ export class TooManyRequestsException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -239,7 +239,7 @@ export class ValidationException extends __BaseException {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -328,14 +328,14 @@ export interface SigningConfigurationOverrides {
    * 			job.</p>
    * @public
    */
-  encryptionAlgorithm?: EncryptionAlgorithm;
+  encryptionAlgorithm?: EncryptionAlgorithm | undefined;
 
   /**
    * <p>A specified override of the default hash algorithm that is used in a code-signing
    * 			job.</p>
    * @public
    */
-  hashAlgorithm?: HashAlgorithm;
+  hashAlgorithm?: HashAlgorithm | undefined;
 }
 
 /**
@@ -363,7 +363,7 @@ export interface SigningPlatformOverrides {
    * 			signing job.</p>
    * @public
    */
-  signingConfiguration?: SigningConfigurationOverrides;
+  signingConfiguration?: SigningConfigurationOverrides | undefined;
 
   /**
    * <p>A signed image is a JSON object. When overriding the default signing platform
@@ -374,7 +374,7 @@ export interface SigningPlatformOverrides {
    * 			payload is not be embedded in the signing image.</p>
    * @public
    */
-  signingImageFormat?: ImageFormat;
+  signingImageFormat?: ImageFormat | undefined;
 }
 
 /**
@@ -386,19 +386,19 @@ export interface SigningJobRevocationRecord {
    * <p>A caller-supplied reason for revocation.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The time of revocation.</p>
    * @public
    */
-  revokedAt?: Date;
+  revokedAt?: Date | undefined;
 
   /**
    * <p>The identity of the revoker.</p>
    * @public
    */
-  revokedBy?: string;
+  revokedBy?: string | undefined;
 }
 
 /**
@@ -410,13 +410,13 @@ export interface S3SignedObject {
    * <p>Name of the S3 bucket.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>Key name that uniquely identifies a signed code image in your bucket.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 }
 
 /**
@@ -429,7 +429,7 @@ export interface SignedObject {
    * <p>The <code>S3SignedObject</code>.</p>
    * @public
    */
-  s3?: S3SignedObject;
+  s3?: S3SignedObject | undefined;
 }
 
 /**
@@ -479,7 +479,7 @@ export interface Source {
    * <p>The <code>S3Source</code> object.</p>
    * @public
    */
-  s3?: S3Source;
+  s3?: S3Source | undefined;
 }
 
 /**
@@ -505,118 +505,118 @@ export interface DescribeSigningJobResponse {
    * <p>The ID of the signing job on output.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The object that contains the name of your S3 bucket or your raw code.</p>
    * @public
    */
-  source?: Source;
+  source?: Source | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of your code signing certificate.</p>
    * @public
    */
-  signingMaterial?: SigningMaterial;
+  signingMaterial?: SigningMaterial | undefined;
 
   /**
    * <p>The microcontroller platform to which your signed code image will be
    * 			distributed.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>A human-readable name for the signing platform associated with the signing job.</p>
    * @public
    */
-  platformDisplayName?: string;
+  platformDisplayName?: string | undefined;
 
   /**
    * <p>The name of the profile that initiated the signing operation.</p>
    * @public
    */
-  profileName?: string;
+  profileName?: string | undefined;
 
   /**
    * <p>The version of the signing profile used to initiate the signing job.</p>
    * @public
    */
-  profileVersion?: string;
+  profileVersion?: string | undefined;
 
   /**
    * <p>A list of any overrides that were applied to the signing operation.</p>
    * @public
    */
-  overrides?: SigningPlatformOverrides;
+  overrides?: SigningPlatformOverrides | undefined;
 
   /**
    * <p>Map of user-assigned key-value pairs used during signing. These values contain any
    * 			information that you specified for use in your signing job. </p>
    * @public
    */
-  signingParameters?: Record<string, string>;
+  signingParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Date and time that the signing job was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>Date and time that the signing job was completed.</p>
    * @public
    */
-  completedAt?: Date;
+  completedAt?: Date | undefined;
 
   /**
    * <p>Thr expiration timestamp for the signature generated by the signing job.</p>
    * @public
    */
-  signatureExpiresAt?: Date;
+  signatureExpiresAt?: Date | undefined;
 
   /**
    * <p>The IAM principal that requested the signing job.</p>
    * @public
    */
-  requestedBy?: string;
+  requestedBy?: string | undefined;
 
   /**
    * <p>Status of the signing job.</p>
    * @public
    */
-  status?: SigningStatus;
+  status?: SigningStatus | undefined;
 
   /**
    * <p>String value that contains the status reason.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>A revocation record if the signature generated by the signing job has been revoked.
    * 			Contains a timestamp and the ID of the IAM entity that revoked the signature.</p>
    * @public
    */
-  revocationRecord?: SigningJobRevocationRecord;
+  revocationRecord?: SigningJobRevocationRecord | undefined;
 
   /**
    * <p>Name of the S3 bucket where the signed code image is saved by AWS Signer.</p>
    * @public
    */
-  signedObject?: SignedObject;
+  signedObject?: SignedObject | undefined;
 
   /**
    * <p>The AWS account ID of the job owner.</p>
    * @public
    */
-  jobOwner?: string;
+  jobOwner?: string | undefined;
 
   /**
    * <p>The IAM entity that initiated the signing job.</p>
    * @public
    */
-  jobInvoker?: string;
+  jobInvoker?: string | undefined;
 }
 
 /**
@@ -628,14 +628,14 @@ export interface S3Destination {
    * <p>Name of the S3 bucket.</p>
    * @public
    */
-  bucketName?: string;
+  bucketName?: string | undefined;
 
   /**
    * <p>An S3 prefix that you can use to limit responses to those that begin with the specified
    * 			prefix.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -648,7 +648,7 @@ export interface Destination {
    * <p>The <code>S3Destination</code> object.</p>
    * @public
    */
-  s3?: S3Destination;
+  s3?: S3Destination | undefined;
 }
 
 /**
@@ -736,7 +736,7 @@ export interface GetRevocationStatusResponse {
    * 			ARN, and certificate hashes) supplied as input to the API.</p>
    * @public
    */
-  revokedEntities?: string[];
+  revokedEntities?: string[] | undefined;
 }
 
 /**
@@ -812,57 +812,57 @@ export interface GetSigningPlatformResponse {
    * <p>The ID of the target signing platform.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>The display name of the target signing platform.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>A list of partner entities that use the target signing platform.</p>
    * @public
    */
-  partner?: string;
+  partner?: string | undefined;
 
   /**
    * <p>The validation template that is used by the target signing platform.</p>
    * @public
    */
-  target?: string;
+  target?: string | undefined;
 
   /**
    * <p>The category type of the target signing platform.</p>
    * @public
    */
-  category?: Category;
+  category?: Category | undefined;
 
   /**
    * <p>A list of configurations applied to the target platform at signing.</p>
    * @public
    */
-  signingConfiguration?: SigningConfiguration;
+  signingConfiguration?: SigningConfiguration | undefined;
 
   /**
    * <p>The format of the target platform's signing image.</p>
    * @public
    */
-  signingImageFormat?: SigningImageFormat;
+  signingImageFormat?: SigningImageFormat | undefined;
 
   /**
    * <p>The maximum size (in MB) of the payload that can be signed by the target
    * 			platform.</p>
    * @public
    */
-  maxSizeInMB?: number;
+  maxSizeInMB?: number | undefined;
 
   /**
    * <p>A flag indicating whether signatures generated for the signing platform can be
    * 			revoked.</p>
    * @public
    */
-  revocationSupported?: boolean;
+  revocationSupported?: boolean | undefined;
 }
 
 /**
@@ -879,7 +879,7 @@ export interface GetSigningProfileRequest {
    * <p>The AWS account ID of the profile owner.</p>
    * @public
    */
-  profileOwner?: string;
+  profileOwner?: string | undefined;
 }
 
 /**
@@ -891,19 +891,19 @@ export interface SigningProfileRevocationRecord {
    * <p>The time when revocation becomes effective.</p>
    * @public
    */
-  revocationEffectiveFrom?: Date;
+  revocationEffectiveFrom?: Date | undefined;
 
   /**
    * <p>The time when the signing profile was revoked.</p>
    * @public
    */
-  revokedAt?: Date;
+  revokedAt?: Date | undefined;
 
   /**
    * <p>The identity of the revoker.</p>
    * @public
    */
-  revokedBy?: string;
+  revokedBy?: string | undefined;
 }
 
 /**
@@ -930,13 +930,13 @@ export interface SignatureValidityPeriod {
    * <p>The numerical value of the time unit for signature validity.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 
   /**
    * <p>The time unit for signature validity.</p>
    * @public
    */
-  type?: ValidityType;
+  type?: ValidityType | undefined;
 }
 
 /**
@@ -962,88 +962,88 @@ export interface GetSigningProfileResponse {
    * <p>The name of the target signing profile.</p>
    * @public
    */
-  profileName?: string;
+  profileName?: string | undefined;
 
   /**
    * <p>The current version of the signing profile.</p>
    * @public
    */
-  profileVersion?: string;
+  profileVersion?: string | undefined;
 
   /**
    * <p>The signing profile ARN, including the profile version.</p>
    * @public
    */
-  profileVersionArn?: string;
+  profileVersionArn?: string | undefined;
 
   /**
    * <p>Revocation information for a signing profile.</p>
    * @public
    */
-  revocationRecord?: SigningProfileRevocationRecord;
+  revocationRecord?: SigningProfileRevocationRecord | undefined;
 
   /**
    * <p>The ARN of the certificate that the target profile uses for signing operations.</p>
    * @public
    */
-  signingMaterial?: SigningMaterial;
+  signingMaterial?: SigningMaterial | undefined;
 
   /**
    * <p>The ID of the platform that is used by the target signing profile.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>A human-readable name for the signing platform associated with the signing
    * 			profile.</p>
    * @public
    */
-  platformDisplayName?: string;
+  platformDisplayName?: string | undefined;
 
   /**
    * <p>The validity period for a signing job.</p>
    * @public
    */
-  signatureValidityPeriod?: SignatureValidityPeriod;
+  signatureValidityPeriod?: SignatureValidityPeriod | undefined;
 
   /**
    * <p>A list of overrides applied by the target signing profile for signing
    * 			operations.</p>
    * @public
    */
-  overrides?: SigningPlatformOverrides;
+  overrides?: SigningPlatformOverrides | undefined;
 
   /**
    * <p>A map of key-value pairs for signing operations that is attached to the target signing
    * 			profile.</p>
    * @public
    */
-  signingParameters?: Record<string, string>;
+  signingParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the target signing profile.</p>
    * @public
    */
-  status?: SigningProfileStatus;
+  status?: SigningProfileStatus | undefined;
 
   /**
    * <p>Reason for the status of the target signing profile.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>A list of tags associated with the signing profile.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1060,7 +1060,7 @@ export interface ListProfilePermissionsRequest {
    * <p>String for specifying the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1072,25 +1072,25 @@ export interface Permission {
    * <p>An AWS Signer action permitted as part of cross-account permissions.</p>
    * @public
    */
-  action?: string;
+  action?: string | undefined;
 
   /**
    * <p>The AWS principal that has been granted a cross-account permission.</p>
    * @public
    */
-  principal?: string;
+  principal?: string | undefined;
 
   /**
    * <p>A unique identifier for a cross-account permission statement.</p>
    * @public
    */
-  statementId?: string;
+  statementId?: string | undefined;
 
   /**
    * <p>The signing profile version that a permission applies to.</p>
    * @public
    */
-  profileVersion?: string;
+  profileVersion?: string | undefined;
 }
 
 /**
@@ -1101,25 +1101,25 @@ export interface ListProfilePermissionsResponse {
    * <p>The identifier for the current revision of profile permissions.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>Total size of the policy associated with the Signing Profile in bytes.</p>
    * @public
    */
-  policySizeBytes?: number;
+  policySizeBytes?: number | undefined;
 
   /**
    * <p>List of permissions associated with the Signing Profile.</p>
    * @public
    */
-  permissions?: Permission[];
+  permissions?: Permission[] | undefined;
 
   /**
    * <p>String for specifying the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1130,20 +1130,20 @@ export interface ListSigningJobsRequest {
    * <p>A status value with which to filter your results.</p>
    * @public
    */
-  status?: SigningStatus;
+  status?: SigningStatus | undefined;
 
   /**
    * <p>The ID of microcontroller platform that you specified for the distribution of your
    * 			code image.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>The IAM principal that requested the signing job.</p>
    * @public
    */
-  requestedBy?: string;
+  requestedBy?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of items to return in the response. Use this parameter
@@ -1153,7 +1153,7 @@ export interface ListSigningJobsRequest {
    * 		</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>String for specifying the next set of paginated results to return. After you receive a
@@ -1161,34 +1161,34 @@ export interface ListSigningJobsRequest {
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Filters results to return only signing jobs with revoked signatures.</p>
    * @public
    */
-  isRevoked?: boolean;
+  isRevoked?: boolean | undefined;
 
   /**
    * <p>Filters results to return only signing jobs with signatures expiring before a
    * 			specified timestamp.</p>
    * @public
    */
-  signatureExpiresBefore?: Date;
+  signatureExpiresBefore?: Date | undefined;
 
   /**
    * <p>Filters results to return only signing jobs with signatures expiring after a specified
    * 			timestamp.</p>
    * @public
    */
-  signatureExpiresAfter?: Date;
+  signatureExpiresAfter?: Date | undefined;
 
   /**
    * <p>Filters results to return only signing jobs initiated by a specified IAM
    * 			entity.</p>
    * @public
    */
-  jobInvoker?: string;
+  jobInvoker?: string | undefined;
 }
 
 /**
@@ -1200,88 +1200,88 @@ export interface SigningJob {
    * <p>The ID of the signing job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>A <code>Source</code> that contains information about a signing job's code image
    * 			source.</p>
    * @public
    */
-  source?: Source;
+  source?: Source | undefined;
 
   /**
    * <p>A <code>SignedObject</code> structure that contains information about a signing job's
    * 			signed code image.</p>
    * @public
    */
-  signedObject?: SignedObject;
+  signedObject?: SignedObject | undefined;
 
   /**
    * <p>A <code>SigningMaterial</code> object that contains the Amazon Resource Name (ARN) of
    * 			the certificate used for the signing job.</p>
    * @public
    */
-  signingMaterial?: SigningMaterial;
+  signingMaterial?: SigningMaterial | undefined;
 
   /**
    * <p>The date and time that the signing job was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The status of the signing job.</p>
    * @public
    */
-  status?: SigningStatus;
+  status?: SigningStatus | undefined;
 
   /**
    * <p>Indicates whether the signing job is revoked.</p>
    * @public
    */
-  isRevoked?: boolean;
+  isRevoked?: boolean | undefined;
 
   /**
    * <p>The name of the signing profile that created a signing job.</p>
    * @public
    */
-  profileName?: string;
+  profileName?: string | undefined;
 
   /**
    * <p>The version of the signing profile that created a signing job.</p>
    * @public
    */
-  profileVersion?: string;
+  profileVersion?: string | undefined;
 
   /**
    * <p>The unique identifier for a signing platform.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>The name of a signing platform.</p>
    * @public
    */
-  platformDisplayName?: string;
+  platformDisplayName?: string | undefined;
 
   /**
    * <p>The time when the signature of a signing job expires.</p>
    * @public
    */
-  signatureExpiresAt?: Date;
+  signatureExpiresAt?: Date | undefined;
 
   /**
    * <p>The AWS account ID of the job owner.</p>
    * @public
    */
-  jobOwner?: string;
+  jobOwner?: string | undefined;
 
   /**
    * <p>The AWS account ID of the job invoker.</p>
    * @public
    */
-  jobInvoker?: string;
+  jobInvoker?: string | undefined;
 }
 
 /**
@@ -1292,13 +1292,13 @@ export interface ListSigningJobsResponse {
    * <p>A list of your signing jobs.</p>
    * @public
    */
-  jobs?: SigningJob[];
+  jobs?: SigningJob[] | undefined;
 
   /**
    * <p>String for specifying the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1309,25 +1309,25 @@ export interface ListSigningPlatformsRequest {
    * <p>The category type of a signing platform.</p>
    * @public
    */
-  category?: string;
+  category?: string | undefined;
 
   /**
    * <p>Any partner entities connected to a signing platform.</p>
    * @public
    */
-  partner?: string;
+  partner?: string | undefined;
 
   /**
    * <p>The validation template that is used by the target signing platform.</p>
    * @public
    */
-  target?: string;
+  target?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned by this operation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Value for specifying the next set of paginated results to return. After you receive a
@@ -1335,7 +1335,7 @@ export interface ListSigningPlatformsRequest {
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1348,56 +1348,56 @@ export interface SigningPlatform {
    * <p>The ID of a signing platform.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>The display name of a signing platform.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>Any partner entities linked to a signing platform.</p>
    * @public
    */
-  partner?: string;
+  partner?: string | undefined;
 
   /**
    * <p>The types of targets that can be signed by a signing platform.</p>
    * @public
    */
-  target?: string;
+  target?: string | undefined;
 
   /**
    * <p>The category of a signing platform.</p>
    * @public
    */
-  category?: Category;
+  category?: Category | undefined;
 
   /**
    * <p>The configuration of a signing platform. This includes the designated hash algorithm and
    * 			encryption algorithm of a signing platform.</p>
    * @public
    */
-  signingConfiguration?: SigningConfiguration;
+  signingConfiguration?: SigningConfiguration | undefined;
 
   /**
    * <p>The image format of a AWS Signer platform or profile.</p>
    * @public
    */
-  signingImageFormat?: SigningImageFormat;
+  signingImageFormat?: SigningImageFormat | undefined;
 
   /**
    * <p>The maximum size (in MB) of code that can be signed by a signing platform.</p>
    * @public
    */
-  maxSizeInMB?: number;
+  maxSizeInMB?: number | undefined;
 
   /**
    * <p>Indicates whether revocation is supported for the platform.</p>
    * @public
    */
-  revocationSupported?: boolean;
+  revocationSupported?: boolean | undefined;
 }
 
 /**
@@ -1408,13 +1408,13 @@ export interface ListSigningPlatformsResponse {
    * <p>A list of all platforms that match the request parameters.</p>
    * @public
    */
-  platforms?: SigningPlatform[];
+  platforms?: SigningPlatform[] | undefined;
 
   /**
    * <p>Value for specifying the next set of paginated results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1426,13 +1426,13 @@ export interface ListSigningProfilesRequest {
    * 			<code>CANCELED</code>.</p>
    * @public
    */
-  includeCanceled?: boolean;
+  includeCanceled?: boolean | undefined;
 
   /**
    * <p>The maximum number of profiles to be returned.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Value for specifying the next set of paginated results to return. After you receive a
@@ -1440,21 +1440,21 @@ export interface ListSigningProfilesRequest {
    * 			the value of <code>nextToken</code> from the response that you just received.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Filters results to return only signing jobs initiated for a specified signing
    * 			platform.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>Filters results to return only signing jobs with statuses in the specified
    * 			list.</p>
    * @public
    */
-  statuses?: SigningProfileStatus[];
+  statuses?: SigningProfileStatus[] | undefined;
 }
 
 /**
@@ -1467,67 +1467,67 @@ export interface SigningProfile {
    * <p>The name of the signing profile.</p>
    * @public
    */
-  profileName?: string;
+  profileName?: string | undefined;
 
   /**
    * <p>The version of a signing profile.</p>
    * @public
    */
-  profileVersion?: string;
+  profileVersion?: string | undefined;
 
   /**
    * <p>The ARN of a signing profile, including the profile version.</p>
    * @public
    */
-  profileVersionArn?: string;
+  profileVersionArn?: string | undefined;
 
   /**
    * <p>The ACM certificate that is available for use by a signing profile.</p>
    * @public
    */
-  signingMaterial?: SigningMaterial;
+  signingMaterial?: SigningMaterial | undefined;
 
   /**
    * <p>The validity period for a signing job created using this signing profile.</p>
    * @public
    */
-  signatureValidityPeriod?: SignatureValidityPeriod;
+  signatureValidityPeriod?: SignatureValidityPeriod | undefined;
 
   /**
    * <p>The ID of a platform that is available for use by a signing profile.</p>
    * @public
    */
-  platformId?: string;
+  platformId?: string | undefined;
 
   /**
    * <p>The name of the signing platform.</p>
    * @public
    */
-  platformDisplayName?: string;
+  platformDisplayName?: string | undefined;
 
   /**
    * <p>The parameters that are available for use by a Signer user.</p>
    * @public
    */
-  signingParameters?: Record<string, string>;
+  signingParameters?: Record<string, string> | undefined;
 
   /**
    * <p>The status of a signing profile.</p>
    * @public
    */
-  status?: SigningProfileStatus;
+  status?: SigningProfileStatus | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the signing profile.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>A list of tags associated with the signing profile.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1540,13 +1540,13 @@ export interface ListSigningProfilesResponse {
    * 			to <code>true</code>.</p>
    * @public
    */
-  profiles?: SigningProfile[];
+  profiles?: SigningProfile[] | undefined;
 
   /**
    * <p>Value for specifying the next set of paginated results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1568,7 +1568,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tags associated with the signing profile.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1578,7 +1578,7 @@ export interface ListTagsForResourceResponse {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -1608,14 +1608,14 @@ export interface PutSigningProfileRequest {
    * 			profile.</p>
    * @public
    */
-  signingMaterial?: SigningMaterial;
+  signingMaterial?: SigningMaterial | undefined;
 
   /**
    * <p>The default validity period override for any signature generated using this signing
    * 			profile. If unspecified, the default is 135 months.</p>
    * @public
    */
-  signatureValidityPeriod?: SignatureValidityPeriod;
+  signatureValidityPeriod?: SignatureValidityPeriod | undefined;
 
   /**
    * <p>The ID of the signing platform to be created.</p>
@@ -1629,20 +1629,20 @@ export interface PutSigningProfileRequest {
    * 				<code>hash-algorithm</code> or <code>signing-algorithm</code>).</p>
    * @public
    */
-  overrides?: SigningPlatformOverrides;
+  overrides?: SigningPlatformOverrides | undefined;
 
   /**
    * <p>Map of key-value pairs for signing. These can include any information that you want to
    * 			use during signing.</p>
    * @public
    */
-  signingParameters?: Record<string, string>;
+  signingParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Tags to be associated with the signing profile that is being created.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1653,19 +1653,19 @@ export interface PutSigningProfileResponse {
    * <p>The Amazon Resource Name (ARN) of the signing profile created.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The version of the signing profile being created.</p>
    * @public
    */
-  profileVersion?: string;
+  profileVersion?: string | undefined;
 
   /**
    * <p>The signing profile ARN, including the profile version.</p>
    * @public
    */
-  profileVersionArn?: string;
+  profileVersionArn?: string | undefined;
 }
 
 /**
@@ -1699,7 +1699,7 @@ export interface RemoveProfilePermissionResponse {
    * <p>An identifier for the current revision of the profile permissions.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 }
 
 /**
@@ -1716,7 +1716,7 @@ export interface RevokeSignatureRequest {
    * <p>AWS account ID of the job owner.</p>
    * @public
    */
-  jobOwner?: string;
+  jobOwner?: string | undefined;
 
   /**
    * <p>The reason for revoking the signing job.</p>
@@ -1770,7 +1770,7 @@ export interface SignPayloadRequest {
    * <p>The AWS account ID of the profile owner.</p>
    * @public
    */
-  profileOwner?: string;
+  profileOwner?: string | undefined;
 
   /**
    * <p>Specifies the object digest (hash) to sign.</p>
@@ -1794,25 +1794,25 @@ export interface SignPayloadResponse {
    * <p>Unique identifier of the signing job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The AWS account ID of the job owner.</p>
    * @public
    */
-  jobOwner?: string;
+  jobOwner?: string | undefined;
 
   /**
    * <p>Information including the signing profile ARN and the signing job ID.</p>
    * @public
    */
-  metadata?: Record<string, string>;
+  metadata?: Record<string, string> | undefined;
 
   /**
    * <p>A cryptographic signature.</p>
    * @public
    */
-  signature?: Uint8Array;
+  signature?: Uint8Array | undefined;
 }
 
 /**
@@ -1844,13 +1844,13 @@ export interface StartSigningJobRequest {
    * 			token return the same response as the first call.</p>
    * @public
    */
-  clientRequestToken?: string;
+  clientRequestToken?: string | undefined;
 
   /**
    * <p>The AWS account ID of the signing profile owner.</p>
    * @public
    */
-  profileOwner?: string;
+  profileOwner?: string | undefined;
 }
 
 /**
@@ -1861,13 +1861,13 @@ export interface StartSigningJobResponse {
    * <p>The ID of your signing job.</p>
    * @public
    */
-  jobId?: string;
+  jobId?: string | undefined;
 
   /**
    * <p>The AWS account ID of the signing job owner.</p>
    * @public
    */
-  jobOwner?: string;
+  jobOwner?: string | undefined;
 }
 
 /**
@@ -1880,7 +1880,7 @@ export interface StartSigningJobResponse {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  code?: string;
+  code?: string | undefined;
   /**
    * @internal
    */

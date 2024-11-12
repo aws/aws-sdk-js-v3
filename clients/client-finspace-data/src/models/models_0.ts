@@ -76,7 +76,7 @@ export interface AssociateUserToPermissionGroupRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -87,7 +87,7 @@ export interface AssociateUserToPermissionGroupResponse {
    * <p>The returned status code of the response.</p>
    * @public
    */
-  statusCode?: number;
+  statusCode?: number | undefined;
 }
 
 /**
@@ -97,7 +97,7 @@ export interface AssociateUserToPermissionGroupResponse {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  reason?: string;
+  reason?: string | undefined;
   /**
    * @internal
    */
@@ -140,7 +140,7 @@ export class InternalServerException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  reason?: string;
+  reason?: string | undefined;
   /**
    * @internal
    */
@@ -182,7 +182,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  reason?: string;
+  reason?: string | undefined;
   /**
    * @internal
    */
@@ -206,25 +206,25 @@ export interface AwsCredentials {
    * <p> The unique identifier for the security credentials.</p>
    * @public
    */
-  accessKeyId?: string;
+  accessKeyId?: string | undefined;
 
   /**
    * <p> The secret access key that can be used to sign requests.</p>
    * @public
    */
-  secretAccessKey?: string;
+  secretAccessKey?: string | undefined;
 
   /**
    * <p> The token that users must pass to use the credentials.</p>
    * @public
    */
-  sessionToken?: string;
+  sessionToken?: string | undefined;
 
   /**
    * <p> The Epoch time when the current credentials expire.</p>
    * @public
    */
-  expiration?: number;
+  expiration?: number | undefined;
 }
 
 /**
@@ -251,7 +251,7 @@ export interface CreateChangesetRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The unique identifier for the FinSpace Dataset where the Changeset will be created.
@@ -360,13 +360,13 @@ export interface CreateChangesetResponse {
    * <p>The unique identifier for the FinSpace Dataset where the Changeset is created.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>The unique identifier of the Changeset that is created.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 }
 
 /**
@@ -412,19 +412,19 @@ export interface DatasetOwnerInfo {
    * <p>The name of the Dataset owner.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Phone number for the Dataset owner.</p>
    * @public
    */
-  phoneNumber?: string;
+  phoneNumber?: string | undefined;
 
   /**
    * <p>Email address for the Dataset owner.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 }
 
 /**
@@ -472,7 +472,7 @@ export interface ResourcePermission {
    * <p>Permission for a resource.</p>
    * @public
    */
-  permission?: string;
+  permission?: string | undefined;
 }
 
 /**
@@ -498,13 +498,13 @@ export interface PermissionGroupParams {
    * <p>The unique identifier for the <code>PermissionGroup</code>.</p>
    * @public
    */
-  permissionGroupId?: string;
+  permissionGroupId?: string | undefined;
 
   /**
    * <p>List of resource permissions.</p>
    * @public
    */
-  datasetPermissions?: ResourcePermission[];
+  datasetPermissions?: ResourcePermission[] | undefined;
 }
 
 /**
@@ -568,19 +568,19 @@ export interface ColumnDefinition {
    *          </ul>
    * @public
    */
-  dataType?: ColumnDataType;
+  dataType?: ColumnDataType | undefined;
 
   /**
    * <p>The name of a column.</p>
    * @public
    */
-  columnName?: string;
+  columnName?: string | undefined;
 
   /**
    * <p>Description for a column.</p>
    * @public
    */
-  columnDescription?: string;
+  columnDescription?: string | undefined;
 }
 
 /**
@@ -592,13 +592,13 @@ export interface SchemaDefinition {
    * <p>List of column definitions.</p>
    * @public
    */
-  columns?: ColumnDefinition[];
+  columns?: ColumnDefinition[] | undefined;
 
   /**
    * <p>List of column names used for primary key.</p>
    * @public
    */
-  primaryKeyColumns?: string[];
+  primaryKeyColumns?: string[] | undefined;
 }
 
 /**
@@ -610,7 +610,7 @@ export interface SchemaUnion {
    * <p>The configuration for a schema on a tabular Dataset.</p>
    * @public
    */
-  tabularSchemaConfig?: SchemaDefinition;
+  tabularSchemaConfig?: SchemaDefinition | undefined;
 }
 
 /**
@@ -622,7 +622,7 @@ export interface CreateDatasetRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Display title for a FinSpace Dataset.</p>
@@ -650,13 +650,13 @@ export interface CreateDatasetRequest {
    * <p>Description of a Dataset.</p>
    * @public
    */
-  datasetDescription?: string;
+  datasetDescription?: string | undefined;
 
   /**
    * <p>Contact information for a Dataset owner.</p>
    * @public
    */
-  ownerInfo?: DatasetOwnerInfo;
+  ownerInfo?: DatasetOwnerInfo | undefined;
 
   /**
    * <p>Permission group parameters for Dataset permissions.</p>
@@ -668,13 +668,13 @@ export interface CreateDatasetRequest {
    * <p>The unique resource identifier for a Dataset.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Definition for a schema on a tabular Dataset.</p>
    * @public
    */
-  schemaDefinition?: SchemaUnion;
+  schemaDefinition?: SchemaUnion | undefined;
 }
 
 /**
@@ -686,7 +686,7 @@ export interface CreateDatasetResponse {
    * <p>The unique identifier for the created Dataset.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 }
 
 /**
@@ -738,7 +738,7 @@ export interface DataViewDestinationTypeParams {
    *          </ul>
    * @public
    */
-  s3DestinationExportFileFormat?: ExportFileFormat;
+  s3DestinationExportFileFormat?: ExportFileFormat | undefined;
 
   /**
    * <p>Format Options for S3 Destination type.</p>
@@ -754,7 +754,7 @@ export interface DataViewDestinationTypeParams {
    *          </p>
    * @public
    */
-  s3DestinationExportFileFormatOptions?: Record<string, string>;
+  s3DestinationExportFileFormatOptions?: Record<string, string> | undefined;
 }
 
 /**
@@ -766,7 +766,7 @@ export interface CreateDataViewRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The unique Dataset identifier that is used to create a Dataview.</p>
@@ -778,25 +778,25 @@ export interface CreateDataViewRequest {
    * <p>Flag to indicate Dataview should be updated automatically.</p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p>Columns to be used for sorting the data.</p>
    * @public
    */
-  sortColumns?: string[];
+  sortColumns?: string[] | undefined;
 
   /**
    * <p>Ordered set of column names used to partition data.</p>
    * @public
    */
-  partitionColumns?: string[];
+  partitionColumns?: string[] | undefined;
 
   /**
    * <p>Beginning time to use for the Dataview. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  asOfTimestamp?: number;
+  asOfTimestamp?: number | undefined;
 
   /**
    * <p>Options that define the destination type for the Dataview.</p>
@@ -814,13 +814,13 @@ export interface CreateDataViewResponse {
    * <p>The unique identifier of the Dataset used for the Dataview.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>The unique identifier for the created Dataview.</p>
    * @public
    */
-  dataViewId?: string;
+  dataViewId?: string | undefined;
 }
 
 /**
@@ -837,7 +837,7 @@ export interface CreatePermissionGroupRequest {
    * <p>A brief description for the permission group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The option to indicate FinSpace application permissions that are granted to a specific group.</p>
@@ -882,7 +882,7 @@ export interface CreatePermissionGroupRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -893,7 +893,7 @@ export interface CreatePermissionGroupResponse {
    * <p>The unique identifier for the permission group.</p>
    * @public
    */
-  permissionGroupId?: string;
+  permissionGroupId?: string | undefined;
 }
 
 /**
@@ -940,13 +940,13 @@ export interface CreateUserRequest {
    * <p>The first name of the user that you want to register.</p>
    * @public
    */
-  firstName?: string;
+  firstName?: string | undefined;
 
   /**
    * <p>The last name of the user that you want to register.</p>
    * @public
    */
-  lastName?: string;
+  lastName?: string | undefined;
 
   /**
    * <p>The option to indicate whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p>
@@ -962,19 +962,19 @@ export interface CreateUserRequest {
    *          </ul>
    * @public
    */
-  apiAccess?: ApiAccess;
+  apiAccess?: ApiAccess | undefined;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
    * @public
    */
-  apiAccessPrincipalArn?: string;
+  apiAccessPrincipalArn?: string | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -985,7 +985,7 @@ export interface CreateUserResponse {
    * <p>The unique identifier for the user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 }
 
 /**
@@ -997,7 +997,7 @@ export interface DeleteDatasetRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The unique identifier of the Dataset to be deleted.</p>
@@ -1015,7 +1015,7 @@ export interface DeleteDatasetResponse {
    * <p>The unique identifier for the deleted Dataset.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 }
 
 /**
@@ -1032,7 +1032,7 @@ export interface DeletePermissionGroupRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1043,7 +1043,7 @@ export interface DeletePermissionGroupResponse {
    * <p>The unique identifier for the deleted permission group.</p>
    * @public
    */
-  permissionGroupId?: string;
+  permissionGroupId?: string | undefined;
 }
 
 /**
@@ -1060,7 +1060,7 @@ export interface DisableUserRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1071,7 +1071,7 @@ export interface DisableUserResponse {
    * <p>The unique identifier for the deactivated user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 }
 
 /**
@@ -1094,7 +1094,7 @@ export interface DisassociateUserFromPermissionGroupRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1105,7 +1105,7 @@ export interface DisassociateUserFromPermissionGroupResponse {
    * <p>The returned status code of the response.</p>
    * @public
    */
-  statusCode?: number;
+  statusCode?: number | undefined;
 }
 
 /**
@@ -1122,7 +1122,7 @@ export interface EnableUserRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1133,7 +1133,7 @@ export interface EnableUserResponse {
    * <p>The unique identifier for the active user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 }
 
 /**
@@ -1183,7 +1183,7 @@ export interface ChangesetErrorInfo {
    * <p>The text of the error message.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The category of the error.</p>
@@ -1228,7 +1228,7 @@ export interface ChangesetErrorInfo {
    *          </ul>
    * @public
    */
-  errorCategory?: ErrorCategory;
+  errorCategory?: ErrorCategory | undefined;
 }
 
 /**
@@ -1257,19 +1257,19 @@ export interface GetChangesetResponse {
    * <p>The unique identifier for a Changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>The ARN identifier of the Changeset.</p>
    * @public
    */
-  changesetArn?: string;
+  changesetArn?: string | undefined;
 
   /**
    * <p>The unique identifier for the FinSpace Dataset where the Changeset is created.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>Type that indicates how a Changeset is applied to a Dataset.</p>
@@ -1289,61 +1289,61 @@ export interface GetChangesetResponse {
    *          </ul>
    * @public
    */
-  changeType?: ChangeType;
+  changeType?: ChangeType | undefined;
 
   /**
    * <p>Options that define the location of the data being ingested.</p>
    * @public
    */
-  sourceParams?: Record<string, string>;
+  sourceParams?: Record<string, string> | undefined;
 
   /**
    * <p>Structure of the source file(s).</p>
    * @public
    */
-  formatParams?: Record<string, string>;
+  formatParams?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>The status of Changeset creation operation.</p>
    * @public
    */
-  status?: IngestionStatus;
+  status?: IngestionStatus | undefined;
 
   /**
    * <p>The structure with error messages.</p>
    * @public
    */
-  errorInfo?: ChangesetErrorInfo;
+  errorInfo?: ChangesetErrorInfo | undefined;
 
   /**
    * <p>Time until which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  activeUntilTimestamp?: number;
+  activeUntilTimestamp?: number | undefined;
 
   /**
    * <p>Beginning time from which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  activeFromTimestamp?: number;
+  activeFromTimestamp?: number | undefined;
 
   /**
    * <p>The unique identifier of the Changeset that is being updated.</p>
    * @public
    */
-  updatesChangesetId?: string;
+  updatesChangesetId?: string | undefined;
 
   /**
    * <p>The unique identifier of the updated Changeset.</p>
    * @public
    */
-  updatedByChangesetId?: string;
+  updatedByChangesetId?: string | undefined;
 }
 
 /**
@@ -1383,19 +1383,19 @@ export interface GetDatasetResponse {
    * <p>The unique identifier for a Dataset.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>The ARN identifier of the Dataset.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>Display title for a Dataset.</p>
    * @public
    */
-  datasetTitle?: string;
+  datasetTitle?: string | undefined;
 
   /**
    * <p>The format in which Dataset data is structured.</p>
@@ -1411,37 +1411,37 @@ export interface GetDatasetResponse {
    *          </ul>
    * @public
    */
-  kind?: DatasetKind;
+  kind?: DatasetKind | undefined;
 
   /**
    * <p>A description of the Dataset.</p>
    * @public
    */
-  datasetDescription?: string;
+  datasetDescription?: string | undefined;
 
   /**
    * <p>The timestamp at which the Dataset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>The last time that the Dataset was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTime?: number;
+  lastModifiedTime?: number | undefined;
 
   /**
    * <p>Definition for a schema on a tabular Dataset.</p>
    * @public
    */
-  schemaDefinition?: SchemaUnion;
+  schemaDefinition?: SchemaUnion | undefined;
 
   /**
    * <p>The unique resource identifier for a Dataset.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Status of the Dataset creation.</p>
@@ -1465,7 +1465,7 @@ export interface GetDatasetResponse {
    *          </ul>
    * @public
    */
-  status?: DatasetStatus;
+  status?: DatasetStatus | undefined;
 }
 
 /**
@@ -1495,7 +1495,7 @@ export interface DataViewErrorInfo {
    * <p>The text of the error message.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The category of the error.</p>
@@ -1540,7 +1540,7 @@ export interface DataViewErrorInfo {
    *          </ul>
    * @public
    */
-  errorCategory?: ErrorCategory;
+  errorCategory?: ErrorCategory | undefined;
 }
 
 /**
@@ -1572,67 +1572,67 @@ export interface GetDataViewResponse {
    * <p>Flag to indicate Dataview should be updated automatically.</p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p>Ordered set of column names used to partition data.</p>
    * @public
    */
-  partitionColumns?: string[];
+  partitionColumns?: string[] | undefined;
 
   /**
    * <p>The unique identifier for the Dataset used in the Dataview.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>Time range to use for the Dataview. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  asOfTimestamp?: number;
+  asOfTimestamp?: number | undefined;
 
   /**
    * <p>Information about an error that occurred for the Dataview.</p>
    * @public
    */
-  errorInfo?: DataViewErrorInfo;
+  errorInfo?: DataViewErrorInfo | undefined;
 
   /**
    * <p>The last time that a Dataview was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTime?: number;
+  lastModifiedTime?: number | undefined;
 
   /**
    * <p>The timestamp at which the Dataview was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>Columns to be used for sorting the data.</p>
    * @public
    */
-  sortColumns?: string[];
+  sortColumns?: string[] | undefined;
 
   /**
    * <p>The unique identifier for the Dataview.</p>
    * @public
    */
-  dataViewId?: string;
+  dataViewId?: string | undefined;
 
   /**
    * <p>The ARN identifier of the Dataview.</p>
    * @public
    */
-  dataViewArn?: string;
+  dataViewArn?: string | undefined;
 
   /**
    * <p>Options that define the destination type for the Dataview.</p>
    * @public
    */
-  destinationTypeParams?: DataViewDestinationTypeParams;
+  destinationTypeParams?: DataViewDestinationTypeParams | undefined;
 
   /**
    * <p>The status of a Dataview creation.</p>
@@ -1672,7 +1672,7 @@ export interface GetDataViewResponse {
    *          </ul>
    * @public
    */
-  status?: DataViewStatus;
+  status?: DataViewStatus | undefined;
 }
 
 /**
@@ -1718,13 +1718,13 @@ export interface GetExternalDataViewAccessDetailsResponse {
    * <p>The credentials required to access the external Dataview from the S3 location.</p>
    * @public
    */
-  credentials?: AwsCredentials;
+  credentials?: AwsCredentials | undefined;
 
   /**
    * <p>The location where the external Dataview is stored.</p>
    * @public
    */
-  s3Location?: S3Location;
+  s3Location?: S3Location | undefined;
 }
 
 /**
@@ -1763,19 +1763,19 @@ export interface PermissionGroup {
    * <p> The unique identifier for the permission group.</p>
    * @public
    */
-  permissionGroupId?: string;
+  permissionGroupId?: string | undefined;
 
   /**
    * <p>The name of the permission group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> A brief description for the permission group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Indicates the permissions that are granted to a specific group for accessing the FinSpace application.</p>
@@ -1814,21 +1814,21 @@ export interface PermissionGroup {
    *          </ul>
    * @public
    */
-  applicationPermissions?: ApplicationPermission[];
+  applicationPermissions?: ApplicationPermission[] | undefined;
 
   /**
    * <p>The timestamp at which the group was created in FinSpace. The value is determined as epoch time in milliseconds.
    *     </p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>Describes the last time the permission group was updated. The value is determined as epoch time in milliseconds.
    *     </p>
    * @public
    */
-  lastModifiedTime?: number;
+  lastModifiedTime?: number | undefined;
 
   /**
    * <p>Indicates the status of the user within a permission group.</p>
@@ -1848,7 +1848,7 @@ export interface PermissionGroup {
    *          </ul>
    * @public
    */
-  membershipStatus?: PermissionGroupMembershipStatus;
+  membershipStatus?: PermissionGroupMembershipStatus | undefined;
 }
 
 /**
@@ -1859,7 +1859,7 @@ export interface GetPermissionGroupResponse {
    * <p>The structure for a permission group.</p>
    * @public
    */
-  permissionGroup?: PermissionGroup;
+  permissionGroup?: PermissionGroup | undefined;
 }
 
 /**
@@ -1871,7 +1871,7 @@ export interface GetProgrammaticAccessCredentialsRequest {
    * <p>The time duration in which the credentials remain valid. </p>
    * @public
    */
-  durationInMinutes?: number;
+  durationInMinutes?: number | undefined;
 
   /**
    * <p>The FinSpace environment identifier.</p>
@@ -1889,19 +1889,19 @@ export interface Credentials {
    * <p>The access key identifier.</p>
    * @public
    */
-  accessKeyId?: string;
+  accessKeyId?: string | undefined;
 
   /**
    * <p>The access key.</p>
    * @public
    */
-  secretAccessKey?: string;
+  secretAccessKey?: string | undefined;
 
   /**
    * <p>The session token.</p>
    * @public
    */
-  sessionToken?: string;
+  sessionToken?: string | undefined;
 }
 
 /**
@@ -1913,13 +1913,13 @@ export interface GetProgrammaticAccessCredentialsResponse {
    * <p>Returns the programmatic credentials.</p>
    * @public
    */
-  credentials?: Credentials;
+  credentials?: Credentials | undefined;
 
   /**
    * <p>Returns the duration in which the credentials will remain valid.</p>
    * @public
    */
-  durationInMinutes?: number;
+  durationInMinutes?: number | undefined;
 }
 
 /**
@@ -1956,7 +1956,7 @@ export interface GetUserResponse {
    * <p>The unique identifier for the user that is retrieved.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The current status of the user. </p>
@@ -1976,25 +1976,25 @@ export interface GetUserResponse {
    *          </ul>
    * @public
    */
-  status?: UserStatus;
+  status?: UserStatus | undefined;
 
   /**
    * <p>The first name of the user.</p>
    * @public
    */
-  firstName?: string;
+  firstName?: string | undefined;
 
   /**
    * <p>The last name of the user.</p>
    * @public
    */
-  lastName?: string;
+  lastName?: string | undefined;
 
   /**
    * <p>The email address that is associated with the user.</p>
    * @public
    */
-  emailAddress?: string;
+  emailAddress?: string | undefined;
 
   /**
    * <p>Indicates the type of user.  </p>
@@ -2012,7 +2012,7 @@ export interface GetUserResponse {
    *          </ul>
    * @public
    */
-  type?: UserType;
+  type?: UserType | undefined;
 
   /**
    * <p>Indicates whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations. </p>
@@ -2028,43 +2028,43 @@ export interface GetUserResponse {
    *          </ul>
    * @public
    */
-  apiAccess?: ApiAccess;
+  apiAccess?: ApiAccess | undefined;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
    * @public
    */
-  apiAccessPrincipalArn?: string;
+  apiAccessPrincipalArn?: string | undefined;
 
   /**
    * <p>The timestamp at which the user was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>Describes the last time the user was activated. The value is determined as epoch time in milliseconds.</p>
    * @public
    */
-  lastEnabledTime?: number;
+  lastEnabledTime?: number | undefined;
 
   /**
    * <p>Describes the last time the user was deactivated. The value is determined as epoch time in milliseconds.</p>
    * @public
    */
-  lastDisabledTime?: number;
+  lastDisabledTime?: number | undefined;
 
   /**
    * <p>Describes the last time the user details were updated. The value is determined as epoch time in milliseconds.</p>
    * @public
    */
-  lastModifiedTime?: number;
+  lastModifiedTime?: number | undefined;
 
   /**
    * <p>Describes the last time that the user logged into their account. The value is determined as epoch time in milliseconds.</p>
    * @public
    */
-  lastLoginTime?: number;
+  lastLoginTime?: number | undefined;
 }
 
 /**
@@ -2101,7 +2101,7 @@ export interface GetWorkingLocationRequest {
    *          </ul>
    * @public
    */
-  locationType?: LocationType;
+  locationType?: LocationType | undefined;
 }
 
 /**
@@ -2112,19 +2112,19 @@ export interface GetWorkingLocationResponse {
    * <p>Returns the Amazon S3 URI for the working location.</p>
    * @public
    */
-  s3Uri?: string;
+  s3Uri?: string | undefined;
 
   /**
    * <p>Returns the Amazon S3 Path for the working location.</p>
    * @public
    */
-  s3Path?: string;
+  s3Path?: string | undefined;
 
   /**
    * <p>Returns the Amazon S3 bucket name for the working location.</p>
    * @public
    */
-  s3Bucket?: string;
+  s3Bucket?: string | undefined;
 }
 
 /**
@@ -2142,13 +2142,13 @@ export interface ListChangesetsRequest {
    * <p>The maximum number of results per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2160,19 +2160,19 @@ export interface ChangesetSummary {
    * <p>The unique identifier for a Changeset.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>The ARN identifier of the Changeset.</p>
    * @public
    */
-  changesetArn?: string;
+  changesetArn?: string | undefined;
 
   /**
    * <p>The unique identifier for the FinSpace Dataset in which the Changeset is created.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>Type that indicates how a Changeset is applied to a Dataset.</p>
@@ -2195,25 +2195,25 @@ export interface ChangesetSummary {
    *          </ul>
    * @public
    */
-  changeType?: ChangeType;
+  changeType?: ChangeType | undefined;
 
   /**
    * <p>Options that define the location of the data being ingested.</p>
    * @public
    */
-  sourceParams?: Record<string, string>;
+  sourceParams?: Record<string, string> | undefined;
 
   /**
    * <p>Options that define the structure of the source file(s).</p>
    * @public
    */
-  formatParams?: Record<string, string>;
+  formatParams?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp at which the Changeset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>Status of the Changeset ingestion.</p>
@@ -2241,37 +2241,37 @@ export interface ChangesetSummary {
    *          </ul>
    * @public
    */
-  status?: IngestionStatus;
+  status?: IngestionStatus | undefined;
 
   /**
    * <p>The structure with error messages.</p>
    * @public
    */
-  errorInfo?: ChangesetErrorInfo;
+  errorInfo?: ChangesetErrorInfo | undefined;
 
   /**
    * <p>Time until which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  activeUntilTimestamp?: number;
+  activeUntilTimestamp?: number | undefined;
 
   /**
    * <p>Beginning time from which the Changeset is active. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  activeFromTimestamp?: number;
+  activeFromTimestamp?: number | undefined;
 
   /**
    * <p>The unique identifier of the Changeset that is updated.</p>
    * @public
    */
-  updatesChangesetId?: string;
+  updatesChangesetId?: string | undefined;
 
   /**
    * <p>The unique identifier of the updated Changeset.</p>
    * @public
    */
-  updatedByChangesetId?: string;
+  updatedByChangesetId?: string | undefined;
 }
 
 /**
@@ -2283,13 +2283,13 @@ export interface ListChangesetsResponse {
    * <p>List of Changesets found.</p>
    * @public
    */
-  changesets?: ChangesetSummary[];
+  changesets?: ChangesetSummary[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2301,13 +2301,13 @@ export interface ListDatasetsRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2319,19 +2319,19 @@ export interface Dataset {
    * <p>An identifier for a Dataset.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>The ARN identifier of the Dataset.</p>
    * @public
    */
-  datasetArn?: string;
+  datasetArn?: string | undefined;
 
   /**
    * <p>Display title for a Dataset.</p>
    * @public
    */
-  datasetTitle?: string;
+  datasetTitle?: string | undefined;
 
   /**
    * <p>The format in which Dataset data is structured.</p>
@@ -2347,43 +2347,43 @@ export interface Dataset {
    *          </ul>
    * @public
    */
-  kind?: DatasetKind;
+  kind?: DatasetKind | undefined;
 
   /**
    * <p>Description for a Dataset.</p>
    * @public
    */
-  datasetDescription?: string;
+  datasetDescription?: string | undefined;
 
   /**
    * <p>Contact information for a Dataset owner.</p>
    * @public
    */
-  ownerInfo?: DatasetOwnerInfo;
+  ownerInfo?: DatasetOwnerInfo | undefined;
 
   /**
    * <p>The timestamp at which the Dataset was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>The last time that the Dataset was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTime?: number;
+  lastModifiedTime?: number | undefined;
 
   /**
    * <p>Definition for a schema on a tabular Dataset.</p>
    * @public
    */
-  schemaDefinition?: SchemaUnion;
+  schemaDefinition?: SchemaUnion | undefined;
 
   /**
    * <p>The unique resource identifier for a Dataset.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 }
 
 /**
@@ -2395,13 +2395,13 @@ export interface ListDatasetsResponse {
    * <p>List of Datasets.</p>
    * @public
    */
-  datasets?: Dataset[];
+  datasets?: Dataset[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2419,13 +2419,13 @@ export interface ListDataViewsRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2437,37 +2437,37 @@ export interface DataViewSummary {
    * <p>The unique identifier for the Dataview.</p>
    * @public
    */
-  dataViewId?: string;
+  dataViewId?: string | undefined;
 
   /**
    * <p>The ARN identifier of the Dataview.</p>
    * @public
    */
-  dataViewArn?: string;
+  dataViewArn?: string | undefined;
 
   /**
    * <p>Th unique identifier for the Dataview Dataset.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 
   /**
    * <p>Time range to use for the Dataview. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  asOfTimestamp?: number;
+  asOfTimestamp?: number | undefined;
 
   /**
    * <p>Ordered set of column names used to partition data.</p>
    * @public
    */
-  partitionColumns?: string[];
+  partitionColumns?: string[] | undefined;
 
   /**
    * <p>Columns to be used for sorting the data.</p>
    * @public
    */
-  sortColumns?: string[];
+  sortColumns?: string[] | undefined;
 
   /**
    * <p>The status of a Dataview creation.</p>
@@ -2507,37 +2507,37 @@ export interface DataViewSummary {
    *          </ul>
    * @public
    */
-  status?: DataViewStatus;
+  status?: DataViewStatus | undefined;
 
   /**
    * <p>The structure with error messages.</p>
    * @public
    */
-  errorInfo?: DataViewErrorInfo;
+  errorInfo?: DataViewErrorInfo | undefined;
 
   /**
    * <p>Information about the Dataview destination.</p>
    * @public
    */
-  destinationTypeProperties?: DataViewDestinationTypeParams;
+  destinationTypeProperties?: DataViewDestinationTypeParams | undefined;
 
   /**
    * <p>The flag to indicate Dataview should be updated automatically.</p>
    * @public
    */
-  autoUpdate?: boolean;
+  autoUpdate?: boolean | undefined;
 
   /**
    * <p>The timestamp at which the Dataview was created in FinSpace. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p>The last time that a Dataview was modified. The value is determined as epoch time in milliseconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000000.</p>
    * @public
    */
-  lastModifiedTime?: number;
+  lastModifiedTime?: number | undefined;
 }
 
 /**
@@ -2548,13 +2548,13 @@ export interface ListDataViewsResponse {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of Dataviews.</p>
    * @public
    */
-  dataViews?: DataViewSummary[];
+  dataViews?: DataViewSummary[] | undefined;
 }
 
 /**
@@ -2565,7 +2565,7 @@ export interface ListPermissionGroupsRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
@@ -2582,13 +2582,13 @@ export interface ListPermissionGroupsResponse {
    * <p>A list of all the permission groups.</p>
    * @public
    */
-  permissionGroups?: PermissionGroup[];
+  permissionGroups?: PermissionGroup[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2605,7 +2605,7 @@ export interface ListPermissionGroupsByUserRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
@@ -2623,13 +2623,13 @@ export interface PermissionGroupByUser {
    * <p>The unique identifier for the permission group.</p>
    * @public
    */
-  permissionGroupId?: string;
+  permissionGroupId?: string | undefined;
 
   /**
    * <p>The name of the permission group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Indicates the status of the user within a permission group.</p>
@@ -2649,7 +2649,7 @@ export interface PermissionGroupByUser {
    *          </ul>
    * @public
    */
-  membershipStatus?: PermissionGroupMembershipStatus;
+  membershipStatus?: PermissionGroupMembershipStatus | undefined;
 }
 
 /**
@@ -2660,13 +2660,13 @@ export interface ListPermissionGroupsByUserResponse {
    * <p>A list of returned permission groups.</p>
    * @public
    */
-  permissionGroups?: PermissionGroupByUser[];
+  permissionGroups?: PermissionGroupByUser[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2677,7 +2677,7 @@ export interface ListUsersRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
@@ -2695,7 +2695,7 @@ export interface User {
    * <p>The unique identifier for the user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The current status of the user. </p>
@@ -2715,25 +2715,25 @@ export interface User {
    *          </ul>
    * @public
    */
-  status?: UserStatus;
+  status?: UserStatus | undefined;
 
   /**
    * <p>The first name of the user.</p>
    * @public
    */
-  firstName?: string;
+  firstName?: string | undefined;
 
   /**
    * <p> The last name of the user.</p>
    * @public
    */
-  lastName?: string;
+  lastName?: string | undefined;
 
   /**
    * <p>The email address of the user. The email address serves as a uniquer identifier for each user and cannot be changed after it's created.</p>
    * @public
    */
-  emailAddress?: string;
+  emailAddress?: string | undefined;
 
   /**
    * <p> Indicates the type of user.</p>
@@ -2749,7 +2749,7 @@ export interface User {
    *          </ul>
    * @public
    */
-  type?: UserType;
+  type?: UserType | undefined;
 
   /**
    * <p>Indicates whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p>
@@ -2765,46 +2765,46 @@ export interface User {
    *          </ul>
    * @public
    */
-  apiAccess?: ApiAccess;
+  apiAccess?: ApiAccess | undefined;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
    * @public
    */
-  apiAccessPrincipalArn?: string;
+  apiAccessPrincipalArn?: string | undefined;
 
   /**
    * <p>The timestamp at which the user was created in FinSpace. The value is determined as epoch time in milliseconds. </p>
    * @public
    */
-  createTime?: number;
+  createTime?: number | undefined;
 
   /**
    * <p> Describes the last time the user was activated. The value is determined as epoch time in milliseconds.
    *     </p>
    * @public
    */
-  lastEnabledTime?: number;
+  lastEnabledTime?: number | undefined;
 
   /**
    * <p>Describes the last time the user was deactivated. The value is determined as epoch time in milliseconds.</p>
    * @public
    */
-  lastDisabledTime?: number;
+  lastDisabledTime?: number | undefined;
 
   /**
    * <p>Describes the last time the user was updated. The value is determined as epoch time in milliseconds.
    *     </p>
    * @public
    */
-  lastModifiedTime?: number;
+  lastModifiedTime?: number | undefined;
 
   /**
    * <p>Describes the last time that the user logged into their account. The value is determined as epoch time in milliseconds.
    *     </p>
    * @public
    */
-  lastLoginTime?: number;
+  lastLoginTime?: number | undefined;
 }
 
 /**
@@ -2815,13 +2815,13 @@ export interface ListUsersResponse {
    * <p>A list of all the users.</p>
    * @public
    */
-  users?: User[];
+  users?: User[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2838,7 +2838,7 @@ export interface ListUsersByPermissionGroupRequest {
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
@@ -2856,7 +2856,7 @@ export interface UserByPermissionGroup {
    * <p>The unique identifier for the user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The current status of the user. </p>
@@ -2876,25 +2876,25 @@ export interface UserByPermissionGroup {
    *          </ul>
    * @public
    */
-  status?: UserStatus;
+  status?: UserStatus | undefined;
 
   /**
    * <p>The first name of the user.</p>
    * @public
    */
-  firstName?: string;
+  firstName?: string | undefined;
 
   /**
    * <p>The last name of the user.</p>
    * @public
    */
-  lastName?: string;
+  lastName?: string | undefined;
 
   /**
    * <p>The email address of the user. The email address serves as a unique identifier for each user and cannot be changed after it's created.</p>
    * @public
    */
-  emailAddress?: string;
+  emailAddress?: string | undefined;
 
   /**
    * <p> Indicates the type of user.</p>
@@ -2910,7 +2910,7 @@ export interface UserByPermissionGroup {
    *          </ul>
    * @public
    */
-  type?: UserType;
+  type?: UserType | undefined;
 
   /**
    * <p>Indicates whether the user can access FinSpace API operations.</p>
@@ -2926,13 +2926,13 @@ export interface UserByPermissionGroup {
    *          </ul>
    * @public
    */
-  apiAccess?: ApiAccess;
+  apiAccess?: ApiAccess | undefined;
 
   /**
    * <p>The IAM ARN identifier that is attached to FinSpace API calls.</p>
    * @public
    */
-  apiAccessPrincipalArn?: string;
+  apiAccessPrincipalArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the user within a permission group.</p>
@@ -2952,7 +2952,7 @@ export interface UserByPermissionGroup {
    *          </ul>
    * @public
    */
-  membershipStatus?: PermissionGroupMembershipStatus;
+  membershipStatus?: PermissionGroupMembershipStatus | undefined;
 }
 
 /**
@@ -2963,13 +2963,13 @@ export interface ListUsersByPermissionGroupResponse {
    * <p>Lists details of all users in a specific permission group.</p>
    * @public
    */
-  users?: UserByPermissionGroup[];
+  users?: UserByPermissionGroup[] | undefined;
 
   /**
    * <p>A token that indicates where a results page should begin.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2986,7 +2986,7 @@ export interface ResetUserPasswordRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2997,13 +2997,13 @@ export interface ResetUserPasswordResponse {
    * <p>The unique identifier of the user that a new password is generated for.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>A randomly generated temporary password for the requested user. This password expires in 7 days.</p>
    * @public
    */
-  temporaryPassword?: string;
+  temporaryPassword?: string | undefined;
 }
 
 /**
@@ -3015,7 +3015,7 @@ export interface UpdateChangesetRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The unique identifier for the FinSpace Dataset in which the Changeset is created.</p>
@@ -3107,13 +3107,13 @@ export interface UpdateChangesetResponse {
    * <p>The unique identifier for the Changeset to update.</p>
    * @public
    */
-  changesetId?: string;
+  changesetId?: string | undefined;
 
   /**
    * <p>The unique identifier for the FinSpace Dataset in which the Changeset is created.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 }
 
 /**
@@ -3125,7 +3125,7 @@ export interface UpdateDatasetRequest {
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The unique identifier for the Dataset to update.</p>
@@ -3159,19 +3159,19 @@ export interface UpdateDatasetRequest {
    * <p>A description for the Dataset.</p>
    * @public
    */
-  datasetDescription?: string;
+  datasetDescription?: string | undefined;
 
   /**
    * <p>The unique resource identifier for a Dataset.</p>
    * @public
    */
-  alias?: string;
+  alias?: string | undefined;
 
   /**
    * <p>Definition for a schema on a tabular Dataset.</p>
    * @public
    */
-  schemaDefinition?: SchemaUnion;
+  schemaDefinition?: SchemaUnion | undefined;
 }
 
 /**
@@ -3183,7 +3183,7 @@ export interface UpdateDatasetResponse {
    * <p>The unique identifier for updated Dataset.</p>
    * @public
    */
-  datasetId?: string;
+  datasetId?: string | undefined;
 }
 
 /**
@@ -3200,13 +3200,13 @@ export interface UpdatePermissionGroupRequest {
    * <p>The name of the permission group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A brief description for the permission group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The permissions that are granted to a specific group for accessing the FinSpace application.</p>
@@ -3245,13 +3245,13 @@ export interface UpdatePermissionGroupRequest {
    *          </ul>
    * @public
    */
-  applicationPermissions?: ApplicationPermission[];
+  applicationPermissions?: ApplicationPermission[] | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3262,7 +3262,7 @@ export interface UpdatePermissionGroupResponse {
    * <p>The unique identifier for the updated permission group.</p>
    * @public
    */
-  permissionGroupId?: string;
+  permissionGroupId?: string | undefined;
 }
 
 /**
@@ -3289,19 +3289,19 @@ export interface UpdateUserRequest {
    *          </ul>
    * @public
    */
-  type?: UserType;
+  type?: UserType | undefined;
 
   /**
    * <p>The first name of the user.</p>
    * @public
    */
-  firstName?: string;
+  firstName?: string | undefined;
 
   /**
    * <p>The last name of the user.</p>
    * @public
    */
-  lastName?: string;
+  lastName?: string | undefined;
 
   /**
    * <p>The option to indicate whether the user can use the <code>GetProgrammaticAccessCredentials</code> API to obtain credentials that can then be used to access other FinSpace Data API operations.</p>
@@ -3317,19 +3317,19 @@ export interface UpdateUserRequest {
    *          </ul>
    * @public
    */
-  apiAccess?: ApiAccess;
+  apiAccess?: ApiAccess | undefined;
 
   /**
    * <p>The ARN identifier of an AWS user or role that is allowed to call the <code>GetProgrammaticAccessCredentials</code> API to obtain a credentials token for a specific FinSpace user. This must be an IAM role within your FinSpace account.</p>
    * @public
    */
-  apiAccessPrincipalArn?: string;
+  apiAccessPrincipalArn?: string | undefined;
 
   /**
    * <p>A token that ensures idempotency. This token expires in 10 minutes.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3340,7 +3340,7 @@ export interface UpdateUserResponse {
    * <p>The unique identifier of the updated user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 }
 
 /**

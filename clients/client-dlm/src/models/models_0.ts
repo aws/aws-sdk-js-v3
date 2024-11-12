@@ -23,7 +23,7 @@ export interface EncryptionConfiguration {
    * 			this parameter is not specified, the default KMS key for the account is used.</p>
    * @public
    */
-  CmkArn?: string;
+  CmkArn?: string | undefined;
 }
 
 /**
@@ -55,14 +55,14 @@ export interface CrossRegionCopyRetainRule {
    * 			This is equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The unit of time for time-based retention. For example, to retain a cross-Region copy for
    * 			3 months, specify <code>Interval=3</code> and <code>IntervalUnit=MONTHS</code>.</p>
    * @public
    */
-  IntervalUnit?: RetentionIntervalUnitValues;
+  IntervalUnit?: RetentionIntervalUnitValues | undefined;
 }
 
 /**
@@ -93,7 +93,7 @@ export interface CrossRegionCopyAction {
    * 			retention period expires, the cross-Region copy is deleted.</p>
    * @public
    */
-  RetainRule?: CrossRegionCopyRetainRule;
+  RetainRule?: CrossRegionCopyRetainRule | undefined;
 }
 
 /**
@@ -138,14 +138,14 @@ export interface RetentionArchiveTier {
    * 		count of 3 or more to ensure that each snapshot is archived for at least 90 days.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>Specifies the period of time to retain snapshots in the archive tier. After this period
    * 			expires, the snapshot is permanently deleted.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The unit of time in which to measure the <b>Interval</b>. For
@@ -153,7 +153,7 @@ export interface RetentionArchiveTier {
    * 			and <code>IntervalUnit=MONTHS</code>.</p>
    * @public
    */
-  IntervalUnit?: RetentionIntervalUnitValues;
+  IntervalUnit?: RetentionIntervalUnitValues | undefined;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface CrossRegionCopyTarget {
    * <p>The target Region, for example <code>us-east-1</code>.</p>
    * @public
    */
-  TargetRegion?: string;
+  TargetRegion?: string | undefined;
 }
 
 /**
@@ -245,7 +245,7 @@ export interface Exclusions {
    * 			<code>true</code>.</p>
    * @public
    */
-  ExcludeBootVolumes?: boolean;
+  ExcludeBootVolumes?: boolean | undefined;
 
   /**
    * <p>
@@ -253,14 +253,14 @@ export interface Exclusions {
    * 			types will not be targeted by the policy.</p>
    * @public
    */
-  ExcludeVolumeTypes?: string[];
+  ExcludeVolumeTypes?: string[] | undefined;
 
   /**
    * <p>
    *             <b>[Default policies for EBS-backed AMIs only]</b> Specifies whether to exclude volumes that have specific tags. </p>
    * @public
    */
-  ExcludeTags?: Tag[];
+  ExcludeTags?: Tag[] | undefined;
 }
 
 /**
@@ -336,7 +336,7 @@ export interface EventSource {
    * <p>Information about the event.</p>
    * @public
    */
-  Parameters?: EventParameters;
+  Parameters?: EventParameters | undefined;
 }
 
 /**
@@ -360,7 +360,7 @@ export interface _Parameters {
    * 			snapshot sets created by the policy.</p>
    * @public
    */
-  ExcludeBootVolume?: boolean;
+  ExcludeBootVolume?: boolean | undefined;
 
   /**
    * <p>
@@ -370,7 +370,7 @@ export interface _Parameters {
    * 			The default is <code>true</code> (instances are not rebooted).</p>
    * @public
    */
-  NoReboot?: boolean;
+  NoReboot?: boolean | undefined;
 
   /**
    * <p>
@@ -381,7 +381,7 @@ export interface _Parameters {
    * 			instances will be excluded from the multi-volume snapshot sets created by the policy.</p>
    * @public
    */
-  ExcludeDataVolumeTags?: Tag[];
+  ExcludeDataVolumeTags?: Tag[] | undefined;
 }
 
 /**
@@ -532,7 +532,7 @@ export interface Script {
    *          <p>Default: PRE and POST</p>
    * @public
    */
-  Stages?: StageValues[];
+  Stages?: StageValues[] | undefined;
 
   /**
    * <p>Indicates the service used to execute the pre and/or post scripts.</p>
@@ -549,7 +549,7 @@ export interface Script {
    *          <p>Default: AWS_SYSTEMS_MANAGER</p>
    * @public
    */
-  ExecutionHandlerService?: ExecutionHandlerServiceValues;
+  ExecutionHandlerService?: ExecutionHandlerServiceValues | undefined;
 
   /**
    * <p>The SSM document that includes the pre and/or post scripts to run.</p>
@@ -591,7 +591,7 @@ export interface Script {
    *          <p>Default: true</p>
    * @public
    */
-  ExecuteOperationOnScriptFailure?: boolean;
+  ExecuteOperationOnScriptFailure?: boolean | undefined;
 
   /**
    * <p>Specifies a timeout period, in seconds, after which Amazon Data Lifecycle Manager fails the script
@@ -602,7 +602,7 @@ export interface Script {
    *          <p>Default: 10</p>
    * @public
    */
-  ExecutionTimeout?: number;
+  ExecutionTimeout?: number | undefined;
 
   /**
    * <p>Specifies the number of times Amazon Data Lifecycle Manager should retry scripts that fail.</p>
@@ -621,7 +621,7 @@ export interface Script {
    *          <p>Default: 0</p>
    * @public
    */
-  MaximumRetryCount?: number;
+  MaximumRetryCount?: number | undefined;
 }
 
 /**
@@ -656,19 +656,19 @@ export interface CreateRule {
    * 			the Region of that Outpost.</p>
    * @public
    */
-  Location?: LocationValues;
+  Location?: LocationValues | undefined;
 
   /**
    * <p>The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The interval unit.</p>
    * @public
    */
-  IntervalUnit?: IntervalUnitValues;
+  IntervalUnit?: IntervalUnitValues | undefined;
 
   /**
    * <p>The time, in UTC, to start the operation. The supported format is hh:mm.</p>
@@ -676,7 +676,7 @@ export interface CreateRule {
    * 			not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.</p>
    * @public
    */
-  Times?: string[];
+  Times?: string[] | undefined;
 
   /**
    * <p>The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1
@@ -684,7 +684,7 @@ export interface CreateRule {
    * 				expressions</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
    * @public
    */
-  CronExpression?: string;
+  CronExpression?: string | undefined;
 
   /**
    * <p>
@@ -695,7 +695,7 @@ export interface CreateRule {
    * 				application-consistent snapshots with pre and post scripts</a>.</p>
    * @public
    */
-  Scripts?: Script[];
+  Scripts?: Script[] | undefined;
 }
 
 /**
@@ -710,7 +710,7 @@ export interface CrossRegionCopyDeprecateRule {
    * 			equivalent to 120 months, 520 weeks, or 3650 days.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The unit of time in which to measure the <b>Interval</b>. For example,
@@ -718,7 +718,7 @@ export interface CrossRegionCopyDeprecateRule {
    * 			<code>IntervalUnit=MONTHS</code>.</p>
    * @public
    */
-  IntervalUnit?: RetentionIntervalUnitValues;
+  IntervalUnit?: RetentionIntervalUnitValues | undefined;
 }
 
 /**
@@ -745,7 +745,7 @@ export interface CrossRegionCopyRule {
    * 			snapshot copies.</p>
    * @public
    */
-  TargetRegion?: string;
+  TargetRegion?: string | undefined;
 
   /**
    * <note>
@@ -757,7 +757,7 @@ export interface CrossRegionCopyRule {
    * 			snapshot copies.</p>
    * @public
    */
-  Target?: string;
+  Target?: string | undefined;
 
   /**
    * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
@@ -772,28 +772,28 @@ export interface CrossRegionCopyRule {
    * 			parameter is not specified, the default KMS key for the account is used.</p>
    * @public
    */
-  CmkArn?: string;
+  CmkArn?: string | undefined;
 
   /**
    * <p>Indicates whether to copy all user-defined tags from the source snapshot or AMI to the
    * 			cross-Region copy.</p>
    * @public
    */
-  CopyTags?: boolean;
+  CopyTags?: boolean | undefined;
 
   /**
    * <p>The retention rule that indicates how long the cross-Region snapshot or AMI copies are
    * 			to be retained in the destination Region.</p>
    * @public
    */
-  RetainRule?: CrossRegionCopyRetainRule;
+  RetainRule?: CrossRegionCopyRetainRule | undefined;
 
   /**
    * <p>
    *             <b>[Custom AMI policies only]</b> The AMI deprecation rule for cross-Region AMI copies created by the rule.</p>
    * @public
    */
-  DeprecateRule?: CrossRegionCopyDeprecateRule;
+  DeprecateRule?: CrossRegionCopyDeprecateRule | undefined;
 }
 
 /**
@@ -811,7 +811,7 @@ export interface DeprecateRule {
    * 			can't be greater than 1000.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>If the schedule has an age-based retention rule, this parameter specifies the period after which
@@ -820,13 +820,13 @@ export interface DeprecateRule {
    * 			weeks, or 3650 days.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The unit of time in which to measure the <b>Interval</b>.</p>
    * @public
    */
-  IntervalUnit?: RetentionIntervalUnitValues;
+  IntervalUnit?: RetentionIntervalUnitValues | undefined;
 }
 
 /**
@@ -841,20 +841,20 @@ export interface FastRestoreRule {
    * <p>The number of snapshots to be enabled with fast snapshot restore.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The amount of time to enable fast snapshot restore. The maximum is 100 years. This is
    * 			equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The unit of time for enabling fast snapshot restore.</p>
    * @public
    */
-  IntervalUnit?: RetentionIntervalUnitValues;
+  IntervalUnit?: RetentionIntervalUnitValues | undefined;
 
   /**
    * <p>The Availability Zones in which to enable fast snapshot restore.</p>
@@ -910,14 +910,14 @@ export interface RetainRule {
    * 			<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a>.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The amount of time to retain each snapshot. The maximum is 100 years. This is
    * 			equivalent to 1200 months, 5200 weeks, or 36500 days.</p>
    * @public
    */
-  Interval?: number;
+  Interval?: number | undefined;
 
   /**
    * <p>The unit of time for time-based retention. For example, to retain snapshots for 3 months, specify
@@ -926,7 +926,7 @@ export interface RetainRule {
    * 			<a href="https://docs.aws.amazon.com/dlm/latest/APIReference/API_ArchiveRule.html">ArchiveRule</a>.</p>
    * @public
    */
-  IntervalUnit?: RetentionIntervalUnitValues;
+  IntervalUnit?: RetentionIntervalUnitValues | undefined;
 }
 
 /**
@@ -945,13 +945,13 @@ export interface ShareRule {
    * <p>The period after which snapshots that are shared with other Amazon Web Services accounts are automatically unshared.</p>
    * @public
    */
-  UnshareInterval?: number;
+  UnshareInterval?: number | undefined;
 
   /**
    * <p>The unit of time for the automatic unsharing interval.</p>
    * @public
    */
-  UnshareIntervalUnit?: RetentionIntervalUnitValues;
+  UnshareIntervalUnit?: RetentionIntervalUnitValues | undefined;
 }
 
 /**
@@ -964,21 +964,21 @@ export interface Schedule {
    * <p>The name of the schedule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Copy all user-defined tags on a source volume to snapshots of the volume created by
    * 			this policy.</p>
    * @public
    */
-  CopyTags?: boolean;
+  CopyTags?: boolean | undefined;
 
   /**
    * <p>The tags to apply to policy-created resources. These user-defined tags are in addition
    * 			to the Amazon Web Services-added lifecycle tags.</p>
    * @public
    */
-  TagsToAdd?: Tag[];
+  TagsToAdd?: Tag[] | undefined;
 
   /**
    * <p>
@@ -989,26 +989,26 @@ export interface Schedule {
    * 			tags are only valid for EBS Snapshot Management – Instance policies.</p>
    * @public
    */
-  VariableTags?: Tag[];
+  VariableTags?: Tag[] | undefined;
 
   /**
    * <p>The creation rule.</p>
    * @public
    */
-  CreateRule?: CreateRule;
+  CreateRule?: CreateRule | undefined;
 
   /**
    * <p>The retention rule for snapshots or AMIs created by the policy.</p>
    * @public
    */
-  RetainRule?: RetainRule;
+  RetainRule?: RetainRule | undefined;
 
   /**
    * <p>
    *             <b>[Custom snapshot policies only]</b> The rule for enabling fast snapshot restore.</p>
    * @public
    */
-  FastRestoreRule?: FastRestoreRule;
+  FastRestoreRule?: FastRestoreRule | undefined;
 
   /**
    * <p>Specifies a rule for copying snapshots or AMIs across regions.</p>
@@ -1019,21 +1019,21 @@ export interface Schedule {
    *          </note>
    * @public
    */
-  CrossRegionCopyRules?: CrossRegionCopyRule[];
+  CrossRegionCopyRules?: CrossRegionCopyRule[] | undefined;
 
   /**
    * <p>
    *             <b>[Custom snapshot policies only]</b> The rule for sharing snapshots with other Amazon Web Services accounts.</p>
    * @public
    */
-  ShareRules?: ShareRule[];
+  ShareRules?: ShareRule[] | undefined;
 
   /**
    * <p>
    *             <b>[Custom AMI policies only]</b> The AMI deprecation rule for the schedule.</p>
    * @public
    */
-  DeprecateRule?: DeprecateRule;
+  DeprecateRule?: DeprecateRule | undefined;
 
   /**
    * <p>
@@ -1045,7 +1045,7 @@ export interface Schedule {
    * 				snapshot lifecycle policies</a>.</p>
    * @public
    */
-  ArchiveRule?: ArchiveRule;
+  ArchiveRule?: ArchiveRule | undefined;
 }
 
 /**
@@ -1062,7 +1062,7 @@ export interface PolicyDetails {
    *          <p>The default is <code>EBS_SNAPSHOT_MANAGEMENT</code>.</p>
    * @public
    */
-  PolicyType?: PolicyTypeValues;
+  PolicyType?: PolicyTypeValues | undefined;
 
   /**
    * <p>
@@ -1071,7 +1071,7 @@ export interface PolicyDetails {
    * 			snapshots from the volumes for an instance.</p>
    * @public
    */
-  ResourceTypes?: ResourceTypeValues[];
+  ResourceTypes?: ResourceTypeValues[] | undefined;
 
   /**
    * <p>
@@ -1082,14 +1082,14 @@ export interface PolicyDetails {
    * 				of the specified type with matching target tags across all of the Outposts in your account.</p>
    * @public
    */
-  ResourceLocations?: ResourceLocationValues[];
+  ResourceLocations?: ResourceLocationValues[] | undefined;
 
   /**
    * <p>
    *             <b>[Custom snapshot and AMI policies only]</b> The single tag that identifies targeted resources for this policy.</p>
    * @public
    */
-  TargetTags?: Tag[];
+  TargetTags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -1097,7 +1097,7 @@ export interface PolicyDetails {
    * 			can have up to four schedules—one mandatory schedule and up to three optional schedules.</p>
    * @public
    */
-  Schedules?: Schedule[];
+  Schedules?: Schedule[] | undefined;
 
   /**
    * <p>
@@ -1110,14 +1110,14 @@ export interface PolicyDetails {
    *          </note>
    * @public
    */
-  Parameters?: _Parameters;
+  Parameters?: _Parameters | undefined;
 
   /**
    * <p>
    *             <b>[Event-based policies only]</b>  The event that activates the event-based policy.</p>
    * @public
    */
-  EventSource?: EventSource;
+  EventSource?: EventSource | undefined;
 
   /**
    * <p>
@@ -1125,7 +1125,7 @@ export interface PolicyDetails {
    * 			only one action per policy.</p>
    * @public
    */
-  Actions?: Action[];
+  Actions?: Action[] | undefined;
 
   /**
    * <p>The type of policy to create. Specify one of the following:</p>
@@ -1141,7 +1141,7 @@ export interface PolicyDetails {
    *          </ul>
    * @public
    */
-  PolicyLanguage?: PolicyLanguageValues;
+  PolicyLanguage?: PolicyLanguageValues | undefined;
 
   /**
    * <p>
@@ -1159,7 +1159,7 @@ export interface PolicyDetails {
    *          </ul>
    * @public
    */
-  ResourceType?: ResourceTypeValues;
+  ResourceType?: ResourceTypeValues | undefined;
 
   /**
    * <p>
@@ -1169,7 +1169,7 @@ export interface PolicyDetails {
    *          <p>Default: 1</p>
    * @public
    */
-  CreateInterval?: number;
+  CreateInterval?: number | undefined;
 
   /**
    * <p>
@@ -1180,7 +1180,7 @@ export interface PolicyDetails {
    *          <p>Default: 7</p>
    * @public
    */
-  RetainInterval?: number;
+  RetainInterval?: number | undefined;
 
   /**
    * <p>
@@ -1189,7 +1189,7 @@ export interface PolicyDetails {
    *          <p>Default: false</p>
    * @public
    */
-  CopyTags?: boolean;
+  CopyTags?: boolean | undefined;
 
   /**
    * <p>
@@ -1198,7 +1198,7 @@ export interface PolicyDetails {
    * 			parameter.</p>
    * @public
    */
-  CrossRegionCopyTargets?: CrossRegionCopyTarget[];
+  CrossRegionCopyTargets?: CrossRegionCopyTarget[] | undefined;
 
   /**
    * <p>
@@ -1226,7 +1226,7 @@ export interface PolicyDetails {
    *          <p>Default: false</p>
    * @public
    */
-  ExtendDeletion?: boolean;
+  ExtendDeletion?: boolean | undefined;
 
   /**
    * <p>
@@ -1235,7 +1235,7 @@ export interface PolicyDetails {
    * 			for target resources that match any of the specified exclusion parameters.</p>
    * @public
    */
-  Exclusions?: Exclusions;
+  Exclusions?: Exclusions | undefined;
 }
 
 /**
@@ -1284,13 +1284,13 @@ export interface CreateLifecyclePolicyRequest {
    *          </important>
    * @public
    */
-  PolicyDetails?: PolicyDetails;
+  PolicyDetails?: PolicyDetails | undefined;
 
   /**
    * <p>The tags to apply to the lifecycle policy during creation.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>
@@ -1308,7 +1308,7 @@ export interface CreateLifecyclePolicyRequest {
    *          </ul>
    * @public
    */
-  DefaultPolicy?: DefaultPolicyTypeValues;
+  DefaultPolicy?: DefaultPolicyTypeValues | undefined;
 
   /**
    * <p>
@@ -1318,7 +1318,7 @@ export interface CreateLifecyclePolicyRequest {
    *          <p>Default: 1</p>
    * @public
    */
-  CreateInterval?: number;
+  CreateInterval?: number | undefined;
 
   /**
    * <p>
@@ -1329,7 +1329,7 @@ export interface CreateLifecyclePolicyRequest {
    *          <p>Default: 7</p>
    * @public
    */
-  RetainInterval?: number;
+  RetainInterval?: number | undefined;
 
   /**
    * <p>
@@ -1338,7 +1338,7 @@ export interface CreateLifecyclePolicyRequest {
    *          <p>Default: false</p>
    * @public
    */
-  CopyTags?: boolean;
+  CopyTags?: boolean | undefined;
 
   /**
    * <p>
@@ -1366,7 +1366,7 @@ export interface CreateLifecyclePolicyRequest {
    *          <p>Default: false</p>
    * @public
    */
-  ExtendDeletion?: boolean;
+  ExtendDeletion?: boolean | undefined;
 
   /**
    * <p>
@@ -1375,7 +1375,7 @@ export interface CreateLifecyclePolicyRequest {
    * 			parameter.</p>
    * @public
    */
-  CrossRegionCopyTargets?: CrossRegionCopyTarget[];
+  CrossRegionCopyTargets?: CrossRegionCopyTarget[] | undefined;
 
   /**
    * <p>
@@ -1384,7 +1384,7 @@ export interface CreateLifecyclePolicyRequest {
    * 			for target resources that match any of the specified exclusion parameters.</p>
    * @public
    */
-  Exclusions?: Exclusions;
+  Exclusions?: Exclusions | undefined;
 }
 
 /**
@@ -1395,7 +1395,7 @@ export interface CreateLifecyclePolicyResponse {
    * <p>The identifier of the lifecycle policy.</p>
    * @public
    */
-  PolicyId?: string;
+  PolicyId?: string | undefined;
 }
 
 /**
@@ -1405,8 +1405,8 @@ export interface CreateLifecyclePolicyResponse {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * @internal
    */
@@ -1430,19 +1430,19 @@ export class InternalServerException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * <p>The request omitted one or more required parameters.</p>
    * @public
    */
-  RequiredParameters?: string[];
+  RequiredParameters?: string[] | undefined;
 
   /**
    * <p>The request included parameters that cannot be provided together.</p>
    * @public
    */
-  MutuallyExclusiveParameters?: string[];
+  MutuallyExclusiveParameters?: string[] | undefined;
   /**
    * @internal
    */
@@ -1467,13 +1467,13 @@ export class InvalidRequestException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * <p>Value is the type of resource for which a limit was exceeded.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -1528,19 +1528,19 @@ export interface DeleteLifecyclePolicyResponse {}
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+  Message?: string | undefined;
+  Code?: string | undefined;
   /**
    * <p>Value is the type of resource that was not found.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Value is a list of resource IDs that were not found.</p>
    * @public
    */
-  ResourceIds?: string[];
+  ResourceIds?: string[] | undefined;
   /**
    * @internal
    */
@@ -1581,26 +1581,26 @@ export interface GetLifecyclePoliciesRequest {
    * <p>The identifiers of the data lifecycle policies.</p>
    * @public
    */
-  PolicyIds?: string[];
+  PolicyIds?: string[] | undefined;
 
   /**
    * <p>The activation state.</p>
    * @public
    */
-  State?: GettablePolicyStateValues;
+  State?: GettablePolicyStateValues | undefined;
 
   /**
    * <p>The resource type.</p>
    * @public
    */
-  ResourceTypes?: ResourceTypeValues[];
+  ResourceTypes?: ResourceTypeValues[] | undefined;
 
   /**
    * <p>The target tag for a policy.</p>
    *          <p>Tags are strings in the format <code>key=value</code>.</p>
    * @public
    */
-  TargetTags?: string[];
+  TargetTags?: string[] | undefined;
 
   /**
    * <p>The tags to add to objects created by the policy.</p>
@@ -1608,7 +1608,7 @@ export interface GetLifecyclePoliciesRequest {
    *          <p>These user-defined tags are added in addition to the Amazon Web Services-added lifecycle tags.</p>
    * @public
    */
-  TagsToAdd?: string[];
+  TagsToAdd?: string[] | undefined;
 
   /**
    * <p>
@@ -1629,7 +1629,7 @@ export interface GetLifecyclePoliciesRequest {
    *          </ul>
    * @public
    */
-  DefaultPolicyType?: DefaultPoliciesTypeValues;
+  DefaultPolicyType?: DefaultPoliciesTypeValues | undefined;
 }
 
 /**
@@ -1641,25 +1641,25 @@ export interface LifecyclePolicySummary {
    * <p>The identifier of the lifecycle policy.</p>
    * @public
    */
-  PolicyId?: string;
+  PolicyId?: string | undefined;
 
   /**
    * <p>The description of the lifecycle policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The activation state of the lifecycle policy.</p>
    * @public
    */
-  State?: GettablePolicyStateValues;
+  State?: GettablePolicyStateValues | undefined;
 
   /**
    * <p>The tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of policy. <code>EBS_SNAPSHOT_MANAGEMENT</code> indicates that the policy
@@ -1669,7 +1669,7 @@ export interface LifecyclePolicySummary {
    * 			snapshot copies for snapshots that are shared with your account.</p>
    * @public
    */
-  PolicyType?: PolicyTypeValues;
+  PolicyType?: PolicyTypeValues | undefined;
 
   /**
    * <p>
@@ -1686,7 +1686,7 @@ export interface LifecyclePolicySummary {
    *          </ul>
    * @public
    */
-  DefaultPolicy?: boolean;
+  DefaultPolicy?: boolean | undefined;
 }
 
 /**
@@ -1697,7 +1697,7 @@ export interface GetLifecyclePoliciesResponse {
    * <p>Summary information about the lifecycle policies.</p>
    * @public
    */
-  Policies?: LifecyclePolicySummary[];
+  Policies?: LifecyclePolicySummary[] | undefined;
 }
 
 /**
@@ -1721,62 +1721,62 @@ export interface LifecyclePolicy {
    * <p>The identifier of the lifecycle policy.</p>
    * @public
    */
-  PolicyId?: string;
+  PolicyId?: string | undefined;
 
   /**
    * <p>The description of the lifecycle policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The activation state of the lifecycle policy.</p>
    * @public
    */
-  State?: GettablePolicyStateValues;
+  State?: GettablePolicyStateValues | undefined;
 
   /**
    * <p>The description of the status.</p>
    * @public
    */
-  StatusMessage?: string;
+  StatusMessage?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by
    * 			the lifecycle policy.</p>
    * @public
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn?: string | undefined;
 
   /**
    * <p>The local date and time when the lifecycle policy was created.</p>
    * @public
    */
-  DateCreated?: Date;
+  DateCreated?: Date | undefined;
 
   /**
    * <p>The local date and time when the lifecycle policy was last modified.</p>
    * @public
    */
-  DateModified?: Date;
+  DateModified?: Date | undefined;
 
   /**
    * <p>The configuration of the lifecycle policy</p>
    * @public
    */
-  PolicyDetails?: PolicyDetails;
+  PolicyDetails?: PolicyDetails | undefined;
 
   /**
    * <p>The tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the policy.</p>
    * @public
    */
-  PolicyArn?: string;
+  PolicyArn?: string | undefined;
 
   /**
    * <p>
@@ -1793,7 +1793,7 @@ export interface LifecyclePolicy {
    *          </ul>
    * @public
    */
-  DefaultPolicy?: boolean;
+  DefaultPolicy?: boolean | undefined;
 }
 
 /**
@@ -1804,7 +1804,7 @@ export interface GetLifecyclePolicyResponse {
    * <p>Detailed information about the lifecycle policy.</p>
    * @public
    */
-  Policy?: LifecyclePolicy;
+  Policy?: LifecyclePolicy | undefined;
 }
 
 /**
@@ -1826,7 +1826,7 @@ export interface ListTagsForResourceResponse {
    * <p>Information about the tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1888,26 +1888,26 @@ export interface UpdateLifecyclePolicyRequest {
    * 			the lifecycle policy.</p>
    * @public
    */
-  ExecutionRoleArn?: string;
+  ExecutionRoleArn?: string | undefined;
 
   /**
    * <p>The desired activation state of the lifecycle policy after creation.</p>
    * @public
    */
-  State?: SettablePolicyStateValues;
+  State?: SettablePolicyStateValues | undefined;
 
   /**
    * <p>A description of the lifecycle policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The configuration of the lifecycle policy. You cannot update the policy type or the
    * 			resource type.</p>
    * @public
    */
-  PolicyDetails?: PolicyDetails;
+  PolicyDetails?: PolicyDetails | undefined;
 
   /**
    * <p>
@@ -1915,7 +1915,7 @@ export interface UpdateLifecyclePolicyRequest {
    * 			The creation frequency can range from 1 to 7 days.</p>
    * @public
    */
-  CreateInterval?: number;
+  CreateInterval?: number | undefined;
 
   /**
    * <p>
@@ -1925,7 +1925,7 @@ export interface UpdateLifecyclePolicyRequest {
    * 			AMI at any given time.</p>
    * @public
    */
-  RetainInterval?: number;
+  RetainInterval?: number | undefined;
 
   /**
    * <p>
@@ -1933,7 +1933,7 @@ export interface UpdateLifecyclePolicyRequest {
    * 			to the snapshot or AMI.</p>
    * @public
    */
-  CopyTags?: boolean;
+  CopyTags?: boolean | undefined;
 
   /**
    * <p>
@@ -1960,7 +1960,7 @@ export interface UpdateLifecyclePolicyRequest {
    *          <p>Default: false</p>
    * @public
    */
-  ExtendDeletion?: boolean;
+  ExtendDeletion?: boolean | undefined;
 
   /**
    * <p>
@@ -1969,7 +1969,7 @@ export interface UpdateLifecyclePolicyRequest {
    * 			parameter.</p>
    * @public
    */
-  CrossRegionCopyTargets?: CrossRegionCopyTarget[];
+  CrossRegionCopyTargets?: CrossRegionCopyTarget[] | undefined;
 
   /**
    * <p>
@@ -1978,7 +1978,7 @@ export interface UpdateLifecyclePolicyRequest {
    * 			for target resources that match any of the specified exclusion parameters.</p>
    * @public
    */
-  Exclusions?: Exclusions;
+  Exclusions?: Exclusions | undefined;
 }
 
 /**

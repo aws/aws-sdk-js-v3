@@ -13,7 +13,7 @@ import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisV
 export class ClientLimitExceededException extends __BaseException {
   readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -36,7 +36,7 @@ export class ClientLimitExceededException extends __BaseException {
 export class ConnectionLimitExceededException extends __BaseException {
   readonly name: "ConnectionLimitExceededException" = "ConnectionLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -129,7 +129,7 @@ export interface StartSelector {
    *       start returning the fragments. </p>
    * @public
    */
-  AfterFragmentNumber?: string;
+  AfterFragmentNumber?: string | undefined;
 
   /**
    * <p>A timestamp value. This value is required if you choose the PRODUCER_TIMESTAMP or the
@@ -137,7 +137,7 @@ export interface StartSelector {
    *       starts with the chunk containing the fragment that has the specified timestamp.</p>
    * @public
    */
-  StartTimestamp?: Date;
+  StartTimestamp?: Date | undefined;
 
   /**
    * <p>Continuation token that Kinesis Video Streams returned in the previous
@@ -145,7 +145,7 @@ export interface StartSelector {
    *       identified by the continuation token.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 }
 
 /**
@@ -158,14 +158,14 @@ export interface GetMediaInput {
    *       <code>streamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The ARN of the stream from where you want to get the media content. If you don't
    *       specify the <code>streamARN</code>, you must specify the <code>streamName</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>Identifies the starting chunk to get from the specified stream. </p>
@@ -182,7 +182,7 @@ export interface GetMediaOutput {
    * <p>The content type of the requested media.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p> The payload Kinesis Video Streams returns is a sequence of chunks from the specified
@@ -255,7 +255,7 @@ export interface GetMediaOutput {
    *          </ul>
    * @public
    */
-  Payload?: StreamingBlobTypes;
+  Payload?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -265,7 +265,7 @@ export interface GetMediaOutput {
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -290,7 +290,7 @@ export class InvalidArgumentException extends __BaseException {
 export class InvalidEndpointException extends __BaseException {
   readonly name: "InvalidEndpointException" = "InvalidEndpointException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -313,7 +313,7 @@ export class InvalidEndpointException extends __BaseException {
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -335,7 +335,7 @@ export class NotAuthorizedException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */

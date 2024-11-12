@@ -94,7 +94,7 @@ export interface SNSConfiguration {
    *          </ul>
    * @public
    */
-  SnsFormat?: SnsFormat;
+  SnsFormat?: SnsFormat | undefined;
 }
 
 /**
@@ -106,13 +106,13 @@ export interface Action {
    * <p>A configuration for an Amazon SNS channel.</p>
    * @public
    */
-  SNSConfiguration?: SNSConfiguration;
+  SNSConfiguration?: SNSConfiguration | undefined;
 
   /**
    * <p>A configuration for an AWS Lambda channel.</p>
    * @public
    */
-  LambdaConfiguration?: LambdaConfiguration;
+  LambdaConfiguration?: LambdaConfiguration | undefined;
 }
 
 /**
@@ -143,13 +143,13 @@ export class ConflictException extends __BaseException {
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of the resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -200,13 +200,13 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of the resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
   /**
    * @internal
    */
@@ -292,13 +292,13 @@ export class ValidationException extends __BaseException {
    * <p>The reason that validation failed.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>Fields that failed validation.</p>
    * @public
    */
-  Fields?: ValidationExceptionField[];
+  Fields?: ValidationExceptionField[] | undefined;
   /**
    * @internal
    */
@@ -338,13 +338,13 @@ export interface DimensionFilter {
    * <p>The name of the dimension to filter on.</p>
    * @public
    */
-  DimensionName?: string;
+  DimensionName?: string | undefined;
 
   /**
    * <p>The list of values for the dimension specified in DimensionName that you want to filter on.</p>
    * @public
    */
-  DimensionValueList?: string[];
+  DimensionValueList?: string[] | undefined;
 }
 
 /**
@@ -356,13 +356,13 @@ export interface AlertFilters {
    * <p>The list of measures that you want to get alerts for.</p>
    * @public
    */
-  MetricList?: string[];
+  MetricList?: string[] | undefined;
 
   /**
    * <p>The list of DimensionFilter objects that are used for dimension-based filtering.</p>
    * @public
    */
-  DimensionFilterList?: DimensionFilter[];
+  DimensionFilterList?: DimensionFilter[] | undefined;
 }
 
 /**
@@ -402,67 +402,67 @@ export interface Alert {
    * <p>Action that will be triggered when there is an alert.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>A description of the alert.</p>
    * @public
    */
-  AlertDescription?: string;
+  AlertDescription?: string | undefined;
 
   /**
    * <p>The ARN of the alert.</p>
    * @public
    */
-  AlertArn?: string;
+  AlertArn?: string | undefined;
 
   /**
    * <p>The ARN of the detector to which the alert is attached.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The name of the alert.</p>
    * @public
    */
-  AlertName?: string;
+  AlertName?: string | undefined;
 
   /**
    * <p>The minimum severity for an anomaly to trigger the alert.</p>
    * @public
    */
-  AlertSensitivityThreshold?: number;
+  AlertSensitivityThreshold?: number | undefined;
 
   /**
    * <p>The type of the alert.</p>
    * @public
    */
-  AlertType?: AlertType;
+  AlertType?: AlertType | undefined;
 
   /**
    * <p>The status of the alert.</p>
    * @public
    */
-  AlertStatus?: AlertStatus;
+  AlertStatus?: AlertStatus | undefined;
 
   /**
    * <p>The time at which the alert was last modified.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The time at which the alert was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The configuration of the alert filters, containing MetricList and DimensionFilter.</p>
    * @public
    */
-  AlertFilters?: AlertFilters;
+  AlertFilters?: AlertFilters | undefined;
 }
 
 /**
@@ -474,55 +474,55 @@ export interface AlertSummary {
    * <p>The ARN of the alert.</p>
    * @public
    */
-  AlertArn?: string;
+  AlertArn?: string | undefined;
 
   /**
    * <p>The ARN of the detector to which the alert is attached.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The name of the alert.</p>
    * @public
    */
-  AlertName?: string;
+  AlertName?: string | undefined;
 
   /**
    * <p>The minimum severity for an anomaly to trigger the alert.</p>
    * @public
    */
-  AlertSensitivityThreshold?: number;
+  AlertSensitivityThreshold?: number | undefined;
 
   /**
    * <p>The type of the alert.</p>
    * @public
    */
-  AlertType?: AlertType;
+  AlertType?: AlertType | undefined;
 
   /**
    * <p>The status of the alert.</p>
    * @public
    */
-  AlertStatus?: AlertStatus;
+  AlertStatus?: AlertStatus | undefined;
 
   /**
    * <p>The time at which the alert was last modified.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The time at which the alert was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The alert's <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -567,7 +567,7 @@ export interface AnomalyDetectorConfig {
    * <p>The frequency at which the detector analyzes its source data.</p>
    * @public
    */
-  AnomalyDetectorFrequency?: Frequency;
+  AnomalyDetectorFrequency?: Frequency | undefined;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface AnomalyDetectorConfigSummary {
    * <p>The interval at which the detector analyzes its source data.</p>
    * @public
    */
-  AnomalyDetectorFrequency?: Frequency;
+  AnomalyDetectorFrequency?: Frequency | undefined;
 }
 
 /**
@@ -613,25 +613,25 @@ export interface DataQualityMetric {
    * <p>The name of the data quality metric.</p>
    * @public
    */
-  MetricType?: DataQualityMetricType;
+  MetricType?: DataQualityMetricType | undefined;
 
   /**
    * <p>A description of the data quality metric.</p>
    * @public
    */
-  MetricDescription?: string;
+  MetricDescription?: string | undefined;
 
   /**
    * <p>The column that is being monitored.</p>
    * @public
    */
-  RelatedColumnName?: string;
+  RelatedColumnName?: string | undefined;
 
   /**
    * <p>The value of the data quality metric.</p>
    * @public
    */
-  MetricValue?: number;
+  MetricValue?: number | undefined;
 }
 
 /**
@@ -643,13 +643,13 @@ export interface MetricSetDataQualityMetric {
    * <p>The Amazon Resource Name (ARN) of the data quality metric array.</p>
    * @public
    */
-  MetricSetArn?: string;
+  MetricSetArn?: string | undefined;
 
   /**
    * <p>The array of data quality metrics contained in the data quality metric set.</p>
    * @public
    */
-  DataQualityMetricList?: DataQualityMetric[];
+  DataQualityMetricList?: DataQualityMetric[] | undefined;
 }
 
 /**
@@ -661,13 +661,13 @@ export interface AnomalyDetectorDataQualityMetric {
    * <p>The start time for the data quality metrics collection.</p>
    * @public
    */
-  StartTimestamp?: Date;
+  StartTimestamp?: Date | undefined;
 
   /**
    * <p>An array of <code>DataQualityMetricList</code> objects. Each object in the array contains information about a data quality metric.</p>
    * @public
    */
-  MetricSetDataQualityMetricList?: MetricSetDataQualityMetric[];
+  MetricSetDataQualityMetricList?: MetricSetDataQualityMetric[] | undefined;
 }
 
 /**
@@ -718,43 +718,43 @@ export interface AnomalyDetectorSummary {
    * <p>The ARN of the detector.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The name of the detector.</p>
    * @public
    */
-  AnomalyDetectorName?: string;
+  AnomalyDetectorName?: string | undefined;
 
   /**
    * <p>A description of the detector.</p>
    * @public
    */
-  AnomalyDetectorDescription?: string;
+  AnomalyDetectorDescription?: string | undefined;
 
   /**
    * <p>The time at which the detector was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time at which the detector was last modified.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The status of detector.</p>
    * @public
    */
-  Status?: AnomalyDetectorStatus;
+  Status?: AnomalyDetectorStatus | undefined;
 
   /**
    * <p>The detector's <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -766,13 +766,13 @@ export interface DimensionValueContribution {
    * <p>The value of the dimension.</p>
    * @public
    */
-  DimensionValue?: string;
+  DimensionValue?: string | undefined;
 
   /**
    * <p>The severity score of the value.</p>
    * @public
    */
-  ContributionScore?: number;
+  ContributionScore?: number | undefined;
 }
 
 /**
@@ -784,13 +784,13 @@ export interface DimensionContribution {
    * <p>The name of the dimension.</p>
    * @public
    */
-  DimensionName?: string;
+  DimensionName?: string | undefined;
 
   /**
    * <p>A list of dimension values that contributed to the anomaly.</p>
    * @public
    */
-  DimensionValueContributionList?: DimensionValueContribution[];
+  DimensionValueContributionList?: DimensionValueContribution[] | undefined;
 }
 
 /**
@@ -802,7 +802,7 @@ export interface ContributionMatrix {
    * <p>A list of contributing dimensions.</p>
    * @public
    */
-  DimensionContributionList?: DimensionContribution[];
+  DimensionContributionList?: DimensionContribution[] | undefined;
 }
 
 /**
@@ -814,19 +814,19 @@ export interface MetricLevelImpact {
    * <p>The name of the measure.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The number of anomalous metrics for the measure.</p>
    * @public
    */
-  NumTimeSeries?: number;
+  NumTimeSeries?: number | undefined;
 
   /**
    * <p>Details about the dimensions that contributed to the anomaly.</p>
    * @public
    */
-  ContributionMatrix?: ContributionMatrix;
+  ContributionMatrix?: ContributionMatrix | undefined;
 }
 
 /**
@@ -838,37 +838,37 @@ export interface AnomalyGroup {
    * <p>The start time for the group.</p>
    * @public
    */
-  StartTime?: string;
+  StartTime?: string | undefined;
 
   /**
    * <p>The end time for the group.</p>
    * @public
    */
-  EndTime?: string;
+  EndTime?: string | undefined;
 
   /**
    * <p>The ID of the anomaly group.</p>
    * @public
    */
-  AnomalyGroupId?: string;
+  AnomalyGroupId?: string | undefined;
 
   /**
    * <p>The severity score of the group.</p>
    * @public
    */
-  AnomalyGroupScore?: number;
+  AnomalyGroupScore?: number | undefined;
 
   /**
    * <p>The name of the primary affected measure for the group.</p>
    * @public
    */
-  PrimaryMetricName?: string;
+  PrimaryMetricName?: string | undefined;
 
   /**
    * <p>A list of measures affected by the anomaly.</p>
    * @public
    */
-  MetricLevelImpactList?: MetricLevelImpact[];
+  MetricLevelImpactList?: MetricLevelImpact[] | undefined;
 }
 
 /**
@@ -880,13 +880,13 @@ export interface ItemizedMetricStats {
    * <p>The name of the measure.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The number of times that the measure appears.</p>
    * @public
    */
-  OccurrenceCount?: number;
+  OccurrenceCount?: number | undefined;
 }
 
 /**
@@ -898,19 +898,19 @@ export interface AnomalyGroupStatistics {
    * <p>The start of the time range that was searched.</p>
    * @public
    */
-  EvaluationStartDate?: string;
+  EvaluationStartDate?: string | undefined;
 
   /**
    * <p>The number of groups found.</p>
    * @public
    */
-  TotalCount?: number;
+  TotalCount?: number | undefined;
 
   /**
    * <p>Statistics for individual metrics within the group.</p>
    * @public
    */
-  ItemizedMetricStatsList?: ItemizedMetricStats[];
+  ItemizedMetricStatsList?: ItemizedMetricStats[] | undefined;
 }
 
 /**
@@ -922,31 +922,31 @@ export interface AnomalyGroupSummary {
    * <p>The start time for the group.</p>
    * @public
    */
-  StartTime?: string;
+  StartTime?: string | undefined;
 
   /**
    * <p>The end time for the group.</p>
    * @public
    */
-  EndTime?: string;
+  EndTime?: string | undefined;
 
   /**
    * <p>The ID of the anomaly group.</p>
    * @public
    */
-  AnomalyGroupId?: string;
+  AnomalyGroupId?: string | undefined;
 
   /**
    * <p>The severity score of the group.</p>
    * @public
    */
-  AnomalyGroupScore?: number;
+  AnomalyGroupScore?: number | undefined;
 
   /**
    * <p>The name of the primary affected measure for the group.</p>
    * @public
    */
-  PrimaryMetricName?: string;
+  PrimaryMetricName?: string | undefined;
 }
 
 /**
@@ -964,7 +964,7 @@ export interface AnomalyGroupTimeSeries {
    * <p>The ID of the metric.</p>
    * @public
    */
-  TimeSeriesId?: string;
+  TimeSeriesId?: string | undefined;
 }
 
 /**
@@ -1000,13 +1000,13 @@ export interface AppFlowConfig {
    * <p>An IAM role that gives Amazon Lookout for Metrics permission to access the flow.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p> name of the flow.</p>
    * @public
    */
-  FlowName?: string;
+  FlowName?: string | undefined;
 }
 
 /**
@@ -1030,43 +1030,43 @@ export interface AthenaSourceConfig {
    * <p>An IAM role that gives Amazon Lookout for Metrics permission to access the data.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The database's name.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The database's data catalog.</p>
    * @public
    */
-  DataCatalog?: string;
+  DataCatalog?: string | undefined;
 
   /**
    * <p>The database's table name.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The database's work group name.</p>
    * @public
    */
-  WorkGroupName?: string;
+  WorkGroupName?: string | undefined;
 
   /**
    * <p>The database's results path.</p>
    * @public
    */
-  S3ResultsPath?: string;
+  S3ResultsPath?: string | undefined;
 
   /**
    * <p>Settings for backtest mode.</p>
    * @public
    */
-  BackTestConfiguration?: BackTestConfiguration;
+  BackTestConfiguration?: BackTestConfiguration | undefined;
 }
 
 /**
@@ -1078,37 +1078,37 @@ export interface AttributeValue {
    * <p>A string.</p>
    * @public
    */
-  S?: string;
+  S?: string | undefined;
 
   /**
    * <p>A number.</p>
    * @public
    */
-  N?: string;
+  N?: string | undefined;
 
   /**
    * <p>A binary value.</p>
    * @public
    */
-  B?: string;
+  B?: string | undefined;
 
   /**
    * <p>A list of strings.</p>
    * @public
    */
-  SS?: string[];
+  SS?: string[] | undefined;
 
   /**
    * <p>A list of numbers.</p>
    * @public
    */
-  NS?: string[];
+  NS?: string[] | undefined;
 
   /**
    * <p>A list of binary values.</p>
    * @public
    */
-  BS?: string[];
+  BS?: string[] | undefined;
 }
 
 /**
@@ -1120,13 +1120,13 @@ export interface AutoDetectionS3SourceConfig {
    * <p>The config's templated path list.</p>
    * @public
    */
-  TemplatedPathList?: string[];
+  TemplatedPathList?: string[] | undefined;
 
   /**
    * <p>The config's historical data path list.</p>
    * @public
    */
-  HistoricalDataPathList?: string[];
+  HistoricalDataPathList?: string[] | undefined;
 }
 
 /**
@@ -1138,7 +1138,7 @@ export interface AutoDetectionMetricSource {
    * <p>The source's source config.</p>
    * @public
    */
-  S3SourceConfig?: AutoDetectionS3SourceConfig;
+  S3SourceConfig?: AutoDetectionS3SourceConfig | undefined;
 }
 
 /**
@@ -1166,13 +1166,13 @@ export interface CloudWatchConfig {
    * <p>An IAM role that gives Amazon Lookout for Metrics permission to access data in Amazon CloudWatch.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Settings for backtest mode.</p>
    * @public
    */
-  BackTestConfiguration?: BackTestConfiguration;
+  BackTestConfiguration?: BackTestConfiguration | undefined;
 }
 
 /**
@@ -1204,13 +1204,13 @@ export interface CreateAlertRequest {
    * <p>An integer from 0 to 100 specifying the alert sensitivity threshold.</p>
    * @public
    */
-  AlertSensitivityThreshold?: number;
+  AlertSensitivityThreshold?: number | undefined;
 
   /**
    * <p>A description of the alert.</p>
    * @public
    */
-  AlertDescription?: string;
+  AlertDescription?: string | undefined;
 
   /**
    * <p>The ARN of the detector to which the alert is attached.</p>
@@ -1228,13 +1228,13 @@ export interface CreateAlertRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the alert.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The configuration of the alert filters, containing MetricList and DimensionFilterList.</p>
    * @public
    */
-  AlertFilters?: AlertFilters;
+  AlertFilters?: AlertFilters | undefined;
 }
 
 /**
@@ -1245,7 +1245,7 @@ export interface CreateAlertResponse {
    * <p>The ARN of the alert.</p>
    * @public
    */
-  AlertArn?: string;
+  AlertArn?: string | undefined;
 }
 
 /**
@@ -1260,25 +1260,25 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The type of the resource.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The quota code.</p>
    * @public
    */
-  QuotaCode?: string;
+  QuotaCode?: string | undefined;
 
   /**
    * <p>The service code.</p>
    * @public
    */
-  ServiceCode?: string;
+  ServiceCode?: string | undefined;
   /**
    * @internal
    */
@@ -1311,7 +1311,7 @@ export interface CreateAnomalyDetectorRequest {
    * <p>A description of the detector.</p>
    * @public
    */
-  AnomalyDetectorDescription?: string;
+  AnomalyDetectorDescription?: string | undefined;
 
   /**
    * <p>Contains information about the configuration of the anomaly detector.</p>
@@ -1323,13 +1323,13 @@ export interface CreateAnomalyDetectorRequest {
    * <p>The ARN of the KMS key to use to encrypt your data.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the anomaly detector.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1340,7 +1340,7 @@ export interface CreateAnomalyDetectorResponse {
    * <p>The ARN of the detector.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 }
 
 /**
@@ -1365,13 +1365,13 @@ export interface Filter {
    * <p>The value that you want to include in the filter.</p>
    * @public
    */
-  DimensionValue?: string;
+  DimensionValue?: string | undefined;
 
   /**
    * <p>The condition to apply.</p>
    * @public
    */
-  FilterOperation?: FilterOperation;
+  FilterOperation?: FilterOperation | undefined;
 }
 
 /**
@@ -1383,13 +1383,13 @@ export interface MetricSetDimensionFilter {
    * <p>The dimension that you want to filter on.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The list of filters that you are applying.</p>
    * @public
    */
-  FilterList?: Filter[];
+  FilterList?: Filter[] | undefined;
 }
 
 /**
@@ -1413,7 +1413,7 @@ export interface Metric {
    * <p>The namespace for the metric.</p>
    * @public
    */
-  Namespace?: string;
+  Namespace?: string | undefined;
 }
 
 /**
@@ -1443,49 +1443,49 @@ export interface RDSSourceConfig {
    * <p>A string identifying the database instance.</p>
    * @public
    */
-  DBInstanceIdentifier?: string;
+  DBInstanceIdentifier?: string | undefined;
 
   /**
    * <p>The host name of the database.</p>
    * @public
    */
-  DatabaseHost?: string;
+  DatabaseHost?: string | undefined;
 
   /**
    * <p>The port number where the database can be accessed.</p>
    * @public
    */
-  DatabasePort?: number;
+  DatabasePort?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager role.</p>
    * @public
    */
-  SecretManagerArn?: string;
+  SecretManagerArn?: string | undefined;
 
   /**
    * <p>The name of the RDS database.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The name of the table in the database.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>An object containing information about the Amazon Virtual Private Cloud (VPC) configuration.</p>
    * @public
    */
-  VpcConfiguration?: VpcConfiguration;
+  VpcConfiguration?: VpcConfiguration | undefined;
 }
 
 /**
@@ -1497,49 +1497,49 @@ export interface RedshiftSourceConfig {
    * <p>A string identifying the Redshift cluster.</p>
    * @public
    */
-  ClusterIdentifier?: string;
+  ClusterIdentifier?: string | undefined;
 
   /**
    * <p>The name of the database host.</p>
    * @public
    */
-  DatabaseHost?: string;
+  DatabaseHost?: string | undefined;
 
   /**
    * <p>The port number where the database can be accessed.</p>
    * @public
    */
-  DatabasePort?: number;
+  DatabasePort?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager role.</p>
    * @public
    */
-  SecretManagerArn?: string;
+  SecretManagerArn?: string | undefined;
 
   /**
    * <p>The Redshift database name.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>The table name of the Redshift database.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role providing access to the database.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Contains information about the Amazon Virtual Private Cloud (VPC) configuration.</p>
    * @public
    */
-  VpcConfiguration?: VpcConfiguration;
+  VpcConfiguration?: VpcConfiguration | undefined;
 }
 
 /**
@@ -1565,37 +1565,37 @@ export interface CsvFormatDescriptor {
    * <p>The level of compression of the source CSV file.</p>
    * @public
    */
-  FileCompression?: CSVFileCompression;
+  FileCompression?: CSVFileCompression | undefined;
 
   /**
    * <p>The character set in which the source CSV file is written.</p>
    * @public
    */
-  Charset?: string;
+  Charset?: string | undefined;
 
   /**
    * <p>Whether or not the source CSV file contains a header.</p>
    * @public
    */
-  ContainsHeader?: boolean;
+  ContainsHeader?: boolean | undefined;
 
   /**
    * <p>The character used to delimit the source CSV file.</p>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>A list of the source CSV file's headers, if any.</p>
    * @public
    */
-  HeaderList?: string[];
+  HeaderList?: string[] | undefined;
 
   /**
    * <p>The character used as a quote character.</p>
    * @public
    */
-  QuoteSymbol?: string;
+  QuoteSymbol?: string | undefined;
 }
 
 /**
@@ -1621,13 +1621,13 @@ export interface JsonFormatDescriptor {
    * <p>The level of compression of the source CSV file.</p>
    * @public
    */
-  FileCompression?: JsonFileCompression;
+  FileCompression?: JsonFileCompression | undefined;
 
   /**
    * <p>The character set in which the source JSON file is written.</p>
    * @public
    */
-  Charset?: string;
+  Charset?: string | undefined;
 }
 
 /**
@@ -1639,13 +1639,13 @@ export interface FileFormatDescriptor {
    * <p>Contains information about how a source CSV data file should be analyzed.</p>
    * @public
    */
-  CsvFormatDescriptor?: CsvFormatDescriptor;
+  CsvFormatDescriptor?: CsvFormatDescriptor | undefined;
 
   /**
    * <p>Contains information about how a source JSON data file should be analyzed.</p>
    * @public
    */
-  JsonFormatDescriptor?: JsonFormatDescriptor;
+  JsonFormatDescriptor?: JsonFormatDescriptor | undefined;
 }
 
 /**
@@ -1657,25 +1657,25 @@ export interface S3SourceConfig {
    * <p>The ARN of an IAM role that has read and write access permissions to the source S3 bucket.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>A list of templated paths to the source files.</p>
    * @public
    */
-  TemplatedPathList?: string[];
+  TemplatedPathList?: string[] | undefined;
 
   /**
    * <p>A list of paths to the historical data files.</p>
    * @public
    */
-  HistoricalDataPathList?: string[];
+  HistoricalDataPathList?: string[] | undefined;
 
   /**
    * <p>Contains information about a source file's formatting.</p>
    * @public
    */
-  FileFormatDescriptor?: FileFormatDescriptor;
+  FileFormatDescriptor?: FileFormatDescriptor | undefined;
 }
 
 /**
@@ -1687,37 +1687,37 @@ export interface MetricSource {
    * <p>Contains information about the configuration of the S3 bucket that contains source files.</p>
    * @public
    */
-  S3SourceConfig?: S3SourceConfig;
+  S3SourceConfig?: S3SourceConfig | undefined;
 
   /**
    * <p>Details about an AppFlow datasource.</p>
    * @public
    */
-  AppFlowConfig?: AppFlowConfig;
+  AppFlowConfig?: AppFlowConfig | undefined;
 
   /**
    * <p>Details about an Amazon CloudWatch monitoring datasource.</p>
    * @public
    */
-  CloudWatchConfig?: CloudWatchConfig;
+  CloudWatchConfig?: CloudWatchConfig | undefined;
 
   /**
    * <p>Details about an Amazon Relational Database Service (RDS) datasource.</p>
    * @public
    */
-  RDSSourceConfig?: RDSSourceConfig;
+  RDSSourceConfig?: RDSSourceConfig | undefined;
 
   /**
    * <p>Details about an Amazon Redshift database datasource.</p>
    * @public
    */
-  RedshiftSourceConfig?: RedshiftSourceConfig;
+  RedshiftSourceConfig?: RedshiftSourceConfig | undefined;
 
   /**
    * <p>Details about an Amazon Athena datasource.</p>
    * @public
    */
-  AthenaSourceConfig?: AthenaSourceConfig;
+  AthenaSourceConfig?: AthenaSourceConfig | undefined;
 }
 
 /**
@@ -1729,13 +1729,13 @@ export interface TimestampColumn {
    * <p>The name of the timestamp column.</p>
    * @public
    */
-  ColumnName?: string;
+  ColumnName?: string | undefined;
 
   /**
    * <p>The format of the timestamp column.</p>
    * @public
    */
-  ColumnFormat?: string;
+  ColumnFormat?: string | undefined;
 }
 
 /**
@@ -1758,7 +1758,7 @@ export interface CreateMetricSetRequest {
    * <p>A description of the dataset you are creating.</p>
    * @public
    */
-  MetricSetDescription?: string;
+  MetricSetDescription?: string | undefined;
 
   /**
    * <p>A list of metrics that the dataset will contain.</p>
@@ -1770,25 +1770,25 @@ export interface CreateMetricSetRequest {
    * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>
    * @public
    */
-  Offset?: number;
+  Offset?: number | undefined;
 
   /**
    * <p>Contains information about the column used for tracking time in your source data.</p>
    * @public
    */
-  TimestampColumn?: TimestampColumn;
+  TimestampColumn?: TimestampColumn | undefined;
 
   /**
    * <p>A list of the fields you want to treat as dimensions.</p>
    * @public
    */
-  DimensionList?: string[];
+  DimensionList?: string[] | undefined;
 
   /**
    * <p>The frequency with which the source data will be analyzed for anomalies.</p>
    * @public
    */
-  MetricSetFrequency?: Frequency;
+  MetricSetFrequency?: Frequency | undefined;
 
   /**
    * <p>Contains information about how the source data should be interpreted.</p>
@@ -1800,19 +1800,19 @@ export interface CreateMetricSetRequest {
    * <p>The time zone in which your source data was recorded.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a> to apply to the dataset.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A list of filters that specify which data is kept for anomaly detection.</p>
    * @public
    */
-  DimensionFilterList?: MetricSetDimensionFilter[];
+  DimensionFilterList?: MetricSetDimensionFilter[] | undefined;
 }
 
 /**
@@ -1823,7 +1823,7 @@ export interface CreateMetricSetResponse {
    * <p>The ARN of the dataset.</p>
    * @public
    */
-  MetricSetArn?: string;
+  MetricSetArn?: string | undefined;
 }
 
 /**
@@ -1893,7 +1893,7 @@ export interface DescribeAlertResponse {
    * <p>Contains information about an alert.</p>
    * @public
    */
-  Alert?: Alert;
+  Alert?: Alert | undefined;
 }
 
 /**
@@ -1910,19 +1910,19 @@ export interface DescribeAnomalyDetectionExecutionsRequest {
    * <p>The timestamp of the anomaly detection job.</p>
    * @public
    */
-  Timestamp?: string;
+  Timestamp?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1934,19 +1934,19 @@ export interface ExecutionStatus {
    * <p>The run's timestamp.</p>
    * @public
    */
-  Timestamp?: string;
+  Timestamp?: string | undefined;
 
   /**
    * <p>The run's status.</p>
    * @public
    */
-  Status?: AnomalyDetectionTaskStatus;
+  Status?: AnomalyDetectionTaskStatus | undefined;
 
   /**
    * <p>The reason that the run failed, if applicable.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -1957,13 +1957,13 @@ export interface DescribeAnomalyDetectionExecutionsResponse {
    * <p>A list of detection jobs.</p>
    * @public
    */
-  ExecutionList?: ExecutionStatus[];
+  ExecutionList?: ExecutionStatus[] | undefined;
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1985,61 +1985,61 @@ export interface DescribeAnomalyDetectorResponse {
    * <p>The ARN of the detector.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The name of the detector.</p>
    * @public
    */
-  AnomalyDetectorName?: string;
+  AnomalyDetectorName?: string | undefined;
 
   /**
    * <p>A description of the detector.</p>
    * @public
    */
-  AnomalyDetectorDescription?: string;
+  AnomalyDetectorDescription?: string | undefined;
 
   /**
    * <p>Contains information about the detector's configuration.</p>
    * @public
    */
-  AnomalyDetectorConfig?: AnomalyDetectorConfigSummary;
+  AnomalyDetectorConfig?: AnomalyDetectorConfigSummary | undefined;
 
   /**
    * <p>The time at which the detector was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time at which the detector was last modified.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The status of the detector.</p>
    * @public
    */
-  Status?: AnomalyDetectorStatus;
+  Status?: AnomalyDetectorStatus | undefined;
 
   /**
    * <p>The reason that the detector failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 
   /**
    * <p>The ARN of the KMS key to use to encrypt your data.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The process that caused the detector to fail.</p>
    * @public
    */
-  FailureType?: AnomalyDetectorFailureType;
+  FailureType?: AnomalyDetectorFailureType | undefined;
 }
 
 /**
@@ -2061,85 +2061,85 @@ export interface DescribeMetricSetResponse {
    * <p>The ARN of the dataset.</p>
    * @public
    */
-  MetricSetArn?: string;
+  MetricSetArn?: string | undefined;
 
   /**
    * <p>The ARN of the detector that contains the dataset.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The name of the dataset.</p>
    * @public
    */
-  MetricSetName?: string;
+  MetricSetName?: string | undefined;
 
   /**
    * <p>The dataset's description.</p>
    * @public
    */
-  MetricSetDescription?: string;
+  MetricSetDescription?: string | undefined;
 
   /**
    * <p>The time at which the dataset was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time at which the dataset was last modified.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>
    * @public
    */
-  Offset?: number;
+  Offset?: number | undefined;
 
   /**
    * <p>A list of the metrics defined by the dataset.</p>
    * @public
    */
-  MetricList?: Metric[];
+  MetricList?: Metric[] | undefined;
 
   /**
    * <p>Contains information about the column used for tracking time in your source data.</p>
    * @public
    */
-  TimestampColumn?: TimestampColumn;
+  TimestampColumn?: TimestampColumn | undefined;
 
   /**
    * <p>A list of the dimensions chosen for analysis.</p>
    * @public
    */
-  DimensionList?: string[];
+  DimensionList?: string[] | undefined;
 
   /**
    * <p>The interval at which the data will be analyzed for anomalies.</p>
    * @public
    */
-  MetricSetFrequency?: Frequency;
+  MetricSetFrequency?: Frequency | undefined;
 
   /**
    * <p>The time zone in which the dataset's data was recorded.</p>
    * @public
    */
-  Timezone?: string;
+  Timezone?: string | undefined;
 
   /**
    * <p>Contains information about the dataset's source data.</p>
    * @public
    */
-  MetricSource?: MetricSource;
+  MetricSource?: MetricSource | undefined;
 
   /**
    * <p>The dimensions and their values that were used to filter the dataset.</p>
    * @public
    */
-  DimensionFilterList?: MetricSetDimensionFilter[];
+  DimensionFilterList?: MetricSetDimensionFilter[] | undefined;
 }
 
 /**
@@ -2151,19 +2151,19 @@ export interface DetectedField {
    * <p>The field's value.</p>
    * @public
    */
-  Value?: AttributeValue;
+  Value?: AttributeValue | undefined;
 
   /**
    * <p>The field's confidence.</p>
    * @public
    */
-  Confidence?: Confidence;
+  Confidence?: Confidence | undefined;
 
   /**
    * <p>The field's message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -2175,37 +2175,37 @@ export interface DetectedCsvFormatDescriptor {
    * <p>The format's file compression.</p>
    * @public
    */
-  FileCompression?: DetectedField;
+  FileCompression?: DetectedField | undefined;
 
   /**
    * <p>The format's charset.</p>
    * @public
    */
-  Charset?: DetectedField;
+  Charset?: DetectedField | undefined;
 
   /**
    * <p>Whether the format includes a header.</p>
    * @public
    */
-  ContainsHeader?: DetectedField;
+  ContainsHeader?: DetectedField | undefined;
 
   /**
    * <p>The format's delimiter.</p>
    * @public
    */
-  Delimiter?: DetectedField;
+  Delimiter?: DetectedField | undefined;
 
   /**
    * <p>The format's header list.</p>
    * @public
    */
-  HeaderList?: DetectedField;
+  HeaderList?: DetectedField | undefined;
 
   /**
    * <p>The format's quote symbol.</p>
    * @public
    */
-  QuoteSymbol?: DetectedField;
+  QuoteSymbol?: DetectedField | undefined;
 }
 
 /**
@@ -2217,13 +2217,13 @@ export interface DetectedJsonFormatDescriptor {
    * <p>The format's file compression.</p>
    * @public
    */
-  FileCompression?: DetectedField;
+  FileCompression?: DetectedField | undefined;
 
   /**
    * <p>The format's character set.</p>
    * @public
    */
-  Charset?: DetectedField;
+  Charset?: DetectedField | undefined;
 }
 
 /**
@@ -2235,13 +2235,13 @@ export interface DetectedFileFormatDescriptor {
    * <p>Details about a CSV format.</p>
    * @public
    */
-  CsvFormatDescriptor?: DetectedCsvFormatDescriptor;
+  CsvFormatDescriptor?: DetectedCsvFormatDescriptor | undefined;
 
   /**
    * <p>Details about a JSON format.</p>
    * @public
    */
-  JsonFormatDescriptor?: DetectedJsonFormatDescriptor;
+  JsonFormatDescriptor?: DetectedJsonFormatDescriptor | undefined;
 }
 
 /**
@@ -2253,7 +2253,7 @@ export interface DetectedS3SourceConfig {
    * <p>The source's file format descriptor.</p>
    * @public
    */
-  FileFormatDescriptor?: DetectedFileFormatDescriptor;
+  FileFormatDescriptor?: DetectedFileFormatDescriptor | undefined;
 }
 
 /**
@@ -2265,7 +2265,7 @@ export interface DetectedMetricSource {
    * <p>The data source's source configuration.</p>
    * @public
    */
-  S3SourceConfig?: DetectedS3SourceConfig;
+  S3SourceConfig?: DetectedS3SourceConfig | undefined;
 }
 
 /**
@@ -2277,19 +2277,19 @@ export interface DetectedMetricSetConfig {
    * <p>The dataset's offset.</p>
    * @public
    */
-  Offset?: DetectedField;
+  Offset?: DetectedField | undefined;
 
   /**
    * <p>The dataset's interval.</p>
    * @public
    */
-  MetricSetFrequency?: DetectedField;
+  MetricSetFrequency?: DetectedField | undefined;
 
   /**
    * <p>The dataset's data source.</p>
    * @public
    */
-  MetricSource?: DetectedMetricSource;
+  MetricSource?: DetectedMetricSource | undefined;
 }
 
 /**
@@ -2317,7 +2317,7 @@ export interface DetectMetricSetConfigResponse {
    * <p>The inferred dataset configuration for the datasource.</p>
    * @public
    */
-  DetectedMetricSetConfig?: DetectedMetricSetConfig;
+  DetectedMetricSetConfig?: DetectedMetricSetConfig | undefined;
 }
 
 /**
@@ -2363,7 +2363,7 @@ export interface GetAnomalyGroupResponse {
    * <p>Details about the anomaly group.</p>
    * @public
    */
-  AnomalyGroup?: AnomalyGroup;
+  AnomalyGroup?: AnomalyGroup | undefined;
 }
 
 /**
@@ -2380,7 +2380,7 @@ export interface GetDataQualityMetricsRequest {
    * <p>The Amazon Resource Name (ARN) of a specific data quality metric set.</p>
    * @public
    */
-  MetricSetArn?: string;
+  MetricSetArn?: string | undefined;
 }
 
 /**
@@ -2391,7 +2391,7 @@ export interface GetDataQualityMetricsResponse {
    * <p>A list of the data quality metrics for the <code>AnomalyDetectorArn</code> that you requested.</p>
    * @public
    */
-  AnomalyDetectorDataQualityMetricList?: AnomalyDetectorDataQualityMetric[];
+  AnomalyDetectorDataQualityMetricList?: AnomalyDetectorDataQualityMetric[] | undefined;
 }
 
 /**
@@ -2414,13 +2414,13 @@ export interface GetFeedbackRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2432,13 +2432,13 @@ export interface TimeSeriesFeedback {
    * <p>The ID of the metric.</p>
    * @public
    */
-  TimeSeriesId?: string;
+  TimeSeriesId?: string | undefined;
 
   /**
    * <p>Feedback on whether the metric is a legitimate anomaly.</p>
    * @public
    */
-  IsAnomaly?: boolean;
+  IsAnomaly?: boolean | undefined;
 }
 
 /**
@@ -2449,13 +2449,13 @@ export interface GetFeedbackResponse {
    * <p>Feedback for an anomalous metric.</p>
    * @public
    */
-  AnomalyGroupTimeSeriesFeedback?: TimeSeriesFeedback[];
+  AnomalyGroupTimeSeriesFeedback?: TimeSeriesFeedback[] | undefined;
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2473,13 +2473,13 @@ export interface SampleDataS3SourceConfig {
    * <p>An array of strings containing the list of templated paths.</p>
    * @public
    */
-  TemplatedPathList?: string[];
+  TemplatedPathList?: string[] | undefined;
 
   /**
    * <p>An array of strings containing the historical set of data paths.</p>
    * @public
    */
-  HistoricalDataPathList?: string[];
+  HistoricalDataPathList?: string[] | undefined;
 
   /**
    * <p>Contains information about a source file's formatting.</p>
@@ -2496,7 +2496,7 @@ export interface GetSampleDataRequest {
    * <p>A datasource bucket in Amazon S3.</p>
    * @public
    */
-  S3SourceConfig?: SampleDataS3SourceConfig;
+  S3SourceConfig?: SampleDataS3SourceConfig | undefined;
 }
 
 /**
@@ -2507,13 +2507,13 @@ export interface GetSampleDataResponse {
    * <p>A list of header labels for the records.</p>
    * @public
    */
-  HeaderValues?: string[];
+  HeaderValues?: string[] | undefined;
 
   /**
    * <p>A list of records.</p>
    * @public
    */
-  SampleRows?: string[][];
+  SampleRows?: string[][] | undefined;
 }
 
 /**
@@ -2541,13 +2541,13 @@ export interface InterMetricImpactDetails {
    * <p>The name of the measure.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The ID of the anomaly group.</p>
    * @public
    */
-  AnomalyGroupId?: string;
+  AnomalyGroupId?: string | undefined;
 
   /**
    * <p>Whether a measure is a potential cause of the anomaly group
@@ -2555,14 +2555,14 @@ export interface InterMetricImpactDetails {
    *             anomaly group (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>).</p>
    * @public
    */
-  RelationshipType?: RelationshipType;
+  RelationshipType?: RelationshipType | undefined;
 
   /**
    * <p>For potential causes (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>), the percentage
    *             contribution the measure has in causing the anomalies.</p>
    * @public
    */
-  ContributionPercentage?: number;
+  ContributionPercentage?: number | undefined;
 }
 
 /**
@@ -2573,20 +2573,20 @@ export interface ListAlertsRequest {
    * <p>The ARN of the alert's detector.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>If the result of the previous request is truncated, the response includes a <code>NextToken</code>. To
    *       retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that will be displayed by the request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2597,14 +2597,14 @@ export interface ListAlertsResponse {
    * <p>Contains information about an alert.</p>
    * @public
    */
-  AlertSummaryList?: AlertSummary[];
+  AlertSummaryList?: AlertSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, the service returns this token. To retrieve the next set of results, use this
    *       token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2615,14 +2615,14 @@ export interface ListAnomalyDetectorsRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To
    *       retrieve the next set of results, use the token in the next request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2633,14 +2633,14 @@ export interface ListAnomalyDetectorsResponse {
    * <p>A list of anomaly detectors in the account in the current region.</p>
    * @public
    */
-  AnomalyDetectorSummaryList?: AnomalyDetectorSummary[];
+  AnomalyDetectorSummaryList?: AnomalyDetectorSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, the service returns this token. To retrieve the next set of results, use the
    *       token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2664,20 +2664,20 @@ export interface ListAnomalyGroupRelatedMetricsRequest {
    *             downstream effects (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>) of the anomaly group.</p>
    * @public
    */
-  RelationshipTypeFilter?: RelationshipType;
+  RelationshipTypeFilter?: RelationshipType | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next
    *             page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2689,13 +2689,13 @@ export interface ListAnomalyGroupRelatedMetricsResponse {
    *             potentially impacted by the anomaly group.</p>
    * @public
    */
-  InterMetricImpactList?: InterMetricImpactDetails[];
+  InterMetricImpactList?: InterMetricImpactDetails[] | undefined;
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2718,13 +2718,13 @@ export interface ListAnomalyGroupSummariesRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2735,19 +2735,19 @@ export interface ListAnomalyGroupSummariesResponse {
    * <p>A list of anomaly group summaries.</p>
    * @public
    */
-  AnomalyGroupSummaryList?: AnomalyGroupSummary[];
+  AnomalyGroupSummaryList?: AnomalyGroupSummary[] | undefined;
 
   /**
    * <p>Aggregated details about the anomaly groups.</p>
    * @public
    */
-  AnomalyGroupStatistics?: AnomalyGroupStatistics;
+  AnomalyGroupStatistics?: AnomalyGroupStatistics | undefined;
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2776,13 +2776,13 @@ export interface ListAnomalyGroupTimeSeriesRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2818,31 +2818,31 @@ export interface ListAnomalyGroupTimeSeriesResponse {
    * <p>The ID of the anomaly group.</p>
    * @public
    */
-  AnomalyGroupId?: string;
+  AnomalyGroupId?: string | undefined;
 
   /**
    * <p>The name of the measure field.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>Timestamps for the anomalous metrics.</p>
    * @public
    */
-  TimestampList?: string[];
+  TimestampList?: string[] | undefined;
 
   /**
    * <p>The pagination token that's included if more results are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of anomalous metrics.</p>
    * @public
    */
-  TimeSeriesList?: TimeSeries[];
+  TimeSeriesList?: TimeSeries[] | undefined;
 }
 
 /**
@@ -2853,13 +2853,13 @@ export interface ListMetricSetsRequest {
    * <p>The ARN of the anomaly detector containing the metrics sets to list.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If the result of the previous request was truncated, the response includes a
@@ -2867,7 +2867,7 @@ export interface ListMetricSetsRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2879,43 +2879,43 @@ export interface MetricSetSummary {
    * <p>The ARN of the dataset.</p>
    * @public
    */
-  MetricSetArn?: string;
+  MetricSetArn?: string | undefined;
 
   /**
    * <p>The ARN of the detector to which the dataset belongs.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 
   /**
    * <p>The description of the dataset.</p>
    * @public
    */
-  MetricSetDescription?: string;
+  MetricSetDescription?: string | undefined;
 
   /**
    * <p>The name of the dataset.</p>
    * @public
    */
-  MetricSetName?: string;
+  MetricSetName?: string | undefined;
 
   /**
    * <p>The time at which the dataset was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time at which the dataset was last modified.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The dataset's <a href="https://docs.aws.amazon.com/lookoutmetrics/latest/dev/detectors-tags.html">tags</a>.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2926,14 +2926,14 @@ export interface ListMetricSetsResponse {
    * <p>A list of the datasets in the AWS Region, with configuration details for each.</p>
    * @public
    */
-  MetricSetSummaryList?: MetricSetSummary[];
+  MetricSetSummaryList?: MetricSetSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, the list call returns this token. To retrieve the next set
    *       of results, use the token in the next list request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2955,7 +2955,7 @@ export interface ListTagsForResourceResponse {
    * <p>The resource's tags.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3040,25 +3040,25 @@ export interface UpdateAlertRequest {
    * <p>A description of the alert.</p>
    * @public
    */
-  AlertDescription?: string;
+  AlertDescription?: string | undefined;
 
   /**
    * <p>An integer from 0 to 100 specifying the alert sensitivity threshold.</p>
    * @public
    */
-  AlertSensitivityThreshold?: number;
+  AlertSensitivityThreshold?: number | undefined;
 
   /**
    * <p>Action that will be triggered when there is an alert.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>The configuration of the alert filters, containing MetricList and DimensionFilterList.</p>
    * @public
    */
-  AlertFilters?: AlertFilters;
+  AlertFilters?: AlertFilters | undefined;
 }
 
 /**
@@ -3069,7 +3069,7 @@ export interface UpdateAlertResponse {
    * <p>The ARN of the updated alert.</p>
    * @public
    */
-  AlertArn?: string;
+  AlertArn?: string | undefined;
 }
 
 /**
@@ -3086,19 +3086,19 @@ export interface UpdateAnomalyDetectorRequest {
    * <p>The Amazon Resource Name (ARN) of an AWS KMS encryption key.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The updated detector description.</p>
    * @public
    */
-  AnomalyDetectorDescription?: string;
+  AnomalyDetectorDescription?: string | undefined;
 
   /**
    * <p>Contains information about the configuration to which the detector will be updated.</p>
    * @public
    */
-  AnomalyDetectorConfig?: AnomalyDetectorConfig;
+  AnomalyDetectorConfig?: AnomalyDetectorConfig | undefined;
 }
 
 /**
@@ -3109,7 +3109,7 @@ export interface UpdateAnomalyDetectorResponse {
    * <p>The ARN of the updated detector.</p>
    * @public
    */
-  AnomalyDetectorArn?: string;
+  AnomalyDetectorArn?: string | undefined;
 }
 
 /**
@@ -3126,43 +3126,43 @@ export interface UpdateMetricSetRequest {
    * <p>The dataset's description.</p>
    * @public
    */
-  MetricSetDescription?: string;
+  MetricSetDescription?: string | undefined;
 
   /**
    * <p>The metric list.</p>
    * @public
    */
-  MetricList?: Metric[];
+  MetricList?: Metric[] | undefined;
 
   /**
    * <p>After an interval ends, the amount of seconds that the detector waits before importing data. Offset is only supported for S3, Redshift, Athena and datasources.</p>
    * @public
    */
-  Offset?: number;
+  Offset?: number | undefined;
 
   /**
    * <p>The timestamp column.</p>
    * @public
    */
-  TimestampColumn?: TimestampColumn;
+  TimestampColumn?: TimestampColumn | undefined;
 
   /**
    * <p>The dimension list.</p>
    * @public
    */
-  DimensionList?: string[];
+  DimensionList?: string[] | undefined;
 
   /**
    * <p>The dataset's interval.</p>
    * @public
    */
-  MetricSetFrequency?: Frequency;
+  MetricSetFrequency?: Frequency | undefined;
 
   /**
    * <p>Contains information about source data used to generate metrics.</p>
    * @public
    */
-  MetricSource?: MetricSource;
+  MetricSource?: MetricSource | undefined;
 
   /**
    * <p>Describes a list of filters for choosing specific dimensions and specific values. Each
@@ -3171,7 +3171,7 @@ export interface UpdateMetricSetRequest {
    *       and the values are joined with an OR operation.</p>
    * @public
    */
-  DimensionFilterList?: MetricSetDimensionFilter[];
+  DimensionFilterList?: MetricSetDimensionFilter[] | undefined;
 }
 
 /**
@@ -3182,5 +3182,5 @@ export interface UpdateMetricSetResponse {
    * <p>The ARN of the dataset.</p>
    * @public
    */
-  MetricSetArn?: string;
+  MetricSetArn?: string | undefined;
 }

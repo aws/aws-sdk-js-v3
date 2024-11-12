@@ -10,7 +10,7 @@ import { PaymentCryptographyDataServiceException as __BaseException } from "./Pa
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -96,7 +96,7 @@ export interface AmexAttributes {
    * <p>The encrypted pinblock of the old pin stored on the chip card.</p>
    * @public
    */
-  CurrentPinAttributes?: CurrentPinAttributes;
+  CurrentPinAttributes?: CurrentPinAttributes | undefined;
 }
 
 /**
@@ -154,7 +154,7 @@ export interface AsymmetricEncryptionAttributes {
    * <p>The padding to be included with the data.</p>
    * @public
    */
-  PaddingType?: PaddingType;
+  PaddingType?: PaddingType | undefined;
 }
 
 /**
@@ -680,7 +680,7 @@ export interface CryptogramVerificationArpcMethod2 {
    * <p>The proprietary authentication data used by issuer for communication during online transaction using an EMV chip card.</p>
    * @public
    */
-  ProprietaryAuthenticationData?: string;
+  ProprietaryAuthenticationData?: string | undefined;
 }
 
 /**
@@ -800,26 +800,26 @@ export interface DukptEncryptionAttributes {
    *          <p>The default is CBC.</p>
    * @public
    */
-  Mode?: DukptEncryptionMode;
+  Mode?: DukptEncryptionMode | undefined;
 
   /**
    * <p>The key type encrypted using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code>
    *          </p>
    * @public
    */
-  DukptKeyDerivationType?: DukptDerivationType;
+  DukptKeyDerivationType?: DukptDerivationType | undefined;
 
   /**
    * <p>The type of use of DUKPT, which can be incoming data decryption, outgoing data encryption, or both.</p>
    * @public
    */
-  DukptKeyVariant?: DukptKeyVariant;
+  DukptKeyVariant?: DukptKeyVariant | undefined;
 
   /**
    * <p>An input used to provide the intial state. If no value is provided, Amazon Web Services Payment Cryptography defaults it to zero.</p>
    * @public
    */
-  InitializationVector?: string;
+  InitializationVector?: string | undefined;
 }
 
 /**
@@ -883,13 +883,13 @@ export interface EmvEncryptionAttributes {
    * <p>The block cipher method to use for encryption.</p>
    * @public
    */
-  Mode?: EmvEncryptionMode;
+  Mode?: EmvEncryptionMode | undefined;
 
   /**
    * <p>An input used to provide the intial state. If no value is provided, Amazon Web Services Payment Cryptography defaults it to zero.</p>
    * @public
    */
-  InitializationVector?: string;
+  InitializationVector?: string | undefined;
 }
 
 /**
@@ -927,13 +927,13 @@ export interface SymmetricEncryptionAttributes {
    * <p>An input used to provide the intial state. If no value is provided, Amazon Web Services Payment Cryptography defaults it to zero.</p>
    * @public
    */
-  InitializationVector?: string;
+  InitializationVector?: string | undefined;
 
   /**
    * <p>The padding to be included with the data.</p>
    * @public
    */
-  PaddingType?: PaddingType;
+  PaddingType?: PaddingType | undefined;
 }
 
 /**
@@ -1202,7 +1202,7 @@ export interface WrappedKey {
    *          <p>For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.</p>
    * @public
    */
-  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm;
+  KeyCheckValueAlgorithm?: KeyCheckValueAlgorithm | undefined;
 }
 
 /**
@@ -1232,7 +1232,7 @@ export interface DecryptDataInput {
    * <p>The WrappedKeyBlock containing the encryption key for ciphertext decryption.</p>
    * @public
    */
-  WrappedKey?: WrappedKey;
+  WrappedKey?: WrappedKey | undefined;
 }
 
 /**
@@ -1266,7 +1266,7 @@ export interface DecryptDataOutput {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1292,7 +1292,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The resource that is missing.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
   /**
    * @internal
    */
@@ -1314,7 +1314,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1358,7 +1358,7 @@ export class ValidationException extends __BaseException {
    * <p>The request was denied due to an invalid request error.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -1551,7 +1551,7 @@ export interface VisaAttributes {
    * <p>The encrypted pinblock of the old pin stored on the chip card.</p>
    * @public
    */
-  CurrentPinAttributes?: CurrentPinAttributes;
+  CurrentPinAttributes?: CurrentPinAttributes | undefined;
 }
 
 /**
@@ -1700,13 +1700,13 @@ export interface DukptDerivationAttributes {
    *          </p>
    * @public
    */
-  DukptKeyDerivationType?: DukptDerivationType;
+  DukptKeyDerivationType?: DukptDerivationType | undefined;
 
   /**
    * <p>The type of use of DUKPT, which can be for incoming data decryption, outgoing data encryption, or both.</p>
    * @public
    */
-  DukptKeyVariant?: DukptKeyVariant;
+  DukptKeyVariant?: DukptKeyVariant | undefined;
 }
 
 /**
@@ -1739,7 +1739,7 @@ export interface EncryptDataInput {
    * <p>The WrappedKeyBlock containing the encryption key for plaintext encryption.</p>
    * @public
    */
-  WrappedKey?: WrappedKey;
+  WrappedKey?: WrappedKey | undefined;
 }
 
 /**
@@ -1757,7 +1757,7 @@ export interface EncryptDataOutput {
    *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    * @public
    */
-  KeyCheckValue?: string;
+  KeyCheckValue?: string | undefined;
 
   /**
    * <p>The encrypted ciphertext.</p>
@@ -1792,7 +1792,7 @@ export interface GenerateCardValidationDataInput {
    * <p>The length of the CVV or CSC to be generated. The default value is 3.</p>
    * @public
    */
-  ValidationDataLength?: number;
+  ValidationDataLength?: number | undefined;
 }
 
 /**
@@ -1859,7 +1859,7 @@ export interface MacAlgorithmDukpt {
    * <p>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code>.</p>
    * @public
    */
-  DukptDerivationType?: DukptDerivationType;
+  DukptDerivationType?: DukptDerivationType | undefined;
 }
 
 /**
@@ -2109,7 +2109,7 @@ export interface GenerateMacInput {
    * <p>The length of a MAC under generation.</p>
    * @public
    */
-  MacLength?: number;
+  MacLength?: number | undefined;
 }
 
 /**
@@ -2220,13 +2220,13 @@ export interface VisaAmexDerivationOutputs {
    * <p>The <code>keyArn</code> of the current PIN PEK.</p>
    * @public
    */
-  CurrentPinPekArn?: string;
+  CurrentPinPekArn?: string | undefined;
 
   /**
    * <p>The key check value (KCV) of the current PIN PEK.</p>
    * @public
    */
-  CurrentPinPekKeyCheckValue?: string;
+  CurrentPinPekKeyCheckValue?: string | undefined;
 }
 
 /**
@@ -2285,7 +2285,7 @@ export interface GenerateMacEmvPinChangeOutput {
    * <p>The attribute values used for Amex and Visa derivation methods.</p>
    * @public
    */
-  VisaAmexDerivationOutputs?: VisaAmexDerivationOutputs;
+  VisaAmexDerivationOutputs?: VisaAmexDerivationOutputs | undefined;
 }
 
 /**
@@ -2603,7 +2603,7 @@ export interface GeneratePinDataInput {
    * <p>The length of PIN under generation.</p>
    * @public
    */
-  PinDataLength?: number;
+  PinDataLength?: number | undefined;
 
   /**
    * <p>The Primary Account Number (PAN), a unique identifier for a payment credit or debit card that associates the card with a specific account holder.</p>
@@ -2623,7 +2623,7 @@ export interface GeneratePinDataInput {
    * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
    * @public
    */
-  EncryptionWrappedKey?: WrappedKey;
+  EncryptionWrappedKey?: WrappedKey | undefined;
 }
 
 /**
@@ -2845,13 +2845,13 @@ export interface ReEncryptDataInput {
    * <p>The WrappedKeyBlock containing the encryption key of incoming ciphertext data.</p>
    * @public
    */
-  IncomingWrappedKey?: WrappedKey;
+  IncomingWrappedKey?: WrappedKey | undefined;
 
   /**
    * <p>The WrappedKeyBlock containing the encryption key of outgoing ciphertext data after encryption by Amazon Web Services Payment Cryptography.</p>
    * @public
    */
-  OutgoingWrappedKey?: WrappedKey;
+  OutgoingWrappedKey?: WrappedKey | undefined;
 }
 
 /**
@@ -3027,25 +3027,25 @@ export interface TranslatePinDataInput {
    * <p>The attributes and values to use for incoming DUKPT encryption key for PIN block translation.</p>
    * @public
    */
-  IncomingDukptAttributes?: DukptDerivationAttributes;
+  IncomingDukptAttributes?: DukptDerivationAttributes | undefined;
 
   /**
    * <p>The attributes and values to use for outgoing DUKPT encryption key after PIN block translation.</p>
    * @public
    */
-  OutgoingDukptAttributes?: DukptDerivationAttributes;
+  OutgoingDukptAttributes?: DukptDerivationAttributes | undefined;
 
   /**
    * <p>The WrappedKeyBlock containing the encryption key under which incoming PIN block data is encrypted.</p>
    * @public
    */
-  IncomingWrappedKey?: WrappedKey;
+  IncomingWrappedKey?: WrappedKey | undefined;
 
   /**
    * <p>The WrappedKeyBlock containing the encryption key for encrypting outgoing PIN block data.</p>
    * @public
    */
-  OutgoingWrappedKey?: WrappedKey;
+  OutgoingWrappedKey?: WrappedKey | undefined;
 }
 
 /**
@@ -3381,7 +3381,7 @@ export interface VerifyAuthRequestCryptogramInput {
    * <p>The attributes and values for auth request cryptogram verification. These parameters are required in case using ARPC Method 1 or Method 2 for ARQC verification.</p>
    * @public
    */
-  AuthResponseAttributes?: CryptogramAuthResponse;
+  AuthResponseAttributes?: CryptogramAuthResponse | undefined;
 }
 
 /**
@@ -3405,7 +3405,7 @@ export interface VerifyAuthRequestCryptogramOutput {
    * <p>The result for ARQC verification or ARPC generation within Amazon Web Services Payment Cryptography.</p>
    * @public
    */
-  AuthResponseValue?: string;
+  AuthResponseValue?: string | undefined;
 }
 
 /**
@@ -3487,7 +3487,7 @@ export interface VerifyMacInput {
    * <p>The length of the MAC.</p>
    * @public
    */
-  MacLength?: number;
+  MacLength?: number | undefined;
 }
 
 /**
@@ -3627,19 +3627,19 @@ export interface VerifyPinDataInput {
    * <p>The length of PIN being verified.</p>
    * @public
    */
-  PinDataLength?: number;
+  PinDataLength?: number | undefined;
 
   /**
    * <p>The attributes and values for the DUKPT encrypted PIN block data.</p>
    * @public
    */
-  DukptAttributes?: DukptAttributes;
+  DukptAttributes?: DukptAttributes | undefined;
 
   /**
    * <p>Parameter information of a WrappedKeyBlock for encryption key exchange.</p>
    * @public
    */
-  EncryptionWrappedKey?: WrappedKey;
+  EncryptionWrappedKey?: WrappedKey | undefined;
 }
 
 /**

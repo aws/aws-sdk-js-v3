@@ -26,7 +26,7 @@ export class AccessPointAlreadyExists extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   AccessPointId: string | undefined;
   /**
@@ -85,7 +85,7 @@ export interface PosixUser {
    * <p>Secondary POSIX group IDs used for all file system operations using this access point.</p>
    * @public
    */
-  SecondaryGids?: number[];
+  SecondaryGids?: number[] | undefined;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface RootDirectory {
    *       the <code>CreationInfo</code>.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>(Optional) Specifies the POSIX IDs and permissions to apply to the access point's
@@ -152,7 +152,7 @@ export interface RootDirectory {
    *          </important>
    * @public
    */
-  CreationInfo?: CreationInfo;
+  CreationInfo?: CreationInfo | undefined;
 }
 
 /**
@@ -183,63 +183,63 @@ export interface AccessPointDescription {
    * <p>The opaque string specified in the request to ensure idempotent creation.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the access point. This is the value of the <code>Name</code> tag.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The tags associated with the access point, presented as an array of Tag objects.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the access point, assigned by Amazon EFS.</p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 
   /**
    * <p>The  unique Amazon Resource Name (ARN) associated with the access point.</p>
    * @public
    */
-  AccessPointArn?: string;
+  AccessPointArn?: string | undefined;
 
   /**
    * <p>The ID of the EFS file system that the access point applies to.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by
    *       NFS clients using the access point.</p>
    * @public
    */
-  PosixUser?: PosixUser;
+  PosixUser?: PosixUser | undefined;
 
   /**
    * <p>The directory on the EFS file system that the access point exposes as the root
    *       directory to NFS clients using the access point.</p>
    * @public
    */
-  RootDirectory?: RootDirectory;
+  RootDirectory?: RootDirectory | undefined;
 
   /**
    * <p>Identifies the Amazon Web Services account that owns the access point resource.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Identifies the lifecycle phase of the access point.</p>
    * @public
    */
-  LifeCycleState?: LifeCycleState;
+  LifeCycleState?: LifeCycleState | undefined;
 }
 
 /**
@@ -265,7 +265,7 @@ export class AccessPointLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -304,7 +304,7 @@ export class AccessPointNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -334,7 +334,7 @@ export class AvailabilityZonesMismatch extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -344,7 +344,7 @@ export class AvailabilityZonesMismatch extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -428,7 +428,7 @@ export interface BackupPolicyDescription {
    *       turned on or off.</p>
    * @public
    */
-  BackupPolicy?: BackupPolicy;
+  BackupPolicy?: BackupPolicy | undefined;
 }
 
 /**
@@ -454,7 +454,7 @@ export class BadRequest extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -482,7 +482,7 @@ export class ConflictException extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -492,7 +492,7 @@ export class ConflictException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -517,7 +517,7 @@ export interface CreateAccessPointRequest {
    *       creation.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Creates tags associated with the access point. Each tag is a key-value pair, each key must be unique. For more
@@ -525,7 +525,7 @@ export interface CreateAccessPointRequest {
    *       in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the EFS file system that the access point provides access to.</p>
@@ -538,7 +538,7 @@ export interface CreateAccessPointRequest {
    *       group applied to all file system requests made using the access point.</p>
    * @public
    */
-  PosixUser?: PosixUser;
+  PosixUser?: PosixUser | undefined;
 
   /**
    * <p>Specifies the directory on the EFS file system that the access point exposes as
@@ -552,7 +552,7 @@ export interface CreateAccessPointRequest {
    *       using the access point will fail.</p>
    * @public
    */
-  RootDirectory?: RootDirectory;
+  RootDirectory?: RootDirectory | undefined;
 }
 
 /**
@@ -578,7 +578,7 @@ export class FileSystemNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -616,7 +616,7 @@ export class IncorrectFileSystemLifeCycleState extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -654,7 +654,7 @@ export class InternalServerError extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -684,7 +684,7 @@ export class ThrottlingException extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -694,7 +694,7 @@ export class ThrottlingException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -748,7 +748,7 @@ export interface CreateFileSystemRequest {
    *       creation.</p>
    * @public
    */
-  CreationToken?: string;
+  CreationToken?: string | undefined;
 
   /**
    * <p>The Performance mode of the file system. We recommend <code>generalPurpose</code>
@@ -763,7 +763,7 @@ export interface CreateFileSystemRequest {
    *          <p>Default is <code>generalPurpose</code>.</p>
    * @public
    */
-  PerformanceMode?: PerformanceMode;
+  PerformanceMode?: PerformanceMode | undefined;
 
   /**
    * <p>A Boolean value that, if true, creates an encrypted file system. When creating an
@@ -773,7 +773,7 @@ export interface CreateFileSystemRequest {
    *     </p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of the KMS key that you want to use to protect the encrypted file
@@ -805,7 +805,7 @@ export interface CreateFileSystemRequest {
    *          </important>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies the throughput mode for the file system. The mode can be <code>bursting</code>,
@@ -819,7 +819,7 @@ export interface CreateFileSystemRequest {
    *          <p>Default is <code>bursting</code>.</p>
    * @public
    */
-  ThroughputMode?: ThroughputMode;
+  ThroughputMode?: ThroughputMode | undefined;
 
   /**
    * <p>The throughput, measured in mebibytes per second (MiBps), that you want to provision for a
@@ -830,7 +830,7 @@ export interface CreateFileSystemRequest {
    *       Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughputInMibps?: number;
+  ProvisionedThroughputInMibps?: number | undefined;
 
   /**
    * <p>Used to create a One Zone file system. It specifies the Amazon Web Services
@@ -843,7 +843,7 @@ export interface CreateFileSystemRequest {
    *          </note>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>Specifies whether automatic backups are enabled on the file system that you are creating.
@@ -858,7 +858,7 @@ export interface CreateFileSystemRequest {
    *          </note>
    * @public
    */
-  Backup?: boolean;
+  Backup?: boolean | undefined;
 
   /**
    * <p>Use to create one or more tags associated with the file system. Each
@@ -868,7 +868,7 @@ export interface CreateFileSystemRequest {
    *         in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -894,7 +894,7 @@ export class FileSystemAlreadyExists extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   FileSystemId: string | undefined;
   /**
@@ -960,7 +960,7 @@ export interface FileSystemProtectionDescription {
    *       protection is re-enabled, the file system becomes writeable.</p>
    * @public
    */
-  ReplicationOverwriteProtection?: ReplicationOverwriteProtection;
+  ReplicationOverwriteProtection?: ReplicationOverwriteProtection | undefined;
 }
 
 /**
@@ -985,28 +985,28 @@ export interface FileSystemSize {
    *       determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The latest known metered size (in bytes) of data stored in the Infrequent Access storage
    *       class.</p>
    * @public
    */
-  ValueInIA?: number;
+  ValueInIA?: number | undefined;
 
   /**
    * <p>The latest known metered size (in bytes) of data stored in the Standard
    *       storage class.</p>
    * @public
    */
-  ValueInStandard?: number;
+  ValueInStandard?: number | undefined;
 
   /**
    * <p>The latest known metered size (in bytes) of data stored in the Archive
    *       storage class.</p>
    * @public
    */
-  ValueInArchive?: number;
+  ValueInArchive?: number | undefined;
 }
 
 /**
@@ -1041,7 +1041,7 @@ export interface FileSystemDescription {
    *          </p>
    * @public
    */
-  FileSystemArn?: string;
+  FileSystemArn?: string | undefined;
 
   /**
    * <p>The time that the file system was created, in seconds (since
@@ -1062,7 +1062,7 @@ export interface FileSystemDescription {
    *       the value in this field. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The current number of mount targets that the file system has. For more information, see <a>CreateMountTarget</a>.</p>
@@ -1094,13 +1094,13 @@ export interface FileSystemDescription {
    * <p>A Boolean value that, if true, indicates that the file system is encrypted.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of an KMS key used to protect the encrypted file system.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Displays the file system's throughput mode. For more information, see
@@ -1109,14 +1109,14 @@ export interface FileSystemDescription {
    *     </p>
    * @public
    */
-  ThroughputMode?: ThroughputMode;
+  ThroughputMode?: ThroughputMode | undefined;
 
   /**
    * <p>The amount of provisioned throughput, measured in MiBps, for the file system. Valid for
    *       file systems using <code>ThroughputMode</code> set to <code>provisioned</code>.</p>
    * @public
    */
-  ProvisionedThroughputInMibps?: number;
+  ProvisionedThroughputInMibps?: number | undefined;
 
   /**
    * <p>Describes the Amazon Web Services Availability Zone in which the file system is located, and is
@@ -1124,7 +1124,7 @@ export interface FileSystemDescription {
    *         classes</a> in the <i>Amazon EFS User Guide</i>.</p>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>The unique and consistent identifier of the Availability Zone in which the file system is
@@ -1133,7 +1133,7 @@ export interface FileSystemDescription {
    *       it has the same location in every Amazon Web Services account.</p>
    * @public
    */
-  AvailabilityZoneId?: string;
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The tags associated with the file system, presented as an array of <code>Tag</code>
@@ -1146,7 +1146,7 @@ export interface FileSystemDescription {
    * <p>Describes the protection on the file system. </p>
    * @public
    */
-  FileSystemProtection?: FileSystemProtectionDescription;
+  FileSystemProtection?: FileSystemProtectionDescription | undefined;
 }
 
 /**
@@ -1172,7 +1172,7 @@ export class FileSystemLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1214,7 +1214,7 @@ export class InsufficientThroughputCapacity extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1253,7 +1253,7 @@ export class ThroughputLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1291,7 +1291,7 @@ export class UnsupportedAvailabilityZone extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1329,14 +1329,14 @@ export interface CreateMountTargetRequest {
    * <p>Valid IPv4 address within the address range of the specified subnet.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
    * <p>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be
    *       for the same VPC as subnet specified.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -1362,7 +1362,7 @@ export class IpAddressInUse extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1401,7 +1401,7 @@ export class MountTargetConflict extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1426,7 +1426,7 @@ export interface MountTargetDescription {
    * <p>Amazon Web Services account ID that owns the resource.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>System-assigned mount target ID.</p>
@@ -1456,21 +1456,21 @@ export interface MountTargetDescription {
    * <p>Address at which the file system can be mounted by using the mount target.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
    * <p>The ID of the network interface that Amazon EFS created when it created the mount
    *       target.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The unique and consistent identifier of the Availability Zone that the mount target resides in.
    *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it has the same location in every Amazon Web Services account.</p>
    * @public
    */
-  AvailabilityZoneId?: string;
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The name of the Availability Zone in which the mount target is located. Availability Zones are
@@ -1478,13 +1478,13 @@ export interface MountTargetDescription {
    *       <code>us-east-1a</code> for your Amazon Web Services account might not be the same location as <code>us-east-1a</code> for another Amazon Web Services account.</p>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>The virtual private cloud (VPC) ID that the mount target is configured in.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
@@ -1514,7 +1514,7 @@ export class NetworkInterfaceLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1553,7 +1553,7 @@ export class NoFreeAddressesInSubnet extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1592,7 +1592,7 @@ export class SecurityGroupLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1631,7 +1631,7 @@ export class SecurityGroupNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1670,7 +1670,7 @@ export class SubnetNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1696,14 +1696,14 @@ export interface DestinationToCreate {
    * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region in which to create the destination file system.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>To create a file system that uses One Zone storage, specify the name of the
    *       Availability Zone in which to create the destination file system.</p>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>Specify the Key Management Service (KMS) key that you want to use to
@@ -1729,7 +1729,7 @@ export interface DestinationToCreate {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The ID of the file system to use for the destination. The file system's replication
@@ -1737,7 +1737,7 @@ export interface DestinationToCreate {
    *       file system for the replication destination.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 }
 
 /**
@@ -1823,7 +1823,7 @@ export interface Destination {
    *       time might not be fully replicated.</p>
    * @public
    */
-  LastReplicatedTimestamp?: Date;
+  LastReplicatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1883,7 +1883,7 @@ export class ReplicationNotFound extends __BaseException {
    * <p>ReplicationNotFound</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -1893,7 +1893,7 @@ export class ReplicationNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1931,7 +1931,7 @@ export class ValidationException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2012,7 +2012,7 @@ export class FileSystemInUse extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2075,7 +2075,7 @@ export class DependencyTimeout extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2114,7 +2114,7 @@ export class MountTargetNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2169,7 +2169,7 @@ export interface DescribeAccessPointsRequest {
    *       The default value is 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -2177,21 +2177,21 @@ export interface DescribeAccessPointsRequest {
    *       <code>NextMarker</code> in the subsequent request to fetch the next page of access point descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>(Optional) Specifies an EFS access point to describe in the response; mutually
    *       exclusive with <code>FileSystemId</code>.</p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 
   /**
    * <p>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access
    *       points for that file system; mutually exclusive with <code>AccessPointId</code>.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 }
 
 /**
@@ -2202,14 +2202,14 @@ export interface DescribeAccessPointsResponse {
    * <p>An array of access point descriptions.</p>
    * @public
    */
-  AccessPoints?: AccessPointDescription[];
+  AccessPoints?: AccessPointDescription[] | undefined;
 
   /**
    * <p>Present if there are more access points than returned in the response.
    *       You can use the NextMarker in the subsequent request to fetch the additional descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2221,7 +2221,7 @@ export interface DescribeAccountPreferencesRequest {
    *       Amazon Web Services account preferences if the response payload was paginated.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>(Optional) When retrieving account preferences,
@@ -2229,7 +2229,7 @@ export interface DescribeAccountPreferencesRequest {
    *       The default value is 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2270,13 +2270,13 @@ export interface ResourceIdPreference {
    *       characters) or <code>SHORT_ID</code> (8 characters).</p>
    * @public
    */
-  ResourceIdType?: ResourceIdType;
+  ResourceIdType?: ResourceIdType | undefined;
 
   /**
    * <p>Identifies the Amazon EFS resources to which the ID preference setting applies, <code>FILE_SYSTEM</code> and <code>MOUNT_TARGET</code>.</p>
    * @public
    */
-  Resources?: Resource[];
+  Resources?: Resource[] | undefined;
 }
 
 /**
@@ -2287,14 +2287,14 @@ export interface DescribeAccountPreferencesResponse {
    * <p>Describes the resource ID preference setting for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.</p>
    * @public
    */
-  ResourceIdPreference?: ResourceIdPreference;
+  ResourceIdPreference?: ResourceIdPreference | undefined;
 
   /**
    * <p>Present if there are more records than returned in the response.
    *       You can use the <code>NextToken</code> in the subsequent request to fetch the additional descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2321,7 +2321,7 @@ export class PolicyNotFound extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -2331,7 +2331,7 @@ export class PolicyNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2368,14 +2368,14 @@ export interface FileSystemPolicyDescription {
    *       applies.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>The JSON formatted <code>FileSystemPolicy</code> for the EFS file
    *       system.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -2389,7 +2389,7 @@ export interface DescribeFileSystemsRequest {
    *       </p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>(Optional) Opaque pagination token returned from a previous
@@ -2397,21 +2397,21 @@ export interface DescribeFileSystemsRequest {
    *       list from where the returning call had left off. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>(Optional) Restricts the list to the file system with this creation token (String). You
    *       specify a creation token when you create an Amazon EFS file system.</p>
    * @public
    */
-  CreationToken?: string;
+  CreationToken?: string | undefined;
 
   /**
    * <p>(Optional) ID of the file system whose description you want to retrieve
    *       (String).</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 }
 
 /**
@@ -2422,20 +2422,20 @@ export interface DescribeFileSystemsResponse {
    * <p>Present if provided by caller in the request (String).</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>An array of file system descriptions.</p>
    * @public
    */
-  FileSystems?: FileSystemDescription[];
+  FileSystems?: FileSystemDescription[] | undefined;
 
   /**
    * <p>Present if there are more file systems than returned in the response (String). You can
    *       use the <code>NextMarker</code> in the subsequent request to fetch the descriptions.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -2528,7 +2528,7 @@ export interface LifecyclePolicy {
    *       don't count as file access events.</p>
    * @public
    */
-  TransitionToIA?: TransitionToIARules;
+  TransitionToIA?: TransitionToIARules | undefined;
 
   /**
    * <p>Whether to move files back to primary (Standard) storage after they are
@@ -2536,7 +2536,7 @@ export interface LifecyclePolicy {
    *       listing the contents of a directory don't count as file access events.</p>
    * @public
    */
-  TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules;
+  TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules | undefined;
 
   /**
    * <p>The number of days after files were last accessed in primary storage (the
@@ -2545,7 +2545,7 @@ export interface LifecyclePolicy {
    *       file access events.</p>
    * @public
    */
-  TransitionToArchive?: TransitionToArchiveRules;
+  TransitionToArchive?: TransitionToArchiveRules | undefined;
 }
 
 /**
@@ -2557,7 +2557,7 @@ export interface LifecycleConfigurationDescription {
    *       policy per file system.</p>
    * @public
    */
-  LifecyclePolicies?: LifecyclePolicy[];
+  LifecyclePolicies?: LifecyclePolicy[] | undefined;
 }
 
 /**
@@ -2571,7 +2571,7 @@ export interface DescribeMountTargetsRequest {
    *       10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>(Optional) Opaque pagination token returned from a previous
@@ -2579,28 +2579,28 @@ export interface DescribeMountTargetsRequest {
    *       the list from where the previous returning call left off.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>(Optional) ID of the file system whose mount targets you want to list (String). It must
    *       be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code> is not included. Accepts either a file system ID or ARN as input.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>(Optional) ID of the mount target that you want to have described (String). It must be
    *       included in your request if <code>FileSystemId</code> is not included. Accepts either a mount target ID or ARN as input.</p>
    * @public
    */
-  MountTargetId?: string;
+  MountTargetId?: string | undefined;
 
   /**
    * <p>(Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a
    *       <code>FileSystemId</code> or <code>MountTargetId</code> is not included in your request. Accepts either an access point ID or ARN as input.</p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 }
 
 /**
@@ -2613,14 +2613,14 @@ export interface DescribeMountTargetsResponse {
    *       this field.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Returns the file system's mount targets as an array of
    *         <code>MountTargetDescription</code> objects.</p>
    * @public
    */
-  MountTargets?: MountTargetDescription[];
+  MountTargets?: MountTargetDescription[] | undefined;
 
   /**
    * <p>If a value is present, there are more mount targets to return. In a subsequent request,
@@ -2628,7 +2628,7 @@ export interface DescribeMountTargetsResponse {
    *       of mount targets.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -2677,7 +2677,7 @@ export class IncorrectMountTargetState extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2702,7 +2702,7 @@ export interface DescribeReplicationConfigurationsRequest {
    *       file system ID.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>
@@ -2711,14 +2711,14 @@ export interface DescribeReplicationConfigurationsRequest {
    *       output.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>(Optional) To limit the number of objects returned in a response, you can specify the
    *         <code>MaxItems</code> parameter. The default value is 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2729,14 +2729,14 @@ export interface DescribeReplicationConfigurationsResponse {
    * <p>The collection of replication configurations that is returned.</p>
    * @public
    */
-  Replications?: ReplicationConfigurationDescription[];
+  Replications?: ReplicationConfigurationDescription[] | undefined;
 
   /**
    * <p>You can use the <code>NextToken</code> from the previous response in a subsequent
    *       request to fetch the additional descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2750,7 +2750,7 @@ export interface DescribeTagsRequest {
    *       100, and other values are ignored. The response is paginated at 100 per page if you have more than 100 tags.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>(Optional) An opaque pagination token returned from a previous
@@ -2758,7 +2758,7 @@ export interface DescribeTagsRequest {
    *       from where the previous call left off.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The ID of the file system whose tag set you want to retrieve.</p>
@@ -2777,7 +2777,7 @@ export interface DescribeTagsResponse {
    *       field.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Returns tags associated with the file system as an array of <code>Tag</code> objects.
@@ -2792,7 +2792,7 @@ export interface DescribeTagsResponse {
    *       in your next request to retrieve the next set of tags.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -2809,7 +2809,7 @@ export class InvalidPolicyException extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -2819,7 +2819,7 @@ export class InvalidPolicyException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2850,13 +2850,13 @@ export interface ListTagsForResourceRequest {
    * <p>(Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2867,14 +2867,14 @@ export interface ListTagsForResourceResponse {
    * <p>An array of the tags for the specified EFS resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>
    *             <code>NextToken</code> is present if the response payload is paginated. You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2892,7 +2892,7 @@ export interface ModifyMountTargetSecurityGroupsRequest {
    * <p>An array of up to five VPC security group IDs.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -2920,7 +2920,7 @@ export interface PutAccountPreferencesResponse {
    * <p>Describes the resource type and its ID preference for the user's Amazon Web Services account, in the current Amazon Web Services Region.</p>
    * @public
    */
-  ResourceIdPreference?: ResourceIdPreference;
+  ResourceIdPreference?: ResourceIdPreference | undefined;
 }
 
 /**
@@ -2968,7 +2968,7 @@ export interface PutFileSystemPolicyRequest {
    *     </p>
    * @public
    */
-  BypassPolicyLockoutSafetyCheck?: boolean;
+  BypassPolicyLockoutSafetyCheck?: boolean | undefined;
 }
 
 /**
@@ -3089,7 +3089,7 @@ export class TooManyRequests extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3122,7 +3122,7 @@ export interface UpdateFileSystemRequest {
    *       you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
    * @public
    */
-  ThroughputMode?: ThroughputMode;
+  ThroughputMode?: ThroughputMode | undefined;
 
   /**
    * <p>(Optional) The throughput, measured in mebibytes per second (MiBps), that you want to
@@ -3134,7 +3134,7 @@ export interface UpdateFileSystemRequest {
    *         Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughputInMibps?: number;
+  ProvisionedThroughputInMibps?: number | undefined;
 }
 
 /**
@@ -3149,7 +3149,7 @@ export class ReplicationAlreadyExists extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -3159,7 +3159,7 @@ export class ReplicationAlreadyExists extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3211,5 +3211,5 @@ export interface UpdateFileSystemProtectionRequest {
    *       protection is re-enabled, the file system becomes writeable.</p>
    * @public
    */
-  ReplicationOverwriteProtection?: ReplicationOverwriteProtection;
+  ReplicationOverwriteProtection?: ReplicationOverwriteProtection | undefined;
 }

@@ -29,19 +29,19 @@ export interface AccountEntityAggregate {
    * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>The number of entities that match the filter criteria for the specified events.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 
   /**
    * <p>The number of affected entities aggregated by the entity status codes.</p>
    * @public
    */
-  statuses?: Partial<Record<EntityStatusCode, number>>;
+  statuses?: Partial<Record<EntityStatusCode, number>> | undefined;
 }
 
 /**
@@ -55,7 +55,7 @@ export interface AffectedEntity {
    *          </p>
    * @public
    */
-  entityArn?: string;
+  entityArn?: string | undefined;
 
   /**
    * <p>The unique identifier for the event. The event ARN has the
@@ -68,38 +68,38 @@ export interface AffectedEntity {
    *          </p>
    * @public
    */
-  eventArn?: string;
+  eventArn?: string | undefined;
 
   /**
    * <p>The ID of the affected entity.</p>
    * @public
    */
-  entityValue?: string;
+  entityValue?: string | undefined;
 
   /**
    * <p>The URL of the affected entity.</p>
    * @public
    */
-  entityUrl?: string;
+  entityUrl?: string | undefined;
 
   /**
    * <p>The 12-digit Amazon Web Services account number that contains the affected entity.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The most recent time that the entity was updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The most recent status of the entity affected by the event. The possible values are
    *             <code>IMPAIRED</code>, <code>UNIMPAIRED</code>, and <code>UNKNOWN</code>.</p>
    * @public
    */
-  statusCode?: EntityStatusCode;
+  statusCode?: EntityStatusCode | undefined;
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
@@ -108,7 +108,7 @@ export interface AffectedEntity {
    *          </note>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -135,13 +135,13 @@ export interface DescribeAffectedAccountsForOrganizationRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -167,7 +167,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    * <p>A JSON set of elements of the affected accounts.</p>
    * @public
    */
-  affectedAccounts?: string[];
+  affectedAccounts?: string[] | undefined;
 
   /**
    * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
@@ -191,7 +191,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    *          </ul>
    * @public
    */
-  eventScopeCode?: EventScopeCode;
+  eventScopeCode?: EventScopeCode | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -200,7 +200,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -238,13 +238,13 @@ export interface DateTimeRange {
    * <p>The starting date and time of a time range.</p>
    * @public
    */
-  from?: Date;
+  from?: Date | undefined;
 
   /**
    * <p>The ending date and time of a time range.</p>
    * @public
    */
-  to?: Date;
+  to?: Date | undefined;
 }
 
 /**
@@ -263,19 +263,19 @@ export interface EntityFilter {
    * <p>A list of entity ARNs (unique identifiers).</p>
    * @public
    */
-  entityArns?: string[];
+  entityArns?: string[] | undefined;
 
   /**
    * <p>A list of IDs for affected entities.</p>
    * @public
    */
-  entityValues?: string[];
+  entityValues?: string[] | undefined;
 
   /**
    * <p>A list of the most recent dates and times that the entity was updated.</p>
    * @public
    */
-  lastUpdatedTimes?: DateTimeRange[];
+  lastUpdatedTimes?: DateTimeRange[] | undefined;
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
@@ -284,14 +284,14 @@ export interface EntityFilter {
    *          </note>
    * @public
    */
-  tags?: Record<string, string>[];
+  tags?: Record<string, string>[] | undefined;
 
   /**
    * <p>A list of entity status codes (<code>IMPAIRED</code>, <code>UNIMPAIRED</code>, or
    *             <code>UNKNOWN</code>).</p>
    * @public
    */
-  statusCodes?: EntityStatusCode[];
+  statusCodes?: EntityStatusCode[] | undefined;
 }
 
 /**
@@ -308,7 +308,7 @@ export interface DescribeAffectedEntitiesRequest {
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -317,13 +317,13 @@ export interface DescribeAffectedEntitiesRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -334,7 +334,7 @@ export interface DescribeAffectedEntitiesResponse {
    * <p>The entities that match the filter criteria.</p>
    * @public
    */
-  entities?: AffectedEntity[];
+  entities?: AffectedEntity[] | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -343,7 +343,7 @@ export interface DescribeAffectedEntitiesResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -388,13 +388,13 @@ export interface EntityAccountFilter {
    * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>A list of entity status codes.</p>
    * @public
    */
-  statusCodes?: EntityStatusCode[];
+  statusCodes?: EntityStatusCode[] | undefined;
 }
 
 /**
@@ -419,7 +419,7 @@ export interface EventAccountFilter {
    * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 }
 
 /**
@@ -433,13 +433,13 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
    *             <code>eventArn</code>.</p>
    * @public
    */
-  organizationEntityFilters?: EventAccountFilter[];
+  organizationEntityFilters?: EventAccountFilter[] | undefined;
 
   /**
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -448,19 +448,19 @@ export interface DescribeAffectedEntitiesForOrganizationRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>A JSON set of elements including the <code>awsAccountId</code>, <code>eventArn</code> and a set of <code>statusCodes</code>.</p>
    * @public
    */
-  organizationEntityAccountFilters?: EntityAccountFilter[];
+  organizationEntityAccountFilters?: EntityAccountFilter[] | undefined;
 }
 
 /**
@@ -473,7 +473,7 @@ export interface OrganizationAffectedEntitiesErrorItem {
    * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The unique identifier for the event. The event ARN has the
@@ -486,13 +486,13 @@ export interface OrganizationAffectedEntitiesErrorItem {
    *          </p>
    * @public
    */
-  eventArn?: string;
+  eventArn?: string | undefined;
 
   /**
    * <p>The name of the error.</p>
    * @public
    */
-  errorName?: string;
+  errorName?: string | undefined;
 
   /**
    * <p>A message that describes the error. Follow the error message and retry your request.</p>
@@ -502,7 +502,7 @@ export interface OrganizationAffectedEntitiesErrorItem {
    *          don't specify an Amazon Web Services account.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -515,14 +515,14 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
    *             <code>lastUpdatedTime</code>, and <code>statusCode</code>.</p>
    * @public
    */
-  entities?: AffectedEntity[];
+  entities?: AffectedEntity[] | undefined;
 
   /**
    * <p>A JSON set of elements of the failed response, including the <code>awsAccountId</code>,
    *             <code>errorMessage</code>, <code>errorName</code>, and <code>eventArn</code>.</p>
    * @public
    */
-  failedSet?: OrganizationAffectedEntitiesErrorItem[];
+  failedSet?: OrganizationAffectedEntitiesErrorItem[] | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -531,7 +531,7 @@ export interface DescribeAffectedEntitiesForOrganizationResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -543,7 +543,7 @@ export interface DescribeEntityAggregatesRequest {
    *          </p>
    * @public
    */
-  eventArns?: string[];
+  eventArns?: string[] | undefined;
 }
 
 /**
@@ -562,19 +562,19 @@ export interface EntityAggregate {
    *          </p>
    * @public
    */
-  eventArn?: string;
+  eventArn?: string | undefined;
 
   /**
    * <p>The number of entities that match the criteria for the specified events.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 
   /**
    * <p>The number of affected entities aggregated by the entity status codes.</p>
    * @public
    */
-  statuses?: Partial<Record<EntityStatusCode, number>>;
+  statuses?: Partial<Record<EntityStatusCode, number>> | undefined;
 }
 
 /**
@@ -585,7 +585,7 @@ export interface DescribeEntityAggregatesResponse {
    * <p>The number of entities that are affected by each of the specified events.</p>
    * @public
    */
-  entityAggregates?: EntityAggregate[];
+  entityAggregates?: EntityAggregate[] | undefined;
 }
 
 /**
@@ -603,7 +603,7 @@ export interface DescribeEntityAggregatesForOrganizationRequest {
    * <p>A list of 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    * @public
    */
-  awsAccountIds?: string[];
+  awsAccountIds?: string[] | undefined;
 }
 
 /**
@@ -617,26 +617,26 @@ export interface OrganizationEntityAggregate {
    *          </p>
    * @public
    */
-  eventArn?: string;
+  eventArn?: string | undefined;
 
   /**
    * <p>The number of entities for the organization that match the filter criteria for the specified events.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 
   /**
    * <p>The number of affected entities aggregated by the entitiy status codes.</p>
    * @public
    */
-  statuses?: Partial<Record<EntityStatusCode, number>>;
+  statuses?: Partial<Record<EntityStatusCode, number>> | undefined;
 
   /**
    * <p>A list of entity aggregates for each of the specified accounts in your organization that are affected by
    *          a specific event. If there are no <code>awsAccountIds</code> provided in the request, this field will be empty in the response.</p>
    * @public
    */
-  accounts?: AccountEntityAggregate[];
+  accounts?: AccountEntityAggregate[] | undefined;
 }
 
 /**
@@ -647,7 +647,7 @@ export interface DescribeEntityAggregatesForOrganizationResponse {
    * <p>The list of entity aggregates for each of the specified accounts that are affected by each of the specified events.</p>
    * @public
    */
-  organizationEntityAggregates?: OrganizationEntityAggregate[];
+  organizationEntityAggregates?: OrganizationEntityAggregate[] | undefined;
 }
 
 /**
@@ -705,63 +705,63 @@ export interface EventFilter {
    *          </p>
    * @public
    */
-  eventArns?: string[];
+  eventArns?: string[] | undefined;
 
   /**
    * <p>A list of unique identifiers for event types. For example, <code>"AWS_EC2_SYSTEM_MAINTENANCE_EVENT","AWS_RDS_MAINTENANCE_SCHEDULED".</code>
    *          </p>
    * @public
    */
-  eventTypeCodes?: string[];
+  eventTypeCodes?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
-  services?: string[];
+  services?: string[] | undefined;
 
   /**
    * <p>A list of Amazon Web Services Regions.</p>
    * @public
    */
-  regions?: string[];
+  regions?: string[] | undefined;
 
   /**
    * <p>A list of Amazon Web Services Availability Zones.</p>
    * @public
    */
-  availabilityZones?: string[];
+  availabilityZones?: string[] | undefined;
 
   /**
    * <p>A list of dates and times that the event began.</p>
    * @public
    */
-  startTimes?: DateTimeRange[];
+  startTimes?: DateTimeRange[] | undefined;
 
   /**
    * <p>A list of dates and times that the event ended.</p>
    * @public
    */
-  endTimes?: DateTimeRange[];
+  endTimes?: DateTimeRange[] | undefined;
 
   /**
    * <p>A list of dates and times that the event was last updated.</p>
    * @public
    */
-  lastUpdatedTimes?: DateTimeRange[];
+  lastUpdatedTimes?: DateTimeRange[] | undefined;
 
   /**
    * <p>A list of entity ARNs (unique identifiers).</p>
    * @public
    */
-  entityArns?: string[];
+  entityArns?: string[] | undefined;
 
   /**
    * <p>A list of entity identifiers, such as EC2 instance IDs (<code>i-34ab692e</code>) or EBS
    *          volumes (<code>vol-426ab23e</code>).</p>
    * @public
    */
-  entityValues?: string[];
+  entityValues?: string[] | undefined;
 
   /**
    * <p>A list of event type category codes. Possible values are
@@ -769,7 +769,7 @@ export interface EventFilter {
    * the <code>investigation</code> value isn't supported at this time.</p>
    * @public
    */
-  eventTypeCategories?: EventTypeCategory[];
+  eventTypeCategories?: EventTypeCategory[] | undefined;
 
   /**
    * <p>A map of entity tags attached to the affected entity.</p>
@@ -778,13 +778,13 @@ export interface EventFilter {
    *          </note>
    * @public
    */
-  tags?: Record<string, string>[];
+  tags?: Record<string, string>[] | undefined;
 
   /**
    * <p>A list of event status codes.</p>
    * @public
    */
-  eventStatusCodes?: EventStatusCode[];
+  eventStatusCodes?: EventStatusCode[] | undefined;
 }
 
 /**
@@ -795,7 +795,7 @@ export interface DescribeEventAggregatesRequest {
    * <p>Values to narrow the results returned.</p>
    * @public
    */
-  filter?: EventFilter;
+  filter?: EventFilter | undefined;
 
   /**
    * <p>The only currently supported value is <code>eventTypeCategory</code>.</p>
@@ -807,7 +807,7 @@ export interface DescribeEventAggregatesRequest {
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -816,7 +816,7 @@ export interface DescribeEventAggregatesRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -828,13 +828,13 @@ export interface EventAggregate {
    * <p>The issue type for the associated count.</p>
    * @public
    */
-  aggregateValue?: string;
+  aggregateValue?: string | undefined;
 
   /**
    * <p>The number of events of the associated issue type.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 }
 
 /**
@@ -845,7 +845,7 @@ export interface DescribeEventAggregatesResponse {
    * <p>The number of events in each category that meet the optional filter criteria.</p>
    * @public
    */
-  eventAggregates?: EventAggregate[];
+  eventAggregates?: EventAggregate[] | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -854,7 +854,7 @@ export interface DescribeEventAggregatesResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -872,7 +872,7 @@ export interface DescribeEventDetailsRequest {
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 }
 
 /**
@@ -891,19 +891,19 @@ export interface EventDetailsErrorItem {
    *          </p>
    * @public
    */
-  eventArn?: string;
+  eventArn?: string | undefined;
 
   /**
    * <p>The name of the error.</p>
    * @public
    */
-  errorName?: string;
+  errorName?: string | undefined;
 
   /**
    * <p>A message that describes the error.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -941,20 +941,20 @@ export interface Event {
    *          </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>
    *             </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
    * @public
    */
-  eventTypeCode?: string;
+  eventTypeCode?: string | undefined;
 
   /**
    * <p>A list of event type category codes. Possible values are
@@ -962,44 +962,44 @@ export interface Event {
    * the <code>investigation</code> value isn't supported at this time.</p>
    * @public
    */
-  eventTypeCategory?: EventTypeCategory;
+  eventTypeCategory?: EventTypeCategory | undefined;
 
   /**
    * <p>The Amazon Web Services Region name of the event.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Availability Zone of the event. For example, us-east-1a.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The date and time that the event began.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The date and time that the event ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The most recent date and time that the event was updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    * @public
    */
-  statusCode?: EventStatusCode;
+  statusCode?: EventStatusCode | undefined;
 
   /**
    * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
@@ -1023,7 +1023,7 @@ export interface Event {
    *          </ul>
    * @public
    */
-  eventScopeCode?: EventScopeCode;
+  eventScopeCode?: EventScopeCode | undefined;
 }
 
 /**
@@ -1036,7 +1036,7 @@ export interface EventDescription {
    * <p>The most recent description of the event.</p>
    * @public
    */
-  latestDescription?: string;
+  latestDescription?: string | undefined;
 }
 
 /**
@@ -1049,19 +1049,19 @@ export interface EventDetails {
    * <p>Summary information about the event.</p>
    * @public
    */
-  event?: Event;
+  event?: Event | undefined;
 
   /**
    * <p>The most recent description of the event.</p>
    * @public
    */
-  eventDescription?: EventDescription;
+  eventDescription?: EventDescription | undefined;
 
   /**
    * <p>Additional metadata about the event.</p>
    * @public
    */
-  eventMetadata?: Record<string, string>;
+  eventMetadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -1072,13 +1072,13 @@ export interface DescribeEventDetailsResponse {
    * <p>Information about the events that could be retrieved.</p>
    * @public
    */
-  successfulSet?: EventDetails[];
+  successfulSet?: EventDetails[] | undefined;
 
   /**
    * <p>Error messages for any events that could not be retrieved.</p>
    * @public
    */
-  failedSet?: EventDetailsErrorItem[];
+  failedSet?: EventDetailsErrorItem[] | undefined;
 }
 
 /**
@@ -1096,7 +1096,7 @@ export interface DescribeEventDetailsForOrganizationRequest {
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 }
 
 /**
@@ -1110,7 +1110,7 @@ export interface OrganizationEventDetailsErrorItem {
    *          event.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>The unique identifier for the event. The event ARN has the
@@ -1123,13 +1123,13 @@ export interface OrganizationEventDetailsErrorItem {
    *          </p>
    * @public
    */
-  eventArn?: string;
+  eventArn?: string | undefined;
 
   /**
    * <p>The name of the error.</p>
    * @public
    */
-  errorName?: string;
+  errorName?: string | undefined;
 
   /**
    * <p>A message that describes the error.</p>
@@ -1148,7 +1148,7 @@ export interface OrganizationEventDetailsErrorItem {
    *          </ul>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -1161,7 +1161,7 @@ export interface OrganizationEventDetails {
    * <p>The 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    * @public
    */
-  awsAccountId?: string;
+  awsAccountId?: string | undefined;
 
   /**
    * <p>Summary information about an Health event.</p>
@@ -1186,20 +1186,20 @@ export interface OrganizationEventDetails {
    *             <code>eventScopeCode</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_Event.html#AWSHealth-Type-Event-eventScopeCode">eventScopeCode</a>.</p>
    * @public
    */
-  event?: Event;
+  event?: Event | undefined;
 
   /**
    * <p>The detailed description of the event. Included in the information returned by the
    *             <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventDetails.html">DescribeEventDetails</a> operation.</p>
    * @public
    */
-  eventDescription?: EventDescription;
+  eventDescription?: EventDescription | undefined;
 
   /**
    * <p>Additional metadata about the event.</p>
    * @public
    */
-  eventMetadata?: Record<string, string>;
+  eventMetadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -1210,13 +1210,13 @@ export interface DescribeEventDetailsForOrganizationResponse {
    * <p>Information about the events that could be retrieved.</p>
    * @public
    */
-  successfulSet?: OrganizationEventDetails[];
+  successfulSet?: OrganizationEventDetails[] | undefined;
 
   /**
    * <p>Error messages for any events that could not be retrieved.</p>
    * @public
    */
-  failedSet?: OrganizationEventDetailsErrorItem[];
+  failedSet?: OrganizationEventDetailsErrorItem[] | undefined;
 }
 
 /**
@@ -1227,7 +1227,7 @@ export interface DescribeEventsRequest {
    * <p>Values to narrow the results returned.</p>
    * @public
    */
-  filter?: EventFilter;
+  filter?: EventFilter | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -1236,19 +1236,19 @@ export interface DescribeEventsRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 }
 
 /**
@@ -1259,7 +1259,7 @@ export interface DescribeEventsResponse {
    * <p>The events that match the specified filter criteria.</p>
    * @public
    */
-  events?: Event[];
+  events?: Event[] | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -1268,7 +1268,7 @@ export interface DescribeEventsResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1281,25 +1281,25 @@ export interface OrganizationEventFilter {
    *          </p>
    * @public
    */
-  eventTypeCodes?: string[];
+  eventTypeCodes?: string[] | undefined;
 
   /**
    * <p>A list of 12-digit Amazon Web Services account numbers that contains the affected entities.</p>
    * @public
    */
-  awsAccountIds?: string[];
+  awsAccountIds?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
-  services?: string[];
+  services?: string[] | undefined;
 
   /**
    * <p>A list of Amazon Web Services Regions.</p>
    * @public
    */
-  regions?: string[];
+  regions?: string[] | undefined;
 
   /**
    * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
@@ -1311,7 +1311,7 @@ export interface OrganizationEventFilter {
    *             <code>to</code>.</p>
    * @public
    */
-  startTime?: DateTimeRange;
+  startTime?: DateTimeRange | undefined;
 
   /**
    * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
@@ -1323,7 +1323,7 @@ export interface OrganizationEventFilter {
    *             <code>to</code>.</p>
    * @public
    */
-  endTime?: DateTimeRange;
+  endTime?: DateTimeRange | undefined;
 
   /**
    * <p>A range of dates and times that is used by the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventFilter.html">EventFilter</a> and <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EntityFilter.html">EntityFilter</a> objects. If <code>from</code> is set and <code>to</code> is set:
@@ -1335,19 +1335,19 @@ export interface OrganizationEventFilter {
    *             <code>to</code>.</p>
    * @public
    */
-  lastUpdatedTime?: DateTimeRange;
+  lastUpdatedTime?: DateTimeRange | undefined;
 
   /**
    * <p>A list of entity ARNs (unique identifiers).</p>
    * @public
    */
-  entityArns?: string[];
+  entityArns?: string[] | undefined;
 
   /**
    * <p>A list of entity identifiers, such as EC2 instance IDs (i-34ab692e) or EBS volumes (vol-426ab23e).</p>
    * @public
    */
-  entityValues?: string[];
+  entityValues?: string[] | undefined;
 
   /**
    * <p>A list of event type category codes. Possible values are
@@ -1355,13 +1355,13 @@ export interface OrganizationEventFilter {
    * the <code>investigation</code> value isn't supported at this time.</p>
    * @public
    */
-  eventTypeCategories?: EventTypeCategory[];
+  eventTypeCategories?: EventTypeCategory[] | undefined;
 
   /**
    * <p>A list of event status codes.</p>
    * @public
    */
-  eventStatusCodes?: EventStatusCode[];
+  eventStatusCodes?: EventStatusCode[] | undefined;
 }
 
 /**
@@ -1372,7 +1372,7 @@ export interface DescribeEventsForOrganizationRequest {
    * <p>Values to narrow the results returned.</p>
    * @public
    */
-  filter?: OrganizationEventFilter;
+  filter?: OrganizationEventFilter | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -1381,19 +1381,19 @@ export interface DescribeEventsForOrganizationRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 }
 
 /**
@@ -1412,13 +1412,13 @@ export interface OrganizationEvent {
    *          </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Service that is affected by the event, such as EC2 and RDS.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>The unique identifier for the event type. The format is
@@ -1426,7 +1426,7 @@ export interface OrganizationEvent {
    *             <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
    * @public
    */
-  eventTypeCode?: string;
+  eventTypeCode?: string | undefined;
 
   /**
    * <p>A list of event type category codes. Possible values are
@@ -1434,7 +1434,7 @@ export interface OrganizationEvent {
    * the <code>investigation</code> value isn't supported at this time.</p>
    * @public
    */
-  eventTypeCategory?: EventTypeCategory;
+  eventTypeCategory?: EventTypeCategory | undefined;
 
   /**
    * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
@@ -1458,38 +1458,38 @@ export interface OrganizationEvent {
    *          </ul>
    * @public
    */
-  eventScopeCode?: EventScopeCode;
+  eventScopeCode?: EventScopeCode | undefined;
 
   /**
    * <p>The Amazon Web Services Region name of the event.</p>
    * @public
    */
-  region?: string;
+  region?: string | undefined;
 
   /**
    * <p>The date and time that the event began.</p>
    * @public
    */
-  startTime?: Date;
+  startTime?: Date | undefined;
 
   /**
    * <p>The date and time that the event ended.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The most recent date and time that the event was updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The most recent status of the event. Possible values are <code>open</code>,
    *             <code>closed</code>, and <code>upcoming</code>.</p>
    * @public
    */
-  statusCode?: EventStatusCode;
+  statusCode?: EventStatusCode | undefined;
 }
 
 /**
@@ -1500,7 +1500,7 @@ export interface DescribeEventsForOrganizationResponse {
    * <p>The events that match the specified filter criteria.</p>
    * @public
    */
-  events?: OrganizationEvent[];
+  events?: OrganizationEvent[] | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -1509,7 +1509,7 @@ export interface DescribeEventsForOrganizationResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1522,13 +1522,13 @@ export interface EventTypeFilter {
    * <p>A list of event type codes.</p>
    * @public
    */
-  eventTypeCodes?: string[];
+  eventTypeCodes?: string[] | undefined;
 
   /**
    * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
-  services?: string[];
+  services?: string[] | undefined;
 
   /**
    * <p>A list of event type category codes. Possible values are
@@ -1536,7 +1536,7 @@ export interface EventTypeFilter {
    * the <code>investigation</code> value isn't supported at this time.</p>
    * @public
    */
-  eventTypeCategories?: EventTypeCategory[];
+  eventTypeCategories?: EventTypeCategory[] | undefined;
 }
 
 /**
@@ -1547,13 +1547,13 @@ export interface DescribeEventTypesRequest {
    * <p>Values to narrow the results returned.</p>
    * @public
    */
-  filter?: EventTypeFilter;
+  filter?: EventTypeFilter | undefined;
 
   /**
    * <p>The locale (language) to return information in. English (en) is the default and the only supported value at this time.</p>
    * @public
    */
-  locale?: string;
+  locale?: string | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -1562,7 +1562,7 @@ export interface DescribeEventTypesRequest {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in one batch, between 10 and 100, inclusive.</p>
@@ -1572,7 +1572,7 @@ export interface DescribeEventTypesRequest {
    *          </note>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1593,14 +1593,14 @@ export interface EventType {
    * <p>The Amazon Web Service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>The unique identifier for the event type. The format is <code>AWS_<i>SERVICE</i>_<i>DESCRIPTION</i>
    *             </code>; for example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>A list of event type category codes. Possible values are
@@ -1608,7 +1608,7 @@ export interface EventType {
    * the <code>investigation</code> value isn't supported at this time.</p>
    * @public
    */
-  category?: EventTypeCategory;
+  category?: EventTypeCategory | undefined;
 }
 
 /**
@@ -1625,7 +1625,7 @@ export interface DescribeEventTypesResponse {
    *          example, <code>AWS_EC2_SYSTEM_MAINTENANCE_EVENT</code>).</p>
    * @public
    */
-  eventTypes?: EventType[];
+  eventTypes?: EventType[] | undefined;
 
   /**
    * <p>If the results of a search are large, only a portion of the
@@ -1634,7 +1634,7 @@ export interface DescribeEventTypesResponse {
    * When all results have been returned, the response does not contain a pagination token value.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1647,7 +1647,7 @@ export interface DescribeHealthServiceStatusForOrganizationResponse {
    *          <p>Valid values are <code>ENABLED | DISABLED | PENDING</code>. </p>
    * @public
    */
-  healthServiceAccessStatusForOrganization?: string;
+  healthServiceAccessStatusForOrganization?: string | undefined;
 }
 
 /**

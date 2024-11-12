@@ -48,19 +48,19 @@ export interface Parameter {
    * <p>The name of the parameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of the parameter.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The value of the parameter.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -72,7 +72,7 @@ export interface RequestBody {
    * <p>The content in the request body.</p>
    * @public
    */
-  content?: Record<string, Parameter[]>;
+  content?: Record<string, Parameter[]> | undefined;
 }
 
 /**
@@ -84,49 +84,49 @@ export interface ActionGroupInvocationInput {
    * <p>The name of the action group.</p>
    * @public
    */
-  actionGroupName?: string;
+  actionGroupName?: string | undefined;
 
   /**
    * <p>The API method being used, based off the action group.</p>
    * @public
    */
-  verb?: string;
+  verb?: string | undefined;
 
   /**
    * <p>The path to the API to call, based off the action group.</p>
    * @public
    */
-  apiPath?: string;
+  apiPath?: string | undefined;
 
   /**
    * <p>The parameters in the Lambda input event.</p>
    * @public
    */
-  parameters?: Parameter[];
+  parameters?: Parameter[] | undefined;
 
   /**
    * <p>The parameters in the request body for the Lambda input event.</p>
    * @public
    */
-  requestBody?: RequestBody;
+  requestBody?: RequestBody | undefined;
 
   /**
    * <p>The function in the action group to call.</p>
    * @public
    */
-  function?: string;
+  function?: string | undefined;
 
   /**
    * <p>How fulfillment of the action is handled. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/action-handle.html">Handling fulfillment of the action</a>.</p>
    * @public
    */
-  executionType?: ExecutionType;
+  executionType?: ExecutionType | undefined;
 
   /**
    * <p>The unique identifier of the invocation. Only returned if the <code>executionType</code> is <code>RETURN_CONTROL</code>.</p>
    * @public
    */
-  invocationId?: string;
+  invocationId?: string | undefined;
 }
 
 /**
@@ -138,7 +138,7 @@ export interface ActionGroupInvocationOutput {
    * <p>The JSON-formatted string returned by the API invoked by the action group.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 }
 
 /**
@@ -167,7 +167,7 @@ export class BadGatewayException extends __BaseException {
    * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -214,7 +214,7 @@ export class DependencyFailedException extends __BaseException {
    * <p>The name of the dependency that caused the issue, such as Amazon Bedrock, Lambda, or STS.</p>
    * @public
    */
-  resourceName?: string;
+  resourceName?: string | undefined;
 
   /**
    * @internal
@@ -338,7 +338,7 @@ export interface InvokeFlowRequest {
    * <p>Specifies whether to return the trace for the flow or not. Traces track inputs and outputs for nodes in the flow. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/flows-trace.html">Track each step in your prompt flow by viewing its trace in Amazon Bedrock</a>.</p>
    * @public
    */
-  enableTrace?: boolean;
+  enableTrace?: boolean | undefined;
 }
 
 /**
@@ -1201,13 +1201,13 @@ export interface FileSource {
    * <p>The s3 location of the files to attach.</p>
    * @public
    */
-  s3Location?: S3ObjectFile;
+  s3Location?: S3ObjectFile | undefined;
 
   /**
    * <p>The data and the text of the attached files.</p>
    * @public
    */
-  byteContent?: ByteContentFile;
+  byteContent?: ByteContentFile | undefined;
 }
 
 /**
@@ -1318,7 +1318,7 @@ export interface ContentBody {
    * <p>The body of the API response.</p>
    * @public
    */
-  body?: string;
+  body?: string | undefined;
 }
 
 /**
@@ -1357,37 +1357,37 @@ export interface ApiResult {
    * <p>The HTTP method for the API operation.</p>
    * @public
    */
-  httpMethod?: string;
+  httpMethod?: string | undefined;
 
   /**
    * <p>The path to the API operation.</p>
    * @public
    */
-  apiPath?: string;
+  apiPath?: string | undefined;
 
   /**
    * <p>Controls the API operations or functions to invoke based on the user confirmation.</p>
    * @public
    */
-  confirmationState?: ConfirmationState;
+  confirmationState?: ConfirmationState | undefined;
 
   /**
    * <p>The response body from the API operation. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
-  responseBody?: Record<string, ContentBody>;
+  responseBody?: Record<string, ContentBody> | undefined;
 
   /**
    * <p>http status code from API execution response (for example: 200, 400, 500).</p>
    * @public
    */
-  httpStatusCode?: number;
+  httpStatusCode?: number | undefined;
 
   /**
    * <p>Controls the final response state returned to end user when API/Function execution failed. When this state is FAILURE, the request would fail with dependency failure exception. When this state is REPROMPT, the API/function response will be sent to model for re-prompt</p>
    * @public
    */
-  responseState?: ResponseState;
+  responseState?: ResponseState | undefined;
 }
 
 /**
@@ -1412,25 +1412,25 @@ export interface FunctionResult {
    * <p>Contains the user confirmation information about the function that was called.</p>
    * @public
    */
-  confirmationState?: ConfirmationState;
+  confirmationState?: ConfirmationState | undefined;
 
   /**
    * <p>The name of the function that was called.</p>
    * @public
    */
-  function?: string;
+  function?: string | undefined;
 
   /**
    * <p>The response from the function call using the parameters. The key of the object is the content type (currently, only <code>TEXT</code> is supported). The response may be returned directly or from the Lambda function.</p>
    * @public
    */
-  responseBody?: Record<string, ContentBody>;
+  responseBody?: Record<string, ContentBody> | undefined;
 
   /**
    * <p>Controls the final response state returned to end user when API/Function execution failed. When this state is FAILURE, the request would fail with dependency failure exception. When this state is REPROMPT, the API/function response will be sent to model for re-prompt</p>
    * @public
    */
-  responseState?: ResponseState;
+  responseState?: ResponseState | undefined;
 }
 
 /**
@@ -1516,13 +1516,13 @@ export interface Span {
    * <p>Where the text with a citation starts in the generated output.</p>
    * @public
    */
-  start?: number;
+  start?: number | undefined;
 
   /**
    * <p>Where the text with a citation ends in the generated output.</p>
    * @public
    */
-  end?: number;
+  end?: number | undefined;
 }
 
 /**
@@ -1545,13 +1545,13 @@ export interface TextResponsePart {
    * <p>The part of the generated text that contains a citation.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 
   /**
    * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
    * @public
    */
-  span?: Span;
+  span?: Span | undefined;
 }
 
 /**
@@ -1574,7 +1574,7 @@ export interface GeneratedResponsePart {
    * <p>Contains metadata about a textual part of the generated response that is accompanied by a citation.</p>
    * @public
    */
-  textResponsePart?: TextResponsePart;
+  textResponsePart?: TextResponsePart | undefined;
 }
 
 /**
@@ -1613,7 +1613,7 @@ export interface RetrievalResultConfluenceLocation {
    * <p>The Confluence host URL for the data source location.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -1640,7 +1640,7 @@ export interface RetrievalResultS3Location {
    * <p>The S3 URI for the data source location.</p>
    * @public
    */
-  uri?: string;
+  uri?: string | undefined;
 }
 
 /**
@@ -1652,7 +1652,7 @@ export interface RetrievalResultSalesforceLocation {
    * <p>The Salesforce host URL for the data source location.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -1664,7 +1664,7 @@ export interface RetrievalResultSharePointLocation {
    * <p>The SharePoint site URL for the data source location.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -1694,7 +1694,7 @@ export interface RetrievalResultWebLocation {
    * <p>The web URL/URLs for the data source location.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -1727,31 +1727,31 @@ export interface RetrievalResultLocation {
    * <p>The S3 data source location.</p>
    * @public
    */
-  s3Location?: RetrievalResultS3Location;
+  s3Location?: RetrievalResultS3Location | undefined;
 
   /**
    * <p>The web URL/URLs data source location.</p>
    * @public
    */
-  webLocation?: RetrievalResultWebLocation;
+  webLocation?: RetrievalResultWebLocation | undefined;
 
   /**
    * <p>The Confluence data source location.</p>
    * @public
    */
-  confluenceLocation?: RetrievalResultConfluenceLocation;
+  confluenceLocation?: RetrievalResultConfluenceLocation | undefined;
 
   /**
    * <p>The Salesforce data source location.</p>
    * @public
    */
-  salesforceLocation?: RetrievalResultSalesforceLocation;
+  salesforceLocation?: RetrievalResultSalesforceLocation | undefined;
 
   /**
    * <p>The SharePoint data source location.</p>
    * @public
    */
-  sharePointLocation?: RetrievalResultSharePointLocation;
+  sharePointLocation?: RetrievalResultSharePointLocation | undefined;
 }
 
 /**
@@ -1774,19 +1774,19 @@ export interface RetrievedReference {
    * <p>Contains the cited text from the data source.</p>
    * @public
    */
-  content?: RetrievalResultContent;
+  content?: RetrievalResultContent | undefined;
 
   /**
    * <p>Contains information about the location of the data source.</p>
    * @public
    */
-  location?: RetrievalResultLocation;
+  location?: RetrievalResultLocation | undefined;
 
   /**
    * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
    * @public
    */
-  metadata?: Record<string, __DocumentType>;
+  metadata?: Record<string, __DocumentType> | undefined;
 }
 
 /**
@@ -1809,13 +1809,13 @@ export interface Citation {
    * <p>Contains the generated response and metadata </p>
    * @public
    */
-  generatedResponsePart?: GeneratedResponsePart;
+  generatedResponsePart?: GeneratedResponsePart | undefined;
 
   /**
    * <p>Contains metadata about the sources cited for the generated response.</p>
    * @public
    */
-  retrievedReferences?: RetrievedReference[];
+  retrievedReferences?: RetrievedReference[] | undefined;
 }
 
 /**
@@ -1827,7 +1827,7 @@ export interface Attribution {
    * <p>A list of citations and related information for a part of an agent response.</p>
    * @public
    */
-  citations?: Citation[];
+  citations?: Citation[] | undefined;
 }
 
 /**
@@ -1839,13 +1839,13 @@ export interface PayloadPart {
    * <p>A part of the agent response in bytes.</p>
    * @public
    */
-  bytes?: Uint8Array;
+  bytes?: Uint8Array | undefined;
 
   /**
    * <p>Contains citations for a part of an agent response.</p>
    * @public
    */
-  attribution?: Attribution;
+  attribution?: Attribution | undefined;
 }
 
 /**
@@ -1857,19 +1857,19 @@ export interface OutputFile {
    * <p>The name of the file containing response from code interpreter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of file that contains response from the code interpreter.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The byte count of files that contains response from code interpreter.</p>
    * @public
    */
-  bytes?: Uint8Array;
+  bytes?: Uint8Array | undefined;
 }
 
 /**
@@ -1881,7 +1881,7 @@ export interface FilePart {
    * <p>Files containing intermediate response for the user.</p>
    * @public
    */
-  files?: OutputFile[];
+  files?: OutputFile[] | undefined;
 }
 
 /**
@@ -1901,19 +1901,19 @@ export interface ApiParameter {
    * <p>The name of the parameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The data type for the parameter.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The value of the parameter.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1925,7 +1925,7 @@ export interface PropertyParameters {
    * <p>A list of parameters in the request body.</p>
    * @public
    */
-  properties?: Parameter[];
+  properties?: Parameter[] | undefined;
 }
 
 /**
@@ -1945,7 +1945,7 @@ export interface ApiRequestBody {
    * <p>The content of the request body. The key of the object in this field is a media type defining the format of the request body.</p>
    * @public
    */
-  content?: Record<string, PropertyParameters>;
+  content?: Record<string, PropertyParameters> | undefined;
 }
 
 /**
@@ -1970,31 +1970,31 @@ export interface ApiInvocationInput {
    * <p>The HTTP method of the API operation.</p>
    * @public
    */
-  httpMethod?: string;
+  httpMethod?: string | undefined;
 
   /**
    * <p>The path to the API operation.</p>
    * @public
    */
-  apiPath?: string;
+  apiPath?: string | undefined;
 
   /**
    * <p>The parameters to provide for the API request, as the agent elicited from the user.</p>
    * @public
    */
-  parameters?: ApiParameter[];
+  parameters?: ApiParameter[] | undefined;
 
   /**
    * <p>The request body to provide for the API request, as the agent elicited from the user.</p>
    * @public
    */
-  requestBody?: ApiRequestBody;
+  requestBody?: ApiRequestBody | undefined;
 
   /**
    * <p>Contains information about the API operation to invoke.</p>
    * @public
    */
-  actionInvocationType?: ActionInvocationType;
+  actionInvocationType?: ActionInvocationType | undefined;
 }
 
 /**
@@ -2013,19 +2013,19 @@ export interface FunctionParameter {
    * <p>The name of the parameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The data type of the parameter.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The value of the parameter.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -2050,19 +2050,19 @@ export interface FunctionInvocationInput {
    * <p>A list of parameters of the function.</p>
    * @public
    */
-  parameters?: FunctionParameter[];
+  parameters?: FunctionParameter[] | undefined;
 
   /**
    * <p>The name of the function.</p>
    * @public
    */
-  function?: string;
+  function?: string | undefined;
 
   /**
    * <p>Contains information about the function to invoke,</p>
    * @public
    */
-  actionInvocationType?: ActionInvocationType;
+  actionInvocationType?: ActionInvocationType | undefined;
 }
 
 /**
@@ -2145,13 +2145,13 @@ export interface ReturnControlPayload {
    * <p>A list of objects that contain information about the parameters and inputs that need to be sent into the API operation or function, based on what the agent determines from its session with the user.</p>
    * @public
    */
-  invocationInputs?: InvocationInputMember[];
+  invocationInputs?: InvocationInputMember[] | undefined;
 
   /**
    * <p>The identifier of the action group invocation.</p>
    * @public
    */
-  invocationId?: string;
+  invocationId?: string | undefined;
 }
 
 /**
@@ -2163,13 +2163,13 @@ export interface FailureTrace {
    * <p>The unique identifier of the trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>The reason the interaction failed.</p>
    * @public
    */
-  failureReason?: string;
+  failureReason?: string | undefined;
 }
 
 /**
@@ -2244,19 +2244,19 @@ export interface GuardrailContentFilter {
    * <p>The type of content detected in the filter by the Guardrail.</p>
    * @public
    */
-  type?: GuardrailContentFilterType;
+  type?: GuardrailContentFilterType | undefined;
 
   /**
    * <p>The confidence level regarding the content detected in the filter by the Guardrail.</p>
    * @public
    */
-  confidence?: GuardrailContentFilterConfidence;
+  confidence?: GuardrailContentFilterConfidence | undefined;
 
   /**
    * <p>The action placed on the content by the Guardrail filter.</p>
    * @public
    */
-  action?: GuardrailContentPolicyAction;
+  action?: GuardrailContentPolicyAction | undefined;
 }
 
 /**
@@ -2268,7 +2268,7 @@ export interface GuardrailContentPolicyAssessment {
    * <p>The filter details of the policy assessment used in the Guardrails filter.</p>
    * @public
    */
-  filters?: GuardrailContentFilter[];
+  filters?: GuardrailContentFilter[] | undefined;
 }
 
 /**
@@ -2338,19 +2338,19 @@ export interface GuardrailPiiEntityFilter {
    * <p>The type of PII the Guardrail filter has identified and removed.</p>
    * @public
    */
-  type?: GuardrailPiiEntityType;
+  type?: GuardrailPiiEntityType | undefined;
 
   /**
    * <p>The match to settings in the Guardrail filter to identify and remove PII.</p>
    * @public
    */
-  match?: string;
+  match?: string | undefined;
 
   /**
    * <p>The action of the Guardrail filter to identify and remove PII.</p>
    * @public
    */
-  action?: GuardrailSensitiveInformationPolicyAction;
+  action?: GuardrailSensitiveInformationPolicyAction | undefined;
 }
 
 /**
@@ -2362,25 +2362,25 @@ export interface GuardrailRegexFilter {
    * <p>The name details for the regex filter used in the Guardrail.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The regex details for the regex filter used in the Guardrail.</p>
    * @public
    */
-  regex?: string;
+  regex?: string | undefined;
 
   /**
    * <p>The match details for the regex filter used in the Guardrail.</p>
    * @public
    */
-  match?: string;
+  match?: string | undefined;
 
   /**
    * <p>The action details for the regex filter used in the Guardrail.</p>
    * @public
    */
-  action?: GuardrailSensitiveInformationPolicyAction;
+  action?: GuardrailSensitiveInformationPolicyAction | undefined;
 }
 
 /**
@@ -2392,13 +2392,13 @@ export interface GuardrailSensitiveInformationPolicyAssessment {
    * <p>The details of the PII entities used in the sensitive policy assessment for the Guardrail.</p>
    * @public
    */
-  piiEntities?: GuardrailPiiEntityFilter[];
+  piiEntities?: GuardrailPiiEntityFilter[] | undefined;
 
   /**
    * <p>The details of the regexes used in the sensitive policy assessment for the Guardrail.</p>
    * @public
    */
-  regexes?: GuardrailRegexFilter[];
+  regexes?: GuardrailRegexFilter[] | undefined;
 }
 
 /**
@@ -2436,19 +2436,19 @@ export interface GuardrailTopic {
    * <p>The name details on a specific topic in the Guardrail.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type details on a specific topic in the Guardrail.</p>
    * @public
    */
-  type?: GuardrailTopicType;
+  type?: GuardrailTopicType | undefined;
 
   /**
    * <p>The action details on a specific topic in the Guardrail.</p>
    * @public
    */
-  action?: GuardrailTopicPolicyAction;
+  action?: GuardrailTopicPolicyAction | undefined;
 }
 
 /**
@@ -2460,7 +2460,7 @@ export interface GuardrailTopicPolicyAssessment {
    * <p>The topic details of the policy assessment used in the Guardrail.</p>
    * @public
    */
-  topics?: GuardrailTopic[];
+  topics?: GuardrailTopic[] | undefined;
 }
 
 /**
@@ -2485,13 +2485,13 @@ export interface GuardrailCustomWord {
    * <p>The match details for the custom word filter in the Guardrail.</p>
    * @public
    */
-  match?: string;
+  match?: string | undefined;
 
   /**
    * <p>The action details for the custom word filter in the Guardrail.</p>
    * @public
    */
-  action?: GuardrailWordPolicyAction;
+  action?: GuardrailWordPolicyAction | undefined;
 }
 
 /**
@@ -2516,19 +2516,19 @@ export interface GuardrailManagedWord {
    * <p>The match details for the managed word filter in the Guardrail.</p>
    * @public
    */
-  match?: string;
+  match?: string | undefined;
 
   /**
    * <p>The type details for the managed word filter in the Guardrail.</p>
    * @public
    */
-  type?: GuardrailManagedWordType;
+  type?: GuardrailManagedWordType | undefined;
 
   /**
    * <p>The action details for the managed word filter in the Guardrail.</p>
    * @public
    */
-  action?: GuardrailWordPolicyAction;
+  action?: GuardrailWordPolicyAction | undefined;
 }
 
 /**
@@ -2540,13 +2540,13 @@ export interface GuardrailWordPolicyAssessment {
    * <p>The custom word details for words defined in the Guardrail filter.</p>
    * @public
    */
-  customWords?: GuardrailCustomWord[];
+  customWords?: GuardrailCustomWord[] | undefined;
 
   /**
    * <p>The managed word lists for words defined in the Guardrail filter.</p>
    * @public
    */
-  managedWordLists?: GuardrailManagedWord[];
+  managedWordLists?: GuardrailManagedWord[] | undefined;
 }
 
 /**
@@ -2558,25 +2558,25 @@ export interface GuardrailAssessment {
    * <p>Topic policy details of the Guardrail.</p>
    * @public
    */
-  topicPolicy?: GuardrailTopicPolicyAssessment;
+  topicPolicy?: GuardrailTopicPolicyAssessment | undefined;
 
   /**
    * <p>Content policy details of the Guardrail.</p>
    * @public
    */
-  contentPolicy?: GuardrailContentPolicyAssessment;
+  contentPolicy?: GuardrailContentPolicyAssessment | undefined;
 
   /**
    * <p>Word policy details of the Guardrail.</p>
    * @public
    */
-  wordPolicy?: GuardrailWordPolicyAssessment;
+  wordPolicy?: GuardrailWordPolicyAssessment | undefined;
 
   /**
    * <p>Sensitive Information policy details of Guardrail.</p>
    * @public
    */
-  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment;
+  sensitiveInformationPolicy?: GuardrailSensitiveInformationPolicyAssessment | undefined;
 }
 
 /**
@@ -2588,25 +2588,25 @@ export interface GuardrailTrace {
    * <p>The trace action details used with the Guardrail.</p>
    * @public
    */
-  action?: GuardrailAction;
+  action?: GuardrailAction | undefined;
 
   /**
    * <p>The details of the trace Id used in the Guardrail Trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>The details of the input assessments used in the Guardrail Trace.</p>
    * @public
    */
-  inputAssessments?: GuardrailAssessment[];
+  inputAssessments?: GuardrailAssessment[] | undefined;
 
   /**
    * <p>The details of the output assessments used in the Guardrail Trace.</p>
    * @public
    */
-  outputAssessments?: GuardrailAssessment[];
+  outputAssessments?: GuardrailAssessment[] | undefined;
 }
 
 /**
@@ -2618,13 +2618,13 @@ export interface CodeInterpreterInvocationInput {
    * <p>The code for the code interpreter to use.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>Files that are uploaded for code interpreter to use.</p>
    * @public
    */
-  files?: string[];
+  files?: string[] | undefined;
 }
 
 /**
@@ -2652,13 +2652,13 @@ export interface KnowledgeBaseLookupInput {
    * <p>The query made to the knowledge base.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 
   /**
    * <p>The unique identifier of the knowledge base to look up.</p>
    * @public
    */
-  knowledgeBaseId?: string;
+  knowledgeBaseId?: string | undefined;
 }
 
 /**
@@ -2670,31 +2670,31 @@ export interface InvocationInput {
    * <p>The unique identifier of the trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>Specifies whether the agent is invoking an action group or a knowledge base.</p>
    * @public
    */
-  invocationType?: InvocationType;
+  invocationType?: InvocationType | undefined;
 
   /**
    * <p>Contains information about the action group to be invoked.</p>
    * @public
    */
-  actionGroupInvocationInput?: ActionGroupInvocationInput;
+  actionGroupInvocationInput?: ActionGroupInvocationInput | undefined;
 
   /**
    * <p>Contains details about the knowledge base to look up and the query to be made.</p>
    * @public
    */
-  knowledgeBaseLookupInput?: KnowledgeBaseLookupInput;
+  knowledgeBaseLookupInput?: KnowledgeBaseLookupInput | undefined;
 
   /**
    * <p>Contains information about the code interpreter to be invoked.</p>
    * @public
    */
-  codeInterpreterInvocationInput?: CodeInterpreterInvocationInput;
+  codeInterpreterInvocationInput?: CodeInterpreterInvocationInput | undefined;
 }
 
 /**
@@ -2706,31 +2706,31 @@ export interface InferenceConfiguration {
    * <p>The likelihood of the model selecting higher-probability options while generating a response. A lower value makes the model more likely to choose higher-probability options, while a higher value makes the model more likely to choose lower-probability options.</p>
    * @public
    */
-  temperature?: number;
+  temperature?: number | undefined;
 
   /**
    * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>Top P</code> determines the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topP</code> to 0.8, the model only selects the next token from the top 80% of the probability distribution of next tokens.</p>
    * @public
    */
-  topP?: number;
+  topP?: number | undefined;
 
   /**
    * <p>While generating a response, the model determines the probability of the following token at each point of generation. The value that you set for <code>topK</code> is the number of most-likely candidates from which the model chooses the next token in the sequence. For example, if you set <code>topK</code> to 50, the model selects the next token from among the top 50 most likely choices.</p>
    * @public
    */
-  topK?: number;
+  topK?: number | undefined;
 
   /**
    * <p>The maximum number of tokens allowed in the generated response.</p>
    * @public
    */
-  maximumLength?: number;
+  maximumLength?: number | undefined;
 
   /**
    * <p>A list of stop sequences. A stop sequence is a sequence of characters that causes the model to stop generating the response.</p>
    * @public
    */
-  stopSequences?: string[];
+  stopSequences?: string[] | undefined;
 }
 
 /**
@@ -2783,43 +2783,43 @@ export interface ModelInvocationInput {
    * <p>The unique identifier of the trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>The text that prompted the agent at this step.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 
   /**
    * <p>The step in the agent sequence.</p>
    * @public
    */
-  type?: PromptType;
+  type?: PromptType | undefined;
 
   /**
    * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence.</p>
    * @public
    */
-  overrideLambda?: string;
+  overrideLambda?: string | undefined;
 
   /**
    * <p>Specifies whether the default prompt template was <code>OVERRIDDEN</code>. If it was, the <code>basePromptTemplate</code> that was set in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object when the agent was created or updated is used instead.</p>
    * @public
    */
-  promptCreationMode?: CreationMode;
+  promptCreationMode?: CreationMode | undefined;
 
   /**
    * <p>Specifications about the inference parameters that were provided alongside the prompt. These are specified in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> object that was set when the agent was created or updated. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
    * @public
    */
-  inferenceConfiguration?: InferenceConfiguration;
+  inferenceConfiguration?: InferenceConfiguration | undefined;
 
   /**
    * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>.</p>
    * @public
    */
-  parserMode?: CreationMode;
+  parserMode?: CreationMode | undefined;
 }
 
 /**
@@ -2831,13 +2831,13 @@ export interface Usage {
    * <p>Contains information about the input tokens from the foundation model usage.</p>
    * @public
    */
-  inputTokens?: number;
+  inputTokens?: number | undefined;
 
   /**
    * <p>Contains information about the output tokens from the foundation model usage.</p>
    * @public
    */
-  outputTokens?: number;
+  outputTokens?: number | undefined;
 }
 
 /**
@@ -2849,7 +2849,7 @@ export interface Metadata {
    * <p>Contains details of the foundation model usage.</p>
    * @public
    */
-  usage?: Usage;
+  usage?: Usage | undefined;
 }
 
 /**
@@ -2861,7 +2861,7 @@ export interface RawResponse {
    * <p>The foundation model's raw output content.</p>
    * @public
    */
-  content?: string;
+  content?: string | undefined;
 }
 
 /**
@@ -2873,19 +2873,19 @@ export interface OrchestrationModelInvocationOutput {
    * <p>The unique identifier of the trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>Contains details of the raw response from the foundation model output.</p>
    * @public
    */
-  rawResponse?: RawResponse;
+  rawResponse?: RawResponse | undefined;
 
   /**
    * <p>Contains information about the foundation model output from the orchestration step.</p>
    * @public
    */
-  metadata?: Metadata;
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -2897,25 +2897,25 @@ export interface CodeInterpreterInvocationOutput {
    * <p>Contains the successful output returned from code execution</p>
    * @public
    */
-  executionOutput?: string;
+  executionOutput?: string | undefined;
 
   /**
    * <p>Contains the error returned from code execution.</p>
    * @public
    */
-  executionError?: string;
+  executionError?: string | undefined;
 
   /**
    * <p>Contains output files, if generated by code execution.</p>
    * @public
    */
-  files?: string[];
+  files?: string[] | undefined;
 
   /**
    * <p>Indicates if the execution of the code timed out.</p>
    * @public
    */
-  executionTimeout?: boolean;
+  executionTimeout?: boolean | undefined;
 }
 
 /**
@@ -2927,7 +2927,7 @@ export interface FinalResponse {
    * <p>The text in the response to the user.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 }
 
 /**
@@ -2939,7 +2939,7 @@ export interface KnowledgeBaseLookupOutput {
    * <p>Contains metadata about the sources cited for the generated response.</p>
    * @public
    */
-  retrievedReferences?: RetrievedReference[];
+  retrievedReferences?: RetrievedReference[] | undefined;
 }
 
 /**
@@ -2966,13 +2966,13 @@ export interface RepromptResponse {
    * <p>The text reprompting the input.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 
   /**
    * <p>Specifies what output is prompting the agent to reprompt the input.</p>
    * @public
    */
-  source?: Source;
+  source?: Source | undefined;
 }
 
 /**
@@ -3001,7 +3001,7 @@ export interface Observation {
    * <p>The unique identifier of the trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>Specifies what kind of information the agent returns in the observation. The following values are possible.</p>
@@ -3029,37 +3029,37 @@ export interface Observation {
    *          </ul>
    * @public
    */
-  type?: Type;
+  type?: Type | undefined;
 
   /**
    * <p>Contains the JSON-formatted string returned by the API invoked by the action group.</p>
    * @public
    */
-  actionGroupInvocationOutput?: ActionGroupInvocationOutput;
+  actionGroupInvocationOutput?: ActionGroupInvocationOutput | undefined;
 
   /**
    * <p>Contains details about the results from looking up the knowledge base.</p>
    * @public
    */
-  knowledgeBaseLookupOutput?: KnowledgeBaseLookupOutput;
+  knowledgeBaseLookupOutput?: KnowledgeBaseLookupOutput | undefined;
 
   /**
    * <p>Contains details about the response to the user.</p>
    * @public
    */
-  finalResponse?: FinalResponse;
+  finalResponse?: FinalResponse | undefined;
 
   /**
    * <p>Contains details about the response to reprompt the input.</p>
    * @public
    */
-  repromptResponse?: RepromptResponse;
+  repromptResponse?: RepromptResponse | undefined;
 
   /**
    * <p>Contains the JSON-formatted string returned by the API invoked by the code interpreter.</p>
    * @public
    */
-  codeInterpreterInvocationOutput?: CodeInterpreterInvocationOutput;
+  codeInterpreterInvocationOutput?: CodeInterpreterInvocationOutput | undefined;
 }
 
 /**
@@ -3071,13 +3071,13 @@ export interface Rationale {
    * <p>The unique identifier of the trace step.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>The reasoning or thought process of the agent, based on the input.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 }
 
 /**
@@ -3212,7 +3212,7 @@ export interface PostProcessingParsedResponse {
    * <p>The text returned by the parser.</p>
    * @public
    */
-  text?: string;
+  text?: string | undefined;
 }
 
 /**
@@ -3224,13 +3224,13 @@ export interface PostProcessingModelInvocationOutput {
    * <p>The unique identifier of the trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>Details about the response from the Lambda parsing of the output of the post-processing step.</p>
    * @public
    */
-  parsedResponse?: PostProcessingParsedResponse;
+  parsedResponse?: PostProcessingParsedResponse | undefined;
 
   /**
    * <p>
@@ -3238,7 +3238,7 @@ export interface PostProcessingModelInvocationOutput {
    *         </p>
    * @public
    */
-  rawResponse?: RawResponse;
+  rawResponse?: RawResponse | undefined;
 
   /**
    * <p>
@@ -3246,7 +3246,7 @@ export interface PostProcessingModelInvocationOutput {
    *         </p>
    * @public
    */
-  metadata?: Metadata;
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -3324,13 +3324,13 @@ export interface PreProcessingParsedResponse {
    * <p>The text returned by the parsing of the pre-processing step, explaining the steps that the agent plans to take in orchestration, if the user input is valid.</p>
    * @public
    */
-  rationale?: string;
+  rationale?: string | undefined;
 
   /**
    * <p>Whether the user input is valid or not. If <code>false</code>, the agent doesn't proceed to orchestration.</p>
    * @public
    */
-  isValid?: boolean;
+  isValid?: boolean | undefined;
 }
 
 /**
@@ -3342,13 +3342,13 @@ export interface PreProcessingModelInvocationOutput {
    * <p>The unique identifier of the trace.</p>
    * @public
    */
-  traceId?: string;
+  traceId?: string | undefined;
 
   /**
    * <p>Details about the response from the Lambda parsing of the output of the pre-processing step.</p>
    * @public
    */
-  parsedResponse?: PreProcessingParsedResponse;
+  parsedResponse?: PreProcessingParsedResponse | undefined;
 
   /**
    * <p>
@@ -3356,7 +3356,7 @@ export interface PreProcessingModelInvocationOutput {
    *         </p>
    * @public
    */
-  rawResponse?: RawResponse;
+  rawResponse?: RawResponse | undefined;
 
   /**
    * <p>
@@ -3364,7 +3364,7 @@ export interface PreProcessingModelInvocationOutput {
    *         </p>
    * @public
    */
-  metadata?: Metadata;
+  metadata?: Metadata | undefined;
 }
 
 /**
@@ -3554,31 +3554,31 @@ export interface TracePart {
    * <p>The unique identifier of the agent.</p>
    * @public
    */
-  agentId?: string;
+  agentId?: string | undefined;
 
   /**
    * <p>The unique identifier of the alias of the agent.</p>
    * @public
    */
-  agentAliasId?: string;
+  agentAliasId?: string | undefined;
 
   /**
    * <p>The unique identifier of the session with the agent.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The version of the agent.</p>
    * @public
    */
-  agentVersion?: string;
+  agentVersion?: string | undefined;
 
   /**
    * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
    * @public
    */
-  trace?: Trace;
+  trace?: Trace | undefined;
 }
 
 /**
@@ -3963,7 +3963,7 @@ export interface InvokeAgentResponse {
    * <p>The unique identifier of the agent memory.</p>
    * @public
    */
-  memoryId?: string;
+  memoryId?: string | undefined;
 }
 
 /**
@@ -3986,7 +3986,7 @@ export interface DeleteAgentMemoryRequest {
    * <p>The unique identifier of the memory.</p>
    * @public
    */
-  memoryId?: string;
+  memoryId?: string | undefined;
 }
 
 /**
@@ -4016,7 +4016,7 @@ export interface GetAgentMemoryRequest {
    *       in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in the response. If the total number of results is greater
@@ -4024,7 +4024,7 @@ export interface GetAgentMemoryRequest {
    *       request to return the next batch of results.</p>
    * @public
    */
-  maxItems?: number;
+  maxItems?: number | undefined;
 
   /**
    * <p>The unique identifier of the agent to which the alias belongs.</p>
@@ -4060,31 +4060,31 @@ export interface MemorySessionSummary {
    * <p>The unique identifier of the memory where the session summary is stored.</p>
    * @public
    */
-  memoryId?: string;
+  memoryId?: string | undefined;
 
   /**
    * <p>The identifier for this session.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>The start time for this session.</p>
    * @public
    */
-  sessionStartTime?: Date;
+  sessionStartTime?: Date | undefined;
 
   /**
    * <p>The time when the memory duration for the session is set to end.</p>
    * @public
    */
-  sessionExpiryTime?: Date;
+  sessionExpiryTime?: Date | undefined;
 
   /**
    * <p>The summarized text for this session.</p>
    * @public
    */
-  summaryText?: string;
+  summaryText?: string | undefined;
 }
 
 /**
@@ -4134,13 +4134,13 @@ export interface GetAgentMemoryResponse {
    *       when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Contains details of the sessions stored in the memory</p>
    * @public
    */
-  memoryContents?: Memory[];
+  memoryContents?: Memory[] | undefined;
 }
 
 /**
@@ -4197,13 +4197,13 @@ export interface TextInferenceConfig {
    * <p> Controls the random-ness of text generated by the language model, influencing how much the model sticks to the most predictable next words versus exploring more surprising options. A lower temperature value (e.g. 0.2 or 0.3) makes model outputs more deterministic or predictable, while a higher temperature (e.g. 0.8 or 0.9) makes the outputs more creative or unpredictable.  </p>
    * @public
    */
-  temperature?: number;
+  temperature?: number | undefined;
 
   /**
    * <p> A probability distribution threshold which controls what the model considers for the set of possible next tokens. The model will only consider the top p% of the probability distribution when generating the next token. </p>
    * @public
    */
-  topP?: number;
+  topP?: number | undefined;
 
   /**
    * <p>The maximum number of tokens to generate in the output text. Do not use the minimum of 0
@@ -4211,7 +4211,7 @@ export interface TextInferenceConfig {
    *       values consult the limits defined by your specific model.</p>
    * @public
    */
-  maxTokens?: number;
+  maxTokens?: number | undefined;
 
   /**
    * <p>A list of sequences of characters that, if generated, will cause the model to stop
@@ -4220,7 +4220,7 @@ export interface TextInferenceConfig {
    *       by your specific model.</p>
    * @public
    */
-  stopSequences?: string[];
+  stopSequences?: string[] | undefined;
 }
 
 /**
@@ -4232,7 +4232,7 @@ export interface InferenceConfig {
    * <p> Configuration settings specific to text generation while generating responses using RetrieveAndGenerate. </p>
    * @public
    */
-  textInferenceConfig?: TextInferenceConfig;
+  textInferenceConfig?: TextInferenceConfig | undefined;
 }
 
 /**
@@ -4264,7 +4264,7 @@ export interface PromptTemplate {
    *          </ul>
    * @public
    */
-  textPromptTemplate?: string;
+  textPromptTemplate?: string | undefined;
 }
 
 /**
@@ -4276,25 +4276,25 @@ export interface ExternalSourcesGenerationConfiguration {
    * <p>Contain the textPromptTemplate string for the external source wrapper object.</p>
    * @public
    */
-  promptTemplate?: PromptTemplate;
+  promptTemplate?: PromptTemplate | undefined;
 
   /**
    * <p>The configuration details for the guardrail.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
    * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using an external source.</p>
    * @public
    */
-  inferenceConfig?: InferenceConfig;
+  inferenceConfig?: InferenceConfig | undefined;
 
   /**
    * <p> Additional model parameters and their corresponding values not included in the textInferenceConfig structure for an external source. Takes in custom model parameters specific to the language model being used. </p>
    * @public
    */
-  additionalModelRequestFields?: Record<string, __DocumentType>;
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 }
 
 /**
@@ -4362,13 +4362,13 @@ export interface ExternalSource {
    * <p>The S3 location of the external source wrapper object.</p>
    * @public
    */
-  s3Location?: S3ObjectDoc;
+  s3Location?: S3ObjectDoc | undefined;
 
   /**
    * <p>The identifier, contentType, and data of the external source wrapper object.</p>
    * @public
    */
-  byteContent?: ByteContentDoc;
+  byteContent?: ByteContentDoc | undefined;
 }
 
 /**
@@ -4392,7 +4392,7 @@ export interface ExternalSourcesRetrieveAndGenerateConfiguration {
    * <p>The prompt used with the external source wrapper object with the <code>retrieveAndGenerate</code> function.</p>
    * @public
    */
-  generationConfiguration?: ExternalSourcesGenerationConfiguration;
+  generationConfiguration?: ExternalSourcesGenerationConfiguration | undefined;
 }
 
 /**
@@ -4412,25 +4412,25 @@ export interface GenerationConfiguration {
    * <p>Contains the template for the prompt that's sent to the model for response generation. Generation prompts must include the <code>$search_results$</code> variable. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
    * @public
    */
-  promptTemplate?: PromptTemplate;
+  promptTemplate?: PromptTemplate | undefined;
 
   /**
    * <p>The configuration details for the guardrail.</p>
    * @public
    */
-  guardrailConfiguration?: GuardrailConfiguration;
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
    * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
    * @public
    */
-  inferenceConfig?: InferenceConfig;
+  inferenceConfig?: InferenceConfig | undefined;
 
   /**
    * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
    * @public
    */
-  additionalModelRequestFields?: Record<string, __DocumentType>;
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 }
 
 /**
@@ -4468,26 +4468,26 @@ export interface OrchestrationConfiguration {
    * <p>Contains the template for the prompt that's sent to the model. Orchestration prompts must include the <code>$conversation_history$</code> and <code>$output_format_instructions$</code> variables. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Use placeholder variables</a> in the user guide.</p>
    * @public
    */
-  promptTemplate?: PromptTemplate;
+  promptTemplate?: PromptTemplate | undefined;
 
   /**
    * <p> Configuration settings for inference when using RetrieveAndGenerate to generate responses while using a knowledge base as a source. </p>
    * @public
    */
-  inferenceConfig?: InferenceConfig;
+  inferenceConfig?: InferenceConfig | undefined;
 
   /**
    * <p> Additional model parameters and corresponding values not included in the textInferenceConfig structure for a knowledge base. This allows users to provide custom model parameters specific to the language model being used. </p>
    * @public
    */
-  additionalModelRequestFields?: Record<string, __DocumentType>;
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
 
   /**
    * <p>To split up the prompt and retrieve multiple sources, set the transformation type to
    *     <code>QUERY_DECOMPOSITION</code>.</p>
    * @public
    */
-  queryTransformationConfiguration?: QueryTransformationConfiguration;
+  queryTransformationConfiguration?: QueryTransformationConfiguration | undefined;
 }
 
 /**
@@ -4576,13 +4576,13 @@ export interface RetrieveAndGenerateResponse {
    * <p>A list of segments of the generated response that are based on sources in the knowledge base, alongside information about the sources.</p>
    * @public
    */
-  citations?: Citation[];
+  citations?: Citation[] | undefined;
 
   /**
    * <p>Specifies if there is a guardrail intervention in the response.</p>
    * @public
    */
-  guardrailAction?: GuadrailAction;
+  guardrailAction?: GuadrailAction | undefined;
 }
 
 /**
@@ -4626,19 +4626,19 @@ export interface KnowledgeBaseRetrievalResult {
    * <p>Contains information about the location of the data source.</p>
    * @public
    */
-  location?: RetrievalResultLocation;
+  location?: RetrievalResultLocation | undefined;
 
   /**
    * <p>The level of relevance of the result to the query.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 
   /**
    * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
    * @public
    */
-  metadata?: Record<string, __DocumentType>;
+  metadata?: Record<string, __DocumentType> | undefined;
 }
 
 /**
@@ -4655,7 +4655,7 @@ export interface RetrieveResponse {
    * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5095,19 +5095,19 @@ export interface KnowledgeBaseVectorSearchConfiguration {
    * <p>The number of source chunks to retrieve.</p>
    * @public
    */
-  numberOfResults?: number;
+  numberOfResults?: number | undefined;
 
   /**
    * <p>By default, Amazon Bedrock decides a search strategy for you. If you're using an Amazon OpenSearch Serverless vector store that contains a filterable text field, you can specify whether to query the knowledge base with a <code>HYBRID</code> search using both vector embeddings and raw text, or <code>SEMANTIC</code> search using only vector embeddings. For other vector store configurations, only <code>SEMANTIC</code> search is available. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-test.html">Test a knowledge base</a>.</p>
    * @public
    */
-  overrideSearchType?: SearchType;
+  overrideSearchType?: SearchType | undefined;
 
   /**
    * <p>Specifies the filters to use on the metadata in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
    * @public
    */
-  filter?: RetrievalFilter;
+  filter?: RetrievalFilter | undefined;
 }
 
 /**
@@ -5183,19 +5183,19 @@ export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
    * <p>Contains configurations for how to retrieve and return the knowledge base query.</p>
    * @public
    */
-  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
 
   /**
    * <p>Contains configurations for response generation based on the knowledge base query results.</p>
    * @public
    */
-  generationConfiguration?: GenerationConfiguration;
+  generationConfiguration?: GenerationConfiguration | undefined;
 
   /**
    * <p>Settings for how the model processes the prompt prior to retrieval and generation.</p>
    * @public
    */
-  orchestrationConfiguration?: OrchestrationConfiguration;
+  orchestrationConfiguration?: OrchestrationConfiguration | undefined;
 }
 
 /**
@@ -5218,13 +5218,13 @@ export interface RetrieveRequest {
    * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
    * @public
    */
-  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
 
   /**
    * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -5250,13 +5250,13 @@ export interface RetrieveAndGenerateConfiguration {
    * <p>Contains details about the knowledge base for retrieving information and generating responses.</p>
    * @public
    */
-  knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration;
+  knowledgeBaseConfiguration?: KnowledgeBaseRetrieveAndGenerateConfiguration | undefined;
 
   /**
    * <p>The configuration for the external source wrapper object in the <code>retrieveAndGenerate</code> function.</p>
    * @public
    */
-  externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration;
+  externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration | undefined;
 }
 
 /**
@@ -5267,7 +5267,7 @@ export interface RetrieveAndGenerateRequest {
    * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 
   /**
    * <p>Contains the query to be made to the knowledge base.</p>
@@ -5279,13 +5279,13 @@ export interface RetrieveAndGenerateRequest {
    * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
    * @public
    */
-  retrieveAndGenerateConfiguration?: RetrieveAndGenerateConfiguration;
+  retrieveAndGenerateConfiguration?: RetrieveAndGenerateConfiguration | undefined;
 
   /**
    * <p>Contains details about the session with the knowledge base.</p>
    * @public
    */
-  sessionConfiguration?: RetrieveAndGenerateSessionConfiguration;
+  sessionConfiguration?: RetrieveAndGenerateSessionConfiguration | undefined;
 }
 
 /**
@@ -5297,13 +5297,13 @@ export interface SessionState {
    * <p>Contains attributes that persist across a session and the values of those attributes.</p>
    * @public
    */
-  sessionAttributes?: Record<string, string>;
+  sessionAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>Contains attributes that persist across a prompt and the values of those attributes. These attributes replace the $prompt_session_attributes$ placeholder variable in the orchestration prompt template. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>.</p>
    * @public
    */
-  promptSessionAttributes?: Record<string, string>;
+  promptSessionAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
@@ -5312,25 +5312,25 @@ export interface SessionState {
    *          </note>
    * @public
    */
-  returnControlInvocationResults?: InvocationResultMember[];
+  returnControlInvocationResults?: InvocationResultMember[] | undefined;
 
   /**
    * <p>The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeAgent</code> response for the action whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a> and <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.</p>
    * @public
    */
-  invocationId?: string;
+  invocationId?: string | undefined;
 
   /**
    * <p>Contains information about the files used by code interpreter.</p>
    * @public
    */
-  files?: InputFile[];
+  files?: InputFile[] | undefined;
 
   /**
    * <p>An array of configurations, each of which applies to a knowledge base attached to the agent.</p>
    * @public
    */
-  knowledgeBaseConfigurations?: KnowledgeBaseConfiguration[];
+  knowledgeBaseConfigurations?: KnowledgeBaseConfiguration[] | undefined;
 }
 
 /**
@@ -5344,7 +5344,7 @@ export interface InvokeAgentRequest {
    *          </note>
    * @public
    */
-  sessionState?: SessionState;
+  sessionState?: SessionState | undefined;
 
   /**
    * <p>The unique identifier of the agent to use.</p>
@@ -5368,13 +5368,13 @@ export interface InvokeAgentRequest {
    * <p>Specifies whether to end the session with the agent or not.</p>
    * @public
    */
-  endSession?: boolean;
+  endSession?: boolean | undefined;
 
   /**
    * <p>Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
    * @public
    */
-  enableTrace?: boolean;
+  enableTrace?: boolean | undefined;
 
   /**
    * <p>The prompt text to send the agent.</p>
@@ -5383,13 +5383,13 @@ export interface InvokeAgentRequest {
    *          </note>
    * @public
    */
-  inputText?: string;
+  inputText?: string | undefined;
 
   /**
    * <p>The unique identifier of the agent memory.</p>
    * @public
    */
-  memoryId?: string;
+  memoryId?: string | undefined;
 }
 
 /**

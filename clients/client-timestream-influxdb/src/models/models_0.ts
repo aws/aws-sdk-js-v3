@@ -150,7 +150,7 @@ export interface CreateDbInstanceInput {
    * <p>The username of the initial admin user created in InfluxDB. Must start with a letter and can't end with a hyphen or contain two consecutive hyphens. For example, my-user1. This username will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in Amazon Secrets Manager in your account.</p>
    * @public
    */
-  username?: string;
+  username?: string | undefined;
 
   /**
    * <p>The password of the initial admin user created in InfluxDB. This password will allow you to access the InfluxDB UI to perform various administrative tasks and also use the InfluxDB CLI to create an operator token. These attributes will be stored in a Secret created in AWS SecretManager in your account.</p>
@@ -162,13 +162,13 @@ export interface CreateDbInstanceInput {
    * <p>The name of the initial organization for the initial admin user in InfluxDB. An InfluxDB organization is a workspace for a group of users.</p>
    * @public
    */
-  organization?: string;
+  organization?: string | undefined;
 
   /**
    * <p>The name of the initial InfluxDB bucket. All InfluxDB data is stored in a bucket. A bucket combines the concept of a database and a retention period (the duration of time that each data point persists). A bucket belongs to an organization.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
@@ -192,7 +192,7 @@ export interface CreateDbInstanceInput {
    * <p>Configures the DB instance with a public IP to facilitate access.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB storage type to read and write InfluxDB data.</p>
@@ -210,7 +210,7 @@ export interface CreateDbInstanceInput {
    *          </ul>
    * @public
    */
-  dbStorageType?: DbStorageType;
+  dbStorageType?: DbStorageType | undefined;
 
   /**
    * <p>The amount of storage to allocate for your DB storage type in GiB (gibibytes).</p>
@@ -222,25 +222,25 @@ export interface CreateDbInstanceInput {
    * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
    * @public
    */
-  dbParameterGroupIdentifier?: string;
+  dbParameterGroupIdentifier?: string | undefined;
 
   /**
    * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 
   /**
    * <p>Configuration for sending InfluxDB engine logs to a specified S3 bucket.</p>
    * @public
    */
-  logDeliveryConfiguration?: LogDeliveryConfiguration;
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the DB instance.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The port number on which InfluxDB accepts connections.</p>
@@ -249,7 +249,7 @@ export interface CreateDbInstanceInput {
    *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 }
 
 /**
@@ -299,43 +299,43 @@ export interface CreateDbInstanceOutput {
    * <p>The status of the DB instance.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>The port number on which InfluxDB accepts connections. The default value is 8086.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
    * @public
    */
-  dbInstanceType?: DbInstanceType;
+  dbInstanceType?: DbInstanceType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
    * @public
    */
-  dbStorageType?: DbStorageType;
+  dbStorageType?: DbStorageType | undefined;
 
   /**
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
    * @public
    */
-  allocatedStorage?: number;
+  allocatedStorage?: number | undefined;
 
   /**
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 
   /**
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
@@ -347,43 +347,43 @@ export interface CreateDbInstanceOutput {
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
    * @public
    */
-  dbParameterGroupIdentifier?: string;
+  dbParameterGroupIdentifier?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the DB instance resides.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
    * @public
    */
-  secondaryAvailabilityZone?: string;
+  secondaryAvailabilityZone?: string | undefined;
 
   /**
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
    * @public
    */
-  logDeliveryConfiguration?: LogDeliveryConfiguration;
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
-  influxAuthParametersSecretArn?: string;
+  influxAuthParametersSecretArn?: string | undefined;
 }
 
 /**
@@ -473,7 +473,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds the caller should wait before retrying.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -567,43 +567,43 @@ export interface DeleteDbInstanceOutput {
    * <p>The status of the DB instance.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>The port number on which InfluxDB accepts connections.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
    * @public
    */
-  dbInstanceType?: DbInstanceType;
+  dbInstanceType?: DbInstanceType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
    * @public
    */
-  dbStorageType?: DbStorageType;
+  dbStorageType?: DbStorageType | undefined;
 
   /**
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
    * @public
    */
-  allocatedStorage?: number;
+  allocatedStorage?: number | undefined;
 
   /**
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 
   /**
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
@@ -615,43 +615,43 @@ export interface DeleteDbInstanceOutput {
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
    * @public
    */
-  dbParameterGroupIdentifier?: string;
+  dbParameterGroupIdentifier?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the DB instance resides.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
    * @public
    */
-  secondaryAvailabilityZone?: string;
+  secondaryAvailabilityZone?: string | undefined;
 
   /**
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
    * @public
    */
-  logDeliveryConfiguration?: LogDeliveryConfiguration;
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
-  influxAuthParametersSecretArn?: string;
+  influxAuthParametersSecretArn?: string | undefined;
 }
 
 /**
@@ -691,43 +691,43 @@ export interface GetDbInstanceOutput {
    * <p>The status of the DB instance.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>The port number on which InfluxDB accepts connections.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
    * @public
    */
-  dbInstanceType?: DbInstanceType;
+  dbInstanceType?: DbInstanceType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
    * @public
    */
-  dbStorageType?: DbStorageType;
+  dbStorageType?: DbStorageType | undefined;
 
   /**
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
    * @public
    */
-  allocatedStorage?: number;
+  allocatedStorage?: number | undefined;
 
   /**
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 
   /**
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
@@ -739,43 +739,43 @@ export interface GetDbInstanceOutput {
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
    * @public
    */
-  dbParameterGroupIdentifier?: string;
+  dbParameterGroupIdentifier?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the DB instance resides.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
    * @public
    */
-  secondaryAvailabilityZone?: string;
+  secondaryAvailabilityZone?: string | undefined;
 
   /**
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
    * @public
    */
-  logDeliveryConfiguration?: LogDeliveryConfiguration;
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
-  influxAuthParametersSecretArn?: string;
+  influxAuthParametersSecretArn?: string | undefined;
 }
 
 /**
@@ -786,13 +786,13 @@ export interface ListDbInstancesInput {
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -822,43 +822,43 @@ export interface DbInstanceSummary {
    * <p>The status of the DB instance.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>The port number on which InfluxDB accepts connections.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type to run InfluxDB on.</p>
    * @public
    */
-  dbInstanceType?: DbInstanceType;
+  dbInstanceType?: DbInstanceType | undefined;
 
   /**
    * <p>The storage type for your DB instance.</p>
    * @public
    */
-  dbStorageType?: DbStorageType;
+  dbStorageType?: DbStorageType | undefined;
 
   /**
    * <p>The amount of storage to allocate for your DbStorageType in GiB (gibibytes).</p>
    * @public
    */
-  allocatedStorage?: number;
+  allocatedStorage?: number | undefined;
 
   /**
    * <p>Single-Instance or with a MultiAZ Standby for High availability.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 }
 
 /**
@@ -876,7 +876,7 @@ export interface ListDbInstancesOutput {
    *             service returns results from where the previous response left off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -893,13 +893,13 @@ export interface UpdateDbInstanceInput {
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
    * @public
    */
-  logDeliveryConfiguration?: LogDeliveryConfiguration;
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
    * <p>The id of the DB parameter group to assign to your DB instance. DB parameter groups specify how the database is configured. For example, DB parameter groups can specify the limit for query concurrency.</p>
    * @public
    */
-  dbParameterGroupIdentifier?: string;
+  dbParameterGroupIdentifier?: string | undefined;
 
   /**
    * <p>The port number on which InfluxDB accepts connections.</p>
@@ -909,19 +909,19 @@ export interface UpdateDbInstanceInput {
    *          <p>Constraints: The value can't be 2375-2376, 7788-7799, 8090, or 51678-51680</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB instance type to run InfluxDB on.</p>
    * @public
    */
-  dbInstanceType?: DbInstanceType;
+  dbInstanceType?: DbInstanceType | undefined;
 
   /**
    * <p>Specifies whether the DB instance will be deployed as a standalone instance or with a Multi-AZ standby for high availability.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 }
 
 /**
@@ -950,43 +950,43 @@ export interface UpdateDbInstanceOutput {
    * <p>The status of the DB instance.</p>
    * @public
    */
-  status?: Status;
+  status?: Status | undefined;
 
   /**
    * <p>The endpoint used to connect to InfluxDB. The default InfluxDB port is 8086.</p>
    * @public
    */
-  endpoint?: string;
+  endpoint?: string | undefined;
 
   /**
    * <p>The port number on which InfluxDB accepts connections.</p>
    * @public
    */
-  port?: number;
+  port?: number | undefined;
 
   /**
    * <p>The Timestream for InfluxDB instance type that InfluxDB runs on.</p>
    * @public
    */
-  dbInstanceType?: DbInstanceType;
+  dbInstanceType?: DbInstanceType | undefined;
 
   /**
    * <p>The Timestream for InfluxDB DB storage type that InfluxDB stores data on.</p>
    * @public
    */
-  dbStorageType?: DbStorageType;
+  dbStorageType?: DbStorageType | undefined;
 
   /**
    * <p>The amount of storage allocated for your DB storage type (in gibibytes).</p>
    * @public
    */
-  allocatedStorage?: number;
+  allocatedStorage?: number | undefined;
 
   /**
    * <p>Specifies whether the Timestream for InfluxDB is deployed as Single-AZ or with a MultiAZ Standby for High availability.</p>
    * @public
    */
-  deploymentType?: DeploymentType;
+  deploymentType?: DeploymentType | undefined;
 
   /**
    * <p>A list of VPC subnet IDs associated with the DB instance.</p>
@@ -998,43 +998,43 @@ export interface UpdateDbInstanceOutput {
    * <p>Indicates if the DB instance has a public IP to facilitate access.</p>
    * @public
    */
-  publiclyAccessible?: boolean;
+  publiclyAccessible?: boolean | undefined;
 
   /**
    * <p>A list of VPC security group IDs associated with the DB instance.</p>
    * @public
    */
-  vpcSecurityGroupIds?: string[];
+  vpcSecurityGroupIds?: string[] | undefined;
 
   /**
    * <p>The id of the DB parameter group assigned to your DB instance.</p>
    * @public
    */
-  dbParameterGroupIdentifier?: string;
+  dbParameterGroupIdentifier?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the DB instance resides.</p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>The Availability Zone in which the standby instance is located when deploying with a MultiAZ standby instance.</p>
    * @public
    */
-  secondaryAvailabilityZone?: string;
+  secondaryAvailabilityZone?: string | undefined;
 
   /**
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
    * @public
    */
-  logDeliveryConfiguration?: LogDeliveryConfiguration;
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Secrets Manager secret containing the initial InfluxDB authorization parameters. The secret value is a JSON formatted key-value pair holding InfluxDB authorization values: organization, bucket, username, and password.</p>
    * @public
    */
-  influxAuthParametersSecretArn?: string;
+  influxAuthParametersSecretArn?: string | undefined;
 }
 
 /**
@@ -1110,237 +1110,237 @@ export interface InfluxDBv2Parameters {
    *          <p>Default: false</p>
    * @public
    */
-  fluxLogEnabled?: boolean;
+  fluxLogEnabled?: boolean | undefined;
 
   /**
    * <p>Log output level. InfluxDB outputs log entries with severity levels greater than or equal to the level specified.</p>
    *          <p>Default: info</p>
    * @public
    */
-  logLevel?: LogLevel;
+  logLevel?: LogLevel | undefined;
 
   /**
    * <p>Disable the task scheduler. If problematic tasks prevent InfluxDB from starting, use this option to start InfluxDB without scheduling or executing tasks.</p>
    *          <p>Default: false</p>
    * @public
    */
-  noTasks?: boolean;
+  noTasks?: boolean | undefined;
 
   /**
    * <p>Number of queries allowed to execute concurrently. Setting to 0 allows an unlimited number of concurrent queries.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  queryConcurrency?: number;
+  queryConcurrency?: number | undefined;
 
   /**
    * <p>Maximum number of queries allowed in execution queue. When queue limit is reached, new queries are rejected. Setting to 0 allows an unlimited number of queries in the queue.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  queryQueueSize?: number;
+  queryQueueSize?: number | undefined;
 
   /**
    * <p>Enable tracing in InfluxDB and specifies the tracing type. Tracing is disabled by default.</p>
    * @public
    */
-  tracingType?: TracingType;
+  tracingType?: TracingType | undefined;
 
   /**
    * <p>Disable the HTTP /metrics endpoint which exposes <a href="https://docs.influxdata.com/influxdb/v2/reference/internals/metrics/">internal InfluxDB metrics</a>.</p>
    *          <p>Default: false</p>
    * @public
    */
-  metricsDisabled?: boolean;
+  metricsDisabled?: boolean | undefined;
 
   /**
    * <p>Maximum duration the server should keep established connections alive while waiting for new requests. Set to 0 for no timeout.</p>
    *          <p>Default: 3 minutes</p>
    * @public
    */
-  httpIdleTimeout?: Duration;
+  httpIdleTimeout?: Duration | undefined;
 
   /**
    * <p>Maximum duration the server should try to read HTTP headers for new requests. Set to 0 for no timeout.</p>
    *          <p>Default: 10 seconds</p>
    * @public
    */
-  httpReadHeaderTimeout?: Duration;
+  httpReadHeaderTimeout?: Duration | undefined;
 
   /**
    * <p>Maximum duration the server should try to read the entirety of new requests. Set to 0 for no timeout.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  httpReadTimeout?: Duration;
+  httpReadTimeout?: Duration | undefined;
 
   /**
    * <p>Maximum duration the server should spend processing and responding to write requests. Set to 0 for no timeout.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  httpWriteTimeout?: Duration;
+  httpWriteTimeout?: Duration | undefined;
 
   /**
    * <p>Maximum number of group by time buckets a SELECT statement can create. 0 allows an unlimited number of buckets.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  influxqlMaxSelectBuckets?: number;
+  influxqlMaxSelectBuckets?: number | undefined;
 
   /**
    * <p>Maximum number of points a SELECT statement can process. 0 allows an unlimited number of points. InfluxDB checks the point count every second (so queries exceeding the maximum aren’t immediately aborted).</p>
    *          <p>Default: 0</p>
    * @public
    */
-  influxqlMaxSelectPoint?: number;
+  influxqlMaxSelectPoint?: number | undefined;
 
   /**
    * <p>Maximum number of series a SELECT statement can return. 0 allows an unlimited number of series.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  influxqlMaxSelectSeries?: number;
+  influxqlMaxSelectSeries?: number | undefined;
 
   /**
    * <p>Disable the /debug/pprof HTTP endpoint. This endpoint provides runtime profiling data and can be helpful when debugging.</p>
    *          <p>Default: false</p>
    * @public
    */
-  pprofDisabled?: boolean;
+  pprofDisabled?: boolean | undefined;
 
   /**
    * <p>Initial bytes of memory allocated for a query.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  queryInitialMemoryBytes?: number;
+  queryInitialMemoryBytes?: number | undefined;
 
   /**
    * <p>Maximum number of queries allowed in execution queue. When queue limit is reached, new queries are rejected. Setting to 0 allows an unlimited number of queries in the queue.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  queryMaxMemoryBytes?: number;
+  queryMaxMemoryBytes?: number | undefined;
 
   /**
    * <p>Maximum bytes of memory allowed for a single query. Must be greater or equal to queryInitialMemoryBytes.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  queryMemoryBytes?: number;
+  queryMemoryBytes?: number | undefined;
 
   /**
    * <p>Specifies the Time to Live (TTL) in minutes for newly created user sessions.</p>
    *          <p>Default: 60</p>
    * @public
    */
-  sessionLength?: number;
+  sessionLength?: number | undefined;
 
   /**
    * <p>Disables automatically extending a user’s session TTL on each request. By default, every request sets the session’s expiration time to five minutes from now. When disabled, sessions expire after the specified <a href="https://docs.influxdata.com/influxdb/v2/reference/config-options/#session-length">session length</a> and the user is redirected to the login page, even if recently active.</p>
    *          <p>Default: false</p>
    * @public
    */
-  sessionRenewDisabled?: boolean;
+  sessionRenewDisabled?: boolean | undefined;
 
   /**
    * <p>Maximum size (in bytes) a shard’s cache can reach before it starts rejecting writes. Must be greater than storageCacheSnapShotMemorySize and lower than instance’s total memory capacity. We recommend setting it to below 15% of the total memory capacity.</p>
    *          <p>Default: 1073741824</p>
    * @public
    */
-  storageCacheMaxMemorySize?: number;
+  storageCacheMaxMemorySize?: number | undefined;
 
   /**
    * <p>Size (in bytes) at which the storage engine will snapshot the cache and write it to a TSM file to make more memory available. Must not be greater than storageCacheMaxMemorySize.</p>
    *          <p>Default: 26214400</p>
    * @public
    */
-  storageCacheSnapshotMemorySize?: number;
+  storageCacheSnapshotMemorySize?: number | undefined;
 
   /**
    * <p>Duration at which the storage engine will snapshot the cache and write it to a new TSM file if the shard hasn’t received writes or deletes.</p>
    *          <p>Default: 10 minutes</p>
    * @public
    */
-  storageCacheSnapshotWriteColdDuration?: Duration;
+  storageCacheSnapshotWriteColdDuration?: Duration | undefined;
 
   /**
    * <p>Duration at which the storage engine will compact all TSM files in a shard if it hasn't received writes or deletes.</p>
    *          <p>Default: 4 hours</p>
    * @public
    */
-  storageCompactFullWriteColdDuration?: Duration;
+  storageCompactFullWriteColdDuration?: Duration | undefined;
 
   /**
    * <p>Rate limit (in bytes per second) that TSM compactions can write to disk.</p>
    *          <p>Default: 50331648</p>
    * @public
    */
-  storageCompactThroughputBurst?: number;
+  storageCompactThroughputBurst?: number | undefined;
 
   /**
    * <p>Maximum number of full and level compactions that can run concurrently. A value of 0 results in 50% of runtime.GOMAXPROCS(0) used at runtime. Any number greater than zero limits compactions to that value. This setting does not apply to cache snapshotting.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  storageMaxConcurrentCompactions?: number;
+  storageMaxConcurrentCompactions?: number | undefined;
 
   /**
    * <p>Size (in bytes) at which an index write-ahead log (WAL) file will compact into an index file. Lower sizes will cause log files to be compacted more quickly and result in lower heap usage at the expense of write throughput.</p>
    *          <p>Default: 1048576</p>
    * @public
    */
-  storageMaxIndexLogFileSize?: number;
+  storageMaxIndexLogFileSize?: number | undefined;
 
   /**
    * <p>Skip field size validation on incoming write requests.</p>
    *          <p>Default: false</p>
    * @public
    */
-  storageNoValidateFieldSize?: boolean;
+  storageNoValidateFieldSize?: boolean | undefined;
 
   /**
    * <p>Interval of retention policy enforcement checks. Must be greater than 0.</p>
    *          <p>Default: 30 minutes</p>
    * @public
    */
-  storageRetentionCheckInterval?: Duration;
+  storageRetentionCheckInterval?: Duration | undefined;
 
   /**
    * <p>Maximum number of snapshot compactions that can run concurrently across all series partitions in a database.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  storageSeriesFileMaxConcurrentSnapshotCompactions?: number;
+  storageSeriesFileMaxConcurrentSnapshotCompactions?: number | undefined;
 
   /**
    * <p>Size of the internal cache used in the TSI index to store previously calculated series results. Cached results are returned quickly rather than needing to be recalculated when a subsequent query with the same tag key/value predicate is executed. Setting this value to 0 will disable the cache and may decrease query performance.</p>
    *          <p>Default: 100</p>
    * @public
    */
-  storageSeriesIdSetCacheSize?: number;
+  storageSeriesIdSetCacheSize?: number | undefined;
 
   /**
    * <p>Maximum number writes to the WAL directory to attempt at the same time. Setting this value to 0 results in number of processing units available x2.</p>
    *          <p>Default: 0</p>
    * @public
    */
-  storageWalMaxConcurrentWrites?: number;
+  storageWalMaxConcurrentWrites?: number | undefined;
 
   /**
    * <p>Maximum amount of time a write request to the WAL directory will wait when the <a href="https://docs.influxdata.com/influxdb/v2/reference/config-options/#storage-wal-max-concurrent-writes">maximum number of concurrent active writes to the WAL directory has been met</a>. Set to 0 to disable the timeout.</p>
    *          <p>Default: 10 minutes</p>
    * @public
    */
-  storageWalMaxWriteDelay?: Duration;
+  storageWalMaxWriteDelay?: Duration | undefined;
 
   /**
    * <p>Disable the InfluxDB user interface (UI). The UI is enabled by default.</p>
    *          <p>Default: false</p>
    * @public
    */
-  uiDisabled?: boolean;
+  uiDisabled?: boolean | undefined;
 }
 
 /**
@@ -1395,19 +1395,19 @@ export interface CreateDbParameterGroupInput {
    * <p>A description of the DB parameter group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of the parameters that comprise the DB parameter group.</p>
    * @public
    */
-  parameters?: _Parameters;
+  parameters?: _Parameters | undefined;
 
   /**
    * <p>A list of key-value pairs to associate with the DB parameter group.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1436,13 +1436,13 @@ export interface CreateDbParameterGroupOutput {
    * <p>The description of the DB parameter group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of the parameters that comprise the DB parameter group.</p>
    * @public
    */
-  parameters?: _Parameters;
+  parameters?: _Parameters | undefined;
 }
 
 /**
@@ -1482,13 +1482,13 @@ export interface GetDbParameterGroupOutput {
    * <p>A description of the DB parameter group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The parameters that comprise the DB parameter group.</p>
    * @public
    */
-  parameters?: _Parameters;
+  parameters?: _Parameters | undefined;
 }
 
 /**
@@ -1499,13 +1499,13 @@ export interface ListDbParameterGroupsInput {
    * <p>The pagination token. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a NextToken is provided in the output. To resume pagination, provide the NextToken value as argument of a subsequent API invocation.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1535,7 +1535,7 @@ export interface DbParameterGroupSummary {
    * <p>A description of the DB parameter group.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -1553,7 +1553,7 @@ export interface ListDbParameterGroupsOutput {
    *             service returns results from where the previous response left off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1575,7 +1575,7 @@ export interface ListTagsForResourceResponse {
    * <p>A list of tags used to categorize and track resources.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**

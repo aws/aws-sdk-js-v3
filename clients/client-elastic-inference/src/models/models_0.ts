@@ -16,7 +16,7 @@ export interface MemoryInfo {
    *         </p>
    * @public
    */
-  sizeInMiB?: number;
+  sizeInMiB?: number | undefined;
 }
 
 /**
@@ -34,7 +34,7 @@ export interface KeyValuePair {
    *         </p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>
@@ -42,7 +42,7 @@ export interface KeyValuePair {
    *         </p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -58,7 +58,7 @@ export interface AcceleratorType {
    *         </p>
    * @public
    */
-  acceleratorTypeName?: string;
+  acceleratorTypeName?: string | undefined;
 
   /**
    * <p>
@@ -66,7 +66,7 @@ export interface AcceleratorType {
    *         </p>
    * @public
    */
-  memoryInfo?: MemoryInfo;
+  memoryInfo?: MemoryInfo | undefined;
 
   /**
    * <p>
@@ -74,7 +74,7 @@ export interface AcceleratorType {
    *         </p>
    * @public
    */
-  throughputInfo?: KeyValuePair[];
+  throughputInfo?: KeyValuePair[] | undefined;
 }
 
 /**
@@ -105,7 +105,7 @@ export interface AcceleratorTypeOffering {
    *         </p>
    * @public
    */
-  acceleratorType?: string;
+  acceleratorType?: string | undefined;
 
   /**
    * <p>
@@ -116,7 +116,7 @@ export interface AcceleratorTypeOffering {
    *         </p>
    * @public
    */
-  locationType?: LocationType;
+  locationType?: LocationType | undefined;
 
   /**
    * <p>
@@ -125,7 +125,7 @@ export interface AcceleratorTypeOffering {
    *         </p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 }
 
 /**
@@ -171,7 +171,7 @@ export interface DescribeAcceleratorOfferingsRequest {
    *         </p>
    * @public
    */
-  acceleratorTypes?: string[];
+  acceleratorTypes?: string[] | undefined;
 }
 
 /**
@@ -184,7 +184,7 @@ export interface DescribeAcceleratorOfferingsResponse {
    *         </p>
    * @public
    */
-  acceleratorTypeOfferings?: AcceleratorTypeOffering[];
+  acceleratorTypeOfferings?: AcceleratorTypeOffering[] | undefined;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface Filter {
    *         </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>
@@ -254,7 +254,7 @@ export interface Filter {
    *         </p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -267,7 +267,7 @@ export interface DescribeAcceleratorsRequest {
    *         </p>
    * @public
    */
-  acceleratorIds?: string[];
+  acceleratorIds?: string[] | undefined;
 
   /**
    * <p>
@@ -277,7 +277,7 @@ export interface DescribeAcceleratorsRequest {
    *         </p>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>
@@ -287,7 +287,7 @@ export interface DescribeAcceleratorsRequest {
    *         </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -295,7 +295,7 @@ export interface DescribeAcceleratorsRequest {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -311,7 +311,7 @@ export interface ElasticInferenceAcceleratorHealth {
    *         </p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 }
 
 /**
@@ -327,7 +327,7 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    * @public
    */
-  acceleratorHealth?: ElasticInferenceAcceleratorHealth;
+  acceleratorHealth?: ElasticInferenceAcceleratorHealth | undefined;
 
   /**
    * <p>
@@ -335,7 +335,7 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    * @public
    */
-  acceleratorType?: string;
+  acceleratorType?: string | undefined;
 
   /**
    * <p>
@@ -343,7 +343,7 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    * @public
    */
-  acceleratorId?: string;
+  acceleratorId?: string | undefined;
 
   /**
    * <p>
@@ -351,7 +351,7 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    * @public
    */
-  availabilityZone?: string;
+  availabilityZone?: string | undefined;
 
   /**
    * <p>
@@ -359,7 +359,7 @@ export interface ElasticInferenceAccelerator {
    *         </p>
    * @public
    */
-  attachedResource?: string;
+  attachedResource?: string | undefined;
 }
 
 /**
@@ -372,7 +372,7 @@ export interface DescribeAcceleratorsResponse {
    *         </p>
    * @public
    */
-  acceleratorSet?: ElasticInferenceAccelerator[];
+  acceleratorSet?: ElasticInferenceAccelerator[] | undefined;
 
   /**
    * <p>
@@ -380,7 +380,7 @@ export interface DescribeAcceleratorsResponse {
    *         </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -398,7 +398,7 @@ export interface DescribeAcceleratorTypesResponse {
    *         </p>
    * @public
    */
-  acceleratorTypes?: AcceleratorType[];
+  acceleratorTypes?: AcceleratorType[] | undefined;
 }
 
 /**
@@ -424,7 +424,7 @@ export interface ListTagsForResourceResult {
    *         </p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**

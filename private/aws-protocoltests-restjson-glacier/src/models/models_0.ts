@@ -8,9 +8,9 @@ import { GlacierServiceException as __BaseException } from "./GlacierServiceExce
  * @public
  */
 export interface ArchiveCreationOutput {
-  location?: string;
-  checksum?: string;
-  archiveId?: string;
+  location?: string | undefined;
+  checksum?: string | undefined;
+  archiveId?: string | undefined;
 }
 
 /**
@@ -19,8 +19,8 @@ export interface ArchiveCreationOutput {
 export class InvalidParameterValueException extends __BaseException {
   readonly name: "InvalidParameterValueException" = "InvalidParameterValueException";
   readonly $fault: "client" = "client";
-  type?: string;
-  code?: string;
+  type?: string | undefined;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -42,8 +42,8 @@ export class InvalidParameterValueException extends __BaseException {
 export class MissingParameterValueException extends __BaseException {
   readonly name: "MissingParameterValueException" = "MissingParameterValueException";
   readonly $fault: "client" = "client";
-  type?: string;
-  code?: string;
+  type?: string | undefined;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -65,8 +65,8 @@ export class MissingParameterValueException extends __BaseException {
 export class RequestTimeoutException extends __BaseException {
   readonly name: "RequestTimeoutException" = "RequestTimeoutException";
   readonly $fault: "client" = "client";
-  type?: string;
-  code?: string;
+  type?: string | undefined;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -88,8 +88,8 @@ export class RequestTimeoutException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  type?: string;
-  code?: string;
+  type?: string | undefined;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -111,8 +111,8 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  type?: string;
-  code?: string;
+  type?: string | undefined;
+  code?: string | undefined;
   /**
    * @internal
    */
@@ -134,9 +134,9 @@ export class ServiceUnavailableException extends __BaseException {
 export interface UploadArchiveInput {
   vaultName: string | undefined;
   accountId: string | undefined;
-  archiveDescription?: string;
-  checksum?: string;
-  body?: StreamingBlobTypes;
+  archiveDescription?: string | undefined;
+  checksum?: string | undefined;
+  body?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -153,9 +153,9 @@ export interface UploadMultipartPartInput {
   accountId: string | undefined;
   vaultName: string | undefined;
   uploadId: string | undefined;
-  checksum?: string;
-  range?: string;
-  body?: StreamingBlobTypes;
+  checksum?: string | undefined;
+  range?: string | undefined;
+  body?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -169,5 +169,5 @@ export const UploadMultipartPartInputFilterSensitiveLog = (obj: UploadMultipartP
  * @public
  */
 export interface UploadMultipartPartOutput {
-  checksum?: string;
+  checksum?: string | undefined;
 }

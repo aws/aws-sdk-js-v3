@@ -16,7 +16,7 @@ export class AccessDeniedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -43,7 +43,7 @@ export class AccountHasOngoingImportException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -70,7 +70,7 @@ export class AccountNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -96,7 +96,7 @@ export class AccountNotRegisteredException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -123,7 +123,7 @@ export class AccountRegisteredException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -156,7 +156,7 @@ export interface Tag {
    *          characters.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -205,7 +205,7 @@ export class ChannelARNInvalidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -231,7 +231,7 @@ export class ChannelNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -265,7 +265,7 @@ export class CloudTrailARNInvalidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -294,7 +294,7 @@ export class ConflictException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -321,7 +321,7 @@ export class EventDataStoreARNInvalidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -347,7 +347,7 @@ export class EventDataStoreNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -373,7 +373,7 @@ export class InactiveEventDataStoreException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -400,7 +400,7 @@ export class InvalidTagParameterException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -446,7 +446,7 @@ export class InvalidTrailNameException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -473,7 +473,7 @@ export class NoManagementAccountSLRExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -501,7 +501,7 @@ export class NotOrganizationMasterAccountException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -527,7 +527,7 @@ export class OperationNotPermittedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -553,7 +553,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -579,7 +579,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -606,7 +606,7 @@ export class TagsLimitExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -632,7 +632,7 @@ export class UnsupportedOperationException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1204,42 +1204,42 @@ export interface AdvancedFieldSelector {
    *             <code>resources.type</code> fields.</p>
    * @public
    */
-  Equals?: string[];
+  Equals?: string[] | undefined;
 
   /**
    * <p>An operator that includes events that match the first few characters of the event record
    *          field specified as the value of <code>Field</code>.</p>
    * @public
    */
-  StartsWith?: string[];
+  StartsWith?: string[] | undefined;
 
   /**
    * <p>An operator that includes events that match the last few characters of the event record
    *          field specified as the value of <code>Field</code>.</p>
    * @public
    */
-  EndsWith?: string[];
+  EndsWith?: string[] | undefined;
 
   /**
    * <p> An operator that excludes events that match the exact value of the event record field
    *          specified as the value of <code>Field</code>. </p>
    * @public
    */
-  NotEquals?: string[];
+  NotEquals?: string[] | undefined;
 
   /**
    * <p> An operator that excludes events that match the first few characters of the event
    *          record field specified as the value of <code>Field</code>. </p>
    * @public
    */
-  NotStartsWith?: string[];
+  NotStartsWith?: string[] | undefined;
 
   /**
    * <p> An operator that excludes events that match the last few characters of the event record
    *          field specified as the value of <code>Field</code>. </p>
    * @public
    */
-  NotEndsWith?: string[];
+  NotEndsWith?: string[] | undefined;
 }
 
 /**
@@ -1336,7 +1336,7 @@ export interface AdvancedEventSelector {
    *          for only two S3 buckets".</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Contains all selector statements in an advanced event selector.</p>
@@ -1370,7 +1370,7 @@ export interface CancelQueryRequest {
    *          query is running.</p>
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the
@@ -1428,7 +1428,7 @@ export class InactiveQueryException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1454,7 +1454,7 @@ export class InvalidParameterException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1480,7 +1480,7 @@ export class QueryIdNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1507,7 +1507,7 @@ export class CannotDelegateManagementAccountException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1531,7 +1531,7 @@ export interface Channel {
    * <p>The Amazon Resource Name (ARN) of a channel.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p> The name of the CloudTrail channel. For service-linked channels, the name is
@@ -1541,7 +1541,7 @@ export interface Channel {
    *             Amazon Web Services service. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1557,7 +1557,7 @@ export class ChannelAlreadyExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1584,7 +1584,7 @@ export class ChannelExistsForEDSException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1612,7 +1612,7 @@ export class ChannelMaxLimitExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1692,7 +1692,7 @@ export interface CreateChannelRequest {
    * <p>A list of tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1703,31 +1703,31 @@ export interface CreateChannelResponse {
    * <p>The Amazon Resource Name (ARN) of the new channel.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p>The name of the new channel.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The partner or external event source name.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The event data stores that log the events arriving through the channel.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1742,7 +1742,7 @@ export class InvalidEventDataStoreCategoryException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1768,7 +1768,7 @@ export class InvalidSourceException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1794,7 +1794,7 @@ export class CloudTrailAccessNotEnabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1829,21 +1829,21 @@ export interface CreateEventDataStoreRequest {
    *          <p>For more information about how to use advanced event selectors to include events outside of Amazon Web Services events in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-integrations-cli.html#lake-cli-create-integration">Create an integration to log events from outside Amazon Web Services</a> in the CloudTrail User Guide.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Specifies whether the event data store includes events from all Regions, or only from
    *          the Region in which the event data store is created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies whether an event data store collects events logged for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
@@ -1862,7 +1862,7 @@ export interface CreateEventDataStoreRequest {
    *          </note>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Specifies whether termination protection is enabled for the event data store. If
@@ -1870,13 +1870,13 @@ export interface CreateEventDataStoreRequest {
    *          protection is disabled.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the events delivered by
@@ -1919,13 +1919,13 @@ export interface CreateEventDataStoreRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the event data store should start ingesting live events. The default is true.</p>
    * @public
    */
-  StartIngestion?: boolean;
+  StartIngestion?: boolean | undefined;
 
   /**
    * <p>The billing mode for the event data store determines the cost for ingesting events and the default and maximum retention period for the event data store.</p>
@@ -1948,7 +1948,7 @@ export interface CreateEventDataStoreRequest {
    *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -1977,64 +1977,64 @@ export interface CreateEventDataStoreResponse {
    * <p>The ARN of the event data store.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of event data store creation.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors that were used to select the events for the data
    *          store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store collects events from all Regions, or only from
    *          the Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of an event data store, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates whether termination protection is enabled for the event data store.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 
   /**
    * <p>The timestamp that shows when the event data store was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp that shows when an event data store was updated, if applicable.
@@ -2042,7 +2042,7 @@ export interface CreateEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -2052,13 +2052,13 @@ export interface CreateEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -2072,7 +2072,7 @@ export class EventDataStoreAlreadyExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2098,7 +2098,7 @@ export class EventDataStoreMaxLimitExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2127,7 +2127,7 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2154,7 +2154,7 @@ export class InsufficientEncryptionPolicyException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2207,7 +2207,7 @@ export class InvalidEventSelectorsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2233,7 +2233,7 @@ export class InvalidKmsKeyIdException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2260,7 +2260,7 @@ export class KmsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2288,7 +2288,7 @@ export class KmsKeyNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2316,7 +2316,7 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2344,7 +2344,7 @@ export class OrganizationsNotInUseException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2372,7 +2372,7 @@ export class CloudTrailInvalidClientTokenIdException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2398,7 +2398,7 @@ export class CloudWatchLogsDeliveryUnavailableException extends __BaseException 
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2458,21 +2458,21 @@ export interface CreateTrailRequest {
    *          characters.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
    * <p>Specifies the name of the Amazon SNS topic defined for notification of log file
    *          delivery. The maximum length is 256 characters.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the
    *          log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail is created in the current Region or in all Regions. The
@@ -2480,7 +2480,7 @@ export interface CreateTrailRequest {
    *          best practice, consider creating trails that log events in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies whether log file integrity validation is enabled. The default is false.</p>
@@ -2495,7 +2495,7 @@ export interface CreateTrailRequest {
    *          </note>
    * @public
    */
-  EnableLogFileValidation?: boolean;
+  EnableLogFileValidation?: boolean | undefined;
 
   /**
    * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that
@@ -2504,14 +2504,14 @@ export interface CreateTrailRequest {
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group. You must use a role that exists in your account.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by <code>alias/</code>, a fully
@@ -2545,7 +2545,7 @@ export interface CreateTrailRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is created for all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false,
@@ -2553,13 +2553,13 @@ export interface CreateTrailRequest {
    *          is the management account or delegated administrator account for an organization in Organizations.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 }
 
 /**
@@ -2572,21 +2572,21 @@ export interface CreateTrailResponse {
    * <p>Specifies the name of the trail.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log
    *          files.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
    *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your CloudTrail Log Files</a>.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
    * @deprecated
@@ -2594,7 +2594,7 @@ export interface CreateTrailResponse {
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
@@ -2604,20 +2604,20 @@ export interface CreateTrailResponse {
    *          </p>
    * @public
    */
-  SnsTopicARN?: string;
+  SnsTopicARN?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the
    *          log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail exists in one Region or in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies the ARN of the trail that was created. The format of a trail ARN is:</p>
@@ -2626,27 +2626,27 @@ export interface CreateTrailResponse {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies whether log file integrity validation is enabled.</p>
    * @public
    */
-  LogFileValidationEnabled?: boolean;
+  LogFileValidationEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail
    *          logs will be delivered.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -2656,13 +2656,13 @@ export interface CreateTrailResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is an organization trail.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }
 
 /**
@@ -2676,7 +2676,7 @@ export class InsufficientS3BucketPolicyException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2703,7 +2703,7 @@ export class InsufficientSnsTopicPolicyException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2730,7 +2730,7 @@ export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2756,7 +2756,7 @@ export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2783,7 +2783,7 @@ export class InvalidParameterCombinationException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2809,7 +2809,7 @@ export class InvalidS3BucketNameException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2835,7 +2835,7 @@ export class InvalidS3PrefixException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2861,7 +2861,7 @@ export class InvalidSnsTopicNameException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2889,7 +2889,7 @@ export class KmsKeyDisabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2915,7 +2915,7 @@ export class MaximumNumberOfTrailsExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2941,7 +2941,7 @@ export class S3BucketDoesNotExistException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2969,7 +2969,7 @@ export class ThrottlingException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2995,7 +2995,7 @@ export class TrailAlreadyExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3021,7 +3021,7 @@ export class TrailNotProvidedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3082,7 +3082,7 @@ export class EventDataStoreFederationEnabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3109,7 +3109,7 @@ export class EventDataStoreHasOngoingImportException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3136,7 +3136,7 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3185,7 +3185,7 @@ export class ResourceARNNotValidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3213,7 +3213,7 @@ export class ResourcePolicyNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3262,7 +3262,7 @@ export class InvalidHomeRegionException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3288,7 +3288,7 @@ export class TrailNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3336,7 +3336,7 @@ export class NotOrganizationManagementAccountException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3362,13 +3362,13 @@ export interface DescribeQueryRequest {
    *          query was run.</p>
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>The query ID.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>
@@ -3376,7 +3376,7 @@ export interface DescribeQueryRequest {
    *       </p>
    * @public
    */
-  QueryAlias?: string;
+  QueryAlias?: string | undefined;
 }
 
 /**
@@ -3411,13 +3411,13 @@ export interface QueryStatisticsForDescribeQuery {
    * <p>The number of events that matched a query.</p>
    * @public
    */
-  EventsMatched?: number;
+  EventsMatched?: number | undefined;
 
   /**
    * <p>The number of events that the query scanned in the event data store.</p>
    * @public
    */
-  EventsScanned?: number;
+  EventsScanned?: number | undefined;
 
   /**
    * <p>The total bytes that the query scanned in the event data store. This value matches the
@@ -3425,19 +3425,19 @@ export interface QueryStatisticsForDescribeQuery {
    *          running.</p>
    * @public
    */
-  BytesScanned?: number;
+  BytesScanned?: number | undefined;
 
   /**
    * <p>The query's run time, in milliseconds.</p>
    * @public
    */
-  ExecutionTimeInMillis?: number;
+  ExecutionTimeInMillis?: number | undefined;
 
   /**
    * <p>The creation time of the query.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3448,13 +3448,13 @@ export interface DescribeQueryResponse {
    * <p>The ID of the query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>The SQL code of a query.</p>
    * @public
    */
-  QueryString?: string;
+  QueryString?: string | undefined;
 
   /**
    * <p>The status of a query. Values for <code>QueryStatus</code> include <code>QUEUED</code>,
@@ -3463,7 +3463,7 @@ export interface DescribeQueryResponse {
    *          </p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 
   /**
    * <p>Metadata about a query, including the number of events that were matched, the total
@@ -3471,26 +3471,26 @@ export interface DescribeQueryResponse {
    *          time.</p>
    * @public
    */
-  QueryStatistics?: QueryStatisticsForDescribeQuery;
+  QueryStatistics?: QueryStatisticsForDescribeQuery | undefined;
 
   /**
    * <p>The error message returned if a query failed.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The URI for the S3 bucket where CloudTrail delivered query results, if
    *          applicable.</p>
    * @public
    */
-  DeliveryS3Uri?: string;
+  DeliveryS3Uri?: string | undefined;
 
   /**
    * <p>The delivery status.</p>
    * @public
    */
-  DeliveryStatus?: DeliveryStatus;
+  DeliveryStatus?: DeliveryStatus | undefined;
 }
 
 /**
@@ -3525,7 +3525,7 @@ export interface DescribeTrailsRequest {
    *          </note>
    * @public
    */
-  trailNameList?: string[];
+  trailNameList?: string[] | undefined;
 
   /**
    * <p>Specifies whether to include shadow trails in the response. A shadow trail is the
@@ -3535,7 +3535,7 @@ export interface DescribeTrailsRequest {
    *          replication trails will not be returned. The default is true.</p>
    * @public
    */
-  includeShadowTrails?: boolean;
+  includeShadowTrails?: boolean | undefined;
 }
 
 /**
@@ -3548,7 +3548,7 @@ export interface Trail {
    *          128 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Name of the Amazon S3 bucket into which CloudTrail delivers your trail
@@ -3556,7 +3556,7 @@ export interface Trail {
    *             Bucket naming rules</a>.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
@@ -3564,7 +3564,7 @@ export interface Trail {
    *          characters.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
    * @deprecated
@@ -3572,7 +3572,7 @@ export interface Trail {
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
@@ -3583,26 +3583,26 @@ export interface Trail {
    *          </p>
    * @public
    */
-  SnsTopicARN?: string;
+  SnsTopicARN?: string | undefined;
 
   /**
    * <p>Set to <b>True</b> to include Amazon Web Services API calls
    *          from Amazon Web Services global services such as IAM. Otherwise, <b>False</b>.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail exists only in one Region or exists in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>The Region in which the trail was created.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the trail. The following is the format of a trail ARN.</p>
@@ -3611,27 +3611,27 @@ export interface Trail {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies whether log file validation is enabled.</p>
    * @public
    */
-  LogFileValidationEnabled?: boolean;
+  LogFileValidationEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log
    *          group to which CloudTrail logs will be delivered.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -3641,26 +3641,26 @@ export interface Trail {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies if the trail has custom event selectors.</p>
    * @public
    */
-  HasCustomEventSelectors?: boolean;
+  HasCustomEventSelectors?: boolean | undefined;
 
   /**
    * <p>Specifies whether a trail has insight types specified in an <code>InsightSelector</code>
    *          list.</p>
    * @public
    */
-  HasInsightSelectors?: boolean;
+  HasInsightSelectors?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail is an organization trail.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }
 
 /**
@@ -3678,7 +3678,7 @@ export interface DescribeTrailsResponse {
    *          customer managed keys.</p>
    * @public
    */
-  trailList?: Trail[];
+  trailList?: Trail[] | undefined;
 }
 
 /**
@@ -3694,7 +3694,7 @@ export class ConcurrentModificationException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3748,7 +3748,7 @@ export interface DisableFederationResponse {
    *       </p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -3756,7 +3756,7 @@ export interface DisableFederationResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 }
 
 /**
@@ -3789,7 +3789,7 @@ export interface EnableFederationResponse {
    *       </p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -3797,7 +3797,7 @@ export interface EnableFederationResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 
   /**
    * <p>
@@ -3805,7 +3805,7 @@ export interface EnableFederationResponse {
    *       </p>
    * @public
    */
-  FederationRoleArn?: string;
+  FederationRoleArn?: string | undefined;
 }
 
 /**
@@ -3829,31 +3829,31 @@ export interface IngestionStatus {
    * <p>The time stamp of the most recent successful ingestion of events for the channel.</p>
    * @public
    */
-  LatestIngestionSuccessTime?: Date;
+  LatestIngestionSuccessTime?: Date | undefined;
 
   /**
    * <p>The event ID of the most recent successful ingestion of events.</p>
    * @public
    */
-  LatestIngestionSuccessEventID?: string;
+  LatestIngestionSuccessEventID?: string | undefined;
 
   /**
    * <p>The error code for the most recent failure to ingest events.</p>
    * @public
    */
-  LatestIngestionErrorCode?: string;
+  LatestIngestionErrorCode?: string | undefined;
 
   /**
    * <p>The time stamp of the most recent attempt to ingest events on the channel.</p>
    * @public
    */
-  LatestIngestionAttemptTime?: Date;
+  LatestIngestionAttemptTime?: Date | undefined;
 
   /**
    * <p>The event ID of the most recent attempt to ingest events.</p>
    * @public
    */
-  LatestIngestionAttemptEventID?: string;
+  LatestIngestionAttemptEventID?: string | undefined;
 }
 
 /**
@@ -3865,13 +3865,13 @@ export interface SourceConfig {
    * <p> Specifies whether the channel applies to a single Region or to all Regions.</p>
    * @public
    */
-  ApplyToAllRegions?: boolean;
+  ApplyToAllRegions?: boolean | undefined;
 
   /**
    * <p> The advanced event selectors that are configured for the channel.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -3882,7 +3882,7 @@ export interface GetChannelResponse {
    * <p>The ARN of an channel returned by a <code>GetChannel</code> request.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p> The name of the CloudTrail channel. For service-linked channels, the name is
@@ -3892,20 +3892,20 @@ export interface GetChannelResponse {
    *             Amazon Web Services service. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The source for the CloudTrail channel.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p> Provides information about the advanced event selectors configured for the channel, and
    *          whether the channel applies to all Regions or a single Region. </p>
    * @public
    */
-  SourceConfig?: SourceConfig;
+  SourceConfig?: SourceConfig | undefined;
 
   /**
    * <p>The destinations for the channel. For channels created for integrations,
@@ -3913,14 +3913,14 @@ export interface GetChannelResponse {
    *          For service-linked channels, the destination is the Amazon Web Services service that created the service-linked channel to receive events.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
 
   /**
    * <p>A table showing information about the most recent successful and failed attempts
    *       to ingest events.</p>
    * @public
    */
-  IngestionStatus?: IngestionStatus;
+  IngestionStatus?: IngestionStatus | undefined;
 }
 
 /**
@@ -3961,57 +3961,57 @@ export interface GetEventDataStoreResponse {
    * <p>The event data store Amazon Resource Number (ARN).</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of an event data store.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors used to select events for the data store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store includes events from all Regions, or only from
    *          the Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of the event data store, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that termination protection is enabled.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The timestamp of the event data store's creation.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>Shows the time that an event data store was updated, if applicable.
@@ -4019,7 +4019,7 @@ export interface GetEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -4029,13 +4029,13 @@ export interface GetEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
    * <p>
@@ -4044,7 +4044,7 @@ export interface GetEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 
   /**
    * <p>
@@ -4052,14 +4052,14 @@ export interface GetEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationRoleArn?: string;
+  FederationRoleArn?: string | undefined;
 
   /**
    * <p>The partition keys for the event data store. To improve query performance and efficiency, CloudTrail Lake organizes
    *          event data into partitions based on values derived from partition keys.</p>
    * @public
    */
-  PartitionKeys?: PartitionKey[];
+  PartitionKeys?: PartitionKey[] | undefined;
 }
 
 /**
@@ -4201,7 +4201,7 @@ export interface DataResource {
    *          information about these additional resource types, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified
@@ -4252,7 +4252,7 @@ export interface DataResource {
    *          </ul>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -4289,7 +4289,7 @@ export interface EventSelector {
    *          <p> By default, the value is <code>All</code>.</p>
    * @public
    */
-  ReadWriteType?: ReadWriteType;
+  ReadWriteType?: ReadWriteType | undefined;
 
   /**
    * <p>Specify if you want your event selector to include management events for your
@@ -4302,7 +4302,7 @@ export interface EventSelector {
    *          information about CloudTrail pricing, see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail Pricing</a>.</p>
    * @public
    */
-  IncludeManagementEvents?: boolean;
+  IncludeManagementEvents?: boolean | undefined;
 
   /**
    * <p>CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, Lambda functions, and Amazon DynamoDB tables with basic event selectors.
@@ -4319,7 +4319,7 @@ export interface EventSelector {
    *          </note>
    * @public
    */
-  DataResources?: DataResource[];
+  DataResources?: DataResource[] | undefined;
 
   /**
    * <p>An optional list of service event sources from which you do not want management events
@@ -4331,7 +4331,7 @@ export interface EventSelector {
    *          event sources only in Regions that support the event source.</p>
    * @public
    */
-  ExcludeManagementEventSources?: string[];
+  ExcludeManagementEventSources?: string[] | undefined;
 }
 
 /**
@@ -4342,19 +4342,19 @@ export interface GetEventSelectorsResponse {
    * <p>The specified trail ARN that has the event selectors.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>The event selectors that are configured for the trail.</p>
    * @public
    */
-  EventSelectors?: EventSelector[];
+  EventSelectors?: EventSelector[] | undefined;
 
   /**
    * <p> The advanced event selectors that are configured for the trail. </p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -4415,31 +4415,31 @@ export interface ImportStatistics {
    * <p> The number of S3 prefixes found for the import. </p>
    * @public
    */
-  PrefixesFound?: number;
+  PrefixesFound?: number | undefined;
 
   /**
    * <p> The number of S3 prefixes that completed import. </p>
    * @public
    */
-  PrefixesCompleted?: number;
+  PrefixesCompleted?: number | undefined;
 
   /**
    * <p>The number of log files that completed import.</p>
    * @public
    */
-  FilesCompleted?: number;
+  FilesCompleted?: number | undefined;
 
   /**
    * <p> The number of trail events imported into the event data store. </p>
    * @public
    */
-  EventsCompleted?: number;
+  EventsCompleted?: number | undefined;
 
   /**
    * <p> The number of failed entries. </p>
    * @public
    */
-  FailedEntries?: number;
+  FailedEntries?: number | undefined;
 }
 
 /**
@@ -4467,19 +4467,19 @@ export interface GetImportResponse {
    * <p> The ID of the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The source S3 bucket. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -4487,7 +4487,7 @@ export interface GetImportResponse {
    *       </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -4495,25 +4495,25 @@ export interface GetImportResponse {
    *       </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The timestamp of the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of when the import was updated. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p> Provides statistics for the import. CloudTrail does not update import statistics
@@ -4522,7 +4522,7 @@ export interface GetImportResponse {
    *          over the course of the import. </p>
    * @public
    */
-  ImportStatistics?: ImportStatistics;
+  ImportStatistics?: ImportStatistics | undefined;
 }
 
 /**
@@ -4536,7 +4536,7 @@ export class ImportNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4584,7 +4584,7 @@ export interface GetInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>EventDataStore</code> parameter.</p>
    * @public
    */
-  TrailName?: string;
+  TrailName?: string | undefined;
 
   /**
    * <p>
@@ -4594,7 +4594,7 @@ export interface GetInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 }
 
 /**
@@ -4626,7 +4626,7 @@ export interface InsightSelector {
    *          unsuccessful.</p>
    * @public
    */
-  InsightType?: InsightType;
+  InsightType?: InsightType | undefined;
 }
 
 /**
@@ -4638,14 +4638,14 @@ export interface GetInsightSelectorsResponse {
    *          selectors.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>A JSON string that contains the Insight types you want to log on a trail or event data store. <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code> are supported
    *          as Insights types.</p>
    * @public
    */
-  InsightSelectors?: InsightSelector[];
+  InsightSelectors?: InsightSelector[] | undefined;
 
   /**
    * <p>
@@ -4653,7 +4653,7 @@ export interface GetInsightSelectorsResponse {
    *       </p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -4661,7 +4661,7 @@ export interface GetInsightSelectorsResponse {
    *       </p>
    * @public
    */
-  InsightsDestination?: string;
+  InsightsDestination?: string | undefined;
 }
 
 /**
@@ -4677,7 +4677,7 @@ export class InsightNotEnabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4703,7 +4703,7 @@ export interface GetQueryResultsRequest {
    *          run.</p>
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>The ID of the query for which you want to get results.</p>
@@ -4715,13 +4715,13 @@ export interface GetQueryResultsRequest {
    * <p>A token you can use to get the next page of query results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of query results to display on a single page.</p>
    * @public
    */
-  MaxQueryResults?: number;
+  MaxQueryResults?: number | undefined;
 }
 
 /**
@@ -4733,13 +4733,13 @@ export interface QueryStatistics {
    * <p>The number of results returned.</p>
    * @public
    */
-  ResultsCount?: number;
+  ResultsCount?: number | undefined;
 
   /**
    * <p>The total number of results returned by a query.</p>
    * @public
    */
-  TotalResultsCount?: number;
+  TotalResultsCount?: number | undefined;
 
   /**
    * <p>The total bytes that the query scanned in the event data store. This value matches the
@@ -4747,7 +4747,7 @@ export interface QueryStatistics {
    *          running.</p>
    * @public
    */
-  BytesScanned?: number;
+  BytesScanned?: number | undefined;
 }
 
 /**
@@ -4760,31 +4760,31 @@ export interface GetQueryResultsResponse {
    *             <code>CANCELLED</code>.</p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 
   /**
    * <p>Shows the count of query results.</p>
    * @public
    */
-  QueryStatistics?: QueryStatistics;
+  QueryStatistics?: QueryStatistics | undefined;
 
   /**
    * <p>Contains the individual event results of the query.</p>
    * @public
    */
-  QueryResultRows?: Record<string, string>[][];
+  QueryResultRows?: Record<string, string>[][] | undefined;
 
   /**
    * <p>A token you can use to get the next page of query results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The error message returned if a query failed.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -4798,7 +4798,7 @@ export class InvalidMaxResultsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4825,7 +4825,7 @@ export class InvalidNextTokenException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4865,7 +4865,7 @@ export interface GetResourcePolicyResponse {
    *       </p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>
@@ -4873,7 +4873,7 @@ export interface GetResourcePolicyResponse {
    *       </p>
    * @public
    */
-  ResourcePolicy?: string;
+  ResourcePolicy?: string | undefined;
 }
 
 /**
@@ -4896,7 +4896,7 @@ export interface GetTrailResponse {
    * <p>The settings for a trail.</p>
    * @public
    */
-  Trail?: Trail;
+  Trail?: Trail | undefined;
 }
 
 /**
@@ -4928,7 +4928,7 @@ export interface GetTrailStatusResponse {
    *          calls.</p>
    * @public
    */
-  IsLogging?: boolean;
+  IsLogging?: boolean | undefined;
 
   /**
    * <p>Displays any Amazon S3 error that CloudTrail encountered when attempting
@@ -4942,7 +4942,7 @@ export interface GetTrailStatusResponse {
    *          </note>
    * @public
    */
-  LatestDeliveryError?: string;
+  LatestDeliveryError?: string | undefined;
 
   /**
    * <p>Displays any Amazon SNS error that CloudTrail encountered when attempting
@@ -4951,14 +4951,14 @@ export interface GetTrailStatusResponse {
    *             Developer Guide</a>. </p>
    * @public
    */
-  LatestNotificationError?: string;
+  LatestNotificationError?: string | undefined;
 
   /**
    * <p>Specifies the date and time that CloudTrail last delivered log files to an
    *          account's Amazon S3 bucket.</p>
    * @public
    */
-  LatestDeliveryTime?: Date;
+  LatestDeliveryTime?: Date | undefined;
 
   /**
    * <p>Specifies the date and time of the most recent Amazon SNS notification that
@@ -4966,41 +4966,41 @@ export interface GetTrailStatusResponse {
    *          bucket.</p>
    * @public
    */
-  LatestNotificationTime?: Date;
+  LatestNotificationTime?: Date | undefined;
 
   /**
    * <p>Specifies the most recent date and time when CloudTrail started recording API
    *          calls for an Amazon Web Services account.</p>
    * @public
    */
-  StartLoggingTime?: Date;
+  StartLoggingTime?: Date | undefined;
 
   /**
    * <p>Specifies the most recent date and time when CloudTrail stopped recording API
    *          calls for an Amazon Web Services account.</p>
    * @public
    */
-  StopLoggingTime?: Date;
+  StopLoggingTime?: Date | undefined;
 
   /**
    * <p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting
    *          to deliver logs to CloudWatch Logs.</p>
    * @public
    */
-  LatestCloudWatchLogsDeliveryError?: string;
+  LatestCloudWatchLogsDeliveryError?: string | undefined;
 
   /**
    * <p>Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.</p>
    * @public
    */
-  LatestCloudWatchLogsDeliveryTime?: Date;
+  LatestCloudWatchLogsDeliveryTime?: Date | undefined;
 
   /**
    * <p>Specifies the date and time that CloudTrail last delivered a digest file to an
    *          account's Amazon S3 bucket.</p>
    * @public
    */
-  LatestDigestDeliveryTime?: Date;
+  LatestDigestDeliveryTime?: Date | undefined;
 
   /**
    * <p>Displays any Amazon S3 error that CloudTrail encountered when attempting
@@ -5014,43 +5014,43 @@ export interface GetTrailStatusResponse {
    *          </note>
    * @public
    */
-  LatestDigestDeliveryError?: string;
+  LatestDigestDeliveryError?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestDeliveryAttemptTime?: string;
+  LatestDeliveryAttemptTime?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestNotificationAttemptTime?: string;
+  LatestNotificationAttemptTime?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestNotificationAttemptSucceeded?: string;
+  LatestNotificationAttemptSucceeded?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestDeliveryAttemptSucceeded?: string;
+  LatestDeliveryAttemptSucceeded?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  TimeLoggingStarted?: string;
+  TimeLoggingStarted?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  TimeLoggingStopped?: string;
+  TimeLoggingStopped?: string | undefined;
 }
 
 /**
@@ -5061,7 +5061,7 @@ export interface ListChannelsRequest {
    * <p> The maximum number of CloudTrail channels to display on a single page. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token
@@ -5070,7 +5070,7 @@ export interface ListChannelsRequest {
    *          'root', the call with NextToken should include those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5081,13 +5081,13 @@ export interface ListChannelsResponse {
    * <p> The list of channels in the account. </p>
    * @public
    */
-  Channels?: Channel[];
+  Channels?: Channel[] | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5098,13 +5098,13 @@ export interface ListEventDataStoresRequest {
    * <p>A token you can use to get the next page of event data store results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of event data stores to display on a single page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5118,13 +5118,13 @@ export interface EventDataStore {
    * <p>The ARN of the event data store.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * @deprecated
@@ -5133,7 +5133,7 @@ export interface EventDataStore {
    *          termination.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * @deprecated
@@ -5141,7 +5141,7 @@ export interface EventDataStore {
    * <p>The status of an event data store.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * @deprecated
@@ -5150,7 +5150,7 @@ export interface EventDataStore {
    *          events for the data store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * @deprecated
@@ -5159,7 +5159,7 @@ export interface EventDataStore {
    *          from all Regions, or only from the Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * @deprecated
@@ -5168,7 +5168,7 @@ export interface EventDataStore {
    *          events for an organization.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * @deprecated
@@ -5176,7 +5176,7 @@ export interface EventDataStore {
    * <p>The retention period, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * @deprecated
@@ -5184,7 +5184,7 @@ export interface EventDataStore {
    * <p>The timestamp of the event data store's creation.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * @deprecated
@@ -5194,7 +5194,7 @@ export interface EventDataStore {
    *          than the time shown in <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5206,13 +5206,13 @@ export interface ListEventDataStoresResponse {
    *          Region.</p>
    * @public
    */
-  EventDataStores?: EventDataStore[];
+  EventDataStores?: EventDataStore[] | undefined;
 
   /**
    * <p>A token you can use to get the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5229,13 +5229,13 @@ export interface ListImportFailuresRequest {
    * <p> The maximum number of failures to display on a single page. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p> A token you can use to get the next page of import failures. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5262,31 +5262,31 @@ export interface ImportFailureListItem {
    * <p> The location of the failure in the S3 bucket. </p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  Status?: ImportFailureStatus;
+  Status?: ImportFailureStatus | undefined;
 
   /**
    * <p> The type of import error. </p>
    * @public
    */
-  ErrorType?: string;
+  ErrorType?: string | undefined;
 
   /**
    * <p> Provides the reason the import failed. </p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p> When the import was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -5297,13 +5297,13 @@ export interface ListImportFailuresResponse {
    * <p> Contains information about the import failures. </p>
    * @public
    */
-  Failures?: ImportFailureListItem[];
+  Failures?: ImportFailureListItem[] | undefined;
 
   /**
    * <p> A token you can use to get the next page of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5314,25 +5314,25 @@ export interface ListImportsRequest {
    * <p> The maximum number of imports to display on a single page. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destination?: string;
+  Destination?: string | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> A token you can use to get the next page of import results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5344,31 +5344,31 @@ export interface ImportsListItem {
    * <p> The ID of the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The timestamp of the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of the import's last update. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5379,13 +5379,13 @@ export interface ListImportsResponse {
    * <p> The list of returned imports. </p>
    * @public
    */
-  Imports?: ImportsListItem[];
+  Imports?: ImportsListItem[] | undefined;
 
   /**
    * <p> A token you can use to get the next page of import results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5431,14 +5431,14 @@ export interface ListInsightsMetricDataRequest {
    *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>Specifies, in UTC, the start time for time-series data. The value specified is inclusive; results include data points with the specified time stamp.</p>
    *          <p>The default is 90 days before the time of request.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Specifies, in UTC, the end time for time-series data. The value specified is exclusive;
@@ -5446,35 +5446,35 @@ export interface ListInsightsMetricDataRequest {
    *          <p>The default is the time of request.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Granularity of data to retrieve, in seconds. Valid values are <code>60</code>, <code>300</code>, and <code>3600</code>.
    *          If you specify any other value, you will get an error. The default is 3600 seconds.</p>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
    * <p>Type of datapoints to return. Valid values are <code>NonZeroData</code> and
    *          <code>FillWithZeros</code>. The default is <code>NonZeroData</code>.</p>
    * @public
    */
-  DataType?: InsightsMetricDataType;
+  DataType?: InsightsMetricDataType | undefined;
 
   /**
    * <p>The maximum number of datapoints to return. Valid values are integers from 1 to 21600.
    *          The default value is 21600.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Returned if all datapoints can't be returned in a single call. For example, due to reaching <code>MaxResults</code>.</p>
    *          <p>Add this parameter to the request to continue retrieving results starting from the last evaluated point.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5485,13 +5485,13 @@ export interface ListInsightsMetricDataResponse {
    * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
    * @public
    */
-  EventSource?: string;
+  EventSource?: string | undefined;
 
   /**
    * <p>The name of the event, typically the Amazon Web Services API on which unusual levels of activity were recorded.</p>
    * @public
    */
-  EventName?: string;
+  EventName?: string | undefined;
 
   /**
    * <p>The type of CloudTrail Insights event, which is either <code>ApiCallRateInsight</code> or <code>ApiErrorRateInsight</code>.
@@ -5499,33 +5499,33 @@ export interface ListInsightsMetricDataResponse {
    *          The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that result in error codes.</p>
    * @public
    */
-  InsightType?: InsightType;
+  InsightType?: InsightType | undefined;
 
   /**
    * <p>Only returned if <code>InsightType</code> parameter was set to <code>ApiErrorRateInsight</code>.</p>
    *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>List of timestamps at intervals corresponding to the specified time period.</p>
    * @public
    */
-  Timestamps?: Date[];
+  Timestamps?: Date[] | undefined;
 
   /**
    * <p>List of values representing the API call rate or error rate at each timestamp. The number of values is equal to the number of timestamps.</p>
    * @public
    */
-  Values?: number[];
+  Values?: number[] | undefined;
 
   /**
    * <p>Only returned if the full results could not be returned in a single query. You can set the <code>NextToken</code> parameter
    *          in the next request to this value to continue retrieval.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5540,7 +5540,7 @@ export class InvalidTimeRangeException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5566,7 +5566,7 @@ export class InvalidTokenException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5592,20 +5592,20 @@ export interface ListPublicKeysRequest {
    *          current public key is returned.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Optionally specifies, in UTC, the end of the time range to look up public keys for
    *             CloudTrail digest files. If not specified, the current time is used.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5617,25 +5617,25 @@ export interface PublicKey {
    * <p>The DER encoded public key value in PKCS#1 format.</p>
    * @public
    */
-  Value?: Uint8Array;
+  Value?: Uint8Array | undefined;
 
   /**
    * <p>The starting time of validity of the public key.</p>
    * @public
    */
-  ValidityStartTime?: Date;
+  ValidityStartTime?: Date | undefined;
 
   /**
    * <p>The ending time of validity of the public key.</p>
    * @public
    */
-  ValidityEndTime?: Date;
+  ValidityEndTime?: Date | undefined;
 
   /**
    * <p>The fingerprint of the public key.</p>
    * @public
    */
-  Fingerprint?: string;
+  Fingerprint?: string | undefined;
 }
 
 /**
@@ -5651,13 +5651,13 @@ export interface ListPublicKeysResponse {
    *          </note>
    * @public
    */
-  PublicKeyList?: PublicKey[];
+  PublicKeyList?: PublicKey[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5673,7 +5673,7 @@ export class InvalidDateRangeException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5699,7 +5699,7 @@ export class InvalidQueryStatusException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5729,27 +5729,27 @@ export interface ListQueriesRequest {
    * <p>A token you can use to get the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of queries to show on a page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Use with <code>EndTime</code> to bound a <code>ListQueries</code> request, and limit its
    *          results to only those queries run within a specified time period.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Use with <code>StartTime</code> to bound a <code>ListQueries</code> request, and limit
    *          its results to only those queries run within a specified time period.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The status of queries that you want to return in results. Valid values for
@@ -5758,7 +5758,7 @@ export interface ListQueriesRequest {
    *             <code>CANCELLED</code>.</p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 }
 
 /**
@@ -5771,7 +5771,7 @@ export interface Query {
    * <p>The ID of a query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>The status of the query. This can be <code>QUEUED</code>, <code>RUNNING</code>,
@@ -5779,13 +5779,13 @@ export interface Query {
    *             <code>CANCELLED</code>.</p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 
   /**
    * <p>The creation time of a query.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -5797,13 +5797,13 @@ export interface ListQueriesResponse {
    *          query.</p>
    * @public
    */
-  Queries?: Query[];
+  Queries?: Query[] | undefined;
 
   /**
    * <p>A token you can use to get the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5831,7 +5831,7 @@ export interface ListTagsRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5843,13 +5843,13 @@ export interface ResourceTag {
    * <p>Specifies the ARN of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 }
 
 /**
@@ -5862,13 +5862,13 @@ export interface ListTagsResponse {
    * <p>A list of resource tags.</p>
    * @public
    */
-  ResourceTagList?: ResourceTag[];
+  ResourceTagList?: ResourceTag[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5882,7 +5882,7 @@ export interface ListTrailsRequest {
    *          'root', the call with NextToken should include those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5895,19 +5895,19 @@ export interface TrailInfo {
    * <p>The ARN of a trail.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>The name of a trail.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which a trail was created.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 }
 
 /**
@@ -5918,7 +5918,7 @@ export interface ListTrailsResponse {
    * <p>Returns the name, ARN, and home Region of trails in the current account.</p>
    * @public
    */
-  Trails?: TrailInfo[];
+  Trails?: TrailInfo[] | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. If the token
@@ -5928,7 +5928,7 @@ export interface ListTrailsResponse {
    *          those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5943,7 +5943,7 @@ export class InvalidEventCategoryException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5969,7 +5969,7 @@ export class InvalidLookupAttributesException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6048,21 +6048,21 @@ export interface LookupEventsRequest {
    *          item.</p>
    * @public
    */
-  LookupAttributes?: LookupAttribute[];
+  LookupAttributes?: LookupAttribute[] | undefined;
 
   /**
    * <p>Specifies that only events that occur after or at the specified time are returned. If
    *          the specified start time is after the specified end time, an error is returned.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Specifies that only events that occur before or at the specified time are returned. If
    *          the specified end time is before the specified start time, an error is returned.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Specifies the event category. If you do not specify an event category, events of the
@@ -6071,14 +6071,14 @@ export interface LookupEventsRequest {
    *          returned.</p>
    * @public
    */
-  EventCategory?: EventCategory;
+  EventCategory?: EventCategory | undefined;
 
   /**
    * <p>The number of events to return. Possible values are 1 through 50. The default is
    *          50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token
@@ -6087,7 +6087,7 @@ export interface LookupEventsRequest {
    *          'root', the call with NextToken should include those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6101,7 +6101,7 @@ export interface Resource {
    *          events by the resource types supported for a service, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events">Filtering CloudTrail Events</a>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the resource referenced by the event returned. These are user-created names
@@ -6110,7 +6110,7 @@ export interface Resource {
    *          Instance.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 }
 
 /**
@@ -6123,19 +6123,19 @@ export interface Event {
    * <p>The CloudTrail ID of the event returned.</p>
    * @public
    */
-  EventId?: string;
+  EventId?: string | undefined;
 
   /**
    * <p>The name of the event returned.</p>
    * @public
    */
-  EventName?: string;
+  EventName?: string | undefined;
 
   /**
    * <p>Information about whether the event is a write event or a read event. </p>
    * @public
    */
-  ReadOnly?: string;
+  ReadOnly?: string | undefined;
 
   /**
    * <p>The Amazon Web Services access key ID that was used to sign the request. If the request
@@ -6143,38 +6143,38 @@ export interface Event {
    *          credentials.</p>
    * @public
    */
-  AccessKeyId?: string;
+  AccessKeyId?: string | undefined;
 
   /**
    * <p>The date and time of the event returned.</p>
    * @public
    */
-  EventTime?: Date;
+  EventTime?: Date | undefined;
 
   /**
    * <p>The Amazon Web Services service to which the request was made.</p>
    * @public
    */
-  EventSource?: string;
+  EventSource?: string | undefined;
 
   /**
    * <p>A user name or role name of the requester that called the API in the event
    *          returned.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>A list of resources referenced by the event returned.</p>
    * @public
    */
-  Resources?: Resource[];
+  Resources?: Resource[] | undefined;
 
   /**
    * <p>A JSON string that contains a representation of the event returned.</p>
    * @public
    */
-  CloudTrailEvent?: string;
+  CloudTrailEvent?: string | undefined;
 }
 
 /**
@@ -6187,7 +6187,7 @@ export interface LookupEventsResponse {
    *          first.</p>
    * @public
    */
-  Events?: Event[];
+  Events?: Event[] | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. If the token
@@ -6197,7 +6197,7 @@ export interface LookupEventsResponse {
    *          those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6261,7 +6261,7 @@ export interface PutEventSelectorsRequest {
    *             <code>AdvancedEventSelectors</code> are overwritten.</p>
    * @public
    */
-  EventSelectors?: EventSelector[];
+  EventSelectors?: EventSelector[] | undefined;
 
   /**
    * <p> Specifies the settings for advanced event selectors. You can use advanced event selectors to
@@ -6277,7 +6277,7 @@ export interface PutEventSelectorsRequest {
    *          in the <i>CloudTrail User Guide</i>. </p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -6292,19 +6292,19 @@ export interface PutEventSelectorsResponse {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies the event selectors configured for your trail.</p>
    * @public
    */
-  EventSelectors?: EventSelector[];
+  EventSelectors?: EventSelector[] | undefined;
 
   /**
    * <p>Specifies the advanced event selectors configured for your trail.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -6326,7 +6326,7 @@ export class InvalidInsightSelectorsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6351,7 +6351,7 @@ export interface PutInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>
    * @public
    */
-  TrailName?: string;
+  TrailName?: string | undefined;
 
   /**
    * <p>A JSON string that contains the Insights types you want to log on a trail or event data store.
@@ -6373,7 +6373,7 @@ export interface PutInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>
@@ -6383,7 +6383,7 @@ export interface PutInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
    * @public
    */
-  InsightsDestination?: string;
+  InsightsDestination?: string | undefined;
 }
 
 /**
@@ -6395,7 +6395,7 @@ export interface PutInsightSelectorsResponse {
    *          selectors.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>A JSON string that contains the Insights event types that you want to log on a trail or event data store.
@@ -6403,14 +6403,14 @@ export interface PutInsightSelectorsResponse {
    *             <code>ApiCallRateInsight</code>.</p>
    * @public
    */
-  InsightSelectors?: InsightSelector[];
+  InsightSelectors?: InsightSelector[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source event data store for which you want to change or add Insights
    *          selectors.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -6418,7 +6418,7 @@ export interface PutInsightSelectorsResponse {
    *       </p>
    * @public
    */
-  InsightsDestination?: string;
+  InsightsDestination?: string | undefined;
 }
 
 /**
@@ -6472,7 +6472,7 @@ export interface PutResourcePolicyResponse {
    *       </p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>
@@ -6480,7 +6480,7 @@ export interface PutResourcePolicyResponse {
    *       </p>
    * @public
    */
-  ResourcePolicy?: string;
+  ResourcePolicy?: string | undefined;
 }
 
 /**
@@ -6514,7 +6514,7 @@ export class ResourcePolicyNotValidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6541,7 +6541,7 @@ export class DelegatedAdminAccountLimitExceededException extends __BaseException
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6622,7 +6622,7 @@ export class InvalidEventDataStoreStatusException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6657,58 +6657,58 @@ export interface RestoreEventDataStoreResponse {
    * <p>The event data store ARN.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of the event data store.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors that were used to select events.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store is collecting events from all Regions, or only
    *          from the Region in which the event data store was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that termination protection is enabled and the event data store cannot be
    *          automatically deleted.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The timestamp of an event data store's creation.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp that shows when an event data store was updated, if applicable.
@@ -6716,7 +6716,7 @@ export interface RestoreEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -6726,13 +6726,13 @@ export interface RestoreEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -6763,7 +6763,7 @@ export class InvalidImportSourceException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6787,13 +6787,13 @@ export interface StartImportRequest {
    *       </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The source S3 bucket for the import. Use this parameter for a new import. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> Use with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -6803,7 +6803,7 @@ export interface StartImportRequest {
    *             <code>EndEventTime</code> before attempting to import events. </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Use with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -6813,13 +6813,13 @@ export interface StartImportRequest {
    *             <code>EndEventTime</code> before attempting to import events. </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> The ID of the import. Use this parameter when you are retrying an import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 }
 
 /**
@@ -6830,19 +6830,19 @@ export interface StartImportResponse {
    * <p> The ID of the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The source S3 bucket for the import. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -6850,7 +6850,7 @@ export interface StartImportResponse {
    *       </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -6858,7 +6858,7 @@ export interface StartImportResponse {
    *       </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> Shows the status of the import after a <code>StartImport</code> request. An import
@@ -6866,19 +6866,19 @@ export interface StartImportResponse {
    *             <code>FAILED</code> if there were failures. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The timestamp for the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of the import's last update, if applicable. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -6918,7 +6918,7 @@ export class InvalidQueryStatementException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6945,7 +6945,7 @@ export class MaxConcurrentQueriesException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6968,13 +6968,13 @@ export interface StartQueryRequest {
    * <p>The SQL code of your query.</p>
    * @public
    */
-  QueryStatement?: string;
+  QueryStatement?: string | undefined;
 
   /**
    * <p> The URI for the S3 bucket where CloudTrail delivers the query results. </p>
    * @public
    */
-  DeliveryS3Uri?: string;
+  DeliveryS3Uri?: string | undefined;
 
   /**
    * <p>
@@ -6982,7 +6982,7 @@ export interface StartQueryRequest {
    *       </p>
    * @public
    */
-  QueryAlias?: string;
+  QueryAlias?: string | undefined;
 
   /**
    * <p>
@@ -6990,7 +6990,7 @@ export interface StartQueryRequest {
    *       </p>
    * @public
    */
-  QueryParameters?: string[];
+  QueryParameters?: string[] | undefined;
 }
 
 /**
@@ -7001,7 +7001,7 @@ export interface StartQueryResponse {
    * <p>The ID of the started query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 }
 
 /**
@@ -7039,37 +7039,37 @@ export interface StopImportResponse {
    * <p> The ID for the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The source S3 bucket for the import. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The timestamp of the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of the import's last update. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p> Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7077,7 +7077,7 @@ export interface StopImportResponse {
    *       </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7085,13 +7085,13 @@ export interface StopImportResponse {
    *       </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> Returns information on the stopped import. </p>
    * @public
    */
-  ImportStatistics?: ImportStatistics;
+  ImportStatistics?: ImportStatistics | undefined;
 }
 
 /**
@@ -7133,7 +7133,7 @@ export interface UpdateChannelRequest {
    * <p>The ARNs of event data stores that you want to log events arriving through the channel.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
 
   /**
    * <p>
@@ -7141,7 +7141,7 @@ export interface UpdateChannelRequest {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -7152,25 +7152,25 @@ export interface UpdateChannelResponse {
    * <p>The ARN of the channel that was updated.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p>The name of the channel that was updated.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The event source of the channel that was updated.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The event data stores that log events arriving through the channel.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
 }
 
 /**
@@ -7188,21 +7188,21 @@ export interface UpdateEventDataStoreRequest {
    * <p>The event data store name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The advanced event selectors used to select events for the event data store. You can
    *          configure up to five advanced event selectors for each event data store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Specifies whether an event data store collects events from all Regions, or only from the
    *          Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies whether an event data store collects events logged for an organization in
@@ -7213,7 +7213,7 @@ export interface UpdateEventDataStoreRequest {
    *          </note>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
@@ -7228,14 +7228,14 @@ export interface UpdateEventDataStoreRequest {
    *          </note>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that termination protection is enabled and the event data store cannot be
    *          automatically deleted.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the events delivered by
@@ -7278,7 +7278,7 @@ export interface UpdateEventDataStoreRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <note>
@@ -7305,7 +7305,7 @@ export interface UpdateEventDataStoreRequest {
    *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -7316,57 +7316,57 @@ export interface UpdateEventDataStoreResponse {
    * <p>The ARN of the event data store.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of an event data store.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors that are applied to the event data store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store includes events from all Regions, or only from
    *          the Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates whether termination protection is enabled for the event data store.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The timestamp that shows when an event data store was first created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp that shows when the event data store was last updated.
@@ -7374,7 +7374,7 @@ export interface UpdateEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -7384,13 +7384,13 @@ export interface UpdateEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
    * <p>
@@ -7399,7 +7399,7 @@ export interface UpdateEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 
   /**
    * <p>
@@ -7407,7 +7407,7 @@ export interface UpdateEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationRoleArn?: string;
+  FederationRoleArn?: string | undefined;
 }
 
 /**
@@ -7451,7 +7451,7 @@ export interface UpdateTrailRequest {
    *             Bucket naming rules</a>.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
@@ -7459,20 +7459,20 @@ export interface UpdateTrailRequest {
    *          characters.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
    * <p>Specifies the name of the Amazon SNS topic defined for notification of log file
    *          delivery. The maximum length is 256 characters.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail applies only to the current Region or to all Regions. The
@@ -7483,7 +7483,7 @@ export interface UpdateTrailRequest {
    *          a best practice, consider using trails that log events in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies whether log file validation is enabled. The default is false.</p>
@@ -7498,7 +7498,7 @@ export interface UpdateTrailRequest {
    *          </note>
    * @public
    */
-  EnableLogFileValidation?: boolean;
+  EnableLogFileValidation?: boolean | undefined;
 
   /**
    * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that
@@ -7507,14 +7507,14 @@ export interface UpdateTrailRequest {
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group. You must use a role that exists in your account.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to
@@ -7539,7 +7539,7 @@ export interface UpdateTrailRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is applied to all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false,
@@ -7555,7 +7555,7 @@ export interface UpdateTrailRequest {
    *          </note>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }
 
 /**
@@ -7568,21 +7568,21 @@ export interface UpdateTrailResponse {
    * <p>Specifies the name of the trail.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log
    *          files.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
    *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your IAM Log Files</a>.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
    * @deprecated
@@ -7590,7 +7590,7 @@ export interface UpdateTrailResponse {
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
@@ -7601,19 +7601,19 @@ export interface UpdateTrailResponse {
    *          </p>
    * @public
    */
-  SnsTopicARN?: string;
+  SnsTopicARN?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail exists in one Region or in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies the ARN of the trail that was updated. The following is the format of a trail
@@ -7623,27 +7623,27 @@ export interface UpdateTrailResponse {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies whether log file integrity validation is enabled.</p>
    * @public
    */
-  LogFileValidationEnabled?: boolean;
+  LogFileValidationEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail
    *          logs are delivered.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -7653,11 +7653,11 @@ export interface UpdateTrailResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is an organization trail.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }

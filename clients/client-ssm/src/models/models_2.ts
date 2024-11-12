@@ -55,7 +55,7 @@ import { SSMServiceException as __BaseException } from "./SSMServiceException";
 export class AutomationDefinitionNotApprovedException extends __BaseException {
   readonly name: "AutomationDefinitionNotApprovedException" = "AutomationDefinitionNotApprovedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -82,7 +82,7 @@ export interface StartChangeRequestExecutionRequest {
    *          </note>
    * @public
    */
-  ScheduledTime?: Date;
+  ScheduledTime?: Date | undefined;
 
   /**
    * <p>The name of the change template document to run during the runbook workflow.</p>
@@ -94,27 +94,27 @@ export interface StartChangeRequestExecutionRequest {
    * <p>The version of the change template document to run during the runbook workflow.</p>
    * @public
    */
-  DocumentVersion?: string;
+  DocumentVersion?: string | undefined;
 
   /**
    * <p>A key-value map of parameters that match the declared parameters in the change template
    *    document.</p>
    * @public
    */
-  Parameters?: Record<string, string[]>;
+  Parameters?: Record<string, string[]> | undefined;
 
   /**
    * <p>The name of the change request associated with the runbook workflow to be run.</p>
    * @public
    */
-  ChangeRequestName?: string;
+  ChangeRequestName?: string | undefined;
 
   /**
    * <p>The user-provided idempotency token. The token must be unique, is case insensitive, enforces
    *    the UUID format, and can't be reused.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Indicates whether the change request can be approved automatically without the need for
@@ -130,7 +130,7 @@ export interface StartChangeRequestExecutionRequest {
    *          </note>
    * @public
    */
-  AutoApprove?: boolean;
+  AutoApprove?: boolean | undefined;
 
   /**
    * <p>Information about the Automation runbooks that are run during the runbook workflow.</p>
@@ -162,14 +162,14 @@ export interface StartChangeRequestExecutionRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time that the requester expects the runbook workflow related to the change request to
    *    complete. The time is an estimate only that the requester provides for reviewers.</p>
    * @public
    */
-  ScheduledEndTime?: Date;
+  ScheduledEndTime?: Date | undefined;
 
   /**
    * <p>User-provided details about the change. If no details are provided, content specified in the
@@ -177,7 +177,7 @@ export interface StartChangeRequestExecutionRequest {
    *    is added.</p>
    * @public
    */
-  ChangeDetails?: string;
+  ChangeDetails?: string | undefined;
 }
 
 /**
@@ -189,7 +189,7 @@ export interface StartChangeRequestExecutionResult {
    *    operation.) </p>
    * @public
    */
-  AutomationExecutionId?: string;
+  AutomationExecutionId?: string | undefined;
 }
 
 /**
@@ -211,21 +211,21 @@ export interface StartSessionRequest {
    *     session</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
-  DocumentName?: string;
+  DocumentName?: string | undefined;
 
   /**
    * <p>The reason for connecting to the instance. This value is included in the details for the
    *     Amazon CloudWatch Events event created when you start the session.</p>
    * @public
    */
-  Reason?: string;
+  Reason?: string | undefined;
 
   /**
    * <p>The values you want to specify for the parameters defined in the Session
    *    document.</p>
    * @public
    */
-  Parameters?: Record<string, string[]>;
+  Parameters?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -236,7 +236,7 @@ export interface StartSessionResponse {
    * <p>The ID of the session.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 
   /**
    * <p>An encrypted token value containing session and caller information. This token is used to
@@ -244,7 +244,7 @@ export interface StartSessionResponse {
    *    connection is successful. Never share your session's token.</p>
    * @public
    */
-  TokenValue?: string;
+  TokenValue?: string | undefined;
 
   /**
    * <p>A URL back to SSM Agent on the managed node that the Session Manager client uses to send commands and
@@ -260,7 +260,7 @@ export interface StartSessionResponse {
    *     <code>1a2b3c4dEXAMPLE</code>.</p>
    * @public
    */
-  StreamUrl?: string;
+  StreamUrl?: string | undefined;
 }
 
 /**
@@ -274,7 +274,7 @@ export interface StartSessionResponse {
 export class TargetNotConnected extends __BaseException {
   readonly name: "TargetNotConnected" = "TargetNotConnected";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -296,7 +296,7 @@ export class TargetNotConnected extends __BaseException {
 export class InvalidAutomationStatusUpdateException extends __BaseException {
   readonly name: "InvalidAutomationStatusUpdateException" = "InvalidAutomationStatusUpdateException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -340,7 +340,7 @@ export interface StopAutomationExecutionRequest {
    *    type is Cancel.</p>
    * @public
    */
-  Type?: StopType;
+  Type?: StopType | undefined;
 }
 
 /**
@@ -367,7 +367,7 @@ export interface TerminateSessionResponse {
    * <p>The ID of the session that has been terminated.</p>
    * @public
    */
-  SessionId?: string;
+  SessionId?: string | undefined;
 }
 
 /**
@@ -406,13 +406,13 @@ export interface UnlabelParameterVersionResult {
    * <p>A list of all labels deleted from the parameter.</p>
    * @public
    */
-  RemovedLabels?: string[];
+  RemovedLabels?: string[] | undefined;
 
   /**
    * <p>The labels that aren't attached to the given parameter version.</p>
    * @public
    */
-  InvalidLabels?: string[];
+  InvalidLabels?: string[] | undefined;
 }
 
 /**
@@ -423,7 +423,7 @@ export interface UnlabelParameterVersionResult {
 export class AssociationVersionLimitExceeded extends __BaseException {
   readonly name: "AssociationVersionLimitExceeded" = "AssociationVersionLimitExceeded";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -445,7 +445,7 @@ export class AssociationVersionLimitExceeded extends __BaseException {
 export class InvalidUpdate extends __BaseException {
   readonly name: "InvalidUpdate" = "InvalidUpdate";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -476,7 +476,7 @@ export interface UpdateAssociationRequest {
    *     <code>\{\{ssm:parameter-name\}\}</code>.</p>
    * @public
    */
-  Parameters?: Record<string, string[]>;
+  Parameters?: Record<string, string[]> | undefined;
 
   /**
    * <p>The document version you want update for the association. </p>
@@ -489,19 +489,19 @@ export interface UpdateAssociationRequest {
    *          </important>
    * @public
    */
-  DocumentVersion?: string;
+  DocumentVersion?: string | undefined;
 
   /**
    * <p>The cron expression used to schedule the association that you want to update.</p>
    * @public
    */
-  ScheduleExpression?: string;
+  ScheduleExpression?: string | undefined;
 
   /**
    * <p>An S3 bucket where you want to store the results of this request.</p>
    * @public
    */
-  OutputLocation?: InstanceAssociationOutputLocation;
+  OutputLocation?: InstanceAssociationOutputLocation | undefined;
 
   /**
    * <p>The name of the SSM Command document or Automation runbook that contains the configuration
@@ -523,19 +523,19 @@ export interface UpdateAssociationRequest {
    *     <code>My-Document</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The targets of the association.</p>
    * @public
    */
-  Targets?: Target[];
+  Targets?: Target[] | undefined;
 
   /**
    * <p>The name of the association that you want to update.</p>
    * @public
    */
-  AssociationName?: string;
+  AssociationName?: string | undefined;
 
   /**
    * <p>This parameter is provided for concurrency control purposes. You must specify the latest
@@ -543,7 +543,7 @@ export interface UpdateAssociationRequest {
    *    specify <code>$LATEST</code>, or omit this parameter.</p>
    * @public
    */
-  AssociationVersion?: string;
+  AssociationVersion?: string | undefined;
 
   /**
    * <p>Choose the parameter that will define how your automation will branch out. This target is
@@ -551,7 +551,7 @@ export interface UpdateAssociationRequest {
    *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
    * @public
    */
-  AutomationTargetParameterName?: string;
+  AutomationTargetParameterName?: string | undefined;
 
   /**
    * <p>The number of errors that are allowed before the system stops sending requests to run the
@@ -567,7 +567,7 @@ export interface UpdateAssociationRequest {
    *    so that executions proceed one at a time.</p>
    * @public
    */
-  MaxErrors?: string;
+  MaxErrors?: string | undefined;
 
   /**
    * <p>The maximum number of targets allowed to run the association at the same time. You can
@@ -579,13 +579,13 @@ export interface UpdateAssociationRequest {
    *    specified for <code>MaxConcurrency</code>.</p>
    * @public
    */
-  MaxConcurrency?: string;
+  MaxConcurrency?: string | undefined;
 
   /**
    * <p>The severity level to assign to the association.</p>
    * @public
    */
-  ComplianceSeverity?: AssociationComplianceSeverity;
+  ComplianceSeverity?: AssociationComplianceSeverity | undefined;
 
   /**
    * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
@@ -600,7 +600,7 @@ export interface UpdateAssociationRequest {
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    * @public
    */
-  SyncCompliance?: AssociationSyncCompliance;
+  SyncCompliance?: AssociationSyncCompliance | undefined;
 
   /**
    * <p>By default, when you update an association, the system runs it immediately after it is
@@ -620,7 +620,7 @@ export interface UpdateAssociationRequest {
    *    association to run immediately after updating it and according to the interval specified.</p>
    * @public
    */
-  ApplyOnlyAtCronInterval?: boolean;
+  ApplyOnlyAtCronInterval?: boolean | undefined;
 
   /**
    * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to
@@ -629,7 +629,7 @@ export interface UpdateAssociationRequest {
    *     Calendar</a>.</p>
    * @public
    */
-  CalendarNames?: string[];
+  CalendarNames?: string[] | undefined;
 
   /**
    * <p>A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
@@ -637,7 +637,7 @@ export interface UpdateAssociationRequest {
    *    accounts.</p>
    * @public
    */
-  TargetLocations?: TargetLocation[];
+  TargetLocations?: TargetLocation[] | undefined;
 
   /**
    * <p>Number of days to wait after the scheduled day to run an association. For example, if you
@@ -651,7 +651,7 @@ export interface UpdateAssociationRequest {
    *          </note>
    * @public
    */
-  ScheduleOffset?: number;
+  ScheduleOffset?: number | undefined;
 
   /**
    * <p>The number of hours the association can run before it is canceled. Duration applies to
@@ -673,21 +673,21 @@ export interface UpdateAssociationRequest {
    *          </ul>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
    *    can't be specified together.</p>
    * @public
    */
-  TargetMaps?: Record<string, string[]>[];
+  TargetMaps?: Record<string, string[]>[] | undefined;
 
   /**
    * <p>The details for the CloudWatch alarm you want to apply to an automation or
    *    command.</p>
    * @public
    */
-  AlarmConfiguration?: AlarmConfiguration;
+  AlarmConfiguration?: AlarmConfiguration | undefined;
 }
 
 /**
@@ -698,7 +698,7 @@ export interface UpdateAssociationResult {
    * <p>The description of the association that was updated.</p>
    * @public
    */
-  AssociationDescription?: AssociationDescription;
+  AssociationDescription?: AssociationDescription | undefined;
 }
 
 /**
@@ -752,7 +752,7 @@ export interface UpdateAssociationStatusResult {
    * <p>Information about the association.</p>
    * @public
    */
-  AssociationDescription?: AssociationDescription;
+  AssociationDescription?: AssociationDescription | undefined;
 }
 
 /**
@@ -763,7 +763,7 @@ export interface UpdateAssociationStatusResult {
 export class DocumentVersionLimitExceeded extends __BaseException {
   readonly name: "DocumentVersionLimitExceeded" = "DocumentVersionLimitExceeded";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -786,7 +786,7 @@ export class DocumentVersionLimitExceeded extends __BaseException {
 export class DuplicateDocumentContent extends __BaseException {
   readonly name: "DuplicateDocumentContent" = "DuplicateDocumentContent";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -809,7 +809,7 @@ export class DuplicateDocumentContent extends __BaseException {
 export class DuplicateDocumentVersionName extends __BaseException {
   readonly name: "DuplicateDocumentVersionName" = "DuplicateDocumentVersionName";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -838,7 +838,7 @@ export interface UpdateDocumentRequest {
    * <p>A list of key-value pairs that describe attachments to a version of a document.</p>
    * @public
    */
-  Attachments?: AttachmentsSource[];
+  Attachments?: AttachmentsSource[] | undefined;
 
   /**
    * <p>The name of the SSM document that you want to update.</p>
@@ -852,7 +852,7 @@ export interface UpdateDocumentRequest {
    *    the existing value is applied to the new document version.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>An optional field specifying the version of the artifact you are updating with the document.
@@ -860,7 +860,7 @@ export interface UpdateDocumentRequest {
    *    changed.</p>
    * @public
    */
-  VersionName?: string;
+  VersionName?: string | undefined;
 
   /**
    * <p>The version of the document that you want to update. Currently, Systems Manager supports updating only
@@ -873,20 +873,20 @@ export interface UpdateDocumentRequest {
    *          </note>
    * @public
    */
-  DocumentVersion?: string;
+  DocumentVersion?: string | undefined;
 
   /**
    * <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML
    *    documents. JSON is the default format.</p>
    * @public
    */
-  DocumentFormat?: DocumentFormat;
+  DocumentFormat?: DocumentFormat | undefined;
 
   /**
    * <p>Specify a new target type for the document.</p>
    * @public
    */
-  TargetType?: string;
+  TargetType?: string | undefined;
 }
 
 /**
@@ -897,7 +897,7 @@ export interface UpdateDocumentResult {
    * <p>A description of the document that was updated.</p>
    * @public
    */
-  DocumentDescription?: DocumentDescription;
+  DocumentDescription?: DocumentDescription | undefined;
 }
 
 /**
@@ -926,19 +926,19 @@ export interface DocumentDefaultVersionDescription {
    * <p>The name of the document.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The default version of the document.</p>
    * @public
    */
-  DefaultVersion?: string;
+  DefaultVersion?: string | undefined;
 
   /**
    * <p>The default version of the artifact associated with the document.</p>
    * @public
    */
-  DefaultVersionName?: string;
+  DefaultVersionName?: string | undefined;
 }
 
 /**
@@ -949,7 +949,7 @@ export interface UpdateDocumentDefaultVersionResult {
    * <p>The description of a custom document that you want to set as the default version.</p>
    * @public
    */
-  Description?: DocumentDefaultVersionDescription;
+  Description?: DocumentDefaultVersionDescription | undefined;
 }
 
 /**
@@ -983,7 +983,7 @@ export interface DocumentReviews {
    * <p>A comment entered by a user in your organization about the document review request.</p>
    * @public
    */
-  Comment?: DocumentReviewCommentSource[];
+  Comment?: DocumentReviewCommentSource[] | undefined;
 }
 
 /**
@@ -1000,7 +1000,7 @@ export interface UpdateDocumentMetadataRequest {
    * <p>The version of a change template in which to update approval metadata.</p>
    * @public
    */
-  DocumentVersion?: string;
+  DocumentVersion?: string | undefined;
 
   /**
    * <p>The change template review details to update.</p>
@@ -1028,13 +1028,13 @@ export interface UpdateMaintenanceWindowRequest {
    * <p>The name of the maintenance window.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>An optional description for the update request.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
@@ -1046,7 +1046,7 @@ export interface UpdateMaintenanceWindowRequest {
    *          </note>
    * @public
    */
-  StartDate?: string;
+  StartDate?: string | undefined;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, for when you want the maintenance window to
@@ -1054,13 +1054,13 @@ export interface UpdateMaintenanceWindowRequest {
    *    maintenance window will no longer run.</p>
    * @public
    */
-  EndDate?: string;
+  EndDate?: string | undefined;
 
   /**
    * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 
   /**
    * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
@@ -1069,7 +1069,7 @@ export interface UpdateMaintenanceWindowRequest {
    *     Zone Database</a> on the IANA website.</p>
    * @public
    */
-  ScheduleTimezone?: string;
+  ScheduleTimezone?: string | undefined;
 
   /**
    * <p>The number of days to wait after the date and time specified by a cron expression before
@@ -1083,40 +1083,40 @@ export interface UpdateMaintenanceWindowRequest {
    *    later.</p>
    * @public
    */
-  ScheduleOffset?: number;
+  ScheduleOffset?: number | undefined;
 
   /**
    * <p>The duration of the maintenance window in hours.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
    *    new tasks for execution.</p>
    * @public
    */
-  Cutoff?: number;
+  Cutoff?: number | undefined;
 
   /**
    * <p>Whether targets must be registered with the maintenance window before tasks can be defined
    *    for those targets.</p>
    * @public
    */
-  AllowUnassociatedTargets?: boolean;
+  AllowUnassociatedTargets?: boolean | undefined;
 
   /**
    * <p>Whether the maintenance window is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>If <code>True</code>, then all fields that are required by the <a>CreateMaintenanceWindow</a> operation are also required for this API request. Optional
    *    fields that aren't specified are set to null. </p>
    * @public
    */
-  Replace?: boolean;
+  Replace?: boolean | undefined;
 }
 
 /**
@@ -1127,39 +1127,39 @@ export interface UpdateMaintenanceWindowResult {
    * <p>The ID of the created maintenance window.</p>
    * @public
    */
-  WindowId?: string;
+  WindowId?: string | undefined;
 
   /**
    * <p>The name of the maintenance window.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>An optional description of the update.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
    *    to become active. The maintenance window won't run before this specified time.</p>
    * @public
    */
-  StartDate?: string;
+  StartDate?: string | undefined;
 
   /**
    * <p>The date and time, in ISO-8601 Extended format, for when the maintenance window is scheduled
    *    to become inactive. The maintenance window won't run after this specified time.</p>
    * @public
    */
-  EndDate?: string;
+  EndDate?: string | undefined;
 
   /**
    * <p>The schedule of the maintenance window in the form of a cron or rate expression.</p>
    * @public
    */
-  Schedule?: string;
+  Schedule?: string | undefined;
 
   /**
    * <p>The time zone that the scheduled maintenance window executions are based on, in Internet
@@ -1168,40 +1168,40 @@ export interface UpdateMaintenanceWindowResult {
    *     Zone Database</a> on the IANA website.</p>
    * @public
    */
-  ScheduleTimezone?: string;
+  ScheduleTimezone?: string | undefined;
 
   /**
    * <p>The number of days to wait to run a maintenance window after the scheduled cron expression
    *    date and time.</p>
    * @public
    */
-  ScheduleOffset?: number;
+  ScheduleOffset?: number | undefined;
 
   /**
    * <p>The duration of the maintenance window in hours.</p>
    * @public
    */
-  Duration?: number;
+  Duration?: number | undefined;
 
   /**
    * <p>The number of hours before the end of the maintenance window that Amazon Web Services Systems Manager stops scheduling
    *    new tasks for execution.</p>
    * @public
    */
-  Cutoff?: number;
+  Cutoff?: number | undefined;
 
   /**
    * <p>Whether targets must be registered with the maintenance window before tasks can be defined
    *    for those targets.</p>
    * @public
    */
-  AllowUnassociatedTargets?: boolean;
+  AllowUnassociatedTargets?: boolean | undefined;
 
   /**
    * <p>Whether the maintenance window is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 }
 
 /**
@@ -1224,33 +1224,33 @@ export interface UpdateMaintenanceWindowTargetRequest {
    * <p>The targets to add or replace.</p>
    * @public
    */
-  Targets?: Target[];
+  Targets?: Target[] | undefined;
 
   /**
    * <p>User-provided value that will be included in any Amazon CloudWatch Events events raised while
    *    running tasks for these targets in this maintenance window.</p>
    * @public
    */
-  OwnerInformation?: string;
+  OwnerInformation?: string | undefined;
 
   /**
    * <p>A name for the update.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>An optional description for the update.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>If <code>True</code>, then all fields that are required by the <a>RegisterTargetWithMaintenanceWindow</a> operation are also required for this API
    *    request. Optional fields that aren't specified are set to null.</p>
    * @public
    */
-  Replace?: boolean;
+  Replace?: boolean | undefined;
 }
 
 /**
@@ -1261,37 +1261,37 @@ export interface UpdateMaintenanceWindowTargetResult {
    * <p>The maintenance window ID specified in the update request.</p>
    * @public
    */
-  WindowId?: string;
+  WindowId?: string | undefined;
 
   /**
    * <p>The target ID specified in the update request.</p>
    * @public
    */
-  WindowTargetId?: string;
+  WindowTargetId?: string | undefined;
 
   /**
    * <p>The updated targets.</p>
    * @public
    */
-  Targets?: Target[];
+  Targets?: Target[] | undefined;
 
   /**
    * <p>The updated owner.</p>
    * @public
    */
-  OwnerInformation?: string;
+  OwnerInformation?: string | undefined;
 
   /**
    * <p>The updated name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -1324,13 +1324,13 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          </note>
    * @public
    */
-  Targets?: Target[];
+  Targets?: Target[] | undefined;
 
   /**
    * <p>The task ARN to modify.</p>
    * @public
    */
-  TaskArn?: string;
+  TaskArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role for
@@ -1345,7 +1345,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
-  ServiceRoleArn?: string;
+  ServiceRoleArn?: string | undefined;
 
   /**
    * <p>The parameters to modify.</p>
@@ -1361,7 +1361,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          <p>Value: an array of strings, each string is between 1 and 255 characters</p>
    * @public
    */
-  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression> | undefined;
 
   /**
    * <p>The parameters that the task should use during execution. Populate only the fields that
@@ -1378,14 +1378,14 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          </important>
    * @public
    */
-  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
+  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters | undefined;
 
   /**
    * <p>The new task priority to specify. The lower the number, the higher the priority. Tasks that
    *    have the same priority are scheduled in parallel.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
@@ -1400,7 +1400,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          </note>
    * @public
    */
-  MaxConcurrency?: string;
+  MaxConcurrency?: string | undefined;
 
   /**
    * <p>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
@@ -1415,7 +1415,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          </note>
    * @public
    */
-  MaxErrors?: string;
+  MaxErrors?: string | undefined;
 
   /**
    * <p>The new logging location in Amazon S3 to specify.</p>
@@ -1428,26 +1428,26 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          </note>
    * @public
    */
-  LoggingInfo?: LoggingInfo;
+  LoggingInfo?: LoggingInfo | undefined;
 
   /**
    * <p>The new task name to specify.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The new task description to specify.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>If True, then all fields that are required by the <a>RegisterTaskWithMaintenanceWindow</a> operation are also required for this API request.
    *    Optional fields that aren't specified are set to null.</p>
    * @public
    */
-  Replace?: boolean;
+  Replace?: boolean | undefined;
 
   /**
    * <p>Indicates whether tasks should continue to run after the cutoff time specified in the
@@ -1478,13 +1478,13 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *          </ul>
    * @public
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | undefined;
 
   /**
    * <p>The CloudWatch alarm you want to apply to your maintenance window task.</p>
    * @public
    */
-  AlarmConfiguration?: AlarmConfiguration;
+  AlarmConfiguration?: AlarmConfiguration | undefined;
 }
 
 /**
@@ -1495,25 +1495,25 @@ export interface UpdateMaintenanceWindowTaskResult {
    * <p>The ID of the maintenance window that was updated.</p>
    * @public
    */
-  WindowId?: string;
+  WindowId?: string | undefined;
 
   /**
    * <p>The task ID of the maintenance window that was updated.</p>
    * @public
    */
-  WindowTaskId?: string;
+  WindowTaskId?: string | undefined;
 
   /**
    * <p>The updated target values.</p>
    * @public
    */
-  Targets?: Target[];
+  Targets?: Target[] | undefined;
 
   /**
    * <p>The updated task ARN value.</p>
    * @public
    */
-  TaskArn?: string;
+  TaskArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM service role for
@@ -1528,7 +1528,7 @@ export interface UpdateMaintenanceWindowTaskResult {
    *                     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
-  ServiceRoleArn?: string;
+  ServiceRoleArn?: string | undefined;
 
   /**
    * <p>The updated parameter values.</p>
@@ -1541,31 +1541,31 @@ export interface UpdateMaintenanceWindowTaskResult {
    *          </note>
    * @public
    */
-  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression>;
+  TaskParameters?: Record<string, MaintenanceWindowTaskParameterValueExpression> | undefined;
 
   /**
    * <p>The updated parameter values.</p>
    * @public
    */
-  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters;
+  TaskInvocationParameters?: MaintenanceWindowTaskInvocationParameters | undefined;
 
   /**
    * <p>The updated priority value.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>The updated <code>MaxConcurrency</code> value.</p>
    * @public
    */
-  MaxConcurrency?: string;
+  MaxConcurrency?: string | undefined;
 
   /**
    * <p>The updated <code>MaxErrors</code> value.</p>
    * @public
    */
-  MaxErrors?: string;
+  MaxErrors?: string | undefined;
 
   /**
    * <p>The updated logging information in Amazon S3.</p>
@@ -1578,33 +1578,33 @@ export interface UpdateMaintenanceWindowTaskResult {
    *          </note>
    * @public
    */
-  LoggingInfo?: LoggingInfo;
+  LoggingInfo?: LoggingInfo | undefined;
 
   /**
    * <p>The updated task name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The updated task description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The specification for whether tasks should continue to run after the cutoff time specified
    *    in the maintenance windows is reached. </p>
    * @public
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | undefined;
 
   /**
    * <p>The details for the CloudWatch alarm you applied to your maintenance window
    *    task.</p>
    * @public
    */
-  AlarmConfiguration?: AlarmConfiguration;
+  AlarmConfiguration?: AlarmConfiguration | undefined;
 }
 
 /**
@@ -1644,7 +1644,7 @@ export interface UpdateOpsItemRequest {
    * <p>User-defined text that contains information about the OpsItem, in Markdown format. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Add new keys or edit existing key-value pairs of the OperationalData map in the OpsItem
@@ -1670,26 +1670,26 @@ export interface UpdateOpsItemRequest {
    *     manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
-  OperationalData?: Record<string, OpsItemDataValue>;
+  OperationalData?: Record<string, OpsItemDataValue> | undefined;
 
   /**
    * <p>Keys that you want to remove from the OperationalData map.</p>
    * @public
    */
-  OperationalDataToDelete?: string[];
+  OperationalDataToDelete?: string[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an SNS topic where notifications are sent when this
    *    OpsItem is edited or changed.</p>
    * @public
    */
-  Notifications?: OpsItemNotification[];
+  Notifications?: OpsItemNotification[] | undefined;
 
   /**
    * <p>The importance of this OpsItem in relation to other OpsItems in the system.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * <p>One or more OpsItems that share something in common with the current OpsItems. For example,
@@ -1697,13 +1697,13 @@ export interface UpdateOpsItemRequest {
    *    statuses for the impacted resource.</p>
    * @public
    */
-  RelatedOpsItems?: RelatedOpsItem[];
+  RelatedOpsItems?: RelatedOpsItem[] | undefined;
 
   /**
    * <p>The OpsItem status. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
-  Status?: OpsItemStatus;
+  Status?: OpsItemStatus | undefined;
 
   /**
    * <p>The ID of the OpsItem.</p>
@@ -1715,53 +1715,53 @@ export interface UpdateOpsItemRequest {
    * <p>A short heading that describes the nature of the OpsItem and the impacted resource.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>Specify a new category for an OpsItem.</p>
    * @public
    */
-  Category?: string;
+  Category?: string | undefined;
 
   /**
    * <p>Specify a new severity for an OpsItem.</p>
    * @public
    */
-  Severity?: string;
+  Severity?: string | undefined;
 
   /**
    * <p>The time a runbook workflow started. Currently reported only for the OpsItem type
    *     <code>/aws/changerequest</code>.</p>
    * @public
    */
-  ActualStartTime?: Date;
+  ActualStartTime?: Date | undefined;
 
   /**
    * <p>The time a runbook workflow ended. Currently reported only for the OpsItem type
    *     <code>/aws/changerequest</code>.</p>
    * @public
    */
-  ActualEndTime?: Date;
+  ActualEndTime?: Date | undefined;
 
   /**
    * <p>The time specified in a change request for a runbook workflow to start. Currently supported
    *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
    * @public
    */
-  PlannedStartTime?: Date;
+  PlannedStartTime?: Date | undefined;
 
   /**
    * <p>The time specified in a change request for a runbook workflow to end. Currently supported
    *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
    * @public
    */
-  PlannedEndTime?: Date;
+  PlannedEndTime?: Date | undefined;
 
   /**
    * <p>The OpsItem Amazon Resource Name (ARN).</p>
    * @public
    */
-  OpsItemArn?: string;
+  OpsItemArn?: string | undefined;
 }
 
 /**
@@ -1804,13 +1804,13 @@ export interface UpdateOpsMetadataRequest {
    * <p>Metadata to add to an OpsMetadata object.</p>
    * @public
    */
-  MetadataToUpdate?: Record<string, MetadataValue>;
+  MetadataToUpdate?: Record<string, MetadataValue> | undefined;
 
   /**
    * <p>The metadata keys to delete from the OpsMetadata object. </p>
    * @public
    */
-  KeysToDelete?: string[];
+  KeysToDelete?: string[] | undefined;
 }
 
 /**
@@ -1821,7 +1821,7 @@ export interface UpdateOpsMetadataResult {
    * <p>The Amazon Resource Name (ARN) of the OpsMetadata Object that was updated.</p>
    * @public
    */
-  OpsMetadataArn?: string;
+  OpsMetadataArn?: string | undefined;
 }
 
 /**
@@ -1838,19 +1838,19 @@ export interface UpdatePatchBaselineRequest {
    * <p>The name of the patch baseline.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A set of global filters used to include patches in the baseline.</p>
    * @public
    */
-  GlobalFilters?: PatchFilterGroup;
+  GlobalFilters?: PatchFilterGroup | undefined;
 
   /**
    * <p>A set of rules used to include patches in the baseline.</p>
    * @public
    */
-  ApprovalRules?: PatchRuleGroup;
+  ApprovalRules?: PatchRuleGroup | undefined;
 
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
@@ -1859,13 +1859,13 @@ export interface UpdatePatchBaselineRequest {
    *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
-  ApprovedPatches?: string[];
+  ApprovedPatches?: string[] | undefined;
 
   /**
    * <p>Assigns a new compliance severity level to an existing patch baseline.</p>
    * @public
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | undefined;
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
@@ -1873,7 +1873,7 @@ export interface UpdatePatchBaselineRequest {
    *    nodes only.</p>
    * @public
    */
-  ApprovedPatchesEnableNonSecurity?: boolean;
+  ApprovedPatchesEnableNonSecurity?: boolean | undefined;
 
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
@@ -1882,7 +1882,7 @@ export interface UpdatePatchBaselineRequest {
    *                         name formats for approved and rejected patch lists</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    * @public
    */
-  RejectedPatches?: string[];
+  RejectedPatches?: string[] | undefined;
 
   /**
    * <p>The action for Patch Manager to take on patches included in the
@@ -1914,20 +1914,20 @@ export interface UpdatePatchBaselineRequest {
    *          </dl>
    * @public
    */
-  RejectedPatchesAction?: PatchAction;
+  RejectedPatchesAction?: PatchAction | undefined;
 
   /**
    * <p>A description of the patch baseline.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Information about the patches to use to update the managed nodes, including target operating
    *    systems and source repositories. Applies to Linux managed nodes only.</p>
    * @public
    */
-  Sources?: PatchSource[];
+  Sources?: PatchSource[] | undefined;
 
   /**
    * <p>If True, then all fields that are required by the <a>CreatePatchBaseline</a>
@@ -1935,7 +1935,7 @@ export interface UpdatePatchBaselineRequest {
    *    to null.</p>
    * @public
    */
-  Replace?: boolean;
+  Replace?: boolean | undefined;
 }
 
 /**
@@ -1946,44 +1946,44 @@ export interface UpdatePatchBaselineResult {
    * <p>The ID of the deleted patch baseline.</p>
    * @public
    */
-  BaselineId?: string;
+  BaselineId?: string | undefined;
 
   /**
    * <p>The name of the patch baseline.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The operating system rule used by the updated patch baseline.</p>
    * @public
    */
-  OperatingSystem?: OperatingSystem;
+  OperatingSystem?: OperatingSystem | undefined;
 
   /**
    * <p>A set of global filters used to exclude patches from the baseline.</p>
    * @public
    */
-  GlobalFilters?: PatchFilterGroup;
+  GlobalFilters?: PatchFilterGroup | undefined;
 
   /**
    * <p>A set of rules used to include patches in the baseline.</p>
    * @public
    */
-  ApprovalRules?: PatchRuleGroup;
+  ApprovalRules?: PatchRuleGroup | undefined;
 
   /**
    * <p>A list of explicitly approved patches for the baseline.</p>
    * @public
    */
-  ApprovedPatches?: string[];
+  ApprovedPatches?: string[] | undefined;
 
   /**
    * <p>The compliance severity level assigned to the patch baseline after the update
    *    completed.</p>
    * @public
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | undefined;
 
   /**
    * <p>Indicates whether the list of approved patches includes non-security updates that should be
@@ -1991,13 +1991,13 @@ export interface UpdatePatchBaselineResult {
    *    nodes only.</p>
    * @public
    */
-  ApprovedPatchesEnableNonSecurity?: boolean;
+  ApprovedPatchesEnableNonSecurity?: boolean | undefined;
 
   /**
    * <p>A list of explicitly rejected patches for the baseline.</p>
    * @public
    */
-  RejectedPatches?: string[];
+  RejectedPatches?: string[] | undefined;
 
   /**
    * <p>The action specified to take on patches included in the <code>RejectedPatches</code> list. A
@@ -2005,32 +2005,32 @@ export interface UpdatePatchBaselineResult {
    *    with packages that include it as a dependency.</p>
    * @public
    */
-  RejectedPatchesAction?: PatchAction;
+  RejectedPatchesAction?: PatchAction | undefined;
 
   /**
    * <p>The date when the patch baseline was created.</p>
    * @public
    */
-  CreatedDate?: Date;
+  CreatedDate?: Date | undefined;
 
   /**
    * <p>The date when the patch baseline was last modified.</p>
    * @public
    */
-  ModifiedDate?: Date;
+  ModifiedDate?: Date | undefined;
 
   /**
    * <p>A description of the patch baseline.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Information about the patches to use to update the managed nodes, including target operating
    *    systems and source repositories. Applies to Linux managed nodes only.</p>
    * @public
    */
-  Sources?: PatchSource[];
+  Sources?: PatchSource[] | undefined;
 }
 
 /**
@@ -2041,7 +2041,7 @@ export interface UpdatePatchBaselineResult {
 export class ResourceDataSyncConflictException extends __BaseException {
   readonly name: "ResourceDataSyncConflictException" = "ResourceDataSyncConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2203,20 +2203,20 @@ export interface InventoryAggregator {
    * <p>The inventory type and attribute name for aggregation.</p>
    * @public
    */
-  Expression?: string;
+  Expression?: string | undefined;
 
   /**
    * <p>Nested aggregators to further refine aggregation for an inventory type.</p>
    * @public
    */
-  Aggregators?: InventoryAggregator[];
+  Aggregators?: InventoryAggregator[] | undefined;
 
   /**
    * <p>A user-defined set of one or more filters on which to aggregate inventory data. Groups
    *    return a count of resources that match and don't match the specified criteria.</p>
    * @public
    */
-  Groups?: InventoryGroup[];
+  Groups?: InventoryGroup[] | undefined;
 }
 
 /**
@@ -2231,37 +2231,37 @@ export interface OpsAggregator {
    *    summary.</p>
    * @public
    */
-  AggregatorType?: string;
+  AggregatorType?: string | undefined;
 
   /**
    * <p>The data type name to use for viewing counts of OpsData.</p>
    * @public
    */
-  TypeName?: string;
+  TypeName?: string | undefined;
 
   /**
    * <p>The name of an OpsData attribute on which to limit the count of OpsData.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The aggregator value.</p>
    * @public
    */
-  Values?: Record<string, string>;
+  Values?: Record<string, string> | undefined;
 
   /**
    * <p>The aggregator filters.</p>
    * @public
    */
-  Filters?: OpsFilter[];
+  Filters?: OpsFilter[] | undefined;
 
   /**
    * <p>A nested aggregator for viewing counts of OpsData.</p>
    * @public
    */
-  Aggregators?: OpsAggregator[];
+  Aggregators?: OpsAggregator[] | undefined;
 }
 
 /**
@@ -2272,7 +2272,7 @@ export interface GetInventoryRequest {
    * <p>One or more filters. Use a filter to return a more specific list of results.</p>
    * @public
    */
-  Filters?: InventoryFilter[];
+  Filters?: InventoryFilter[] | undefined;
 
   /**
    * <p>Returns counts of inventory types based on one or more expressions. For example, if you
@@ -2281,27 +2281,27 @@ export interface GetInventoryRequest {
    *    fleet.</p>
    * @public
    */
-  Aggregators?: InventoryAggregator[];
+  Aggregators?: InventoryAggregator[] | undefined;
 
   /**
    * <p>The list of inventory item types to return.</p>
    * @public
    */
-  ResultAttributes?: ResultAttribute[];
+  ResultAttributes?: ResultAttribute[] | undefined;
 
   /**
    * <p>The token for the next set of items to return. (You received this token from a previous
    *    call.)</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2312,38 +2312,38 @@ export interface GetOpsSummaryRequest {
    * <p>Specify the name of a resource data sync to get.</p>
    * @public
    */
-  SyncName?: string;
+  SyncName?: string | undefined;
 
   /**
    * <p>Optional filters used to scope down the returned OpsData. </p>
    * @public
    */
-  Filters?: OpsFilter[];
+  Filters?: OpsFilter[] | undefined;
 
   /**
    * <p>Optional aggregators that return counts of OpsData based on one or more expressions.</p>
    * @public
    */
-  Aggregators?: OpsAggregator[];
+  Aggregators?: OpsAggregator[] | undefined;
 
   /**
    * <p>The OpsData data type to return.</p>
    * @public
    */
-  ResultAttributes?: OpsResultAttribute[];
+  ResultAttributes?: OpsResultAttribute[] | undefined;
 
   /**
    * <p>A token to start the list. Use this token to get the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return for this call. The call also returns a token that you
    *    can specify in a subsequent call to get the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**

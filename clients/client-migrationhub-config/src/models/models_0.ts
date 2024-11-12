@@ -10,7 +10,7 @@ import { MigrationHubConfigServiceException as __BaseException } from "./Migrati
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -56,7 +56,7 @@ export interface Target {
    *       which the control was created. (This must be the current account.) </p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 }
 
 /**
@@ -81,7 +81,7 @@ export interface CreateHomeRegionControlRequest {
    *       the caller has permission to make the call.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 }
 
 /**
@@ -96,14 +96,14 @@ export interface HomeRegionControl {
    *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
    * @public
    */
-  ControlId?: string;
+  ControlId?: string | undefined;
 
   /**
    * <p>The AWS Region that's been set as home region. For example, "us-west-2" or "eu-central-1"
    *       are valid home regions.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 
   /**
    * <p>The target parameter specifies the identifier to which the home region is applied, which
@@ -111,14 +111,14 @@ export interface HomeRegionControl {
    *         <code>ACCOUNT</code>.</p>
    * @public
    */
-  Target?: Target;
+  Target?: Target | undefined;
 
   /**
    * <p>A timestamp representing the time when the customer called
    *         <code>CreateHomeregionControl</code> and set the home region for the account.</p>
    * @public
    */
-  RequestedTime?: Date;
+  RequestedTime?: Date | undefined;
 }
 
 /**
@@ -130,7 +130,7 @@ export interface CreateHomeRegionControlResult {
    *       call to <code>CreateHomeRegionControl</code>.</p>
    * @public
    */
-  HomeRegionControl?: HomeRegionControl;
+  HomeRegionControl?: HomeRegionControl | undefined;
 }
 
 /**
@@ -141,7 +141,7 @@ export interface CreateHomeRegionControlResult {
 export class DryRunOperation extends __BaseException {
   readonly name: "DryRunOperation" = "DryRunOperation";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -164,7 +164,7 @@ export class DryRunOperation extends __BaseException {
 export class InternalServerError extends __BaseException {
   readonly name: "InternalServerError" = "InternalServerError";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -187,7 +187,7 @@ export class InternalServerError extends __BaseException {
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -210,7 +210,7 @@ export class InvalidInputException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -237,7 +237,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds the caller should wait before retrying.</p>
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -279,13 +279,13 @@ export interface DescribeHomeRegionControlsRequest {
    *         <code>HomeRegionControl</code> object.</p>
    * @public
    */
-  ControlId?: string;
+  ControlId?: string | undefined;
 
   /**
    * <p>The name of the home region you'd like to view.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 
   /**
    * <p>The target parameter specifies the identifier to which the home region is applied, which
@@ -293,13 +293,13 @@ export interface DescribeHomeRegionControlsRequest {
    *         <code>ACCOUNT</code>.</p>
    * @public
    */
-  Target?: Target;
+  Target?: Target | undefined;
 
   /**
    * <p>The maximum number of filtering results to display per page. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
@@ -307,7 +307,7 @@ export interface DescribeHomeRegionControlsRequest {
    *         <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -318,7 +318,7 @@ export interface DescribeHomeRegionControlsResult {
    * <p>An array that contains your <code>HomeRegionControl</code> objects.</p>
    * @public
    */
-  HomeRegionControls?: HomeRegionControl[];
+  HomeRegionControls?: HomeRegionControl[] | undefined;
 
   /**
    * <p>If a <code>NextToken</code> was returned by a previous call, more results are available.
@@ -326,7 +326,7 @@ export interface DescribeHomeRegionControlsResult {
    *         <code>NextToken</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -342,5 +342,5 @@ export interface GetHomeRegionResult {
    * <p>The name of the home region of the calling account.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 }

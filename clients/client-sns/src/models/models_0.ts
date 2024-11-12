@@ -149,7 +149,7 @@ export interface CheckIfPhoneNumberIsOptedOutResponse {
    *          </ul>
    * @public
    */
-  isOptedOut?: boolean;
+  isOptedOut?: boolean | undefined;
 }
 
 /**
@@ -196,7 +196,7 @@ export interface ConfirmSubscriptionInput {
    *             action requires Amazon Web Services authentication. </p>
    * @public
    */
-  AuthenticateOnUnsubscribe?: string;
+  AuthenticateOnUnsubscribe?: string | undefined;
 }
 
 /**
@@ -208,7 +208,7 @@ export interface ConfirmSubscriptionResponse {
    * <p>The ARN of the created subscription.</p>
    * @public
    */
-  SubscriptionArn?: string;
+  SubscriptionArn?: string | undefined;
 }
 
 /**
@@ -313,7 +313,7 @@ export interface CreatePlatformApplicationResponse {
    *             <code>PlatformApplicationArn</code> is returned.</p>
    * @public
    */
-  PlatformApplicationArn?: string;
+  PlatformApplicationArn?: string | undefined;
 }
 
 /**
@@ -325,7 +325,7 @@ export interface CreateEndpointResponse {
    * <p>EndpointArn returned from CreateEndpoint action.</p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 }
 
 /**
@@ -356,7 +356,7 @@ export interface CreatePlatformEndpointInput {
    *             data must be in UTF-8 format and less than 2KB.</p>
    * @public
    */
-  CustomUserData?: string;
+  CustomUserData?: string | undefined;
 
   /**
    * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">
@@ -364,7 +364,7 @@ export interface CreatePlatformEndpointInput {
    *             </a>.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -408,7 +408,7 @@ export interface CreateSMSSandboxPhoneNumberInput {
    *             <code>en-US</code>.</p>
    * @public
    */
-  LanguageCode?: LanguageCodeString;
+  LanguageCode?: LanguageCodeString | undefined;
 }
 
 /**
@@ -603,7 +603,7 @@ export interface CreateTopicInput {
    *          </ul>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>The list of tags to add to a new topic.</p>
@@ -614,7 +614,7 @@ export interface CreateTopicInput {
    *          </note>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The body of the policy document you want to use for this topic.</p>
@@ -623,7 +623,7 @@ export interface CreateTopicInput {
    *          <p>Length Constraints: Maximum length of 30,720.</p>
    * @public
    */
-  DataProtectionPolicy?: string;
+  DataProtectionPolicy?: string | undefined;
 }
 
 /**
@@ -635,7 +635,7 @@ export interface CreateTopicResponse {
    * <p>The Amazon Resource Name (ARN) assigned to the created topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 }
 
 /**
@@ -856,7 +856,7 @@ export interface GetDataProtectionPolicyResponse {
    * <p>Retrieves the <code>DataProtectionPolicy</code> in JSON string format.</p>
    * @public
    */
-  DataProtectionPolicy?: string;
+  DataProtectionPolicy?: string | undefined;
 }
 
 /**
@@ -907,7 +907,7 @@ export interface GetEndpointAttributesResponse {
    *          </ul>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -984,7 +984,7 @@ export interface GetPlatformApplicationAttributesResponse {
    *          </ul>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -999,7 +999,7 @@ export interface GetSMSAttributesInput {
    *          <p>If you don't use this parameter, Amazon SNS returns all SMS attributes.</p>
    * @public
    */
-  attributes?: string[];
+  attributes?: string[] | undefined;
 }
 
 /**
@@ -1011,7 +1011,7 @@ export interface GetSMSAttributesResponse {
    * <p>The SMS attribute names and their values.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -1144,7 +1144,7 @@ export interface GetSubscriptionAttributesResponse {
    *          </ul>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -1282,7 +1282,7 @@ export interface GetTopicAttributesResponse {
    *          </ul>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -1305,7 +1305,7 @@ export interface ListEndpointsByPlatformApplicationInput {
    *             records that are available after the first page results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1317,13 +1317,13 @@ export interface Endpoint {
    * <p>The <code>EndpointArn</code> for mobile app and device.</p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 
   /**
    * <p>Attributes for endpoint.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -1335,7 +1335,7 @@ export interface ListEndpointsByPlatformApplicationResponse {
    * <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
    * @public
    */
-  Endpoints?: Endpoint[];
+  Endpoints?: Endpoint[] | undefined;
 
   /**
    * <p>
@@ -1344,7 +1344,7 @@ export interface ListEndpointsByPlatformApplicationResponse {
    *             available after the first page results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1355,13 +1355,13 @@ export interface ListOriginationNumbersRequest {
    * <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of origination numbers to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1403,37 +1403,37 @@ export interface PhoneNumberInformation {
    * <p>The date and time when the phone number was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The phone number.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The status of the phone number.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The two-character code for the country or region, in ISO 3166-1 alpha-2 format.</p>
    * @public
    */
-  Iso2CountryCode?: string;
+  Iso2CountryCode?: string | undefined;
 
   /**
    * <p>The list of supported routes.</p>
    * @public
    */
-  RouteType?: RouteType;
+  RouteType?: RouteType | undefined;
 
   /**
    * <p>The capabilities of each phone number.</p>
    * @public
    */
-  NumberCapabilities?: NumberCapability[];
+  NumberCapabilities?: NumberCapability[] | undefined;
 }
 
 /**
@@ -1446,13 +1446,13 @@ export interface ListOriginationNumbersResult {
    *             available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of the calling account's verified and pending origination numbers.</p>
    * @public
    */
-  PhoneNumbers?: PhoneNumberInformation[];
+  PhoneNumbers?: PhoneNumberInformation[] | undefined;
 }
 
 /**
@@ -1488,7 +1488,7 @@ export interface ListPhoneNumbersOptedOutInput {
    *             available after the first page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1501,7 +1501,7 @@ export interface ListPhoneNumbersOptedOutResponse {
    *             paginated, and each page can contain up to 100 phone numbers.</p>
    * @public
    */
-  phoneNumbers?: string[];
+  phoneNumbers?: string[] | undefined;
 
   /**
    * <p>A <code>NextToken</code> string is returned when you call the
@@ -1509,7 +1509,7 @@ export interface ListPhoneNumbersOptedOutResponse {
    *             after the first page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1524,7 +1524,7 @@ export interface ListPlatformApplicationsInput {
    *             available after the first page results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1536,13 +1536,13 @@ export interface PlatformApplication {
    * <p>PlatformApplicationArn for platform application object.</p>
    * @public
    */
-  PlatformApplicationArn?: string;
+  PlatformApplicationArn?: string | undefined;
 
   /**
    * <p>Attributes for platform application object.</p>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -1555,7 +1555,7 @@ export interface ListPlatformApplicationsResponse {
    *             action.</p>
    * @public
    */
-  PlatformApplications?: PlatformApplication[];
+  PlatformApplications?: PlatformApplication[] | undefined;
 
   /**
    * <p>
@@ -1564,7 +1564,7 @@ export interface ListPlatformApplicationsResponse {
    *             after the first page results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1576,13 +1576,13 @@ export interface ListSMSSandboxPhoneNumbersInput {
    *             returns.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of phone numbers to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1617,13 +1617,13 @@ export interface SMSSandboxPhoneNumber {
    * <p>The destination phone number.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The destination phone number's verification status.</p>
    * @public
    */
-  Status?: SMSSandboxPhoneNumberVerificationStatus;
+  Status?: SMSSandboxPhoneNumberVerificationStatus | undefined;
 }
 
 /**
@@ -1642,7 +1642,7 @@ export interface ListSMSSandboxPhoneNumbersResult {
    *             records are available.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1654,7 +1654,7 @@ export interface ListSubscriptionsInput {
    * <p>Token returned by the previous <code>ListSubscriptions</code> request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1666,31 +1666,31 @@ export interface Subscription {
    * <p>The subscription's ARN.</p>
    * @public
    */
-  SubscriptionArn?: string;
+  SubscriptionArn?: string | undefined;
 
   /**
    * <p>The subscription's owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 
   /**
    * <p>The subscription's protocol.</p>
    * @public
    */
-  Protocol?: string;
+  Protocol?: string | undefined;
 
   /**
    * <p>The subscription's endpoint (format depends on the protocol).</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The ARN of the subscription's topic.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 }
 
 /**
@@ -1702,14 +1702,14 @@ export interface ListSubscriptionsResponse {
    * <p>A list of subscriptions.</p>
    * @public
    */
-  Subscriptions?: Subscription[];
+  Subscriptions?: Subscription[] | undefined;
 
   /**
    * <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
    *             is returned if there are more subscriptions to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1727,7 +1727,7 @@ export interface ListSubscriptionsByTopicInput {
    * <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1739,14 +1739,14 @@ export interface ListSubscriptionsByTopicResponse {
    * <p>A list of subscriptions.</p>
    * @public
    */
-  Subscriptions?: Subscription[];
+  Subscriptions?: Subscription[] | undefined;
 
   /**
    * <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
    *             element is returned if there are more subscriptions to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1768,7 +1768,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with the specified topic.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1779,7 +1779,7 @@ export interface ListTopicsInput {
    * <p>Token returned by the previous <code>ListTopics</code> request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1792,7 +1792,7 @@ export interface Topic {
    * <p>The topic's ARN.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 }
 
 /**
@@ -1804,14 +1804,14 @@ export interface ListTopicsResponse {
    * <p>A list of topic ARNs.</p>
    * @public
    */
-  Topics?: Topic[];
+  Topics?: Topic[] | undefined;
 
   /**
    * <p>Token to pass along to the next <code>ListTopics</code> request. This element is
    *             returned if there are additional topics to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2047,14 +2047,14 @@ export interface MessageAttributeValue {
    *                 Characters</a>.</p>
    * @public
    */
-  StringValue?: string;
+  StringValue?: string | undefined;
 
   /**
    * <p>Binary type attributes can store any binary data, for example, compressed data,
    *             encrypted data, or images.</p>
    * @public
    */
-  BinaryValue?: Uint8Array;
+  BinaryValue?: Uint8Array | undefined;
 }
 
 /**
@@ -2068,7 +2068,7 @@ export interface PublishInput {
    *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
@@ -2076,7 +2076,7 @@ export interface PublishInput {
    *             parameters.</p>
    * @public
    */
-  TargetArn?: string;
+  TargetArn?: string | undefined;
 
   /**
    * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
@@ -2085,7 +2085,7 @@ export interface PublishInput {
    *             parameters.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The message you want to send.</p>
@@ -2161,7 +2161,7 @@ export interface PublishInput {
    *             and less than 100 characters long.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
@@ -2184,13 +2184,13 @@ export interface PublishInput {
    *          </p>
    * @public
    */
-  MessageStructure?: string;
+  MessageStructure?: string | undefined;
 
   /**
    * <p>Message attributes for Publish action.</p>
    * @public
    */
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Record<string, MessageAttributeValue> | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
@@ -2207,7 +2207,7 @@ export interface PublishInput {
    *                 <code>MessageDeduplicationId</code> overrides the generated one.</p>
    * @public
    */
-  MessageDeduplicationId?: string;
+  MessageDeduplicationId?: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics. The
@@ -2220,7 +2220,7 @@ export interface PublishInput {
    *             order). Every message must include a <code>MessageGroupId</code>.</p>
    * @public
    */
-  MessageGroupId?: string;
+  MessageGroupId?: string | undefined;
 }
 
 /**
@@ -2233,7 +2233,7 @@ export interface PublishResponse {
    *          <p>Length Constraint: Maximum 100 characters</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 
   /**
    * <p>This response element applies only to FIFO (first-in-first-out) topics. </p>
@@ -2243,7 +2243,7 @@ export interface PublishResponse {
    *                 <code>MessageGroupId</code>.</p>
    * @public
    */
-  SequenceNumber?: string;
+  SequenceNumber?: string | undefined;
 }
 
 /**
@@ -2353,7 +2353,7 @@ export interface PublishBatchRequestEntry {
    * <p>The subject of the batch message.</p>
    * @public
    */
-  Subject?: string;
+  Subject?: string | undefined;
 
   /**
    * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
@@ -2374,7 +2374,7 @@ export interface PublishBatchRequestEntry {
    *             specific transport protocol (e.g. http). </p>
    * @public
    */
-  MessageStructure?: string;
+  MessageStructure?: string | undefined;
 
   /**
    * <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and
@@ -2382,7 +2382,7 @@ export interface PublishBatchRequestEntry {
    *             the Amazon SNS Developer Guide.</p>
    * @public
    */
-  MessageAttributes?: Record<string, MessageAttributeValue>;
+  MessageAttributes?: Record<string, MessageAttributeValue> | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -2446,7 +2446,7 @@ export interface PublishBatchRequestEntry {
    *                 <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`\{|\}~)</code>.</p>
    * @public
    */
-  MessageDeduplicationId?: string;
+  MessageDeduplicationId?: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -2470,7 +2470,7 @@ export interface PublishBatchRequestEntry {
    *          </important>
    * @public
    */
-  MessageGroupId?: string;
+  MessageGroupId?: string | undefined;
 }
 
 /**
@@ -2512,7 +2512,7 @@ export interface BatchResultErrorEntry {
    * <p>A message explaining why the action failed on this entry.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>Specifies whether the error happened due to the caller of the batch API action.</p>
@@ -2530,13 +2530,13 @@ export interface PublishBatchResultEntry {
    * <p>The <code>Id</code> of an entry in a batch request.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>An identifier for the message.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 
   /**
    * <p>This parameter applies only to FIFO (first-in-first-out) topics.</p>
@@ -2545,7 +2545,7 @@ export interface PublishBatchResultEntry {
    *             continues to increase for a particular <code>MessageGroupId</code>.</p>
    * @public
    */
-  SequenceNumber?: string;
+  SequenceNumber?: string | undefined;
 }
 
 /**
@@ -2556,13 +2556,13 @@ export interface PublishBatchResponse {
    * <p>A list of successful <code>PublishBatch</code> responses.</p>
    * @public
    */
-  Successful?: PublishBatchResultEntry[];
+  Successful?: PublishBatchResultEntry[] | undefined;
 
   /**
    * <p>A list of failed <code>PublishBatch</code> responses. </p>
    * @public
    */
-  Failed?: BatchResultErrorEntry[];
+  Failed?: BatchResultErrorEntry[] | undefined;
 }
 
 /**
@@ -2985,7 +2985,7 @@ export interface SetSubscriptionAttributesInput {
    * <p>The new value for the attribute in JSON format.</p>
    * @public
    */
-  AttributeValue?: string;
+  AttributeValue?: string | undefined;
 }
 
 /**
@@ -3216,7 +3216,7 @@ export interface SetTopicAttributesInput {
    * <p>The new value for the attribute.</p>
    * @public
    */
-  AttributeValue?: string;
+  AttributeValue?: string | undefined;
 }
 
 /**
@@ -3323,7 +3323,7 @@ export interface SubscribeInput {
    *          </ul>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
@@ -3431,7 +3431,7 @@ export interface SubscribeInput {
    *          </ul>
    * @public
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Record<string, string> | undefined;
 
   /**
    * <p>Sets whether the response from the <code>Subscribe</code> request includes the
@@ -3446,7 +3446,7 @@ export interface SubscribeInput {
    *          <p>The default value is <code>false</code>.</p>
    * @public
    */
-  ReturnSubscriptionArn?: boolean;
+  ReturnSubscriptionArn?: boolean | undefined;
 }
 
 /**
@@ -3461,7 +3461,7 @@ export interface SubscribeResponse {
    *             subscription ARN, even if the subscription requires confirmation.</p>
    * @public
    */
-  SubscriptionArn?: string;
+  SubscriptionArn?: string | undefined;
 }
 
 /**

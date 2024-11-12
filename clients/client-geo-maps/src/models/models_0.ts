@@ -308,25 +308,25 @@ export interface GetGlyphsResponse {
    * <p>The Glyph, as a binary blob.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Header that instructs caching configuration for the client.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>The glyph's Etag.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -412,25 +412,25 @@ export interface GetSpritesResponse {
    *          depending on input).</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Header that instructs caching configuration for the client.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>The sprite's Etag.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -472,7 +472,7 @@ export interface GetStaticMapRequest {
    *          <p>Example: -123.17075,49.26959,-123.08125,49.31429</p>
    * @public
    */
-  BoundingBox?: string;
+  BoundingBox?: string | undefined;
 
   /**
    * <p>Takes in two or more pair of coordinates, [Lon, Lat], with each coordinate separated by
@@ -484,7 +484,7 @@ export interface GetStaticMapRequest {
    *          <p>Example: 97.170451,78.039098,99.045536,27.176178</p>
    * @public
    */
-  BoundedPositions?: string;
+  BoundedPositions?: string | undefined;
 
   /**
    * <p>Takes in a pair of coordinates, [Lon, Lat], which becomes the center point of the image.
@@ -496,7 +496,7 @@ export interface GetStaticMapRequest {
    *          <p>Example: 49.295,-123.108</p>
    * @public
    */
-  Center?: string;
+  Center?: string | undefined;
 
   /**
    * <p>Takes in a string to draw geometries on the image. The input is a comma separated format as follows format:
@@ -510,7 +510,7 @@ export interface GetStaticMapRequest {
    *          </note>
    * @public
    */
-  CompactOverlay?: string;
+  CompactOverlay?: string | undefined;
 
   /**
    * <p>Takes in a string to draw geometries on the image. The input is a valid GeoJSON
@@ -520,7 +520,7 @@ export interface GetStaticMapRequest {
    *          </p>
    * @public
    */
-  GeoJsonOverlay?: string;
+  GeoJsonOverlay?: string | undefined;
 
   /**
    * <p>Specifies the height of the map image.</p>
@@ -533,7 +533,7 @@ export interface GetStaticMapRequest {
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Applies additional space (in pixels) around overlay feature to prevent them from being
@@ -549,7 +549,7 @@ export interface GetStaticMapRequest {
    *          </p>
    * @public
    */
-  Padding?: number;
+  Padding?: number | undefined;
 
   /**
    * <p>Used with center parameter, it specifies the zoom of the image where you can control it
@@ -565,7 +565,7 @@ export interface GetStaticMapRequest {
    *          <p/>
    * @public
    */
-  Radius?: number;
+  Radius?: number | undefined;
 
   /**
    * <p>The map scaling parameter to size the image, icons, and labels. It follows the pattern
@@ -583,13 +583,13 @@ export interface GetStaticMapRequest {
    *          </p>
    * @public
    */
-  ScaleBarUnit?: ScaleBarUnit;
+  ScaleBarUnit?: ScaleBarUnit | undefined;
 
   /**
    * <p>Style specifies the desired map style for the <code>Style</code> APIs.</p>
    * @public
    */
-  Style?: StaticMapStyle;
+  Style?: StaticMapStyle | undefined;
 
   /**
    * <p>Specifies the width of the map image.</p>
@@ -604,7 +604,7 @@ export interface GetStaticMapRequest {
    *          </note>
    * @public
    */
-  Zoom?: number;
+  Zoom?: number | undefined;
 }
 
 /**
@@ -616,25 +616,25 @@ export interface GetStaticMapResponse {
    *          the <code>GetStaticMap</code> API.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Header that instructs caching configuration for the client.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>The static map's Etag.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The pricing bucket for which the request is charged at.</p>
@@ -803,7 +803,7 @@ export interface GetStyleDescriptorRequest {
    *          </note>
    * @public
    */
-  ColorScheme?: ColorScheme;
+  ColorScheme?: ColorScheme | undefined;
 
   /**
    * <p>Specifies the political view using ISO 3166-2 or ISO 3166-3 country code format.</p>
@@ -872,14 +872,14 @@ export interface GetStyleDescriptorRequest {
    *          </ul>
    * @public
    */
-  PoliticalView?: string;
+  PoliticalView?: string | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -890,25 +890,25 @@ export interface GetStyleDescriptorResponse {
    * <p>This Blob contains the body of the style descriptor which is in application/json format.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Header that instructs caching configuration for the client.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>The style descriptor's Etag.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 }
 
 /**
@@ -946,7 +946,7 @@ export interface GetTileRequest {
    *          signature must be provided when making a request. </p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 }
 
 /**
@@ -958,25 +958,25 @@ export interface GetTileResponse {
    *             <code>GetTile</code> API.</p>
    * @public
    */
-  Blob?: Uint8Array;
+  Blob?: Uint8Array | undefined;
 
   /**
    * <p>Header that represents the format of the response. The response returns the following as the HTTP body.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Header that instructs caching configuration for the client.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>The pricing bucket for which the request is charged at.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The pricing bucket for which the request is charged at.</p>

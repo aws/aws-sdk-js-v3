@@ -85,38 +85,6 @@ export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResul
  * ```javascript
  * // The following command retrieves a list of KeyValueStores with READY status.
  * const input = {
- *   "Marker": "",
- *   "MaxItems": "100",
- *   "Status": "READY"
- * };
- * const command = new ListKeyValueStoresCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyValueStoreList": {
- *     "Items": [
- *       {
- *         "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *         "Comment": "",
- *         "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *         "LastModifiedTime": "2023-11-07T18:45:21.069Z",
- *         "Name": "my-keyvaluestore-name",
- *         "Status": "READY"
- *       }
- *     ],
- *     "MaxItems": 100,
- *     "NextMarker": "",
- *     "Quantity": 1
- *   }
- * }
- * *\/
- * // example id: to-get-a-list-of-key-value-store-1699751799198
- * ```
- *
- * @example To get a list of KeyValueStores
- * ```javascript
- * // The following command retrieves a list of KeyValueStores with READY status.
- * const input = {
  *   "Status": "READY"
  * };
  * const command = new ListKeyValueStoresCommand(input);

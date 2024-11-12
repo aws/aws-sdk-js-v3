@@ -13,20 +13,20 @@ export interface ComplianceDetails {
    * <p>These tag keys on the resource are noncompliant with the effective tag policy.</p>
    * @public
    */
-  NoncompliantKeys?: string[];
+  NoncompliantKeys?: string[] | undefined;
 
   /**
    * <p>These are keys defined in the effective policy that are on the resource with either
    *             incorrect case treatment or noncompliant values. </p>
    * @public
    */
-  KeysWithNoncompliantValues?: string[];
+  KeysWithNoncompliantValues?: string[] | undefined;
 
   /**
    * <p>Whether a resource is compliant with the effective tag policy.</p>
    * @public
    */
-  ComplianceStatus?: boolean;
+  ComplianceStatus?: boolean | undefined;
 }
 
 /**
@@ -37,7 +37,7 @@ export interface ComplianceDetails {
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -78,7 +78,7 @@ export class ConcurrentModificationException extends __BaseException {
 export class ConstraintViolationException extends __BaseException {
   readonly name: "ConstraintViolationException" = "ConstraintViolationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -128,25 +128,25 @@ export interface DescribeReportCreationOutput {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The path to the Amazon S3 bucket where the report was stored on creation.</p>
    * @public
    */
-  S3Location?: string;
+  S3Location?: string | undefined;
 
   /**
    * <p>The date and time that the report was started. </p>
    * @public
    */
-  StartDate?: string;
+  StartDate?: string | undefined;
 
   /**
    * <p>Details of the common errors that all operations return.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -157,7 +157,7 @@ export interface DescribeReportCreationOutput {
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -199,7 +199,7 @@ export class InternalServiceException extends __BaseException {
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -221,7 +221,7 @@ export class InvalidParameterException extends __BaseException {
 export class ThrottledException extends __BaseException {
   readonly name: "ThrottledException" = "ThrottledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -289,7 +289,7 @@ export interface FailureInfo {
    * <p>The HTTP status code of the common error.</p>
    * @public
    */
-  StatusCode?: number;
+  StatusCode?: number | undefined;
 
   /**
    * <p>The code of the common error. Valid values include
@@ -298,13 +298,13 @@ export interface FailureInfo {
    *             to tag.</p>
    * @public
    */
-  ErrorCode?: ErrorCode;
+  ErrorCode?: ErrorCode | undefined;
 
   /**
    * <p>The message of the common error.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -332,7 +332,7 @@ export interface GetComplianceSummaryInput {
    *             resources with the specified target IDs.</p>
    * @public
    */
-  TargetIdFilters?: string[];
+  TargetIdFilters?: string[] | undefined;
 
   /**
    * <p>Specifies a list of Amazon Web Services Regions to limit the output to. If you use this parameter,
@@ -340,7 +340,7 @@ export interface GetComplianceSummaryInput {
    *             Regions.</p>
    * @public
    */
-  RegionFilters?: string[];
+  RegionFilters?: string[] | undefined;
 
   /**
    * <p>Specifies that you want the response to include information for only resources of the
@@ -372,7 +372,7 @@ export interface GetComplianceSummaryInput {
    *             resource type filter. </p>
    * @public
    */
-  ResourceTypeFilters?: string[];
+  ResourceTypeFilters?: string[] | undefined;
 
   /**
    * <p>Specifies that you want the response to include information for only resources that
@@ -380,14 +380,14 @@ export interface GetComplianceSummaryInput {
    *             noncompliant resources includes only resources that have the specified tag keys.</p>
    * @public
    */
-  TagKeyFilters?: string[];
+  TagKeyFilters?: string[] | undefined;
 
   /**
    * <p>Specifies a list of attributes to group the counts of noncompliant resources by. If
    *             supplied, the counts are sorted by those attributes.</p>
    * @public
    */
-  GroupBy?: GroupByAttribute[];
+  GroupBy?: GroupByAttribute[] | undefined;
 
   /**
    * <p>Specifies the maximum number of results to be returned in each page. A
@@ -396,7 +396,7 @@ export interface GetComplianceSummaryInput {
    *     results. You can specify a minimum of 1 and a maximum value of 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Specifies a <code>PaginationToken</code> response value from a
@@ -404,7 +404,7 @@ export interface GetComplianceSummaryInput {
    *     in your initial request.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 }
 
 /**
@@ -431,38 +431,38 @@ export interface Summary {
    * <p>The timestamp that shows when this summary was generated in this Region. </p>
    * @public
    */
-  LastUpdated?: string;
+  LastUpdated?: string | undefined;
 
   /**
    * <p>The account identifier or the root identifier of the organization. If you don't know
    *             the root ID, you can call the Organizations <a href="https://docs.aws.amazon.com/organizations/latest/APIReference/API_ListRoots.html">ListRoots</a> API.</p>
    * @public
    */
-  TargetId?: string;
+  TargetId?: string | undefined;
 
   /**
    * <p>Whether the target is an account, an OU, or the organization root.</p>
    * @public
    */
-  TargetIdType?: TargetIdType;
+  TargetIdType?: TargetIdType | undefined;
 
   /**
    * <p>The Amazon Web Services Region that the summary applies to.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>The Amazon Web Services resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The count of noncompliant resources.</p>
    * @public
    */
-  NonCompliantResources?: number;
+  NonCompliantResources?: number | undefined;
 }
 
 /**
@@ -473,7 +473,7 @@ export interface GetComplianceSummaryOutput {
    * <p>A table that shows counts of noncompliant resources.</p>
    * @public
    */
-  SummaryList?: Summary[];
+  SummaryList?: Summary[] | undefined;
 
   /**
    * <p>A string that indicates that there is more data available than this
@@ -481,7 +481,7 @@ export interface GetComplianceSummaryOutput {
    *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 }
 
 /**
@@ -495,14 +495,14 @@ export interface TagFilter {
    *     that acts like a category for more specific tag values.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>One part of a key-value pair that make up a tag. A value acts as a
    *     descriptor within a tag category (key). The value can be empty or null.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -515,7 +515,7 @@ export interface GetResourcesInput {
    *     in your initial request.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>Specifies a list of TagFilters (keys and values) to restrict the output to only those
@@ -576,7 +576,7 @@ export interface GetResourcesInput {
    *          </ul>
    * @public
    */
-  TagFilters?: TagFilter[];
+  TagFilters?: TagFilter[] | undefined;
 
   /**
    * <p>Specifies the maximum number of results to be returned in each page. A
@@ -585,7 +585,7 @@ export interface GetResourcesInput {
    *     results. You can specify a minimum of 1 and a maximum value of 100.</p>
    * @public
    */
-  ResourcesPerPage?: number;
+  ResourcesPerPage?: number | undefined;
 
   /**
    * <p>Amazon Web Services recommends using <code>ResourcesPerPage</code> instead of this parameter.</p>
@@ -606,7 +606,7 @@ export interface GetResourcesInput {
    *             items.</p>
    * @public
    */
-  TagsPerPage?: number;
+  TagsPerPage?: number | undefined;
 
   /**
    * <p>Specifies the resource types that you want included in the response. The format of
@@ -626,7 +626,7 @@ export interface GetResourcesInput {
    *          </p>
    * @public
    */
-  ResourceTypeFilters?: string[];
+  ResourceTypeFilters?: string[] | undefined;
 
   /**
    * <p>Specifies whether to include details regarding the compliance with the effective tag
@@ -634,7 +634,7 @@ export interface GetResourcesInput {
    *             the tag policy and to get details.</p>
    * @public
    */
-  IncludeComplianceDetails?: boolean;
+  IncludeComplianceDetails?: boolean | undefined;
 
   /**
    * <p>Specifies whether to exclude resources that are compliant with the tag policy. Set
@@ -644,7 +644,7 @@ export interface GetResourcesInput {
    *             is also set to <code>true</code>.</p>
    * @public
    */
-  ExcludeCompliantResources?: boolean;
+  ExcludeCompliantResources?: boolean | undefined;
 
   /**
    * <p>Specifies a list of ARNs of resources for which you want to retrieve tag data. You
@@ -660,7 +660,7 @@ export interface GetResourcesInput {
    *                 <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  ResourceARNList?: string[];
+  ResourceARNList?: string[] | undefined;
 }
 
 /**
@@ -695,20 +695,20 @@ export interface ResourceTagMapping {
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ResourceARN?: string;
+  ResourceARN?: string | undefined;
 
   /**
    * <p>The tags that have been applied to one or more Amazon Web Services resources.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Information that shows whether a resource is compliant with the effective tag policy,
    *             including details on any noncompliant tag keys.</p>
    * @public
    */
-  ComplianceDetails?: ComplianceDetails;
+  ComplianceDetails?: ComplianceDetails | undefined;
 }
 
 /**
@@ -721,14 +721,14 @@ export interface GetResourcesOutput {
    *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>A list of resource ARNs and the tags (keys and values) associated with
    *     each.</p>
    * @public
    */
-  ResourceTagMappingList?: ResourceTagMapping[];
+  ResourceTagMappingList?: ResourceTagMapping[] | undefined;
 }
 
 /**
@@ -739,7 +739,7 @@ export interface GetResourcesOutput {
 export class PaginationTokenExpiredException extends __BaseException {
   readonly name: "PaginationTokenExpiredException" = "PaginationTokenExpiredException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -764,7 +764,7 @@ export interface GetTagKeysInput {
    *     in your initial request.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 }
 
 /**
@@ -777,13 +777,13 @@ export interface GetTagKeysOutput {
    *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>A list of all tag keys in the Amazon Web Services account.</p>
    * @public
    */
-  TagKeys?: string[];
+  TagKeys?: string[] | undefined;
 }
 
 /**
@@ -796,7 +796,7 @@ export interface GetTagValuesInput {
    *     in your initial request.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>Specifies the tag key for which you want to list all existing values that are
@@ -816,14 +816,14 @@ export interface GetTagValuesOutput {
    *     as the <code>PaginationToken</code> value in the request for the next page.</p>
    * @public
    */
-  PaginationToken?: string;
+  PaginationToken?: string | undefined;
 
   /**
    * <p>A list of all tag values for the specified key currently used in the specified Amazon Web Services
    *             Region for the calling account.</p>
    * @public
    */
-  TagValues?: string[];
+  TagValues?: string[] | undefined;
 }
 
 /**
@@ -880,7 +880,7 @@ export interface TagResourcesOutput {
    *             errors, the <code>FailedResourcesMap</code> is empty.</p>
    * @public
    */
-  FailedResourcesMap?: Record<string, FailureInfo>;
+  FailedResourcesMap?: Record<string, FailureInfo> | undefined;
 }
 
 /**
@@ -916,5 +916,5 @@ export interface UntagResourcesOutput {
    *             errors, the <code>FailedResourcesMap</code> is empty.</p>
    * @public
    */
-  FailedResourcesMap?: Record<string, FailureInfo>;
+  FailedResourcesMap?: Record<string, FailureInfo> | undefined;
 }

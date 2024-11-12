@@ -257,13 +257,13 @@ export interface CreateCaseRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Represents the identity of the person who performed the action.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
@@ -296,7 +296,7 @@ export class InternalServerException extends __BaseException {
    * <p>Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -427,7 +427,7 @@ export interface GetCaseRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -450,13 +450,13 @@ export interface GetCaseResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -480,14 +480,14 @@ export interface GetCaseAuditEventsRequest {
    *       This is also the default when no other value is provided.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *       the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -621,7 +621,7 @@ export interface AuditEventField {
    * <p>Union of potential field value types.</p>
    * @public
    */
-  oldValue?: AuditEventFieldValueUnion;
+  oldValue?: AuditEventFieldValueUnion | undefined;
 
   /**
    * <p>Union of potential field value types.</p>
@@ -639,7 +639,7 @@ export interface AuditEventPerformedBy {
    * <p>Represents the identity of the person who performed the action.</p>
    * @public
    */
-  user?: UserUnion;
+  user?: UserUnion | undefined;
 
   /**
    * <p>Unique identifier of an IAM role.</p>
@@ -699,7 +699,7 @@ export interface AuditEvent {
    * <p>The Type of the related item.</p>
    * @public
    */
-  relatedItemType?: RelatedItemType;
+  relatedItemType?: RelatedItemType | undefined;
 
   /**
    * <p>Time at which an Audit History event took place.</p>
@@ -717,7 +717,7 @@ export interface AuditEvent {
    * <p>Information of the user which performed the audit.</p>
    * @public
    */
-  performedBy?: AuditEventPerformedBy;
+  performedBy?: AuditEventPerformedBy | undefined;
 }
 
 /**
@@ -729,7 +729,7 @@ export interface GetCaseAuditEventsResponse {
    *       return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of case audits where each represents a particular edit of the case.</p>
@@ -758,14 +758,14 @@ export interface ListCasesForContactRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -800,7 +800,7 @@ export interface ListCasesForContactResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -962,7 +962,7 @@ export interface CreateRelatedItemRequest {
    * <p>Represents the creator of the related item.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
@@ -1018,13 +1018,13 @@ export interface ContactFilter {
    * <p>A list of channels to filter on for related items of type <code>Contact</code>.</p>
    * @public
    */
-  channel?: string[];
+  channel?: string[] | undefined;
 
   /**
    * <p>A unique identifier of a contact in Amazon Connect.</p>
    * @public
    */
-  contactArn?: string;
+  contactArn?: string | undefined;
 }
 
 /**
@@ -1036,7 +1036,7 @@ export interface FileFilter {
    * <p>The Amazon Resource Name (ARN) of the file.</p>
    * @public
    */
-  fileArn?: string;
+  fileArn?: string | undefined;
 }
 
 /**
@@ -1131,20 +1131,20 @@ export interface SearchRelatedItemsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of types of related items and their parameters to use for filtering.</p>
    * @public
    */
-  filters?: RelatedItemTypeFilter[];
+  filters?: RelatedItemTypeFilter[] | undefined;
 }
 
 /**
@@ -1277,13 +1277,13 @@ export interface SearchRelatedItemsResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Represents the creator of the related item.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
@@ -1294,7 +1294,7 @@ export interface SearchRelatedItemsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of items related to a case. </p>
@@ -1497,7 +1497,7 @@ export interface SearchCasesResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1508,7 +1508,7 @@ export interface SearchCasesResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of case documents where each case contains the properties <code>CaseId</code> and
@@ -1545,7 +1545,7 @@ export interface UpdateCaseRequest {
    * <p>Represents the identity of the person who performed the action.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
@@ -1664,13 +1664,13 @@ export interface EventIncludedData {
    * <p>Details of what case data is published through the case event stream.</p>
    * @public
    */
-  caseData?: CaseEventIncludedData;
+  caseData?: CaseEventIncludedData | undefined;
 
   /**
    * <p>Details of what related item data is published through the case event stream.</p>
    * @public
    */
-  relatedItemData?: RelatedItemEventIncludedData;
+  relatedItemData?: RelatedItemEventIncludedData | undefined;
 }
 
 /**
@@ -1690,7 +1690,7 @@ export interface EventBridgeConfiguration {
    *       stream.</p>
    * @public
    */
-  includedData?: EventIncludedData;
+  includedData?: EventIncludedData | undefined;
 }
 
 /**
@@ -1754,7 +1754,7 @@ export interface GetDomainResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1765,14 +1765,14 @@ export interface ListDomainsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1813,7 +1813,7 @@ export interface ListDomainsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1877,7 +1877,7 @@ export interface FieldError {
    * <p>The error message from getting a field.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -1940,7 +1940,7 @@ export interface GetFieldResponse {
    * <p>Description of the field.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Type of the field.</p>
@@ -1958,25 +1958,25 @@ export interface GetFieldResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
-  deleted?: boolean;
+  deleted?: boolean | undefined;
 
   /**
    * <p>Timestamp at which the resource was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -2078,7 +2078,7 @@ export interface BatchPutFieldOptionsResponse {
    * <p>A list of field errors. </p>
    * @public
    */
-  errors?: FieldOptionError[];
+  errors?: FieldOptionError[] | undefined;
 }
 
 /**
@@ -2107,7 +2107,7 @@ export interface CreateFieldRequest {
    * <p>The description of the field.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2169,21 +2169,21 @@ export interface ListFieldOptionsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of <code>FieldOption</code> values to filter on for
    *       <code>ListFieldOptions</code>.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -2200,7 +2200,7 @@ export interface ListFieldOptionsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2217,14 +2217,14 @@ export interface ListFieldsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2277,7 +2277,7 @@ export interface ListFieldsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2300,13 +2300,13 @@ export interface UpdateFieldRequest {
    * <p>The name of the field.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of a field.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2335,7 +2335,7 @@ export interface FieldGroup {
    * <p>Name of the field group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Represents an ordered list containing field related information.</p>
@@ -2392,7 +2392,7 @@ export interface LayoutSections {
    * <p>Ordered list containing different kinds of sections that can be added.</p>
    * @public
    */
-  sections?: Section[];
+  sections?: Section[] | undefined;
 }
 
 /**
@@ -2405,13 +2405,13 @@ export interface BasicLayout {
    * <p>This represents sections in a panel of the page layout.</p>
    * @public
    */
-  topPanel?: LayoutSections;
+  topPanel?: LayoutSections | undefined;
 
   /**
    * <p>This represents sections in a tab of the page layout.</p>
    * @public
    */
-  moreInfo?: LayoutSections;
+  moreInfo?: LayoutSections | undefined;
 }
 
 /**
@@ -2566,25 +2566,25 @@ export interface GetLayoutResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
-  deleted?: boolean;
+  deleted?: boolean | undefined;
 
   /**
    * <p>Timestamp at which the resource was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -2601,14 +2601,14 @@ export interface ListLayoutsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2649,7 +2649,7 @@ export interface ListLayoutsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2672,14 +2672,14 @@ export interface UpdateLayoutRequest {
    * <p>The name of the layout. It must be unique per domain.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Information about which fields will be present in the layout, the order of the
    *       fields.</p>
    * @public
    */
-  content?: LayoutContent;
+  content?: LayoutContent | undefined;
 }
 
 /**
@@ -2706,7 +2706,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2735,7 +2735,7 @@ export interface LayoutConfiguration {
    * <p> Unique identifier of a layout. </p>
    * @public
    */
-  defaultLayout?: string;
+  defaultLayout?: string | undefined;
 }
 
 /**
@@ -2784,26 +2784,26 @@ export interface CreateTemplateRequest {
    * <p>A brief description of the template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configuration of layouts associated to the template.</p>
    * @public
    */
-  layoutConfiguration?: LayoutConfiguration;
+  layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
    * @public
    */
-  requiredFields?: RequiredField[];
+  requiredFields?: RequiredField[] | undefined;
 
   /**
    * <p>The status of the template.</p>
    * @public
    */
-  status?: TemplateStatus;
+  status?: TemplateStatus | undefined;
 }
 
 /**
@@ -2888,26 +2888,26 @@ export interface GetTemplateResponse {
    * <p>A brief description of the template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configuration of layouts associated to the template.</p>
    * @public
    */
-  layoutConfiguration?: LayoutConfiguration;
+  layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
    * @public
    */
-  requiredFields?: RequiredField[];
+  requiredFields?: RequiredField[] | undefined;
 
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the template.</p>
@@ -2919,19 +2919,19 @@ export interface GetTemplateResponse {
    * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
-  deleted?: boolean;
+  deleted?: boolean | undefined;
 
   /**
    * <p>Timestamp at which the resource was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -2948,20 +2948,20 @@ export interface ListTemplatesRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of status values to filter on.</p>
    * @public
    */
-  status?: TemplateStatus[];
+  status?: TemplateStatus[] | undefined;
 }
 
 /**
@@ -3008,7 +3008,7 @@ export interface ListTemplatesResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3031,32 +3031,32 @@ export interface UpdateTemplateRequest {
    * <p>The name of the template. It must be unique per domain.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A brief description of the template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configuration of layouts associated to the template.</p>
    * @public
    */
-  layoutConfiguration?: LayoutConfiguration;
+  layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
    * @public
    */
-  requiredFields?: RequiredField[];
+  requiredFields?: RequiredField[] | undefined;
 
   /**
    * <p>The status of the template.</p>
    * @public
    */
-  status?: TemplateStatus;
+  status?: TemplateStatus | undefined;
 }
 
 /**
@@ -3187,37 +3187,37 @@ export interface SearchCasesRequest {
    *       also the default value when no other value is provided.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A word or phrase used to perform a quick search.</p>
    * @public
    */
-  searchTerm?: string;
+  searchTerm?: string | undefined;
 
   /**
    * <p>A list of filter objects.</p>
    * @public
    */
-  filter?: CaseFilter;
+  filter?: CaseFilter | undefined;
 
   /**
    * <p>A list of sorts where each sort specifies a field and their sort order to be applied to
    *       the results. </p>
    * @public
    */
-  sorts?: Sort[];
+  sorts?: Sort[] | undefined;
 
   /**
    * <p>The list of field identifiers to be returned as part of the response.</p>
    * @public
    */
-  fields?: FieldIdentifier[];
+  fields?: FieldIdentifier[] | undefined;
 }

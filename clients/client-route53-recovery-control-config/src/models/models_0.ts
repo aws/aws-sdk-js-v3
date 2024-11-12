@@ -12,13 +12,13 @@ export interface ClusterEndpoint {
    * <p>A cluster endpoint. Specify an endpoint and Amazon Web Services Region when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.</p>
    * @public
    */
-  Endpoint?: string;
+  Endpoint?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region for a cluster endpoint.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 }
 
 /**
@@ -45,31 +45,31 @@ export interface Cluster {
    * <p>The Amazon Resource Name (ARN) of the cluster.</p>
    * @public
    */
-  ClusterArn?: string;
+  ClusterArn?: string | undefined;
 
   /**
    * <p>Endpoints for a cluster. Specify one of these endpoints when you want to set or retrieve a routing control state in the cluster.</p> <p>To get or update the routing control state, see the Amazon Route 53 Application Recovery Controller Routing Control Actions.</p>
    * @public
    */
-  ClusterEndpoints?: ClusterEndpoint[];
+  ClusterEndpoints?: ClusterEndpoint[] | undefined;
 
   /**
    * <p>The name of the cluster.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Deployment status of a resource. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the cluster owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 }
 
 /**
@@ -81,43 +81,43 @@ export interface ControlPanel {
    * <p>The Amazon Resource Name (ARN) of the cluster that includes the control panel.</p>
    * @public
    */
-  ClusterArn?: string;
+  ClusterArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the control panel.</p>
    * @public
    */
-  ControlPanelArn?: string;
+  ControlPanelArn?: string | undefined;
 
   /**
    * <p>A flag that Amazon Route 53 Application Recovery Controller sets to true to designate the default control panel for a cluster. When you create a cluster, Amazon Route 53 Application Recovery Controller creates a control panel, and sets this flag for that control panel. If you create a control panel yourself, this flag is set to false.</p>
    * @public
    */
-  DefaultControlPanel?: boolean;
+  DefaultControlPanel?: boolean | undefined;
 
   /**
    * <p>The name of the control panel. You can use any non-white space character in the name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The number of routing controls in the control panel.</p>
    * @public
    */
-  RoutingControlCount?: number;
+  RoutingControlCount?: number | undefined;
 
   /**
    * <p>The deployment status of control panel. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the control panel owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 }
 
 /**
@@ -129,31 +129,31 @@ export interface RoutingControl {
    * <p>The Amazon Resource Name (ARN) of the control panel that includes the routing control.</p>
    * @public
    */
-  ControlPanelArn?: string;
+  ControlPanelArn?: string | undefined;
 
   /**
    * <p>The name of the routing control.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the routing control.</p>
    * @public
    */
-  RoutingControlArn?: string;
+  RoutingControlArn?: string | undefined;
 
   /**
    * <p>The deployment status of a routing control. Status can be one of the following: PENDING, DEPLOYED, PENDING_DELETION.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the routing control owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 }
 
 /**
@@ -246,7 +246,7 @@ export interface AssertionRule {
    * <p>The Amazon Web Services account ID of the assertion rule owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 }
 
 /**
@@ -306,7 +306,7 @@ export interface GatingRule {
    * <p>The Amazon Web Services account ID of the gating rule owner.</p>
    * @public
    */
-  Owner?: string;
+  Owner?: string | undefined;
 }
 
 /**
@@ -318,13 +318,13 @@ export interface Rule {
    * <p>An assertion rule enforces that, when a routing control state is changed, the criteria set by the rule configuration is met. Otherwise, the change to the routing control state is not accepted. For example, the criteria might be that at least one routing control state is On after the transaction so that traffic continues to flow to at least one cell for the application. This ensures that you avoid a fail-open scenario.</p>
    * @public
    */
-  ASSERTION?: AssertionRule;
+  ASSERTION?: AssertionRule | undefined;
 
   /**
    * <p>A gating rule verifies that a gating routing control or set of gating routing controls, evaluates as true, based on a rule configuration that you specify, which allows a set of routing control state changes to complete.</p> <p>For example, if you specify one gating routing control and you set the Type in the rule configuration to OR, that indicates that you must set the gating routing control to On for the rule to evaluate as true; that is, for the gating control "switch" to be "On". When you do that, then you can update the routing control states for the target routing controls that you specify in the gating rule.</p>
    * @public
    */
-  GATING?: GatingRule;
+  GATING?: GatingRule | undefined;
 }
 
 /**
@@ -404,7 +404,7 @@ export interface CreateClusterRequest {
    * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the cluster.</p>
@@ -416,7 +416,7 @@ export interface CreateClusterRequest {
    * <p>The tags associated with the cluster.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -427,7 +427,7 @@ export interface CreateClusterResponse {
    * <p>The cluster that was created.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -549,7 +549,7 @@ export interface CreateControlPanelRequest {
    * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster for the control panel.</p>
@@ -567,7 +567,7 @@ export interface CreateControlPanelRequest {
    * <p>The tags associated with the control panel.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -578,7 +578,7 @@ export interface CreateControlPanelResponse {
    * <p>Information about a control panel.</p>
    * @public
    */
-  ControlPanel?: ControlPanel;
+  ControlPanel?: ControlPanel | undefined;
 }
 
 /**
@@ -590,7 +590,7 @@ export interface CreateRoutingControlRequest {
    * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster that includes the routing control.</p>
@@ -602,7 +602,7 @@ export interface CreateRoutingControlRequest {
    * <p>The Amazon Resource Name (ARN) of the control panel that includes the routing control.</p>
    * @public
    */
-  ControlPanelArn?: string;
+  ControlPanelArn?: string | undefined;
 
   /**
    * <p>The name of the routing control.</p>
@@ -619,7 +619,7 @@ export interface CreateRoutingControlResponse {
    * <p>The routing control that is created.</p>
    * @public
    */
-  RoutingControl?: RoutingControl;
+  RoutingControl?: RoutingControl | undefined;
 }
 
 /**
@@ -709,25 +709,25 @@ export interface CreateSafetyRuleRequest {
    * <p>The assertion rule requested.</p>
    * @public
    */
-  AssertionRule?: NewAssertionRule;
+  AssertionRule?: NewAssertionRule | undefined;
 
   /**
    * <p>A unique, case-sensitive string of up to 64 ASCII characters. To make an idempotent API request with an action, specify a client token in the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The gating rule requested.</p>
    * @public
    */
-  GatingRule?: NewGatingRule;
+  GatingRule?: NewGatingRule | undefined;
 
   /**
    * <p>The tags associated with the safety rule.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -738,13 +738,13 @@ export interface CreateSafetyRuleResponse {
    * <p>The assertion rule created.</p>
    * @public
    */
-  AssertionRule?: AssertionRule;
+  AssertionRule?: AssertionRule | undefined;
 
   /**
    * <p>The gating rule created.</p>
    * @public
    */
-  GatingRule?: GatingRule;
+  GatingRule?: GatingRule | undefined;
 }
 
 /**
@@ -830,7 +830,7 @@ export interface DescribeClusterResponse {
    * <p>The cluster for the DescribeCluster request.</p>
    * @public
    */
-  Cluster?: Cluster;
+  Cluster?: Cluster | undefined;
 }
 
 /**
@@ -852,7 +852,7 @@ export interface DescribeControlPanelResponse {
    * <p>Information about the control panel.</p>
    * @public
    */
-  ControlPanel?: ControlPanel;
+  ControlPanel?: ControlPanel | undefined;
 }
 
 /**
@@ -874,7 +874,7 @@ export interface DescribeRoutingControlResponse {
    * <p>Information about the routing control.</p>
    * @public
    */
-  RoutingControl?: RoutingControl;
+  RoutingControl?: RoutingControl | undefined;
 }
 
 /**
@@ -896,13 +896,13 @@ export interface DescribeSafetyRuleResponse {
    * <p>The assertion rule in the response.</p>
    * @public
    */
-  AssertionRule?: AssertionRule;
+  AssertionRule?: AssertionRule | undefined;
 
   /**
    * <p>The gating rule in the response.</p>
    * @public
    */
-  GatingRule?: GatingRule;
+  GatingRule?: GatingRule | undefined;
 }
 
 /**
@@ -948,7 +948,7 @@ export interface GetResourcePolicyResponse {
    * <p>The resource policy.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -959,13 +959,13 @@ export interface ListAssociatedRoute53HealthChecksRequest {
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the routing control.</p>
@@ -982,13 +982,13 @@ export interface ListAssociatedRoute53HealthChecksResponse {
    * <p>Identifiers for the health checks.</p>
    * @public
    */
-  HealthCheckIds?: string[];
+  HealthCheckIds?: string[] | undefined;
 
   /**
    * <p>Next token for listing health checks.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -999,13 +999,13 @@ export interface ListClustersRequest {
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1016,13 +1016,13 @@ export interface ListClustersResponse {
    * <p>An array of the clusters in an account.</p>
    * @public
    */
-  Clusters?: Cluster[];
+  Clusters?: Cluster[] | undefined;
 
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1033,19 +1033,19 @@ export interface ListControlPanelsRequest {
    * <p>The Amazon Resource Name (ARN) of a cluster.</p>
    * @public
    */
-  ClusterArn?: string;
+  ClusterArn?: string | undefined;
 
   /**
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1056,13 +1056,13 @@ export interface ListControlPanelsResponse {
    * <p>The result of a successful ListControlPanel request.</p>
    * @public
    */
-  ControlPanels?: ControlPanel[];
+  ControlPanels?: ControlPanel[] | undefined;
 
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1079,13 +1079,13 @@ export interface ListRoutingControlsRequest {
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1096,13 +1096,13 @@ export interface ListRoutingControlsResponse {
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>An array of routing controls.</p>
    * @public
    */
-  RoutingControls?: RoutingControl[];
+  RoutingControls?: RoutingControl[] | undefined;
 }
 
 /**
@@ -1119,13 +1119,13 @@ export interface ListSafetyRulesRequest {
    * <p>The number of objects that you want to return with this call.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1136,13 +1136,13 @@ export interface ListSafetyRulesResponse {
    * <p>The token that identifies which batch of results you want to see.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The list of safety rules in a control panel.</p>
    * @public
    */
-  SafetyRules?: Rule[];
+  SafetyRules?: Rule[] | undefined;
 }
 
 /**
@@ -1164,7 +1164,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags associated with the resource.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1238,7 +1238,7 @@ export interface UpdateControlPanelResponse {
    * <p>The control panel to update.</p>
    * @public
    */
-  ControlPanel?: ControlPanel;
+  ControlPanel?: ControlPanel | undefined;
 }
 
 /**
@@ -1267,7 +1267,7 @@ export interface UpdateRoutingControlResponse {
    * <p>The routing control that was updated.</p>
    * @public
    */
-  RoutingControl?: RoutingControl;
+  RoutingControl?: RoutingControl | undefined;
 }
 
 /**
@@ -1279,13 +1279,13 @@ export interface UpdateSafetyRuleRequest {
    * <p>The assertion rule to update.</p>
    * @public
    */
-  AssertionRuleUpdate?: AssertionRuleUpdate;
+  AssertionRuleUpdate?: AssertionRuleUpdate | undefined;
 
   /**
    * <p>The gating rule to update.</p>
    * @public
    */
-  GatingRuleUpdate?: GatingRuleUpdate;
+  GatingRuleUpdate?: GatingRuleUpdate | undefined;
 }
 
 /**
@@ -1296,11 +1296,11 @@ export interface UpdateSafetyRuleResponse {
    * <p>The assertion rule updated.</p>
    * @public
    */
-  AssertionRule?: AssertionRule;
+  AssertionRule?: AssertionRule | undefined;
 
   /**
    * <p>The gating rule updated.</p>
    * @public
    */
-  GatingRule?: GatingRule;
+  GatingRule?: GatingRule | undefined;
 }
