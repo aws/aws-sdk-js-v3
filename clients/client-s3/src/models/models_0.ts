@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
-
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { S3ServiceException as __BaseException } from "./S3ServiceException";
@@ -18,7 +17,7 @@ export interface AbortIncompleteMultipartUpload {
    *          upload.</p>
    * @public
    */
-  DaysAfterInitiation?: number;
+  DaysAfterInitiation?: number | undefined;
 }
 
 /**
@@ -46,7 +45,7 @@ export interface AbortMultipartUploadOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -113,13 +112,13 @@ export interface AbortMultipartUploadRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -167,7 +166,7 @@ export interface AccelerateConfiguration {
    * <p>Specifies the transfer acceleration status of the bucket.</p>
    * @public
    */
-  Status?: BucketAccelerateStatus;
+  Status?: BucketAccelerateStatus | undefined;
 }
 
 /**
@@ -194,7 +193,7 @@ export interface Grantee {
    * <p>Screen name of the grantee.</p>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>Email address of the grantee.</p>
@@ -230,19 +229,19 @@ export interface Grantee {
    *          </note>
    * @public
    */
-  EmailAddress?: string;
+  EmailAddress?: string | undefined;
 
   /**
    * <p>The canonical user ID of the grantee.</p>
    * @public
    */
-  ID?: string;
+  ID?: string | undefined;
 
   /**
    * <p>URI of the grantee group.</p>
    * @public
    */
-  URI?: string;
+  URI?: string | undefined;
 
   /**
    * <p>Type of grantee</p>
@@ -277,13 +276,13 @@ export interface Grant {
    * <p>The person being granted permissions.</p>
    * @public
    */
-  Grantee?: Grantee;
+  Grantee?: Grantee | undefined;
 
   /**
    * <p>Specifies the permission given to the grantee.</p>
    * @public
    */
-  Permission?: Permission;
+  Permission?: Permission | undefined;
 }
 
 /**
@@ -325,13 +324,13 @@ export interface Owner {
    *          </note>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 
   /**
    * <p>Container for the ID of the owner.</p>
    * @public
    */
-  ID?: string;
+  ID?: string | undefined;
 }
 
 /**
@@ -343,13 +342,13 @@ export interface AccessControlPolicy {
    * <p>A list of grants.</p>
    * @public
    */
-  Grants?: Grant[];
+  Grants?: Grant[] | undefined;
 
   /**
    * <p>Container for the bucket owner's display name and ID.</p>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 }
 
 /**
@@ -401,7 +400,7 @@ export interface CompleteMultipartUploadOutput {
    * <p>The URI that identifies the newly created object.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p>The name of the bucket that contains the newly created object. Does not return the access point
@@ -411,13 +410,13 @@ export interface CompleteMultipartUploadOutput {
    *          </note>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>The object key of the newly created object.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>If the object expiration is configured, this will contain the expiration date
@@ -428,7 +427,7 @@ export interface CompleteMultipartUploadOutput {
    *          </note>
    * @public
    */
-  Expiration?: string;
+  Expiration?: string | undefined;
 
   /**
    * <p>Entity tag that identifies the newly created object's data. Objects with different
@@ -440,7 +439,7 @@ export interface CompleteMultipartUploadOutput {
    *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
@@ -449,7 +448,7 @@ export interface CompleteMultipartUploadOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -458,7 +457,7 @@ export interface CompleteMultipartUploadOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -467,7 +466,7 @@ export interface CompleteMultipartUploadOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
@@ -476,14 +475,14 @@ export interface CompleteMultipartUploadOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3 (for example,
    *             <code>AES256</code>, <code>aws:kms</code>).</p>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>Version ID of the newly created object, in case the bucket has versioning turned
@@ -493,20 +492,20 @@ export interface CompleteMultipartUploadOutput {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
    *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -516,7 +515,7 @@ export interface CompleteMultipartUploadOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -528,7 +527,7 @@ export interface CompletedPart {
    * <p>Entity tag returned when the part was uploaded.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
@@ -537,7 +536,7 @@ export interface CompletedPart {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -546,7 +545,7 @@ export interface CompletedPart {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -555,7 +554,7 @@ export interface CompletedPart {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
@@ -564,7 +563,7 @@ export interface CompletedPart {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 
   /**
    * <p>Part number that identifies the part. This is a positive integer between 1 and
@@ -586,7 +585,7 @@ export interface CompletedPart {
    *          </note>
    * @public
    */
-  PartNumber?: number;
+  PartNumber?: number | undefined;
 }
 
 /**
@@ -600,7 +599,7 @@ export interface CompletedMultipartUpload {
    *          an HTTP 400 response.</p>
    * @public
    */
-  Parts?: CompletedPart[];
+  Parts?: CompletedPart[] | undefined;
 }
 
 /**
@@ -640,7 +639,7 @@ export interface CompleteMultipartUploadRequest {
    * <p>The container for the multipart upload request information.</p>
    * @public
    */
-  MultipartUpload?: CompletedMultipartUpload;
+  MultipartUpload?: CompletedMultipartUpload | undefined;
 
   /**
    * <p>ID for the initiated multipart upload.</p>
@@ -655,7 +654,7 @@ export interface CompleteMultipartUploadRequest {
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -664,7 +663,7 @@ export interface CompleteMultipartUploadRequest {
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -673,7 +672,7 @@ export interface CompleteMultipartUploadRequest {
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -682,7 +681,7 @@ export interface CompleteMultipartUploadRequest {
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -696,13 +695,13 @@ export interface CompleteMultipartUploadRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Uploads the object only if the object key name does not already exist in the bucket specified. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error.</p>
@@ -711,7 +710,7 @@ export interface CompleteMultipartUploadRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  IfNoneMatch?: string;
+  IfNoneMatch?: string | undefined;
 
   /**
    * <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is
@@ -723,7 +722,7 @@ export interface CompleteMultipartUploadRequest {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm.
@@ -735,7 +734,7 @@ export interface CompleteMultipartUploadRequest {
    *          </note>
    * @public
    */
-  SSECustomerKey?: string;
+  SSECustomerKey?: string | undefined;
 
   /**
    * <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum
@@ -747,7 +746,7 @@ export interface CompleteMultipartUploadRequest {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 }
 
 /**
@@ -760,13 +759,13 @@ export interface CopyObjectResult {
    *          object, not its metadata.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>Creation date of the object.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
@@ -774,7 +773,7 @@ export interface CopyObjectResult {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -782,7 +781,7 @@ export interface CopyObjectResult {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -790,7 +789,7 @@ export interface CopyObjectResult {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
@@ -798,7 +797,7 @@ export interface CopyObjectResult {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 }
 
 /**
@@ -809,7 +808,7 @@ export interface CopyObjectOutput {
    * <p>Container for all response elements.</p>
    * @public
    */
-  CopyObjectResult?: CopyObjectResult;
+  CopyObjectResult?: CopyObjectResult | undefined;
 
   /**
    * <p>If the object expiration is configured, the response includes this header.</p>
@@ -818,7 +817,7 @@ export interface CopyObjectOutput {
    *          </note>
    * @public
    */
-  Expiration?: string;
+  Expiration?: string | undefined;
 
   /**
    * <p>Version ID of the source object that was copied.</p>
@@ -827,7 +826,7 @@ export interface CopyObjectOutput {
    *          </note>
    * @public
    */
-  CopySourceVersionId?: string;
+  CopySourceVersionId?: string | undefined;
 
   /**
    * <p>Version ID of the newly created copy.</p>
@@ -836,14 +835,14 @@ export interface CopyObjectOutput {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for example,
    *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -853,7 +852,7 @@ export interface CopyObjectOutput {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -864,13 +863,13 @@ export interface CopyObjectOutput {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The
@@ -878,14 +877,14 @@ export interface CopyObjectOutput {
    *          context key-value pairs.</p>
    * @public
    */
-  SSEKMSEncryptionContext?: string;
+  SSEKMSEncryptionContext?: string | undefined;
 
   /**
    * <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption
    *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -895,7 +894,7 @@ export interface CopyObjectOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -1048,7 +1047,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  ACL?: ObjectCannedACL;
+  ACL?: ObjectCannedACL | undefined;
 
   /**
    * <p>The name of the destination bucket.</p>
@@ -1077,7 +1076,7 @@ export interface CopyObjectRequest {
    * <p>Specifies the caching behavior along the request/reply chain.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum for the object. For more information, see
@@ -1092,13 +1091,13 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
    * <p>Specifies presentational information for the object. Indicates whether an object should be displayed in a web browser or downloaded as a file. It allows specifying the desired filename for the downloaded file.</p>
    * @public
    */
-  ContentDisposition?: string;
+  ContentDisposition?: string | undefined;
 
   /**
    * <p>Specifies what content encodings have been applied to the object and thus what decoding
@@ -1109,19 +1108,19 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  ContentEncoding?: string;
+  ContentEncoding?: string | undefined;
 
   /**
    * <p>The language the content is in.</p>
    * @public
    */
-  ContentLanguage?: string;
+  ContentLanguage?: string | undefined;
 
   /**
    * <p>A standard MIME type that describes the format of the object data.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Specifies the source object for the copy operation. The source object
@@ -1197,7 +1196,7 @@ export interface CopyObjectRequest {
    *          </ul>
    * @public
    */
-  CopySourceIfMatch?: string;
+  CopySourceIfMatch?: string | undefined;
 
   /**
    * <p>Copies the object if it has been modified since the specified time.</p>
@@ -1219,7 +1218,7 @@ export interface CopyObjectRequest {
    *          </ul>
    * @public
    */
-  CopySourceIfModifiedSince?: Date;
+  CopySourceIfModifiedSince?: Date | undefined;
 
   /**
    * <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
@@ -1241,7 +1240,7 @@ export interface CopyObjectRequest {
    *          </ul>
    * @public
    */
-  CopySourceIfNoneMatch?: string;
+  CopySourceIfNoneMatch?: string | undefined;
 
   /**
    * <p>Copies the object if it hasn't been modified since the specified time.</p>
@@ -1263,13 +1262,13 @@ export interface CopyObjectRequest {
    *          </ul>
    * @public
    */
-  CopySourceIfUnmodifiedSince?: Date;
+  CopySourceIfUnmodifiedSince?: Date | undefined;
 
   /**
    * <p>The date and time at which the object is no longer cacheable.</p>
    * @public
    */
-  Expires?: Date;
+  Expires?: Date | undefined;
 
   /**
    * <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
@@ -1285,7 +1284,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  GrantFullControl?: string;
+  GrantFullControl?: string | undefined;
 
   /**
    * <p>Allows grantee to read the object data and its metadata.</p>
@@ -1301,7 +1300,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  GrantRead?: string;
+  GrantRead?: string | undefined;
 
   /**
    * <p>Allows grantee to read the object ACL.</p>
@@ -1317,7 +1316,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  GrantReadACP?: string;
+  GrantReadACP?: string | undefined;
 
   /**
    * <p>Allows grantee to write the ACL for the applicable object.</p>
@@ -1333,7 +1332,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  GrantWriteACP?: string;
+  GrantWriteACP?: string | undefined;
 
   /**
    * <p>The key of the destination object.</p>
@@ -1345,7 +1344,7 @@ export interface CopyObjectRequest {
    * <p>A map of metadata to store with the object in S3.</p>
    * @public
    */
-  Metadata?: Record<string, string>;
+  Metadata?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether the metadata is copied from the source object or replaced with
@@ -1366,7 +1365,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  MetadataDirective?: MetadataDirective;
+  MetadataDirective?: MetadataDirective | undefined;
 
   /**
    * <p>Specifies whether the object tag-set is copied from the source object or replaced with
@@ -1405,7 +1404,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  TaggingDirective?: TaggingDirective;
+  TaggingDirective?: TaggingDirective | undefined;
 
   /**
    * <p>The server-side encryption algorithm used when storing this object in Amazon S3. Unrecognized or unsupported values won’t write a destination object and will receive a <code>400 Bad Request</code> response. </p>
@@ -1462,7 +1461,7 @@ export interface CopyObjectRequest {
    *          </ul>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>If the <code>x-amz-storage-class</code> header is not used, the copied object will be stored in the
@@ -1505,7 +1504,7 @@ export interface CopyObjectRequest {
    *          the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>If the destination bucket is configured as a website, redirects requests for this object copy to another
@@ -1518,7 +1517,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  WebsiteRedirectLocation?: string;
+  WebsiteRedirectLocation?: string | undefined;
 
   /**
    * <p>Specifies the algorithm to use when encrypting the object (for example,
@@ -1534,7 +1533,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
@@ -1546,7 +1545,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerKey?: string;
+  SSECustomerKey?: string | undefined;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -1557,7 +1556,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID (Key ID, Key ARN, or Key Alias) to use for object encryption. All GET and PUT requests for an
@@ -1577,7 +1576,7 @@ export interface CopyObjectRequest {
    * </p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Web Services KMS Encryption Context as an additional encryption context to use for the destination object encryption. The value of
@@ -1590,7 +1589,7 @@ export interface CopyObjectRequest {
    *             <b>Directory buckets</b> - You can optionally provide an explicit encryption context value. The value must match the default encryption context - the bucket Amazon Resource Name (ARN). An additional encryption context value is not supported. </p>
    * @public
    */
-  SSEKMSEncryptionContext?: string;
+  SSEKMSEncryptionContext?: string | undefined;
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
@@ -1609,7 +1608,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the algorithm to use when decrypting the source object (for example,
@@ -1623,7 +1622,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  CopySourceSSECustomerAlgorithm?: string;
+  CopySourceSSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source
@@ -1638,7 +1637,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  CopySourceSSECustomerKey?: string;
+  CopySourceSSECustomerKey?: string | undefined;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -1653,7 +1652,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  CopySourceSSECustomerKeyMD5?: string;
+  CopySourceSSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -1667,7 +1666,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The tag-set for the object copy in the destination bucket. This value must be used in conjunction
@@ -1708,7 +1707,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  Tagging?: string;
+  Tagging?: string | undefined;
 
   /**
    * <p>The Object Lock mode that you want to apply to the object copy.</p>
@@ -1717,7 +1716,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  ObjectLockMode?: ObjectLockMode;
+  ObjectLockMode?: ObjectLockMode | undefined;
 
   /**
    * <p>The date and time when you want the Object Lock of the object copy to expire.</p>
@@ -1726,7 +1725,7 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  ObjectLockRetainUntilDate?: Date;
+  ObjectLockRetainUntilDate?: Date | undefined;
 
   /**
    * <p>Specifies whether you want to apply a legal hold to the object copy.</p>
@@ -1735,19 +1734,19 @@ export interface CopyObjectRequest {
    *          </note>
    * @public
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus;
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
 
   /**
    * <p>The account ID of the expected destination bucket owner. If the account ID that you provide does not match the actual owner of the destination bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>The account ID of the expected source bucket owner. If the account ID that you provide does not match the actual owner of the source bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedSourceBucketOwner?: string;
+  ExpectedSourceBucketOwner?: string | undefined;
 }
 
 /**
@@ -1823,7 +1822,7 @@ export interface CreateBucketOutput {
    * <p>A forward slash followed by the name of the bucket.</p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 }
 
 /**
@@ -1881,13 +1880,13 @@ export interface BucketInfo {
    * <p>The number of Availability Zone that's used for redundancy for the bucket.</p>
    * @public
    */
-  DataRedundancy?: DataRedundancy;
+  DataRedundancy?: DataRedundancy | undefined;
 
   /**
    * <p>The type of bucket.</p>
    * @public
    */
-  Type?: BucketType;
+  Type?: BucketType | undefined;
 }
 
 /**
@@ -1917,14 +1916,14 @@ export interface LocationInfo {
    * <p>The type of location where the bucket will be created.</p>
    * @public
    */
-  Type?: LocationType;
+  Type?: LocationType | undefined;
 
   /**
    * <p>The name of the location where the bucket will be created.</p>
    *          <p>For directory buckets, the name of the location is the AZ ID of the Availability Zone where the bucket will be created. An example AZ ID value is <code>usw2-az1</code>.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1985,7 +1984,7 @@ export interface CreateBucketConfiguration {
    *          </note>
    * @public
    */
-  LocationConstraint?: BucketLocationConstraint;
+  LocationConstraint?: BucketLocationConstraint | undefined;
 
   /**
    * <p>Specifies the location where the bucket will be created.</p>
@@ -1995,7 +1994,7 @@ export interface CreateBucketConfiguration {
    *          </note>
    * @public
    */
-  Location?: LocationInfo;
+  Location?: LocationInfo | undefined;
 
   /**
    * <p>Specifies the information about the bucket that will be created.</p>
@@ -2004,7 +2003,7 @@ export interface CreateBucketConfiguration {
    *          </note>
    * @public
    */
-  Bucket?: BucketInfo;
+  Bucket?: BucketInfo | undefined;
 }
 
 /**
@@ -2033,7 +2032,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  ACL?: BucketCannedACL;
+  ACL?: BucketCannedACL | undefined;
 
   /**
    * <p>The name of the bucket to create.</p>
@@ -2055,7 +2054,7 @@ export interface CreateBucketRequest {
    * <p>The configuration information for the bucket.</p>
    * @public
    */
-  CreateBucketConfiguration?: CreateBucketConfiguration;
+  CreateBucketConfiguration?: CreateBucketConfiguration | undefined;
 
   /**
    * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
@@ -2065,7 +2064,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  GrantFullControl?: string;
+  GrantFullControl?: string | undefined;
 
   /**
    * <p>Allows grantee to list the objects in the bucket.</p>
@@ -2074,7 +2073,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  GrantRead?: string;
+  GrantRead?: string | undefined;
 
   /**
    * <p>Allows grantee to read the bucket ACL.</p>
@@ -2083,7 +2082,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  GrantReadACP?: string;
+  GrantReadACP?: string | undefined;
 
   /**
    * <p>Allows grantee to create new objects in the bucket.</p>
@@ -2094,7 +2093,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  GrantWrite?: string;
+  GrantWrite?: string | undefined;
 
   /**
    * <p>Allows grantee to write the ACL for the applicable bucket.</p>
@@ -2103,7 +2102,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  GrantWriteACP?: string;
+  GrantWriteACP?: string | undefined;
 
   /**
    * <p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p>
@@ -2112,7 +2111,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  ObjectLockEnabledForBucket?: boolean;
+  ObjectLockEnabledForBucket?: boolean | undefined;
 
   /**
    * <p>The container element for object ownership for a bucket's ownership controls.</p>
@@ -2138,7 +2137,7 @@ export interface CreateBucketRequest {
    *          </note>
    * @public
    */
-  ObjectOwnership?: ObjectOwnership;
+  ObjectOwnership?: ObjectOwnership | undefined;
 }
 
 /**
@@ -2159,7 +2158,7 @@ export interface CreateMultipartUploadOutput {
    *          </note>
    * @public
    */
-  AbortDate?: Date;
+  AbortDate?: Date | undefined;
 
   /**
    * <p>This header is returned along with the <code>x-amz-abort-date</code> header. It
@@ -2170,7 +2169,7 @@ export interface CreateMultipartUploadOutput {
    *          </note>
    * @public
    */
-  AbortRuleId?: string;
+  AbortRuleId?: string | undefined;
 
   /**
    * <p>The name of the bucket to which the multipart upload was initiated. Does not return the
@@ -2180,26 +2179,26 @@ export interface CreateMultipartUploadOutput {
    *          </note>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>Object key for which the multipart upload was initiated.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>ID for the initiated multipart upload.</p>
    * @public
    */
-  UploadId?: string;
+  UploadId?: string | undefined;
 
   /**
    * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for example,
    *             <code>AES256</code>, <code>aws:kms</code>).</p>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -2209,7 +2208,7 @@ export interface CreateMultipartUploadOutput {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -2220,27 +2219,27 @@ export interface CreateMultipartUploadOutput {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of
    *          this header is a Base64-encoded string of a UTF-8 encoded JSON, which contains the encryption context as key-value pairs.</p>
    * @public
    */
-  SSEKMSEncryptionContext?: string;
+  SSEKMSEncryptionContext?: string | undefined;
 
   /**
    * <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption
    *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -2250,13 +2249,13 @@ export interface CreateMultipartUploadOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -2287,7 +2286,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  ACL?: ObjectCannedACL;
+  ACL?: ObjectCannedACL | undefined;
 
   /**
    * <p>The name of the bucket where the multipart upload is initiated and where the object is uploaded.</p>
@@ -2316,13 +2315,13 @@ export interface CreateMultipartUploadRequest {
    * <p>Specifies caching behavior along the request/reply chain.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>Specifies presentational information for the object.</p>
    * @public
    */
-  ContentDisposition?: string;
+  ContentDisposition?: string | undefined;
 
   /**
    * <p>Specifies what content encodings have been applied to the object and thus what decoding
@@ -2333,25 +2332,25 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  ContentEncoding?: string;
+  ContentEncoding?: string | undefined;
 
   /**
    * <p>The language that the content is in.</p>
    * @public
    */
-  ContentLanguage?: string;
+  ContentLanguage?: string | undefined;
 
   /**
    * <p>A standard MIME type describing the format of the object data.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The date and time at which the object is no longer cacheable.</p>
    * @public
    */
-  Expires?: Date;
+  Expires?: Date | undefined;
 
   /**
    * <p>Specify access permissions explicitly to give the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
@@ -2426,7 +2425,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  GrantFullControl?: string;
+  GrantFullControl?: string | undefined;
 
   /**
    * <p>Specify access permissions explicitly to allow grantee to read the object data and its metadata.</p>
@@ -2501,7 +2500,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  GrantRead?: string;
+  GrantRead?: string | undefined;
 
   /**
    * <p>Specify access permissions explicitly to allows grantee to read the object ACL.</p>
@@ -2576,7 +2575,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  GrantReadACP?: string;
+  GrantReadACP?: string | undefined;
 
   /**
    * <p>Specify access permissions explicitly to allows grantee to allow grantee to write the ACL for the applicable object.</p>
@@ -2651,7 +2650,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  GrantWriteACP?: string;
+  GrantWriteACP?: string | undefined;
 
   /**
    * <p>Object key for which the multipart upload is to be initiated.</p>
@@ -2663,7 +2662,7 @@ export interface CreateMultipartUploadRequest {
    * <p>A map of metadata to store with the object in S3.</p>
    * @public
    */
-  Metadata?: Record<string, string>;
+  Metadata?: Record<string, string> | undefined;
 
   /**
    * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for example,
@@ -2693,7 +2692,7 @@ export interface CreateMultipartUploadRequest {
    *          </ul>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The
@@ -2713,7 +2712,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another
@@ -2724,7 +2723,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  WebsiteRedirectLocation?: string;
+  WebsiteRedirectLocation?: string | undefined;
 
   /**
    * <p>Specifies the algorithm to use when encrypting the object (for example,
@@ -2734,7 +2733,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
@@ -2746,7 +2745,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  SSECustomerKey?: string;
+  SSECustomerKey?: string | undefined;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the customer-provided encryption key according to RFC 1321. Amazon S3 uses
@@ -2757,7 +2756,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID (Key ID, Key ARN, or Key Alias) to use for object encryption. If the KMS key doesn't exist in the same
@@ -2779,7 +2778,7 @@ export interface CreateMultipartUploadRequest {
    * </p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Web Services KMS Encryption Context to use for object encryption. The value of
@@ -2788,7 +2787,7 @@ export interface CreateMultipartUploadRequest {
    *             <b>Directory buckets</b> - You can optionally provide an explicit encryption context value. The value must match the default encryption context - the bucket Amazon Resource Name (ARN). An additional encryption context value is not supported. </p>
    * @public
    */
-  SSEKMSEncryptionContext?: string;
+  SSEKMSEncryptionContext?: string | undefined;
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
@@ -2804,7 +2803,7 @@ export interface CreateMultipartUploadRequest {
    *                             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-import-job">the import jobs</a>. In this case, Amazon S3 makes a call to KMS every time a copy request is made for a KMS-encrypted object.</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -2818,7 +2817,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters.</p>
@@ -2827,7 +2826,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  Tagging?: string;
+  Tagging?: string | undefined;
 
   /**
    * <p>Specifies the Object Lock mode that you want to apply to the uploaded object.</p>
@@ -2836,7 +2835,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  ObjectLockMode?: ObjectLockMode;
+  ObjectLockMode?: ObjectLockMode | undefined;
 
   /**
    * <p>Specifies the date and time when you want the Object Lock to expire.</p>
@@ -2845,7 +2844,7 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  ObjectLockRetainUntilDate?: Date;
+  ObjectLockRetainUntilDate?: Date | undefined;
 
   /**
    * <p>Specifies whether you want to apply a legal hold to the uploaded object.</p>
@@ -2854,13 +2853,13 @@ export interface CreateMultipartUploadRequest {
    *          </note>
    * @public
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus;
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Indicates the algorithm that you want Amazon S3 to use to create the checksum for the object. For more information, see
@@ -2868,7 +2867,7 @@ export interface CreateMultipartUploadRequest {
    *     the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -2916,14 +2915,14 @@ export interface CreateSessionOutput {
    * <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, this header indicates the ID of the KMS
    *          symmetric encryption customer managed key that was used for object encryption.</p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of
@@ -2933,14 +2932,14 @@ export interface CreateSessionOutput {
    *          operations on this object.</p>
    * @public
    */
-  SSEKMSEncryptionContext?: string;
+  SSEKMSEncryptionContext?: string | undefined;
 
   /**
    * <p>Indicates whether to use an S3 Bucket Key for server-side encryption
    *          with KMS keys (SSE-KMS).</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>The established temporary security credentials for the created session.</p>
@@ -2977,7 +2976,7 @@ export interface CreateSessionRequest {
    *             <code>ListMultipartUploads</code>.</p>
    * @public
    */
-  SessionMode?: SessionMode;
+  SessionMode?: SessionMode | undefined;
 
   /**
    * <p>The name of the bucket that you create a session for.</p>
@@ -2994,7 +2993,7 @@ export interface CreateSessionRequest {
    *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code>, you must specify the <code>
@@ -3006,7 +3005,7 @@ export interface CreateSessionRequest {
    * </p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>Specifies the Amazon Web Services KMS Encryption Context as an additional encryption context to use for object encryption. The value of
@@ -3020,7 +3019,7 @@ export interface CreateSessionRequest {
    *             <b>Directory buckets</b> - You can optionally provide an explicit encryption context value. The value must match the default encryption context - the bucket Amazon Resource Name (ARN). An additional encryption context value is not supported. </p>
    * @public
    */
-  SSEKMSEncryptionContext?: string;
+  SSEKMSEncryptionContext?: string | undefined;
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with
@@ -3030,7 +3029,7 @@ export interface CreateSessionRequest {
    *                             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-import-job">the import jobs</a>. In this case, Amazon S3 makes a call to KMS every time a copy request is made for a KMS-encrypted object.</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 }
 
 /**
@@ -3077,7 +3076,7 @@ export interface DeleteBucketRequest {
    *          </note>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3102,7 +3101,7 @@ export interface DeleteBucketAnalyticsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3121,7 +3120,7 @@ export interface DeleteBucketCorsRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3151,7 +3150,7 @@ export interface DeleteBucketEncryptionRequest {
    *          </note>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3195,7 +3194,7 @@ export interface DeleteBucketInventoryConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3214,7 +3213,7 @@ export interface DeleteBucketLifecycleRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3240,7 +3239,7 @@ export interface DeleteBucketMetricsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3259,7 +3258,7 @@ export interface DeleteBucketOwnershipControlsRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3288,7 +3287,7 @@ export interface DeleteBucketPolicyRequest {
    *          </note>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3307,7 +3306,7 @@ export interface DeleteBucketReplicationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3326,7 +3325,7 @@ export interface DeleteBucketTaggingRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3345,7 +3344,7 @@ export interface DeleteBucketWebsiteRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3361,7 +3360,7 @@ export interface DeleteObjectOutput {
    *          </note>
    * @public
    */
-  DeleteMarker?: boolean;
+  DeleteMarker?: boolean | undefined;
 
   /**
    * <p>Returns the version ID of the delete marker created as a result of the DELETE
@@ -3371,7 +3370,7 @@ export interface DeleteObjectOutput {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -3381,7 +3380,7 @@ export interface DeleteObjectOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -3426,7 +3425,7 @@ export interface DeleteObjectRequest {
    *          </note>
    * @public
    */
-  MFA?: string;
+  MFA?: string | undefined;
 
   /**
    * <p>Version ID used to reference a specific version of the object.</p>
@@ -3435,7 +3434,7 @@ export interface DeleteObjectRequest {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -3449,7 +3448,7 @@ export interface DeleteObjectRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process
@@ -3460,13 +3459,13 @@ export interface DeleteObjectRequest {
    *          </note>
    * @public
    */
-  BypassGovernanceRetention?: boolean;
+  BypassGovernanceRetention?: boolean | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -3478,7 +3477,7 @@ export interface DeletedObject {
    * <p>The name of the deleted object.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The version ID of the deleted object.</p>
@@ -3487,7 +3486,7 @@ export interface DeletedObject {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Indicates whether the specified object version that was permanently deleted was (true) or was
@@ -3498,7 +3497,7 @@ export interface DeletedObject {
    *          </note>
    * @public
    */
-  DeleteMarker?: boolean;
+  DeleteMarker?: boolean | undefined;
 
   /**
    * <p>The version ID of the delete marker created as a result of the DELETE operation. If you
@@ -3509,7 +3508,7 @@ export interface DeletedObject {
    *          </note>
    * @public
    */
-  DeleteMarkerVersionId?: string;
+  DeleteMarkerVersionId?: string | undefined;
 }
 
 /**
@@ -3521,7 +3520,7 @@ export interface _Error {
    * <p>The error key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The version ID of the error.</p>
@@ -3530,7 +3529,7 @@ export interface _Error {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The error code is a string that uniquely identifies an error condition. It is meant to
@@ -5399,7 +5398,7 @@ export interface _Error {
    *          <p></p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error condition in English. It
@@ -5409,7 +5408,7 @@ export interface _Error {
    *          are more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -5421,7 +5420,7 @@ export interface DeleteObjectsOutput {
    *          successfully deleted.</p>
    * @public
    */
-  Deleted?: DeletedObject[];
+  Deleted?: DeletedObject[] | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -5431,14 +5430,14 @@ export interface DeleteObjectsOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 
   /**
    * <p>Container for a failed delete action that describes the object that Amazon S3 attempted to
    *          delete and the error it encountered.</p>
    * @public
    */
-  Errors?: _Error[];
+  Errors?: _Error[] | undefined;
 }
 
 /**
@@ -5464,7 +5463,7 @@ export interface ObjectIdentifier {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -5489,7 +5488,7 @@ export interface Delete {
    *          its value to <code>true</code>.</p>
    * @public
    */
-  Quiet?: boolean;
+  Quiet?: boolean | undefined;
 }
 
 /**
@@ -5540,7 +5539,7 @@ export interface DeleteObjectsRequest {
    *          </note>
    * @public
    */
-  MFA?: string;
+  MFA?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -5554,7 +5553,7 @@ export interface DeleteObjectsRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>Specifies whether you want to delete this object even if it has a Governance-type Object
@@ -5565,13 +5564,13 @@ export interface DeleteObjectsRequest {
    *          </note>
    * @public
    */
-  BypassGovernanceRetention?: boolean;
+  BypassGovernanceRetention?: boolean | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
@@ -5615,7 +5614,7 @@ export interface DeleteObjectsRequest {
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -5626,7 +5625,7 @@ export interface DeleteObjectTaggingOutput {
    * <p>The versionId of the object the tag-set was removed from.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 }
 
 /**
@@ -5656,13 +5655,13 @@ export interface DeleteObjectTaggingRequest {
    * <p>The versionId of the object that the tag-set will be removed from.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -5682,7 +5681,7 @@ export interface DeletePublicAccessBlockRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -5693,7 +5692,7 @@ export interface GetBucketAccelerateConfigurationOutput {
    * <p>The accelerate configuration of the bucket.</p>
    * @public
    */
-  Status?: BucketAccelerateStatus;
+  Status?: BucketAccelerateStatus | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -5703,7 +5702,7 @@ export interface GetBucketAccelerateConfigurationOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -5722,7 +5721,7 @@ export interface GetBucketAccelerateConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -5736,7 +5735,7 @@ export interface GetBucketAccelerateConfigurationRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 }
 
 /**
@@ -5747,13 +5746,13 @@ export interface GetBucketAclOutput {
    * <p>Container for the bucket owner's display name and ID.</p>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>A list of grants.</p>
    * @public
    */
-  Grants?: Grant[];
+  Grants?: Grant[] | undefined;
 }
 
 /**
@@ -5777,7 +5776,7 @@ export interface GetBucketAclRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -5810,13 +5809,13 @@ export interface AnalyticsAndOperator {
    *          to be included in the metrics results.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>The list of tags to use when evaluating an AND predicate.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -5928,7 +5927,7 @@ export interface AnalyticsS3BucketDestination {
    *          </note>
    * @public
    */
-  BucketAccountId?: string;
+  BucketAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket to which data is exported.</p>
@@ -5940,7 +5939,7 @@ export interface AnalyticsS3BucketDestination {
    * <p>The prefix to use when exporting data. The prefix is prepended to all results.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -6000,7 +5999,7 @@ export interface StorageClassAnalysis {
    *          exported.</p>
    * @public
    */
-  DataExport?: StorageClassAnalysisDataExport;
+  DataExport?: StorageClassAnalysisDataExport | undefined;
 }
 
 /**
@@ -6021,7 +6020,7 @@ export interface AnalyticsConfiguration {
    *          all objects will be considered in any analysis.</p>
    * @public
    */
-  Filter?: AnalyticsFilter;
+  Filter?: AnalyticsFilter | undefined;
 
   /**
    * <p> Contains data related to access patterns to be collected and made available to analyze
@@ -6039,7 +6038,7 @@ export interface GetBucketAnalyticsConfigurationOutput {
    * <p>The configuration and any analyses for the analytics filter.</p>
    * @public
    */
-  AnalyticsConfiguration?: AnalyticsConfiguration;
+  AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
 }
 
 /**
@@ -6064,7 +6063,7 @@ export interface GetBucketAnalyticsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -6076,7 +6075,7 @@ export interface CORSRule {
    * <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
    * @public
    */
-  ID?: string;
+  ID?: string | undefined;
 
   /**
    * <p>Headers that are specified in the <code>Access-Control-Request-Headers</code> header.
@@ -6084,7 +6083,7 @@ export interface CORSRule {
    *          OPTIONS request, Amazon S3 returns any requested headers that are allowed.</p>
    * @public
    */
-  AllowedHeaders?: string[];
+  AllowedHeaders?: string[] | undefined;
 
   /**
    * <p>An HTTP method that you allow the origin to execute. Valid values are <code>GET</code>,
@@ -6105,14 +6104,14 @@ export interface CORSRule {
    *          object).</p>
    * @public
    */
-  ExposeHeaders?: string[];
+  ExposeHeaders?: string[] | undefined;
 
   /**
    * <p>The time in seconds that your browser is to cache the preflight response for the
    *          specified resource.</p>
    * @public
    */
-  MaxAgeSeconds?: number;
+  MaxAgeSeconds?: number | undefined;
 }
 
 /**
@@ -6124,7 +6123,7 @@ export interface GetBucketCorsOutput {
    *          up to 100 rules to the configuration.</p>
    * @public
    */
-  CORSRules?: CORSRule[];
+  CORSRules?: CORSRule[] | undefined;
 }
 
 /**
@@ -6148,7 +6147,7 @@ export interface GetBucketCorsRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -6246,7 +6245,7 @@ export interface ServerSideEncryptionByDefault {
    *          </important>
    * @public
    */
-  KMSMasterKeyID?: string;
+  KMSMasterKeyID?: string | undefined;
 }
 
 /**
@@ -6275,7 +6274,7 @@ export interface ServerSideEncryptionRule {
    *          be applied.</p>
    * @public
    */
-  ApplyServerSideEncryptionByDefault?: ServerSideEncryptionByDefault;
+  ApplyServerSideEncryptionByDefault?: ServerSideEncryptionByDefault | undefined;
 
   /**
    * <p>Specifies whether Amazon S3 should use an S3 Bucket Key with server-side encryption using KMS
@@ -6299,7 +6298,7 @@ export interface ServerSideEncryptionRule {
    *          </note>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 }
 
 /**
@@ -6323,7 +6322,7 @@ export interface GetBucketEncryptionOutput {
    * <p>Specifies the default server-side-encryption configuration.</p>
    * @public
    */
-  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration;
+  ServerSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
 }
 
 /**
@@ -6353,7 +6352,7 @@ export interface GetBucketEncryptionRequest {
    *          </note>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -6367,14 +6366,14 @@ export interface IntelligentTieringAndOperator {
    *          configuration applies.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>All of these tags must exist in the object's tag set in order for the configuration to
    *          apply.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6393,13 +6392,13 @@ export interface IntelligentTieringFilter {
    *          </important>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>A container of a key value name pair.</p>
    * @public
    */
-  Tag?: Tag;
+  Tag?: Tag | undefined;
 
   /**
    * <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter.
@@ -6407,7 +6406,7 @@ export interface IntelligentTieringFilter {
    *          predicates in order for the filter to apply.</p>
    * @public
    */
-  And?: IntelligentTieringAndOperator;
+  And?: IntelligentTieringAndOperator | undefined;
 }
 
 /**
@@ -6483,7 +6482,7 @@ export interface IntelligentTieringConfiguration {
    *          filter's criteria.</p>
    * @public
    */
-  Filter?: IntelligentTieringFilter;
+  Filter?: IntelligentTieringFilter | undefined;
 
   /**
    * <p>Specifies the status of the configuration.</p>
@@ -6506,7 +6505,7 @@ export interface GetBucketIntelligentTieringConfigurationOutput {
    * <p>Container for S3 Intelligent-Tiering configuration.</p>
    * @public
    */
-  IntelligentTieringConfiguration?: IntelligentTieringConfiguration;
+  IntelligentTieringConfiguration?: IntelligentTieringConfiguration | undefined;
 }
 
 /**
@@ -6557,13 +6556,13 @@ export interface InventoryEncryption {
    * <p>Specifies the use of SSE-S3 to encrypt delivered inventory reports.</p>
    * @public
    */
-  SSES3?: SSES3;
+  SSES3?: SSES3 | undefined;
 
   /**
    * <p>Specifies the use of SSE-KMS to encrypt delivered inventory reports.</p>
    * @public
    */
-  SSEKMS?: SSEKMS;
+  SSEKMS?: SSEKMS | undefined;
 }
 
 /**
@@ -6596,7 +6595,7 @@ export interface InventoryS3BucketDestination {
    *          </note>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket where inventory results will be
@@ -6615,14 +6614,14 @@ export interface InventoryS3BucketDestination {
    * <p>The prefix that is prepended to all inventory results.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Contains the type of server-side encryption used to encrypt the inventory
    *          results.</p>
    * @public
    */
-  Encryption?: InventoryEncryption;
+  Encryption?: InventoryEncryption | undefined;
 }
 
 /**
@@ -6744,7 +6743,7 @@ export interface InventoryConfiguration {
    *          filter's criteria.</p>
    * @public
    */
-  Filter?: InventoryFilter;
+  Filter?: InventoryFilter | undefined;
 
   /**
    * <p>The ID used to identify the inventory configuration.</p>
@@ -6766,7 +6765,7 @@ export interface InventoryConfiguration {
    * <p>Contains the optional fields that are included in the inventory results.</p>
    * @public
    */
-  OptionalFields?: InventoryOptionalField[];
+  OptionalFields?: InventoryOptionalField[] | undefined;
 
   /**
    * <p>Specifies the schedule for generating inventory results.</p>
@@ -6783,7 +6782,7 @@ export interface GetBucketInventoryConfigurationOutput {
    * <p>Specifies the inventory configuration.</p>
    * @public
    */
-  InventoryConfiguration?: InventoryConfiguration;
+  InventoryConfiguration?: InventoryConfiguration | undefined;
 }
 
 /**
@@ -6808,7 +6807,7 @@ export interface GetBucketInventoryConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -6823,14 +6822,14 @@ export interface LifecycleExpiration {
    *          to the ISO 8601 format. The time is always midnight UTC.</p>
    * @public
    */
-  Date?: Date;
+  Date?: Date | undefined;
 
   /**
    * <p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value
    *          must be a non-zero positive integer.</p>
    * @public
    */
-  Days?: number;
+  Days?: number | undefined;
 
   /**
    * <p>Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set
@@ -6838,7 +6837,7 @@ export interface LifecycleExpiration {
    *          This cannot be specified with Days or Date in a Lifecycle Expiration Policy.</p>
    * @public
    */
-  ExpiredObjectDeleteMarker?: boolean;
+  ExpiredObjectDeleteMarker?: boolean | undefined;
 }
 
 /**
@@ -6852,26 +6851,26 @@ export interface LifecycleRuleAndOperator {
    * <p>Prefix identifying one or more objects to which the rule applies.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>All of these tags must exist in the object's tag set in order for the rule to
    *          apply.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Minimum object size to which the rule applies.</p>
    * @public
    */
-  ObjectSizeGreaterThan?: number;
+  ObjectSizeGreaterThan?: number | undefined;
 
   /**
    * <p>Maximum object size to which the rule applies.</p>
    * @public
    */
-  ObjectSizeLessThan?: number;
+  ObjectSizeLessThan?: number | undefined;
 }
 
 /**
@@ -6890,25 +6889,25 @@ export interface LifecycleRuleFilter {
    *          </important>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>This tag must exist in the object's tag set in order for the rule to apply.</p>
    * @public
    */
-  Tag?: Tag;
+  Tag?: Tag | undefined;
 
   /**
    * <p>Minimum object size to which the rule applies.</p>
    * @public
    */
-  ObjectSizeGreaterThan?: number;
+  ObjectSizeGreaterThan?: number | undefined;
 
   /**
    * <p>Maximum object size to which the rule applies.</p>
    * @public
    */
-  ObjectSizeLessThan?: number;
+  ObjectSizeLessThan?: number | undefined;
 
   /**
    * <p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more
@@ -6916,7 +6915,7 @@ export interface LifecycleRuleFilter {
    *          configured inside the And operator.</p>
    * @public
    */
-  And?: LifecycleRuleAndOperator;
+  And?: LifecycleRuleAndOperator | undefined;
 }
 
 /**
@@ -6935,7 +6934,7 @@ export interface NoncurrentVersionExpiration {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  NoncurrentDays?: number;
+  NoncurrentDays?: number | undefined;
 
   /**
    * <p>Specifies how many noncurrent versions Amazon S3 will retain. You can specify up to 100
@@ -6945,7 +6944,7 @@ export interface NoncurrentVersionExpiration {
    *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  NewerNoncurrentVersions?: number;
+  NewerNoncurrentVersions?: number | undefined;
 }
 
 /**
@@ -6985,13 +6984,13 @@ export interface NoncurrentVersionTransition {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  NoncurrentDays?: number;
+  NoncurrentDays?: number | undefined;
 
   /**
    * <p>The class of storage used to store the object.</p>
    * @public
    */
-  StorageClass?: TransitionStorageClass;
+  StorageClass?: TransitionStorageClass | undefined;
 
   /**
    * <p>Specifies how many noncurrent versions Amazon S3 will retain in the same storage class before
@@ -7001,7 +7000,7 @@ export interface NoncurrentVersionTransition {
    *             elements</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  NewerNoncurrentVersions?: number;
+  NewerNoncurrentVersions?: number | undefined;
 }
 
 /**
@@ -7030,20 +7029,20 @@ export interface Transition {
    *          must be in ISO 8601 format. The time is always midnight UTC.</p>
    * @public
    */
-  Date?: Date;
+  Date?: Date | undefined;
 
   /**
    * <p>Indicates the number of days after creation when objects are transitioned to the
    *          specified storage class. The value must be a positive integer.</p>
    * @public
    */
-  Days?: number;
+  Days?: number | undefined;
 
   /**
    * <p>The storage class to which you want the object to transition.</p>
    * @public
    */
-  StorageClass?: TransitionStorageClass;
+  StorageClass?: TransitionStorageClass | undefined;
 }
 
 /**
@@ -7058,13 +7057,13 @@ export interface LifecycleRule {
    *          whether the object has a delete marker.</p>
    * @public
    */
-  Expiration?: LifecycleExpiration;
+  Expiration?: LifecycleExpiration | undefined;
 
   /**
    * <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
    * @public
    */
-  ID?: string;
+  ID?: string | undefined;
 
   /**
    * @deprecated
@@ -7078,7 +7077,7 @@ export interface LifecycleRule {
    *          </important>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
@@ -7087,7 +7086,7 @@ export interface LifecycleRule {
    *             <code>LifecycleRule</code> does not contain a <code>Prefix</code> element.</p>
    * @public
    */
-  Filter?: LifecycleRuleFilter;
+  Filter?: LifecycleRuleFilter | undefined;
 
   /**
    * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not
@@ -7100,7 +7099,7 @@ export interface LifecycleRule {
    * <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p>
    * @public
    */
-  Transitions?: Transition[];
+  Transitions?: Transition[] | undefined;
 
   /**
    * <p> Specifies the transition rule for the lifecycle rule that describes when noncurrent
@@ -7110,7 +7109,7 @@ export interface LifecycleRule {
    *          lifetime. </p>
    * @public
    */
-  NoncurrentVersionTransitions?: NoncurrentVersionTransition[];
+  NoncurrentVersionTransitions?: NoncurrentVersionTransition[] | undefined;
 
   /**
    * <p>Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently
@@ -7119,7 +7118,7 @@ export interface LifecycleRule {
    *          object versions at a specific period in the object's lifetime.</p>
    * @public
    */
-  NoncurrentVersionExpiration?: NoncurrentVersionExpiration;
+  NoncurrentVersionExpiration?: NoncurrentVersionExpiration | undefined;
 
   /**
    * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will
@@ -7128,7 +7127,7 @@ export interface LifecycleRule {
    *          the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
+  AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload | undefined;
 }
 
 /**
@@ -7154,7 +7153,7 @@ export interface GetBucketLifecycleConfigurationOutput {
    * <p>Container for a lifecycle rule.</p>
    * @public
    */
-  Rules?: LifecycleRule[];
+  Rules?: LifecycleRule[] | undefined;
 
   /**
    * <p>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</p>
@@ -7172,7 +7171,7 @@ export interface GetBucketLifecycleConfigurationOutput {
    *          <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule.  Custom filters always take precedence over the default transition behavior.</p>
    * @public
    */
-  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize;
+  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize | undefined;
 }
 
 /**
@@ -7191,7 +7190,7 @@ export interface GetBucketLifecycleConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -7204,7 +7203,7 @@ export interface GetBucketLocationOutput {
    *          Region <code>us-east-1</code> have a LocationConstraint of <code>null</code>.</p>
    * @public
    */
-  LocationConstraint?: BucketLocationConstraint;
+  LocationConstraint?: BucketLocationConstraint | undefined;
 }
 
 /**
@@ -7228,7 +7227,7 @@ export interface GetBucketLocationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -7258,13 +7257,13 @@ export interface TargetGrant {
    * <p>Container for the person being granted permissions.</p>
    * @public
    */
-  Grantee?: Grantee;
+  Grantee?: Grantee | undefined;
 
   /**
    * <p>Logging permissions assigned to the grantee for the bucket.</p>
    * @public
    */
-  Permission?: BucketLogsPermission;
+  Permission?: BucketLogsPermission | undefined;
 }
 
 /**
@@ -7301,7 +7300,7 @@ export interface PartitionedPrefix {
    *          seconds are set to 00 in the key.</p>
    * @public
    */
-  PartitionDateSource?: PartitionDateSource;
+  PartitionDateSource?: PartitionDateSource | undefined;
 }
 
 /**
@@ -7322,13 +7321,13 @@ export interface TargetObjectKeyFormat {
    * <p>To use the simple format for S3 keys for log objects. To specify SimplePrefix format, set SimplePrefix to \{\}.</p>
    * @public
    */
-  SimplePrefix?: SimplePrefix;
+  SimplePrefix?: SimplePrefix | undefined;
 
   /**
    * <p>Partitioned S3 key for log objects.</p>
    * @public
    */
-  PartitionedPrefix?: PartitionedPrefix;
+  PartitionedPrefix?: PartitionedPrefix | undefined;
 }
 
 /**
@@ -7355,7 +7354,7 @@ export interface LoggingEnabled {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  TargetGrants?: TargetGrant[];
+  TargetGrants?: TargetGrant[] | undefined;
 
   /**
    * <p>A prefix for all log object keys. If you store log files from multiple Amazon S3 buckets in a
@@ -7369,7 +7368,7 @@ export interface LoggingEnabled {
    * <p>Amazon S3 key format for log objects.</p>
    * @public
    */
-  TargetObjectKeyFormat?: TargetObjectKeyFormat;
+  TargetObjectKeyFormat?: TargetObjectKeyFormat | undefined;
 }
 
 /**
@@ -7382,7 +7381,7 @@ export interface GetBucketLoggingOutput {
    *             <i>Amazon S3 API Reference</i>.</p>
    * @public
    */
-  LoggingEnabled?: LoggingEnabled;
+  LoggingEnabled?: LoggingEnabled | undefined;
 }
 
 /**
@@ -7401,7 +7400,7 @@ export interface GetBucketLoggingRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -7415,19 +7414,19 @@ export interface MetricsAndOperator {
    * <p>The prefix used when evaluating an AND predicate.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>The list of tags used when evaluating an AND predicate.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The access point ARN used when evaluating an <code>AND</code> predicate.</p>
    * @public
    */
-  AccessPointArn?: string;
+  AccessPointArn?: string | undefined;
 }
 
 /**
@@ -7547,7 +7546,7 @@ export interface MetricsConfiguration {
    *          access point ARN, or a conjunction (MetricsAndOperator).</p>
    * @public
    */
-  Filter?: MetricsFilter;
+  Filter?: MetricsFilter | undefined;
 }
 
 /**
@@ -7558,7 +7557,7 @@ export interface GetBucketMetricsConfigurationOutput {
    * <p>Specifies the metrics configuration.</p>
    * @public
    */
-  MetricsConfiguration?: MetricsConfiguration;
+  MetricsConfiguration?: MetricsConfiguration | undefined;
 }
 
 /**
@@ -7584,7 +7583,7 @@ export interface GetBucketMetricsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -7608,7 +7607,7 @@ export interface GetBucketNotificationConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -7682,13 +7681,13 @@ export interface FilterRule {
    *          in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  Name?: FilterRuleName;
+  Name?: FilterRuleName | undefined;
 
   /**
    * <p>The value that the filter searches for in object key names.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -7701,7 +7700,7 @@ export interface S3KeyFilter {
    *          rule.</p>
    * @public
    */
-  FilterRules?: FilterRule[];
+  FilterRules?: FilterRule[] | undefined;
 }
 
 /**
@@ -7716,7 +7715,7 @@ export interface NotificationConfigurationFilter {
    * <p>A container for object key name prefix and suffix filtering rules.</p>
    * @public
    */
-  Key?: S3KeyFilter;
+  Key?: S3KeyFilter | undefined;
 }
 
 /**
@@ -7729,7 +7728,7 @@ export interface LambdaFunctionConfiguration {
    *          don't provide one, Amazon S3 will assign an ID.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon S3 invokes when the
@@ -7753,7 +7752,7 @@ export interface LambdaFunctionConfiguration {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  Filter?: NotificationConfigurationFilter;
+  Filter?: NotificationConfigurationFilter | undefined;
 }
 
 /**
@@ -7767,7 +7766,7 @@ export interface QueueConfiguration {
    *          don't provide one, Amazon S3 will assign an ID.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 publishes a message
@@ -7789,7 +7788,7 @@ export interface QueueConfiguration {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  Filter?: NotificationConfigurationFilter;
+  Filter?: NotificationConfigurationFilter | undefined;
 }
 
 /**
@@ -7803,7 +7802,7 @@ export interface TopicConfiguration {
    *          don't provide one, Amazon S3 will assign an ID.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message
@@ -7827,7 +7826,7 @@ export interface TopicConfiguration {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  Filter?: NotificationConfigurationFilter;
+  Filter?: NotificationConfigurationFilter | undefined;
 }
 
 /**
@@ -7841,27 +7840,27 @@ export interface NotificationConfiguration {
    *          generated.</p>
    * @public
    */
-  TopicConfigurations?: TopicConfiguration[];
+  TopicConfigurations?: TopicConfiguration[] | undefined;
 
   /**
    * <p>The Amazon Simple Queue Service queues to publish messages to and the events for which
    *          to publish messages.</p>
    * @public
    */
-  QueueConfigurations?: QueueConfiguration[];
+  QueueConfigurations?: QueueConfiguration[] | undefined;
 
   /**
    * <p>Describes the Lambda functions to invoke and the events for which to invoke
    *          them.</p>
    * @public
    */
-  LambdaFunctionConfigurations?: LambdaFunctionConfiguration[];
+  LambdaFunctionConfigurations?: LambdaFunctionConfiguration[] | undefined;
 
   /**
    * <p>Enables delivery of events to Amazon EventBridge.</p>
    * @public
    */
-  EventBridgeConfiguration?: EventBridgeConfiguration;
+  EventBridgeConfiguration?: EventBridgeConfiguration | undefined;
 }
 
 /**
@@ -7917,7 +7916,7 @@ export interface GetBucketOwnershipControlsOutput {
    *          ObjectWriter) currently in effect for this Amazon S3 bucket.</p>
    * @public
    */
-  OwnershipControls?: OwnershipControls;
+  OwnershipControls?: OwnershipControls | undefined;
 }
 
 /**
@@ -7937,7 +7936,7 @@ export interface GetBucketOwnershipControlsRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -7948,7 +7947,7 @@ export interface GetBucketPolicyOutput {
    * <p>The bucket policy as a JSON document.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -7987,7 +7986,7 @@ export interface GetBucketPolicyRequest {
    *          </note>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -8000,7 +7999,7 @@ export interface PolicyStatus {
    *          public. <code>FALSE</code> indicates that the bucket is not public.</p>
    * @public
    */
-  IsPublic?: boolean;
+  IsPublic?: boolean | undefined;
 }
 
 /**
@@ -8011,7 +8010,7 @@ export interface GetBucketPolicyStatusOutput {
    * <p>The policy status for the specified bucket.</p>
    * @public
    */
-  PolicyStatus?: PolicyStatus;
+  PolicyStatus?: PolicyStatus | undefined;
 }
 
 /**
@@ -8030,7 +8029,7 @@ export interface GetBucketPolicyStatusRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -8071,7 +8070,7 @@ export interface DeleteMarkerReplication {
    *          </note>
    * @public
    */
-  Status?: DeleteMarkerReplicationStatus;
+  Status?: DeleteMarkerReplicationStatus | undefined;
 }
 
 /**
@@ -8095,7 +8094,7 @@ export interface EncryptionConfiguration {
    *          Guide</i>.</p>
    * @public
    */
-  ReplicaKmsKeyID?: string;
+  ReplicaKmsKeyID?: string | undefined;
 }
 
 /**
@@ -8109,7 +8108,7 @@ export interface ReplicationTimeValue {
    *          <p> Valid value: 15</p>
    * @public
    */
-  Minutes?: number;
+  Minutes?: number | undefined;
 }
 
 /**
@@ -8143,7 +8142,7 @@ export interface Metrics {
    *             <code>s3:Replication:OperationMissedThreshold</code> event. </p>
    * @public
    */
-  EventThreshold?: ReplicationTimeValue;
+  EventThreshold?: ReplicationTimeValue | undefined;
 }
 
 /**
@@ -8203,7 +8202,7 @@ export interface Destination {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  Account?: string;
+  Account?: string | undefined;
 
   /**
    * <p> The storage class to use when replicating objects, such as S3 Standard or reduced
@@ -8213,7 +8212,7 @@ export interface Destination {
    *             replication</a> action in the <i>Amazon S3 API Reference</i>.</p>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>Specify this only in a cross-account scenario (where source and destination bucket
@@ -8223,14 +8222,14 @@ export interface Destination {
    *          object.</p>
    * @public
    */
-  AccessControlTranslation?: AccessControlTranslation;
+  AccessControlTranslation?: AccessControlTranslation | undefined;
 
   /**
    * <p>A container that provides information about encryption. If
    *             <code>SourceSelectionCriteria</code> is specified, you must specify this element.</p>
    * @public
    */
-  EncryptionConfiguration?: EncryptionConfiguration;
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
 
   /**
    * <p> A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time
@@ -8238,14 +8237,14 @@ export interface Destination {
    *          with a <code>Metrics</code> block. </p>
    * @public
    */
-  ReplicationTime?: ReplicationTime;
+  ReplicationTime?: ReplicationTime | undefined;
 
   /**
    * <p> A container specifying replication metrics-related settings enabling replication
    *          metrics and events. </p>
    * @public
    */
-  Metrics?: Metrics;
+  Metrics?: Metrics | undefined;
 }
 
 /**
@@ -8301,13 +8300,13 @@ export interface ReplicationRuleAndOperator {
    *          applies.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>An array of tags containing key and value pairs.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -8327,14 +8326,14 @@ export interface ReplicationRuleFilter {
    *          </important>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>A container for specifying a tag key and value. </p>
    *          <p>The rule applies only to objects that have the tag in their tag set.</p>
    * @public
    */
-  Tag?: Tag;
+  Tag?: Tag | undefined;
 
   /**
    * <p>A container for specifying rule filters. The filters determine the subset of objects to
@@ -8352,7 +8351,7 @@ export interface ReplicationRuleFilter {
    *          </ul>
    * @public
    */
-  And?: ReplicationRuleAndOperator;
+  And?: ReplicationRuleAndOperator | undefined;
 }
 
 /**
@@ -8433,7 +8432,7 @@ export interface SourceSelectionCriteria {
    *          configuration, this element is required. </p>
    * @public
    */
-  SseKmsEncryptedObjects?: SseKmsEncryptedObjects;
+  SseKmsEncryptedObjects?: SseKmsEncryptedObjects | undefined;
 
   /**
    * <p>A filter that you can specify for selections for modifications on replicas. Amazon S3 doesn't
@@ -8447,7 +8446,7 @@ export interface SourceSelectionCriteria {
    *          </note>
    * @public
    */
-  ReplicaModifications?: ReplicaModifications;
+  ReplicaModifications?: ReplicaModifications | undefined;
 }
 
 /**
@@ -8473,7 +8472,7 @@ export interface ReplicationRule {
    * <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
    * @public
    */
-  ID?: string;
+  ID?: string | undefined;
 
   /**
    * <p>The priority indicates which rule has precedence whenever two or more replication rules
@@ -8485,7 +8484,7 @@ export interface ReplicationRule {
    *             <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  Priority?: number;
+  Priority?: number | undefined;
 
   /**
    * @deprecated
@@ -8500,7 +8499,7 @@ export interface ReplicationRule {
    *          </important>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>A filter that identifies the subset of objects to which the replication rule applies. A
@@ -8508,7 +8507,7 @@ export interface ReplicationRule {
    *          an <code>And</code> child element.</p>
    * @public
    */
-  Filter?: ReplicationRuleFilter;
+  Filter?: ReplicationRuleFilter | undefined;
 
   /**
    * <p>Specifies whether the rule is enabled.</p>
@@ -8524,7 +8523,7 @@ export interface ReplicationRule {
    *          (SSE-KMS).</p>
    * @public
    */
-  SourceSelectionCriteria?: SourceSelectionCriteria;
+  SourceSelectionCriteria?: SourceSelectionCriteria | undefined;
 
   /**
    * <p>Optional configuration to replicate existing source bucket objects.
@@ -8534,7 +8533,7 @@ export interface ReplicationRule {
    *          </note>
    * @public
    */
-  ExistingObjectReplication?: ExistingObjectReplication;
+  ExistingObjectReplication?: ExistingObjectReplication | undefined;
 
   /**
    * <p>A container for information about the replication destination and its configurations
@@ -8558,7 +8557,7 @@ export interface ReplicationRule {
    *          </note>
    * @public
    */
-  DeleteMarkerReplication?: DeleteMarkerReplication;
+  DeleteMarkerReplication?: DeleteMarkerReplication | undefined;
 }
 
 /**
@@ -8592,7 +8591,7 @@ export interface GetBucketReplicationOutput {
    *          replication configuration is 2 MB.</p>
    * @public
    */
-  ReplicationConfiguration?: ReplicationConfiguration;
+  ReplicationConfiguration?: ReplicationConfiguration | undefined;
 }
 
 /**
@@ -8611,7 +8610,7 @@ export interface GetBucketReplicationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -8636,7 +8635,7 @@ export interface GetBucketRequestPaymentOutput {
    * <p>Specifies who pays for the download and request fees.</p>
    * @public
    */
-  Payer?: Payer;
+  Payer?: Payer | undefined;
 }
 
 /**
@@ -8655,7 +8654,7 @@ export interface GetBucketRequestPaymentRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -8685,7 +8684,7 @@ export interface GetBucketTaggingRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -8724,7 +8723,7 @@ export interface GetBucketVersioningOutput {
    * <p>The versioning state of the bucket.</p>
    * @public
    */
-  Status?: BucketVersioningStatus;
+  Status?: BucketVersioningStatus | undefined;
 
   /**
    * <p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This
@@ -8732,7 +8731,7 @@ export interface GetBucketVersioningOutput {
    *          has never been so configured, this element is not returned.</p>
    * @public
    */
-  MFADelete?: MFADeleteStatus;
+  MFADelete?: MFADeleteStatus | undefined;
 }
 
 /**
@@ -8751,7 +8750,7 @@ export interface GetBucketVersioningRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -8823,7 +8822,7 @@ export interface RedirectAllRequestsTo {
    *          the original request.</p>
    * @public
    */
-  Protocol?: Protocol;
+  Protocol?: Protocol | undefined;
 }
 
 /**
@@ -8842,7 +8841,7 @@ export interface Condition {
    *          applied.</p>
    * @public
    */
-  HttpErrorCodeReturnedEquals?: string;
+  HttpErrorCodeReturnedEquals?: string | undefined;
 
   /**
    * <p>The object key name prefix when the redirect is applied. For example, to redirect
@@ -8860,7 +8859,7 @@ export interface Condition {
    *          </important>
    * @public
    */
-  KeyPrefixEquals?: string;
+  KeyPrefixEquals?: string | undefined;
 }
 
 /**
@@ -8873,21 +8872,21 @@ export interface Redirect {
    * <p>The host name to use in the redirect request.</p>
    * @public
    */
-  HostName?: string;
+  HostName?: string | undefined;
 
   /**
    * <p>The HTTP redirect code to use on the response. Not required if one of the siblings is
    *          present.</p>
    * @public
    */
-  HttpRedirectCode?: string;
+  HttpRedirectCode?: string | undefined;
 
   /**
    * <p>Protocol to use when redirecting requests. The default is the protocol that is used in
    *          the original request.</p>
    * @public
    */
-  Protocol?: Protocol;
+  Protocol?: Protocol | undefined;
 
   /**
    * <p>The object key prefix to use in the redirect request. For example, to redirect requests
@@ -8903,7 +8902,7 @@ export interface Redirect {
    *          </important>
    * @public
    */
-  ReplaceKeyPrefixWith?: string;
+  ReplaceKeyPrefixWith?: string | undefined;
 
   /**
    * <p>The specific object key to use in the redirect request. For example, redirect request to
@@ -8916,7 +8915,7 @@ export interface Redirect {
    *          </important>
    * @public
    */
-  ReplaceKeyWith?: string;
+  ReplaceKeyWith?: string | undefined;
 }
 
 /**
@@ -8933,7 +8932,7 @@ export interface RoutingRule {
    *          request to another host where you might process the error.</p>
    * @public
    */
-  Condition?: Condition;
+  Condition?: Condition | undefined;
 
   /**
    * <p>Container for redirect information. You can redirect requests to another host, to
@@ -8953,26 +8952,26 @@ export interface GetBucketWebsiteOutput {
    *          bucket.</p>
    * @public
    */
-  RedirectAllRequestsTo?: RedirectAllRequestsTo;
+  RedirectAllRequestsTo?: RedirectAllRequestsTo | undefined;
 
   /**
    * <p>The name of the index document for the website (for example
    *          <code>index.html</code>).</p>
    * @public
    */
-  IndexDocument?: IndexDocument;
+  IndexDocument?: IndexDocument | undefined;
 
   /**
    * <p>The object key name of the website error document to use for 4XX class errors.</p>
    * @public
    */
-  ErrorDocument?: ErrorDocument;
+  ErrorDocument?: ErrorDocument | undefined;
 
   /**
    * <p>Rules that define when a redirect is applied and the redirect behavior.</p>
    * @public
    */
-  RoutingRules?: RoutingRule[];
+  RoutingRules?: RoutingRule[] | undefined;
 }
 
 /**
@@ -8991,7 +8990,7 @@ export interface GetBucketWebsiteRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -9019,7 +9018,7 @@ export interface GetObjectOutput {
    * <p>Object data.</p>
    * @public
    */
-  Body?: StreamingBlobTypes;
+  Body?: StreamingBlobTypes | undefined;
 
   /**
    * <p>Indicates whether the object retrieved was (true) or was not (false) a Delete Marker. If
@@ -9036,13 +9035,13 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  DeleteMarker?: boolean;
+  DeleteMarker?: boolean | undefined;
 
   /**
    * <p>Indicates that a range of bytes was specified in the request.</p>
    * @public
    */
-  AcceptRanges?: string;
+  AcceptRanges?: string | undefined;
 
   /**
    * <p>If the object expiration is configured (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">
@@ -9056,7 +9055,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  Expiration?: string;
+  Expiration?: string | undefined;
 
   /**
    * <p>Provides information about object restoration action and expiration time of the restored
@@ -9066,7 +9065,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  Restore?: string;
+  Restore?: string | undefined;
 
   /**
    * <p>Date and time when the object was last modified.</p>
@@ -9074,20 +9073,20 @@ export interface GetObjectOutput {
    *             <b>General purpose buckets </b> - When you specify a <code>versionId</code> of the object in your request, if the specified version in the request is a delete marker, the response returns a <code>405 Method Not Allowed</code> error and the <code>Last-Modified: timestamp</code> response header.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>Size of the body in bytes.</p>
    * @public
    */
-  ContentLength?: number;
+  ContentLength?: number | undefined;
 
   /**
    * <p>An entity tag (ETag) is an opaque identifier assigned by a web server to a specific
    *          version of a resource found at a URL.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
@@ -9095,7 +9094,7 @@ export interface GetObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -9103,7 +9102,7 @@ export interface GetObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -9111,7 +9110,7 @@ export interface GetObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
@@ -9119,7 +9118,7 @@ export interface GetObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 
   /**
    * <p>This is set to the number of metadata entries not returned in the headers that are prefixed with <code>x-amz-meta-</code>. This can happen if you create metadata using an API like SOAP that supports more
@@ -9130,7 +9129,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  MissingMeta?: number;
+  MissingMeta?: number | undefined;
 
   /**
    * <p>Version ID of the object.</p>
@@ -9139,19 +9138,19 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Specifies caching behavior along the request/reply chain.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>Specifies presentational information for the object.</p>
    * @public
    */
-  ContentDisposition?: string;
+  ContentDisposition?: string | undefined;
 
   /**
    * <p>Indicates what content encodings have been applied to the object and thus what decoding
@@ -9159,25 +9158,25 @@ export interface GetObjectOutput {
    *          field.</p>
    * @public
    */
-  ContentEncoding?: string;
+  ContentEncoding?: string | undefined;
 
   /**
    * <p>The language the content is in.</p>
    * @public
    */
-  ContentLanguage?: string;
+  ContentLanguage?: string | undefined;
 
   /**
    * <p>The portion of the object returned in the response.</p>
    * @public
    */
-  ContentRange?: string;
+  ContentRange?: string | undefined;
 
   /**
    * <p>A standard MIME type describing the format of the object data.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * @deprecated
@@ -9185,13 +9184,13 @@ export interface GetObjectOutput {
    * Deprecated in favor of ExpiresString.
    * @public
    */
-  Expires?: Date;
+  Expires?: Date | undefined;
 
   /**
    * <p>The date and time at which the object is no longer cacheable.</p>
    * @public
    */
-  ExpiresString?: string;
+  ExpiresString?: string | undefined;
 
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another
@@ -9202,19 +9201,19 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  WebsiteRedirectLocation?: string;
+  WebsiteRedirectLocation?: string | undefined;
 
   /**
    * <p>The server-side encryption algorithm used when you store this object in Amazon S3.</p>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    * @public
    */
-  Metadata?: Record<string, string>;
+  Metadata?: Record<string, string> | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -9224,7 +9223,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -9235,20 +9234,20 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption
    *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
@@ -9259,7 +9258,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -9269,7 +9268,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 
   /**
    * <p>Amazon S3 can return this if your request involves a bucket that is either a source or
@@ -9279,7 +9278,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  ReplicationStatus?: ReplicationStatus;
+  ReplicationStatus?: ReplicationStatus | undefined;
 
   /**
    * <p>The count of parts this object has. This value is only returned if you specify
@@ -9287,7 +9286,7 @@ export interface GetObjectOutput {
    *          upload.</p>
    * @public
    */
-  PartsCount?: number;
+  PartsCount?: number | undefined;
 
   /**
    * <p>The number of tags, if any, on the object, when you have the relevant permission to read object tags.</p>
@@ -9298,7 +9297,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  TagCount?: number;
+  TagCount?: number | undefined;
 
   /**
    * <p>The Object Lock mode that's currently in place for this object.</p>
@@ -9307,7 +9306,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  ObjectLockMode?: ObjectLockMode;
+  ObjectLockMode?: ObjectLockMode | undefined;
 
   /**
    * <p>The date and time when this object's Object Lock will expire.</p>
@@ -9316,7 +9315,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  ObjectLockRetainUntilDate?: Date;
+  ObjectLockRetainUntilDate?: Date | undefined;
 
   /**
    * <p>Indicates whether this object has an active legal hold. This field is only returned if
@@ -9326,7 +9325,7 @@ export interface GetObjectOutput {
    *          </note>
    * @public
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus;
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
 }
 
 /**
@@ -9379,7 +9378,7 @@ export interface GetObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 
   /**
    * <p>Return the object only if it has been modified since the specified time; otherwise,
@@ -9390,7 +9389,7 @@ export interface GetObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfModifiedSince?: Date;
+  IfModifiedSince?: Date | undefined;
 
   /**
    * <p>Return the object only if its entity tag (ETag) is different from the one specified in this header;
@@ -9402,7 +9401,7 @@ export interface GetObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfNoneMatch?: string;
+  IfNoneMatch?: string | undefined;
 
   /**
    * <p>Return the object only if it has not been modified since the specified time; otherwise,
@@ -9414,7 +9413,7 @@ export interface GetObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfUnmodifiedSince?: Date;
+  IfUnmodifiedSince?: Date | undefined;
 
   /**
    * <p>Key of the object to get.</p>
@@ -9431,43 +9430,43 @@ export interface GetObjectRequest {
    *          </note>
    * @public
    */
-  Range?: string;
+  Range?: string | undefined;
 
   /**
    * <p>Sets the <code>Cache-Control</code> header of the response.</p>
    * @public
    */
-  ResponseCacheControl?: string;
+  ResponseCacheControl?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Disposition</code> header of the response.</p>
    * @public
    */
-  ResponseContentDisposition?: string;
+  ResponseContentDisposition?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Encoding</code> header of the response.</p>
    * @public
    */
-  ResponseContentEncoding?: string;
+  ResponseContentEncoding?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Language</code> header of the response.</p>
    * @public
    */
-  ResponseContentLanguage?: string;
+  ResponseContentLanguage?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Type</code> header of the response.</p>
    * @public
    */
-  ResponseContentType?: string;
+  ResponseContentType?: string | undefined;
 
   /**
    * <p>Sets the <code>Expires</code> header of the response.</p>
    * @public
    */
-  ResponseExpires?: Date;
+  ResponseExpires?: Date | undefined;
 
   /**
    * <p>Version ID used to reference a specific version of the object.</p>
@@ -9490,7 +9489,7 @@ export interface GetObjectRequest {
    *          <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a>.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Specifies the algorithm to use when decrypting the object (for example,
@@ -9522,7 +9521,7 @@ export interface GetObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>Specifies the customer-provided encryption key that you originally provided for Amazon S3 to encrypt the data before storing it. This
@@ -9556,7 +9555,7 @@ export interface GetObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerKey?: string;
+  SSECustomerKey?: string | undefined;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the customer-provided encryption key according to RFC 1321. Amazon S3 uses
@@ -9589,7 +9588,7 @@ export interface GetObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -9603,7 +9602,7 @@ export interface GetObjectRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>Part number of the object being read. This is a positive integer between 1 and 10,000.
@@ -9611,13 +9610,13 @@ export interface GetObjectRequest {
    *          just a part of an object.</p>
    * @public
    */
-  PartNumber?: number;
+  PartNumber?: number | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>To retrieve the checksum, this mode must be enabled.</p>
@@ -9628,7 +9627,7 @@ export interface GetObjectRequest {
    *          <code>kms:Decrypt</code> action to retrieve the checksum.</p>
    * @public
    */
-  ChecksumMode?: ChecksumMode;
+  ChecksumMode?: ChecksumMode | undefined;
 }
 
 /**
@@ -9645,8 +9644,8 @@ export interface GetObjectRequest {
 export class InvalidObjectState extends __BaseException {
   readonly name: "InvalidObjectState" = "InvalidObjectState";
   readonly $fault: "client" = "client";
-  StorageClass?: StorageClass;
-  AccessTier?: IntelligentTieringAccessTier;
+  StorageClass?: StorageClass | undefined;
+  AccessTier?: IntelligentTieringAccessTier | undefined;
   /**
    * @internal
    */
@@ -9690,13 +9689,13 @@ export interface GetObjectAclOutput {
    * <p> Container for the bucket owner's display name and ID.</p>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>A list of grants.</p>
    * @public
    */
-  Grants?: Grant[];
+  Grants?: Grant[] | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -9706,7 +9705,7 @@ export interface GetObjectAclOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -9736,7 +9735,7 @@ export interface GetObjectAclRequest {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -9750,13 +9749,13 @@ export interface GetObjectAclRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -9771,7 +9770,7 @@ export interface Checksum {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -9780,7 +9779,7 @@ export interface Checksum {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -9789,7 +9788,7 @@ export interface Checksum {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
@@ -9798,7 +9797,7 @@ export interface Checksum {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 }
 
 /**
@@ -9811,13 +9810,13 @@ export interface ObjectPart {
    *          10,000.</p>
    * @public
    */
-  PartNumber?: number;
+  PartNumber?: number | undefined;
 
   /**
    * <p>The size of the uploaded part in bytes.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -9826,7 +9825,7 @@ export interface ObjectPart {
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -9835,7 +9834,7 @@ export interface ObjectPart {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -9844,7 +9843,7 @@ export interface ObjectPart {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
@@ -9853,7 +9852,7 @@ export interface ObjectPart {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 }
 
 /**
@@ -9865,13 +9864,13 @@ export interface GetObjectAttributesParts {
    * <p>The total number of parts.</p>
    * @public
    */
-  TotalPartsCount?: number;
+  TotalPartsCount?: number | undefined;
 
   /**
    * <p>The marker for the current part.</p>
    * @public
    */
-  PartNumberMarker?: string;
+  PartNumberMarker?: string | undefined;
 
   /**
    * <p>When a list is truncated, this element specifies the last part in the list, as well as
@@ -9879,13 +9878,13 @@ export interface GetObjectAttributesParts {
    *          request.</p>
    * @public
    */
-  NextPartNumberMarker?: string;
+  NextPartNumberMarker?: string | undefined;
 
   /**
    * <p>The maximum number of parts allowed in the response.</p>
    * @public
    */
-  MaxParts?: number;
+  MaxParts?: number | undefined;
 
   /**
    * <p>Indicates whether the returned list of parts is truncated. A value of <code>true</code>
@@ -9893,7 +9892,7 @@ export interface GetObjectAttributesParts {
    *          exceeds the limit returned in the <code>MaxParts</code> element.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>A container for elements related to a particular part. A response can contain zero or
@@ -9914,7 +9913,7 @@ export interface GetObjectAttributesParts {
    *          </note>
    * @public
    */
-  Parts?: ObjectPart[];
+  Parts?: ObjectPart[] | undefined;
 }
 
 /**
@@ -9930,13 +9929,13 @@ export interface GetObjectAttributesOutput {
    *          </note>
    * @public
    */
-  DeleteMarker?: boolean;
+  DeleteMarker?: boolean | undefined;
 
   /**
    * <p>The creation date of the object.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The version ID of the object.</p>
@@ -9945,7 +9944,7 @@ export interface GetObjectAttributesOutput {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -9955,26 +9954,26 @@ export interface GetObjectAttributesOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 
   /**
    * <p>An ETag is an opaque identifier assigned by a web server to a specific version of a
    *          resource found at a URL.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The checksum or digest of the object.</p>
    * @public
    */
-  Checksum?: Checksum;
+  Checksum?: Checksum | undefined;
 
   /**
    * <p>A collection of parts associated with a multipart upload.</p>
    * @public
    */
-  ObjectParts?: GetObjectAttributesParts;
+  ObjectParts?: GetObjectAttributesParts | undefined;
 
   /**
    * <p>Provides the storage class information of the object. Amazon S3 returns this header for all
@@ -9986,13 +9985,13 @@ export interface GetObjectAttributesOutput {
    *          </note>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>The size of the object in bytes.</p>
    * @public
    */
-  ObjectSize?: number;
+  ObjectSize?: number | undefined;
 }
 
 /**
@@ -10053,20 +10052,20 @@ export interface GetObjectAttributesRequest {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Sets the maximum number of parts to return.</p>
    * @public
    */
-  MaxParts?: number;
+  MaxParts?: number | undefined;
 
   /**
    * <p>Specifies the part after which listing should begin. Only parts with higher part numbers
    *          will be listed.</p>
    * @public
    */
-  PartNumberMarker?: string;
+  PartNumberMarker?: string | undefined;
 
   /**
    * <p>Specifies the algorithm to use when encrypting the object (for example, AES256).</p>
@@ -10075,7 +10074,7 @@ export interface GetObjectAttributesRequest {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
@@ -10087,7 +10086,7 @@ export interface GetObjectAttributesRequest {
    *          </note>
    * @public
    */
-  SSECustomerKey?: string;
+  SSECustomerKey?: string | undefined;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -10098,7 +10097,7 @@ export interface GetObjectAttributesRequest {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -10112,13 +10111,13 @@ export interface GetObjectAttributesRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Specifies the fields at the root level that you want returned in the response. Fields
@@ -10137,7 +10136,7 @@ export interface ObjectLockLegalHold {
    * <p>Indicates whether the specified object has a legal hold in place.</p>
    * @public
    */
-  Status?: ObjectLockLegalHoldStatus;
+  Status?: ObjectLockLegalHoldStatus | undefined;
 }
 
 /**
@@ -10148,7 +10147,7 @@ export interface GetObjectLegalHoldOutput {
    * <p>The current legal hold status for the specified object.</p>
    * @public
    */
-  LegalHold?: ObjectLockLegalHold;
+  LegalHold?: ObjectLockLegalHold | undefined;
 }
 
 /**
@@ -10175,7 +10174,7 @@ export interface GetObjectLegalHoldRequest {
    * <p>The version ID of the object whose legal hold status you want to retrieve.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -10189,13 +10188,13 @@ export interface GetObjectLegalHoldRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -10249,21 +10248,21 @@ export interface DefaultRetention {
    *          specified bucket. Must be used with either <code>Days</code> or <code>Years</code>.</p>
    * @public
    */
-  Mode?: ObjectLockRetentionMode;
+  Mode?: ObjectLockRetentionMode | undefined;
 
   /**
    * <p>The number of days that you want to specify for the default retention period. Must be
    *          used with <code>Mode</code>.</p>
    * @public
    */
-  Days?: number;
+  Days?: number | undefined;
 
   /**
    * <p>The number of years that you want to specify for the default retention period. Must be
    *          used with <code>Mode</code>.</p>
    * @public
    */
-  Years?: number;
+  Years?: number | undefined;
 }
 
 /**
@@ -10278,7 +10277,7 @@ export interface ObjectLockRule {
    *          cannot specify <code>Days</code> and <code>Years</code> at the same time.</p>
    * @public
    */
-  DefaultRetention?: DefaultRetention;
+  DefaultRetention?: DefaultRetention | undefined;
 }
 
 /**
@@ -10292,7 +10291,7 @@ export interface ObjectLockConfiguration {
    *          bucket. </p>
    * @public
    */
-  ObjectLockEnabled?: ObjectLockEnabled;
+  ObjectLockEnabled?: ObjectLockEnabled | undefined;
 
   /**
    * <p>Specifies the Object Lock rule for the specified object. Enable the this rule when you
@@ -10302,7 +10301,7 @@ export interface ObjectLockConfiguration {
    *          time.</p>
    * @public
    */
-  Rule?: ObjectLockRule;
+  Rule?: ObjectLockRule | undefined;
 }
 
 /**
@@ -10313,7 +10312,7 @@ export interface GetObjectLockConfigurationOutput {
    * <p>The specified bucket's Object Lock configuration.</p>
    * @public
    */
-  ObjectLockConfiguration?: ObjectLockConfiguration;
+  ObjectLockConfiguration?: ObjectLockConfiguration | undefined;
 }
 
 /**
@@ -10334,7 +10333,7 @@ export interface GetObjectLockConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -10346,13 +10345,13 @@ export interface ObjectLockRetention {
    * <p>Indicates the Retention mode for the specified object.</p>
    * @public
    */
-  Mode?: ObjectLockRetentionMode;
+  Mode?: ObjectLockRetentionMode | undefined;
 
   /**
    * <p>The date on which this Object Lock Retention will expire.</p>
    * @public
    */
-  RetainUntilDate?: Date;
+  RetainUntilDate?: Date | undefined;
 }
 
 /**
@@ -10363,7 +10362,7 @@ export interface GetObjectRetentionOutput {
    * <p>The container element for an object's retention settings.</p>
    * @public
    */
-  Retention?: ObjectLockRetention;
+  Retention?: ObjectLockRetention | undefined;
 }
 
 /**
@@ -10390,7 +10389,7 @@ export interface GetObjectRetentionRequest {
    * <p>The version ID for the object whose retention settings you want to retrieve.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -10404,13 +10403,13 @@ export interface GetObjectRetentionRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -10421,7 +10420,7 @@ export interface GetObjectTaggingOutput {
    * <p>The versionId of the object for which you got the tagging information.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Contains the tag set.</p>
@@ -10457,13 +10456,13 @@ export interface GetObjectTaggingRequest {
    * <p>The versionId of the object for which to get the tagging information.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -10477,7 +10476,7 @@ export interface GetObjectTaggingRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 }
 
 /**
@@ -10488,7 +10487,7 @@ export interface GetObjectTorrentOutput {
    * <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
    * @public
    */
-  Body?: StreamingBlobTypes;
+  Body?: StreamingBlobTypes | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -10498,7 +10497,7 @@ export interface GetObjectTorrentOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -10531,13 +10530,13 @@ export interface GetObjectTorrentRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -10566,7 +10565,7 @@ export interface PublicAccessBlockConfiguration {
    *          <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
    * @public
    */
-  BlockPublicAcls?: boolean;
+  BlockPublicAcls?: boolean | undefined;
 
   /**
    * <p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this
@@ -10576,7 +10575,7 @@ export interface PublicAccessBlockConfiguration {
    *          prevent new public ACLs from being set.</p>
    * @public
    */
-  IgnorePublicAcls?: boolean;
+  IgnorePublicAcls?: boolean | undefined;
 
   /**
    * <p>Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this
@@ -10585,7 +10584,7 @@ export interface PublicAccessBlockConfiguration {
    *          <p>Enabling this setting doesn't affect existing bucket policies.</p>
    * @public
    */
-  BlockPublicPolicy?: boolean;
+  BlockPublicPolicy?: boolean | undefined;
 
   /**
    * <p>Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting
@@ -10596,7 +10595,7 @@ export interface PublicAccessBlockConfiguration {
    *          delegation to specific accounts, is blocked.</p>
    * @public
    */
-  RestrictPublicBuckets?: boolean;
+  RestrictPublicBuckets?: boolean | undefined;
 }
 
 /**
@@ -10608,7 +10607,7 @@ export interface GetPublicAccessBlockOutput {
    *          bucket.</p>
    * @public
    */
-  PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
+  PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration | undefined;
 }
 
 /**
@@ -10628,7 +10627,7 @@ export interface GetPublicAccessBlockRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -10642,7 +10641,7 @@ export interface HeadBucketOutput {
    *          </note>
    * @public
    */
-  BucketLocationType?: LocationType;
+  BucketLocationType?: LocationType | undefined;
 
   /**
    * <p>The name of the location where the bucket will be created.</p>
@@ -10652,13 +10651,13 @@ export interface HeadBucketOutput {
    *          </note>
    * @public
    */
-  BucketLocationName?: string;
+  BucketLocationName?: string | undefined;
 
   /**
    * <p>The Region that the bucket is located.</p>
    * @public
    */
-  BucketRegion?: string;
+  BucketRegion?: string | undefined;
 
   /**
    * <p>Indicates whether the bucket name used in the request is an access point alias.</p>
@@ -10667,7 +10666,7 @@ export interface HeadBucketOutput {
    *          </note>
    * @public
    */
-  AccessPointAlias?: boolean;
+  AccessPointAlias?: boolean | undefined;
 }
 
 /**
@@ -10706,7 +10705,7 @@ export interface HeadBucketRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -10755,13 +10754,13 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  DeleteMarker?: boolean;
+  DeleteMarker?: boolean | undefined;
 
   /**
    * <p>Indicates that a range of bytes was specified.</p>
    * @public
    */
-  AcceptRanges?: string;
+  AcceptRanges?: string | undefined;
 
   /**
    * <p>If the object expiration is configured (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">
@@ -10775,7 +10774,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  Expiration?: string;
+  Expiration?: string | undefined;
 
   /**
    * <p>If the object is an archived object (an object whose storage class is GLACIER), the
@@ -10794,7 +10793,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  Restore?: string;
+  Restore?: string | undefined;
 
   /**
    * <p>The archive state of the head object.</p>
@@ -10803,19 +10802,19 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  ArchiveStatus?: ArchiveStatus;
+  ArchiveStatus?: ArchiveStatus | undefined;
 
   /**
    * <p>Date and time when the object was last modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>Size of the body in bytes.</p>
    * @public
    */
-  ContentLength?: number;
+  ContentLength?: number | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32 checksum of the object. This will only be present if it was uploaded
@@ -10824,7 +10823,7 @@ export interface HeadObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -10833,7 +10832,7 @@ export interface HeadObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -10842,7 +10841,7 @@ export interface HeadObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>The base64-encoded, 256-bit SHA-256 digest of the object. This will only be present if it was uploaded
@@ -10851,14 +10850,14 @@ export interface HeadObjectOutput {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 
   /**
    * <p>An entity tag (ETag) is an opaque identifier assigned by a web server to a specific
    *          version of a resource found at a URL.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>This is set to the number of metadata entries not returned in <code>x-amz-meta</code>
@@ -10870,7 +10869,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  MissingMeta?: number;
+  MissingMeta?: number | undefined;
 
   /**
    * <p>Version ID of the object.</p>
@@ -10879,19 +10878,19 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Specifies caching behavior along the request/reply chain.</p>
    * @public
    */
-  CacheControl?: string;
+  CacheControl?: string | undefined;
 
   /**
    * <p>Specifies presentational information for the object.</p>
    * @public
    */
-  ContentDisposition?: string;
+  ContentDisposition?: string | undefined;
 
   /**
    * <p>Indicates what content encodings have been applied to the object and thus what decoding
@@ -10899,19 +10898,19 @@ export interface HeadObjectOutput {
    *          field.</p>
    * @public
    */
-  ContentEncoding?: string;
+  ContentEncoding?: string | undefined;
 
   /**
    * <p>The language the content is in.</p>
    * @public
    */
-  ContentLanguage?: string;
+  ContentLanguage?: string | undefined;
 
   /**
    * <p>A standard MIME type describing the format of the object data.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * @deprecated
@@ -10919,13 +10918,13 @@ export interface HeadObjectOutput {
    * Deprecated in favor of ExpiresString.
    * @public
    */
-  Expires?: Date;
+  Expires?: Date | undefined;
 
   /**
    * <p>The date and time at which the object is no longer cacheable.</p>
    * @public
    */
-  ExpiresString?: string;
+  ExpiresString?: string | undefined;
 
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another
@@ -10936,20 +10935,20 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  WebsiteRedirectLocation?: string;
+  WebsiteRedirectLocation?: string | undefined;
 
   /**
    * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for example,
    *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    * @public
    */
-  ServerSideEncryption?: ServerSideEncryption;
+  ServerSideEncryption?: ServerSideEncryption | undefined;
 
   /**
    * <p>A map of metadata to store with the object in S3.</p>
    * @public
    */
-  Metadata?: Record<string, string>;
+  Metadata?: Record<string, string> | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -10959,7 +10958,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
@@ -10970,20 +10969,20 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
    * @public
    */
-  SSEKMSKeyId?: string;
+  SSEKMSKeyId?: string | undefined;
 
   /**
    * <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption
    *          with Key Management Service (KMS) keys (SSE-KMS).</p>
    * @public
    */
-  BucketKeyEnabled?: boolean;
+  BucketKeyEnabled?: boolean | undefined;
 
   /**
    * <p>Provides storage class information of the object. Amazon S3 returns this header for all
@@ -10995,7 +10994,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -11005,7 +11004,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 
   /**
    * <p>Amazon S3 can return this header if your request involves a bucket that is either a source or
@@ -11052,7 +11051,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  ReplicationStatus?: ReplicationStatus;
+  ReplicationStatus?: ReplicationStatus | undefined;
 
   /**
    * <p>The count of parts this object has. This value is only returned if you specify
@@ -11060,7 +11059,7 @@ export interface HeadObjectOutput {
    *          upload.</p>
    * @public
    */
-  PartsCount?: number;
+  PartsCount?: number | undefined;
 
   /**
    * <p>The Object Lock mode, if any, that's in effect for this object. This header is only
@@ -11071,7 +11070,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  ObjectLockMode?: ObjectLockMode;
+  ObjectLockMode?: ObjectLockMode | undefined;
 
   /**
    * <p>The date and time when the Object Lock retention period expires. This header is only
@@ -11081,7 +11080,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  ObjectLockRetainUntilDate?: Date;
+  ObjectLockRetainUntilDate?: Date | undefined;
 
   /**
    * <p>Specifies whether a legal hold is in effect for this object. This header is only
@@ -11093,7 +11092,7 @@ export interface HeadObjectOutput {
    *          </note>
    * @public
    */
-  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus;
+  ObjectLockLegalHoldStatus?: ObjectLockLegalHoldStatus | undefined;
 }
 
 /**
@@ -11144,7 +11143,7 @@ export interface HeadObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfMatch?: string;
+  IfMatch?: string | undefined;
 
   /**
    * <p>Return the object only if it has been modified since the specified time; otherwise,
@@ -11168,7 +11167,7 @@ export interface HeadObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfModifiedSince?: Date;
+  IfModifiedSince?: Date | undefined;
 
   /**
    * <p>Return the object only if its entity tag (ETag) is different from the one specified;
@@ -11192,7 +11191,7 @@ export interface HeadObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfNoneMatch?: string;
+  IfNoneMatch?: string | undefined;
 
   /**
    * <p>Return the object only if it has not been modified since the specified time; otherwise,
@@ -11215,7 +11214,7 @@ export interface HeadObjectRequest {
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
    * @public
    */
-  IfUnmodifiedSince?: Date;
+  IfUnmodifiedSince?: Date | undefined;
 
   /**
    * <p>The object key.</p>
@@ -11229,43 +11228,43 @@ export interface HeadObjectRequest {
    *          satisfiable, S3 returns a <code>416 - Requested Range Not Satisfiable</code> error.</p>
    * @public
    */
-  Range?: string;
+  Range?: string | undefined;
 
   /**
    * <p>Sets the <code>Cache-Control</code> header of the response.</p>
    * @public
    */
-  ResponseCacheControl?: string;
+  ResponseCacheControl?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Disposition</code> header of the response.</p>
    * @public
    */
-  ResponseContentDisposition?: string;
+  ResponseContentDisposition?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Encoding</code> header of the response.</p>
    * @public
    */
-  ResponseContentEncoding?: string;
+  ResponseContentEncoding?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Language</code> header of the response.</p>
    * @public
    */
-  ResponseContentLanguage?: string;
+  ResponseContentLanguage?: string | undefined;
 
   /**
    * <p>Sets the <code>Content-Type</code> header of the response.</p>
    * @public
    */
-  ResponseContentType?: string;
+  ResponseContentType?: string | undefined;
 
   /**
    * <p>Sets the <code>Expires</code> header of the response.</p>
    * @public
    */
-  ResponseExpires?: Date;
+  ResponseExpires?: Date | undefined;
 
   /**
    * <p>Version ID used to reference a specific version of the object.</p>
@@ -11274,7 +11273,7 @@ export interface HeadObjectRequest {
    *          </note>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Specifies the algorithm to use when encrypting the object (for example,
@@ -11284,7 +11283,7 @@ export interface HeadObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This
@@ -11296,7 +11295,7 @@ export interface HeadObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerKey?: string;
+  SSECustomerKey?: string | undefined;
 
   /**
    * <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses
@@ -11307,7 +11306,7 @@ export interface HeadObjectRequest {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -11321,7 +11320,7 @@ export interface HeadObjectRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>Part number of the object being read. This is a positive integer between 1 and 10,000.
@@ -11329,13 +11328,13 @@ export interface HeadObjectRequest {
    *          the size of the part and the number of parts in this object.</p>
    * @public
    */
-  PartNumber?: number;
+  PartNumber?: number | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>To retrieve the checksum, this parameter must be enabled.</p>
@@ -11350,7 +11349,7 @@ export interface HeadObjectRequest {
    *          <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key to retrieve the checksum of the object.</p>
    * @public
    */
-  ChecksumMode?: ChecksumMode;
+  ChecksumMode?: ChecksumMode | undefined;
 }
 
 /**
@@ -11363,14 +11362,14 @@ export interface ListBucketAnalyticsConfigurationsOutput {
    *          for a subsequent request.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>The marker that is used as a starting point for this analytics configuration list
    *          response. This value is present if it was sent in the request.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>
@@ -11380,13 +11379,13 @@ export interface ListBucketAnalyticsConfigurationsOutput {
    *          usable value.</p>
    * @public
    */
-  NextContinuationToken?: string;
+  NextContinuationToken?: string | undefined;
 
   /**
    * <p>The list of analytics configurations for a bucket.</p>
    * @public
    */
-  AnalyticsConfigurationList?: AnalyticsConfiguration[];
+  AnalyticsConfigurationList?: AnalyticsConfiguration[] | undefined;
 }
 
 /**
@@ -11406,13 +11405,13 @@ export interface ListBucketAnalyticsConfigurationsRequest {
    *          should begin.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -11425,14 +11424,14 @@ export interface ListBucketIntelligentTieringConfigurationsOutput {
    *             <code>NextContinuationToken</code> will be provided for a subsequent request.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>The <code>ContinuationToken</code> that represents a placeholder from where this request
    *          should begin.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>The marker used to continue this inventory configuration listing. Use the
@@ -11440,13 +11439,13 @@ export interface ListBucketIntelligentTieringConfigurationsOutput {
    *          subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>
    * @public
    */
-  NextContinuationToken?: string;
+  NextContinuationToken?: string | undefined;
 
   /**
    * <p>The list of S3 Intelligent-Tiering configurations for a bucket.</p>
    * @public
    */
-  IntelligentTieringConfigurationList?: IntelligentTieringConfiguration[];
+  IntelligentTieringConfigurationList?: IntelligentTieringConfiguration[] | undefined;
 }
 
 /**
@@ -11466,7 +11465,7 @@ export interface ListBucketIntelligentTieringConfigurationsRequest {
    *          should begin.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 }
 
 /**
@@ -11478,13 +11477,13 @@ export interface ListBucketInventoryConfigurationsOutput {
    *          configuration list response.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>The list of inventory configurations for a bucket.</p>
    * @public
    */
-  InventoryConfigurationList?: InventoryConfiguration[];
+  InventoryConfigurationList?: InventoryConfiguration[] | undefined;
 
   /**
    * <p>Tells whether the returned list of inventory configurations is complete. A value of true
@@ -11492,7 +11491,7 @@ export interface ListBucketInventoryConfigurationsOutput {
    *          subsequent request.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>The marker used to continue this inventory configuration listing. Use the
@@ -11500,7 +11499,7 @@ export interface ListBucketInventoryConfigurationsOutput {
    *          subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>
    * @public
    */
-  NextContinuationToken?: string;
+  NextContinuationToken?: string | undefined;
 }
 
 /**
@@ -11522,13 +11521,13 @@ export interface ListBucketInventoryConfigurationsRequest {
    *          understands.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -11541,14 +11540,14 @@ export interface ListBucketMetricsConfigurationsOutput {
    *          for a subsequent request.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>The marker that is used as a starting point for this metrics configuration list
    *          response. This value is present if it was sent in the request.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>The marker used to continue a metrics configuration listing that has been truncated. Use
@@ -11557,13 +11556,13 @@ export interface ListBucketMetricsConfigurationsOutput {
    *          understands.</p>
    * @public
    */
-  NextContinuationToken?: string;
+  NextContinuationToken?: string | undefined;
 
   /**
    * <p>The list of metrics configurations for a bucket.</p>
    * @public
    */
-  MetricsConfigurationList?: MetricsConfiguration[];
+  MetricsConfigurationList?: MetricsConfiguration[] | undefined;
 }
 
 /**
@@ -11585,13 +11584,13 @@ export interface ListBucketMetricsConfigurationsRequest {
    *          understands.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -11603,21 +11602,21 @@ export interface Bucket {
    * <p>The name of the bucket.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Date the bucket was created. This date can change when making changes to your bucket,
    *          such as editing its bucket policy.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>
    *             <code>BucketRegion</code> indicates the Amazon Web Services region where the bucket is located. If the request contains at least one valid parameter, it is included in the response.</p>
    * @public
    */
-  BucketRegion?: string;
+  BucketRegion?: string | undefined;
 }
 
 /**
@@ -11628,13 +11627,13 @@ export interface ListBucketsOutput {
    * <p>The list of buckets owned by the requester.</p>
    * @public
    */
-  Buckets?: Bucket[];
+  Buckets?: Bucket[] | undefined;
 
   /**
    * <p>The owner of the buckets listed.</p>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>
@@ -11642,14 +11641,14 @@ export interface ListBucketsOutput {
    *          response when there are more buckets that can be listed with pagination. The next <code>ListBuckets</code> request to Amazon S3 can be continued with this <code>ContinuationToken</code>. <code>ContinuationToken</code> is obfuscated and is not a real bucket.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>If <code>Prefix</code> was sent with the request, it is included in the response.</p>
    *          <p>All bucket names in the response begin with the specified bucket name prefix.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -11660,7 +11659,7 @@ export interface ListBucketsRequest {
    * <p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>
    * @public
    */
-  MaxBuckets?: number;
+  MaxBuckets?: number | undefined;
 
   /**
    * <p>
@@ -11671,13 +11670,13 @@ export interface ListBucketsRequest {
    *          <p>Required: No.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>Limits the response to bucket names that begin with the specified bucket name prefix.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Limits the response to buckets that are located in the specified Amazon Web Services Region. The Amazon Web Services Region must be expressed according to the Amazon Web Services Region code, such as <code>us-west-2</code> for the US West (Oregon) Region. For a list of the valid values for all of the Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p>
@@ -11686,7 +11685,7 @@ export interface ListBucketsRequest {
    *          </note>
    * @public
    */
-  BucketRegion?: string;
+  BucketRegion?: string | undefined;
 }
 
 /**
@@ -11697,14 +11696,14 @@ export interface ListDirectoryBucketsOutput {
    * <p>The list of buckets owned by the requester. </p>
    * @public
    */
-  Buckets?: Bucket[];
+  Buckets?: Bucket[] | undefined;
 
   /**
    * <p>If <code>ContinuationToken</code> was sent with the request, it is included in the
    *          response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 }
 
 /**
@@ -11717,13 +11716,13 @@ export interface ListDirectoryBucketsRequest {
    *          bucket name. You can use this <code>ContinuationToken</code> for the pagination of the list results.  </p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>Maximum number of buckets to be returned in response. When the number is more than the count of buckets that are owned by an Amazon Web Services account, return all the buckets in response.</p>
    * @public
    */
-  MaxDirectoryBuckets?: number;
+  MaxDirectoryBuckets?: number | undefined;
 }
 
 /**
@@ -11738,7 +11737,7 @@ export interface CommonPrefix {
    * <p>Container for the specified common prefix.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -11769,7 +11768,7 @@ export interface Initiator {
    *          </note>
    * @public
    */
-  ID?: string;
+  ID?: string | undefined;
 
   /**
    * <p>Name of the Principal.</p>
@@ -11778,7 +11777,7 @@ export interface Initiator {
    *          </note>
    * @public
    */
-  DisplayName?: string;
+  DisplayName?: string | undefined;
 }
 
 /**
@@ -11790,19 +11789,19 @@ export interface MultipartUpload {
    * <p>Upload ID that identifies the multipart upload.</p>
    * @public
    */
-  UploadId?: string;
+  UploadId?: string | undefined;
 
   /**
    * <p>Key of the object for which the multipart upload was initiated.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Date and time at which the multipart upload was initiated.</p>
    * @public
    */
-  Initiated?: Date;
+  Initiated?: Date | undefined;
 
   /**
    * <p>The class of storage used to store the object.</p>
@@ -11812,7 +11811,7 @@ export interface MultipartUpload {
    *          </note>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>Specifies the owner of the object that is part of the multipart upload. </p>
@@ -11822,19 +11821,19 @@ export interface MultipartUpload {
    *          </note>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>Identifies who initiated the multipart upload.</p>
    * @public
    */
-  Initiator?: Initiator;
+  Initiator?: Initiator | undefined;
 
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -11846,13 +11845,13 @@ export interface ListMultipartUploadsOutput {
    *          access point ARN or access point alias if used.</p>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>The key at or after which the listing began.</p>
    * @public
    */
-  KeyMarker?: string;
+  KeyMarker?: string | undefined;
 
   /**
    * <p>Together with key-marker, specifies the multipart upload after which listing should
@@ -11865,14 +11864,14 @@ export interface ListMultipartUploadsOutput {
    *          </note>
    * @public
    */
-  UploadIdMarker?: string;
+  UploadIdMarker?: string | undefined;
 
   /**
    * <p>When a list is truncated, this element specifies the value that should be used for the
    *          key-marker request parameter in a subsequent request.</p>
    * @public
    */
-  NextKeyMarker?: string;
+  NextKeyMarker?: string | undefined;
 
   /**
    * <p>When a prefix is provided in the request, this field contains the specified prefix. The
@@ -11883,7 +11882,7 @@ export interface ListMultipartUploadsOutput {
    *          </note>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Contains the delimiter you specified in the request. If you don't specify a delimiter in
@@ -11894,7 +11893,7 @@ export interface ListMultipartUploadsOutput {
    *          </note>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>When a list is truncated, this element specifies the value that should be used for the
@@ -11904,14 +11903,14 @@ export interface ListMultipartUploadsOutput {
    *          </note>
    * @public
    */
-  NextUploadIdMarker?: string;
+  NextUploadIdMarker?: string | undefined;
 
   /**
    * <p>Maximum number of multipart uploads that could have been included in the
    *          response.</p>
    * @public
    */
-  MaxUploads?: number;
+  MaxUploads?: number | undefined;
 
   /**
    * <p>Indicates whether the returned list of multipart uploads is truncated. A value of true
@@ -11919,14 +11918,14 @@ export interface ListMultipartUploadsOutput {
    *          uploads exceeds the limit allowed or specified by max uploads.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>Container for elements related to a particular multipart upload. A response can contain
    *          zero or more <code>Upload</code> elements.</p>
    * @public
    */
-  Uploads?: MultipartUpload[];
+  Uploads?: MultipartUpload[] | undefined;
 
   /**
    * <p>If you specify a delimiter in the request, then the result returns each distinct key
@@ -11938,7 +11937,7 @@ export interface ListMultipartUploadsOutput {
    *          </note>
    * @public
    */
-  CommonPrefixes?: CommonPrefix[];
+  CommonPrefixes?: CommonPrefix[] | undefined;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
@@ -11950,7 +11949,7 @@ export interface ListMultipartUploadsOutput {
    *             <code>NextKeyMarker</code>, <code>Key</code>.</p>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -11960,7 +11959,7 @@ export interface ListMultipartUploadsOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -12004,7 +12003,7 @@ export interface ListMultipartUploadsRequest {
    *          </note>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
@@ -12022,7 +12021,7 @@ export interface ListMultipartUploadsRequest {
    *          </note>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>Specifies the multipart upload after which listing should begin.</p>
@@ -12055,14 +12054,14 @@ export interface ListMultipartUploadsRequest {
    *          </note>
    * @public
    */
-  KeyMarker?: string;
+  KeyMarker?: string | undefined;
 
   /**
    * <p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response
    *          body. 1,000 is the maximum number of uploads that can be returned in a response.</p>
    * @public
    */
-  MaxUploads?: number;
+  MaxUploads?: number | undefined;
 
   /**
    * <p>Lists in-progress uploads only for those keys that begin with the specified prefix. You
@@ -12075,7 +12074,7 @@ export interface ListMultipartUploadsRequest {
    *          </note>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Together with key-marker, specifies the multipart upload after which listing should
@@ -12088,13 +12087,13 @@ export interface ListMultipartUploadsRequest {
    *          </note>
    * @public
    */
-  UploadIdMarker?: string;
+  UploadIdMarker?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -12108,7 +12107,7 @@ export interface ListMultipartUploadsRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 }
 
 /**
@@ -12137,7 +12136,7 @@ export interface RestoreStatus {
    *          <p>If the object hasn't been restored, there is no header response.</p>
    * @public
    */
-  IsRestoreInProgress?: boolean;
+  IsRestoreInProgress?: boolean | undefined;
 
   /**
    * <p>Indicates when the restored copy will expire. This value is populated only if the object
@@ -12148,7 +12147,7 @@ export interface RestoreStatus {
    *          </p>
    * @public
    */
-  RestoreExpiryDate?: Date;
+  RestoreExpiryDate?: Date | undefined;
 }
 
 /**
@@ -12184,13 +12183,13 @@ export interface _Object {
    *          object.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Creation date of the object.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The entity tag is a hash of the object. The ETag reflects changes only to the contents
@@ -12221,19 +12220,19 @@ export interface _Object {
    *          </note>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm[];
+  ChecksumAlgorithm?: ChecksumAlgorithm[] | undefined;
 
   /**
    * <p>Size in bytes of the object</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 
   /**
    * <p>The class of storage used to store the object.</p>
@@ -12243,7 +12242,7 @@ export interface _Object {
    *          </note>
    * @public
    */
-  StorageClass?: ObjectStorageClass;
+  StorageClass?: ObjectStorageClass | undefined;
 
   /**
    * <p>The owner of the object</p>
@@ -12253,7 +12252,7 @@ export interface _Object {
    *          </note>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>Specifies the restoration status of an object. Objects in certain storage classes must
@@ -12265,7 +12264,7 @@ export interface _Object {
    *          </note>
    * @public
    */
-  RestoreStatus?: RestoreStatus;
+  RestoreStatus?: RestoreStatus | undefined;
 }
 
 /**
@@ -12277,14 +12276,14 @@ export interface ListObjectsOutput {
    *          criteria.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>Indicates where in the bucket listing begins. Marker is included in the response if it
    *          was sent with the request.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>When the response is truncated (the <code>IsTruncated</code> element value in the
@@ -12300,25 +12299,25 @@ export interface ListObjectsOutput {
    *          </note>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 
   /**
    * <p>Metadata about each object returned.</p>
    * @public
    */
-  Contents?: _Object[];
+  Contents?: _Object[] | undefined;
 
   /**
    * <p>The bucket name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Keys that begin with the indicated prefix.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Causes keys that contain the same string between the prefix and the first occurrence of
@@ -12328,13 +12327,13 @@ export interface ListObjectsOutput {
    *             <code>MaxKeys</code> value.</p>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>The maximum number of keys returned in the response body.</p>
    * @public
    */
-  MaxKeys?: number;
+  MaxKeys?: number | undefined;
 
   /**
    * <p>All of the keys (up to 1,000) rolled up in a common prefix count as a single return when
@@ -12354,7 +12353,7 @@ export interface ListObjectsOutput {
    *          single return when calculating the number of returns.</p>
    * @public
    */
-  CommonPrefixes?: CommonPrefix[];
+  CommonPrefixes?: CommonPrefix[] | undefined;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
@@ -12372,7 +12371,7 @@ export interface ListObjectsOutput {
    *          </note>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -12382,7 +12381,7 @@ export interface ListObjectsOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -12429,7 +12428,7 @@ export interface ListObjectsRequest {
    * <p>A delimiter is a character that you use to group keys.</p>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
@@ -12447,14 +12446,14 @@ export interface ListObjectsRequest {
    *          </note>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this
    *          specified key. Marker can be any key in the bucket.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Sets the maximum number of keys returned in the response. By default, the action returns
@@ -12462,33 +12461,33 @@ export interface ListObjectsRequest {
    *       </p>
    * @public
    */
-  MaxKeys?: number;
+  MaxKeys?: number | undefined;
 
   /**
    * <p>Limits the response to keys that begin with the specified prefix.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that she or he will be charged for the list objects
    *          request. Bucket owners need not specify this parameter in their requests.</p>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Specifies the optional fields that you want returned in the response. Fields that you do
    *          not specify are not returned.</p>
    * @public
    */
-  OptionalObjectAttributes?: OptionalObjectAttributes[];
+  OptionalObjectAttributes?: OptionalObjectAttributes[] | undefined;
 }
 
 /**
@@ -12501,19 +12500,19 @@ export interface ListObjectsV2Output {
    *             <code>MaxKeys</code>, all of the results might not be returned.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>Metadata about each object returned.</p>
    * @public
    */
-  Contents?: _Object[];
+  Contents?: _Object[] | undefined;
 
   /**
    * <p>The bucket name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Keys that begin with the indicated prefix.</p>
@@ -12523,7 +12522,7 @@ export interface ListObjectsV2Output {
    *          </note>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Causes keys that contain the same string between the <code>prefix</code> and the first
@@ -12537,7 +12536,7 @@ export interface ListObjectsV2Output {
    *          </note>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>Sets the maximum number of keys returned in the response. By default, the action returns
@@ -12545,7 +12544,7 @@ export interface ListObjectsV2Output {
    *          more.</p>
    * @public
    */
-  MaxKeys?: number;
+  MaxKeys?: number | undefined;
 
   /**
    * <p>All of the keys (up to 1,000) that share the same prefix are grouped together. When counting the total numbers of returns by this API operation,
@@ -12579,7 +12578,7 @@ export interface ListObjectsV2Output {
    *          </note>
    * @public
    */
-  CommonPrefixes?: CommonPrefix[];
+  CommonPrefixes?: CommonPrefix[] | undefined;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
@@ -12590,7 +12589,7 @@ export interface ListObjectsV2Output {
    *             <code>Delimiter, Prefix, Key,</code> and <code>StartAfter</code>.</p>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>
@@ -12600,14 +12599,14 @@ export interface ListObjectsV2Output {
    *          fewer.</p>
    * @public
    */
-  KeyCount?: number;
+  KeyCount?: number | undefined;
 
   /**
    * <p> If <code>ContinuationToken</code> was sent with the request, it is included in the
    *          response. You can use the returned <code>ContinuationToken</code> for pagination of the list response. You can use this <code>ContinuationToken</code> for pagination of the list results. </p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>
@@ -12617,7 +12616,7 @@ export interface ListObjectsV2Output {
    *             <code>NextContinuationToken</code> is obfuscated and is not a real key</p>
    * @public
    */
-  NextContinuationToken?: string;
+  NextContinuationToken?: string | undefined;
 
   /**
    * <p>If StartAfter was sent with the request, it is included in the response.</p>
@@ -12626,7 +12625,7 @@ export interface ListObjectsV2Output {
    *          </note>
    * @public
    */
-  StartAfter?: string;
+  StartAfter?: string | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -12636,7 +12635,7 @@ export interface ListObjectsV2Output {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -12683,7 +12682,7 @@ export interface ListObjectsV2Request {
    *          </note>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
@@ -12701,7 +12700,7 @@ export interface ListObjectsV2Request {
    *          </note>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>Sets the maximum number of keys returned in the response. By default, the action returns
@@ -12709,7 +12708,7 @@ export interface ListObjectsV2Request {
    *          more.</p>
    * @public
    */
-  MaxKeys?: number;
+  MaxKeys?: number | undefined;
 
   /**
    * <p>Limits the response to keys that begin with the specified prefix.</p>
@@ -12719,7 +12718,7 @@ export interface ListObjectsV2Request {
    *          </note>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>
@@ -12728,7 +12727,7 @@ export interface ListObjectsV2Request {
    *          key. You can use this <code>ContinuationToken</code> for pagination of the list results.  </p>
    * @public
    */
-  ContinuationToken?: string;
+  ContinuationToken?: string | undefined;
 
   /**
    * <p>The owner field is not present in <code>ListObjectsV2</code> by default. If you want to
@@ -12740,7 +12739,7 @@ export interface ListObjectsV2Request {
    *          </note>
    * @public
    */
-  FetchOwner?: boolean;
+  FetchOwner?: boolean | undefined;
 
   /**
    * <p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this
@@ -12750,7 +12749,7 @@ export interface ListObjectsV2Request {
    *          </note>
    * @public
    */
-  StartAfter?: string;
+  StartAfter?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that she or he will be charged for the list objects
@@ -12761,13 +12760,13 @@ export interface ListObjectsV2Request {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Specifies the optional fields that you want returned in the response. Fields that you do
@@ -12777,7 +12776,7 @@ export interface ListObjectsV2Request {
    *          </note>
    * @public
    */
-  OptionalObjectAttributes?: OptionalObjectAttributes[];
+  OptionalObjectAttributes?: OptionalObjectAttributes[] | undefined;
 }
 
 /**
@@ -12789,32 +12788,32 @@ export interface DeleteMarkerEntry {
    * <p>The account that created the delete marker.></p>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>The object key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Version ID of an object.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Specifies whether the object is (true) or is not (false) the latest version of an
    *          object.</p>
    * @public
    */
-  IsLatest?: boolean;
+  IsLatest?: boolean | undefined;
 
   /**
    * <p>Date and time when the object was last modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 }
 
 /**
@@ -12839,56 +12838,56 @@ export interface ObjectVersion {
    * <p>The entity tag is an MD5 hash of that version of the object.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm[];
+  ChecksumAlgorithm?: ChecksumAlgorithm[] | undefined;
 
   /**
    * <p>Size in bytes of the object.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 
   /**
    * <p>The class of storage used to store the object.</p>
    * @public
    */
-  StorageClass?: ObjectVersionStorageClass;
+  StorageClass?: ObjectVersionStorageClass | undefined;
 
   /**
    * <p>The object key.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Version ID of an object.</p>
    * @public
    */
-  VersionId?: string;
+  VersionId?: string | undefined;
 
   /**
    * <p>Specifies whether the object is (true) or is not (false) the latest version of an
    *          object.</p>
    * @public
    */
-  IsLatest?: boolean;
+  IsLatest?: boolean | undefined;
 
   /**
    * <p>Date and time when the object was last modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>Specifies the owner of the object.</p>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>Specifies the restoration status of an object. Objects in certain storage classes must
@@ -12897,7 +12896,7 @@ export interface ObjectVersion {
    *             objects</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  RestoreStatus?: RestoreStatus;
+  RestoreStatus?: RestoreStatus | undefined;
 }
 
 /**
@@ -12911,19 +12910,19 @@ export interface ListObjectVersionsOutput {
    *          parameters as a starting place in another request to return the rest of the results.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>Marks the last key returned in a truncated response.</p>
    * @public
    */
-  KeyMarker?: string;
+  KeyMarker?: string | undefined;
 
   /**
    * <p>Marks the last version of the key returned in a truncated response.</p>
    * @public
    */
-  VersionIdMarker?: string;
+  VersionIdMarker?: string | undefined;
 
   /**
    * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
@@ -12932,7 +12931,7 @@ export interface ListObjectVersionsOutput {
    *          request.</p>
    * @public
    */
-  NextKeyMarker?: string;
+  NextKeyMarker?: string | undefined;
 
   /**
    * <p>When the number of responses exceeds the value of <code>MaxKeys</code>,
@@ -12941,31 +12940,31 @@ export interface ListObjectVersionsOutput {
    *          request parameter in a subsequent request.</p>
    * @public
    */
-  NextVersionIdMarker?: string;
+  NextVersionIdMarker?: string | undefined;
 
   /**
    * <p>Container for version information.</p>
    * @public
    */
-  Versions?: ObjectVersion[];
+  Versions?: ObjectVersion[] | undefined;
 
   /**
    * <p>Container for an object that is a delete marker.</p>
    * @public
    */
-  DeleteMarkers?: DeleteMarkerEntry[];
+  DeleteMarkers?: DeleteMarkerEntry[] | undefined;
 
   /**
    * <p>The bucket name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Selects objects that start with the value supplied by this parameter.</p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>The delimiter grouping the included keys. A delimiter is a character that you specify to
@@ -12976,20 +12975,20 @@ export interface ListObjectVersionsOutput {
    *          response.</p>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of objects to return.</p>
    * @public
    */
-  MaxKeys?: number;
+  MaxKeys?: number | undefined;
 
   /**
    * <p>All of the keys rolled up into a common prefix count as a single return when calculating
    *          the number of returns.</p>
    * @public
    */
-  CommonPrefixes?: CommonPrefix[];
+  CommonPrefixes?: CommonPrefix[] | undefined;
 
   /**
    * <p> Encoding type used by Amazon S3 to encode object key names in the XML response.</p>
@@ -13000,7 +12999,7 @@ export interface ListObjectVersionsOutput {
    *             <code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -13010,7 +13009,7 @@ export interface ListObjectVersionsOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 }
 
 /**
@@ -13033,7 +13032,7 @@ export interface ListObjectVersionsRequest {
    *          returned elsewhere in the response.</p>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p>Encoding type used by Amazon S3 to encode the <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html">object keys</a> in the response.
@@ -13051,13 +13050,13 @@ export interface ListObjectVersionsRequest {
    *          </note>
    * @public
    */
-  EncodingType?: EncodingType;
+  EncodingType?: EncodingType | undefined;
 
   /**
    * <p>Specifies the key to start with when listing objects in a bucket.</p>
    * @public
    */
-  KeyMarker?: string;
+  KeyMarker?: string | undefined;
 
   /**
    * <p>Sets the maximum number of keys returned in the response. By default, the action returns
@@ -13068,7 +13067,7 @@ export interface ListObjectVersionsRequest {
    *          see <code>key-marker</code> and <code>version-id-marker</code>.</p>
    * @public
    */
-  MaxKeys?: number;
+  MaxKeys?: number | undefined;
 
   /**
    * <p>Use this parameter to select only those keys that begin with the specified prefix. You
@@ -13078,19 +13077,19 @@ export interface ListObjectVersionsRequest {
    *          objects into a single result under <code>CommonPrefixes</code>. </p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p>Specifies the object version you want to start listing from.</p>
    * @public
    */
-  VersionIdMarker?: string;
+  VersionIdMarker?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
@@ -13104,14 +13103,14 @@ export interface ListObjectVersionsRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>Specifies the optional fields that you want returned in the response. Fields that you do
    *          not specify are not returned.</p>
    * @public
    */
-  OptionalObjectAttributes?: OptionalObjectAttributes[];
+  OptionalObjectAttributes?: OptionalObjectAttributes[] | undefined;
 }
 
 /**
@@ -13124,25 +13123,25 @@ export interface Part {
    *          10,000.</p>
    * @public
    */
-  PartNumber?: number;
+  PartNumber?: number | undefined;
 
   /**
    * <p>Date and time at which the part was uploaded.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>Entity tag returned when the part was uploaded.</p>
    * @public
    */
-  ETag?: string;
+  ETag?: string | undefined;
 
   /**
    * <p>Size in bytes of the uploaded part data.</p>
    * @public
    */
-  Size?: number;
+  Size?: number | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -13151,7 +13150,7 @@ export interface Part {
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32?: string;
+  ChecksumCRC32?: string | undefined;
 
   /**
    * <p>The base64-encoded, 32-bit CRC-32C checksum of the object. This will only be present if it was uploaded
@@ -13160,7 +13159,7 @@ export interface Part {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumCRC32C?: string;
+  ChecksumCRC32C?: string | undefined;
 
   /**
    * <p>The base64-encoded, 160-bit SHA-1 digest of the object. This will only be present if it was uploaded
@@ -13169,7 +13168,7 @@ export interface Part {
    *     Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA1?: string;
+  ChecksumSHA1?: string | undefined;
 
   /**
    * <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent.
@@ -13178,7 +13177,7 @@ export interface Part {
    *     <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
-  ChecksumSHA256?: string;
+  ChecksumSHA256?: string | undefined;
 }
 
 /**
@@ -13198,7 +13197,7 @@ export interface ListPartsOutput {
    *          </note>
    * @public
    */
-  AbortDate?: Date;
+  AbortDate?: Date | undefined;
 
   /**
    * <p>This header is returned along with the <code>x-amz-abort-date</code> header. It
@@ -13209,33 +13208,33 @@ export interface ListPartsOutput {
    *          </note>
    * @public
    */
-  AbortRuleId?: string;
+  AbortRuleId?: string | undefined;
 
   /**
    * <p>The name of the bucket to which the multipart upload was initiated. Does not return the
    *          access point ARN or access point alias if used.</p>
    * @public
    */
-  Bucket?: string;
+  Bucket?: string | undefined;
 
   /**
    * <p>Object key for which the multipart upload was initiated.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
    * @public
    */
-  UploadId?: string;
+  UploadId?: string | undefined;
 
   /**
    * <p>Specifies the part after which listing should begin. Only parts with higher part numbers
    *          will be listed.</p>
    * @public
    */
-  PartNumberMarker?: string;
+  PartNumberMarker?: string | undefined;
 
   /**
    * <p>When a list is truncated, this element specifies the last part in the list, as well as
@@ -13243,13 +13242,13 @@ export interface ListPartsOutput {
    *          request.</p>
    * @public
    */
-  NextPartNumberMarker?: string;
+  NextPartNumberMarker?: string | undefined;
 
   /**
    * <p>Maximum number of parts that were allowed in the response.</p>
    * @public
    */
-  MaxParts?: number;
+  MaxParts?: number | undefined;
 
   /**
    * <p> Indicates whether the returned list of parts is truncated. A true value indicates that
@@ -13257,14 +13256,14 @@ export interface ListPartsOutput {
    *          returned in the MaxParts element.</p>
    * @public
    */
-  IsTruncated?: boolean;
+  IsTruncated?: boolean | undefined;
 
   /**
    * <p>Container for elements related to a particular part. A response can contain zero or
    *          more <code>Part</code> elements.</p>
    * @public
    */
-  Parts?: Part[];
+  Parts?: Part[] | undefined;
 
   /**
    * <p>Container element that identifies who initiated the multipart upload. If the initiator
@@ -13273,7 +13272,7 @@ export interface ListPartsOutput {
    *          name.</p>
    * @public
    */
-  Initiator?: Initiator;
+  Initiator?: Initiator | undefined;
 
   /**
    * <p>Container element that identifies the object owner, after the object is created. If
@@ -13285,7 +13284,7 @@ export interface ListPartsOutput {
    *          </note>
    * @public
    */
-  Owner?: Owner;
+  Owner?: Owner | undefined;
 
   /**
    * <p>The class of storage used to store the uploaded
@@ -13296,7 +13295,7 @@ export interface ListPartsOutput {
    *          </note>
    * @public
    */
-  StorageClass?: StorageClass;
+  StorageClass?: StorageClass | undefined;
 
   /**
    * <p>If present, indicates that the requester was successfully charged for the
@@ -13306,13 +13305,13 @@ export interface ListPartsOutput {
    *          </note>
    * @public
    */
-  RequestCharged?: RequestCharged;
+  RequestCharged?: RequestCharged | undefined;
 
   /**
    * <p>The algorithm that was used to create a checksum of the object.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -13352,14 +13351,14 @@ export interface ListPartsRequest {
    * <p>Sets the maximum number of parts to return.</p>
    * @public
    */
-  MaxParts?: number;
+  MaxParts?: number | undefined;
 
   /**
    * <p>Specifies the part after which listing should begin. Only parts with higher part numbers
    *          will be listed.</p>
    * @public
    */
-  PartNumberMarker?: string;
+  PartNumberMarker?: string | undefined;
 
   /**
    * <p>Upload ID identifying the multipart upload whose parts are being listed.</p>
@@ -13379,13 +13378,13 @@ export interface ListPartsRequest {
    *          </note>
    * @public
    */
-  RequestPayer?: RequestPayer;
+  RequestPayer?: RequestPayer | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>The server-side encryption (SSE) algorithm used to encrypt the object. This parameter is needed only when the object was created
@@ -13397,7 +13396,7 @@ export interface ListPartsRequest {
    *          </note>
    * @public
    */
-  SSECustomerAlgorithm?: string;
+  SSECustomerAlgorithm?: string | undefined;
 
   /**
    * <p>The server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum algorithm.
@@ -13409,7 +13408,7 @@ export interface ListPartsRequest {
    *          </note>
    * @public
    */
-  SSECustomerKey?: string;
+  SSECustomerKey?: string | undefined;
 
   /**
    * <p>The MD5 server-side encryption (SSE) customer managed key. This parameter is needed only when the object was created using a checksum
@@ -13421,7 +13420,7 @@ export interface ListPartsRequest {
    *          </note>
    * @public
    */
-  SSECustomerKeyMD5?: string;
+  SSECustomerKeyMD5?: string | undefined;
 }
 
 /**
@@ -13446,7 +13445,7 @@ export interface PutBucketAccelerateConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
@@ -13458,7 +13457,7 @@ export interface PutBucketAccelerateConfigurationRequest {
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -13469,13 +13468,13 @@ export interface PutBucketAclRequest {
    * <p>The canned ACL to apply to the bucket.</p>
    * @public
    */
-  ACL?: BucketCannedACL;
+  ACL?: BucketCannedACL | undefined;
 
   /**
    * <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
    * @public
    */
-  AccessControlPolicy?: AccessControlPolicy;
+  AccessControlPolicy?: AccessControlPolicy | undefined;
 
   /**
    * <p>The bucket to which to apply the ACL.</p>
@@ -13494,7 +13493,7 @@ export interface PutBucketAclRequest {
    *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    * @public
    */
-  ContentMD5?: string;
+  ContentMD5?: string | undefined;
 
   /**
    * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
@@ -13506,26 +13505,26 @@ export interface PutBucketAclRequest {
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
    * <p>Allows grantee the read, write, read ACP, and write ACP permissions on the
    *          bucket.</p>
    * @public
    */
-  GrantFullControl?: string;
+  GrantFullControl?: string | undefined;
 
   /**
    * <p>Allows grantee to list the objects in the bucket.</p>
    * @public
    */
-  GrantRead?: string;
+  GrantRead?: string | undefined;
 
   /**
    * <p>Allows grantee to read the bucket ACL.</p>
    * @public
    */
-  GrantReadACP?: string;
+  GrantReadACP?: string | undefined;
 
   /**
    * <p>Allows grantee to create new objects in the bucket.</p>
@@ -13533,19 +13532,19 @@ export interface PutBucketAclRequest {
    *          overwrites of those objects.</p>
    * @public
    */
-  GrantWrite?: string;
+  GrantWrite?: string | undefined;
 
   /**
    * <p>Allows grantee to write the ACL for the applicable bucket.</p>
    * @public
    */
-  GrantWriteACP?: string;
+  GrantWriteACP?: string | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -13576,7 +13575,7 @@ export interface PutBucketAnalyticsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -13625,7 +13624,7 @@ export interface PutBucketCorsRequest {
    *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    * @public
    */
-  ContentMD5?: string;
+  ContentMD5?: string | undefined;
 
   /**
    * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
@@ -13637,13 +13636,13 @@ export interface PutBucketCorsRequest {
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -13674,7 +13673,7 @@ export interface PutBucketEncryptionRequest {
    *          </note>
    * @public
    */
-  ContentMD5?: string;
+  ContentMD5?: string | undefined;
 
   /**
    * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
@@ -13689,7 +13688,7 @@ export interface PutBucketEncryptionRequest {
    *          </note>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
    * <p>Specifies the default server-side-encryption configuration.</p>
@@ -13705,7 +13704,7 @@ export interface PutBucketEncryptionRequest {
    *          </note>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -13761,7 +13760,7 @@ export interface PutBucketInventoryConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -13784,7 +13783,7 @@ export interface PutBucketLifecycleConfigurationOutput {
    *          <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule.  Custom filters always take precedence over the default transition behavior.</p>
    * @public
    */
-  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize;
+  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize | undefined;
 }
 
 /**
@@ -13823,19 +13822,19 @@ export interface PutBucketLifecycleConfigurationRequest {
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
    * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
    * @public
    */
-  LifecycleConfiguration?: BucketLifecycleConfiguration;
+  LifecycleConfiguration?: BucketLifecycleConfiguration | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 
   /**
    * <p>Indicates which default minimum object size behavior is applied to the lifecycle configuration.</p>
@@ -13853,7 +13852,7 @@ export interface PutBucketLifecycleConfigurationRequest {
    *          <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule.  Custom filters always take precedence over the default transition behavior.</p>
    * @public
    */
-  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize;
+  TransitionDefaultMinimumObjectSize?: TransitionDefaultMinimumObjectSize | undefined;
 }
 
 /**
@@ -13867,7 +13866,7 @@ export interface BucketLoggingStatus {
    *             <i>Amazon S3 API Reference</i>.</p>
    * @public
    */
-  LoggingEnabled?: LoggingEnabled;
+  LoggingEnabled?: LoggingEnabled | undefined;
 }
 
 /**
@@ -13893,7 +13892,7 @@ export interface PutBucketLoggingRequest {
    *          <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
    * @public
    */
-  ContentMD5?: string;
+  ContentMD5?: string | undefined;
 
   /**
    * <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any
@@ -13905,13 +13904,13 @@ export interface PutBucketLoggingRequest {
    *             <code>ChecksumAlgorithm</code> parameter.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
@@ -13943,7 +13942,7 @@ export interface PutBucketMetricsConfigurationRequest {
    * <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
    * @public
    */
-  ExpectedBucketOwner?: string;
+  ExpectedBucketOwner?: string | undefined;
 }
 
 /**
