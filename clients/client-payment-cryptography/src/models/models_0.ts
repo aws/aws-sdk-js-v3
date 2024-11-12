@@ -278,6 +278,12 @@ export interface GetAliasOutput {
  */
 export interface ListAliasesInput {
   /**
+   * <p>The <code>keyARN</code> for which you want to list all aliases.</p>
+   * @public
+   */
+  KeyArn?: string;
+
+  /**
    * <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.</p>
    * @public
    */
@@ -529,7 +535,7 @@ export interface Tag {
    * <p>The value of the tag.</p>
    * @public
    */
-  Value?: string;
+  Value: string | undefined;
 }
 
 /**
@@ -1890,6 +1896,14 @@ export const GetPublicKeyCertificateOutputFilterSensitiveLog = (obj: GetPublicKe
 /**
  * @internal
  */
+export const ImportKeyCryptogramFilterSensitiveLog = (obj: ImportKeyCryptogram): any => ({
+  ...obj,
+  ...(obj.WrappedKeyCryptogram && { WrappedKeyCryptogram: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const RootCertificatePublicKeyFilterSensitiveLog = (obj: RootCertificatePublicKey): any => ({
   ...obj,
   ...(obj.PublicKeyCertificate && { PublicKeyCertificate: SENSITIVE_STRING }),
@@ -1909,6 +1923,7 @@ export const ImportTr31KeyBlockFilterSensitiveLog = (obj: ImportTr31KeyBlock): a
 export const ImportTr34KeyBlockFilterSensitiveLog = (obj: ImportTr34KeyBlock): any => ({
   ...obj,
   ...(obj.SigningKeyCertificate && { SigningKeyCertificate: SENSITIVE_STRING }),
+  ...(obj.WrappedKeyBlock && { WrappedKeyBlock: SENSITIVE_STRING }),
 });
 
 /**
@@ -1931,7 +1946,8 @@ export const ImportKeyMaterialFilterSensitiveLog = (obj: ImportKeyMaterial): any
     };
   if (obj.Tr31KeyBlock !== undefined) return { Tr31KeyBlock: ImportTr31KeyBlockFilterSensitiveLog(obj.Tr31KeyBlock) };
   if (obj.Tr34KeyBlock !== undefined) return { Tr34KeyBlock: ImportTr34KeyBlockFilterSensitiveLog(obj.Tr34KeyBlock) };
-  if (obj.KeyCryptogram !== undefined) return { KeyCryptogram: obj.KeyCryptogram };
+  if (obj.KeyCryptogram !== undefined)
+    return { KeyCryptogram: ImportKeyCryptogramFilterSensitiveLog(obj.KeyCryptogram) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

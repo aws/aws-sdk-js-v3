@@ -70,7 +70,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * //   Tags: [ // Tags // required
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required
- * //       Value: "STRING_VALUE",
+ * //       Value: "STRING_VALUE", // required
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

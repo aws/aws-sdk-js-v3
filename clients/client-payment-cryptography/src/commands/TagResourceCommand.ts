@@ -65,7 +65,7 @@ export interface TagResourceCommandOutput extends TagResourceOutput, __MetadataB
  *   Tags: [ // Tags // required
  *     { // Tag
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  * };

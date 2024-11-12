@@ -87,7 +87,7 @@ export interface CreateKeyCommandOutput extends CreateKeyOutput, __MetadataBeare
  *   Tags: [ // Tags
  *     { // Tag
  *       Key: "STRING_VALUE", // required
- *       Value: "STRING_VALUE",
+ *       Value: "STRING_VALUE", // required
  *     },
  *   ],
  * };
