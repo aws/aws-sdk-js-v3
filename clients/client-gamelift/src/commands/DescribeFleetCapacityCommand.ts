@@ -28,14 +28,11 @@ export interface DescribeFleetCapacityCommandInput extends DescribeFleetCapacity
 export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Retrieves the resource capacity settings for one or more fleets.  For a container
- *             fleet, this operation also returns counts for replica container groups.</p>
+ * <p>Retrieves the resource capacity settings for one or more fleets.  For a container
+ *             fleet, this operation also returns counts for game server container groups.</p>
  *          <p>With multi-location fleets, this operation retrieves data for the fleet's home Region
  *             only. To retrieve capacity for remote locations, see
- *         <a>DescribeFleetLocationCapacity</a>.</p>
+ *             <a>DescribeFleetLocationCapacity</a>.</p>
  *          <p>This operation can be used in the following ways: </p>
  *          <ul>
  *             <li>
@@ -63,7 +60,7 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
- *                 fleets</a>
+ *             fleets</a>
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift metrics for fleets</a>
@@ -99,7 +96,7 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  * //         TERMINATING: Number("int"),
  * //       },
  * //       Location: "STRING_VALUE",
- * //       ReplicaContainerGroupCounts: { // ReplicaContainerGroupCounts
+ * //       GameServerContainerGroupCounts: { // GameServerContainerGroupCounts
  * //         PENDING: Number("int"),
  * //         ACTIVE: Number("int"),
  * //         IDLE: Number("int"),
@@ -131,6 +128,9 @@ export interface DescribeFleetCapacityCommandOutput extends DescribeFleetCapacit
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>

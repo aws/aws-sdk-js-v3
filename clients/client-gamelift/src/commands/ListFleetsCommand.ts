@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListFleetsInput, ListFleetsOutput } from "../models/models_0";
+import { ListFleetsInput, ListFleetsOutput } from "../models/models_1";
 import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -28,10 +28,7 @@ export interface ListFleetsCommandInput extends ListFleetsInput {}
 export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can filter the
+ * <p>Retrieves a collection of fleet resources in an Amazon Web Services Region. You can filter the
  *             result set to find only those fleets that are deployed with a specific build or script.
  *             For fleets that have multiple locations, this operation retrieves fleets based on their
  *             home Region only.</p>
@@ -48,10 +45,6 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  *             <li>
  *                <p>To get a list of all Realtime Servers fleets with a specific configuration script,
  *                     provide the script ID. </p>
- *             </li>
- *             <li>
- *                <p> To get a list of all fleets with a specific container group definition, provide
- *                     the <code>ContainerGroupDefinition</code> ID. </p>
  *             </li>
  *          </ul>
  *          <p>Use the pagination parameters to retrieve results as a set of sequential pages. </p>
@@ -70,7 +63,6 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * const input = { // ListFleetsInput
  *   BuildId: "STRING_VALUE",
  *   ScriptId: "STRING_VALUE",
- *   ContainerGroupDefinitionName: "STRING_VALUE",
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };

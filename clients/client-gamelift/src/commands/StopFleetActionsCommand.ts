@@ -54,7 +54,7 @@ export interface StopFleetActionsCommandOutput extends StopFleetActionsOutput, _
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
- *                 Fleets</a>
+ *             Fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

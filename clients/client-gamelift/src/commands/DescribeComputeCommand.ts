@@ -32,10 +32,7 @@ export interface DescribeComputeCommandInput extends DescribeComputeInput {}
 export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Retrieves properties for a compute resource in an Amazon GameLift fleet. To get a list of all
+ * <p>Retrieves properties for a compute resource in an Amazon GameLift fleet. To get a list of all
  *             computes in a fleet, call <a>ListCompute</a>. </p>
  *          <p>To request information on a specific compute, provide the fleet ID and compute
  *             name.</p>
@@ -43,17 +40,12 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  *             Depending on the fleet's compute type, the result includes the following information: </p>
  *          <ul>
  *             <li>
- *                <p>For <code>EC2</code> fleets, this operation returns information about the EC2
+ *                <p>For managed EC2 fleets, this operation returns information about the EC2
  *                     instance.</p>
  *             </li>
  *             <li>
- *                <p>For <code>ANYWHERE</code> fleets, this operation returns information about the
+ *                <p>For Anywhere fleets, this operation returns information about the
  *                     registered compute.</p>
- *             </li>
- *             <li>
- *                <p>For <code>CONTAINER</code> fleets, this operation returns information about
- *                     the container that's registered as a compute, and the instance it's running on.
- *                     The compute name is the container name.</p>
  *             </li>
  *          </ul>
  * @example
@@ -76,7 +68,7 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  * //     ComputeArn: "STRING_VALUE",
  * //     IpAddress: "STRING_VALUE",
  * //     DnsName: "STRING_VALUE",
- * //     ComputeStatus: "PENDING" || "ACTIVE" || "TERMINATING",
+ * //     ComputeStatus: "PENDING" || "ACTIVE" || "TERMINATING" || "IMPAIRED",
  * //     Location: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
@@ -84,15 +76,13 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  * //     GameLiftServiceSdkEndpoint: "STRING_VALUE",
  * //     GameLiftAgentEndpoint: "STRING_VALUE",
  * //     InstanceId: "STRING_VALUE",
- * //     ContainerAttributes: { // ContainerAttributes
- * //       ContainerPortMappings: [ // ContainerPortMappingList
- * //         { // ContainerPortMapping
- * //           ContainerPort: Number("int"),
- * //           ConnectionPort: Number("int"),
- * //           Protocol: "TCP" || "UDP",
- * //         },
- * //       ],
- * //     },
+ * //     ContainerAttributes: [ // ContainerAttributes
+ * //       { // ContainerAttribute
+ * //         ContainerName: "STRING_VALUE",
+ * //         ContainerRuntimeId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GameServerContainerGroupDefinitionArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -117,6 +107,9 @@ export interface DescribeComputeCommandOutput extends DescribeComputeOutput, __M
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>

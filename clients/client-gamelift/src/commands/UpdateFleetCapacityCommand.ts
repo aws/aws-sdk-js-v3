@@ -28,10 +28,7 @@ export interface UpdateFleetCapacityCommandInput extends UpdateFleetCapacityInpu
 export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Updates capacity settings for a managed EC2 fleet or container fleet. For these
+ * <p>Updates capacity settings for a managed EC2 fleet or managed container fleet. For these
  *             fleets, you adjust capacity by changing the number of instances in the fleet. Fleet
  *             capacity determines the number of game sessions and players that the fleet can host
  *             based on its configuration. For fleets with multiple locations, use this operation to
@@ -51,11 +48,11 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *             </li>
  *          </ul>
  *          <p>To update capacity for a fleet's home Region, or if the fleet has no remote
- *                     locations, omit the <code>Location</code> parameter. The fleet must be in
- *                         <code>ACTIVE</code> status. </p>
+ *             locations, omit the <code>Location</code> parameter. The fleet must be in
+ *             <code>ACTIVE</code> status. </p>
  *          <p>To update capacity for a fleet's remote location, set the
- *                 <code>Location</code> parameter to the location to update. The location must be in
- *                 <code>ACTIVE</code> status.</p>
+ *             <code>Location</code> parameter to the location to update. The location must be in
+ *             <code>ACTIVE</code> status.</p>
  *          <p>If successful, Amazon GameLift updates the capacity settings and returns the identifiers for
  *             the updated fleet and/or location. If a requested change to desired capacity exceeds the
  *             instance type's limit, the <code>LimitExceeded</code> exception occurs. </p>
@@ -68,7 +65,7 @@ export interface UpdateFleetCapacityCommandOutput extends UpdateFleetCapacityOut
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-manage-capacity.html">Scaling fleet
- *                 capacity</a>
+ *                         capacity</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

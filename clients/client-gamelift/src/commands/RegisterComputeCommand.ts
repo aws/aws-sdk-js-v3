@@ -11,7 +11,7 @@ import {
   RegisterComputeInputFilterSensitiveLog,
   RegisterComputeOutput,
   RegisterComputeOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_RegisterComputeCommand, se_RegisterComputeCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -33,12 +33,8 @@ export interface RegisterComputeCommandInput extends RegisterComputeInput {}
 export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Registers a compute resource in an Amazon GameLift fleet. Register computes with an Amazon GameLift
- *             Anywhere fleet or a container fleet. </p>
- *          <p>For an Anywhere fleet or a container fleet that's running the Amazon GameLift Agent, the Agent
+ * <p>Registers a compute resource in an Amazon GameLift Anywhere fleet. </p>
+ *          <p>For an Anywhere fleet that's running the Amazon GameLift Agent, the Agent
  *             handles all compute registry tasks for you. For an Anywhere fleet that doesn't use the
  *             Agent, call this operation to register fleet computes.</p>
  *          <p>To register a compute, give the compute a name (must be unique within the
@@ -96,7 +92,7 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * //     ComputeArn: "STRING_VALUE",
  * //     IpAddress: "STRING_VALUE",
  * //     DnsName: "STRING_VALUE",
- * //     ComputeStatus: "PENDING" || "ACTIVE" || "TERMINATING",
+ * //     ComputeStatus: "PENDING" || "ACTIVE" || "TERMINATING" || "IMPAIRED",
  * //     Location: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
@@ -104,15 +100,13 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * //     GameLiftServiceSdkEndpoint: "STRING_VALUE",
  * //     GameLiftAgentEndpoint: "STRING_VALUE",
  * //     InstanceId: "STRING_VALUE",
- * //     ContainerAttributes: { // ContainerAttributes
- * //       ContainerPortMappings: [ // ContainerPortMappingList
- * //         { // ContainerPortMapping
- * //           ContainerPort: Number("int"),
- * //           ConnectionPort: Number("int"),
- * //           Protocol: "TCP" || "UDP",
- * //         },
- * //       ],
- * //     },
+ * //     ContainerAttributes: [ // ContainerAttributes
+ * //       { // ContainerAttribute
+ * //         ContainerName: "STRING_VALUE",
+ * //         ContainerRuntimeId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     GameServerContainerGroupDefinitionArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -144,8 +138,8 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  *
  * @throws {@link NotReadyException} (client fault)
  *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
- *       recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
- *         backoffs and jitter</a>. </p>
+ *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
+ *                 backoffs and jitter</a>. </p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

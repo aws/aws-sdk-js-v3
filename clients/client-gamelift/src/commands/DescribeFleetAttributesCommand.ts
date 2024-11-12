@@ -6,11 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import {
-  DescribeFleetAttributesInput,
-  DescribeFleetAttributesOutput,
-  DescribeFleetAttributesOutputFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeFleetAttributesInput, DescribeFleetAttributesOutput } from "../models/models_0";
 import { de_DescribeFleetAttributesCommand, se_DescribeFleetAttributesCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -32,10 +28,7 @@ export interface DescribeFleetAttributesCommandInput extends DescribeFleetAttrib
 export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttributesOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region. Properties include the computing
+ * <p>Retrieves core fleet-wide properties for fleets in an Amazon Web Services Region. Properties include the computing
  *             hardware and deployment configuration for instances in the fleet.</p>
  *          <p>You can use this operation in the following ways: </p>
  *          <ul>
@@ -114,27 +107,11 @@ export interface DescribeFleetAttributesCommandOutput extends DescribeFleetAttri
  * //       CertificateConfiguration: { // CertificateConfiguration
  * //         CertificateType: "DISABLED" || "GENERATED", // required
  * //       },
- * //       ComputeType: "EC2" || "ANYWHERE" || "CONTAINER",
+ * //       ComputeType: "EC2" || "ANYWHERE",
  * //       AnywhereConfiguration: { // AnywhereConfiguration
  * //         Cost: "STRING_VALUE", // required
  * //       },
  * //       InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
- * //       ContainerGroupsAttributes: { // ContainerGroupsAttributes
- * //         ContainerGroupDefinitionProperties: [ // ContainerGroupDefinitionPropertiesList
- * //           { // ContainerGroupDefinitionProperty
- * //             SchedulingStrategy: "REPLICA" || "DAEMON",
- * //             ContainerGroupDefinitionName: "STRING_VALUE",
- * //           },
- * //         ],
- * //         ConnectionPortRange: { // ConnectionPortRange
- * //           FromPort: Number("int"), // required
- * //           ToPort: Number("int"), // required
- * //         },
- * //         ContainerGroupsPerInstance: { // ContainerGroupsPerInstance
- * //           DesiredReplicaContainerGroupsPerInstance: Number("int"),
- * //           MaxReplicaContainerGroupsPerInstance: Number("int"),
- * //         },
- * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -184,7 +161,7 @@ export class DescribeFleetAttributesCommand extends $Command
   })
   .s("GameLift", "DescribeFleetAttributes", {})
   .n("GameLiftClient", "DescribeFleetAttributesCommand")
-  .f(void 0, DescribeFleetAttributesOutputFilterSensitiveLog)
+  .f(void 0, void 0)
   .ser(se_DescribeFleetAttributesCommand)
   .de(de_DescribeFleetAttributesCommand)
   .build() {

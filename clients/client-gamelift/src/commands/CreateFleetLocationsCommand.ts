@@ -28,10 +28,7 @@ export interface CreateFleetLocationsCommandInput extends CreateFleetLocationsIn
 export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
- *          </p>
- *          <p>Adds remote locations to an EC2 or container fleet and begins populating the new
+ * <p>Adds remote locations to a managed EC2 fleet or managed container fleet and begins populating the new
  *             locations with instances. The new instances conform to the fleet's instance type,
  *             auto-scaling, and other configuration settings.</p>
  *          <note>
@@ -121,8 +118,8 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
  *
  * @throws {@link NotReadyException} (client fault)
  *  <p> The operation failed because Amazon GameLift has not yet finished validating this compute. We
- *       recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
- *         backoffs and jitter</a>. </p>
+ *             recommend attempting 8 to 10 retries over 3 to 5 minutes with <a href="http://aws.amazon.com/blogs/https:/aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/">exponential
+ *                 backoffs and jitter</a>. </p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>

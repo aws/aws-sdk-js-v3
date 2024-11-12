@@ -28,31 +28,36 @@ export interface ListComputeCommandInput extends ListComputeInput {}
 export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation has been expanded to use with the Amazon GameLift containers feature, which is currently in public preview.</b>
+ * <p>Retrieves information on the compute resources in an Amazon GameLift fleet. Use the pagination
+ *             parameters to retrieve results in a set of sequential pages.</p>
+ *          <p>
+ *             <b>Request options:</b>
  *          </p>
- *          <p>Retrieves information on the compute resources in an Amazon GameLift fleet. </p>
- *          <p>To request a list of computes, specify the fleet ID. Use the pagination parameters to
- *             retrieve results in a set of sequential pages.</p>
- *          <p>You can filter the result set by location. </p>
- *          <p>If successful, this operation returns information on all computes in the requested
- *             fleet. Depending on the fleet's compute type, the result includes the following
- *             information: </p>
  *          <ul>
  *             <li>
- *                <p>For <code>EC2</code> fleets, this operation returns information about the EC2
- *                     instance. Compute names are instance IDs.</p>
+ *                <p>Retrieve a list of all computes in a fleet. Specify a fleet ID. </p>
  *             </li>
  *             <li>
- *                <p>For <code>ANYWHERE</code> fleets, this operation returns the compute names and
- *                     details provided when the compute was registered with
- *                         <code>RegisterCompute</code>. The <code>GameLiftServiceSdkEndpoint</code> or
- *                         <code>GameLiftAgentEndpoint</code> is included.</p>
+ *                <p>Retrieve a list of all computes in a specific fleet location. Specify a fleet
+ *                     ID and location.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Results:</b>
+ *          </p>
+ *          <p>If successful, this operation returns information on a set of computes. Depending on
+ *             the type of fleet, the result includes the following information: </p>
+ *          <ul>
+ *             <li>
+ *                <p>For managed EC2 fleets (compute type <code>EC2</code>), this operation returns
+ *                     information about the EC2 instance. Compute names are EC2 instance IDs.</p>
  *             </li>
  *             <li>
- *                <p>For <code>CONTAINER</code> fleets, this operation returns information about
- *                     containers that are registered as computes, and the instances they're running
- *                     on. Compute names are container names.</p>
+ *                <p>For Anywhere fleets (compute type <code>ANYWHERE</code>), this operation
+ *                     returns compute names and details as provided when the compute was registered
+ *                     with <code>RegisterCompute</code>. This includes
+ *                         <code>GameLiftServiceSdkEndpoint</code> or
+ *                         <code>GameLiftAgentEndpoint</code>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -64,6 +69,8 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * const input = { // ListComputeInput
  *   FleetId: "STRING_VALUE", // required
  *   Location: "STRING_VALUE",
+ *   ContainerGroupDefinitionName: "STRING_VALUE",
+ *   ComputeStatus: "ACTIVE" || "IMPAIRED",
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -78,7 +85,7 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * //       ComputeArn: "STRING_VALUE",
  * //       IpAddress: "STRING_VALUE",
  * //       DnsName: "STRING_VALUE",
- * //       ComputeStatus: "PENDING" || "ACTIVE" || "TERMINATING",
+ * //       ComputeStatus: "PENDING" || "ACTIVE" || "TERMINATING" || "IMPAIRED",
  * //       Location: "STRING_VALUE",
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       OperatingSystem: "WINDOWS_2012" || "AMAZON_LINUX" || "AMAZON_LINUX_2" || "WINDOWS_2016" || "AMAZON_LINUX_2023",
@@ -86,15 +93,13 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  * //       GameLiftServiceSdkEndpoint: "STRING_VALUE",
  * //       GameLiftAgentEndpoint: "STRING_VALUE",
  * //       InstanceId: "STRING_VALUE",
- * //       ContainerAttributes: { // ContainerAttributes
- * //         ContainerPortMappings: [ // ContainerPortMappingList
- * //           { // ContainerPortMapping
- * //             ContainerPort: Number("int"),
- * //             ConnectionPort: Number("int"),
- * //             Protocol: "TCP" || "UDP",
- * //           },
- * //         ],
- * //       },
+ * //       ContainerAttributes: [ // ContainerAttributes
+ * //         { // ContainerAttribute
+ * //           ContainerName: "STRING_VALUE",
+ * //           ContainerRuntimeId: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       GameServerContainerGroupDefinitionArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -118,6 +123,9 @@ export interface ListComputeCommandOutput extends ListComputeOutput, __MetadataB
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>

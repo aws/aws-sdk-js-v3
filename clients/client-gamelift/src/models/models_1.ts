@@ -1,22 +1,40 @@
 // smithy-typescript generated code
+import { SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import {
   Alias,
   AnywhereConfiguration,
+  AwsCredentials,
   BackfillMode,
   BalancingStrategy,
   Build,
+  ComparisonOperatorType,
+  Compute,
+  ComputeFilterSensitiveLog,
+  ConnectionPortRange,
+  ConnectionPortRangeFilterSensitiveLog,
+  ContainerFleet,
+  ContainerFleetFilterSensitiveLog,
+  ContainerFleetRemoveAttribute,
+  ContainerGroupDefinition,
+  ContainerGroupType,
+  ContainerOperatingSystem,
+  DeploymentConfiguration,
   DesiredPlayerSession,
   DesiredPlayerSessionFilterSensitiveLog,
   FilterConfiguration,
   FleetAction,
+  FleetDeployment,
   FlexMatchMode,
   GameProperty,
   GameServer,
+  GameServerContainerDefinitionInput,
   GameServerGroup,
   GameServerGroupAction,
   GameServerProtectionPolicy,
   GameServerUtilizationStatus,
   GameSession,
+  GameSessionCreationLimitPolicy,
   GameSessionFilterSensitiveLog,
   GameSessionPlacement,
   GameSessionPlacementFilterSensitiveLog,
@@ -25,24 +43,771 @@ import {
   InstanceDefinition,
   IpPermission,
   IpPermissionFilterSensitiveLog,
+  LocationModel,
+  LogConfiguration,
   MatchmakingConfiguration,
   MatchmakingTicket,
   MatchmakingTicketFilterSensitiveLog,
+  MetricName,
   Player,
   PlayerFilterSensitiveLog,
   PlayerLatency,
   PlayerLatencyFilterSensitiveLog,
   PlayerLatencyPolicy,
   PlayerSessionCreationPolicy,
+  PolicyType,
   PriorityConfiguration,
   ProtectionPolicy,
   ResourceCreationLimitPolicy,
   RoutingStrategy,
   RuntimeConfiguration,
   S3Location,
+  ScalingAdjustmentType,
   Script,
+  SupportContainerDefinitionInput,
   Tag,
+  TargetConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListContainerGroupDefinitionsInput {
+  /**
+   * <p>The type of container group to retrieve. Container group type determines how Amazon GameLift
+   *       deploys the container group on each fleet instance.</p>
+   * @public
+   */
+  ContainerGroupType?: ContainerGroupType;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListContainerGroupDefinitionsOutput {
+  /**
+   * <p>A result set of container group definitions that match the request.</p>
+   * @public
+   */
+  ContainerGroupDefinitions?: ContainerGroupDefinition[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListContainerGroupDefinitionVersionsInput {
+  /**
+   * <p>The unique identifier for the container group definition to retrieve properties for. You can use either the <code>Name</code> or
+   *       <code>ARN</code> value.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListContainerGroupDefinitionVersionsOutput {
+  /**
+   * <p>A result set of container group definitions that match the request.</p>
+   * @public
+   */
+  ContainerGroupDefinitions?: ContainerGroupDefinition[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFleetDeploymentsInput {
+  /**
+   * <p>A unique identifier for the container fleet. You can use either the fleet ID or ARN
+   *             value.</p>
+   * @public
+   */
+  FleetId?: string;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFleetDeploymentsOutput {
+  /**
+   * <p>The requested deployment information.</p>
+   * @public
+   */
+  FleetDeployments?: FleetDeployment[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFleetsInput {
+  /**
+   * <p>A unique identifier for the build to request fleets for. Use this parameter to return only fleets using a
+   *             specified build. Use either the build ID or ARN value.</p>
+   * @public
+   */
+  BuildId?: string;
+
+  /**
+   * <p>A unique identifier for the Realtime script to request fleets for. Use this parameter to return only fleets using a
+   *             specified script. Use either the script ID or ARN value.</p>
+   * @public
+   */
+  ScriptId?: string;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFleetsOutput {
+  /**
+   * <p>A set of fleet IDs that match the list request.</p>
+   * @public
+   */
+  FleetIds?: string[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGameServerGroupsInput {
+  /**
+   * <p>The game server groups' limit.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGameServerGroupsOutput {
+  /**
+   * <p>The game server groups' game server groups.</p>
+   * @public
+   */
+  GameServerGroups?: GameServerGroup[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListGameServersInput {
+  /**
+   * <p>An identifier for the game server group to retrieve a list of game servers from. Use
+   *             either the name or ARN value.</p>
+   * @public
+   */
+  GameServerGroupName: string | undefined;
+
+  /**
+   * <p>Indicates how to sort the returned data based on game server registration timestamp.
+   *             Use <code>ASCENDING</code> to retrieve oldest game servers first, or use
+   *                 <code>DESCENDING</code> to retrieve newest game servers first. If this parameter is
+   *             left empty, game servers are returned in no particular order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder;
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListGameServersOutput {
+  /**
+   * <p>A collection of game server objects that match the request.</p>
+   * @public
+   */
+  GameServers?: GameServer[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LocationFilter = {
+  AWS: "AWS",
+  CUSTOM: "CUSTOM",
+} as const;
+
+/**
+ * @public
+ */
+export type LocationFilter = (typeof LocationFilter)[keyof typeof LocationFilter];
+
+/**
+ * @public
+ */
+export interface ListLocationsInput {
+  /**
+   * <p>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations.</p>
+   * @public
+   */
+  Filters?: LocationFilter[];
+
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLocationsOutput {
+  /**
+   * <p>A collection of locations.</p>
+   * @public
+   */
+  Locations?: LocationModel[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListScriptsInput {
+  /**
+   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
+   * @public
+   */
+  Limit?: number;
+
+  /**
+   * <p>A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListScriptsOutput {
+  /**
+   * <p>A set of properties describing the requested script.</p>
+   * @public
+   */
+  Scripts?: Script[];
+
+  /**
+   * <p>A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) that uniquely identifies
+   *             the Amazon GameLift resource that you want to retrieve tags for. Amazon GameLift includes resource ARNs in
+   *             the data object for the resource. You can retrieve the ARN by calling a
+   *                 <code>List</code> or <code>Describe</code> operation for the resource type. </p>
+   * @public
+   */
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The collection of tags assigned to the resource. </p>
+   * @public
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface PutScalingPolicyInput {
+  /**
+   * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique. A fleet can have only one scaling policy with the same name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for the fleet to apply this policy to. You can use either the fleet ID or ARN value. The fleet
+   *             cannot be in any of the following statuses: ERROR or DELETING.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>Amount of adjustment to make, based on the scaling adjustment type.</p>
+   * @public
+   */
+  ScalingAdjustment?: number;
+
+  /**
+   * <p>The type of adjustment to make to a fleet's instance count:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>ChangeInCapacity</b> -- add (or subtract) the
+   *                     scaling adjustment value from the current instance count. Positive values scale
+   *                     up while negative values scale down.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>ExactCapacity</b> -- set the instance count to the
+   *                     scaling adjustment value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>PercentChangeInCapacity</b> -- increase or reduce
+   *                     the current instance count by the scaling adjustment, read as a percentage.
+   *                     Positive values scale up while negative values scale down; for example, a value
+   *                     of "-10" scales the fleet down by 10%.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ScalingAdjustmentType?: ScalingAdjustmentType;
+
+  /**
+   * <p>Metric value used to trigger a scaling event.</p>
+   * @public
+   */
+  Threshold?: number;
+
+  /**
+   * <p>Comparison operator to use when measuring the metric against the threshold
+   *             value.</p>
+   * @public
+   */
+  ComparisonOperator?: ComparisonOperatorType;
+
+  /**
+   * <p>Length of time (in minutes) the metric must be at or beyond the threshold before a
+   *             scaling event is triggered.</p>
+   * @public
+   */
+  EvaluationPeriods?: number;
+
+  /**
+   * <p>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For
+   *             detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor Amazon GameLift
+   *                 with Amazon CloudWatch</a>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>ActivatingGameSessions</b> -- Game sessions in
+   *                     the process of being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>ActiveGameSessions</b> -- Game sessions that
+   *                     are currently running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>ActiveInstances</b> -- Fleet instances that
+   *                     are currently running at least one game session.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>AvailableGameSessions</b> -- Additional game
+   *                     sessions that fleet could host simultaneously, given current capacity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>AvailablePlayerSessions</b> -- Empty player
+   *                     slots in currently active game sessions. This includes game sessions that are
+   *                     not currently accepting players. Reserved player slots are not
+   *                     included.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>CurrentPlayerSessions</b> -- Player slots in
+   *                     active game sessions that are being used by a player or are reserved for a
+   *                     player. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IdleInstances</b> -- Active instances that are
+   *                     currently hosting zero game sessions. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>PercentAvailableGameSessions</b> -- Unused
+   *                     percentage of the total number of game sessions that a fleet could host
+   *                     simultaneously, given current capacity. Use this metric for a target-based
+   *                     scaling policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>PercentIdleInstances</b> -- Percentage of the
+   *                     total number of active instances that are hosting zero game sessions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>QueueDepth</b> -- Pending game session
+   *                     placement requests, in any queue, where the current fleet is the top-priority
+   *                     destination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>WaitTime</b> -- Current wait time for pending
+   *                     game session placement requests, in any queue, where the current fleet is the
+   *                     top-priority destination. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  MetricName: MetricName | undefined;
+
+  /**
+   * <p>The type of scaling policy to create. For a target-based policy, set the parameter
+   *                 <i>MetricName</i> to 'PercentAvailableGameSessions' and specify a
+   *                 <i>TargetConfiguration</i>. For a rule-based policy set the following
+   *             parameters: <i>MetricName</i>, <i>ComparisonOperator</i>,
+   *                 <i>Threshold</i>, <i>EvaluationPeriods</i>,
+   *                 <i>ScalingAdjustmentType</i>, and
+   *                 <i>ScalingAdjustment</i>.</p>
+   * @public
+   */
+  PolicyType?: PolicyType;
+
+  /**
+   * <p>An object that contains settings for a target-based scaling policy.</p>
+   * @public
+   */
+  TargetConfiguration?: TargetConfiguration;
+}
+
+/**
+ * @public
+ */
+export interface PutScalingPolicyOutput {
+  /**
+   * <p>A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.</p>
+   * @public
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ */
+export interface RegisterComputeInput {
+  /**
+   * <p>A unique identifier for the fleet to register the compute to. You can use either the fleet ID or ARN value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>A descriptive label for the compute resource.</p>
+   * @public
+   */
+  ComputeName: string | undefined;
+
+  /**
+   * <p>The path to a TLS certificate on your compute resource. Amazon GameLift doesn't validate the
+   *             path and certificate.</p>
+   * @public
+   */
+  CertificatePath?: string;
+
+  /**
+   * <p>The DNS name of the compute resource. Amazon GameLift requires either a DNS name or IP
+   *             address.</p>
+   * @public
+   */
+  DnsName?: string;
+
+  /**
+   * <p>The IP address of the compute resource. Amazon GameLift requires either a DNS name or IP
+   *             address. When registering an Anywhere fleet, an IP address is required.</p>
+   * @public
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>The name of a custom location to associate with the compute resource being registered.
+   *             This parameter is required when registering a compute for an Anywhere fleet.</p>
+   * @public
+   */
+  Location?: string;
+}
+
+/**
+ * @public
+ */
+export interface RegisterComputeOutput {
+  /**
+   * <p>The details of the compute resource you registered.</p>
+   * @public
+   */
+  Compute?: Compute;
+}
+
+/**
+ * @public
+ */
+export interface RegisterGameServerInput {
+  /**
+   * <p>A unique identifier for the game server group where the game server is running.</p>
+   * @public
+   */
+  GameServerGroupName: string | undefined;
+
+  /**
+   * <p>A custom string that uniquely identifies the game server to register. Game server IDs are developer-defined and must be unique
+   *             across all game server groups in your Amazon Web Services account.</p>
+   * @public
+   */
+  GameServerId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the instance where the game server is running. This ID is
+   *             available in the instance metadata. EC2 instance IDs
+   *             use a 17-character format, for example: <code>i-1234567890abcdef0</code>.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Information that is needed to make inbound client connections to the game server. This
+   *             might include the IP address and port, DNS name, and other information.</p>
+   * @public
+   */
+  ConnectionInfo?: string;
+
+  /**
+   * <p>A set of custom game server properties, formatted as a single string value. This data
+   *             is passed to a game client or service when it requests information on game servers. </p>
+   * @public
+   */
+  GameServerData?: string;
+}
+
+/**
+ * @public
+ */
+export interface RegisterGameServerOutput {
+  /**
+   * <p>Object that describes the newly registered game server.</p>
+   * @public
+   */
+  GameServer?: GameServer;
+}
+
+/**
+ * @public
+ */
+export interface RequestUploadCredentialsInput {
+  /**
+   * <p>A unique identifier for the build to get credentials for. You can use either the build ID or ARN value. </p>
+   * @public
+   */
+  BuildId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RequestUploadCredentialsOutput {
+  /**
+   * <p>Amazon Web Services credentials required when uploading a game build to the storage location. These
+   *             credentials have a limited lifespan and are valid only for the build they were issued
+   *             for.</p>
+   * @public
+   */
+  UploadCredentials?: AwsCredentials;
+
+  /**
+   * <p>Amazon S3 path and key, identifying where the game build files are
+   *             stored.</p>
+   * @public
+   */
+  StorageLocation?: S3Location;
+}
+
+/**
+ * @public
+ */
+export interface ResolveAliasInput {
+  /**
+   * <p>The unique identifier of the alias that you want to retrieve a fleet ID for. You can
+   *             use either the alias ID or ARN value.</p>
+   * @public
+   */
+  AliasId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResolveAliasOutput {
+  /**
+   * <p>The fleet identifier that the alias is pointing to.</p>
+   * @public
+   */
+  FleetId?: string;
+
+  /**
+   * <p> The Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>) associated with the GameLift fleet resource that this alias points to.
+   *         </p>
+   * @public
+   */
+  FleetArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ResumeGameServerGroupInput {
+  /**
+   * <p>A unique identifier for the game server group. Use either the name or ARN value.</p>
+   * @public
+   */
+  GameServerGroupName: string | undefined;
+
+  /**
+   * <p>The activity to resume for this game server group.</p>
+   * @public
+   */
+  ResumeActions: GameServerGroupAction[] | undefined;
+}
 
 /**
  * @public
@@ -287,7 +1052,7 @@ export interface StartGameSessionPlacementInput {
   GameSessionName?: string;
 
   /**
-   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to Amazon Web Services Regions. This information is used to try to place the new game session where it
+   * <p>A set of values, expressed in milliseconds, that indicates the amount of latency that a player experiences when connected to @aws; Regions. This information is used to try to place the new game session where it
    *             can offer the best possible gameplay experience for the players. </p>
    * @public
    */
@@ -300,8 +1065,7 @@ export interface StartGameSessionPlacementInput {
   DesiredPlayerSessions?: DesiredPlayerSession[];
 
   /**
-   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process in the
-   *     <code>GameSession</code> object with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a game session</a>.</p>
    * @public
    */
   GameSessionData?: string;
@@ -649,13 +1413,13 @@ export interface UpdateBuildInput {
   BuildId: string | undefined;
 
   /**
-   * <p>A descriptive label associated with a build. Build names don't need to be unique. </p>
+   * <p>A descriptive label that is associated with a build. Build names do not need to be unique. </p>
    * @public
    */
   Name?: string;
 
   /**
-   * <p>Version information associated with a build or script. Version strings don't need to be unique.</p>
+   * <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
    * @public
    */
   Version?: string;
@@ -670,6 +1434,214 @@ export interface UpdateBuildOutput {
    * @public
    */
   Build?: Build;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerFleetInput {
+  /**
+   * <p>A unique identifier for the container fleet to update. You can use either the fleet ID
+   *             or ARN value.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>The name or ARN value of a new game server container group definition to deploy on the
+   *             fleet. If you're updating the fleet to a specific version of a container group
+   *             definition, use the ARN value and include the version number. If you're updating the
+   *             fleet to the latest version of a container group definition, you can use the name value.
+   *             You can't remove a fleet's game server container group definition, you can only update
+   *             or replace it with another definition.</p>
+   *          <p>Update a container group definition by calling <a>UpdateContainerGroupDefinition</a>. This operation creates a <a>ContainerGroupDefinition</a> resource with an incremented version. </p>
+   * @public
+   */
+  GameServerContainerGroupDefinitionName?: string;
+
+  /**
+   * <p>The name or ARN value of a new per-instance container group definition to deploy on
+   *             the fleet. If you're updating the fleet to a specific version of a container group
+   *             definition, use the ARN value and include the version number. If you're updating the
+   *             fleet to the latest version of a container group definition, you can use the name
+   *             value.</p>
+   *          <p>Update a container group definition by calling <a>UpdateContainerGroupDefinition</a>. This operation creates a <a>ContainerGroupDefinition</a> resource with an incremented version. </p>
+   *          <p>To remove a fleet's per-instance container group definition, leave this parameter empty
+   *             and use the parameter <code>RemoveAttributes</code>.</p>
+   * @public
+   */
+  PerInstanceContainerGroupDefinitionName?: string;
+
+  /**
+   * <p>The number of times to replicate the game server container group on each fleet
+   *             instance. By default, Amazon GameLift calculates the maximum number of game server container
+   *             groups that can fit on each instance. You can remove this property value to use the
+   *             calculated value, or set it manually. If you set this number manually, Amazon GameLift uses your
+   *             value as long as it's less than the calculated maximum.</p>
+   * @public
+   */
+  GameServerContainerGroupsPerInstance?: number;
+
+  /**
+   * <p>A revised set of port numbers to open on each fleet instance. By default, Amazon GameLift
+   *             calculates an optimal port range based on your fleet configuration. If you previously
+   *             set this parameter manually, you can't reset this to use the calculated settings.</p>
+   * @public
+   */
+  InstanceConnectionPortRange?: ConnectionPortRange;
+
+  /**
+   * <p>A set of ports to add to the container fleet's inbound permissions.</p>
+   * @public
+   */
+  InstanceInboundPermissionAuthorizations?: IpPermission[];
+
+  /**
+   * <p>A set of ports to remove from the container fleet's inbound permissions.</p>
+   * @public
+   */
+  InstanceInboundPermissionRevocations?: IpPermission[];
+
+  /**
+   * <p>Instructions for how to deploy updates to a container fleet, if the fleet update
+   *             initiates a deployment. The deployment configuration lets you determine how to replace
+   *             fleet instances and what actions to take if the deployment fails.</p>
+   * @public
+   */
+  DeploymentConfiguration?: DeploymentConfiguration;
+
+  /**
+   * <p>A meaningful description of the container fleet.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of an Amazon Web Services CloudWatch metric group to add this fleet to.  </p>
+   * @public
+   */
+  MetricGroups?: string[];
+
+  /**
+   * <p>The game session protection policy to apply to all new game sessions that are started
+   *             in this fleet. Game sessions that already exist are not affected. </p>
+   * @public
+   */
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
+
+  /**
+   * <p>A policy that limits the number of game sessions that each individual player can create
+   *             on instances in this fleet. The limit applies for a specified span of time.</p>
+   * @public
+   */
+  GameSessionCreationLimitPolicy?: GameSessionCreationLimitPolicy;
+
+  /**
+   * <p>The method for collecting container logs for the fleet. </p>
+   * @public
+   */
+  LogConfiguration?: LogConfiguration;
+
+  /**
+   * <p>If set, this update removes a fleet's per-instance container group definition. You
+   *             can't remove a fleet's game server container group definition.</p>
+   * @public
+   */
+  RemoveAttributes?: ContainerFleetRemoveAttribute[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerFleetOutput {
+  /**
+   * <p>A collection of container fleet objects for all fleets that match the request
+   *             criteria.</p>
+   * @public
+   */
+  ContainerFleet?: ContainerFleet;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerGroupDefinitionInput {
+  /**
+   * <p>A descriptive identifier for the container group definition. The name value must be unique in an Amazon Web Services Region.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>An updated definition for the game server container in this group. Define a game server
+   *       container only when the container group type is <code>GAME_SERVER</code>. You can pass in your
+   *       container definitions as a JSON file.</p>
+   * @public
+   */
+  GameServerContainerDefinition?: GameServerContainerDefinitionInput;
+
+  /**
+   * <p>One or more definitions for support containers in this group. You can define a support
+   *       container in any type of container group. You can pass in your container definitions as a JSON
+   *       file.</p>
+   * @public
+   */
+  SupportContainerDefinitions?: SupportContainerDefinitionInput[];
+
+  /**
+   * <p>The maximum amount of memory (in MiB) to allocate to the container group. All containers in
+   *       the group share this memory. If you specify memory limits for an individual container, the
+   *       total value must be greater than any individual container's memory limit.</p>
+   * @public
+   */
+  TotalMemoryLimitMebibytes?: number;
+
+  /**
+   * <p>The maximum amount of vCPU units to allocate to the container group (1 vCPU is equal to 1024
+   *       CPU units). All containers in the group share this memory. If you specify vCPU limits for
+   *       individual containers, the total value must be equal to or greater than the sum of the CPU
+   *       limits for all containers in the group.</p>
+   * @public
+   */
+  TotalVcpuLimit?: number;
+
+  /**
+   * <p>A description for this update to the container group definition. </p>
+   * @public
+   */
+  VersionDescription?: string;
+
+  /**
+   * <p>The container group definition version to update. The new version starts with values from
+   *       the source version, and then updates values included in this request. </p>
+   * @public
+   */
+  SourceVersionNumber?: number;
+
+  /**
+   * <p>The platform that all containers in the group use. Containers in a group must run on the
+   *       same operating system.</p>
+   *          <note>
+   *             <p>Amazon Linux 2 (AL2) will reach end of support on 6/30/2025. See more details in the <a href="https://aws.amazon.com/amazon-linux-2/faqs/">Amazon Linux 2 FAQs</a>. For game
+   *         servers that are hosted on AL2 and use Amazon GameLift server SDK 4.x, first update the game
+   *         server build to server SDK 5.x, and then deploy to AL2023 instances. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-serversdk5-migration.html"> Migrate to
+   *           Amazon GameLift server SDK version 5.</a>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  OperatingSystem?: ContainerOperatingSystem;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContainerGroupDefinitionOutput {
+  /**
+   * <p>The properties of the updated container group definition version.</p>
+   * @public
+   */
+  ContainerGroupDefinition?: ContainerGroupDefinition;
 }
 
 /**
@@ -698,7 +1670,7 @@ export interface UpdateFleetAttributesInput {
   /**
    * <p>The game session protection policy to apply to all new game sessions created in this
    *             fleet. Game sessions that already exist are not affected. You can set protection for
-   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a> .</p>
+   *             individual game sessions using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateGameSession.html">UpdateGameSession</a>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -816,7 +1788,7 @@ export interface UpdateFleetCapacityOutput {
 
   /**
    * <p>The remote location being updated, expressed as an Amazon Web Services Region code, such as
-   *                 <code>us-west-2</code>.</p>
+   *             <code>us-west-2</code>.</p>
    * @public
    */
   Location?: string;
@@ -1095,17 +2067,15 @@ export interface UpdateGameSessionQueueInput {
   Name: string | undefined;
 
   /**
-   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status. By default, this property is set to <code>600</code>.</p>
+   * <p>The maximum time, in seconds, that a new game session placement request remains in the queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code> status.</p>
    * @public
    */
   TimeoutInSeconds?: number;
 
   /**
-   * <p>A set of policies that act as a sliding cap on player latency. FleetIQ works to
-   *             deliver low latency for most players in a game session. These policies ensure that no
-   *             individual player can be placed into a game with unreasonably high latency. Use multiple
-   *             policies to gradually relax latency requirements a step at a time. Multiple policies are applied based on their
-   *             maximum allowed latency, starting with the lowest value. When updating policies, provide a complete collection of policies.</p>
+   * <p>A set of policies that enforce a sliding cap on player latency when processing game sessions placement requests.
+   * 	Use multiple policies to gradually relax the cap over time if Amazon GameLift can't make a placement.
+   * 	    Policies are evaluated in order starting with the lowest maximum latency value. When updating policies, provide a complete collection of policies.</p>
    * @public
    */
   PlayerLatencyPolicies?: PlayerLatencyPolicy[];
@@ -1226,7 +2196,7 @@ export interface UpdateMatchmakingConfigurationInput {
 
   /**
    * <p>The number of player slots in a match to keep open for future players. For example, if the configuration's rule set specifies
-   *             a match for a single 10-person team, and the additional player count is set to 2, 10 players will be selected for the match and 2 more player slots will be open for future players. This parameter is not used if <code>FlexMatchMode</code> is set to
+   *             a match for a single 12-person team, and the additional player count is set to 2, only 10 players are selected for the match. This parameter is not used if <code>FlexMatchMode</code> is set to
    *                 <code>STANDALONE</code>.</p>
    * @public
    */
@@ -1248,7 +2218,7 @@ export interface UpdateMatchmakingConfigurationInput {
   GameProperties?: GameProperty[];
 
   /**
-   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the game session
+   * <p>A set of custom game session properties, formatted as a single string value. This data is passed to a game server process with a request to start a new game session. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a game session</a>. This information is added to the game session
    *             that is created for a successful match. This parameter is not used if
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    * @public
@@ -1342,13 +2312,13 @@ export interface UpdateScriptInput {
   ScriptId: string | undefined;
 
   /**
-   * <p>A descriptive label that is associated with a script. Script names don't need to be unique.</p>
+   * <p>A descriptive label that is associated with a script. Script names do not need to be unique.</p>
    * @public
    */
   Name?: string;
 
   /**
-   * <p>Version information associated with a build or script. Version strings don't need to be unique.</p>
+   * <p>Version information that is associated with a build or script. Version strings do not need to be unique.</p>
    * @public
    */
   Version?: string;
@@ -1414,6 +2384,48 @@ export interface ValidateMatchmakingRuleSetOutput {
    */
   Valid?: boolean;
 }
+
+/**
+ * @internal
+ */
+export const ListContainerGroupDefinitionsOutputFilterSensitiveLog = (
+  obj: ListContainerGroupDefinitionsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContainerGroupDefinitionVersionsOutputFilterSensitiveLog = (
+  obj: ListContainerGroupDefinitionVersionsOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisterComputeInputFilterSensitiveLog = (obj: RegisterComputeInput): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterComputeOutputFilterSensitiveLog = (obj: RegisterComputeOutput): any => ({
+  ...obj,
+  ...(obj.Compute && { Compute: ComputeFilterSensitiveLog(obj.Compute) }),
+});
+
+/**
+ * @internal
+ */
+export const RequestUploadCredentialsOutputFilterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
+  ...obj,
+  ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -1486,6 +2498,52 @@ export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSe
   ...(obj.GameSessionPlacement && {
     GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
   }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerFleetInputFilterSensitiveLog = (obj: UpdateContainerFleetInput): any => ({
+  ...obj,
+  ...(obj.InstanceConnectionPortRange && {
+    InstanceConnectionPortRange: ConnectionPortRangeFilterSensitiveLog(obj.InstanceConnectionPortRange),
+  }),
+  ...(obj.InstanceInboundPermissionAuthorizations && {
+    InstanceInboundPermissionAuthorizations: obj.InstanceInboundPermissionAuthorizations.map((item) =>
+      IpPermissionFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.InstanceInboundPermissionRevocations && {
+    InstanceInboundPermissionRevocations: obj.InstanceInboundPermissionRevocations.map((item) =>
+      IpPermissionFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerFleetOutputFilterSensitiveLog = (obj: UpdateContainerFleetOutput): any => ({
+  ...obj,
+  ...(obj.ContainerFleet && { ContainerFleet: ContainerFleetFilterSensitiveLog(obj.ContainerFleet) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerGroupDefinitionInputFilterSensitiveLog = (
+  obj: UpdateContainerGroupDefinitionInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContainerGroupDefinitionOutputFilterSensitiveLog = (
+  obj: UpdateContainerGroupDefinitionOutput
+): any => ({
+  ...obj,
 });
 
 /**

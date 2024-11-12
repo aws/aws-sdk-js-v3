@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { DeleteContainerGroupDefinitionInput } from "../models/models_0";
+import { DeleteContainerGroupDefinitionInput, DeleteContainerGroupDefinitionOutput } from "../models/models_0";
 import {
   de_DeleteContainerGroupDefinitionCommand,
   se_DeleteContainerGroupDefinitionCommand,
@@ -28,15 +28,32 @@ export interface DeleteContainerGroupDefinitionCommandInput extends DeleteContai
  *
  * The output of {@link DeleteContainerGroupDefinitionCommand}.
  */
-export interface DeleteContainerGroupDefinitionCommandOutput extends __MetadataBearer {}
+export interface DeleteContainerGroupDefinitionCommandOutput
+  extends DeleteContainerGroupDefinitionOutput,
+    __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation is used with the Amazon GameLift containers feature, which is currently in public preview. </b>
+ * <p>Deletes a container group definition. You can delete a container group definition if there
+ *       are no fleets using the definition. </p>
+ *          <p>
+ *             <b>Request options:</b>
  *          </p>
- *          <p>Deletes a container group definition resource. You can delete a container group definition
- *       if there are no fleets using the definition. </p>
- *          <p>To delete a container group definition, identify the resource to delete.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Delete an entire container group definition, including all versions. Specify the
+ *           container group definition name, or use an ARN value without the version number.</p>
+ *             </li>
+ *             <li>
+ *                <p>Delete a particular version. Specify the container group definition name and a version
+ *           number, or use an ARN value that includes the version number.</p>
+ *             </li>
+ *             <li>
+ *                <p>Keep the newest versions and delete all older versions. Specify the container group
+ *           definition name and the number of versions to retain. For example, set
+ *             <code>VersionCountToRetain</code> to 5 to delete all but the five most recent
+ *           versions.</p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
@@ -55,6 +72,8 @@ export interface DeleteContainerGroupDefinitionCommandOutput extends __MetadataB
  * const client = new GameLiftClient(config);
  * const input = { // DeleteContainerGroupDefinitionInput
  *   Name: "STRING_VALUE", // required
+ *   VersionNumber: Number("int"),
+ *   VersionCountToRetain: Number("int"),
  * };
  * const command = new DeleteContainerGroupDefinitionCommand(input);
  * const response = await client.send(command);

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ResolveAliasInput, ResolveAliasOutput } from "../models/models_0";
+import { ResolveAliasInput, ResolveAliasOutput } from "../models/models_1";
 import { de_ResolveAliasCommand, se_ResolveAliasCommand } from "../protocols/Aws_json1_1";
 
 /**

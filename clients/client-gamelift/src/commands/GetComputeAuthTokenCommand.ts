@@ -29,23 +29,25 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
 
 /**
  * <p>Requests an authentication token from Amazon GameLift for a compute resource in an Amazon GameLift
- *             Anywhere fleet or container fleet. Game servers that are running on the compute use this
- *             token to communicate with the Amazon GameLift service, such as when calling the Amazon GameLift server
- *             SDK action <code>InitSDK()</code>. Authentication tokens are valid for a limited time
- *             span, so you need to request a fresh token before the current token expires.</p>
- *          <p>Use this operation based on the fleet compute type:</p>
+ *             fleet. Game servers that are running on the compute use this token to communicate
+ *             with the Amazon GameLift service, such as when calling the Amazon GameLift server SDK action
+ *                 <code>InitSDK()</code>. Authentication tokens are valid for a limited time span, so
+ *             you need to request a fresh token before the current token expires.</p>
+ *          <p>
+ *             <b>Request options</b>
+ *          </p>
  *          <ul>
  *             <li>
- *                <p>For <code>EC2</code> fleets, auth token retrieval and refresh is handled
- *                     automatically. All game servers that are running on all fleet instances have
- *                     access to a valid auth token.</p>
+ *                <p>For managed EC2 fleets (compute type <code>EC2</code>), auth token retrieval
+ *                     and refresh is handled automatically. All game servers that are running on all
+ *                     fleet instances have access to a valid auth token.</p>
  *             </li>
  *             <li>
- *                <p>For <code>ANYWHERE</code> and <code>CONTAINER</code> fleets, if you're using
- *                     the Amazon GameLift Agent, auth token retrieval and refresh is handled automatically for
- *                     any container or Anywhere compute where the Agent is running. If you're not
- *                     using the Agent, create a mechanism to retrieve and refresh auth tokens for
- *                     computes that are running game server processes. </p>
+ *                <p>For Anywhere fleets (compute type <code>ANYWHERE</code>), if you're using the
+ *                     Amazon GameLift Agent, auth token retrieval and refresh is handled automatically for any
+ *                     compute where the Agent is running. If you're not using
+ *                     the Agent, create a mechanism to retrieve and refresh auth tokens for computes
+ *                     that are running game server processes.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -112,6 +114,9 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
+ *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>

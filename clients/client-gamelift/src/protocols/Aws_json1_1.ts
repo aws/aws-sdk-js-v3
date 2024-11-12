@@ -30,6 +30,10 @@ import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "../co
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "../commands/CreateAliasCommand";
 import { CreateBuildCommandInput, CreateBuildCommandOutput } from "../commands/CreateBuildCommand";
 import {
+  CreateContainerFleetCommandInput,
+  CreateContainerFleetCommandOutput,
+} from "../commands/CreateContainerFleetCommand";
+import {
   CreateContainerGroupDefinitionCommandInput,
   CreateContainerGroupDefinitionCommandOutput,
 } from "../commands/CreateContainerGroupDefinitionCommand";
@@ -75,6 +79,10 @@ import {
 } from "../commands/CreateVpcPeeringConnectionCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "../commands/DeleteAliasCommand";
 import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "../commands/DeleteBuildCommand";
+import {
+  DeleteContainerFleetCommandInput,
+  DeleteContainerFleetCommandOutput,
+} from "../commands/DeleteContainerFleetCommand";
 import {
   DeleteContainerGroupDefinitionCommandInput,
   DeleteContainerGroupDefinitionCommandOutput,
@@ -123,6 +131,10 @@ import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "../comman
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "../commands/DescribeBuildCommand";
 import { DescribeComputeCommandInput, DescribeComputeCommandOutput } from "../commands/DescribeComputeCommand";
 import {
+  DescribeContainerFleetCommandInput,
+  DescribeContainerFleetCommandOutput,
+} from "../commands/DescribeContainerFleetCommand";
+import {
   DescribeContainerGroupDefinitionCommandInput,
   DescribeContainerGroupDefinitionCommandOutput,
 } from "../commands/DescribeContainerGroupDefinitionCommand";
@@ -138,6 +150,10 @@ import {
   DescribeFleetCapacityCommandInput,
   DescribeFleetCapacityCommandOutput,
 } from "../commands/DescribeFleetCapacityCommand";
+import {
+  DescribeFleetDeploymentCommandInput,
+  DescribeFleetDeploymentCommandOutput,
+} from "../commands/DescribeFleetDeploymentCommand";
 import {
   DescribeFleetEventsCommandInput,
   DescribeFleetEventsCommandOutput,
@@ -235,9 +251,21 @@ import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/L
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "../commands/ListBuildsCommand";
 import { ListComputeCommandInput, ListComputeCommandOutput } from "../commands/ListComputeCommand";
 import {
+  ListContainerFleetsCommandInput,
+  ListContainerFleetsCommandOutput,
+} from "../commands/ListContainerFleetsCommand";
+import {
   ListContainerGroupDefinitionsCommandInput,
   ListContainerGroupDefinitionsCommandOutput,
 } from "../commands/ListContainerGroupDefinitionsCommand";
+import {
+  ListContainerGroupDefinitionVersionsCommandInput,
+  ListContainerGroupDefinitionVersionsCommandOutput,
+} from "../commands/ListContainerGroupDefinitionVersionsCommand";
+import {
+  ListFleetDeploymentsCommandInput,
+  ListFleetDeploymentsCommandOutput,
+} from "../commands/ListFleetDeploymentsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommandInput,
@@ -284,6 +312,14 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "../commands/UpdateAliasCommand";
 import { UpdateBuildCommandInput, UpdateBuildCommandOutput } from "../commands/UpdateBuildCommand";
+import {
+  UpdateContainerFleetCommandInput,
+  UpdateContainerFleetCommandOutput,
+} from "../commands/UpdateContainerFleetCommand";
+import {
+  UpdateContainerGroupDefinitionCommandInput,
+  UpdateContainerGroupDefinitionCommandOutput,
+} from "../commands/UpdateContainerGroupDefinitionCommand";
 import {
   UpdateFleetAttributesCommandInput,
   UpdateFleetAttributesCommandOutput,
@@ -333,19 +369,21 @@ import {
   Compute,
   ConflictException,
   ConnectionPortRange,
-  ContainerDefinitionInput,
   ContainerDependency,
   ContainerEnvironment,
+  ContainerFleet,
+  ContainerFleetRemoveAttribute,
   ContainerGroupDefinition,
-  ContainerGroupsConfiguration,
   ContainerHealthCheck,
-  ContainerMemoryLimits,
+  ContainerMountPoint,
   ContainerPortConfiguration,
   ContainerPortRange,
   CreateAliasInput,
   CreateAliasOutput,
   CreateBuildInput,
   CreateBuildOutput,
+  CreateContainerFleetInput,
+  CreateContainerFleetOutput,
   CreateContainerGroupDefinitionInput,
   CreateContainerGroupDefinitionOutput,
   CreateFleetInput,
@@ -372,6 +410,7 @@ import {
   CreateVpcPeeringConnectionInput,
   DeleteAliasInput,
   DeleteBuildInput,
+  DeleteContainerFleetInput,
   DeleteContainerGroupDefinitionInput,
   DeleteFleetInput,
   DeleteFleetLocationsInput,
@@ -385,6 +424,7 @@ import {
   DeleteScriptInput,
   DeleteVpcPeeringAuthorizationInput,
   DeleteVpcPeeringConnectionInput,
+  DeploymentConfiguration,
   DeregisterComputeInput,
   DeregisterGameServerInput,
   DescribeAliasInput,
@@ -393,12 +433,16 @@ import {
   DescribeBuildOutput,
   DescribeComputeInput,
   DescribeComputeOutput,
+  DescribeContainerFleetInput,
+  DescribeContainerFleetOutput,
   DescribeContainerGroupDefinitionInput,
   DescribeContainerGroupDefinitionOutput,
   DescribeEC2InstanceLimitsInput,
   DescribeFleetAttributesInput,
   DescribeFleetAttributesOutput,
   DescribeFleetCapacityInput,
+  DescribeFleetDeploymentInput,
+  DescribeFleetDeploymentOutput,
   DescribeFleetEventsInput,
   DescribeFleetEventsOutput,
   DescribeFleetLocationAttributesInput,
@@ -443,12 +487,15 @@ import {
   FleetAction,
   FleetAttributes,
   FleetCapacityExceededException,
+  FleetDeployment,
   GameProperty,
   GameServer,
+  GameServerContainerDefinitionInput,
   GameServerGroup,
   GameServerGroupAction,
   GameServerGroupAutoScalingPolicy,
   GameSession,
+  GameSessionCreationLimitPolicy,
   GameSessionDetail,
   GameSessionFullException,
   GameSessionPlacement,
@@ -474,19 +521,10 @@ import {
   ListBuildsOutput,
   ListComputeInput,
   ListComputeOutput,
-  ListContainerGroupDefinitionsInput,
-  ListContainerGroupDefinitionsOutput,
-  ListFleetsInput,
-  ListGameServerGroupsInput,
-  ListGameServerGroupsOutput,
-  ListGameServersInput,
-  ListGameServersOutput,
-  ListLocationsInput,
-  ListScriptsInput,
-  ListScriptsOutput,
-  ListTagsForResourceRequest,
+  ListContainerFleetsInput,
+  ListContainerFleetsOutput,
   LocationConfiguration,
-  LocationFilter,
+  LogConfiguration,
   MatchmakingConfiguration,
   MatchmakingRuleSet,
   MatchmakingTicket,
@@ -499,21 +537,15 @@ import {
   PlayerSession,
   PriorityConfiguration,
   PriorityType,
-  PutScalingPolicyInput,
-  RegisterComputeInput,
-  RegisterComputeOutput,
-  RegisterGameServerInput,
-  RegisterGameServerOutput,
-  RequestUploadCredentialsInput,
-  ResolveAliasInput,
   ResourceCreationLimitPolicy,
-  ResumeGameServerGroupInput,
   RoutingStrategy,
   RuntimeConfiguration,
   S3Location,
   ScalingPolicy,
   Script,
   ServerProcess,
+  SupportContainerDefinition,
+  SupportContainerDefinitionInput,
   Tag,
   TaggingFailedException,
   TargetConfiguration,
@@ -524,6 +556,30 @@ import {
   VpcPeeringAuthorization,
 } from "../models/models_0";
 import {
+  ListContainerGroupDefinitionsInput,
+  ListContainerGroupDefinitionsOutput,
+  ListContainerGroupDefinitionVersionsInput,
+  ListContainerGroupDefinitionVersionsOutput,
+  ListFleetDeploymentsInput,
+  ListFleetDeploymentsOutput,
+  ListFleetsInput,
+  ListGameServerGroupsInput,
+  ListGameServerGroupsOutput,
+  ListGameServersInput,
+  ListGameServersOutput,
+  ListLocationsInput,
+  ListScriptsInput,
+  ListScriptsOutput,
+  ListTagsForResourceRequest,
+  LocationFilter,
+  PutScalingPolicyInput,
+  RegisterComputeInput,
+  RegisterComputeOutput,
+  RegisterGameServerInput,
+  RegisterGameServerOutput,
+  RequestUploadCredentialsInput,
+  ResolveAliasInput,
+  ResumeGameServerGroupInput,
   ResumeGameServerGroupOutput,
   SearchGameSessionsInput,
   SearchGameSessionsOutput,
@@ -546,6 +602,10 @@ import {
   UpdateAliasOutput,
   UpdateBuildInput,
   UpdateBuildOutput,
+  UpdateContainerFleetInput,
+  UpdateContainerFleetOutput,
+  UpdateContainerGroupDefinitionInput,
+  UpdateContainerGroupDefinitionOutput,
   UpdateFleetAttributesInput,
   UpdateFleetCapacityInput,
   UpdateFleetPortSettingsInput,
@@ -617,6 +677,19 @@ export const se_CreateBuildCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateContainerFleetCommand
+ */
+export const se_CreateContainerFleetCommand = async (
+  input: CreateContainerFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateContainerFleet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateContainerGroupDefinitionCommand
  */
 export const se_CreateContainerGroupDefinitionCommand = async (
@@ -625,7 +698,7 @@ export const se_CreateContainerGroupDefinitionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CreateContainerGroupDefinition");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_CreateContainerGroupDefinitionInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -819,6 +892,19 @@ export const se_DeleteBuildCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBuild");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteContainerFleetCommand
+ */
+export const se_DeleteContainerFleetCommand = async (
+  input: DeleteContainerFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteContainerFleet");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1046,6 +1132,19 @@ export const se_DescribeComputeCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeContainerFleetCommand
+ */
+export const se_DescribeContainerFleetCommand = async (
+  input: DescribeContainerFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeContainerFleet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeContainerGroupDefinitionCommand
  */
 export const se_DescribeContainerGroupDefinitionCommand = async (
@@ -1092,6 +1191,19 @@ export const se_DescribeFleetCapacityCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeFleetCapacity");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeFleetDeploymentCommand
+ */
+export const se_DescribeFleetDeploymentCommand = async (
+  input: DescribeFleetDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeFleetDeployment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1488,6 +1600,19 @@ export const se_ListComputeCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListContainerFleetsCommand
+ */
+export const se_ListContainerFleetsCommand = async (
+  input: ListContainerFleetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListContainerFleets");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListContainerGroupDefinitionsCommand
  */
 export const se_ListContainerGroupDefinitionsCommand = async (
@@ -1495,6 +1620,32 @@ export const se_ListContainerGroupDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListContainerGroupDefinitions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListContainerGroupDefinitionVersionsCommand
+ */
+export const se_ListContainerGroupDefinitionVersionsCommand = async (
+  input: ListContainerGroupDefinitionVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListContainerGroupDefinitionVersions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListFleetDeploymentsCommand
+ */
+export const se_ListFleetDeploymentsCommand = async (
+  input: ListFleetDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListFleetDeployments");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1826,6 +1977,32 @@ export const se_UpdateBuildCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateContainerFleetCommand
+ */
+export const se_UpdateContainerFleetCommand = async (
+  input: UpdateContainerFleetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateContainerFleet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateContainerGroupDefinitionCommand
+ */
+export const se_UpdateContainerGroupDefinitionCommand = async (
+  input: UpdateContainerGroupDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateContainerGroupDefinition");
+  let body: any;
+  body = JSON.stringify(se_UpdateContainerGroupDefinitionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateFleetAttributesCommand
  */
 export const se_UpdateFleetAttributesCommand = async (
@@ -2042,6 +2219,26 @@ export const de_CreateBuildCommand = async (
   let contents: any = {};
   contents = de_CreateBuildOutput(data, context);
   const response: CreateBuildCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateContainerFleetCommand
+ */
+export const de_CreateContainerFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContainerFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateContainerFleetOutput(data, context);
+  const response: CreateContainerFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2363,6 +2560,26 @@ export const de_DeleteBuildCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteContainerFleetCommand
+ */
+export const de_DeleteContainerFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContainerFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteContainerFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DeleteContainerGroupDefinitionCommand
  */
 export const de_DeleteContainerGroupDefinitionCommand = async (
@@ -2372,9 +2589,12 @@ export const de_DeleteContainerGroupDefinitionCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
   const response: DeleteContainerGroupDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -2688,6 +2908,26 @@ export const de_DescribeComputeCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeContainerFleetCommand
+ */
+export const de_DescribeContainerFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContainerFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeContainerFleetOutput(data, context);
+  const response: DescribeContainerFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeContainerGroupDefinitionCommand
  */
 export const de_DescribeContainerGroupDefinitionCommand = async (
@@ -2761,6 +3001,26 @@ export const de_DescribeFleetCapacityCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DescribeFleetCapacityCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeFleetDeploymentCommand
+ */
+export const de_DescribeFleetDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFleetDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeFleetDeploymentOutput(data, context);
+  const response: DescribeFleetDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3368,6 +3628,26 @@ export const de_ListComputeCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListContainerFleetsCommand
+ */
+export const de_ListContainerFleetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContainerFleetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListContainerFleetsOutput(data, context);
+  const response: ListContainerFleetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListContainerGroupDefinitionsCommand
  */
 export const de_ListContainerGroupDefinitionsCommand = async (
@@ -3381,6 +3661,46 @@ export const de_ListContainerGroupDefinitionsCommand = async (
   let contents: any = {};
   contents = de_ListContainerGroupDefinitionsOutput(data, context);
   const response: ListContainerGroupDefinitionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListContainerGroupDefinitionVersionsCommand
+ */
+export const de_ListContainerGroupDefinitionVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContainerGroupDefinitionVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListContainerGroupDefinitionVersionsOutput(data, context);
+  const response: ListContainerGroupDefinitionVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFleetDeploymentsCommand
+ */
+export const de_ListFleetDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFleetDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListFleetDeploymentsOutput(data, context);
+  const response: ListFleetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3881,6 +4201,46 @@ export const de_UpdateBuildCommand = async (
   let contents: any = {};
   contents = de_UpdateBuildOutput(data, context);
   const response: UpdateBuildCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateContainerFleetCommand
+ */
+export const de_UpdateContainerFleetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContainerFleetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateContainerFleetOutput(data, context);
+  const response: UpdateContainerFleetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateContainerGroupDefinitionCommand
+ */
+export const de_UpdateContainerGroupDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContainerGroupDefinitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateContainerGroupDefinitionOutput(data, context);
+  const response: UpdateContainerGroupDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -4448,27 +4808,21 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
 
 // se_ContainerCommandStringList omitted.
 
-// se_ContainerDefinitionInput omitted.
-
-// se_ContainerDefinitionInputList omitted.
-
 // se_ContainerDependency omitted.
 
 // se_ContainerDependencyList omitted.
-
-// se_ContainerEntryPointList omitted.
 
 // se_ContainerEnvironment omitted.
 
 // se_ContainerEnvironmentList omitted.
 
-// se_ContainerGroupDefinitionNameOrArnLimitedList omitted.
-
-// se_ContainerGroupsConfiguration omitted.
+// se_ContainerFleetRemoveAttributeList omitted.
 
 // se_ContainerHealthCheck omitted.
 
-// se_ContainerMemoryLimits omitted.
+// se_ContainerMountPoint omitted.
+
+// se_ContainerMountPointList omitted.
 
 // se_ContainerPortConfiguration omitted.
 
@@ -4480,7 +4834,27 @@ const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any 
 
 // se_CreateBuildInput omitted.
 
-// se_CreateContainerGroupDefinitionInput omitted.
+// se_CreateContainerFleetInput omitted.
+
+/**
+ * serializeAws_json1_1CreateContainerGroupDefinitionInput
+ */
+const se_CreateContainerGroupDefinitionInput = (
+  input: CreateContainerGroupDefinitionInput,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ContainerGroupType: [],
+    GameServerContainerDefinition: _json,
+    Name: [],
+    OperatingSystem: [],
+    SupportContainerDefinitions: (_) => se_SupportContainerDefinitionInputList(_, context),
+    Tags: _json,
+    TotalMemoryLimitMebibytes: [],
+    TotalVcpuLimit: __serializeFloat,
+    VersionDescription: [],
+  });
+};
 
 // se_CreateFleetInput omitted.
 
@@ -4540,6 +4914,8 @@ const se_CreateScriptInput = (input: CreateScriptInput, context: __SerdeContext)
 
 // se_DeleteBuildInput omitted.
 
+// se_DeleteContainerFleetInput omitted.
+
 // se_DeleteContainerGroupDefinitionInput omitted.
 
 // se_DeleteFleetInput omitted.
@@ -4564,6 +4940,8 @@ const se_CreateScriptInput = (input: CreateScriptInput, context: __SerdeContext)
 
 // se_DeleteVpcPeeringConnectionInput omitted.
 
+// se_DeploymentConfiguration omitted.
+
 // se_DeregisterComputeInput omitted.
 
 // se_DeregisterGameServerInput omitted.
@@ -4574,6 +4952,8 @@ const se_CreateScriptInput = (input: CreateScriptInput, context: __SerdeContext)
 
 // se_DescribeComputeInput omitted.
 
+// se_DescribeContainerFleetInput omitted.
+
 // se_DescribeContainerGroupDefinitionInput omitted.
 
 // se_DescribeEC2InstanceLimitsInput omitted.
@@ -4581,6 +4961,8 @@ const se_CreateScriptInput = (input: CreateScriptInput, context: __SerdeContext)
 // se_DescribeFleetAttributesInput omitted.
 
 // se_DescribeFleetCapacityInput omitted.
+
+// se_DescribeFleetDeploymentInput omitted.
 
 /**
  * serializeAws_json1_1DescribeFleetEventsInput
@@ -4655,6 +5037,8 @@ const se_DescribeFleetEventsInput = (input: DescribeFleetEventsInput, context: _
 
 // se_GamePropertyList omitted.
 
+// se_GameServerContainerDefinitionInput omitted.
+
 // se_GameServerGroupActions omitted.
 
 /**
@@ -4668,6 +5052,8 @@ const se_GameServerGroupAutoScalingPolicy = (input: GameServerGroupAutoScalingPo
 };
 
 // se_GameServerInstanceIds omitted.
+
+// se_GameSessionCreationLimitPolicy omitted.
 
 // se_GameSessionQueueDestination omitted.
 
@@ -4701,7 +5087,13 @@ const se_GameServerGroupAutoScalingPolicy = (input: GameServerGroupAutoScalingPo
 
 // se_ListComputeInput omitted.
 
+// se_ListContainerFleetsInput omitted.
+
 // se_ListContainerGroupDefinitionsInput omitted.
+
+// se_ListContainerGroupDefinitionVersionsInput omitted.
+
+// se_ListFleetDeploymentsInput omitted.
 
 // se_ListFleetsInput omitted.
 
@@ -4722,6 +5114,8 @@ const se_GameServerGroupAutoScalingPolicy = (input: GameServerGroupAutoScalingPo
 // se_LocationFilterList omitted.
 
 // se_LocationList omitted.
+
+// se_LogConfiguration omitted.
 
 // se_MatchmakingConfigurationNameList omitted.
 
@@ -4911,6 +5305,38 @@ const se_StartMatchmakingInput = (input: StartMatchmakingInput, context: __Serde
 
 // se_StringList omitted.
 
+/**
+ * serializeAws_json1_1SupportContainerDefinitionInput
+ */
+const se_SupportContainerDefinitionInput = (input: SupportContainerDefinitionInput, context: __SerdeContext): any => {
+  return take(input, {
+    ContainerName: [],
+    DependsOn: _json,
+    EnvironmentOverride: _json,
+    Essential: [],
+    HealthCheck: _json,
+    ImageUri: [],
+    MemoryHardLimitMebibytes: [],
+    MountPoints: _json,
+    PortConfiguration: _json,
+    Vcpu: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_json1_1SupportContainerDefinitionInputList
+ */
+const se_SupportContainerDefinitionInputList = (
+  input: SupportContainerDefinitionInput[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SupportContainerDefinitionInput(entry, context);
+    });
+};
+
 // se_SuspendGameServerGroupInput omitted.
 
 // se_Tag omitted.
@@ -4944,6 +5370,27 @@ const se_TargetTrackingConfiguration = (input: TargetTrackingConfiguration, cont
 // se_UpdateAliasInput omitted.
 
 // se_UpdateBuildInput omitted.
+
+// se_UpdateContainerFleetInput omitted.
+
+/**
+ * serializeAws_json1_1UpdateContainerGroupDefinitionInput
+ */
+const se_UpdateContainerGroupDefinitionInput = (
+  input: UpdateContainerGroupDefinitionInput,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    GameServerContainerDefinition: _json,
+    Name: [],
+    OperatingSystem: [],
+    SourceVersionNumber: [],
+    SupportContainerDefinitions: (_) => se_SupportContainerDefinitionInputList(_, context),
+    TotalMemoryLimitMebibytes: [],
+    TotalVcpuLimit: __serializeFloat,
+    VersionDescription: [],
+  });
+};
 
 // se_UpdateFleetAttributesInput omitted.
 
@@ -5080,6 +5527,7 @@ const de_Compute = (output: any, context: __SerdeContext): Compute => {
     FleetId: __expectString,
     GameLiftAgentEndpoint: __expectString,
     GameLiftServiceSdkEndpoint: __expectString,
+    GameServerContainerGroupDefinitionArn: __expectString,
     InstanceId: __expectString,
     IpAddress: __expectString,
     Location: __expectString,
@@ -5104,39 +5552,84 @@ const de_ComputeList = (output: any, context: __SerdeContext): Compute[] => {
 
 // de_ConnectionPortRange omitted.
 
+// de_ContainerAttribute omitted.
+
 // de_ContainerAttributes omitted.
 
 // de_ContainerCommandStringList omitted.
 
-// de_ContainerDefinition omitted.
-
-// de_ContainerDefinitionList omitted.
-
 // de_ContainerDependency omitted.
 
 // de_ContainerDependencyList omitted.
-
-// de_ContainerEntryPointList omitted.
 
 // de_ContainerEnvironment omitted.
 
 // de_ContainerEnvironmentList omitted.
 
 /**
+ * deserializeAws_json1_1ContainerFleet
+ */
+const de_ContainerFleet = (output: any, context: __SerdeContext): ContainerFleet => {
+  return take(output, {
+    BillingType: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentDetails: _json,
+    Description: __expectString,
+    FleetArn: __expectString,
+    FleetId: __expectString,
+    FleetRoleArn: __expectString,
+    GameServerContainerGroupDefinitionArn: __expectString,
+    GameServerContainerGroupDefinitionName: __expectString,
+    GameServerContainerGroupsPerInstance: __expectInt32,
+    GameSessionCreationLimitPolicy: _json,
+    InstanceConnectionPortRange: _json,
+    InstanceInboundPermissions: _json,
+    InstanceType: __expectString,
+    LocationAttributes: _json,
+    LogConfiguration: _json,
+    MaximumGameServerContainerGroupsPerInstance: __expectInt32,
+    MetricGroups: _json,
+    NewGameSessionProtectionPolicy: __expectString,
+    PerInstanceContainerGroupDefinitionArn: __expectString,
+    PerInstanceContainerGroupDefinitionName: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ContainerFleetList
+ */
+const de_ContainerFleetList = (output: any, context: __SerdeContext): ContainerFleet[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContainerFleet(entry, context);
+    });
+  return retVal;
+};
+
+// de_ContainerFleetLocationAttributes omitted.
+
+// de_ContainerFleetLocationAttributesList omitted.
+
+/**
  * deserializeAws_json1_1ContainerGroupDefinition
  */
 const de_ContainerGroupDefinition = (output: any, context: __SerdeContext): ContainerGroupDefinition => {
   return take(output, {
-    ContainerDefinitions: _json,
     ContainerGroupDefinitionArn: __expectString,
+    ContainerGroupType: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    GameServerContainerDefinition: _json,
     Name: __expectString,
     OperatingSystem: __expectString,
-    SchedulingStrategy: __expectString,
     Status: __expectString,
     StatusReason: __expectString,
-    TotalCpuLimit: __expectInt32,
-    TotalMemoryLimit: __expectInt32,
+    SupportContainerDefinitions: (_: any) => de_SupportContainerDefinitionList(_, context),
+    TotalMemoryLimitMebibytes: __expectInt32,
+    TotalVcpuLimit: __limitedParseDouble,
+    VersionDescription: __expectString,
+    VersionNumber: __expectInt32,
   }) as any;
 };
 
@@ -5152,23 +5645,17 @@ const de_ContainerGroupDefinitionList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
-// de_ContainerGroupDefinitionPropertiesList omitted.
-
-// de_ContainerGroupDefinitionProperty omitted.
-
-// de_ContainerGroupsAttributes omitted.
-
-// de_ContainerGroupsPerInstance omitted.
-
 // de_ContainerHealthCheck omitted.
 
-// de_ContainerMemoryLimits omitted.
+// de_ContainerIdentifier omitted.
+
+// de_ContainerIdentifierList omitted.
+
+// de_ContainerMountPoint omitted.
+
+// de_ContainerMountPointList omitted.
 
 // de_ContainerPortConfiguration omitted.
-
-// de_ContainerPortMapping omitted.
-
-// de_ContainerPortMappingList omitted.
 
 // de_ContainerPortRange omitted.
 
@@ -5191,6 +5678,15 @@ const de_CreateBuildOutput = (output: any, context: __SerdeContext): CreateBuild
     Build: (_: any) => de_Build(_, context),
     StorageLocation: _json,
     UploadCredentials: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateContainerFleetOutput
+ */
+const de_CreateContainerFleetOutput = (output: any, context: __SerdeContext): CreateContainerFleetOutput => {
+  return take(output, {
+    ContainerFleet: (_: any) => de_ContainerFleet(_, context),
   }) as any;
 };
 
@@ -5302,6 +5798,10 @@ const de_CreateVpcPeeringAuthorizationOutput = (
 
 // de_CreateVpcPeeringConnectionOutput omitted.
 
+// de_DeleteContainerFleetOutput omitted.
+
+// de_DeleteContainerGroupDefinitionOutput omitted.
+
 // de_DeleteFleetLocationsOutput omitted.
 
 /**
@@ -5324,6 +5824,10 @@ const de_DeleteGameServerGroupOutput = (output: any, context: __SerdeContext): D
 // de_DeleteVpcPeeringAuthorizationOutput omitted.
 
 // de_DeleteVpcPeeringConnectionOutput omitted.
+
+// de_DeploymentConfiguration omitted.
+
+// de_DeploymentDetails omitted.
 
 // de_DeregisterComputeOutput omitted.
 
@@ -5355,6 +5859,15 @@ const de_DescribeComputeOutput = (output: any, context: __SerdeContext): Describ
 };
 
 /**
+ * deserializeAws_json1_1DescribeContainerFleetOutput
+ */
+const de_DescribeContainerFleetOutput = (output: any, context: __SerdeContext): DescribeContainerFleetOutput => {
+  return take(output, {
+    ContainerFleet: (_: any) => de_ContainerFleet(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeContainerGroupDefinitionOutput
  */
 const de_DescribeContainerGroupDefinitionOutput = (
@@ -5379,6 +5892,16 @@ const de_DescribeFleetAttributesOutput = (output: any, context: __SerdeContext):
 };
 
 // de_DescribeFleetCapacityOutput omitted.
+
+/**
+ * deserializeAws_json1_1DescribeFleetDeploymentOutput
+ */
+const de_DescribeFleetDeploymentOutput = (output: any, context: __SerdeContext): DescribeFleetDeploymentOutput => {
+  return take(output, {
+    FleetDeployment: (_: any) => de_FleetDeployment(_, context),
+    LocationalDeployments: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeFleetEventsOutput
@@ -5594,7 +6117,6 @@ const de_FleetAttributes = (output: any, context: __SerdeContext): FleetAttribut
     BuildId: __expectString,
     CertificateConfiguration: _json,
     ComputeType: __expectString,
-    ContainerGroupsAttributes: _json,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     FleetArn: __expectString,
@@ -5637,6 +6159,35 @@ const de_FleetAttributesList = (output: any, context: __SerdeContext): FleetAttr
 
 // de_FleetCapacityList omitted.
 
+/**
+ * deserializeAws_json1_1FleetDeployment
+ */
+const de_FleetDeployment = (output: any, context: __SerdeContext): FleetDeployment => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeploymentConfiguration: _json,
+    DeploymentId: __expectString,
+    DeploymentStatus: __expectString,
+    FleetId: __expectString,
+    GameServerBinaryArn: __expectString,
+    PerInstanceBinaryArn: __expectString,
+    RollbackGameServerBinaryArn: __expectString,
+    RollbackPerInstanceBinaryArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1FleetDeployments
+ */
+const de_FleetDeployments = (output: any, context: __SerdeContext): FleetDeployment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FleetDeployment(entry, context);
+    });
+  return retVal;
+};
+
 // de_FleetIdList omitted.
 
 // de_FleetUtilization omitted.
@@ -5665,6 +6216,10 @@ const de_GameServer = (output: any, context: __SerdeContext): GameServer => {
     UtilizationStatus: __expectString,
   }) as any;
 };
+
+// de_GameServerContainerDefinition omitted.
+
+// de_GameServerContainerGroupCounts omitted.
 
 /**
  * deserializeAws_json1_1GameServerGroup
@@ -5744,6 +6299,8 @@ const de_GameSession = (output: any, context: __SerdeContext): GameSession => {
 };
 
 // de_GameSessionConnectionInfo omitted.
+
+// de_GameSessionCreationLimitPolicy omitted.
 
 /**
  * deserializeAws_json1_1GameSessionDetail
@@ -5922,6 +6479,16 @@ const de_ListComputeOutput = (output: any, context: __SerdeContext): ListCompute
 };
 
 /**
+ * deserializeAws_json1_1ListContainerFleetsOutput
+ */
+const de_ListContainerFleetsOutput = (output: any, context: __SerdeContext): ListContainerFleetsOutput => {
+  return take(output, {
+    ContainerFleets: (_: any) => de_ContainerFleetList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListContainerGroupDefinitionsOutput
  */
 const de_ListContainerGroupDefinitionsOutput = (
@@ -5930,6 +6497,29 @@ const de_ListContainerGroupDefinitionsOutput = (
 ): ListContainerGroupDefinitionsOutput => {
   return take(output, {
     ContainerGroupDefinitions: (_: any) => de_ContainerGroupDefinitionList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListContainerGroupDefinitionVersionsOutput
+ */
+const de_ListContainerGroupDefinitionVersionsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListContainerGroupDefinitionVersionsOutput => {
+  return take(output, {
+    ContainerGroupDefinitions: (_: any) => de_ContainerGroupDefinitionList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ListFleetDeploymentsOutput
+ */
+const de_ListFleetDeploymentsOutput = (output: any, context: __SerdeContext): ListFleetDeploymentsOutput => {
+  return take(output, {
+    FleetDeployments: (_: any) => de_FleetDeployments(_, context),
     NextToken: __expectString,
   }) as any;
 };
@@ -5970,6 +6560,10 @@ const de_ListScriptsOutput = (output: any, context: __SerdeContext): ListScripts
 
 // de_ListTagsForResourceResponse omitted.
 
+// de_LocationalDeployment omitted.
+
+// de_LocationalDeployments omitted.
+
 // de_LocationAttributes omitted.
 
 // de_LocationAttributesList omitted.
@@ -5983,6 +6577,8 @@ const de_ListScriptsOutput = (output: any, context: __SerdeContext): ListScripts
 // de_LocationState omitted.
 
 // de_LocationStateList omitted.
+
+// de_LogConfiguration omitted.
 
 // de_MatchedPlayerSession omitted.
 
@@ -6229,8 +6825,6 @@ const de_RegisterGameServerOutput = (output: any, context: __SerdeContext): Regi
   }) as any;
 };
 
-// de_ReplicaContainerGroupCounts omitted.
-
 // de_RequestUploadCredentialsOutput omitted.
 
 // de_ResolveAliasOutput omitted.
@@ -6372,6 +6966,37 @@ const de_StopGameSessionPlacementOutput = (output: any, context: __SerdeContext)
 // de_StringList omitted.
 
 /**
+ * deserializeAws_json1_1SupportContainerDefinition
+ */
+const de_SupportContainerDefinition = (output: any, context: __SerdeContext): SupportContainerDefinition => {
+  return take(output, {
+    ContainerName: __expectString,
+    DependsOn: _json,
+    EnvironmentOverride: _json,
+    Essential: __expectBoolean,
+    HealthCheck: _json,
+    ImageUri: __expectString,
+    MemoryHardLimitMebibytes: __expectInt32,
+    MountPoints: _json,
+    PortConfiguration: _json,
+    ResolvedImageDigest: __expectString,
+    Vcpu: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SupportContainerDefinitionList
+ */
+const de_SupportContainerDefinitionList = (output: any, context: __SerdeContext): SupportContainerDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SupportContainerDefinition(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1SuspendGameServerGroupOutput
  */
 const de_SuspendGameServerGroupOutput = (output: any, context: __SerdeContext): SuspendGameServerGroupOutput => {
@@ -6420,6 +7045,27 @@ const de_UpdateAliasOutput = (output: any, context: __SerdeContext): UpdateAlias
 const de_UpdateBuildOutput = (output: any, context: __SerdeContext): UpdateBuildOutput => {
   return take(output, {
     Build: (_: any) => de_Build(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateContainerFleetOutput
+ */
+const de_UpdateContainerFleetOutput = (output: any, context: __SerdeContext): UpdateContainerFleetOutput => {
+  return take(output, {
+    ContainerFleet: (_: any) => de_ContainerFleet(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateContainerGroupDefinitionOutput
+ */
+const de_UpdateContainerGroupDefinitionOutput = (
+  output: any,
+  context: __SerdeContext
+): UpdateContainerGroupDefinitionOutput => {
+  return take(output, {
+    ContainerGroupDefinition: (_: any) => de_ContainerGroupDefinition(_, context),
   }) as any;
 };
 

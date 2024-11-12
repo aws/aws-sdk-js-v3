@@ -58,6 +58,10 @@ import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "./com
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand";
 import { CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand";
 import {
+  CreateContainerFleetCommandInput,
+  CreateContainerFleetCommandOutput,
+} from "./commands/CreateContainerFleetCommand";
+import {
   CreateContainerGroupDefinitionCommandInput,
   CreateContainerGroupDefinitionCommandOutput,
 } from "./commands/CreateContainerGroupDefinitionCommand";
@@ -103,6 +107,10 @@ import {
 } from "./commands/CreateVpcPeeringConnectionCommand";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand";
 import { DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand";
+import {
+  DeleteContainerFleetCommandInput,
+  DeleteContainerFleetCommandOutput,
+} from "./commands/DeleteContainerFleetCommand";
 import {
   DeleteContainerGroupDefinitionCommandInput,
   DeleteContainerGroupDefinitionCommandOutput,
@@ -151,6 +159,10 @@ import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "./command
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "./commands/DescribeBuildCommand";
 import { DescribeComputeCommandInput, DescribeComputeCommandOutput } from "./commands/DescribeComputeCommand";
 import {
+  DescribeContainerFleetCommandInput,
+  DescribeContainerFleetCommandOutput,
+} from "./commands/DescribeContainerFleetCommand";
+import {
   DescribeContainerGroupDefinitionCommandInput,
   DescribeContainerGroupDefinitionCommandOutput,
 } from "./commands/DescribeContainerGroupDefinitionCommand";
@@ -166,6 +178,10 @@ import {
   DescribeFleetCapacityCommandInput,
   DescribeFleetCapacityCommandOutput,
 } from "./commands/DescribeFleetCapacityCommand";
+import {
+  DescribeFleetDeploymentCommandInput,
+  DescribeFleetDeploymentCommandOutput,
+} from "./commands/DescribeFleetDeploymentCommand";
 import {
   DescribeFleetEventsCommandInput,
   DescribeFleetEventsCommandOutput,
@@ -263,9 +279,21 @@ import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/Li
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand";
 import { ListComputeCommandInput, ListComputeCommandOutput } from "./commands/ListComputeCommand";
 import {
+  ListContainerFleetsCommandInput,
+  ListContainerFleetsCommandOutput,
+} from "./commands/ListContainerFleetsCommand";
+import {
   ListContainerGroupDefinitionsCommandInput,
   ListContainerGroupDefinitionsCommandOutput,
 } from "./commands/ListContainerGroupDefinitionsCommand";
+import {
+  ListContainerGroupDefinitionVersionsCommandInput,
+  ListContainerGroupDefinitionVersionsCommandOutput,
+} from "./commands/ListContainerGroupDefinitionVersionsCommand";
+import {
+  ListFleetDeploymentsCommandInput,
+  ListFleetDeploymentsCommandOutput,
+} from "./commands/ListFleetDeploymentsCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommandInput,
@@ -312,6 +340,14 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand";
 import { UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand";
+import {
+  UpdateContainerFleetCommandInput,
+  UpdateContainerFleetCommandOutput,
+} from "./commands/UpdateContainerFleetCommand";
+import {
+  UpdateContainerGroupDefinitionCommandInput,
+  UpdateContainerGroupDefinitionCommandOutput,
+} from "./commands/UpdateContainerGroupDefinitionCommand";
 import {
   UpdateFleetAttributesCommandInput,
   UpdateFleetAttributesCommandOutput,
@@ -366,6 +402,7 @@ export type ServiceInputTypes =
   | ClaimGameServerCommandInput
   | CreateAliasCommandInput
   | CreateBuildCommandInput
+  | CreateContainerFleetCommandInput
   | CreateContainerGroupDefinitionCommandInput
   | CreateFleetCommandInput
   | CreateFleetLocationsCommandInput
@@ -382,6 +419,7 @@ export type ServiceInputTypes =
   | CreateVpcPeeringConnectionCommandInput
   | DeleteAliasCommandInput
   | DeleteBuildCommandInput
+  | DeleteContainerFleetCommandInput
   | DeleteContainerGroupDefinitionCommandInput
   | DeleteFleetCommandInput
   | DeleteFleetLocationsCommandInput
@@ -399,10 +437,12 @@ export type ServiceInputTypes =
   | DescribeAliasCommandInput
   | DescribeBuildCommandInput
   | DescribeComputeCommandInput
+  | DescribeContainerFleetCommandInput
   | DescribeContainerGroupDefinitionCommandInput
   | DescribeEC2InstanceLimitsCommandInput
   | DescribeFleetAttributesCommandInput
   | DescribeFleetCapacityCommandInput
+  | DescribeFleetDeploymentCommandInput
   | DescribeFleetEventsCommandInput
   | DescribeFleetLocationAttributesCommandInput
   | DescribeFleetLocationCapacityCommandInput
@@ -433,7 +473,10 @@ export type ServiceInputTypes =
   | ListAliasesCommandInput
   | ListBuildsCommandInput
   | ListComputeCommandInput
+  | ListContainerFleetsCommandInput
+  | ListContainerGroupDefinitionVersionsCommandInput
   | ListContainerGroupDefinitionsCommandInput
+  | ListFleetDeploymentsCommandInput
   | ListFleetsCommandInput
   | ListGameServerGroupsCommandInput
   | ListGameServersCommandInput
@@ -459,6 +502,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAliasCommandInput
   | UpdateBuildCommandInput
+  | UpdateContainerFleetCommandInput
+  | UpdateContainerGroupDefinitionCommandInput
   | UpdateFleetAttributesCommandInput
   | UpdateFleetCapacityCommandInput
   | UpdateFleetPortSettingsCommandInput
@@ -479,6 +524,7 @@ export type ServiceOutputTypes =
   | ClaimGameServerCommandOutput
   | CreateAliasCommandOutput
   | CreateBuildCommandOutput
+  | CreateContainerFleetCommandOutput
   | CreateContainerGroupDefinitionCommandOutput
   | CreateFleetCommandOutput
   | CreateFleetLocationsCommandOutput
@@ -495,6 +541,7 @@ export type ServiceOutputTypes =
   | CreateVpcPeeringConnectionCommandOutput
   | DeleteAliasCommandOutput
   | DeleteBuildCommandOutput
+  | DeleteContainerFleetCommandOutput
   | DeleteContainerGroupDefinitionCommandOutput
   | DeleteFleetCommandOutput
   | DeleteFleetLocationsCommandOutput
@@ -512,10 +559,12 @@ export type ServiceOutputTypes =
   | DescribeAliasCommandOutput
   | DescribeBuildCommandOutput
   | DescribeComputeCommandOutput
+  | DescribeContainerFleetCommandOutput
   | DescribeContainerGroupDefinitionCommandOutput
   | DescribeEC2InstanceLimitsCommandOutput
   | DescribeFleetAttributesCommandOutput
   | DescribeFleetCapacityCommandOutput
+  | DescribeFleetDeploymentCommandOutput
   | DescribeFleetEventsCommandOutput
   | DescribeFleetLocationAttributesCommandOutput
   | DescribeFleetLocationCapacityCommandOutput
@@ -546,7 +595,10 @@ export type ServiceOutputTypes =
   | ListAliasesCommandOutput
   | ListBuildsCommandOutput
   | ListComputeCommandOutput
+  | ListContainerFleetsCommandOutput
+  | ListContainerGroupDefinitionVersionsCommandOutput
   | ListContainerGroupDefinitionsCommandOutput
+  | ListFleetDeploymentsCommandOutput
   | ListFleetsCommandOutput
   | ListGameServerGroupsCommandOutput
   | ListGameServersCommandOutput
@@ -572,6 +624,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAliasCommandOutput
   | UpdateBuildCommandOutput
+  | UpdateContainerFleetCommandOutput
+  | UpdateContainerGroupDefinitionCommandOutput
   | UpdateFleetAttributesCommandOutput
   | UpdateFleetCapacityCommandOutput
   | UpdateFleetPortSettingsCommandOutput

@@ -7,13 +7,13 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
 import {
-  ListContainerGroupDefinitionsInput,
-  ListContainerGroupDefinitionsOutput,
-  ListContainerGroupDefinitionsOutputFilterSensitiveLog,
+  ListContainerGroupDefinitionVersionsInput,
+  ListContainerGroupDefinitionVersionsOutput,
+  ListContainerGroupDefinitionVersionsOutputFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  de_ListContainerGroupDefinitionsCommand,
-  se_ListContainerGroupDefinitionsCommand,
+  de_ListContainerGroupDefinitionVersionsCommand,
+  se_ListContainerGroupDefinitionVersionsCommand,
 } from "../protocols/Aws_json1_1";
 
 /**
@@ -24,33 +24,29 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListContainerGroupDefinitionsCommand}.
+ * The input for {@link ListContainerGroupDefinitionVersionsCommand}.
  */
-export interface ListContainerGroupDefinitionsCommandInput extends ListContainerGroupDefinitionsInput {}
+export interface ListContainerGroupDefinitionVersionsCommandInput extends ListContainerGroupDefinitionVersionsInput {}
 /**
  * @public
  *
- * The output of {@link ListContainerGroupDefinitionsCommand}.
+ * The output of {@link ListContainerGroupDefinitionVersionsCommand}.
  */
-export interface ListContainerGroupDefinitionsCommandOutput
-  extends ListContainerGroupDefinitionsOutput,
+export interface ListContainerGroupDefinitionVersionsCommandOutput
+  extends ListContainerGroupDefinitionVersionsOutput,
     __MetadataBearer {}
 
 /**
- * <p>Retrieves container group definitions for the Amazon Web Services account and Amazon Web Services Region. Use the pagination parameters to retrieve results in a set of sequential
- *       pages.</p>
- *          <p>This operation returns only the latest version of each definition. To retrieve all
- *       versions of a container group definition, use <a>ListContainerGroupDefinitionVersions</a>.</p>
+ * <p>Retrieves all versions of a container group definition. Use the pagination parameters to
+ *       retrieve results in a set of sequential pages.</p>
  *          <p>
  *             <b>Request options:</b>
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Retrieve the most recent versions of all container group definitions. </p>
- *             </li>
- *             <li>
- *                <p>Retrieve the most recent versions of all container group definitions, filtered by
- *           type. Specify the container group type to filter on. </p>
+ *                <p>Get all versions of a specified container group definition. Specify the container
+ *           group definition name or ARN value. (If the ARN value has a version number, it's
+ *           ignored.)</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -59,7 +55,8 @@ export interface ListContainerGroupDefinitionsCommandOutput
  *          <p>If successful, this operation returns the complete properties of a set of container group
  *       definition versions that match the request.</p>
  *          <note>
- *             <p>This operation returns the list of container group definitions in no particular order. </p>
+ *             <p>This operation returns the list of container group definitions in descending version
+ *         order (latest first). </p>
  *          </note>
  *          <p>
  *             <b>Learn more</b>
@@ -74,17 +71,17 @@ export interface ListContainerGroupDefinitionsCommandOutput
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GameLiftClient, ListContainerGroupDefinitionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
- * // const { GameLiftClient, ListContainerGroupDefinitionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
+ * import { GameLiftClient, ListContainerGroupDefinitionVersionsCommand } from "@aws-sdk/client-gamelift"; // ES Modules import
+ * // const { GameLiftClient, ListContainerGroupDefinitionVersionsCommand } = require("@aws-sdk/client-gamelift"); // CommonJS import
  * const client = new GameLiftClient(config);
- * const input = { // ListContainerGroupDefinitionsInput
- *   ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
+ * const input = { // ListContainerGroupDefinitionVersionsInput
+ *   Name: "STRING_VALUE", // required
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListContainerGroupDefinitionsCommand(input);
+ * const command = new ListContainerGroupDefinitionVersionsCommand(input);
  * const response = await client.send(command);
- * // { // ListContainerGroupDefinitionsOutput
+ * // { // ListContainerGroupDefinitionVersionsOutput
  * //   ContainerGroupDefinitions: [ // ContainerGroupDefinitionList
  * //     { // ContainerGroupDefinition
  * //       ContainerGroupDefinitionArn: "STRING_VALUE",
@@ -186,10 +183,10 @@ export interface ListContainerGroupDefinitionsCommandOutput
  *
  * ```
  *
- * @param ListContainerGroupDefinitionsCommandInput - {@link ListContainerGroupDefinitionsCommandInput}
- * @returns {@link ListContainerGroupDefinitionsCommandOutput}
- * @see {@link ListContainerGroupDefinitionsCommandInput} for command's `input` shape.
- * @see {@link ListContainerGroupDefinitionsCommandOutput} for command's `response` shape.
+ * @param ListContainerGroupDefinitionVersionsCommandInput - {@link ListContainerGroupDefinitionVersionsCommandInput}
+ * @returns {@link ListContainerGroupDefinitionVersionsCommandOutput}
+ * @see {@link ListContainerGroupDefinitionVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListContainerGroupDefinitionVersionsCommandOutput} for command's `response` shape.
  * @see {@link GameLiftClientResolvedConfig | config} for GameLiftClient's `config` shape.
  *
  * @throws {@link InternalServiceException} (server fault)
@@ -199,6 +196,9 @@ export interface ListContainerGroupDefinitionsCommandOutput
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
  *             values before retrying.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -211,10 +211,10 @@ export interface ListContainerGroupDefinitionsCommandOutput
  *
  * @public
  */
-export class ListContainerGroupDefinitionsCommand extends $Command
+export class ListContainerGroupDefinitionVersionsCommand extends $Command
   .classBuilder<
-    ListContainerGroupDefinitionsCommandInput,
-    ListContainerGroupDefinitionsCommandOutput,
+    ListContainerGroupDefinitionVersionsCommandInput,
+    ListContainerGroupDefinitionVersionsCommandOutput,
     GameLiftClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -226,21 +226,21 @@ export class ListContainerGroupDefinitionsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("GameLift", "ListContainerGroupDefinitions", {})
-  .n("GameLiftClient", "ListContainerGroupDefinitionsCommand")
-  .f(void 0, ListContainerGroupDefinitionsOutputFilterSensitiveLog)
-  .ser(se_ListContainerGroupDefinitionsCommand)
-  .de(de_ListContainerGroupDefinitionsCommand)
+  .s("GameLift", "ListContainerGroupDefinitionVersions", {})
+  .n("GameLiftClient", "ListContainerGroupDefinitionVersionsCommand")
+  .f(void 0, ListContainerGroupDefinitionVersionsOutputFilterSensitiveLog)
+  .ser(se_ListContainerGroupDefinitionVersionsCommand)
+  .de(de_ListContainerGroupDefinitionVersionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListContainerGroupDefinitionsInput;
-      output: ListContainerGroupDefinitionsOutput;
+      input: ListContainerGroupDefinitionVersionsInput;
+      output: ListContainerGroupDefinitionVersionsOutput;
     };
     sdk: {
-      input: ListContainerGroupDefinitionsCommandInput;
-      output: ListContainerGroupDefinitionsCommandOutput;
+      input: ListContainerGroupDefinitionVersionsCommandInput;
+      output: ListContainerGroupDefinitionVersionsCommandOutput;
     };
   };
 }
