@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
+
+
+### Features
+
+* **client-b2bi:** This release adds a GenerateMapping API to allow generation of JSONata or XSLT transformer code based on input and output samples. ([79297bb](https://github.com/aws/aws-sdk-js-v3/commit/79297bbc20b52c6cc1561eee24e77ac0a6f1f6c8))
+
+
+
+
+
 # [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
 
 **Note:** Version bump only for package @aws-sdk/client-b2bi

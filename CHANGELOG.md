@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
+
+
+### Features
+
+* **client-accessanalyzer:** This release adds support for policy validation and external access findings for resource control policies (RCP). IAM Access Analyzer helps you author functional and secure RCPs and awareness that a RCP may restrict external access. Updated service API, documentation, and paginators. ([8ee2e53](https://github.com/aws/aws-sdk-js-v3/commit/8ee2e5325eb3362a6abd4e5b235fc71f955d161d))
+* **client-application-signals:** Amazon CloudWatch Application Signals now supports creating Service Level Objectives with burn rates. Users can now create or update SLOs with burn rate configurations to meet their specific business requirements. ([e176892](https://github.com/aws/aws-sdk-js-v3/commit/e1768921ee43e35fe4b674c4a0ee4ec96dc1c912))
+* **client-b2bi:** This release adds a GenerateMapping API to allow generation of JSONata or XSLT transformer code based on input and output samples. ([79297bb](https://github.com/aws/aws-sdk-js-v3/commit/79297bbc20b52c6cc1561eee24e77ac0a6f1f6c8))
+* **client-billing:** Today, AWS announces the general availability of ListBillingViews API in the AWS SDKs, to enable AWS Billing Conductor (ABC) users to create proforma Cost and Usage Reports (CUR) programmatically. ([b46415d](https://github.com/aws/aws-sdk-js-v3/commit/b46415dd1dcbda84ab078a0903e892e1ad8a3e62))
+* **client-cloudtrail:** This release adds a new API GenerateQuery that generates a query from a natural language prompt about the event data in your event data store. This operation uses generative artificial intelligence (generative AI) to produce a ready-to-use SQL query from the prompt. ([93b16b2](https://github.com/aws/aws-sdk-js-v3/commit/93b16b263265825a3a8afb39247d3d7355fd5b7d))
+* **client-dynamodb:** This release includes supports the new WarmThroughput feature for DynamoDB. You can now provide an optional WarmThroughput attribute for CreateTable or UpdateTable APIs to pre-warm your table or global secondary index. You can also use DescribeTable to see the latest WarmThroughput value. ([0ca3c21](https://github.com/aws/aws-sdk-js-v3/commit/0ca3c218780c42502d75d773e9c9632843c06b21))
+* **client-ec2:** This release adds the source AMI details in DescribeImages API ([67fa666](https://github.com/aws/aws-sdk-js-v3/commit/67fa666deb5d55b9a03fb504deaee20c6684d6e9))
+* **client-internetmonitor:** Add new query type Routing_Suggestions regarding querying interface ([4f49de2](https://github.com/aws/aws-sdk-js-v3/commit/4f49de283e51aef6d496dd01a2f12355f1c3b3e4))
+* **client-mediaconvert:** This release adds support for ARN inputs in the Kantar credentials secrets name field and the MSPR field to the manifests for PlayReady DRM protected outputs. ([6c46bda](https://github.com/aws/aws-sdk-js-v3/commit/6c46bda0e52acc8ba55b61218c2ae12dcec8a29f))
+* **client-organizations:** Add support for policy operations on the Resource Control Polices. ([d87a984](https://github.com/aws/aws-sdk-js-v3/commit/d87a9848a201b59fa3a4e6ab18649c0dc75dd6e6))
+* **clients:** update client endpoints as of 2024-11-13 ([24e23f9](https://github.com/aws/aws-sdk-js-v3/commit/24e23f9146a2663405a677e8a5e4293fa4e935c0))
+
+
+
+
+
 # [3.690.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.689.0...v3.690.0) (2024-11-12)
 
 
