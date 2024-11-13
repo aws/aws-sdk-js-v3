@@ -81,7 +81,12 @@ describe(flexibleChecksumsMiddleware.name, () => {
         expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
       });
 
-      it("if header is already present", async () => {
+      it.each([
+        ...Object.values(ChecksumAlgorithm).map((val) => `x-amz-checksum-${val.toLowerCase()}`), // all current checksum locations
+        ...Object.values(ChecksumAlgorithm).map((val) => `X-AMZ-CHECKSUM-${val}`), // all current checksum locations in uppercase
+        `x-amz-checksum-emoji`, // any checksum post prefix
+        `X-AMZ-CHECKSUM-EMOJI`, // any checksum post prefix in uppercase
+      ])("skip if header '%s' is already present", async (headerName) => {
         const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
         vi.mocked(hasHeaderWithPrefix).mockReturnValue(true);
 

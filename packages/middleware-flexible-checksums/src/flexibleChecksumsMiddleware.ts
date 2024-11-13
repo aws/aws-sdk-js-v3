@@ -85,12 +85,8 @@ export const flexibleChecksumsMiddleware =
       input,
       {
         requestChecksumRequired,
-<<<<<<< HEAD
         requestAlgorithmMember: requestAlgorithmMember?.name,
-=======
-        requestAlgorithmMember,
         requestChecksumCalculation,
->>>>>>> 30ab0599837 (chore(middleware-flexible-checksums): use RequestChecksumCalculation)
       },
       !!context.isS3ExpressBucket
     );
