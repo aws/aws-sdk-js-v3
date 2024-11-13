@@ -67,10 +67,6 @@ describe(flexibleChecksumsMiddleware.name, () => {
     });
 
     describe("request checksum", () => {
-      afterEach(() => {
-        expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
-      });
-
       it("if checksumAlgorithm is not defined", async () => {
         vi.mocked(getChecksumAlgorithmForRequest).mockReturnValue(undefined);
         const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
@@ -78,20 +74,26 @@ describe(flexibleChecksumsMiddleware.name, () => {
         expect(getChecksumLocationName).not.toHaveBeenCalled();
         expect(mockNext).toHaveBeenCalledWith(mockArgs);
         expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
+        expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
       });
 
-      it("if header is already present", async () => {
+      it.each([
+        ...Object.values(ChecksumAlgorithm).map((val) => `x-amz-checksum-${val.toLowerCase()}`), // all current checksum locations
+        ...Object.values(ChecksumAlgorithm).map((val) => `X-AMZ-CHECKSUM-${val}`), // all current checksum locations in uppercase
+        `x-amz-checksum-emoji`, // any checksum post prefix
+        `X-AMZ-CHECKSUM-EMOJI`, // any checksum post prefix in uppercase
+      ])("skip if header '%s' is already present", async (headerName) => {
         const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
-        const mockHeadersWithChecksumHeader = { ...mockHeaders, [mockChecksumLocationName]: "mockHeaderValue" };
+        const mockHeadersWithChecksumHeader = { ...mockHeaders, [headerName]: "mockHeaderValue" };
         const mockArgsWithChecksumHeader = {
           ...mockArgs,
           request: { ...mockRequest, headers: mockHeadersWithChecksumHeader },
         };
         await handler(mockArgsWithChecksumHeader);
-        expect(getChecksumLocationName).toHaveBeenCalledWith(ChecksumAlgorithm.CRC32);
-        expect(selectChecksumAlgorithmFunction).toHaveBeenCalledWith(ChecksumAlgorithm.CRC32, mockConfig);
+        expect(getChecksumLocationName).not.toHaveBeenCalled();
+        expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
+        expect(hasHeader).not.toHaveBeenCalled();
         expect(mockNext).toHaveBeenCalledWith(mockArgsWithChecksumHeader);
-        expect(hasHeader).toHaveBeenCalledWith(mockChecksumLocationName, mockHeadersWithChecksumHeader);
       });
     });
   });

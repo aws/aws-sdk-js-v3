@@ -59,6 +59,12 @@ export const flexibleChecksumsMiddleware =
       return next(args);
     }
 
+    for (const header of Object.keys(args.request.headers)) {
+      if (header.toLowerCase().startsWith("x-amz-checksum-")) {
+        return next(args);
+      }
+    }
+
     const { request, input } = args;
     const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
