@@ -59,9 +59,8 @@ export const flexibleChecksumsMiddleware =
       return next(args);
     }
 
-    for (const originalHeader of Object.keys(args.request.headers)) {
-      const header = originalHeader.toLowerCase();
-      if (header.startsWith("x-amz-checksum-") && header !== "x-amz-checksum-algorithm") {
+    for (const header of Object.keys(args.request.headers)) {
+      if (header.toLowerCase().startsWith("x-amz-checksum-")) {
         return next(args);
       }
     }
