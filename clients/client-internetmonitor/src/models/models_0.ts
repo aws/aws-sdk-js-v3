@@ -1732,6 +1732,7 @@ export const QueryType = {
   MEASUREMENTS: "MEASUREMENTS",
   OVERALL_TRAFFIC_SUGGESTIONS: "OVERALL_TRAFFIC_SUGGESTIONS",
   OVERALL_TRAFFIC_SUGGESTIONS_DETAILS: "OVERALL_TRAFFIC_SUGGESTIONS_DETAILS",
+  ROUTING_SUGGESTIONS: "ROUTING_SUGGESTIONS",
   TOP_LOCATIONS: "TOP_LOCATIONS",
   TOP_LOCATION_DETAILS: "TOP_LOCATION_DETAILS",
 } as const;
@@ -1789,7 +1790,12 @@ export interface StartQueryInput {
    *             <li>
    *                <p>
    *                   <code>OVERALL_TRAFFIC_SUGGESTIONS_DETAILS</code>: Provides TTFB, using a 30-day weighted average, for each top
-   * 				location, for a proposed Amazon Web Services location. Must provide a Amazon Web Services location to search.</p>
+   * 				location, for a proposed Amazon Web Services location. Must provide an Amazon Web Services location to search.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ROUTING_SUGGESTIONS</code>: Provides the predicted average round-trip time (RTT) from an IP prefix toward
+   * 				an Amazon Web Services location for a DNS resolver. The RTT is calculated at one hour intervals, over a one hour period.</p>
    *             </li>
    *          </ul>
    *          <p>For lists of the fields returned with each query type and more information about how each type of query is
