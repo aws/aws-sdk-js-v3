@@ -28,12 +28,9 @@ export interface ImportKeyPairCommandInput extends ImportKeyPairRequest {}
 export interface ImportKeyPairCommandOutput extends ImportKeyPairResult, __MetadataBearer {}
 
 /**
- * <p>Imports the public key from an RSA or ED25519 key pair that you created with a third-party tool.
- *         Compare this with <a>CreateKeyPair</a>, in which Amazon Web Services creates the key pair and gives the keys to you
- *         (Amazon Web Services keeps a copy of the public key). With ImportKeyPair, you create the key pair and give Amazon Web Services just the public key.
- *         The private key is never transferred between you and Amazon Web Services.</p>
- *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
- * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>Imports the public key from an RSA or ED25519 key pair that you created using a third-party tool.
+ *         You give Amazon Web Services only the public key. The private key is never transferred between you and Amazon Web Services.</p>
+ *          <p>For more information about the requirements for importing a key pair, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#how-to-generate-your-own-key-and-import-it-to-aws">Create a key pair and import the public key to Amazon EC2</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

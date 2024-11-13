@@ -4581,7 +4581,7 @@ export interface ImportKeyPairRequest {
   KeyName: string | undefined;
 
   /**
-   * <p>The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.</p>
+   * <p>The public key.</p>
    * @public
    */
   PublicKeyMaterial: Uint8Array | undefined;

@@ -67752,6 +67752,12 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
   if (output[_lLT] != null) {
     contents[_LLT] = __expectString(output[_lLT]);
   }
+  if (output[_sIIo] != null) {
+    contents[_SII] = __expectString(output[_sIIo]);
+  }
+  if (output[_sIR] != null) {
+    contents[_SIRo] = __expectString(output[_sIR]);
+  }
   if (output[_iIma] != null) {
     contents[_IIma] = __expectString(output[_iIma]);
   }
@@ -85815,6 +85821,7 @@ const _SIPI = "SourceIpamPoolId";
 const _SIR = "SpotInstanceRequests";
 const _SIRI = "SpotInstanceRequestIds";
 const _SIRIp = "SpotInstanceRequestId";
+const _SIRo = "SourceImageRegion";
 const _SIS = "ScheduledInstanceSet";
 const _SIT = "SpotInstanceType";
 const _SITR = "StoreImageTaskResults";
@@ -87541,10 +87548,12 @@ const _sICSS = "successfulInstanceCreditSpecificationSet";
 const _sIGB = "sizeInGB";
 const _sII = "sourceInstanceId";
 const _sIIc = "scheduledInstanceId";
+const _sIIo = "sourceImageId";
 const _sIMB = "sizeInMiB";
 const _sIP = "staleIpPermissions";
 const _sIPE = "staleIpPermissionsEgress";
 const _sIPI = "sourceIpamPoolId";
+const _sIR = "sourceImageRegion";
 const _sIRI = "spotInstanceRequestId";
 const _sIRS = "spotInstanceRequestSet";
 const _sIS = "scheduledInstanceSet";

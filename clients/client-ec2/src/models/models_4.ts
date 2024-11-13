@@ -330,7 +330,7 @@ export interface DescribeImagesRequest {
 
   /**
    * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
+   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, <code>aws-backup-vault</code>, and <code>aws-marketplace</code>.
    *       If you omit this parameter, the results include all images for which you have launch permissions,
    *       regardless of ownership.</p>
    * @public
@@ -463,7 +463,7 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
+   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>).
    *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
    *         	set using the IAM console. We recommend that you use the <b>Owner</b>
    *         	request parameter instead of this filter.</p>
@@ -728,7 +728,7 @@ export interface Image {
   Hypervisor?: HypervisorType | undefined;
 
   /**
-   * <p>The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).</p>
+   * <p>The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>).</p>
    * @public
    */
   ImageOwnerAlias?: string | undefined;
@@ -834,6 +834,28 @@ export interface Image {
    * @public
    */
   LastLaunchedTime?: string | undefined;
+
+  /**
+   * <p>The ID of the source AMI from which the AMI was created.</p>
+   *          <p>The ID only appears if the AMI was created using <a>CreateImage</a>, <a>CopyImage</a>, or <a>CreateRestoreImageTask</a>. The ID does not appear
+   *       if the AMI was created using any other API. For some older AMIs, the ID might not be
+   *       available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify-source-ami-used-to-create-new-ami.html">Identify the
+   *         source AMI used to create a new AMI</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  SourceImageId?: string | undefined;
+
+  /**
+   * <p>The Region of the source AMI. </p>
+   *          <p>The Region only appears if the AMI was created using <a>CreateImage</a>, <a>CopyImage</a>, or <a>CreateRestoreImageTask</a>. The Region does not
+   *       appear if the AMI was created using any other API. For some older AMIs, the Region might not
+   *       be available. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/identify-source-ami-used-to-create-new-ami.html">Identify the
+   *         source AMI used to create a new AMI</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
 
   /**
    * <p>The ID of the AMI.</p>
@@ -2047,7 +2069,7 @@ export interface ImageMetadata {
 
   /**
    * <p>The alias of the AMI owner.</p>
-   *          <p>Valid values: <code>amazon</code> | <code>aws-marketplace</code>
+   *          <p>Valid values: <code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>
    *          </p>
    * @public
    */
@@ -4034,7 +4056,8 @@ export interface Instance {
   InstanceType?: _InstanceType | undefined;
 
   /**
-   * <p>The time the instance was launched.</p>
+   * <p>The time that the instance was last launched. To determine the time that instance was first launched,
+   *             see the attachment time for the primary network interface.</p>
    * @public
    */
   LaunchTime?: Date | undefined;
@@ -11583,7 +11606,9 @@ export interface SecurityGroupReference {
   ReferencingVpcId?: string | undefined;
 
   /**
-   * <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a> in the <i>VPC Peering Guide</i>.</p>
+   * <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see
+   *           <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a>
+   *           in the <i>VPC Peering Guide</i>.</p>
    * @public
    */
   VpcPeeringConnectionId?: string | undefined;

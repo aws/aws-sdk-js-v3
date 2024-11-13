@@ -4026,7 +4026,8 @@ export interface RevokeClientVpnIngressRequest {
   AccessGroupId?: string | undefined;
 
   /**
-   * <p>Indicates whether access should be revoked for all clients.</p>
+   * <p>Indicates whether access should be revoked for all groups for a single <code>TargetNetworkCidr</code> that earlier authorized ingress for all groups using <code>AuthorizeAllGroups</code>.
+   * 			This does not impact other authorization rules that allowed ingress to the same <code>TargetNetworkCidr</code> with a specific <code>AccessGroupId</code>.</p>
    * @public
    */
   RevokeAllGroups?: boolean | undefined;

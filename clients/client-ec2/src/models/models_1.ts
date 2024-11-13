@@ -298,7 +298,7 @@ export interface CreateCapacityReservationBySplittingRequest {
 
   /**
    * <p>
-   * 			The ID of the Capacity Reservation from which you want to split the available capacity.
+   * 			The ID of the Capacity Reservation from which you want to split the capacity.
    * 		</p>
    * @public
    */

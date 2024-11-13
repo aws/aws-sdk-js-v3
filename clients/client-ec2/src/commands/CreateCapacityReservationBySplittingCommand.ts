@@ -37,7 +37,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput
 
 /**
  * <p>
- * 			Create a new Capacity Reservation by splitting the available capacity of the source Capacity Reservation. The new Capacity Reservation will have the same attributes as the source Capacity Reservation except for tags. The source Capacity Reservation must be <code>active</code> and owned by your Amazon Web Services account.
+ * 			Create a new Capacity Reservation by splitting the capacity of the source Capacity Reservation. The new Capacity Reservation will have the same attributes as the source Capacity Reservation except for tags. The source Capacity Reservation must be <code>active</code> and owned by your Amazon Web Services account.
  * 		</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

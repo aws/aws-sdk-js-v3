@@ -126,6 +126,8 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       SourceInstanceId: "STRING_VALUE",
  * //       DeregistrationProtection: "STRING_VALUE",
  * //       LastLaunchedTime: "STRING_VALUE",
+ * //       SourceImageId: "STRING_VALUE",
+ * //       SourceImageRegion: "STRING_VALUE",
  * //       ImageId: "STRING_VALUE",
  * //       ImageLocation: "STRING_VALUE",
  * //       State: "pending" || "available" || "invalid" || "deregistered" || "transient" || "failed" || "error" || "disabled",
