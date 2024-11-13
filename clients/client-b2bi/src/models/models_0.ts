@@ -905,6 +905,47 @@ export interface CreateStarterMappingTemplateResponse {
 /**
  * @public
  */
+export interface GenerateMappingRequest {
+  /**
+   * <p>Provide the contents of a sample X12 EDI file (for inbound EDI) or JSON/XML file (for outbound EDI) to use as a starting point for the mapping.</p>
+   * @public
+   */
+  inputFileContent: string | undefined;
+
+  /**
+   * <p>Provide the contents of a sample X12 EDI file (for outbound EDI) or JSON/XML file (for inbound EDI) to use as a target for the mapping.</p>
+   * @public
+   */
+  outputFileContent: string | undefined;
+
+  /**
+   * <p>Specify the mapping type: either <code>JSONATA</code> or <code>XSLT.</code>
+   *          </p>
+   * @public
+   */
+  mappingType: MappingType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateMappingResponse {
+  /**
+   * <p>Returns a mapping template based on your inputs.</p>
+   * @public
+   */
+  mappingTemplate: string | undefined;
+
+  /**
+   * <p>Returns a percentage that estimates the accuracy of the generated mapping.</p>
+   * @public
+   */
+  mappingAccuracy?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTransformerJobRequest {
   /**
    * <p>Specifies the unique, system-generated identifier for a transformer run.</p>
@@ -3006,7 +3047,7 @@ export interface UpdateTransformerRequest {
   name?: string | undefined;
 
   /**
-   * <p>Specifies the transformer's status. You can update the state of the transformer, from <code>active</code> to <code>inactive</code>, or <code>inactive</code> to <code>active</code>.</p>
+   * <p>Specifies the transformer's status. You can update the state of the transformer from <code>inactive</code> to <code>active</code>.</p>
    * @public
    */
   status?: TransformerStatus | undefined;

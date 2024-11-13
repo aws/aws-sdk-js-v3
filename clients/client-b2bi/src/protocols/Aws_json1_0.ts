@@ -12,6 +12,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectString as __expectString,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   take,
   withBaseException,
@@ -36,6 +37,7 @@ import { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "../
 import { DeletePartnershipCommandInput, DeletePartnershipCommandOutput } from "../commands/DeletePartnershipCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteTransformerCommandInput, DeleteTransformerCommandOutput } from "../commands/DeleteTransformerCommand";
+import { GenerateMappingCommandInput, GenerateMappingCommandOutput } from "../commands/GenerateMappingCommand";
 import { GetCapabilityCommandInput, GetCapabilityCommandOutput } from "../commands/GetCapabilityCommand";
 import { GetPartnershipCommandInput, GetPartnershipCommandOutput } from "../commands/GetPartnershipCommand";
 import { GetProfileCommandInput, GetProfileCommandOutput } from "../commands/GetProfileCommand";
@@ -88,6 +90,8 @@ import {
   EdiConfiguration,
   EdiType,
   FormatOptions,
+  GenerateMappingRequest,
+  GenerateMappingResponse,
   GetCapabilityRequest,
   GetCapabilityResponse,
   GetPartnershipRequest,
@@ -259,6 +263,19 @@ export const se_DeleteTransformerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteTransformer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GenerateMappingCommand
+ */
+export const se_GenerateMappingCommand = async (
+  input: GenerateMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GenerateMapping");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -688,6 +705,26 @@ export const de_DeleteTransformerCommand = async (
   await collectBody(output.body, context);
   const response: DeleteTransformerCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GenerateMappingCommand
+ */
+export const de_GenerateMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateMappingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GenerateMappingResponse(data, context);
+  const response: GenerateMappingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -1320,6 +1357,8 @@ const se_CreateTransformerRequest = (input: CreateTransformerRequest, context: _
 
 // se_FormatOptions omitted.
 
+// se_GenerateMappingRequest omitted.
+
 // se_GetCapabilityRequest omitted.
 
 // se_GetPartnershipRequest omitted.
@@ -1525,6 +1564,16 @@ const de_CreateTransformerResponse = (output: any, context: __SerdeContext): Cre
 // de_EdiType omitted.
 
 // de_FormatOptions omitted.
+
+/**
+ * deserializeAws_json1_0GenerateMappingResponse
+ */
+const de_GenerateMappingResponse = (output: any, context: __SerdeContext): GenerateMappingResponse => {
+  return take(output, {
+    mappingAccuracy: __limitedParseFloat32,
+    mappingTemplate: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0GetCapabilityResponse

@@ -287,6 +287,14 @@ DeleteTransformer
 </details>
 <details>
 <summary>
+GenerateMapping
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/GenerateMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/GenerateMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/GenerateMappingCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCapability
 </summary>
 

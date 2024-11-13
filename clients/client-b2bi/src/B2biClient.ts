@@ -65,6 +65,7 @@ import { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./c
 import { DeletePartnershipCommandInput, DeletePartnershipCommandOutput } from "./commands/DeletePartnershipCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteTransformerCommandInput, DeleteTransformerCommandOutput } from "./commands/DeleteTransformerCommand";
+import { GenerateMappingCommandInput, GenerateMappingCommandOutput } from "./commands/GenerateMappingCommand";
 import { GetCapabilityCommandInput, GetCapabilityCommandOutput } from "./commands/GetCapabilityCommand";
 import { GetPartnershipCommandInput, GetPartnershipCommandOutput } from "./commands/GetPartnershipCommand";
 import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
@@ -115,6 +116,7 @@ export type ServiceInputTypes =
   | DeletePartnershipCommandInput
   | DeleteProfileCommandInput
   | DeleteTransformerCommandInput
+  | GenerateMappingCommandInput
   | GetCapabilityCommandInput
   | GetPartnershipCommandInput
   | GetProfileCommandInput
@@ -149,6 +151,7 @@ export type ServiceOutputTypes =
   | DeletePartnershipCommandOutput
   | DeleteProfileCommandOutput
   | DeleteTransformerCommandOutput
+  | GenerateMappingCommandOutput
   | GetCapabilityCommandOutput
   | GetPartnershipCommandOutput
   | GetProfileCommandOutput

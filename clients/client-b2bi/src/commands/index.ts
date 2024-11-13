@@ -8,6 +8,7 @@ export * from "./DeleteCapabilityCommand";
 export * from "./DeletePartnershipCommand";
 export * from "./DeleteProfileCommand";
 export * from "./DeleteTransformerCommand";
+export * from "./GenerateMappingCommand";
 export * from "./GetCapabilityCommand";
 export * from "./GetPartnershipCommand";
 export * from "./GetProfileCommand";

@@ -49,6 +49,11 @@ import {
   DeleteTransformerCommandOutput,
 } from "./commands/DeleteTransformerCommand";
 import {
+  GenerateMappingCommand,
+  GenerateMappingCommandInput,
+  GenerateMappingCommandOutput,
+} from "./commands/GenerateMappingCommand";
+import {
   GetCapabilityCommand,
   GetCapabilityCommandInput,
   GetCapabilityCommandOutput,
@@ -143,6 +148,7 @@ const commands = {
   DeletePartnershipCommand,
   DeleteProfileCommand,
   DeleteTransformerCommand,
+  GenerateMappingCommand,
   GetCapabilityCommand,
   GetPartnershipCommand,
   GetProfileCommand,
@@ -305,6 +311,20 @@ export interface B2bi {
     args: DeleteTransformerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTransformerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateMappingCommand}
+   */
+  generateMapping(
+    args: GenerateMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateMappingCommandOutput>;
+  generateMapping(args: GenerateMappingCommandInput, cb: (err: any, data?: GenerateMappingCommandOutput) => void): void;
+  generateMapping(
+    args: GenerateMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateMappingCommandOutput) => void
   ): void;
 
   /**
