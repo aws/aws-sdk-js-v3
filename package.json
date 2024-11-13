@@ -73,6 +73,7 @@
     "@types/jsdom": "20.0.1",
     "@typescript-eslint/eslint-plugin": "5.55.0",
     "@typescript-eslint/parser": "5.55.0",
+    "@wasm-fmt/biome_fmt": "^0.1.12",
     "async": "3.2.4",
     "concurrently": "7.0.0",
     "decomment": "0.9.5",
@@ -138,11 +139,7 @@
     }
   },
   "lint-staged": {
-    "{lib,packages}/**/src/**/*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "**/*.{ts,js,md,json}": "prettier --write"
+    "**/*.{md,json}": "prettier --write"
   },
   "packageManager": "yarn@1.22.22"
 }
