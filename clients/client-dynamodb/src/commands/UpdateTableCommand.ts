@@ -85,6 +85,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *           MaxReadRequestUnits: Number("long"),
  *           MaxWriteRequestUnits: Number("long"),
  *         },
+ *         WarmThroughput: { // WarmThroughput
+ *           ReadUnitsPerSecond: Number("long"),
+ *           WriteUnitsPerSecond: Number("long"),
+ *         },
  *       },
  *       Create: { // CreateGlobalSecondaryIndexAction
  *         IndexName: "STRING_VALUE", // required
@@ -107,6 +111,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *         OnDemandThroughput: {
  *           MaxReadRequestUnits: Number("long"),
  *           MaxWriteRequestUnits: Number("long"),
+ *         },
+ *         WarmThroughput: {
+ *           ReadUnitsPerSecond: Number("long"),
+ *           WriteUnitsPerSecond: Number("long"),
  *         },
  *       },
  *       Delete: { // DeleteGlobalSecondaryIndexAction
@@ -179,6 +187,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *   OnDemandThroughput: {
  *     MaxReadRequestUnits: Number("long"),
  *     MaxWriteRequestUnits: Number("long"),
+ *   },
+ *   WarmThroughput: {
+ *     ReadUnitsPerSecond: Number("long"),
+ *     WriteUnitsPerSecond: Number("long"),
  *   },
  * };
  * const command = new UpdateTableCommand(input);
@@ -266,6 +278,11 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -288,6 +305,11 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -296,6 +318,11 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -331,6 +358,11 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
  * //     },
  * //   },
  * // };

@@ -101,6 +101,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *         MaxReadRequestUnits: Number("long"),
  *         MaxWriteRequestUnits: Number("long"),
  *       },
+ *       WarmThroughput: { // WarmThroughput
+ *         ReadUnitsPerSecond: Number("long"),
+ *         WriteUnitsPerSecond: Number("long"),
+ *       },
  *     },
  *   ],
  *   BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
@@ -125,6 +129,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *   ],
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *   DeletionProtectionEnabled: true || false,
+ *   WarmThroughput: {
+ *     ReadUnitsPerSecond: Number("long"),
+ *     WriteUnitsPerSecond: Number("long"),
+ *   },
  *   ResourcePolicy: "STRING_VALUE",
  *   OnDemandThroughput: {
  *     MaxReadRequestUnits: Number("long"),
@@ -216,6 +224,11 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -238,6 +251,11 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -246,6 +264,11 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -281,6 +304,11 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
  * //     },
  * //   },
  * // };

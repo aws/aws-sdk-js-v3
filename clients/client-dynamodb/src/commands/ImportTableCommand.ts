@@ -103,6 +103,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *           MaxReadRequestUnits: Number("long"),
  *           MaxWriteRequestUnits: Number("long"),
  *         },
+ *         WarmThroughput: { // WarmThroughput
+ *           ReadUnitsPerSecond: Number("long"),
+ *           WriteUnitsPerSecond: Number("long"),
+ *         },
  *       },
  *     ],
  *   },
@@ -183,6 +187,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * //           OnDemandThroughput: {
  * //             MaxReadRequestUnits: Number("long"),
  * //             MaxWriteRequestUnits: Number("long"),
+ * //           },
+ * //           WarmThroughput: { // WarmThroughput
+ * //             ReadUnitsPerSecond: Number("long"),
+ * //             WriteUnitsPerSecond: Number("long"),
  * //           },
  * //         },
  * //       ],

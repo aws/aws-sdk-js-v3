@@ -367,6 +367,7 @@ import {
   UpdateTableReplicaAutoScalingInput,
   UpdateTableReplicaAutoScalingOutput,
   UpdateTimeToLiveInput,
+  WarmThroughput,
   WriteRequest,
 } from "../models/models_0";
 
@@ -3976,6 +3977,8 @@ const se_UpdateTableReplicaAutoScalingInput = (
 
 // se_UpdateTimeToLiveInput omitted.
 
+// se_WarmThroughput omitted.
+
 /**
  * serializeAws_json1_0WriteRequest
  */
@@ -4681,6 +4684,7 @@ const de_GlobalSecondaryIndexDescription = (output: any, context: __SerdeContext
     OnDemandThroughput: _json,
     Projection: _json,
     ProvisionedThroughput: (_: any) => de_ProvisionedThroughputDescription(_, context),
+    WarmThroughput: _json,
   }) as any;
 };
 
@@ -4704,6 +4708,8 @@ const de_GlobalSecondaryIndexDescriptionList = (
 // de_GlobalSecondaryIndexInfo omitted.
 
 // de_GlobalSecondaryIndexList omitted.
+
+// de_GlobalSecondaryIndexWarmThroughputDescription omitted.
 
 // de_GlobalTable omitted.
 
@@ -5184,6 +5190,7 @@ const de_ReplicaDescription = (output: any, context: __SerdeContext): ReplicaDes
     ReplicaStatusDescription: __expectString,
     ReplicaStatusPercentProgress: __expectString,
     ReplicaTableClassSummary: (_: any) => de_TableClassSummary(_, context),
+    WarmThroughput: _json,
   }) as any;
 };
 
@@ -5465,6 +5472,7 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
     TableName: __expectString,
     TableSizeBytes: __expectLong,
     TableStatus: __expectString,
+    WarmThroughput: _json,
   }) as any;
 };
 
@@ -5473,6 +5481,8 @@ const de_TableDescription = (output: any, context: __SerdeContext): TableDescrip
 // de_TableNameList omitted.
 
 // de_TableNotFoundException omitted.
+
+// de_TableWarmThroughputDescription omitted.
 
 // de_Tag omitted.
 
@@ -5583,6 +5593,8 @@ const de_UpdateTableReplicaAutoScalingOutput = (
 };
 
 // de_UpdateTimeToLiveOutput omitted.
+
+// de_WarmThroughput omitted.
 
 /**
  * deserializeAws_json1_0WriteRequest

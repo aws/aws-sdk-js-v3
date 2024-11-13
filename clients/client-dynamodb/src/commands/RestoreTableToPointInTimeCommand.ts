@@ -114,6 +114,10 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *         MaxReadRequestUnits: Number("long"),
  *         MaxWriteRequestUnits: Number("long"),
  *       },
+ *       WarmThroughput: { // WarmThroughput
+ *         ReadUnitsPerSecond: Number("long"),
+ *         WriteUnitsPerSecond: Number("long"),
+ *       },
  *     },
  *   ],
  *   LocalSecondaryIndexOverride: [ // LocalSecondaryIndexList
@@ -232,6 +236,11 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -254,6 +263,11 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -262,6 +276,11 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -297,6 +316,11 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //     OnDemandThroughput: {
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
+ * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
  * //     },
  * //   },
  * // };

@@ -115,6 +115,10 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * //             MaxReadRequestUnits: Number("long"),
  * //             MaxWriteRequestUnits: Number("long"),
  * //           },
+ * //           WarmThroughput: { // WarmThroughput
+ * //             ReadUnitsPerSecond: Number("long"),
+ * //             WriteUnitsPerSecond: Number("long"),
+ * //           },
  * //         },
  * //       ],
  * //     },

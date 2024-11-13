@@ -1796,6 +1796,24 @@ export class TableNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>Provides visibility into the number of read and write operations your table or secondary index can instantaneously support. The settings can be modified using the <code>UpdateTable</code> operation to meet the throughput requirements of an upcoming peak event.</p>
+ * @public
+ */
+export interface WarmThroughput {
+  /**
+   * <p>Represents the number of read operations your base table can instantaneously support.</p>
+   * @public
+   */
+  ReadUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents the number of write operations your base table can instantaneously support.</p>
+   * @public
+   */
+  WriteUnitsPerSecond?: number | undefined;
+}
+
+/**
  * <p>Represents a new global secondary index to be added to an existing table.</p>
  * @public
  */
@@ -1835,6 +1853,12 @@ export interface CreateGlobalSecondaryIndexAction {
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value (in read units per second and write units per second) when creating a secondary index.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
@@ -1909,6 +1933,46 @@ export interface ProvisionedThroughputOverride {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
+
+/**
+ * <p>The description of the warm throughput value on a global secondary index.</p>
+ * @public
+ */
+export interface GlobalSecondaryIndexWarmThroughputDescription {
+  /**
+   * <p>Represents warm throughput read units per second value for a global secondary index.</p>
+   * @public
+   */
+  ReadUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents warm throughput write units per second value for a global secondary index.</p>
+   * @public
+   */
+  WriteUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
+   * @public
+   */
+  Status?: IndexStatus | undefined;
+}
+
+/**
  * <p>Represents the properties of a replica global secondary index.</p>
  * @public
  */
@@ -1930,6 +1994,12 @@ export interface ReplicaGlobalSecondaryIndexDescription {
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
+
+  /**
+   * <p>Represents the warm throughput of the global secondary index for this replica.</p>
+   * @public
+   */
+  WarmThroughput?: GlobalSecondaryIndexWarmThroughputDescription | undefined;
 }
 
 /**
@@ -1982,6 +2052,49 @@ export interface TableClassSummary {
    * @public
    */
   LastUpdateDateTime?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  ARCHIVING: "ARCHIVING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
+
+/**
+ * <p>Represents the warm throughput value (in read units per second and write units per second) of the base table.</p>
+ * @public
+ */
+export interface TableWarmThroughputDescription {
+  /**
+   * <p>Represents the base table's warm throughput value in read units per second.</p>
+   * @public
+   */
+  ReadUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents the base table's warm throughput value in write units per second.</p>
+   * @public
+   */
+  WriteUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents warm throughput value of the base table..</p>
+   * @public
+   */
+  Status?: TableStatus | undefined;
 }
 
 /**
@@ -2072,6 +2185,12 @@ export interface ReplicaDescription {
    * @public
    */
   OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
+
+  /**
+   * <p>Represents the warm throughput value for this replica.</p>
+   * @public
+   */
+  WarmThroughput?: TableWarmThroughputDescription | undefined;
 
   /**
    * <p>Replica-specific global secondary index settings.</p>
@@ -2326,6 +2445,12 @@ export interface GlobalSecondaryIndex {
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index. If you use this parameter, you must specify <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
@@ -2738,6 +2863,12 @@ export interface CreateTableInput {
   DeletionProtectionEnabled?: boolean | undefined;
 
   /**
+   * <p>Represents the warm throughput (in read units per second and write units per second) for creating a table.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
+
+  /**
    * <p>An Amazon Web Services resource-based policy document in JSON format that will be
    *             attached to the table.</p>
    *          <p>When you attach a resource-based policy while creating a table, the policy application
@@ -2764,22 +2895,6 @@ export interface CreateTableInput {
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IndexStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
 
 /**
  * <p>Represents the provisioned throughput settings for the table, consisting of read and
@@ -2951,6 +3066,12 @@ export interface GlobalSecondaryIndexDescription {
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>
+   * @public
+   */
+  WarmThroughput?: GlobalSecondaryIndexWarmThroughputDescription | undefined;
 }
 
 /**
@@ -3051,25 +3172,6 @@ export interface RestoreSummary {
    */
   RestoreInProgress: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TableStatus = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-  ARCHIVING: "ARCHIVING",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
  * <p>Represents the properties of a table.</p>
@@ -3504,6 +3606,12 @@ export interface TableDescription {
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Describes the warm throughput value of the base table.</p>
+   * @public
+   */
+  WarmThroughput?: TableWarmThroughputDescription | undefined;
 }
 
 /**
@@ -6837,6 +6945,12 @@ export interface UpdateGlobalSecondaryIndexAction {
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value of the new provisioned throughput settings to be applied to a global secondary index.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
@@ -7121,6 +7235,12 @@ export interface UpdateTableInput {
    * @public
    */
   OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput (in read units per second and write units per second) for updating a table.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
