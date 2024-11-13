@@ -142,7 +142,7 @@ const {
     }
 
     require("./customizations/workspaces-thin-client")();
-    await spawnProcess("yarn", [], { cwd: REPO_ROOT, stdio: "inherit" });
+    await spawnProcess("yarn", [], { cwd: REPO_ROOT, stdio: "inherit", env: { ...process.env, CI: "" } });
     require("../runtime-dependency-version-check/runtime-dep-version-check");
   } catch (e) {
     console.log(e);
