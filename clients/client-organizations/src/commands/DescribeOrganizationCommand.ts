@@ -55,7 +55,7 @@ export interface DescribeOrganizationCommandOutput extends DescribeOrganizationR
  * //     MasterAccountEmail: "STRING_VALUE",
  * //     AvailablePolicyTypes: [ // PolicyTypes
  * //       { // PolicyTypeSummary
- * //         Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
+ * //         Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
  * //         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //       },
  * //     ],

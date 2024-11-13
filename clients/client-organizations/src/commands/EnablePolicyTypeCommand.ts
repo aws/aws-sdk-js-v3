@@ -48,7 +48,7 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * const client = new OrganizationsClient(config);
  * const input = { // EnablePolicyTypeRequest
  *   RootId: "STRING_VALUE", // required
- *   PolicyType: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY", // required
+ *   PolicyType: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY", // required
  * };
  * const command = new EnablePolicyTypeCommand(input);
  * const response = await client.send(command);
@@ -59,7 +59,7 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  * //     Name: "STRING_VALUE",
  * //     PolicyTypes: [ // PolicyTypes
  * //       { // PolicyTypeSummary
- * //         Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
+ * //         Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY",
  * //         Status: "ENABLED" || "PENDING_ENABLE" || "PENDING_DISABLE",
  * //       },
  * //     ],
@@ -338,6 +338,9 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -376,6 +379,9 @@ export interface EnablePolicyTypeCommandOutput extends EnablePolicyTypeResponse,
  *             <li>
  *                <p>MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between
  *                     entities in the same root.</p>
+ *             </li>
+ *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
  *             </li>
  *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target

@@ -407,6 +407,7 @@ export const InvalidInputExceptionReason = {
   INVALID_PARTY_TYPE_TARGET: "INVALID_PARTY_TYPE_TARGET",
   INVALID_PATTERN: "INVALID_PATTERN",
   INVALID_PATTERN_TARGET_ID: "INVALID_PATTERN_TARGET_ID",
+  INVALID_PRINCIPAL: "INVALID_PRINCIPAL",
   INVALID_RESOURCE_POLICY_JSON: "INVALID_RESOURCE_POLICY_JSON",
   INVALID_ROLE_NAME: "INVALID_ROLE_NAME",
   INVALID_SYNTAX_ORGANIZATION: "INVALID_SYNTAX_ORGANIZATION_ARN",
@@ -418,6 +419,7 @@ export const InvalidInputExceptionReason = {
   MIN_LENGTH_EXCEEDED: "MIN_LENGTH_EXCEEDED",
   MIN_VALUE_EXCEEDED: "MIN_VALUE_EXCEEDED",
   MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: "MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS",
+  NON_DETACHABLE_POLICY: "NON_DETACHABLE_POLICY",
   TARGET_NOT_SUPPORTED: "TARGET_NOT_SUPPORTED",
   UNRECOGNIZED_SERVICE_PRINCIPAL: "UNRECOGNIZED_SERVICE_PRINCIPAL",
   UNSUPPORTED_ACTION_IN_RESOURCE_POLICY: "UNSUPPORTED_ACTION_IN_RESOURCE_POLICY",
@@ -486,6 +488,9 @@ export type InvalidInputExceptionReason =
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -524,6 +529,9 @@ export type InvalidInputExceptionReason =
  *             <li>
  *                <p>MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between
  *                     entities in the same root.</p>
+ *             </li>
+ *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
  *             </li>
  *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
@@ -1893,6 +1901,7 @@ export const PolicyType = {
   AISERVICES_OPT_OUT_POLICY: "AISERVICES_OPT_OUT_POLICY",
   BACKUP_POLICY: "BACKUP_POLICY",
   CHATBOT_POLICY: "CHATBOT_POLICY",
+  RESOURCE_CONTROL_POLICY: "RESOURCE_CONTROL_POLICY",
   SERVICE_CONTROL_POLICY: "SERVICE_CONTROL_POLICY",
   TAG_POLICY: "TAG_POLICY",
 } as const;
@@ -2174,6 +2183,11 @@ export interface CreatePolicyRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
    *                </p>
    *             </li>
    *             <li>
@@ -2991,6 +3005,11 @@ export interface DisablePolicyTypeRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
    *                </p>
    *             </li>
@@ -3133,6 +3152,11 @@ export interface EnablePolicyTypeRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
    *                </p>
    *             </li>
    *             <li>
@@ -4180,6 +4204,11 @@ export interface ListPoliciesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_backup.html">BACKUP_POLICY</a>
    *                </p>
    *             </li>
@@ -4285,6 +4314,11 @@ export interface ListPoliciesForTargetRequest {
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">SERVICE_CONTROL_POLICY</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html">RESOURCE_CONTROL_POLICY</a>
    *                </p>
    *             </li>
    *             <li>

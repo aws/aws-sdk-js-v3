@@ -140,6 +140,9 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -178,6 +181,9 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  *             <li>
  *                <p>MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS: You can move an account only between
  *                     entities in the same root.</p>
+ *             </li>
+ *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
  *             </li>
  *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
