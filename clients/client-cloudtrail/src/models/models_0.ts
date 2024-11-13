@@ -656,9 +656,16 @@ export interface AdvancedFieldSelector {
    * <p> A field in a CloudTrail event record on which to filter events to be logged. For
    *          event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the field is used only for
    *          selecting events as filtering is not supported.</p>
-   *          <p>For CloudTrail management events, supported fields include <code>eventCategory</code> (required), <code>eventSource</code>, and <code>readOnly</code>.</p>
-   *          <p>For CloudTrail data events, supported fields include <code>eventCategory</code> (required), <code>resources.type</code> (required), <code>eventName</code>, <code>readOnly</code>,
-   *           and <code>resources.ARN</code>.</p>
+   *          <p>For CloudTrail management events, supported fields include
+   *             <code>eventCategory</code> (required), <code>eventSource</code>, and
+   *             <code>readOnly</code>. The following additional fields are available for event data
+   *          stores: <code>eventName</code>, <code>eventType</code>,
+   *             <code>sessionCredentialFromConsole</code>, and <code>userIdentity.arn</code>.</p>
+   *          <p>For CloudTrail data events, supported fields include <code>eventCategory</code>
+   *          (required), <code>resources.type</code> (required), <code>eventName</code>,
+   *             <code>readOnly</code>, and <code>resources.ARN</code>. The following additional fields
+   *          are available for event data stores: <code>eventSource</code>, <code>eventType</code>,
+   *             <code>sessionCredentialFromConsole</code>, and <code>userIdentity.arn</code>.</p>
    *          <p>For CloudTrail network activity events, supported fields include <code>eventCategory</code> (required), <code>eventSource</code> (required), <code>eventName</code>,
    *          <code>errorCode</code>,  and <code>vpcEndpointId</code>.</p>
    *          <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the only supported field is
@@ -679,10 +686,12 @@ export interface AdvancedFieldSelector {
    *                <p>
    *                   <b>
    *                      <code>eventSource</code>
-   *                   </b> - This field is only used for management events and network activity events.</p>
-   *                <p>For management events, this is an optional field that can be set to <code>NotEquals</code>
+   *                   </b> - This field is only used for management events, data events (for event data stores only), and network activity events.</p>
+   *                <p>For management events for trails, this is an optional field that can be set to <code>NotEquals</code>
    *                   <code>kms.amazonaws.com</code> to exclude KMS management events, or <code>NotEquals</code>
    *                   <code>rdsdata.amazonaws.com</code> to exclude RDS management events.</p>
+   *                <p>For management and data events for event data stores, you can use it to include or
+   *                exclude any event source and can use any operator.</p>
    *                <p>For network activity events, this is a required field that only uses the
    *                   <code>Equals</code> operator. Set this field to the event source for which you want to
    *                log network activity events. If you want to log network activity events for multiple
@@ -716,7 +725,7 @@ export interface AdvancedFieldSelector {
    *                <p>
    *                   <b>
    *                      <code>eventName</code>
-   *                   </b> - This is an optional field that is only used for data events and network activity events. You can use any operator with
+   *                   </b> - This is an optional field that is only used for data events, management events (for event data stores only), and network activity events. You can use any operator with
    *                <code>eventName</code>. You can use it to ﬁlter in or ﬁlter out specific events. You can have
    *                multiple values for this ﬁeld, separated by commas.</p>
    *             </li>
@@ -768,10 +777,20 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                      For non-Amazon Web Services events, the value must be <code>ActivityAuditLog</code>.
+   *                      For events outside of Amazon Web Services, the value must be <code>ActivityAuditLog</code>.
    *                   </p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>eventType</code>
+   *                   </b> - This is an optional
+   *                field available only for event data stores, which is used to filter management and
+   *                data events on the event type. For information about available event types, see
+   *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.html#ct-event-type">CloudTrail record contents</a> in the <i>CloudTrail user
+   *                   guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -784,388 +803,20 @@ export interface AdvancedFieldSelector {
    *             <li>
    *                <p>
    *                   <b>
+   *                      <code>sessionCredentialFromConsole</code>
+   *                   </b> - This
+   *                is an optional field available only for event data stores, which is used to filter
+   *                management and data events based on whether the events originated from an Amazon Web Services Management Console session. <code>sessionCredentialFromConsole</code> can only use the
+   *                   <code>Equals</code> and <code>NotEquals</code> operators.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
    *                      <code>resources.type</code>
    *                   </b> - This ﬁeld is
    *                 required for CloudTrail data events. <code>resources.type</code> can only
    *                use the <code>Equals</code> operator.</p>
-   *                <p>The value can be one of the following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::AppConfig::Configuration</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::B2BI::Transformer</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Bedrock::AgentAlias</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Bedrock::FlowAlias</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Bedrock::Guardrail</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Bedrock::KnowledgeBase</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Cassandra::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CloudFront::KeyValueStore</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CloudTrail::Channel</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CloudWatch::Metric</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CodeWhisperer::Customization</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CodeWhisperer::Profile</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Cognito::IdentityPool</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::DynamoDB::Stream</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::DynamoDB::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::EC2::Snapshot</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::EMRWAL::Workspace</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::FinSpace::Environment</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Glue::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::GreengrassV2::ComponentVersion</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::GreengrassV2::Deployment</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::GuardDuty::Detector</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoT::Certificate</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoT::Thing</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTSiteWise::Asset</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTSiteWise::TimeSeries</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTTwinMaker::Entity</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTTwinMaker::Workspace</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::KendraRanking::ExecutionPlan</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Kinesis::Stream</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Kinesis::StreamConsumer</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::KinesisVideo::Stream</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Lambda::Function</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::MachineLearning::MlModel</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ManagedBlockchain::Network</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ManagedBlockchain::Node</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::MedicalImaging::Datastore</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::NeptuneGraph::Graph</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::One::UKey</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::One::User</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::PaymentCryptography::Alias</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::PaymentCryptography::Key</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::PCAConnectorAD::Connector</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::PCAConnectorSCEP::Connector</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QApps:QApp</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::Application</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::DataSource</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::Index</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::WebExperience</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::RDS::DBCluster</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::RUM::AppMonitor</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3::AccessPoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3::Object</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3Express::Object</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3ObjectLambda::AccessPoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3Outposts::Object</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SageMaker::Endpoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SageMaker::ExperimentTrialComponent</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SageMaker::FeatureGroup</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ServiceDiscovery::Namespace </code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ServiceDiscovery::Service</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SCN::Instance</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SNS::PlatformEndpoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SNS::Topic</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SQS::Queue</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SSM::ManagedNode</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SSMMessages::ControlChannel</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::StepFunctions::StateMachine</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SWF::Domain</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ThinClient::Device</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ThinClient::Environment</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Timestream::Database</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Timestream::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::VerifiedPermissions::PolicyStore</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::XRay::Trace</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
+   *                <p>For a list of available resource types for data events, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#logging-data-events">Data events</a> in the <i>CloudTrail User Guide</i>.</p>
    *                <p> You can have only one <code>resources.type</code> ﬁeld per selector. To log events on more than one resource type, add another selector.</p>
    *             </li>
    *             <li>
@@ -1184,6 +835,16 @@ export interface AdvancedFieldSelector {
    *                <note>
    *                   <p>You can't use the <code>resources.ARN</code> field to filter resource types that do not have ARNs.</p>
    *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>userIdentity.arn</code>
+   *                   </b> - This is an
+   *                optional field available only for event data stores, which is used to filter
+   *                management and data events on the userIdentity ARN. You can use any operator with
+   *                   <code>userIdentity.arn</code>. For more information on the userIdentity element,
+   *                see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.html">CloudTrail userIdentity element</a> in the <i>CloudTrail User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1266,6 +927,29 @@ export interface AdvancedFieldSelector {
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>The following additional fields are available for event data stores:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>eventName</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>sessionCredentialFromConsole</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>userIdentity.arn</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  *          <p>
  *             <b>Supported CloudTrail event record fields for data events</b>
  *          </p>
@@ -1291,6 +975,29 @@ export interface AdvancedFieldSelector {
  *             <li>
  *                <p>
  *                   <code>resources.ARN</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>The following additional fields are available for event data stores:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>eventSource</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventType</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>sessionCredentialFromConsole</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>userIdentity.arn</code>
  *                </p>
  *             </li>
  *          </ul>
@@ -3491,6 +3198,16 @@ export interface DescribeQueryResponse {
    * @public
    */
   DeliveryStatus?: DeliveryStatus | undefined;
+
+  /**
+   * <p>
+   *          The prompt used for a generated query. For information about generated queries, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html">Create CloudTrail Lake queries from natural language prompts</a>
+   *          in the <i>CloudTrail </i> user guide.
+   *       </p>
+   * @public
+   */
+  Prompt?: string | undefined;
 }
 
 /**
@@ -3806,6 +3523,80 @@ export interface EnableFederationResponse {
    * @public
    */
   FederationRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateQueryRequest {
+  /**
+   * <p>
+   *          The ARN (or ID suffix of the ARN) of the event data store
+   *          that you want to query. You can only specify one event data store.
+   *       </p>
+   * @public
+   */
+  EventDataStores: string[] | undefined;
+
+  /**
+   * <p>
+   *          The prompt that you want to use to generate the query. The prompt must be in English. For example prompts, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html#lake-query-generator-examples">Example prompts</a>
+   *          in the <i>CloudTrail </i> user guide.
+   *       </p>
+   * @public
+   */
+  Prompt: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateQueryResponse {
+  /**
+   * <p>
+   *          The SQL query statement generated from the prompt.
+   *       </p>
+   * @public
+   */
+  QueryStatement?: string | undefined;
+
+  /**
+   * <p>
+   *          An alias that identifies the prompt. When you run the <code>StartQuery</code> operation, you can pass in either the <code>QueryAlias</code> or
+   *          <code>QueryStatement</code> parameter.
+   *       </p>
+   * @public
+   */
+  QueryAlias?: string | undefined;
+}
+
+/**
+ * <p>
+ *          This exception is thrown when a valid query could not be generated for the provided prompt.
+ *       </p>
+ * @public
+ */
+export class GenerateResponseException extends __BaseException {
+  readonly name: "GenerateResponseException" = "GenerateResponseException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GenerateResponseException, __BaseException>) {
+    super({
+      name: "GenerateResponseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GenerateResponseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -4198,7 +3989,7 @@ export interface DataResource {
    *          </ul>
    *          <p>Additional resource types are available through <i>advanced</i>
    *          event selectors. For more
-   *          information about these additional resource types, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelector</a>.</p>
    * @public
    */
   Type?: string | undefined;

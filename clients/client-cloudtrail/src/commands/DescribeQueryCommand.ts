@@ -61,6 +61,7 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * //   ErrorMessage: "STRING_VALUE",
  * //   DeliveryS3Uri: "STRING_VALUE",
  * //   DeliveryStatus: "SUCCESS" || "FAILED" || "FAILED_SIGNING_FILE" || "PENDING" || "RESOURCE_NOT_FOUND" || "ACCESS_DENIED" || "ACCESS_DENIED_SIGNING_FILE" || "CANCELLED" || "UNKNOWN",
+ * //   Prompt: "STRING_VALUE",
  * // };
  *
  * ```

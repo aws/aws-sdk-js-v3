@@ -13,6 +13,7 @@ export * from "./DescribeQueryCommand";
 export * from "./DescribeTrailsCommand";
 export * from "./DisableFederationCommand";
 export * from "./EnableFederationCommand";
+export * from "./GenerateQueryCommand";
 export * from "./GetChannelCommand";
 export * from "./GetEventDataStoreCommand";
 export * from "./GetEventSelectorsCommand";

@@ -333,6 +333,14 @@ EnableFederation
 </details>
 <details>
 <summary>
+GenerateQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudtrail/command/GenerateQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail/Interface/GenerateQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudtrail/Interface/GenerateQueryCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetChannel
 </summary>
 

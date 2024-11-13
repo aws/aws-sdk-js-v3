@@ -57,6 +57,11 @@ import {
   EnableFederationCommandInput,
   EnableFederationCommandOutput,
 } from "./commands/EnableFederationCommand";
+import {
+  GenerateQueryCommand,
+  GenerateQueryCommandInput,
+  GenerateQueryCommandOutput,
+} from "./commands/GenerateQueryCommand";
 import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
   GetEventDataStoreCommand,
@@ -196,6 +201,7 @@ const commands = {
   DescribeTrailsCommand,
   DisableFederationCommand,
   EnableFederationCommand,
+  GenerateQueryCommand,
   GetChannelCommand,
   GetEventDataStoreCommand,
   GetEventSelectorsCommand,
@@ -427,6 +433,17 @@ export interface CloudTrail {
     args: EnableFederationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableFederationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateQueryCommand}
+   */
+  generateQuery(args: GenerateQueryCommandInput, options?: __HttpHandlerOptions): Promise<GenerateQueryCommandOutput>;
+  generateQuery(args: GenerateQueryCommandInput, cb: (err: any, data?: GenerateQueryCommandOutput) => void): void;
+  generateQuery(
+    args: GenerateQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateQueryCommandOutput) => void
   ): void;
 
   /**

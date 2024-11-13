@@ -49,6 +49,7 @@ import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "../comman
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "../commands/DescribeTrailsCommand";
 import { DisableFederationCommandInput, DisableFederationCommandOutput } from "../commands/DisableFederationCommand";
 import { EnableFederationCommandInput, EnableFederationCommandOutput } from "../commands/EnableFederationCommand";
+import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "../commands/GenerateQueryCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "../commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "../commands/GetEventSelectorsCommand";
@@ -161,6 +162,8 @@ import {
   EventDataStoreNotFoundException,
   EventDataStoreTerminationProtectedException,
   EventSelector,
+  GenerateQueryRequest,
+  GenerateResponseException,
   GetChannelRequest,
   GetChannelResponse,
   GetEventDataStoreRequest,
@@ -459,6 +462,19 @@ export const se_EnableFederationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableFederation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GenerateQueryCommand
+ */
+export const se_GenerateQueryCommand = async (
+  input: GenerateQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GenerateQuery");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1193,6 +1209,26 @@ export const de_EnableFederationCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: EnableFederationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GenerateQueryCommand
+ */
+export const de_GenerateQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateQueryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GenerateQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2098,6 +2134,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConcurrentModificationException":
     case "com.amazonaws.cloudtrail#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "GenerateResponseException":
+    case "com.amazonaws.cloudtrail#GenerateResponseException":
+      throw await de_GenerateResponseExceptionRes(parsedOutput, context);
     case "ImportNotFoundException":
     case "com.amazonaws.cloudtrail#ImportNotFoundException":
       throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
@@ -2559,6 +2598,22 @@ const de_EventDataStoreTerminationProtectedExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new EventDataStoreTerminationProtectedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1GenerateResponseExceptionRes
+ */
+const de_GenerateResponseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GenerateResponseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new GenerateResponseException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3533,11 +3588,15 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_EnableFederationRequest omitted.
 
+// se_EventDataStoreList omitted.
+
 // se_EventSelector omitted.
 
 // se_EventSelectors omitted.
 
 // se_ExcludeManagementEventSources omitted.
+
+// se_GenerateQueryRequest omitted.
 
 // se_GetChannelRequest omitted.
 
@@ -3796,6 +3855,7 @@ const de_DescribeQueryResponse = (output: any, context: __SerdeContext): Describ
     DeliveryS3Uri: __expectString,
     DeliveryStatus: __expectString,
     ErrorMessage: __expectString,
+    Prompt: __expectString,
     QueryId: __expectString,
     QueryStatistics: (_: any) => de_QueryStatisticsForDescribeQuery(_, context),
     QueryStatus: __expectString,
@@ -3891,6 +3951,10 @@ const de_EventsList = (output: any, context: __SerdeContext): Event[] => {
 };
 
 // de_ExcludeManagementEventSources omitted.
+
+// de_GenerateQueryResponse omitted.
+
+// de_GenerateResponseException omitted.
 
 /**
  * deserializeAws_json1_1GetChannelResponse

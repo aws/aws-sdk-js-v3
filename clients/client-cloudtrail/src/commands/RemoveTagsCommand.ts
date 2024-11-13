@@ -74,6 +74,12 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when the specified resource is not ready for an operation. This
+ *          can occur when you try to run an operation on a resource before CloudTrail has time
+ *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
+ *          operation again.</p>
+ *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
  *  <p>The specified event data store ARN is not valid or does not map to an event data store
  *          in your account.</p>
