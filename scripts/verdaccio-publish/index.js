@@ -39,7 +39,14 @@ const args = [
   "--dist-tag",
   "ci",
 ];
-spawn("npx", args, pipeStdIo).on("close", (code) => {
+spawn("npx", args, {
+  ...pipeStdIo,
+  env: {
+    ...process.env,
+    HUSKY: "0",
+    HUSKY_SKIP_HOOKS: "1",
+  },
+}).on("close", (code) => {
   // Rollback the changes caused by the version bumping
   execSync("git checkout -- clients/*/package.json");
   execSync("git checkout -- packages/*/package.json");
