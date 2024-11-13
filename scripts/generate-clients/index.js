@@ -16,7 +16,10 @@ const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
+const { spawnProcess } = require("../utils/spawn-process");
+const { cwd } = require("process");
 
+const REPO_ROOT = path.join(__dirname, "..", "..");
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
@@ -139,6 +142,7 @@ const {
     }
 
     require("./customizations/workspaces-thin-client")();
+    await spawnProcess("yarn", [], { cwd: REPO_ROOT, stdio: "inherit" });
     require("../runtime-dependency-version-check/runtime-dep-version-check");
   } catch (e) {
     console.log(e);
