@@ -177,6 +177,39 @@ describe(flexibleChecksumsMiddleware.name, () => {
       expect(stringHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFunction, mockRequest.body);
       expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
     });
+
+    it.each(["x-amz-checksum-algorithm", "X-AMZ-CHECKSUM-ALGORITHM"])(
+      "even if '%s' header is present",
+      async (headerName) => {
+        const mockRawChecksum = Buffer.from(mockChecksum);
+        const mockBase64Encoder = vi.fn().mockReturnValue(mockChecksum);
+        vi.mocked(stringHasher).mockResolvedValue(mockRawChecksum);
+        vi.mocked(hasHeader).mockReturnValue(false);
+
+        const handler = flexibleChecksumsMiddleware(
+          { ...mockConfig, base64Encoder: mockBase64Encoder },
+          mockMiddlewareConfig
+        )(mockNext, {});
+        const mockHeadersWithAlgoHeader = { ...mockHeaders, [headerName]: "mockHeaderValue" };
+        const mockArgsWithAlgoHeader = {
+          ...mockArgs,
+          request: { ...mockRequest, headers: mockHeadersWithAlgoHeader },
+        };
+        await handler(mockArgsWithAlgoHeader);
+
+        expect(hasHeader).toHaveBeenCalledTimes(1);
+        expect(mockNext).toHaveBeenCalledWith({
+          ...mockArgs,
+          request: {
+            ...mockRequest,
+            headers: { ...mockHeadersWithAlgoHeader, [mockChecksumLocationName]: mockChecksum },
+          },
+        });
+        expect(hasHeader).toHaveBeenCalledWith(mockChecksumLocationName, mockHeadersWithAlgoHeader);
+        expect(stringHasher).toHaveBeenCalledWith(mockChecksumAlgorithmFunction, mockRequest.body);
+        expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
+      }
+    );
   });
 
   describe("set feature", () => {
