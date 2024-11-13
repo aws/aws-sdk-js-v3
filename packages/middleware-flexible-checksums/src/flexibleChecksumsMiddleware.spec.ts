@@ -47,7 +47,7 @@ describe(flexibleChecksumsMiddleware.name, () => {
     mockNext.mockResolvedValueOnce(mockResult);
     const { isInstance } = HttpRequest;
     (isInstance as unknown as any).mockReturnValue(true);
-    vi.mocked(getChecksumAlgorithmForRequest).mockReturnValue(ChecksumAlgorithm.MD5);
+    vi.mocked(getChecksumAlgorithmForRequest).mockReturnValue(ChecksumAlgorithm.CRC32);
     vi.mocked(getChecksumLocationName).mockReturnValue(mockChecksumLocationName);
     vi.mocked(hasHeader).mockReturnValue(true);
     vi.mocked(hasHeaderWithPrefix).mockReturnValue(false);
