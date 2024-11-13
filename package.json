@@ -44,7 +44,7 @@
     "test:integration:legacy:since:release": "yarn test:e2e:legacy:since:release",
     "test:protocols": "yarn build:protocols && lerna run test --scope '@aws-sdk/aws-protocoltests-*'",
     "test:server-protocols": "yarn build:server-protocols && lerna run test --scope '@aws-sdk/*-server'",
-    "test:size": "cd scripts/benchmark-size/runner && yarn && ts-node ./cli.ts",
+    "test:size": "cd scripts/benchmark-size/runner && yarn && npx tsx ./cli.ts",
     "test:unit": "make test-unit",
     "test:versions": "jest --config tests/versions/jest.config.js tests/versions/index.spec.ts",
     "update:versions:default": "node --es-module-specifier-resolution=node ./scripts/update-versions/default.mjs",
@@ -102,7 +102,7 @@
     "rimraf": "3.0.2",
     "ts-jest": "29.1.1",
     "ts-loader": "9.4.2",
-    "ts-node": "10.9.1",
+    "tsx": "4.19.2",
     "turbo": "2.1.2",
     "typescript": "~4.9.5",
     "verdaccio": "5.25.0",
@@ -110,8 +110,7 @@
     "vitest": "0.34.6",
     "webpack": "5.76.0",
     "webpack-cli": "4.10.0",
-    "yargs": "17.5.1",
-    "yarn": "1.22.13"
+    "yargs": "17.5.1"
   },
   "overrides": {
     "vite": "4.5.5"
@@ -125,10 +124,6 @@
       "lib/*",
       "packages/*",
       "private/*"
-    ],
-    "nohoist": [
-      "**/@aws-sdk/client-sso/**",
-      "**/@babel/**"
     ]
   },
   "husky": {
@@ -144,5 +139,5 @@
     ],
     "**/*.{ts,js,md,json}": "prettier --write"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "yarn@4.5.1"
 }

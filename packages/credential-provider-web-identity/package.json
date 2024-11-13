@@ -16,8 +16,8 @@
     "test:watch": "vitest watch"
   },
   "browser": {
-    "./dist-es/fromTokenFile": false,
-    "./dist-cjs/fromTokenFile": false
+    "./dist-cjs/fromTokenFile": false,
+    "./dist-es/fromTokenFile": false
   },
   "react-native": {
     "./dist-es/fromTokenFile": false,

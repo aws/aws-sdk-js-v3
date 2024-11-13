@@ -58,9 +58,9 @@
     "directory": "packages/util-dns"
   },
   "browser": {
-    "./dist-es/index": "./dist-es/index.browser",
     "./dist-es/HostResolver": "./dist-es/HostResolver.browser",
-    "./dist-es/NodeDnsLookupHostResolver": false
+    "./dist-es/NodeDnsLookupHostResolver": false,
+    "./dist-es/index": "./dist-es/index.browser"
   },
   "react-native": {
     "./dist-es/index": "./dist-es/index.browser",
