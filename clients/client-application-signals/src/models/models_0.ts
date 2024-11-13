@@ -2017,6 +2017,25 @@ export class ConflictException extends __BaseException {
 }
 
 /**
+ * <p>This object defines the length of the look-back window used to calculate one burn rate metric
+ *          for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO. A burn rate of
+ *       exactly 1 indicates that the SLO goal will be met exactly.</p>
+ *          <p>For example, if you specify 60 as the number of minutes in the look-back window, the burn rate is calculated as the following:</p>
+ *          <p>
+ *             <i>burn rate = error rate over the look-back window / (1 - attainment goal percentage)</i>
+ *          </p>
+ *          <p>For more information about burn rates, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-ServiceLevelObjectives.html#CloudWatch-ServiceLevelObjectives-burn">Calculate burn rates</a>.</p>
+ * @public
+ */
+export interface BurnRateConfiguration {
+  /**
+   * <p>The number of minutes to use as the look-back window.</p>
+   * @public
+   */
+  LookBackWindowMinutes: number | undefined;
+}
+
+/**
  * <p>Use this structure to specify the information for the metric that a period-based SLO will monitor.</p>
  * @public
  */
@@ -2263,6 +2282,13 @@ export interface CreateServiceLevelObjectiveInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Use this array to create <i>burn rates</i> for this SLO. Each
+   *          burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * @public
+   */
+  BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 }
 
 /**
@@ -2333,6 +2359,13 @@ export interface ServiceLevelObjective {
    * @public
    */
   Goal: Goal | undefined;
+
+  /**
+   * <p>Each object in this array defines the length of the look-back window used to calculate one burn rate metric
+   *          for this SLO. The burn rate measures how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * @public
+   */
+  BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 }
 
 /**
@@ -2583,6 +2616,13 @@ export interface UpdateServiceLevelObjectiveInput {
    * @public
    */
   Goal?: Goal | undefined;
+
+  /**
+   * <p>Use this array to create <i>burn rates</i> for this SLO. Each
+   *          burn rate is a metric that indicates how fast the service is consuming the error budget, relative to the attainment goal of the SLO.</p>
+   * @public
+   */
+  BurnRateConfigurations?: BurnRateConfiguration[] | undefined;
 }
 
 /**

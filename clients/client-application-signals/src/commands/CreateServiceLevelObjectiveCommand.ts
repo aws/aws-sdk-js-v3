@@ -277,6 +277,11 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   BurnRateConfigurations: [ // BurnRateConfigurations
+ *     { // BurnRateConfiguration
+ *       LookBackWindowMinutes: Number("int"), // required
+ *     },
+ *   ],
  * };
  * const command = new CreateServiceLevelObjectiveCommand(input);
  * const response = await client.send(command);
@@ -427,6 +432,11 @@ export interface CreateServiceLevelObjectiveCommandOutput extends CreateServiceL
  * //       AttainmentGoal: Number("double"),
  * //       WarningThreshold: Number("double"),
  * //     },
+ * //     BurnRateConfigurations: [ // BurnRateConfigurations
+ * //       { // BurnRateConfiguration
+ * //         LookBackWindowMinutes: Number("int"), // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

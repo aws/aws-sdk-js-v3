@@ -80,6 +80,7 @@ import {
 import { ApplicationSignalsServiceException as __BaseException } from "../models/ApplicationSignalsServiceException";
 import {
   AccessDeniedException,
+  BurnRateConfiguration,
   CalendarInterval,
   ConflictException,
   Dimension,
@@ -144,6 +145,7 @@ export const se_CreateServiceLevelObjectiveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      BurnRateConfigurations: (_) => _json(_),
       Description: [],
       Goal: (_) => se_Goal(_, context),
       Name: [],
@@ -441,6 +443,7 @@ export const se_UpdateServiceLevelObjectiveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      BurnRateConfigurations: (_) => _json(_),
       Description: [],
       Goal: (_) => se_Goal(_, context),
       RequestBasedSliConfig: (_) => se_RequestBasedServiceLevelIndicatorConfig(_, context),
@@ -922,6 +925,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Attributes omitted.
 
+// se_BurnRateConfiguration omitted.
+
+// se_BurnRateConfigurations omitted.
+
 /**
  * serializeAws_restJson1CalendarInterval
  */
@@ -1013,6 +1020,10 @@ const se_ServiceLevelIndicatorConfig = (input: ServiceLevelIndicatorConfig, cont
 // de_AttributeMaps omitted.
 
 // de_Attributes omitted.
+
+// de_BurnRateConfiguration omitted.
+
+// de_BurnRateConfigurations omitted.
 
 /**
  * deserializeAws_restJson1CalendarInterval
@@ -1120,6 +1131,7 @@ const de_ServiceLevelIndicator = (output: any, context: __SerdeContext): Service
 const de_ServiceLevelObjective = (output: any, context: __SerdeContext): ServiceLevelObjective => {
   return take(output, {
     Arn: __expectString,
+    BurnRateConfigurations: _json,
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     EvaluationType: __expectString,

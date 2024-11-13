@@ -189,6 +189,11 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  *     AttainmentGoal: Number("double"),
  *     WarningThreshold: Number("double"),
  *   },
+ *   BurnRateConfigurations: [ // BurnRateConfigurations
+ *     { // BurnRateConfiguration
+ *       LookBackWindowMinutes: Number("int"), // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateServiceLevelObjectiveCommand(input);
  * const response = await client.send(command);
@@ -339,6 +344,11 @@ export interface UpdateServiceLevelObjectiveCommandOutput extends UpdateServiceL
  * //       AttainmentGoal: Number("double"),
  * //       WarningThreshold: Number("double"),
  * //     },
+ * //     BurnRateConfigurations: [ // BurnRateConfigurations
+ * //       { // BurnRateConfiguration
+ * //         LookBackWindowMinutes: Number("int"), // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

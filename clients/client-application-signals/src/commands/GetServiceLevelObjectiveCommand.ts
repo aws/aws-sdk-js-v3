@@ -191,6 +191,11 @@ export interface GetServiceLevelObjectiveCommandOutput extends GetServiceLevelOb
  * //       AttainmentGoal: Number("double"),
  * //       WarningThreshold: Number("double"),
  * //     },
+ * //     BurnRateConfigurations: [ // BurnRateConfigurations
+ * //       { // BurnRateConfiguration
+ * //         LookBackWindowMinutes: Number("int"), // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
