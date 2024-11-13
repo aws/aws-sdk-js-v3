@@ -95,6 +95,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //           },
  * //         },
  * //       ],
+ * //       resourceControlPolicyRestriction: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

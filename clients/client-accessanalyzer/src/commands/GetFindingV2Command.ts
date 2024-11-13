@@ -79,6 +79,7 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * //             },
  * //           },
  * //         ],
+ * //         resourceControlPolicyRestriction: "STRING_VALUE",
  * //       },
  * //       unusedPermissionDetails: { // UnusedPermissionDetails
  * //         actions: [ // UnusedActionList

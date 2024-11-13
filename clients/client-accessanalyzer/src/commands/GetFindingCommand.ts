@@ -74,6 +74,7 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  * //         },
  * //       },
  * //     ],
+ * //     resourceControlPolicyRestriction: "STRING_VALUE",
  * //   },
  * // };
  *

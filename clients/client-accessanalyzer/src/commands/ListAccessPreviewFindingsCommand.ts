@@ -90,6 +90,7 @@ export interface ListAccessPreviewFindingsCommandOutput extends ListAccessPrevie
  * //           },
  * //         },
  * //       ],
+ * //       resourceControlPolicyRestriction: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
