@@ -48,6 +48,9 @@ export interface ListDirectoryBucketsCommandOutput extends ListDirectoryBucketsO
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
+ *          <note>
+ *             <p> The <code>BucketRegion</code> response element is not part of the <code>ListDirectoryBuckets</code> Response Syntax.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

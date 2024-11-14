@@ -46,7 +46,7 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *                   If multipart uploads in a directory bucket are in progress, you can't delete the bucket until all the in-progress multipart uploads are aborted or completed.
  *                   To delete these in-progress multipart uploads, use the
  *                <code>ListMultipartUploads</code> operation to list the in-progress multipart
- *                uploads in the bucket and use the <code>AbortMultupartUpload</code> operation to
+ *                uploads in the bucket and use the <code>AbortMultipartUpload</code> operation to
  *                abort all the in-progress multipart uploads.
  *                </p>
  *                </li>

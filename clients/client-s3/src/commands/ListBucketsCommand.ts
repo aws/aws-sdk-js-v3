@@ -36,6 +36,13 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  *          this operation, you must have the <code>s3:ListAllMyBuckets</code> permission. </p>
  *          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and
  *             working with Amazon S3 buckets</a>.</p>
+ *          <important>
+ *             <p>We strongly recommend using only paginated requests. Unpaginated requests are only supported for
+ *             Amazon Web Services accounts set to the default general purpose bucket quota of 10,000. If you have an approved
+ *             general purpose bucket quota above 10,000, you must send paginated requests to list your account’s buckets.
+ *             All unpaginated ListBuckets requests will be rejected for Amazon Web Services accounts with a general purpose bucket quota
+ *             greater than 10,000. </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
