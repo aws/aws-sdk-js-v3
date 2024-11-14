@@ -75,6 +75,13 @@ export interface DescribeRedshiftIdcApplicationsCommandOutput
  * //               },
  * //             },
  * //           ],
+ * //           S3AccessGrants: [ // S3AccessGrantsServiceIntegrations
+ * //             { // S3AccessGrantsScopeUnion Union: only one key present
+ * //               ReadWriteAccess: { // ReadWriteAccess
+ * //                 Authorization: "Enabled" || "Disabled", // required
+ * //               },
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //     },

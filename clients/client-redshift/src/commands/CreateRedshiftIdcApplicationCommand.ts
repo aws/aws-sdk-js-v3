@@ -60,6 +60,13 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  *           },
  *         },
  *       ],
+ *       S3AccessGrants: [ // S3AccessGrantsServiceIntegrations
+ *         { // S3AccessGrantsScopeUnion Union: only one key present
+ *           ReadWriteAccess: { // ReadWriteAccess
+ *             Authorization: "Enabled" || "Disabled", // required
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
  * };
@@ -88,6 +95,13 @@ export interface CreateRedshiftIdcApplicationCommandOutput
  * //         LakeFormation: [ // LakeFormationServiceIntegrations
  * //           { // LakeFormationScopeUnion Union: only one key present
  * //             LakeFormationQuery: { // LakeFormationQuery
+ * //               Authorization: "Enabled" || "Disabled", // required
+ * //             },
+ * //           },
+ * //         ],
+ * //         S3AccessGrants: [ // S3AccessGrantsServiceIntegrations
+ * //           { // S3AccessGrantsScopeUnion Union: only one key present
+ * //             ReadWriteAccess: { // ReadWriteAccess
  * //               Authorization: "Enabled" || "Disabled", // required
  * //             },
  * //           },

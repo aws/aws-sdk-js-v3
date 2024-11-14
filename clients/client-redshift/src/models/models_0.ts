@@ -6637,11 +6637,64 @@ export namespace LakeFormationScopeUnion {
 }
 
 /**
+ * <p>The S3 Access Grants scope.</p>
+ * @public
+ */
+export interface ReadWriteAccess {
+  /**
+   * <p>Determines whether the read/write scope is enabled or disabled.</p>
+   * @public
+   */
+  Authorization: ServiceAuthorization | undefined;
+}
+
+/**
+ * <p>A list of scopes set up for S3 Access Grants integration.</p>
+ * @public
+ */
+export type S3AccessGrantsScopeUnion =
+  | S3AccessGrantsScopeUnion.ReadWriteAccessMember
+  | S3AccessGrantsScopeUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace S3AccessGrantsScopeUnion {
+  /**
+   * <p>The S3 Access Grants scope.</p>
+   * @public
+   */
+  export interface ReadWriteAccessMember {
+    ReadWriteAccess: ReadWriteAccess;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ReadWriteAccess?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ReadWriteAccess: (value: ReadWriteAccess) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: S3AccessGrantsScopeUnion, visitor: Visitor<T>): T => {
+    if (value.ReadWriteAccess !== undefined) return visitor.ReadWriteAccess(value.ReadWriteAccess);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>A list of service integrations.</p>
  * @public
  */
 export type ServiceIntegrationsUnion =
   | ServiceIntegrationsUnion.LakeFormationMember
+  | ServiceIntegrationsUnion.S3AccessGrantsMember
   | ServiceIntegrationsUnion.$UnknownMember;
 
 /**
@@ -6654,6 +6707,17 @@ export namespace ServiceIntegrationsUnion {
    */
   export interface LakeFormationMember {
     LakeFormation: LakeFormationScopeUnion[];
+    S3AccessGrants?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of scopes set up for S3 Access Grants integration.</p>
+   * @public
+   */
+  export interface S3AccessGrantsMember {
+    LakeFormation?: never;
+    S3AccessGrants: S3AccessGrantsScopeUnion[];
     $unknown?: never;
   }
 
@@ -6662,16 +6726,19 @@ export namespace ServiceIntegrationsUnion {
    */
   export interface $UnknownMember {
     LakeFormation?: never;
+    S3AccessGrants?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     LakeFormation: (value: LakeFormationScopeUnion[]) => T;
+    S3AccessGrants: (value: S3AccessGrantsScopeUnion[]) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: ServiceIntegrationsUnion, visitor: Visitor<T>): T => {
     if (value.LakeFormation !== undefined) return visitor.LakeFormation(value.LakeFormation);
+    if (value.S3AccessGrants !== undefined) return visitor.S3AccessGrants(value.S3AccessGrants);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -8652,111 +8719,6 @@ export interface DescribeClusterParameterGroupsMessage {
    *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
    *             returns a response with the parameter groups that have either or both of these tag
    *             values associated with them.</p>
-   * @public
-   */
-  TagValues?: string[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeClusterParametersMessage {
-  /**
-   * <p>The name of a cluster parameter group for which to return details.</p>
-   * @public
-   */
-  ParameterGroupName: string | undefined;
-
-  /**
-   * <p>The parameter types to return. Specify <code>user</code> to show parameters that
-   *             are different form the default. Similarly, specify <code>engine-default</code> to show
-   *             parameters that are the same as the default parameter group. </p>
-   *          <p>Default: All parameter types returned.</p>
-   *          <p>Valid Values: <code>user</code> | <code>engine-default</code>
-   *          </p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterParameters</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface DescribeClustersMessage {
-  /**
-   * <p>The unique identifier of a cluster whose properties you are requesting. This
-   *             parameter is case sensitive.</p>
-   *          <p>The default is that all clusters defined for an account are returned.</p>
-   * @public
-   */
-  ClusterIdentifier?: string | undefined;
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusters</a> request exceed the
-   *             value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   *          <p>Constraints: You can specify either the <b>ClusterIdentifier</b> parameter or the <b>Marker</b> parameter, but not both. </p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching clusters that are
-   *             associated with the specified key or keys. For example, suppose that you have clusters
-   *             that are tagged with keys called <code>owner</code> and <code>environment</code>. If you
-   *             specify both of these tag keys in the request, Amazon Redshift returns a response with the
-   *             clusters that have either or both of these tag keys associated with them.</p>
-   * @public
-   */
-  TagKeys?: string[] | undefined;
-
-  /**
-   * <p>A tag value or values for which you want to return all matching clusters that are
-   *             associated with the specified tag value or values. For example, suppose that you have
-   *             clusters that are tagged with values called <code>admin</code> and <code>test</code>. If
-   *             you specify both of these tag values in the request, Amazon Redshift returns a response with
-   *             the clusters that have either or both of these tag values associated with
-   *             them.</p>
    * @public
    */
   TagValues?: string[] | undefined;

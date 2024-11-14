@@ -626,8 +626,6 @@ import {
   DescribeAuthenticationProfilesResult,
   DescribeClusterDbRevisionsMessage,
   DescribeClusterParameterGroupsMessage,
-  DescribeClusterParametersMessage,
-  DescribeClustersMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -700,6 +698,7 @@ import {
   PartnerNotFoundFault,
   PauseClusterMessage,
   PendingModifiedValues,
+  ReadWriteAccess,
   RecurringCharge,
   RedshiftIdcApplication,
   RedshiftIdcApplicationAlreadyExistsFault,
@@ -719,6 +718,7 @@ import {
   RestoreStatus,
   ResumeClusterMessage,
   RevisionTarget,
+  S3AccessGrantsScopeUnion,
   ScheduledAction,
   ScheduledActionAlreadyExistsFault,
   ScheduledActionNotFoundFault,
@@ -761,7 +761,9 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DescribeClusterParametersMessage,
   DescribeClusterSecurityGroupsMessage,
+  DescribeClustersMessage,
   DescribeClusterSnapshotsMessage,
   DescribeClusterSubnetGroupsMessage,
   DescribeClusterTracksMessage,
@@ -12173,6 +12175,17 @@ const se_PutResourcePolicyMessage = (input: PutResourcePolicyMessage, context: _
 };
 
 /**
+ * serializeAws_queryReadWriteAccess
+ */
+const se_ReadWriteAccess = (input: ReadWriteAccess, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Au] != null) {
+    entries[_Au] = input[_Au];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryRebootClusterMessage
  */
 const se_RebootClusterMessage = (input: RebootClusterMessage, context: __SerdeContext): any => {
@@ -12524,6 +12537,45 @@ const se_RotateEncryptionKeyMessage = (input: RotateEncryptionKeyMessage, contex
 };
 
 /**
+ * serializeAws_queryS3AccessGrantsScopeUnion
+ */
+const se_S3AccessGrantsScopeUnion = (input: S3AccessGrantsScopeUnion, context: __SerdeContext): any => {
+  const entries: any = {};
+  S3AccessGrantsScopeUnion.visit(input, {
+    ReadWriteAccess: (value) => {
+      const memberEntries = se_ReadWriteAccess(value, context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `ReadWriteAccess.${key}`;
+        entries[loc] = value;
+      });
+    },
+    _: (name: string, value: any) => {
+      entries[name] = value;
+    },
+  });
+  return entries;
+};
+
+/**
+ * serializeAws_queryS3AccessGrantsServiceIntegrations
+ */
+const se_S3AccessGrantsServiceIntegrations = (input: S3AccessGrantsScopeUnion[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_S3AccessGrantsScopeUnion(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryScheduledActionFilter
  */
 const se_ScheduledActionFilter = (input: ScheduledActionFilter, context: __SerdeContext): any => {
@@ -12640,6 +12692,16 @@ const se_ServiceIntegrationsUnion = (input: ServiceIntegrationsUnion, context: _
       }
       Object.entries(memberEntries).forEach(([key, value]) => {
         const loc = `LakeFormation.${key}`;
+        entries[loc] = value;
+      });
+    },
+    S3AccessGrants: (value) => {
+      const memberEntries = se_S3AccessGrantsServiceIntegrations(value, context);
+      if (value?.length === 0) {
+        entries.S3AccessGrants = [];
+      }
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `S3AccessGrants.${key}`;
         entries[loc] = value;
       });
     },
@@ -17142,6 +17204,17 @@ const de_PutResourcePolicyResult = (output: any, context: __SerdeContext): PutRe
 };
 
 /**
+ * deserializeAws_queryReadWriteAccess
+ */
+const de_ReadWriteAccess = (output: any, context: __SerdeContext): ReadWriteAccess => {
+  const contents: any = {};
+  if (output[_Au] != null) {
+    contents[_Au] = __expectString(output[_Au]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryRebootClusterResult
  */
 const de_RebootClusterResult = (output: any, context: __SerdeContext): RebootClusterResult => {
@@ -17983,6 +18056,29 @@ const de_RotateEncryptionKeyResult = (output: any, context: __SerdeContext): Rot
 };
 
 /**
+ * deserializeAws_queryS3AccessGrantsScopeUnion
+ */
+const de_S3AccessGrantsScopeUnion = (output: any, context: __SerdeContext): S3AccessGrantsScopeUnion => {
+  if (output[_RWA] != null) {
+    return {
+      ReadWriteAccess: de_ReadWriteAccess(output[_RWA], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_queryS3AccessGrantsServiceIntegrations
+ */
+const de_S3AccessGrantsServiceIntegrations = (output: any, context: __SerdeContext): S3AccessGrantsScopeUnion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_S3AccessGrantsScopeUnion(__expectUnion(entry), context);
+    });
+};
+
+/**
  * deserializeAws_queryScheduledAction
  */
 const de_ScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
@@ -18201,6 +18297,15 @@ const de_ServiceIntegrationsUnion = (output: any, context: __SerdeContext): Serv
   } else if (output[_LF] != null && output[_LF][_me] != null) {
     return {
       LakeFormation: de_LakeFormationServiceIntegrations(__getArrayIfSingleItem(output[_LF][_me]), context),
+    };
+  }
+  if (output.S3AccessGrants === "") {
+    return {
+      [_SAG]: [],
+    };
+  } else if (output[_SAG] != null && output[_SAG][_me] != null) {
+    return {
+      S3AccessGrants: de_S3AccessGrantsServiceIntegrations(__getArrayIfSingleItem(output[_SAG][_me]), context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -19796,11 +19901,13 @@ const _RTeco = "RecommendationText";
 const _RTeq = "RequestTime";
 const _RTes = "ResizeType";
 const _RTev = "RevisionTargets";
+const _RWA = "ReadWriteAccess";
 const _Re = "Recommendations";
 const _Rec = "Recommendation";
 const _S = "Severity";
 const _SA = "SnapshotArn";
 const _SAD = "ScheduledActionDescription";
+const _SAG = "S3AccessGrants";
 const _SAN = "ScheduledActionName";
 const _SAS = "ScheduleAssociationState";
 const _SAT = "ScheduledActionTime";
