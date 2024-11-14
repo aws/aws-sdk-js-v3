@@ -57,6 +57,7 @@ export const HandlerErrorCode = {
   SERVICE_LIMIT_EXCEEDED: "ServiceLimitExceeded",
   SERVICE_TIMEOUT: "ServiceTimeout",
   THROTTLING: "Throttling",
+  UNAUTHORIZED_TAGGING_OPERATION: "UnauthorizedTaggingOperation",
 } as const;
 
 /**
@@ -127,6 +128,12 @@ export interface ProgressEvent {
    * @public
    */
   RequestToken?: string | undefined;
+
+  /**
+   * <p>The unique token representing the Hooks operation for the request.</p>
+   * @public
+   */
+  HooksRequestToken?: string | undefined;
 
   /**
    * <p>The resource operation type.</p>
@@ -950,6 +957,95 @@ export interface GetResourceRequestStatusInput {
 }
 
 /**
+ * <p>Represents the current status of applicable Hooks for a resource operation request. It contains list of
+ *       Hook invocation information for the resource specified in the request since the same target can invoke multiple Hooks.
+ *       For more information, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/resource-operations-manage-requests.html">Managing resource operation requests with Amazon Web Services Cloud Control API
+ *     </a>.</p>
+ * @public
+ */
+export interface HookProgressEvent {
+  /**
+   * <p>The type name of the Hook being invoked.</p>
+   * @public
+   */
+  HookTypeName?: string | undefined;
+
+  /**
+   * <p>The type version of the Hook being invoked.</p>
+   * @public
+   */
+  HookTypeVersionId?: string | undefined;
+
+  /**
+   * <p>The ARN of the Hook being invoked.</p>
+   * @public
+   */
+  HookTypeArn?: string | undefined;
+
+  /**
+   * <p>States whether the Hook is invoked before or after resource provisioning.</p>
+   * @public
+   */
+  InvocationPoint?: string | undefined;
+
+  /**
+   * <p>The status of the Hook invocation. The following are potential statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_PENDING</code>: The Hook was added to the invocation plan, but not yet invoked.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_IN_PROGRESS</code>: The Hook was invoked, but hasn't completed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_COMPLETE_SUCCEEDED</code>: The Hook invocation is complete with a successful result.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_COMPLETE_FAILED</code>: The Hook invocation is complete with a failed result.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HOOK_FAILED</code>: The Hook invocation didn't complete successfully.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HookStatus?: string | undefined;
+
+  /**
+   * <p>The time that the Hook invocation request initiated.</p>
+   * @public
+   */
+  HookEventTime?: Date | undefined;
+
+  /**
+   * <p>The message explaining the current Hook status.</p>
+   * @public
+   */
+  HookStatusMessage?: string | undefined;
+
+  /**
+   * <p>The failure mode of the invocation. The following are the potential statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL</code>: This will fail the Hook invocation and the request associated with it.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WARN</code>: This will fail the Hook invocation, but not the request associated with it.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureMode?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetResourceRequestStatusOutput {
@@ -958,6 +1054,12 @@ export interface GetResourceRequestStatusOutput {
    * @public
    */
   ProgressEvent?: ProgressEvent | undefined;
+
+  /**
+   * <p>Lists Hook invocations for the specified target in the request. This is a list since the same target can invoke multiple Hooks.</p>
+   * @public
+   */
+  HooksProgressEvent?: HookProgressEvent[] | undefined;
 }
 
 /**

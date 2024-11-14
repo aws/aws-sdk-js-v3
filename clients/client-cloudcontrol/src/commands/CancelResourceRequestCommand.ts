@@ -52,6 +52,7 @@ export interface CancelResourceRequestCommandOutput extends CancelResourceReques
  * //     TypeName: "STRING_VALUE",
  * //     Identifier: "STRING_VALUE",
  * //     RequestToken: "STRING_VALUE",
+ * //     HooksRequestToken: "STRING_VALUE",
  * //     Operation: "STRING_VALUE",
  * //     OperationStatus: "STRING_VALUE",
  * //     EventTime: new Date("TIMESTAMP"),
