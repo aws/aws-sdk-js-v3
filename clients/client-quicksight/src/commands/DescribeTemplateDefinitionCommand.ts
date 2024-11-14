@@ -9,7 +9,7 @@ import {
   DescribeTemplateDefinitionRequest,
   DescribeTemplateDefinitionResponse,
   DescribeTemplateDefinitionResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_DescribeTemplateDefinitionCommand, se_DescribeTemplateDefinitionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

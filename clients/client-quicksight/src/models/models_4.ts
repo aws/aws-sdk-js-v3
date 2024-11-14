@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
-import { AccountCustomization, ActiveIAMPolicyAssignment, ResourceStatus } from "./models_0";
+import { AccountCustomization, ActiveIAMPolicyAssignment, Entity, ResourceStatus, Sheet } from "./models_0";
 
 import {
   _Parameters,
@@ -26,22 +26,20 @@ import {
   AssignmentStatus,
   AuthorizedTargetsByService,
   BookmarksConfigurations,
+  BrandDefinition,
+  BrandDetail,
+  BrandSummary,
+  Capabilities,
   ColumnGroup,
   ColumnLevelPermissionRule,
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardVersionDefinition,
   DashboardVisualId,
-  DataSetImportMode,
   DatasetParameter,
-  DataSetUsageConfiguration,
   DataSourceParameters,
-  FieldFolder,
   FilterOperator,
   LinkSharingConfiguration,
-  LogicalTable,
-  LogicalTableFilterSensitiveLog,
-  PhysicalTable,
   ResourcePermission,
   ServiceType,
   SharedViewConfigurations,
@@ -56,25 +54,32 @@ import {
 } from "./models_2";
 
 import {
+  CustomPermissions,
   DashboardSearchFilter,
   DashboardSummary,
   DashboardVersionSummary,
+  DataSetConfiguration,
+  DataSetImportMode,
   DataSetRefreshProperties,
   DataSetSearchFilter,
   DataSetSummary,
+  DataSetUsageConfiguration,
   DataSource,
   DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
+  FieldFolder,
   FolderType,
   Group,
   GroupMember,
+  IdentityStore,
   IncludeFolderMembers,
   Ingestion,
-  NamespaceInfoV2,
-  PersonalizationMode,
+  LogicalTable,
+  LogicalTableFilterSensitiveLog,
+  NamespaceStatus,
+  PhysicalTable,
   RefreshSchedule,
-  RegisteredCustomerManagedKey,
   Role,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
@@ -86,7 +91,6 @@ import {
   TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
-  ThemeType,
   TopicDetails,
   TopicRefreshSchedule,
   TopicUserExperienceVersion,
@@ -95,6 +99,1271 @@ import {
 } from "./models_3";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ */
+export interface DescribeIngestionResponse {
+  /**
+   * <p>Information about the ingestion.</p>
+   * @public
+   */
+  Ingestion?: Ingestion | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpRestrictionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIpRestrictionResponse {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>A map that describes the IP rules with CIDR range and description.</p>
+   * @public
+   */
+  IpRestrictionRuleMap?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of allowed VPC IDs and their rule descriptions.</p>
+   * @public
+   */
+  VpcIdRestrictionRuleMap?: Record<string, string> | undefined;
+
+  /**
+   * <p>A map of allowed VPC endpoint IDs and their rule descriptions.</p>
+   * @public
+   */
+  VpcEndpointIdRestrictionRuleMap?: Record<string, string> | undefined;
+
+  /**
+   * <p>A value that specifies whether IP rules are turned on.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.
+   * 			</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyRegistrationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>Determines whether the request returns the default key only.</p>
+   * @public
+   */
+  DefaultKeyOnly?: boolean | undefined;
+}
+
+/**
+ * <p>A customer managed key structure that contains the information listed below: </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>KeyArn</code> - The ARN of a KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DefaultKey</code> - Indicates whether the current key is set as the default key for encryption and decryption use.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RegisteredCustomerManagedKey {
+  /**
+   * <p>The ARN of the KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>
+   * @public
+   */
+  KeyArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether a <code>RegisteredCustomerManagedKey</code> is set as the default key for encryption and decryption use.</p>
+   * @public
+   */
+  DefaultKey?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyRegistrationResponse {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration specified in the request.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects in a Amazon QuickSight account.</p>
+   * @public
+   */
+  KeyRegistration?: RegisteredCustomerManagedKey[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNamespaceRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that you want to describe.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NamespaceErrorType = {
+  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
+  PERMISSION_DENIED: "PERMISSION_DENIED",
+} as const;
+
+/**
+ * @public
+ */
+export type NamespaceErrorType = (typeof NamespaceErrorType)[keyof typeof NamespaceErrorType];
+
+/**
+ * <p>Errors that occur during namespace creation.</p>
+ * @public
+ */
+export interface NamespaceError {
+  /**
+   * <p>The error type.</p>
+   * @public
+   */
+  Type?: NamespaceErrorType | undefined;
+
+  /**
+   * <p>The message for the error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>The error type.</p>
+ * @public
+ */
+export interface NamespaceInfoV2 {
+  /**
+   * <p>The name of the error.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The namespace ARN.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The namespace Amazon Web Services Region.</p>
+   * @public
+   */
+  CapacityRegion?: string | undefined;
+
+  /**
+   * <p>The creation status of a namespace that is not yet completely created.</p>
+   * @public
+   */
+  CreationStatus?: NamespaceStatus | undefined;
+
+  /**
+   * <p>The identity store used for the namespace.</p>
+   * @public
+   */
+  IdentityStore?: IdentityStore | undefined;
+
+  /**
+   * <p>An error that occurred when the namespace was created.</p>
+   * @public
+   */
+  NamespaceError?: NamespaceError | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeNamespaceResponse {
+  /**
+   * <p>The information about the namespace that you're describing. The response includes
+   *         the namespace ARN, name, Amazon Web Services Region, creation status, and identity store. <code>DescribeNamespace</code> also
+   *         works for namespaces that are in the process of being created. For incomplete namespaces,
+   *         this API operation lists the namespace error types and messages associated with the creation process.</p>
+   * @public
+   */
+  Namespace?: NamespaceInfoV2 | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQPersonalizationConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the personalization configuration that the user wants described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PersonalizationMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PersonalizationMode = (typeof PersonalizationMode)[keyof typeof PersonalizationMode];
+
+/**
+ * @public
+ */
+export interface DescribeQPersonalizationConfigurationResponse {
+  /**
+   * <p>A value that indicates whether personalization is enabled or not.</p>
+   * @public
+   */
+  PersonalizationMode?: PersonalizationMode | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRefreshScheduleRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The ID of the refresh schedule.</p>
+   * @public
+   */
+  ScheduleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRefreshScheduleResponse {
+  /**
+   * <p>The refresh schedule.</p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRoleCustomPermissionRequest {
+  /**
+   * <p>The name of the role whose permissions you want described.</p>
+   * @public
+   */
+  Role: Role | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that contains the role.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeRoleCustomPermissionResponse {
+  /**
+   * <p>The name of the custom permission that is described.</p>
+   * @public
+   */
+  CustomPermissionsName?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>(Optional) The number for the version to describe. If a <code>VersionNumber</code> parameter
+   * 			value isn't provided, the latest version of the template is described.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias of the template that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TemplateErrorType = {
+  ACCESS_DENIED: "ACCESS_DENIED",
+  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type TemplateErrorType = (typeof TemplateErrorType)[keyof typeof TemplateErrorType];
+
+/**
+ * <p>List of errors that occurred when the template version creation failed.</p>
+ * @public
+ */
+export interface TemplateError {
+  /**
+   * <p>Type of error.</p>
+   * @public
+   */
+  Type?: TemplateErrorType | undefined;
+
+  /**
+   * <p>Description of the error type.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>An error path that shows which entities caused the template error.</p>
+   * @public
+   */
+  ViolatedEntities?: Entity[] | undefined;
+}
+
+/**
+ * <p>A version of a template.</p>
+ * @public
+ */
+export interface TemplateVersion {
+  /**
+   * <p>The time that this template version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>Errors associated with this template version.</p>
+   * @public
+   */
+  Errors?: TemplateError[] | undefined;
+
+  /**
+   * <p>The version number of the template version.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The status that is associated with the template.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+   *             template should be bound to new datasets matching the same schema described through this
+   *             API operation.</p>
+   * @public
+   */
+  DataSetConfigurations?: DataSetConfiguration[] | undefined;
+
+  /**
+   * <p>The description of the template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+   *             template.</p>
+   * @public
+   */
+  SourceEntityArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the theme associated with this version of the template.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   * @public
+   */
+  Sheets?: Sheet[] | undefined;
+}
+
+/**
+ * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
+ *             encapsulates the metadata required to create an analysis and that you can use to create
+ *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
+ *             dataset associated with an analysis. You can use templates to create dashboards by
+ *             replacing dataset placeholders with datasets that follow the same schema that was used
+ *             to create the source analysis and template.</p>
+ *          <p>You can share templates across Amazon Web Services accounts by allowing users in other Amazon Web Services accounts to
+ *             create a template or a dashboard from an existing template.</p>
+ * @public
+ */
+export interface Template {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The display name of the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A structure describing the versions of the template.</p>
+   * @public
+   */
+  Version?: TemplateVersion | undefined;
+
+  /**
+   * <p>The ID for the template. This is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>Time when this was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>Time when this was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateResponse {
+  /**
+   * <p>The template structure for the object you want to describe.</p>
+   * @public
+   */
+  Template?: Template | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template alias that you're
+   * 			describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The name of the template alias that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateAliasResponse {
+  /**
+   * <p>Information about the template alias.</p>
+   * @public
+   */
+  TemplateAlias?: TemplateAlias | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateDefinitionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template. You must be using the
+   * 			 Amazon Web Services account that the template is in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the template that you're describing.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the template.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias of the template that you want to describe. If you name a specific alias, you
+   * 			 describe the version that the alias points to. You can specify the latest version of the
+   * 			 template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			 parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplateDefinitionResponse {
+  /**
+   * <p>The descriptive name of the template.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the template described.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>Errors associated with the template version.</p>
+   * @public
+   */
+  Errors?: TemplateError[] | undefined;
+
+  /**
+   * <p>Status associated with the template.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The ARN of the theme of the template.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of the template.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: TemplateVersionDefinition | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplatePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTemplatePermissionsResponse {
+  /**
+   * <p>The ID for the template.</p>
+   * @public
+   */
+  TemplateId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   * @public
+   */
+  TemplateArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions to be set on the template. </p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter
+   * 			value isn't provided, the latest version of the theme is described.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias of the theme that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ThemeType = {
+  ALL: "ALL",
+  CUSTOM: "CUSTOM",
+  QUICKSIGHT: "QUICKSIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type ThemeType = (typeof ThemeType)[keyof typeof ThemeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThemeErrorType = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type ThemeErrorType = (typeof ThemeErrorType)[keyof typeof ThemeErrorType];
+
+/**
+ * <p>Theme error.</p>
+ * @public
+ */
+export interface ThemeError {
+  /**
+   * <p>The type of error.</p>
+   * @public
+   */
+  Type?: ThemeErrorType | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>A version of a theme.</p>
+ * @public
+ */
+export interface ThemeVersion {
+  /**
+   * <p>The version number of the theme.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The description of the theme.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
+   *             themes initially inherit from a default Amazon QuickSight theme.</p>
+   * @public
+   */
+  BaseThemeId?: string | undefined;
+
+  /**
+   * <p>The date and time that this theme version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The theme configuration, which contains all the theme display properties.</p>
+   * @public
+   */
+  Configuration?: ThemeConfiguration | undefined;
+
+  /**
+   * <p>Errors associated with the theme.</p>
+   * @public
+   */
+  Errors?: ThemeError[] | undefined;
+
+  /**
+   * <p>The status of the theme version.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+}
+
+/**
+ * <p>Summary information about a theme.</p>
+ * @public
+ */
+export interface Theme {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name that the user gives to the theme.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The identifier that the user gives to the theme.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+
+  /**
+   * <p>A version of a theme.</p>
+   * @public
+   */
+  Version?: ThemeVersion | undefined;
+
+  /**
+   * <p>The date and time that the theme was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The date and time that the theme was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The type of theme, based on how it was created. Valid values include:
+   *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
+   * @public
+   */
+  Type?: ThemeType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeResponse {
+  /**
+   * <p>The information about the theme that you are describing.</p>
+   * @public
+   */
+  Theme?: Theme | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
+   * 			describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The name of the theme alias that you want to describe.</p>
+   * @public
+   */
+  AliasName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemeAliasResponse {
+  /**
+   * <p>Information about the theme alias.</p>
+   * @public
+   */
+  ThemeAlias?: ThemeAlias | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme that you want to describe permissions for.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeThemePermissionsResponse {
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions set on the theme. </p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The definition of a topic.</p>
+   * @public
+   */
+  Topic?: TopicDetails | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want
+   *          described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
 
 /**
  * @public
@@ -1720,34 +2989,6 @@ export interface IAMPolicyAssignmentSummary {
 }
 
 /**
- * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * <p>The Amazon Web Services request ID for this request.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.Message = opts.Message;
-    this.RequestId = opts.RequestId;
-  }
-}
-
-/**
  * @public
  */
 export interface ListAnalysesRequest {
@@ -1901,6 +3142,99 @@ export interface ListAssetBundleImportJobsResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBrandsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brands that you want to list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned in a single request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBrandsResponse {
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of all brands in your Amazon Web Services account. This structure provides basic
+   * 	          information about each brand.</p>
+   * @public
+   */
+  Brands?: BrandSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permissions profiles that you want to list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>A list of custom permissions profiles.</p>
+   * @public
+   */
+  CustomPermissionsList?: CustomPermissions[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
 }
 
 /**
@@ -5194,6 +6528,172 @@ export interface UpdateAnalysisPermissionsResponse {
 /**
  * @public
  */
+export interface UpdateBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  BrandArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandAssignmentResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  BrandArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandPublishedVersionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The ID of the published version.</p>
+   * @public
+   */
+  VersionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBrandPublishedVersionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The ID of the published version.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile that you want to update.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+
+  /**
+   * <p>A set of actions to include in the custom permissions profile.</p>
+   * @public
+   */
+  Capabilities?: Capabilities | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -7310,6 +8810,52 @@ export interface UpdateUserResponse {
 /**
  * @public
  */
+export interface UpdateUserCustomPermissionRequest {
+  /**
+   * <p>The username of the user that you want to update custom permissions for.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permission configuration that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that the user belongs to.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions that you want to update.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateUserCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateVPCConnectionRequest {
   /**
    * <p>The Amazon Web Services account ID of the account that contains the VPC connection that
@@ -7575,6 +9121,20 @@ export interface ListTopicReviewedAnswersResponse {
    */
   RequestId?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const DescribeTemplateDefinitionResponseFilterSensitiveLog = (obj: DescribeTemplateDefinitionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTopicResponseFilterSensitiveLog = (obj: DescribeTopicResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -71,6 +71,11 @@ import {
   CreateAccountSubscriptionCommandOutput,
 } from "./commands/CreateAccountSubscriptionCommand";
 import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./commands/CreateAnalysisCommand";
+import { CreateBrandCommandInput, CreateBrandCommandOutput } from "./commands/CreateBrandCommand";
+import {
+  CreateCustomPermissionsCommandInput,
+  CreateCustomPermissionsCommandOutput,
+} from "./commands/CreateCustomPermissionsCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
@@ -123,6 +128,15 @@ import {
   DeleteAccountSubscriptionCommandOutput,
 } from "./commands/DeleteAccountSubscriptionCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
+import {
+  DeleteBrandAssignmentCommandInput,
+  DeleteBrandAssignmentCommandOutput,
+} from "./commands/DeleteBrandAssignmentCommand";
+import { DeleteBrandCommandInput, DeleteBrandCommandOutput } from "./commands/DeleteBrandCommand";
+import {
+  DeleteCustomPermissionsCommandInput,
+  DeleteCustomPermissionsCommandOutput,
+} from "./commands/DeleteCustomPermissionsCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
 import {
@@ -179,6 +193,10 @@ import {
 } from "./commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  DeleteUserCustomPermissionCommandInput,
+  DeleteUserCustomPermissionCommandOutput,
+} from "./commands/DeleteUserCustomPermissionCommand";
+import {
   DeleteVPCConnectionCommandInput,
   DeleteVPCConnectionCommandOutput,
 } from "./commands/DeleteVPCConnectionCommand";
@@ -211,6 +229,19 @@ import {
   DescribeAssetBundleImportJobCommandInput,
   DescribeAssetBundleImportJobCommandOutput,
 } from "./commands/DescribeAssetBundleImportJobCommand";
+import {
+  DescribeBrandAssignmentCommandInput,
+  DescribeBrandAssignmentCommandOutput,
+} from "./commands/DescribeBrandAssignmentCommand";
+import { DescribeBrandCommandInput, DescribeBrandCommandOutput } from "./commands/DescribeBrandCommand";
+import {
+  DescribeBrandPublishedVersionCommandInput,
+  DescribeBrandPublishedVersionCommandOutput,
+} from "./commands/DescribeBrandPublishedVersionCommand";
+import {
+  DescribeCustomPermissionsCommandInput,
+  DescribeCustomPermissionsCommandOutput,
+} from "./commands/DescribeCustomPermissionsCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
 import {
   DescribeDashboardDefinitionCommandInput,
@@ -341,6 +372,11 @@ import {
   ListAssetBundleImportJobsCommandInput,
   ListAssetBundleImportJobsCommandOutput,
 } from "./commands/ListAssetBundleImportJobsCommand";
+import { ListBrandsCommandInput, ListBrandsCommandOutput } from "./commands/ListBrandsCommand";
+import {
+  ListCustomPermissionsCommandInput,
+  ListCustomPermissionsCommandOutput,
+} from "./commands/ListCustomPermissionsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import {
   ListDashboardVersionsCommandInput,
@@ -452,6 +488,19 @@ import {
   UpdateAnalysisPermissionsCommandInput,
   UpdateAnalysisPermissionsCommandOutput,
 } from "./commands/UpdateAnalysisPermissionsCommand";
+import {
+  UpdateBrandAssignmentCommandInput,
+  UpdateBrandAssignmentCommandOutput,
+} from "./commands/UpdateBrandAssignmentCommand";
+import { UpdateBrandCommandInput, UpdateBrandCommandOutput } from "./commands/UpdateBrandCommand";
+import {
+  UpdateBrandPublishedVersionCommandInput,
+  UpdateBrandPublishedVersionCommandOutput,
+} from "./commands/UpdateBrandPublishedVersionCommand";
+import {
+  UpdateCustomPermissionsCommandInput,
+  UpdateCustomPermissionsCommandOutput,
+} from "./commands/UpdateCustomPermissionsCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import {
   UpdateDashboardLinksCommandInput,
@@ -543,6 +592,10 @@ import {
 } from "./commands/UpdateTopicRefreshScheduleCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
+  UpdateUserCustomPermissionCommandInput,
+  UpdateUserCustomPermissionCommandOutput,
+} from "./commands/UpdateUserCustomPermissionCommand";
+import {
   UpdateVPCConnectionCommandInput,
   UpdateVPCConnectionCommandOutput,
 } from "./commands/UpdateVPCConnectionCommand";
@@ -567,6 +620,8 @@ export type ServiceInputTypes =
   | CreateAccountCustomizationCommandInput
   | CreateAccountSubscriptionCommandInput
   | CreateAnalysisCommandInput
+  | CreateBrandCommandInput
+  | CreateCustomPermissionsCommandInput
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
   | CreateDataSourceCommandInput
@@ -589,6 +644,9 @@ export type ServiceInputTypes =
   | DeleteAccountCustomizationCommandInput
   | DeleteAccountSubscriptionCommandInput
   | DeleteAnalysisCommandInput
+  | DeleteBrandAssignmentCommandInput
+  | DeleteBrandCommandInput
+  | DeleteCustomPermissionsCommandInput
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
   | DeleteDataSetRefreshPropertiesCommandInput
@@ -611,6 +669,7 @@ export type ServiceInputTypes =
   | DeleteTopicRefreshScheduleCommandInput
   | DeleteUserByPrincipalIdCommandInput
   | DeleteUserCommandInput
+  | DeleteUserCustomPermissionCommandInput
   | DeleteVPCConnectionCommandInput
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
@@ -620,6 +679,10 @@ export type ServiceInputTypes =
   | DescribeAnalysisPermissionsCommandInput
   | DescribeAssetBundleExportJobCommandInput
   | DescribeAssetBundleImportJobCommandInput
+  | DescribeBrandAssignmentCommandInput
+  | DescribeBrandCommandInput
+  | DescribeBrandPublishedVersionCommandInput
+  | DescribeCustomPermissionsCommandInput
   | DescribeDashboardCommandInput
   | DescribeDashboardDefinitionCommandInput
   | DescribeDashboardPermissionsCommandInput
@@ -663,6 +726,8 @@ export type ServiceInputTypes =
   | ListAnalysesCommandInput
   | ListAssetBundleExportJobsCommandInput
   | ListAssetBundleImportJobsCommandInput
+  | ListBrandsCommandInput
+  | ListCustomPermissionsCommandInput
   | ListDashboardVersionsCommandInput
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
@@ -711,6 +776,10 @@ export type ServiceInputTypes =
   | UpdateAccountSettingsCommandInput
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
+  | UpdateBrandAssignmentCommandInput
+  | UpdateBrandCommandInput
+  | UpdateBrandPublishedVersionCommandInput
+  | UpdateCustomPermissionsCommandInput
   | UpdateDashboardCommandInput
   | UpdateDashboardLinksCommandInput
   | UpdateDashboardPermissionsCommandInput
@@ -741,6 +810,7 @@ export type ServiceInputTypes =
   | UpdateTopicPermissionsCommandInput
   | UpdateTopicRefreshScheduleCommandInput
   | UpdateUserCommandInput
+  | UpdateUserCustomPermissionCommandInput
   | UpdateVPCConnectionCommandInput;
 
 /**
@@ -753,6 +823,8 @@ export type ServiceOutputTypes =
   | CreateAccountCustomizationCommandOutput
   | CreateAccountSubscriptionCommandOutput
   | CreateAnalysisCommandOutput
+  | CreateBrandCommandOutput
+  | CreateCustomPermissionsCommandOutput
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
   | CreateDataSourceCommandOutput
@@ -775,6 +847,9 @@ export type ServiceOutputTypes =
   | DeleteAccountCustomizationCommandOutput
   | DeleteAccountSubscriptionCommandOutput
   | DeleteAnalysisCommandOutput
+  | DeleteBrandAssignmentCommandOutput
+  | DeleteBrandCommandOutput
+  | DeleteCustomPermissionsCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
   | DeleteDataSetRefreshPropertiesCommandOutput
@@ -797,6 +872,7 @@ export type ServiceOutputTypes =
   | DeleteTopicRefreshScheduleCommandOutput
   | DeleteUserByPrincipalIdCommandOutput
   | DeleteUserCommandOutput
+  | DeleteUserCustomPermissionCommandOutput
   | DeleteVPCConnectionCommandOutput
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
@@ -806,6 +882,10 @@ export type ServiceOutputTypes =
   | DescribeAnalysisPermissionsCommandOutput
   | DescribeAssetBundleExportJobCommandOutput
   | DescribeAssetBundleImportJobCommandOutput
+  | DescribeBrandAssignmentCommandOutput
+  | DescribeBrandCommandOutput
+  | DescribeBrandPublishedVersionCommandOutput
+  | DescribeCustomPermissionsCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDashboardDefinitionCommandOutput
   | DescribeDashboardPermissionsCommandOutput
@@ -849,6 +929,8 @@ export type ServiceOutputTypes =
   | ListAnalysesCommandOutput
   | ListAssetBundleExportJobsCommandOutput
   | ListAssetBundleImportJobsCommandOutput
+  | ListBrandsCommandOutput
+  | ListCustomPermissionsCommandOutput
   | ListDashboardVersionsCommandOutput
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
@@ -897,6 +979,10 @@ export type ServiceOutputTypes =
   | UpdateAccountSettingsCommandOutput
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
+  | UpdateBrandAssignmentCommandOutput
+  | UpdateBrandCommandOutput
+  | UpdateBrandPublishedVersionCommandOutput
+  | UpdateCustomPermissionsCommandOutput
   | UpdateDashboardCommandOutput
   | UpdateDashboardLinksCommandOutput
   | UpdateDashboardPermissionsCommandOutput
@@ -927,6 +1013,7 @@ export type ServiceOutputTypes =
   | UpdateTopicPermissionsCommandOutput
   | UpdateTopicRefreshScheduleCommandOutput
   | UpdateUserCommandOutput
+  | UpdateUserCustomPermissionCommandOutput
   | UpdateVPCConnectionCommandOutput;
 
 /**

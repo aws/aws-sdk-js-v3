@@ -1582,6 +1582,132 @@ export interface AnonymousUserSnapshotJobResult {
 }
 
 /**
+ * <p>The color palette.</p>
+ * @public
+ */
+export interface Palette {
+  /**
+   * <p>The foreground color.</p>
+   * @public
+   */
+  Foreground?: string | undefined;
+
+  /**
+   * <p>The background color.</p>
+   * @public
+   */
+  Background?: string | undefined;
+}
+
+/**
+ * <p>The color palette.</p>
+ * @public
+ */
+export interface BrandColorPalette {
+  /**
+   * <p>The primary color.</p>
+   * @public
+   */
+  Primary?: Palette | undefined;
+
+  /**
+   * <p>The secondary color.</p>
+   * @public
+   */
+  Secondary?: Palette | undefined;
+
+  /**
+   * <p>The color that is used for accent elements.</p>
+   * @public
+   */
+  Accent?: Palette | undefined;
+
+  /**
+   * <p>The color that is used for measure elements.</p>
+   * @public
+   */
+  Measure?: Palette | undefined;
+
+  /**
+   * <p>The color that is used for dimension elements.</p>
+   * @public
+   */
+  Dimension?: Palette | undefined;
+
+  /**
+   * <p>The color that is used for success elements.</p>
+   * @public
+   */
+  Success?: Palette | undefined;
+
+  /**
+   * <p>The color that is used for info elements.</p>
+   * @public
+   */
+  Info?: Palette | undefined;
+
+  /**
+   * <p>The color that is used for warning elements.</p>
+   * @public
+   */
+  Warning?: Palette | undefined;
+
+  /**
+   * <p>The color that is used for danger elements.</p>
+   * @public
+   */
+  Danger?: Palette | undefined;
+}
+
+/**
+ * <p>The navigation bar style.</p>
+ * @public
+ */
+export interface NavbarStyle {
+  /**
+   * <p>The global navigation bar style.</p>
+   * @public
+   */
+  GlobalNavbar?: Palette | undefined;
+
+  /**
+   * <p>The contextual navigation bar style.</p>
+   * @public
+   */
+  ContextualNavbar?: Palette | undefined;
+}
+
+/**
+ * <p>The element style.</p>
+ * @public
+ */
+export interface BrandElementStyle {
+  /**
+   * <p>The navigation bar style.</p>
+   * @public
+   */
+  NavbarStyle?: NavbarStyle | undefined;
+}
+
+/**
+ * <p>The application theme.</p>
+ * @public
+ */
+export interface ApplicationTheme {
+  /**
+   * <p>The color palette.</p>
+   * @public
+   */
+  BrandColorPalette?: BrandColorPalette | undefined;
+
+  /**
+   * <p>The element style.</p>
+   * @public
+   */
+  BrandElementStyle?: BrandElementStyle | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -5909,6 +6035,366 @@ export interface BorderStyle {
 }
 
 /**
+ * <p>The source of the image.</p>
+ * @public
+ */
+export type ImageSource = ImageSource.PublicUrlMember | ImageSource.S3UriMember | ImageSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ImageSource {
+  /**
+   * <p>The public URL that points to the source image.</p>
+   * @public
+   */
+  export interface PublicUrlMember {
+    PublicUrl: string;
+    S3Uri?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon S3 URI that points to the source image.</p>
+   * @public
+   */
+  export interface S3UriMember {
+    PublicUrl?: never;
+    S3Uri: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    PublicUrl?: never;
+    S3Uri?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    PublicUrl: (value: string) => T;
+    S3Uri: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ImageSource, visitor: Visitor<T>): T => {
+    if (value.PublicUrl !== undefined) return visitor.PublicUrl(value.PublicUrl);
+    if (value.S3Uri !== undefined) return visitor.S3Uri(value.S3Uri);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The logo image configuration.</p>
+ * @public
+ */
+export interface ImageConfiguration {
+  /**
+   * <p>The source of the image.</p>
+   * @public
+   */
+  Source?: ImageSource | undefined;
+}
+
+/**
+ * <p>The image set configuration.</p>
+ * @public
+ */
+export interface ImageSetConfiguration {
+  /**
+   * <p>The original image.</p>
+   * @public
+   */
+  Original: ImageConfiguration | undefined;
+}
+
+/**
+ * <p>The logo set configuration.</p>
+ * @public
+ */
+export interface LogoSetConfiguration {
+  /**
+   * <p>The primary logo.</p>
+   * @public
+   */
+  Primary: ImageSetConfiguration | undefined;
+
+  /**
+   * <p>The favicon logo.</p>
+   * @public
+   */
+  Favicon?: ImageSetConfiguration | undefined;
+}
+
+/**
+ * <p>The logo configuration.</p>
+ * @public
+ */
+export interface LogoConfiguration {
+  /**
+   * <p>The alt text for the logo.</p>
+   * @public
+   */
+  AltText: string | undefined;
+
+  /**
+   * <p>A set of configured logos.</p>
+   * @public
+   */
+  LogoSet: LogoSetConfiguration | undefined;
+}
+
+/**
+ * <p>The definition of the brand.</p>
+ * @public
+ */
+export interface BrandDefinition {
+  /**
+   * <p>The name of the brand.</p>
+   * @public
+   */
+  BrandName: string | undefined;
+
+  /**
+   * <p>The description of the brand.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The application theme of the brand.</p>
+   * @public
+   */
+  ApplicationTheme?: ApplicationTheme | undefined;
+
+  /**
+   * <p>The logo configuration of the brand.</p>
+   * @public
+   */
+  LogoConfiguration?: LogoConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BrandStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCEEDED: "CREATE_SUCCEEDED",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETE_IN_PROGRESS: "DELETE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type BrandStatus = (typeof BrandStatus)[keyof typeof BrandStatus];
+
+/**
+ * <p>The logo image.</p>
+ * @public
+ */
+export interface Image {
+  /**
+   * <p>The source of the logo image.</p>
+   * @public
+   */
+  Source?: ImageSource | undefined;
+
+  /**
+   * <p>The URL that points to the generated logo image.</p>
+   * @public
+   */
+  GeneratedImageUrl?: string | undefined;
+}
+
+/**
+ * <p>The image set.</p>
+ * @public
+ */
+export interface ImageSet {
+  /**
+   * <p>The original image.</p>
+   * @public
+   */
+  Original: Image | undefined;
+
+  /**
+   * <p>The image with the height set to 64 pixels.</p>
+   * @public
+   */
+  Height64?: Image | undefined;
+
+  /**
+   * <p>The image with the height set to 32 pixels.</p>
+   * @public
+   */
+  Height32?: Image | undefined;
+}
+
+/**
+ * <p>A set of logos.</p>
+ * @public
+ */
+export interface LogoSet {
+  /**
+   * <p>The primary logo.</p>
+   * @public
+   */
+  Primary: ImageSet | undefined;
+
+  /**
+   * <p>The favicon logo.</p>
+   * @public
+   */
+  Favicon?: ImageSet | undefined;
+}
+
+/**
+ * <p>The logo configuration.</p>
+ * @public
+ */
+export interface Logo {
+  /**
+   * <p>The alt text for the logo.</p>
+   * @public
+   */
+  AltText: string | undefined;
+
+  /**
+   * <p>A set of configured logos.</p>
+   * @public
+   */
+  LogoSet: LogoSet | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BrandVersionStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
+  CREATE_SUCCEEDED: "CREATE_SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BrandVersionStatus = (typeof BrandVersionStatus)[keyof typeof BrandVersionStatus];
+
+/**
+ * <p>The details of the brand.</p>
+ * @public
+ */
+export interface BrandDetail {
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The status of the brand.</p>
+   * @public
+   */
+  BrandStatus?: BrandStatus | undefined;
+
+  /**
+   * <p>The time that the brand was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last time the brand was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The ID of the version.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+
+  /**
+   * <p>The status of the version.</p>
+   * @public
+   */
+  VersionStatus?: BrandVersionStatus | undefined;
+
+  /**
+   * <p>A list of errors that occurred during the most recent brand operation.</p>
+   * @public
+   */
+  Errors?: string[] | undefined;
+
+  /**
+   * <p>The logo details.</p>
+   * @public
+   */
+  Logo?: Logo | undefined;
+}
+
+/**
+ * <p>A summary of the brand.</p>
+ * @public
+ */
+export interface BrandSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId?: string | undefined;
+
+  /**
+   * <p>The name of the brand.</p>
+   * @public
+   */
+  BrandName?: string | undefined;
+
+  /**
+   * <p>The description of the brand.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The status of the brand.</p>
+   * @public
+   */
+  BrandStatus?: BrandStatus | undefined;
+
+  /**
+   * <p>The time that the brand was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time when the brand was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
  * <p>A calculated column for a dataset.</p>
  * @public
  */
@@ -6019,6 +6505,127 @@ export class ResourceExistsException extends __BaseException {
     this.ResourceType = opts.ResourceType;
     this.RequestId = opts.RequestId;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapabilityState = {
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type CapabilityState = (typeof CapabilityState)[keyof typeof CapabilityState];
+
+/**
+ * <p>A set of actions that correspond to Amazon QuickSight permissions.</p>
+ * @public
+ */
+export interface Capabilities {
+  /**
+   * <p>The ability to export to CSV files.</p>
+   * @public
+   */
+  ExportToCsv?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to Excel files.</p>
+   * @public
+   */
+  ExportToExcel?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to export to Create and Update themes.</p>
+   * @public
+   */
+  CreateAndUpdateThemes?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to add or run anomaly detection.</p>
+   * @public
+   */
+  AddOrRunAnomalyDetectionForAnalyses?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share analyses.</p>
+   * @public
+   */
+  ShareAnalyses?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update datasets.</p>
+   * @public
+   */
+  CreateAndUpdateDatasets?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share datasets.</p>
+   * @public
+   */
+  ShareDatasets?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to subscribe to email reports.</p>
+   * @public
+   */
+  SubscribeDashboardEmailReports?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update email reports.</p>
+   * @public
+   */
+  CreateAndUpdateDashboardEmailReports?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share dashboards.</p>
+   * @public
+   */
+  ShareDashboards?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update threshold alerts.</p>
+   * @public
+   */
+  CreateAndUpdateThresholdAlerts?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to rename shared folders.</p>
+   * @public
+   */
+  RenameSharedFolders?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create shared folders.</p>
+   * @public
+   */
+  CreateSharedFolders?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create and update data sources.</p>
+   * @public
+   */
+  CreateAndUpdateDataSources?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to share data sources.</p>
+   * @public
+   */
+  ShareDataSources?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to view account SPICE capacity.</p>
+   * @public
+   */
+  ViewAccountSPICECapacity?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create a SPICE dataset.</p>
+   * @public
+   */
+  CreateSPICEDataset?: CapabilityState | undefined;
 }
 
 /**
@@ -7139,6 +7746,108 @@ export class UnsupportedUserEditionException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface CreateBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+
+  /**
+   * <p>A map of the key-value pairs that are assigned to the brand.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * <p>An internal service exception.</p>
+ * @public
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  Message: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
+}
+
+/**
  * <p>A transform operation that creates calculated columns. Columns created in one such
  *             operation form a lexical closure.</p>
  * @public
@@ -7149,6 +7858,58 @@ export interface CreateColumnsOperation {
    * @public
    */
   Columns: CalculatedColumn[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to create the custom permissions profile in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile that you want to create.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+
+  /**
+   * <p>A set of actions to include in the custom permissions profile.</p>
+   * @public
+   */
+  Capabilities?: Capabilities | undefined;
+
+  /**
+   * <p>The tags to associate with the custom permissions profile.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
 }
 
 /**
@@ -7866,815 +8627,6 @@ export interface DatasetParameter {
 }
 
 /**
- * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
- * @public
- */
-export interface DataSetUsageConfiguration {
-  /**
-   * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
-   * @public
-   */
-  DisableUseAsDirectQuerySource?: boolean | undefined;
-
-  /**
-   * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
-   * @public
-   */
-  DisableUseAsImportedSource?: boolean | undefined;
-}
-
-/**
- * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
- * @public
- */
-export interface FieldFolder {
-  /**
-   * <p>The description for a field folder.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A folder has a list of columns. A column can only be in one folder.</p>
-   * @public
-   */
-  columns?: string[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const DataSetImportMode = {
-  DIRECT_QUERY: "DIRECT_QUERY",
-  SPICE: "SPICE",
-} as const;
-
-/**
- * @public
- */
-export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetImportMode];
-
-/**
- * <p>A transform operation that filters rows based on a condition.</p>
- * @public
- */
-export interface FilterOperation {
-  /**
-   * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
-   *             evaluates to true are kept in the dataset.</p>
-   * @public
-   */
-  ConditionExpression: string | undefined;
-}
-
-/**
- * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
- * @public
- */
-export interface NewDefaultValues {
-  /**
-   * <p>A list of static default values for a given string parameter.</p>
-   * @public
-   */
-  StringStaticValues?: string[] | undefined;
-
-  /**
-   * <p>A list of static default values for a given decimal parameter.</p>
-   * @public
-   */
-  DecimalStaticValues?: number[] | undefined;
-
-  /**
-   * <p>A list of static default values for a given date time parameter.</p>
-   * @public
-   */
-  DateTimeStaticValues?: Date[] | undefined;
-
-  /**
-   * <p>A list of static default values for a given integer parameter.</p>
-   * @public
-   */
-  IntegerStaticValues?: number[] | undefined;
-}
-
-/**
- * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
- * @public
- */
-export interface OverrideDatasetParameterOperation {
-  /**
-   * <p>The name of the parameter to be overridden with different values.</p>
-   * @public
-   */
-  ParameterName: string | undefined;
-
-  /**
-   * <p>The new name for the parameter.</p>
-   * @public
-   */
-  NewParameterName?: string | undefined;
-
-  /**
-   * <p>The new default values for the parameter.</p>
-   * @public
-   */
-  NewDefaultValues?: NewDefaultValues | undefined;
-}
-
-/**
- * <p>A transform operation that projects columns. Operations that come after a projection
- *             can only refer to projected columns.</p>
- * @public
- */
-export interface ProjectOperation {
-  /**
-   * <p>Projected columns.</p>
-   * @public
-   */
-  ProjectedColumns: string[] | undefined;
-}
-
-/**
- * <p>A transform operation that renames a column.</p>
- * @public
- */
-export interface RenameColumnOperation {
-  /**
-   * <p>The name of the column to be renamed.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The new name for the column.</p>
-   * @public
-   */
-  NewColumnName: string | undefined;
-}
-
-/**
- * <p>A transform operation that tags a column with additional information.</p>
- * @public
- */
-export interface TagColumnOperation {
-  /**
-   * <p>The column that this operation acts on.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
-   *          <note>
-   *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
-   *          </note>
-   * @public
-   */
-  Tags: ColumnTag[] | undefined;
-}
-
-/**
- * <p>A transform operation that removes tags associated with a column.</p>
- * @public
- */
-export interface UntagColumnOperation {
-  /**
-   * <p>The column that this operation acts on.</p>
-   * @public
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * <p>The column tags to remove from this column.</p>
-   * @public
-   */
-  TagNames: ColumnTagName[] | undefined;
-}
-
-/**
- * <p>A data transformation on a logical table. This is a variant type structure. For this
- *             structure to be valid, only one of the attributes can be non-null.</p>
- * @public
- */
-export type TransformOperation =
-  | TransformOperation.CastColumnTypeOperationMember
-  | TransformOperation.CreateColumnsOperationMember
-  | TransformOperation.FilterOperationMember
-  | TransformOperation.OverrideDatasetParameterOperationMember
-  | TransformOperation.ProjectOperationMember
-  | TransformOperation.RenameColumnOperationMember
-  | TransformOperation.TagColumnOperationMember
-  | TransformOperation.UntagColumnOperationMember
-  | TransformOperation.$UnknownMember;
-
-/**
- * @public
- */
-export namespace TransformOperation {
-  /**
-   * <p>An operation that projects columns. Operations that come after a projection can only
-   *             refer to projected columns.</p>
-   * @public
-   */
-  export interface ProjectOperationMember {
-    ProjectOperation: ProjectOperation;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that filters rows based on some condition.</p>
-   * @public
-   */
-  export interface FilterOperationMember {
-    ProjectOperation?: never;
-    FilterOperation: FilterOperation;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that creates calculated columns. Columns created in one such operation
-   *             form a lexical closure.</p>
-   * @public
-   */
-  export interface CreateColumnsOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation: CreateColumnsOperation;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that renames a column.</p>
-   * @public
-   */
-  export interface RenameColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation: RenameColumnOperation;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that casts a column to a different type.</p>
-   * @public
-   */
-  export interface CastColumnTypeOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation: CastColumnTypeOperation;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An operation that tags a column with additional information.</p>
-   * @public
-   */
-  export interface TagColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation: TagColumnOperation;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that removes tags associated with a column.</p>
-   * @public
-   */
-  export interface UntagColumnOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation: UntagColumnOperation;
-    OverrideDatasetParameterOperation?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
-   * @public
-   */
-  export interface OverrideDatasetParameterOperationMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation: OverrideDatasetParameterOperation;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    ProjectOperation?: never;
-    FilterOperation?: never;
-    CreateColumnsOperation?: never;
-    RenameColumnOperation?: never;
-    CastColumnTypeOperation?: never;
-    TagColumnOperation?: never;
-    UntagColumnOperation?: never;
-    OverrideDatasetParameterOperation?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    ProjectOperation: (value: ProjectOperation) => T;
-    FilterOperation: (value: FilterOperation) => T;
-    CreateColumnsOperation: (value: CreateColumnsOperation) => T;
-    RenameColumnOperation: (value: RenameColumnOperation) => T;
-    CastColumnTypeOperation: (value: CastColumnTypeOperation) => T;
-    TagColumnOperation: (value: TagColumnOperation) => T;
-    UntagColumnOperation: (value: UntagColumnOperation) => T;
-    OverrideDatasetParameterOperation: (value: OverrideDatasetParameterOperation) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: TransformOperation, visitor: Visitor<T>): T => {
-    if (value.ProjectOperation !== undefined) return visitor.ProjectOperation(value.ProjectOperation);
-    if (value.FilterOperation !== undefined) return visitor.FilterOperation(value.FilterOperation);
-    if (value.CreateColumnsOperation !== undefined) return visitor.CreateColumnsOperation(value.CreateColumnsOperation);
-    if (value.RenameColumnOperation !== undefined) return visitor.RenameColumnOperation(value.RenameColumnOperation);
-    if (value.CastColumnTypeOperation !== undefined)
-      return visitor.CastColumnTypeOperation(value.CastColumnTypeOperation);
-    if (value.TagColumnOperation !== undefined) return visitor.TagColumnOperation(value.TagColumnOperation);
-    if (value.UntagColumnOperation !== undefined) return visitor.UntagColumnOperation(value.UntagColumnOperation);
-    if (value.OverrideDatasetParameterOperation !== undefined)
-      return visitor.OverrideDatasetParameterOperation(value.OverrideDatasetParameterOperation);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Properties associated with the columns participating in a join.</p>
- * @public
- */
-export interface JoinKeyProperties {
-  /**
-   * <p>A value that indicates that a row in a table is uniquely identified by the columns in
-   *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
-   * @public
-   */
-  UniqueKey?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const JoinType = {
-  INNER: "INNER",
-  LEFT: "LEFT",
-  OUTER: "OUTER",
-  RIGHT: "RIGHT",
-} as const;
-
-/**
- * @public
- */
-export type JoinType = (typeof JoinType)[keyof typeof JoinType];
-
-/**
- * <p>The instructions associated with a join. </p>
- * @public
- */
-export interface JoinInstruction {
-  /**
-   * <p>The operand on the left side of a join.</p>
-   * @public
-   */
-  LeftOperand: string | undefined;
-
-  /**
-   * <p>The operand on the right side of a join.</p>
-   * @public
-   */
-  RightOperand: string | undefined;
-
-  /**
-   * <p>Join key properties of the left operand.</p>
-   * @public
-   */
-  LeftJoinKeyProperties?: JoinKeyProperties | undefined;
-
-  /**
-   * <p>Join key properties of the right operand.</p>
-   * @public
-   */
-  RightJoinKeyProperties?: JoinKeyProperties | undefined;
-
-  /**
-   * <p>The type of join that it is.</p>
-   * @public
-   */
-  Type: JoinType | undefined;
-
-  /**
-   * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
-   * @public
-   */
-  OnClause: string | undefined;
-}
-
-/**
- * <p>Information about the source of a logical table. This is a variant type structure. For
- *             this structure to be valid, only one of the attributes can be non-null.</p>
- * @public
- */
-export interface LogicalTableSource {
-  /**
-   * <p>Specifies the result of a join of two logical tables.</p>
-   * @public
-   */
-  JoinInstruction?: JoinInstruction | undefined;
-
-  /**
-   * <p>Physical table ID.</p>
-   * @public
-   */
-  PhysicalTableId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
-   * @public
-   */
-  DataSetArn?: string | undefined;
-}
-
-/**
- * <p>A <i>logical table</i> is a unit that joins and that data
- *             transformations operate on. A logical table has a source, which can be either a physical
- *             table or result of a join. When a logical table points to a physical table, the logical
- *             table acts as a mutable copy of that physical table through transform operations.</p>
- * @public
- */
-export interface LogicalTable {
-  /**
-   * <p>A display name for the logical table.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
-   * @public
-   */
-  DataTransforms?: TransformOperation[] | undefined;
-
-  /**
-   * <p>Source of this logical table.</p>
-   * @public
-   */
-  Source: LogicalTableSource | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const InputColumnDataType = {
-  BIT: "BIT",
-  BOOLEAN: "BOOLEAN",
-  DATETIME: "DATETIME",
-  DECIMAL: "DECIMAL",
-  INTEGER: "INTEGER",
-  JSON: "JSON",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type InputColumnDataType = (typeof InputColumnDataType)[keyof typeof InputColumnDataType];
-
-/**
- * <p>Metadata for a column that is used as the input of a transform operation.</p>
- * @public
- */
-export interface InputColumn {
-  /**
-   * <p>The name of this column in the underlying data source.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   * @public
-   */
-  Type: InputColumnDataType | undefined;
-
-  /**
-   * <p>The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
-   * @public
-   */
-  SubType?: ColumnDataSubType | undefined;
-}
-
-/**
- * <p>A physical table type built from the results of the custom SQL query.</p>
- * @public
- */
-export interface CustomSql {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>A display name for the SQL query result.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The SQL query.</p>
-   * @public
-   */
-  SqlQuery: string | undefined;
-
-  /**
-   * <p>The column schema from the SQL query result set.</p>
-   * @public
-   */
-  Columns?: InputColumn[] | undefined;
-}
-
-/**
- * <p>A physical table type for relational data sources.</p>
- * @public
- */
-export interface RelationalTable {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>The catalog associated with a table.</p>
-   * @public
-   */
-  Catalog?: string | undefined;
-
-  /**
-   * <p>The schema name. This name applies to certain relational database engines.</p>
-   * @public
-   */
-  Schema?: string | undefined;
-
-  /**
-   * <p>The name of the relational table.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The column schema of the table.</p>
-   * @public
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FileFormat = {
-  CLF: "CLF",
-  CSV: "CSV",
-  ELF: "ELF",
-  JSON: "JSON",
-  TSV: "TSV",
-  XLSX: "XLSX",
-} as const;
-
-/**
- * @public
- */
-export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
-
-/**
- * @public
- * @enum
- */
-export const TextQualifier = {
-  DOUBLE_QUOTE: "DOUBLE_QUOTE",
-  SINGLE_QUOTE: "SINGLE_QUOTE",
-} as const;
-
-/**
- * @public
- */
-export type TextQualifier = (typeof TextQualifier)[keyof typeof TextQualifier];
-
-/**
- * <p>Information about the format for a source file or files.</p>
- * @public
- */
-export interface UploadSettings {
-  /**
-   * <p>File format.</p>
-   * @public
-   */
-  Format?: FileFormat | undefined;
-
-  /**
-   * <p>A row number to start reading data from.</p>
-   * @public
-   */
-  StartFromRow?: number | undefined;
-
-  /**
-   * <p>Whether the file has a header row, or the files each have a header row.</p>
-   * @public
-   */
-  ContainsHeader?: boolean | undefined;
-
-  /**
-   * <p>Text qualifier.</p>
-   * @public
-   */
-  TextQualifier?: TextQualifier | undefined;
-
-  /**
-   * <p>The delimiter between values in the file.</p>
-   * @public
-   */
-  Delimiter?: string | undefined;
-}
-
-/**
- * <p>A physical table type for an S3 data source.</p>
- * @public
- */
-export interface S3Source {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the data source.</p>
-   * @public
-   */
-  DataSourceArn: string | undefined;
-
-  /**
-   * <p>Information about the format for the S3 source file or files.</p>
-   * @public
-   */
-  UploadSettings?: UploadSettings | undefined;
-
-  /**
-   * <p>A physical table type for an S3 data source.</p>
-   *          <note>
-   *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
-   *          </note>
-   * @public
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-/**
- * <p>A view of a data source that contains information about the shape of the data in the
- *             underlying source. This is a variant type structure. For this structure to be valid,
- *             only one of the attributes can be non-null.</p>
- * @public
- */
-export type PhysicalTable =
-  | PhysicalTable.CustomSqlMember
-  | PhysicalTable.RelationalTableMember
-  | PhysicalTable.S3SourceMember
-  | PhysicalTable.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PhysicalTable {
-  /**
-   * <p>A physical table type for relational data sources.</p>
-   * @public
-   */
-  export interface RelationalTableMember {
-    RelationalTable: RelationalTable;
-    CustomSql?: never;
-    S3Source?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A physical table type built from the results of the custom SQL query.</p>
-   * @public
-   */
-  export interface CustomSqlMember {
-    RelationalTable?: never;
-    CustomSql: CustomSql;
-    S3Source?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A physical table type for as S3 data source.</p>
-   * @public
-   */
-  export interface S3SourceMember {
-    RelationalTable?: never;
-    CustomSql?: never;
-    S3Source: S3Source;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    RelationalTable?: never;
-    CustomSql?: never;
-    S3Source?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    RelationalTable: (value: RelationalTable) => T;
-    CustomSql: (value: CustomSql) => T;
-    S3Source: (value: S3Source) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: PhysicalTable, visitor: Visitor<T>): T => {
-    if (value.RelationalTable !== undefined) return visitor.RelationalTable(value.RelationalTable);
-    if (value.CustomSql !== undefined) return visitor.CustomSql(value.CustomSql);
-    if (value.S3Source !== undefined) return visitor.S3Source(value.S3Source);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * @public
- * @enum
- */
-export const RowLevelPermissionFormatVersion = {
-  VERSION_1: "VERSION_1",
-  VERSION_2: "VERSION_2",
-} as const;
-
-/**
- * @public
- */
-export type RowLevelPermissionFormatVersion =
-  (typeof RowLevelPermissionFormatVersion)[keyof typeof RowLevelPermissionFormatVersion];
-
-/**
- * @public
- * @enum
- */
-export const RowLevelPermissionPolicy = {
-  DENY_ACCESS: "DENY_ACCESS",
-  GRANT_ACCESS: "GRANT_ACCESS",
-} as const;
-
-/**
- * @public
- */
-export type RowLevelPermissionPolicy = (typeof RowLevelPermissionPolicy)[keyof typeof RowLevelPermissionPolicy];
-
-/**
  * @internal
  */
 export const TreeMapConfigurationFilterSensitiveLog = (obj: TreeMapConfiguration): any => ({
@@ -8996,49 +8948,4 @@ export const DashboardVersionDefinitionFilterSensitiveLog = (obj: DashboardVersi
 export const CreateDashboardRequestFilterSensitiveLog = (obj: CreateDashboardRequest): any => ({
   ...obj,
   ...(obj.Parameters && { Parameters: _ParametersFilterSensitiveLog(obj.Parameters) }),
-});
-
-/**
- * @internal
- */
-export const FilterOperationFilterSensitiveLog = (obj: FilterOperation): any => ({
-  ...obj,
-  ...(obj.ConditionExpression && { ConditionExpression: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TagColumnOperationFilterSensitiveLog = (obj: TagColumnOperation): any => ({
-  ...obj,
-  ...(obj.Tags && { Tags: obj.Tags.map((item) => ColumnTagFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const TransformOperationFilterSensitiveLog = (obj: TransformOperation): any => {
-  if (obj.ProjectOperation !== undefined) return { ProjectOperation: obj.ProjectOperation };
-  if (obj.FilterOperation !== undefined)
-    return { FilterOperation: FilterOperationFilterSensitiveLog(obj.FilterOperation) };
-  if (obj.CreateColumnsOperation !== undefined)
-    return { CreateColumnsOperation: CreateColumnsOperationFilterSensitiveLog(obj.CreateColumnsOperation) };
-  if (obj.RenameColumnOperation !== undefined) return { RenameColumnOperation: obj.RenameColumnOperation };
-  if (obj.CastColumnTypeOperation !== undefined) return { CastColumnTypeOperation: obj.CastColumnTypeOperation };
-  if (obj.TagColumnOperation !== undefined)
-    return { TagColumnOperation: TagColumnOperationFilterSensitiveLog(obj.TagColumnOperation) };
-  if (obj.UntagColumnOperation !== undefined) return { UntagColumnOperation: obj.UntagColumnOperation };
-  if (obj.OverrideDatasetParameterOperation !== undefined)
-    return { OverrideDatasetParameterOperation: obj.OverrideDatasetParameterOperation };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const LogicalTableFilterSensitiveLog = (obj: LogicalTable): any => ({
-  ...obj,
-  ...(obj.DataTransforms && {
-    DataTransforms: obj.DataTransforms.map((item) => TransformOperationFilterSensitiveLog(item)),
-  }),
 });

@@ -6,6 +6,8 @@ export * from "./Interfaces";
 export * from "./ListAnalysesPaginator";
 export * from "./ListAssetBundleExportJobsPaginator";
 export * from "./ListAssetBundleImportJobsPaginator";
+export * from "./ListBrandsPaginator";
+export * from "./ListCustomPermissionsPaginator";
 export * from "./ListDashboardVersionsPaginator";
 export * from "./ListDashboardsPaginator";
 export * from "./ListDataSetsPaginator";

@@ -32,6 +32,12 @@ import {
   CreateAnalysisCommandInput,
   CreateAnalysisCommandOutput,
 } from "./commands/CreateAnalysisCommand";
+import { CreateBrandCommand, CreateBrandCommandInput, CreateBrandCommandOutput } from "./commands/CreateBrandCommand";
+import {
+  CreateCustomPermissionsCommand,
+  CreateCustomPermissionsCommandInput,
+  CreateCustomPermissionsCommandOutput,
+} from "./commands/CreateCustomPermissionsCommand";
 import {
   CreateDashboardCommand,
   CreateDashboardCommandInput,
@@ -131,6 +137,17 @@ import {
   DeleteAnalysisCommandOutput,
 } from "./commands/DeleteAnalysisCommand";
 import {
+  DeleteBrandAssignmentCommand,
+  DeleteBrandAssignmentCommandInput,
+  DeleteBrandAssignmentCommandOutput,
+} from "./commands/DeleteBrandAssignmentCommand";
+import { DeleteBrandCommand, DeleteBrandCommandInput, DeleteBrandCommandOutput } from "./commands/DeleteBrandCommand";
+import {
+  DeleteCustomPermissionsCommand,
+  DeleteCustomPermissionsCommandInput,
+  DeleteCustomPermissionsCommandOutput,
+} from "./commands/DeleteCustomPermissionsCommand";
+import {
   DeleteDashboardCommand,
   DeleteDashboardCommandInput,
   DeleteDashboardCommandOutput,
@@ -225,6 +242,11 @@ import {
 } from "./commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
+  DeleteUserCustomPermissionCommand,
+  DeleteUserCustomPermissionCommandInput,
+  DeleteUserCustomPermissionCommandOutput,
+} from "./commands/DeleteUserCustomPermissionCommand";
+import {
   DeleteVPCConnectionCommand,
   DeleteVPCConnectionCommandInput,
   DeleteVPCConnectionCommandOutput,
@@ -269,6 +291,26 @@ import {
   DescribeAssetBundleImportJobCommandInput,
   DescribeAssetBundleImportJobCommandOutput,
 } from "./commands/DescribeAssetBundleImportJobCommand";
+import {
+  DescribeBrandAssignmentCommand,
+  DescribeBrandAssignmentCommandInput,
+  DescribeBrandAssignmentCommandOutput,
+} from "./commands/DescribeBrandAssignmentCommand";
+import {
+  DescribeBrandCommand,
+  DescribeBrandCommandInput,
+  DescribeBrandCommandOutput,
+} from "./commands/DescribeBrandCommand";
+import {
+  DescribeBrandPublishedVersionCommand,
+  DescribeBrandPublishedVersionCommandInput,
+  DescribeBrandPublishedVersionCommandOutput,
+} from "./commands/DescribeBrandPublishedVersionCommand";
+import {
+  DescribeCustomPermissionsCommand,
+  DescribeCustomPermissionsCommandInput,
+  DescribeCustomPermissionsCommandOutput,
+} from "./commands/DescribeCustomPermissionsCommand";
 import {
   DescribeDashboardCommand,
   DescribeDashboardCommandInput,
@@ -484,6 +526,12 @@ import {
   ListAssetBundleImportJobsCommandInput,
   ListAssetBundleImportJobsCommandOutput,
 } from "./commands/ListAssetBundleImportJobsCommand";
+import { ListBrandsCommand, ListBrandsCommandInput, ListBrandsCommandOutput } from "./commands/ListBrandsCommand";
+import {
+  ListCustomPermissionsCommand,
+  ListCustomPermissionsCommandInput,
+  ListCustomPermissionsCommandOutput,
+} from "./commands/ListCustomPermissionsCommand";
 import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
@@ -701,6 +749,22 @@ import {
   UpdateAnalysisPermissionsCommandOutput,
 } from "./commands/UpdateAnalysisPermissionsCommand";
 import {
+  UpdateBrandAssignmentCommand,
+  UpdateBrandAssignmentCommandInput,
+  UpdateBrandAssignmentCommandOutput,
+} from "./commands/UpdateBrandAssignmentCommand";
+import { UpdateBrandCommand, UpdateBrandCommandInput, UpdateBrandCommandOutput } from "./commands/UpdateBrandCommand";
+import {
+  UpdateBrandPublishedVersionCommand,
+  UpdateBrandPublishedVersionCommandInput,
+  UpdateBrandPublishedVersionCommandOutput,
+} from "./commands/UpdateBrandPublishedVersionCommand";
+import {
+  UpdateCustomPermissionsCommand,
+  UpdateCustomPermissionsCommandInput,
+  UpdateCustomPermissionsCommandOutput,
+} from "./commands/UpdateCustomPermissionsCommand";
+import {
   UpdateDashboardCommand,
   UpdateDashboardCommandInput,
   UpdateDashboardCommandOutput,
@@ -835,6 +899,11 @@ import {
 } from "./commands/UpdateTopicRefreshScheduleCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
+  UpdateUserCustomPermissionCommand,
+  UpdateUserCustomPermissionCommandInput,
+  UpdateUserCustomPermissionCommandOutput,
+} from "./commands/UpdateUserCustomPermissionCommand";
+import {
   UpdateVPCConnectionCommand,
   UpdateVPCConnectionCommandInput,
   UpdateVPCConnectionCommandOutput,
@@ -848,6 +917,8 @@ const commands = {
   CreateAccountCustomizationCommand,
   CreateAccountSubscriptionCommand,
   CreateAnalysisCommand,
+  CreateBrandCommand,
+  CreateCustomPermissionsCommand,
   CreateDashboardCommand,
   CreateDataSetCommand,
   CreateDataSourceCommand,
@@ -870,6 +941,9 @@ const commands = {
   DeleteAccountCustomizationCommand,
   DeleteAccountSubscriptionCommand,
   DeleteAnalysisCommand,
+  DeleteBrandCommand,
+  DeleteBrandAssignmentCommand,
+  DeleteCustomPermissionsCommand,
   DeleteDashboardCommand,
   DeleteDataSetCommand,
   DeleteDataSetRefreshPropertiesCommand,
@@ -892,6 +966,7 @@ const commands = {
   DeleteTopicRefreshScheduleCommand,
   DeleteUserCommand,
   DeleteUserByPrincipalIdCommand,
+  DeleteUserCustomPermissionCommand,
   DeleteVPCConnectionCommand,
   DescribeAccountCustomizationCommand,
   DescribeAccountSettingsCommand,
@@ -901,6 +976,10 @@ const commands = {
   DescribeAnalysisPermissionsCommand,
   DescribeAssetBundleExportJobCommand,
   DescribeAssetBundleImportJobCommand,
+  DescribeBrandCommand,
+  DescribeBrandAssignmentCommand,
+  DescribeBrandPublishedVersionCommand,
+  DescribeCustomPermissionsCommand,
   DescribeDashboardCommand,
   DescribeDashboardDefinitionCommand,
   DescribeDashboardPermissionsCommand,
@@ -944,6 +1023,8 @@ const commands = {
   ListAnalysesCommand,
   ListAssetBundleExportJobsCommand,
   ListAssetBundleImportJobsCommand,
+  ListBrandsCommand,
+  ListCustomPermissionsCommand,
   ListDashboardsCommand,
   ListDashboardVersionsCommand,
   ListDataSetsCommand,
@@ -992,6 +1073,10 @@ const commands = {
   UpdateAccountSettingsCommand,
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
+  UpdateBrandCommand,
+  UpdateBrandAssignmentCommand,
+  UpdateBrandPublishedVersionCommand,
+  UpdateCustomPermissionsCommand,
   UpdateDashboardCommand,
   UpdateDashboardLinksCommand,
   UpdateDashboardPermissionsCommand,
@@ -1022,6 +1107,7 @@ const commands = {
   UpdateTopicPermissionsCommand,
   UpdateTopicRefreshScheduleCommand,
   UpdateUserCommand,
+  UpdateUserCustomPermissionCommand,
   UpdateVPCConnectionCommand,
 };
 
@@ -1120,6 +1206,34 @@ export interface QuickSight {
     args: CreateAnalysisCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAnalysisCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateBrandCommand}
+   */
+  createBrand(args: CreateBrandCommandInput, options?: __HttpHandlerOptions): Promise<CreateBrandCommandOutput>;
+  createBrand(args: CreateBrandCommandInput, cb: (err: any, data?: CreateBrandCommandOutput) => void): void;
+  createBrand(
+    args: CreateBrandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBrandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomPermissionsCommand}
+   */
+  createCustomPermissions(
+    args: CreateCustomPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomPermissionsCommandOutput>;
+  createCustomPermissions(
+    args: CreateCustomPermissionsCommandInput,
+    cb: (err: any, data?: CreateCustomPermissionsCommandOutput) => void
+  ): void;
+  createCustomPermissions(
+    args: CreateCustomPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -1452,6 +1566,51 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DeleteBrandCommand}
+   */
+  deleteBrand(args: DeleteBrandCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBrandCommandOutput>;
+  deleteBrand(args: DeleteBrandCommandInput, cb: (err: any, data?: DeleteBrandCommandOutput) => void): void;
+  deleteBrand(
+    args: DeleteBrandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBrandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteBrandAssignmentCommand}
+   */
+  deleteBrandAssignment(
+    args: DeleteBrandAssignmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBrandAssignmentCommandOutput>;
+  deleteBrandAssignment(
+    args: DeleteBrandAssignmentCommandInput,
+    cb: (err: any, data?: DeleteBrandAssignmentCommandOutput) => void
+  ): void;
+  deleteBrandAssignment(
+    args: DeleteBrandAssignmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBrandAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCustomPermissionsCommand}
+   */
+  deleteCustomPermissions(
+    args: DeleteCustomPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomPermissionsCommandOutput>;
+  deleteCustomPermissions(
+    args: DeleteCustomPermissionsCommandInput,
+    cb: (err: any, data?: DeleteCustomPermissionsCommandOutput) => void
+  ): void;
+  deleteCustomPermissions(
+    args: DeleteCustomPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomPermissionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDashboardCommand}
    */
   deleteDashboard(
@@ -1781,6 +1940,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DeleteUserCustomPermissionCommand}
+   */
+  deleteUserCustomPermission(
+    args: DeleteUserCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserCustomPermissionCommandOutput>;
+  deleteUserCustomPermission(
+    args: DeleteUserCustomPermissionCommandInput,
+    cb: (err: any, data?: DeleteUserCustomPermissionCommandOutput) => void
+  ): void;
+  deleteUserCustomPermission(
+    args: DeleteUserCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserCustomPermissionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteVPCConnectionCommand}
    */
   deleteVPCConnection(
@@ -1931,6 +2107,68 @@ export interface QuickSight {
     args: DescribeAssetBundleImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAssetBundleImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBrandCommand}
+   */
+  describeBrand(args: DescribeBrandCommandInput, options?: __HttpHandlerOptions): Promise<DescribeBrandCommandOutput>;
+  describeBrand(args: DescribeBrandCommandInput, cb: (err: any, data?: DescribeBrandCommandOutput) => void): void;
+  describeBrand(
+    args: DescribeBrandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBrandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBrandAssignmentCommand}
+   */
+  describeBrandAssignment(
+    args: DescribeBrandAssignmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBrandAssignmentCommandOutput>;
+  describeBrandAssignment(
+    args: DescribeBrandAssignmentCommandInput,
+    cb: (err: any, data?: DescribeBrandAssignmentCommandOutput) => void
+  ): void;
+  describeBrandAssignment(
+    args: DescribeBrandAssignmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBrandAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBrandPublishedVersionCommand}
+   */
+  describeBrandPublishedVersion(
+    args: DescribeBrandPublishedVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBrandPublishedVersionCommandOutput>;
+  describeBrandPublishedVersion(
+    args: DescribeBrandPublishedVersionCommandInput,
+    cb: (err: any, data?: DescribeBrandPublishedVersionCommandOutput) => void
+  ): void;
+  describeBrandPublishedVersion(
+    args: DescribeBrandPublishedVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBrandPublishedVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCustomPermissionsCommand}
+   */
+  describeCustomPermissions(
+    args: DescribeCustomPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCustomPermissionsCommandOutput>;
+  describeCustomPermissions(
+    args: DescribeCustomPermissionsCommandInput,
+    cb: (err: any, data?: DescribeCustomPermissionsCommandOutput) => void
+  ): void;
+  describeCustomPermissions(
+    args: DescribeCustomPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCustomPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -2626,6 +2864,34 @@ export interface QuickSight {
     args: ListAssetBundleImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssetBundleImportJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBrandsCommand}
+   */
+  listBrands(args: ListBrandsCommandInput, options?: __HttpHandlerOptions): Promise<ListBrandsCommandOutput>;
+  listBrands(args: ListBrandsCommandInput, cb: (err: any, data?: ListBrandsCommandOutput) => void): void;
+  listBrands(
+    args: ListBrandsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBrandsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomPermissionsCommand}
+   */
+  listCustomPermissions(
+    args: ListCustomPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomPermissionsCommandOutput>;
+  listCustomPermissions(
+    args: ListCustomPermissionsCommandInput,
+    cb: (err: any, data?: ListCustomPermissionsCommandOutput) => void
+  ): void;
+  listCustomPermissions(
+    args: ListCustomPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomPermissionsCommandOutput) => void
   ): void;
 
   /**
@@ -3346,6 +3612,68 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateBrandCommand}
+   */
+  updateBrand(args: UpdateBrandCommandInput, options?: __HttpHandlerOptions): Promise<UpdateBrandCommandOutput>;
+  updateBrand(args: UpdateBrandCommandInput, cb: (err: any, data?: UpdateBrandCommandOutput) => void): void;
+  updateBrand(
+    args: UpdateBrandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBrandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateBrandAssignmentCommand}
+   */
+  updateBrandAssignment(
+    args: UpdateBrandAssignmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBrandAssignmentCommandOutput>;
+  updateBrandAssignment(
+    args: UpdateBrandAssignmentCommandInput,
+    cb: (err: any, data?: UpdateBrandAssignmentCommandOutput) => void
+  ): void;
+  updateBrandAssignment(
+    args: UpdateBrandAssignmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBrandAssignmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateBrandPublishedVersionCommand}
+   */
+  updateBrandPublishedVersion(
+    args: UpdateBrandPublishedVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBrandPublishedVersionCommandOutput>;
+  updateBrandPublishedVersion(
+    args: UpdateBrandPublishedVersionCommandInput,
+    cb: (err: any, data?: UpdateBrandPublishedVersionCommandOutput) => void
+  ): void;
+  updateBrandPublishedVersion(
+    args: UpdateBrandPublishedVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBrandPublishedVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCustomPermissionsCommand}
+   */
+  updateCustomPermissions(
+    args: UpdateCustomPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomPermissionsCommandOutput>;
+  updateCustomPermissions(
+    args: UpdateCustomPermissionsCommandInput,
+    cb: (err: any, data?: UpdateCustomPermissionsCommandOutput) => void
+  ): void;
+  updateCustomPermissions(
+    args: UpdateCustomPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomPermissionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDashboardCommand}
    */
   updateDashboard(
@@ -3811,6 +4139,23 @@ export interface QuickSight {
     args: UpdateUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateUserCustomPermissionCommand}
+   */
+  updateUserCustomPermission(
+    args: UpdateUserCustomPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateUserCustomPermissionCommandOutput>;
+  updateUserCustomPermission(
+    args: UpdateUserCustomPermissionCommandInput,
+    cb: (err: any, data?: UpdateUserCustomPermissionCommandOutput) => void
+  ): void;
+  updateUserCustomPermission(
+    args: UpdateUserCustomPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateUserCustomPermissionCommandOutput) => void
   ): void;
 
   /**

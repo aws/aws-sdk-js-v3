@@ -51,6 +51,11 @@ import {
   CreateAccountSubscriptionCommandOutput,
 } from "../commands/CreateAccountSubscriptionCommand";
 import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "../commands/CreateAnalysisCommand";
+import { CreateBrandCommandInput, CreateBrandCommandOutput } from "../commands/CreateBrandCommand";
+import {
+  CreateCustomPermissionsCommandInput,
+  CreateCustomPermissionsCommandOutput,
+} from "../commands/CreateCustomPermissionsCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "../commands/CreateDataSetCommand";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "../commands/CreateDataSourceCommand";
@@ -103,6 +108,15 @@ import {
   DeleteAccountSubscriptionCommandOutput,
 } from "../commands/DeleteAccountSubscriptionCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "../commands/DeleteAnalysisCommand";
+import {
+  DeleteBrandAssignmentCommandInput,
+  DeleteBrandAssignmentCommandOutput,
+} from "../commands/DeleteBrandAssignmentCommand";
+import { DeleteBrandCommandInput, DeleteBrandCommandOutput } from "../commands/DeleteBrandCommand";
+import {
+  DeleteCustomPermissionsCommandInput,
+  DeleteCustomPermissionsCommandOutput,
+} from "../commands/DeleteCustomPermissionsCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
 import {
@@ -159,6 +173,10 @@ import {
 } from "../commands/DeleteUserByPrincipalIdCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import {
+  DeleteUserCustomPermissionCommandInput,
+  DeleteUserCustomPermissionCommandOutput,
+} from "../commands/DeleteUserCustomPermissionCommand";
+import {
   DeleteVPCConnectionCommandInput,
   DeleteVPCConnectionCommandOutput,
 } from "../commands/DeleteVPCConnectionCommand";
@@ -191,6 +209,19 @@ import {
   DescribeAssetBundleImportJobCommandInput,
   DescribeAssetBundleImportJobCommandOutput,
 } from "../commands/DescribeAssetBundleImportJobCommand";
+import {
+  DescribeBrandAssignmentCommandInput,
+  DescribeBrandAssignmentCommandOutput,
+} from "../commands/DescribeBrandAssignmentCommand";
+import { DescribeBrandCommandInput, DescribeBrandCommandOutput } from "../commands/DescribeBrandCommand";
+import {
+  DescribeBrandPublishedVersionCommandInput,
+  DescribeBrandPublishedVersionCommandOutput,
+} from "../commands/DescribeBrandPublishedVersionCommand";
+import {
+  DescribeCustomPermissionsCommandInput,
+  DescribeCustomPermissionsCommandOutput,
+} from "../commands/DescribeCustomPermissionsCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "../commands/DescribeDashboardCommand";
 import {
   DescribeDashboardDefinitionCommandInput,
@@ -321,6 +352,11 @@ import {
   ListAssetBundleImportJobsCommandInput,
   ListAssetBundleImportJobsCommandOutput,
 } from "../commands/ListAssetBundleImportJobsCommand";
+import { ListBrandsCommandInput, ListBrandsCommandOutput } from "../commands/ListBrandsCommand";
+import {
+  ListCustomPermissionsCommandInput,
+  ListCustomPermissionsCommandOutput,
+} from "../commands/ListCustomPermissionsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
 import {
   ListDashboardVersionsCommandInput,
@@ -432,6 +468,19 @@ import {
   UpdateAnalysisPermissionsCommandInput,
   UpdateAnalysisPermissionsCommandOutput,
 } from "../commands/UpdateAnalysisPermissionsCommand";
+import {
+  UpdateBrandAssignmentCommandInput,
+  UpdateBrandAssignmentCommandOutput,
+} from "../commands/UpdateBrandAssignmentCommand";
+import { UpdateBrandCommandInput, UpdateBrandCommandOutput } from "../commands/UpdateBrandCommand";
+import {
+  UpdateBrandPublishedVersionCommandInput,
+  UpdateBrandPublishedVersionCommandOutput,
+} from "../commands/UpdateBrandPublishedVersionCommand";
+import {
+  UpdateCustomPermissionsCommandInput,
+  UpdateCustomPermissionsCommandOutput,
+} from "../commands/UpdateCustomPermissionsCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "../commands/UpdateDashboardCommand";
 import {
   UpdateDashboardLinksCommandInput,
@@ -522,6 +571,10 @@ import {
   UpdateTopicRefreshScheduleCommandOutput,
 } from "../commands/UpdateTopicRefreshScheduleCommand";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand";
+import {
+  UpdateUserCustomPermissionCommandInput,
+  UpdateUserCustomPermissionCommandOutput,
+} from "../commands/UpdateUserCustomPermissionCommand";
 import {
   UpdateVPCConnectionCommandInput,
   UpdateVPCConnectionCommandOutput,
@@ -1023,6 +1076,7 @@ import {
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserGenerativeQnAEmbeddingConfiguration,
   AnonymousUserQSearchBarEmbeddingConfiguration,
+  ApplicationTheme,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobAnalysisOverrideProperties,
   AssetBundleExportJobAnalysisPropertyToOverride,
@@ -1083,7 +1137,13 @@ import {
   BigQueryParameters,
   BookmarksConfigurations,
   BorderStyle,
+  BrandColorPalette,
+  BrandDefinition,
+  BrandDetail,
+  BrandElementStyle,
+  BrandSummary,
   CalculatedColumn,
+  Capabilities,
   CastColumnTypeOperation,
   CellValueSynonym,
   CollectiveConstant,
@@ -1102,7 +1162,6 @@ import {
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
   CreateColumnsOperation,
-  CustomSql,
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardSourceTemplate,
@@ -1115,7 +1174,6 @@ import {
   DataPointTooltipOption,
   DatasetParameter,
   DataSetReference,
-  DataSetUsageConfiguration,
   DataSourceParameters,
   DateTimeDatasetParameter,
   DateTimeDatasetParameterDefaultValues,
@@ -1128,51 +1186,46 @@ import {
   ExportHiddenFieldsOption,
   ExportToCSVOption,
   ExportWithHiddenFieldsOption,
-  FieldFolder,
   FilterAggMetrics,
-  FilterOperation,
   GeoSpatialColumnGroup,
   Identifier,
   IdentityCenterConfiguration,
-  InputColumn,
+  ImageConfiguration,
+  ImageSetConfiguration,
+  ImageSource,
   IntegerDatasetParameter,
   IntegerDatasetParameterDefaultValues,
   IntegerParameter,
   InternalFailureException,
+  InternalServerException,
   InvalidParameterValueException,
+  InvalidRequestException,
   JiraParameters,
-  JoinInstruction,
-  JoinKeyProperties,
   LimitExceededException,
   LinkSharingConfiguration,
-  LogicalTable,
-  LogicalTableSource,
+  LogoConfiguration,
+  LogoSetConfiguration,
   ManifestFileLocation,
   MariaDbParameters,
   MySqlParameters,
   NamedEntityRef,
+  NavbarStyle,
   NegativeFormat,
-  NewDefaultValues,
   OAuthParameters,
   OracleParameters,
-  OverrideDatasetParameterOperation,
-  PhysicalTable,
+  Palette,
   PostgreSqlParameters,
   PreconditionNotMetException,
   PrestoParameters,
-  ProjectOperation,
   RdsParameters,
   RedshiftIAMParameters,
   RedshiftParameters,
-  RelationalTable,
-  RenameColumnOperation,
   ResourceExistsException,
   ResourceNotFoundException,
   ResourcePermission,
   ResourceUnavailableException,
   S3BucketConfiguration,
   S3Parameters,
-  S3Source,
   ServiceNowParameters,
   SharedViewConfigurations,
   SheetControlsOption,
@@ -1191,7 +1244,6 @@ import {
   StringDatasetParameterDefaultValues,
   StringParameter,
   Tag,
-  TagColumnOperation,
   TeradataParameters,
   ThrottlingException,
   TopicConstantValue,
@@ -1203,14 +1255,11 @@ import {
   TopicIRMetric,
   TopicSortClause,
   TopicTemplate,
-  TransformOperation,
   TreeMapConfiguration,
   TreeMapVisual,
   TrinoParameters,
   TwitterParameters,
   UnsupportedUserEditionException,
-  UntagColumnOperation,
-  UploadSettings,
   ValidationStrategy,
   Visual,
   VisualAxisSortOption,
@@ -1234,6 +1283,7 @@ import {
 import {
   CredentialPair,
   CustomerManagedKeyUnavailableException,
+  CustomSql,
   Dashboard,
   DashboardSearchFilter,
   DashboardSummary,
@@ -1248,29 +1298,43 @@ import {
   DataSetSchema,
   DataSetSearchFilter,
   DataSetSummary,
+  DataSetUsageConfiguration,
   DataSource,
   DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
   DefaultFormatting,
+  FieldFolder,
+  FilterOperation,
   Folder,
   Font,
   GutterStyle,
   IncrementalRefresh,
   Ingestion,
+  InputColumn,
   InvalidNextTokenException,
+  JoinInstruction,
+  JoinKeyProperties,
+  LogicalTable,
+  LogicalTableSource,
   LookbackWindow,
   MarginStyle,
   NamedEntityDefinition,
   NamedEntityDefinitionMetric,
+  NewDefaultValues,
+  OverrideDatasetParameterOperation,
+  PhysicalTable,
+  ProjectOperation,
   RangeConstant,
   RefreshConfiguration,
   RefreshFrequency,
   RefreshSchedule,
-  RegisteredCustomerManagedKey,
+  RelationalTable,
+  RenameColumnOperation,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagRule,
+  S3Source,
   ScheduleRefreshOnEntity,
   SemanticEntityType,
   SemanticType,
@@ -1278,15 +1342,12 @@ import {
   SnapshotConfiguration,
   SnapshotDestinationConfiguration,
   SnapshotFileGroup,
-  Template,
+  TagColumnOperation,
   TemplateSourceAnalysis,
   TemplateSourceEntity,
   TemplateSourceTemplate,
-  TemplateVersion,
   TemplateVersionDefinition,
-  Theme,
   ThemeConfiguration,
-  ThemeVersion,
   TileLayoutStyle,
   TileStyle,
   TopicCalculatedField,
@@ -1304,8 +1365,11 @@ import {
   TopicRefreshSchedule,
   TopicRelativeDateFilter,
   TopicSingularFilterConstant,
+  TransformOperation,
   Typography,
   UIColorPalette,
+  UntagColumnOperation,
+  UploadSettings,
 } from "../models/models_3";
 import {
   CreateTopicReviewedAnswer,
@@ -1314,8 +1378,8 @@ import {
   FolderSummary,
   GroupSearchFilter,
   IdentityTypeNotSupportedException,
-  InvalidRequestException,
   QuickSightUserNotFoundException,
+  RegisteredCustomerManagedKey,
   RegisteredUserConsoleFeatureConfigurations,
   RegisteredUserDashboardEmbeddingConfiguration,
   RegisteredUserDashboardFeatureConfigurations,
@@ -1329,9 +1393,13 @@ import {
   SnapshotAnonymousUser,
   SnapshotUserConfiguration,
   StatePersistenceConfigurations,
+  Template,
   TemplateSummary,
+  TemplateVersion,
   TemplateVersionSummary,
+  Theme,
   ThemeSummary,
+  ThemeVersion,
   ThemeVersionSummary,
   TopicRefreshScheduleSummary,
   TopicReviewedAnswer,
@@ -1501,6 +1569,56 @@ export const se_CreateAnalysisCommand = async (
       Tags: (_) => _json(_),
       ThemeArn: [],
       ValidationStrategy: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateBrandCommand
+ */
+export const se_CreateBrandCommand = async (
+  input: CreateBrandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/brands/{BrandId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("BrandId", () => input.BrandId!, "{BrandId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      BrandDefinition: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCustomPermissionsCommand
+ */
+export const se_CreateCustomPermissionsCommand = async (
+  input: CreateCustomPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/custom-permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+      CustomPermissionsName: [],
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2070,6 +2188,56 @@ export const se_DeleteAnalysisCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteBrandCommand
+ */
+export const se_DeleteBrandCommand = async (
+  input: DeleteBrandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/brands/{BrandId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("BrandId", () => input.BrandId!, "{BrandId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteBrandAssignmentCommand
+ */
+export const se_DeleteBrandAssignmentCommand = async (
+  input: DeleteBrandAssignmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/brandassignments");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCustomPermissionsCommand
+ */
+export const se_DeleteCustomPermissionsCommand = async (
+  input: DeleteCustomPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("CustomPermissionsName", () => input.CustomPermissionsName!, "{CustomPermissionsName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteDashboardCommand
  */
 export const se_DeleteDashboardCommand = async (
@@ -2468,6 +2636,24 @@ export const se_DeleteUserByPrincipalIdCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteUserCustomPermissionCommand
+ */
+export const se_DeleteUserCustomPermissionCommand = async (
+  input: DeleteUserCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission");
+  b.p("UserName", () => input.UserName!, "{UserName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteVPCConnectionCommand
  */
 export const se_DeleteVPCConnectionCommand = async (
@@ -2616,6 +2802,76 @@ export const se_DescribeAssetBundleImportJobCommand = async (
   b.bp("/accounts/{AwsAccountId}/asset-bundle-import-jobs/{AssetBundleImportJobId}");
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   b.p("AssetBundleImportJobId", () => input.AssetBundleImportJobId!, "{AssetBundleImportJobId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeBrandCommand
+ */
+export const se_DescribeBrandCommand = async (
+  input: DescribeBrandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/brands/{BrandId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("BrandId", () => input.BrandId!, "{BrandId}", false);
+  const query: any = map({
+    [_vI]: [, input[_VI]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeBrandAssignmentCommand
+ */
+export const se_DescribeBrandAssignmentCommand = async (
+  input: DescribeBrandAssignmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/brandassignments");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeBrandPublishedVersionCommand
+ */
+export const se_DescribeBrandPublishedVersionCommand = async (
+  input: DescribeBrandPublishedVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("BrandId", () => input.BrandId!, "{BrandId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeCustomPermissionsCommand
+ */
+export const se_DescribeCustomPermissionsCommand = async (
+  input: DescribeCustomPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("CustomPermissionsName", () => input.CustomPermissionsName!, "{CustomPermissionsName}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -3433,6 +3689,46 @@ export const se_ListAssetBundleImportJobsCommand = async (
   const query: any = map({
     [_nt]: [, input[_NT]!],
     [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListBrandsCommand
+ */
+export const se_ListBrandsCommand = async (
+  input: ListBrandsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/brands");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCustomPermissionsCommand
+ */
+export const se_ListCustomPermissionsCommand = async (
+  input: ListCustomPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/custom-permissions");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  const query: any = map({
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4511,6 +4807,101 @@ export const se_UpdateAnalysisPermissionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateBrandCommand
+ */
+export const se_UpdateBrandCommand = async (
+  input: UpdateBrandCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/brands/{BrandId}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("BrandId", () => input.BrandId!, "{BrandId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      BrandDefinition: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateBrandAssignmentCommand
+ */
+export const se_UpdateBrandAssignmentCommand = async (
+  input: UpdateBrandAssignmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/brandassignments");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      BrandArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateBrandPublishedVersionCommand
+ */
+export const se_UpdateBrandPublishedVersionCommand = async (
+  input: UpdateBrandPublishedVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/brands/{BrandId}/publishedversion");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("BrandId", () => input.BrandId!, "{BrandId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      VersionId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateCustomPermissionsCommand
+ */
+export const se_UpdateCustomPermissionsCommand = async (
+  input: UpdateCustomPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/custom-permissions/{CustomPermissionsName}");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("CustomPermissionsName", () => input.CustomPermissionsName!, "{CustomPermissionsName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Capabilities: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateDashboardCommand
  */
 export const se_UpdateDashboardCommand = async (
@@ -5275,6 +5666,31 @@ export const se_UpdateUserCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateUserCustomPermissionCommand
+ */
+export const se_UpdateUserCustomPermissionCommand = async (
+  input: UpdateUserCustomPermissionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/namespaces/{Namespace}/users/{UserName}/custom-permission");
+  b.p("UserName", () => input.UserName!, "{UserName}", false);
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  b.p("Namespace", () => input.Namespace!, "{Namespace}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CustomPermissionsName: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateVPCConnectionCommand
  */
 export const se_UpdateVPCConnectionCommand = async (
@@ -5461,6 +5877,52 @@ export const de_CreateAnalysisCommand = async (
   map(contents, {
     Status: [, output.statusCode],
   });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateBrandCommand
+ */
+export const de_CreateBrandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBrandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BrandDefinition: _json,
+    BrandDetail: (_) => de_BrandDetail(_, context),
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCustomPermissionsCommand
+ */
+export const de_CreateCustomPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -6045,6 +6507,71 @@ export const de_DeleteAnalysisCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteBrandCommand
+ */
+export const de_DeleteBrandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBrandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteBrandAssignmentCommand
+ */
+export const de_DeleteBrandAssignmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBrandAssignmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCustomPermissionsCommand
+ */
+export const de_DeleteCustomPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteDashboardCommand
  */
 export const de_DeleteDashboardCommand = async (
@@ -6595,6 +7122,30 @@ export const de_DeleteUserByPrincipalIdCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteUserCustomPermissionCommand
+ */
+export const de_DeleteUserCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteVPCConnectionCommand
  */
 export const de_DeleteVPCConnectionCommand = async (
@@ -6858,6 +7409,97 @@ export const de_DescribeAssetBundleImportJobCommand = async (
   map(contents, {
     Status: [, output.statusCode],
   });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeBrandCommand
+ */
+export const de_DescribeBrandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBrandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BrandDefinition: _json,
+    BrandDetail: (_) => de_BrandDetail(_, context),
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeBrandAssignmentCommand
+ */
+export const de_DescribeBrandAssignmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBrandAssignmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BrandArn: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeBrandPublishedVersionCommand
+ */
+export const de_DescribeBrandPublishedVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBrandPublishedVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BrandDefinition: _json,
+    BrandDetail: (_) => de_BrandDetail(_, context),
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeCustomPermissionsCommand
+ */
+export const de_DescribeCustomPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomPermissions: _json,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -7976,6 +8618,54 @@ export const de_ListAssetBundleImportJobsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     AssetBundleImportJobSummaryList: (_) => de_AssetBundleImportJobSummaryList(_, context),
+    NextToken: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBrandsCommand
+ */
+export const de_ListBrandsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBrandsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Brands: (_) => de_BrandSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCustomPermissionsCommand
+ */
+export const de_ListCustomPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CustomPermissionsList: _json,
     NextToken: __expectString,
     RequestId: __expectString,
   });
@@ -9230,6 +9920,96 @@ export const de_UpdateAnalysisPermissionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateBrandCommand
+ */
+export const de_UpdateBrandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBrandCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BrandDefinition: _json,
+    BrandDetail: (_) => de_BrandDetail(_, context),
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateBrandAssignmentCommand
+ */
+export const de_UpdateBrandAssignmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBrandAssignmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    BrandArn: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateBrandPublishedVersionCommand
+ */
+export const de_UpdateBrandPublishedVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBrandPublishedVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+    VersionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCustomPermissionsCommand
+ */
+export const de_UpdateCustomPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    RequestId: __expectString,
+    Status: __expectInt32,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateDashboardCommand
  */
 export const de_UpdateDashboardCommand = async (
@@ -10007,6 +10787,30 @@ export const de_UpdateUserCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateUserCustomPermissionCommand
+ */
+export const de_UpdateUserCustomPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserCustomPermissionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateVPCConnectionCommand
  */
 export const de_UpdateVPCConnectionCommand = async (
@@ -10077,6 +10881,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnsupportedUserEditionException":
     case "com.amazonaws.quicksight#UnsupportedUserEditionException":
       throw await de_UnsupportedUserEditionExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.quicksight#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.quicksight#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "CustomerManagedKeyUnavailableException":
     case "com.amazonaws.quicksight#CustomerManagedKeyUnavailableException":
       throw await de_CustomerManagedKeyUnavailableExceptionRes(parsedOutput, context);
@@ -10101,9 +10911,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "IdentityTypeNotSupportedException":
     case "com.amazonaws.quicksight#IdentityTypeNotSupportedException":
       throw await de_IdentityTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.quicksight#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -10253,6 +11060,26 @@ const de_InternalFailureExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalFailureException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServerException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -10637,6 +11464,8 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
 // se_AnonymousUserQSearchBarEmbeddingConfiguration omitted.
 
 // se_AnswerIds omitted.
+
+// se_ApplicationTheme omitted.
 
 /**
  * serializeAws_restJson1ArcAxisConfiguration
@@ -11270,6 +12099,12 @@ const se_BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any =>
   });
 };
 
+// se_BrandColorPalette omitted.
+
+// se_BrandDefinition omitted.
+
+// se_BrandElementStyle omitted.
+
 // se_CalculatedColumn omitted.
 
 // se_CalculatedColumnList omitted.
@@ -11281,6 +12116,8 @@ const se_BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any =>
 // se_CalculatedFields omitted.
 
 // se_CalculatedMeasureField omitted.
+
+// se_Capabilities omitted.
 
 // se_CascadingControlConfiguration omitted.
 
@@ -13107,6 +13944,12 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
 
 // se_IdentityNameList omitted.
 
+// se_ImageConfiguration omitted.
+
+// se_ImageSetConfiguration omitted.
+
+// se_ImageSource omitted.
+
 // se_IncrementalRefresh omitted.
 
 /**
@@ -13488,6 +14331,10 @@ const se_LogicalTableMap = (input: Record<string, LogicalTable>, context: __Serd
 
 // se_LogicalTableSource omitted.
 
+// se_LogoConfiguration omitted.
+
+// se_LogoSetConfiguration omitted.
+
 // se_LongFormatText omitted.
 
 // se_LookbackWindow omitted.
@@ -13568,6 +14415,8 @@ const se_MetricComparisonComputation = (input: MetricComparisonComputation, cont
 // se_NamedEntityDefinitions omitted.
 
 // se_NamedEntityRef omitted.
+
+// se_NavbarStyle omitted.
 
 // se_NegativeFormat omitted.
 
@@ -13719,6 +14568,8 @@ const se_OverrideDatasetParameterOperation = (
 };
 
 // se_PaginationConfiguration omitted.
+
+// se_Palette omitted.
 
 // se_PanelConfiguration omitted.
 
@@ -15860,6 +16711,8 @@ const de_AnalysisSummaryList = (output: any, context: __SerdeContext): AnalysisS
 
 // de_AnonymousUserSnapshotJobResultList omitted.
 
+// de_ApplicationTheme omitted.
+
 /**
  * deserializeAws_restJson1ArcAxisConfiguration
  */
@@ -16558,6 +17411,56 @@ const de_BoxPlotVisual = (output: any, context: __SerdeContext): BoxPlotVisual =
   }) as any;
 };
 
+// de_BrandColorPalette omitted.
+
+// de_BrandDefinition omitted.
+
+/**
+ * deserializeAws_restJson1BrandDetail
+ */
+const de_BrandDetail = (output: any, context: __SerdeContext): BrandDetail => {
+  return take(output, {
+    Arn: __expectString,
+    BrandId: __expectString,
+    BrandStatus: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Errors: _json,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Logo: _json,
+    VersionId: __expectString,
+    VersionStatus: __expectString,
+  }) as any;
+};
+
+// de_BrandElementStyle omitted.
+
+/**
+ * deserializeAws_restJson1BrandSummary
+ */
+const de_BrandSummary = (output: any, context: __SerdeContext): BrandSummary => {
+  return take(output, {
+    Arn: __expectString,
+    BrandId: __expectString,
+    BrandName: __expectString,
+    BrandStatus: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BrandSummaryList
+ */
+const de_BrandSummaryList = (output: any, context: __SerdeContext): BrandSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BrandSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_CalculatedColumn omitted.
 
 // de_CalculatedColumnList omitted.
@@ -16569,6 +17472,8 @@ const de_BoxPlotVisual = (output: any, context: __SerdeContext): BoxPlotVisual =
 // de_CalculatedFields omitted.
 
 // de_CalculatedMeasureField omitted.
+
+// de_Capabilities omitted.
 
 // de_CascadingControlConfiguration omitted.
 
@@ -16958,6 +17863,10 @@ const de_CustomParameterValues = (output: any, context: __SerdeContext): CustomP
     StringValues: _json,
   }) as any;
 };
+
+// de_CustomPermissions omitted.
+
+// de_CustomPermissionsList omitted.
 
 // de_CustomSql omitted.
 
@@ -17667,6 +18576,8 @@ const de_EmptyVisual = (output: any, context: __SerdeContext): EmptyVisual => {
 // de_EntityList omitted.
 
 // de_ErrorInfo omitted.
+
+// de_ErrorList omitted.
 
 // de_ExasolParameters omitted.
 
@@ -18640,6 +19551,16 @@ const de_HistogramVisual = (output: any, context: __SerdeContext): HistogramVisu
 
 // de_IdentityNameList omitted.
 
+// de_Image omitted.
+
+// de_ImageConfiguration omitted.
+
+// de_ImageSet omitted.
+
+// de_ImageSetConfiguration omitted.
+
+// de_ImageSource omitted.
+
 // de_IncrementalRefresh omitted.
 
 /**
@@ -19058,6 +19979,14 @@ const de_LogicalTableMap = (output: any, context: __SerdeContext): Record<string
 
 // de_LogicalTableSource omitted.
 
+// de_Logo omitted.
+
+// de_LogoConfiguration omitted.
+
+// de_LogoSet omitted.
+
+// de_LogoSetConfiguration omitted.
+
 // de_LongFormatText omitted.
 
 // de_LookbackWindow omitted.
@@ -19147,6 +20076,8 @@ const de_MetricComparisonComputation = (output: any, context: __SerdeContext): M
 // de_NamespaceInfoV2 omitted.
 
 // de_Namespaces omitted.
+
+// de_NavbarStyle omitted.
 
 // de_NegativeFormat omitted.
 
@@ -19306,6 +20237,8 @@ const de_OverrideDatasetParameterOperation = (
 };
 
 // de_PaginationConfiguration omitted.
+
+// de_Palette omitted.
 
 // de_PanelConfiguration omitted.
 
@@ -21704,6 +22637,7 @@ const _T = "Type";
 const _TK = "TagKeys";
 const _UA = "UserArn";
 const _URD = "UndoRedoDisabled";
+const _VI = "VersionId";
 const _VN = "VersionNumber";
 const _adi = "additional-dashboard-ids";
 const _an = "alias-name";
@@ -21726,4 +22660,5 @@ const _spe = "state-persistence-enabled";
 const _t = "type";
 const _ua = "user-arn";
 const _urd = "undo-redo-disabled";
+const _vI = "versionId";
 const _vn = "version-number";

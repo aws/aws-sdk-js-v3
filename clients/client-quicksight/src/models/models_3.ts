@@ -47,6 +47,10 @@ import {
   AssignmentStatus,
   AuthorSpecifiedAggregation,
   BorderStyle,
+  BrandDefinition,
+  BrandDetail,
+  Capabilities,
+  CastColumnTypeOperation,
   CategoryFilterFunction,
   CategoryFilterType,
   CellValueSynonym,
@@ -58,27 +62,24 @@ import {
   ColumnGroupSchema,
   ColumnLevelPermissionRule,
   ColumnSchema,
+  ColumnTag,
+  ColumnTagFilterSensitiveLog,
+  ColumnTagName,
   ComparativeOrder,
   ConstantType,
+  CreateColumnsOperation,
+  CreateColumnsOperationFilterSensitiveLog,
   DashboardPublishOptions,
   DashboardVersionDefinition,
-  DataSetImportMode,
   DatasetParameter,
   DataSetReference,
-  DataSetUsageConfiguration,
   DataSourceParameters,
   DisplayFormat,
   DisplayFormatOptions,
-  FieldFolder,
   FilterClass,
   FilterOperator,
   LinkSharingConfiguration,
-  LogicalTable,
-  LogicalTableFilterSensitiveLog,
-  PhysicalTable,
   ResourcePermission,
-  RowLevelPermissionFormatVersion,
-  RowLevelPermissionPolicy,
   ServiceType,
   SheetDefinition,
   SnapshotFile,
@@ -90,6 +91,815 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>The usage configuration to apply to child datasets that reference this dataset as a source.</p>
+ * @public
+ */
+export interface DataSetUsageConfiguration {
+  /**
+   * <p>An option that controls whether a child dataset of a direct query can use this dataset as a source.</p>
+   * @public
+   */
+  DisableUseAsDirectQuerySource?: boolean | undefined;
+
+  /**
+   * <p>An option that controls whether a child dataset that's stored in QuickSight can use this dataset as a source.</p>
+   * @public
+   */
+  DisableUseAsImportedSource?: boolean | undefined;
+}
+
+/**
+ * <p>A FieldFolder element is a folder that contains fields and nested subfolders.</p>
+ * @public
+ */
+export interface FieldFolder {
+  /**
+   * <p>The description for a field folder.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A folder has a list of columns. A column can only be in one folder.</p>
+   * @public
+   */
+  columns?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetImportMode = {
+  DIRECT_QUERY: "DIRECT_QUERY",
+  SPICE: "SPICE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSetImportMode = (typeof DataSetImportMode)[keyof typeof DataSetImportMode];
+
+/**
+ * <p>A transform operation that filters rows based on a condition.</p>
+ * @public
+ */
+export interface FilterOperation {
+  /**
+   * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
+   *             evaluates to true are kept in the dataset.</p>
+   * @public
+   */
+  ConditionExpression: string | undefined;
+}
+
+/**
+ * <p>The configuration that overrides the existing default values for a dataset parameter that is inherited from another dataset.</p>
+ * @public
+ */
+export interface NewDefaultValues {
+  /**
+   * <p>A list of static default values for a given string parameter.</p>
+   * @public
+   */
+  StringStaticValues?: string[] | undefined;
+
+  /**
+   * <p>A list of static default values for a given decimal parameter.</p>
+   * @public
+   */
+  DecimalStaticValues?: number[] | undefined;
+
+  /**
+   * <p>A list of static default values for a given date time parameter.</p>
+   * @public
+   */
+  DateTimeStaticValues?: Date[] | undefined;
+
+  /**
+   * <p>A list of static default values for a given integer parameter.</p>
+   * @public
+   */
+  IntegerStaticValues?: number[] | undefined;
+}
+
+/**
+ * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
+ * @public
+ */
+export interface OverrideDatasetParameterOperation {
+  /**
+   * <p>The name of the parameter to be overridden with different values.</p>
+   * @public
+   */
+  ParameterName: string | undefined;
+
+  /**
+   * <p>The new name for the parameter.</p>
+   * @public
+   */
+  NewParameterName?: string | undefined;
+
+  /**
+   * <p>The new default values for the parameter.</p>
+   * @public
+   */
+  NewDefaultValues?: NewDefaultValues | undefined;
+}
+
+/**
+ * <p>A transform operation that projects columns. Operations that come after a projection
+ *             can only refer to projected columns.</p>
+ * @public
+ */
+export interface ProjectOperation {
+  /**
+   * <p>Projected columns.</p>
+   * @public
+   */
+  ProjectedColumns: string[] | undefined;
+}
+
+/**
+ * <p>A transform operation that renames a column.</p>
+ * @public
+ */
+export interface RenameColumnOperation {
+  /**
+   * <p>The name of the column to be renamed.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The new name for the column.</p>
+   * @public
+   */
+  NewColumnName: string | undefined;
+}
+
+/**
+ * <p>A transform operation that tags a column with additional information.</p>
+ * @public
+ */
+export interface TagColumnOperation {
+  /**
+   * <p>The column that this operation acts on.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The dataset column tag, currently only used for geospatial type tagging.</p>
+   *          <note>
+   *             <p>This is not tags for the Amazon Web Services tagging feature.</p>
+   *          </note>
+   * @public
+   */
+  Tags: ColumnTag[] | undefined;
+}
+
+/**
+ * <p>A transform operation that removes tags associated with a column.</p>
+ * @public
+ */
+export interface UntagColumnOperation {
+  /**
+   * <p>The column that this operation acts on.</p>
+   * @public
+   */
+  ColumnName: string | undefined;
+
+  /**
+   * <p>The column tags to remove from this column.</p>
+   * @public
+   */
+  TagNames: ColumnTagName[] | undefined;
+}
+
+/**
+ * <p>A data transformation on a logical table. This is a variant type structure. For this
+ *             structure to be valid, only one of the attributes can be non-null.</p>
+ * @public
+ */
+export type TransformOperation =
+  | TransformOperation.CastColumnTypeOperationMember
+  | TransformOperation.CreateColumnsOperationMember
+  | TransformOperation.FilterOperationMember
+  | TransformOperation.OverrideDatasetParameterOperationMember
+  | TransformOperation.ProjectOperationMember
+  | TransformOperation.RenameColumnOperationMember
+  | TransformOperation.TagColumnOperationMember
+  | TransformOperation.UntagColumnOperationMember
+  | TransformOperation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TransformOperation {
+  /**
+   * <p>An operation that projects columns. Operations that come after a projection can only
+   *             refer to projected columns.</p>
+   * @public
+   */
+  export interface ProjectOperationMember {
+    ProjectOperation: ProjectOperation;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that filters rows based on some condition.</p>
+   * @public
+   */
+  export interface FilterOperationMember {
+    ProjectOperation?: never;
+    FilterOperation: FilterOperation;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that creates calculated columns. Columns created in one such operation
+   *             form a lexical closure.</p>
+   * @public
+   */
+  export interface CreateColumnsOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation: CreateColumnsOperation;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that renames a column.</p>
+   * @public
+   */
+  export interface RenameColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation: RenameColumnOperation;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A transform operation that casts a column to a different type.</p>
+   * @public
+   */
+  export interface CastColumnTypeOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation: CastColumnTypeOperation;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An operation that tags a column with additional information.</p>
+   * @public
+   */
+  export interface TagColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation: TagColumnOperation;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A transform operation that removes tags associated with a column.</p>
+   * @public
+   */
+  export interface UntagColumnOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation: UntagColumnOperation;
+    OverrideDatasetParameterOperation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A transform operation that overrides the dataset parameter values that are defined in another dataset.</p>
+   * @public
+   */
+  export interface OverrideDatasetParameterOperationMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation: OverrideDatasetParameterOperation;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ProjectOperation?: never;
+    FilterOperation?: never;
+    CreateColumnsOperation?: never;
+    RenameColumnOperation?: never;
+    CastColumnTypeOperation?: never;
+    TagColumnOperation?: never;
+    UntagColumnOperation?: never;
+    OverrideDatasetParameterOperation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ProjectOperation: (value: ProjectOperation) => T;
+    FilterOperation: (value: FilterOperation) => T;
+    CreateColumnsOperation: (value: CreateColumnsOperation) => T;
+    RenameColumnOperation: (value: RenameColumnOperation) => T;
+    CastColumnTypeOperation: (value: CastColumnTypeOperation) => T;
+    TagColumnOperation: (value: TagColumnOperation) => T;
+    UntagColumnOperation: (value: UntagColumnOperation) => T;
+    OverrideDatasetParameterOperation: (value: OverrideDatasetParameterOperation) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TransformOperation, visitor: Visitor<T>): T => {
+    if (value.ProjectOperation !== undefined) return visitor.ProjectOperation(value.ProjectOperation);
+    if (value.FilterOperation !== undefined) return visitor.FilterOperation(value.FilterOperation);
+    if (value.CreateColumnsOperation !== undefined) return visitor.CreateColumnsOperation(value.CreateColumnsOperation);
+    if (value.RenameColumnOperation !== undefined) return visitor.RenameColumnOperation(value.RenameColumnOperation);
+    if (value.CastColumnTypeOperation !== undefined)
+      return visitor.CastColumnTypeOperation(value.CastColumnTypeOperation);
+    if (value.TagColumnOperation !== undefined) return visitor.TagColumnOperation(value.TagColumnOperation);
+    if (value.UntagColumnOperation !== undefined) return visitor.UntagColumnOperation(value.UntagColumnOperation);
+    if (value.OverrideDatasetParameterOperation !== undefined)
+      return visitor.OverrideDatasetParameterOperation(value.OverrideDatasetParameterOperation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Properties associated with the columns participating in a join.</p>
+ * @public
+ */
+export interface JoinKeyProperties {
+  /**
+   * <p>A value that indicates that a row in a table is uniquely identified by the columns in
+   *             a join key. This is used by Amazon QuickSight to optimize query performance.</p>
+   * @public
+   */
+  UniqueKey?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const JoinType = {
+  INNER: "INNER",
+  LEFT: "LEFT",
+  OUTER: "OUTER",
+  RIGHT: "RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type JoinType = (typeof JoinType)[keyof typeof JoinType];
+
+/**
+ * <p>The instructions associated with a join. </p>
+ * @public
+ */
+export interface JoinInstruction {
+  /**
+   * <p>The operand on the left side of a join.</p>
+   * @public
+   */
+  LeftOperand: string | undefined;
+
+  /**
+   * <p>The operand on the right side of a join.</p>
+   * @public
+   */
+  RightOperand: string | undefined;
+
+  /**
+   * <p>Join key properties of the left operand.</p>
+   * @public
+   */
+  LeftJoinKeyProperties?: JoinKeyProperties | undefined;
+
+  /**
+   * <p>Join key properties of the right operand.</p>
+   * @public
+   */
+  RightJoinKeyProperties?: JoinKeyProperties | undefined;
+
+  /**
+   * <p>The type of join that it is.</p>
+   * @public
+   */
+  Type: JoinType | undefined;
+
+  /**
+   * <p>The join instructions provided in the <code>ON</code> clause of a join.</p>
+   * @public
+   */
+  OnClause: string | undefined;
+}
+
+/**
+ * <p>Information about the source of a logical table. This is a variant type structure. For
+ *             this structure to be valid, only one of the attributes can be non-null.</p>
+ * @public
+ */
+export interface LogicalTableSource {
+  /**
+   * <p>Specifies the result of a join of two logical tables.</p>
+   * @public
+   */
+  JoinInstruction?: JoinInstruction | undefined;
+
+  /**
+   * <p>Physical table ID.</p>
+   * @public
+   */
+  PhysicalTableId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the parent dataset.</p>
+   * @public
+   */
+  DataSetArn?: string | undefined;
+}
+
+/**
+ * <p>A <i>logical table</i> is a unit that joins and that data
+ *             transformations operate on. A logical table has a source, which can be either a physical
+ *             table or result of a join. When a logical table points to a physical table, the logical
+ *             table acts as a mutable copy of that physical table through transform operations.</p>
+ * @public
+ */
+export interface LogicalTable {
+  /**
+   * <p>A display name for the logical table.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>Transform operations that act on this logical table. For this structure to be valid, only one of the attributes can be non-null. </p>
+   * @public
+   */
+  DataTransforms?: TransformOperation[] | undefined;
+
+  /**
+   * <p>Source of this logical table.</p>
+   * @public
+   */
+  Source: LogicalTableSource | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InputColumnDataType = {
+  BIT: "BIT",
+  BOOLEAN: "BOOLEAN",
+  DATETIME: "DATETIME",
+  DECIMAL: "DECIMAL",
+  INTEGER: "INTEGER",
+  JSON: "JSON",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type InputColumnDataType = (typeof InputColumnDataType)[keyof typeof InputColumnDataType];
+
+/**
+ * <p>Metadata for a column that is used as the input of a transform operation.</p>
+ * @public
+ */
+export interface InputColumn {
+  /**
+   * <p>The name of this column in the underlying data source.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   * @public
+   */
+  Type: InputColumnDataType | undefined;
+
+  /**
+   * <p>The sub data type of the column. Sub types are only available for decimal columns that are part of a SPICE dataset.</p>
+   * @public
+   */
+  SubType?: ColumnDataSubType | undefined;
+}
+
+/**
+ * <p>A physical table type built from the results of the custom SQL query.</p>
+ * @public
+ */
+export interface CustomSql {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>A display name for the SQL query result.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The SQL query.</p>
+   * @public
+   */
+  SqlQuery: string | undefined;
+
+  /**
+   * <p>The column schema from the SQL query result set.</p>
+   * @public
+   */
+  Columns?: InputColumn[] | undefined;
+}
+
+/**
+ * <p>A physical table type for relational data sources.</p>
+ * @public
+ */
+export interface RelationalTable {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>The catalog associated with a table.</p>
+   * @public
+   */
+  Catalog?: string | undefined;
+
+  /**
+   * <p>The schema name. This name applies to certain relational database engines.</p>
+   * @public
+   */
+  Schema?: string | undefined;
+
+  /**
+   * <p>The name of the relational table.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The column schema of the table.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FileFormat = {
+  CLF: "CLF",
+  CSV: "CSV",
+  ELF: "ELF",
+  JSON: "JSON",
+  TSV: "TSV",
+  XLSX: "XLSX",
+} as const;
+
+/**
+ * @public
+ */
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const TextQualifier = {
+  DOUBLE_QUOTE: "DOUBLE_QUOTE",
+  SINGLE_QUOTE: "SINGLE_QUOTE",
+} as const;
+
+/**
+ * @public
+ */
+export type TextQualifier = (typeof TextQualifier)[keyof typeof TextQualifier];
+
+/**
+ * <p>Information about the format for a source file or files.</p>
+ * @public
+ */
+export interface UploadSettings {
+  /**
+   * <p>File format.</p>
+   * @public
+   */
+  Format?: FileFormat | undefined;
+
+  /**
+   * <p>A row number to start reading data from.</p>
+   * @public
+   */
+  StartFromRow?: number | undefined;
+
+  /**
+   * <p>Whether the file has a header row, or the files each have a header row.</p>
+   * @public
+   */
+  ContainsHeader?: boolean | undefined;
+
+  /**
+   * <p>Text qualifier.</p>
+   * @public
+   */
+  TextQualifier?: TextQualifier | undefined;
+
+  /**
+   * <p>The delimiter between values in the file.</p>
+   * @public
+   */
+  Delimiter?: string | undefined;
+}
+
+/**
+ * <p>A physical table type for an S3 data source.</p>
+ * @public
+ */
+export interface S3Source {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the data source.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>Information about the format for the S3 source file or files.</p>
+   * @public
+   */
+  UploadSettings?: UploadSettings | undefined;
+
+  /**
+   * <p>A physical table type for an S3 data source.</p>
+   *          <note>
+   *             <p>For files that aren't JSON, only <code>STRING</code> data types are supported in input columns.</p>
+   *          </note>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * <p>A view of a data source that contains information about the shape of the data in the
+ *             underlying source. This is a variant type structure. For this structure to be valid,
+ *             only one of the attributes can be non-null.</p>
+ * @public
+ */
+export type PhysicalTable =
+  | PhysicalTable.CustomSqlMember
+  | PhysicalTable.RelationalTableMember
+  | PhysicalTable.S3SourceMember
+  | PhysicalTable.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PhysicalTable {
+  /**
+   * <p>A physical table type for relational data sources.</p>
+   * @public
+   */
+  export interface RelationalTableMember {
+    RelationalTable: RelationalTable;
+    CustomSql?: never;
+    S3Source?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A physical table type built from the results of the custom SQL query.</p>
+   * @public
+   */
+  export interface CustomSqlMember {
+    RelationalTable?: never;
+    CustomSql: CustomSql;
+    S3Source?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A physical table type for as S3 data source.</p>
+   * @public
+   */
+  export interface S3SourceMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source: S3Source;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    RelationalTable?: never;
+    CustomSql?: never;
+    S3Source?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    RelationalTable: (value: RelationalTable) => T;
+    CustomSql: (value: CustomSql) => T;
+    S3Source: (value: S3Source) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PhysicalTable, visitor: Visitor<T>): T => {
+    if (value.RelationalTable !== undefined) return visitor.RelationalTable(value.RelationalTable);
+    if (value.CustomSql !== undefined) return visitor.CustomSql(value.CustomSql);
+    if (value.S3Source !== undefined) return visitor.S3Source(value.S3Source);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RowLevelPermissionFormatVersion = {
+  VERSION_1: "VERSION_1",
+  VERSION_2: "VERSION_2",
+} as const;
+
+/**
+ * @public
+ */
+export type RowLevelPermissionFormatVersion =
+  (typeof RowLevelPermissionFormatVersion)[keyof typeof RowLevelPermissionFormatVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const RowLevelPermissionPolicy = {
+  DENY_ACCESS: "DENY_ACCESS",
+  GRANT_ACCESS: "GRANT_ACCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type RowLevelPermissionPolicy = (typeof RowLevelPermissionPolicy)[keyof typeof RowLevelPermissionPolicy];
 
 /**
  * @public
@@ -3696,6 +4506,30 @@ export interface CreateVPCConnectionResponse {
 }
 
 /**
+ * <p>The custom permissions profile.</p>
+ * @public
+ */
+export interface CustomPermissions {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile.</p>
+   * @public
+   */
+  CustomPermissionsName?: string | undefined;
+
+  /**
+   * <p>A set of actions in the custom permissions profile.</p>
+   * @public
+   */
+  Capabilities?: Capabilities | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4756,6 +5590,96 @@ export interface DeleteAnalysisResponse {
 /**
  * @public
  */
+export interface DeleteBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrandAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBrandAssignmentResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile that you want to delete.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the custom permissions profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteDashboardRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
@@ -5786,6 +6710,46 @@ export interface DeleteUserByPrincipalIdResponse {
 /**
  * @public
  */
+export interface DeleteUserCustomPermissionRequest {
+  /**
+   * <p>The username of the user that you want to remove custom permissions from.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permission configuration that you want to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace that the user belongs to.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteUserCustomPermissionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteVPCConnectionRequest {
   /**
    * <p>The Amazon Web Services account ID of the account where you want to delete a VPC
@@ -6515,6 +7479,160 @@ export interface DescribeAssetBundleImportJobResponse {
    * @public
    */
   Warnings?: AssetBundleImportJobWarning[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+
+  /**
+   * <p>The ID of the specific version. The default value is the latest version.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandAssignmentResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  BrandArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandPublishedVersionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon QuickSight brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandPublishedVersionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile to describe.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The custom permissions profile.</p>
+   * @public
+   */
+  CustomPermissions?: CustomPermissions | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
 }
 
 /**
@@ -8035,1269 +9153,49 @@ export interface Ingestion {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeIngestionResponse {
-  /**
-   * <p>Information about the ingestion.</p>
-   * @public
-   */
-  Ingestion?: Ingestion | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
+export const FilterOperationFilterSensitiveLog = (obj: FilterOperation): any => ({
+  ...obj,
+  ...(obj.ConditionExpression && { ConditionExpression: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeIpRestrictionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
+export const TagColumnOperationFilterSensitiveLog = (obj: TagColumnOperation): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: obj.Tags.map((item) => ColumnTagFilterSensitiveLog(item)) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeIpRestrictionResponse {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the IP rules.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>A map that describes the IP rules with CIDR range and description.</p>
-   * @public
-   */
-  IpRestrictionRuleMap?: Record<string, string> | undefined;
-
-  /**
-   * <p>A map of allowed VPC IDs and their rule descriptions.</p>
-   * @public
-   */
-  VpcIdRestrictionRuleMap?: Record<string, string> | undefined;
-
-  /**
-   * <p>A map of allowed VPC endpoint IDs and their rule descriptions.</p>
-   * @public
-   */
-  VpcEndpointIdRestrictionRuleMap?: Record<string, string> | undefined;
-
-  /**
-   * <p>A value that specifies whether IP rules are turned on.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.
-   * 			</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
+export const TransformOperationFilterSensitiveLog = (obj: TransformOperation): any => {
+  if (obj.ProjectOperation !== undefined) return { ProjectOperation: obj.ProjectOperation };
+  if (obj.FilterOperation !== undefined)
+    return { FilterOperation: FilterOperationFilterSensitiveLog(obj.FilterOperation) };
+  if (obj.CreateColumnsOperation !== undefined)
+    return { CreateColumnsOperation: CreateColumnsOperationFilterSensitiveLog(obj.CreateColumnsOperation) };
+  if (obj.RenameColumnOperation !== undefined) return { RenameColumnOperation: obj.RenameColumnOperation };
+  if (obj.CastColumnTypeOperation !== undefined) return { CastColumnTypeOperation: obj.CastColumnTypeOperation };
+  if (obj.TagColumnOperation !== undefined)
+    return { TagColumnOperation: TagColumnOperationFilterSensitiveLog(obj.TagColumnOperation) };
+  if (obj.UntagColumnOperation !== undefined) return { UntagColumnOperation: obj.UntagColumnOperation };
+  if (obj.OverrideDatasetParameterOperation !== undefined)
+    return { OverrideDatasetParameterOperation: obj.OverrideDatasetParameterOperation };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeKeyRegistrationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration that you want to describe.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>Determines whether the request returns the default key only.</p>
-   * @public
-   */
-  DefaultKeyOnly?: boolean | undefined;
-}
-
-/**
- * <p>A customer managed key structure that contains the information listed below: </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>KeyArn</code> - The ARN of a KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DefaultKey</code> - Indicates whether the current key is set as the default key for encryption and decryption use.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface RegisteredCustomerManagedKey {
-  /**
-   * <p>The ARN of the KMS key that is registered to a Amazon QuickSight account for encryption and decryption use.</p>
-   * @public
-   */
-  KeyArn?: string | undefined;
-
-  /**
-   * <p>Indicates whether a <code>RegisteredCustomerManagedKey</code> is set as the default key for encryption and decryption use.</p>
-   * @public
-   */
-  DefaultKey?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeKeyRegistrationResponse {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the customer managed key registration specified in the request.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>A list of <code>RegisteredCustomerManagedKey</code> objects in a Amazon QuickSight account.</p>
-   * @public
-   */
-  KeyRegistration?: RegisteredCustomerManagedKey[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNamespaceRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the Amazon QuickSight namespace that you want to describe.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that you want to describe.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const NamespaceErrorType = {
-  INTERNAL_SERVICE_ERROR: "INTERNAL_SERVICE_ERROR",
-  PERMISSION_DENIED: "PERMISSION_DENIED",
-} as const;
-
-/**
- * @public
- */
-export type NamespaceErrorType = (typeof NamespaceErrorType)[keyof typeof NamespaceErrorType];
-
-/**
- * <p>Errors that occur during namespace creation.</p>
- * @public
- */
-export interface NamespaceError {
-  /**
-   * <p>The error type.</p>
-   * @public
-   */
-  Type?: NamespaceErrorType | undefined;
-
-  /**
-   * <p>The message for the error.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>The error type.</p>
- * @public
- */
-export interface NamespaceInfoV2 {
-  /**
-   * <p>The name of the error.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The namespace ARN.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The namespace Amazon Web Services Region.</p>
-   * @public
-   */
-  CapacityRegion?: string | undefined;
-
-  /**
-   * <p>The creation status of a namespace that is not yet completely created.</p>
-   * @public
-   */
-  CreationStatus?: NamespaceStatus | undefined;
-
-  /**
-   * <p>The identity store used for the namespace.</p>
-   * @public
-   */
-  IdentityStore?: IdentityStore | undefined;
-
-  /**
-   * <p>An error that occurred when the namespace was created.</p>
-   * @public
-   */
-  NamespaceError?: NamespaceError | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeNamespaceResponse {
-  /**
-   * <p>The information about the namespace that you're describing. The response includes
-   *         the namespace ARN, name, Amazon Web Services Region, creation status, and identity store. <code>DescribeNamespace</code> also
-   *         works for namespaces that are in the process of being created. For incomplete namespaces,
-   *         this API operation lists the namespace error types and messages associated with the creation process.</p>
-   * @public
-   */
-  Namespace?: NamespaceInfoV2 | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeQPersonalizationConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the personalization configuration that the user wants described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PersonalizationMode = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type PersonalizationMode = (typeof PersonalizationMode)[keyof typeof PersonalizationMode];
-
-/**
- * @public
- */
-export interface DescribeQPersonalizationConfigurationResponse {
-  /**
-   * <p>A value that indicates whether personalization is enabled or not.</p>
-   * @public
-   */
-  PersonalizationMode?: PersonalizationMode | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRefreshScheduleRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  DataSetId: string | undefined;
-
-  /**
-   * <p>The ID of the refresh schedule.</p>
-   * @public
-   */
-  ScheduleId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRefreshScheduleResponse {
-  /**
-   * <p>The refresh schedule.</p>
-   * @public
-   */
-  RefreshSchedule?: RefreshSchedule | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the refresh schedule.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRoleCustomPermissionRequest {
-  /**
-   * <p>The name of the role whose permissions you want described.</p>
-   * @public
-   */
-  Role: Role | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The namespace that contains the role.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeRoleCustomPermissionResponse {
-  /**
-   * <p>The name of the custom permission that is described.</p>
-   * @public
-   */
-  CustomPermissionsName?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>(Optional) The number for the version to describe. If a <code>VersionNumber</code> parameter
-   * 			value isn't provided, the latest version of the template is described.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias of the template that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TemplateErrorType = {
-  ACCESS_DENIED: "ACCESS_DENIED",
-  DATA_SET_NOT_FOUND: "DATA_SET_NOT_FOUND",
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-  SOURCE_NOT_FOUND: "SOURCE_NOT_FOUND",
-} as const;
-
-/**
- * @public
- */
-export type TemplateErrorType = (typeof TemplateErrorType)[keyof typeof TemplateErrorType];
-
-/**
- * <p>List of errors that occurred when the template version creation failed.</p>
- * @public
- */
-export interface TemplateError {
-  /**
-   * <p>Type of error.</p>
-   * @public
-   */
-  Type?: TemplateErrorType | undefined;
-
-  /**
-   * <p>Description of the error type.</p>
-   * @public
-   */
-  Message?: string | undefined;
-
-  /**
-   * <p>An error path that shows which entities caused the template error.</p>
-   * @public
-   */
-  ViolatedEntities?: Entity[] | undefined;
-}
-
-/**
- * <p>A version of a template.</p>
- * @public
- */
-export interface TemplateVersion {
-  /**
-   * <p>The time that this template version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>Errors associated with this template version.</p>
-   * @public
-   */
-  Errors?: TemplateError[] | undefined;
-
-  /**
-   * <p>The version number of the template version.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The status that is associated with the template.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-
-  /**
-   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-   *             template should be bound to new datasets matching the same schema described through this
-   *             API operation.</p>
-   * @public
-   */
-  DataSetConfigurations?: DataSetConfiguration[] | undefined;
-
-  /**
-   * <p>The description of the template.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-   *             template.</p>
-   * @public
-   */
-  SourceEntityArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the theme associated with this version of the template.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-   * @public
-   */
-  Sheets?: Sheet[] | undefined;
-}
-
-/**
- * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
- *             encapsulates the metadata required to create an analysis and that you can use to create
- *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
- *             dataset associated with an analysis. You can use templates to create dashboards by
- *             replacing dataset placeholders with datasets that follow the same schema that was used
- *             to create the source analysis and template.</p>
- *          <p>You can share templates across Amazon Web Services accounts by allowing users in other Amazon Web Services accounts to
- *             create a template or a dashboard from an existing template.</p>
- * @public
- */
-export interface Template {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The display name of the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A structure describing the versions of the template.</p>
-   * @public
-   */
-  Version?: TemplateVersion | undefined;
-
-  /**
-   * <p>The ID for the template. This is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>Time when this was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>Time when this was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateResponse {
-  /**
-   * <p>The template structure for the object you want to describe.</p>
-   * @public
-   */
-  Template?: Template | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template alias that you're
-   * 			describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The name of the template alias that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateAliasResponse {
-  /**
-   * <p>Information about the template alias.</p>
-   * @public
-   */
-  TemplateAlias?: TemplateAlias | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateDefinitionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template. You must be using the
-   * 			 Amazon Web Services account that the template is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the template that you're describing.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The version number of the template.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias of the template that you want to describe. If you name a specific alias, you
-   * 			 describe the version that the alias points to. You can specify the latest version of the
-   * 			 template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			 parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplateDefinitionResponse {
-  /**
-   * <p>The descriptive name of the template.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the template described.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>Errors associated with the template version.</p>
-   * @public
-   */
-  Errors?: TemplateError[] | undefined;
-
-  /**
-   * <p>Status associated with the template.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the template.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of the template.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: TemplateVersionDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplatePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTemplatePermissionsResponse {
-  /**
-   * <p>The ID for the template.</p>
-   * @public
-   */
-  TemplateId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   * @public
-   */
-  TemplateArn?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions to be set on the template. </p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter
-   * 			value isn't provided, the latest version of the theme is described.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias of the theme that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ThemeType = {
-  ALL: "ALL",
-  CUSTOM: "CUSTOM",
-  QUICKSIGHT: "QUICKSIGHT",
-} as const;
-
-/**
- * @public
- */
-export type ThemeType = (typeof ThemeType)[keyof typeof ThemeType];
-
-/**
- * @public
- * @enum
- */
-export const ThemeErrorType = {
-  INTERNAL_FAILURE: "INTERNAL_FAILURE",
-} as const;
-
-/**
- * @public
- */
-export type ThemeErrorType = (typeof ThemeErrorType)[keyof typeof ThemeErrorType];
-
-/**
- * <p>Theme error.</p>
- * @public
- */
-export interface ThemeError {
-  /**
-   * <p>The type of error.</p>
-   * @public
-   */
-  Type?: ThemeErrorType | undefined;
-
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>A version of a theme.</p>
- * @public
- */
-export interface ThemeVersion {
-  /**
-   * <p>The version number of the theme.</p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The description of the theme.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The Amazon QuickSight-defined ID of the theme that a custom theme inherits from. All
-   *             themes initially inherit from a default Amazon QuickSight theme.</p>
-   * @public
-   */
-  BaseThemeId?: string | undefined;
-
-  /**
-   * <p>The date and time that this theme version was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The theme configuration, which contains all the theme display properties.</p>
-   * @public
-   */
-  Configuration?: ThemeConfiguration | undefined;
-
-  /**
-   * <p>Errors associated with the theme.</p>
-   * @public
-   */
-  Errors?: ThemeError[] | undefined;
-
-  /**
-   * <p>The status of the theme version.</p>
-   * @public
-   */
-  Status?: ResourceStatus | undefined;
-}
-
-/**
- * <p>Summary information about a theme.</p>
- * @public
- */
-export interface Theme {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name that the user gives to the theme.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The identifier that the user gives to the theme.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-
-  /**
-   * <p>A version of a theme.</p>
-   * @public
-   */
-  Version?: ThemeVersion | undefined;
-
-  /**
-   * <p>The date and time that the theme was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The date and time that the theme was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The type of theme, based on how it was created. Valid values include:
-   *             <code>QUICKSIGHT</code> and <code>CUSTOM</code>.</p>
-   * @public
-   */
-  Type?: ThemeType | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeResponse {
-  /**
-   * <p>The information about the theme that you are describing.</p>
-   * @public
-   */
-  Theme?: Theme | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme alias that you're
-   * 			describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The name of the theme alias that you want to describe.</p>
-   * @public
-   */
-  AliasName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemeAliasResponse {
-  /**
-   * <p>Information about the theme alias.</p>
-   * @public
-   */
-  ThemeAlias?: ThemeAlias | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme that you want to describe permissions for.</p>
-   * @public
-   */
-  ThemeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeThemePermissionsResponse {
-  /**
-   * <p>The ID for the theme.</p>
-   * @public
-   */
-  ThemeId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the theme.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>A list of resource permissions set on the theme. </p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the topic.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId?: string | undefined;
-
-  /**
-   * <p>The definition of a topic.</p>
-   * @public
-   */
-  Topic?: TopicDetails | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTopicPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want
-   *          described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   * @public
-   */
-  TopicId: string | undefined;
-}
+export const LogicalTableFilterSensitiveLog = (obj: LogicalTable): any => ({
+  ...obj,
+  ...(obj.DataTransforms && {
+    DataTransforms: obj.DataTransforms.map((item) => TransformOperationFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
@@ -9622,18 +9520,4 @@ export const DescribeDashboardSnapshotJobResultResponseFilterSensitiveLog = (
 export const DescribeDataSetResponseFilterSensitiveLog = (obj: DescribeDataSetResponse): any => ({
   ...obj,
   ...(obj.DataSet && { DataSet: DataSetFilterSensitiveLog(obj.DataSet) }),
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateDefinitionResponseFilterSensitiveLog = (obj: DescribeTemplateDefinitionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTopicResponseFilterSensitiveLog = (obj: DescribeTopicResponse): any => ({
-  ...obj,
 });
