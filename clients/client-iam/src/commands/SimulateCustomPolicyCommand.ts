@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { SimulateCustomPolicyRequest, SimulatePolicyResponse } from "../models/models_0";
+import { SimulateCustomPolicyRequest } from "../models/models_0";
+import { SimulatePolicyResponse } from "../models/models_1";
 import { de_SimulateCustomPolicyCommand, se_SimulateCustomPolicyCommand } from "../protocols/Aws_query";
 
 /**

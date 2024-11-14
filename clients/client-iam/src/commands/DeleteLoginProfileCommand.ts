@@ -48,7 +48,7 @@ export interface DeleteLoginProfileCommandOutput extends __MetadataBearer {}
  * // const { IAMClient, DeleteLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // DeleteLoginProfileRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
  * };
  * const command = new DeleteLoginProfileCommand(input);
  * const response = await client.send(command);

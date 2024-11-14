@@ -45,7 +45,7 @@ export interface GetLoginProfileCommandOutput extends GetLoginProfileResponse, _
  * // const { IAMClient, GetLoginProfileCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // GetLoginProfileRequest
- *   UserName: "STRING_VALUE", // required
+ *   UserName: "STRING_VALUE",
  * };
  * const command = new GetLoginProfileCommand(input);
  * const response = await client.send(command);

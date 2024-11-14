@@ -594,10 +594,42 @@ DetachUserPolicy
 </details>
 <details>
 <summary>
+DisableOrganizationsRootCredentialsManagement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DisableOrganizationsRootCredentialsManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/DisableOrganizationsRootCredentialsManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/DisableOrganizationsRootCredentialsManagementCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisableOrganizationsRootSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/DisableOrganizationsRootSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/DisableOrganizationsRootSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/DisableOrganizationsRootSessionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 EnableMFADevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/EnableMFADeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableMFADeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableMFADeviceCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableOrganizationsRootCredentialsManagement
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/EnableOrganizationsRootCredentialsManagementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOrganizationsRootCredentialsManagementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOrganizationsRootCredentialsManagementCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableOrganizationsRootSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/EnableOrganizationsRootSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOrganizationsRootSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/EnableOrganizationsRootSessionsCommandOutput/)
 
 </details>
 <details>
@@ -958,6 +990,14 @@ ListOpenIDConnectProviderTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListOpenIDConnectProviderTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListOpenIDConnectProviderTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListOpenIDConnectProviderTagsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListOrganizationsFeatures
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListOrganizationsFeaturesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListOrganizationsFeaturesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListOrganizationsFeaturesCommandOutput/)
 
 </details>
 <details>

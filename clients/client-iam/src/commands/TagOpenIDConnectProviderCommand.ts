@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagOpenIDConnectProviderRequest } from "../models/models_0";
+import { TagOpenIDConnectProviderRequest } from "../models/models_1";
 import { de_TagOpenIDConnectProviderCommand, se_TagOpenIDConnectProviderCommand } from "../protocols/Aws_query";
 
 /**

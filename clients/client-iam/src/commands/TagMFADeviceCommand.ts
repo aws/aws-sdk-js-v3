@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagMFADeviceRequest } from "../models/models_0";
+import { TagMFADeviceRequest } from "../models/models_1";
 import { de_TagMFADeviceCommand, se_TagMFADeviceCommand } from "../protocols/Aws_query";
 
 /**

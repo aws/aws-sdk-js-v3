@@ -128,7 +128,23 @@ import {
 import { DetachGroupPolicyCommandInput, DetachGroupPolicyCommandOutput } from "../commands/DetachGroupPolicyCommand";
 import { DetachRolePolicyCommandInput, DetachRolePolicyCommandOutput } from "../commands/DetachRolePolicyCommand";
 import { DetachUserPolicyCommandInput, DetachUserPolicyCommandOutput } from "../commands/DetachUserPolicyCommand";
+import {
+  DisableOrganizationsRootCredentialsManagementCommandInput,
+  DisableOrganizationsRootCredentialsManagementCommandOutput,
+} from "../commands/DisableOrganizationsRootCredentialsManagementCommand";
+import {
+  DisableOrganizationsRootSessionsCommandInput,
+  DisableOrganizationsRootSessionsCommandOutput,
+} from "../commands/DisableOrganizationsRootSessionsCommand";
 import { EnableMFADeviceCommandInput, EnableMFADeviceCommandOutput } from "../commands/EnableMFADeviceCommand";
+import {
+  EnableOrganizationsRootCredentialsManagementCommandInput,
+  EnableOrganizationsRootCredentialsManagementCommandOutput,
+} from "../commands/EnableOrganizationsRootCredentialsManagementCommand";
+import {
+  EnableOrganizationsRootSessionsCommandInput,
+  EnableOrganizationsRootSessionsCommandOutput,
+} from "../commands/EnableOrganizationsRootSessionsCommand";
 import {
   GenerateCredentialReportCommandInput,
   GenerateCredentialReportCommandOutput,
@@ -246,6 +262,10 @@ import {
   ListOpenIDConnectProviderTagsCommandInput,
   ListOpenIDConnectProviderTagsCommandOutput,
 } from "../commands/ListOpenIDConnectProviderTagsCommand";
+import {
+  ListOrganizationsFeaturesCommandInput,
+  ListOrganizationsFeaturesCommandOutput,
+} from "../commands/ListOrganizationsFeaturesCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "../commands/ListPoliciesCommand";
 import {
   ListPoliciesGrantingServiceAccessCommandInput,
@@ -410,6 +430,7 @@ import {
   AccessKey,
   AccessKeyLastUsed,
   AccessKeyMetadata,
+  AccountNotManagementOrDelegatedAdministratorException,
   AddClientIDToOpenIDConnectProviderRequest,
   AddRoleToInstanceProfileRequest,
   AddUserToGroupRequest,
@@ -418,6 +439,7 @@ import {
   AttachGroupPolicyRequest,
   AttachRolePolicyRequest,
   AttachUserPolicyRequest,
+  CallerIsNotManagementAccountException,
   ChangePasswordRequest,
   ConcurrentModificationException,
   ContextEntry,
@@ -480,14 +502,22 @@ import {
   DetachGroupPolicyRequest,
   DetachRolePolicyRequest,
   DetachUserPolicyRequest,
+  DisableOrganizationsRootCredentialsManagementRequest,
+  DisableOrganizationsRootCredentialsManagementResponse,
+  DisableOrganizationsRootSessionsRequest,
+  DisableOrganizationsRootSessionsResponse,
   EnableMFADeviceRequest,
+  EnableOrganizationsRootCredentialsManagementRequest,
+  EnableOrganizationsRootCredentialsManagementResponse,
+  EnableOrganizationsRootSessionsRequest,
+  EnableOrganizationsRootSessionsResponse,
   EntityAlreadyExistsException,
   EntityDetails,
   EntityInfo,
   EntityTemporarilyUnmodifiableException,
   EntityType,
   ErrorDetails,
-  EvaluationResult,
+  FeatureType,
   GenerateCredentialReportResponse,
   GenerateOrganizationsAccessReportRequest,
   GenerateOrganizationsAccessReportResponse,
@@ -580,6 +610,8 @@ import {
   ListOpenIDConnectProvidersResponse,
   ListOpenIDConnectProviderTagsRequest,
   ListOpenIDConnectProviderTagsResponse,
+  ListOrganizationsFeaturesRequest,
+  ListOrganizationsFeaturesResponse,
   ListPoliciesGrantingServiceAccessEntry,
   ListPoliciesGrantingServiceAccessRequest,
   ListPoliciesGrantingServiceAccessResponse,
@@ -624,10 +656,10 @@ import {
   NoSuchEntityException,
   OpenIDConnectProviderListEntry,
   OpenIdIdpCommunicationErrorException,
-  OrganizationsDecisionDetail,
+  OrganizationNotFoundException,
+  OrganizationNotInAllFeaturesModeException,
   PasswordPolicy,
   PasswordPolicyViolationException,
-  PermissionsBoundaryDecisionDetail,
   Policy,
   PolicyDetail,
   PolicyEvaluationDecisionType,
@@ -650,7 +682,6 @@ import {
   ReportGenerationLimitExceededException,
   ResetServiceSpecificCredentialRequest,
   ResetServiceSpecificCredentialResponse,
-  ResourceSpecificResult,
   ResyncMFADeviceRequest,
   Role,
   RoleDetail,
@@ -659,6 +690,7 @@ import {
   SAMLProviderListEntry,
   ServerCertificate,
   ServerCertificateMetadata,
+  ServiceAccessNotEnabledException,
   ServiceFailureException,
   ServiceLastAccessed,
   ServiceNotSupportedException,
@@ -668,21 +700,10 @@ import {
   SetSecurityTokenServicePreferencesRequest,
   SigningCertificate,
   SimulateCustomPolicyRequest,
-  SimulatePolicyResponse,
-  SimulatePrincipalPolicyRequest,
   SSHPublicKey,
   SSHPublicKeyMetadata,
-  Statement,
   SummaryKeyType,
   Tag,
-  TagInstanceProfileRequest,
-  TagMFADeviceRequest,
-  TagOpenIDConnectProviderRequest,
-  TagPolicyRequest,
-  TagRoleRequest,
-  TagSAMLProviderRequest,
-  TagServerCertificateRequest,
-  TagUserRequest,
   TrackedActionLastAccessed,
   UnmodifiableEntityException,
   UnrecognizedPublicKeyEncodingException,
@@ -693,10 +714,25 @@ import {
 import {
   DuplicateCertificateException,
   DuplicateSSHPublicKeyException,
+  EvaluationResult,
   InvalidCertificateException,
   InvalidPublicKeyException,
   KeyPairMismatchException,
   MalformedCertificateException,
+  OrganizationsDecisionDetail,
+  PermissionsBoundaryDecisionDetail,
+  ResourceSpecificResult,
+  SimulatePolicyResponse,
+  SimulatePrincipalPolicyRequest,
+  Statement,
+  TagInstanceProfileRequest,
+  TagMFADeviceRequest,
+  TagOpenIDConnectProviderRequest,
+  TagPolicyRequest,
+  TagRoleRequest,
+  TagSAMLProviderRequest,
+  TagServerCertificateRequest,
+  TagUserRequest,
   UntagInstanceProfileRequest,
   UntagMFADeviceRequest,
   UntagOpenIDConnectProviderRequest,
@@ -1545,6 +1581,40 @@ export const se_DetachUserPolicyCommand = async (
 };
 
 /**
+ * serializeAws_queryDisableOrganizationsRootCredentialsManagementCommand
+ */
+export const se_DisableOrganizationsRootCredentialsManagementCommand = async (
+  input: DisableOrganizationsRootCredentialsManagementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableOrganizationsRootCredentialsManagementRequest(input, context),
+    [_A]: _DORCM,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDisableOrganizationsRootSessionsCommand
+ */
+export const se_DisableOrganizationsRootSessionsCommand = async (
+  input: DisableOrganizationsRootSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DisableOrganizationsRootSessionsRequest(input, context),
+    [_A]: _DORS,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryEnableMFADeviceCommand
  */
 export const se_EnableMFADeviceCommand = async (
@@ -1556,6 +1626,40 @@ export const se_EnableMFADeviceCommand = async (
   body = buildFormUrlencodedString({
     ...se_EnableMFADeviceRequest(input, context),
     [_A]: _EMFAD,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryEnableOrganizationsRootCredentialsManagementCommand
+ */
+export const se_EnableOrganizationsRootCredentialsManagementCommand = async (
+  input: EnableOrganizationsRootCredentialsManagementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableOrganizationsRootCredentialsManagementRequest(input, context),
+    [_A]: _EORCM,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryEnableOrganizationsRootSessionsCommand
+ */
+export const se_EnableOrganizationsRootSessionsCommand = async (
+  input: EnableOrganizationsRootSessionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_EnableOrganizationsRootSessionsRequest(input, context),
+    [_A]: _EORS,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2313,6 +2417,23 @@ export const se_ListOpenIDConnectProviderTagsCommand = async (
   body = buildFormUrlencodedString({
     ...se_ListOpenIDConnectProviderTagsRequest(input, context),
     [_A]: _LOIDCPT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListOrganizationsFeaturesCommand
+ */
+export const se_ListOrganizationsFeaturesCommand = async (
+  input: ListOrganizationsFeaturesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListOrganizationsFeaturesRequest(input, context),
+    [_A]: _LOF,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -4282,6 +4403,49 @@ export const de_DetachUserPolicyCommand = async (
 };
 
 /**
+ * deserializeAws_queryDisableOrganizationsRootCredentialsManagementCommand
+ */
+export const de_DisableOrganizationsRootCredentialsManagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableOrganizationsRootCredentialsManagementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableOrganizationsRootCredentialsManagementResponse(
+    data.DisableOrganizationsRootCredentialsManagementResult,
+    context
+  );
+  const response: DisableOrganizationsRootCredentialsManagementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDisableOrganizationsRootSessionsCommand
+ */
+export const de_DisableOrganizationsRootSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableOrganizationsRootSessionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableOrganizationsRootSessionsResponse(data.DisableOrganizationsRootSessionsResult, context);
+  const response: DisableOrganizationsRootSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryEnableMFADeviceCommand
  */
 export const de_EnableMFADeviceCommand = async (
@@ -4294,6 +4458,49 @@ export const de_EnableMFADeviceCommand = async (
   await collectBody(output.body, context);
   const response: EnableMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryEnableOrganizationsRootCredentialsManagementCommand
+ */
+export const de_EnableOrganizationsRootCredentialsManagementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableOrganizationsRootCredentialsManagementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableOrganizationsRootCredentialsManagementResponse(
+    data.EnableOrganizationsRootCredentialsManagementResult,
+    context
+  );
+  const response: EnableOrganizationsRootCredentialsManagementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryEnableOrganizationsRootSessionsCommand
+ */
+export const de_EnableOrganizationsRootSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableOrganizationsRootSessionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableOrganizationsRootSessionsResponse(data.EnableOrganizationsRootSessionsResult, context);
+  const response: EnableOrganizationsRootSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -5195,6 +5402,26 @@ export const de_ListOpenIDConnectProviderTagsCommand = async (
   let contents: any = {};
   contents = de_ListOpenIDConnectProviderTagsResponse(data.ListOpenIDConnectProviderTagsResult, context);
   const response: ListOpenIDConnectProviderTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListOrganizationsFeaturesCommand
+ */
+export const de_ListOrganizationsFeaturesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOrganizationsFeaturesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListOrganizationsFeaturesResponse(data.ListOrganizationsFeaturesResult, context);
+  const response: ListOrganizationsFeaturesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -6442,9 +6669,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DeleteConflict":
     case "com.amazonaws.iam#DeleteConflictException":
       throw await de_DeleteConflictExceptionRes(parsedOutput, context);
+    case "AccountNotManagementOrDelegatedAdministratorException":
+    case "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException":
+      throw await de_AccountNotManagementOrDelegatedAdministratorExceptionRes(parsedOutput, context);
+    case "OrganizationNotFoundException":
+    case "com.amazonaws.iam#OrganizationNotFoundException":
+      throw await de_OrganizationNotFoundExceptionRes(parsedOutput, context);
+    case "OrganizationNotInAllFeaturesModeException":
+    case "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException":
+      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
+    case "ServiceAccessNotEnabledException":
+    case "com.amazonaws.iam#ServiceAccessNotEnabledException":
+      throw await de_ServiceAccessNotEnabledExceptionRes(parsedOutput, context);
     case "InvalidAuthenticationCode":
     case "com.amazonaws.iam#InvalidAuthenticationCodeException":
       throw await de_InvalidAuthenticationCodeExceptionRes(parsedOutput, context);
+    case "CallerIsNotManagementAccountException":
+    case "com.amazonaws.iam#CallerIsNotManagementAccountException":
+      throw await de_CallerIsNotManagementAccountExceptionRes(parsedOutput, context);
     case "ReportGenerationLimitExceeded":
     case "com.amazonaws.iam#ReportGenerationLimitExceededException":
       throw await de_ReportGenerationLimitExceededExceptionRes(parsedOutput, context);
@@ -6489,6 +6731,38 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_queryAccountNotManagementOrDelegatedAdministratorExceptionRes
+ */
+const de_AccountNotManagementOrDelegatedAdministratorExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccountNotManagementOrDelegatedAdministratorException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_AccountNotManagementOrDelegatedAdministratorException(body.Error, context);
+  const exception = new AccountNotManagementOrDelegatedAdministratorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryCallerIsNotManagementAccountExceptionRes
+ */
+const de_CallerIsNotManagementAccountExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CallerIsNotManagementAccountException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CallerIsNotManagementAccountException(body.Error, context);
+  const exception = new CallerIsNotManagementAccountException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -6812,6 +7086,38 @@ const de_OpenIdIdpCommunicationErrorExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryOrganizationNotFoundExceptionRes
+ */
+const de_OrganizationNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OrganizationNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_OrganizationNotFoundException(body.Error, context);
+  const exception = new OrganizationNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryOrganizationNotInAllFeaturesModeExceptionRes
+ */
+const de_OrganizationNotInAllFeaturesModeExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OrganizationNotInAllFeaturesModeException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_OrganizationNotInAllFeaturesModeException(body.Error, context);
+  const exception = new OrganizationNotInAllFeaturesModeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryPasswordPolicyViolationExceptionRes
  */
 const de_PasswordPolicyViolationExceptionRes = async (
@@ -6869,6 +7175,22 @@ const de_ReportGenerationLimitExceededExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_ReportGenerationLimitExceededException(body.Error, context);
   const exception = new ReportGenerationLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryServiceAccessNotEnabledExceptionRes
+ */
+const de_ServiceAccessNotEnabledExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceAccessNotEnabledException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ServiceAccessNotEnabledException(body.Error, context);
+  const exception = new ServiceAccessNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -7779,6 +8101,28 @@ const se_DetachUserPolicyRequest = (input: DetachUserPolicyRequest, context: __S
 };
 
 /**
+ * serializeAws_queryDisableOrganizationsRootCredentialsManagementRequest
+ */
+const se_DisableOrganizationsRootCredentialsManagementRequest = (
+  input: DisableOrganizationsRootCredentialsManagementRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  return entries;
+};
+
+/**
+ * serializeAws_queryDisableOrganizationsRootSessionsRequest
+ */
+const se_DisableOrganizationsRootSessionsRequest = (
+  input: DisableOrganizationsRootSessionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  return entries;
+};
+
+/**
  * serializeAws_queryEnableMFADeviceRequest
  */
 const se_EnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __SerdeContext): any => {
@@ -7795,6 +8139,28 @@ const se_EnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __Ser
   if (input[_ACu] != null) {
     entries[_ACu] = input[_ACu];
   }
+  return entries;
+};
+
+/**
+ * serializeAws_queryEnableOrganizationsRootCredentialsManagementRequest
+ */
+const se_EnableOrganizationsRootCredentialsManagementRequest = (
+  input: EnableOrganizationsRootCredentialsManagementRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  return entries;
+};
+
+/**
+ * serializeAws_queryEnableOrganizationsRootSessionsRequest
+ */
+const se_EnableOrganizationsRootSessionsRequest = (
+  input: EnableOrganizationsRootSessionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
   return entries;
 };
 
@@ -8487,6 +8853,14 @@ const se_ListOpenIDConnectProviderTagsRequest = (
   if (input[_MI] != null) {
     entries[_MI] = input[_MI];
   }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListOrganizationsFeaturesRequest
+ */
+const se_ListOrganizationsFeaturesRequest = (input: ListOrganizationsFeaturesRequest, context: __SerdeContext): any => {
+  const entries: any = {};
   return entries;
 };
 
@@ -10052,6 +10426,20 @@ const de_accountAliasListType = (output: any, context: __SerdeContext): string[]
 };
 
 /**
+ * deserializeAws_queryAccountNotManagementOrDelegatedAdministratorException
+ */
+const de_AccountNotManagementOrDelegatedAdministratorException = (
+  output: any,
+  context: __SerdeContext
+): AccountNotManagementOrDelegatedAdministratorException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryArnListType
  */
 const de_ArnListType = (output: any, context: __SerdeContext): string[] => {
@@ -10097,6 +10485,20 @@ const de_AttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy
   }
   if (output[_PA] != null) {
     contents[_PA] = __expectString(output[_PA]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCallerIsNotManagementAccountException
+ */
+const de_CallerIsNotManagementAccountException = (
+  output: any,
+  context: __SerdeContext
+): CallerIsNotManagementAccountException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -10398,6 +10800,44 @@ const de_DeletionTaskFailureReasonType = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_queryDisableOrganizationsRootCredentialsManagementResponse
+ */
+const de_DisableOrganizationsRootCredentialsManagementResponse = (
+  output: any,
+  context: __SerdeContext
+): DisableOrganizationsRootCredentialsManagementResponse => {
+  const contents: any = {};
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
+  }
+  if (output.EnabledFeatures === "") {
+    contents[_EFn] = [];
+  } else if (output[_EFn] != null && output[_EFn][_me] != null) {
+    contents[_EFn] = de_FeaturesListType(__getArrayIfSingleItem(output[_EFn][_me]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDisableOrganizationsRootSessionsResponse
+ */
+const de_DisableOrganizationsRootSessionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DisableOrganizationsRootSessionsResponse => {
+  const contents: any = {};
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
+  }
+  if (output.EnabledFeatures === "") {
+    contents[_EFn] = [];
+  } else if (output[_EFn] != null && output[_EFn][_me] != null) {
+    contents[_EFn] = de_FeaturesListType(__getArrayIfSingleItem(output[_EFn][_me]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryDuplicateCertificateException
  */
 const de_DuplicateCertificateException = (output: any, context: __SerdeContext): DuplicateCertificateException => {
@@ -10415,6 +10855,44 @@ const de_DuplicateSSHPublicKeyException = (output: any, context: __SerdeContext)
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryEnableOrganizationsRootCredentialsManagementResponse
+ */
+const de_EnableOrganizationsRootCredentialsManagementResponse = (
+  output: any,
+  context: __SerdeContext
+): EnableOrganizationsRootCredentialsManagementResponse => {
+  const contents: any = {};
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
+  }
+  if (output.EnabledFeatures === "") {
+    contents[_EFn] = [];
+  } else if (output[_EFn] != null && output[_EFn][_me] != null) {
+    contents[_EFn] = de_FeaturesListType(__getArrayIfSingleItem(output[_EFn][_me]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryEnableOrganizationsRootSessionsResponse
+ */
+const de_EnableOrganizationsRootSessionsResponse = (
+  output: any,
+  context: __SerdeContext
+): EnableOrganizationsRootSessionsResponse => {
+  const contents: any = {};
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
+  }
+  if (output.EnabledFeatures === "") {
+    contents[_EFn] = [];
+  } else if (output[_EFn] != null && output[_EFn][_me] != null) {
+    contents[_EFn] = de_FeaturesListType(__getArrayIfSingleItem(output[_EFn][_me]), context);
   }
   return contents;
 };
@@ -10573,6 +11051,17 @@ const de_EvaluationResultsListType = (output: any, context: __SerdeContext): Eva
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_EvaluationResult(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryFeaturesListType
+ */
+const de_FeaturesListType = (output: any, context: __SerdeContext): FeatureType[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 
@@ -11634,6 +12123,25 @@ const de_ListOpenIDConnectProviderTagsResponse = (
 };
 
 /**
+ * deserializeAws_queryListOrganizationsFeaturesResponse
+ */
+const de_ListOrganizationsFeaturesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListOrganizationsFeaturesResponse => {
+  const contents: any = {};
+  if (output[_OI] != null) {
+    contents[_OI] = __expectString(output[_OI]);
+  }
+  if (output.EnabledFeatures === "") {
+    contents[_EFn] = [];
+  } else if (output[_EFn] != null && output[_EFn][_me] != null) {
+    contents[_EFn] = de_FeaturesListType(__getArrayIfSingleItem(output[_EFn][_me]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryListPoliciesGrantingServiceAccessEntry
  */
 const de_ListPoliciesGrantingServiceAccessEntry = (
@@ -12178,6 +12686,31 @@ const de_OpenIdIdpCommunicationErrorException = (
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryOrganizationNotFoundException
+ */
+const de_OrganizationNotFoundException = (output: any, context: __SerdeContext): OrganizationNotFoundException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryOrganizationNotInAllFeaturesModeException
+ */
+const de_OrganizationNotInAllFeaturesModeException = (
+  output: any,
+  context: __SerdeContext
+): OrganizationNotInAllFeaturesModeException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -12845,6 +13378,20 @@ const de_serverCertificateMetadataListType = (output: any, context: __SerdeConte
     .map((entry: any) => {
       return de_ServerCertificateMetadata(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryServiceAccessNotEnabledException
+ */
+const de_ServiceAccessNotEnabledException = (
+  output: any,
+  context: __SerdeContext
+): ServiceAccessNotEnabledException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
 };
 
 /**
@@ -13546,6 +14093,8 @@ const _DIP = "DeleteInstanceProfile";
 const _DLP = "DeleteLoginProfile";
 const _DMFAD = "DeactivateMFADevice";
 const _DOIDCP = "DeleteOpenIDConnectProvider";
+const _DORCM = "DisableOrganizationsRootCredentialsManagement";
+const _DORS = "DisableOrganizationsRootSessions";
 const _DP = "DeletePolicy";
 const _DPV = "DeletePolicyVersion";
 const _DR = "DeleteRole";
@@ -13574,9 +14123,12 @@ const _EDL = "EntityDetailsList";
 const _EDn = "EnableDate";
 const _EDr = "ErrorDetails";
 const _EF = "EntityFilter";
+const _EFn = "EnabledFeatures";
 const _EI = "EntityInfo";
 const _EMFAD = "EnableMFADevice";
 const _EN = "EntityName";
+const _EORCM = "EnableOrganizationsRootCredentialsManagement";
+const _EORS = "EnableOrganizationsRootSessions";
 const _EP = "EntityPath";
 const _EPn = "EndPosition";
 const _EPx = "ExpirePasswords";
@@ -13665,6 +14217,7 @@ const _LIPFR = "ListInstanceProfilesForRole";
 const _LIPT = "ListInstanceProfileTags";
 const _LMFAD = "ListMFADevices";
 const _LMFADT = "ListMFADeviceTags";
+const _LOF = "ListOrganizationsFeatures";
 const _LOIDCP = "ListOpenIDConnectProviders";
 const _LOIDCPT = "ListOpenIDConnectProviderTags";
 const _LP = "ListPolicies";
@@ -13706,6 +14259,7 @@ const _NSCN = "NewServerCertificateName";
 const _NUN = "NewUserName";
 const _OA = "OnlyAttached";
 const _ODD = "OrganizationsDecisionDetail";
+const _OI = "OrganizationId";
 const _OIDCPA = "OpenIDConnectProviderArn";
 const _OIDCPL = "OpenIDConnectProviderList";
 const _OP = "OldPassword";

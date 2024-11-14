@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagRoleRequest } from "../models/models_0";
+import { TagRoleRequest } from "../models/models_1";
 import { de_TagRoleCommand, se_TagRoleCommand } from "../protocols/Aws_query";
 
 /**

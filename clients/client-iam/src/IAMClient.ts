@@ -161,7 +161,23 @@ import {
 import { DetachGroupPolicyCommandInput, DetachGroupPolicyCommandOutput } from "./commands/DetachGroupPolicyCommand";
 import { DetachRolePolicyCommandInput, DetachRolePolicyCommandOutput } from "./commands/DetachRolePolicyCommand";
 import { DetachUserPolicyCommandInput, DetachUserPolicyCommandOutput } from "./commands/DetachUserPolicyCommand";
+import {
+  DisableOrganizationsRootCredentialsManagementCommandInput,
+  DisableOrganizationsRootCredentialsManagementCommandOutput,
+} from "./commands/DisableOrganizationsRootCredentialsManagementCommand";
+import {
+  DisableOrganizationsRootSessionsCommandInput,
+  DisableOrganizationsRootSessionsCommandOutput,
+} from "./commands/DisableOrganizationsRootSessionsCommand";
 import { EnableMFADeviceCommandInput, EnableMFADeviceCommandOutput } from "./commands/EnableMFADeviceCommand";
+import {
+  EnableOrganizationsRootCredentialsManagementCommandInput,
+  EnableOrganizationsRootCredentialsManagementCommandOutput,
+} from "./commands/EnableOrganizationsRootCredentialsManagementCommand";
+import {
+  EnableOrganizationsRootSessionsCommandInput,
+  EnableOrganizationsRootSessionsCommandOutput,
+} from "./commands/EnableOrganizationsRootSessionsCommand";
 import {
   GenerateCredentialReportCommandInput,
   GenerateCredentialReportCommandOutput,
@@ -279,6 +295,10 @@ import {
   ListOpenIDConnectProviderTagsCommandInput,
   ListOpenIDConnectProviderTagsCommandOutput,
 } from "./commands/ListOpenIDConnectProviderTagsCommand";
+import {
+  ListOrganizationsFeaturesCommandInput,
+  ListOrganizationsFeaturesCommandOutput,
+} from "./commands/ListOrganizationsFeaturesCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import {
   ListPoliciesGrantingServiceAccessCommandInput,
@@ -500,7 +520,11 @@ export type ServiceInputTypes =
   | DetachGroupPolicyCommandInput
   | DetachRolePolicyCommandInput
   | DetachUserPolicyCommandInput
+  | DisableOrganizationsRootCredentialsManagementCommandInput
+  | DisableOrganizationsRootSessionsCommandInput
   | EnableMFADeviceCommandInput
+  | EnableOrganizationsRootCredentialsManagementCommandInput
+  | EnableOrganizationsRootSessionsCommandInput
   | GenerateCredentialReportCommandInput
   | GenerateOrganizationsAccessReportCommandInput
   | GenerateServiceLastAccessedDetailsCommandInput
@@ -546,6 +570,7 @@ export type ServiceInputTypes =
   | ListMFADevicesCommandInput
   | ListOpenIDConnectProviderTagsCommandInput
   | ListOpenIDConnectProvidersCommandInput
+  | ListOrganizationsFeaturesCommandInput
   | ListPoliciesCommandInput
   | ListPoliciesGrantingServiceAccessCommandInput
   | ListPolicyTagsCommandInput
@@ -664,7 +689,11 @@ export type ServiceOutputTypes =
   | DetachGroupPolicyCommandOutput
   | DetachRolePolicyCommandOutput
   | DetachUserPolicyCommandOutput
+  | DisableOrganizationsRootCredentialsManagementCommandOutput
+  | DisableOrganizationsRootSessionsCommandOutput
   | EnableMFADeviceCommandOutput
+  | EnableOrganizationsRootCredentialsManagementCommandOutput
+  | EnableOrganizationsRootSessionsCommandOutput
   | GenerateCredentialReportCommandOutput
   | GenerateOrganizationsAccessReportCommandOutput
   | GenerateServiceLastAccessedDetailsCommandOutput
@@ -710,6 +739,7 @@ export type ServiceOutputTypes =
   | ListMFADevicesCommandOutput
   | ListOpenIDConnectProviderTagsCommandOutput
   | ListOpenIDConnectProvidersCommandOutput
+  | ListOrganizationsFeaturesCommandOutput
   | ListPoliciesCommandOutput
   | ListPoliciesGrantingServiceAccessCommandOutput
   | ListPolicyTagsCommandOutput
