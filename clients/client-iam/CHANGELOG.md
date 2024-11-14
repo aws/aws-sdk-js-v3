@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+
+### Features
+
+* **client-iam:** This release includes support for five new APIs and changes to existing APIs that give AWS Organizations customers the ability to use temporary root credentials, targeted to member accounts in the organization. ([c9dfef1](https://github.com/aws/aws-sdk-js-v3/commit/c9dfef1303fe1b1322114786c2179fe64417325a))
+
+
+
+
+
 # [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

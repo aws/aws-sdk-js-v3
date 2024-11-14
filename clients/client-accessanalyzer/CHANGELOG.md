@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+
+### Features
+
+* **client-accessanalyzer:** Expand analyzer configuration capabilities for unused access analyzers. Unused access analyzer configurations now support the ability to exclude accounts and resource tags from analysis providing more granular control over the scope of analysis. ([b2df1e1](https://github.com/aws/aws-sdk-js-v3/commit/b2df1e1941cae46ccde7f41d74229408c4d376af))
+
+
+
+
+
 # [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
 
 

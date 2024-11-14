@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-bucket-endpoint",
-  "version": "3.686.0",
+  "version": "3.692.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-bucket-endpoint",

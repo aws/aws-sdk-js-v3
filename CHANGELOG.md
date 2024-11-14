@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+
+### Features
+
+* **client-accessanalyzer:** Expand analyzer configuration capabilities for unused access analyzers. Unused access analyzer configurations now support the ability to exclude accounts and resource tags from analysis providing more granular control over the scope of analysis. ([b2df1e1](https://github.com/aws/aws-sdk-js-v3/commit/b2df1e1941cae46ccde7f41d74229408c4d376af))
+* **client-cloudcontrol:** Added support for CloudFormation Hooks with Cloud Control API. The GetResourceRequestStatus API response now includes an optional HooksProgressEvent and HooksRequestToken parameter for Hooks Invocation Progress as part of resource operation with Cloud Control. ([e90cde2](https://github.com/aws/aws-sdk-js-v3/commit/e90cde2e7fc8fd2d1251bb56cb333b650fe25fe3))
+* **client-deadline:** Adds support for select GPU accelerated instance types when creating new service-managed fleets. ([ac3309b](https://github.com/aws/aws-sdk-js-v3/commit/ac3309be37e5970c343d280552419d6434bfa735))
+* **client-iam:** This release includes support for five new APIs and changes to existing APIs that give AWS Organizations customers the ability to use temporary root credentials, targeted to member accounts in the organization. ([c9dfef1](https://github.com/aws/aws-sdk-js-v3/commit/c9dfef1303fe1b1322114786c2179fe64417325a))
+* **client-iot-wireless:** New FuotaTask resource type to enable logging for your FUOTA tasks. A ParticipatingGatewaysforMulticast parameter to choose the list of gateways to receive the multicast downlink message and the transmission interval between them. Descriptor field which will be sent to devices during FUOTA transfer. ([69415e0](https://github.com/aws/aws-sdk-js-v3/commit/69415e00920eb5504d81cfef86122f752edb0315))
+* **client-ivs:** IVS now offers customers the ability to stream multitrack video to Channels. ([84b6f4c](https://github.com/aws/aws-sdk-js-v3/commit/84b6f4c2fbf965e2ada84e640e927daa69ee575e))
+* **client-license-manager-user-subscriptions:** New and updated API operations to support License Included User-based Subscription of Microsoft Remote Desktop Services (RDS). ([5c7c349](https://github.com/aws/aws-sdk-js-v3/commit/5c7c3497cab168fa670b45662f8244e9012918d5))
+* **client-partnercentral-selling:** Announcing AWS Partner Central API for Selling: This service launch Introduces new APIs for co-selling opportunity management and related functions. Key features include notifications, a dynamic sandbox for testing, and streamlined validations. ([07b84d2](https://github.com/aws/aws-sdk-js-v3/commit/07b84d2f05076b6cd8870a727753054476a3d79a))
+* **client-quicksight:** This release adds APIs for Custom Permissions management in QuickSight, and APIs to support QuickSight Branding. ([81b1f8c](https://github.com/aws/aws-sdk-js-v3/commit/81b1f8ca7d33fdfeaf816cc2057e2bd571d694fd))
+* **client-redshift:** Adds support for Amazon Redshift S3AccessGrants ([bf85814](https://github.com/aws/aws-sdk-js-v3/commit/bf85814fa46c41d2da9356abf535db9a6089ba1f))
+* **client-s3:** This release updates the ListBuckets API Reference documentation in support of the new 10,000 general purpose bucket default quota on all AWS accounts. To increase your bucket quota from 10,000 to up to 1 million buckets, simply request a quota increase via Service Quotas. ([1e42456](https://github.com/aws/aws-sdk-js-v3/commit/1e424562d50a9d40fafe344274afd089e8acbb45))
+* **client-sagemaker:** Add support for Neuron instance types [ trn1/trn1n/inf2 ] on SageMaker Notebook Instances Platform. ([dd44e8a](https://github.com/aws/aws-sdk-js-v3/commit/dd44e8a79137dab5d71c6ca64f299108d1cecde7))
+* **client-sts:** This release introduces the new API 'AssumeRoot', which returns short-term credentials that you can use to perform privileged tasks. ([5528f54](https://github.com/aws/aws-sdk-js-v3/commit/5528f54c3daa84889cb7e8c5b189c2de7f768bb4))
+* **clients:** update client endpoints as of 2024-11-14 ([87df5bd](https://github.com/aws/aws-sdk-js-v3/commit/87df5bd7a69387400bf97b9f860fd6ca2cf3319f))
+
+
+
+
+
 # [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
 
 

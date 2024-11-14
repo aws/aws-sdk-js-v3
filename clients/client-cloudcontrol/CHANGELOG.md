@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+
+### Features
+
+* **client-cloudcontrol:** Added support for CloudFormation Hooks with Cloud Control API. The GetResourceRequestStatus API response now includes an optional HooksProgressEvent and HooksRequestToken parameter for Hooks Invocation Progress as part of resource operation with Cloud Control. ([e90cde2](https://github.com/aws/aws-sdk-js-v3/commit/e90cde2e7fc8fd2d1251bb56cb333b650fe25fe3))
+
+
+
+
+
 # [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudcontrol

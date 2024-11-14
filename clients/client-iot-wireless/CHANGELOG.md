@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+
+### Features
+
+* **client-iot-wireless:** New FuotaTask resource type to enable logging for your FUOTA tasks. A ParticipatingGatewaysforMulticast parameter to choose the list of gateways to receive the multicast downlink message and the transmission interval between them. Descriptor field which will be sent to devices during FUOTA transfer. ([69415e0](https://github.com/aws/aws-sdk-js-v3/commit/69415e00920eb5504d81cfef86122f752edb0315))
+
+
+
+
+
 # [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-wireless

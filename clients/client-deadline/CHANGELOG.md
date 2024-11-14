@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+
+### Features
+
+* **client-deadline:** Adds support for select GPU accelerated instance types when creating new service-managed fleets. ([ac3309b](https://github.com/aws/aws-sdk-js-v3/commit/ac3309be37e5970c343d280552419d6434bfa735))
+
+
+
+
+
 # [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-deadline

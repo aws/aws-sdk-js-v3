@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+
+### Features
+
+* **client-license-manager-user-subscriptions:** New and updated API operations to support License Included User-based Subscription of Microsoft Remote Desktop Services (RDS). ([5c7c349](https://github.com/aws/aws-sdk-js-v3/commit/5c7c3497cab168fa670b45662f8244e9012918d5))
+
+
+
+
+
 # [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
 
 **Note:** Version bump only for package @aws-sdk/client-license-manager-user-subscriptions
