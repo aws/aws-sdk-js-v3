@@ -28,13 +28,13 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
     "@aws-sdk/util-endpoints": "*",
-    "@smithy/protocol-http": "^4.1.5",
-    "@smithy/types": "^3.6.0",
-    "@smithy/util-endpoints": "^2.1.4",
+    "@smithy/protocol-http": "^4.1.6",
+    "@smithy/types": "^3.7.0",
+    "@smithy/util-endpoints": "^2.1.5",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/middleware-stack": "^3.0.8",
+    "@smithy/middleware-stack": "^3.0.9",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

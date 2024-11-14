@@ -3,7 +3,7 @@
   "version": "3.686.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
-    "@smithy/types": "^3.6.0",
+    "@smithy/types": "^3.7.0",
     "tslib": "^2.6.2"
   },
   "scripts": {
