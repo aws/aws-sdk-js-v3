@@ -13,12 +13,12 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "npx vitest run && yarn test:browser",
-    "test:watch": "npx vitest watch",
-    "test:browser": "npx vitest run -c vitest.config.browser.ts",
-    "test:browser:watch": "npx vitest watch -c vitest.config.browser.ts",
-    "test:integration": "npx vitest run -c vitest.config.integ.ts",
-    "test:integration:watch": "npx vitest watch -c vitest.config.integ.ts"
+    "test": "yarn g:vitest run && yarn test:browser",
+    "test:watch": "yarn g:vitest watch",
+    "test:browser": "yarn g:vitest run -c vitest.config.browser.ts",
+    "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.ts",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
   },
   "keywords": [
     "aws",

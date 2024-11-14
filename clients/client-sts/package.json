@@ -12,8 +12,8 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service --solo sts",
-    "test": "npx vitest run",
-    "test:watch": "npx vitest watch"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

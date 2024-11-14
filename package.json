@@ -23,6 +23,7 @@
     "clear-build-info": "rimraf ./packages/**/*.tsbuildinfo ./clients/**/*.tsbuildinfo  ./lib/**/*.tsbuildinfo ./private/**/*.tsbuildinfo",
     "copy-models": "node ./scripts/copy-models",
     "extract:docs": "node ./scripts/extract-docs/index.js",
+    "g:vitest": "cd $INIT_CWD && vitest",
     "generate-clients": "node ./scripts/generate-clients",
     "generate:clients:generic": "node ./scripts/generate-clients/generic",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",

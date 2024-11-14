@@ -14,10 +14,10 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "npx vitest run",
-    "test:e2e": "npx vitest run -c vitest.config.e2e.ts --mode development",
-    "test:watch": "npx vitest watch",
-    "test:e2e:watch": "npx vitest watch -c vitest.config.e2e.ts"
+    "test": "yarn g:vitest run",
+    "test:e2e": "yarn g:vitest run -c vitest.config.e2e.ts --mode development",
+    "test:watch": "yarn g:vitest watch",
+    "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.ts"
   },
   "engines": {
     "node": ">=16.0.0"

@@ -10,8 +10,8 @@
     "build:types": "exit 0",
     "build:types:downlevel": "exit 0",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "npx vitest run",
-    "test:watch": "npx vitest watch"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",

@@ -125,8 +125,8 @@ const paths = [
       ) {
         console.log("setting unit test to vitest");
 
-        pkgJson.scripts.test = "npx vitest run";
-        pkgJson.scripts["test:watch"] = "npx vitest watch";
+        pkgJson.scripts.test = "yarn g:vitest run";
+        pkgJson.scripts["test:watch"] = "yarn g:vitest watch";
         fs.writeFileSync(
           path.join(folder, `vitest.config.${configExtension}`),
           `import { defineConfig } from "vitest/config";
@@ -142,7 +142,7 @@ const paths = [
   `
         );
       } else if (pkgJson.scripts.test.includes("vitest")) {
-        pkgJson.scripts["test:watch"] ??= "npx vitest watch --passWithNoTests";
+        pkgJson.scripts["test:watch"] ??= "yarn g:vitest watch --passWithNoTests";
       }
     }
 
@@ -154,13 +154,13 @@ const paths = [
       if (pkgJson.scripts[`test:${script}`]) {
         pkgJson.scripts[
           `test:${script}:watch`
-        ] = `npx npx vitest watch -c vitest.config.${testType}.${configExtension}`;
+        ] = `npx yarn g:vitest watch -c vitest.config.${testType}.${configExtension}`;
         if (
           pkgJson.scripts[`test:${script}`].includes("jest") ||
           pkgJson.scripts[`test:${script}`].includes("vitest")
         ) {
           console.log(`setting ${testType} test to vitest`);
-          pkgJson.scripts[`test:${script}`] = `npx vitest run -c vitest.config.${testType}.${configExtension}`;
+          pkgJson.scripts[`test:${script}`] = `yarn g:vitest run -c vitest.config.${testType}.${configExtension}`;
           fs.writeFileSync(
             path.join(folder, `vitest.config.${testType}.${configExtension}`),
             `import { defineConfig } from "vitest/config";
