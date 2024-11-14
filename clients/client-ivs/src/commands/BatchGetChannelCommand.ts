@@ -67,6 +67,12 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * //         passphrase: "STRING_VALUE",
  * //       },
  * //       playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //       multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //         enabled: true || false,
+ * //         policy: "ALLOW" || "REQUIRE",
+ * //         maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //       },
+ * //       containerFormat: "STRING_VALUE",
  * //     },
  * //   ],
  * //   errors: [ // BatchErrors

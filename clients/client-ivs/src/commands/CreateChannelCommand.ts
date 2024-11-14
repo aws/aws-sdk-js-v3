@@ -51,6 +51,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   insecureIngest: true || false,
  *   preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  *   playbackRestrictionPolicyArn: "STRING_VALUE",
+ *   multitrackInputConfiguration: { // MultitrackInputConfiguration
+ *     enabled: true || false,
+ *     policy: "ALLOW" || "REQUIRE",
+ *     maximumResolution: "SD" || "HD" || "FULL_HD",
+ *   },
+ *   containerFormat: "STRING_VALUE",
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
@@ -74,6 +80,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       passphrase: "STRING_VALUE",
  * //     },
  * //     playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //     multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //       enabled: true || false,
+ * //       policy: "ALLOW" || "REQUIRE",
+ * //       maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //     },
+ * //     containerFormat: "STRING_VALUE",
  * //   },
  * //   streamKey: { // StreamKey
  * //     arn: "STRING_VALUE",

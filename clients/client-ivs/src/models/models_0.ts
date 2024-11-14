@@ -44,6 +44,20 @@ export interface BatchGetChannelRequest {
  * @public
  * @enum
  */
+export const ContainerFormat = {
+  FragmentedMP4: "FRAGMENTED_MP4",
+  TS: "TS",
+} as const;
+
+/**
+ * @public
+ */
+export type ContainerFormat = (typeof ContainerFormat)[keyof typeof ContainerFormat];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChannelLatencyMode = {
   LowLatency: "LOW",
   NormalLatency: "NORMAL",
@@ -53,6 +67,60 @@ export const ChannelLatencyMode = {
  * @public
  */
 export type ChannelLatencyMode = (typeof ChannelLatencyMode)[keyof typeof ChannelLatencyMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultitrackMaximumResolution = {
+  FULL_HD: "FULL_HD",
+  HD: "HD",
+  SD: "SD",
+} as const;
+
+/**
+ * @public
+ */
+export type MultitrackMaximumResolution =
+  (typeof MultitrackMaximumResolution)[keyof typeof MultitrackMaximumResolution];
+
+/**
+ * @public
+ * @enum
+ */
+export const MultitrackPolicy = {
+  ALLOW: "ALLOW",
+  REQUIRE: "REQUIRE",
+} as const;
+
+/**
+ * @public
+ */
+export type MultitrackPolicy = (typeof MultitrackPolicy)[keyof typeof MultitrackPolicy];
+
+/**
+ * <p>A complex type that specifies multitrack input configuration.</p>
+ * @public
+ */
+export interface MultitrackInputConfiguration {
+  /**
+   * <p>Indicates whether multitrack input is enabled. Can be set to <code>true</code> only if channel type is <code>STANDARD</code>. Setting <code>enabled</code> to <code>true</code> with any other channel type will cause an exception. If <code>true</code>, then <code>policy</code>, <code>maximumResolution</code>, and <code>containerFormat</code> are required, and <code>containerFormat</code> must be set to <code>FRAGMENTED_MP4</code>. Default: <code>false</code>.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether multitrack input is allowed or required. Required if <code>enabled</code> is <code>true</code>.</p>
+   * @public
+   */
+  policy?: MultitrackPolicy | undefined;
+
+  /**
+   * <p>Maximum resolution for multitrack input. Required if <code>enabled</code> is <code>true</code>.</p>
+   * @public
+   */
+  maximumResolution?: MultitrackMaximumResolution | undefined;
+}
 
 /**
  * @public
@@ -202,6 +270,18 @@ export interface Channel {
    * @public
    */
   playbackRestrictionPolicyArn?: string | undefined;
+
+  /**
+   * <p>Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.</p>
+   * @public
+   */
+  multitrackInputConfiguration?: MultitrackInputConfiguration | undefined;
+
+  /**
+   * <p>Indicates which content-packaging format is used (MPEG-TS or fMP4). If <code>multitrackInputConfiguration</code> is specified and <code>enabled</code> is <code>true</code>, then <code>containerFormat</code> is required and must be set to <code>FRAGMENTED_MP4</code>. Otherwise, <code>containerFormat</code> may be set to <code>TS</code> or <code>FRAGMENTED_MP4</code>. Default: <code>TS</code>.</p>
+   * @public
+   */
+  containerFormat?: ContainerFormat | undefined;
 }
 
 /**
@@ -532,6 +612,18 @@ export interface CreateChannelRequest {
    * @public
    */
   playbackRestrictionPolicyArn?: string | undefined;
+
+  /**
+   * <p>Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.</p>
+   * @public
+   */
+  multitrackInputConfiguration?: MultitrackInputConfiguration | undefined;
+
+  /**
+   * <p>Indicates which content-packaging format is used (MPEG-TS or fMP4). If <code>multitrackInputConfiguration</code> is specified and <code>enabled</code> is <code>true</code>, then <code>containerFormat</code> is required and must be set to <code>FRAGMENTED_MP4</code>. Otherwise, <code>containerFormat</code> may be set to <code>TS</code> or <code>FRAGMENTED_MP4</code>. Default: <code>TS</code>.</p>
+   * @public
+   */
+  containerFormat?: ContainerFormat | undefined;
 }
 
 /**
@@ -877,6 +969,7 @@ export interface ThumbnailConfiguration {
    *       only if <code>recordingMode</code> is <code>INTERVAL</code>. Default: 60.</p>
    *          <p>
    *             <b>Important:</b> For the <code>BASIC</code> channel type,
+   *       or the <code>STANDARD</code> channel type with multitrack input,
    *       setting a value for <code>targetIntervalSeconds</code> does not guarantee that thumbnails are
    *       generated at the specified interval. For thumbnails to be generated at the
    *         <code>targetIntervalSeconds</code> interval, the <code>IDR/Keyframe</code> value for the
@@ -1447,9 +1540,7 @@ export interface GetStreamSessionRequest {
 }
 
 /**
- * <p>Object specifying a stream’s audio configuration, as set up by the broadcaster (usually in
- *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
- *       monitoring stream health.</p>
+ * <p>Object specifying a stream’s audio configuration, as set up by the broadcaster (usually in an encoder). This is part of the <a>IngestConfigurations</a> object and the deprecated <a>IngestConfiguration</a> object. It is used for monitoring stream health.</p>
  * @public
  */
 export interface AudioConfiguration {
@@ -1476,12 +1567,19 @@ export interface AudioConfiguration {
    * @public
    */
   channels?: number | undefined;
+
+  /**
+   * <p>Name of the audio track (if the stream has an audio track). If multitrack is not enabled, this is track0 (the sole track).</p>
+   * @public
+   */
+  track?: string | undefined;
 }
 
 /**
  * <p>Object specifying a stream’s video configuration, as set up by the broadcaster (usually in
- *       an encoder). This is part of the <a>IngestConfiguration</a> object and used for
- *       monitoring stream health.</p>
+ *       an encoder). This is part of the <a>IngestConfigurations</a> object and the deprecated
+ *       <a>IngestConfiguration</a> object. It is used for monitoring stream health.
+ *       </p>
  * @public
  */
 export interface VideoConfiguration {
@@ -1534,11 +1632,31 @@ export interface VideoConfiguration {
    * @public
    */
   videoWidth?: number | undefined;
+
+  /**
+   * <p>Indicates the degree of required decoder performance for a profile. Normally this is set automatically by the encoder. When an AVC codec is used, this field has the same value as <code>avcLevel</code>.</p>
+   * @public
+   */
+  level?: string | undefined;
+
+  /**
+   * <p>Name of the video track. If multitrack is not enabled, this is track0 (the sole track).</p>
+   * @public
+   */
+  track?: string | undefined;
+
+  /**
+   * <p>Indicates to the decoder the requirements for decoding the stream. When an AVC codec is used, this field has the same value as <code>avcProfile</code>.</p>
+   * @public
+   */
+  profile?: string | undefined;
 }
 
 /**
  * <p>Object specifying the ingest configuration set up by the broadcaster, usually in an
  *       encoder.</p>
+ *          <p>
+ *             <b>Note:</b> IngestConfiguration is deprecated in favor of <a>IngestConfigurations</a> but retained to ensure backward compatibility. If multitrack is not enabled, IngestConfiguration and IngestConfigurations contain the same data, namely information about track0 (the sole track). If multitrack is enabled, IngestConfiguration contains data for only the first track (track0) and IngestConfigurations contains data for all tracks.</p>
  * @public
  */
 export interface IngestConfiguration {
@@ -1553,6 +1671,26 @@ export interface IngestConfiguration {
    * @public
    */
   audio?: AudioConfiguration | undefined;
+}
+
+/**
+ * <p>Object specifying the ingest configuration set up by the broadcaster, usually in an encoder. </p>
+ *          <p>
+ *             <b>Note:</b> Use IngestConfigurations instead of <a>IngestConfiguration</a> (which is deprecated). If multitrack is not enabled, IngestConfiguration and IngestConfigurations contain the same data, namely information about track0 (the sole track). If multitrack is enabled, IngestConfiguration contains data for only the first track (track0) and IngestConfigurations contains data for all tracks.</p>
+ * @public
+ */
+export interface IngestConfigurations {
+  /**
+   * <p>Encoder settings for video</p>
+   * @public
+   */
+  videoConfigurations: VideoConfiguration[] | undefined;
+
+  /**
+   * <p>Encoder settings for audio.</p>
+   * @public
+   */
+  audioConfigurations: AudioConfiguration[] | undefined;
 }
 
 /**
@@ -1581,26 +1719,41 @@ export interface StreamEvent {
   eventTime?: Date | undefined;
 
   /**
-   * <p>Provides additional details about the stream event. There are several values; note that
-   * 			the long descriptions are provided in the IVS console but not delivered through
-   * 	  	    the IVS API or EventBridge:</p>
+   * <p>Provides additional details about the stream event. There are several values; the long descriptions are provided in the IVS console but not delivered through the IVS API or EventBridge. Multitrack-related codes are used only for certain Session Ended events.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>StreamTakeoverMediaMismatch</code> — The broadcast client attempted to take over
-   * 			with different media properties (e.g., codec, resolution, or video track type) from the
-   * 			original stream.</p>
+   *                   <code>MultitrackInputNotAllowed</code> — The broadcast client attempted to connect with multitrack input, but multitrack input was not enabled on the channel. Check your broadcast software settings or set <code>MultitrackInputConfiguration.Policy</code> to <code>ALLOW</code> or <code>REQUIRE</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>StreamTakeoverInvalidPriority</code> — The broadcast client attempted a takeover
-   * 			with either a priority integer value equal to or lower than the original stream's value or a value outside
-   * 			the allowed range of 1 to 2,147,483,647.</p>
+   *                   <code>MultitrackInputRequired</code> — The broadcast client attempted to connect with single-track video, but multitrack input is required on this channel. Enable multitrack video in your broadcast software or configure the channel’s <code>MultitrackInputConfiguration.Policy</code> to <code>ALLOW</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>StreamTakeoverLimitBreached</code> — The broadcast client reached the maximum allowed
-   * 			takeover attempts for this stream.</p>
+   *                   <code>InvalidGetClientConfigurationStreamKey</code> — The broadcast client attempted to connect with an invalid, expired, or corrupt stream key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GetClientConfigurationStreamKeyRequired</code> — The broadcast client attempted to stream multitrack video without providing an authenticated stream key from GetClientConfiguration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidMultitrackInputTrackCount</code> — The multitrack input stream contained an invalid number of tracks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidMultitrackInputVideoTrackMediaProperties</code> — The multitrack input stream contained one or more tracks with an invalid codec, resolution, bitrate, or framerate.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StreamTakeoverMediaMismatch</code> — The broadcast client attempted to take over with different media properties (e.g., codec, resolution, or video track type) from the original stream.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StreamTakeoverInvalidPriority</code> — The broadcast client attempted a takeover with either a priority integer value equal to or lower than the original stream's value or a value outside the allowed range of 1 to 2,147,483,647.</p>
+   *                <p>
+   *                   <code>StreamTakeoverLimitBreached</code> — The broadcast client reached the maximum allowed takeover attempts for this stream.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1642,10 +1795,19 @@ export interface StreamSession {
   channel?: Channel | undefined;
 
   /**
-   * <p>The properties of the incoming RTMP stream for the stream.</p>
+   * <p>The properties of the incoming RTMP stream.</p>
+   *          <p>
+   *             <b>Note:</b>
+   *             <code>ingestConfiguration</code> is deprecated in favor of <code>ingestConfigurations</code> but retained to ensure backward compatibility. If multitrack is not enabled, <code>ingestConfiguration</code> and <code>ingestConfigurations</code> contain the same data, namely information about track0 (the sole track). If multitrack is enabled, <code>ingestConfiguration</code> contains data for only the first track (track0) and <code>ingestConfigurations</code> contains data for all tracks.</p>
    * @public
    */
   ingestConfiguration?: IngestConfiguration | undefined;
+
+  /**
+   * <p>The properties of the incoming RTMP stream. If multitrack is enabled, <code>ingestConfigurations</code> contains data for all tracks; otherwise, it contains data only for track0 (the sole track).</p>
+   * @public
+   */
+  ingestConfigurations?: IngestConfigurations | undefined;
 
   /**
    * <p>The properties of recording the live stream.</p>
@@ -2540,6 +2702,18 @@ export interface UpdateChannelRequest {
    * @public
    */
   playbackRestrictionPolicyArn?: string | undefined;
+
+  /**
+   * <p>Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.</p>
+   * @public
+   */
+  multitrackInputConfiguration?: MultitrackInputConfiguration | undefined;
+
+  /**
+   * <p>Indicates which content-packaging format is used (MPEG-TS or fMP4). If <code>multitrackInputConfiguration</code> is specified and <code>enabled</code> is <code>true</code>, then <code>containerFormat</code> is required and must be set to <code>FRAGMENTED_MP4</code>. Otherwise, <code>containerFormat</code> may be set to <code>TS</code> or <code>FRAGMENTED_MP4</code>. Default: <code>TS</code>.</p>
+   * @public
+   */
+  containerFormat?: ContainerFormat | undefined;
 }
 
 /**

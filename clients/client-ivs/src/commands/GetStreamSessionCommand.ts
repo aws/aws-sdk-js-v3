@@ -69,6 +69,12 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //         passphrase: "STRING_VALUE",
  * //       },
  * //       playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //       multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //         enabled: true || false,
+ * //         policy: "ALLOW" || "REQUIRE",
+ * //         maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //       },
+ * //       containerFormat: "STRING_VALUE",
  * //     },
  * //     ingestConfiguration: { // IngestConfiguration
  * //       video: { // VideoConfiguration
@@ -80,13 +86,43 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //         targetFramerate: Number("long"),
  * //         videoHeight: Number("long"),
  * //         videoWidth: Number("long"),
+ * //         level: "STRING_VALUE",
+ * //         track: "STRING_VALUE",
+ * //         profile: "STRING_VALUE",
  * //       },
  * //       audio: { // AudioConfiguration
  * //         codec: "STRING_VALUE",
  * //         targetBitrate: Number("long"),
  * //         sampleRate: Number("long"),
  * //         channels: Number("long"),
+ * //         track: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     ingestConfigurations: { // IngestConfigurations
+ * //       videoConfigurations: [ // VideoConfigurationList // required
+ * //         {
+ * //           avcProfile: "STRING_VALUE",
+ * //           avcLevel: "STRING_VALUE",
+ * //           codec: "STRING_VALUE",
+ * //           encoder: "STRING_VALUE",
+ * //           targetBitrate: Number("long"),
+ * //           targetFramerate: Number("long"),
+ * //           videoHeight: Number("long"),
+ * //           videoWidth: Number("long"),
+ * //           level: "STRING_VALUE",
+ * //           track: "STRING_VALUE",
+ * //           profile: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       audioConfigurations: [ // AudioConfigurationList // required
+ * //         {
+ * //           codec: "STRING_VALUE",
+ * //           targetBitrate: Number("long"),
+ * //           sampleRate: Number("long"),
+ * //           channels: Number("long"),
+ * //           track: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     recordingConfiguration: { // RecordingConfiguration
  * //       arn: "STRING_VALUE", // required

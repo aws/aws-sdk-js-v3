@@ -113,6 +113,7 @@ import {
   ConflictException,
   DestinationConfiguration,
   InternalServerException,
+  MultitrackInputConfiguration,
   PendingVerification,
   RenditionConfiguration,
   RenditionConfigurationRendition,
@@ -213,8 +214,10 @@ export const se_CreateChannelCommand = async (
   body = JSON.stringify(
     take(input, {
       authorized: [],
+      containerFormat: [],
       insecureIngest: [],
       latencyMode: [],
+      multitrackInputConfiguration: (_) => _json(_),
       name: [],
       playbackRestrictionPolicyArn: [],
       preset: [],
@@ -903,8 +906,10 @@ export const se_UpdateChannelCommand = async (
     take(input, {
       arn: [],
       authorized: [],
+      containerFormat: [],
       insecureIngest: [],
       latencyMode: [],
+      multitrackInputConfiguration: (_) => _json(_),
       name: [],
       playbackRestrictionPolicyArn: [],
       preset: [],
@@ -1891,6 +1896,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DestinationConfiguration omitted.
 
+// se_MultitrackInputConfiguration omitted.
+
 // se_PlaybackRestrictionPolicyAllowedCountryList omitted.
 
 // se_PlaybackRestrictionPolicyAllowedOriginList omitted.
@@ -1913,6 +1920,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AudioConfiguration omitted.
 
+// de_AudioConfigurationList omitted.
+
 // de_BatchError omitted.
 
 // de_BatchErrors omitted.
@@ -1932,6 +1941,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_DestinationConfiguration omitted.
 
 // de_IngestConfiguration omitted.
+
+// de_IngestConfigurations omitted.
+
+// de_MultitrackInputConfiguration omitted.
 
 // de_PlaybackKeyPair omitted.
 
@@ -2030,6 +2043,7 @@ const de_StreamSession = (output: any, context: __SerdeContext): StreamSession =
     channel: _json,
     endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     ingestConfiguration: _json,
+    ingestConfigurations: _json,
     recordingConfiguration: _json,
     startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     streamId: __expectString,
@@ -2082,6 +2096,8 @@ const de_StreamSummary = (output: any, context: __SerdeContext): StreamSummary =
 // de_ThumbnailConfigurationStorageList omitted.
 
 // de_VideoConfiguration omitted.
+
+// de_VideoConfigurationList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

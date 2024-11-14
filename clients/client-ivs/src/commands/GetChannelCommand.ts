@@ -60,6 +60,12 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //       passphrase: "STRING_VALUE",
  * //     },
  * //     playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //     multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //       enabled: true || false,
+ * //       policy: "ALLOW" || "REQUIRE",
+ * //       maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //     },
+ * //     containerFormat: "STRING_VALUE",
  * //   },
  * // };
  *
