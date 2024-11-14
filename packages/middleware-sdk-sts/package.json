@@ -10,8 +10,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "exit 0",
-    "test:integration": "vitest run -c vitest.config.integ.ts",
-    "test:integration:watch": "vitest watch -c vitest.config.integ.ts"
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

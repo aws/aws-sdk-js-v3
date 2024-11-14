@@ -13,23 +13,23 @@ sync:
 	make -f Makefile.private.mk sync
 
 test-unit: build-s3-browser-bundle
-	npx vitest run -c vitest.config.ts
-	npx vitest run -c vitest.config.browser.ts
-	npx vitest run -c vitest.config.clients.unit.ts
+	yarn g:vitest run -c vitest.config.ts
+	yarn g:vitest run -c vitest.config.browser.ts
+	yarn g:vitest run -c vitest.config.clients.unit.ts
 	npx jest -c jest.config.js
 
 test-protocols: build-s3-browser-bundle
-	npx vitest run -c vitest.config.protocols.integ.ts
+	yarn g:vitest run -c vitest.config.protocols.integ.ts
 
 test-integration: build-s3-browser-bundle
 	rm -rf ./clients/client-sso/node_modules/\@smithy # todo(yarn) incompatible redundant nesting.
-	npx vitest run -c vitest.config.integ.ts
+	yarn g:vitest run -c vitest.config.integ.ts
 	npx jest -c jest.config.integ.js
 	make test-protocols;
 
 test-e2e: build-s3-browser-bundle
-	npx vitest run -c vitest.config.e2e.ts --retry=4
-	npx vitest run -c vitest.config.browser.e2e.ts --retry=4
+	yarn g:vitest run -c vitest.config.e2e.ts --retry=4
+	yarn g:vitest run -c vitest.config.browser.e2e.ts --retry=4
 
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
