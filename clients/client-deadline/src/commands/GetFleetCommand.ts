@@ -112,6 +112,18 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //           iops: Number("int"),
  * //           throughputMiB: Number("int"),
  * //         },
+ * //         acceleratorCapabilities: { // AcceleratorCapabilities
+ * //           selections: [ // AcceleratorSelections // required
+ * //             { // AcceleratorSelection
+ * //               name: "t4" || "a10g" || "l4" || "l40s", // required
+ * //               runtime: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           count: {
+ * //             min: Number("int"), // required
+ * //             max: Number("int"),
+ * //           },
+ * //         },
  * //         allowedInstanceTypes: [ // InstanceTypes
  * //           "STRING_VALUE",
  * //         ],

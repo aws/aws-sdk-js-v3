@@ -271,7 +271,9 @@ import {
 } from "../commands/UpdateWorkerScheduleCommand";
 import { DeadlineServiceException as __BaseException } from "../models/DeadlineServiceException";
 import {
+  AcceleratorCapabilities,
   AcceleratorCountRange,
+  AcceleratorSelection,
   AcceleratorTotalMemoryMiBRange,
   AcceleratorType,
   AccessDeniedException,
@@ -311,7 +313,6 @@ import {
   ManifestProperties,
   MemoryMiBRange,
   PosixUser,
-  QueueSummary,
   ResourceNotFoundException,
   ResponseBudgetAction,
   S3Location,
@@ -346,6 +347,7 @@ import {
   ParameterFilterExpression,
   ParameterSortExpression,
   QueueFleetAssociationSummary,
+  QueueSummary,
   SearchFilterExpression,
   SearchGroupedFilterExpressions,
   SearchSortExpression,
@@ -5888,7 +5890,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AcceleratorCapabilities omitted.
+
 // se_AcceleratorCountRange omitted.
+
+// se_AcceleratorSelection omitted.
+
+// se_AcceleratorSelections omitted.
 
 // se_AcceleratorTotalMemoryMiBRange omitted.
 
@@ -6167,6 +6175,7 @@ const se_ServiceManagedEc2InstanceCapabilities = (
   context: __SerdeContext
 ): any => {
   return take(input, {
+    acceleratorCapabilities: _json,
     allowedInstanceTypes: _json,
     cpuArchitectureType: [],
     customAmounts: (_) => se_CustomFleetAmountCapabilities(_, context),
@@ -6266,7 +6275,13 @@ const se_WorkerCapabilities = (input: WorkerCapabilities, context: __SerdeContex
   });
 };
 
+// de_AcceleratorCapabilities omitted.
+
 // de_AcceleratorCountRange omitted.
+
+// de_AcceleratorSelection omitted.
+
+// de_AcceleratorSelections omitted.
 
 // de_AcceleratorTotalMemoryMiBRange omitted.
 
@@ -6938,6 +6953,7 @@ const de_ServiceManagedEc2InstanceCapabilities = (
   context: __SerdeContext
 ): ServiceManagedEc2InstanceCapabilities => {
   return take(output, {
+    acceleratorCapabilities: _json,
     allowedInstanceTypes: _json,
     cpuArchitectureType: __expectString,
     customAmounts: (_: any) => de_CustomFleetAmountCapabilities(_, context),

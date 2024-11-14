@@ -11,16 +11,72 @@ import { DeadlineServiceException as __BaseException } from "./DeadlineServiceEx
  */
 export interface AcceleratorCountRange {
   /**
-   * <p>The minimum GPU for the accelerator.</p>
+   * <p>The minimum number of GPUs for the accelerator. If you set the value to 0, a worker will
+   *          still have 1 GPU.</p>
    * @public
    */
   min: number | undefined;
 
   /**
-   * <p>The maximum GPU for the accelerator.</p>
+   * <p>The maximum number of GPUs for the accelerator.</p>
    * @public
    */
   max?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AcceleratorName = {
+  A10G: "a10g",
+  L4: "l4",
+  L40S: "l40s",
+  T4: "t4",
+} as const;
+
+/**
+ * @public
+ */
+export type AcceleratorName = (typeof AcceleratorName)[keyof typeof AcceleratorName];
+
+/**
+ * <p>Values that you can use to select a particular Amazon EC2 instance type. </p>
+ * @public
+ */
+export interface AcceleratorSelection {
+  /**
+   * <p>The name of the GPU accelerator.</p>
+   * @public
+   */
+  name: AcceleratorName | undefined;
+
+  /**
+   * <p>The driver version that the GPU accelerator uses. </p>
+   * @public
+   */
+  runtime?: string | undefined;
+}
+
+/**
+ * <p>Provides information about the GPU accelerators and drivers for the instance types in a
+ *          fleet. If you include the <code>acceleratorCapabilities</code> property in the <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ServiceManagedEc2InstanceCapabilities">ServiceManagedEc2InstanceCapabilities</a> object, all of the Amazon EC2
+ *          instances will have at least one accelerator. </p>
+ * @public
+ */
+export interface AcceleratorCapabilities {
+  /**
+   * <p>A list of objects that contain the GPU name of the accelerator and driver for the
+   *          instance types that support the accelerator.</p>
+   * @public
+   */
+  selections: AcceleratorSelection[] | undefined;
+
+  /**
+   * <p>The number of GPUs on each worker. The default is 1.</p>
+   * @public
+   */
+  count?: AcceleratorCountRange | undefined;
 }
 
 /**
@@ -3188,6 +3244,14 @@ export interface ServiceManagedEc2InstanceCapabilities {
    * @public
    */
   rootEbsVolume?: Ec2EbsVolume | undefined;
+
+  /**
+   * <p>The GPU accelerator capabilities required for the Amazon EC2 instances. If you
+   *          include the <code>acceleratorCapabilities</code> property in the <a href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_ServiceManagedEc2InstanceCapabilities">ServiceManagedEc2InstanceCapabilities</a> object, all of the Amazon EC2
+   *          instances will have at least one accelerator. </p>
+   * @public
+   */
+  acceleratorCapabilities?: AcceleratorCapabilities | undefined;
 
   /**
    * <p>The allowable Amazon EC2 instance types.</p>
@@ -8705,142 +8769,6 @@ export interface QueueMember {
    * @public
    */
   membershipLevel: MembershipLevel | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQueueMembersResponse {
-  /**
-   * <p>The members on the list.</p>
-   * @public
-   */
-  members: QueueMember[] | undefined;
-
-  /**
-   * <p>If Deadline Cloud returns <code>nextToken</code>, then there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page, call the operation again using the returned token. Keep all other arguments unchanged. If no results remain, then <code>nextToken</code> is set to <code>null</code>. Each pagination token expires after 24 hours. If you provide a token that isn't valid, then you receive an HTTP 400 <code>ValidationException</code> error.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListQueuesRequest {
-  /**
-   * <p>The farm ID of the queue.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The principal IDs to include in the list of queues.</p>
-   * @public
-   */
-  principalId?: string | undefined;
-
-  /**
-   * <p>The status of the queues listed.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ACTIVE</code>–The queues are active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING</code>–The queues are scheduling.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SCHEDULING_BLOCKED</code>–The queue scheduling is blocked for these
-   *                queues.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  status?: QueueStatus | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <code>null</code> to start from the beginning.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. Use this parameter with <code>NextToken</code> to get results as a set of sequential pages.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The details of a queue summary.</p>
- * @public
- */
-export interface QueueSummary {
-  /**
-   * <p>The farm ID.</p>
-   * @public
-   */
-  farmId: string | undefined;
-
-  /**
-   * <p>The queue ID.</p>
-   * @public
-   */
-  queueId: string | undefined;
-
-  /**
-   * <p>The display name of the queue summary to update.</p>
-   *          <important>
-   *             <p>This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.</p>
-   *          </important>
-   * @public
-   */
-  displayName: string | undefined;
-
-  /**
-   * <p>That status of the queue.</p>
-   * @public
-   */
-  status: QueueStatus | undefined;
-
-  /**
-   * <p>The default action taken on a queue summary if a budget wasn't configured.</p>
-   * @public
-   */
-  defaultBudgetAction: DefaultQueueBudgetAction | undefined;
-
-  /**
-   * <p>The reason the queue is blocked, if applicable.</p>
-   * @public
-   */
-  blockedReason?: QueueBlockedReason | undefined;
-
-  /**
-   * <p>The date and time the resource was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The user or system that created this resource.</p>
-   * @public
-   */
-  createdBy: string | undefined;
-
-  /**
-   * <p>The date and time the resource was updated.</p>
-   * @public
-   */
-  updatedAt?: Date | undefined;
-
-  /**
-   * <p>The user or system that updated this resource.</p>
-   * @public
-   */
-  updatedBy?: string | undefined;
 }
 
 /**
