@@ -9,7 +9,7 @@ import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   ListNetworkAnalyzerConfigurationsRequest,
   ListNetworkAnalyzerConfigurationsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_ListNetworkAnalyzerConfigurationsCommand,
   se_ListNetworkAnalyzerConfigurationsCommand,

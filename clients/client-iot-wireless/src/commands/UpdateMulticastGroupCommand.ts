@@ -42,6 +42,12 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  *   LoRaWAN: { // LoRaWANMulticast
  *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
  *     DlClass: "ClassB" || "ClassC",
+ *     ParticipatingGateways: { // ParticipatingGatewaysMulticast
+ *       GatewayList: [ // GatewayListMulticast
+ *         "STRING_VALUE",
+ *       ],
+ *       TransmissionInterval: Number("int"),
+ *     },
  *   },
  * };
  * const command = new UpdateMulticastGroupCommand(input);

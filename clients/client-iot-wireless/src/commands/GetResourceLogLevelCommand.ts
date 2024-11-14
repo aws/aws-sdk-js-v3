@@ -29,7 +29,7 @@ export interface GetResourceLogLevelCommandOutput extends GetResourceLogLevelRes
 
 /**
  * <p>Fetches the log-level override, if any, for a given resource-ID and resource-type. It
- *             can be used for a wireless device or a wireless gateway.</p>
+ *             can be used for a wireless device, wireless gateway or fuota task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

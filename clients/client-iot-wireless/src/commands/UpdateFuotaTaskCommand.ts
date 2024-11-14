@@ -47,6 +47,7 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  *   RedundancyPercent: Number("int"),
  *   FragmentSizeBytes: Number("int"),
  *   FragmentIntervalMS: Number("int"),
+ *   Descriptor: "STRING_VALUE",
  * };
  * const command = new UpdateFuotaTaskCommand(input);
  * const response = await client.send(command);

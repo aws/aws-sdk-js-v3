@@ -10,7 +10,7 @@ import {
   ListPartnerAccountsRequest,
   ListPartnerAccountsResponse,
   ListPartnerAccountsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListPartnerAccountsCommand, se_ListPartnerAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**

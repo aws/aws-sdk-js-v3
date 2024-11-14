@@ -1738,6 +1738,13 @@ export interface CreateFuotaTaskRequest {
    * @public
    */
   FragmentIntervalMS?: number | undefined;
+
+  /**
+   * <p>The Descriptor specifies some metadata about the File being transferred using FUOTA e.g. the software version.
+   *             It is sent transparently to the device. It is a binary field encoded in base64</p>
+   * @public
+   */
+  Descriptor?: string | undefined;
 }
 
 /**
@@ -1772,6 +1779,29 @@ export const DlClass = {
 export type DlClass = (typeof DlClass)[keyof typeof DlClass];
 
 /**
+ * <p>Specify the list of gateways to which you want to send the multicast downlink messages.
+ *             The multicast message will be sent to each gateway in the sequence provided in the list.</p>
+ * @public
+ */
+export interface ParticipatingGatewaysMulticast {
+  /**
+   * <p>The list of gateways that you want to use for sending the multicast downlink. Each downlink will be
+   *             sent to all the gateways in the list with transmission interval between them. If list is empty the gateway
+   *             list will be dynamically selected similar to the case of no ParticipatingGateways
+   *         </p>
+   * @public
+   */
+  GatewayList?: string[] | undefined;
+
+  /**
+   * <p>The duration of time for which AWS IoT Core for LoRaWAN will wait before transmitting
+   *             the multicast payload to the next gateway in the list.</p>
+   * @public
+   */
+  TransmissionInterval?: number | undefined;
+}
+
+/**
  * <p>The LoRaWAN information that is to be used with the multicast group.</p>
  * @public
  */
@@ -1787,6 +1817,13 @@ export interface LoRaWANMulticast {
    * @public
    */
   DlClass?: DlClass | undefined;
+
+  /**
+   * <p>Specify the list of gateways to which you want to send the multicast downlink messages.
+   *             The multicast message will be sent to each gateway in the sequence provided in the list.</p>
+   * @public
+   */
+  ParticipatingGateways?: ParticipatingGatewaysMulticast | undefined;
 }
 
 /**
@@ -3536,6 +3573,7 @@ export interface EventNotificationItemConfigurations {
  */
 export const IdentifierType = {
   DevEui: "DevEui",
+  FuotaTaskId: "FuotaTaskId",
   GatewayEui: "GatewayEui",
   PartnerAccountId: "PartnerAccountId",
   WirelessDeviceId: "WirelessDeviceId",
@@ -3596,6 +3634,7 @@ export interface EventConfigurationItem {
  * @enum
  */
 export const EventNotificationResourceType = {
+  FuotaTask: "FuotaTask",
   SidewalkAccount: "SidewalkAccount",
   WirelessDevice: "WirelessDevice",
   WirelessGateway: "WirelessGateway",
@@ -3653,6 +3692,81 @@ export interface FuotaTask {
    * @public
    */
   Name?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FuotaTaskEvent = {
+  Fuota: "Fuota",
+} as const;
+
+/**
+ * @public
+ */
+export type FuotaTaskEvent = (typeof FuotaTaskEvent)[keyof typeof FuotaTaskEvent];
+
+/**
+ * <p>The log options for a FUOTA task event and can be used to set log levels for a
+ *             specific fuota task event.</p>
+ *          <p>For a LoRaWAN FuotaTask type, possible event for a log message is <code>Fuota</code>.</p>
+ * @public
+ */
+export interface FuotaTaskEventLogOption {
+  /**
+   * <p>The event for a log message, if the log message is tied to a fuota task.</p>
+   * @public
+   */
+  Event: FuotaTaskEvent | undefined;
+
+  /**
+   * <p>The log level for a log message. The log levels can be disabled, or set to
+   *                 <code>ERROR</code> to display less verbose logs containing only error information,
+   *             or to <code>INFO</code> for more detailed logs.</p>
+   * @public
+   */
+  LogLevel: LogLevel | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FuotaTaskType = {
+  LoRaWAN: "LoRaWAN",
+} as const;
+
+/**
+ * @public
+ */
+export type FuotaTaskType = (typeof FuotaTaskType)[keyof typeof FuotaTaskType];
+
+/**
+ * <p>The log options for fuota tasks and can be used to set log levels for a specific
+ *             type of fuota task.</p>
+ * @public
+ */
+export interface FuotaTaskLogOption {
+  /**
+   * <p>The fuota task type.</p>
+   * @public
+   */
+  Type: FuotaTaskType | undefined;
+
+  /**
+   * <p>The log level for a log message. The log levels can be disabled, or set to
+   *                 <code>ERROR</code> to display less verbose logs containing only error information,
+   *             or to <code>INFO</code> for more detailed logs.</p>
+   * @public
+   */
+  LogLevel: LogLevel | undefined;
+
+  /**
+   * <p>The list of FUOTA task event log options.</p>
+   * @public
+   */
+  Events?: FuotaTaskEventLogOption[] | undefined;
 }
 
 /**
@@ -4003,6 +4117,13 @@ export interface GetFuotaTaskResponse {
    * @public
    */
   FragmentIntervalMS?: number | undefined;
+
+  /**
+   * <p>The Descriptor specifies some metadata about the File being transferred using FUOTA e.g. the software version.
+   *             It is sent transparently to the device. It is a binary field encoded in base64</p>
+   * @public
+   */
+  Descriptor?: string | undefined;
 }
 
 /**
@@ -4179,6 +4300,12 @@ export interface GetLogLevelsByResourceTypesResponse {
    * @public
    */
   WirelessDeviceLogOptions?: WirelessDeviceLogOption[] | undefined;
+
+  /**
+   * <p>The list of fuota task log options.</p>
+   * @public
+   */
+  FuotaTaskLogOptions?: FuotaTaskLogOption[] | undefined;
 }
 
 /**
@@ -4506,6 +4633,13 @@ export interface LoRaWANMulticastGet {
    * @public
    */
   NumberOfDevicesInGroup?: number | undefined;
+
+  /**
+   * <p>Specify the list of gateways to which you want to send the multicast downlink messages.
+   *             The multicast message will be sent to each gateway in the sequence provided in the list.</p>
+   * @public
+   */
+  ParticipatingGateways?: ParticipatingGatewaysMulticast | undefined;
 }
 
 /**
@@ -5148,8 +5282,8 @@ export interface GetResourceLogLevelRequest {
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code> or
-   *                 <code>WirelessGateway</code>.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code>,
+   *                 <code>WirelessGateway</code> or <code>FuotaTask</code>.</p>
    * @public
    */
   ResourceType: string | undefined;
@@ -6566,96 +6700,6 @@ export interface ListMulticastGroupsByFuotaTaskResponse {
 }
 
 /**
- * @public
- */
-export interface ListNetworkAnalyzerConfigurationsRequest {
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Network analyzer configurations.</p>
- * @public
- */
-export interface NetworkAnalyzerConfigurations {
-  /**
-   * <p>The Amazon Resource Name of the new resource.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Name of the network analyzer configuration.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListNetworkAnalyzerConfigurationsResponse {
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The list of network analyzer configurations.</p>
-   * @public
-   */
-  NetworkAnalyzerConfigurationList?: NetworkAnalyzerConfigurations[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPartnerAccountsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
-   *             response; otherwise <b>null</b> to receive the first set of
-   *             results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPartnerAccountsResponse {
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Sidewalk account credentials.</p>
-   * @public
-   */
-  Sidewalk?: SidewalkAccountInfoWithFingerprint[] | undefined;
-}
-
-/**
  * @internal
  */
 export const SidewalkAccountInfoFilterSensitiveLog = (obj: SidewalkAccountInfo): any => ({
@@ -6713,14 +6757,4 @@ export const SidewalkAccountInfoWithFingerprintFilterSensitiveLog = (obj: Sidewa
 export const GetPartnerAccountResponseFilterSensitiveLog = (obj: GetPartnerAccountResponse): any => ({
   ...obj,
   ...(obj.Sidewalk && { Sidewalk: SidewalkAccountInfoWithFingerprintFilterSensitiveLog(obj.Sidewalk) }),
-});
-
-/**
- * @internal
- */
-export const ListPartnerAccountsResponseFilterSensitiveLog = (obj: ListPartnerAccountsResponse): any => ({
-  ...obj,
-  ...(obj.Sidewalk && {
-    Sidewalk: obj.Sidewalk.map((item) => SidewalkAccountInfoWithFingerprintFilterSensitiveLog(item)),
-  }),
 });

@@ -56,6 +56,7 @@ export interface GetFuotaTaskCommandOutput extends GetFuotaTaskResponse, __Metad
  * //   RedundancyPercent: Number("int"),
  * //   FragmentSizeBytes: Number("int"),
  * //   FragmentIntervalMS: Number("int"),
+ * //   Descriptor: "STRING_VALUE",
  * // };
  *
  * ```

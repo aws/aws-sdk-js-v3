@@ -421,6 +421,8 @@ import {
   DeviceRegistrationStateResourceTypeEventConfiguration,
   Dimension,
   FPorts,
+  FuotaTaskEventLogOption,
+  FuotaTaskLogOption,
   GatewayListItem,
   GlobalIdentity,
   Gnss,
@@ -460,6 +462,7 @@ import {
   OtaaV1_0_x,
   OtaaV1_1,
   ParticipatingGateways,
+  ParticipatingGatewaysMulticast,
   Positioning,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
@@ -761,6 +764,7 @@ export const se_CreateFuotaTaskCommand = async (
     take(input, {
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
+      Descriptor: [],
       FirmwareUpdateImage: [],
       FirmwareUpdateRole: [],
       FragmentIntervalMS: [],
@@ -2528,6 +2532,7 @@ export const se_UpdateFuotaTaskCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
+      Descriptor: [],
       FirmwareUpdateImage: [],
       FirmwareUpdateRole: [],
       FragmentIntervalMS: [],
@@ -2557,6 +2562,7 @@ export const se_UpdateLogLevelsByResourceTypesCommand = async (
   body = JSON.stringify(
     take(input, {
       DefaultLogLevel: [],
+      FuotaTaskLogOptions: (_) => _json(_),
       WirelessDeviceLogOptions: (_) => _json(_),
       WirelessGatewayLogOptions: (_) => _json(_),
     })
@@ -3625,6 +3631,7 @@ export const de_GetFuotaTaskCommand = async (
     Arn: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    Descriptor: __expectString,
     FirmwareUpdateImage: __expectString,
     FirmwareUpdateRole: __expectString,
     FragmentIntervalMS: __expectInt32,
@@ -3655,6 +3662,7 @@ export const de_GetLogLevelsByResourceTypesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DefaultLogLevel: __expectString,
+    FuotaTaskLogOptions: _json,
     WirelessDeviceLogOptions: _json,
     WirelessGatewayLogOptions: _json,
   });
@@ -5359,9 +5367,19 @@ const se_CellTowers = (input: CellTowers, context: __SerdeContext): any => {
 
 // se_FPorts omitted.
 
+// se_FuotaTaskEventLogOption omitted.
+
+// se_FuotaTaskEventLogOptionList omitted.
+
+// se_FuotaTaskLogOption omitted.
+
+// se_FuotaTaskLogOptionList omitted.
+
 // se_GatewayList omitted.
 
 // se_GatewayListItem omitted.
+
+// se_GatewayListMulticast omitted.
 
 // se_GlobalIdentity omitted.
 
@@ -5534,6 +5552,8 @@ const se_LteObj = (input: LteObj, context: __SerdeContext): any => {
 // se_OtaaV1_1 omitted.
 
 // se_ParticipatingGateways omitted.
+
+// se_ParticipatingGatewaysMulticast omitted.
 
 /**
  * serializeAws_restJson1PositionCoordinate
@@ -5737,11 +5757,21 @@ const de_Accuracy = (output: any, context: __SerdeContext): Accuracy => {
 
 // de_FuotaTask omitted.
 
+// de_FuotaTaskEventLogOption omitted.
+
+// de_FuotaTaskEventLogOptionList omitted.
+
 // de_FuotaTaskList omitted.
+
+// de_FuotaTaskLogOption omitted.
+
+// de_FuotaTaskLogOptionList omitted.
 
 // de_GatewayList omitted.
 
 // de_GatewayListItem omitted.
+
+// de_GatewayListMulticast omitted.
 
 /**
  * deserializeAws_restJson1ImportedSidewalkDevice
@@ -5977,6 +6007,8 @@ const de_MetricQueryValues = (output: any, context: __SerdeContext): MetricQuery
 // de_OtaaV1_1 omitted.
 
 // de_ParticipatingGateways omitted.
+
+// de_ParticipatingGatewaysMulticast omitted.
 
 // de_PositionConfigurationItem omitted.
 

@@ -42,7 +42,7 @@ export interface UpdateResourceEventConfigurationCommandOutput
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateResourceEventConfigurationRequest
  *   Identifier: "STRING_VALUE", // required
- *   IdentifierType: "PartnerAccountId" || "DevEui" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId", // required
+ *   IdentifierType: "PartnerAccountId" || "DevEui" || "FuotaTaskId" || "GatewayEui" || "WirelessDeviceId" || "WirelessGatewayId", // required
  *   PartnerType: "Sidewalk",
  *   DeviceRegistrationState: { // DeviceRegistrationStateEventConfiguration
  *     Sidewalk: { // SidewalkEventNotificationConfigurations

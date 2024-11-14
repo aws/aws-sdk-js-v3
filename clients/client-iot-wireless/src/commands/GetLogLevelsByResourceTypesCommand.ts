@@ -71,6 +71,18 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * //       ],
  * //     },
  * //   ],
+ * //   FuotaTaskLogOptions: [ // FuotaTaskLogOptionList
+ * //     { // FuotaTaskLogOption
+ * //       Type: "LoRaWAN", // required
+ * //       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //       Events: [ // FuotaTaskEventLogOptionList
+ * //         { // FuotaTaskEventLogOption
+ * //           Event: "Fuota", // required
+ * //           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```

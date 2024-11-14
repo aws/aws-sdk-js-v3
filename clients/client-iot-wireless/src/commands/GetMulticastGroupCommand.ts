@@ -51,6 +51,12 @@ export interface GetMulticastGroupCommandOutput extends GetMulticastGroupRespons
  * //     DlClass: "ClassB" || "ClassC",
  * //     NumberOfDevicesRequested: Number("int"),
  * //     NumberOfDevicesInGroup: Number("int"),
+ * //     ParticipatingGateways: { // ParticipatingGatewaysMulticast
+ * //       GatewayList: [ // GatewayListMulticast
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TransmissionInterval: Number("int"),
+ * //     },
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"),
  * // };

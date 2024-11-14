@@ -53,6 +53,7 @@ export interface CreateFuotaTaskCommandOutput extends CreateFuotaTaskResponse, _
  *   RedundancyPercent: Number("int"),
  *   FragmentSizeBytes: Number("int"),
  *   FragmentIntervalMS: Number("int"),
+ *   Descriptor: "STRING_VALUE",
  * };
  * const command = new CreateFuotaTaskCommand(input);
  * const response = await client.send(command);

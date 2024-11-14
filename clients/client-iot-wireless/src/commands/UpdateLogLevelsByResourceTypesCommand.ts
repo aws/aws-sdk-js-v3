@@ -44,6 +44,18 @@ export interface UpdateLogLevelsByResourceTypesCommandOutput
  * const client = new IoTWirelessClient(config);
  * const input = { // UpdateLogLevelsByResourceTypesRequest
  *   DefaultLogLevel: "INFO" || "ERROR" || "DISABLED",
+ *   FuotaTaskLogOptions: [ // FuotaTaskLogOptionList
+ *     { // FuotaTaskLogOption
+ *       Type: "LoRaWAN", // required
+ *       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *       Events: [ // FuotaTaskEventLogOptionList
+ *         { // FuotaTaskEventLogOption
+ *           Event: "Fuota", // required
+ *           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ *         },
+ *       ],
+ *     },
+ *   ],
  *   WirelessDeviceLogOptions: [ // WirelessDeviceLogOptionList
  *     { // WirelessDeviceLogOption
  *       Type: "Sidewalk" || "LoRaWAN", // required

@@ -14,6 +14,7 @@ import {
   EventNotificationPartnerType,
   ExpressionType,
   FuotaDeviceStatus,
+  FuotaTaskLogOption,
   IdentifierType,
   ImportTaskStatus,
   JoinEventConfiguration,
@@ -36,6 +37,8 @@ import {
   PositionSolverDetails,
   ProximityEventConfiguration,
   ProximityResourceTypeEventConfiguration,
+  SidewalkAccountInfoWithFingerprint,
+  SidewalkAccountInfoWithFingerprintFilterSensitiveLog,
   SidewalkGetStartImportInfo,
   SummaryMetricConfiguration,
   Tag,
@@ -45,6 +48,96 @@ import {
   WirelessDeviceType,
   WirelessGatewayLogOption,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListNetworkAnalyzerConfigurationsRequest {
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Network analyzer configurations.</p>
+ * @public
+ */
+export interface NetworkAnalyzerConfigurations {
+  /**
+   * <p>The Amazon Resource Name of the new resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Name of the network analyzer configuration.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNetworkAnalyzerConfigurationsResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The list of network analyzer configurations.</p>
+   * @public
+   */
+  NetworkAnalyzerConfigurationList?: NetworkAnalyzerConfigurations[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPartnerAccountsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <b>null</b> to receive the first set of
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPartnerAccountsResponse {
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Sidewalk account credentials.</p>
+   * @public
+   */
+  Sidewalk?: SidewalkAccountInfoWithFingerprint[] | undefined;
+}
 
 /**
  * @public
@@ -828,8 +921,8 @@ export interface PutResourceLogLevelRequest {
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code> or
-   *                 <code>WirelessGateway</code>.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code>,
+   *                 <code>WirelessGateway</code>, or <code>FuotaTask</code>.</p>
    * @public
    */
   ResourceType: string | undefined;
@@ -870,8 +963,8 @@ export interface ResetResourceLogLevelRequest {
   ResourceIdentifier: string | undefined;
 
   /**
-   * <p>The type of the resource, which can be <code>WirelessDevice</code> or
-   *                 <code>WirelessGateway</code>.</p>
+   * <p>The type of the resource, which can be <code>WirelessDevice</code>,
+   *                 <code>WirelessGateway</code>, or <code>FuotaTask</code>.</p>
    * @public
    */
   ResourceType: string | undefined;
@@ -1551,6 +1644,13 @@ export interface UpdateFuotaTaskRequest {
    * @public
    */
   FragmentIntervalMS?: number | undefined;
+
+  /**
+   * <p>The Descriptor specifies some metadata about the File being transferred using FUOTA e.g. the software version.
+   *             It is sent transparently to the device. It is a binary field encoded in base64</p>
+   * @public
+   */
+  Descriptor?: string | undefined;
 }
 
 /**
@@ -1569,6 +1669,12 @@ export interface UpdateLogLevelsByResourceTypesRequest {
    * @public
    */
   DefaultLogLevel?: LogLevel | undefined;
+
+  /**
+   * <p>The list of fuota task log options.</p>
+   * @public
+   */
+  FuotaTaskLogOptions?: FuotaTaskLogOption[] | undefined;
 
   /**
    * <p>The list of wireless device log options.</p>
@@ -2076,6 +2182,16 @@ export interface UpdateWirelessGatewayRequest {
  * @public
  */
 export interface UpdateWirelessGatewayResponse {}
+
+/**
+ * @internal
+ */
+export const ListPartnerAccountsResponseFilterSensitiveLog = (obj: ListPartnerAccountsResponse): any => ({
+  ...obj,
+  ...(obj.Sidewalk && {
+    Sidewalk: obj.Sidewalk.map((item) => SidewalkAccountInfoWithFingerprintFilterSensitiveLog(item)),
+  }),
+});
 
 /**
  * @internal
