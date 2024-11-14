@@ -9,8 +9,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test": "npx vitest run",
+    "test:watch": "npx vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

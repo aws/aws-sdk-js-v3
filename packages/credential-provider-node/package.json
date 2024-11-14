@@ -15,9 +15,9 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "vitest run",
+    "test": "npx vitest run",
     "test:integration": "jest -c jest.config.integ.js",
-    "test:watch": "vitest watch"
+    "test:watch": "npx vitest watch"
   },
   "keywords": [
     "aws",

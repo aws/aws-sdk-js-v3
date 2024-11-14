@@ -9,10 +9,10 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "vitest run",
-    "test:integration": "vitest run -c vitest.config.integ.ts",
-    "test:watch": "vitest watch",
-    "test:integration:watch": "vitest watch -c vitest.config.integ.ts"
+    "test": "npx vitest run",
+    "test:integration": "npx vitest run -c vitest.config.integ.ts",
+    "test:watch": "npx vitest watch",
+    "test:integration:watch": "npx vitest watch -c vitest.config.integ.ts"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",

@@ -11,8 +11,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "vitest run",
-    "test:watch": "vitest watch"
+    "test": "npx vitest run",
+    "test:watch": "npx vitest watch"
   },
   "author": "AWS SDK for JavaScript Team (https://aws.amazon.com/javascript/)",
   "license": "Apache-2.0",
