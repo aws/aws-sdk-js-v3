@@ -33,8 +33,8 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          and a security token. Typically, you use <code>AssumeRole</code> within your account or for
  *          cross-account access. For a comparison of <code>AssumeRole</code> with other API operations
  *          that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
- *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS
+ *             credentials</a> in the <i>IAM User Guide</i>.</p>
  *          <p>
  *             <b>Permissions</b>
  *          </p>
@@ -42,11 +42,11 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *          make API calls to any Amazon Web Services service with the following exception: You cannot call the
  *          Amazon Web Services STS <code>GetFederationToken</code> or <code>GetSessionToken</code> API
  *          operations.</p>
- *          <p>(Optional) You can pass inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policies</a> to
- *          this operation. You can pass a single JSON policy document to use as an inline session
- *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
- *          managed session policies. The plaintext that you use for both inline and managed session
- *          policies can't exceed 2,048 characters. Passing policies to this operation returns new
+ *          <p>(Optional) You can pass inline or managed session policies to this operation. You can
+ *          pass a single JSON policy document to use as an inline session policy. You can also specify
+ *          up to 10 managed policy Amazon Resource Names (ARNs) to use as managed session policies.
+ *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
+ *          characters. Passing policies to this operation returns new
  *          temporary credentials. The resulting session's permissions are the intersection of the
  *          role's identity-based policy and the session policies. You can use the role's temporary
  *          credentials in subsequent Amazon Web Services API calls to access resources in the account that owns
@@ -193,15 +193,15 @@ export interface AssumeRoleCommandOutput extends AssumeRoleResponse, __MetadataB
  *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
  *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
- *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate STS
- *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                     Guide</i>.</p>
+ *             generate credentials. The account administrator must use the IAM console to activate
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>

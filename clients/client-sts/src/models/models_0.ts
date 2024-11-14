@@ -106,6 +106,11 @@ export interface AssumeRoleRequest {
    *          session name is also used in the ARN of the assumed role principal. This means that
    *          subsequent cross-account API requests that use the temporary security credentials will
    *          expose the role session name to the external account in their CloudTrail logs.</p>
+   *          <p>For security purposes, administrators can view this field in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html#cloudtrail-integration_signin-tempcreds">CloudTrail logs</a> to help identify who performed an action in Amazon Web Services. Your
+   *          administrator might require that you specify your user name as the session name when you
+   *          assume the role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname">
+   *                <code>sts:RoleSessionName</code>
+   *             </a>.</p>
    *          <p>The regex used to validate this parameter is a string of characters
    *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
    *     also include underscores or any of the following characters: =,.@-</p>
@@ -161,6 +166,8 @@ export interface AssumeRoleRequest {
    *                <code>PackedPolicySize</code> response element indicates by percentage how close the
    *             policies and tags for your request are to the upper size limit.</p>
    *          </note>
+   *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+   *             policies</a>.</p>
    * @public
    */
   Policy?: string | undefined;
@@ -178,9 +185,7 @@ export interface AssumeRoleRequest {
    *          specify a parameter value of up to 43200 seconds (12 hours), depending on the maximum
    *          session duration setting for your role. However, if you assume a role using role chaining
    *          and provide a <code>DurationSeconds</code> parameter value greater than one hour, the
-   *          operation fails. To learn how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
-   *             Maximum Session Duration Setting for a Role</a> in the
-   *             <i>IAM User Guide</i>.</p>
+   *          operation fails. To learn how to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_update-role-settings.html#id_roles_update-session-duration">Update the maximum session duration for a role</a>.</p>
    *          <p>By default, the value is set to <code>3600</code> seconds. </p>
    *          <note>
    *             <p>The <code>DurationSeconds</code> parameter is separate from the duration of a console
@@ -232,8 +237,8 @@ export interface AssumeRoleRequest {
    *          as transitive, the corresponding key and value passes to subsequent sessions in a role
    *          chain. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html#id_session-tags_role-chaining">Chaining Roles
    *             with Session Tags</a> in the <i>IAM User Guide</i>.</p>
-   *          <p>This parameter is optional. When you set session tags as transitive, the session policy
-   *          and session tags packed binary limit is not affected.</p>
+   *          <p>This parameter is optional. The transitive status of a session tag does not impact its
+   *          packed binary size.</p>
    *          <p>If you choose not to specify a transitive tag key, then no tags are passed from this
    *          session to any subsequent sessions.</p>
    * @public
@@ -285,13 +290,15 @@ export interface AssumeRoleRequest {
 
   /**
    * <p>The source identity specified by the principal that is calling the
-   *             <code>AssumeRole</code> operation.</p>
+   *             <code>AssumeRole</code> operation. The source identity value persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-role-chaining">chained role</a> sessions.</p>
    *          <p>You can require users to specify a source identity when they assume a role. You do this
-   *          by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. You can
-   *          use source identity information in CloudTrail logs to determine who took actions with a role.
-   *          You can use the <code>aws:SourceIdentity</code> condition key to further control access to
-   *          Amazon Web Services resources based on the value of source identity. For more information about using
-   *          source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control
+   *          by using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-sourceidentity">
+   *                <code>sts:SourceIdentity</code>
+   *             </a> condition key in a role trust policy. You
+   *          can use source identity information in CloudTrail logs to determine who took actions with a
+   *          role. You can use the <code>aws:SourceIdentity</code> condition key to further control
+   *          access to Amazon Web Services resources based on the value of source identity. For more information about
+   *          using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control
    *             actions taken with assumed roles</a> in the
    *          <i>IAM User Guide</i>.</p>
    *          <p>The regex used to validate this parameter is a string of characters consisting of upper-
@@ -451,8 +458,8 @@ export class MalformedPolicyDocumentException extends __BaseException {
  *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
  *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
- *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  * @public
  */
 export class PackedPolicyTooLargeException extends __BaseException {
@@ -473,10 +480,10 @@ export class PackedPolicyTooLargeException extends __BaseException {
 
 /**
  * <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate STS
- *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                     Guide</i>.</p>
+ *             generate credentials. The account administrator must use the IAM console to activate
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  * @public
  */
 export class RegionDisabledException extends __BaseException {
@@ -561,6 +568,8 @@ export interface AssumeRoleWithSAMLRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
+   *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+   *             policies</a>.</p>
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -688,14 +697,16 @@ export interface AssumeRoleWithSAMLResponse {
   NameQualifier?: string | undefined;
 
   /**
-   * <p>The value in the <code>SourceIdentity</code> attribute in the SAML assertion. </p>
+   * <p>The value in the <code>SourceIdentity</code> attribute in the SAML assertion. The source
+   *          identity value persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#iam-term-role-chaining">chained role</a>
+   *          sessions.</p>
    *          <p>You can require users to set a source identity value when they assume a role. You do
    *          this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy.
    *          That way, actions that are taken with the role are associated with that user. After the
    *          source identity is set, the value cannot be changed. It is present in the request for all
-   *          actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts#iam-term-role-chaining">chained
-   *             role</a> sessions. You can configure your SAML identity provider to use an attribute
-   *          associated with your users, like user name or email, as the source identity when calling
+   *          actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts">chained role</a>
+   *          sessions. You can configure your SAML identity provider to use an attribute associated with
+   *          your users, like user name or email, as the source identity when calling
    *             <code>AssumeRoleWithSAML</code>. You do this by adding an attribute to the SAML
    *          assertion. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control
    *             actions taken with assumed roles</a> in the
@@ -758,6 +769,16 @@ export class InvalidIdentityTokenException extends __BaseException {
 export interface AssumeRoleWithWebIdentityRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the role that the caller is assuming.</p>
+   *          <note>
+   *             <p>Additional considerations apply to Amazon Cognito identity pools that assume <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html">cross-account IAM roles</a>. The trust policies of these roles must accept the
+   *                <code>cognito-identity.amazonaws.com</code> service principal and must contain the
+   *                <code>cognito-identity.amazonaws.com:aud</code> condition key to restrict role
+   *             assumption to users from your intended identity pools. A policy that trusts Amazon Cognito
+   *             identity pools without this condition creates a risk that a user from an unintended
+   *             identity pool can assume the role. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/iam-roles.html#trust-policies"> Trust policies for
+   *                IAM roles in Basic (Classic) authentication </a> in the <i>Amazon Cognito
+   *                Developer Guide</i>.</p>
+   *          </note>
    * @public
    */
   RoleArn: string | undefined;
@@ -768,6 +789,11 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          security credentials that your application will use are associated with that user. This
    *          session name is included as part of the ARN and assumed role ID in the
    *             <code>AssumedRoleUser</code> response element.</p>
+   *          <p>For security purposes, administrators can view this field in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/cloudtrail-integration.html#cloudtrail-integration_signin-tempcreds">CloudTrail logs</a> to help identify who performed an action in Amazon Web Services. Your
+   *          administrator might require that you specify your user name as the session name when you
+   *          assume the role. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#ck_rolesessionname">
+   *                <code>sts:RoleSessionName</code>
+   *             </a>.</p>
    *          <p>The regex used to validate this parameter is a string of characters
    *     consisting of upper- and lower-case alphanumeric characters with no spaces. You can
    *     also include underscores or any of the following characters: =,.@-</p>
@@ -779,7 +805,8 @@ export interface AssumeRoleWithWebIdentityRequest {
    * <p>The OAuth 2.0 access token or OpenID Connect ID token that is provided by the identity
    *          provider. Your application must get this token by authenticating the user who is using your
    *          application with a web identity provider before the application makes an
-   *             <code>AssumeRoleWithWebIdentity</code> call. Only tokens with RSA algorithms (RS256) are
+   *             <code>AssumeRoleWithWebIdentity</code> call. Timestamps in the token must be formatted
+   *          as either an integer or a long integer. Only tokens with RSA algorithms (RS256) are
    *          supported.</p>
    * @public
    */
@@ -837,6 +864,8 @@ export interface AssumeRoleWithWebIdentityRequest {
    *          character to the end of the valid character list (\u0020 through \u00FF). It can also
    *          include the tab (\u0009), linefeed (\u000A), and carriage return (\u000D)
    *          characters.</p>
+   *          <p>For more information about role session permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">Session
+   *             policies</a>.</p>
    *          <note>
    *             <p>An Amazon Web Services conversion compresses the passed inline session policy, managed policy ARNs,
    *             and session tags into a packed binary format that has a separate limit. Your request can
@@ -942,9 +971,9 @@ export interface AssumeRoleWithWebIdentityResponse {
    *          this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy.
    *          That way, actions that are taken with the role are associated with that user. After the
    *          source identity is set, the value cannot be changed. It is present in the request for all
-   *          actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts#iam-term-role-chaining">chained
-   *             role</a> sessions. You can configure your identity provider to use an attribute
-   *          associated with your users, like user name or email, as the source identity when calling
+   *          actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts">chained role</a>
+   *          sessions. You can configure your identity provider to use an attribute associated with your
+   *          users, like user name or email, as the source identity when calling
    *             <code>AssumeRoleWithWebIdentity</code>. You do this by adding a claim to the JSON web
    *          token. To learn more about OIDC tokens and claims, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html">Using Tokens with User Pools</a> in the <i>Amazon Cognito Developer Guide</i>.
    *          For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control
@@ -959,11 +988,11 @@ export interface AssumeRoleWithWebIdentityResponse {
 }
 
 /**
- * <p>The request could not be fulfilled because the identity provider (IDP) that
- *             was asked to verify the incoming identity token could not be reached. This is often a
- *             transient error caused by network conditions. Retry the request a limited number of
- *             times so that you don't exceed the request rate. If the error persists, the
- *             identity provider might be down or not responding.</p>
+ * <p>The request could not be fulfilled because the identity provider (IDP) that was asked
+ *             to verify the incoming identity token could not be reached. This is often a transient
+ *             error caused by network conditions. Retry the request a limited number of times so that
+ *             you don't exceed the request rate. If the error persists, the identity provider might be
+ *             down or not responding.</p>
  * @public
  */
 export class IDPCommunicationErrorException extends __BaseException {
@@ -980,6 +1009,92 @@ export class IDPCommunicationErrorException extends __BaseException {
     });
     Object.setPrototypeOf(this, IDPCommunicationErrorException.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface AssumeRootRequest {
+  /**
+   * <p>The member account principal ARN or account ID.</p>
+   * @public
+   */
+  TargetPrincipal: string | undefined;
+
+  /**
+   * <p>The identity based policy that scopes the session to the privileged tasks that can be
+   *          performed. You can use one of following Amazon Web Services managed policies to scope
+   *          root session actions. You can add additional customer managed policies to further limit the
+   *          permissions for the root session.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-IAMAuditRootUserCredentials">IAMAuditRootUserCredentials</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-IAMCreateRootUserPassword">IAMCreateRootUserPassword</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-IAMDeleteRootUserCredentials">IAMDeleteRootUserCredentials</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-S3UnlockBucketPolicy">S3UnlockBucketPolicy</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-SQSUnlockQueuePolicy">SQSUnlockQueuePolicy</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TaskPolicyArn: PolicyDescriptorType | undefined;
+
+  /**
+   * <p>The duration, in seconds, of the privileged session. The value can range from 0 seconds
+   *          up to the maximum session duration of 900 seconds (15 minutes). If you specify a value
+   *          higher than this setting, the operation fails.</p>
+   *          <p>By default, the value is set to <code>900</code> seconds.</p>
+   * @public
+   */
+  DurationSeconds?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssumeRootResponse {
+  /**
+   * <p>The temporary security credentials, which include an access key ID, a secret access key,
+   *          and a security token.</p>
+   *          <note>
+   *             <p>The size of the security token that STS API operations return is not fixed. We
+   *         strongly recommend that you make no assumptions about the maximum size.</p>
+   *          </note>
+   * @public
+   */
+  Credentials?: Credentials | undefined;
+
+  /**
+   * <p>The source identity specified by the principal that is calling the
+   *             <code>AssumeRoot</code> operation.</p>
+   *          <p>You can use the <code>aws:SourceIdentity</code> condition key to control access based on
+   *          the value of source identity. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control
+   *             actions taken with assumed roles</a> in the
+   *          <i>IAM User Guide</i>.</p>
+   *          <p>The regex used to validate this parameter is a string of characters consisting of upper-
+   *          and lower-case alphanumeric characters with no spaces. You can also include underscores or
+   *          any of the following characters: =,.@-</p>
+   * @public
+   */
+  SourceIdentity?: string | undefined;
 }
 
 /**
@@ -1008,8 +1123,8 @@ export interface DecodeAuthorizationMessageResponse {
 
 /**
  * <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
- *             was invalid. This can happen if the token contains invalid characters, such as
- *             linebreaks. </p>
+ *             was invalid. This can happen if the token contains invalid characters, such as line
+ *             breaks, or if the message has expired.</p>
  * @public
  */
 export class InvalidAuthorizationMessageException extends __BaseException {
@@ -1367,6 +1482,14 @@ export const AssumeRoleWithWebIdentityRequestFilterSensitiveLog = (obj: AssumeRo
  * @internal
  */
 export const AssumeRoleWithWebIdentityResponseFilterSensitiveLog = (obj: AssumeRoleWithWebIdentityResponse): any => ({
+  ...obj,
+  ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
+});
+
+/**
+ * @internal
+ */
+export const AssumeRootResponseFilterSensitiveLog = (obj: AssumeRootResponse): any => ({
   ...obj,
   ...(obj.Credentials && { Credentials: CredentialsFilterSensitiveLog(obj.Credentials) }),
 });

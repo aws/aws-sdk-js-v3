@@ -89,8 +89,8 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *
  * @throws {@link InvalidAuthorizationMessageException} (client fault)
  *  <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
- *             was invalid. This can happen if the token contains invalid characters, such as
- *             linebreaks. </p>
+ *             was invalid. This can happen if the token contains invalid characters, such as line
+ *             breaks, or if the message has expired.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>

@@ -41,8 +41,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          contexts where those credentials can be safeguarded, usually in a server-based application.
  *          For a comparison of <code>GetFederationToken</code> with the other API operations that
  *          produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
- *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS
+ *             credentials</a> in the <i>IAM User Guide</i>.</p>
  *          <p>Although it is possible to call <code>GetFederationToken</code> using the security
  *          credentials of an Amazon Web Services account root user rather than an IAM user that you
  *          create for the purpose of a proxy application, we do not recommend it. For more
@@ -179,15 +179,15 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
  *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
- *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate STS
- *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                     Guide</i>.</p>
+ *             generate credentials. The account administrator must use the IAM console to activate
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>

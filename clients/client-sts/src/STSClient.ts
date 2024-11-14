@@ -59,6 +59,7 @@ import {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
+import { AssumeRootCommandInput, AssumeRootCommandOutput } from "./commands/AssumeRootCommand";
 import {
   DecodeAuthorizationMessageCommandInput,
   DecodeAuthorizationMessageCommandOutput,
@@ -85,6 +86,7 @@ export type ServiceInputTypes =
   | AssumeRoleCommandInput
   | AssumeRoleWithSAMLCommandInput
   | AssumeRoleWithWebIdentityCommandInput
+  | AssumeRootCommandInput
   | DecodeAuthorizationMessageCommandInput
   | GetAccessKeyInfoCommandInput
   | GetCallerIdentityCommandInput
@@ -98,6 +100,7 @@ export type ServiceOutputTypes =
   | AssumeRoleCommandOutput
   | AssumeRoleWithSAMLCommandOutput
   | AssumeRoleWithWebIdentityCommandOutput
+  | AssumeRootCommandOutput
   | DecodeAuthorizationMessageCommandOutput
   | GetAccessKeyInfoCommandOutput
   | GetCallerIdentityCommandOutput

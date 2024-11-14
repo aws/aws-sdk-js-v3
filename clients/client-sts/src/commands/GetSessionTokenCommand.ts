@@ -43,8 +43,8 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *          calls to API operations that require MFA authentication. An incorrect MFA code causes the
  *          API to return an access denied error. For a comparison of <code>GetSessionToken</code> with
  *          the other API operations that produce temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting
- *             Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Temporary Security Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS
+ *             credentials</a> in the <i>IAM User Guide</i>.</p>
  *          <note>
  *             <p>No permissions are required for users to perform this operation. The purpose of the
  *                <code>sts:GetSessionToken</code> operation is to authenticate the user using MFA. You
@@ -123,10 +123,10 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  *
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate STS
- *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                     Guide</i>.</p>
+ *             generate credentials. The account administrator must use the IAM console to activate
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>

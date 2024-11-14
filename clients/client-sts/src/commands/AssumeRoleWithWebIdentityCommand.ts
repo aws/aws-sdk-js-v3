@@ -53,8 +53,8 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *          using a token from the web identity provider. For a comparison of
  *             <code>AssumeRoleWithWebIdentity</code> with the other API operations that produce
  *          temporary credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html">Requesting Temporary Security
- *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#stsapi_comparison">Comparing the
- *             Amazon Web Services STS API operations</a> in the <i>IAM User Guide</i>.</p>
+ *             Credentials</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_sts-comparison.html">Compare STS
+ *             credentials</a> in the <i>IAM User Guide</i>.</p>
  *          <p>The temporary security credentials returned by this API consist of an access key ID, a
  *          secret access key, and a security token. Applications can use these temporary security
  *          credentials to sign calls to Amazon Web Services service API operations.</p>
@@ -66,8 +66,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *          optional <code>DurationSeconds</code> parameter to specify the duration of your session.
  *          You can provide a value from 900 seconds (15 minutes) up to the maximum session duration
  *          setting for the role. This setting can have a value from 1 hour to 12 hours. To learn how
- *          to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use.html#id_roles_use_view-role-max-session">View the
- *             Maximum Session Duration Setting for a Role</a> in the
+ *          to view the maximum value for your role, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_update-role-settings.html#id_roles_update-session-duration">Update the maximum session duration for a role </a> in the
  *             <i>IAM User Guide</i>. The maximum session duration limit applies when
  *          you use the <code>AssumeRole*</code> API operations or the <code>assume-role*</code> CLI
  *          commands. However the limit does not apply when you use those operations to create a
@@ -136,7 +135,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *             or a pairwise identifier, as <a href="http://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes">suggested
  *                in the OIDC specification</a>.</p>
  *          </important>
- *          <p>For more information about how to use web identity federation and the
+ *          <p>For more information about how to use OIDC federation and the
  *             <code>AssumeRoleWithWebIdentity</code> API, see the following resources: </p>
  *          <ul>
  *             <li>
@@ -145,24 +144,10 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://aws.amazon.com/blogs/aws/the-aws-web-identity-federation-playground/"> Web Identity Federation Playground</a>. Walk through the process of
- *                authenticating through Login with Amazon, Facebook, or Google, getting temporary
- *                security credentials, and then using those credentials to make a request to Amazon Web Services.
- *             </p>
- *             </li>
- *             <li>
- *                <p>
  *                   <a href="http://aws.amazon.com/sdkforios/">Amazon Web Services SDK for iOS Developer Guide</a> and <a href="http://aws.amazon.com/sdkforandroid/">Amazon Web Services SDK for Android Developer Guide</a>. These toolkits
  *                contain sample apps that show how to invoke the identity providers. The toolkits then
  *                show how to use the information from these providers to get and use temporary
  *                security credentials. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="http://aws.amazon.com/articles/web-identity-federation-with-mobile-applications">Web Identity
- *                   Federation with Mobile Applications</a>. This article discusses web identity
- *                federation and shows an example of how to use web identity federation to get access
- *                to content in Amazon S3. </p>
  *             </li>
  *          </ul>
  * @example
@@ -217,11 +202,11 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *             token from the identity provider and then retry the request.</p>
  *
  * @throws {@link IDPCommunicationErrorException} (client fault)
- *  <p>The request could not be fulfilled because the identity provider (IDP) that
- *             was asked to verify the incoming identity token could not be reached. This is often a
- *             transient error caused by network conditions. Retry the request a limited number of
- *             times so that you don't exceed the request rate. If the error persists, the
- *             identity provider might be down or not responding.</p>
+ *  <p>The request could not be fulfilled because the identity provider (IDP) that was asked
+ *             to verify the incoming identity token could not be reached. This is often a transient
+ *             error caused by network conditions. Retry the request a limited number of times so that
+ *             you don't exceed the request rate. If the error persists, the identity provider might be
+ *             down or not responding.</p>
  *
  * @throws {@link IDPRejectedClaimException} (client fault)
  *  <p>The identity provider (IdP) reported that authentication failed. This might be because
@@ -245,15 +230,15 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  *             tags are to the upper size limit. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_session-tags.html">Passing Session Tags in STS</a> in
  *             the <i>IAM User Guide</i>.</p>
  *          <p>You could receive this error even though you meet other defined session policy and
- *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity
- *                 Character Limits</a> in the <i>IAM User Guide</i>.</p>
+ *             session tag limits. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html#reference_iam-limits-entity-length">IAM and STS Entity Character Limits</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link RegionDisabledException} (client fault)
  *  <p>STS is not activated in the requested region for the account that is being asked to
- *             generate credentials. The account administrator must use the IAM console to activate STS
- *             in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
- *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the <i>IAM User
- *                     Guide</i>.</p>
+ *             generate credentials. The account administrator must use the IAM console to activate
+ *             STS in that region. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
+ *                 Deactivating STS in an Amazon Web Services Region</a> in the <i>IAM User
+ *                 Guide</i>.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>

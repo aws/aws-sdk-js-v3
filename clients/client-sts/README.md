@@ -233,6 +233,14 @@ AssumeRoleWithWebIdentity
 </details>
 <details>
 <summary>
+AssumeRoot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRootCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRootCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRootCommandOutput/)
+
+</details>
+<details>
+<summary>
 DecodeAuthorizationMessage
 </summary>
 
