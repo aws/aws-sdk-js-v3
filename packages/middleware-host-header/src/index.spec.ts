@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { beforeEach, describe, expect, expect, test as it, vi } from "vitest";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { hostHeaderMiddleware } from "./index";
 describe("hostHeaderMiddleware", () => {

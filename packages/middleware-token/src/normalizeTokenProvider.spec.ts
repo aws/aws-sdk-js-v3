@@ -1,6 +1,6 @@
 import { memoize } from "@smithy/property-provider";
 import { normalizeProvider } from "@smithy/util-middleware";
-import { afterEach, beforeEach, describe, expect, expect, test as it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { normalizeTokenProvider } from "./normalizeTokenProvider";
 
@@ -73,13 +73,13 @@ describe(normalizeTokenProvider.name, () => {
       });
 
       it("returns true if expiration is not defined", () => {
-        const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2];
+        const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2]!;
         const expiration = Date.now();
         expect(memoizeRefreshFn({ expiration })).toEqual(true);
       });
 
       it("returns false if expiration is not defined", () => {
-        const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2];
+        const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2]!;
         expect(memoizeRefreshFn({})).toEqual(false);
       });
     });

@@ -29,7 +29,7 @@ describe(nodeProvider.name, () => {
       [chain, mockChainFn],
       [memoize, mockMemoizeFn],
     ].forEach(([fromFn, mockFn]) => {
-      vi.mocked(fromFn).mockReturnValue(mockFn);
+      vi.mocked(fromFn).mockReturnValue(mockFn as any);
     });
   });
 
@@ -99,13 +99,13 @@ describe(nodeProvider.name, () => {
     });
 
     it("returns true if expiration is not defined", () => {
-      const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2];
+      const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2]!;
       const expiration = Date.now();
       expect(memoizeRefreshFn({ expiration })).toEqual(true);
     });
 
     it("returns false if expiration is not defined", () => {
-      const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2];
+      const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2]!;
       expect(memoizeRefreshFn({})).toEqual(false);
     });
   });

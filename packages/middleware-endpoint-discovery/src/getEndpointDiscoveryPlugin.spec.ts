@@ -18,7 +18,7 @@ describe(getEndpointDiscoveryPlugin.name, () => {
 
   it(`applyToStack function adds endpoint discovery middleware`, () => {
     const middlewareReturn = {};
-    vi.mocked(endpointDiscoveryMiddleware).mockReturnValueOnce(middlewareReturn);
+    vi.mocked(endpointDiscoveryMiddleware).mockReturnValueOnce(middlewareReturn as any);
 
     // @ts-ignore
     const plugin = getEndpointDiscoveryPlugin(pluginConfig, middlewareConfig);

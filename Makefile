@@ -18,6 +18,10 @@ test-unit: build-s3-browser-bundle
 	yarn g:vitest run -c vitest.config.clients.unit.ts
 	npx jest -c jest.config.js
 
+# typecheck for test code.
+test-types:
+	npx tsc -p tsconfig.test.json
+
 test-protocols: build-s3-browser-bundle
 	yarn g:vitest run -c vitest.config.protocols.integ.ts
 
@@ -26,6 +30,7 @@ test-integration: build-s3-browser-bundle
 	yarn g:vitest run -c vitest.config.integ.ts
 	npx jest -c jest.config.integ.js
 	make test-protocols;
+	make test-types;
 
 test-e2e: build-s3-browser-bundle
 	yarn g:vitest run -c vitest.config.e2e.ts --retry=4

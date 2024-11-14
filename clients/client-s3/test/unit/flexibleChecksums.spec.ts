@@ -84,7 +84,7 @@ describe("Flexible Checksums", () => {
             expect(headers["transfer-encoding"]).to.equal("chunked");
             expect(headers["x-amz-content-sha256"]).to.equal("STREAMING-UNSIGNED-PAYLOAD-TRAILER");
             expect(headers["x-amz-trailer"]).to.equal(checksumHeader);
-            body.on("data", (data) => {
+            body.on("data", (data: any) => {
               const stringValue = data.toString();
               if (stringValue.startsWith(checksumHeader)) {
                 const receivedChecksum = stringValue.replace("\r\n", "").split(":")[1];

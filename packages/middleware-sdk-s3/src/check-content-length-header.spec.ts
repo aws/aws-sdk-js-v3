@@ -6,7 +6,7 @@ import { checkContentLengthHeader } from "./check-content-length-header";
 describe("checkContentLengthHeaderMiddleware", () => {
   const mockNextHandler = vi.fn();
 
-  let spy: vi.SpyInstance;
+  let spy: any;
 
   beforeEach(() => {
     spy = vi.spyOn(console, "warn");

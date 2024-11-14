@@ -160,7 +160,7 @@ describe(resolveSSOCredentials.name, () => {
 
     it("creates SSO client with provided region, if client is not passed", async () => {
       const mockCustomSsoSend = vi.fn().mockResolvedValue({ roleCredentials: mockCreds });
-      vi.mocked(SSOClient).mockReturnValue({ send: mockCustomSsoSend });
+      vi.mocked(SSOClient as any).mockReturnValue({ send: mockCustomSsoSend });
 
       await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
       expect(mockCustomSsoSend).toHaveBeenCalledTimes(1);
@@ -176,7 +176,7 @@ describe(resolveSSOCredentials.name, () => {
 
     it("creates SSO client with provided region, if client is not passed, and includes accountId", async () => {
       const mockCustomSsoSend = vi.fn().mockResolvedValue({ roleCredentials: mockCreds });
-      vi.mocked(SSOClient).mockReturnValue({ send: mockCustomSsoSend });
+      vi.mocked(SSOClient as any).mockReturnValue({ send: mockCustomSsoSend });
 
       const result = await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
       expect(result).toHaveProperty("accountId", mockOptions.ssoAccountId);

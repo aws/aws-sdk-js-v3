@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "noEmit": true
+  },
+  "extends": "./tsconfig.cjs.json",
+  "include": ["packages/**/*.spec.ts", "lib/**/*.spec.ts", "clients/**/*.spec.ts", "private/**/*.spec.ts"],
+  "exclude": [
+    "node_modules/",
+    "vitest.*.ts",
+    "clients/client-s3/test/e2e/S3.browser.e2e.spec.ts",
+    "private/aws-restjson-server/**/*.spec.ts",
+    "private/aws-restjson-validation-server/**/*.spec.ts"
+  ]
+}
