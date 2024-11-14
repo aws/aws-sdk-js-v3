@@ -61,6 +61,20 @@ export interface ListAnalyzersCommandOutput extends ListAnalyzersResponse, __Met
  * //       configuration: { // AnalyzerConfiguration Union: only one key present
  * //         unusedAccess: { // UnusedAccessConfiguration
  * //           unusedAccessAge: Number("int"),
+ * //           analysisRule: { // AnalysisRule
+ * //             exclusions: [ // AnalysisRuleCriteriaList
+ * //               { // AnalysisRuleCriteria
+ * //                 accountIds: [ // AccountIdsList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 resourceTags: [ // TagsList
+ * //                   {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //       },
  * //     },

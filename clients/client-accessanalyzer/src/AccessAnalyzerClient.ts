@@ -121,6 +121,7 @@ import {
 import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "./commands/StartResourceScanCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAnalyzerCommandInput, UpdateAnalyzerCommandOutput } from "./commands/UpdateAnalyzerCommand";
 import { UpdateArchiveRuleCommandInput, UpdateArchiveRuleCommandOutput } from "./commands/UpdateArchiveRuleCommand";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand";
 import { ValidatePolicyCommandInput, ValidatePolicyCommandOutput } from "./commands/ValidatePolicyCommand";
@@ -171,6 +172,7 @@ export type ServiceInputTypes =
   | StartResourceScanCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateAnalyzerCommandInput
   | UpdateArchiveRuleCommandInput
   | UpdateFindingsCommandInput
   | ValidatePolicyCommandInput;
@@ -211,6 +213,7 @@ export type ServiceOutputTypes =
   | StartResourceScanCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateAnalyzerCommandOutput
   | UpdateArchiveRuleCommandOutput
   | UpdateFindingsCommandOutput
   | ValidatePolicyCommandOutput;

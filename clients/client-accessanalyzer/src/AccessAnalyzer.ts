@@ -152,6 +152,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateAnalyzerCommand,
+  UpdateAnalyzerCommandInput,
+  UpdateAnalyzerCommandOutput,
+} from "./commands/UpdateAnalyzerCommand";
+import {
   UpdateArchiveRuleCommand,
   UpdateArchiveRuleCommandInput,
   UpdateArchiveRuleCommandOutput,
@@ -200,6 +205,7 @@ const commands = {
   StartResourceScanCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAnalyzerCommand,
   UpdateArchiveRuleCommand,
   UpdateFindingsCommand,
   ValidatePolicyCommand,
@@ -696,6 +702,20 @@ export interface AccessAnalyzer {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAnalyzerCommand}
+   */
+  updateAnalyzer(
+    args: UpdateAnalyzerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAnalyzerCommandOutput>;
+  updateAnalyzer(args: UpdateAnalyzerCommandInput, cb: (err: any, data?: UpdateAnalyzerCommandOutput) => void): void;
+  updateAnalyzer(
+    args: UpdateAnalyzerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAnalyzerCommandOutput) => void
   ): void;
 
   /**

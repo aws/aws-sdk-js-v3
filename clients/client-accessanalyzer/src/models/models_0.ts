@@ -380,7 +380,8 @@ export interface GetArchiveRuleRequest {
 }
 
 /**
- * <p>Contains information about an archive rule.</p>
+ * <p>Contains information about an archive rule. Archive rules automatically archive new
+ *          findings that meet the criteria you define when you create the rule.</p>
  * @public
  */
 export interface ArchiveRuleSummary {
@@ -415,7 +416,8 @@ export interface ArchiveRuleSummary {
  */
 export interface GetArchiveRuleResponse {
   /**
-   * <p>Contains information about an archive rule.</p>
+   * <p>Contains information about an archive rule. Archive rules automatically archive new
+   *          findings that meet the criteria you define when you create the rule.</p>
    * @public
    */
   archiveRule: ArchiveRuleSummary | undefined;
@@ -514,6 +516,50 @@ export interface InlineArchiveRule {
 }
 
 /**
+ * <p>The criteria for an analysis rule for an analyzer. The criteria determine which entities
+ *          will generate findings.</p>
+ * @public
+ */
+export interface AnalysisRuleCriteria {
+  /**
+   * <p>A list of Amazon Web Services account IDs to apply to the analysis rule criteria. The accounts cannot
+   *          include the organization analyzer owner account. Account IDs can only be applied to the
+   *          analysis rule criteria for organization-level analyzers. The list cannot include more than
+   *          2,000 account IDs.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+
+  /**
+   * <p>An array of key-value pairs to match for your resources. You can use the set of Unicode
+   *          letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>,
+   *          <code>=</code>, <code>+</code>, and <code>-</code>.</p>
+   *          <p>For the tag key, you can specify a value that is 1 to 128 characters in length and
+   *          cannot be prefixed with <code>aws:</code>.</p>
+   *          <p>For the tag value, you can specify a value that is 0 to 256 characters in length. If the
+   *          specified tag value is 0 characters, the rule is applied to all principals with the
+   *          specified tag key.</p>
+   * @public
+   */
+  resourceTags?: Record<string, string>[] | undefined;
+}
+
+/**
+ * <p>Contains information about analysis rules for the analyzer. Analysis rules determine
+ *          which entities will generate findings based on the criteria you define when you create the
+ *          rule.</p>
+ * @public
+ */
+export interface AnalysisRule {
+  /**
+   * <p>A list of rules for the analyzer containing criteria to exclude from analysis. Entities
+   *          that meet the rule criteria will not generate findings.</p>
+   * @public
+   */
+  exclusions?: AnalysisRuleCriteria[] | undefined;
+}
+
+/**
  * <p>Contains information about an unused access analyzer.</p>
  * @public
  */
@@ -522,16 +568,24 @@ export interface UnusedAccessConfiguration {
    * <p>The specified access age in days for which to generate findings for unused access. For
    *          example, if you specify 90 days, the analyzer will generate findings for IAM entities
    *          within the accounts of the selected organization for any access that hasn't been used in 90
-   *          or more days since the analyzer's last scan. You can choose a value between 1 and 180
+   *          or more days since the analyzer's last scan. You can choose a value between 1 and 365
    *          days.</p>
    * @public
    */
   unusedAccessAge?: number | undefined;
+
+  /**
+   * <p>Contains information about analysis rules for the analyzer. Analysis rules determine
+   *          which entities will generate findings based on the criteria you define when you create the
+   *          rule.</p>
+   * @public
+   */
+  analysisRule?: AnalysisRule | undefined;
 }
 
 /**
- * <p>Contains information about the configuration of an unused access analyzer for an Amazon Web Services
- *          organization or account.</p>
+ * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or
+ *          account.</p>
  * @public
  */
 export type AnalyzerConfiguration = AnalyzerConfiguration.UnusedAccessMember | AnalyzerConfiguration.$UnknownMember;
@@ -542,7 +596,7 @@ export type AnalyzerConfiguration = AnalyzerConfiguration.UnusedAccessMember | A
 export namespace AnalyzerConfiguration {
   /**
    * <p>Specifies the configuration of an unused access analyzer for an Amazon Web Services organization or
-   *          account. External access analyzers do not support any configuration.</p>
+   *          account.</p>
    * @public
    */
   export interface UnusedAccessMember {
@@ -602,7 +656,12 @@ export interface CreateAnalyzerRequest {
   archiveRules?: InlineArchiveRule[] | undefined;
 
   /**
-   * <p>An array of key-value pairs to apply to the analyzer.</p>
+   * <p>An array of key-value pairs to apply to the analyzer. You can use the set of Unicode
+   *          letters, digits, whitespace, <code>_</code>, <code>.</code>, <code>/</code>,
+   *          <code>=</code>, <code>+</code>, and <code>-</code>.</p>
+   *          <p>For the tag key, you can specify a value that is 1 to 128 characters in length and
+   *          cannot be prefixed with <code>aws:</code>.</p>
+   *          <p>For the tag value, you can specify a value that is 0 to 256 characters in length.</p>
    * @public
    */
   tags?: Record<string, string> | undefined;
@@ -615,8 +674,7 @@ export interface CreateAnalyzerRequest {
 
   /**
    * <p>Specifies the configuration of the analyzer. If the analyzer is an unused access
-   *          analyzer, the specified scope of unused access is used for the configuration. If the
-   *          analyzer is an external access analyzer, this field is not used.</p>
+   *          analyzer, the specified scope of unused access is used for the configuration.</p>
    * @public
    */
   configuration?: AnalyzerConfiguration | undefined;
@@ -822,6 +880,36 @@ export interface ListAnalyzersResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalyzerRequest {
+  /**
+   * <p>The name of the analyzer to modify.</p>
+   * @public
+   */
+  analyzerName: string | undefined;
+
+  /**
+   * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or
+   *          account.</p>
+   * @public
+   */
+  configuration?: AnalyzerConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAnalyzerResponse {
+  /**
+   * <p>Contains information about the configuration of an analyzer for an Amazon Web Services organization or
+   *          account.</p>
+   * @public
+   */
+  configuration?: AnalyzerConfiguration | undefined;
 }
 
 /**
@@ -2698,6 +2786,7 @@ export type ResourceType =
   | "AWS::ECR::Repository"
   | "AWS::EFS::FileSystem"
   | "AWS::IAM::Role"
+  | "AWS::IAM::User"
   | "AWS::KMS::Key"
   | "AWS::Lambda::Function"
   | "AWS::Lambda::LayerVersion"

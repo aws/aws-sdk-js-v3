@@ -58,6 +58,20 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * //     configuration: { // AnalyzerConfiguration Union: only one key present
  * //       unusedAccess: { // UnusedAccessConfiguration
  * //         unusedAccessAge: Number("int"),
+ * //         analysisRule: { // AnalysisRule
+ * //           exclusions: [ // AnalysisRuleCriteriaList
+ * //             { // AnalysisRuleCriteria
+ * //               accountIds: [ // AccountIdsList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               resourceTags: [ // TagsList
+ * //                 {
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   },

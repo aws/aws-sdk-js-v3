@@ -31,6 +31,7 @@ export * from "./StartPolicyGenerationCommand";
 export * from "./StartResourceScanCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateAnalyzerCommand";
 export * from "./UpdateArchiveRuleCommand";
 export * from "./UpdateFindingsCommand";
 export * from "./ValidatePolicyCommand";

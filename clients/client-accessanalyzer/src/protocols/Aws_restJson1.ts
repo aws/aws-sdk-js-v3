@@ -99,6 +99,7 @@ import {
 import { StartResourceScanCommandInput, StartResourceScanCommandOutput } from "../commands/StartResourceScanCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateAnalyzerCommandInput, UpdateAnalyzerCommandOutput } from "../commands/UpdateAnalyzerCommand";
 import { UpdateArchiveRuleCommandInput, UpdateArchiveRuleCommandOutput } from "../commands/UpdateArchiveRuleCommand";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "../commands/UpdateFindingsCommand";
 import { ValidatePolicyCommandInput, ValidatePolicyCommandOutput } from "../commands/ValidatePolicyCommand";
@@ -110,6 +111,8 @@ import {
   AccessPreviewFinding,
   AccessPreviewSummary,
   AclGrantee,
+  AnalysisRule,
+  AnalysisRuleCriteria,
   AnalyzedResource,
   AnalyzerConfiguration,
   AnalyzerSummary,
@@ -856,6 +859,29 @@ export const se_UntagResourceCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAnalyzerCommand
+ */
+export const se_UpdateAnalyzerCommand = async (
+  input: UpdateAnalyzerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analyzer/{analyzerName}");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -1609,6 +1635,27 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAnalyzerCommand
+ */
+export const de_UpdateAnalyzerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAnalyzerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuration: (_) => _json(__expectUnion(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateArchiveRuleCommand
  */
 export const de_UpdateArchiveRuleCommand = async (
@@ -1899,9 +1946,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccessList omitted.
 
+// se_AccountIdsList omitted.
+
 // se_AclGrantee omitted.
 
 // se_ActionsList omitted.
+
+// se_AnalysisRule omitted.
+
+// se_AnalysisRuleCriteria omitted.
+
+// se_AnalysisRuleCriteriaList omitted.
 
 // se_AnalyzerConfiguration omitted.
 
@@ -2009,6 +2064,8 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 
 // se_SqsQueueConfiguration omitted.
 
+// se_TagsList omitted.
+
 // se_TagsMap omitted.
 
 // se_Trail omitted.
@@ -2098,9 +2155,17 @@ const de_AccessPreviewSummary = (output: any, context: __SerdeContext): AccessPr
   }) as any;
 };
 
+// de_AccountIdsList omitted.
+
 // de_AclGrantee omitted.
 
 // de_ActionList omitted.
+
+// de_AnalysisRule omitted.
+
+// de_AnalysisRuleCriteria omitted.
+
+// de_AnalysisRuleCriteriaList omitted.
 
 /**
  * deserializeAws_restJson1AnalyzedResource
@@ -2531,6 +2596,8 @@ const de_RecommendedStepList = (output: any, context: __SerdeContext): Recommend
 // de_StatusReason omitted.
 
 // de_Substring omitted.
+
+// de_TagsList omitted.
 
 // de_TagsMap omitted.
 

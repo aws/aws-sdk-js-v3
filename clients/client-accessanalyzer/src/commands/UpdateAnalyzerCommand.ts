@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateAnalyzerRequest, CreateAnalyzerResponse } from "../models/models_0";
-import { de_CreateAnalyzerCommand, se_CreateAnalyzerCommand } from "../protocols/Aws_restJson1";
+import { UpdateAnalyzerRequest, UpdateAnalyzerResponse } from "../models/models_0";
+import { de_UpdateAnalyzerCommand, se_UpdateAnalyzerCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,50 +17,26 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateAnalyzerCommand}.
+ * The input for {@link UpdateAnalyzerCommand}.
  */
-export interface CreateAnalyzerCommandInput extends CreateAnalyzerRequest {}
+export interface UpdateAnalyzerCommandInput extends UpdateAnalyzerRequest {}
 /**
  * @public
  *
- * The output of {@link CreateAnalyzerCommand}.
+ * The output of {@link UpdateAnalyzerCommand}.
  */
-export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __MetadataBearer {}
+export interface UpdateAnalyzerCommandOutput extends UpdateAnalyzerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an analyzer for your account.</p>
+ * <p>Modifies the configuration of an existing analyzer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AccessAnalyzerClient, CreateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
- * // const { AccessAnalyzerClient, CreateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
+ * import { AccessAnalyzerClient, UpdateAnalyzerCommand } from "@aws-sdk/client-accessanalyzer"; // ES Modules import
+ * // const { AccessAnalyzerClient, UpdateAnalyzerCommand } = require("@aws-sdk/client-accessanalyzer"); // CommonJS import
  * const client = new AccessAnalyzerClient(config);
- * const input = { // CreateAnalyzerRequest
+ * const input = { // UpdateAnalyzerRequest
  *   analyzerName: "STRING_VALUE", // required
- *   type: "STRING_VALUE", // required
- *   archiveRules: [ // InlineArchiveRulesList
- *     { // InlineArchiveRule
- *       ruleName: "STRING_VALUE", // required
- *       filter: { // FilterCriteriaMap // required
- *         "<keys>": { // Criterion
- *           eq: [ // ValueList
- *             "STRING_VALUE",
- *           ],
- *           neq: [
- *             "STRING_VALUE",
- *           ],
- *           contains: [
- *             "STRING_VALUE",
- *           ],
- *           exists: true || false,
- *         },
- *       },
- *     },
- *   ],
- *   tags: { // TagsMap
- *     "<keys>": "STRING_VALUE",
- *   },
- *   clientToken: "STRING_VALUE",
  *   configuration: { // AnalyzerConfiguration Union: only one key present
  *     unusedAccess: { // UnusedAccessConfiguration
  *       unusedAccessAge: Number("int"),
@@ -71,7 +47,7 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *               "STRING_VALUE",
  *             ],
  *             resourceTags: [ // TagsList
- *               {
+ *               { // TagsMap
  *                 "<keys>": "STRING_VALUE",
  *               },
  *             ],
@@ -81,18 +57,36 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *     },
  *   },
  * };
- * const command = new CreateAnalyzerCommand(input);
+ * const command = new UpdateAnalyzerCommand(input);
  * const response = await client.send(command);
- * // { // CreateAnalyzerResponse
- * //   arn: "STRING_VALUE",
+ * // { // UpdateAnalyzerResponse
+ * //   configuration: { // AnalyzerConfiguration Union: only one key present
+ * //     unusedAccess: { // UnusedAccessConfiguration
+ * //       unusedAccessAge: Number("int"),
+ * //       analysisRule: { // AnalysisRule
+ * //         exclusions: [ // AnalysisRuleCriteriaList
+ * //           { // AnalysisRuleCriteria
+ * //             accountIds: [ // AccountIdsList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             resourceTags: [ // TagsList
+ * //               { // TagsMap
+ * //                 "<keys>": "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //   },
  * // };
  *
  * ```
  *
- * @param CreateAnalyzerCommandInput - {@link CreateAnalyzerCommandInput}
- * @returns {@link CreateAnalyzerCommandOutput}
- * @see {@link CreateAnalyzerCommandInput} for command's `input` shape.
- * @see {@link CreateAnalyzerCommandOutput} for command's `response` shape.
+ * @param UpdateAnalyzerCommandInput - {@link UpdateAnalyzerCommandInput}
+ * @returns {@link UpdateAnalyzerCommandOutput}
+ * @see {@link UpdateAnalyzerCommandInput} for command's `input` shape.
+ * @see {@link UpdateAnalyzerCommandOutput} for command's `response` shape.
  * @see {@link AccessAnalyzerClientResolvedConfig | config} for AccessAnalyzerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -104,8 +98,8 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal server error.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>Service quote met error.</p>
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Throttling limit exceeded error.</p>
@@ -118,10 +112,10 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *
  * @public
  */
-export class CreateAnalyzerCommand extends $Command
+export class UpdateAnalyzerCommand extends $Command
   .classBuilder<
-    CreateAnalyzerCommandInput,
-    CreateAnalyzerCommandOutput,
+    UpdateAnalyzerCommandInput,
+    UpdateAnalyzerCommandOutput,
     AccessAnalyzerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -133,21 +127,21 @@ export class CreateAnalyzerCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AccessAnalyzer", "CreateAnalyzer", {})
-  .n("AccessAnalyzerClient", "CreateAnalyzerCommand")
+  .s("AccessAnalyzer", "UpdateAnalyzer", {})
+  .n("AccessAnalyzerClient", "UpdateAnalyzerCommand")
   .f(void 0, void 0)
-  .ser(se_CreateAnalyzerCommand)
-  .de(de_CreateAnalyzerCommand)
+  .ser(se_UpdateAnalyzerCommand)
+  .de(de_UpdateAnalyzerCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateAnalyzerRequest;
-      output: CreateAnalyzerResponse;
+      input: UpdateAnalyzerRequest;
+      output: UpdateAnalyzerResponse;
     };
     sdk: {
-      input: CreateAnalyzerCommandInput;
-      output: CreateAnalyzerCommandOutput;
+      input: UpdateAnalyzerCommandInput;
+      output: UpdateAnalyzerCommandOutput;
     };
   };
 }

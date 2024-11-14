@@ -484,6 +484,14 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateAnalyzer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/accessanalyzer/command/UpdateAnalyzerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateAnalyzerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-accessanalyzer/Interface/UpdateAnalyzerCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateArchiveRule
 </summary>
 
