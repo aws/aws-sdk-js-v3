@@ -2,9 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": "src",
+    "skipLibCheck": true,
     "noEmit": true
   },
   "extends": "../../tsconfig.cjs.json",
-  "include": ["src/"],
+  "include": ["src/**/s3-type-transforms.integ.spec.ts"],
   "exclude": []
 }
