@@ -10,7 +10,11 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import { StartProductSubscriptionRequest, StartProductSubscriptionResponse } from "../models/models_0";
+import {
+  StartProductSubscriptionRequest,
+  StartProductSubscriptionRequestFilterSensitiveLog,
+  StartProductSubscriptionResponse,
+} from "../models/models_0";
 import { de_StartProductSubscriptionCommand, se_StartProductSubscriptionCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -35,8 +39,8 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * <p>Starts a product subscription for a user with the specified identity provider.</p>
  *          <note>
  *             <p>Your estimated bill for charges on the number of users and related costs will take 48
- *         hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
- *           monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
+ * 			hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
+ * 				monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,10 +53,30 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
  *   Product: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartProductSubscriptionCommand(input);
  * const response = await client.send(command);
@@ -63,9 +87,27 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * //     IdentityProvider: { // IdentityProvider Union: only one key present
  * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //         DirectoryId: "STRING_VALUE",
+ * //         ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //           DomainName: "STRING_VALUE",
+ * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //             SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //               SecretId: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           DomainNetworkSettings: { // DomainNetworkSettings
+ * //             Subnets: [ // Subnets // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ActiveDirectoryType: "STRING_VALUE",
  * //       },
  * //     },
  * //     Status: "STRING_VALUE", // required
+ * //     ProductUserArn: "STRING_VALUE",
  * //     StatusMessage: "STRING_VALUE",
  * //     Domain: "STRING_VALUE",
  * //     SubscriptionStartDate: "STRING_VALUE",
@@ -86,7 +128,7 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  *
  * @throws {@link ConflictException} (server fault)
  *  <p>The request couldn't be completed because it conflicted with the current state of the
- *       resource.</p>
+ * 			resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -125,7 +167,7 @@ export class StartProductSubscriptionCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "StartProductSubscription", {})
   .n("LicenseManagerUserSubscriptionsClient", "StartProductSubscriptionCommand")
-  .f(void 0, void 0)
+  .f(StartProductSubscriptionRequestFilterSensitiveLog, void 0)
   .ser(se_StartProductSubscriptionCommand)
   .de(de_StartProductSubscriptionCommand)
   .build() {

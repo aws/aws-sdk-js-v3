@@ -10,8 +10,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import { ListInstancesRequest, ListInstancesResponse } from "../models/models_0";
-import { de_ListInstancesCommand, se_ListInstancesCommand } from "../protocols/Aws_restJson1";
+import { ListLicenseServerEndpointsRequest, ListLicenseServerEndpointsResponse } from "../models/models_0";
+import { de_ListLicenseServerEndpointsCommand, se_ListLicenseServerEndpointsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,27 +21,26 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListInstancesCommand}.
+ * The input for {@link ListLicenseServerEndpointsCommand}.
  */
-export interface ListInstancesCommandInput extends ListInstancesRequest {}
+export interface ListLicenseServerEndpointsCommandInput extends ListLicenseServerEndpointsRequest {}
 /**
  * @public
  *
- * The output of {@link ListInstancesCommand}.
+ * The output of {@link ListLicenseServerEndpointsCommand}.
  */
-export interface ListInstancesCommandOutput extends ListInstancesResponse, __MetadataBearer {}
+export interface ListLicenseServerEndpointsCommandOutput extends ListLicenseServerEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the EC2 instances providing user-based subscriptions.</p>
+ * <p>List the Remote Desktop Services (RDS) License Server endpoints </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, ListInstancesCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, ListLicenseServerEndpointsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, ListLicenseServerEndpointsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const input = { // ListInstancesRequest
+ * const input = { // ListLicenseServerEndpointsRequest
  *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  *   Filters: [ // FilterList
  *     { // Filter
  *       Attribute: "STRING_VALUE",
@@ -49,19 +48,30 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new ListInstancesCommand(input);
+ * const command = new ListLicenseServerEndpointsCommand(input);
  * const response = await client.send(command);
- * // { // ListInstancesResponse
- * //   InstanceSummaries: [ // InstanceSummaryList
- * //     { // InstanceSummary
- * //       InstanceId: "STRING_VALUE", // required
- * //       Status: "STRING_VALUE", // required
- * //       Products: [ // StringList // required
- * //         "STRING_VALUE",
- * //       ],
- * //       LastStatusCheckDate: "STRING_VALUE",
+ * // { // ListLicenseServerEndpointsResponse
+ * //   LicenseServerEndpoints: [ // LicenseServerEndpointList
+ * //     { // LicenseServerEndpoint
+ * //       IdentityProviderArn: "STRING_VALUE",
+ * //       ServerType: "STRING_VALUE",
+ * //       ServerEndpoint: { // ServerEndpoint
+ * //         Endpoint: "STRING_VALUE",
+ * //       },
  * //       StatusMessage: "STRING_VALUE",
+ * //       LicenseServerEndpointId: "STRING_VALUE",
+ * //       LicenseServerEndpointArn: "STRING_VALUE",
+ * //       LicenseServerEndpointProvisioningStatus: "STRING_VALUE",
+ * //       LicenseServers: [ // LicenseServerList
+ * //         { // LicenseServer
+ * //           ProvisioningStatus: "STRING_VALUE",
+ * //           HealthStatus: "STRING_VALUE",
+ * //           Ipv4Address: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CreationTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -69,10 +79,10 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *
  * ```
  *
- * @param ListInstancesCommandInput - {@link ListInstancesCommandInput}
- * @returns {@link ListInstancesCommandOutput}
- * @see {@link ListInstancesCommandInput} for command's `input` shape.
- * @see {@link ListInstancesCommandOutput} for command's `response` shape.
+ * @param ListLicenseServerEndpointsCommandInput - {@link ListLicenseServerEndpointsCommandInput}
+ * @returns {@link ListLicenseServerEndpointsCommandOutput}
+ * @see {@link ListLicenseServerEndpointsCommandInput} for command's `input` shape.
+ * @see {@link ListLicenseServerEndpointsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -84,9 +94,6 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource couldn't be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The request failed because a service quota is exceeded.</p>
@@ -102,10 +109,10 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  *
  * @public
  */
-export class ListInstancesCommand extends $Command
+export class ListLicenseServerEndpointsCommand extends $Command
   .classBuilder<
-    ListInstancesCommandInput,
-    ListInstancesCommandOutput,
+    ListLicenseServerEndpointsCommandInput,
+    ListLicenseServerEndpointsCommandOutput,
     LicenseManagerUserSubscriptionsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -117,21 +124,21 @@ export class ListInstancesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("LicenseManagerUserSubscriptions", "ListInstances", {})
-  .n("LicenseManagerUserSubscriptionsClient", "ListInstancesCommand")
+  .s("LicenseManagerUserSubscriptions", "ListLicenseServerEndpoints", {})
+  .n("LicenseManagerUserSubscriptionsClient", "ListLicenseServerEndpointsCommand")
   .f(void 0, void 0)
-  .ser(se_ListInstancesCommand)
-  .de(de_ListInstancesCommand)
+  .ser(se_ListLicenseServerEndpointsCommand)
+  .de(de_ListLicenseServerEndpointsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListInstancesRequest;
-      output: ListInstancesResponse;
+      input: ListLicenseServerEndpointsRequest;
+      output: ListLicenseServerEndpointsResponse;
     };
     sdk: {
-      input: ListInstancesCommandInput;
-      output: ListInstancesCommandOutput;
+      input: ListLicenseServerEndpointsCommandInput;
+      output: ListLicenseServerEndpointsCommandOutput;
     };
   };
 }

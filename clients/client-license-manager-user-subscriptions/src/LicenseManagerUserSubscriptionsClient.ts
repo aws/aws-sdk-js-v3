@@ -55,6 +55,14 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { AssociateUserCommandInput, AssociateUserCommandOutput } from "./commands/AssociateUserCommand";
 import {
+  CreateLicenseServerEndpointCommandInput,
+  CreateLicenseServerEndpointCommandOutput,
+} from "./commands/CreateLicenseServerEndpointCommand";
+import {
+  DeleteLicenseServerEndpointCommandInput,
+  DeleteLicenseServerEndpointCommandOutput,
+} from "./commands/DeleteLicenseServerEndpointCommand";
+import {
   DeregisterIdentityProviderCommandInput,
   DeregisterIdentityProviderCommandOutput,
 } from "./commands/DeregisterIdentityProviderCommand";
@@ -65,9 +73,17 @@ import {
 } from "./commands/ListIdentityProvidersCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "./commands/ListInstancesCommand";
 import {
+  ListLicenseServerEndpointsCommandInput,
+  ListLicenseServerEndpointsCommandOutput,
+} from "./commands/ListLicenseServerEndpointsCommand";
+import {
   ListProductSubscriptionsCommandInput,
   ListProductSubscriptionsCommandOutput,
 } from "./commands/ListProductSubscriptionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import {
   ListUserAssociationsCommandInput,
   ListUserAssociationsCommandOutput,
@@ -84,6 +100,8 @@ import {
   StopProductSubscriptionCommandInput,
   StopProductSubscriptionCommandOutput,
 } from "./commands/StopProductSubscriptionCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
   UpdateIdentityProviderSettingsCommandInput,
   UpdateIdentityProviderSettingsCommandOutput,
@@ -104,15 +122,21 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateUserCommandInput
+  | CreateLicenseServerEndpointCommandInput
+  | DeleteLicenseServerEndpointCommandInput
   | DeregisterIdentityProviderCommandInput
   | DisassociateUserCommandInput
   | ListIdentityProvidersCommandInput
   | ListInstancesCommandInput
+  | ListLicenseServerEndpointsCommandInput
   | ListProductSubscriptionsCommandInput
+  | ListTagsForResourceCommandInput
   | ListUserAssociationsCommandInput
   | RegisterIdentityProviderCommandInput
   | StartProductSubscriptionCommandInput
   | StopProductSubscriptionCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateIdentityProviderSettingsCommandInput;
 
 /**
@@ -120,15 +144,21 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateUserCommandOutput
+  | CreateLicenseServerEndpointCommandOutput
+  | DeleteLicenseServerEndpointCommandOutput
   | DeregisterIdentityProviderCommandOutput
   | DisassociateUserCommandOutput
   | ListIdentityProvidersCommandOutput
   | ListInstancesCommandOutput
+  | ListLicenseServerEndpointsCommandOutput
   | ListProductSubscriptionsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListUserAssociationsCommandOutput
   | RegisterIdentityProviderCommandOutput
   | StartProductSubscriptionCommandOutput
   | StopProductSubscriptionCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateIdentityProviderSettingsCommandOutput;
 
 /**
@@ -306,7 +336,7 @@ export interface LicenseManagerUserSubscriptionsClientResolvedConfig
 
 /**
  * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with
- *       a per user subscription fee on Amazon EC2 instances.</p>
+ * 		a per user subscription fee on Amazon EC2 instances.</p>
  * @public
  */
 export class LicenseManagerUserSubscriptionsClient extends __Client<

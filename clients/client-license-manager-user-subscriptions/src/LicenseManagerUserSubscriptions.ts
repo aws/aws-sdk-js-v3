@@ -8,6 +8,16 @@ import {
   AssociateUserCommandOutput,
 } from "./commands/AssociateUserCommand";
 import {
+  CreateLicenseServerEndpointCommand,
+  CreateLicenseServerEndpointCommandInput,
+  CreateLicenseServerEndpointCommandOutput,
+} from "./commands/CreateLicenseServerEndpointCommand";
+import {
+  DeleteLicenseServerEndpointCommand,
+  DeleteLicenseServerEndpointCommandInput,
+  DeleteLicenseServerEndpointCommandOutput,
+} from "./commands/DeleteLicenseServerEndpointCommand";
+import {
   DeregisterIdentityProviderCommand,
   DeregisterIdentityProviderCommandInput,
   DeregisterIdentityProviderCommandOutput,
@@ -28,10 +38,20 @@ import {
   ListInstancesCommandOutput,
 } from "./commands/ListInstancesCommand";
 import {
+  ListLicenseServerEndpointsCommand,
+  ListLicenseServerEndpointsCommandInput,
+  ListLicenseServerEndpointsCommandOutput,
+} from "./commands/ListLicenseServerEndpointsCommand";
+import {
   ListProductSubscriptionsCommand,
   ListProductSubscriptionsCommandInput,
   ListProductSubscriptionsCommandOutput,
 } from "./commands/ListProductSubscriptionsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import {
   ListUserAssociationsCommand,
   ListUserAssociationsCommandInput,
@@ -52,6 +72,12 @@ import {
   StopProductSubscriptionCommandInput,
   StopProductSubscriptionCommandOutput,
 } from "./commands/StopProductSubscriptionCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateIdentityProviderSettingsCommand,
   UpdateIdentityProviderSettingsCommandInput,
@@ -64,15 +90,21 @@ import {
 
 const commands = {
   AssociateUserCommand,
+  CreateLicenseServerEndpointCommand,
+  DeleteLicenseServerEndpointCommand,
   DeregisterIdentityProviderCommand,
   DisassociateUserCommand,
   ListIdentityProvidersCommand,
   ListInstancesCommand,
+  ListLicenseServerEndpointsCommand,
   ListProductSubscriptionsCommand,
+  ListTagsForResourceCommand,
   ListUserAssociationsCommand,
   RegisterIdentityProviderCommand,
   StartProductSubscriptionCommand,
   StopProductSubscriptionCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
   UpdateIdentityProviderSettingsCommand,
 };
 
@@ -89,8 +121,43 @@ export interface LicenseManagerUserSubscriptions {
   ): void;
 
   /**
+   * @see {@link CreateLicenseServerEndpointCommand}
+   */
+  createLicenseServerEndpoint(
+    args: CreateLicenseServerEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLicenseServerEndpointCommandOutput>;
+  createLicenseServerEndpoint(
+    args: CreateLicenseServerEndpointCommandInput,
+    cb: (err: any, data?: CreateLicenseServerEndpointCommandOutput) => void
+  ): void;
+  createLicenseServerEndpoint(
+    args: CreateLicenseServerEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLicenseServerEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLicenseServerEndpointCommand}
+   */
+  deleteLicenseServerEndpoint(
+    args: DeleteLicenseServerEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLicenseServerEndpointCommandOutput>;
+  deleteLicenseServerEndpoint(
+    args: DeleteLicenseServerEndpointCommandInput,
+    cb: (err: any, data?: DeleteLicenseServerEndpointCommandOutput) => void
+  ): void;
+  deleteLicenseServerEndpoint(
+    args: DeleteLicenseServerEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLicenseServerEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeregisterIdentityProviderCommand}
    */
+  deregisterIdentityProvider(): Promise<DeregisterIdentityProviderCommandOutput>;
   deregisterIdentityProvider(
     args: DeregisterIdentityProviderCommandInput,
     options?: __HttpHandlerOptions
@@ -108,6 +175,7 @@ export interface LicenseManagerUserSubscriptions {
   /**
    * @see {@link DisassociateUserCommand}
    */
+  disassociateUser(): Promise<DisassociateUserCommandOutput>;
   disassociateUser(
     args: DisassociateUserCommandInput,
     options?: __HttpHandlerOptions
@@ -153,6 +221,24 @@ export interface LicenseManagerUserSubscriptions {
   ): void;
 
   /**
+   * @see {@link ListLicenseServerEndpointsCommand}
+   */
+  listLicenseServerEndpoints(): Promise<ListLicenseServerEndpointsCommandOutput>;
+  listLicenseServerEndpoints(
+    args: ListLicenseServerEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLicenseServerEndpointsCommandOutput>;
+  listLicenseServerEndpoints(
+    args: ListLicenseServerEndpointsCommandInput,
+    cb: (err: any, data?: ListLicenseServerEndpointsCommandOutput) => void
+  ): void;
+  listLicenseServerEndpoints(
+    args: ListLicenseServerEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLicenseServerEndpointsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProductSubscriptionsCommand}
    */
   listProductSubscriptions(
@@ -167,6 +253,23 @@ export interface LicenseManagerUserSubscriptions {
     args: ListProductSubscriptionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProductSubscriptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
   ): void;
 
   /**
@@ -223,6 +326,7 @@ export interface LicenseManagerUserSubscriptions {
   /**
    * @see {@link StopProductSubscriptionCommand}
    */
+  stopProductSubscription(): Promise<StopProductSubscriptionCommandOutput>;
   stopProductSubscription(
     args: StopProductSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -235,6 +339,28 @@ export interface LicenseManagerUserSubscriptions {
     args: StopProductSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopProductSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
   /**
@@ -257,7 +383,7 @@ export interface LicenseManagerUserSubscriptions {
 
 /**
  * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with
- *       a per user subscription fee on Amazon EC2 instances.</p>
+ * 		a per user subscription fee on Amazon EC2 instances.</p>
  * @public
  */
 export class LicenseManagerUserSubscriptions

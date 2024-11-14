@@ -32,7 +32,7 @@ export interface DeregisterIdentityProviderCommandInput extends DeregisterIdenti
 export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdentityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Deregisters the identity provider from providing user-based subscriptions.</p>
+ * <p>Deregisters the Active Directory identity provider from License Manager user-based subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,9 +43,27 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
- *   Product: "STRING_VALUE", // required
+ *   Product: "STRING_VALUE",
+ *   IdentityProviderArn: "STRING_VALUE",
  * };
  * const command = new DeregisterIdentityProviderCommand(input);
  * const response = await client.send(command);
@@ -54,16 +72,34 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  * //     IdentityProvider: { // IdentityProvider Union: only one key present
  * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //         DirectoryId: "STRING_VALUE",
+ * //         ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //           DomainName: "STRING_VALUE",
+ * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //             SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //               SecretId: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           DomainNetworkSettings: { // DomainNetworkSettings
+ * //             Subnets: [ // Subnets // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ActiveDirectoryType: "STRING_VALUE",
  * //       },
  * //     },
  * //     Settings: { // Settings
- * //       Subnets: [ // Subnets // required
+ * //       Subnets: [ // required
  * //         "STRING_VALUE",
  * //       ],
  * //       SecurityGroupId: "STRING_VALUE", // required
  * //     },
  * //     Product: "STRING_VALUE", // required
  * //     Status: "STRING_VALUE", // required
+ * //     IdentityProviderArn: "STRING_VALUE",
  * //     FailureMessage: "STRING_VALUE",
  * //   },
  * // };
@@ -81,7 +117,7 @@ export interface DeregisterIdentityProviderCommandOutput extends DeregisterIdent
  *
  * @throws {@link ConflictException} (server fault)
  *  <p>The request couldn't be completed because it conflicted with the current state of the
- *       resource.</p>
+ * 			resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>

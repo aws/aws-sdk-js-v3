@@ -40,13 +40,31 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * // const { LicenseManagerUserSubscriptionsClient, StopProductSubscriptionCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // StopProductSubscriptionRequest
- *   Username: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE",
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
- *   Product: "STRING_VALUE", // required
+ *   Product: "STRING_VALUE",
+ *   ProductUserArn: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  * };
  * const command = new StopProductSubscriptionCommand(input);
@@ -58,9 +76,27 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * //     IdentityProvider: { // IdentityProvider Union: only one key present
  * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //         DirectoryId: "STRING_VALUE",
+ * //         ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //           DomainName: "STRING_VALUE",
+ * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //             SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //               SecretId: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           DomainNetworkSettings: { // DomainNetworkSettings
+ * //             Subnets: [ // Subnets // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ActiveDirectoryType: "STRING_VALUE",
  * //       },
  * //     },
  * //     Status: "STRING_VALUE", // required
+ * //     ProductUserArn: "STRING_VALUE",
  * //     StatusMessage: "STRING_VALUE",
  * //     Domain: "STRING_VALUE",
  * //     SubscriptionStartDate: "STRING_VALUE",
@@ -81,7 +117,7 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  *
  * @throws {@link ConflictException} (server fault)
  *  <p>The request couldn't be completed because it conflicted with the current state of the
- *       resource.</p>
+ * 			resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>

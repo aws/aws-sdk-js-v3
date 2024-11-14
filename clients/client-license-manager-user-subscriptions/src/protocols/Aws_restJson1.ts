@@ -7,9 +7,13 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
+  parseEpochTimestamp as __parseEpochTimestamp,
+  resolvedPath as __resolvedPath,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -21,6 +25,14 @@ import {
 
 import { AssociateUserCommandInput, AssociateUserCommandOutput } from "../commands/AssociateUserCommand";
 import {
+  CreateLicenseServerEndpointCommandInput,
+  CreateLicenseServerEndpointCommandOutput,
+} from "../commands/CreateLicenseServerEndpointCommand";
+import {
+  DeleteLicenseServerEndpointCommandInput,
+  DeleteLicenseServerEndpointCommandOutput,
+} from "../commands/DeleteLicenseServerEndpointCommand";
+import {
   DeregisterIdentityProviderCommandInput,
   DeregisterIdentityProviderCommandOutput,
 } from "../commands/DeregisterIdentityProviderCommand";
@@ -31,9 +43,17 @@ import {
 } from "../commands/ListIdentityProvidersCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "../commands/ListInstancesCommand";
 import {
+  ListLicenseServerEndpointsCommandInput,
+  ListLicenseServerEndpointsCommandOutput,
+} from "../commands/ListLicenseServerEndpointsCommand";
+import {
   ListProductSubscriptionsCommandInput,
   ListProductSubscriptionsCommandOutput,
 } from "../commands/ListProductSubscriptionsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import {
   ListUserAssociationsCommandInput,
   ListUserAssociationsCommandOutput,
@@ -50,6 +70,8 @@ import {
   StopProductSubscriptionCommandInput,
   StopProductSubscriptionCommandOutput,
 } from "../commands/StopProductSubscriptionCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateIdentityProviderSettingsCommandInput,
   UpdateIdentityProviderSettingsCommandOutput,
@@ -58,11 +80,19 @@ import { LicenseManagerUserSubscriptionsServiceException as __BaseException } fr
 import {
   AccessDeniedException,
   ActiveDirectoryIdentityProvider,
+  ActiveDirectorySettings,
   ConflictException,
+  CredentialsProvider,
+  DomainNetworkSettings,
   Filter,
   IdentityProvider,
   InternalServerException,
+  LicenseServerEndpoint,
+  LicenseServerSettings,
+  RdsSalSettings,
   ResourceNotFoundException,
+  SecretsManagerCredentialsProvider,
+  ServerSettings,
   ServiceQuotaExceededException,
   Settings,
   ThrottlingException,
@@ -88,7 +118,55 @@ export const se_AssociateUserCommand = async (
       Domain: [],
       IdentityProvider: (_) => _json(_),
       InstanceId: [],
+      Tags: (_) => _json(_),
       Username: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateLicenseServerEndpointCommand
+ */
+export const se_CreateLicenseServerEndpointCommand = async (
+  input: CreateLicenseServerEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/license-server/CreateLicenseServerEndpoint");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      IdentityProviderArn: [],
+      LicenseServerSettings: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteLicenseServerEndpointCommand
+ */
+export const se_DeleteLicenseServerEndpointCommand = async (
+  input: DeleteLicenseServerEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/license-server/DeleteLicenseServerEndpoint");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      LicenseServerEndpointArn: [],
+      ServerType: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -111,6 +189,7 @@ export const se_DeregisterIdentityProviderCommand = async (
   body = JSON.stringify(
     take(input, {
       IdentityProvider: (_) => _json(_),
+      IdentityProviderArn: [],
       Product: [],
     })
   );
@@ -136,6 +215,7 @@ export const se_DisassociateUserCommand = async (
       Domain: [],
       IdentityProvider: (_) => _json(_),
       InstanceId: [],
+      InstanceUserArn: [],
       Username: [],
     })
   );
@@ -158,6 +238,7 @@ export const se_ListIdentityProvidersCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      Filters: (_) => _json(_),
       MaxResults: [],
       NextToken: [],
     })
@@ -178,6 +259,30 @@ export const se_ListInstancesCommand = async (
     "content-type": "application/json",
   };
   b.bp("/instance/ListInstances");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLicenseServerEndpointsCommand
+ */
+export const se_ListLicenseServerEndpointsCommand = async (
+  input: ListLicenseServerEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/license-server/ListLicenseServerEndpoints");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -213,6 +318,22 @@ export const se_ListProductSubscriptionsCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -260,6 +381,7 @@ export const se_RegisterIdentityProviderCommand = async (
       IdentityProvider: (_) => _json(_),
       Product: [],
       Settings: (_) => _json(_),
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -284,6 +406,7 @@ export const se_StartProductSubscriptionCommand = async (
       Domain: [],
       IdentityProvider: (_) => _json(_),
       Product: [],
+      Tags: (_) => _json(_),
       Username: [],
     })
   );
@@ -309,10 +432,53 @@ export const se_StopProductSubscriptionCommand = async (
       Domain: [],
       IdentityProvider: (_) => _json(_),
       Product: [],
+      ProductUserArn: [],
       Username: [],
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -332,6 +498,7 @@ export const se_UpdateIdentityProviderSettingsCommand = async (
   body = JSON.stringify(
     take(input, {
       IdentityProvider: (_) => _json(_),
+      IdentityProviderArn: [],
       Product: [],
       UpdateSettings: (_) => _json(_),
     })
@@ -356,6 +523,49 @@ export const de_AssociateUserCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     InstanceUserSummary: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLicenseServerEndpointCommand
+ */
+export const de_CreateLicenseServerEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLicenseServerEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IdentityProviderArn: __expectString,
+    LicenseServerEndpointArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLicenseServerEndpointCommand
+ */
+export const de_DeleteLicenseServerEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLicenseServerEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LicenseServerEndpoint: (_) => de_LicenseServerEndpoint(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -448,6 +658,28 @@ export const de_ListInstancesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLicenseServerEndpointsCommand
+ */
+export const de_ListLicenseServerEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLicenseServerEndpointsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LicenseServerEndpoints: (_) => de_LicenseServerEndpointList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListProductSubscriptionsCommand
  */
 export const de_ListProductSubscriptionsCommand = async (
@@ -464,6 +696,27 @@ export const de_ListProductSubscriptionsCommand = async (
   const doc = take(data, {
     NextToken: __expectString,
     ProductUserSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -551,6 +804,40 @@ export const de_StopProductSubscriptionCommand = async (
     ProductUserSummary: _json,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -750,19 +1037,43 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ActiveDirectoryIdentityProvider omitted.
 
+// se_ActiveDirectorySettings omitted.
+
+// se_CredentialsProvider omitted.
+
+// se_DomainNetworkSettings omitted.
+
 // se_Filter omitted.
 
 // se_FilterList omitted.
 
 // se_IdentityProvider omitted.
 
+// se_IpV4List omitted.
+
+// se_LicenseServerSettings omitted.
+
+// se_RdsSalSettings omitted.
+
+// se_SecretsManagerCredentialsProvider omitted.
+
+// se_ServerSettings omitted.
+
 // se_Settings omitted.
 
 // se_Subnets omitted.
 
+// se_Tags omitted.
+
 // se_UpdateSettings omitted.
 
 // de_ActiveDirectoryIdentityProvider omitted.
+
+// de_ActiveDirectorySettings omitted.
+
+// de_CredentialsProvider omitted.
+
+// de_DomainNetworkSettings omitted.
 
 // de_IdentityProvider omitted.
 
@@ -778,15 +1089,56 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_InstanceUserSummaryList omitted.
 
+// de_IpV4List omitted.
+
+// de_LicenseServer omitted.
+
+/**
+ * deserializeAws_restJson1LicenseServerEndpoint
+ */
+const de_LicenseServerEndpoint = (output: any, context: __SerdeContext): LicenseServerEndpoint => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IdentityProviderArn: __expectString,
+    LicenseServerEndpointArn: __expectString,
+    LicenseServerEndpointId: __expectString,
+    LicenseServerEndpointProvisioningStatus: __expectString,
+    LicenseServers: _json,
+    ServerEndpoint: _json,
+    ServerType: __expectString,
+    StatusMessage: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LicenseServerEndpointList
+ */
+const de_LicenseServerEndpointList = (output: any, context: __SerdeContext): LicenseServerEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LicenseServerEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+// de_LicenseServerList omitted.
+
 // de_ProductUserSummary omitted.
 
 // de_ProductUserSummaryList omitted.
+
+// de_SecretsManagerCredentialsProvider omitted.
+
+// de_ServerEndpoint omitted.
 
 // de_Settings omitted.
 
 // de_StringList omitted.
 
 // de_Subnets omitted.
+
+// de_Tags omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -799,3 +1151,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
+
+const _TK = "TagKeys";
+const _tK = "tagKeys";

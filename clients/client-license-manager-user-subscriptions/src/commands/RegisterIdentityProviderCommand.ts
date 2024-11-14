@@ -10,7 +10,11 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import { RegisterIdentityProviderRequest, RegisterIdentityProviderResponse } from "../models/models_0";
+import {
+  RegisterIdentityProviderRequest,
+  RegisterIdentityProviderRequestFilterSensitiveLog,
+  RegisterIdentityProviderResponse,
+} from "../models/models_0";
 import { de_RegisterIdentityProviderCommand, se_RegisterIdentityProviderCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -43,14 +47,34 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
  *   Product: "STRING_VALUE", // required
  *   Settings: { // Settings
- *     Subnets: [ // Subnets // required
+ *     Subnets: [ // required
  *       "STRING_VALUE",
  *     ],
  *     SecurityGroupId: "STRING_VALUE", // required
+ *   },
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new RegisterIdentityProviderCommand(input);
@@ -60,16 +84,34 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  * //     IdentityProvider: { // IdentityProvider Union: only one key present
  * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //         DirectoryId: "STRING_VALUE",
+ * //         ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //           DomainName: "STRING_VALUE",
+ * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //             SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //               SecretId: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           DomainNetworkSettings: { // DomainNetworkSettings
+ * //             Subnets: [ // Subnets // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ActiveDirectoryType: "STRING_VALUE",
  * //       },
  * //     },
  * //     Settings: { // Settings
- * //       Subnets: [ // Subnets // required
+ * //       Subnets: [ // required
  * //         "STRING_VALUE",
  * //       ],
  * //       SecurityGroupId: "STRING_VALUE", // required
  * //     },
  * //     Product: "STRING_VALUE", // required
  * //     Status: "STRING_VALUE", // required
+ * //     IdentityProviderArn: "STRING_VALUE",
  * //     FailureMessage: "STRING_VALUE",
  * //   },
  * // };
@@ -87,7 +129,7 @@ export interface RegisterIdentityProviderCommandOutput extends RegisterIdentityP
  *
  * @throws {@link ConflictException} (server fault)
  *  <p>The request couldn't be completed because it conflicted with the current state of the
- *       resource.</p>
+ * 			resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -126,7 +168,7 @@ export class RegisterIdentityProviderCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "RegisterIdentityProvider", {})
   .n("LicenseManagerUserSubscriptionsClient", "RegisterIdentityProviderCommand")
-  .f(void 0, void 0)
+  .f(RegisterIdentityProviderRequestFilterSensitiveLog, void 0)
   .ser(se_RegisterIdentityProviderCommand)
   .de(de_RegisterIdentityProviderCommand)
   .build() {

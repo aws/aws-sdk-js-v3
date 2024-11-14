@@ -10,7 +10,11 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
-import { AssociateUserRequest, AssociateUserResponse } from "../models/models_0";
+import {
+  AssociateUserRequest,
+  AssociateUserRequestFilterSensitiveLog,
+  AssociateUserResponse,
+} from "../models/models_0";
 import { de_AssociateUserCommand, se_AssociateUserCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -35,8 +39,8 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>
  *          <note>
  *             <p>Your estimated bill for charges on the number of users and related costs will take 48
- *         hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
- *           monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
+ * 			hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
+ * 				monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,9 +54,29 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
  *   Domain: "STRING_VALUE",
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new AssociateUserCommand(input);
  * const response = await client.send(command);
@@ -63,9 +87,27 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  * //     IdentityProvider: { // IdentityProvider Union: only one key present
  * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //         DirectoryId: "STRING_VALUE",
+ * //         ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //           DomainName: "STRING_VALUE",
+ * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //             SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //               SecretId: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           DomainNetworkSettings: { // DomainNetworkSettings
+ * //             Subnets: [ // Subnets // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ActiveDirectoryType: "STRING_VALUE",
  * //       },
  * //     },
  * //     Status: "STRING_VALUE", // required
+ * //     InstanceUserArn: "STRING_VALUE",
  * //     StatusMessage: "STRING_VALUE",
  * //     Domain: "STRING_VALUE",
  * //     AssociationDate: "STRING_VALUE",
@@ -86,7 +128,7 @@ export interface AssociateUserCommandOutput extends AssociateUserResponse, __Met
  *
  * @throws {@link ConflictException} (server fault)
  *  <p>The request couldn't be completed because it conflicted with the current state of the
- *       resource.</p>
+ * 			resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -125,7 +167,7 @@ export class AssociateUserCommand extends $Command
   })
   .s("LicenseManagerUserSubscriptions", "AssociateUser", {})
   .n("LicenseManagerUserSubscriptionsClient", "AssociateUserCommand")
-  .f(void 0, void 0)
+  .f(AssociateUserRequestFilterSensitiveLog, void 0)
   .ser(se_AssociateUserCommand)
   .de(de_AssociateUserCommand)
   .build() {
