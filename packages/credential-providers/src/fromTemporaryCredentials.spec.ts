@@ -62,7 +62,7 @@ describe("fromTemporaryCredentials", () => {
       secretAccessKey: "SECRET_ACCESS_KEY",
       sessionToken: "SESSION_TOKEN",
     });
-    expect(vi.mocked(STSClient)).toHaveBeenCalledWith({
+    expect(vi.mocked(STSClient as any)).toHaveBeenCalledWith({
       credentials: masterCredentials,
       region,
     });
@@ -86,7 +86,7 @@ describe("fromTemporaryCredentials", () => {
       clientPlugins: [plugin],
     });
     await provider();
-    expect(vi.mocked(STSClient)).toHaveBeenCalledWith({
+    expect(vi.mocked(STSClient as any)).toHaveBeenCalledWith({
       credentials: masterCredentials,
     });
     expect(mockUsePlugin).toHaveBeenCalledTimes(1);
@@ -101,7 +101,7 @@ describe("fromTemporaryCredentials", () => {
       },
     });
     await provider();
-    expect(vi.mocked(STSClient)).toHaveBeenCalledWith({});
+    expect(vi.mocked(STSClient as any)).toHaveBeenCalledWith({});
   });
 
   it("should create a role session name if none provided", async () => {
@@ -140,22 +140,22 @@ describe("fromTemporaryCredentials", () => {
     expect(credentials.accessKeyId).toBe("access_id_from_third");
     // Creates STS Client with right master credentials and assume role with
     // expected role arn.
-    expect(vi.mocked(STSClient).mock.results.length).toBe(3);
-    const outmostClient = vi.mocked(STSClient).mock.results[0].value;
+    expect(vi.mocked(STSClient as any).mock.results.length).toBe(3);
+    const outmostClient = vi.mocked(STSClient as any).mock.results[0].value;
     expect(outmostClient.config.credentials).toEqual(expect.objectContaining({ accessKeyId: "access_id_from_second" }));
     expect((outmostClient.send as any).mock.calls.length).toBe(1);
     expect((outmostClient.send as any).mock.calls[0][0].input).toEqual(
       expect.objectContaining({ RoleArn: roleArnOf("third") })
     );
 
-    const middleClient = vi.mocked(STSClient).mock.results[1].value;
+    const middleClient = vi.mocked(STSClient as any).mock.results[1].value;
     expect(middleClient.config.credentials).toEqual(expect.objectContaining({ accessKeyId: "access_id_from_first" }));
     expect((middleClient.send as any).mock.calls.length).toBe(1);
     expect((middleClient.send as any).mock.calls[0][0].input).toEqual(
       expect.objectContaining({ RoleArn: roleArnOf("second") })
     );
 
-    const innermostClient = vi.mocked(STSClient).mock.results[2].value;
+    const innermostClient = vi.mocked(STSClient as any).mock.results[2].value;
     expect(innermostClient.config.credentials).toEqual(undefined);
     expect((innermostClient.send as any).mock.calls.length).toBe(1);
     expect((innermostClient.send as any).mock.calls[0][0].input).toEqual(
@@ -169,7 +169,7 @@ describe("fromTemporaryCredentials", () => {
 
     // Should not create extra clients if credentials is still valid
     await provider();
-    expect(vi.mocked(STSClient).mock.results.length).toBe(3);
+    expect(vi.mocked(STSClient as any).mock.results.length).toBe(3);
   });
 
   it("should support assuming a role with multi-factor authentication", async () => {

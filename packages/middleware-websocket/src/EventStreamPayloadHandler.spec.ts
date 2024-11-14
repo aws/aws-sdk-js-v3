@@ -1,6 +1,6 @@
 import { EventStreamCodec } from "@smithy/eventstream-codec";
 import { Decoder, Encoder, FinalizeHandler, FinalizeHandlerArguments, HttpRequest, MessageSigner } from "@smithy/types";
-import { afterEach, beforeEach, describe, expect, expect, test as it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 import { ReadableStream, TransformStream } from "web-streams-polyfill";
 
 import { EventStreamPayloadHandler } from "./EventStreamPayloadHandler";
@@ -21,7 +21,7 @@ describe(EventStreamPayloadHandler.name, () => {
   beforeEach(() => {
     window.TransformStream = TransformStream;
     (getEventSigningTransformStream as unknown as any).mockImplementation(() => new TransformStream());
-    vi.mocked(EventStreamCodec).mockImplementation(() => {});
+    vi.mocked(EventStreamCodec).mockImplementation((() => {}) as any);
   });
 
   afterEach(() => {

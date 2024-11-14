@@ -1,5 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { describe, expect, expect, test as it, vi } from "vitest";
+import { describe, expect, test as it, vi } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

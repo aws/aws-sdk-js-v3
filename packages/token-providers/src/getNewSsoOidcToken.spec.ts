@@ -32,8 +32,8 @@ describe(getNewSsoOidcToken.name, () => {
 
   beforeEach(() => {
     mockSend = vi.fn().mockResolvedValueOnce(mockNewToken);
-    vi.mocked(getSsoOidcClient).mockReturnValue({ send: mockSend });
-    (CreateTokenCommand as unknown as any).mockImplementation((args) => args);
+    vi.mocked(getSsoOidcClient as any).mockReturnValue({ send: mockSend });
+    (CreateTokenCommand as unknown as any).mockImplementation((args: any) => args);
   });
 
   describe("re-throws", () => {
@@ -56,7 +56,7 @@ describe(getNewSsoOidcToken.name, () => {
 
     it("if client.send() throws", async () => {
       const mockSendWithError = vi.fn().mockRejectedValueOnce(mockError);
-      vi.mocked(getSsoOidcClient).mockReturnValueOnce({ send: mockSendWithError });
+      vi.mocked(getSsoOidcClient as any).mockReturnValueOnce({ send: mockSendWithError });
       try {
         await getNewSsoOidcToken(mockSsoToken, mockSsoRegion);
         fail(`expected ${mockError}`);

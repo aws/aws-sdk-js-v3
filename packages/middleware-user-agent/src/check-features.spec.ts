@@ -15,7 +15,7 @@ describe(checkFeatures.name, () => {
           identity: {
             accountId: "123456789012",
             $source: {},
-          },
+          } as any,
         },
       },
     } as AwsHandlerExecutionContext;

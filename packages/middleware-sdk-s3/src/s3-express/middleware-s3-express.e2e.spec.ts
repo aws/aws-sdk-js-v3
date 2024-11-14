@@ -215,7 +215,7 @@ async function createClientAndRecorder() {
       }
 
       const commandName = context.commandName + s3ExpressSuffix;
-      const input = args.input;
+      const input = args.input as any;
       const commandRecorder = (recorder.calls[commandName] = recorder.calls[commandName] ?? {});
       commandRecorder[input["Bucket"] ?? "-"] |= 0;
       commandRecorder[input["Bucket"] ?? "-"]++;

@@ -13,7 +13,7 @@ vi.mock("@smithy/util-middleware");
 
 describe(resolveFlexibleChecksumsConfig.name, () => {
   beforeEach(() => {
-    vi.mocked(normalizeProvider).mockImplementation((input) => input);
+    vi.mocked(normalizeProvider).mockImplementation((input) => input as any);
   });
 
   afterEach(() => {

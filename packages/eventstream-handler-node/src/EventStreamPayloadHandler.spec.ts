@@ -29,7 +29,7 @@ describe(EventStreamPayloadHandler.name, () => {
 
   beforeEach(() => {
     (EventSigningStream as unknown as any).mockImplementation(() => new PassThrough());
-    vi.mocked(EventStreamCodec).mockImplementation(() => {});
+    vi.mocked(EventStreamCodec).mockImplementation((() => {}) as any);
   });
 
   afterEach(() => {

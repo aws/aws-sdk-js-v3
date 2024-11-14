@@ -1,5 +1,5 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { FinalizeHandler, RequestSigner } from "@smithy/types";
+import { RequestSigner } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
@@ -11,11 +11,11 @@ vi.mock("./utils/getUpdatedSystemClockOffset");
 vi.mock("./utils/getSkewCorrectedDate");
 
 describe(awsAuthMiddleware.name, () => {
-  let mockSignFn: vi.Mock<any, any>;
+  let mockSignFn: any;
   let mockSigner: () => Promise<RequestSigner>;
   let mockOptions: AwsAuthResolvedConfig;
 
-  const mockNext: vi.MockedFunction<FinalizeHandler<any, any>> = vi.fn();
+  const mockNext: any = vi.fn();
   const mockSystemClockOffset = 100;
   const mockUpdatedSystemClockOffset = 500;
   const mockSigningHandlerArgs = {

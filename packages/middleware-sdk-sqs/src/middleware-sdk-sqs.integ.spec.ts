@@ -3,7 +3,7 @@ import { HttpHandler, HttpResponse } from "@smithy/protocol-http";
 import type { AwsCredentialIdentity } from "@smithy/types";
 import crypto from "crypto";
 import { Readable } from "stream";
-import { beforeEach, describe, expect, expect, test as it } from "vitest";
+import { beforeEach, describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 

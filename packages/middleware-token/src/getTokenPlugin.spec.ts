@@ -18,7 +18,7 @@ describe(getTokenPlugin.name, () => {
 
   it("applyToStack adds tokenMiddleware", () => {
     const middlewareReturn = {};
-    vi.mocked(tokenMiddleware).mockReturnValueOnce(middlewareReturn);
+    vi.mocked(tokenMiddleware).mockReturnValueOnce(middlewareReturn as any);
 
     // @ts-ignore
     const plugin = getTokenPlugin(pluginConfig);

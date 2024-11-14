@@ -74,7 +74,7 @@ describe(fromSso.name, () => {
 
   describe("throws validation error", () => {
     it("when profile is not found", async () => {
-      vi.mocked(parseKnownFiles).mockReturnValue({});
+      vi.mocked(parseKnownFiles as any).mockReturnValue({});
       const expectedError = new TokenProviderError(
         `Profile '${mockProfileName}' could not be found in shared credentials file.`,
         false
@@ -84,7 +84,7 @@ describe(fromSso.name, () => {
 
     it("when sso_session is not defined for profile", async () => {
       const { sso_session, ...mockSsoProfileWithoutSsoSession } = mockSsoProfile;
-      vi.mocked(parseKnownFiles).mockReturnValue({ [mockProfileName]: mockSsoProfileWithoutSsoSession });
+      vi.mocked(parseKnownFiles as any).mockReturnValue({ [mockProfileName]: mockSsoProfileWithoutSsoSession });
       const expectedError = new TokenProviderError(
         `Profile '${mockProfileName}' is missing required property 'sso_session'.`
       );

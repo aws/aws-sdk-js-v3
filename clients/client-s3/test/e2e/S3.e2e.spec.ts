@@ -77,7 +77,7 @@ describe("@aws-sdk/client-s3", () => {
       const body = createBuffer("1MB");
       let bodyChecksum = "";
 
-      const bodyChecksumReader = (next) => async (args) => {
+      const bodyChecksumReader = (next: any) => async (args: any) => {
         const checksumValue = args.request.headers["x-amz-checksum-crc32"];
         if (checksumValue) {
           bodyChecksum = checksumValue;

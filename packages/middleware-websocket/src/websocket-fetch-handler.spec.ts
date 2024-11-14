@@ -2,7 +2,7 @@ import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { HttpRequest } from "@smithy/protocol-http";
 import { WebSocket } from "mock-socket";
 import { PassThrough } from "stream";
-import { afterEach, beforeEach, describe, expect, expect, test as it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 import WS from "vitest-websocket-mock";
 
 import { WebSocketFetchHandler } from "./websocket-fetch-handler";
@@ -139,7 +139,7 @@ describe(WebSocketFetchHandler.name, () => {
         expect(err.$metadata).toBeDefined();
         expect(err.$metadata.httpStatusCode >= 500).toBe(true);
         expect(
-          ((global as any).setTimeout as any).mock.calls.filter((args) => {
+          ((global as any).setTimeout as any).mock.calls.filter((args: any) => {
             //find the 'setTimeout' call from the websocket handler
             return args[0].toString().indexOf("$metadata") >= 0;
           })[0][1]

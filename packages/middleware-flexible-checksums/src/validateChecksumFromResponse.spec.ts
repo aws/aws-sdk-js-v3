@@ -51,10 +51,12 @@ describe(validateChecksumFromResponse.name, () => {
 
   beforeEach(() => {
     vi.mocked(getChecksumLocationName).mockImplementation((algorithm) => algorithm);
-    vi.mocked(getChecksumAlgorithmListForResponse).mockImplementation((responseAlgorithms) => responseAlgorithms);
+    vi.mocked(getChecksumAlgorithmListForResponse).mockImplementation(
+      (responseAlgorithms) => responseAlgorithms as any
+    );
     vi.mocked(selectChecksumAlgorithmFunction).mockReturnValue(mockChecksumAlgorithmFn);
     vi.mocked(getChecksum).mockResolvedValue(mockChecksum);
-    vi.mocked(createChecksumStream).mockReturnValue(mockBodyStream);
+    vi.mocked(createChecksumStream).mockReturnValue(mockBodyStream as any);
   });
 
   afterEach(() => {
