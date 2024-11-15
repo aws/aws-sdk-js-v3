@@ -37,7 +37,8 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * const client = new Route53ResolverClient(config);
  * const input = { // DeleteFirewallRuleRequest
  *   FirewallRuleGroupId: "STRING_VALUE", // required
- *   FirewallDomainListId: "STRING_VALUE", // required
+ *   FirewallDomainListId: "STRING_VALUE",
+ *   FirewallThreatProtectionId: "STRING_VALUE",
  *   Qtype: "STRING_VALUE",
  * };
  * const command = new DeleteFirewallRuleCommand(input);
@@ -46,6 +47,7 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * //   FirewallRule: { // FirewallRule
  * //     FirewallRuleGroupId: "STRING_VALUE",
  * //     FirewallDomainListId: "STRING_VALUE",
+ * //     FirewallThreatProtectionId: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
  * //     Priority: Number("int"),
  * //     Action: "ALLOW" || "BLOCK" || "ALERT",
@@ -58,6 +60,8 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  * //     ModificationTime: "STRING_VALUE",
  * //     FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  * //     Qtype: "STRING_VALUE",
+ * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //   },
  * // };
  *
@@ -82,6 +86,10 @@ export interface DeleteFirewallRuleCommandOutput extends DeleteFirewallRuleRespo
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled. Try again in a few minutes.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
+ * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  *
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>

@@ -51,6 +51,7 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //     { // FirewallRule
  * //       FirewallRuleGroupId: "STRING_VALUE",
  * //       FirewallDomainListId: "STRING_VALUE",
+ * //       FirewallThreatProtectionId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Priority: Number("int"),
  * //       Action: "ALLOW" || "BLOCK" || "ALERT",
@@ -63,6 +64,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //       ModificationTime: "STRING_VALUE",
  * //       FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  * //       Qtype: "STRING_VALUE",
+ * //       DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ * //       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //     },
  * //   ],
  * // };

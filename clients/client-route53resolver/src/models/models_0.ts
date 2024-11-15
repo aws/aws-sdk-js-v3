@@ -906,7 +906,7 @@ export interface ResolverQueryLogConfigAssociation {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CREATED</code>: The association between an Amazon VPC and a query logging configuration
+   *                   <code>ACTIVE</code>: The association between an Amazon VPC and a query logging configuration
    * 				was successfully created. Resolver is logging queries that originate in the specified VPC.</p>
    *             </li>
    *             <li>
@@ -1139,6 +1139,21 @@ export type BlockResponse = (typeof BlockResponse)[keyof typeof BlockResponse];
 
 /**
  * @public
+ * @enum
+ */
+export const ConfidenceThreshold = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfidenceThreshold = (typeof ConfidenceThreshold)[keyof typeof ConfidenceThreshold];
+
+/**
+ * @public
  */
 export interface CreateFirewallDomainListRequest {
   /**
@@ -1263,6 +1278,20 @@ export interface CreateFirewallDomainListResponse {
  * @public
  * @enum
  */
+export const DnsThreatProtection = {
+  DGA: "DGA",
+  DNS_TUNNELING: "DNS_TUNNELING",
+} as const;
+
+/**
+ * @public
+ */
+export type DnsThreatProtection = (typeof DnsThreatProtection)[keyof typeof DnsThreatProtection];
+
+/**
+ * @public
+ * @enum
+ */
 export const FirewallDomainRedirectionAction = {
   INSPECT_REDIRECTION_DOMAIN: "INSPECT_REDIRECTION_DOMAIN",
   TRUST_REDIRECTION_DOMAIN: "TRUST_REDIRECTION_DOMAIN",
@@ -1293,10 +1322,10 @@ export interface CreateFirewallRuleRequest {
   FirewallRuleGroupId: string | undefined;
 
   /**
-   * <p>The ID of the domain list that you want to use in the rule. </p>
+   * <p>The ID of the domain list that you want to use in the rule. Can't be used together with <code>DnsThreatProtecton</code>.</p>
    * @public
    */
-  FirewallDomainListId: string | undefined;
+  FirewallDomainListId?: string | undefined;
 
   /**
    * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
@@ -1309,11 +1338,11 @@ export interface CreateFirewallRuleRequest {
   Priority: number | undefined;
 
   /**
-   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1382,10 +1411,10 @@ export interface CreateFirewallRuleRequest {
    * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
-   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
    * 			added to the domain list.</p>
    *          <p>
-   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
    * @public
    */
@@ -1447,6 +1476,37 @@ export interface CreateFirewallRuleRequest {
    * @public
    */
   Qtype?: string | undefined;
+
+  /**
+   * <p>
+   * 			Use to create a DNS Firewall Advanced rule.
+   * 		</p>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>
+   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
+   * 			level values mean:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
 }
 
 /**
@@ -1455,7 +1515,7 @@ export interface CreateFirewallRuleRequest {
  */
 export interface FirewallRule {
   /**
-   * <p>The unique identifier of the firewall rule group of the rule. </p>
+   * <p>The unique identifier of the Firewall rule group of the rule. </p>
    * @public
    */
   FirewallRuleGroupId?: string | undefined;
@@ -1465,6 +1525,14 @@ export interface FirewallRule {
    * @public
    */
   FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>
+   * 			ID of the DNS Firewall Advanced rule.
+   * 		</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
 
   /**
    * <p>The name of the rule. </p>
@@ -1479,11 +1547,11 @@ export interface FirewallRule {
   Priority?: number | undefined;
 
   /**
-   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1560,10 +1628,10 @@ export interface FirewallRule {
    * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
-   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
    * 			added to the domain list.</p>
    *          <p>
-   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
    * @public
    */
@@ -1625,6 +1693,49 @@ export interface FirewallRule {
    * @public
    */
   Qtype?: string | undefined;
+
+  /**
+   * <p>
+   * 			The type of the DNS Firewall Advanced rule. Valid values are:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains
+   * 				to to launch malware attacks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without
+   * 				making a network connection to the client.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>
+   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
+   * 			level values mean:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
 }
 
 /**
@@ -2366,45 +2477,7 @@ export interface TargetAddress {
 
   /**
    * <p>
-   * 			The protocols for the Resolver endpoints. DoH-FIPS is applicable for inbound endpoints only.
-   *
-   * 		</p>
-   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p> Do53  and DoH in combination.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do53  and DoH-FIPS in combination.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do53 alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>DoH alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>DoH-FIPS alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>None, which is treated as Do53.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p> Do53  and DoH in combination.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do53 alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>DoH alone.</p>
-   *             </li>
-   *             <li>
-   *                <p>None, which is treated as Do53.</p>
-   *             </li>
-   *          </ul>
+   * 			The protocols for the target address. The protocol you choose needs to be supported by the outbound endpoint of the Resolver rule.</p>
    * @public
    */
   Protocol?: Protocol | undefined;
@@ -2651,7 +2724,15 @@ export interface DeleteFirewallRuleRequest {
    * <p>The ID of the domain list that's used in the rule.  </p>
    * @public
    */
-  FirewallDomainListId: string | undefined;
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The ID that is created for a DNS Firewall Advanced rule.
+   * 		</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
 
   /**
    * <p>
@@ -4374,11 +4455,11 @@ export interface ListFirewallRulesRequest {
 
   /**
    * <p>Optional additional filter for the rules to retrieve.</p>
-   *          <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   *          <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not availabe for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5579,7 +5660,15 @@ export interface UpdateFirewallRuleRequest {
    * <p>The ID of the domain list to use in the rule.  </p>
    * @public
    */
-  FirewallDomainListId: string | undefined;
+  FirewallDomainListId?: string | undefined;
+
+  /**
+   * <p>
+   * 			The DNS Firewall Advanced rule ID.
+   * 		</p>
+   * @public
+   */
+  FirewallThreatProtectionId?: string | undefined;
 
   /**
    * <p>The setting that determines the processing order of the rule in the rule group. DNS Firewall
@@ -5592,11 +5681,11 @@ export interface UpdateFirewallRuleRequest {
   Priority?: number | undefined;
 
   /**
-   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list:</p>
+   * <p>The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list, or a threat in a DNS Firewall Advanced rule:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ALLOW</code> - Permit the request to go through.</p>
+   *                   <code>ALLOW</code> - Permit the request to go through. Not available for DNS Firewall Advanced rules.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5660,10 +5749,10 @@ export interface UpdateFirewallRuleRequest {
    * 			How you want the the rule to evaluate DNS redirection in the DNS redirection chain, such as CNAME or DNAME.
    * 		</p>
    *          <p>
-   *             <code>Inspect_Redirection_Domain </code>(Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
+   *             <code>INSPECT_REDIRECTION_DOMAIN</code>: (Default) inspects all domains in the redirection chain. The individual domains in the redirection chain must be
    * 			added to the domain list.</p>
    *          <p>
-   *             <code>Trust_Redirection_Domain </code> inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
+   *             <code>TRUST_REDIRECTION_DOMAIN</code>: Inspects only the first domain in the redirection chain. You don't need to add the subsequent domains in the domain in the redirection list to
    * 			the domain list.</p>
    * @public
    */
@@ -5729,6 +5818,49 @@ export interface UpdateFirewallRuleRequest {
    * @public
    */
   Qtype?: string | undefined;
+
+  /**
+   * <p>
+   * 			The type of the DNS Firewall Advanced rule. Valid values are:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DGA</code>: Domain generation algorithms detection. DGAs are used by attackers to generate a large number of domains
+   * 				to to launch malware attacks.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DNS_TUNNELING</code>: DNS tunneling detection. DNS tunneling is used by attackers to exfiltrate data from the client by using the DNS tunnel without
+   * 				making a network connection to the client.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DnsThreatProtection?: DnsThreatProtection | undefined;
+
+  /**
+   * <p>
+   * 			The confidence threshold for DNS Firewall Advanced. You must provide this value when you create a DNS Firewall Advanced rule. The confidence
+   * 			level values mean:
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code>: Provides the highest detection rate for threats, but also increases false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code>: Provides a balance between detecting threats and false positives.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code>: Detects only the most well corroborated threats with a low rate of false positives. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfidenceThreshold?: ConfidenceThreshold | undefined;
 }
 
 /**

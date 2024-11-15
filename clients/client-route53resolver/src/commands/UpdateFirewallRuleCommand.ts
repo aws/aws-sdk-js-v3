@@ -37,7 +37,8 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * const client = new Route53ResolverClient(config);
  * const input = { // UpdateFirewallRuleRequest
  *   FirewallRuleGroupId: "STRING_VALUE", // required
- *   FirewallDomainListId: "STRING_VALUE", // required
+ *   FirewallDomainListId: "STRING_VALUE",
+ *   FirewallThreatProtectionId: "STRING_VALUE",
  *   Priority: Number("int"),
  *   Action: "ALLOW" || "BLOCK" || "ALERT",
  *   BlockResponse: "NODATA" || "NXDOMAIN" || "OVERRIDE",
@@ -47,6 +48,8 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  *   Name: "STRING_VALUE",
  *   FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  *   Qtype: "STRING_VALUE",
+ *   DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ *   ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * };
  * const command = new UpdateFirewallRuleCommand(input);
  * const response = await client.send(command);
@@ -54,6 +57,7 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * //   FirewallRule: { // FirewallRule
  * //     FirewallRuleGroupId: "STRING_VALUE",
  * //     FirewallDomainListId: "STRING_VALUE",
+ * //     FirewallThreatProtectionId: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
  * //     Priority: Number("int"),
  * //     Action: "ALLOW" || "BLOCK" || "ALERT",
@@ -66,6 +70,8 @@ export interface UpdateFirewallRuleCommandOutput extends UpdateFirewallRuleRespo
  * //     ModificationTime: "STRING_VALUE",
  * //     FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  * //     Qtype: "STRING_VALUE",
+ * //     DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ * //     ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //   },
  * // };
  *
