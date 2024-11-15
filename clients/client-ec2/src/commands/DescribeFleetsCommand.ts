@@ -193,7 +193,7 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //       OnDemandOptions: { // OnDemandOptions
  * //         AllocationStrategy: "lowest-price" || "prioritized",
  * //         CapacityReservationOptions: { // CapacityReservationOptions
- * //           UsageStrategy: "use-capacity-reservations-first" || "use-capacity-reservations-only" || "none",
+ * //           UsageStrategy: "use-capacity-reservations-first",
  * //         },
  * //         SingleInstanceType: true || false,
  * //         SingleAvailabilityZone: true || false,

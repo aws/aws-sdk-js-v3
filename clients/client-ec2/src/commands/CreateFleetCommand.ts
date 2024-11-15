@@ -60,7 +60,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *   OnDemandOptions: { // OnDemandOptionsRequest
  *     AllocationStrategy: "lowest-price" || "prioritized",
  *     CapacityReservationOptions: { // CapacityReservationOptionsRequest
- *       UsageStrategy: "use-capacity-reservations-first" || "use-capacity-reservations-only" || "none",
+ *       UsageStrategy: "use-capacity-reservations-first",
  *     },
  *     SingleInstanceType: true || false,
  *     SingleAvailabilityZone: true || false,

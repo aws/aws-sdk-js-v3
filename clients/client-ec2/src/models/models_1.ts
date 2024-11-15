@@ -4045,9 +4045,7 @@ export type FleetOnDemandAllocationStrategy =
  * @enum
  */
 export const FleetCapacityReservationUsageStrategy = {
-  NONE: "none",
   USE_CAPACITY_RESERVATIONS_FIRST: "use-capacity-reservations-first",
-  USE_CAPACITY_RESERVATIONS_ONLY: "use-capacity-reservations-only",
 } as const;
 
 /**
