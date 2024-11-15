@@ -38,11 +38,11 @@ export interface CreateOpportunityCommandOutput extends CreateOpportunityRespons
 /**
  * <p>
  *             Creates an <code>Opportunity</code> record in Partner Central. Use this operation to create
- *             a potential business opportunity intended to be submitted to Amazon Web Services. Creating an opportunity sets its <code>Lifecycle.ReviewStatus</code> to
+ *             a potential business opportunity for submission to Amazon Web Services. Creating an opportunity sets <code>Lifecycle.ReviewStatus</code> to
  *             <code>Pending Submission</code>.
  *         </p>
  *          <p>
- *             To fully submit an opportunity, follow these steps:
+ *             To submit an opportunity, follow these steps:
  *         </p>
  *          <ol>
  *             <li>
@@ -52,16 +52,16 @@ export interface CreateOpportunityCommandOutput extends CreateOpportunityRespons
  *                <p>To associate a solution with the opportunity, use <code>AssociateOpportunity</code>.</p>
  *             </li>
  *             <li>
- *                <p>To submit the opportunity, use <code>SubmitOpportunity</code>.</p>
+ *                <p>To submit the opportunity, use <code>StartEngagementFromOpportunityTask</code>.</p>
  *             </li>
  *          </ol>
  *          <p>
- *             After submission, you can't edit the opportunity until the review is complete. However, opportunities in the
- *             <code>Pending Submission</code> state still need all details completed. You can update
+ *             After submission, you can't edit the opportunity until the review is complete. But opportunities in the
+ *             <code>Pending Submission</code> state must have complete details. You can update
  *             the opportunity while it's in the <code>Pending Submission</code> state.
  *         </p>
  *          <p>
- *             There's a set of mandatory fields required to create opportunities, but consider providing optional fields to
+ *             There's a set of mandatory fields to create opportunities, but consider providing optional fields to
  *             enrich the opportunity record.
  *         </p>
  * @example
@@ -224,7 +224,7 @@ export interface CreateOpportunityCommandOutput extends CreateOpportunityRespons
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)

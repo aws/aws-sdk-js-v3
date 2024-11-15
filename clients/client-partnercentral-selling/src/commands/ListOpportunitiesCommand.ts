@@ -36,8 +36,7 @@ export interface ListOpportunitiesCommandInput extends ListOpportunitiesRequest 
 export interface ListOpportunitiesCommandOutput extends ListOpportunitiesResponse, __MetadataBearer {}
 
 /**
- * <p>This request accepts a list of filters to use to
- *             retrieve a specific subset of opportunities, as well as sort options. This feature is available to partners from
+ * <p>This request accepts a list of filters that retrieve opportunity subsets as well as sort options. This feature is available to partners from
  *             <a href="https://partnercentral.awspartner.com/">Partner Central</a>
  *             using the <code>ListOpportunities</code> API action.
  *         </p>
@@ -177,7 +176,7 @@ export interface ListOpportunitiesCommandOutput extends ListOpportunitiesRespons
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)

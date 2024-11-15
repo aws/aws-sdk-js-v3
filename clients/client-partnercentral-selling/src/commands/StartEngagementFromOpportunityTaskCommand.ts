@@ -64,7 +64,7 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
  * //   StartTime: new Date("TIMESTAMP"),
  * //   TaskStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
  * //   Message: "STRING_VALUE",
- * //   ReasonCode: "InvitationAccessDenied" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "EngagementValidationFailed" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "InternalError" || "OpportunityValidationFailed" || "OpportunityConflict",
+ * //   ReasonCode: "InvitationAccessDenied" || "EngagementAccessDenied" || "OpportunityAccessDenied" || "ResourceSnapshotJobAccessDenied" || "EngagementValidationFailed" || "OpportunitySubmissionFailed" || "EngagementInvitationConflict" || "InternalError" || "OpportunityValidationFailed" || "OpportunityConflict" || "ResourceSnapshotAccessDenied",
  * //   OpportunityId: "STRING_VALUE",
  * // };
  *
@@ -106,7 +106,7 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
  *             Service quotas represent the maximum allowed use of a specific resource, and this error indicates that the request would surpass that limit.
  *         </p>
  *          <p>Suggested action: Review the
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">service quotas</a> for the specific resource, and reduce the usage or request a quota increase through support if necessary.
+ *           <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> for the resource, and either reduce usage or request a quota increase.
  *         </p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -114,7 +114,7 @@ export interface StartEngagementFromOpportunityTaskCommandOutput
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)

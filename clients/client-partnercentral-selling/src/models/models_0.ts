@@ -381,7 +381,7 @@ export type Industry = (typeof Industry)[keyof typeof Industry];
  */
 export interface Account {
   /**
-   * <p>Specifies the industry the end <code>Customer</code> belongs to that's associated with the <code>Opportunity</code> . It refers to the category or sector where the customer's business operates. This is a required field.
+   * <p>Specifies the industry the end <code>Customer</code> belongs to that's associated with the <code>Opportunity</code>. It refers to the category or sector where the customer's business operates. This is a required field.
    *         </p>
    * @public
    */
@@ -493,7 +493,7 @@ export interface AddressSummary {
  */
 export interface AccountSummary {
   /**
-   * <p>Specifies which industry the end <code>Customer</code> belongs to associated with the <code>Opportunity</code> .
+   * <p>Specifies which industry the end <code>Customer</code> belongs to associated with the <code>Opportunity</code>.
    *             It refers to the category or sector that the customer's business operates in.
    *         </p>
    *          <p>To submit a value outside the picklist, use
@@ -539,7 +539,7 @@ export interface AccountSummary {
 }
 
 /**
- * <p>Represents the contact details of the individual assigned to manage the opportunity within the partner organization. This ensures that there is a clear point of contact for the opportunity's progress and updates.</p>
+ * <p>Represents the contact details of the individual assigned to manage the opportunity within the partner organization. This helps to ensure that there is a point of contact for the opportunity's progress.</p>
  * @public
  */
 export interface AssigneeContact {
@@ -550,19 +550,19 @@ export interface AssigneeContact {
   Email: string | undefined;
 
   /**
-   * <p>Specifies the first name of the assignee managing the opportunity.</p>
+   * <p>Specifies the first name of the assignee managing the opportunity. The system automatically retrieves this value from the user profile by referencing the associated email address.</p>
    * @public
    */
   FirstName: string | undefined;
 
   /**
-   * <p>Specifies the last name of the assignee managing the opportunity.</p>
+   * <p>Specifies the last name of the assignee managing the opportunity. The system automatically retrieves this value from the user profile by referencing the associated email address.</p>
    * @public
    */
   LastName: string | undefined;
 
   /**
-   * <p>Specifies the business title of the assignee managing the opportunity. This helps clarify the individual's role and responsibilities within the organization.</p>
+   * <p>Specifies the business title of the assignee managing the opportunity. This helps clarify the individual's role and responsibilities within the organization. Use the value <code>PartnerAccountManager</code> to update details of the opportunity owner.</p>
    * @public
    */
   BusinessTitle: string | undefined;
@@ -577,7 +577,7 @@ export interface AssignOpportunityRequest {
    *             Specifies the catalog associated with the request. This field takes a string value from a predefined list:
    *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the opportunity
    *             is assigned in. Use <code>AWS</code> to assign real opportunities in the Amazon Web Services catalog,
-   *             and <code>Sandbox</code> to test in a secure and isolated environment.
+   *             and <code>Sandbox</code> for testing in secure, isolated environments.
    *         </p>
    * @public
    */
@@ -655,7 +655,7 @@ export class ResourceNotFoundException extends __BaseException {
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  * @public
  */
@@ -860,9 +860,9 @@ export interface AssociateOpportunityRequest {
   /**
    * <p>
    *             Specifies the catalog associated with the request. This field takes a string value from a predefined list:
-   *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines whichenvironment the opportunity
+   *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the opportunity
    *             association is made in. Use <code>AWS</code> to associate opportunities in the Amazon Web Services catalog,
-   *             and <code>Sandbox</code> to test in a secure and isolated environment.
+   *             and <code>Sandbox</code> for testing in secure, isolated environments.
    *         </p>
    * @public
    */
@@ -878,7 +878,7 @@ export interface AssociateOpportunityRequest {
   OpportunityIdentifier: string | undefined;
 
   /**
-   * <p>Specifies the type of the related entity you're associating with the <code>
+   * <p>Specifies the entity type that you're associating with the <code>
    *             Opportunity</code>. This helps to categorize and properly process the association.
    *         </p>
    * @public
@@ -1015,7 +1015,7 @@ export interface Contact {
   LastName?: string | undefined;
 
   /**
-   * <p>The partner contact's title (job title or role) associated with the <code>Opportunity</code>.
+   * <p>The partner contact's title (job title or role) associated with the <code>Opportunity</code>. <code>BusinessTitle</code> supports either <code>PartnerAccountManager</code> or <code>OpportunityOwner</code>.
    *         </p>
    * @public
    */
@@ -1035,7 +1035,7 @@ export interface Contact {
  */
 export interface AwsOpportunityCustomer {
   /**
-   * <p>Provides a list of customer contacts involved in the opportunity. These contacts may include decision-makers, influencers, and other key stakeholders within the customer's organization.</p>
+   * <p>Provides a list of customer contacts involved in the opportunity. These contacts may include decision makers, influencers, and other stakeholders within the customer's organization.</p>
    * @public
    */
   Contacts?: Contact[] | undefined;
@@ -1152,7 +1152,7 @@ export interface AwsOpportunityLifeCycle {
   Stage?: AwsOpportunityStage | undefined;
 
   /**
-   * <p>Specifies the immediate next steps required to progress the opportunity. These steps are based on AWS's guidance and the current stage of the opportunity.</p>
+   * <p>Specifies the immediate next steps required to progress the opportunity. These steps are based on AWS guidance and the current stage of the opportunity.</p>
    * @public
    */
   NextSteps?: string | undefined;
@@ -1487,7 +1487,7 @@ export class ConflictException extends __BaseException {
  *             Service quotas represent the maximum allowed use of a specific resource, and this error indicates that the request would surpass that limit.
  *         </p>
  *          <p>Suggested action: Review the
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">service quotas</a> for the specific resource, and reduce the usage or request a quota increase through support if necessary.
+ *           <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> for the resource, and either reduce usage or request a quota increase.
  *         </p>
  * @public
  */
@@ -1520,13 +1520,13 @@ export interface StartEngagementByAcceptingInvitationTaskRequest {
   Catalog: string | undefined;
 
   /**
-   * <p>A unique, case-sensitive identifier provided by the client to ensure the idempotency of the request. Can be a random or meaningful string, but must be unique for each request.</p>
+   * <p>A unique, case-sensitive identifier provided by the client that helps to ensure the idempotency of the request. This can be a random or meaningful string but must be unique for each request.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>Specifies the unique identifier of the <code>EngagementInvitation</code> to be accepted. Providing the correct identifier ensures the right engagement invitation is processed.</p>
+   * <p>Specifies the unique identifier of the <code>EngagementInvitation</code> to be accepted. Providing the correct identifier helps ensure that the correct engagement is processed.</p>
    * @public
    */
   Identifier: string | undefined;
@@ -1546,6 +1546,7 @@ export const ReasonCode = {
   OPPORTUNITY_CONFLICT: "OpportunityConflict",
   OPPORTUNITY_SUBMISSION_FAILED: "OpportunitySubmissionFailed",
   OPPORTUNITY_VALIDATION_FAILED: "OpportunityValidationFailed",
+  RESOURCE_SNAPSHOT_ACCESS_DENIED: "ResourceSnapshotAccessDenied",
   RESOURCE_SNAPSHOT_JOB_ACCESS_DENIED: "ResourceSnapshotJobAccessDenied",
 } as const;
 
@@ -1574,7 +1575,7 @@ export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
  */
 export interface StartEngagementByAcceptingInvitationTaskResponse {
   /**
-   * <p>The unique identifier of the task, used to track the task’s progress. This value follows a specific pattern: <code>^oit-[0-9a-z]\{13\}$</code>.</p>
+   * <p>The unique identifier of the task, used to track the task’s progress.</p>
    * @public
    */
   TaskId?: string | undefined;
@@ -1592,7 +1593,7 @@ export interface StartEngagementByAcceptingInvitationTaskResponse {
   StartTime?: Date | undefined;
 
   /**
-   * <p>Indicates the current status of the task. Valid values include <code>IN_PROGRESS</code>, <code>COMPLETE</code>, and <code>FAILED</code>.</p>
+   * <p>Indicates the current status of the task.</p>
    * @public
    */
   TaskStatus?: TaskStatus | undefined;
@@ -1604,7 +1605,7 @@ export interface StartEngagementByAcceptingInvitationTaskResponse {
   Message?: string | undefined;
 
   /**
-   * <p>Indicates the reason for task failure using an enumerated code. Possible values are: <code>ACCEPT_ENGAGEMENT_INVITATION_FAILED</code>, <code>GET_ENGAGEMENT_INVITATION_FAILED</code>, <code>CREATE_OPPORTUNITY_FAILED</code>, <code>CREATE_RESOURCE_VIEW_AUTOMATION_FAILED</code>, <code>SUBMIT_OPPORTUNITY_FAILED</code>.</p>
+   * <p>Indicates the reason for task failure using an enumerated code.</p>
    * @public
    */
   ReasonCode?: ReasonCode | undefined;
@@ -1651,18 +1652,18 @@ export const Visibility = {
 export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
- * <p>Indicates the level of AWS involvement in the opportunity. This field helps track AWS's role and participation throughout the engagement, such as providing technical support, deal assistance, or sales support.</p>
+ * <p>Indicates the level of AWS involvement in the opportunity. This field helps track AWS participation throughout the engagement, such as providing technical support, deal assistance, and sales support.</p>
  * @public
  */
 export interface AwsSubmission {
   /**
-   * <p>Specifies the type of AWS involvement in the opportunity, such as co-selling, deal support, or technical consultation. This helps categorize the nature of AWS's participation.</p>
+   * <p>Specifies the type of AWS involvement in the opportunity, such as coselling, deal support, or technical consultation. This helps categorize the nature of AWS participation.</p>
    * @public
    */
   InvolvementType: SalesInvolvementType | undefined;
 
   /**
-   * <p>Determines who can view AWS's involvement in the opportunity. Typically, this field is set to <code>Full</code> for most cases, but it may be restricted based on special program requirements or confidentiality needs.</p>
+   * <p>Determines who can view AWS involvement in the opportunity. Typically, this field is set to <code>Full</code> for most cases, but it may be restricted based on special program requirements or confidentiality needs.</p>
    * @public
    */
   Visibility?: Visibility | undefined;
@@ -1679,19 +1680,19 @@ export interface StartEngagementFromOpportunityTaskRequest {
   Catalog: string | undefined;
 
   /**
-   * <p>A unique token provided by the client to ensure the idempotency of the request. It helps prevent the same task from being performed multiple times.</p>
+   * <p>A unique token provided by the client to help ensure the idempotency of the request. It helps prevent the same task from being performed multiple times.</p>
    * @public
    */
   ClientToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the opportunity from which the engagement task is to be initiated. This ensures the task is applied to the correct opportunity.</p>
+   * <p>The unique identifier of the opportunity from which the engagement task is to be initiated. This helps ensure that the task is applied to the correct opportunity.</p>
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>Indicates the level of AWS involvement in the opportunity. This field helps track AWS's role and participation throughout the engagement, such as providing technical support, deal assistance, or sales support.</p>
+   * <p>Indicates the level of AWS involvement in the opportunity. This field helps track AWS participation throughout the engagement, such as providing technical support, deal assistance, and sales support.</p>
    * @public
    */
   AwsSubmission: AwsSubmission | undefined;
@@ -1732,7 +1733,7 @@ export interface StartEngagementFromOpportunityTaskResponse {
   Message?: string | undefined;
 
   /**
-   * <p>Indicates the reason for task failure using an enumerated code. Possible values are: <code>ACCEPT_ENGAGEMENT_INVITATION_FAILED</code>, <code>GET_ENGAGEMENT_INVITATION_FAILED</code>, <code>CREATE_OPPORTUNITY_FAILED</code>, <code>CREATE_RESOURCE_VIEW_AUTOMATION_FAILED</code>, <code>SUBMIT_OPPORTUNITY_FAILED</code>.</p>
+   * <p>Indicates the reason for task failure using an enumerated code.</p>
    * @public
    */
   ReasonCode?: ReasonCode | undefined;
@@ -1755,14 +1756,15 @@ export interface GetEngagementInvitationRequest {
   Catalog: string | undefined;
 
   /**
-   * <p>Specifies the unique identifier for the engagement invitation being retrieved.</p>
+   * <p>Specifies the unique identifier for the retrieved engagement
+   *       invitation.</p>
    * @public
    */
   Identifier: string | undefined;
 }
 
 /**
- * <p>Contains details about the customer associated with the Engagement Invitation, including key company information and industry.</p>
+ * <p>Contains details about the customer associated with the Engagement Invitation, including company information and industry.</p>
  * @public
  */
 export interface EngagementCustomer {
@@ -1890,7 +1892,7 @@ export interface SenderContact {
  */
 export interface OpportunityInvitationPayload {
   /**
-   * <p>Represents the contact details of the AWS representatives involved in sending the Engagement Invitation. These contacts are key stakeholders for the opportunity.</p>
+   * <p>Represents the contact details of the AWS representatives involved in sending the Engagement Invitation. These contacts are opportunity stakeholders.</p>
    * @public
    */
   SenderContacts?: SenderContact[] | undefined;
@@ -2025,7 +2027,8 @@ export type InvitationStatus = (typeof InvitationStatus)[keyof typeof Invitation
  */
 export interface GetEngagementInvitationResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) that uniquely identifies the engagement invitation.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the engagement
+   *       invitation.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -2043,13 +2046,13 @@ export interface GetEngagementInvitationResponse {
   Id: string | undefined;
 
   /**
-   * <p>The title of the engagement invitation, summarizing the purpose or key objectives of the opportunity shared by AWS.</p>
+   * <p>The title of the engagement invitation, summarizing the purpose or objectives of the opportunity shared by AWS.</p>
    * @public
    */
   EngagementTitle?: string | undefined;
 
   /**
-   * <p>The current status of the engagement invitation (e.g., <code>Accepted</code>, <code>Pending</code>, or <code>Rejected</code>).</p>
+   * <p>The current status of the engagement invitation.</p>
    * @public
    */
   Status?: InvitationStatus | undefined;
@@ -2204,7 +2207,7 @@ export interface ListEngagementInvitationsRequest {
 }
 
 /**
- * <p>Provides a summarized view of the Engagement Invitation, including key details like the identifier, status, and sender information. This summary helps partners track and manage AWS-originated opportunities.</p>
+ * <p>Provides a summarized view of the Engagement Invitation, including details like the identifier, status, and sender. This summary helps partners track and manage AWS originated opportunities.</p>
  * @public
  */
 export interface EngagementInvitationSummary {
@@ -2245,7 +2248,7 @@ export interface EngagementInvitationSummary {
   InvitationDate?: Date | undefined;
 
   /**
-   * <p>Indicates the date and time when the Engagement Invitation will expire. After this date, the invitation can no longer be accepted, and the opportunity will no longer be available for the partner to engage.</p>
+   * <p>Indicates the date and time when the Engagement Invitation will expire. After this date, the invitation can no longer be accepted, and the opportunity will be unavailable to the partner.</p>
    * @public
    */
   ExpirationDate?: Date | undefined;
@@ -2280,7 +2283,7 @@ export interface EngagementInvitationSummary {
  */
 export interface ListEngagementInvitationsResponse {
   /**
-   * <p>An array containing summaries of engagement invitations. Each summary includes key information such as the invitation title, invitation date, and the current status of the invitation.</p>
+   * <p>An array containing summaries of engagement invitations. Each summary includes information such as the invitation title, invitation date, and the current status of the invitation.</p>
    * @public
    */
   EngagementInvitationSummaries?: EngagementInvitationSummary[] | undefined;
@@ -2297,27 +2300,36 @@ export interface ListEngagementInvitationsResponse {
  */
 export interface RejectEngagementInvitationRequest {
   /**
-   * <p>Specifies the catalog related to the engagement invitation. Accepted values are <code>AWS</code> and <code>Sandbox</code>, which determine the environment in which the opportunity is managed.</p>
+   * <p>This is the catalog that's associated with the engagement
+   *       invitation. Acceptable values are <code>AWS</code> or
+   *       <code>Sandbox</code>, and these values determine the environment in which
+   *       the opportunity is managed.</p>
    * @public
    */
   Catalog: string | undefined;
 
   /**
-   * <p>Specifies the unique identifier of the <code>EngagementInvitation</code> to be rejected. Providing the correct identifier ensures that the intended invitation is rejected.</p>
+   * <p>This is the unique identifier of the rejected
+   *         <code>EngagementInvitation</code>. Providing the correct identifier
+   *       helps to ensure that the intended invitation is rejected.</p>
    * @public
    */
   Identifier: string | undefined;
 
   /**
-   * <p>Specifies the reason for rejecting the engagement invitation. Providing a reason helps document the rationale behind the rejection and assists AWS in tracking patterns or issues. Possible values include:</p>
+   * <p>This describes the reason for rejecting the engagement invitation,
+   *       which helps AWS track usage patterns. Acceptable values include the
+   *       following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <i>Customer problem unclear:</i> The customer's problem is not clearly defined.</p>
+   *                   <i>Customer problem unclear:</i> The
+   *           customer's problem isn't understood.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Next steps unclear:</i> The next steps required to proceed are not clear.</p>
+   *                   <i>Next steps unclear:</i> The next steps
+   *           required to proceed aren't understood.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2325,11 +2337,13 @@ export interface RejectEngagementInvitationRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Duplicate of Partner Referral:</i> The opportunity is a duplicate of an existing referral.</p>
+   *                   <i>Duplicate of partner referral:</i> The
+   *           opportunity is a duplicate of an existing referral.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Other:</i> Any other reason not covered by the specified values.</p>
+   *                   <i>Other:</i> Any reason not covered by
+   *           other values.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2466,7 +2480,7 @@ export interface LifeCycle {
    *             </li>
    *             <li>
    *                <p>
-   *                     Qualified: Your account team engaged with the prospect/end customer to discuss viability and understand requirements. The prospect/end customer agreed that the opportunity is real, of interest, and may solve key business/technical needs.
+   *                     Qualified: Your account team engaged with the customer to discuss viability and requirements. The customer agreed that the opportunity is real, of interest, and may solve business/technical needs.
    *                 </p>
    *             </li>
    *             <li>
@@ -2516,19 +2530,19 @@ export interface LifeCycle {
    *                <p>Legal/Tax/Regulatory: Legal, tax, or regulatory issues prevented progress.</p>
    *             </li>
    *             <li>
-   *                <p>Lost to Competitor - Google: The opportunity was lost to Google.</p>
+   *                <p>Lost to Competitor—Google: The opportunity was lost to Google.</p>
    *             </li>
    *             <li>
-   *                <p>Lost to Competitor - Microsoft: The opportunity was lost to Microsoft.</p>
+   *                <p>Lost to Competitor—Microsoft: The opportunity was lost to Microsoft.</p>
    *             </li>
    *             <li>
-   *                <p>Lost to Competitor - SoftLayer: The opportunity was lost to SoftLayer.</p>
+   *                <p>Lost to Competitor—SoftLayer: The opportunity was lost to SoftLayer.</p>
    *             </li>
    *             <li>
-   *                <p>Lost to Competitor - VMWare: The opportunity was lost to VMWare.</p>
+   *                <p>Lost to Competitor—VMWare: The opportunity was lost to VMWare.</p>
    *             </li>
    *             <li>
-   *                <p>Lost to Competitor - Other: The opportunity was lost to a competitor not listed above.</p>
+   *                <p>Lost to Competitor—Other: The opportunity was lost to a competitor not listed above.</p>
    *             </li>
    *             <li>
    *                <p>No Opportunity: There was no opportunity to pursue.</p>
@@ -2569,8 +2583,8 @@ export interface LifeCycle {
   ClosedLostReason?: ClosedLostReason | undefined;
 
   /**
-   * <p>Specifies the upcoming actions or tasks for the <code>Opportunity</code>. This field
-   *             is utilized to communicate to Amazon Web Services the next actions required for the <code>Opportunity</code>.
+   * <p>Specifies the upcoming actions or tasks for the <code>Opportunity</code>. Use this field
+   *             to communicate with Amazon Web Services about the next actions required for the <code>Opportunity</code>.
    *         </p>
    * @public
    */
@@ -2611,8 +2625,8 @@ export interface LifeCycle {
    *             <li>
    *                <p>
    *                     Action Required: Issues that Amazon Web Services highlights need to be addressed.
-   *                     Partners should use the <code>UpdateOpportunity</code> API action to update the opportunity, and ensure all required changes are made.
-   *                     Only these fields are editable when the <code>Lifecycle.ReviewStatus</code> is <code>Action Required</code>:
+   *                     Partners should use the <code>UpdateOpportunity</code> API action to update the opportunity and helps to ensure that all required changes are made.
+   *                     Only the following fields are editable when the <code>Lifecycle.ReviewStatus</code> is <code>Action Required</code>:
    *                 </p>
    *                <ul>
    *                   <li>
@@ -2669,7 +2683,7 @@ export interface LifeCycle {
   ReviewStatus?: ReviewStatus | undefined;
 
   /**
-   * <p>Indicates why an opportuntiy was sent back for further details. Partners must take corrective action based on the <code>ReviewComments</code>.</p>
+   * <p>Indicates why an opportunity was sent back for further details. Partners must take corrective action based on the <code>ReviewComments</code>.</p>
    * @public
    */
   ReviewComments?: string | undefined;
@@ -2737,11 +2751,11 @@ export type MarketingSource = (typeof MarketingSource)[keyof typeof MarketingSou
  */
 export interface Marketing {
   /**
-   * <p>Specifies the <code>Opportunity</code>'s unique marketing campaign name. The Amazon Web Services
-   *             campaign name serves as a reference to specific marketing initiatives, promotions, or
-   *             activities related to the <code>Opportunity</code>. This field captures the identifier used to track and
-   *             categorize the <code>Opportunity</code> within Amazon Web Services's marketing campaigns. If you don't have a campaign
-   *             name, reach out to your Amazon Web Services point of contact to obtain one.
+   * <p>Specifies the <code>Opportunity</code> marketing campaign code. The Amazon Web Services
+   *             campaign code is a reference to specific marketing initiatives, promotions, or
+   *             activities. This field captures the identifier used to track and
+   *             categorize the <code>Opportunity</code> within marketing campaigns. If you don't have a campaign
+   *             code, contact your Amazon Web Services point of contact to obtain one.
    *         </p>
    * @public
    */
@@ -2972,8 +2986,8 @@ export interface Project {
 
   /**
    * <p>Describes the problem the end customer has, and how the partner is helping.
-   *             Utilize this field to provide a clear and concise narrative that outlines the specific business challenge or
-   *             issue the customer has.
+   *             Utilize this field to provide a concise narrative that outlines the customer's business challenge or
+   *             issue.
    *             Elaborate on how the partner's solution or offerings align to resolve the customer's business problem.
    *             Include relevant information about the partner's value proposition, unique selling points, and expertise to tackle the issue.
    *             Offer insights on how the proposed solution meets the customer's needs and provides value. Use concise
@@ -2990,7 +3004,7 @@ export interface Project {
    *             Specifies the proposed solution focus or type of workload for the Opportunity. This field captures the primary use case or objective of the proposed solution, and provides context and clarity to the addressed workload.
    *         </p>
    *          <p>
-   *             Valid values: <code>AI Machine Learning and Analytics | Archiving | Big Data: Data Warehouse / Data Integration / ETL / Data Lake / BI | Blockchain | Business Applications: Mainframe Modernization | Business Applications &amp; Contact Center | Business Applications &amp; SAP Production | Centralized Operations Management | Cloud Management Tools | Cloud Management Tools &amp; DevOps with Continuous Integration &amp; Continuous Delivery (CICD) | Configuration, Compliance &amp; Auditing | Connected Services | Containers &amp; Serverless | Content Delivery &amp; Edge Services | Database | Edge Computing / End User Computing | Energy | Enterprise Governance &amp; Controls | Enterprise Resource Planning | Financial Services | Healthcare and Life Sciences | High Performance Computing | Hybrid Application Platform | Industrial Software | IOT | Manufacturing, Supply Chain and Operations | Media &amp; High performance computing (HPC) | Migration / Database Migration | Monitoring, logging and performance | Monitoring &amp; Observability | Networking | Outpost | SAP | Security &amp; Compliance | Storage &amp; Backup | Training | VMC | VMWare | Web development &amp; DevOps</code>
+   *             Valid values: <code>AI Machine Learning and Analytics | Archiving | Big Data: Data Warehouse/Data Integration/ETL/Data Lake/BI | Blockchain | Business Applications: Mainframe Modernization | Business Applications &amp; Contact Center | Business Applications &amp; SAP Production | Centralized Operations Management | Cloud Management Tools | Cloud Management Tools &amp; DevOps with Continuous Integration &amp; Continuous Delivery (CICD) | Configuration, Compliance &amp; Auditing | Connected Services | Containers &amp; Serverless | Content Delivery &amp; Edge Services | Database | Edge Computing/End User Computing | Energy | Enterprise Governance &amp; Controls | Enterprise Resource Planning | Financial Services | Healthcare and Life Sciences | High Performance Computing | Hybrid Application Platform | Industrial Software | IOT | Manufacturing, Supply Chain and Operations | Media &amp; High performance computing (HPC) | Migration/Database Migration | Monitoring, logging and performance | Monitoring &amp; Observability | Networking | Outpost | SAP | Security &amp; Compliance | Storage &amp; Backup | Training | VMC | VMWare | Web development &amp; DevOps</code>
    *          </p>
    * @public
    */
@@ -3024,12 +3038,12 @@ export interface Project {
    *             </li>
    *             <li>
    *                <p>
-   *                     Conducted POC / Demo: You conducted a proof of concept (POC) or demonstration of the solution for the customer.
+   *                     Conducted POC/demo: You conducted a proof of concept (POC) or demonstration of the solution for the customer.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     In evaluation / planning stage: The customer is evaluating the solution and planning potential implementation.
+   *                     In evaluation/planning stage: The customer is evaluating the solution and planning potential implementation.
    *                 </p>
    *             </li>
    *             <li>
@@ -3165,7 +3179,7 @@ export interface CreateOpportunityRequest {
    *             Specifies the catalog associated with the request. This field takes a string value from a predefined list:
    *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the opportunity
    *             is created in. Use <code>AWS</code> to create opportunities in the Amazon Web Services catalog,
-   *             and <code>Sandbox</code> to test in a secure and isolated environment.
+   *             and <code>Sandbox</code> for testing in secure, isolated environments.
    *         </p>
    * @public
    */
@@ -3181,47 +3195,47 @@ export interface CreateOpportunityRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                     Co-Sell - Architectural Validation: Confirmation from Amazon Web Services that the partner's proposed solution architecture is aligned with Amazon Web Services best practices and poses minimal architectural risks.
+   *                     Cosell—Architectural Validation: Confirmation from Amazon Web Services that the partner's proposed solution architecture is aligned with Amazon Web Services best practices and poses minimal architectural risks.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Business Presentation: Request Amazon Web Services seller's participation in a joint customer presentation.
+   *                     Cosell—Business Presentation: Request Amazon Web Services seller's participation in a joint customer presentation.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Competitive Information: Access to Amazon Web Services competitive resources and support for the partner's proposed solution.
+   *                     Cosell—Competitive Information: Access to Amazon Web Services competitive resources and support for the partner's proposed solution.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Pricing Assistance: Connect with an Amazon Web Services seller for support situations where a partner may be receiving an upfront discount on a service (for example: EDP deals).
+   *                     Cosell—Pricing Assistance: Connect with an Amazon Web Services seller for support situations where a partner may be receiving an upfront discount on a service (for example: EDP deals).
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Technical Consultation: Connect with an Amazon Web Services Solutions Architect to address the partner's questions about the proposed solution.
+   *                     Cosell—Technical Consultation: Connect with an Amazon Web Services Solutions Architect to address the partner's questions about the proposed solution.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Total Cost of Ownership Evaluation: Assistance with quoting different cost savings of proposed solutions on Amazon Web Services versus on-premises or a traditional hosting environment.
+   *                     Cosell—Total Cost of Ownership Evaluation: Assistance with quoting different cost savings of proposed solutions on Amazon Web Services versus on-premises or a traditional hosting environment.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Deal Support: Request Amazon Web Services seller's support to progress the opportunity (for example: joint customer call, strategic positioning).
+   *                     Cosell—Deal Support: Request Amazon Web Services seller's support to progress the opportunity (for example: joint customer call, strategic positioning).
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Support for Public Tender / RFx: Opportunity related to the public sector where the partner needs Amazon Web Services RFx support.
+   *                     Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where the partner needs Amazon Web Services RFx support.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support from an Amazon Web Services sales representative, and the partner solely manages the opportunity. It's possible to request co-selling support on these opportunities at any stage during their lifecycle. Also known as, for-visibility-only (FVO) opportunity.
+   *                     Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support from an Amazon Web Services sales representative, and the partner solely manages the opportunity. It's possible to request coselling support on these opportunities at any stage during their lifecycles. This is also known as a for-visibility-only (FVO) opportunity.
    *                 </p>
    *             </li>
    *          </ul>
@@ -3238,11 +3252,10 @@ export interface CreateOpportunityRequest {
   /**
    * <p>
    *             Specifies the opportunity's unique identifier in the partner's CRM system. This value is essential
-   *             to track and reconcile because it's included in the outbound payload sent back to the partner.
+   *             to track and reconcile because it's included in the outbound payload to the partner.
    *         </p>
    *          <p>
-   *             This field allows partners to link an opportunity to their CRM, to ensure seamless integration and accurate
-   *             synchronization between the Partner Central API and the partner's internal systems.
+   *             This field allows partners to link an opportunity to their CRM, which helps to ensure seamless integration and accurate synchronization between the Partner Central API and the partner's internal systems.
    *         </p>
    * @public
    */
@@ -3301,7 +3314,7 @@ export interface CreateOpportunityRequest {
   Marketing?: Marketing | undefined;
 
   /**
-   * <p>Specifies details of a customer's procurement terms. Required only for partners in eligible programs.</p>
+   * <p>Specifies details of a customer's procurement terms. This is required only for partners in eligible programs.</p>
    * @public
    */
   SoftwareRevenue?: SoftwareRevenue | undefined;
@@ -3314,7 +3327,7 @@ export interface CreateOpportunityRequest {
    *             Default: None
    *         </p>
    *          <p>
-   *             Best practice: To ensure uniqueness and avoid collisions, we recommend you use a UUID (Universally Unique Identifier) as the <code>ClientToken</code>. You can use standard libraries available in most programming languages to generated this. If you use the same client token, the API throws this error: "Conflicting client token submitted for a new request body".
+   *           Best practice: To help ensure uniqueness and avoid conflicts, use a Universally Unique Identifier (UUID) as the <code>ClientToken</code>. You can use standard libraries from most programming languages to generate this. If you use the same client token, the API returns the following error: "Conflicting client token submitted for a new request body."
    *         </p>
    * @public
    */
@@ -3339,7 +3352,7 @@ export interface CreateOpportunityRequest {
   Origin?: OpportunityOrigin | undefined;
 
   /**
-   * <p>Represents the internal team handling the opportunity. Specify the members involved in collaborating on this opportunity within the partner's organization.</p>
+   * <p>Represents the internal team handling the opportunity. Specify collaborating members of this opportunity who are within the partner's organization.</p>
    * @public
    */
   OpportunityTeam?: Contact[] | undefined;
@@ -3351,9 +3364,7 @@ export interface CreateOpportunityRequest {
 export interface CreateOpportunityResponse {
   /**
    * <p>
-   *             Read-only, system-generated <code>Opportunity</code> unique identifier. Amazon Web Services creates this identifier, and it's
-   *             used for all subsequent actions on the opportunity, such as updates, associations, and submissions. It ensures
-   *             that each opportunity can be accurately tracked and managed within the system.
+   *             Read-only, system-generated <code>Opportunity</code> unique identifier. Amazon Web Services creates this identifier, and it's used for all subsequent opportunity actions, such as updates, associations, and submissions. It helps to ensure that each opportunity is accurately tracked and managed.
    *         </p>
    * @public
    */
@@ -3370,8 +3381,7 @@ export interface CreateOpportunityResponse {
   /**
    * <p>
    *             <code>DateTime</code>
-   *             when the opportunity was last modified. When the <code>Opportunity</code> is created, its value is equal to
-   *             <code>CreatedDate</code>.
+   *             when the opportunity was last modified. When the <code>Opportunity</code> is created, its value is <code>CreatedDate</code>.
    *         </p>
    * @public
    */
@@ -3387,7 +3397,7 @@ export interface DisassociateOpportunityRequest {
    *             Specifies the catalog associated with the request. This field takes a string value from a predefined list:
    *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the opportunity
    *             disassociation is made in. Use <code>AWS</code> to disassociate opportunities in the Amazon Web Services catalog,
-   *             and <code>Sandbox</code> to test in a secure and isolated environment.
+   *             and <code>Sandbox</code> for testing in secure, isolated environments.
    *         </p>
    * @public
    */
@@ -3395,10 +3405,9 @@ export interface DisassociateOpportunityRequest {
 
   /**
    * <p>The opportunity's unique identifier for when you want to disassociate it from related entities. This identifier
-   *             is crucial to ensure the correct opportunity is updated, especially in environments with numerous
-   *             opportunities.
+   *             helps to ensure that the correct opportunity is updated.
    *         </p>
-   *          <p>Validation: Ensure that the identifier provided corresponds to an existing opportunity in the Amazon Web Services system because
+   *          <p>Validation: Ensure that the provided identifier corresponds to an existing opportunity in the Amazon Web Services system because
    *             incorrect identifiers result in an error and no changes are made.
    *         </p>
    * @public
@@ -3407,13 +3416,11 @@ export interface DisassociateOpportunityRequest {
 
   /**
    * <p>The type of the entity that you're disassociating from the opportunity. When you specify the entity type, it helps
-   *             the system correctly process the disassociation request and ensures that the right connections are removed.
+   *             the system correctly process the disassociation request to ensure that the right connections are removed.
    *         </p>
-   *          <p>Examples of entity types include Partner Solution, Amazon Web Services product, and Amazon Web Services Marketplace offer. Ensure that the value
-   *             matches one of the expected entity types.
+   *          <p>Examples of entity types include Partner Solution, Amazon Web Services product, and Amazon Web Services Marketplaceoffer. Ensure that the value matches one of the expected entity types.
    *         </p>
-   *          <p>Validation: Provide a valid entity type to ensure successful disassociation. Invalid or incorrect entity
-   *             types result in an error.
+   *          <p>Validation: Provide a valid entity type to help ensure successful disassociation. An invalid or incorrect entity type results in an error.
    *         </p>
    * @public
    */
@@ -3425,10 +3432,10 @@ export interface DisassociateOpportunityRequest {
    *             through Amazon Web Services Marketplace.
    *         </p>
    *          <p>For Amazon Web Services Marketplace entities, use the Amazon Web Services Marketplace API to obtain the necessary ARNs.
-   *             For guidance on retrieving these ARNs, refer to <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html">
-   *                 Amazon Web Services Marketplace Catalog API</a> .
+   *             For guidance on retrieving these ARNs, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html">
+   *               Amazon Web Services MarketplaceUsing the Amazon Web Services Marketplace Catalog API</a>.
    *         </p>
-   *          <p>Validation: Ensure the identifier or ARN is valid and corresponds to an existing related entity.
+   *          <p>Validation: Ensure the identifier or ARN is valid and corresponds to an existing entity.
    *             An incorrect or invalid identifier results in an error.
    *         </p>
    * @public
@@ -3453,7 +3460,7 @@ export interface GetAwsOpportunitySummaryRequest {
   /**
    * <p>
    *             The unique identifier for the related partner opportunity. Use this field to correlate an AWS
-   *             opportunity with its corresponding partner opportunity in your CRM system.
+   *             opportunity with its corresponding partner opportunity.
    *         </p>
    * @public
    */
@@ -3511,8 +3518,8 @@ export interface GetAwsOpportunitySummaryResponse {
 
   /**
    * <p>
-   *             Specifies the type of involvement AWS has in the opportunity, such as direct co-sell or advisory support.
-   *             This field helps partners understand the role AWS will play in advancing the opportunity.
+   *             Specifies the type of involvement AWS has in the opportunity, such as direct cosell or advisory support.
+   *             This field helps partners understand the role AWS plays in advancing the opportunity.
    *         </p>
    * @public
    */
@@ -3538,8 +3545,8 @@ export interface GetAwsOpportunitySummaryResponse {
 
   /**
    * <p>
-   *             Details the AWS Opportunity team, including key members involved in the opportunity. This information
-   *             helps partners know who from AWS is engaged and their roles in the opportunity.
+   *             Details the AWS opportunity team, including members involved. This information
+   *             helps partners know who from AWS is engaged and what their role is.
    *         </p>
    * @public
    */
@@ -3576,7 +3583,7 @@ export interface GetAwsOpportunitySummaryResponse {
   /**
    * <p>
    *             Provides details about the customer associated with the AWS Opportunity, including account information,
-   *             industry, and other key customer data. These details help partners understand the business context of the
+   *             industry, and other customer data. These details help partners understand the business context of the
    *             opportunity.
    *         </p>
    * @public
@@ -3603,7 +3610,7 @@ export interface GetOpportunityRequest {
    *             Specifies the catalog associated with the request. This field takes a string value from a predefined list:
    *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the opportunity
    *             is fetched from. Use <code>AWS</code> to retrieve opportunities in the Amazon Web Services catalog,
-   *             and <code>Sandbox</code> to retrieve opportunities in a secure and isolated testing environment.
+   *             and <code>Sandbox</code> to retrieve opportunities in a secure, isolated testing environment.
    *         </p>
    * @public
    */
@@ -3641,10 +3648,10 @@ export interface RelatedEntityIdentifiers {
    *             Enables partner solutions or offerings' association with an opportunity. To associate a solution, provide the solution's unique identifier, which you can obtain with the <code>ListSolutions</code> operation.
    *         </p>
    *          <p>
-   *             If the specific solution identifier is not available, you can use the value <code>Other</code> and provide details about the solution in the <code>otherSolutionOffered</code> field. However, once the opportunity reaches the <code>Committed</code> stage or beyond, the <code>Other</code> value cannot be used, and a valid solution identifier must be provided.
+   *             If the specific solution identifier is not available, you can use the value <code>Other</code> and provide details about the solution in the <code>otherSolutionOffered</code> field. But when the opportunity reaches the <code>Committed</code> stage or beyond, the <code>Other</code> value cannot be used, and a valid solution identifier must be provided.
    *         </p>
    *          <p>
-   *             By associating the relevant solutions with the opportunity, you can clearly communicate the offerings that are being considered or implemented to address the customer's business problem.
+   *             By associating the relevant solutions with the opportunity, you can communicate the offerings that are being considered or implemented to address the customer's business problem.
    *         </p>
    * @public
    */
@@ -3691,47 +3698,47 @@ export interface GetOpportunityResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                     Co-Sell - Architectural Validation: Confirmation from Amazon Web Services that the partner's proposed solution architecture is aligned with Amazon Web Services best practices and poses minimal architectural risks.
+   *                     Cosell—Architectural Validation: Confirmation from Amazon Web Services that the partner's proposed solution architecture is aligned with Amazon Web Services best practices and poses minimal architectural risks.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Business Presentation: Request Amazon Web Services seller's participation in a joint customer presentation.
+   *                     Cosell—Business Presentation: Request Amazon Web Services seller's participation in a joint customer presentation.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Competitive Information: Access to Amazon Web Services competitive resources and support for the partner's proposed solution.
+   *                     Cosell—Competitive Information: Access to Amazon Web Services competitive resources and support for the partner's proposed solution.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Pricing Assistance: Connect with an Amazon Web Services seller for support situations where a partner may be receiving an upfront discount on a service (for example: EDP deals).
+   *                     Cosell—Pricing Assistance: Connect with an Amazon Web Services seller for support situations where a partner may be receiving an upfront discount on a service (for example: EDP deals).
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Technical Consultation: Connect with an Amazon Web Services Solutions Architect to address the partner's questions about the proposed solution.
+   *                     Cosell—Technical Consultation: Connect with an Amazon Web Services Solutions Architect to address the partner's questions about the proposed solution.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Total Cost of Ownership Evaluation: Assistance with quoting different cost savings of proposed solutions on Amazon Web Services versus on-premises or a traditional hosting environment.
+   *                     Cosell—Total Cost of Ownership Evaluation: Assistance with quoting different cost savings of proposed solutions on Amazon Web Services versus on-premises or a traditional hosting environment.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Deal Support: Request Amazon Web Services seller's support to progress the opportunity (for example: joint customer call, strategic positioning).
+   *                     Cosell—Deal Support: Request Amazon Web Services seller's support to progress the opportunity (for example: joint customer call, strategic positioning).
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Support for Public Tender / RFx: Opportunity related to the public sector where the partner needs Amazon Web Services RFx support.
+   *                     Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where the partner needs Amazon Web Services RFx support.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Do Not Need Support from Amazon Web Services Sales Rep: Indicates that a partner doesn't need support from an Amazon Web Services sales representative, and the partner solely manages the opportunity. It's possible to request co-selling support on these opportunities at any stage during their lifecycle. Also known as, for-visibility-only (FVO) opportunity.
+   *                     Do Not Need Support from Amazon Web Services Sales Rep: Indicates that a partner doesn't need support from an Amazon Web Services sales representative, and the partner solely manages the opportunity. It's possible to request coselling support on these opportunities at any stage during their lifecycle. Also known as, for-visibility-only (FVO) opportunity.
    *                 </p>
    *             </li>
    *          </ul>
@@ -3784,13 +3791,13 @@ export interface GetOpportunityResponse {
    *             <li>
    *                <p>
    *                     Renewal opportunity:
-   *                     Represents an opportunity to renew an existing contract or subscription with a current customer, ensuring continuity of service.
+   *                     Represents an opportunity to renew an existing contract or subscription with a current customer, which helps to ensure service continuity.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
    *                     Expansion opportunity:
-   *                     Represents an opportunity to expand the scope of an existing contract or subscription, either by adding new services or increasing the volume of existing services for a current customer.
+   *                     Represents an opportunity to expand the scope of a customer's contract or subscription, either by adding new services or increasing the volume of existing services.
    *                 </p>
    *             </li>
    *          </ul>
@@ -3921,7 +3928,7 @@ export interface ListOpportunitiesRequest {
    *             Specifies the catalog associated with the request. This field takes a string value from a predefined list:
    *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the opportunities are listed in.
    *             Use <code>AWS</code> for listing real opportunities in the Amazon Web Services catalog, and <code>Sandbox</code>
-   *             for to test in a secure and isolated environment.
+   *             for testing in secure, isolated environments.
    *         </p>
    * @public
    */
@@ -3929,7 +3936,7 @@ export interface ListOpportunitiesRequest {
 
   /**
    * <p>
-   *             Specifies the maximum number of results to return in a single call. This limits the number of opportunities returned in the response to avoid overloading with too many results at once.
+   *             Specifies the maximum number of results to return in a single call. This limits the number of opportunities returned in the response to avoid providing too many results at once.
    *         </p>
    *          <p>
    *             Default: 20
@@ -4022,7 +4029,7 @@ export interface LifeCycleSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                     Qualified: Your account team engaged with the prospect/end customer to discuss viability and understand requirements. The prospect/end customer agreed that the opportunity is real, of interest, and may solve key business/technical needs.
+   *                     Qualified: Your account team engaged with the customer to discuss viability and understand requirements. The customer agreed that the opportunity is real, of interest, and may solve business/technical needs.
    *                 </p>
    *             </li>
    *             <li>
@@ -4032,7 +4039,7 @@ export interface LifeCycleSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                     Business Validation: Pricing has been proposed, Pricing was proposed, and all parties agree to the steps to close.
+   *                     Business Validation: Pricing was proposed, and all parties agree to the steps to close.
    *                 </p>
    *             </li>
    *             <li>
@@ -4165,7 +4172,7 @@ export interface LifeCycleSummary {
   ReviewStatus?: ReviewStatus | undefined;
 
   /**
-   * <p>Indicates why an opportuntiy was sent back for further details. Partners must take corrective action based on the <code>ReviewComments</code>.</p>
+   * <p>Indicates why an opportunity was sent back for further details. Partners must take corrective action based on the <code>ReviewComments</code>.</p>
    * @public
    */
   ReviewComments?: string | undefined;
@@ -4353,7 +4360,7 @@ export interface UpdateOpportunityRequest {
    *             Specifies the catalog associated with the request. This field takes a string value from a predefined list:
    *             <code>AWS</code> or <code>Sandbox</code>. The catalog determines which environment the opportunity is updated in.
    *             Use <code>AWS</code> to update real opportunities in the production
-   *             environment, and <code>Sandbox</code> to test in a secure and isolated environment.
+   *             environment, and <code>Sandbox</code> for testing in secure, isolated environments.
    *             When you use the <code>Sandbox</code> catalog, it allows you to simulate and validate your interactions
    *             with Amazon Web Services services without affecting live data or operations.
    *         </p>
@@ -4371,47 +4378,47 @@ export interface UpdateOpportunityRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                     Co-Sell - Architectural Validation: Confirmation from Amazon Web Services that the partner's proposed solution architecture is aligned with Amazon Web Services best practices and poses minimal architectural risks.
+   *                     Cosell—Architectural Validation: Confirmation from Amazon Web Services that the partner's proposed solution architecture is aligned with Amazon Web Services best practices and poses minimal architectural risks.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Business Presentation: Request Amazon Web Services seller's participation in a joint customer presentation.
+   *                     Cosell—Business Presentation: Request Amazon Web Services seller's participation in a joint customer presentation.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Competitive Information: Access to Amazon Web Services competitive resources and support for the partner's proposed solution.
+   *                     Cosell—Competitive Information: Access to Amazon Web Services competitive resources and support for the partner's proposed solution.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Pricing Assistance: Connect with an AWS seller for support situations where a partner may be receiving an upfront discount on a service (for example: EDP deals).
+   *                     Cosell—Pricing Assistance: Connect with an AWS seller for support situations where a partner may be receiving an upfront discount on a service (for example: EDP deals).
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Technical Consultation: Connection with an Amazon Web Services Solutions Architect to address the partner's questions about the proposed solution.
+   *                     Cosell—Technical Consultation: Connection with an Amazon Web Services Solutions Architect to address the partner's questions about the proposed solution.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Total Cost of Ownership Evaluation: Assistance with quoting different cost savings of proposed solutions on Amazon Web Services versus on-premises or a traditional hosting environment.
+   *                     Cosell—Total Cost of Ownership Evaluation: Assistance with quoting different cost savings of proposed solutions on Amazon Web Services versus on-premises or a traditional hosting environment.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Deal Support: Request Amazon Web Services seller's support to progress the opportunity (for example: joint customer call, strategic positioning).
+   *                     Cosell—Deal Support: Request Amazon Web Services seller's support to progress the opportunity (for example: joint customer call, strategic positioning).
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Co-Sell - Support for Public Tender / RFx: Opportunity related to the public sector where the partner needs RFx support from Amazon Web Services.
+   *                     Cosell—Support for Public Tender/RFx: Opportunity related to the public sector where the partner needs RFx support from Amazon Web Services.
    *                 </p>
    *             </li>
    *             <li>
    *                <p>
-   *                     Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support from an Amazon Web Services Sales representative. The opportunity is managed solely by the partner. It's possible to request co-selling support on these opportunities at any stage during their lifecycle. Also known as, for-visibility-only (FVO) opportunity.
+   *                     Do Not Need Support from AWS Sales Rep: Indicates that a partner doesn't need support from an Amazon Web Services Sales representative. The opportunity is managed solely by the partner. It's possible to request coselling support on these opportunities at any stage during their lifecycle. Also known as, for-visibility-only (FVO) opportunity.
    *                 </p>
    *             </li>
    *          </ul>
@@ -4420,7 +4427,7 @@ export interface UpdateOpportunityRequest {
   PrimaryNeedsFromAws?: PrimaryNeedFromAws[] | undefined;
 
   /**
-   * <p>Specifies if the opportunity is associated with national security concerns. This flag is only applicable when the industry is <code>Government</code>. For national security-related opportunities, specific validation and compliance rules may apply, impacting the opportunity's visibility and processing.</p>
+   * <p>Specifies if the opportunity is associated with national security concerns. This flag is only applicable when the industry is <code>Government</code>. For national-security-related opportunities, validation and compliance rules may apply, impacting the opportunity's visibility and processing.</p>
    * @public
    */
   NationalSecurity?: NationalSecurity | undefined;
@@ -4434,7 +4441,7 @@ export interface UpdateOpportunityRequest {
   PartnerOpportunityIdentifier?: string | undefined;
 
   /**
-   * <p>Specifies details of the customer associated with the <code>Opportunity</code> .
+   * <p>Specifies details of the customer associated with the <code>Opportunity</code>.
    *         </p>
    * @public
    */
@@ -4631,7 +4638,7 @@ export interface ListSolutionsRequest {
   Sort?: SolutionSort | undefined;
 
   /**
-   * <p>Filters the solutions based on their status. This filter helps retrieve solutions with statuses such as <code>Active</code>, <code>Inactive</code>, or <code>Pending Approval</code>, allowing partners to manage their solution portfolios effectively.</p>
+   * <p>Filters solutions based on their status. This filter helps partners manage their solution portfolios effectively.</p>
    * @public
    */
   Status?: SolutionStatus[] | undefined;
@@ -4824,6 +4831,24 @@ export const AwsOpportunityLifeCycleFilterSensitiveLog = (obj: AwsOpportunityLif
 /**
  * @internal
  */
+export const ExpectedCustomerSpendFilterSensitiveLog = (obj: ExpectedCustomerSpend): any => ({
+  ...obj,
+  ...(obj.CurrencyCode && { CurrencyCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AwsOpportunityProjectFilterSensitiveLog = (obj: AwsOpportunityProject): any => ({
+  ...obj,
+  ...(obj.ExpectedCustomerSpend && {
+    ExpectedCustomerSpend: obj.ExpectedCustomerSpend.map((item) => ExpectedCustomerSpendFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const AwsTeamMemberFilterSensitiveLog = (obj: AwsTeamMember): any => ({
   ...obj,
   ...(obj.Email && { Email: SENSITIVE_STRING }),
@@ -4846,6 +4871,9 @@ export const EngagementCustomerFilterSensitiveLog = (obj: EngagementCustomer): a
 export const ProjectDetailsFilterSensitiveLog = (obj: ProjectDetails): any => ({
   ...obj,
   ...(obj.BusinessProblem && { BusinessProblem: SENSITIVE_STRING }),
+  ...(obj.ExpectedCustomerSpend && {
+    ExpectedCustomerSpend: obj.ExpectedCustomerSpend.map((item) => ExpectedCustomerSpendFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -4942,9 +4970,28 @@ export const LifeCycleFilterSensitiveLog = (obj: LifeCycle): any => ({
  */
 export const ProjectFilterSensitiveLog = (obj: Project): any => ({
   ...obj,
+  ...(obj.ExpectedCustomerSpend && {
+    ExpectedCustomerSpend: obj.ExpectedCustomerSpend.map((item) => ExpectedCustomerSpendFilterSensitiveLog(item)),
+  }),
   ...(obj.Title && { Title: SENSITIVE_STRING }),
   ...(obj.CustomerBusinessProblem && { CustomerBusinessProblem: SENSITIVE_STRING }),
   ...(obj.OtherSolutionDescription && { OtherSolutionDescription: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MonetaryValueFilterSensitiveLog = (obj: MonetaryValue): any => ({
+  ...obj,
+  ...(obj.CurrencyCode && { CurrencyCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SoftwareRevenueFilterSensitiveLog = (obj: SoftwareRevenue): any => ({
+  ...obj,
+  ...(obj.Value && { Value: MonetaryValueFilterSensitiveLog(obj.Value) }),
 });
 
 /**
@@ -4954,6 +5001,7 @@ export const CreateOpportunityRequestFilterSensitiveLog = (obj: CreateOpportunit
   ...obj,
   ...(obj.Customer && { Customer: CustomerFilterSensitiveLog(obj.Customer) }),
   ...(obj.Project && { Project: ProjectFilterSensitiveLog(obj.Project) }),
+  ...(obj.SoftwareRevenue && { SoftwareRevenue: SoftwareRevenueFilterSensitiveLog(obj.SoftwareRevenue) }),
   ...(obj.LifeCycle && { LifeCycle: LifeCycleFilterSensitiveLog(obj.LifeCycle) }),
   ...(obj.OpportunityTeam && { OpportunityTeam: obj.OpportunityTeam.map((item) => ContactFilterSensitiveLog(item)) }),
 });
@@ -4968,6 +5016,7 @@ export const GetAwsOpportunitySummaryResponseFilterSensitiveLog = (obj: GetAwsOp
     OpportunityTeam: obj.OpportunityTeam.map((item) => AwsTeamMemberFilterSensitiveLog(item)),
   }),
   ...(obj.Customer && { Customer: AwsOpportunityCustomerFilterSensitiveLog(obj.Customer) }),
+  ...(obj.Project && { Project: AwsOpportunityProjectFilterSensitiveLog(obj.Project) }),
 });
 
 /**
@@ -4977,6 +5026,7 @@ export const GetOpportunityResponseFilterSensitiveLog = (obj: GetOpportunityResp
   ...obj,
   ...(obj.Customer && { Customer: CustomerFilterSensitiveLog(obj.Customer) }),
   ...(obj.Project && { Project: ProjectFilterSensitiveLog(obj.Project) }),
+  ...(obj.SoftwareRevenue && { SoftwareRevenue: SoftwareRevenueFilterSensitiveLog(obj.SoftwareRevenue) }),
   ...(obj.LifeCycle && { LifeCycle: LifeCycleFilterSensitiveLog(obj.LifeCycle) }),
   ...(obj.OpportunityTeam && { OpportunityTeam: obj.OpportunityTeam.map((item) => ContactFilterSensitiveLog(item)) }),
 });
@@ -5000,10 +5050,21 @@ export const LifeCycleSummaryFilterSensitiveLog = (obj: LifeCycleSummary): any =
 /**
  * @internal
  */
+export const ProjectSummaryFilterSensitiveLog = (obj: ProjectSummary): any => ({
+  ...obj,
+  ...(obj.ExpectedCustomerSpend && {
+    ExpectedCustomerSpend: obj.ExpectedCustomerSpend.map((item) => ExpectedCustomerSpendFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const OpportunitySummaryFilterSensitiveLog = (obj: OpportunitySummary): any => ({
   ...obj,
   ...(obj.LifeCycle && { LifeCycle: LifeCycleSummaryFilterSensitiveLog(obj.LifeCycle) }),
   ...(obj.Customer && { Customer: CustomerSummaryFilterSensitiveLog(obj.Customer) }),
+  ...(obj.Project && { Project: ProjectSummaryFilterSensitiveLog(obj.Project) }),
 });
 
 /**
@@ -5023,5 +5084,6 @@ export const UpdateOpportunityRequestFilterSensitiveLog = (obj: UpdateOpportunit
   ...obj,
   ...(obj.Customer && { Customer: CustomerFilterSensitiveLog(obj.Customer) }),
   ...(obj.Project && { Project: ProjectFilterSensitiveLog(obj.Project) }),
+  ...(obj.SoftwareRevenue && { SoftwareRevenue: SoftwareRevenueFilterSensitiveLog(obj.SoftwareRevenue) }),
   ...(obj.LifeCycle && { LifeCycle: LifeCycleFilterSensitiveLog(obj.LifeCycle) }),
 });

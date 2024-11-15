@@ -8,7 +8,7 @@ import { ruleSet } from "./ruleset";
 
 const cache = new EndpointCache({
   size: 50,
-  params: ["Endpoint", "Region", "UseDualStack", "UseFIPS"],
+  params: ["Endpoint", "Region", "UseFIPS"],
 });
 
 export const defaultEndpointResolver = (

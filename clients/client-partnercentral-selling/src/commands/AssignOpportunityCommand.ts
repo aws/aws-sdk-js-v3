@@ -93,7 +93,7 @@ export interface AssignOpportunityCommandOutput extends __MetadataBearer {}
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)

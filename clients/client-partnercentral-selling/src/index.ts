@@ -5,40 +5,68 @@
  *          <p>
  *             <b>AWS Partner Central API for Selling Reference Guide</b>
  *          </p>
- *          <p>
- *             Amazon Web Services (AWS) Partner Central API reference guide is designed to help
- *             <a href="https://docs.aws.amazon.com/partners/programs/">AWS Partners</a> programmatically integrate their Customer Relationship Management (CRM) systems with AWS Partner Central. Through the Partner Central APIs, partners can automate and streamline their interactions with AWS Partner Central, ensuring a more efficient and effective engagement in joint business activities.
- *         </p>
- *          <p>
- *             The AWS Partner Central API service provides standard AWS API functionality. You can directly use the API <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/API_Operations.html">Actions</a>, or you can use an AWS SDK to access an API that's tailored to the programming language or platform that you're using. For more information about AWS application development, see <a href="https://docs.aws.amazon.com/getting-started">Getting Started with AWS</a>. For more information about using AWS SDKs, see <a href="https://docs.aws.amazon.com/aws-sdk">AWS SDKs</a>.
- *         </p>
+ *          <p>This Amazon Web Services (AWS) Partner Central API reference is
+ *       designed to help <a href="http://aws.amazon.com/partners/programs/">AWS
+ *         Partners</a> integrate Customer Relationship Management (CRM)
+ *       systems with AWS Partner Central. Partners can automate interactions with
+ *       AWS Partner Central, which helps to ensure effective engagements in joint
+ *       business activities.</p>
+ *          <p>The API provides standard AWS API functionality. Access it by
+ *       either using API <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/API_Operations.html">Actions</a> or by using an AWS SDK that's tailored to your
+ *       programming language or platform. For more information, see <a href="http://aws.amazon.com/getting-started">Getting Started with
+ *         AWS</a> and <a href="http://aws.amazon.com/developer/tools/">Tools to Build on AWS</a>.</p>
  *          <p class="title">
  *             <b>Features offered by AWS Partner Central API</b>
  *          </p>
  *          <ol>
  *             <li>
  *                <p>
- *                   <b>Opportunity management:</b> Facilitates the management of co-selling opportunities with AWS using API actions such as <code>CreateOpportunity</code>, <code>UpdateOpportunity</code>, <code>ListOpportunities</code>, <code>GetOpportunity</code>, and <code>AssignOpportunity</code>.</p>
+ *                   <b>Opportunity management:</b>
+ *           Manages coselling opportunities through API actions such as
+ *             <code>CreateOpportunity</code>, <code>UpdateOpportunity</code>,
+ *             <code>ListOpportunities</code>, <code>GetOpportunity</code>, and
+ *             <code>AssignOpportunity</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>AWS referral management:</b> Facilitates receiving referrals shared by AWS using actions like <code>ListEngagementInvitations</code>, <code>GetEngagementInvitation</code>, <code>StartEngagementByAcceptingInvitation</code>, and <code>RejectEngagementInvitation</code>.</p>
+ *                   <b>AWS referral management:</b>
+ *           Manages referrals shared by AWS using actions such as
+ *             <code>ListEngagementInvitations</code>,
+ *             <code>GetEngagementInvitation</code>,
+ *             <code>StartEngagementByAcceptingInvitation</code>, and
+ *             <code>RejectEngagementInvitation</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Entity association:</b> Associate related entities such as <i>AWS Products</i>, <i>Partner Solutions</i>, and <i>AWS Marketplace Private Offers</i> with opportunities using the actions <code>AssociateOpportunity</code> and <code>DisassociateOpportunity</code>.</p>
+ *                   <b>Entity association:</b>
+ *           Associates related entities such as <i>AWS Products</i>,
+ *             <i>Partner Solutions</i>, and <i>AWS
+ *             Marketplace Private Offers</i> with opportunities using the
+ *           actions <code>AssociateOpportunity</code>, and
+ *             <code>DisassociateOpportunity</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>View AWS opportunity details:</b> Use the <code>GetAWSOpportunitySummary</code> action to retrieve real-time summaries of AWS opportunities that are linked to your opportunities.</p>
+ *                   <b>View AWS opportunity
+ *             details:</b> Retrieves real-time summaries of AWS
+ *           opportunities using the <code>GetAWSOpportunitySummary</code>
+ *           action.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>List solutions:</b> Provides list APIs for listing solutions partners offer using <code>ListSolutions</code>.</p>
+ *                   <b>List solutions:</b> Provides
+ *           list APIs for listing partner offers using
+ *           <code>ListSolutions</code>.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Event subscription:</b> Partners can subscribe to real-time updates on opportunities by listening to events such as <i>Opportunity Created</i>, <i>Opportunity Updated</i>, <i>Engagement Invitation Accepted</i>, <i>Engagement Invitation Rejected</i> and <i>Engagement Invitation Created</i> using AWS EventBridge.</p>
+ *                   <b>Event subscription:</b>
+ *           Subscribe to real-time opportunity updates through AWS EventBridge by
+ *           using actions such as <i>Opportunity Created</i>,
+ *             <i>Opportunity Updated</i>, <i>Engagement
+ *             Invitation Accepted</i>, <i>Engagement Invitation
+ *             Rejected</i>, and <i>Engagement Invitation
+ *             Created</i>.</p>
  *             </li>
  *          </ol>
  *

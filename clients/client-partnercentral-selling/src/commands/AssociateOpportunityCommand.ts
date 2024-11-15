@@ -35,25 +35,25 @@ export interface AssociateOpportunityCommandOutput extends __MetadataBearer {}
  * <p>
  *             Enables you to create a formal association between an <code>Opportunity</code> and various
  *             related entities, enriching the context and details of the opportunity for better collaboration and
- *             decision-making. You can associate an opportunity with the following types of entities:
+ *             decision making. You can associate an opportunity with the following entity types:
  *         </p>
  *          <ul>
  *             <li>
  *                <p>
  *                     Partner Solution:
- *                     A software product or consulting practice created and delivered by Partners. Partner Solutions help customers address specific business challenges or achieve particular goals using Amazon Web Services services.
+ *                     A software product or consulting practice created and delivered by Partners. Partner Solutions help customers address business challenges using Amazon Web Services services.
  *                 </p>
  *             </li>
  *             <li>
  *                <p>
- *                     Amazon Web Services Product:
- *                     Amazon Web Services offers a wide range of products and services designed to provide scalable, reliable, and cost-effective infrastructure solutions. For the latest list of Amazon Web Services products, refer to <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon Web Services products</a>.
+ *                     Amazon Web Services Products:
+ *                     Amazon Web Services offers many products and services that provide scalable, reliable, and cost-effective infrastructure solutions. For the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon Web Services products</a>.
  *                 </p>
  *             </li>
  *             <li>
  *                <p>
  *                     Amazon Web Services Marketplace private offer:
- *                     Allows Amazon Web Services Marketplace sellers to extend custom pricing and terms to individual Amazon Web Services customers. Sellers can negotiate custom prices, payment schedules, and end user license terms through private offers, enabling Amazon Web Services customers to acquire software solutions tailored to their specific needs. For more information, refer to <a href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html">Private offers in Amazon Web Services Marketplace</a>.
+ *                     Allows Amazon Web Services Marketplace sellers to extend custom pricing and terms to individual Amazon Web Services customers. Sellers can negotiate custom prices, payment schedules, and end user license terms through private offers, enabling Amazon Web Services customers to acquire software solutions tailored to their specific needs. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-private-offers.html">Private offers in Amazon Web Services Marketplace</a>.
  *                 </p>
  *             </li>
  *          </ul>
@@ -64,12 +64,12 @@ export interface AssociateOpportunityCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>
- *                     AWS products: For the latest list of Amazon Web Services products, refer to
- *                     the Amazon Web Services products list.</p>
+ *                   AWS Products: For the latest list of Amazon Web Services products, see <a href="https://github.com/aws-samples/partner-crm-integration-samples/blob/main/resources/aws_products.json">Amazon Web Services products</a>.
+ *                 </p>
  *             </li>
  *             <li>
  *                <p>
- *                     Amazon Web Services Marketplace private offer: Use the <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html">AWS Marketplace Catalog API</a> to list entities. Specifically, use the <code>ListEntities</code> operation to retrieve a list of private offers. The request to the <code>ListEntities</code> API returns the details of the private offers available to you. For more information, refer to <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html">ListEntities</a>.
+ *                   Amazon Web Services Marketplace private offer: Use the <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/catalog-apis.html">Using the Amazon Web Services Marketplace Catalog API</a> to list entities. Specifically, use the <code>ListEntities</code> operation to retrieve a list of private offers. The request returns the details of available private offers. For more information, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/API_ListEntities.html">ListEntities</a>.
  *                 </p>
  *             </li>
  *          </ul>
@@ -121,7 +121,7 @@ export interface AssociateOpportunityCommandOutput extends __MetadataBearer {}
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)

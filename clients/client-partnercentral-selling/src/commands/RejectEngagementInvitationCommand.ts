@@ -32,7 +32,10 @@ export interface RejectEngagementInvitationCommandInput extends RejectEngagement
 export interface RejectEngagementInvitationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Use this action to reject an <code>EngagementInvitation</code> that has been shared by AWS. Rejecting the engagement invitation indicates that the partner does not wish to pursue the opportunity, and all related data will be inaccessible after the rejection.</p>
+ * <p>This action rejects an <code>EngagementInvitation</code> that AWS
+ *       shared. Rejecting an invitation indicates that the partner doesn't want to
+ *       pursue the opportunity, and all related data will become inaccessible
+ *       thereafter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +83,7 @@ export interface RejectEngagementInvitationCommandOutput extends __MetadataBeare
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)

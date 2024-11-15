@@ -33,7 +33,7 @@ export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {
 
 /**
  * <p>
- *             Allows you to remove an existing association between an <code>Opportunity</code> and related entities such as a Partner Solution, Amazon Web Services product, or an Amazon Web Services Marketplace offer.
+ *             Allows you to remove an existing association between an <code>Opportunity</code> and related entities, such as a Partner Solution, Amazon Web Services product, or an Amazon Web Services Marketplace offer.
  *             This operation is the counterpart to <code>AssociateOpportunity</code>, and it provides flexibility to manage
  *             associations as business needs change.
  *         </p>
@@ -41,7 +41,7 @@ export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {
  *             Use this operation to update the associations of an <code>Opportunity</code> due to changes in the related entities,
  *             or if an association was made in error. Ensuring accurate associations helps maintain clarity and accuracy to track
  *             and manage business opportunities. When you replace an entity, first attach the new entity and then disassociate the
- *             one to be removed, especially if it's the last remaining related entity that's required.
+ *             one to be removed, especially if it's the last remaining entity that's required.
  *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -91,7 +91,7 @@ export interface DisassociateOpportunityCommandOutput extends __MetadataBearer {
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)

@@ -36,7 +36,7 @@ export interface GetEngagementInvitationCommandInput extends GetEngagementInvita
 export interface GetEngagementInvitationCommandOutput extends GetEngagementInvitationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details of an engagement invitation shared by AWS with a partner. The information includes key aspects such as the customer, project details, and lifecycle information related to the engagement.</p>
+ * <p>Retrieves the details of an engagement invitation shared by AWS with a partner. The information includes aspects such as customer, project details, and lifecycle information. To connect an engagement invitation with an opportunity, match the invitation’s <code>Payload.Project.Title</code> with opportunity <code>Project.Title</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -136,7 +136,7 @@ export interface GetEngagementInvitationCommandOutput extends GetEngagementInvit
  *             usage to avoid throttling.
  *         </p>
  *          <p>This error occurs when there are too many requests sent. Review the provided
- *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">quotas</a> and retry after the provided delay.
+ *             <a href="https://docs.aws.amazon.com/partner-central/latest/selling-api/quotas.html">Quotas</a> and retry after the provided delay.
  *         </p>
  *
  * @throws {@link ValidationException} (client fault)
