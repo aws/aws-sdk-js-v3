@@ -28,8 +28,8 @@ export interface DisableAlarmActionsCommandInput extends DisableAlarmActionsInpu
 export interface DisableAlarmActionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables the actions for the specified alarms. When an alarm's actions are disabled, the
- * 			alarm actions do not execute when the alarm state changes.</p>
+ * <p>Disables the actions for the specified alarms. When an alarm's actions are
+ *             disabled, the alarm actions do not execute when the alarm state changes.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

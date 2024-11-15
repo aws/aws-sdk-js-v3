@@ -29,8 +29,8 @@ export interface DescribeInsightRulesCommandOutput extends DescribeInsightRulesO
 
 /**
  * <p>Returns a list of all the Contributor Insights rules in your account.</p>
- *          <p>For more information about Contributor Insights, see
- * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
+ *          <p>For more information about Contributor Insights, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor
+ *             Insights to Analyze High-Cardinality Data</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

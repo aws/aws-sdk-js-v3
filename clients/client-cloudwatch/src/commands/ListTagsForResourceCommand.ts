@@ -28,8 +28,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceInpu
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms
- * 			and Contributor Insights rules support tagging.</p>
+ * <p>Displays the tags associated with a CloudWatch resource. Currently, alarms and
+ *             Contributor Insights rules support tagging.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +59,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>

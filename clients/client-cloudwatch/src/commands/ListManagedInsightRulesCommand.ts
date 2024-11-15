@@ -28,13 +28,10 @@ export interface ListManagedInsightRulesCommandInput extends ListManagedInsightR
 export interface ListManagedInsightRulesCommandOutput extends ListManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>
- * 			Returns a list
- * 			that contains the number
- * 			of managed Contributor Insights rules
- * 			in your account.
+ * <p> Returns a list that contains the number of managed Contributor Insights rules in your
+ *             account.
  *
- * 		</p>
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,8 +28,8 @@ export interface DisableInsightRulesCommandInput extends DisableInsightRulesInpu
 export interface DisableInsightRulesCommandOutput extends DisableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do not analyze log groups and do
- * 		not incur costs.</p>
+ * <p>Disables the specified Contributor Insights rules. When rules are disabled, they do
+ *             not analyze log groups and do not incur costs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

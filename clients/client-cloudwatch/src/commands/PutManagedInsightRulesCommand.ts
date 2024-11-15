@@ -28,23 +28,16 @@ export interface PutManagedInsightRulesCommandInput extends PutManagedInsightRul
 export interface PutManagedInsightRulesCommandOutput extends PutManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>
- * 			Creates a managed Contributor Insights rule
- * 			for a specified Amazon Web Services resource.
- * 			When you enable a managed rule,
- * 			you create a Contributor Insights rule
- * 			that collects data
- * 			from Amazon Web Services services.
- * 			You cannot edit these rules
- * 			with <code>PutInsightRule</code>.
- * 			The rules can be enabled, disabled, and deleted using <code>EnableInsightRules</code>, <code>DisableInsightRules</code>, and <code>DeleteInsightRules</code>.
- * 			If a previously created managed rule is currently disabled,
- * 			a subsequent call
- * 			to this API will re-enable it.
- * 			Use <code>ListManagedInsightRules</code>
- * 			to describe all available rules.
+ * <p> Creates a managed Contributor Insights rule for a specified Amazon Web Services
+ *             resource. When you enable a managed rule, you create a Contributor Insights rule that
+ *             collects data from Amazon Web Services services. You cannot edit these rules with
+ *             <code>PutInsightRule</code>. The rules can be enabled, disabled, and deleted using
+ *             <code>EnableInsightRules</code>, <code>DisableInsightRules</code>, and
+ *             <code>DeleteInsightRules</code>. If a previously created managed rule is currently
+ *             disabled, a subsequent call to this API will re-enable it. Use
+ *             <code>ListManagedInsightRules</code> to describe all available rules.
  *
- * 		</p>
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

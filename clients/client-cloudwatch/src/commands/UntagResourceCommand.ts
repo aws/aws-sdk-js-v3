@@ -57,7 +57,8 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  *  <p>More than one process tried to modify a resource at the same time.</p>
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>

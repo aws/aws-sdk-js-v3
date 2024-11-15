@@ -28,7 +28,8 @@ export interface EnableInsightRulesCommandInput extends EnableInsightRulesInput 
 export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
+ * <p>Enables the specified Contributor Insights rules. When rules are enabled, they
+ *             immediately begin analyzing log data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,13 +28,12 @@ export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDet
 export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the anomaly detection models that you have created in your account.
- * 			For single metric anomaly detectors,
- * 			you can list all of the models in your account or filter the results
- * 			to only the models that are related to a certain namespace, metric name, or metric dimension.
- * 			For metric math anomaly detectors,
- * 			you can list them by adding <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array.
- * 			This will return all metric math anomaly detectors in your account.</p>
+ * <p>Lists the anomaly detection models that you have created in your account. For single
+ *             metric anomaly detectors, you can list all of the models in your account or filter the
+ *             results to only the models that are related to a certain namespace, metric name, or
+ *             metric dimension. For metric math anomaly detectors, you can list them by adding
+ *             <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
+ *             return all metric math anomaly detectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,7 +130,8 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The next token specified is invalid.</p>

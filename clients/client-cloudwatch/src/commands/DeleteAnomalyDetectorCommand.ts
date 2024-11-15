@@ -28,15 +28,9 @@ export interface DeleteAnomalyDetectorCommandInput extends DeleteAnomalyDetector
 export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetectorOutput, __MetadataBearer {}
 
 /**
- * <p>
- * 			Deletes the specified anomaly detection model
- * 			from your account.
- * 			For more information
- * 			about
- * 			how to delete an anomaly detection model,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model">Deleting an anomaly detection model</a>
- * 			in the <i>CloudWatch User Guide</i>.
- * 		</p>
+ * <p> Deletes the specified anomaly detection model from your account. For more information
+ *             about how to delete an anomaly detection model, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.html#Delete_Anomaly_Detection_Model">Deleting an anomaly detection model</a> in the <i>CloudWatch User
+ *             Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,7 +95,8 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Parameters were used together that cannot be used together.</p>

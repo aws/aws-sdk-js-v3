@@ -28,15 +28,14 @@ export interface ListDashboardsCommandInput extends ListDashboardsInput {}
 export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only
- * 			those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are
- * 			listed.
- * 	    </p>
+ * <p>Returns a list of the dashboards for your account. If you include
+ *             <code>DashboardNamePrefix</code>, only those dashboards with names starting with the
+ *             prefix are listed. Otherwise, all dashboards in your account are listed. </p>
  *          <p>
- *             <code>ListDashboards</code> returns up to 1000 results on one page. If there
- * 			are more than 1000 dashboards, you can call <code>ListDashboards</code> again and
- * 		include the value you received for <code>NextToken</code> in the first call, to receive
- * 		the next 1000 results.</p>
+ *             <code>ListDashboards</code> returns up to 1000 results on one page. If there are
+ *             more than 1000 dashboards, you can call <code>ListDashboards</code> again and include
+ *             the value you received for <code>NextToken</code> in the first call, to receive the next
+ *             1000 results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +69,8 @@ export interface ListDashboardsCommandOutput extends ListDashboardsOutput, __Met
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>

@@ -90,7 +90,8 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Parameters were used together that cannot be used together.</p>

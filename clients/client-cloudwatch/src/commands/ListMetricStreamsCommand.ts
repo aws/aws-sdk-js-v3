@@ -65,7 +65,8 @@ export interface ListMetricStreamsCommandOutput extends ListMetricStreamsOutput,
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The next token specified is invalid.</p>

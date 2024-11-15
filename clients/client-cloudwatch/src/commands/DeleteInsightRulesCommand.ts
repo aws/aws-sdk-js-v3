@@ -29,9 +29,8 @@ export interface DeleteInsightRulesCommandOutput extends DeleteInsightRulesOutpu
 
 /**
  * <p>Permanently deletes the specified Contributor Insights rules.</p>
- *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
- * 			the rule was created might
- * 			not be available.</p>
+ *          <p>If you create a rule, delete it, and then re-create it with the same name, historical
+ *             data from the first time the rule was created might not be available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
