@@ -74,6 +74,23 @@ export interface ListOrganizationsFeaturesCommandOutput extends ListOrganization
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
  * @public
+ * @example To list the centralized root access features enabled for your organization
+ * ```javascript
+ * // he following command lists the centralized root access features enabled for your organization.
+ * const input = {};
+ * const command = new ListOrganizationsFeaturesCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "EnabledFeatures": [
+ *     "RootCredentialsManagement"
+ *   ],
+ *   "OrganizationId": "o-aa111bb222"
+ * }
+ * *\/
+ * // example id: to-list-the-centralized-root-access-features-enabled-for-your-organization-1730908832557
+ * ```
+ *
  */
 export class ListOrganizationsFeaturesCommand extends $Command
   .classBuilder<

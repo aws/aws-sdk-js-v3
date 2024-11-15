@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-http",
-  "version": "3.692.0",
+  "version": "3.693.0",
   "description": "AWS credential provider for containers and HTTP sources",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
