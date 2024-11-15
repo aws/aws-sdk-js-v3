@@ -40,6 +40,7 @@ export interface AttachThingPrincipalCommandOutput extends AttachThingPrincipalR
  * const input = { // AttachThingPrincipalRequest
  *   thingName: "STRING_VALUE", // required
  *   principal: "STRING_VALUE", // required
+ *   thingPrincipalType: "EXCLUSIVE_THING" || "NON_EXCLUSIVE_THING",
  * };
  * const command = new AttachThingPrincipalCommand(input);
  * const response = await client.send(command);

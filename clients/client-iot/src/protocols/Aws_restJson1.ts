@@ -505,6 +505,10 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "../commands/ListPrincipalThingsCommand";
 import {
+  ListPrincipalThingsV2CommandInput,
+  ListPrincipalThingsV2CommandOutput,
+} from "../commands/ListPrincipalThingsV2Command";
+import {
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
 } from "../commands/ListProvisioningTemplatesCommand";
@@ -555,6 +559,10 @@ import {
   ListThingPrincipalsCommandInput,
   ListThingPrincipalsCommandOutput,
 } from "../commands/ListThingPrincipalsCommand";
+import {
+  ListThingPrincipalsV2CommandInput,
+  ListThingPrincipalsV2CommandOutput,
+} from "../commands/ListThingPrincipalsV2Command";
 import {
   ListThingRegistrationTaskReportsCommandInput,
   ListThingRegistrationTaskReportsCommandOutput,
@@ -734,6 +742,7 @@ import {
   UpdateThingGroupsForThingCommandInput,
   UpdateThingGroupsForThingCommandOutput,
 } from "../commands/UpdateThingGroupsForThingCommand";
+import { UpdateThingTypeCommandInput, UpdateThingTypeCommandOutput } from "../commands/UpdateThingTypeCommand";
 import {
   UpdateTopicRuleDestinationCommandInput,
   UpdateTopicRuleDestinationCommandOutput,
@@ -790,7 +799,6 @@ import {
   ConflictException,
   ConflictingResourceUpdateException,
   CustomCodeSigning,
-  DeleteConflictException,
   Destination,
   DynamoDBAction,
   DynamoDBv2Action,
@@ -832,12 +840,14 @@ import {
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
+  Mqtt5Configuration,
   MqttHeaders,
   OpenSearchAction,
   OTAUpdateFile,
   PackageVersionArtifact,
   PolicyVersionIdentifier,
   PresignedUrlConfig,
+  PropagatingAttribute,
   Protocol,
   ProvisioningHook,
   PublishFindingToSnsParams,
@@ -901,6 +911,7 @@ import {
   CertificateStateException,
   CertificateValidity,
   Configuration,
+  DeleteConflictException,
   DetectMitigationActionExecution,
   DetectMitigationActionsTaskSummary,
   DetectMitigationActionsTaskTarget,
@@ -1156,8 +1167,11 @@ export const se_AttachThingPrincipalCommand = async (
   });
   b.bp("/things/{thingName}/principals");
   b.p("thingName", () => input.thingName!, "{thingName}", false);
+  const query: any = map({
+    [_tPT]: [, input[_tPT]!],
+  });
   let body: any;
-  b.m("PUT").h(headers).b(body);
+  b.m("PUT").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -4577,6 +4591,28 @@ export const se_ListPrincipalThingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListPrincipalThingsV2Command
+ */
+export const se_ListPrincipalThingsV2Command = async (
+  input: ListPrincipalThingsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xap]: input[_p]!,
+  });
+  b.bp("/principals/things-v2");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tPT]: [, input[_tPT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListProvisioningTemplatesCommand
  */
 export const se_ListProvisioningTemplatesCommand = async (
@@ -4873,6 +4909,27 @@ export const se_ListThingPrincipalsCommand = async (
   const query: any = map({
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListThingPrincipalsV2Command
+ */
+export const se_ListThingPrincipalsV2Command = async (
+  input: ListThingPrincipalsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/things/{thingName}/principals-v2");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_tPT]: [, input[_tPT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -6395,6 +6452,29 @@ export const se_UpdateThingGroupsForThingCommand = async (
     })
   );
   b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateThingTypeCommand
+ */
+export const se_UpdateThingTypeCommand = async (
+  input: UpdateThingTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/thing-types/{thingTypeName}");
+  b.p("thingTypeName", () => input.thingTypeName!, "{thingTypeName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      thingTypeProperties: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -10261,6 +10341,28 @@ export const de_ListPrincipalThingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPrincipalThingsV2Command
+ */
+export const de_ListPrincipalThingsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrincipalThingsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    principalThingObjects: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListProvisioningTemplatesCommand
  */
 export const de_ListProvisioningTemplatesCommand = async (
@@ -10585,6 +10687,28 @@ export const de_ListThingPrincipalsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     principals: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListThingPrincipalsV2Command
+ */
+export const de_ListThingPrincipalsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListThingPrincipalsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    thingPrincipalObjects: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -11839,6 +11963,23 @@ export const de_UpdateThingGroupsForThingCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateThingTypeCommand
+ */
+export const de_UpdateThingTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateThingTypeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateTopicRuleDestinationCommand
  */
 export const de_UpdateTopicRuleDestinationCommand = async (
@@ -13017,6 +13158,8 @@ const se_MetricValue = (input: MetricValue, context: __SerdeContext): any => {
 
 // se_MitigationActionParams omitted.
 
+// se_Mqtt5Configuration omitted.
+
 /**
  * serializeAws_restJson1MqttContext
  */
@@ -13094,6 +13237,10 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
 // se_Ports omitted.
 
 // se_PresignedUrlConfig omitted.
+
+// se_PropagatingAttribute omitted.
+
+// se_PropagatingAttributeList omitted.
 
 // se_Protocols omitted.
 
@@ -14237,6 +14384,8 @@ const de_MitigationActionIdentifierList = (output: any, context: __SerdeContext)
 
 // de_MitigationActionParams omitted.
 
+// de_Mqtt5Configuration omitted.
+
 // de_MqttHeaders omitted.
 
 // de_NamedShadowNamesFilter omitted.
@@ -14470,7 +14619,15 @@ const de_PolicyVersions = (output: any, context: __SerdeContext): PolicyVersion[
 
 // de_Principals omitted.
 
+// de_PrincipalThingObject omitted.
+
+// de_PrincipalThingObjects omitted.
+
 // de_ProcessingTargetNameList omitted.
+
+// de_PropagatingAttribute omitted.
+
+// de_PropagatingAttributeList omitted.
 
 // de_Protocols omitted.
 
@@ -14750,6 +14907,10 @@ const de_ThingGroupMetadata = (output: any, context: __SerdeContext): ThingGroup
 
 // de_ThingNameList omitted.
 
+// de_ThingPrincipalObject omitted.
+
+// de_ThingPrincipalObjects omitted.
+
 /**
  * deserializeAws_restJson1ThingTypeDefinition
  */
@@ -15025,6 +15186,7 @@ const _tI = "taskId";
 const _tN = "targetName";
 const _tNe = "templateName";
 const _tNh = "thingName";
+const _tPT = "thingPrincipalType";
 const _tS = "taskStatus";
 const _tSa = "targetSelection";
 const _tT = "targetType";

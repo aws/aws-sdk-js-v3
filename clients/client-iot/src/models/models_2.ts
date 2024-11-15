@@ -50,6 +50,7 @@ import {
   Tag,
   TemplateType,
   ThingGroupProperties,
+  ThingPrincipalType,
   ThingTypeProperties,
   TimeoutConfig,
   TlsConfig,
@@ -69,8 +70,8 @@ import {
   DomainConfigurationStatus,
   EventType,
   GroupNameAndArn,
+  JobTemplateSummary,
   LogTargetType,
-  ManagedJobTemplateSummary,
   MitigationActionType,
   RegistrationConfig,
   Status,
@@ -80,6 +81,84 @@ import {
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListJobTemplatesResponse {
+  /**
+   * <p>A list of objects that contain information about the job templates.</p>
+   * @public
+   */
+  jobTemplates?: JobTemplateSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <b>null</b> if there are no
+   *             additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListManagedJobTemplatesRequest {
+  /**
+   * <p>An optional parameter for template name. If specified, only the versions of the
+   *             managed job templates that have the specified template name will be returned.</p>
+   * @public
+   */
+  templateName?: string | undefined;
+
+  /**
+   * <p>Maximum number of entries that can be returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>An object that contains information about the managed template.</p>
+ * @public
+ */
+export interface ManagedJobTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) for a managed template.</p>
+   * @public
+   */
+  templateArn?: string | undefined;
+
+  /**
+   * <p>The unique Name for a managed template.</p>
+   * @public
+   */
+  templateName?: string | undefined;
+
+  /**
+   * <p>The description for a managed template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A list of environments that are supported with the managed job template.</p>
+   * @public
+   */
+  environments?: string[] | undefined;
+
+  /**
+   * <p>The version for a managed template.</p>
+   * @public
+   */
+  templateVersion?: string | undefined;
+}
 
 /**
  * @public
@@ -774,6 +853,104 @@ export interface ListPrincipalThingsResponse {
    * @public
    */
   things?: string[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrincipalThingsV2Request {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 				value from a previous response; otherwise <b>null</b> to receive
+   * 				the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The principal. A principal can be an X.509 certificate or an Amazon Cognito ID.</p>
+   * @public
+   */
+  principal: string | undefined;
+
+  /**
+   * <p>The type of the relation you want to filter in the response. If no value is provided in
+   * 			this field, the response will list all things, including both the
+   * 				<code>EXCLUSIVE_THING</code> and <code>NON_EXCLUSIVE_THING</code> attachment
+   * 			types.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing, exclusively.
+   * 						The thing will be the only thing that’s attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NON_EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing.
+   * 						Multiple things can be attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  thingPrincipalType?: ThingPrincipalType | undefined;
+}
+
+/**
+ * <p>An object that represents the thing and the type of relation it has with the principal.</p>
+ * @public
+ */
+export interface PrincipalThingObject {
+  /**
+   * <p>The name of the thing.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The type of the relation you want to specify when you attach a principal to a thing.
+   * 				The value defaults to <code>NON_EXCLUSIVE_THING</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing, exclusively.
+   * 						The thing will be the only thing that’s attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NON_EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing.
+   * 						Multiple things can be attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  thingPrincipalType?: ThingPrincipalType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPrincipalThingsV2Response {
+  /**
+   * <p>A list of <code>thingPrincipalObject</code> that represents the principal and the type of relation it has with the thing.</p>
+   * @public
+   */
+  principalThingObjects?: PrincipalThingObject[] | undefined;
 
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -1666,6 +1843,105 @@ export interface ListThingPrincipalsResponse {
    * @public
    */
   principals?: string[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThingPrincipalsV2Request {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 				value from a previous response; otherwise <b>null</b> to receive
+   * 				the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The name of the thing.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>The type of the relation you want to filter in the response. If no value is provided in
+   * 			this field, the response will list all principals, including both the
+   * 				<code>EXCLUSIVE_THING</code> and <code>NON_EXCLUSIVE_THING</code> attachment
+   * 			types.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing, exclusively.
+   * 						The thing will be the only thing that’s attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NON_EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing.
+   * 						Multiple things can be attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  thingPrincipalType?: ThingPrincipalType | undefined;
+}
+
+/**
+ * <p>An object that represents the principal and the type of relation it has with the thing.</p>
+ * @public
+ */
+export interface ThingPrincipalObject {
+  /**
+   * <p>The principal of the thing principal object.</p>
+   * @public
+   */
+  principal: string | undefined;
+
+  /**
+   * <p>The type of the relation you want to specify when you attach a principal to a thing.
+   * 				The value defaults to <code>NON_EXCLUSIVE_THING</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing, exclusively.
+   * 						The thing will be the only thing that’s attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NON_EXCLUSIVE_THING</code> - Attaches the specified principal to the specified thing.
+   * 						Multiple things can be attached to the principal.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  thingPrincipalType?: ThingPrincipalType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThingPrincipalsV2Response {
+  /**
+   * <p>A list of <code>thingPrincipalObject</code> that represents the principal and the type of relation it has
+   * 				with the thing.</p>
+   * @public
+   */
+  thingPrincipalObjects?: ThingPrincipalObject[] | undefined;
 
   /**
    * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -5287,6 +5563,29 @@ export interface UpdateThingGroupsForThingRequest {
  * @public
  */
 export interface UpdateThingGroupsForThingResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateThingTypeRequest {
+  /**
+   * <p>The name of a thing type.</p>
+   * @public
+   */
+  thingTypeName: string | undefined;
+
+  /**
+   * <p>The ThingTypeProperties contains information about the thing type including: a thing type description,
+   * 			and a list of searchable thing attribute names.</p>
+   * @public
+   */
+  thingTypeProperties?: ThingTypeProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateThingTypeResponse {}
 
 /**
  * @public

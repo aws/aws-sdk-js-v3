@@ -533,6 +533,10 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand";
 import {
+  ListPrincipalThingsV2CommandInput,
+  ListPrincipalThingsV2CommandOutput,
+} from "./commands/ListPrincipalThingsV2Command";
+import {
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
 } from "./commands/ListProvisioningTemplatesCommand";
@@ -583,6 +587,10 @@ import {
   ListThingPrincipalsCommandInput,
   ListThingPrincipalsCommandOutput,
 } from "./commands/ListThingPrincipalsCommand";
+import {
+  ListThingPrincipalsV2CommandInput,
+  ListThingPrincipalsV2CommandOutput,
+} from "./commands/ListThingPrincipalsV2Command";
 import {
   ListThingRegistrationTaskReportsCommandInput,
   ListThingRegistrationTaskReportsCommandOutput,
@@ -762,6 +770,7 @@ import {
   UpdateThingGroupsForThingCommandInput,
   UpdateThingGroupsForThingCommandOutput,
 } from "./commands/UpdateThingGroupsForThingCommand";
+import { UpdateThingTypeCommandInput, UpdateThingTypeCommandOutput } from "./commands/UpdateThingTypeCommand";
 import {
   UpdateTopicRuleDestinationCommandInput,
   UpdateTopicRuleDestinationCommandOutput,
@@ -964,6 +973,7 @@ export type ServiceInputTypes =
   | ListPolicyVersionsCommandInput
   | ListPrincipalPoliciesCommandInput
   | ListPrincipalThingsCommandInput
+  | ListPrincipalThingsV2CommandInput
   | ListProvisioningTemplateVersionsCommandInput
   | ListProvisioningTemplatesCommandInput
   | ListRelatedResourcesForAuditFindingCommandInput
@@ -979,6 +989,7 @@ export type ServiceInputTypes =
   | ListThingGroupsCommandInput
   | ListThingGroupsForThingCommandInput
   | ListThingPrincipalsCommandInput
+  | ListThingPrincipalsV2CommandInput
   | ListThingRegistrationTaskReportsCommandInput
   | ListThingRegistrationTasksCommandInput
   | ListThingTypesCommandInput
@@ -1041,6 +1052,7 @@ export type ServiceInputTypes =
   | UpdateThingCommandInput
   | UpdateThingGroupCommandInput
   | UpdateThingGroupsForThingCommandInput
+  | UpdateThingTypeCommandInput
   | UpdateTopicRuleDestinationCommandInput
   | ValidateSecurityProfileBehaviorsCommandInput;
 
@@ -1227,6 +1239,7 @@ export type ServiceOutputTypes =
   | ListPolicyVersionsCommandOutput
   | ListPrincipalPoliciesCommandOutput
   | ListPrincipalThingsCommandOutput
+  | ListPrincipalThingsV2CommandOutput
   | ListProvisioningTemplateVersionsCommandOutput
   | ListProvisioningTemplatesCommandOutput
   | ListRelatedResourcesForAuditFindingCommandOutput
@@ -1242,6 +1255,7 @@ export type ServiceOutputTypes =
   | ListThingGroupsCommandOutput
   | ListThingGroupsForThingCommandOutput
   | ListThingPrincipalsCommandOutput
+  | ListThingPrincipalsV2CommandOutput
   | ListThingRegistrationTaskReportsCommandOutput
   | ListThingRegistrationTasksCommandOutput
   | ListThingTypesCommandOutput
@@ -1304,6 +1318,7 @@ export type ServiceOutputTypes =
   | UpdateThingCommandOutput
   | UpdateThingGroupCommandOutput
   | UpdateThingGroupsForThingCommandOutput
+  | UpdateThingTypeCommandOutput
   | UpdateTopicRuleDestinationCommandOutput
   | ValidateSecurityProfileBehaviorsCommandOutput;
 

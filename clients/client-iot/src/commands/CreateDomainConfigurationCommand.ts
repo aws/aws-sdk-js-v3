@@ -59,6 +59,8 @@ export interface CreateDomainConfigurationCommandOutput extends CreateDomainConf
  *   },
  *   serverCertificateConfig: { // ServerCertificateConfig
  *     enableOCSPCheck: true || false,
+ *     ocspLambdaArn: "STRING_VALUE",
+ *     ocspAuthorizedResponderArn: "STRING_VALUE",
  *   },
  *   authenticationType: "CUSTOM_AUTH_X509" || "CUSTOM_AUTH" || "AWS_X509" || "AWS_SIGV4" || "DEFAULT",
  *   applicationProtocol: "SECURE_MQTT" || "MQTT_WSS" || "HTTPS" || "DEFAULT",

@@ -78,6 +78,43 @@ import {
 /**
  * @public
  */
+export interface DeleteAuthorizerRequest {
+  /**
+   * <p>The name of the authorizer to delete.</p>
+   * @public
+   */
+  authorizerName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAuthorizerResponse {}
+
+/**
+ * <p>You can't delete the resource because it is attached to one or more
+ *          resources.</p>
+ * @public
+ */
+export class DeleteConflictException extends __BaseException {
+  readonly name: "DeleteConflictException" = "DeleteConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeleteConflictException, __BaseException>) {
+    super({
+      name: "DeleteConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeleteConflictException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
 export interface DeleteBillingGroupRequest {
   /**
    * <p>The name of the billing group.</p>
@@ -4046,7 +4083,7 @@ export interface DescribeThingTypeResponse {
 
   /**
    * <p>The ThingTypeProperties contains information about the thing type including
-   * 			description, and a list of searchable thing attribute names.</p>
+   * 			description, a list of searchable thing attribute names, and MQTT5 configuration.</p>
    * @public
    */
   thingTypeProperties?: ThingTypeProperties | undefined;
@@ -7409,84 +7446,6 @@ export interface JobTemplateSummary {
    * @public
    */
   createdAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobTemplatesResponse {
-  /**
-   * <p>A list of objects that contain information about the job templates.</p>
-   * @public
-   */
-  jobTemplates?: JobTemplateSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListManagedJobTemplatesRequest {
-  /**
-   * <p>An optional parameter for template name. If specified, only the versions of the
-   *             managed job templates that have the specified template name will be returned.</p>
-   * @public
-   */
-  templateName?: string | undefined;
-
-  /**
-   * <p>Maximum number of entries that can be returned.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>An object that contains information about the managed template.</p>
- * @public
- */
-export interface ManagedJobTemplateSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) for a managed template.</p>
-   * @public
-   */
-  templateArn?: string | undefined;
-
-  /**
-   * <p>The unique Name for a managed template.</p>
-   * @public
-   */
-  templateName?: string | undefined;
-
-  /**
-   * <p>The description for a managed template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A list of environments that are supported with the managed job template.</p>
-   * @public
-   */
-  environments?: string[] | undefined;
-
-  /**
-   * <p>The version for a managed template.</p>
-   * @public
-   */
-  templateVersion?: string | undefined;
 }
 
 /**

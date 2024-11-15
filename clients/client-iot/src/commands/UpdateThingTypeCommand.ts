@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteAuthorizerRequest, DeleteAuthorizerResponse } from "../models/models_1";
-import { de_DeleteAuthorizerCommand, se_DeleteAuthorizerCommand } from "../protocols/Aws_restJson1";
+import { UpdateThingTypeRequest, UpdateThingTypeResponse } from "../models/models_2";
+import { de_UpdateThingTypeCommand, se_UpdateThingTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,43 +17,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAuthorizerCommand}.
+ * The input for {@link UpdateThingTypeCommand}.
  */
-export interface DeleteAuthorizerCommandInput extends DeleteAuthorizerRequest {}
+export interface UpdateThingTypeCommandInput extends UpdateThingTypeRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAuthorizerCommand}.
+ * The output of {@link UpdateThingTypeCommand}.
  */
-export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse, __MetadataBearer {}
+export interface UpdateThingTypeCommandOutput extends UpdateThingTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an authorizer.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DeleteAuthorizer</a> action.</p>
+ * <p>Updates a thing type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, DeleteAuthorizerCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, DeleteAuthorizerCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateThingTypeCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateThingTypeCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = { // DeleteAuthorizerRequest
- *   authorizerName: "STRING_VALUE", // required
+ * const input = { // UpdateThingTypeRequest
+ *   thingTypeName: "STRING_VALUE", // required
+ *   thingTypeProperties: { // ThingTypeProperties
+ *     thingTypeDescription: "STRING_VALUE",
+ *     searchableAttributes: [ // SearchableAttributes
+ *       "STRING_VALUE",
+ *     ],
+ *     mqtt5Configuration: { // Mqtt5Configuration
+ *       propagatingAttributes: [ // PropagatingAttributeList
+ *         { // PropagatingAttribute
+ *           userPropertyKey: "STRING_VALUE",
+ *           thingAttribute: "STRING_VALUE",
+ *           connectionAttribute: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *   },
  * };
- * const command = new DeleteAuthorizerCommand(input);
+ * const command = new UpdateThingTypeCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteAuthorizerCommandInput - {@link DeleteAuthorizerCommandInput}
- * @returns {@link DeleteAuthorizerCommandOutput}
- * @see {@link DeleteAuthorizerCommandInput} for command's `input` shape.
- * @see {@link DeleteAuthorizerCommandOutput} for command's `response` shape.
+ * @param UpdateThingTypeCommandInput - {@link UpdateThingTypeCommandInput}
+ * @returns {@link UpdateThingTypeCommandOutput}
+ * @see {@link UpdateThingTypeCommandInput} for command's `input` shape.
+ * @see {@link UpdateThingTypeCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
- *
- * @throws {@link DeleteConflictException} (client fault)
- *  <p>You can't delete the resource because it is attached to one or more
- *          resources.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An unexpected error has occurred.</p>
@@ -78,10 +88,10 @@ export interface DeleteAuthorizerCommandOutput extends DeleteAuthorizerResponse,
  *
  * @public
  */
-export class DeleteAuthorizerCommand extends $Command
+export class UpdateThingTypeCommand extends $Command
   .classBuilder<
-    DeleteAuthorizerCommandInput,
-    DeleteAuthorizerCommandOutput,
+    UpdateThingTypeCommandInput,
+    UpdateThingTypeCommandOutput,
     IoTClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -93,21 +103,21 @@ export class DeleteAuthorizerCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIotService", "DeleteAuthorizer", {})
-  .n("IoTClient", "DeleteAuthorizerCommand")
+  .s("AWSIotService", "UpdateThingType", {})
+  .n("IoTClient", "UpdateThingTypeCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteAuthorizerCommand)
-  .de(de_DeleteAuthorizerCommand)
+  .ser(se_UpdateThingTypeCommand)
+  .de(de_UpdateThingTypeCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteAuthorizerRequest;
+      input: UpdateThingTypeRequest;
       output: {};
     };
     sdk: {
-      input: DeleteAuthorizerCommandInput;
-      output: DeleteAuthorizerCommandOutput;
+      input: UpdateThingTypeCommandInput;
+      output: UpdateThingTypeCommandOutput;
     };
   };
 }

@@ -53,6 +53,15 @@ export interface ListThingTypesCommandOutput extends ListThingTypesResponse, __M
  * //         searchableAttributes: [ // SearchableAttributes
  * //           "STRING_VALUE",
  * //         ],
+ * //         mqtt5Configuration: { // Mqtt5Configuration
+ * //           propagatingAttributes: [ // PropagatingAttributeList
+ * //             { // PropagatingAttribute
+ * //               userPropertyKey: "STRING_VALUE",
+ * //               thingAttribute: "STRING_VALUE",
+ * //               connectionAttribute: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       thingTypeMetadata: { // ThingTypeMetadata
  * //         deprecated: true || false,

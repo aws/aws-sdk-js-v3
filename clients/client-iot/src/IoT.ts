@@ -858,6 +858,11 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand";
 import {
+  ListPrincipalThingsV2Command,
+  ListPrincipalThingsV2CommandInput,
+  ListPrincipalThingsV2CommandOutput,
+} from "./commands/ListPrincipalThingsV2Command";
+import {
   ListProvisioningTemplatesCommand,
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
@@ -928,6 +933,11 @@ import {
   ListThingPrincipalsCommandInput,
   ListThingPrincipalsCommandOutput,
 } from "./commands/ListThingPrincipalsCommand";
+import {
+  ListThingPrincipalsV2Command,
+  ListThingPrincipalsV2CommandInput,
+  ListThingPrincipalsV2CommandOutput,
+} from "./commands/ListThingPrincipalsV2Command";
 import {
   ListThingRegistrationTaskReportsCommand,
   ListThingRegistrationTaskReportsCommandInput,
@@ -1219,6 +1229,11 @@ import {
   UpdateThingGroupsForThingCommandOutput,
 } from "./commands/UpdateThingGroupsForThingCommand";
 import {
+  UpdateThingTypeCommand,
+  UpdateThingTypeCommandInput,
+  UpdateThingTypeCommandOutput,
+} from "./commands/UpdateThingTypeCommand";
+import {
   UpdateTopicRuleDestinationCommand,
   UpdateTopicRuleDestinationCommandInput,
   UpdateTopicRuleDestinationCommandOutput,
@@ -1410,6 +1425,7 @@ const commands = {
   ListPolicyVersionsCommand,
   ListPrincipalPoliciesCommand,
   ListPrincipalThingsCommand,
+  ListPrincipalThingsV2Command,
   ListProvisioningTemplatesCommand,
   ListProvisioningTemplateVersionsCommand,
   ListRelatedResourcesForAuditFindingCommand,
@@ -1425,6 +1441,7 @@ const commands = {
   ListThingGroupsCommand,
   ListThingGroupsForThingCommand,
   ListThingPrincipalsCommand,
+  ListThingPrincipalsV2Command,
   ListThingRegistrationTaskReportsCommand,
   ListThingRegistrationTasksCommand,
   ListThingsCommand,
@@ -1487,6 +1504,7 @@ const commands = {
   UpdateThingCommand,
   UpdateThingGroupCommand,
   UpdateThingGroupsForThingCommand,
+  UpdateThingTypeCommand,
   UpdateTopicRuleDestinationCommand,
   ValidateSecurityProfileBehaviorsCommand,
 };
@@ -4365,6 +4383,23 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link ListPrincipalThingsV2Command}
+   */
+  listPrincipalThingsV2(
+    args: ListPrincipalThingsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPrincipalThingsV2CommandOutput>;
+  listPrincipalThingsV2(
+    args: ListPrincipalThingsV2CommandInput,
+    cb: (err: any, data?: ListPrincipalThingsV2CommandOutput) => void
+  ): void;
+  listPrincipalThingsV2(
+    args: ListPrincipalThingsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPrincipalThingsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProvisioningTemplatesCommand}
    */
   listProvisioningTemplates(): Promise<ListProvisioningTemplatesCommandOutput>;
@@ -4611,6 +4646,23 @@ export interface IoT {
     args: ListThingPrincipalsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListThingPrincipalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListThingPrincipalsV2Command}
+   */
+  listThingPrincipalsV2(
+    args: ListThingPrincipalsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThingPrincipalsV2CommandOutput>;
+  listThingPrincipalsV2(
+    args: ListThingPrincipalsV2CommandInput,
+    cb: (err: any, data?: ListThingPrincipalsV2CommandOutput) => void
+  ): void;
+  listThingPrincipalsV2(
+    args: ListThingPrincipalsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThingPrincipalsV2CommandOutput) => void
   ): void;
 
   /**
@@ -5613,6 +5665,20 @@ export interface IoT {
     args: UpdateThingGroupsForThingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateThingGroupsForThingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateThingTypeCommand}
+   */
+  updateThingType(
+    args: UpdateThingTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThingTypeCommandOutput>;
+  updateThingType(args: UpdateThingTypeCommandInput, cb: (err: any, data?: UpdateThingTypeCommandOutput) => void): void;
+  updateThingType(
+    args: UpdateThingTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThingTypeCommandOutput) => void
   ): void;
 
   /**
