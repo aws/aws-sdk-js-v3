@@ -128,6 +128,10 @@ import {
   DeleteProtectConfigurationCommandOutput,
 } from "./commands/DeleteProtectConfigurationCommand";
 import {
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
+import {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
 } from "./commands/DeleteRegistrationAttachmentCommand";
@@ -241,6 +245,10 @@ import {
   ListPoolOriginationIdentitiesCommandOutput,
 } from "./commands/ListPoolOriginationIdentitiesCommand";
 import {
+  ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+  ListProtectConfigurationRuleSetNumberOverridesCommandOutput,
+} from "./commands/ListProtectConfigurationRuleSetNumberOverridesCommand";
+import {
   ListRegistrationAssociationsCommandInput,
   ListRegistrationAssociationsCommandOutput,
 } from "./commands/ListRegistrationAssociationsCommand";
@@ -249,7 +257,12 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { PutKeywordCommandInput, PutKeywordCommandOutput } from "./commands/PutKeywordCommand";
+import { PutMessageFeedbackCommandInput, PutMessageFeedbackCommandOutput } from "./commands/PutMessageFeedbackCommand";
 import { PutOptedOutNumberCommandInput, PutOptedOutNumberCommandOutput } from "./commands/PutOptedOutNumberCommand";
+import {
+  PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+  PutProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "./commands/PutProtectConfigurationRuleSetNumberOverrideCommand";
 import {
   PutRegistrationFieldValueCommandInput,
   PutRegistrationFieldValueCommandOutput,
@@ -270,6 +283,10 @@ import {
   SetAccountDefaultProtectConfigurationCommandInput,
   SetAccountDefaultProtectConfigurationCommandOutput,
 } from "./commands/SetAccountDefaultProtectConfigurationCommand";
+import {
+  SetDefaultMessageFeedbackEnabledCommandInput,
+  SetDefaultMessageFeedbackEnabledCommandOutput,
+} from "./commands/SetDefaultMessageFeedbackEnabledCommand";
 import {
   SetDefaultMessageTypeCommandInput,
   SetDefaultMessageTypeCommandOutput,
@@ -350,6 +367,7 @@ export type ServiceInputTypes =
   | DeleteOptedOutNumberCommandInput
   | DeletePoolCommandInput
   | DeleteProtectConfigurationCommandInput
+  | DeleteProtectConfigurationRuleSetNumberOverrideCommandInput
   | DeleteRegistrationAttachmentCommandInput
   | DeleteRegistrationCommandInput
   | DeleteRegistrationFieldValueCommandInput
@@ -382,10 +400,13 @@ export type ServiceInputTypes =
   | GetProtectConfigurationCountryRuleSetCommandInput
   | GetResourcePolicyCommandInput
   | ListPoolOriginationIdentitiesCommandInput
+  | ListProtectConfigurationRuleSetNumberOverridesCommandInput
   | ListRegistrationAssociationsCommandInput
   | ListTagsForResourceCommandInput
   | PutKeywordCommandInput
+  | PutMessageFeedbackCommandInput
   | PutOptedOutNumberCommandInput
+  | PutProtectConfigurationRuleSetNumberOverrideCommandInput
   | PutRegistrationFieldValueCommandInput
   | PutResourcePolicyCommandInput
   | ReleasePhoneNumberCommandInput
@@ -397,6 +418,7 @@ export type ServiceInputTypes =
   | SendTextMessageCommandInput
   | SendVoiceMessageCommandInput
   | SetAccountDefaultProtectConfigurationCommandInput
+  | SetDefaultMessageFeedbackEnabledCommandInput
   | SetDefaultMessageTypeCommandInput
   | SetDefaultSenderIdCommandInput
   | SetMediaMessageSpendLimitOverrideCommandInput
@@ -440,6 +462,7 @@ export type ServiceOutputTypes =
   | DeleteOptedOutNumberCommandOutput
   | DeletePoolCommandOutput
   | DeleteProtectConfigurationCommandOutput
+  | DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput
   | DeleteRegistrationAttachmentCommandOutput
   | DeleteRegistrationCommandOutput
   | DeleteRegistrationFieldValueCommandOutput
@@ -472,10 +495,13 @@ export type ServiceOutputTypes =
   | GetProtectConfigurationCountryRuleSetCommandOutput
   | GetResourcePolicyCommandOutput
   | ListPoolOriginationIdentitiesCommandOutput
+  | ListProtectConfigurationRuleSetNumberOverridesCommandOutput
   | ListRegistrationAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutKeywordCommandOutput
+  | PutMessageFeedbackCommandOutput
   | PutOptedOutNumberCommandOutput
+  | PutProtectConfigurationRuleSetNumberOverrideCommandOutput
   | PutRegistrationFieldValueCommandOutput
   | PutResourcePolicyCommandOutput
   | ReleasePhoneNumberCommandOutput
@@ -487,6 +513,7 @@ export type ServiceOutputTypes =
   | SendTextMessageCommandOutput
   | SendVoiceMessageCommandOutput
   | SetAccountDefaultProtectConfigurationCommandOutput
+  | SetDefaultMessageFeedbackEnabledCommandOutput
   | SetDefaultMessageTypeCommandOutput
   | SetDefaultSenderIdCommandOutput
   | SetMediaMessageSpendLimitOverrideCommandOutput

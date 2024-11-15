@@ -421,6 +421,14 @@ DeleteProtectConfiguration
 </details>
 <details>
 <summary>
+DeleteProtectConfigurationRuleSetNumberOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteProtectConfigurationRuleSetNumberOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationRuleSetNumberOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteRegistration
 </summary>
 
@@ -677,6 +685,14 @@ ListPoolOriginationIdentities
 </details>
 <details>
 <summary>
+ListProtectConfigurationRuleSetNumberOverrides
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/ListProtectConfigurationRuleSetNumberOverridesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListProtectConfigurationRuleSetNumberOverridesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListProtectConfigurationRuleSetNumberOverridesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRegistrationAssociations
 </summary>
 
@@ -701,10 +717,26 @@ PutKeyword
 </details>
 <details>
 <summary>
+PutMessageFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/PutMessageFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutMessageFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutMessageFeedbackCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutOptedOutNumber
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/PutOptedOutNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutOptedOutNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutOptedOutNumberCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutProtectConfigurationRuleSetNumberOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/PutProtectConfigurationRuleSetNumberOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutProtectConfigurationRuleSetNumberOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutProtectConfigurationRuleSetNumberOverrideCommandOutput/)
 
 </details>
 <details>
@@ -793,6 +825,14 @@ SetAccountDefaultProtectConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetAccountDefaultProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetAccountDefaultProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetAccountDefaultProtectConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+SetDefaultMessageFeedbackEnabled
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetDefaultMessageFeedbackEnabledCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetDefaultMessageFeedbackEnabledCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetDefaultMessageFeedbackEnabledCommandOutput/)
 
 </details>
 <details>

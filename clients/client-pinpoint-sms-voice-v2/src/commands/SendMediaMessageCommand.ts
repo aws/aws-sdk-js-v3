@@ -54,6 +54,7 @@ export interface SendMediaMessageCommandOutput extends SendMediaMessageResult, _
  *   },
  *   DryRun: true || false,
  *   ProtectConfigurationId: "STRING_VALUE",
+ *   MessageFeedbackEnabled: true || false,
  * };
  * const command = new SendMediaMessageCommand(input);
  * const response = await client.send(command);

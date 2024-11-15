@@ -89,6 +89,7 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * //       ],
  * //       DefaultMessageType: "STRING_VALUE",
  * //       DefaultSenderId: "STRING_VALUE",
+ * //       DefaultMessageFeedbackEnabled: true || false,
  * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
  * //       ProtectConfigurationId: "STRING_VALUE",
  * //     },

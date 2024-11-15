@@ -110,6 +110,11 @@ import {
   DeleteProtectConfigurationCommandOutput,
 } from "./commands/DeleteProtectConfigurationCommand";
 import {
+  DeleteProtectConfigurationRuleSetNumberOverrideCommand,
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "./commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
+import {
   DeleteRegistrationAttachmentCommand,
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
@@ -270,6 +275,11 @@ import {
   ListPoolOriginationIdentitiesCommandOutput,
 } from "./commands/ListPoolOriginationIdentitiesCommand";
 import {
+  ListProtectConfigurationRuleSetNumberOverridesCommand,
+  ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+  ListProtectConfigurationRuleSetNumberOverridesCommandOutput,
+} from "./commands/ListProtectConfigurationRuleSetNumberOverridesCommand";
+import {
   ListRegistrationAssociationsCommand,
   ListRegistrationAssociationsCommandInput,
   ListRegistrationAssociationsCommandOutput,
@@ -281,10 +291,20 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { PutKeywordCommand, PutKeywordCommandInput, PutKeywordCommandOutput } from "./commands/PutKeywordCommand";
 import {
+  PutMessageFeedbackCommand,
+  PutMessageFeedbackCommandInput,
+  PutMessageFeedbackCommandOutput,
+} from "./commands/PutMessageFeedbackCommand";
+import {
   PutOptedOutNumberCommand,
   PutOptedOutNumberCommandInput,
   PutOptedOutNumberCommandOutput,
 } from "./commands/PutOptedOutNumberCommand";
+import {
+  PutProtectConfigurationRuleSetNumberOverrideCommand,
+  PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+  PutProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "./commands/PutProtectConfigurationRuleSetNumberOverrideCommand";
 import {
   PutRegistrationFieldValueCommand,
   PutRegistrationFieldValueCommandInput,
@@ -340,6 +360,11 @@ import {
   SetAccountDefaultProtectConfigurationCommandInput,
   SetAccountDefaultProtectConfigurationCommandOutput,
 } from "./commands/SetAccountDefaultProtectConfigurationCommand";
+import {
+  SetDefaultMessageFeedbackEnabledCommand,
+  SetDefaultMessageFeedbackEnabledCommandInput,
+  SetDefaultMessageFeedbackEnabledCommandOutput,
+} from "./commands/SetDefaultMessageFeedbackEnabledCommand";
 import {
   SetDefaultMessageTypeCommand,
   SetDefaultMessageTypeCommandInput,
@@ -433,6 +458,7 @@ const commands = {
   DeleteOptOutListCommand,
   DeletePoolCommand,
   DeleteProtectConfigurationCommand,
+  DeleteProtectConfigurationRuleSetNumberOverrideCommand,
   DeleteRegistrationCommand,
   DeleteRegistrationAttachmentCommand,
   DeleteRegistrationFieldValueCommand,
@@ -465,10 +491,13 @@ const commands = {
   GetProtectConfigurationCountryRuleSetCommand,
   GetResourcePolicyCommand,
   ListPoolOriginationIdentitiesCommand,
+  ListProtectConfigurationRuleSetNumberOverridesCommand,
   ListRegistrationAssociationsCommand,
   ListTagsForResourceCommand,
   PutKeywordCommand,
+  PutMessageFeedbackCommand,
   PutOptedOutNumberCommand,
+  PutProtectConfigurationRuleSetNumberOverrideCommand,
   PutRegistrationFieldValueCommand,
   PutResourcePolicyCommand,
   ReleasePhoneNumberCommand,
@@ -480,6 +509,7 @@ const commands = {
   SendTextMessageCommand,
   SendVoiceMessageCommand,
   SetAccountDefaultProtectConfigurationCommand,
+  SetDefaultMessageFeedbackEnabledCommand,
   SetDefaultMessageTypeCommand,
   SetDefaultSenderIdCommand,
   SetMediaMessageSpendLimitOverrideCommand,
@@ -873,6 +903,23 @@ export interface PinpointSMSVoiceV2 {
     args: DeleteProtectConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProtectConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteProtectConfigurationRuleSetNumberOverrideCommand}
+   */
+  deleteProtectConfigurationRuleSetNumberOverride(
+    args: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput>;
+  deleteProtectConfigurationRuleSetNumberOverride(
+    args: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+    cb: (err: any, data?: DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput) => void
+  ): void;
+  deleteProtectConfigurationRuleSetNumberOverride(
+    args: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -1429,6 +1476,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link ListProtectConfigurationRuleSetNumberOverridesCommand}
+   */
+  listProtectConfigurationRuleSetNumberOverrides(
+    args: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProtectConfigurationRuleSetNumberOverridesCommandOutput>;
+  listProtectConfigurationRuleSetNumberOverrides(
+    args: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+    cb: (err: any, data?: ListProtectConfigurationRuleSetNumberOverridesCommandOutput) => void
+  ): void;
+  listProtectConfigurationRuleSetNumberOverrides(
+    args: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProtectConfigurationRuleSetNumberOverridesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRegistrationAssociationsCommand}
    */
   listRegistrationAssociations(
@@ -1474,6 +1538,23 @@ export interface PinpointSMSVoiceV2 {
   ): void;
 
   /**
+   * @see {@link PutMessageFeedbackCommand}
+   */
+  putMessageFeedback(
+    args: PutMessageFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutMessageFeedbackCommandOutput>;
+  putMessageFeedback(
+    args: PutMessageFeedbackCommandInput,
+    cb: (err: any, data?: PutMessageFeedbackCommandOutput) => void
+  ): void;
+  putMessageFeedback(
+    args: PutMessageFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutMessageFeedbackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutOptedOutNumberCommand}
    */
   putOptedOutNumber(
@@ -1488,6 +1569,23 @@ export interface PinpointSMSVoiceV2 {
     args: PutOptedOutNumberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutOptedOutNumberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutProtectConfigurationRuleSetNumberOverrideCommand}
+   */
+  putProtectConfigurationRuleSetNumberOverride(
+    args: PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutProtectConfigurationRuleSetNumberOverrideCommandOutput>;
+  putProtectConfigurationRuleSetNumberOverride(
+    args: PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+    cb: (err: any, data?: PutProtectConfigurationRuleSetNumberOverrideCommandOutput) => void
+  ): void;
+  putProtectConfigurationRuleSetNumberOverride(
+    args: PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutProtectConfigurationRuleSetNumberOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -1666,6 +1764,23 @@ export interface PinpointSMSVoiceV2 {
     args: SetAccountDefaultProtectConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetAccountDefaultProtectConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetDefaultMessageFeedbackEnabledCommand}
+   */
+  setDefaultMessageFeedbackEnabled(
+    args: SetDefaultMessageFeedbackEnabledCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetDefaultMessageFeedbackEnabledCommandOutput>;
+  setDefaultMessageFeedbackEnabled(
+    args: SetDefaultMessageFeedbackEnabledCommandInput,
+    cb: (err: any, data?: SetDefaultMessageFeedbackEnabledCommandOutput) => void
+  ): void;
+  setDefaultMessageFeedbackEnabled(
+    args: SetDefaultMessageFeedbackEnabledCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetDefaultMessageFeedbackEnabledCommandOutput) => void
   ): void;
 
   /**

@@ -210,6 +210,8 @@ export const ConflictExceptionReason = {
   CREATE_REGISTRATION_VERSION_NOT_ALLOWED: "CREATE_REGISTRATION_VERSION_NOT_ALLOWED",
   DELETION_PROTECTION_ENABLED: "DELETION_PROTECTION_ENABLED",
   DESTINATION_COUNTRY_BLOCKED_BY_PROTECT_CONFIGURATION: "DESTINATION_COUNTRY_BLOCKED_BY_PROTECT_CONFIGURATION",
+  DESTINATION_PHONE_NUMBER_BLOCKED_BY_PROTECT_NUMBER_OVERRIDE:
+    "DESTINATION_PHONE_NUMBER_BLOCKED_BY_PROTECT_NUMBER_OVERRIDE",
   DESTINATION_PHONE_NUMBER_NOT_VERIFIED: "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
   DESTINATION_PHONE_NUMBER_OPTED_OUT: "DESTINATION_PHONE_NUMBER_OPTED_OUT",
   DISASSOCIATE_REGISTRATION_NOT_ALLOWED: "DISASSOCIATE_REGISTRATION_NOT_ALLOWED",
@@ -259,6 +261,7 @@ export const ResourceType = {
   CONFIGURATION_SET: "configuration-set",
   EVENT_DESTINATION: "event-destination",
   KEYWORD: "keyword",
+  MESSAGE: "message",
   OPTED_OUT_NUMBER: "opted-out-number",
   OPT_OUT_LIST: "opt-out-list",
   PHONE_NUMBER: "phone-number",
@@ -683,6 +686,7 @@ export interface CloudWatchLogsDestination {
  * @enum
  */
 export const ConfigurationSetFilterName = {
+  DEFAULT_MESSAGE_FEEDBACK_ENABLED: "default-message-feedback-enabled",
   DEFAULT_MESSAGE_TYPE: "default-message-type",
   DEFAULT_SENDER_ID: "default-sender-id",
   EVENT_DESTINATION_NAME: "event-destination-name",
@@ -780,6 +784,7 @@ export const EventType = {
   TEXT_INVALID: "TEXT_INVALID",
   TEXT_INVALID_MESSAGE: "TEXT_INVALID_MESSAGE",
   TEXT_PENDING: "TEXT_PENDING",
+  TEXT_PROTECT_BLOCKED: "TEXT_PROTECT_BLOCKED",
   TEXT_QUEUED: "TEXT_QUEUED",
   TEXT_SENT: "TEXT_SENT",
   TEXT_SPAM: "TEXT_SPAM",
@@ -904,6 +909,12 @@ export interface ConfigurationSetInformation {
    * @public
    */
   DefaultSenderId?: string | undefined;
+
+  /**
+   * <p>True if message feedback is enabled.</p>
+   * @public
+   */
+  DefaultMessageFeedbackEnabled?: boolean | undefined;
 
   /**
    * <p>The time when the ConfigurationSet was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -1979,6 +1990,12 @@ export interface DeleteConfigurationSetResult {
   DefaultSenderId?: string | undefined;
 
   /**
+   * <p>True if the configuration set has message feedback enabled. By default this is set to false. </p>
+   * @public
+   */
+  DefaultMessageFeedbackEnabled?: boolean | undefined;
+
+  /**
    * <p>The time that the deleted configuration set was created in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
@@ -2431,6 +2448,85 @@ export interface DeleteProtectConfigurationResult {
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProtectConfigurationRuleSetNumberOverrideRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectConfigurationRuleOverrideAction = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectConfigurationRuleOverrideAction =
+  (typeof ProtectConfigurationRuleOverrideAction)[keyof typeof ProtectConfigurationRuleOverrideAction];
+
+/**
+ * @public
+ */
+export interface DeleteProtectConfigurationRuleSetNumberOverrideResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The time when the rule was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The action associated with the rule.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode?: string | undefined;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
 }
 
 /**
@@ -5356,7 +5452,7 @@ export interface VerifiedDestinationNumberFilter {
  */
 export interface DescribeVerifiedDestinationNumbersRequest {
   /**
-   * <p>An array of VerifiedDestinationNumberid to retreive.</p>
+   * <p>An array of VerifiedDestinationNumberid to retrieve.</p>
    * @public
    */
   VerifiedDestinationNumberIds?: string[] | undefined;
@@ -5946,6 +6042,140 @@ export interface ListPoolOriginationIdentitiesResult {
  * @public
  * @enum
  */
+export const ProtectConfigurationRuleSetNumberOverrideFilterName = {
+  ACTION: "action",
+  CREATED_AFTER: "created-after",
+  CREATED_BEFORE: "created-before",
+  DESTINATION_PHONE_NUMBER_BEGINS_WITH: "destination-phone-number-begins-with",
+  EXPIRES_AFTER: "expires-after",
+  EXPIRES_BEFORE: "expires-before",
+  ISO_COUNTRY_CODE: "iso-country-code",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectConfigurationRuleSetNumberOverrideFilterName =
+  (typeof ProtectConfigurationRuleSetNumberOverrideFilterName)[keyof typeof ProtectConfigurationRuleSetNumberOverrideFilterName];
+
+/**
+ * <p>The information for a protect configuration rule set number override that meets a specified criteria.</p>
+ * @public
+ */
+export interface ProtectConfigurationRuleSetNumberOverrideFilterItem {
+  /**
+   * <p>The name of the attribute to filter on.</p>
+   * @public
+   */
+  Name: ProtectConfigurationRuleSetNumberOverrideFilterName | undefined;
+
+  /**
+   * <p>An array values to filter for.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectConfigurationRuleSetNumberOverridesRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>An array of ProtectConfigurationRuleSetNumberOverrideFilterItem objects to filter the results.</p>
+   * @public
+   */
+  Filters?: ProtectConfigurationRuleSetNumberOverrideFilterItem[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides details on a RuleSetNumberOverride.</p>
+ * @public
+ */
+export interface ProtectConfigurationRuleSetNumberOverride {
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The time when the rule was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The action for the rule to perform of either blocking or allowing messages to the destination phone number.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode?: string | undefined;
+
+  /**
+   * <p>The time the rule will expire at. If <code>ExpirationTimestamp</code> is not set then the rule will not expire.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectConfigurationRuleSetNumberOverridesResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>An array of RuleSetNumberOverrides objects.</p>
+   * @public
+   */
+  RuleSetNumberOverrides?: ProtectConfigurationRuleSetNumberOverride[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a
+   *             value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const RegistrationAssociationFilterName = {
   ISO_COUNTRY_CODE: "iso-country-code",
   RESOURCE_TYPE: "resource-type",
@@ -6108,6 +6338,20 @@ export interface ListTagsForResourceResult {
 
 /**
  * @public
+ * @enum
+ */
+export const MessageFeedbackStatus = {
+  FAILED: "FAILED",
+  RECEIVED: "RECEIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageFeedbackStatus = (typeof MessageFeedbackStatus)[keyof typeof MessageFeedbackStatus];
+
+/**
+ * @public
  */
 export interface PutKeywordRequest {
   /**
@@ -6190,6 +6434,40 @@ export interface PutKeywordResult {
 /**
  * @public
  */
+export interface PutMessageFeedbackRequest {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>Set the message feedback to be either <code>RECEIVED</code> or <code>FAILED</code>.</p>
+   * @public
+   */
+  MessageFeedbackStatus: MessageFeedbackStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutMessageFeedbackResult {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>The current status of the message.</p>
+   * @public
+   */
+  MessageFeedbackStatus: MessageFeedbackStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutOptedOutNumberRequest {
   /**
    * <p>The OptOutListName or OptOutListArn to add the phone number to.</p>
@@ -6241,6 +6519,90 @@ export interface PutOptedOutNumberResult {
    * @public
    */
   EndUserOptedOut?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProtectConfigurationRuleSetNumberOverrideRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If you don't specify a client token, a randomly generated token is used for the
+   *             request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The action for the rule to either block or allow messages to the destination phone number.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The time the rule will expire at. If <code>ExpirationTimestamp</code> is not set then the rule does not expire.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProtectConfigurationRuleSetNumberOverrideResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The time when the rule was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The action for the rule to take.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode?: string | undefined;
+
+  /**
+   * <p>The time the rule will expire at.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
 }
 
 /**
@@ -7008,7 +7370,7 @@ export interface SendMediaMessageRequest {
   MaxPrice?: string | undefined;
 
   /**
-   * <p>How long the text message is valid for. By default this is 72 hours.</p>
+   * <p>How long the media message is valid for. By default this is 72 hours.</p>
    * @public
    */
   TimeToLive?: number | undefined;
@@ -7032,6 +7394,12 @@ export interface SendMediaMessageRequest {
    * @public
    */
   ProtectConfigurationId?: string | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
 }
 
 /**
@@ -7158,6 +7526,12 @@ export interface SendTextMessageRequest {
    * @public
    */
   ProtectConfigurationId?: string | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
 }
 
 /**
@@ -7344,6 +7718,12 @@ export interface SendVoiceMessageRequest {
    * @public
    */
   ProtectConfigurationId?: string | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
 }
 
 /**
@@ -7383,6 +7763,47 @@ export interface SetAccountDefaultProtectConfigurationResult {
    * @public
    */
   DefaultProtectConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetDefaultMessageFeedbackEnabledRequest {
+  /**
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
+   *             or ConfigurationSetArn.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback.</p>
+   * @public
+   */
+  MessageFeedbackEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetDefaultMessageFeedbackEnabledResult {
+  /**
+   * <p>The arn of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetArn?: string | undefined;
+
+  /**
+   * <p>The name of the configuration.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>True if message feedback is enabled.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
 }
 
 /**

@@ -37,7 +37,7 @@ export interface ListRegistrationAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retreive all of the origination identies that are associated with a registration.</p>
+ * <p>Retrieve all of the origination identities that are associated with a registration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

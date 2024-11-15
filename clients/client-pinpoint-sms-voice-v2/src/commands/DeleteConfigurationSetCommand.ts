@@ -72,6 +72,7 @@ export interface DeleteConfigurationSetCommandOutput extends DeleteConfiguration
  * //   ],
  * //   DefaultMessageType: "STRING_VALUE",
  * //   DefaultSenderId: "STRING_VALUE",
+ * //   DefaultMessageFeedbackEnabled: true || false,
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * // };
  *
