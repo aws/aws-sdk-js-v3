@@ -801,6 +801,7 @@ export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
  * @enum
  */
 export const PaymentTerm = {
+  FIVE_YEARS: "FIVE_YEARS",
   ONE_YEAR: "ONE_YEAR",
   THREE_YEARS: "THREE_YEARS",
 } as const;

@@ -70,7 +70,7 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * //     PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT",
  * //     OrderSubmissionDate: new Date("TIMESTAMP"),
  * //     OrderFulfilledDate: new Date("TIMESTAMP"),
- * //     PaymentTerm: "THREE_YEARS" || "ONE_YEAR",
+ * //     PaymentTerm: "THREE_YEARS" || "ONE_YEAR" || "FIVE_YEARS",
  * //     OrderType: "OUTPOST" || "REPLACEMENT",
  * //   },
  * // };
