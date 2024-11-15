@@ -33,8 +33,8 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  *       results of the transfer.</p>
  *          <note>
  *             <p>Some <code>DescribeTaskExecution</code> response elements are only relevant to a
- *         specific task mode. For information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding task mode differences</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-metrics.html">Understanding data
- *           transfer performance metrics</a>.</p>
+ *         specific task mode. For information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding task mode differences</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transfer-performance-counters.html">Understanding data
+ *           transfer performance counters</a>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

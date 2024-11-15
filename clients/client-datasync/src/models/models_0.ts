@@ -2777,7 +2777,10 @@ export interface CreateTaskRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ENHANCED</code> - Transfer virtually unlimited numbers of objects with enhanced metrics, more detailed logs, and higher performance than Basic mode. Currently available for transfers between Amazon S3 locations.</p>
+   *                   <code>ENHANCED</code> - Transfer virtually unlimited numbers of objects with higher
+   *           performance than Basic mode. Enhanced mode tasks optimize the data transfer process by
+   *           listing, preparing, transferring, and verifying data in parallel. Enhanced mode is
+   *           currently available for transfers between Amazon S3 locations.</p>
    *                <note>
    *                   <p>To create an Enhanced mode task, the IAM role that you use to call
    *             the <code>CreateTask</code> operation must have the
@@ -2787,8 +2790,10 @@ export interface CreateTaskRequest {
    *             <li>
    *                <p>
    *                   <code>BASIC</code> (default) - Transfer files or objects between Amazon Web Services
-   *           storage and on-premises, edge, or other cloud storage. DataSync
-   *           <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html">quotas</a> apply.</p>
+   *           storage and all other supported DataSync locations. Basic mode tasks are subject
+   *           to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/datasync-limits.html">quotas</a> on the number of files, objects, and directories in a dataset. Basic
+   *           mode sequentially prepares, transfers, and verifies data, making it slower than Enhanced
+   *           mode for most workloads.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html#task-mode-differences">Understanding task mode differences</a>.</p>
@@ -4904,7 +4909,7 @@ export interface TaskExecutionFilesListedDetail {
   AtSource?: number | undefined;
 
   /**
-   * <p>The number of objects that DataSync finds at your destination location. This metric is only applicable if you <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-file-object-handling">configure your task</a> to delete data in the destination that isn't in the source.</p>
+   * <p>The number of objects that DataSync finds at your destination location. This counter is only applicable if you <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-file-object-handling">configure your task</a> to delete data in the destination that isn't in the source.</p>
    * @public
    */
   AtDestinationForDelete?: number | undefined;
@@ -5117,9 +5122,7 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * <p>The number of files, objects, and directories that DataSync expects to
-   *       transfer over the network. This value is calculated during the task execution's
-   *         <code>PREPARING</code>
-   *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">step</a> before the <code>TRANSFERRING</code> step.</p>
+   *       transfer over the network. This value is calculated while DataSync <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">prepares</a> the transfer.</p>
    *          <p>How this gets calculated depends primarily on your task’s <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-TransferMode">transfer
    *         mode</a> configuration:</p>
    *          <ul>
@@ -5161,9 +5164,8 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * <p>The number of files, objects, and directories that DataSync actually
-   *       transfers over the network. This value is updated periodically during the task execution's
-   *         <code>TRANSFERRING</code>
-   *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/run-task.html#understand-task-execution-statuses">step</a> when something is read from the source and sent over the network.</p>
+   *       transfers over the network. This value is updated periodically during your task execution when
+   *       something is read from the source and sent over the network.</p>
    *          <p>If DataSync fails to transfer something, this value can be less than
    *         <code>EstimatedFilesToTransfer</code>. In some cases, this value can also be greater than
    *         <code>EstimatedFilesToTransfer</code>. This element is implementation-specific for some
@@ -5190,10 +5192,6 @@ export interface DescribeTaskExecutionResponse {
   /**
    * <p>The number of physical bytes that DataSync transfers over the network after
    *       compression (if compression is possible). This number is typically less than <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_DescribeTaskExecution.html#DataSync-DescribeTaskExecution-response-BytesTransferred">BytesTransferred</a> unless the data isn't compressible.</p>
-   *          <note>
-   *             <p>Not currently supported with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
-   *         tasks</a>.</p>
-   *          </note>
    * @public
    */
   BytesCompressed?: number | undefined;
@@ -5213,9 +5211,8 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * <p>The number of files, objects, and directories that DataSync actually deletes in
-   *       your destination location. If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
-   *       delete data in the destination that isn't in the source, the value is always
-   *       <code>0</code>.</p>
+   *       your destination location. If you don't configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">delete data in the destination that
+   *         isn't in the source</a>, the value is always <code>0</code>.</p>
    * @public
    */
   FilesDeleted?: number | undefined;
@@ -5248,9 +5245,8 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * <p>The number of files, objects, and directories that DataSync expects to delete in
-   *       your destination location. If you don't <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">configure your task</a> to
-   *       delete data in the destination that isn't in the source, the value is always
-   *       <code>0</code>.</p>
+   *       your destination location. If you don't configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html">delete data in the destination that
+   *         isn't in the source</a>, the value is always <code>0</code>.</p>
    * @public
    */
   EstimatedFilesToDelete?: number | undefined;
@@ -5268,7 +5264,9 @@ export interface DescribeTaskExecutionResponse {
    *             <p>Applies only to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/choosing-task-mode.html">Enhanced mode
    *         tasks</a>.</p>
    *          </note>
-   *          <p>This metric isn't applicable if you configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-transfer-mode">transfer all data</a>. In that scenario, DataSync copies everything from the source to the destination without comparing differences between the locations.</p>
+   *          <p>This counter isn't applicable if you configure your task to <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-metadata.html#task-option-transfer-mode">transfer
+   *         all data</a>. In that scenario, DataSync copies everything from the source to
+   *       the destination without comparing differences between the locations.</p>
    * @public
    */
   FilesPrepared?: number | undefined;
