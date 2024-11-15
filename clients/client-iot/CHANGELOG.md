@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.694.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.693.0...v3.694.0) (2024-11-15)
+
+
+### Features
+
+* **client-iot:** This release allows AWS IoT Core users to enrich MQTT messages with propagating attributes, to associate a thing to a connection, and to enable Online Certificate Status Protocol (OCSP) stapling for TLS X.509 server certificates through private endpoints. ([005626c](https://github.com/aws/aws-sdk-js-v3/commit/005626cec3292a4e3f5da9c17b11ab3c8d03b558))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-iot

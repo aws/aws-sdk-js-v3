@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.694.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.693.0...v3.694.0) (2024-11-15)
+
+
+### Features
+
+* **client-cloudwatch:** Adds support for adding related Entity information to metrics ingested through PutMetricData. ([5aadfed](https://github.com/aws/aws-sdk-js-v3/commit/5aadfed77492e0bfdfb0600a8f8a0fa74465dd00))
+* **client-connectcampaignsv2:** Added Amazon Connect Outbound Campaigns V2 SDK. ([4546850](https://github.com/aws/aws-sdk-js-v3/commit/45468500ccbecbbc773dfdc1e0d43a4c2a4f28e4))
+* **client-ec2:** Remove non-functional enum variants for FleetCapacityReservationUsageStrategy ([b25f0b0](https://github.com/aws/aws-sdk-js-v3/commit/b25f0b06188e1ad01e2515f080ead4b0e9f070d2))
+* **client-iot:** This release allows AWS IoT Core users to enrich MQTT messages with propagating attributes, to associate a thing to a connection, and to enable Online Certificate Status Protocol (OCSP) stapling for TLS X.509 server certificates through private endpoints. ([005626c](https://github.com/aws/aws-sdk-js-v3/commit/005626cec3292a4e3f5da9c17b11ab3c8d03b558))
+* **client-outposts:** You can now purchase AWS Outposts rack or server capacity for a 5-year term with one of  the following payment options: All Upfront, Partial Upfront, and No Upfront. ([0aee9cb](https://github.com/aws/aws-sdk-js-v3/commit/0aee9cb5b506681a107859a9dbc06775c769cf4e))
+* **client-pinpoint-sms-voice-v2:** Use rule overrides to always allow or always block messages to specific phone numbers. Use message feedback to monitor if a customer interacts with your message. ([8381a63](https://github.com/aws/aws-sdk-js-v3/commit/8381a637977789c8095511102acbee8f9819bfcb))
+* **client-route53resolver:** Route 53 Resolver DNS Firewall Advanced Rules allows you to monitor and block suspicious DNS traffic based on anomalies detected in the queries, such as DNS tunneling and Domain Generation Algorithms (DGAs). ([033426b](https://github.com/aws/aws-sdk-js-v3/commit/033426bc414dee40781eb31daae89e4fd6e213ee))
+* **clients:** update client endpoints as of 2024-11-15 ([656c262](https://github.com/aws/aws-sdk-js-v3/commit/656c2627a78b121c83913df911765c9768c93900))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 

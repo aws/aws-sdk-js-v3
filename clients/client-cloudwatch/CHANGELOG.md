@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.694.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.693.0...v3.694.0) (2024-11-15)
+
+
+### Features
+
+* **client-cloudwatch:** Adds support for adding related Entity information to metrics ingested through PutMetricData. ([5aadfed](https://github.com/aws/aws-sdk-js-v3/commit/5aadfed77492e0bfdfb0600a8f8a0fa74465dd00))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch
