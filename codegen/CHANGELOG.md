@@ -1,5 +1,11 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.25.0 (2024-11-18)
+
+### Features
+- Upgraded to 1.51.0 of Smithy ([Release Notes](https://github.com/smithy-lang/smithy/blob/main/CHANGELOG.md#1520-2024-10-16))
+- Upgraded to 0.25.0 of smithy-typescript ([Release Notes](https://github.com/kuhe/smithy-typescript/blob/main/CHANGELOG.md#0250-2024-11-18))
+
 ## 0.24.0 (2024-09-30)
 
 ### Features
@@ -36,14 +42,14 @@
 ## 0.20.1 (2024-04-05)
 
 ### Features
-* Add option to prevent md5 computation ([#5953](https://github.com/aws/aws-sdk-js-v3/pull/5953)) 
+* Add option to prevent md5 computation ([#5953](https://github.com/aws/aws-sdk-js-v3/pull/5953))
 * Update Smithy to 1.47.0 ([#5956](https://github.com/aws/aws-sdk-js-v3/pull/5956))
 
 ## 0.20.0 (2024-03-27)
 
 ### Features
 * Reduced code size for xml serde ([#5568](https://github.com/aws/aws-sdk-js-v3/pull/5568), [#5566](https://github.com/aws/aws-sdk-js-v3/pull/5566))
-* Reduced generated code size for all clients with library serde helpers ([#5855](https://github.com/aws/aws-sdk-js-v3/pull/5855)) 
+* Reduced generated code size for all clients with library serde helpers ([#5855](https://github.com/aws/aws-sdk-js-v3/pull/5855))
 * Implemented lazy-loading of STS & SSO clients in credential providers ([#5681](https://github.com/aws/aws-sdk-js-v3/pull/5681))
 
 ### Bug Fixes
@@ -53,7 +59,7 @@
 
 ## 0.19.0 (2023-11-03)
 
-### Features 
+### Features
 * Created coercing serializers for awsQueryCompat ([#5440](https://github.com/aws/aws-sdk-js-v3/pull/5440))
 * Migrated the `@aws-sdk/util-endpoints` package to use the newly added `@smithy/util-endpoints` package ([#5390](https://github.com/aws/aws-sdk-js-v3/pull/5390))
 * Added Node.js 14.x version deprecation warning ([#5413](https://github.com/aws/aws-sdk-js-v3/pull/5413))
@@ -63,7 +69,7 @@
 * Added e2e suite for lib-dynamodb ([#5306](https://github.com/aws/aws-sdk-js-v3/pull/5306))
 * Added middleware for following region redirects ([#5185](https://github.com/aws/aws-sdk-js-v3/pull/5185))
 
-### Bug Fixes 
+### Bug Fixes
 * Updated to use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/pull/5391))
 
 ## 0.18.0 (2023-10-04)
@@ -165,7 +171,7 @@
 * Fixed README generation to handle service documentation containing `${}`. ([#3834](https://github.com/aws/aws-sdk-js-v3/pull/3834))
 * Fixed error code parsing when it is a number. ([#3371](https://github.com/aws/aws-sdk-js-v3/pull/3371))
 * Fixed serialization of event stream payloads. ([#3655](https://github.com/aws/aws-sdk-js-v3/pull/3655))
-* Fixed endpoints for S3's WriteGetObjectResponse. ([#3662](https://github.com/aws/aws-sdk-js-v3/pull/3662)) 
+* Fixed endpoints for S3's WriteGetObjectResponse. ([#3662](https://github.com/aws/aws-sdk-js-v3/pull/3662))
 * Fixed handling of empty xml tags. ([#3623](https://github.com/aws/aws-sdk-js-v3/pull/3623))
 
 ## 0.11.0 (2022-04-04)
@@ -228,7 +234,7 @@
 ### Bug Fixes
 
 * Fixed double encoding of presigned url. ([#2711](https://github.com/aws/aws-sdk-js-v3/pull/2711))
-* Only trim xml tag values which contain newline. ([#2653](https://github.com/aws/aws-sdk-js-v3/pull/2653)) 
+* Only trim xml tag values which contain newline. ([#2653](https://github.com/aws/aws-sdk-js-v3/pull/2653))
 
 ### Other
 
