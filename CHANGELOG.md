@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.695.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.694.0...v3.695.0) (2024-11-18)
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig has added a new extension action point, AT_DEPLOYMENT_TICK, to support third-party monitors to trigger an automatic rollback during a deployment. ([fa926ac](https://github.com/aws/aws-sdk-js-v3/commit/fa926ac15f0a72b839209242fc5e4b2f0f9bfc8c))
+* **client-auto-scaling:** Amazon EC2 Auto Scaling now supports Amazon Application Recovery Controller (ARC) zonal shift and zonal autoshift to help you quickly recover an impaired application from failures in an Availability Zone (AZ). ([f8fdf92](https://github.com/aws/aws-sdk-js-v3/commit/f8fdf9238c92978c9bfd27af191738901cf1a5d9))
+* **client-cloudformation:** This release adds a new API, ListHookResults, that allows retrieving CloudFormation Hooks invocation results for hooks invoked during a create change set operation or Cloud Control API operation ([86aa1cf](https://github.com/aws/aws-sdk-js-v3/commit/86aa1cf6e19496a6206ba1138c2c971d89cf6245))
+* **client-connect:** Adds CreateContactFlowVersion and ListContactFlowVersions APIs to create and view the versions of a contact flow. ([d7c1515](https://github.com/aws/aws-sdk-js-v3/commit/d7c1515c199449b5f08f2d87da0417b87f62b730))
+* **client-customer-profiles:** This release introduces Segmentation APIs and new Calculated Attribute Event Filters as part of Amazon Connect Customer Profiles service. ([bd19a2a](https://github.com/aws/aws-sdk-js-v3/commit/bd19a2a651b38c8ae216ca44f204e38a6d12fa44))
+* **client-ec2:** Adding request and response elements for managed resources. ([be4dacb](https://github.com/aws/aws-sdk-js-v3/commit/be4dacb1b18a92244302ac4e47bc3d7712a699b1))
+* **client-ecs:** This release adds support for adding VPC Lattice configurations in ECS CreateService/UpdateService APIs. The configuration allows for associating VPC Lattice target groups with ECS Services. ([47d5f20](https://github.com/aws/aws-sdk-js-v3/commit/47d5f20c18393aa5402dfa1f6bcb2b73c189d91e))
+* **client-iotsitewise:** The release introduces a generative AI Assistant in AWS IoT SiteWise. It includes: 1) InvokeAssistant API - Invoke the Assistant to get alarm summaries and ask questions. 2) Dataset APIs - Manage knowledge base configuration for the Assistant. 3) Portal APIs enhancement - Manage AI-aware dashboards. ([6c6c9c8](https://github.com/aws/aws-sdk-js-v3/commit/6c6c9c8cbcb1886d5dd972b603f95834fc1dd2b0))
+* **client-qconnect:** This release introduces MessageTemplate as a resource in Amazon Q in Connect, along with APIs to create, read, search, update, and delete MessageTemplate resources. ([1812f5f](https://github.com/aws/aws-sdk-js-v3/commit/1812f5fef6da77a38e393c77015d5c0f24d676d6))
+* **client-rds-data:** Add support for the automatic pause/resume feature of Aurora Serverless v2. ([2fc76d4](https://github.com/aws/aws-sdk-js-v3/commit/2fc76d410b8aa65fa7d6a1ddd186c532ff5597ba))
+* **client-rds:** Add support for the automatic pause/resume feature of Aurora Serverless v2. ([c9e7374](https://github.com/aws/aws-sdk-js-v3/commit/c9e73741f2988fd227998b2c84bf4cad8a490295))
+* **clients:** update client endpoints as of 2024-11-18 ([70ada5c](https://github.com/aws/aws-sdk-js-v3/commit/70ada5c565a1385310d6cb57a617d544dffc2f8a))
+
+
+
+
+
 # [3.694.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.693.0...v3.694.0) (2024-11-15)
 
 
