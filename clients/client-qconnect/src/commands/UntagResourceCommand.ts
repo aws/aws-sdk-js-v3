@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

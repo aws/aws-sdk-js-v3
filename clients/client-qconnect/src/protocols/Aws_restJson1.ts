@@ -21,6 +21,7 @@ import {
   limitedParseDouble as __limitedParseDouble,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   take,
   withBaseException,
@@ -32,6 +33,10 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  ActivateMessageTemplateCommandInput,
+  ActivateMessageTemplateCommandOutput,
+} from "../commands/ActivateMessageTemplateCommand";
 import { CreateAIAgentCommandInput, CreateAIAgentCommandOutput } from "../commands/CreateAIAgentCommand";
 import {
   CreateAIAgentVersionCommandInput,
@@ -57,10 +62,26 @@ import {
   CreateKnowledgeBaseCommandOutput,
 } from "../commands/CreateKnowledgeBaseCommand";
 import {
+  CreateMessageTemplateAttachmentCommandInput,
+  CreateMessageTemplateAttachmentCommandOutput,
+} from "../commands/CreateMessageTemplateAttachmentCommand";
+import {
+  CreateMessageTemplateCommandInput,
+  CreateMessageTemplateCommandOutput,
+} from "../commands/CreateMessageTemplateCommand";
+import {
+  CreateMessageTemplateVersionCommandInput,
+  CreateMessageTemplateVersionCommandOutput,
+} from "../commands/CreateMessageTemplateVersionCommand";
+import {
   CreateQuickResponseCommandInput,
   CreateQuickResponseCommandOutput,
 } from "../commands/CreateQuickResponseCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "../commands/CreateSessionCommand";
+import {
+  DeactivateMessageTemplateCommandInput,
+  DeactivateMessageTemplateCommandOutput,
+} from "../commands/DeactivateMessageTemplateCommand";
 import { DeleteAIAgentCommandInput, DeleteAIAgentCommandOutput } from "../commands/DeleteAIAgentCommand";
 import {
   DeleteAIAgentVersionCommandInput,
@@ -87,6 +108,14 @@ import {
   DeleteKnowledgeBaseCommandOutput,
 } from "../commands/DeleteKnowledgeBaseCommand";
 import {
+  DeleteMessageTemplateAttachmentCommandInput,
+  DeleteMessageTemplateAttachmentCommandOutput,
+} from "../commands/DeleteMessageTemplateAttachmentCommand";
+import {
+  DeleteMessageTemplateCommandInput,
+  DeleteMessageTemplateCommandOutput,
+} from "../commands/DeleteMessageTemplateCommand";
+import {
   DeleteQuickResponseCommandInput,
   DeleteQuickResponseCommandOutput,
 } from "../commands/DeleteQuickResponseCommand";
@@ -105,6 +134,7 @@ import { GetContentCommandInput, GetContentCommandOutput } from "../commands/Get
 import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from "../commands/GetContentSummaryCommand";
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "../commands/GetKnowledgeBaseCommand";
+import { GetMessageTemplateCommandInput, GetMessageTemplateCommandOutput } from "../commands/GetMessageTemplateCommand";
 import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "../commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
@@ -130,6 +160,14 @@ import {
 import { ListContentsCommandInput, ListContentsCommandOutput } from "../commands/ListContentsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "../commands/ListKnowledgeBasesCommand";
+import {
+  ListMessageTemplatesCommandInput,
+  ListMessageTemplatesCommandOutput,
+} from "../commands/ListMessageTemplatesCommand";
+import {
+  ListMessageTemplateVersionsCommandInput,
+  ListMessageTemplateVersionsCommandOutput,
+} from "../commands/ListMessageTemplateVersionsCommand";
 import { ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput } from "../commands/ListQuickResponsesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -149,7 +187,15 @@ import {
   RemoveKnowledgeBaseTemplateUriCommandInput,
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "../commands/RemoveKnowledgeBaseTemplateUriCommand";
+import {
+  RenderMessageTemplateCommandInput,
+  RenderMessageTemplateCommandOutput,
+} from "../commands/RenderMessageTemplateCommand";
 import { SearchContentCommandInput, SearchContentCommandOutput } from "../commands/SearchContentCommand";
+import {
+  SearchMessageTemplatesCommandInput,
+  SearchMessageTemplatesCommandOutput,
+} from "../commands/SearchMessageTemplatesCommand";
 import {
   SearchQuickResponsesCommandInput,
   SearchQuickResponsesCommandOutput,
@@ -171,6 +217,14 @@ import {
   UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "../commands/UpdateKnowledgeBaseTemplateUriCommand";
 import {
+  UpdateMessageTemplateCommandInput,
+  UpdateMessageTemplateCommandOutput,
+} from "../commands/UpdateMessageTemplateCommand";
+import {
+  UpdateMessageTemplateMetadataCommandInput,
+  UpdateMessageTemplateMetadataCommandOutput,
+} from "../commands/UpdateMessageTemplateMetadataCommand";
+import {
   UpdateQuickResponseCommandInput,
   UpdateQuickResponseCommandOutput,
 } from "../commands/UpdateQuickResponseCommand";
@@ -178,6 +232,7 @@ import { UpdateSessionCommandInput, UpdateSessionCommandOutput } from "../comman
 import { UpdateSessionDataCommandInput, UpdateSessionDataCommandOutput } from "../commands/UpdateSessionDataCommand";
 import {
   AccessDeniedException,
+  AgentAttributes,
   AIAgentConfiguration,
   AIAgentConfigurationData,
   AIAgentData,
@@ -203,13 +258,15 @@ import {
   ContentData,
   ContentDataDetails,
   ContentFeedbackData,
-  DataDetails,
-  DataSummary,
+  CustomerProfileAttributes,
+  EmailHeader,
+  EmailMessageTemplateContent,
+  EmailMessageTemplateContentBody,
+  ExtendedMessageTemplateData,
   ExternalSourceConfiguration,
   Filter,
   FixedSizeChunkingConfiguration,
   GenerativeContentFeedbackData,
-  GenerativeDataDetails,
   GroupingConfiguration,
   HierarchicalChunkingConfiguration,
   HierarchicalChunkingLevelConfiguration,
@@ -220,6 +277,12 @@ import {
   KnowledgeBaseData,
   ManagedSourceConfiguration,
   ManualSearchAIAgentConfiguration,
+  MessageTemplateAttachment,
+  MessageTemplateAttributes,
+  MessageTemplateBodyContentProvider,
+  MessageTemplateContentProvider,
+  MessageTemplateData,
+  MessageTemplateSummary,
   OrCondition,
   ParsingConfiguration,
   ParsingPrompt,
@@ -230,18 +293,11 @@ import {
   QueryTextInputData,
   QuickResponseData,
   QuickResponseDataProvider,
-  QuickResponseFilterField,
-  QuickResponseOrderField,
-  QuickResponseQueryField,
-  QuickResponseSearchExpression,
-  QuickResponseSearchResultData,
   QuickResponseSummary,
   RankingData,
-  RecommendationData,
   RenderingConfiguration,
   RequestTimeoutException,
   ResourceNotFoundException,
-  ResultData,
   RuntimeSessionData,
   RuntimeSessionDataValue,
   SearchExpression,
@@ -249,20 +305,65 @@ import {
   SemanticChunkingConfiguration,
   ServerSideEncryptionConfiguration,
   ServiceQuotaExceededException,
+  SMSMessageTemplateContent,
+  SMSMessageTemplateContentBody,
   SourceConfiguration,
   SourceContentDataDetails,
+  SystemAttributes,
+  SystemEndpointAttributes,
   TagCondition,
   TagFilter,
   TextFullAIPromptEditTemplateConfiguration,
   ThrottlingException,
-  TooManyTagsException,
   UrlConfiguration,
   ValidationException,
   VectorIngestionConfiguration,
   WebCrawlerConfiguration,
   WebCrawlerLimits,
 } from "../models/models_0";
+import {
+  DataDetails,
+  DataSummary,
+  GenerativeDataDetails,
+  MessageTemplateFilterField,
+  MessageTemplateOrderField,
+  MessageTemplateQueryField,
+  MessageTemplateSearchExpression,
+  MessageTemplateSearchResultData,
+  QuickResponseFilterField,
+  QuickResponseOrderField,
+  QuickResponseQueryField,
+  QuickResponseSearchExpression,
+  QuickResponseSearchResultData,
+  RecommendationData,
+  ResultData,
+  TooManyTagsException,
+} from "../models/models_1";
 import { QConnectServiceException as __BaseException } from "../models/QConnectServiceException";
+
+/**
+ * serializeAws_restJson1ActivateMessageTemplateCommand
+ */
+export const se_ActivateMessageTemplateCommand = async (
+  input: ActivateMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/activate");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      versionNumber: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateAIAgentCommand
@@ -515,6 +616,88 @@ export const se_CreateKnowledgeBaseCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateMessageTemplateCommand
+ */
+export const se_CreateMessageTemplateCommand = async (
+  input: CreateMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      channelSubtype: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      content: (_) => _json(_),
+      defaultAttributes: (_) => _json(_),
+      description: [],
+      groupingConfiguration: (_) => _json(_),
+      language: [],
+      name: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateMessageTemplateAttachmentCommand
+ */
+export const se_CreateMessageTemplateAttachmentCommand = async (
+  input: CreateMessageTemplateAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      body: [],
+      clientToken: [],
+      contentDisposition: [],
+      name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateMessageTemplateVersionCommand
+ */
+export const se_CreateMessageTemplateVersionCommand = async (
+  input: CreateMessageTemplateVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      messageTemplateContentSha256: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateQuickResponseCommand
  */
 export const se_CreateQuickResponseCommand = async (
@@ -569,6 +752,30 @@ export const se_CreateSessionCommand = async (
       name: [],
       tagFilter: (_) => _json(_),
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeactivateMessageTemplateCommand
+ */
+export const se_DeactivateMessageTemplateCommand = async (
+  input: DeactivateMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/deactivate");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      versionNumber: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -747,6 +954,41 @@ export const se_DeleteKnowledgeBaseCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteMessageTemplateCommand
+ */
+export const se_DeleteMessageTemplateCommand = async (
+  input: DeleteMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteMessageTemplateAttachmentCommand
+ */
+export const se_DeleteMessageTemplateAttachmentCommand = async (
+  input: DeleteMessageTemplateAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/attachments/{attachmentId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  b.p("attachmentId", () => input.attachmentId!, "{attachmentId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteQuickResponseCommand
  */
 export const se_DeleteQuickResponseCommand = async (
@@ -909,6 +1151,23 @@ export const se_GetKnowledgeBaseCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/knowledgeBases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMessageTemplateCommand
+ */
+export const se_GetMessageTemplateCommand = async (
+  input: GetMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}");
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
   b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -1176,6 +1435,47 @@ export const se_ListKnowledgeBasesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMessageTemplatesCommand
+ */
+export const se_ListMessageTemplatesCommand = async (
+  input: ListMessageTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListMessageTemplateVersionsCommand
+ */
+export const se_ListMessageTemplateVersionsCommand = async (
+  input: ListMessageTemplateVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/versions");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListQuickResponsesCommand
  */
 export const se_ListQuickResponsesCommand = async (
@@ -1325,6 +1625,30 @@ export const se_RemoveKnowledgeBaseTemplateUriCommand = async (
 };
 
 /**
+ * serializeAws_restJson1RenderMessageTemplateCommand
+ */
+export const se_RenderMessageTemplateCommand = async (
+  input: RenderMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/render");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SearchContentCommand
  */
 export const se_SearchContentCommand = async (
@@ -1336,6 +1660,33 @@ export const se_SearchContentCommand = async (
     "content-type": "application/json",
   };
   b.bp("/knowledgeBases/{knowledgeBaseId}/search");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      searchExpression: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchMessageTemplatesCommand
+ */
+export const se_SearchMessageTemplatesCommand = async (
+  input: SearchMessageTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/search/messageTemplates");
   b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
     [_nT]: [, input[_nT]!],
@@ -1630,6 +1981,58 @@ export const se_UpdateKnowledgeBaseTemplateUriCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateMessageTemplateCommand
+ */
+export const se_UpdateMessageTemplateCommand = async (
+  input: UpdateMessageTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      content: (_) => _json(_),
+      defaultAttributes: (_) => _json(_),
+      language: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateMessageTemplateMetadataCommand
+ */
+export const se_UpdateMessageTemplateMetadataCommand = async (
+  input: UpdateMessageTemplateMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/messageTemplates/{messageTemplateId}/metadata");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("messageTemplateId", () => input.messageTemplateId!, "{messageTemplateId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      groupingConfiguration: (_) => _json(_),
+      name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateQuickResponseCommand
  */
 export const se_UpdateQuickResponseCommand = async (
@@ -1713,6 +2116,29 @@ export const se_UpdateSessionDataCommand = async (
   );
   b.m("PATCH").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1ActivateMessageTemplateCommand
+ */
+export const de_ActivateMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ActivateMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplateArn: __expectString,
+    messageTemplateId: __expectString,
+    versionNumber: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -1907,6 +2333,69 @@ export const de_CreateKnowledgeBaseCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateMessageTemplateCommand
+ */
+export const de_CreateMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplate: (_) => de_MessageTemplateData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMessageTemplateAttachmentCommand
+ */
+export const de_CreateMessageTemplateAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMessageTemplateAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    attachment: (_) => de_MessageTemplateAttachment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMessageTemplateVersionCommand
+ */
+export const de_CreateMessageTemplateVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMessageTemplateVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplate: (_) => de_ExtendedMessageTemplateData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateQuickResponseCommand
  */
 export const de_CreateQuickResponseCommand = async (
@@ -1943,6 +2432,29 @@ export const de_CreateSessionCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     session: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeactivateMessageTemplateCommand
+ */
+export const de_DeactivateMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeactivateMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplateArn: __expectString,
+    messageTemplateId: __expectString,
+    versionNumber: __expectLong,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2108,6 +2620,40 @@ export const de_DeleteKnowledgeBaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteKnowledgeBaseCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMessageTemplateCommand
+ */
+export const de_DeleteMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteMessageTemplateAttachmentCommand
+ */
+export const de_DeleteMessageTemplateAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMessageTemplateAttachmentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2321,6 +2867,27 @@ export const de_GetKnowledgeBaseCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     knowledgeBase: (_) => de_KnowledgeBaseData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMessageTemplateCommand
+ */
+export const de_GetMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplate: (_) => de_ExtendedMessageTemplateData(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -2611,6 +3178,50 @@ export const de_ListKnowledgeBasesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListMessageTemplatesCommand
+ */
+export const de_ListMessageTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMessageTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplateSummaries: (_) => de_MessageTemplateSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMessageTemplateVersionsCommand
+ */
+export const de_ListMessageTemplateVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMessageTemplateVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplateVersionSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListQuickResponsesCommand
  */
 export const de_ListQuickResponsesCommand = async (
@@ -2757,6 +3368,29 @@ export const de_RemoveKnowledgeBaseTemplateUriCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1RenderMessageTemplateCommand
+ */
+export const de_RenderMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RenderMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    attachments: (_) => de_MessageTemplateAttachmentList(_, context),
+    attributesNotInterpolated: _json,
+    content: (_) => _json(__expectUnion(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchContentCommand
  */
 export const de_SearchContentCommand = async (
@@ -2773,6 +3407,28 @@ export const de_SearchContentCommand = async (
   const doc = take(data, {
     contentSummaries: _json,
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchMessageTemplatesCommand
+ */
+export const de_SearchMessageTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchMessageTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: (_) => de_MessageTemplateSearchResultsList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3007,6 +3663,48 @@ export const de_UpdateKnowledgeBaseTemplateUriCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateMessageTemplateCommand
+ */
+export const de_UpdateMessageTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMessageTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplate: (_) => de_MessageTemplateData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMessageTemplateMetadataCommand
+ */
+export const de_UpdateMessageTemplateMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMessageTemplateMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    messageTemplate: (_) => de_MessageTemplateData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateQuickResponseCommand
  */
 export const de_UpdateQuickResponseCommand = async (
@@ -3091,15 +3789,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.qconnect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.qconnect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.qconnect#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.qconnect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "RequestTimeoutException":
     case "com.amazonaws.qconnect#RequestTimeoutException":
       throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
@@ -3293,6 +3991,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AgentAttributes omitted.
+
 /**
  * serializeAws_restJson1AIAgentConfiguration
  */
@@ -3344,6 +4044,18 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 
 // se_ContentMetadata omitted.
 
+// se_CustomAttributes omitted.
+
+// se_CustomerProfileAttributes omitted.
+
+// se_EmailHeader omitted.
+
+// se_EmailHeaders omitted.
+
+// se_EmailMessageTemplateContent omitted.
+
+// se_EmailMessageTemplateContentBody omitted.
+
 // se_ExternalSourceConfiguration omitted.
 
 // se_Filter omitted.
@@ -3371,6 +4083,28 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 // se_ManagedSourceConfiguration omitted.
 
 // se_ManualSearchAIAgentConfiguration omitted.
+
+// se_MessageTemplateAttributes omitted.
+
+// se_MessageTemplateBodyContentProvider omitted.
+
+// se_MessageTemplateContentProvider omitted.
+
+// se_MessageTemplateFilterField omitted.
+
+// se_MessageTemplateFilterFieldList omitted.
+
+// se_MessageTemplateFilterValueList omitted.
+
+// se_MessageTemplateOrderField omitted.
+
+// se_MessageTemplateQueryField omitted.
+
+// se_MessageTemplateQueryFieldList omitted.
+
+// se_MessageTemplateQueryValueList omitted.
+
+// se_MessageTemplateSearchExpression omitted.
 
 // se_ObjectFieldsList omitted.
 
@@ -3430,7 +4164,15 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 
 // se_ServerSideEncryptionConfiguration omitted.
 
+// se_SMSMessageTemplateContent omitted.
+
+// se_SMSMessageTemplateContentBody omitted.
+
 // se_SourceConfiguration omitted.
+
+// se_SystemAttributes omitted.
+
+// se_SystemEndpointAttributes omitted.
 
 // se_TagCondition omitted.
 
@@ -3449,6 +4191,8 @@ const se_AIAgentConfiguration = (input: AIAgentConfiguration, context: __SerdeCo
 // se_WebCrawlerConfiguration omitted.
 
 // se_WebCrawlerLimits omitted.
+
+// de_AgentAttributes omitted.
 
 /**
  * deserializeAws_restJson1AIAgentConfiguration
@@ -3726,6 +4470,10 @@ const de_ContentDataDetails = (output: any, context: __SerdeContext): ContentDat
 
 // de_ContentSummaryList omitted.
 
+// de_CustomAttributes omitted.
+
+// de_CustomerProfileAttributes omitted.
+
 /**
  * deserializeAws_restJson1DataDetails
  */
@@ -3780,6 +4528,42 @@ const de_DataSummaryList = (output: any, context: __SerdeContext): DataSummary[]
 // de_Document omitted.
 
 // de_DocumentText omitted.
+
+// de_EmailHeader omitted.
+
+// de_EmailHeaders omitted.
+
+// de_EmailMessageTemplateContent omitted.
+
+// de_EmailMessageTemplateContentBody omitted.
+
+/**
+ * deserializeAws_restJson1ExtendedMessageTemplateData
+ */
+const de_ExtendedMessageTemplateData = (output: any, context: __SerdeContext): ExtendedMessageTemplateData => {
+  return take(output, {
+    attachments: (_: any) => de_MessageTemplateAttachmentList(_, context),
+    attributeTypes: _json,
+    channelSubtype: __expectString,
+    content: (_: any) => _json(__expectUnion(_)),
+    createdTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    defaultAttributes: _json,
+    description: __expectString,
+    groupingConfiguration: _json,
+    isActive: __expectBoolean,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    language: __expectString,
+    lastModifiedBy: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    messageTemplateArn: __expectString,
+    messageTemplateContentSha256: __expectString,
+    messageTemplateId: __expectString,
+    name: __expectString,
+    tags: _json,
+    versionNumber: __expectLong,
+  }) as any;
+};
 
 // de_ExternalSourceConfiguration omitted.
 
@@ -3904,6 +4688,141 @@ const de_KnowledgeBaseData = (output: any, context: __SerdeContext): KnowledgeBa
 // de_ManagedSourceConfiguration omitted.
 
 // de_ManualSearchAIAgentConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1MessageTemplateAttachment
+ */
+const de_MessageTemplateAttachment = (output: any, context: __SerdeContext): MessageTemplateAttachment => {
+  return take(output, {
+    attachmentId: __expectString,
+    contentDisposition: __expectString,
+    name: __expectString,
+    uploadedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    url: __expectString,
+    urlExpiry: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MessageTemplateAttachmentList
+ */
+const de_MessageTemplateAttachmentList = (output: any, context: __SerdeContext): MessageTemplateAttachment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MessageTemplateAttachment(entry, context);
+    });
+  return retVal;
+};
+
+// de_MessageTemplateAttributeKeyList omitted.
+
+// de_MessageTemplateAttributes omitted.
+
+// de_MessageTemplateAttributeTypeList omitted.
+
+// de_MessageTemplateBodyContentProvider omitted.
+
+// de_MessageTemplateContentProvider omitted.
+
+/**
+ * deserializeAws_restJson1MessageTemplateData
+ */
+const de_MessageTemplateData = (output: any, context: __SerdeContext): MessageTemplateData => {
+  return take(output, {
+    attributeTypes: _json,
+    channelSubtype: __expectString,
+    content: (_: any) => _json(__expectUnion(_)),
+    createdTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    defaultAttributes: _json,
+    description: __expectString,
+    groupingConfiguration: _json,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    language: __expectString,
+    lastModifiedBy: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    messageTemplateArn: __expectString,
+    messageTemplateContentSha256: __expectString,
+    messageTemplateId: __expectString,
+    name: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MessageTemplateSearchResultData
+ */
+const de_MessageTemplateSearchResultData = (output: any, context: __SerdeContext): MessageTemplateSearchResultData => {
+  return take(output, {
+    channelSubtype: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    groupingConfiguration: _json,
+    isActive: __expectBoolean,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    language: __expectString,
+    lastModifiedBy: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    messageTemplateArn: __expectString,
+    messageTemplateId: __expectString,
+    name: __expectString,
+    tags: _json,
+    versionNumber: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MessageTemplateSearchResultsList
+ */
+const de_MessageTemplateSearchResultsList = (
+  output: any,
+  context: __SerdeContext
+): MessageTemplateSearchResultData[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MessageTemplateSearchResultData(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MessageTemplateSummary
+ */
+const de_MessageTemplateSummary = (output: any, context: __SerdeContext): MessageTemplateSummary => {
+  return take(output, {
+    activeVersionNumber: __expectLong,
+    channelSubtype: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    lastModifiedBy: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    messageTemplateArn: __expectString,
+    messageTemplateId: __expectString,
+    name: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1MessageTemplateSummaryList
+ */
+const de_MessageTemplateSummaryList = (output: any, context: __SerdeContext): MessageTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MessageTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_MessageTemplateVersionSummary omitted.
+
+// de_MessageTemplateVersionSummaryList omitted.
 
 // de_NotifyRecommendationsReceivedError omitted.
 
@@ -4118,6 +5037,10 @@ const de_ResultData = (output: any, context: __SerdeContext): ResultData => {
 
 // de_SessionSummary omitted.
 
+// de_SMSMessageTemplateContent omitted.
+
+// de_SMSMessageTemplateContentBody omitted.
+
 // de_SourceConfiguration omitted.
 
 /**
@@ -4132,6 +5055,10 @@ const de_SourceContentDataDetails = (output: any, context: __SerdeContext): Sour
     type: __expectString,
   }) as any;
 };
+
+// de_SystemAttributes omitted.
+
+// de_SystemEndpointAttributes omitted.
 
 // de_TagCondition omitted.
 

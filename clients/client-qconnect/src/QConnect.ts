@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  ActivateMessageTemplateCommand,
+  ActivateMessageTemplateCommandInput,
+  ActivateMessageTemplateCommandOutput,
+} from "./commands/ActivateMessageTemplateCommand";
+import {
   CreateAIAgentCommand,
   CreateAIAgentCommandInput,
   CreateAIAgentCommandOutput,
@@ -48,6 +53,21 @@ import {
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
 import {
+  CreateMessageTemplateAttachmentCommand,
+  CreateMessageTemplateAttachmentCommandInput,
+  CreateMessageTemplateAttachmentCommandOutput,
+} from "./commands/CreateMessageTemplateAttachmentCommand";
+import {
+  CreateMessageTemplateCommand,
+  CreateMessageTemplateCommandInput,
+  CreateMessageTemplateCommandOutput,
+} from "./commands/CreateMessageTemplateCommand";
+import {
+  CreateMessageTemplateVersionCommand,
+  CreateMessageTemplateVersionCommandInput,
+  CreateMessageTemplateVersionCommandOutput,
+} from "./commands/CreateMessageTemplateVersionCommand";
+import {
   CreateQuickResponseCommand,
   CreateQuickResponseCommandInput,
   CreateQuickResponseCommandOutput,
@@ -57,6 +77,11 @@ import {
   CreateSessionCommandInput,
   CreateSessionCommandOutput,
 } from "./commands/CreateSessionCommand";
+import {
+  DeactivateMessageTemplateCommand,
+  DeactivateMessageTemplateCommandInput,
+  DeactivateMessageTemplateCommandOutput,
+} from "./commands/DeactivateMessageTemplateCommand";
 import {
   DeleteAIAgentCommand,
   DeleteAIAgentCommandInput,
@@ -108,6 +133,16 @@ import {
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
 import {
+  DeleteMessageTemplateAttachmentCommand,
+  DeleteMessageTemplateAttachmentCommandInput,
+  DeleteMessageTemplateAttachmentCommandOutput,
+} from "./commands/DeleteMessageTemplateAttachmentCommand";
+import {
+  DeleteMessageTemplateCommand,
+  DeleteMessageTemplateCommandInput,
+  DeleteMessageTemplateCommandOutput,
+} from "./commands/DeleteMessageTemplateCommand";
+import {
   DeleteQuickResponseCommand,
   DeleteQuickResponseCommandInput,
   DeleteQuickResponseCommandOutput,
@@ -145,6 +180,11 @@ import {
   GetKnowledgeBaseCommandInput,
   GetKnowledgeBaseCommandOutput,
 } from "./commands/GetKnowledgeBaseCommand";
+import {
+  GetMessageTemplateCommand,
+  GetMessageTemplateCommandInput,
+  GetMessageTemplateCommandOutput,
+} from "./commands/GetMessageTemplateCommand";
 import {
   GetQuickResponseCommand,
   GetQuickResponseCommandInput,
@@ -207,6 +247,16 @@ import {
   ListKnowledgeBasesCommandOutput,
 } from "./commands/ListKnowledgeBasesCommand";
 import {
+  ListMessageTemplatesCommand,
+  ListMessageTemplatesCommandInput,
+  ListMessageTemplatesCommandOutput,
+} from "./commands/ListMessageTemplatesCommand";
+import {
+  ListMessageTemplateVersionsCommand,
+  ListMessageTemplateVersionsCommandInput,
+  ListMessageTemplateVersionsCommandOutput,
+} from "./commands/ListMessageTemplateVersionsCommand";
+import {
   ListQuickResponsesCommand,
   ListQuickResponsesCommandInput,
   ListQuickResponsesCommandOutput,
@@ -238,10 +288,20 @@ import {
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/RemoveKnowledgeBaseTemplateUriCommand";
 import {
+  RenderMessageTemplateCommand,
+  RenderMessageTemplateCommandInput,
+  RenderMessageTemplateCommandOutput,
+} from "./commands/RenderMessageTemplateCommand";
+import {
   SearchContentCommand,
   SearchContentCommandInput,
   SearchContentCommandOutput,
 } from "./commands/SearchContentCommand";
+import {
+  SearchMessageTemplatesCommand,
+  SearchMessageTemplatesCommandInput,
+  SearchMessageTemplatesCommandOutput,
+} from "./commands/SearchMessageTemplatesCommand";
 import {
   SearchQuickResponsesCommand,
   SearchQuickResponsesCommandInput,
@@ -294,6 +354,16 @@ import {
   UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "./commands/UpdateKnowledgeBaseTemplateUriCommand";
 import {
+  UpdateMessageTemplateCommand,
+  UpdateMessageTemplateCommandInput,
+  UpdateMessageTemplateCommandOutput,
+} from "./commands/UpdateMessageTemplateCommand";
+import {
+  UpdateMessageTemplateMetadataCommand,
+  UpdateMessageTemplateMetadataCommandInput,
+  UpdateMessageTemplateMetadataCommandOutput,
+} from "./commands/UpdateMessageTemplateMetadataCommand";
+import {
   UpdateQuickResponseCommand,
   UpdateQuickResponseCommandInput,
   UpdateQuickResponseCommandOutput,
@@ -311,6 +381,7 @@ import {
 import { QConnectClient, QConnectClientConfig } from "./QConnectClient";
 
 const commands = {
+  ActivateMessageTemplateCommand,
   CreateAIAgentCommand,
   CreateAIAgentVersionCommand,
   CreateAIPromptCommand,
@@ -320,8 +391,12 @@ const commands = {
   CreateContentCommand,
   CreateContentAssociationCommand,
   CreateKnowledgeBaseCommand,
+  CreateMessageTemplateCommand,
+  CreateMessageTemplateAttachmentCommand,
+  CreateMessageTemplateVersionCommand,
   CreateQuickResponseCommand,
   CreateSessionCommand,
+  DeactivateMessageTemplateCommand,
   DeleteAIAgentCommand,
   DeleteAIAgentVersionCommand,
   DeleteAIPromptCommand,
@@ -332,6 +407,8 @@ const commands = {
   DeleteContentAssociationCommand,
   DeleteImportJobCommand,
   DeleteKnowledgeBaseCommand,
+  DeleteMessageTemplateCommand,
+  DeleteMessageTemplateAttachmentCommand,
   DeleteQuickResponseCommand,
   GetAIAgentCommand,
   GetAIPromptCommand,
@@ -342,6 +419,7 @@ const commands = {
   GetContentSummaryCommand,
   GetImportJobCommand,
   GetKnowledgeBaseCommand,
+  GetMessageTemplateCommand,
   GetQuickResponseCommand,
   GetRecommendationsCommand,
   GetSessionCommand,
@@ -355,6 +433,8 @@ const commands = {
   ListContentsCommand,
   ListImportJobsCommand,
   ListKnowledgeBasesCommand,
+  ListMessageTemplatesCommand,
+  ListMessageTemplateVersionsCommand,
   ListQuickResponsesCommand,
   ListTagsForResourceCommand,
   NotifyRecommendationsReceivedCommand,
@@ -362,7 +442,9 @@ const commands = {
   QueryAssistantCommand,
   RemoveAssistantAIAgentCommand,
   RemoveKnowledgeBaseTemplateUriCommand,
+  RenderMessageTemplateCommand,
   SearchContentCommand,
+  SearchMessageTemplatesCommand,
   SearchQuickResponsesCommand,
   SearchSessionsCommand,
   StartContentUploadCommand,
@@ -374,12 +456,31 @@ const commands = {
   UpdateAssistantAIAgentCommand,
   UpdateContentCommand,
   UpdateKnowledgeBaseTemplateUriCommand,
+  UpdateMessageTemplateCommand,
+  UpdateMessageTemplateMetadataCommand,
   UpdateQuickResponseCommand,
   UpdateSessionCommand,
   UpdateSessionDataCommand,
 };
 
 export interface QConnect {
+  /**
+   * @see {@link ActivateMessageTemplateCommand}
+   */
+  activateMessageTemplate(
+    args: ActivateMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ActivateMessageTemplateCommandOutput>;
+  activateMessageTemplate(
+    args: ActivateMessageTemplateCommandInput,
+    cb: (err: any, data?: ActivateMessageTemplateCommandOutput) => void
+  ): void;
+  activateMessageTemplate(
+    args: ActivateMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ActivateMessageTemplateCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateAIAgentCommand}
    */
@@ -516,6 +617,57 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link CreateMessageTemplateCommand}
+   */
+  createMessageTemplate(
+    args: CreateMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMessageTemplateCommandOutput>;
+  createMessageTemplate(
+    args: CreateMessageTemplateCommandInput,
+    cb: (err: any, data?: CreateMessageTemplateCommandOutput) => void
+  ): void;
+  createMessageTemplate(
+    args: CreateMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMessageTemplateAttachmentCommand}
+   */
+  createMessageTemplateAttachment(
+    args: CreateMessageTemplateAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMessageTemplateAttachmentCommandOutput>;
+  createMessageTemplateAttachment(
+    args: CreateMessageTemplateAttachmentCommandInput,
+    cb: (err: any, data?: CreateMessageTemplateAttachmentCommandOutput) => void
+  ): void;
+  createMessageTemplateAttachment(
+    args: CreateMessageTemplateAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMessageTemplateAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMessageTemplateVersionCommand}
+   */
+  createMessageTemplateVersion(
+    args: CreateMessageTemplateVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMessageTemplateVersionCommandOutput>;
+  createMessageTemplateVersion(
+    args: CreateMessageTemplateVersionCommandInput,
+    cb: (err: any, data?: CreateMessageTemplateVersionCommandOutput) => void
+  ): void;
+  createMessageTemplateVersion(
+    args: CreateMessageTemplateVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMessageTemplateVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateQuickResponseCommand}
    */
   createQuickResponse(
@@ -541,6 +693,23 @@ export interface QConnect {
     args: CreateSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeactivateMessageTemplateCommand}
+   */
+  deactivateMessageTemplate(
+    args: DeactivateMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeactivateMessageTemplateCommandOutput>;
+  deactivateMessageTemplate(
+    args: DeactivateMessageTemplateCommandInput,
+    cb: (err: any, data?: DeactivateMessageTemplateCommandOutput) => void
+  ): void;
+  deactivateMessageTemplate(
+    args: DeactivateMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeactivateMessageTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -693,6 +862,40 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link DeleteMessageTemplateCommand}
+   */
+  deleteMessageTemplate(
+    args: DeleteMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMessageTemplateCommandOutput>;
+  deleteMessageTemplate(
+    args: DeleteMessageTemplateCommandInput,
+    cb: (err: any, data?: DeleteMessageTemplateCommandOutput) => void
+  ): void;
+  deleteMessageTemplate(
+    args: DeleteMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMessageTemplateAttachmentCommand}
+   */
+  deleteMessageTemplateAttachment(
+    args: DeleteMessageTemplateAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMessageTemplateAttachmentCommandOutput>;
+  deleteMessageTemplateAttachment(
+    args: DeleteMessageTemplateAttachmentCommandInput,
+    cb: (err: any, data?: DeleteMessageTemplateAttachmentCommandOutput) => void
+  ): void;
+  deleteMessageTemplateAttachment(
+    args: DeleteMessageTemplateAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMessageTemplateAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteQuickResponseCommand}
    */
   deleteQuickResponse(
@@ -830,6 +1033,23 @@ export interface QConnect {
     args: GetKnowledgeBaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMessageTemplateCommand}
+   */
+  getMessageTemplate(
+    args: GetMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMessageTemplateCommandOutput>;
+  getMessageTemplate(
+    args: GetMessageTemplateCommandInput,
+    cb: (err: any, data?: GetMessageTemplateCommandOutput) => void
+  ): void;
+  getMessageTemplate(
+    args: GetMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMessageTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -1026,6 +1246,40 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link ListMessageTemplatesCommand}
+   */
+  listMessageTemplates(
+    args: ListMessageTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMessageTemplatesCommandOutput>;
+  listMessageTemplates(
+    args: ListMessageTemplatesCommandInput,
+    cb: (err: any, data?: ListMessageTemplatesCommandOutput) => void
+  ): void;
+  listMessageTemplates(
+    args: ListMessageTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMessageTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMessageTemplateVersionsCommand}
+   */
+  listMessageTemplateVersions(
+    args: ListMessageTemplateVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMessageTemplateVersionsCommandOutput>;
+  listMessageTemplateVersions(
+    args: ListMessageTemplateVersionsCommandInput,
+    cb: (err: any, data?: ListMessageTemplateVersionsCommandOutput) => void
+  ): void;
+  listMessageTemplateVersions(
+    args: ListMessageTemplateVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMessageTemplateVersionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListQuickResponsesCommand}
    */
   listQuickResponses(
@@ -1136,6 +1390,23 @@ export interface QConnect {
   ): void;
 
   /**
+   * @see {@link RenderMessageTemplateCommand}
+   */
+  renderMessageTemplate(
+    args: RenderMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RenderMessageTemplateCommandOutput>;
+  renderMessageTemplate(
+    args: RenderMessageTemplateCommandInput,
+    cb: (err: any, data?: RenderMessageTemplateCommandOutput) => void
+  ): void;
+  renderMessageTemplate(
+    args: RenderMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RenderMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchContentCommand}
    */
   searchContent(args: SearchContentCommandInput, options?: __HttpHandlerOptions): Promise<SearchContentCommandOutput>;
@@ -1144,6 +1415,23 @@ export interface QConnect {
     args: SearchContentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchMessageTemplatesCommand}
+   */
+  searchMessageTemplates(
+    args: SearchMessageTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchMessageTemplatesCommandOutput>;
+  searchMessageTemplates(
+    args: SearchMessageTemplatesCommandInput,
+    cb: (err: any, data?: SearchMessageTemplatesCommandOutput) => void
+  ): void;
+  searchMessageTemplates(
+    args: SearchMessageTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchMessageTemplatesCommandOutput) => void
   ): void;
 
   /**
@@ -1298,6 +1586,40 @@ export interface QConnect {
     args: UpdateKnowledgeBaseTemplateUriCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKnowledgeBaseTemplateUriCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMessageTemplateCommand}
+   */
+  updateMessageTemplate(
+    args: UpdateMessageTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMessageTemplateCommandOutput>;
+  updateMessageTemplate(
+    args: UpdateMessageTemplateCommandInput,
+    cb: (err: any, data?: UpdateMessageTemplateCommandOutput) => void
+  ): void;
+  updateMessageTemplate(
+    args: UpdateMessageTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMessageTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMessageTemplateMetadataCommand}
+   */
+  updateMessageTemplateMetadata(
+    args: UpdateMessageTemplateMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMessageTemplateMetadataCommandOutput>;
+  updateMessageTemplateMetadata(
+    args: UpdateMessageTemplateMetadataCommandInput,
+    cb: (err: any, data?: UpdateMessageTemplateMetadataCommandOutput) => void
+  ): void;
+  updateMessageTemplateMetadata(
+    args: UpdateMessageTemplateMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMessageTemplateMetadataCommandOutput) => void
   ): void;
 
   /**

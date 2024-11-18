@@ -238,6 +238,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+ActivateMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/ActivateMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ActivateMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ActivateMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateAIAgent
 </summary>
 
@@ -310,6 +318,30 @@ CreateKnowledgeBase
 </details>
 <details>
 <summary>
+CreateMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/CreateMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateMessageTemplateAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/CreateMessageTemplateAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateMessageTemplateAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateMessageTemplateAttachmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateMessageTemplateVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/CreateMessageTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateMessageTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateMessageTemplateVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateQuickResponse
 </summary>
 
@@ -322,6 +354,14 @@ CreateSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/CreateSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/CreateSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeactivateMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/DeactivateMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeactivateMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeactivateMessageTemplateCommandOutput/)
 
 </details>
 <details>
@@ -406,6 +446,22 @@ DeleteKnowledgeBase
 </details>
 <details>
 <summary>
+DeleteMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/DeleteMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeleteMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeleteMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteMessageTemplateAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/DeleteMessageTemplateAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeleteMessageTemplateAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/DeleteMessageTemplateAttachmentCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteQuickResponse
 </summary>
 
@@ -482,6 +538,14 @@ GetKnowledgeBase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/GetKnowledgeBaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetKnowledgeBaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetKnowledgeBaseCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/GetMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/GetMessageTemplateCommandOutput/)
 
 </details>
 <details>
@@ -590,6 +654,22 @@ ListKnowledgeBases
 </details>
 <details>
 <summary>
+ListMessageTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/ListMessageTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListMessageTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListMessageTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListMessageTemplateVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/ListMessageTemplateVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListMessageTemplateVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/ListMessageTemplateVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListQuickResponses
 </summary>
 
@@ -646,10 +726,26 @@ RemoveKnowledgeBaseTemplateUri
 </details>
 <details>
 <summary>
+RenderMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/RenderMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RenderMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/RenderMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 SearchContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/SearchContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/SearchContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/SearchContentCommandOutput/)
+
+</details>
+<details>
+<summary>
+SearchMessageTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/SearchMessageTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/SearchMessageTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/SearchMessageTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -738,6 +834,22 @@ UpdateKnowledgeBaseTemplateUri
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/UpdateKnowledgeBaseTemplateUriCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/UpdateKnowledgeBaseTemplateUriCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/UpdateKnowledgeBaseTemplateUriCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateMessageTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/UpdateMessageTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/UpdateMessageTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/UpdateMessageTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateMessageTemplateMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qconnect/command/UpdateMessageTemplateMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/UpdateMessageTemplateMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qconnect/Interface/UpdateMessageTemplateMetadataCommandOutput/)
 
 </details>
 <details>

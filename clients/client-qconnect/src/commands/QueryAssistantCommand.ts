@@ -5,12 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  QueryAssistantRequest,
-  QueryAssistantRequestFilterSensitiveLog,
-  QueryAssistantResponse,
-  QueryAssistantResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { QueryAssistantRequest, QueryAssistantRequestFilterSensitiveLog } from "../models/models_0";
+import { QueryAssistantResponse, QueryAssistantResponseFilterSensitiveLog } from "../models/models_1";
 import { de_QueryAssistantCommand, se_QueryAssistantCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

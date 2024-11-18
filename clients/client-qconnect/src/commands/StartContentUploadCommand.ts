@@ -9,7 +9,7 @@ import {
   StartContentUploadRequest,
   StartContentUploadResponse,
   StartContentUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 

@@ -24,6 +24,53 @@ export class AccessDeniedException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface ActivateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version to activate.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ActivateMessageTemplateResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version that is activated.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
  * <p>The request could not be processed because of conflict in the current state of the
  *       resource. For example, if you're using a <code>Create</code> API (such as
  *         <code>CreateAssistant</code>) that accepts name, a conflicting resource (usually with the
@@ -44,6 +91,92 @@ export class ConflictException extends __BaseException {
     });
     Object.setPrototypeOf(this, ConflictException.prototype);
   }
+}
+
+/**
+ * <p>The specified resource does not exist.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The specified resource name.</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceName = opts.resourceName;
+  }
+}
+
+/**
+ * <p>The throttling limit has been exceeded.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>The input fails to satisfy the constraints specified by a service.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * <p>Information about an agent.</p>
+ * @public
+ */
+export interface AgentAttributes {
+  /**
+   * <p>The agent’s first name as entered in their Amazon Connect user account.</p>
+   * @public
+   */
+  firstName?: string | undefined;
+
+  /**
+   * <p>The agent’s last name as entered in their Amazon Connect user account.</p>
+   * @public
+   */
+  lastName?: string | undefined;
 }
 
 /**
@@ -247,8 +380,8 @@ export type AssociationConfigurationData =
  */
 export namespace AssociationConfigurationData {
   /**
-   * <p>The data of the configuration for a <code>KNOWLEDGE_BASE</code> type Amazon Q in Connect Assistant
-   *       Association.</p>
+   * <p>The data of the configuration for a <code>KNOWLEDGE_BASE</code> type Amazon Q in Connect
+   *       Assistant Association.</p>
    * @public
    */
   export interface KnowledgeBaseAssociationConfigurationDataMember {
@@ -457,8 +590,9 @@ export type VisibilityStatus = (typeof VisibilityStatus)[keyof typeof Visibility
 export interface CreateAIAgentRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request. If not provided, the AWS SDK populates this field. For more information about
-   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -638,33 +772,6 @@ export interface CreateAIAgentResponse {
 }
 
 /**
- * <p>The specified resource does not exist.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The specified resource name.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
  * <p>You've exceeded your service quota. To perform the requested action, remove some of the
  *       relevant resources, or use service quotas to request a service quota increase.</p>
  * @public
@@ -682,47 +789,6 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The throttling limit has been exceeded.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-  }
-}
-
-/**
- * <p>The input fails to satisfy the constraints specified by a service.</p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
 
@@ -755,8 +821,9 @@ export interface CreateAIAgentVersionRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request. If not provided, the AWS SDK populates this field. For more information about
-   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1090,8 +1157,9 @@ export interface ListAIAgentVersionsResponse {
 export interface UpdateAIAgentRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request. If not provided, the AWS SDK populates this field. For more information about
-   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1256,8 +1324,9 @@ export type AIPromptType = (typeof AIPromptType)[keyof typeof AIPromptType];
 export interface CreateAIPromptRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request. If not provided, the AWS SDK populates this field. For more information about
-   *       idempotency, see <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1468,8 +1537,9 @@ export interface CreateAIPromptVersionRequest {
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request. If not provided, the AWS SDK populates this field. For more information about
-   *       idempotency, see <a href="http://aws.amazon.com/https:/aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -1814,8 +1884,9 @@ export interface ListAIPromptVersionsResponse {
 export interface UpdateAIPromptRequest {
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *       request. If not provided, the AWS SDK populates this field. For more information about
-   *       idempotency, see <a href="http://aws.amazon.com/https:/aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>..</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2031,7 +2102,7 @@ export interface CreateAssistantAssociationRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2335,7 +2406,7 @@ export interface CreateAssistantRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -2785,7 +2856,8 @@ export interface SourceContentDataDetails {
   rankingData: RankingData | undefined;
 
   /**
-   * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
+   * <p>Contains information about where the text with a citation begins and ends in the generated
+   *       output.</p>
    * @public
    */
   citationSpan?: CitationSpan | undefined;
@@ -3843,7 +3915,7 @@ export interface CreateSessionRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -4243,6 +4315,20 @@ export interface BedrockFoundationModelConfigurationForParsing {
  * @public
  * @enum
  */
+export const ChannelSubtype = {
+  EMAIL: "EMAIL",
+  SMS: "SMS",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelSubtype = (typeof ChannelSubtype)[keyof typeof ChannelSubtype];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChunkingStrategy = {
   FIXED_SIZE: "FIXED_SIZE",
   HIERARCHICAL: "HIERARCHICAL",
@@ -4485,7 +4571,7 @@ export interface CreateContentAssociationRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -4810,7 +4896,7 @@ export interface CreateContentRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -5232,6 +5318,19 @@ export interface UpdateContentResponse {
  * @public
  * @enum
  */
+export const ContentDisposition = {
+  ATTACHMENT: "ATTACHMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type ContentDisposition = (typeof ContentDisposition)[keyof typeof ContentDisposition];
+
+/**
+ * @public
+ * @enum
+ */
 export const KnowledgeBaseType = {
   CUSTOM: "CUSTOM",
   EXTERNAL: "EXTERNAL",
@@ -5533,7 +5632,7 @@ export interface CreateKnowledgeBaseRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -5553,8 +5652,8 @@ export interface CreateKnowledgeBaseRequest {
   knowledgeBaseType: KnowledgeBaseType | undefined;
 
   /**
-   * <p>The source of the knowledge base content. Only set this argument for EXTERNAL knowledge
-   *       bases.</p>
+   * <p>The source of the knowledge base content. Only set this argument for EXTERNAL or Managed
+   *       knowledge bases.</p>
    * @public
    */
   sourceConfiguration?: SourceConfiguration | undefined;
@@ -5739,6 +5838,1142 @@ export interface CreateKnowledgeBaseResponse {
 }
 
 /**
+ * <p>The container of the message template body.</p>
+ * @public
+ */
+export type MessageTemplateBodyContentProvider =
+  | MessageTemplateBodyContentProvider.ContentMember
+  | MessageTemplateBodyContentProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MessageTemplateBodyContentProvider {
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  export interface ContentMember {
+    content: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    content?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    content: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MessageTemplateBodyContentProvider, visitor: Visitor<T>): T => {
+    if (value.content !== undefined) return visitor.content(value.content);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The body to use in email messages.</p>
+ * @public
+ */
+export interface EmailMessageTemplateContentBody {
+  /**
+   * <p>The message body, in plain text format, to use in email messages that are based on the
+   *       message template. We recommend using plain text format for email clients that don't render
+   *       HTML content and clients that are connected to high-latency networks, such as mobile
+   *       devices.</p>
+   * @public
+   */
+  plainText?: MessageTemplateBodyContentProvider | undefined;
+
+  /**
+   * <p>The message body, in HTML format, to use in email messages that are based on the message
+   *       template. We recommend using HTML format for email clients that render HTML content. You can
+   *       include links, formatted text, and more in an HTML message.</p>
+   * @public
+   */
+  html?: MessageTemplateBodyContentProvider | undefined;
+}
+
+/**
+ * <p>The email header to include in email messages.</p>
+ * @public
+ */
+export interface EmailHeader {
+  /**
+   * <p>The name of the email header.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The value of the email header.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>The content of the message template that applies to the email channel subtype.</p>
+ * @public
+ */
+export interface EmailMessageTemplateContent {
+  /**
+   * <p>The subject line, or title, to use in email messages.</p>
+   * @public
+   */
+  subject?: string | undefined;
+
+  /**
+   * <p>The body to use in email messages.</p>
+   * @public
+   */
+  body?: EmailMessageTemplateContentBody | undefined;
+
+  /**
+   * <p>The email headers to include in email messages.</p>
+   * @public
+   */
+  headers?: EmailHeader[] | undefined;
+}
+
+/**
+ * <p>The body to use in SMS messages.</p>
+ * @public
+ */
+export interface SMSMessageTemplateContentBody {
+  /**
+   * <p>The message body to use in SMS messages.</p>
+   * @public
+   */
+  plainText?: MessageTemplateBodyContentProvider | undefined;
+}
+
+/**
+ * <p>The content of the message template that applies to the SMS channel subtype.</p>
+ * @public
+ */
+export interface SMSMessageTemplateContent {
+  /**
+   * <p>The body to use in SMS messages.</p>
+   * @public
+   */
+  body?: SMSMessageTemplateContentBody | undefined;
+}
+
+/**
+ * <p>The container of message template content.</p>
+ * @public
+ */
+export type MessageTemplateContentProvider =
+  | MessageTemplateContentProvider.EmailMember
+  | MessageTemplateContentProvider.SmsMember
+  | MessageTemplateContentProvider.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace MessageTemplateContentProvider {
+  /**
+   * <p>The content of the message template that applies to the email channel subtype.</p>
+   * @public
+   */
+  export interface EmailMember {
+    email: EmailMessageTemplateContent;
+    sms?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The content of the message template that applies to the SMS channel subtype.</p>
+   * @public
+   */
+  export interface SmsMember {
+    email?: never;
+    sms: SMSMessageTemplateContent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    email?: never;
+    sms?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    email: (value: EmailMessageTemplateContent) => T;
+    sms: (value: SMSMessageTemplateContent) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: MessageTemplateContentProvider, visitor: Visitor<T>): T => {
+    if (value.email !== undefined) return visitor.email(value.email);
+    if (value.sms !== undefined) return visitor.sms(value.sms);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The customer profile attributes that are used with the message template.</p>
+ * @public
+ */
+export interface CustomerProfileAttributes {
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   * @public
+   */
+  profileId?: string | undefined;
+
+  /**
+   * <p>The ARN of a customer profile.</p>
+   * @public
+   */
+  profileARN?: string | undefined;
+
+  /**
+   * <p>The customer's first name.</p>
+   * @public
+   */
+  firstName?: string | undefined;
+
+  /**
+   * <p>The customer's middle name.</p>
+   * @public
+   */
+  middleName?: string | undefined;
+
+  /**
+   * <p>The customer's last name.</p>
+   * @public
+   */
+  lastName?: string | undefined;
+
+  /**
+   * <p>A unique account number that you have given to the customer.</p>
+   * @public
+   */
+  accountNumber?: string | undefined;
+
+  /**
+   * <p>The customer's email address, which has not been specified as a personal or business
+   *       address.</p>
+   * @public
+   */
+  emailAddress?: string | undefined;
+
+  /**
+   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
+   *       number.</p>
+   * @public
+   */
+  phoneNumber?: string | undefined;
+
+  /**
+   * <p>Any additional information relevant to the customer's profile.</p>
+   * @public
+   */
+  additionalInformation?: string | undefined;
+
+  /**
+   * <p>The customer's party type.</p>
+   * @public
+   */
+  partyType?: string | undefined;
+
+  /**
+   * <p>The name of the customer's business.</p>
+   * @public
+   */
+  businessName?: string | undefined;
+
+  /**
+   * <p>The customer's birth date.</p>
+   * @public
+   */
+  birthDate?: string | undefined;
+
+  /**
+   * <p>The customer's gender.</p>
+   * @public
+   */
+  gender?: string | undefined;
+
+  /**
+   * <p>The customer's mobile phone number.</p>
+   * @public
+   */
+  mobilePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer's mobile phone number.</p>
+   * @public
+   */
+  homePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer's business phone number.</p>
+   * @public
+   */
+  businessPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer's business email address.</p>
+   * @public
+   */
+  businessEmailAddress?: string | undefined;
+
+  /**
+   * <p>The first line of a customer address.</p>
+   * @public
+   */
+  address1?: string | undefined;
+
+  /**
+   * <p>The second line of a customer address.</p>
+   * @public
+   */
+  address2?: string | undefined;
+
+  /**
+   * <p>The third line of a customer address.</p>
+   * @public
+   */
+  address3?: string | undefined;
+
+  /**
+   * <p>The fourth line of a customer address.</p>
+   * @public
+   */
+  address4?: string | undefined;
+
+  /**
+   * <p>The city in which a customer lives.</p>
+   * @public
+   */
+  city?: string | undefined;
+
+  /**
+   * <p>The county in which a customer lives.</p>
+   * @public
+   */
+  county?: string | undefined;
+
+  /**
+   * <p>The country in which a customer lives.</p>
+   * @public
+   */
+  country?: string | undefined;
+
+  /**
+   * <p>The postal code of a customer address.</p>
+   * @public
+   */
+  postalCode?: string | undefined;
+
+  /**
+   * <p>The province in which a customer lives.</p>
+   * @public
+   */
+  province?: string | undefined;
+
+  /**
+   * <p>The state in which a customer lives.</p>
+   * @public
+   */
+  state?: string | undefined;
+
+  /**
+   * <p>The first line of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingAddress1?: string | undefined;
+
+  /**
+   * <p>The second line of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingAddress2?: string | undefined;
+
+  /**
+   * <p>The third line of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingAddress3?: string | undefined;
+
+  /**
+   * <p>The fourth line of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingAddress4?: string | undefined;
+
+  /**
+   * <p>The city of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingCity?: string | undefined;
+
+  /**
+   * <p>The county of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingCounty?: string | undefined;
+
+  /**
+   * <p>The country of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingCountry?: string | undefined;
+
+  /**
+   * <p>The postal code of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingPostalCode?: string | undefined;
+
+  /**
+   * <p>The province of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingProvince?: string | undefined;
+
+  /**
+   * <p>The state of a customer’s shipping address.</p>
+   * @public
+   */
+  shippingState?: string | undefined;
+
+  /**
+   * <p>The first line of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingAddress1?: string | undefined;
+
+  /**
+   * <p>The second line of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingAddress2?: string | undefined;
+
+  /**
+   * <p>The third line of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingAddress3?: string | undefined;
+
+  /**
+   * <p>The fourth line of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingAddress4?: string | undefined;
+
+  /**
+   * <p>The city of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingCity?: string | undefined;
+
+  /**
+   * <p>The county of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingCounty?: string | undefined;
+
+  /**
+   * <p>The country of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingCountry?: string | undefined;
+
+  /**
+   * <p>The postal code of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingPostalCode?: string | undefined;
+
+  /**
+   * <p>The province of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingProvince?: string | undefined;
+
+  /**
+   * <p>The state of a customer’s mailing address.</p>
+   * @public
+   */
+  mailingState?: string | undefined;
+
+  /**
+   * <p>The first line of a customer’s billing address.</p>
+   * @public
+   */
+  billingAddress1?: string | undefined;
+
+  /**
+   * <p>The second line of a customer’s billing address.</p>
+   * @public
+   */
+  billingAddress2?: string | undefined;
+
+  /**
+   * <p>The third line of a customer’s billing address.</p>
+   * @public
+   */
+  billingAddress3?: string | undefined;
+
+  /**
+   * <p>The fourth line of a customer’s billing address.</p>
+   * @public
+   */
+  billingAddress4?: string | undefined;
+
+  /**
+   * <p>The city of a customer’s billing address.</p>
+   * @public
+   */
+  billingCity?: string | undefined;
+
+  /**
+   * <p>The county of a customer’s billing address.</p>
+   * @public
+   */
+  billingCounty?: string | undefined;
+
+  /**
+   * <p>The country of a customer’s billing address.</p>
+   * @public
+   */
+  billingCountry?: string | undefined;
+
+  /**
+   * <p>The postal code of a customer’s billing address.</p>
+   * @public
+   */
+  billingPostalCode?: string | undefined;
+
+  /**
+   * <p>The province of a customer’s billing address.</p>
+   * @public
+   */
+  billingProvince?: string | undefined;
+
+  /**
+   * <p>The state of a customer’s billing address.</p>
+   * @public
+   */
+  billingState?: string | undefined;
+
+  /**
+   * <p>The custom attributes in customer profile attributes.</p>
+   * @public
+   */
+  custom?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The system endpoint attributes that are used with the message template.</p>
+ * @public
+ */
+export interface SystemEndpointAttributes {
+  /**
+   * <p>The customer's phone number if used with <code>customerEndpoint</code>, or the number the customer
+   *       dialed to call your contact center if used with <code>systemEndpoint</code>.</p>
+   * @public
+   */
+  address?: string | undefined;
+}
+
+/**
+ * <p>The system attributes that are used with the message template.</p>
+ * @public
+ */
+export interface SystemAttributes {
+  /**
+   * <p>The name of the task.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The CustomerEndpoint attribute.</p>
+   * @public
+   */
+  customerEndpoint?: SystemEndpointAttributes | undefined;
+
+  /**
+   * <p>The SystemEndpoint attribute.</p>
+   * @public
+   */
+  systemEndpoint?: SystemEndpointAttributes | undefined;
+}
+
+/**
+ * <p>The attributes that are used with the message template.</p>
+ * @public
+ */
+export interface MessageTemplateAttributes {
+  /**
+   * <p>The system attributes that are used with the message template.</p>
+   * @public
+   */
+  systemAttributes?: SystemAttributes | undefined;
+
+  /**
+   * <p>The agent attributes that are used with the message template.</p>
+   * @public
+   */
+  agentAttributes?: AgentAttributes | undefined;
+
+  /**
+   * <p>The customer profile attributes that are used with the message template.</p>
+   * @public
+   */
+  customerProfileAttributes?: CustomerProfileAttributes | undefined;
+
+  /**
+   * <p>The custom attributes that are used with the message template.</p>
+   * @public
+   */
+  customAttributes?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+ * @public
+ */
+export interface GroupingConfiguration {
+  /**
+   * <p>The criteria used for grouping Amazon Q in Connect users.</p>
+   *          <p>The following is the list of supported criteria values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RoutingProfileArn</code>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
+   *             Connect routing profile ARN</a>. User should have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfile</a> and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a> permissions when setting criteria to this value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  criteria?: string | undefined;
+
+  /**
+   * <p>The list of values that define different groups of Amazon Q in Connect users.</p>
+   *          <ul>
+   *             <li>
+   *                <p>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to
+   *           provide a list of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing
+   *             profiles</a> as values of this parameter.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template.
+   *       This object contains different categories of key-value pairs. Each key defines a variable or
+   *       placeholder in the message template. The corresponding value defines the default value for
+   *       that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageTemplateAttributeType = {
+  AGENT: "AGENT",
+  CUSTOM: "CUSTOM",
+  CUSTOMER_PROFILE: "CUSTOMER_PROFILE",
+  SYSTEM: "SYSTEM",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageTemplateAttributeType =
+  (typeof MessageTemplateAttributeType)[keyof typeof MessageTemplateAttributeType];
+
+/**
+ * <p>The data of a message template.</p>
+ * @public
+ */
+export interface MessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template
+   *       data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template.
+   *       This object contains different categories of key-value pairs. Each key defines a variable or
+   *       placeholder in the message template. The corresponding value defines the default value for
+   *       that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes that the message template contains.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the
+   *         <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or
+   *         <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language,
+   *         <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The body of the attachment file being uploaded. It should be encoded using base64
+   *       encoding.</p>
+   * @public
+   */
+  body: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Information about the message template attachment.</p>
+ * @public
+ */
+export interface MessageTemplateAttachment {
+  /**
+   * <p>The presentation information for the attachment file.</p>
+   * @public
+   */
+  contentDisposition: ContentDisposition | undefined;
+
+  /**
+   * <p>The name of the attachment file being uploaded. The name should include the file extension.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The timestamp when the attachment file was uploaded.</p>
+   * @public
+   */
+  uploadedTime: Date | undefined;
+
+  /**
+   * <p>A pre-signed Amazon S3 URL that can be used to download the attachment file.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>The expiration time of the pre-signed Amazon S3 URL.</p>
+   * @public
+   */
+  urlExpiry: Date | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateAttachmentResponse {
+  /**
+   * <p>The message template attachment.</p>
+   * @public
+   */
+  attachment?: MessageTemplateAttachment | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the
+   *         <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or
+   *         <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language,
+   *         <code>defaultAttributes</code> and <code>Attachments</code> of the message template. If not
+   *       supplied, the message template version will be created based on the message template content
+   *       that is referenced by the <code>$LATEST</code> qualifier by default.</p>
+   * @public
+   */
+  messageTemplateContentSha256?: string | undefined;
+}
+
+/**
+ * <p>The extended data of a message template.</p>
+ * @public
+ */
+export interface ExtendedMessageTemplateData {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template
+   *       data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template.
+   *       This object contains different categories of key-value pairs. Each key defines a variable or
+   *       placeholder in the message template. The corresponding value defines the default value for
+   *       that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+
+  /**
+   * <p>The types of attributes contain the message template.</p>
+   * @public
+   */
+  attributeTypes?: MessageTemplateAttributeType[] | undefined;
+
+  /**
+   * <p>The message template attachments.</p>
+   * @public
+   */
+  attachments?: MessageTemplateAttachment[] | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive?: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber?: number | undefined;
+
+  /**
+   * <p>The checksum value of the message template content that is referenced by the
+   *         <code>$LATEST</code> qualifier. It can be returned in <code>MessageTemplateData</code> or
+   *         <code>ExtendedMessageTemplateData</code>. It’s calculated by content, language,
+   *         <code>defaultAttributes</code> and <code>Attachments</code> of the message template.</p>
+   * @public
+   */
+  messageTemplateContentSha256: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMessageTemplateVersionResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
+}
+
+/**
  * <p>The container of quick response data.</p>
  * @public
  */
@@ -5776,39 +7011,6 @@ export namespace QuickResponseDataProvider {
     if (value.content !== undefined) return visitor.content(value.content);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
- * @public
- */
-export interface GroupingConfiguration {
-  /**
-   * <p>The criteria used for grouping Amazon Q in Connect users.</p>
-   *          <p>The following is the list of supported criteria values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>RoutingProfileArn</code>: Grouping the users by their <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon
-   *             Connect routing profile ARN</a>. User should have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchRoutingProfiles.html">SearchRoutingProfile</a> and <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeRoutingProfile.html">DescribeRoutingProfile</a> permissions when setting criteria to this value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  criteria?: string | undefined;
-
-  /**
-   * <p>The list of values that define different groups of Amazon Q in Connect users.</p>
-   *          <ul>
-   *             <li>
-   *                <p>When setting <code>criteria</code> to <code>RoutingProfileArn</code>, you need to
-   *           provide a list of ARNs of <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_RoutingProfile.html">Amazon Connect routing
-   *             profiles</a> as values of this parameter.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  values?: string[] | undefined;
 }
 
 /**
@@ -5894,7 +7096,7 @@ export interface CreateQuickResponseRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *             <a href="http://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   clientToken?: string | undefined;
@@ -6100,7 +7302,10 @@ export interface QuickResponseData {
   channels?: string[] | undefined;
 
   /**
-   * <p>The language code value for the language in which the quick response is written.</p>
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
    * @public
    */
   language?: string | undefined;
@@ -6121,6 +7326,53 @@ export interface CreateQuickResponseResponse {
    * @public
    */
   quickResponse?: QuickResponseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version to deactivate.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeactivateMessageTemplateResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The version number of the message template version that has been deactivated.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
 }
 
 /**
@@ -6160,6 +7412,58 @@ export interface DeleteKnowledgeBaseRequest {
  * @public
  */
 export interface DeleteKnowledgeBaseResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the attachment file.</p>
+   * @public
+   */
+  attachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteMessageTemplateAttachmentResponse {}
 
 /**
  * @public
@@ -6377,6 +7681,35 @@ export interface GetKnowledgeBaseResponse {
    * @public
    */
   knowledgeBase?: KnowledgeBaseData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateRequest {
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: ExtendedMessageTemplateData | undefined;
 }
 
 /**
@@ -6627,6 +7960,379 @@ export interface ListKnowledgeBasesResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * <p>The summary of the message template.</p>
+ * @public
+ */
+export interface MessageTemplateSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>The timestamp when the message template was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the message template data was last modified.</p>
+   * @public
+   */
+  lastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the message template
+   *       data.</p>
+   * @public
+   */
+  lastModifiedBy: string | undefined;
+
+  /**
+   * <p>The version number of the message template version that is activated.</p>
+   * @public
+   */
+  activeVersionNumber?: number | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplatesResponse {
+  /**
+   * <p>Summary information about the message template.</p>
+   * @public
+   */
+  messageTemplateSummaries: MessageTemplateSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the message template version.</p>
+ * @public
+ */
+export interface MessageTemplateVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the message template.</p>
+   * @public
+   */
+  messageTemplateArn: string | undefined;
+
+  /**
+   * <p>The identifier of the message template.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The channel subtype this message template applies to.</p>
+   * @public
+   */
+  channelSubtype: ChannelSubtype | undefined;
+
+  /**
+   * <p>Whether the version of the message template is activated.</p>
+   * @public
+   */
+  isActive: boolean | undefined;
+
+  /**
+   * <p>The version number of the message template version.</p>
+   * @public
+   */
+  versionNumber: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMessageTemplateVersionsResponse {
+  /**
+   * <p>Summary information about the versions of a message template.</p>
+   * @public
+   */
+  messageTemplateVersionSummaries: MessageTemplateVersionSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>An object that specifies the values to use for variables in the message template. This
+   *       object contains different categories of key-value pairs. Each key defines a variable or
+   *       placeholder in the message template. The corresponding value defines the value for that
+   *       variable.</p>
+   * @public
+   */
+  attributes: MessageTemplateAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RenderMessageTemplateResponse {
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The attribute keys that are not resolved.</p>
+   * @public
+   */
+  attributesNotInterpolated?: string[] | undefined;
+
+  /**
+   * <p>The message template attachments.</p>
+   * @public
+   */
+  attachments?: MessageTemplateAttachment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The content of the message template.</p>
+   * @public
+   */
+  content?: MessageTemplateContentProvider | undefined;
+
+  /**
+   * <p>The language code value for the language in which the quick response is written. The supported language codes include <code>de_DE</code>, <code>en_US</code>, <code>es_ES</code>,
+   *   <code>fr_FR</code>, <code>id_ID</code>, <code>it_IT</code>, <code>ja_JP</code>, <code>ko_KR</code>, <code>pt_BR</code>,
+   *   <code>zh_CN</code>, <code>zh_TW</code>
+   *          </p>
+   * @public
+   */
+  language?: string | undefined;
+
+  /**
+   * <p>An object that specifies the default values to use for variables in the message template.
+   *       This object contains different categories of key-value pairs. Each key defines a variable or
+   *       placeholder in the message template. The corresponding value defines the default value for
+   *       that variable.</p>
+   * @public
+   */
+  defaultAttributes?: MessageTemplateAttributes | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateMetadataRequest {
+  /**
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *       the ARN.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The identifier of the message template. Can be either the ID or the ARN. It cannot contain any qualifier.</p>
+   * @public
+   */
+  messageTemplateId: string | undefined;
+
+  /**
+   * <p>The name of the message template.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the message template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The configuration information of the grouping of Amazon Q in Connect users.</p>
+   * @public
+   */
+  groupingConfiguration?: GroupingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMessageTemplateMetadataResponse {
+  /**
+   * <p>The message template.</p>
+   * @public
+   */
+  messageTemplate?: MessageTemplateData | undefined;
 }
 
 /**
@@ -6900,997 +8606,13 @@ export interface RemoveKnowledgeBaseTemplateUriRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface RemoveKnowledgeBaseTemplateUriResponse {}
-
-/**
- * @public
- */
-export interface SearchContentRequest {
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The search expression to filter results.</p>
-   * @public
-   */
-  searchExpression: SearchExpression | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchContentResponse {
-  /**
-   * <p>Summary information about the content.</p>
-   * @public
-   */
-  contentSummaries: ContentSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const QuickResponseFilterOperator = {
-  EQUALS: "EQUALS",
-  PREFIX: "PREFIX",
-} as const;
-
-/**
- * @public
- */
-export type QuickResponseFilterOperator =
-  (typeof QuickResponseFilterOperator)[keyof typeof QuickResponseFilterOperator];
-
-/**
- * <p>The quick response fields to filter the quick response query results by.</p>
- *          <p>The following is the list of supported field names.</p>
- *          <ul>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>shortcutKey</p>
- *             </li>
- *             <li>
- *                <p>isActive</p>
- *             </li>
- *             <li>
- *                <p>channels</p>
- *             </li>
- *             <li>
- *                <p>language</p>
- *             </li>
- *             <li>
- *                <p>contentType</p>
- *             </li>
- *             <li>
- *                <p>createdTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedBy</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.criteria</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.values</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface QuickResponseFilterField {
-  /**
-   * <p>The name of the attribute field to filter the quick responses by.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The values of attribute field to filter the quick response by.</p>
-   * @public
-   */
-  values?: string[] | undefined;
-
-  /**
-   * <p>The operator to use for filtering.</p>
-   * @public
-   */
-  operator: QuickResponseFilterOperator | undefined;
-
-  /**
-   * <p>Whether to treat null value as a match for the attribute field.</p>
-   * @public
-   */
-  includeNoExistence?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const Order = {
-  ASC: "ASC",
-  DESC: "DESC",
-} as const;
-
-/**
- * @public
- */
-export type Order = (typeof Order)[keyof typeof Order];
-
-/**
- * <p>The quick response fields to order the quick response query results by.</p>
- *          <p>The following is the list of supported field names.</p>
- *          <ul>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>shortcutKey</p>
- *             </li>
- *             <li>
- *                <p>isActive</p>
- *             </li>
- *             <li>
- *                <p>channels</p>
- *             </li>
- *             <li>
- *                <p>language</p>
- *             </li>
- *             <li>
- *                <p>contentType</p>
- *             </li>
- *             <li>
- *                <p>createdTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedTime</p>
- *             </li>
- *             <li>
- *                <p>lastModifiedBy</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.criteria</p>
- *             </li>
- *             <li>
- *                <p>groupingConfiguration.values</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface QuickResponseOrderField {
-  /**
-   * <p>The name of the attribute to order the quick response query results by.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The order at which the quick responses are sorted by.</p>
-   * @public
-   */
-  order?: Order | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const QuickResponseQueryOperator = {
-  CONTAINS: "CONTAINS",
-  CONTAINS_AND_PREFIX: "CONTAINS_AND_PREFIX",
-} as const;
-
-/**
- * @public
- */
-export type QuickResponseQueryOperator = (typeof QuickResponseQueryOperator)[keyof typeof QuickResponseQueryOperator];
-
-/**
- * @public
- * @enum
- */
-export const Priority = {
-  HIGH: "HIGH",
-  LOW: "LOW",
-  MEDIUM: "MEDIUM",
-} as const;
-
-/**
- * @public
- */
-export type Priority = (typeof Priority)[keyof typeof Priority];
-
-/**
- * <p>The quick response fields to query quick responses by.</p>
- *          <p>The following is the list of supported field names.</p>
- *          <ul>
- *             <li>
- *                <p>content</p>
- *             </li>
- *             <li>
- *                <p>name</p>
- *             </li>
- *             <li>
- *                <p>description</p>
- *             </li>
- *             <li>
- *                <p>shortcutKey</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface QuickResponseQueryField {
-  /**
-   * <p>The name of the attribute to query the quick responses by.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The values of the attribute to query the quick responses by.</p>
-   * @public
-   */
-  values: string[] | undefined;
-
-  /**
-   * <p>The operator to use for matching attribute field values in the query.</p>
-   * @public
-   */
-  operator: QuickResponseQueryOperator | undefined;
-
-  /**
-   * <p>Whether the query expects only exact matches on the attribute field values. The results of
-   *       the query will only include exact matches if this parameter is set to false.</p>
-   * @public
-   */
-  allowFuzziness?: boolean | undefined;
-
-  /**
-   * <p>The importance of the attribute field when calculating query result relevancy scores. The
-   *       value set for this parameter affects the ordering of search results.</p>
-   * @public
-   */
-  priority?: Priority | undefined;
-}
-
-/**
- * <p>Information about the import job.</p>
- * @public
- */
-export interface QuickResponseSearchExpression {
-  /**
-   * <p>The quick response query expressions.</p>
-   * @public
-   */
-  queries?: QuickResponseQueryField[] | undefined;
-
-  /**
-   * <p>The configuration of filtering rules applied to quick response query results.</p>
-   * @public
-   */
-  filters?: QuickResponseFilterField[] | undefined;
-
-  /**
-   * <p>The quick response attribute fields on which the query results are ordered.</p>
-   * @public
-   */
-  orderOnField?: QuickResponseOrderField | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchQuickResponsesRequest {
-  /**
-   * <p>The identifier of the knowledge base. This should be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The search expression for querying the quick response.</p>
-   * @public
-   */
-  searchExpression: QuickResponseSearchExpression | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-attrib-list.html#user-defined-attributes">user-defined Amazon Connect contact attributes</a> to be resolved when search
-   *       results are returned.</p>
-   * @public
-   */
-  attributes?: Record<string, string> | undefined;
-}
-
-/**
- * <p>The result of quick response search.</p>
- * @public
- */
-export interface QuickResponseSearchResultData {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the quick response.</p>
-   * @public
-   */
-  quickResponseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the quick response.</p>
-   * @public
-   */
-  quickResponseId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
-   * @public
-   */
-  knowledgeBaseArn: string | undefined;
-
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The name of the quick response.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The media type of the quick response content.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=plain</code> for quick response written
-   *           in plain text.</p>
-   *             </li>
-   *             <li>
-   *                <p>Use <code>application/x.quickresponse;format=markdown</code> for quick response
-   *           written in richtext.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  contentType: string | undefined;
-
-  /**
-   * <p>The resource status of the quick response.</p>
-   * @public
-   */
-  status: QuickResponseStatus | undefined;
-
-  /**
-   * <p>The contents of the quick response.</p>
-   * @public
-   */
-  contents: QuickResponseContents | undefined;
-
-  /**
-   * <p>The timestamp when the quick response was created.</p>
-   * @public
-   */
-  createdTime: Date | undefined;
-
-  /**
-   * <p>The timestamp when the quick response search result data was last modified.</p>
-   * @public
-   */
-  lastModifiedTime: Date | undefined;
-
-  /**
-   * <p>Whether the quick response is active.</p>
-   * @public
-   */
-  isActive: boolean | undefined;
-
-  /**
-   * <p>The description of the quick response.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The configuration information of the user groups that the quick response is accessible
-   *       to.</p>
-   * @public
-   */
-  groupingConfiguration?: GroupingConfiguration | undefined;
-
-  /**
-   * <p>The shortcut key of the quick response. The value should be unique across the
-   *   knowledge base.</p>
-   * @public
-   */
-  shortcutKey?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the quick response search
-   *       result data.</p>
-   * @public
-   */
-  lastModifiedBy?: string | undefined;
-
-  /**
-   * <p>The Amazon Connect contact channels this quick response applies to.
-   *       The supported contact channel types include <code>Chat</code>.</p>
-   * @public
-   */
-  channels?: string[] | undefined;
-
-  /**
-   * <p>The language code value for the language in which the quick response is written.</p>
-   * @public
-   */
-  language?: string | undefined;
-
-  /**
-   * <p>The user defined contact attributes that are not resolved when the search result is
-   *       returned.</p>
-   * @public
-   */
-  attributesNotInterpolated?: string[] | undefined;
-
-  /**
-   * <p>The user defined contact attributes that are resolved when the search result is
-   *       returned.</p>
-   * @public
-   */
-  attributesInterpolated?: string[] | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchQuickResponsesResponse {
-  /**
-   * <p>The results of the quick response search.</p>
-   * @public
-   */
-  results: QuickResponseSearchResultData[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartContentUploadRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The type of content to upload.</p>
-   * @public
-   */
-  contentType: string | undefined;
-
-  /**
-   * <p>The expected expiration time of the generated presigned URL, specified in minutes.</p>
-   * @public
-   */
-  presignedUrlTimeToLive?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface StartContentUploadResponse {
-  /**
-   * <p>The identifier of the upload.</p>
-   * @public
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The URL of the upload.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>The expiration time of the URL as an epoch timestamp.</p>
-   * @public
-   */
-  urlExpiry: Date | undefined;
-
-  /**
-   * <p>The headers to include in the upload.</p>
-   * @public
-   */
-  headersToInclude: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface StartImportJobRequest {
-  /**
-   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For importing Amazon Q in Connect quick responses, this should be a <code>QUICK_RESPONSES</code>
-   *           type knowledge base.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The type of the import job.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For importing quick response resource, set the value to
-   *           <code>QUICK_RESPONSES</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  importJobType: ImportJobType | undefined;
-
-  /**
-   * <p>A pointer to the uploaded asset. This value is returned by <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_StartContentUpload.html">StartContentUpload</a>.</p>
-   * @public
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The metadata fields of the imported Amazon Q in Connect resources.</p>
-   * @public
-   */
-  metadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The configuration information of the external source that the resource data are imported
-   *       from.</p>
-   * @public
-   */
-  externalSourceConfiguration?: ExternalSourceConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface StartImportJobResponse {
-  /**
-   * <p>The import job.</p>
-   * @public
-   */
-  importJob?: ImportJobData | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateKnowledgeBaseTemplateUriRequest {
-  /**
-   * <p>The identifier of the knowledge base. This should not be a QUICK_RESPONSES type knowledge base. Can be either the ID or the ARN. URLs cannot contain the ARN.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-
-  /**
-   * <p>The template URI to update.</p>
-   * @public
-   */
-  templateUri: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateKnowledgeBaseTemplateUriResponse {
-  /**
-   * <p>The knowledge base to update.</p>
-   * @public
-   */
-  knowledgeBase?: KnowledgeBaseData | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * <p>Amazon Q in Connect throws this exception if you have too many tags in your tag set.</p>
- * @public
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The specified resource name.</p>
-   * @public
-   */
-  resourceName?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The tag keys.</p>
-   * @public
-   */
-  tagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceResponse {}
-
-/**
- * <p>Details about the data.</p>
- * @public
- */
-export type DataDetails =
-  | DataDetails.ContentDataMember
-  | DataDetails.GenerativeDataMember
-  | DataDetails.IntentDetectedDataMember
-  | DataDetails.SourceContentDataMember
-  | DataDetails.$UnknownMember;
-
-/**
- * @public
- */
-export namespace DataDetails {
-  /**
-   * <p>Details about the content data.</p>
-   * @public
-   */
-  export interface ContentDataMember {
-    contentData: ContentDataDetails;
-    generativeData?: never;
-    intentDetectedData?: never;
-    sourceContentData?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p> Details about the generative data.</p>
-   * @public
-   */
-  export interface GenerativeDataMember {
-    contentData?: never;
-    generativeData: GenerativeDataDetails;
-    intentDetectedData?: never;
-    sourceContentData?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Details about the intent data.</p>
-   * @public
-   */
-  export interface IntentDetectedDataMember {
-    contentData?: never;
-    generativeData?: never;
-    intentDetectedData: IntentDetectedDataDetails;
-    sourceContentData?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Details about the content data.</p>
-   * @public
-   */
-  export interface SourceContentDataMember {
-    contentData?: never;
-    generativeData?: never;
-    intentDetectedData?: never;
-    sourceContentData: SourceContentDataDetails;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    contentData?: never;
-    generativeData?: never;
-    intentDetectedData?: never;
-    sourceContentData?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    contentData: (value: ContentDataDetails) => T;
-    generativeData: (value: GenerativeDataDetails) => T;
-    intentDetectedData: (value: IntentDetectedDataDetails) => T;
-    sourceContentData: (value: SourceContentDataDetails) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: DataDetails, visitor: Visitor<T>): T => {
-    if (value.contentData !== undefined) return visitor.contentData(value.contentData);
-    if (value.generativeData !== undefined) return visitor.generativeData(value.generativeData);
-    if (value.intentDetectedData !== undefined) return visitor.intentDetectedData(value.intentDetectedData);
-    if (value.sourceContentData !== undefined) return visitor.sourceContentData(value.sourceContentData);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
-}
-
-/**
- * <p>Summary of the data.</p>
- * @public
- */
-export interface DataSummary {
-  /**
-   * <p>Reference information about the content.</p>
-   * @public
-   */
-  reference: DataReference | undefined;
-
-  /**
-   * <p>Details about the data.</p>
-   * @public
-   */
-  details: DataDetails | undefined;
-}
-
-/**
- * <p>Details about generative data.</p>
- * @public
- */
-export interface GenerativeDataDetails {
-  /**
-   * <p>The LLM response.</p>
-   * @public
-   */
-  completion: string | undefined;
-
-  /**
-   * <p>The references used to generative the LLM response.</p>
-   * @public
-   */
-  references: DataSummary[] | undefined;
-
-  /**
-   * <p>Details about the generative content ranking data.</p>
-   * @public
-   */
-  rankingData: RankingData | undefined;
-}
-
-/**
- * <p>Information about the recommendation.</p>
- * @public
- */
-export interface RecommendationData {
-  /**
-   * <p>The identifier of the recommendation.</p>
-   * @public
-   */
-  recommendationId: string | undefined;
-
-  /**
-   * <p>The recommended document.</p>
-   * @public
-   */
-  document?: Document | undefined;
-
-  /**
-   * <p>The relevance score of the recommendation.</p>
-   * @public
-   */
-  relevanceScore?: number | undefined;
-
-  /**
-   * <p>The relevance level of the recommendation.</p>
-   * @public
-   */
-  relevanceLevel?: RelevanceLevel | undefined;
-
-  /**
-   * <p>The type of recommendation.</p>
-   * @public
-   */
-  type?: RecommendationType | undefined;
-
-  /**
-   * <p> Summary of the recommended content.</p>
-   * @public
-   */
-  data?: DataSummary | undefined;
-}
-
-/**
- * <p>Information about the result.</p>
- * @public
- */
-export interface ResultData {
-  /**
-   * <p>The identifier of the result data.</p>
-   * @public
-   */
-  resultId: string | undefined;
-
-  /**
-   * <p>The document.</p>
-   * @public
-   */
-  document?: Document | undefined;
-
-  /**
-   * <p>The relevance score of the results.</p>
-   * @public
-   */
-  relevanceScore?: number | undefined;
-
-  /**
-   * <p> Summary of the recommended content.</p>
-   * @public
-   */
-  data?: DataSummary | undefined;
-
-  /**
-   * <p>The type of the query result.</p>
-   * @public
-   */
-  type?: QueryResultType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRecommendationsResponse {
-  /**
-   * <p>The recommendations.</p>
-   * @public
-   */
-  recommendations: RecommendationData[] | undefined;
-
-  /**
-   * <p>The triggers corresponding to recommendations.</p>
-   * @public
-   */
-  triggers?: RecommendationTrigger[] | undefined;
-}
-
-/**
- * @public
- */
-export interface QueryAssistantResponse {
-  /**
-   * <p>The results of the query.</p>
-   * @public
-   */
-  results: ResultData[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
+export const AgentAttributesFilterSensitiveLog = (obj: AgentAttributes): any => ({
+  ...obj,
+  ...(obj.firstName && { firstName: SENSITIVE_STRING }),
+  ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -8203,10 +8925,158 @@ export const CreateKnowledgeBaseResponseFilterSensitiveLog = (obj: CreateKnowled
 /**
  * @internal
  */
-export const QuickResponseDataProviderFilterSensitiveLog = (obj: QuickResponseDataProvider): any => {
+export const MessageTemplateBodyContentProviderFilterSensitiveLog = (obj: MessageTemplateBodyContentProvider): any => {
   if (obj.content !== undefined) return { content: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
+
+/**
+ * @internal
+ */
+export const EmailMessageTemplateContentBodyFilterSensitiveLog = (obj: EmailMessageTemplateContentBody): any => ({
+  ...obj,
+  ...(obj.plainText && { plainText: MessageTemplateBodyContentProviderFilterSensitiveLog(obj.plainText) }),
+  ...(obj.html && { html: MessageTemplateBodyContentProviderFilterSensitiveLog(obj.html) }),
+});
+
+/**
+ * @internal
+ */
+export const EmailHeaderFilterSensitiveLog = (obj: EmailHeader): any => ({
+  ...obj,
+  ...(obj.value && { value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EmailMessageTemplateContentFilterSensitiveLog = (obj: EmailMessageTemplateContent): any => ({
+  ...obj,
+  ...(obj.subject && { subject: SENSITIVE_STRING }),
+  ...(obj.body && { body: EmailMessageTemplateContentBodyFilterSensitiveLog(obj.body) }),
+  ...(obj.headers && { headers: obj.headers.map((item) => EmailHeaderFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SMSMessageTemplateContentBodyFilterSensitiveLog = (obj: SMSMessageTemplateContentBody): any => ({
+  ...obj,
+  ...(obj.plainText && { plainText: MessageTemplateBodyContentProviderFilterSensitiveLog(obj.plainText) }),
+});
+
+/**
+ * @internal
+ */
+export const SMSMessageTemplateContentFilterSensitiveLog = (obj: SMSMessageTemplateContent): any => ({
+  ...obj,
+  ...(obj.body && { body: SMSMessageTemplateContentBodyFilterSensitiveLog(obj.body) }),
+});
+
+/**
+ * @internal
+ */
+export const MessageTemplateContentProviderFilterSensitiveLog = (obj: MessageTemplateContentProvider): any => {
+  if (obj.email !== undefined) return { email: EmailMessageTemplateContentFilterSensitiveLog(obj.email) };
+  if (obj.sms !== undefined) return { sms: SMSMessageTemplateContentFilterSensitiveLog(obj.sms) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CustomerProfileAttributesFilterSensitiveLog = (obj: CustomerProfileAttributes): any => ({
+  ...obj,
+  ...(obj.profileId && { profileId: SENSITIVE_STRING }),
+  ...(obj.profileARN && { profileARN: SENSITIVE_STRING }),
+  ...(obj.firstName && { firstName: SENSITIVE_STRING }),
+  ...(obj.middleName && { middleName: SENSITIVE_STRING }),
+  ...(obj.lastName && { lastName: SENSITIVE_STRING }),
+  ...(obj.accountNumber && { accountNumber: SENSITIVE_STRING }),
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+  ...(obj.phoneNumber && { phoneNumber: SENSITIVE_STRING }),
+  ...(obj.additionalInformation && { additionalInformation: SENSITIVE_STRING }),
+  ...(obj.partyType && { partyType: SENSITIVE_STRING }),
+  ...(obj.businessName && { businessName: SENSITIVE_STRING }),
+  ...(obj.birthDate && { birthDate: SENSITIVE_STRING }),
+  ...(obj.gender && { gender: SENSITIVE_STRING }),
+  ...(obj.mobilePhoneNumber && { mobilePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.homePhoneNumber && { homePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.businessPhoneNumber && { businessPhoneNumber: SENSITIVE_STRING }),
+  ...(obj.businessEmailAddress && { businessEmailAddress: SENSITIVE_STRING }),
+  ...(obj.address1 && { address1: SENSITIVE_STRING }),
+  ...(obj.address2 && { address2: SENSITIVE_STRING }),
+  ...(obj.address3 && { address3: SENSITIVE_STRING }),
+  ...(obj.address4 && { address4: SENSITIVE_STRING }),
+  ...(obj.city && { city: SENSITIVE_STRING }),
+  ...(obj.county && { county: SENSITIVE_STRING }),
+  ...(obj.country && { country: SENSITIVE_STRING }),
+  ...(obj.postalCode && { postalCode: SENSITIVE_STRING }),
+  ...(obj.province && { province: SENSITIVE_STRING }),
+  ...(obj.state && { state: SENSITIVE_STRING }),
+  ...(obj.shippingAddress1 && { shippingAddress1: SENSITIVE_STRING }),
+  ...(obj.shippingAddress2 && { shippingAddress2: SENSITIVE_STRING }),
+  ...(obj.shippingAddress3 && { shippingAddress3: SENSITIVE_STRING }),
+  ...(obj.shippingAddress4 && { shippingAddress4: SENSITIVE_STRING }),
+  ...(obj.shippingCity && { shippingCity: SENSITIVE_STRING }),
+  ...(obj.shippingCounty && { shippingCounty: SENSITIVE_STRING }),
+  ...(obj.shippingCountry && { shippingCountry: SENSITIVE_STRING }),
+  ...(obj.shippingPostalCode && { shippingPostalCode: SENSITIVE_STRING }),
+  ...(obj.shippingProvince && { shippingProvince: SENSITIVE_STRING }),
+  ...(obj.shippingState && { shippingState: SENSITIVE_STRING }),
+  ...(obj.mailingAddress1 && { mailingAddress1: SENSITIVE_STRING }),
+  ...(obj.mailingAddress2 && { mailingAddress2: SENSITIVE_STRING }),
+  ...(obj.mailingAddress3 && { mailingAddress3: SENSITIVE_STRING }),
+  ...(obj.mailingAddress4 && { mailingAddress4: SENSITIVE_STRING }),
+  ...(obj.mailingCity && { mailingCity: SENSITIVE_STRING }),
+  ...(obj.mailingCounty && { mailingCounty: SENSITIVE_STRING }),
+  ...(obj.mailingCountry && { mailingCountry: SENSITIVE_STRING }),
+  ...(obj.mailingPostalCode && { mailingPostalCode: SENSITIVE_STRING }),
+  ...(obj.mailingProvince && { mailingProvince: SENSITIVE_STRING }),
+  ...(obj.mailingState && { mailingState: SENSITIVE_STRING }),
+  ...(obj.billingAddress1 && { billingAddress1: SENSITIVE_STRING }),
+  ...(obj.billingAddress2 && { billingAddress2: SENSITIVE_STRING }),
+  ...(obj.billingAddress3 && { billingAddress3: SENSITIVE_STRING }),
+  ...(obj.billingAddress4 && { billingAddress4: SENSITIVE_STRING }),
+  ...(obj.billingCity && { billingCity: SENSITIVE_STRING }),
+  ...(obj.billingCounty && { billingCounty: SENSITIVE_STRING }),
+  ...(obj.billingCountry && { billingCountry: SENSITIVE_STRING }),
+  ...(obj.billingPostalCode && { billingPostalCode: SENSITIVE_STRING }),
+  ...(obj.billingProvince && { billingProvince: SENSITIVE_STRING }),
+  ...(obj.billingState && { billingState: SENSITIVE_STRING }),
+  ...(obj.custom && { custom: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SystemEndpointAttributesFilterSensitiveLog = (obj: SystemEndpointAttributes): any => ({
+  ...obj,
+  ...(obj.address && { address: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SystemAttributesFilterSensitiveLog = (obj: SystemAttributes): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.customerEndpoint && { customerEndpoint: SystemEndpointAttributesFilterSensitiveLog(obj.customerEndpoint) }),
+  ...(obj.systemEndpoint && { systemEndpoint: SystemEndpointAttributesFilterSensitiveLog(obj.systemEndpoint) }),
+});
+
+/**
+ * @internal
+ */
+export const MessageTemplateAttributesFilterSensitiveLog = (obj: MessageTemplateAttributes): any => ({
+  ...obj,
+  ...(obj.systemAttributes && { systemAttributes: SystemAttributesFilterSensitiveLog(obj.systemAttributes) }),
+  ...(obj.agentAttributes && { agentAttributes: AgentAttributesFilterSensitiveLog(obj.agentAttributes) }),
+  ...(obj.customerProfileAttributes && {
+    customerProfileAttributes: CustomerProfileAttributesFilterSensitiveLog(obj.customerProfileAttributes),
+  }),
+  ...(obj.customAttributes && { customAttributes: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -8216,6 +9086,107 @@ export const GroupingConfigurationFilterSensitiveLog = (obj: GroupingConfigurati
   ...(obj.criteria && { criteria: SENSITIVE_STRING }),
   ...(obj.values && { values: SENSITIVE_STRING }),
 });
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateRequestFilterSensitiveLog = (obj: CreateMessageTemplateRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.defaultAttributes && {
+    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+  }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const MessageTemplateDataFilterSensitiveLog = (obj: MessageTemplateData): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+  ...(obj.defaultAttributes && {
+    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateResponseFilterSensitiveLog = (obj: CreateMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateAttachmentRequestFilterSensitiveLog = (
+  obj: CreateMessageTemplateAttachmentRequest
+): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.body && { body: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MessageTemplateAttachmentFilterSensitiveLog = (obj: MessageTemplateAttachment): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.url && { url: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateAttachmentResponseFilterSensitiveLog = (
+  obj: CreateMessageTemplateAttachmentResponse
+): any => ({
+  ...obj,
+  ...(obj.attachment && { attachment: MessageTemplateAttachmentFilterSensitiveLog(obj.attachment) }),
+});
+
+/**
+ * @internal
+ */
+export const ExtendedMessageTemplateDataFilterSensitiveLog = (obj: ExtendedMessageTemplateData): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+  ...(obj.defaultAttributes && {
+    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+  }),
+  ...(obj.attachments && {
+    attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMessageTemplateVersionResponseFilterSensitiveLog = (
+  obj: CreateMessageTemplateVersionResponse
+): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const QuickResponseDataProviderFilterSensitiveLog = (obj: QuickResponseDataProvider): any => {
+  if (obj.content !== undefined) return { content: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
 
 /**
  * @internal
@@ -8295,6 +9266,14 @@ export const GetKnowledgeBaseResponseFilterSensitiveLog = (obj: GetKnowledgeBase
 /**
  * @internal
  */
+export const GetMessageTemplateResponseFilterSensitiveLog = (obj: GetMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: ExtendedMessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
 export const GetQuickResponseResponseFilterSensitiveLog = (obj: GetQuickResponseResponse): any => ({
   ...obj,
   ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
@@ -8318,6 +9297,67 @@ export const ListKnowledgeBasesResponseFilterSensitiveLog = (obj: ListKnowledgeB
   ...(obj.knowledgeBaseSummaries && {
     knowledgeBaseSummaries: obj.knowledgeBaseSummaries.map((item) => KnowledgeBaseSummaryFilterSensitiveLog(item)),
   }),
+});
+
+/**
+ * @internal
+ */
+export const RenderMessageTemplateRequestFilterSensitiveLog = (obj: RenderMessageTemplateRequest): any => ({
+  ...obj,
+  ...(obj.attributes && { attributes: MessageTemplateAttributesFilterSensitiveLog(obj.attributes) }),
+});
+
+/**
+ * @internal
+ */
+export const RenderMessageTemplateResponseFilterSensitiveLog = (obj: RenderMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.attributesNotInterpolated && { attributesNotInterpolated: SENSITIVE_STRING }),
+  ...(obj.attachments && {
+    attachments: obj.attachments.map((item) => MessageTemplateAttachmentFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateRequestFilterSensitiveLog = (obj: UpdateMessageTemplateRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: MessageTemplateContentProviderFilterSensitiveLog(obj.content) }),
+  ...(obj.defaultAttributes && {
+    defaultAttributes: MessageTemplateAttributesFilterSensitiveLog(obj.defaultAttributes),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateResponseFilterSensitiveLog = (obj: UpdateMessageTemplateResponse): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateMetadataRequestFilterSensitiveLog = (
+  obj: UpdateMessageTemplateMetadataRequest
+): any => ({
+  ...obj,
+  ...(obj.groupingConfiguration && {
+    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateMessageTemplateMetadataResponseFilterSensitiveLog = (
+  obj: UpdateMessageTemplateMetadataResponse
+): any => ({
+  ...obj,
+  ...(obj.messageTemplate && { messageTemplate: MessageTemplateDataFilterSensitiveLog(obj.messageTemplate) }),
 });
 
 /**
@@ -8356,129 +9396,4 @@ export const UpdateQuickResponseRequestFilterSensitiveLog = (obj: UpdateQuickRes
 export const UpdateQuickResponseResponseFilterSensitiveLog = (obj: UpdateQuickResponseResponse): any => ({
   ...obj,
   ...(obj.quickResponse && { quickResponse: QuickResponseDataFilterSensitiveLog(obj.quickResponse) }),
-});
-
-/**
- * @internal
- */
-export const SearchQuickResponsesRequestFilterSensitiveLog = (obj: SearchQuickResponsesRequest): any => ({
-  ...obj,
-  ...(obj.attributes && { attributes: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const QuickResponseSearchResultDataFilterSensitiveLog = (obj: QuickResponseSearchResultData): any => ({
-  ...obj,
-  ...(obj.contents && { contents: QuickResponseContentsFilterSensitiveLog(obj.contents) }),
-  ...(obj.groupingConfiguration && {
-    groupingConfiguration: GroupingConfigurationFilterSensitiveLog(obj.groupingConfiguration),
-  }),
-  ...(obj.channels && { channels: SENSITIVE_STRING }),
-  ...(obj.attributesNotInterpolated && { attributesNotInterpolated: SENSITIVE_STRING }),
-  ...(obj.attributesInterpolated && { attributesInterpolated: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SearchQuickResponsesResponseFilterSensitiveLog = (obj: SearchQuickResponsesResponse): any => ({
-  ...obj,
-  ...(obj.results && { results: obj.results.map((item) => QuickResponseSearchResultDataFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const StartContentUploadResponseFilterSensitiveLog = (obj: StartContentUploadResponse): any => ({
-  ...obj,
-  ...(obj.url && { url: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartImportJobResponseFilterSensitiveLog = (obj: StartImportJobResponse): any => ({
-  ...obj,
-  ...(obj.importJob && { importJob: ImportJobDataFilterSensitiveLog(obj.importJob) }),
-});
-
-/**
- * @internal
- */
-export const UpdateKnowledgeBaseTemplateUriResponseFilterSensitiveLog = (
-  obj: UpdateKnowledgeBaseTemplateUriResponse
-): any => ({
-  ...obj,
-  ...(obj.knowledgeBase && { knowledgeBase: KnowledgeBaseDataFilterSensitiveLog(obj.knowledgeBase) }),
-});
-
-/**
- * @internal
- */
-export const DataDetailsFilterSensitiveLog = (obj: DataDetails): any => {
-  if (obj.contentData !== undefined) return { contentData: ContentDataDetailsFilterSensitiveLog(obj.contentData) };
-  if (obj.generativeData !== undefined)
-    return { generativeData: GenerativeDataDetailsFilterSensitiveLog(obj.generativeData) };
-  if (obj.intentDetectedData !== undefined)
-    return { intentDetectedData: IntentDetectedDataDetailsFilterSensitiveLog(obj.intentDetectedData) };
-  if (obj.sourceContentData !== undefined)
-    return { sourceContentData: SourceContentDataDetailsFilterSensitiveLog(obj.sourceContentData) };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
-
-/**
- * @internal
- */
-export const DataSummaryFilterSensitiveLog = (obj: DataSummary): any => ({
-  ...obj,
-  ...(obj.reference && { reference: obj.reference }),
-  ...(obj.details && { details: DataDetailsFilterSensitiveLog(obj.details) }),
-});
-
-/**
- * @internal
- */
-export const GenerativeDataDetailsFilterSensitiveLog = (obj: GenerativeDataDetails): any => ({
-  ...obj,
-  ...(obj.completion && { completion: SENSITIVE_STRING }),
-  ...(obj.references && { references: obj.references.map((item) => DataSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const RecommendationDataFilterSensitiveLog = (obj: RecommendationData): any => ({
-  ...obj,
-  ...(obj.document && { document: DocumentFilterSensitiveLog(obj.document) }),
-  ...(obj.data && { data: DataSummaryFilterSensitiveLog(obj.data) }),
-});
-
-/**
- * @internal
- */
-export const ResultDataFilterSensitiveLog = (obj: ResultData): any => ({
-  ...obj,
-  ...(obj.document && { document: DocumentFilterSensitiveLog(obj.document) }),
-  ...(obj.data && { data: DataSummaryFilterSensitiveLog(obj.data) }),
-});
-
-/**
- * @internal
- */
-export const GetRecommendationsResponseFilterSensitiveLog = (obj: GetRecommendationsResponse): any => ({
-  ...obj,
-  ...(obj.recommendations && {
-    recommendations: obj.recommendations.map((item) => RecommendationDataFilterSensitiveLog(item)),
-  }),
-  ...(obj.triggers && { triggers: obj.triggers.map((item) => RecommendationTriggerFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const QueryAssistantResponseFilterSensitiveLog = (obj: QueryAssistantResponse): any => ({
-  ...obj,
-  ...(obj.results && { results: obj.results.map((item) => ResultDataFilterSensitiveLog(item)) }),
 });
