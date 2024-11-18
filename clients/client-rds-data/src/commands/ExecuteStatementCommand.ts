@@ -204,6 +204,11 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * @throws {@link DatabaseNotFoundException} (client fault)
  *  <p>The DB cluster doesn't have a DB instance.</p>
  *
+ * @throws {@link DatabaseResumingException} (client fault)
+ *  <p>A request was canceled because the Aurora Serverless v2 DB instance was in a paused state.
+ *       The Data API request automatically causes the DB instance to begin resuming. Wait a few seconds and
+ *       try again.</p>
+ *
  * @throws {@link DatabaseUnavailableException} (server fault)
  *  <p>The writer instance in the DB cluster isn't available.</p>
  *

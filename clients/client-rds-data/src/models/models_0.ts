@@ -102,6 +102,28 @@ export class DatabaseNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>A request was canceled because the Aurora Serverless v2 DB instance was in a paused state.
+ *       The Data API request automatically causes the DB instance to begin resuming. Wait a few seconds and
+ *       try again.</p>
+ * @public
+ */
+export class DatabaseResumingException extends __BaseException {
+  readonly name: "DatabaseResumingException" = "DatabaseResumingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DatabaseResumingException, __BaseException>) {
+    super({
+      name: "DatabaseResumingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DatabaseResumingException.prototype);
+  }
+}
+
+/**
  * <p>The writer instance in the DB cluster isn't available.</p>
  * @public
  */

@@ -49,6 +49,7 @@ import {
   BadRequestException,
   DatabaseErrorException,
   DatabaseNotFoundException,
+  DatabaseResumingException,
   DatabaseUnavailableException,
   Field,
   ForbiddenException,
@@ -382,6 +383,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DatabaseNotFoundException":
     case "com.amazonaws.rdsdata#DatabaseNotFoundException":
       throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
+    case "DatabaseResumingException":
+    case "com.amazonaws.rdsdata#DatabaseResumingException":
+      throw await de_DatabaseResumingExceptionRes(parsedOutput, context);
     case "DatabaseUnavailableException":
     case "com.amazonaws.rdsdata#DatabaseUnavailableException":
       throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
@@ -497,6 +501,26 @@ const de_DatabaseNotFoundExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new DatabaseNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1DatabaseResumingExceptionRes
+ */
+const de_DatabaseResumingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DatabaseResumingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DatabaseResumingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
