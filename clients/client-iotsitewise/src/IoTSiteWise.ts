@@ -69,6 +69,11 @@ import {
   CreateDashboardCommandOutput,
 } from "./commands/CreateDashboardCommand";
 import {
+  CreateDatasetCommand,
+  CreateDatasetCommandInput,
+  CreateDatasetCommandOutput,
+} from "./commands/CreateDatasetCommand";
+import {
   CreateGatewayCommand,
   CreateGatewayCommandInput,
   CreateGatewayCommandOutput,
@@ -104,6 +109,11 @@ import {
   DeleteDashboardCommandInput,
   DeleteDashboardCommandOutput,
 } from "./commands/DeleteDashboardCommand";
+import {
+  DeleteDatasetCommand,
+  DeleteDatasetCommandInput,
+  DeleteDatasetCommandOutput,
+} from "./commands/DeleteDatasetCommand";
 import {
   DeleteGatewayCommand,
   DeleteGatewayCommandInput,
@@ -169,6 +179,11 @@ import {
   DescribeDashboardCommandInput,
   DescribeDashboardCommandOutput,
 } from "./commands/DescribeDashboardCommand";
+import {
+  DescribeDatasetCommand,
+  DescribeDatasetCommandInput,
+  DescribeDatasetCommandOutput,
+} from "./commands/DescribeDatasetCommand";
 import {
   DescribeDefaultEncryptionConfigurationCommand,
   DescribeDefaultEncryptionConfigurationCommandInput,
@@ -250,6 +265,11 @@ import {
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
 import {
+  InvokeAssistantCommand,
+  InvokeAssistantCommandInput,
+  InvokeAssistantCommandOutput,
+} from "./commands/InvokeAssistantCommand";
+import {
   ListAccessPoliciesCommand,
   ListAccessPoliciesCommandInput,
   ListAccessPoliciesCommandOutput,
@@ -301,6 +321,11 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand";
+import {
+  ListDatasetsCommand,
+  ListDatasetsCommandInput,
+  ListDatasetsCommandOutput,
+} from "./commands/ListDatasetsCommand";
 import {
   ListGatewaysCommand,
   ListGatewaysCommandInput,
@@ -375,6 +400,11 @@ import {
   UpdateDashboardCommandOutput,
 } from "./commands/UpdateDashboardCommand";
 import {
+  UpdateDatasetCommand,
+  UpdateDatasetCommandInput,
+  UpdateDatasetCommandOutput,
+} from "./commands/UpdateDatasetCommand";
+import {
   UpdateGatewayCapabilityConfigurationCommand,
   UpdateGatewayCapabilityConfigurationCommandInput,
   UpdateGatewayCapabilityConfigurationCommandOutput,
@@ -411,6 +441,7 @@ const commands = {
   CreateAssetModelCompositeModelCommand,
   CreateBulkImportJobCommand,
   CreateDashboardCommand,
+  CreateDatasetCommand,
   CreateGatewayCommand,
   CreatePortalCommand,
   CreateProjectCommand,
@@ -419,6 +450,7 @@ const commands = {
   DeleteAssetModelCommand,
   DeleteAssetModelCompositeModelCommand,
   DeleteDashboardCommand,
+  DeleteDatasetCommand,
   DeleteGatewayCommand,
   DeletePortalCommand,
   DeleteProjectCommand,
@@ -432,6 +464,7 @@ const commands = {
   DescribeAssetPropertyCommand,
   DescribeBulkImportJobCommand,
   DescribeDashboardCommand,
+  DescribeDatasetCommand,
   DescribeDefaultEncryptionConfigurationCommand,
   DescribeGatewayCommand,
   DescribeGatewayCapabilityConfigurationCommand,
@@ -448,6 +481,7 @@ const commands = {
   GetAssetPropertyValueCommand,
   GetAssetPropertyValueHistoryCommand,
   GetInterpolatedAssetPropertyValuesCommand,
+  InvokeAssistantCommand,
   ListAccessPoliciesCommand,
   ListActionsCommand,
   ListAssetModelCompositeModelsCommand,
@@ -460,6 +494,7 @@ const commands = {
   ListBulkImportJobsCommand,
   ListCompositionRelationshipsCommand,
   ListDashboardsCommand,
+  ListDatasetsCommand,
   ListGatewaysCommand,
   ListPortalsCommand,
   ListProjectAssetsCommand,
@@ -477,6 +512,7 @@ const commands = {
   UpdateAssetModelCompositeModelCommand,
   UpdateAssetPropertyCommand,
   UpdateDashboardCommand,
+  UpdateDatasetCommand,
   UpdateGatewayCommand,
   UpdateGatewayCapabilityConfigurationCommand,
   UpdatePortalCommand,
@@ -711,6 +747,17 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link CreateDatasetCommand}
+   */
+  createDataset(args: CreateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<CreateDatasetCommandOutput>;
+  createDataset(args: CreateDatasetCommandInput, cb: (err: any, data?: CreateDatasetCommandOutput) => void): void;
+  createDataset(
+    args: CreateDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDatasetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateGatewayCommand}
    */
   createGateway(args: CreateGatewayCommandInput, options?: __HttpHandlerOptions): Promise<CreateGatewayCommandOutput>;
@@ -817,6 +864,17 @@ export interface IoTSiteWise {
     args: DeleteDashboardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDatasetCommand}
+   */
+  deleteDataset(args: DeleteDatasetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteDatasetCommandOutput>;
+  deleteDataset(args: DeleteDatasetCommandInput, cb: (err: any, data?: DeleteDatasetCommandOutput) => void): void;
+  deleteDataset(
+    args: DeleteDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDatasetCommandOutput) => void
   ): void;
 
   /**
@@ -1012,6 +1070,20 @@ export interface IoTSiteWise {
     args: DescribeDashboardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDatasetCommand}
+   */
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDatasetCommandOutput>;
+  describeDataset(args: DescribeDatasetCommandInput, cb: (err: any, data?: DescribeDatasetCommandOutput) => void): void;
+  describeDataset(
+    args: DescribeDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDatasetCommandOutput) => void
   ): void;
 
   /**
@@ -1272,6 +1344,20 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link InvokeAssistantCommand}
+   */
+  invokeAssistant(
+    args: InvokeAssistantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeAssistantCommandOutput>;
+  invokeAssistant(args: InvokeAssistantCommandInput, cb: (err: any, data?: InvokeAssistantCommandOutput) => void): void;
+  invokeAssistant(
+    args: InvokeAssistantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeAssistantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccessPoliciesCommand}
    */
   listAccessPolicies(): Promise<ListAccessPoliciesCommandOutput>;
@@ -1459,6 +1545,17 @@ export interface IoTSiteWise {
     args: ListDashboardsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDashboardsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetsCommand}
+   */
+  listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
+  listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
+  listDatasets(
+    args: ListDatasetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetsCommandOutput) => void
   ): void;
 
   /**
@@ -1709,6 +1806,17 @@ export interface IoTSiteWise {
     args: UpdateDashboardCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDashboardCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDatasetCommand}
+   */
+  updateDataset(args: UpdateDatasetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDatasetCommandOutput>;
+  updateDataset(args: UpdateDatasetCommandInput, cb: (err: any, data?: UpdateDatasetCommandOutput) => void): void;
+  updateDataset(
+    args: UpdateDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDatasetCommandOutput) => void
   ): void;
 
   /**

@@ -6,9 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListAssociatedAssetsRequest } from "../models/models_0";
-import { ListAssociatedAssetsResponse } from "../models/models_1";
-import { de_ListAssociatedAssetsCommand, se_ListAssociatedAssetsCommand } from "../protocols/Aws_restJson1";
+import { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_1";
+import { de_ListDatasetsCommand, se_ListDatasetsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -18,54 +17,41 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListAssociatedAssetsCommand}.
+ * The input for {@link ListDatasetsCommand}.
  */
-export interface ListAssociatedAssetsCommandInput extends ListAssociatedAssetsRequest {}
+export interface ListDatasetsCommandInput extends ListDatasetsRequest {}
 /**
  * @public
  *
- * The output of {@link ListAssociatedAssetsCommand}.
+ * The output of {@link ListDatasetsCommand}.
  */
-export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsResponse, __MetadataBearer {}
+export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of associated assets.</p>
- *          <p>You can use this operation to do the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>CHILD</code> - List all child assets associated to the asset.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>PARENT</code> - List the asset's parent asset.</p>
- *             </li>
- *          </ul>
+ * <p>Retrieves a paginated list of datasets for a specific target resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListAssociatedAssetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListAssociatedAssetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, ListDatasetsCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, ListDatasetsCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListAssociatedAssetsRequest
- *   assetId: "STRING_VALUE", // required
- *   hierarchyId: "STRING_VALUE",
- *   traversalDirection: "PARENT" || "CHILD",
+ * const input = { // ListDatasetsRequest
+ *   sourceType: "KENDRA", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListAssociatedAssetsCommand(input);
+ * const command = new ListDatasetsCommand(input);
  * const response = await client.send(command);
- * // { // ListAssociatedAssetsResponse
- * //   assetSummaries: [ // AssociatedAssetsSummaries // required
- * //     { // AssociatedAssetsSummary
+ * // { // ListDatasetsResponse
+ * //   datasetSummaries: [ // DatasetSummaries // required
+ * //     { // DatasetSummary
  * //       id: "STRING_VALUE", // required
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       assetModelId: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE", // required
  * //       creationDate: new Date("TIMESTAMP"), // required
  * //       lastUpdateDate: new Date("TIMESTAMP"), // required
- * //       status: { // AssetStatus
+ * //       status: { // DatasetStatus
  * //         state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
  * //         error: { // ErrorDetails
  * //           code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
@@ -78,15 +64,6 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * //           ],
  * //         },
  * //       },
- * //       hierarchies: [ // AssetHierarchies // required
- * //         { // AssetHierarchy
- * //           id: "STRING_VALUE",
- * //           name: "STRING_VALUE", // required
- * //           externalId: "STRING_VALUE",
- * //         },
- * //       ],
- * //       description: "STRING_VALUE",
- * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -94,10 +71,10 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *
  * ```
  *
- * @param ListAssociatedAssetsCommandInput - {@link ListAssociatedAssetsCommandInput}
- * @returns {@link ListAssociatedAssetsCommandOutput}
- * @see {@link ListAssociatedAssetsCommandInput} for command's `input` shape.
- * @see {@link ListAssociatedAssetsCommandOutput} for command's `response` shape.
+ * @param ListDatasetsCommandInput - {@link ListDatasetsCommandInput}
+ * @returns {@link ListDatasetsCommandOutput}
+ * @see {@link ListDatasetsCommandInput} for command's `input` shape.
+ * @see {@link ListDatasetsCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link InternalFailureException} (server fault)
@@ -106,9 +83,6 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
@@ -121,10 +95,10 @@ export interface ListAssociatedAssetsCommandOutput extends ListAssociatedAssetsR
  *
  * @public
  */
-export class ListAssociatedAssetsCommand extends $Command
+export class ListDatasetsCommand extends $Command
   .classBuilder<
-    ListAssociatedAssetsCommandInput,
-    ListAssociatedAssetsCommandOutput,
+    ListDatasetsCommandInput,
+    ListDatasetsCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -136,21 +110,21 @@ export class ListAssociatedAssetsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ListAssociatedAssets", {})
-  .n("IoTSiteWiseClient", "ListAssociatedAssetsCommand")
+  .s("AWSIoTSiteWise", "ListDatasets", {})
+  .n("IoTSiteWiseClient", "ListDatasetsCommand")
   .f(void 0, void 0)
-  .ser(se_ListAssociatedAssetsCommand)
-  .de(de_ListAssociatedAssetsCommand)
+  .ser(se_ListDatasetsCommand)
+  .de(de_ListDatasetsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListAssociatedAssetsRequest;
-      output: ListAssociatedAssetsResponse;
+      input: ListDatasetsRequest;
+      output: ListDatasetsResponse;
     };
     sdk: {
-      input: ListAssociatedAssetsCommandInput;
-      output: ListAssociatedAssetsCommandOutput;
+      input: ListDatasetsCommandInput;
+      output: ListDatasetsCommandOutput;
     };
   };
 }

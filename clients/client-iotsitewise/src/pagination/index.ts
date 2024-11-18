@@ -24,6 +24,7 @@ export * from "./ListAssociatedAssetsPaginator";
 export * from "./ListBulkImportJobsPaginator";
 export * from "./ListCompositionRelationshipsPaginator";
 export * from "./ListDashboardsPaginator";
+export * from "./ListDatasetsPaginator";
 export * from "./ListGatewaysPaginator";
 export * from "./ListPortalsPaginator";
 export * from "./ListProjectAssetsPaginator";

@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { UpdateDatasetRequest, UpdateDatasetResponse } from "../models/models_1";
+import { de_UpdateDatasetCommand, se_UpdateDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,41 +17,66 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link UpdateDatasetCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface UpdateDatasetCommandInput extends UpdateDatasetRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link UpdateDatasetCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of tags for an IoT SiteWise resource.</p>
+ * <p>Updates a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, UpdateDatasetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, UpdateDatasetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // UpdateDatasetRequest
+ *   datasetId: "STRING_VALUE", // required
+ *   datasetName: "STRING_VALUE", // required
+ *   datasetDescription: "STRING_VALUE",
+ *   datasetSource: { // DatasetSource
+ *     sourceType: "KENDRA", // required
+ *     sourceFormat: "KNOWLEDGE_BASE", // required
+ *     sourceDetail: { // SourceDetail
+ *       kendra: { // KendraSourceDetail
+ *         knowledgeBaseArn: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new UpdateDatasetCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
+ * // { // UpdateDatasetResponse
+ * //   datasetId: "STRING_VALUE",
+ * //   datasetArn: "STRING_VALUE",
+ * //   datasetStatus: { // DatasetStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param UpdateDatasetCommandInput - {@link UpdateDatasetCommandInput}
+ * @returns {@link UpdateDatasetCommandOutput}
+ * @see {@link UpdateDatasetCommandInput} for command's `input` shape.
+ * @see {@link UpdateDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
@@ -80,18 +105,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized.</p>
- *
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class UpdateDatasetCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    UpdateDatasetCommandInput,
+    UpdateDatasetCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +125,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ListTagsForResource", {})
-  .n("IoTSiteWiseClient", "ListTagsForResourceCommand")
+  .s("AWSIoTSiteWise", "UpdateDataset", {})
+  .n("IoTSiteWiseClient", "UpdateDatasetCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_UpdateDatasetCommand)
+  .de(de_UpdateDatasetCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: UpdateDatasetRequest;
+      output: UpdateDatasetResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: UpdateDatasetCommandInput;
+      output: UpdateDatasetCommandOutput;
     };
   };
 }

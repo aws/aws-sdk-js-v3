@@ -43,7 +43,7 @@ export interface DeletePortalCommandOutput extends DeletePortalResponse, __Metad
  * const response = await client.send(command);
  * // { // DeletePortalResponse
  * //   portalStatus: { // PortalStatus
- * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     state: "CREATING" || "PENDING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
  * //     error: { // MonitorErrorDetails
  * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
  * //       message: "STRING_VALUE",

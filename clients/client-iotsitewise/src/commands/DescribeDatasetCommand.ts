@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DeleteAssetModelRequest, DeleteAssetModelResponse } from "../models/models_0";
-import { de_DeleteAssetModelCommand, se_DeleteAssetModelCommand } from "../protocols/Aws_restJson1";
+import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0";
+import { de_DescribeDatasetCommand, se_DescribeDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,40 +17,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteAssetModelCommand}.
+ * The input for {@link DescribeDatasetCommand}.
  */
-export interface DeleteAssetModelCommandInput extends DeleteAssetModelRequest {}
+export interface DescribeDatasetCommandInput extends DescribeDatasetRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteAssetModelCommand}.
+ * The output of {@link DescribeDatasetCommand}.
  */
-export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse, __MetadataBearer {}
+export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an asset model. This action can't be undone. You must delete all assets created
- *       from an asset model before you can delete the model. Also, you can't delete an asset model if
- *       a parent asset model exists that contains a property formula expression that depends on the
- *       asset model that you want to delete. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/delete-assets-and-models.html">Deleting assets and models</a> in the
- *         <i>IoT SiteWise User Guide</i>.</p>
+ * <p>Retrieves information about a dataset.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, DeleteAssetModelCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, DeleteAssetModelCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DescribeDatasetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DescribeDatasetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // DeleteAssetModelRequest
- *   assetModelId: "STRING_VALUE", // required
- *   clientToken: "STRING_VALUE",
- *   ifMatch: "STRING_VALUE",
- *   ifNoneMatch: "STRING_VALUE",
- *   matchForVersionType: "LATEST" || "ACTIVE",
+ * const input = { // DescribeDatasetRequest
+ *   datasetId: "STRING_VALUE", // required
  * };
- * const command = new DeleteAssetModelCommand(input);
+ * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
- * // { // DeleteAssetModelResponse
- * //   assetModelStatus: { // AssetModelStatus
- * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
+ * // { // DescribeDatasetResponse
+ * //   datasetId: "STRING_VALUE", // required
+ * //   datasetArn: "STRING_VALUE", // required
+ * //   datasetName: "STRING_VALUE", // required
+ * //   datasetDescription: "STRING_VALUE", // required
+ * //   datasetSource: { // DatasetSource
+ * //     sourceType: "KENDRA", // required
+ * //     sourceFormat: "KNOWLEDGE_BASE", // required
+ * //     sourceDetail: { // SourceDetail
+ * //       kendra: { // KendraSourceDetail
+ * //         knowledgeBaseArn: "STRING_VALUE", // required
+ * //         roleArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   },
+ * //   datasetStatus: { // DatasetStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
  * //     error: { // ErrorDetails
  * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
  * //       message: "STRING_VALUE", // required
@@ -62,19 +68,18 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * //       ],
  * //     },
  * //   },
+ * //   datasetCreationDate: new Date("TIMESTAMP"), // required
+ * //   datasetLastUpdateDate: new Date("TIMESTAMP"), // required
+ * //   datasetVersion: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DeleteAssetModelCommandInput - {@link DeleteAssetModelCommandInput}
- * @returns {@link DeleteAssetModelCommandOutput}
- * @see {@link DeleteAssetModelCommandInput} for command's `input` shape.
- * @see {@link DeleteAssetModelCommandOutput} for command's `response` shape.
+ * @param DescribeDatasetCommandInput - {@link DescribeDatasetCommandInput}
+ * @returns {@link DescribeDatasetCommandOutput}
+ * @see {@link DescribeDatasetCommandInput} for command's `input` shape.
+ * @see {@link DescribeDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
- *
- * @throws {@link ConflictingOperationException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *       than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>IoT SiteWise can't process your request right now. Try again later.</p>
@@ -82,10 +87,6 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
- *
- * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The precondition in one or more of the request-header fields evaluated to
- *         <code>FALSE</code>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
@@ -101,10 +102,10 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  *
  * @public
  */
-export class DeleteAssetModelCommand extends $Command
+export class DescribeDatasetCommand extends $Command
   .classBuilder<
-    DeleteAssetModelCommandInput,
-    DeleteAssetModelCommandOutput,
+    DescribeDatasetCommandInput,
+    DescribeDatasetCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -116,21 +117,21 @@ export class DeleteAssetModelCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "DeleteAssetModel", {})
-  .n("IoTSiteWiseClient", "DeleteAssetModelCommand")
+  .s("AWSIoTSiteWise", "DescribeDataset", {})
+  .n("IoTSiteWiseClient", "DescribeDatasetCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteAssetModelCommand)
-  .de(de_DeleteAssetModelCommand)
+  .ser(se_DescribeDatasetCommand)
+  .de(de_DescribeDatasetCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteAssetModelRequest;
-      output: DeleteAssetModelResponse;
+      input: DescribeDatasetRequest;
+      output: DescribeDatasetResponse;
     };
     sdk: {
-      input: DeleteAssetModelCommandInput;
-      output: DeleteAssetModelCommandOutput;
+      input: DescribeDatasetCommandInput;
+      output: DescribeDatasetCommandOutput;
     };
   };
 }

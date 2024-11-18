@@ -200,7 +200,8 @@ export interface UpdateAssetModelCompositeModelCommandOutput
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
+ *  <p>The precondition in one or more of the request-header fields evaluated to
+ *         <code>FALSE</code>.</p>
  *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource already exists.</p>

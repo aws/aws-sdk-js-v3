@@ -19,6 +19,11 @@ import {
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
 } from "@smithy/core";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -37,6 +42,7 @@ import {
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -94,6 +100,7 @@ import {
   CreateBulkImportJobCommandOutput,
 } from "./commands/CreateBulkImportJobCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
@@ -105,6 +112,7 @@ import {
   DeleteAssetModelCompositeModelCommandOutput,
 } from "./commands/DeleteAssetModelCompositeModelCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
@@ -133,6 +141,7 @@ import {
   DescribeBulkImportJobCommandOutput,
 } from "./commands/DescribeBulkImportJobCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import {
   DescribeDefaultEncryptionConfigurationCommandInput,
   DescribeDefaultEncryptionConfigurationCommandOutput,
@@ -176,6 +185,7 @@ import {
   GetInterpolatedAssetPropertyValuesCommandInput,
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
+import { InvokeAssistantCommandInput, InvokeAssistantCommandOutput } from "./commands/InvokeAssistantCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import {
@@ -206,6 +216,7 @@ import {
   ListCompositionRelationshipsCommandOutput,
 } from "./commands/ListCompositionRelationshipsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import { ListProjectAssetsCommandInput, ListProjectAssetsCommandOutput } from "./commands/ListProjectAssetsCommand";
@@ -238,6 +249,7 @@ import {
   UpdateAssetPropertyCommandOutput,
 } from "./commands/UpdateAssetPropertyCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "./commands/UpdateDatasetCommand";
 import {
   UpdateGatewayCapabilityConfigurationCommandInput,
   UpdateGatewayCapabilityConfigurationCommandOutput,
@@ -274,6 +286,7 @@ export type ServiceInputTypes =
   | CreateAssetModelCompositeModelCommandInput
   | CreateBulkImportJobCommandInput
   | CreateDashboardCommandInput
+  | CreateDatasetCommandInput
   | CreateGatewayCommandInput
   | CreatePortalCommandInput
   | CreateProjectCommandInput
@@ -282,6 +295,7 @@ export type ServiceInputTypes =
   | DeleteAssetModelCommandInput
   | DeleteAssetModelCompositeModelCommandInput
   | DeleteDashboardCommandInput
+  | DeleteDatasetCommandInput
   | DeleteGatewayCommandInput
   | DeletePortalCommandInput
   | DeleteProjectCommandInput
@@ -295,6 +309,7 @@ export type ServiceInputTypes =
   | DescribeAssetPropertyCommandInput
   | DescribeBulkImportJobCommandInput
   | DescribeDashboardCommandInput
+  | DescribeDatasetCommandInput
   | DescribeDefaultEncryptionConfigurationCommandInput
   | DescribeGatewayCapabilityConfigurationCommandInput
   | DescribeGatewayCommandInput
@@ -311,6 +326,7 @@ export type ServiceInputTypes =
   | GetAssetPropertyValueCommandInput
   | GetAssetPropertyValueHistoryCommandInput
   | GetInterpolatedAssetPropertyValuesCommandInput
+  | InvokeAssistantCommandInput
   | ListAccessPoliciesCommandInput
   | ListActionsCommandInput
   | ListAssetModelCompositeModelsCommandInput
@@ -323,6 +339,7 @@ export type ServiceInputTypes =
   | ListBulkImportJobsCommandInput
   | ListCompositionRelationshipsCommandInput
   | ListDashboardsCommandInput
+  | ListDatasetsCommandInput
   | ListGatewaysCommandInput
   | ListPortalsCommandInput
   | ListProjectAssetsCommandInput
@@ -340,6 +357,7 @@ export type ServiceInputTypes =
   | UpdateAssetModelCompositeModelCommandInput
   | UpdateAssetPropertyCommandInput
   | UpdateDashboardCommandInput
+  | UpdateDatasetCommandInput
   | UpdateGatewayCapabilityConfigurationCommandInput
   | UpdateGatewayCommandInput
   | UpdatePortalCommandInput
@@ -363,6 +381,7 @@ export type ServiceOutputTypes =
   | CreateAssetModelCompositeModelCommandOutput
   | CreateBulkImportJobCommandOutput
   | CreateDashboardCommandOutput
+  | CreateDatasetCommandOutput
   | CreateGatewayCommandOutput
   | CreatePortalCommandOutput
   | CreateProjectCommandOutput
@@ -371,6 +390,7 @@ export type ServiceOutputTypes =
   | DeleteAssetModelCommandOutput
   | DeleteAssetModelCompositeModelCommandOutput
   | DeleteDashboardCommandOutput
+  | DeleteDatasetCommandOutput
   | DeleteGatewayCommandOutput
   | DeletePortalCommandOutput
   | DeleteProjectCommandOutput
@@ -384,6 +404,7 @@ export type ServiceOutputTypes =
   | DescribeAssetPropertyCommandOutput
   | DescribeBulkImportJobCommandOutput
   | DescribeDashboardCommandOutput
+  | DescribeDatasetCommandOutput
   | DescribeDefaultEncryptionConfigurationCommandOutput
   | DescribeGatewayCapabilityConfigurationCommandOutput
   | DescribeGatewayCommandOutput
@@ -400,6 +421,7 @@ export type ServiceOutputTypes =
   | GetAssetPropertyValueCommandOutput
   | GetAssetPropertyValueHistoryCommandOutput
   | GetInterpolatedAssetPropertyValuesCommandOutput
+  | InvokeAssistantCommandOutput
   | ListAccessPoliciesCommandOutput
   | ListActionsCommandOutput
   | ListAssetModelCompositeModelsCommandOutput
@@ -412,6 +434,7 @@ export type ServiceOutputTypes =
   | ListBulkImportJobsCommandOutput
   | ListCompositionRelationshipsCommandOutput
   | ListDashboardsCommandOutput
+  | ListDatasetsCommandOutput
   | ListGatewaysCommandOutput
   | ListPortalsCommandOutput
   | ListProjectAssetsCommandOutput
@@ -429,6 +452,7 @@ export type ServiceOutputTypes =
   | UpdateAssetModelCompositeModelCommandOutput
   | UpdateAssetPropertyCommandOutput
   | UpdateDashboardCommandOutput
+  | UpdateDatasetCommandOutput
   | UpdateGatewayCapabilityConfigurationCommandOutput
   | UpdateGatewayCommandOutput
   | UpdatePortalCommandOutput
@@ -561,6 +585,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   extensions?: RuntimeExtension[];
 
   /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
+
+  /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
@@ -576,6 +605,7 @@ export type IoTSiteWiseClientConfigType = Partial<__SmithyConfiguration<__HttpHa
   RegionInputConfig &
   HostHeaderInputConfig &
   EndpointInputConfig<EndpointParameters> &
+  EventStreamSerdeInputConfig &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -596,6 +626,7 @@ export type IoTSiteWiseClientResolvedConfigType = __SmithyResolvedConfiguration<
   RegionResolvedConfig &
   HostHeaderResolvedConfig &
   EndpointResolvedConfig<EndpointParameters> &
+  EventStreamSerdeResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -629,10 +660,11 @@ export class IoTSiteWiseClient extends __Client<
     const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

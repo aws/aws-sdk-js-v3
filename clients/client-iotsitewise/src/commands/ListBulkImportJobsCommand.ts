@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_0";
+import { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_1";
 import { de_ListBulkImportJobsCommand, se_ListBulkImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**

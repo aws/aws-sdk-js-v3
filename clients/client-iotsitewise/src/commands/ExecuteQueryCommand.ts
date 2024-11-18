@@ -41,6 +41,7 @@ export interface ExecuteQueryCommandOutput extends ExecuteQueryResponse, __Metad
  *   queryStatement: "STRING_VALUE", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);

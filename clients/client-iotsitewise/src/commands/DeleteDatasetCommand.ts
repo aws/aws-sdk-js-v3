@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
+import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,41 +17,52 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link DeleteDatasetCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link DeleteDatasetCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of tags for an IoT SiteWise resource.</p>
+ * <p>Deletes a dataset. This cannot be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, DeleteDatasetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, DeleteDatasetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // DeleteDatasetRequest
+ *   datasetId: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new DeleteDatasetCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
+ * // { // DeleteDatasetResponse
+ * //   datasetStatus: { // DatasetStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param DeleteDatasetCommandInput - {@link DeleteDatasetCommandInput}
+ * @returns {@link DeleteDatasetCommandOutput}
+ * @see {@link DeleteDatasetCommandInput} for command's `input` shape.
+ * @see {@link DeleteDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
@@ -65,12 +76,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
  *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>You've reached the limit for a resource. For example, this can occur if you're trying to
- *       associate more than the allowed number of child assets or attempting to create more than the
- *       allowed number of properties for an asset model.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
@@ -80,18 +85,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized.</p>
- *
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class DeleteDatasetCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    DeleteDatasetCommandInput,
+    DeleteDatasetCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +105,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ListTagsForResource", {})
-  .n("IoTSiteWiseClient", "ListTagsForResourceCommand")
+  .s("AWSIoTSiteWise", "DeleteDataset", {})
+  .n("IoTSiteWiseClient", "DeleteDatasetCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_DeleteDatasetCommand)
+  .de(de_DeleteDatasetCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: DeleteDatasetRequest;
+      output: DeleteDatasetResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: DeleteDatasetCommandInput;
+      output: DeleteDatasetCommandOutput;
     };
   };
 }

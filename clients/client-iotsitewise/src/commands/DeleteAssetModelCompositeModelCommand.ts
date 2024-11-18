@@ -90,7 +90,8 @@ export interface DeleteAssetModelCompositeModelCommandOutput
  *       unsupported characters. Check your request and try again.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The precondition in one or more of the request-header fields evaluated to <code>FALSE</code>.</p>
+ *  <p>The precondition in one or more of the request-header fields evaluated to
+ *         <code>FALSE</code>.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>

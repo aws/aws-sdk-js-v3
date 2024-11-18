@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListPortalsRequest, ListPortalsResponse } from "../models/models_0";
+import { ListPortalsRequest, ListPortalsResponse } from "../models/models_1";
 import { de_ListPortalsCommand, se_ListPortalsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -52,12 +52,13 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * //       lastUpdateDate: new Date("TIMESTAMP"),
  * //       roleArn: "STRING_VALUE",
  * //       status: { // PortalStatus
- * //         state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //         state: "CREATING" || "PENDING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
  * //         error: { // MonitorErrorDetails
  * //           code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
  * //           message: "STRING_VALUE",
  * //         },
  * //       },
+ * //       portalType: "SITEWISE_PORTAL_V1" || "SITEWISE_PORTAL_V2",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

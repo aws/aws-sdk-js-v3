@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
 
@@ -12,18 +12,26 @@ import {
   AssetModelStatus,
   AssetModelVersionType,
   AssetStatus,
+  AssociatedAssetsSummary,
   CapabilitySyncStatus,
   ColumnInfo,
   ConfigurationStatus,
+  DatasetSource,
+  DatasetSourceType,
+  DatasetStatus,
   DisassociatedDataStorageState,
   EncryptionType,
+  GatewayCapabilitySummary,
+  GatewayPlatform,
   Identity,
   ImageFile,
-  ListTimeSeriesType,
+  JobStatus,
   LoggingOptions,
   MultiLayerStorage,
   Permission,
   PortalStatus,
+  PortalType,
+  PortalTypeEntry,
   PropertyDataType,
   PropertyNotificationState,
   Resource,
@@ -32,6 +40,722 @@ import {
   WarmTierRetentionPeriod,
   WarmTierState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListAssociatedAssetsResponse {
+  /**
+   * <p>A list that summarizes the associated assets.</p>
+   * @public
+   */
+  assetSummaries: AssociatedAssetsSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListBulkImportJobsFilter = {
+  ALL: "ALL",
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_FAILURES: "COMPLETED_WITH_FAILURES",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ListBulkImportJobsFilter = (typeof ListBulkImportJobsFilter)[keyof typeof ListBulkImportJobsFilter];
+
+/**
+ * @public
+ */
+export interface ListBulkImportJobsRequest {
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>You can use a filter to select the bulk import jobs that you want to retrieve.</p>
+   * @public
+   */
+  filter?: ListBulkImportJobsFilter | undefined;
+}
+
+/**
+ * <p>Contains the job summary information.</p>
+ * @public
+ */
+export interface JobSummary {
+  /**
+   * <p>The ID of the job.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The unique name that helps identify the job request.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the bulk import job can be one of following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> – IoT SiteWise is waiting for the current bulk import job to finish.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELLED</code> – The bulk import job has been canceled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code> – IoT SiteWise is processing your request to import your data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> – IoT SiteWise successfully completed your request to import data from Amazon S3.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – IoT SiteWise couldn't process your request to import data from Amazon S3.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED_WITH_FAILURES</code> – IoT SiteWise completed your request to import data from Amazon S3 with errors.
+   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  status: JobStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBulkImportJobsResponse {
+  /**
+   * <p>One or more job summaries to list.</p>
+   * @public
+   */
+  jobSummaries: JobSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCompositionRelationshipsRequest {
+  /**
+   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
+   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains a summary of the components of the composite model.</p>
+ * @public
+ */
+export interface CompositionRelationshipSummary {
+  /**
+   * <p>The ID of the asset model, in UUID format.</p>
+   * @public
+   */
+  assetModelId: string | undefined;
+
+  /**
+   * <p>The ID of a composite model on this asset model.</p>
+   * @public
+   */
+  assetModelCompositeModelId: string | undefined;
+
+  /**
+   * <p>The composite model type. Valid values are <code>AWS/ALARM</code>, <code>CUSTOM</code>, or
+   *         <code> AWS/L4E_ANOMALY</code>.</p>
+   * @public
+   */
+  assetModelCompositeModelType: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCompositionRelationshipsResponse {
+  /**
+   * <p>A list that summarizes each composition relationship.</p>
+   * @public
+   */
+  compositionRelationshipSummaries: CompositionRelationshipSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsRequest {
+  /**
+   * <p>The ID of the project.</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains a dashboard summary.</p>
+ * @public
+ */
+export interface DashboardSummary {
+  /**
+   * <p>The ID of the dashboard.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the dashboard</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The dashboard's description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The date the dashboard was created, in Unix epoch time.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+
+  /**
+   * <p>The date the dashboard was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  lastUpdateDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsResponse {
+  /**
+   * <p>A list that summarizes each dashboard in the project.</p>
+   * @public
+   */
+  dashboardSummaries: DashboardSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetsRequest {
+  /**
+   * <p>The type of data source for the dataset.</p>
+   * @public
+   */
+  sourceType: DatasetSourceType | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary details for the dataset.</p>
+ * @public
+ */
+export interface DatasetSummary {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARN</a> of the dataset.
+   *   The format is <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:dataset/$\{DatasetId\}</code>.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the dataset.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description about the dataset, and its functionality.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The dataset creation date, in Unix epoch time.</p>
+   * @public
+   */
+  creationDate: Date | undefined;
+
+  /**
+   * <p>The date the dataset was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  lastUpdateDate: Date | undefined;
+
+  /**
+   * <p>The status of the dataset. This contains the state and any error messages. The state is
+   *   <code>ACTIVE</code> when ready to use.</p>
+   * @public
+   */
+  status: DatasetStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDatasetsResponse {
+  /**
+   * <p>A list that summarizes the dataset response.</p>
+   * @public
+   */
+  datasetSummaries: DatasetSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysRequest {
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains a summary of a gateway.</p>
+ * @public
+ */
+export interface GatewaySummary {
+  /**
+   * <p>The ID of the gateway device.</p>
+   * @public
+   */
+  gatewayId: string | undefined;
+
+  /**
+   * <p>The name of the gateway.</p>
+   * @public
+   */
+  gatewayName: string | undefined;
+
+  /**
+   * <p>Contains a gateway's platform information.</p>
+   * @public
+   */
+  gatewayPlatform?: GatewayPlatform | undefined;
+
+  /**
+   * <p>A list of gateway capability summaries that each contain a namespace and status. Each
+   *       gateway capability defines data sources for the gateway. To retrieve a capability
+   *       configuration's definition, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html">DescribeGatewayCapabilityConfiguration</a>.</p>
+   * @public
+   */
+  gatewayCapabilitySummaries?: GatewayCapabilitySummary[] | undefined;
+
+  /**
+   * <p>The date the gateway was created, in Unix epoch time.</p>
+   * @public
+   */
+  creationDate: Date | undefined;
+
+  /**
+   * <p>The date the gateway was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  lastUpdateDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewaysResponse {
+  /**
+   * <p>A list that summarizes each gateway.</p>
+   * @public
+   */
+  gatewaySummaries: GatewaySummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPortalsRequest {
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains a portal summary.</p>
+ * @public
+ */
+export interface PortalSummary {
+  /**
+   * <p>The ID of the portal.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the portal.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The portal's description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The URL for the IoT SiteWise Monitor portal. You can use this URL to access portals that
+   *       use IAM Identity Center for authentication. For portals that use IAM for authentication, you must use the
+   *       IoT SiteWise console to get a URL that you can use to access the portal.</p>
+   * @public
+   */
+  startUrl: string | undefined;
+
+  /**
+   * <p>The date the portal was created, in Unix epoch time.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+
+  /**
+   * <p>The date the portal was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  lastUpdateDate?: Date | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the service role that allows the portal's users to access your IoT SiteWise
+   *       resources on your behalf. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/monitor-service-role.html">Using service roles for IoT SiteWise Monitor</a> in the
+   *         <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>Contains information about the current status of a portal.</p>
+   * @public
+   */
+  status: PortalStatus | undefined;
+
+  /**
+   * <p>Define the type of portal. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>
+   * @public
+   */
+  portalType?: PortalType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListPortalsResponse {
+  /**
+   * <p>A list that summarizes each portal.</p>
+   * @public
+   */
+  portalSummaries?: PortalSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProjectAssetsRequest {
+  /**
+   * <p>The ID of the project.</p>
+   * @public
+   */
+  projectId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProjectAssetsResponse {
+  /**
+   * <p>A list that contains the IDs of each asset associated with the project.</p>
+   * @public
+   */
+  assetIds: string[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProjectsRequest {
+  /**
+   * <p>The ID of the portal.</p>
+   * @public
+   */
+  portalId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for each paginated request.</p>
+   *          <p>Default: 50</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains project summary information.</p>
+ * @public
+ */
+export interface ProjectSummary {
+  /**
+   * <p>The ID of the project.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The name of the project.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The project's description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The date the project was created, in Unix epoch time.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+
+  /**
+   * <p>The date the project was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  lastUpdateDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProjectsResponse {
+  /**
+   * <p>A list that summarizes each project in the portal.</p>
+   * @public
+   */
+  projectSummaries: ProjectSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The list of key-value pairs that contain metadata for the resource. For more information,
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>You are not authorized.</p>
+ * @public
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListTimeSeriesType = {
+  ASSOCIATED: "ASSOCIATED",
+  DISASSOCIATED: "DISASSOCIATED",
+} as const;
+
+/**
+ * @public
+ */
+export type ListTimeSeriesType = (typeof ListTimeSeriesType)[keyof typeof ListTimeSeriesType];
 
 /**
  * @public
@@ -811,8 +1535,19 @@ export interface UpdateDashboardRequest {
   dashboardDescription?: string | undefined;
 
   /**
-   * <p>The new dashboard definition, as specified in a JSON literal. For detailed information,
-   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Creating dashboards (CLI)</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * <p>The new dashboard definition, as specified in a JSON literal.</p>
+   *          <ul>
+   *             <li>
+   *                <p>IoT SiteWise Monitor (Classic) see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-using-aws-cli.html">Create dashboards (CLI)</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>IoT SiteWise Monitor (AI-aware) see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/create-dashboards-ai-dashboard-cli.html">Create dashboards (CLI)</a>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>in the <i>IoT SiteWise User Guide</i>
+   *          </p>
    * @public
    */
   dashboardDefinition: string | undefined;
@@ -828,6 +1563,67 @@ export interface UpdateDashboardRequest {
  * @public
  */
 export interface UpdateDashboardResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetRequest {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The name of the dataset.</p>
+   * @public
+   */
+  datasetName: string | undefined;
+
+  /**
+   * <p>A description about the dataset, and its functionality.</p>
+   * @public
+   */
+  datasetDescription?: string | undefined;
+
+  /**
+   * <p>The data source for the dataset.</p>
+   * @public
+   */
+  datasetSource: DatasetSource | undefined;
+
+  /**
+   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDatasetResponse {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  datasetId?: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARN</a> of the dataset.
+   *   The format is <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:dataset/$\{DatasetId\}</code>.</p>
+   * @public
+   */
+  datasetArn?: string | undefined;
+
+  /**
+   * <p>The status of the dataset. This contains the state and any error messages.
+   *   State is <code>UPDATING</code> after a successfull call to this API, and any associated error message. The state is
+   *   <code>ACTIVE</code> when ready to use.</p>
+   * @public
+   */
+  datasetStatus?: DatasetStatus | undefined;
+}
 
 /**
  * @public
@@ -893,11 +1689,19 @@ export interface UpdateGatewayCapabilityConfigurationResponse {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>NOT_APPLICABLE</code> – Synchronization is not required for this capability configuration. This is most common when integrating partner data sources, because the data integration is handled externally by the partner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>OUT_OF_SYNC</code> – The gateway hasn't received the capability configuration.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SYNC_FAILED</code> – The gateway rejected the capability configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code> – The synchronization status is currently unknown due to an undetermined or temporary error.</p>
    *             </li>
    *          </ul>
    *          <p>After you update a capability configuration, its sync status is <code>OUT_OF_SYNC</code>
@@ -1002,6 +1806,18 @@ export interface UpdatePortalRequest {
    * @public
    */
   alarms?: Alarms | undefined;
+
+  /**
+   * <p>Define the type of portal. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>
+   * @public
+   */
+  portalType?: PortalType | undefined;
+
+  /**
+   * <p>The configuration entry associated with the specific portal type. The value for IoT SiteWise Monitor (Classic) is <code>SITEWISE_PORTAL_V1</code>. The value for IoT SiteWise Monitor (AI-aware) is <code>SITEWISE_PORTAL_V2</code>.</p>
+   * @public
+   */
+  portalTypeConfiguration?: Record<string, PortalTypeEntry> | undefined;
 }
 
 /**
@@ -1115,3 +1931,12 @@ export interface ExecuteQueryResponse {
    */
   nextToken?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const UpdatePortalRequestFilterSensitiveLog = (obj: UpdatePortalRequest): any => ({
+  ...obj,
+  ...(obj.portalContactEmail && { portalContactEmail: SENSITIVE_STRING }),
+  ...(obj.notificationSenderEmail && { notificationSenderEmail: SENSITIVE_STRING }),
+});

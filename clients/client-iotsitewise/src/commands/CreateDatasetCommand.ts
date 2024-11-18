@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
-import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
+import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
+import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,41 +17,69 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListTagsForResourceCommand}.
+ * The input for {@link CreateDatasetCommand}.
  */
-export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 /**
  * @public
  *
- * The output of {@link ListTagsForResourceCommand}.
+ * The output of {@link CreateDatasetCommand}.
  */
-export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
+export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the list of tags for an IoT SiteWise resource.</p>
+ * <p>Creates a dataset to connect an external datasource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTSiteWiseClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
- * // const { IoTSiteWiseClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
+ * import { IoTSiteWiseClient, CreateDatasetCommand } from "@aws-sdk/client-iotsitewise"; // ES Modules import
+ * // const { IoTSiteWiseClient, CreateDatasetCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
- * const input = { // ListTagsForResourceRequest
- *   resourceArn: "STRING_VALUE", // required
+ * const input = { // CreateDatasetRequest
+ *   datasetId: "STRING_VALUE",
+ *   datasetName: "STRING_VALUE", // required
+ *   datasetDescription: "STRING_VALUE",
+ *   datasetSource: { // DatasetSource
+ *     sourceType: "KENDRA", // required
+ *     sourceFormat: "KNOWLEDGE_BASE", // required
+ *     sourceDetail: { // SourceDetail
+ *       kendra: { // KendraSourceDetail
+ *         knowledgeBaseArn: "STRING_VALUE", // required
+ *         roleArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   },
+ *   clientToken: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new ListTagsForResourceCommand(input);
+ * const command = new CreateDatasetCommand(input);
  * const response = await client.send(command);
- * // { // ListTagsForResourceResponse
- * //   tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
+ * // { // CreateDatasetResponse
+ * //   datasetId: "STRING_VALUE", // required
+ * //   datasetArn: "STRING_VALUE", // required
+ * //   datasetStatus: { // DatasetStatus
+ * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
+ * //     error: { // ErrorDetails
+ * //       code: "VALIDATION_ERROR" || "INTERNAL_FAILURE", // required
+ * //       message: "STRING_VALUE", // required
+ * //       details: [ // DetailedErrors
+ * //         { // DetailedError
+ * //           code: "INCOMPATIBLE_COMPUTE_LOCATION" || "INCOMPATIBLE_FORWARDING_CONFIGURATION", // required
+ * //           message: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
  * ```
  *
- * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
- * @returns {@link ListTagsForResourceCommandOutput}
- * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
- * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
+ * @param CreateDatasetCommandInput - {@link CreateDatasetCommandInput}
+ * @returns {@link CreateDatasetCommandOutput}
+ * @see {@link CreateDatasetCommandInput} for command's `input` shape.
+ * @see {@link CreateDatasetCommandOutput} for command's `response` shape.
  * @see {@link IoTSiteWiseClientResolvedConfig | config} for IoTSiteWiseClient's `config` shape.
  *
  * @throws {@link ConflictingOperationException} (client fault)
@@ -71,6 +99,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
@@ -80,18 +111,15 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *       on.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
- * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized.</p>
- *
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  * @public
  */
-export class ListTagsForResourceCommand extends $Command
+export class CreateDatasetCommand extends $Command
   .classBuilder<
-    ListTagsForResourceCommandInput,
-    ListTagsForResourceCommandOutput,
+    CreateDatasetCommandInput,
+    CreateDatasetCommandOutput,
     IoTSiteWiseClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -103,21 +131,21 @@ export class ListTagsForResourceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIoTSiteWise", "ListTagsForResource", {})
-  .n("IoTSiteWiseClient", "ListTagsForResourceCommand")
+  .s("AWSIoTSiteWise", "CreateDataset", {})
+  .n("IoTSiteWiseClient", "CreateDatasetCommand")
   .f(void 0, void 0)
-  .ser(se_ListTagsForResourceCommand)
-  .de(de_ListTagsForResourceCommand)
+  .ser(se_CreateDatasetCommand)
+  .de(de_CreateDatasetCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListTagsForResourceRequest;
-      output: ListTagsForResourceResponse;
+      input: CreateDatasetRequest;
+      output: CreateDatasetResponse;
     };
     sdk: {
-      input: ListTagsForResourceCommandInput;
-      output: ListTagsForResourceCommandOutput;
+      input: CreateDatasetCommandInput;
+      output: CreateDatasetCommandOutput;
     };
   };
 }

@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { DescribePortalRequest, DescribePortalResponse } from "../models/models_0";
+import {
+  DescribePortalRequest,
+  DescribePortalResponse,
+  DescribePortalResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribePortalCommand, se_DescribePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -49,7 +53,7 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  * //   portalStartUrl: "STRING_VALUE", // required
  * //   portalContactEmail: "STRING_VALUE", // required
  * //   portalStatus: { // PortalStatus
- * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     state: "CREATING" || "PENDING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
  * //     error: { // MonitorErrorDetails
  * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
  * //       message: "STRING_VALUE",
@@ -67,6 +71,14 @@ export interface DescribePortalCommandOutput extends DescribePortalResponse, __M
  * //   alarms: { // Alarms
  * //     alarmRoleArn: "STRING_VALUE", // required
  * //     notificationLambdaArn: "STRING_VALUE",
+ * //   },
+ * //   portalType: "SITEWISE_PORTAL_V1" || "SITEWISE_PORTAL_V2",
+ * //   portalTypeConfiguration: { // PortalTypeConfiguration
+ * //     "<keys>": { // PortalTypeEntry
+ * //       portalTools: [ // PortalTools
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -116,7 +128,7 @@ export class DescribePortalCommand extends $Command
   })
   .s("AWSIoTSiteWise", "DescribePortal", {})
   .n("IoTSiteWiseClient", "DescribePortalCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribePortalResponseFilterSensitiveLog)
   .ser(se_DescribePortalCommand)
   .de(de_DescribePortalCommand)
   .build() {

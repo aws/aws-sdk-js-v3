@@ -29,6 +29,7 @@ import {
 } from "@smithy/smithy-client";
 import {
   Endpoint as __Endpoint,
+  EventStreamSerdeContext as __EventStreamSerdeContext,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
@@ -75,6 +76,7 @@ import {
   CreateBulkImportJobCommandOutput,
 } from "../commands/CreateBulkImportJobCommand";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
+import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "../commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
@@ -86,6 +88,7 @@ import {
   DeleteAssetModelCompositeModelCommandOutput,
 } from "../commands/DeleteAssetModelCompositeModelCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
+import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand";
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "../commands/DeleteGatewayCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "../commands/DeletePortalCommand";
 import { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "../commands/DeleteProjectCommand";
@@ -114,6 +117,7 @@ import {
   DescribeBulkImportJobCommandOutput,
 } from "../commands/DescribeBulkImportJobCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "../commands/DescribeDashboardCommand";
+import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand";
 import {
   DescribeDefaultEncryptionConfigurationCommandInput,
   DescribeDefaultEncryptionConfigurationCommandOutput,
@@ -157,6 +161,7 @@ import {
   GetInterpolatedAssetPropertyValuesCommandInput,
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "../commands/GetInterpolatedAssetPropertyValuesCommand";
+import { InvokeAssistantCommandInput, InvokeAssistantCommandOutput } from "../commands/InvokeAssistantCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "../commands/ListAccessPoliciesCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
 import {
@@ -187,6 +192,7 @@ import {
   ListCompositionRelationshipsCommandOutput,
 } from "../commands/ListCompositionRelationshipsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
+import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "../commands/ListGatewaysCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand";
 import { ListProjectAssetsCommandInput, ListProjectAssetsCommandOutput } from "../commands/ListProjectAssetsCommand";
@@ -219,6 +225,7 @@ import {
   UpdateAssetPropertyCommandOutput,
 } from "../commands/UpdateAssetPropertyCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "../commands/UpdateDashboardCommand";
+import { UpdateDatasetCommandInput, UpdateDatasetCommandOutput } from "../commands/UpdateDatasetCommand";
 import {
   UpdateGatewayCapabilityConfigurationCommandInput,
   UpdateGatewayCapabilityConfigurationCommandOutput,
@@ -263,14 +270,13 @@ import {
   ConflictingOperationException,
   Csv,
   CustomerManagedS3Storage,
-  DashboardSummary,
+  DatasetSource,
   ErrorReportLocation,
   ExpressionVariable,
   File,
   FileFormat,
   ForwardingConfig,
   GatewayPlatform,
-  GatewaySummary,
   Greengrass,
   GreengrassV2,
   GroupIdentity,
@@ -281,7 +287,9 @@ import {
   InternalFailureException,
   InterpolatedAssetPropertyValue,
   InvalidRequestException,
+  InvocationOutput,
   JobConfiguration,
+  KendraSourceDetail,
   LimitExceededException,
   LoggingOptions,
   Measurement,
@@ -292,10 +300,9 @@ import {
   MultiLayerStorage,
   Parquet,
   PortalResource,
-  PortalSummary,
+  PortalTypeEntry,
   PreconditionFailedException,
   ProjectResource,
-  ProjectSummary,
   PropertyType,
   PutAssetPropertyValueEntry,
   Quality,
@@ -303,23 +310,37 @@ import {
   Resource,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
+  ResponseStream,
   RetentionPeriod,
   ServiceUnavailableException,
   SiemensIE,
+  SourceDetail,
   TargetResource,
   ThrottlingException,
   TimeInNanos,
+  Trace,
   Transform,
   TransformProcessingConfig,
   TumblingWindow,
-  UnauthorizedException,
   UserIdentity,
   ValidationException,
   VariableValue,
   Variant,
   WarmTierRetentionPeriod,
 } from "../models/models_0";
-import { Datum, Image, Row, TimeSeriesSummary, TooManyTagsException } from "../models/models_1";
+import {
+  DashboardSummary,
+  DatasetSummary,
+  Datum,
+  GatewaySummary,
+  Image,
+  PortalSummary,
+  ProjectSummary,
+  Row,
+  TimeSeriesSummary,
+  TooManyTagsException,
+  UnauthorizedException,
+} from "../models/models_1";
 
 /**
  * serializeAws_restJson1AssociateAssetsCommand
@@ -801,6 +822,41 @@ export const se_CreateDashboardCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateDatasetCommand
+ */
+export const se_CreateDatasetCommand = async (
+  input: CreateDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/datasets");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      datasetDescription: [],
+      datasetId: [],
+      datasetName: [],
+      datasetSource: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateGatewayCommand
  */
 export const se_CreateGatewayCommand = async (
@@ -855,6 +911,8 @@ export const se_CreatePortalCommand = async (
       portalDescription: [],
       portalLogoImageFile: (_) => se_ImageFile(_, context),
       portalName: [],
+      portalType: [],
+      portalTypeConfiguration: (_) => _json(_),
       roleArn: [],
       tags: (_) => _json(_),
     })
@@ -1040,6 +1098,33 @@ export const se_DeleteDashboardCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDatasetCommand
+ */
+export const se_DeleteDatasetCommand = async (
+  input: DeleteDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/datasets/{datasetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1392,6 +1477,30 @@ export const se_DescribeDashboardCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeDatasetCommand
+ */
+export const se_DescribeDatasetCommand = async (
+  input: DescribeDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/datasets/{datasetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand
  */
 export const se_DescribeDefaultEncryptionConfigurationCommand = async (
@@ -1701,6 +1810,7 @@ export const se_ExecuteQueryCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       maxResults: [],
       nextToken: [],
       queryStatement: [],
@@ -1851,6 +1961,38 @@ export const se_GetInterpolatedAssetPropertyValuesCommand = async (
   }
   b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1InvokeAssistantCommand
+ */
+export const se_InvokeAssistantCommand = async (
+  input: InvokeAssistantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/assistant/invocation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      conversationId: [],
+      enableTrace: [],
+      message: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2195,6 +2337,34 @@ export const se_ListDashboardsCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "monitor." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListDatasetsCommand
+ */
+export const se_ListDatasetsCommand = async (
+  input: ListDatasetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/datasets");
+  const query: any = map({
+    [_sT]: [, __expectNonNull(input[_sT]!, `sourceType`)],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -2743,6 +2913,40 @@ export const se_UpdateDashboardCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDatasetCommand
+ */
+export const se_UpdateDatasetCommand = async (
+  input: UpdateDatasetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/datasets/{datasetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      datasetDescription: [],
+      datasetName: [],
+      datasetSource: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateGatewayCommand
  */
 export const se_UpdateGatewayCommand = async (
@@ -2828,6 +3032,8 @@ export const se_UpdatePortalCommand = async (
       portalDescription: [],
       portalLogoImage: (_) => se_Image(_, context),
       portalName: [],
+      portalType: [],
+      portalTypeConfiguration: (_) => _json(_),
       roleArn: [],
     })
   );
@@ -3182,6 +3388,29 @@ export const de_CreateDashboardCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateDatasetCommand
+ */
+export const de_CreateDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDatasetCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    datasetArn: __expectString,
+    datasetId: __expectString,
+    datasetStatus: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateGatewayCommand
  */
 export const de_CreateGatewayCommand = async (
@@ -3344,6 +3573,27 @@ export const de_DeleteDashboardCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDatasetCommand
+ */
+export const de_DeleteDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDatasetCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    datasetStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3686,6 +3936,35 @@ export const de_DescribeDashboardCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeDatasetCommand
+ */
+export const de_DescribeDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDatasetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    datasetArn: __expectString,
+    datasetCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetDescription: __expectString,
+    datasetId: __expectString,
+    datasetLastUpdateDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    datasetName: __expectString,
+    datasetSource: _json,
+    datasetStatus: _json,
+    datasetVersion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeDefaultEncryptionConfigurationCommand
  */
 export const de_DescribeDefaultEncryptionConfigurationCommand = async (
@@ -3809,6 +4088,8 @@ export const de_DescribePortalCommand = async (
     portalName: __expectString,
     portalStartUrl: __expectString,
     portalStatus: _json,
+    portalType: __expectString,
+    portalTypeConfiguration: _json,
     roleArn: __expectString,
   });
   Object.assign(contents, doc);
@@ -4061,6 +4342,25 @@ export const de_GetInterpolatedAssetPropertyValuesCommand = async (
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1InvokeAssistantCommand
+ */
+export const de_InvokeAssistantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<InvokeAssistantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_cI]: [, output.headers[_xaiaci]],
+  });
+  const data: any = output.body;
+  contents.body = de_ResponseStream(data, context);
   return contents;
 };
 
@@ -4322,6 +4622,28 @@ export const de_ListDashboardsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     dashboardSummaries: (_) => de_DashboardSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDatasetsCommand
+ */
+export const de_ListDatasetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    datasetSummaries: (_) => de_DatasetSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -4672,6 +4994,29 @@ export const de_UpdateDashboardCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDatasetCommand
+ */
+export const de_UpdateDatasetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasetCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    datasetArn: __expectString,
+    datasetId: __expectString,
+    datasetStatus: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -5096,6 +5441,144 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * deserializeAws_restJson1ResponseStream
+ */
+const de_ResponseStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<ResponseStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["trace"] != null) {
+      return {
+        trace: await de_Trace_event(event["trace"], context),
+      };
+    }
+    if (event["output"] != null) {
+      return {
+        output: await de_InvocationOutput_event(event["output"], context),
+      };
+    }
+    if (event["accessDeniedException"] != null) {
+      return {
+        accessDeniedException: await de_AccessDeniedException_event(event["accessDeniedException"], context),
+      };
+    }
+    if (event["conflictingOperationException"] != null) {
+      return {
+        conflictingOperationException: await de_ConflictingOperationException_event(
+          event["conflictingOperationException"],
+          context
+        ),
+      };
+    }
+    if (event["internalFailureException"] != null) {
+      return {
+        internalFailureException: await de_InternalFailureException_event(event["internalFailureException"], context),
+      };
+    }
+    if (event["invalidRequestException"] != null) {
+      return {
+        invalidRequestException: await de_InvalidRequestException_event(event["invalidRequestException"], context),
+      };
+    }
+    if (event["limitExceededException"] != null) {
+      return {
+        limitExceededException: await de_LimitExceededException_event(event["limitExceededException"], context),
+      };
+    }
+    if (event["resourceNotFoundException"] != null) {
+      return {
+        resourceNotFoundException: await de_ResourceNotFoundException_event(
+          event["resourceNotFoundException"],
+          context
+        ),
+      };
+    }
+    if (event["throttlingException"] != null) {
+      return {
+        throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+const de_AccessDeniedException_event = async (output: any, context: __SerdeContext): Promise<AccessDeniedException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_AccessDeniedExceptionRes(parsedOutput, context);
+};
+const de_ConflictingOperationException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ConflictingOperationException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_ConflictingOperationExceptionRes(parsedOutput, context);
+};
+const de_InternalFailureException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InternalFailureException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_InternalFailureExceptionRes(parsedOutput, context);
+};
+const de_InvalidRequestException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InvalidRequestException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_InvalidRequestExceptionRes(parsedOutput, context);
+};
+const de_InvocationOutput_event = async (output: any, context: __SerdeContext): Promise<InvocationOutput> => {
+  const contents: InvocationOutput = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_LimitExceededException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_LimitExceededExceptionRes(parsedOutput, context);
+};
+const de_ResourceNotFoundException_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_ResourceNotFoundExceptionRes(parsedOutput, context);
+};
+const de_ThrottlingException_event = async (output: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  return de_ThrottlingExceptionRes(parsedOutput, context);
+};
+const de_Trace_event = async (output: any, context: __SerdeContext): Promise<Trace> => {
+  const contents: Trace = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
 // se_ActionPayload omitted.
 
 // se_AggregateTypes omitted.
@@ -5253,6 +5736,8 @@ const se_BatchGetAssetPropertyValueHistoryEntry = (
 
 // se_CustomerManagedS3Storage omitted.
 
+// se_DatasetSource omitted.
+
 // se_ErrorReportLocation omitted.
 
 // se_ExpressionVariable omitted.
@@ -5305,6 +5790,8 @@ const se_ImageFile = (input: ImageFile, context: __SerdeContext): any => {
 
 // se_JobConfiguration omitted.
 
+// se_KendraSourceDetail omitted.
+
 // se_LoggingOptions omitted.
 
 // se_Measurement omitted.
@@ -5322,6 +5809,12 @@ const se_ImageFile = (input: ImageFile, context: __SerdeContext): any => {
 // se_Parquet omitted.
 
 // se_PortalResource omitted.
+
+// se_PortalTools omitted.
+
+// se_PortalTypeConfiguration omitted.
+
+// se_PortalTypeEntry omitted.
 
 // se_ProjectResource omitted.
 
@@ -5358,6 +5851,8 @@ const se_PutAssetPropertyValueEntry = (input: PutAssetPropertyValueEntry, contex
 // se_RetentionPeriod omitted.
 
 // se_SiemensIE omitted.
+
+// se_SourceDetail omitted.
 
 // se_TagMap omitted.
 
@@ -5893,6 +6388,10 @@ const de_BatchGetAssetPropertyValueSuccessEntry = (
 
 // de_BatchPutAssetPropertyErrors omitted.
 
+// de_Citation omitted.
+
+// de_Citations omitted.
+
 // de_ColumnInfo omitted.
 
 // de_ColumnNames omitted.
@@ -5916,6 +6415,8 @@ const de_BatchGetAssetPropertyValueSuccessEntry = (
 // de_ConfigurationErrorDetails omitted.
 
 // de_ConfigurationStatus omitted.
+
+// de_Content omitted.
 
 // de_Csv omitted.
 
@@ -5943,6 +6444,39 @@ const de_DashboardSummary = (output: any, context: __SerdeContext): DashboardSum
     id: __expectString,
     lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+  }) as any;
+};
+
+// de_DataSetReference omitted.
+
+// de_DatasetSource omitted.
+
+// de_DatasetStatus omitted.
+
+/**
+ * deserializeAws_restJson1DatasetSummaries
+ */
+const de_DatasetSummaries = (output: any, context: __SerdeContext): DatasetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DatasetSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DatasetSummary
+ */
+const de_DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
+  return take(output, {
+    arn: __expectString,
+    creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: _json,
   }) as any;
 };
 
@@ -6058,11 +6592,17 @@ const de_InterpolatedAssetPropertyValues = (output: any, context: __SerdeContext
   return retVal;
 };
 
+// de_InvocationOutput omitted.
+
 // de_JobConfiguration omitted.
 
 // de_JobSummaries omitted.
 
 // de_JobSummary omitted.
+
+// de_KendraSourceDetail omitted.
+
+// de_Location omitted.
 
 // de_LoggingOptions omitted.
 
@@ -6108,11 +6648,18 @@ const de_PortalSummary = (output: any, context: __SerdeContext): PortalSummary =
     id: __expectString,
     lastUpdateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    portalType: __expectString,
     roleArn: __expectString,
     startUrl: __expectString,
     status: _json,
   }) as any;
 };
+
+// de_PortalTools omitted.
+
+// de_PortalTypeConfiguration omitted.
+
+// de_PortalTypeEntry omitted.
 
 // de_ProjectResource omitted.
 
@@ -6147,6 +6694,8 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 
 // de_PropertyType omitted.
 
+// de_Reference omitted.
+
 // de_Resource omitted.
 
 // de_RetentionPeriod omitted.
@@ -6173,6 +6722,10 @@ const de_Rows = (output: any, context: __SerdeContext): Row[] => {
 };
 
 // de_SiemensIE omitted.
+
+// de_Source omitted.
+
+// de_SourceDetail omitted.
 
 // de_TagMap omitted.
 
@@ -6210,6 +6763,8 @@ const de_TimeSeriesSummary = (output: any, context: __SerdeContext): TimeSeriesS
 };
 
 // de_Timestamps omitted.
+
+// de_Trace omitted.
 
 // de_Transform omitted.
 
@@ -6254,6 +6809,7 @@ const _aMT = "assetModelTypes";
 const _aMV = "assetModelVersion";
 const _aP = "aliasPrefix";
 const _aT = "aggregateTypes";
+const _cI = "conversationId";
 const _cT = "clientToken";
 const _e = "etag";
 const _eD = "endDate";
@@ -6287,6 +6843,7 @@ const _rA = "resourceArn";
 const _rI = "resourceId";
 const _rT = "resourceType";
 const _sD = "startDate";
+const _sT = "sourceType";
 const _sTIS = "startTimeInSeconds";
 const _sTOIN = "startTimeOffsetInNanos";
 const _t = "type";
@@ -6297,3 +6854,4 @@ const _tRI = "targetResourceId";
 const _tRT = "targetResourceType";
 const _tST = "timeSeriesType";
 const _tT = "traversalType";
+const _xaiaci = "x-amz-iotsitewise-assistant-conversation-id";
