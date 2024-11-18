@@ -2,7 +2,6 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTSiteWiseServiceException as __BaseException } from "./IoTSiteWiseServiceException";
-
 import {
   Alarms,
   AssetModelCompositeModel,

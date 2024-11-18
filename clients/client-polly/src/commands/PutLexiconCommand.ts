@@ -91,7 +91,7 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * ```javascript
  * // Stores a pronunciation lexicon in an AWS Region.
  * const input = {
- *   "Content": "file://example.pls",
+ *   "Content": "<Lexicon Content>",
  *   "Name": "W3C"
  * };
  * const command = new PutLexiconCommand(input);

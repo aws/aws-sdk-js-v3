@@ -24,11 +24,11 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^3.1.10",
-    "@smithy/node-http-handler": "^3.3.0",
-    "@smithy/protocol-http": "^4.1.6",
-    "@smithy/types": "^3.7.0",
-    "@smithy/util-stream": "^3.3.0",
+    "@smithy/node-config-provider": "^3.1.11",
+    "@smithy/node-http-handler": "^3.3.1",
+    "@smithy/protocol-http": "^4.1.7",
+    "@smithy/types": "^3.7.1",
+    "@smithy/util-stream": "^3.3.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
