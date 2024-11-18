@@ -74,6 +74,26 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  *       Operator: "EQUAL_TO" || "GREATER_THAN" || "LESS_THAN" || "NOT_EQUAL_TO", // required
  *     },
  *   },
+ *   Filter: { // Filter
+ *     Include: "ALL" || "ANY" || "NONE", // required
+ *     Groups: [ // GroupList // required
+ *       { // FilterGroup
+ *         Type: "ALL" || "ANY" || "NONE", // required
+ *         Dimensions: [ // FilterDimensionList // required
+ *           { // FilterDimension
+ *             Attributes: { // AttributeMap // required
+ *               "<keys>": { // FilterAttributeDimension
+ *                 DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL", // required
+ *                 Values: [ // ValueList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
  *   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE", // required
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -103,6 +123,26 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * //       Value: "STRING_VALUE", // required
  * //       Operator: "EQUAL_TO" || "GREATER_THAN" || "LESS_THAN" || "NOT_EQUAL_TO", // required
  * //     },
+ * //   },
+ * //   Filter: { // Filter
+ * //     Include: "ALL" || "ANY" || "NONE", // required
+ * //     Groups: [ // GroupList // required
+ * //       { // FilterGroup
+ * //         Type: "ALL" || "ANY" || "NONE", // required
+ * //         Dimensions: [ // FilterDimensionList // required
+ * //           { // FilterDimension
+ * //             Attributes: { // AttributeMap // required
+ * //               "<keys>": { // FilterAttributeDimension
+ * //                 DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL", // required
+ * //                 Values: [ // ValueList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
  * //   CreatedAt: new Date("TIMESTAMP"),

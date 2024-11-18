@@ -63,7 +63,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  *     "<keys>": [ // ObjectTypeKeyList
  *       { // ObjectTypeKey
  *         StandardIdentifiers: [ // StandardIdentifierList
- *           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ *           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  *         ],
  *         FieldNames: [ // FieldNameList
  *           "STRING_VALUE",
@@ -98,7 +98,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * //     "<keys>": [ // ObjectTypeKeyList
  * //       { // ObjectTypeKey
  * //         StandardIdentifiers: [ // StandardIdentifierList
- * //           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  * //         ],
  * //         FieldNames: [ // FieldNameList
  * //           "STRING_VALUE",

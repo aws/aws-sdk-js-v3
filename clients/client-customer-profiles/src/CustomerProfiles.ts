@@ -8,6 +8,16 @@ import {
   AddProfileKeyCommandOutput,
 } from "./commands/AddProfileKeyCommand";
 import {
+  BatchGetCalculatedAttributeForProfileCommand,
+  BatchGetCalculatedAttributeForProfileCommandInput,
+  BatchGetCalculatedAttributeForProfileCommandOutput,
+} from "./commands/BatchGetCalculatedAttributeForProfileCommand";
+import {
+  BatchGetProfileCommand,
+  BatchGetProfileCommandInput,
+  BatchGetProfileCommandOutput,
+} from "./commands/BatchGetProfileCommand";
+import {
   CreateCalculatedAttributeDefinitionCommand,
   CreateCalculatedAttributeDefinitionCommandInput,
   CreateCalculatedAttributeDefinitionCommandOutput,
@@ -32,6 +42,21 @@ import {
   CreateProfileCommandInput,
   CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
+import {
+  CreateSegmentDefinitionCommand,
+  CreateSegmentDefinitionCommandInput,
+  CreateSegmentDefinitionCommandOutput,
+} from "./commands/CreateSegmentDefinitionCommand";
+import {
+  CreateSegmentEstimateCommand,
+  CreateSegmentEstimateCommandInput,
+  CreateSegmentEstimateCommandOutput,
+} from "./commands/CreateSegmentEstimateCommand";
+import {
+  CreateSegmentSnapshotCommand,
+  CreateSegmentSnapshotCommandInput,
+  CreateSegmentSnapshotCommandOutput,
+} from "./commands/CreateSegmentSnapshotCommand";
 import {
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteCalculatedAttributeDefinitionCommandInput,
@@ -72,6 +97,11 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import {
+  DeleteSegmentDefinitionCommand,
+  DeleteSegmentDefinitionCommandInput,
+  DeleteSegmentDefinitionCommandOutput,
+} from "./commands/DeleteSegmentDefinitionCommand";
 import {
   DeleteWorkflowCommand,
   DeleteWorkflowCommandInput,
@@ -125,6 +155,26 @@ import {
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
 import {
+  GetSegmentDefinitionCommand,
+  GetSegmentDefinitionCommandInput,
+  GetSegmentDefinitionCommandOutput,
+} from "./commands/GetSegmentDefinitionCommand";
+import {
+  GetSegmentEstimateCommand,
+  GetSegmentEstimateCommandInput,
+  GetSegmentEstimateCommandOutput,
+} from "./commands/GetSegmentEstimateCommand";
+import {
+  GetSegmentMembershipCommand,
+  GetSegmentMembershipCommandInput,
+  GetSegmentMembershipCommandOutput,
+} from "./commands/GetSegmentMembershipCommand";
+import {
+  GetSegmentSnapshotCommand,
+  GetSegmentSnapshotCommandInput,
+  GetSegmentSnapshotCommandOutput,
+} from "./commands/GetSegmentSnapshotCommand";
+import {
   GetSimilarProfilesCommand,
   GetSimilarProfilesCommandInput,
   GetSimilarProfilesCommandOutput,
@@ -167,6 +217,16 @@ import {
   ListIntegrationsCommandOutput,
 } from "./commands/ListIntegrationsCommand";
 import {
+  ListObjectTypeAttributesCommand,
+  ListObjectTypeAttributesCommandInput,
+  ListObjectTypeAttributesCommandOutput,
+} from "./commands/ListObjectTypeAttributesCommand";
+import {
+  ListProfileAttributeValuesCommand,
+  ListProfileAttributeValuesCommandInput,
+  ListProfileAttributeValuesCommandOutput,
+} from "./commands/ListProfileAttributeValuesCommand";
+import {
   ListProfileObjectsCommand,
   ListProfileObjectsCommandInput,
   ListProfileObjectsCommandOutput,
@@ -186,6 +246,11 @@ import {
   ListRuleBasedMatchesCommandInput,
   ListRuleBasedMatchesCommandOutput,
 } from "./commands/ListRuleBasedMatchesCommand";
+import {
+  ListSegmentDefinitionsCommand,
+  ListSegmentDefinitionsCommandInput,
+  ListSegmentDefinitionsCommandOutput,
+} from "./commands/ListSegmentDefinitionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -246,11 +311,16 @@ import { CustomerProfilesClient, CustomerProfilesClientConfig } from "./Customer
 
 const commands = {
   AddProfileKeyCommand,
+  BatchGetCalculatedAttributeForProfileCommand,
+  BatchGetProfileCommand,
   CreateCalculatedAttributeDefinitionCommand,
   CreateDomainCommand,
   CreateEventStreamCommand,
   CreateIntegrationWorkflowCommand,
   CreateProfileCommand,
+  CreateSegmentDefinitionCommand,
+  CreateSegmentEstimateCommand,
+  CreateSegmentSnapshotCommand,
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
   DeleteEventStreamCommand,
@@ -259,6 +329,7 @@ const commands = {
   DeleteProfileKeyCommand,
   DeleteProfileObjectCommand,
   DeleteProfileObjectTypeCommand,
+  DeleteSegmentDefinitionCommand,
   DeleteWorkflowCommand,
   DetectProfileObjectTypeCommand,
   GetAutoMergingPreviewCommand,
@@ -271,6 +342,10 @@ const commands = {
   GetMatchesCommand,
   GetProfileObjectTypeCommand,
   GetProfileObjectTypeTemplateCommand,
+  GetSegmentDefinitionCommand,
+  GetSegmentEstimateCommand,
+  GetSegmentMembershipCommand,
+  GetSegmentSnapshotCommand,
   GetSimilarProfilesCommand,
   GetWorkflowCommand,
   GetWorkflowStepsCommand,
@@ -281,10 +356,13 @@ const commands = {
   ListEventStreamsCommand,
   ListIdentityResolutionJobsCommand,
   ListIntegrationsCommand,
+  ListObjectTypeAttributesCommand,
+  ListProfileAttributeValuesCommand,
   ListProfileObjectsCommand,
   ListProfileObjectTypesCommand,
   ListProfileObjectTypeTemplatesCommand,
   ListRuleBasedMatchesCommand,
+  ListSegmentDefinitionsCommand,
   ListTagsForResourceCommand,
   ListWorkflowsCommand,
   MergeProfilesCommand,
@@ -309,6 +387,37 @@ export interface CustomerProfiles {
     args: AddProfileKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddProfileKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCalculatedAttributeForProfileCommand}
+   */
+  batchGetCalculatedAttributeForProfile(
+    args: BatchGetCalculatedAttributeForProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCalculatedAttributeForProfileCommandOutput>;
+  batchGetCalculatedAttributeForProfile(
+    args: BatchGetCalculatedAttributeForProfileCommandInput,
+    cb: (err: any, data?: BatchGetCalculatedAttributeForProfileCommandOutput) => void
+  ): void;
+  batchGetCalculatedAttributeForProfile(
+    args: BatchGetCalculatedAttributeForProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCalculatedAttributeForProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetProfileCommand}
+   */
+  batchGetProfile(
+    args: BatchGetProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetProfileCommandOutput>;
+  batchGetProfile(args: BatchGetProfileCommandInput, cb: (err: any, data?: BatchGetProfileCommandOutput) => void): void;
+  batchGetProfile(
+    args: BatchGetProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetProfileCommandOutput) => void
   ): void;
 
   /**
@@ -382,6 +491,57 @@ export interface CustomerProfiles {
     args: CreateProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSegmentDefinitionCommand}
+   */
+  createSegmentDefinition(
+    args: CreateSegmentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentDefinitionCommandOutput>;
+  createSegmentDefinition(
+    args: CreateSegmentDefinitionCommandInput,
+    cb: (err: any, data?: CreateSegmentDefinitionCommandOutput) => void
+  ): void;
+  createSegmentDefinition(
+    args: CreateSegmentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSegmentDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSegmentEstimateCommand}
+   */
+  createSegmentEstimate(
+    args: CreateSegmentEstimateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentEstimateCommandOutput>;
+  createSegmentEstimate(
+    args: CreateSegmentEstimateCommandInput,
+    cb: (err: any, data?: CreateSegmentEstimateCommandOutput) => void
+  ): void;
+  createSegmentEstimate(
+    args: CreateSegmentEstimateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSegmentEstimateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSegmentSnapshotCommand}
+   */
+  createSegmentSnapshot(
+    args: CreateSegmentSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentSnapshotCommandOutput>;
+  createSegmentSnapshot(
+    args: CreateSegmentSnapshotCommandInput,
+    cb: (err: any, data?: CreateSegmentSnapshotCommandOutput) => void
+  ): void;
+  createSegmentSnapshot(
+    args: CreateSegmentSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSegmentSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -506,6 +666,23 @@ export interface CustomerProfiles {
     args: DeleteProfileObjectTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProfileObjectTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSegmentDefinitionCommand}
+   */
+  deleteSegmentDefinition(
+    args: DeleteSegmentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSegmentDefinitionCommandOutput>;
+  deleteSegmentDefinition(
+    args: DeleteSegmentDefinitionCommandInput,
+    cb: (err: any, data?: DeleteSegmentDefinitionCommandOutput) => void
+  ): void;
+  deleteSegmentDefinition(
+    args: DeleteSegmentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSegmentDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -692,6 +869,74 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetSegmentDefinitionCommand}
+   */
+  getSegmentDefinition(
+    args: GetSegmentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentDefinitionCommandOutput>;
+  getSegmentDefinition(
+    args: GetSegmentDefinitionCommandInput,
+    cb: (err: any, data?: GetSegmentDefinitionCommandOutput) => void
+  ): void;
+  getSegmentDefinition(
+    args: GetSegmentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSegmentEstimateCommand}
+   */
+  getSegmentEstimate(
+    args: GetSegmentEstimateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentEstimateCommandOutput>;
+  getSegmentEstimate(
+    args: GetSegmentEstimateCommandInput,
+    cb: (err: any, data?: GetSegmentEstimateCommandOutput) => void
+  ): void;
+  getSegmentEstimate(
+    args: GetSegmentEstimateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentEstimateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSegmentMembershipCommand}
+   */
+  getSegmentMembership(
+    args: GetSegmentMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentMembershipCommandOutput>;
+  getSegmentMembership(
+    args: GetSegmentMembershipCommandInput,
+    cb: (err: any, data?: GetSegmentMembershipCommandOutput) => void
+  ): void;
+  getSegmentMembership(
+    args: GetSegmentMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSegmentSnapshotCommand}
+   */
+  getSegmentSnapshot(
+    args: GetSegmentSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentSnapshotCommandOutput>;
+  getSegmentSnapshot(
+    args: GetSegmentSnapshotCommandInput,
+    cb: (err: any, data?: GetSegmentSnapshotCommandOutput) => void
+  ): void;
+  getSegmentSnapshot(
+    args: GetSegmentSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentSnapshotCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSimilarProfilesCommand}
    */
   getSimilarProfiles(
@@ -851,6 +1096,40 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link ListObjectTypeAttributesCommand}
+   */
+  listObjectTypeAttributes(
+    args: ListObjectTypeAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObjectTypeAttributesCommandOutput>;
+  listObjectTypeAttributes(
+    args: ListObjectTypeAttributesCommandInput,
+    cb: (err: any, data?: ListObjectTypeAttributesCommandOutput) => void
+  ): void;
+  listObjectTypeAttributes(
+    args: ListObjectTypeAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListObjectTypeAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProfileAttributeValuesCommand}
+   */
+  listProfileAttributeValues(
+    args: ListProfileAttributeValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfileAttributeValuesCommandOutput>;
+  listProfileAttributeValues(
+    args: ListProfileAttributeValuesCommandInput,
+    cb: (err: any, data?: ListProfileAttributeValuesCommandOutput) => void
+  ): void;
+  listProfileAttributeValues(
+    args: ListProfileAttributeValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfileAttributeValuesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProfileObjectsCommand}
    */
   listProfileObjects(
@@ -917,6 +1196,23 @@ export interface CustomerProfiles {
     args: ListRuleBasedMatchesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRuleBasedMatchesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSegmentDefinitionsCommand}
+   */
+  listSegmentDefinitions(
+    args: ListSegmentDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSegmentDefinitionsCommandOutput>;
+  listSegmentDefinitions(
+    args: ListSegmentDefinitionsCommandInput,
+    cb: (err: any, data?: ListSegmentDefinitionsCommandOutput) => void
+  ): void;
+  listSegmentDefinitions(
+    args: ListSegmentDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSegmentDefinitionsCommandOutput) => void
   ): void;
 
   /**

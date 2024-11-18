@@ -251,6 +251,83 @@ export interface Address {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const StringDimensionType = {
+  BEGINS_WITH: "BEGINS_WITH",
+  CONTAINS: "CONTAINS",
+  ENDS_WITH: "ENDS_WITH",
+  EXCLUSIVE: "EXCLUSIVE",
+  INCLUSIVE: "INCLUSIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type StringDimensionType = (typeof StringDimensionType)[keyof typeof StringDimensionType];
+
+/**
+ * <p>Object to hold the dimensions of a profile's fields to segment on.</p>
+ * @public
+ */
+export interface ProfileDimension {
+  /**
+   * <p>The action to segment on.</p>
+   * @public
+   */
+  DimensionType: StringDimensionType | undefined;
+
+  /**
+   * <p>The values to apply the DimensionType on.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>Object that segments on Customer Profile's address object.</p>
+ * @public
+ */
+export interface AddressDimension {
+  /**
+   * <p>The city belonging to the address.</p>
+   * @public
+   */
+  City?: ProfileDimension | undefined;
+
+  /**
+   * <p>The country belonging to the address.</p>
+   * @public
+   */
+  Country?: ProfileDimension | undefined;
+
+  /**
+   * <p>The county belonging to the address.</p>
+   * @public
+   */
+  County?: ProfileDimension | undefined;
+
+  /**
+   * <p>The postal code belonging to the address.</p>
+   * @public
+   */
+  PostalCode?: ProfileDimension | undefined;
+
+  /**
+   * <p>The province belonging to the address.</p>
+   * @public
+   */
+  Province?: ProfileDimension | undefined;
+
+  /**
+   * <p>The state belonging to the address.</p>
+   * @public
+   */
+  State?: ProfileDimension | undefined;
+}
+
+/**
  * <p>Batch defines the boundaries for ingestion for each step in
  *             <code>APPFLOW_INTEGRATION</code> workflow. <code>APPFLOW_INTEGRATION</code> workflow
  *          splits ingestion based on these boundaries.</p>
@@ -1078,6 +1155,96 @@ export interface AttributeDetails {
  * @public
  * @enum
  */
+export const AttributeDimensionType = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  ENDS_WITH: "ENDS_WITH",
+  EQUAL: "EQUAL",
+  EXCLUSIVE: "EXCLUSIVE",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  INCLUSIVE: "INCLUSIVE",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+  NOT_BETWEEN: "NOT_BETWEEN",
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeDimensionType = (typeof AttributeDimensionType)[keyof typeof AttributeDimensionType];
+
+/**
+ * <p>Object that segments on various Customer Profile's fields.</p>
+ * @public
+ */
+export interface AttributeDimension {
+  /**
+   * <p>The action to segment with.</p>
+   * @public
+   */
+  DimensionType: AttributeDimensionType | undefined;
+
+  /**
+   * <p>The values to apply the DimensionType on.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterDimensionType = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+  BEGINS_WITH: "BEGINS_WITH",
+  BETWEEN: "BETWEEN",
+  CONTAINS: "CONTAINS",
+  ENDS_WITH: "ENDS_WITH",
+  EQUAL: "EQUAL",
+  EXCLUSIVE: "EXCLUSIVE",
+  GREATER_THAN: "GREATER_THAN",
+  GREATER_THAN_OR_EQUAL: "GREATER_THAN_OR_EQUAL",
+  INCLUSIVE: "INCLUSIVE",
+  LESS_THAN: "LESS_THAN",
+  LESS_THAN_OR_EQUAL: "LESS_THAN_OR_EQUAL",
+  NOT_BETWEEN: "NOT_BETWEEN",
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterDimensionType = (typeof FilterDimensionType)[keyof typeof FilterDimensionType];
+
+/**
+ * <p>Object that defines how to filter the incoming objects for the calculated attribute.</p>
+ * @public
+ */
+export interface FilterAttributeDimension {
+  /**
+   * <p>The action to filter with.</p>
+   * @public
+   */
+  DimensionType: FilterDimensionType | undefined;
+
+  /**
+   * <p>The values to apply the DimensionType on.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AttributeMatchingModel = {
   MANY_TO_MANY: "MANY_TO_MANY",
   ONE_TO_ONE: "ONE_TO_ONE",
@@ -1184,6 +1351,18 @@ export interface AttributeTypesSelector {
 }
 
 /**
+ * <p>List containing the values for the given attribute.</p>
+ * @public
+ */
+export interface AttributeValueItem {
+  /**
+   * <p>An individual value belonging to the given attribute.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1278,6 +1457,460 @@ export interface AutoMerging {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RangeUnit = {
+  DAYS: "DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type RangeUnit = (typeof RangeUnit)[keyof typeof RangeUnit];
+
+/**
+ * <p>Overrides the original range on a calculated attribute definition.</p>
+ * @public
+ */
+export interface RangeOverride {
+  /**
+   * <p>The start time of when to include objects.</p>
+   * @public
+   */
+  Start: number | undefined;
+
+  /**
+   * <p>The end time of when to include objects.</p>
+   * @public
+   */
+  End?: number | undefined;
+
+  /**
+   * <p>The unit for start and end.</p>
+   * @public
+   */
+  Unit: RangeUnit | undefined;
+}
+
+/**
+ * <p>An object to override the original condition block of a calculated attribute.</p>
+ * @public
+ */
+export interface ConditionOverrides {
+  /**
+   * <p>The relative time period over which data is included in the aggregation for this override.</p>
+   * @public
+   */
+  Range?: RangeOverride | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCalculatedAttributeForProfileRequest {
+  /**
+   * <p>The unique name of the calculated attribute.</p>
+   * @public
+   */
+  CalculatedAttributeName: string | undefined;
+
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>List of unique identifiers for customer profiles to retrieve.</p>
+   * @public
+   */
+  ProfileIds: string[] | undefined;
+
+  /**
+   * <p>Overrides the condition block within the original calculated attribute definition.</p>
+   * @public
+   */
+  ConditionOverrides?: ConditionOverrides | undefined;
+}
+
+/**
+ * <p>The object containing the values of a single calculated attribute value.</p>
+ * @public
+ */
+export interface CalculatedAttributeValue {
+  /**
+   * <p>The unique name of the calculated attribute.</p>
+   * @public
+   */
+  CalculatedAttributeName?: string | undefined;
+
+  /**
+   * <p>The display name of the calculated attribute.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the calculated attribute's value is based on partial data. If the data is partial, it is set to true.</p>
+   * @public
+   */
+  IsDataPartial?: string | undefined;
+
+  /**
+   * <p>The profile id belonging to this calculated attribute value.</p>
+   * @public
+   */
+  ProfileId?: string | undefined;
+
+  /**
+   * <p>The value of the calculated attribute.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Error object describing why a specific profile and calculated attribute failed.</p>
+ * @public
+ */
+export interface BatchGetCalculatedAttributeForProfileError {
+  /**
+   * <p>Status code for why a specific profile and calculated attribute failed.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>Message describing why a specific profile and calculated attribute failed.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The profile id that failed.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCalculatedAttributeForProfileResponse {
+  /**
+   * <p>List of errors for calculated attribute values that could not be retrieved.</p>
+   * @public
+   */
+  Errors?: BatchGetCalculatedAttributeForProfileError[] | undefined;
+
+  /**
+   * <p>List of calculated attribute values retrieved.</p>
+   * @public
+   */
+  CalculatedAttributeValues?: CalculatedAttributeValue[] | undefined;
+
+  /**
+   * <p>Overrides the condition block within the original calculated attribute definition.</p>
+   * @public
+   */
+  ConditionOverrides?: ConditionOverrides | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetProfileRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>List of unique identifiers for customer profiles to retrieve.</p>
+   * @public
+   */
+  ProfileIds: string[] | undefined;
+}
+
+/**
+ * <p>Error object describing why a specific profile failed.</p>
+ * @public
+ */
+export interface BatchGetProfileError {
+  /**
+   * <p>Status code for why a specific profile failed.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>Message describing why a specific profile failed.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The profile id that failed.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+}
+
+/**
+ * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list
+ *          that were used to find a profile returned in response to a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.
+ *       </p>
+ * @public
+ */
+export interface FoundByKeyValue {
+  /**
+   * <p>A searchable identifier of a customer profile.</p>
+   * @public
+   */
+  KeyName?: string | undefined;
+
+  /**
+   * <p>A list of key values.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Gender = {
+  FEMALE: "FEMALE",
+  MALE: "MALE",
+  UNSPECIFIED: "UNSPECIFIED",
+} as const;
+
+/**
+ * @public
+ */
+export type Gender = (typeof Gender)[keyof typeof Gender];
+
+/**
+ * @public
+ * @enum
+ */
+export const PartyType = {
+  BUSINESS: "BUSINESS",
+  INDIVIDUAL: "INDIVIDUAL",
+  OTHER: "OTHER",
+} as const;
+
+/**
+ * @public
+ */
+export type PartyType = (typeof PartyType)[keyof typeof PartyType];
+
+/**
+ * <p>The standard profile of a customer.</p>
+ * @public
+ */
+export interface Profile {
+  /**
+   * <p>The unique identifier of a customer profile.</p>
+   * @public
+   */
+  ProfileId?: string | undefined;
+
+  /**
+   * <p>An account number that you have given to the customer.</p>
+   * @public
+   */
+  AccountNumber?: string | undefined;
+
+  /**
+   * <p>Any additional information relevant to the customer’s profile.</p>
+   * @public
+   */
+  AdditionalInformation?: string | undefined;
+
+  /**
+   * @deprecated
+   *
+   * <p>The type of profile used to describe the customer.</p>
+   * @public
+   */
+  PartyType?: PartyType | undefined;
+
+  /**
+   * <p>The name of the customer’s business.</p>
+   * @public
+   */
+  BusinessName?: string | undefined;
+
+  /**
+   * <p>The customer’s first name.</p>
+   * @public
+   */
+  FirstName?: string | undefined;
+
+  /**
+   * <p>The customer’s middle name.</p>
+   * @public
+   */
+  MiddleName?: string | undefined;
+
+  /**
+   * <p>The customer’s last name.</p>
+   * @public
+   */
+  LastName?: string | undefined;
+
+  /**
+   * <p>The customer’s birth date. </p>
+   * @public
+   */
+  BirthDate?: string | undefined;
+
+  /**
+   * @deprecated
+   *
+   * <p>The gender with which the customer identifies. </p>
+   * @public
+   */
+  Gender?: Gender | undefined;
+
+  /**
+   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
+   *          number.</p>
+   * @public
+   */
+  PhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s mobile phone number.</p>
+   * @public
+   */
+  MobilePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s home phone number.</p>
+   * @public
+   */
+  HomePhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s home phone number.</p>
+   * @public
+   */
+  BusinessPhoneNumber?: string | undefined;
+
+  /**
+   * <p>The customer’s email address, which has not been specified as a personal or business
+   *          address. </p>
+   * @public
+   */
+  EmailAddress?: string | undefined;
+
+  /**
+   * <p>The customer’s personal email address.</p>
+   * @public
+   */
+  PersonalEmailAddress?: string | undefined;
+
+  /**
+   * <p>The customer’s business email address.</p>
+   * @public
+   */
+  BusinessEmailAddress?: string | undefined;
+
+  /**
+   * <p>A generic address associated with the customer that is not mailing, shipping, or
+   *          billing.</p>
+   * @public
+   */
+  Address?: Address | undefined;
+
+  /**
+   * <p>The customer’s shipping address.</p>
+   * @public
+   */
+  ShippingAddress?: Address | undefined;
+
+  /**
+   * <p>The customer’s mailing address.</p>
+   * @public
+   */
+  MailingAddress?: Address | undefined;
+
+  /**
+   * <p>The customer’s billing address.</p>
+   * @public
+   */
+  BillingAddress?: Address | undefined;
+
+  /**
+   * <p>A key value pair of attributes of a customer profile.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response.
+   *          An item is a key-value(s) pair that matches an attribute in the profile.</p>
+   *          <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the
+   *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted
+   *          based on the <code>LogicalOperator</code> used in the request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AND</code> - The profile included in the response matched all of the search
+   *                keys specified in the request. The <code>FoundByItems</code> will include all of the
+   *                key-value(s) pairs that were specified in the request (as this is a requirement of
+   *                   <code>AND</code> search logic).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code> - The profile included in the response matched at least one of the
+   *                search keys specified in the request. The <code>FoundByItems</code> will include each
+   *                of the key-value(s) pairs that the profile was found by.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The <code>OR</code> relationship is the default behavior if the
+   *             <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a>
+   *          request.</p>
+   * @public
+   */
+  FoundByItems?: FoundByKeyValue[] | undefined;
+
+  /**
+   * <p>An alternative to PartyType which accepts any string as input.</p>
+   * @public
+   */
+  PartyTypeString?: string | undefined;
+
+  /**
+   * <p>An alternative to Gender which accepts any string as input.</p>
+   * @public
+   */
+  GenderString?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetProfileResponse {
+  /**
+   * <p>For information about the errors that are common to all actions, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
+   * @public
+   */
+  Errors?: BatchGetProfileError[] | undefined;
+
+  /**
+   * <p>Array of Profile Objects.</p>
+   * @public
+   */
+  Profiles?: Profile[] | undefined;
+}
+
+/**
  * <p>The details of a single calculated attribute definition.</p>
  * @public
  */
@@ -1318,6 +1951,30 @@ export interface ListCalculatedAttributeDefinitionItem {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Object that segments on Customer Profile's Calculated Attributes.</p>
+ * @public
+ */
+export interface CalculatedAttributeDimension {
+  /**
+   * <p>The action to segment with.</p>
+   * @public
+   */
+  DimensionType: AttributeDimensionType | undefined;
+
+  /**
+   * <p>The values to apply the DimensionType with.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>Applies the given condition over the initial Calculated Attribute's definition.</p>
+   * @public
+   */
+  ConditionOverrides?: ConditionOverrides | undefined;
 }
 
 /**
@@ -1442,6 +2099,84 @@ export interface Conditions {
 }
 
 /**
+ * <p>Contains the map of attribute names to attribute dimensions.</p>
+ * @public
+ */
+export interface FilterDimension {
+  /**
+   * <p>Is the attribute within the FilterDimension map</p>
+   * @public
+   */
+  Attributes: Record<string, FilterAttributeDimension> | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * <p>Object that holds the dimensions to filter on.</p>
+ * @public
+ */
+export interface FilterGroup {
+  /**
+   * <p>The type of logical relationship between the dimensions of the Filter group.</p>
+   * @public
+   */
+  Type: Type | undefined;
+
+  /**
+   * <p>Object that holds the attributes to filter on.</p>
+   * @public
+   */
+  Dimensions: FilterDimension[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Include = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type Include = (typeof Include)[keyof typeof Include];
+
+/**
+ * <p>Defines how to filter the objects coming in for calculated attributes.</p>
+ * @public
+ */
+export interface Filter {
+  /**
+   * <p>Define whether to include or exclude objects for Calculated Attributed calculation that fit the filter groups criteria.</p>
+   * @public
+   */
+  Include: Include | undefined;
+
+  /**
+   * <p>Holds the list of Filter groups within the Filter definition.</p>
+   * @public
+   */
+  Groups: FilterGroup[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1504,6 +2239,12 @@ export interface CreateCalculatedAttributeDefinitionRequest {
   Conditions?: Conditions | undefined;
 
   /**
+   * <p>Defines how to filter incoming objects to include part of the Calculated Attribute.</p>
+   * @public
+   */
+  Filter?: Filter | undefined;
+
+  /**
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    * @public
    */
@@ -1551,6 +2292,12 @@ export interface CreateCalculatedAttributeDefinitionResponse {
    * @public
    */
   Conditions?: Conditions | undefined;
+
+  /**
+   * <p>The filter that was used as part of the request.</p>
+   * @public
+   */
+  Filter?: Filter | undefined;
 
   /**
    * <p>The aggregation operation to perform for the calculated attribute.</p>
@@ -2209,36 +2956,6 @@ export interface CreateIntegrationWorkflowResponse {
 
 /**
  * @public
- * @enum
- */
-export const Gender = {
-  FEMALE: "FEMALE",
-  MALE: "MALE",
-  UNSPECIFIED: "UNSPECIFIED",
-} as const;
-
-/**
- * @public
- */
-export type Gender = (typeof Gender)[keyof typeof Gender];
-
-/**
- * @public
- * @enum
- */
-export const PartyType = {
-  BUSINESS: "BUSINESS",
-  INDIVIDUAL: "INDIVIDUAL",
-  OTHER: "OTHER",
-} as const;
-
-/**
- * @public
- */
-export type PartyType = (typeof PartyType)[keyof typeof PartyType];
-
-/**
- * @public
  */
 export interface CreateProfileRequest {
   /**
@@ -2402,6 +3119,528 @@ export interface CreateProfileResponse {
    * @public
    */
   ProfileId: string | undefined;
+}
+
+/**
+ * <p>Object that segments on various Customer profile's fields that are larger than normal.</p>
+ * @public
+ */
+export interface ExtraLengthValueProfileDimension {
+  /**
+   * <p>The action to segment with.</p>
+   * @public
+   */
+  DimensionType: StringDimensionType | undefined;
+
+  /**
+   * <p>The values to apply the DimensionType on.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DateDimensionType = {
+  AFTER: "AFTER",
+  BEFORE: "BEFORE",
+  BETWEEN: "BETWEEN",
+  NOT_BETWEEN: "NOT_BETWEEN",
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type DateDimensionType = (typeof DateDimensionType)[keyof typeof DateDimensionType];
+
+/**
+ * <p>Object that segments on various Customer Profile's date fields.</p>
+ * @public
+ */
+export interface DateDimension {
+  /**
+   * <p>The action to segment with.</p>
+   * @public
+   */
+  DimensionType: DateDimensionType | undefined;
+
+  /**
+   * <p>The values to apply the DimensionType on.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>The object used to segment on attributes within the customer profile.</p>
+ * @public
+ */
+export interface ProfileAttributes {
+  /**
+   * <p>A field to describe values to segment on within account number.</p>
+   * @public
+   */
+  AccountNumber?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within additional information.</p>
+   * @public
+   */
+  AdditionalInformation?: ExtraLengthValueProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within first name.</p>
+   * @public
+   */
+  FirstName?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within last name.</p>
+   * @public
+   */
+  LastName?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within middle name.</p>
+   * @public
+   */
+  MiddleName?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within genderString.</p>
+   * @public
+   */
+  GenderString?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within partyTypeString.</p>
+   * @public
+   */
+  PartyTypeString?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within birthDate.</p>
+   * @public
+   */
+  BirthDate?: DateDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within phone number.</p>
+   * @public
+   */
+  PhoneNumber?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within business name.</p>
+   * @public
+   */
+  BusinessName?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within business phone number.</p>
+   * @public
+   */
+  BusinessPhoneNumber?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within home phone number.</p>
+   * @public
+   */
+  HomePhoneNumber?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within mobile phone number.</p>
+   * @public
+   */
+  MobilePhoneNumber?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within email address.</p>
+   * @public
+   */
+  EmailAddress?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within personal email address.</p>
+   * @public
+   */
+  PersonalEmailAddress?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within business email address.</p>
+   * @public
+   */
+  BusinessEmailAddress?: ProfileDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within address.</p>
+   * @public
+   */
+  Address?: AddressDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within shipping address.</p>
+   * @public
+   */
+  ShippingAddress?: AddressDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within mailing address.</p>
+   * @public
+   */
+  MailingAddress?: AddressDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within billing address.</p>
+   * @public
+   */
+  BillingAddress?: AddressDimension | undefined;
+
+  /**
+   * <p>A field to describe values to segment on within attributes.</p>
+   * @public
+   */
+  Attributes?: Record<string, AttributeDimension> | undefined;
+}
+
+/**
+ * <p>Object that holds what profile and calculated attributes to segment on.</p>
+ * @public
+ */
+export type Dimension =
+  | Dimension.CalculatedAttributesMember
+  | Dimension.ProfileAttributesMember
+  | Dimension.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Dimension {
+  /**
+   * <p>Object that holds the profile attributes to segment on.</p>
+   * @public
+   */
+  export interface ProfileAttributesMember {
+    ProfileAttributes: ProfileAttributes;
+    CalculatedAttributes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Object that holds the calculated attributes to segment on.</p>
+   * @public
+   */
+  export interface CalculatedAttributesMember {
+    ProfileAttributes?: never;
+    CalculatedAttributes: Record<string, CalculatedAttributeDimension>;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ProfileAttributes?: never;
+    CalculatedAttributes?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ProfileAttributes: (value: ProfileAttributes) => T;
+    CalculatedAttributes: (value: Record<string, CalculatedAttributeDimension>) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Dimension, visitor: Visitor<T>): T => {
+    if (value.ProfileAttributes !== undefined) return visitor.ProfileAttributes(value.ProfileAttributes);
+    if (value.CalculatedAttributes !== undefined) return visitor.CalculatedAttributes(value.CalculatedAttributes);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>The source segments to build off of.</p>
+ * @public
+ */
+export interface SourceSegment {
+  /**
+   * <p>The unique name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IncludeOptions = {
+  ALL: "ALL",
+  ANY: "ANY",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludeOptions = (typeof IncludeOptions)[keyof typeof IncludeOptions];
+
+/**
+ * <p>Contains dimensions that determine what to segment on.</p>
+ * @public
+ */
+export interface Group {
+  /**
+   * <p>Defines the attributes to segment on.</p>
+   * @public
+   */
+  Dimensions?: Dimension[] | undefined;
+
+  /**
+   * <p>Defines the starting source of data.</p>
+   * @public
+   */
+  SourceSegments?: SourceSegment[] | undefined;
+
+  /**
+   * <p>Defines how to interact with the source data.</p>
+   * @public
+   */
+  SourceType?: IncludeOptions | undefined;
+
+  /**
+   * <p>Defines how to interact with the profiles found in the current filtering.</p>
+   * @public
+   */
+  Type?: IncludeOptions | undefined;
+}
+
+/**
+ * <p>Contains all groups of the segment definition.</p>
+ * @public
+ */
+export interface SegmentGroup {
+  /**
+   * <p>Holds the list of groups within the segment definition.</p>
+   * @public
+   */
+  Groups?: Group[] | undefined;
+
+  /**
+   * <p>Defines whether to include or exclude the profiles that fit the segment criteria.</p>
+   * @public
+   */
+  Include?: IncludeOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSegmentDefinitionRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+
+  /**
+   * <p>The display name of the segment definition.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The description of the segment definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies the base segments and dimensions for a segment definition along with their respective relationship.</p>
+   * @public
+   */
+  SegmentGroups: SegmentGroup | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSegmentDefinitionResponse {
+  /**
+   * <p>The name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+
+  /**
+   * <p>The display name of the segment definition.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the segment definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the segment definition was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The arn of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionArn?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains all groups of the segment definition.</p>
+ * @public
+ */
+export interface SegmentGroupStructure {
+  /**
+   * <p>Holds the list of groups within the segment definition.</p>
+   * @public
+   */
+  Groups?: Group[] | undefined;
+
+  /**
+   * <p>Define whether to include or exclude the profiles that fit the segment criteria.</p>
+   * @public
+   */
+  Include?: IncludeOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSegmentEstimateRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The segment query for calculating a segment estimate.</p>
+   * @public
+   */
+  SegmentQuery: SegmentGroupStructure | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSegmentEstimateResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>A unique identifier for the resource. The value can be passed to <code>GetSegmentEstimate</code> to retrieve the result of segment estimate status.</p>
+   * @public
+   */
+  EstimateId?: string | undefined;
+
+  /**
+   * <p>The status code for the response.</p>
+   * @public
+   */
+  StatusCode?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DataFormat = {
+  CSV: "CSV",
+  JSONL: "JSONL",
+  ORC: "ORC",
+} as const;
+
+/**
+ * @public
+ */
+export type DataFormat = (typeof DataFormat)[keyof typeof DataFormat];
+
+/**
+ * @public
+ */
+export interface CreateSegmentSnapshotRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the segment definition used in this snapshot request.</p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+
+  /**
+   * <p>The format in which the segment will be exported.</p>
+   * @public
+   */
+  DataFormat: DataFormat | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the exported segment.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service principal to assume the role for conducting KMS and S3 operations.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The destination to which the segment will be exported. This field must be provided if the request is not submitted from the Amazon Connect Admin Website.</p>
+   * @public
+   */
+  DestinationUri?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateSegmentSnapshotResponse {
+  /**
+   * <p>The unique identifier of the segment snapshot.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
 }
 
 /**
@@ -2637,6 +3876,34 @@ export interface DeleteProfileObjectTypeResponse {
 /**
  * @public
  */
+export interface DeleteSegmentDefinitionRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSegmentDefinitionResponse {
+  /**
+   * <p>A message that indicates the delete request is done.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteWorkflowRequest {
   /**
    * <p>The unique name of the domain.</p>
@@ -2723,6 +3990,7 @@ export interface ObjectTypeField {
 export const StandardIdentifier = {
   ASSET: "ASSET",
   CASE: "CASE",
+  COMMUNICATION_RECORD: "COMMUNICATION_RECORD",
   LOOKUP_ONLY: "LOOKUP_ONLY",
   NEW_ONLY: "NEW_ONLY",
   ORDER: "ORDER",
@@ -2917,6 +4185,12 @@ export interface GetCalculatedAttributeDefinitionResponse {
    * @public
    */
   Statistic?: Statistic | undefined;
+
+  /**
+   * <p>The filter assigned to this calculated attribute definition.</p>
+   * @public
+   */
+  Filter?: Filter | undefined;
 
   /**
    * <p>The conditions including range, object count, and threshold for the calculated
@@ -3784,6 +5058,336 @@ export interface GetProfileObjectTypeTemplateResponse {
 
 /**
  * @public
+ */
+export interface GetSegmentDefinitionRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSegmentDefinitionResponse {
+  /**
+   * <p>The name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName?: string | undefined;
+
+  /**
+   * <p>The display name of the segment definition.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the segment definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The segment criteria associated with this definition.</p>
+   * @public
+   */
+  SegmentGroups?: SegmentGroup | undefined;
+
+  /**
+   * <p>The arn of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionArn: string | undefined;
+
+  /**
+   * <p>The timestamp of when the segment definition was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSegmentEstimateRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The query Id passed by a previous <code>CreateSegmentEstimate</code> operation.</p>
+   * @public
+   */
+  EstimateId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EstimateStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type EstimateStatus = (typeof EstimateStatus)[keyof typeof EstimateStatus];
+
+/**
+ * @public
+ */
+export interface GetSegmentEstimateResponse {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>The <code>QueryId</code> which is the same as the value passed in <code>QueryId</code>.</p>
+   * @public
+   */
+  EstimateId?: string | undefined;
+
+  /**
+   * <p>The current status of the query.</p>
+   * @public
+   */
+  Status?: EstimateStatus | undefined;
+
+  /**
+   * <p>The estimated number of profiles contained in the segment.</p>
+   * @public
+   */
+  Estimate?: string | undefined;
+
+  /**
+   * <p>The error message if there is any error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The status code of the segment estimate.</p>
+   * @public
+   */
+  StatusCode?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSegmentMembershipRequest {
+  /**
+   * <p>The unique name of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The Id of the wanted segment. Needs to be a valid, and existing segment Id.</p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+
+  /**
+   * <p>The list of profile IDs to query for.</p>
+   * @public
+   */
+  ProfileIds: string[] | undefined;
+}
+
+/**
+ * <p>Object that holds failures for membership.</p>
+ * @public
+ */
+export interface ProfileQueryFailures {
+  /**
+   * <p>The profile id the failure belongs to.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>A message describing the failure.</p>
+   * @public
+   */
+  Message: string | undefined;
+
+  /**
+   * <p>The status describing the failure.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryResult = {
+  ABSENT: "ABSENT",
+  PRESENT: "PRESENT",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryResult = (typeof QueryResult)[keyof typeof QueryResult];
+
+/**
+ * <p>Object that holds the results for membership.</p>
+ * @public
+ */
+export interface ProfileQueryResult {
+  /**
+   * <p>The profile id the result belongs to.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+
+  /**
+   * <p>Describes whether the profile was absent or present in the segment.</p>
+   * @public
+   */
+  QueryResult: QueryResult | undefined;
+
+  /**
+   * <p>The standard profile of a customer.</p>
+   * @public
+   */
+  Profile?: Profile | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSegmentMembershipResponse {
+  /**
+   * <p>The unique name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName?: string | undefined;
+
+  /**
+   * <p>An array of maps where each contains a response per profile requested.</p>
+   * @public
+   */
+  Profiles?: ProfileQueryResult[] | undefined;
+
+  /**
+   * <p>An array of maps where each contains a response per profile failed for the request.</p>
+   * @public
+   */
+  Failures?: ProfileQueryFailures[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSegmentSnapshotRequest {
+  /**
+   * <p>The unique identifier of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The unique name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the segment snapshot.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SegmentSnapshotStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type SegmentSnapshotStatus = (typeof SegmentSnapshotStatus)[keyof typeof SegmentSnapshotStatus];
+
+/**
+ * @public
+ */
+export interface GetSegmentSnapshotResponse {
+  /**
+   * <p>The unique identifier of the segment snapshot.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>The status of the asynchronous job for exporting the segment snapshot.</p>
+   * @public
+   */
+  Status: SegmentSnapshotStatus | undefined;
+
+  /**
+   * <p>The status message of the asynchronous job for exporting the segment snapshot.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The format in which the segment will be exported.</p>
+   * @public
+   */
+  DataFormat: DataFormat | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the exported segment.</p>
+   * @public
+   */
+  EncryptionKey?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that allows Customer Profiles service principal to assume the role for conducting KMS and S3 operations.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The destination to which the segment will be exported. This field must be provided if the request is not submitted from the Amazon Connect Admin Website.</p>
+   * @public
+   */
+  DestinationUri?: string | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const MatchType = {
@@ -4611,6 +6215,116 @@ export interface ListIntegrationsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListObjectTypeAttributesRequest {
+  /**
+   * <p>The pagination token from the previous call. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The name of the profile object type.</p>
+   * @public
+   */
+  ObjectTypeName: string | undefined;
+}
+
+/**
+ * <p>Item that contains the attribute and when it was last updated.</p>
+ * @public
+ */
+export interface ListObjectTypeAttributeItem {
+  /**
+   * <p>Name of the attribute.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>When the attribute was last updated.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListObjectTypeAttributesResponse {
+  /**
+   * <p>The items returned as part of the response.</p>
+   * @public
+   */
+  Items?: ListObjectTypeAttributeItem[] | undefined;
+
+  /**
+   * <p>The pagination token from the previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProfileAttributeValuesRequest {
+  /**
+   * <p>The unique identifier of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The attribute name.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ProfileAttributeValuesResponse {
+  /**
+   * <p>The name of the domain.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>The attribute name.</p>
+   * @public
+   */
+  AttributeName?: string | undefined;
+
+  /**
+   * <p>The items returned as part of the response.</p>
+   * @public
+   */
+  Items?: AttributeValueItem[] | undefined;
+
+  /**
+   * <p>The status code for the response.</p>
+   * @public
+   */
+  StatusCode?: number | undefined;
+}
+
+/**
  * <p>The filter applied to <code>ListProfileObjects</code> response to include profile
  *          objects with the specified index values.</p>
  * @public
@@ -4903,6 +6617,88 @@ export interface ListRuleBasedMatchesResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSegmentDefinitionsRequest {
+  /**
+   * <p>The unique identifier of the domain.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The maximum number of objects returned per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from the previous call. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Object holding the segment definition fields.</p>
+ * @public
+ */
+export interface SegmentDefinitionItem {
+  /**
+   * <p>Name of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionName?: string | undefined;
+
+  /**
+   * <p>Display name of the segment definition.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the segment definition.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The arn of the segment definition.</p>
+   * @public
+   */
+  SegmentDefinitionArn?: string | undefined;
+
+  /**
+   * <p>When the segment definition was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The tags belonging to the segment definition.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSegmentDefinitionsResponse {
+  /**
+   * <p>The pagination token from the previous call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>List of segment definitions.</p>
+   * @public
+   */
+  Items?: SegmentDefinitionItem[] | undefined;
 }
 
 /**
@@ -5639,211 +7435,6 @@ export interface SearchProfilesRequest {
 }
 
 /**
- * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list
- *          that were used to find a profile returned in response to a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.
- *       </p>
- * @public
- */
-export interface FoundByKeyValue {
-  /**
-   * <p>A searchable identifier of a customer profile.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>A list of key values.</p>
-   * @public
-   */
-  Values?: string[] | undefined;
-}
-
-/**
- * <p>The standard profile of a customer.</p>
- * @public
- */
-export interface Profile {
-  /**
-   * <p>The unique identifier of a customer profile.</p>
-   * @public
-   */
-  ProfileId?: string | undefined;
-
-  /**
-   * <p>An account number that you have given to the customer.</p>
-   * @public
-   */
-  AccountNumber?: string | undefined;
-
-  /**
-   * <p>Any additional information relevant to the customer’s profile.</p>
-   * @public
-   */
-  AdditionalInformation?: string | undefined;
-
-  /**
-   * @deprecated
-   *
-   * <p>The type of profile used to describe the customer.</p>
-   * @public
-   */
-  PartyType?: PartyType | undefined;
-
-  /**
-   * <p>The name of the customer’s business.</p>
-   * @public
-   */
-  BusinessName?: string | undefined;
-
-  /**
-   * <p>The customer’s first name.</p>
-   * @public
-   */
-  FirstName?: string | undefined;
-
-  /**
-   * <p>The customer’s middle name.</p>
-   * @public
-   */
-  MiddleName?: string | undefined;
-
-  /**
-   * <p>The customer’s last name.</p>
-   * @public
-   */
-  LastName?: string | undefined;
-
-  /**
-   * <p>The customer’s birth date. </p>
-   * @public
-   */
-  BirthDate?: string | undefined;
-
-  /**
-   * @deprecated
-   *
-   * <p>The gender with which the customer identifies. </p>
-   * @public
-   */
-  Gender?: Gender | undefined;
-
-  /**
-   * <p>The customer's phone number, which has not been specified as a mobile, home, or business
-   *          number.</p>
-   * @public
-   */
-  PhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s mobile phone number.</p>
-   * @public
-   */
-  MobilePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s home phone number.</p>
-   * @public
-   */
-  HomePhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s home phone number.</p>
-   * @public
-   */
-  BusinessPhoneNumber?: string | undefined;
-
-  /**
-   * <p>The customer’s email address, which has not been specified as a personal or business
-   *          address. </p>
-   * @public
-   */
-  EmailAddress?: string | undefined;
-
-  /**
-   * <p>The customer’s personal email address.</p>
-   * @public
-   */
-  PersonalEmailAddress?: string | undefined;
-
-  /**
-   * <p>The customer’s business email address.</p>
-   * @public
-   */
-  BusinessEmailAddress?: string | undefined;
-
-  /**
-   * <p>A generic address associated with the customer that is not mailing, shipping, or
-   *          billing.</p>
-   * @public
-   */
-  Address?: Address | undefined;
-
-  /**
-   * <p>The customer’s shipping address.</p>
-   * @public
-   */
-  ShippingAddress?: Address | undefined;
-
-  /**
-   * <p>The customer’s mailing address.</p>
-   * @public
-   */
-  MailingAddress?: Address | undefined;
-
-  /**
-   * <p>The customer’s billing address.</p>
-   * @public
-   */
-  BillingAddress?: Address | undefined;
-
-  /**
-   * <p>A key value pair of attributes of a customer profile.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response.
-   *          An item is a key-value(s) pair that matches an attribute in the profile.</p>
-   *          <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the
-   *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be interpreted
-   *          based on the <code>LogicalOperator</code> used in the request:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AND</code> - The profile included in the response matched all of the search
-   *                keys specified in the request. The <code>FoundByItems</code> will include all of the
-   *                key-value(s) pairs that were specified in the request (as this is a requirement of
-   *                   <code>AND</code> search logic).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OR</code> - The profile included in the response matched at least one of the
-   *                search keys specified in the request. The <code>FoundByItems</code> will include each
-   *                of the key-value(s) pairs that the profile was found by.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The <code>OR</code> relationship is the default behavior if the
-   *             <code>LogicalOperator</code> parameter is not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a>
-   *          request.</p>
-   * @public
-   */
-  FoundByItems?: FoundByKeyValue[] | undefined;
-
-  /**
-   * <p>An alternative to PartyType which accepts any string as input.</p>
-   * @public
-   */
-  PartyTypeString?: string | undefined;
-
-  /**
-   * <p>An alternative to Gender which accepts any string as input.</p>
-   * @public
-   */
-  GenderString?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface SearchProfilesResponse {
@@ -6413,11 +8004,84 @@ export const AttributeDetailsFilterSensitiveLog = (obj: AttributeDetails): any =
 /**
  * @internal
  */
+export const ConditionOverridesFilterSensitiveLog = (obj: ConditionOverrides): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCalculatedAttributeForProfileRequestFilterSensitiveLog = (
+  obj: BatchGetCalculatedAttributeForProfileRequest
+): any => ({
+  ...obj,
+  ...(obj.ConditionOverrides && { ConditionOverrides: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetCalculatedAttributeForProfileResponseFilterSensitiveLog = (
+  obj: BatchGetCalculatedAttributeForProfileResponse
+): any => ({
+  ...obj,
+  ...(obj.ConditionOverrides && { ConditionOverrides: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ProfileFilterSensitiveLog = (obj: Profile): any => ({
+  ...obj,
+  ...(obj.AccountNumber && { AccountNumber: SENSITIVE_STRING }),
+  ...(obj.AdditionalInformation && { AdditionalInformation: SENSITIVE_STRING }),
+  ...(obj.PartyType && { PartyType: SENSITIVE_STRING }),
+  ...(obj.BusinessName && { BusinessName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.BirthDate && { BirthDate: SENSITIVE_STRING }),
+  ...(obj.Gender && { Gender: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.MobilePhoneNumber && { MobilePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.HomePhoneNumber && { HomePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.BusinessPhoneNumber && { BusinessPhoneNumber: SENSITIVE_STRING }),
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.PersonalEmailAddress && { PersonalEmailAddress: SENSITIVE_STRING }),
+  ...(obj.BusinessEmailAddress && { BusinessEmailAddress: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+  ...(obj.ShippingAddress && { ShippingAddress: SENSITIVE_STRING }),
+  ...(obj.MailingAddress && { MailingAddress: SENSITIVE_STRING }),
+  ...(obj.BillingAddress && { BillingAddress: SENSITIVE_STRING }),
+  ...(obj.Attributes && { Attributes: SENSITIVE_STRING }),
+  ...(obj.PartyTypeString && { PartyTypeString: SENSITIVE_STRING }),
+  ...(obj.GenderString && { GenderString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetProfileResponseFilterSensitiveLog = (obj: BatchGetProfileResponse): any => ({
+  ...obj,
+  ...(obj.Profiles && { Profiles: obj.Profiles.map((item) => ProfileFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const ListCalculatedAttributeDefinitionItemFilterSensitiveLog = (
   obj: ListCalculatedAttributeDefinitionItem
 ): any => ({
   ...obj,
   ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CalculatedAttributeDimensionFilterSensitiveLog = (obj: CalculatedAttributeDimension): any => ({
+  ...obj,
+  ...(obj.ConditionOverrides && { ConditionOverrides: SENSITIVE_STRING }),
 });
 
 /**
@@ -6502,6 +8166,79 @@ export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest
 /**
  * @internal
  */
+export const ProfileAttributesFilterSensitiveLog = (obj: ProfileAttributes): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DimensionFilterSensitiveLog = (obj: Dimension): any => {
+  if (obj.ProfileAttributes !== undefined) return { ProfileAttributes: SENSITIVE_STRING };
+  if (obj.CalculatedAttributes !== undefined)
+    return {
+      CalculatedAttributes: Object.entries(obj.CalculatedAttributes).reduce(
+        (acc: any, [key, value]: [string, CalculatedAttributeDimension]) => (
+          (acc[key] = CalculatedAttributeDimensionFilterSensitiveLog(value)), acc
+        ),
+        {}
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GroupFilterSensitiveLog = (obj: Group): any => ({
+  ...obj,
+  ...(obj.Dimensions && { Dimensions: obj.Dimensions.map((item) => DimensionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SegmentGroupFilterSensitiveLog = (obj: SegmentGroup): any => ({
+  ...obj,
+  ...(obj.Groups && { Groups: obj.Groups.map((item) => GroupFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSegmentDefinitionRequestFilterSensitiveLog = (obj: CreateSegmentDefinitionRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.SegmentGroups && { SegmentGroups: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSegmentDefinitionResponseFilterSensitiveLog = (obj: CreateSegmentDefinitionResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SegmentGroupStructureFilterSensitiveLog = (obj: SegmentGroupStructure): any => ({
+  ...obj,
+  ...(obj.Groups && { Groups: obj.Groups.map((item) => GroupFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSegmentEstimateRequestFilterSensitiveLog = (obj: CreateSegmentEstimateRequest): any => ({
+  ...obj,
+  ...(obj.SegmentQuery && { SegmentQuery: SegmentGroupStructureFilterSensitiveLog(obj.SegmentQuery) }),
+});
+
+/**
+ * @internal
+ */
 export const DetectProfileObjectTypeRequestFilterSensitiveLog = (obj: DetectProfileObjectTypeRequest): any => ({
   ...obj,
   ...(obj.Objects && { Objects: SENSITIVE_STRING }),
@@ -6565,6 +8302,31 @@ export const GetProfileObjectTypeTemplateResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetSegmentDefinitionResponseFilterSensitiveLog = (obj: GetSegmentDefinitionResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.SegmentGroups && { SegmentGroups: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ProfileQueryResultFilterSensitiveLog = (obj: ProfileQueryResult): any => ({
+  ...obj,
+  ...(obj.Profile && { Profile: ProfileFilterSensitiveLog(obj.Profile) }),
+});
+
+/**
+ * @internal
+ */
+export const GetSegmentMembershipResponseFilterSensitiveLog = (obj: GetSegmentMembershipResponse): any => ({
+  ...obj,
+  ...(obj.Profiles && { Profiles: obj.Profiles.map((item) => ProfileQueryResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const ListCalculatedAttributeDefinitionsResponseFilterSensitiveLog = (
   obj: ListCalculatedAttributeDefinitionsResponse
 ): any => ({
@@ -6594,6 +8356,22 @@ export const ListProfileObjectsResponseFilterSensitiveLog = (obj: ListProfileObj
 export const ListProfileObjectTypesResponseFilterSensitiveLog = (obj: ListProfileObjectTypesResponse): any => ({
   ...obj,
   ...(obj.Items && { Items: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SegmentDefinitionItemFilterSensitiveLog = (obj: SegmentDefinitionItem): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSegmentDefinitionsResponseFilterSensitiveLog = (obj: ListSegmentDefinitionsResponse): any => ({
+  ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => SegmentDefinitionItemFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -6630,36 +8408,6 @@ export const PutProfileObjectTypeResponseFilterSensitiveLog = (obj: PutProfileOb
   ...(obj.Description && { Description: SENSITIVE_STRING }),
   ...(obj.Fields && { Fields: SENSITIVE_STRING }),
   ...(obj.Keys && { Keys: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ProfileFilterSensitiveLog = (obj: Profile): any => ({
-  ...obj,
-  ...(obj.AccountNumber && { AccountNumber: SENSITIVE_STRING }),
-  ...(obj.AdditionalInformation && { AdditionalInformation: SENSITIVE_STRING }),
-  ...(obj.PartyType && { PartyType: SENSITIVE_STRING }),
-  ...(obj.BusinessName && { BusinessName: SENSITIVE_STRING }),
-  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
-  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
-  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
-  ...(obj.BirthDate && { BirthDate: SENSITIVE_STRING }),
-  ...(obj.Gender && { Gender: SENSITIVE_STRING }),
-  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-  ...(obj.MobilePhoneNumber && { MobilePhoneNumber: SENSITIVE_STRING }),
-  ...(obj.HomePhoneNumber && { HomePhoneNumber: SENSITIVE_STRING }),
-  ...(obj.BusinessPhoneNumber && { BusinessPhoneNumber: SENSITIVE_STRING }),
-  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
-  ...(obj.PersonalEmailAddress && { PersonalEmailAddress: SENSITIVE_STRING }),
-  ...(obj.BusinessEmailAddress && { BusinessEmailAddress: SENSITIVE_STRING }),
-  ...(obj.Address && { Address: SENSITIVE_STRING }),
-  ...(obj.ShippingAddress && { ShippingAddress: SENSITIVE_STRING }),
-  ...(obj.MailingAddress && { MailingAddress: SENSITIVE_STRING }),
-  ...(obj.BillingAddress && { BillingAddress: SENSITIVE_STRING }),
-  ...(obj.Attributes && { Attributes: SENSITIVE_STRING }),
-  ...(obj.PartyTypeString && { PartyTypeString: SENSITIVE_STRING }),
-  ...(obj.GenderString && { GenderString: SENSITIVE_STRING }),
 });
 
 /**

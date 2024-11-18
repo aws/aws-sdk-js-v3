@@ -55,6 +55,11 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
 import {
+  BatchGetCalculatedAttributeForProfileCommandInput,
+  BatchGetCalculatedAttributeForProfileCommandOutput,
+} from "./commands/BatchGetCalculatedAttributeForProfileCommand";
+import { BatchGetProfileCommandInput, BatchGetProfileCommandOutput } from "./commands/BatchGetProfileCommand";
+import {
   CreateCalculatedAttributeDefinitionCommandInput,
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
@@ -65,6 +70,18 @@ import {
   CreateIntegrationWorkflowCommandOutput,
 } from "./commands/CreateIntegrationWorkflowCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
+import {
+  CreateSegmentDefinitionCommandInput,
+  CreateSegmentDefinitionCommandOutput,
+} from "./commands/CreateSegmentDefinitionCommand";
+import {
+  CreateSegmentEstimateCommandInput,
+  CreateSegmentEstimateCommandOutput,
+} from "./commands/CreateSegmentEstimateCommand";
+import {
+  CreateSegmentSnapshotCommandInput,
+  CreateSegmentSnapshotCommandOutput,
+} from "./commands/CreateSegmentSnapshotCommand";
 import {
   DeleteCalculatedAttributeDefinitionCommandInput,
   DeleteCalculatedAttributeDefinitionCommandOutput,
@@ -82,6 +99,10 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import {
+  DeleteSegmentDefinitionCommandInput,
+  DeleteSegmentDefinitionCommandOutput,
+} from "./commands/DeleteSegmentDefinitionCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import {
   DetectProfileObjectTypeCommandInput,
@@ -115,6 +136,16 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import {
+  GetSegmentDefinitionCommandInput,
+  GetSegmentDefinitionCommandOutput,
+} from "./commands/GetSegmentDefinitionCommand";
+import { GetSegmentEstimateCommandInput, GetSegmentEstimateCommandOutput } from "./commands/GetSegmentEstimateCommand";
+import {
+  GetSegmentMembershipCommandInput,
+  GetSegmentMembershipCommandOutput,
+} from "./commands/GetSegmentMembershipCommand";
+import { GetSegmentSnapshotCommandInput, GetSegmentSnapshotCommandOutput } from "./commands/GetSegmentSnapshotCommand";
 import { GetSimilarProfilesCommandInput, GetSimilarProfilesCommandOutput } from "./commands/GetSimilarProfilesCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "./commands/GetWorkflowStepsCommand";
@@ -137,6 +168,14 @@ import {
   ListIdentityResolutionJobsCommandOutput,
 } from "./commands/ListIdentityResolutionJobsCommand";
 import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
+import {
+  ListObjectTypeAttributesCommandInput,
+  ListObjectTypeAttributesCommandOutput,
+} from "./commands/ListObjectTypeAttributesCommand";
+import {
+  ListProfileAttributeValuesCommandInput,
+  ListProfileAttributeValuesCommandOutput,
+} from "./commands/ListProfileAttributeValuesCommand";
 import { ListProfileObjectsCommandInput, ListProfileObjectsCommandOutput } from "./commands/ListProfileObjectsCommand";
 import {
   ListProfileObjectTypesCommandInput,
@@ -150,6 +189,10 @@ import {
   ListRuleBasedMatchesCommandInput,
   ListRuleBasedMatchesCommandOutput,
 } from "./commands/ListRuleBasedMatchesCommand";
+import {
+  ListSegmentDefinitionsCommandInput,
+  ListSegmentDefinitionsCommandOutput,
+} from "./commands/ListSegmentDefinitionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -187,11 +230,16 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddProfileKeyCommandInput
+  | BatchGetCalculatedAttributeForProfileCommandInput
+  | BatchGetProfileCommandInput
   | CreateCalculatedAttributeDefinitionCommandInput
   | CreateDomainCommandInput
   | CreateEventStreamCommandInput
   | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
+  | CreateSegmentDefinitionCommandInput
+  | CreateSegmentEstimateCommandInput
+  | CreateSegmentSnapshotCommandInput
   | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
   | DeleteEventStreamCommandInput
@@ -200,6 +248,7 @@ export type ServiceInputTypes =
   | DeleteProfileKeyCommandInput
   | DeleteProfileObjectCommandInput
   | DeleteProfileObjectTypeCommandInput
+  | DeleteSegmentDefinitionCommandInput
   | DeleteWorkflowCommandInput
   | DetectProfileObjectTypeCommandInput
   | GetAutoMergingPreviewCommandInput
@@ -212,6 +261,10 @@ export type ServiceInputTypes =
   | GetMatchesCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
+  | GetSegmentDefinitionCommandInput
+  | GetSegmentEstimateCommandInput
+  | GetSegmentMembershipCommandInput
+  | GetSegmentSnapshotCommandInput
   | GetSimilarProfilesCommandInput
   | GetWorkflowCommandInput
   | GetWorkflowStepsCommandInput
@@ -222,10 +275,13 @@ export type ServiceInputTypes =
   | ListEventStreamsCommandInput
   | ListIdentityResolutionJobsCommandInput
   | ListIntegrationsCommandInput
+  | ListObjectTypeAttributesCommandInput
+  | ListProfileAttributeValuesCommandInput
   | ListProfileObjectTypeTemplatesCommandInput
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
   | ListRuleBasedMatchesCommandInput
+  | ListSegmentDefinitionsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkflowsCommandInput
   | MergeProfilesCommandInput
@@ -244,11 +300,16 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
+  | BatchGetCalculatedAttributeForProfileCommandOutput
+  | BatchGetProfileCommandOutput
   | CreateCalculatedAttributeDefinitionCommandOutput
   | CreateDomainCommandOutput
   | CreateEventStreamCommandOutput
   | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
+  | CreateSegmentDefinitionCommandOutput
+  | CreateSegmentEstimateCommandOutput
+  | CreateSegmentSnapshotCommandOutput
   | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
   | DeleteEventStreamCommandOutput
@@ -257,6 +318,7 @@ export type ServiceOutputTypes =
   | DeleteProfileKeyCommandOutput
   | DeleteProfileObjectCommandOutput
   | DeleteProfileObjectTypeCommandOutput
+  | DeleteSegmentDefinitionCommandOutput
   | DeleteWorkflowCommandOutput
   | DetectProfileObjectTypeCommandOutput
   | GetAutoMergingPreviewCommandOutput
@@ -269,6 +331,10 @@ export type ServiceOutputTypes =
   | GetMatchesCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
+  | GetSegmentDefinitionCommandOutput
+  | GetSegmentEstimateCommandOutput
+  | GetSegmentMembershipCommandOutput
+  | GetSegmentSnapshotCommandOutput
   | GetSimilarProfilesCommandOutput
   | GetWorkflowCommandOutput
   | GetWorkflowStepsCommandOutput
@@ -279,10 +345,13 @@ export type ServiceOutputTypes =
   | ListEventStreamsCommandOutput
   | ListIdentityResolutionJobsCommandOutput
   | ListIntegrationsCommandOutput
+  | ListObjectTypeAttributesCommandOutput
+  | ListProfileAttributeValuesCommandOutput
   | ListProfileObjectTypeTemplatesCommandOutput
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput
   | ListRuleBasedMatchesCommandOutput
+  | ListSegmentDefinitionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkflowsCommandOutput
   | MergeProfilesCommandOutput
