@@ -213,6 +213,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",

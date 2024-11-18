@@ -144,6 +144,10 @@ export interface DescribeDBEngineVersionsCommandOutput extends DBEngineVersionMe
  * //       ],
  * //       SupportsLocalWriteForwarding: true || false,
  * //       SupportsIntegrations: true || false,
+ * //       ServerlessV2FeaturesSupport: { // ServerlessV2FeaturesSupport
+ * //         MinCapacity: Number("double"),
+ * //         MaxCapacity: Number("double"),
+ * //       },
  * //     },
  * //   ],
  * // };

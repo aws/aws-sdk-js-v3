@@ -97,6 +97,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
+ *     SecondsUntilAutoPause: Number("int"),
  *   },
  *   NetworkType: "STRING_VALUE",
  *   ManageMasterUserPassword: true || false,
@@ -277,6 +278,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",

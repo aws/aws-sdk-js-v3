@@ -3933,6 +3933,33 @@ export interface CustomDBEngineVersionAMI {
 }
 
 /**
+ * <p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora engine versions.
+ *         You can test the values of this attribute when deciding which Aurora version to use in a new or upgraded
+ *         DB cluster. You can also retrieve the version of an existing DB cluster and check whether that version
+ *         supports certain Aurora Serverless v2 features before you attempt to use those features.
+ *       </p>
+ * @public
+ */
+export interface ServerlessV2FeaturesSupport {
+  /**
+   * <p>If the minimum capacity is 0 ACUs, the engine version supports the automatic pause/resume
+   *          feature of Aurora Serverless v2.</p>
+   * @public
+   */
+  MinCapacity?: number | undefined;
+
+  /**
+   * <p>
+   *          Specifies the upper Aurora Serverless v2 capacity limit for a particular engine version.
+   *          Depending on the engine version, the maximum capacity for an Aurora Serverless v2 cluster might be
+   *          <code>256</code> or <code>128</code>.
+   *          </p>
+   * @public
+   */
+  MaxCapacity?: number | undefined;
+}
+
+/**
  * <p>A time zone associated with a
  *             <code>DBInstance</code>
  *             or a <code>DBSnapshot</code>.
@@ -4275,6 +4302,16 @@ export interface DBEngineVersion {
    * @public
    */
   SupportsIntegrations?: boolean | undefined;
+
+  /**
+   * <p>Specifies any Aurora Serverless v2 properties or limits that differ between Aurora engine versions.
+   *         You can test the values of this attribute when deciding which Aurora version to use in a new or upgraded
+   *         DB cluster. You can also retrieve the version of an existing DB cluster and check whether that version
+   *         supports certain Aurora Serverless v2 features before you attempt to use those features.
+   *       </p>
+   * @public
+   */
+  ServerlessV2FeaturesSupport?: ServerlessV2FeaturesSupport | undefined;
 }
 
 /**
@@ -4426,19 +4463,30 @@ export interface ScalingConfiguration {
 export interface ServerlessV2ScalingConfiguration {
   /**
    * <p>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
-   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value
-   *             that you can use is 0.5.</p>
+   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on.
+   *             For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0.
+   *             For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
+   *         </p>
    * @public
    */
   MinCapacity?: number | undefined;
 
   /**
    * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
-   *             You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value
-   *             that you can use is 128.</p>
+   *             You can specify ACU values in half-step increments, such as 32, 32.5, 33, and so on. The largest value
+   *             that you can use is 256 for recent Aurora versions, or 128 for older versions.</p>
    * @public
    */
   MaxCapacity?: number | undefined;
+
+  /**
+   * <p>Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before
+   *          Aurora attempts to automatically pause it.
+   *        </p>
+   *          <p>Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.</p>
+   * @public
+   */
+  SecondsUntilAutoPause?: number | undefined;
 }
 
 /**
@@ -5792,19 +5840,35 @@ export interface ScalingConfigurationInfo {
 export interface ServerlessV2ScalingConfigurationInfo {
   /**
    * <p>The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
-   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value
-   *             that you can use is 0.5.</p>
+   *             You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on.
+   *             For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0.
+   *             For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
+   *         </p>
    * @public
    */
   MinCapacity?: number | undefined;
 
   /**
    * <p>The maximum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster.
-   *             You can specify ACU values in half-step increments, such as 40, 40.5, 41, and so on. The largest value
-   *             that you can use is 128.</p>
+   *             You can specify ACU values in half-step increments, such as 32, 32.5, 33, and so on. The largest value
+   *             that you can use is 256 for recent Aurora versions, or 128 for older versions.</p>
    * @public
    */
   MaxCapacity?: number | undefined;
+
+  /**
+   * <p>
+   *          The number of seconds an Aurora Serverless v2 DB instance must be idle before
+   *          Aurora attempts to automatically pause it.
+   *          This property is only shown when the minimum capacity for the cluster is set to 0 ACUs.
+   *          Changing the minimum capacity to a nonzero value removes this property. If you later
+   *          change the minimum capacity back to 0 ACUs, this property is reset to its default value
+   *          unless you specify it again.
+   *        </p>
+   *          <p>This value ranges between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.</p>
+   * @public
+   */
+  SecondsUntilAutoPause?: number | undefined;
 }
 
 /**
@@ -7174,6 +7238,9 @@ export interface CreateDBInstanceMessage {
    *                <ul>
    *                   <li>
    *                      <p>Must contain 1 to 64 alphanumeric characters.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
    *                   </li>
    *                   <li>
    *                      <p>Can't be a word reserved by the database engine.</p>
@@ -11605,6 +11672,7 @@ export interface CreateDBShardGroupMessage {
 }
 
 /**
+ * <p>Contains the details for an Amazon RDS DB shard group.</p>
  * @public
  */
 export interface DBShardGroup {
@@ -14593,48 +14661,6 @@ export class InvalidOptionGroupStateFault extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidOptionGroupStateFault.prototype);
   }
-}
-
-/**
- * @public
- */
-export interface DeleteTenantDatabaseMessage {
-  /**
-   * <p>The user-supplied identifier for the DB instance that contains the tenant database
-   *             that you want to delete.</p>
-   * @public
-   */
-  DBInstanceIdentifier: string | undefined;
-
-  /**
-   * <p>The user-supplied name of the tenant database that you want to remove from your DB
-   *             instance. Amazon RDS deletes the tenant database with this name. This parameter isn’t
-   *             case-sensitive.</p>
-   * @public
-   */
-  TenantDBName: string | undefined;
-
-  /**
-   * <p>Specifies whether to skip the creation of a final DB snapshot before removing the
-   *             tenant database from your DB instance. If you enable this parameter, RDS doesn't create
-   *             a DB snapshot. If you don't enable this parameter, RDS creates a DB snapshot before it
-   *             deletes the tenant database. By default, RDS doesn't skip the final snapshot. If you
-   *             don't enable this parameter, you must specify the <code>FinalDBSnapshotIdentifier</code>
-   *             parameter.</p>
-   * @public
-   */
-  SkipFinalSnapshot?: boolean | undefined;
-
-  /**
-   * <p>The <code>DBSnapshotIdentifier</code> of the new <code>DBSnapshot</code> created when
-   *             the <code>SkipFinalSnapshot</code> parameter is disabled.</p>
-   *          <note>
-   *             <p>If you enable this parameter and also enable <code>SkipFinalShapshot</code>, the
-   *                 command results in an error.</p>
-   *          </note>
-   * @public
-   */
-  FinalDBSnapshotIdentifier?: string | undefined;
 }
 
 /**

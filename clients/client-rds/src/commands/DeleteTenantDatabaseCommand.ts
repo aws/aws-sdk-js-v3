@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteTenantDatabaseMessage } from "../models/models_0";
-import { DeleteTenantDatabaseResult, DeleteTenantDatabaseResultFilterSensitiveLog } from "../models/models_1";
+import {
+  DeleteTenantDatabaseMessage,
+  DeleteTenantDatabaseResult,
+  DeleteTenantDatabaseResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_DeleteTenantDatabaseCommand, se_DeleteTenantDatabaseCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 

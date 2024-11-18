@@ -104,6 +104,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
+ *     SecondsUntilAutoPause: Number("int"),
  *   },
  *   NetworkType: "STRING_VALUE",
  *   SourceDbClusterResourceId: "STRING_VALUE",
@@ -287,6 +288,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",

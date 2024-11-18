@@ -139,6 +139,10 @@ export interface ModifyCustomDBEngineVersionCommandOutput extends DBEngineVersio
  * //   ],
  * //   SupportsLocalWriteForwarding: true || false,
  * //   SupportsIntegrations: true || false,
+ * //   ServerlessV2FeaturesSupport: { // ServerlessV2FeaturesSupport
+ * //     MinCapacity: Number("double"),
+ * //     MaxCapacity: Number("double"),
+ * //   },
  * // };
  *
  * ```

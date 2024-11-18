@@ -719,7 +719,6 @@ import {
   DeleteGlobalClusterResult,
   DeleteIntegrationMessage,
   DeleteOptionGroupMessage,
-  DeleteTenantDatabaseMessage,
   DomainMembership,
   DomainNotFoundFault,
   Ec2ImagePropertiesNotSupportedFault,
@@ -793,6 +792,7 @@ import {
   RestoreWindow,
   ScalingConfiguration,
   ScalingConfigurationInfo,
+  ServerlessV2FeaturesSupport,
   ServerlessV2ScalingConfiguration,
   ServerlessV2ScalingConfigurationInfo,
   SnapshotQuotaExceededFault,
@@ -846,6 +846,7 @@ import {
   DBEngineVersionMessage,
   DBInstanceAutomatedBackupMessage,
   DBInstanceMessage,
+  DBInstanceNotReadyFault,
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
   DBParameterGroupDetails,
@@ -866,6 +867,7 @@ import {
   DBSnapshotTenantDatabasesMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DeleteTenantDatabaseMessage,
   DeleteTenantDatabaseResult,
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
@@ -7448,6 +7450,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DBClusterBacktrackNotFoundFault":
     case "com.amazonaws.rds#DBClusterBacktrackNotFoundFault":
       throw await de_DBClusterBacktrackNotFoundFaultRes(parsedOutput, context);
+    case "DBInstanceNotReady":
+    case "com.amazonaws.rds#DBInstanceNotReadyFault":
+      throw await de_DBInstanceNotReadyFaultRes(parsedOutput, context);
     case "ReservedDBInstanceNotFound":
     case "com.amazonaws.rds#ReservedDBInstanceNotFoundFault":
       throw await de_ReservedDBInstanceNotFoundFaultRes(parsedOutput, context);
@@ -8020,6 +8025,22 @@ const de_DBInstanceNotFoundFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_DBInstanceNotFoundFault(body.Error, context);
   const exception = new DBInstanceNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryDBInstanceNotReadyFaultRes
+ */
+const de_DBInstanceNotReadyFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DBInstanceNotReadyFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_DBInstanceNotReadyFault(body.Error, context);
+  const exception = new DBInstanceNotReadyFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -16006,6 +16027,9 @@ const se_ServerlessV2ScalingConfiguration = (input: ServerlessV2ScalingConfigura
   if (input[_MCa] != null) {
     entries[_MCa] = __serializeFloat(input[_MCa]);
   }
+  if (input[_SUAP] != null) {
+    entries[_SUAP] = input[_SUAP];
+  }
   return entries;
 };
 
@@ -18421,6 +18445,9 @@ const de_DBEngineVersion = (output: any, context: __SerdeContext): DBEngineVersi
   if (output[_SIup] != null) {
     contents[_SIup] = __parseBoolean(output[_SIup]);
   }
+  if (output[_SVFS] != null) {
+    contents[_SVFS] = de_ServerlessV2FeaturesSupport(output[_SVFS], context);
+  }
   return contents;
 };
 
@@ -18986,6 +19013,17 @@ const de_DBInstanceMessage = (output: any, context: __SerdeContext): DBInstanceM
  * deserializeAws_queryDBInstanceNotFoundFault
  */
 const de_DBInstanceNotFoundFault = (output: any, context: __SerdeContext): DBInstanceNotFoundFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDBInstanceNotReadyFault
+ */
+const de_DBInstanceNotReadyFault = (output: any, context: __SerdeContext): DBInstanceNotReadyFault => {
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
@@ -24016,6 +24054,20 @@ const de_ScalingConfigurationInfo = (output: any, context: __SerdeContext): Scal
 };
 
 /**
+ * deserializeAws_queryServerlessV2FeaturesSupport
+ */
+const de_ServerlessV2FeaturesSupport = (output: any, context: __SerdeContext): ServerlessV2FeaturesSupport => {
+  const contents: any = {};
+  if (output[_MCi] != null) {
+    contents[_MCi] = __strictParseFloat(output[_MCi]) as number;
+  }
+  if (output[_MCa] != null) {
+    contents[_MCa] = __strictParseFloat(output[_MCa]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryServerlessV2ScalingConfigurationInfo
  */
 const de_ServerlessV2ScalingConfigurationInfo = (
@@ -24028,6 +24080,9 @@ const de_ServerlessV2ScalingConfigurationInfo = (
   }
   if (output[_MCa] != null) {
     contents[_MCa] = __strictParseFloat(output[_MCa]) as number;
+  }
+  if (output[_SUAP] != null) {
+    contents[_SUAP] = __strictParseInt32(output[_SUAP]) as number;
   }
   return contents;
 };
@@ -25788,6 +25843,7 @@ const _STtat = "StatusType";
 const _STu = "SupportedTimezones";
 const _STw = "SwitchoverTimeout";
 const _SUAP = "SecondsUntilAutoPause";
+const _SVFS = "ServerlessV2FeaturesSupport";
 const _SVSC = "ServerlessV2ScalingConfiguration";
 const _Se = "Severity";
 const _Si = "Size";

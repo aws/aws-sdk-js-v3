@@ -62,6 +62,9 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link DBInstanceNotReadyFault} (server fault)
+ *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
+ *
  * @throws {@link DBLogFileNotFoundFault} (client fault)
  *  <p>
  *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
