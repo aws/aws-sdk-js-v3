@@ -383,6 +383,7 @@ import {
   VersionInfo,
   Volume,
   VolumeFrom,
+  VpcLatticeConfiguration,
 } from "../models/models_0";
 import {
   MissingVersionException,
@@ -3374,6 +3375,10 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 
 // se_VolumeList omitted.
 
+// se_VpcLatticeConfiguration omitted.
+
+// se_VpcLatticeConfigurations omitted.
+
 // de_AccessDeniedException omitted.
 
 // de_Attachment omitted.
@@ -3614,6 +3619,7 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
     taskDefinition: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
   }) as any;
 };
 
@@ -4275,6 +4281,7 @@ const de_ServiceRevision = (output: any, context: __SerdeContext): ServiceRevisi
     serviceRevisionArn: __expectString,
     taskDefinition: __expectString,
     volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
   }) as any;
 };
 
@@ -4610,6 +4617,10 @@ const de_UpdateTaskSetResponse = (output: any, context: __SerdeContext): UpdateT
 // de_VolumeFromList omitted.
 
 // de_VolumeList omitted.
+
+// de_VpcLatticeConfiguration omitted.
+
+// de_VpcLatticeConfigurations omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

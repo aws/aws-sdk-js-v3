@@ -28,13 +28,11 @@ export interface CreateCapacityProviderCommandInput extends CreateCapacityProvid
 export interface CreateCapacityProviderCommandOutput extends CreateCapacityProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS
- * 			cluster and are used in capacity provider strategies to facilitate cluster auto
- * 			scaling.</p>
- *          <p>Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on
- * 			Fargate use the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers.
- * 			These providers are available to all accounts in the Amazon Web Services Regions that Fargate
- * 			supports.</p>
+ * <p>Creates a new capacity provider. Capacity providers are associated with an Amazon ECS cluster and are used
+ * 			in capacity provider strategies to facilitate cluster auto scaling.</p>
+ *          <p>Only capacity providers that use an Auto Scaling group can be created. Amazon ECS tasks on Fargate use
+ * 			the <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers. These providers are
+ * 			available to all accounts in the Amazon Web Services Regions that Fargate supports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,23 +99,21 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using
- * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
+ * 			be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 					<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
+ * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
+ * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
+ * 						quotas</a>.</p>
  *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API
- * 			request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The limit for the resource was exceeded.</p>
@@ -126,11 +122,10 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link UpdateInProgressException} (client fault)
- *  <p>There's already a current Amazon ECS container agent update in progress on the container
- * 			instance that's specified. If the container agent becomes disconnected while it's in a
- * 			transitional stage, such as <code>PENDING</code> or <code>STAGING</code>, the update
- * 			process can get stuck in that state. However, when the agent reconnects, it resumes
- * 			where it stopped previously.</p>
+ *  <p>There's already a current Amazon ECS container agent update in progress on the container instance that's
+ * 			specified. If the container agent becomes disconnected while it's in a transitional stage, such as
+ * 				<code>PENDING</code> or <code>STAGING</code>, the update process can get stuck in that state.
+ * 			However, when the agent reconnects, it resumes where it stopped previously.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

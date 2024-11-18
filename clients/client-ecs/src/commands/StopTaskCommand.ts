@@ -29,20 +29,18 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
 
 /**
  * <p>Stops a running task. Any tags associated with the task will be deleted.</p>
- *          <p>When you call <code>StopTask</code> on a task, the equivalent of <code>docker
- * 				stop</code> is issued to the containers running in the task. This results in a
- * 				<code>SIGTERM</code> value and a default 30-second timeout, after which the
- * 				<code>SIGKILL</code> value is sent and the containers are forcibly stopped. If the
- * 			container handles the <code>SIGTERM</code> value gracefully and exits within 30 seconds
+ *          <p>When you call <code>StopTask</code> on a task, the equivalent of <code>docker stop</code> is issued
+ * 			to the containers running in the task. This results in a <code>SIGTERM</code> value and a default
+ * 			30-second timeout, after which the <code>SIGKILL</code> value is sent and the containers are forcibly
+ * 			stopped. If the container handles the <code>SIGTERM</code> value gracefully and exits within 30 seconds
  * 			from receiving it, no <code>SIGKILL</code> value is sent.</p>
- *          <p>For Windows containers, POSIX signals do not work and runtime stops the container by
- * 			sending a <code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown
- * 				of (Windows) container #25982</a> on GitHub.</p>
+ *          <p>For Windows containers, POSIX signals do not work and runtime stops the container by sending a
+ * 				<code>CTRL_SHUTDOWN_EVENT</code>. For more information, see <a href="https://github.com/moby/moby/issues/25982">Unable to react to graceful shutdown of (Windows)
+ * 				container #25982</a> on GitHub.</p>
  *          <note>
- *             <p>The default 30-second timeout can be configured on the Amazon ECS container agent with
- * 				the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
- * 					<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS Container Agent Configuration</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *             <p>The default 30-second timeout can be configured on the Amazon ECS container agent with the
+ * 					<code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS
+ * 					Container Agent Configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -229,17 +227,16 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using
- * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
+ * 			be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 					<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
+ * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
+ * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
+ * 						quotas</a>.</p>
  *             </li>
  *          </ul>
  *
@@ -247,8 +244,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API
- * 			request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

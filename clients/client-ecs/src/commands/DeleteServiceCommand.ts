@@ -28,26 +28,23 @@ export interface DeleteServiceCommandInput extends DeleteServiceRequest {}
 export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified service within a cluster. You can delete a service if you have no
- * 			running tasks in it and the desired task count is zero. If the service is actively
- * 			maintaining tasks, you can't delete it, and you must update the service to a desired
- * 			task count of zero. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
+ * <p>Deletes a specified service within a cluster. You can delete a service if you have no running tasks
+ * 			in it and the desired task count is zero. If the service is actively maintaining tasks, you can't
+ * 			delete it, and you must update the service to a desired task count of zero. For more information, see
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>.</p>
  *          <note>
- *             <p>When you delete a service, if there are still running tasks that require cleanup,
- * 				the service status moves from <code>ACTIVE</code> to <code>DRAINING</code>, and the
- * 				service is no longer visible in the console or in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>
- * 				API operation. After all tasks have transitioned to either <code>STOPPING</code> or
- * 					<code>STOPPED</code> status, the service status moves from <code>DRAINING</code>
- * 				to <code>INACTIVE</code>. Services in the <code>DRAINING</code> or
- * 				<code>INACTIVE</code> status can still be viewed with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a> API operation. However, in the future,
- * 					<code>INACTIVE</code> services may be cleaned up and purged from Amazon ECS record
- * 				keeping, and <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a>  calls on those services return a
- * 					<code>ServiceNotFoundException</code> error.</p>
+ *             <p>When you delete a service, if there are still running tasks that require cleanup, the service
+ * 				status moves from <code>ACTIVE</code> to <code>DRAINING</code>, and the service is no longer
+ * 				visible in the console or in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a> API operation.
+ * 				After all tasks have transitioned to either <code>STOPPING</code> or <code>STOPPED</code> status,
+ * 				the service status moves from <code>DRAINING</code> to <code>INACTIVE</code>. Services in the
+ * 					<code>DRAINING</code> or <code>INACTIVE</code> status can still be viewed with the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a> API operation. However, in the future, <code>INACTIVE</code> services
+ * 				may be cleaned up and purged from Amazon ECS record keeping, and <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServices.html">DescribeServices</a> calls on
+ * 				those services return a <code>ServiceNotFoundException</code> error.</p>
  *          </note>
  *          <important>
- *             <p>If you attempt to create a new service with the same name as an existing service
- * 				in either <code>ACTIVE</code> or <code>DRAINING</code> status, you receive an
- * 				error.</p>
+ *             <p>If you attempt to create a new service with the same name as an existing service in either
+ * 					<code>ACTIVE</code> or <code>DRAINING</code> status, you receive an error.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -293,6 +290,13 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //         fargateEphemeralStorage: {
  * //           kmsKeyId: "STRING_VALUE",
  * //         },
+ * //         vpcLatticeConfigurations: [ // VpcLatticeConfigurations
+ * //           { // VpcLatticeConfiguration
+ * //             roleArn: "STRING_VALUE", // required
+ * //             targetGroupArn: "STRING_VALUE", // required
+ * //             portName: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     roleArn: "STRING_VALUE",
@@ -345,17 +349,16 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using
- * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
+ * 			be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 					<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
+ * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
+ * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
+ * 						quotas</a>.</p>
  *             </li>
  *          </ul>
  *
@@ -363,15 +366,13 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API
- * 			request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceNotFoundException} (client fault)
- *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
- * 			specific.</p>
+ *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region specific.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>

@@ -30,18 +30,16 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
 /**
  * <p>Deletes the specified capacity provider.</p>
  *          <note>
- *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are
- * 				reserved and can't be deleted. You can disassociate them from a cluster using either  <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html">PutCapacityProviderProviders</a> or by deleting the
- * 				cluster.</p>
+ *             <p>The <code>FARGATE</code> and <code>FARGATE_SPOT</code> capacity providers are reserved and can't
+ * 				be deleted. You can disassociate them from a cluster using either <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html">PutCapacityProviderProviders</a> or by deleting the cluster.</p>
  *          </note>
- *          <p>Prior to a capacity provider being deleted, the capacity provider must be removed from
- * 			the capacity provider strategy from all services. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a>
- * 			API can be used to remove a capacity provider from a service's capacity provider
- * 			strategy. When updating a service, the <code>forceNewDeployment</code> option can be
- * 			used to ensure that any tasks using the Amazon EC2 instance capacity provided by the capacity
- * 			provider are transitioned to use the capacity from the remaining capacity providers.
- * 			Only capacity providers that aren't associated with a cluster can be deleted. To remove
- * 			a capacity provider from a cluster, you can either use  <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html">PutCapacityProviderProviders</a> or delete the cluster.</p>
+ *          <p>Prior to a capacity provider being deleted, the capacity provider must be removed from the capacity
+ * 			provider strategy from all services. The <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateService.html">UpdateService</a> API can be used to
+ * 			remove a capacity provider from a service's capacity provider strategy. When updating a service, the
+ * 				<code>forceNewDeployment</code> option can be used to ensure that any tasks using the Amazon EC2
+ * 			instance capacity provided by the capacity provider are transitioned to use the capacity from the
+ * 			remaining capacity providers. Only capacity providers that aren't associated with a cluster can be
+ * 			deleted. To remove a capacity provider from a cluster, you can either use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html">PutCapacityProviderProviders</a> or delete the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,23 +88,21 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using
- * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
+ * 			be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 					<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
+ * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
+ * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
+ * 						quotas</a>.</p>
  *             </li>
  *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API
- * 			request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>

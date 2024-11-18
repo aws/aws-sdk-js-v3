@@ -28,18 +28,20 @@ export interface StartTaskCommandInput extends StartTaskRequest {}
 export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a new task from the specified task definition on the specified container
- * 			instance or instances.</p>
+ * <p>Starts a new task from the specified task definition on the specified container instance or
+ * 			instances.</p>
  *          <note>
  *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
  *          <note>
  *             <p>Amazon Elastic Inference (EI) is no longer available to customers.</p>
  *          </note>
- *          <p>Alternatively, you can use<code>RunTask</code> to place tasks for you. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
- * 			updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>Alternatively, you can use<code>RunTask</code> to place tasks for you. For more information, see
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
+ * 				Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or updating a
+ * 			service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS
+ * 				volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -332,17 +334,16 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. This client action might be using
- * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
+ *  <p>These errors are usually caused by a client action. This client action might be using an action or
+ * 			resource on behalf of a user that doesn't have permissions to use the action or resource. Or, it might
+ * 			be specifying an identifier that isn't valid.</p>
  *          <p>The following list includes additional causes for the error:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>RunTask</code> could not be processed because you use managed
- * 					scaling and there is a capacity error because the quota of tasks in the
- * 					<code>PROVISIONING</code> per cluster has been reached. For information
- * 					about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS
- * 						service quotas</a>.</p>
+ *                <p>The <code>RunTask</code> could not be processed because you use managed scaling and there is
+ * 					a capacity error because the quota of tasks in the <code>PROVISIONING</code> per cluster has
+ * 					been reached. For information about the service quotas, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-quotas.html">Amazon ECS service
+ * 						quotas</a>.</p>
  *             </li>
  *          </ul>
  *
@@ -350,8 +351,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter isn't valid. Review the available parameters for the API
- * 			request.</p>
+ *  <p>The specified parameter isn't valid. Review the available parameters for the API request.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
