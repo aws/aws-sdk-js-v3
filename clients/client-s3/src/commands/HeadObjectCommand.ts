@@ -276,7 +276,7 @@ export interface HeadObjectCommandOutput extends HeadObjectOutput, __MetadataBea
  *   "ContentLength": "3191",
  *   "ContentType": "image/jpeg",
  *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
+ *   "LastModified": "2016-12-15T01:19:41.000Z",
  *   "Metadata": {},
  *   "VersionId": "null"
  * }

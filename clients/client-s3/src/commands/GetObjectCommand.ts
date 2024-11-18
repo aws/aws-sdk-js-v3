@@ -292,6 +292,30 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  * @public
+ * @example To retrieve an object
+ * ```javascript
+ * // The following example retrieves an object for an S3 bucket.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new GetObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "AcceptRanges": "bytes",
+ *   "ContentLength": "3191",
+ *   "ContentType": "image/jpeg",
+ *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
+ *   "LastModified": "2016-12-15T01:19:41.000Z",
+ *   "Metadata": {},
+ *   "TagCount": 2,
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-retrieve-an-object-1481827837012
+ * ```
+ *
  * @example To retrieve a byte range of an object
  * ```javascript
  * // The following example retrieves an object for an S3 bucket. The request specifies the range header to retrieve a specific byte range.
@@ -309,36 +333,12 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *   "ContentRange": "bytes 0-9/43",
  *   "ContentType": "text/plain",
  *   "ETag": "\"0d94420ffd0bc68cd3d152506b97a9cc\"",
- *   "LastModified": "Thu, 09 Oct 2014 22:57:28 GMT",
+ *   "LastModified": "2014-10-09T22:57:28.000Z",
  *   "Metadata": {},
  *   "VersionId": "null"
  * }
  * *\/
  * // example id: to-retrieve-a-byte-range-of-an-object--1481832674603
- * ```
- *
- * @example To retrieve an object
- * ```javascript
- * // The following example retrieves an object for an S3 bucket.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "AcceptRanges": "bytes",
- *   "ContentLength": "3191",
- *   "ContentType": "image/jpeg",
- *   "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *   "LastModified": "Thu, 15 Dec 2016 01:19:41 GMT",
- *   "Metadata": {},
- *   "TagCount": 2,
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-retrieve-an-object-1481827837012
  * ```
  *
  */
