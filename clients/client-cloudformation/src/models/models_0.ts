@@ -8652,6 +8652,162 @@ export interface ListGeneratedTemplatesOutput {
 }
 
 /**
+ * <p>The specified target doesn't have any requested Hook invocations.</p>
+ * @public
+ */
+export class HookResultNotFoundException extends __BaseException {
+  readonly name: "HookResultNotFoundException" = "HookResultNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<HookResultNotFoundException, __BaseException>) {
+    super({
+      name: "HookResultNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, HookResultNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListHookResultsTargetType = {
+  CHANGE_SET: "CHANGE_SET",
+  CLOUD_CONTROL: "CLOUD_CONTROL",
+  RESOURCE: "RESOURCE",
+  STACK: "STACK",
+} as const;
+
+/**
+ * @public
+ */
+export type ListHookResultsTargetType = (typeof ListHookResultsTargetType)[keyof typeof ListHookResultsTargetType];
+
+/**
+ * @public
+ */
+export interface ListHookResultsInput {
+  /**
+   * <p>The type of operation being targeted by the Hook.</p>
+   * @public
+   */
+  TargetType: ListHookResultsTargetType | undefined;
+
+  /**
+   * <p>The logical ID of the target the operation is acting on by the Hook. If the target is a change set,
+   *       it's the ARN of the change set.</p>
+   *          <p>If the target is a Cloud Control API operation, this will be the <code>HookRequestToken</code> returned by the Cloud Control API
+   *       operation request. For more information on the <code>HookRequestToken</code>, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</p>
+   * @public
+   */
+  TargetId: string | undefined;
+
+  /**
+   * <p>A string that identifies the next page of events that you want to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a Hook invocation, its status, and the reason for its status.</p>
+ * @public
+ */
+export interface HookResultSummary {
+  /**
+   * <p>The exact point in the provisioning logic where the Hook runs.</p>
+   * @public
+   */
+  InvocationPoint?: HookInvocationPoint | undefined;
+
+  /**
+   * <p>The failure mode of the invocation. The following are potential modes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FAIL</code>: If the hook invocation returns a failure, then the requested target operation should fail.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WARN</code>: If the hook invocation returns a failure, then the requested target operation should warn.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureMode?: HookFailureMode | undefined;
+
+  /**
+   * <p>The type name of the Hook being invoked.</p>
+   * @public
+   */
+  TypeName?: string | undefined;
+
+  /**
+   * <p>The version of the Hook being invoked.</p>
+   * @public
+   */
+  TypeVersionId?: string | undefined;
+
+  /**
+   * <p>The version of the Hook type configuration.</p>
+   * @public
+   */
+  TypeConfigurationVersionId?: string | undefined;
+
+  /**
+   * <p>The state of the Hook invocation.</p>
+   * @public
+   */
+  Status?: HookStatus | undefined;
+
+  /**
+   * <p>A description of the Hook results status. For example, if the Hook result is in a <code>FAILED</code> state, this
+   *    may contain additional information for the <code>FAILED</code> state.</p>
+   * @public
+   */
+  HookStatusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHookResultsOutput {
+  /**
+   * <p>The type of operation being targeted by the Hook.</p>
+   * @public
+   */
+  TargetType?: ListHookResultsTargetType | undefined;
+
+  /**
+   * <p>The logical ID of the target the operation is acting on by the Hook. If the target is a change set,
+   *       it's the ARN of the change set.</p>
+   *          <p>If the target is a Cloud Control API operation, this will be the <code>HooksRequestToken</code> returned by the Cloud Control API
+   *       operation request. For more information on the <code>HooksRequestToken</code>, see <a href="https://docs.aws.amazon.com/cloudcontrolapi/latest/APIReference/API_ProgressEvent.html">ProgressEvent</a>.</p>
+   * @public
+   */
+  TargetId?: string | undefined;
+
+  /**
+   * <p>A list of <code>HookResultSummary</code> structures that provides the status and Hook status reason for each Hook
+   *       invocation for the specified target.</p>
+   * @public
+   */
+  HookResults?: HookResultSummary[] | undefined;
+
+  /**
+   * <p>Pagination token, <code>null</code> or empty if no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListImportsInput {
@@ -11214,209 +11370,4 @@ export interface RegisterPublisherOutput {
    * @public
    */
   PublisherId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTypeInput {
-  /**
-   * <p>The kind of extension.</p>
-   * @public
-   */
-  Type?: RegistryType | undefined;
-
-  /**
-   * <p>The name of the extension being registered.</p>
-   *          <p>We suggest that extension names adhere to the following patterns:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For resource types, <code>company_or_organization::service::type</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For modules, <code>company_or_organization::service::type::MODULE</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For hooks, <code>MyCompany::Testing::MyTestHook</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>The following organization namespaces are reserved and can't be used in your extension
-   *         names:</p>
-   *             <ul>
-   *                <li>
-   *                   <p>
-   *                      <code>Alexa</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>AMZN</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>Amazon</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>AWS</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>Custom</code>
-   *                   </p>
-   *                </li>
-   *                <li>
-   *                   <p>
-   *                      <code>Dev</code>
-   *                   </p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   * @public
-   */
-  TypeName: string | undefined;
-
-  /**
-   * <p>A URL to the S3 bucket containing the extension project package that contains the
-   *       necessary files for the extension you want to register.</p>
-   *          <p>For information about generating a schema handler package for the extension you want to
-   *       register, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a> in
-   *       the <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
-   *          <note>
-   *             <p>The user registering the extension must be able to access the package in the S3 bucket.
-   *         That's, the user needs to have <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a> permissions for the schema
-   *         handler package. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html">Actions, Resources, and Condition Keys for
-   *           Amazon S3</a> in the <i>Identity and Access Management User Guide</i>.</p>
-   *          </note>
-   * @public
-   */
-  SchemaHandlerPackage: string | undefined;
-
-  /**
-   * <p>Specifies logging configuration information for an extension.</p>
-   * @public
-   */
-  LoggingConfig?: LoggingConfig | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking
-   *       the extension.</p>
-   *          <p>For CloudFormation to assume the specified execution role, the role must contain a trust
-   *       relationship with the CloudFormation service principal
-   *         (<code>resources.cloudformation.amazonaws.com</code>). For more information about adding
-   *       trust relationships, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/roles-managingrole-editing-console.html#roles-managingrole_edit-trust-policy">Modifying a role trust policy</a> in the <i>Identity and Access Management User
-   *       Guide</i>.</p>
-   *          <p>If your extension calls Amazon Web Services APIs in any of its handlers, you must create an
-   *           <i>
-   *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM
-   *           execution role</a>
-   *             </i> that includes the necessary permissions to call those
-   *       Amazon Web Services APIs, and provision that execution role in your account. When CloudFormation needs to invoke
-   *       the resource type handler, CloudFormation assumes this execution role to create a temporary
-   *       session token, which it then passes to the resource type handler, thereby supplying your
-   *       resource type with the appropriate credentials.</p>
-   * @public
-   */
-  ExecutionRoleArn?: string | undefined;
-
-  /**
-   * <p>A unique identifier that acts as an idempotency key for this registration request.
-   *       Specifying a client request token prevents CloudFormation from generating more than one version of
-   *       an extension from the same registration request, even if the request is submitted multiple
-   *       times.</p>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterTypeOutput {
-  /**
-   * <p>The identifier for this registration request.</p>
-   *          <p>Use this registration token when calling <a>DescribeTypeRegistration</a>, which
-   *       returns information about the status and IDs of the extension registration.</p>
-   * @public
-   */
-  RegistrationToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RollbackStackInput {
-  /**
-   * <p>The name that's associated with the stack.</p>
-   * @public
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to rollback the
-   *       stack.</p>
-   * @public
-   */
-  RoleARN?: string | undefined;
-
-  /**
-   * <p>A unique identifier for this <code>RollbackStack</code> request.</p>
-   * @public
-   */
-  ClientRequestToken?: string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, newly created resources are deleted when the operation
-   *       rolls back. This includes newly created resources marked with a deletion policy of
-   *         <code>Retain</code>.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  RetainExceptOnCreate?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RollbackStackOutput {
-  /**
-   * <p>Unique identifier of the stack.</p>
-   * @public
-   */
-  StackId?: string | undefined;
-}
-
-/**
- * <p>The input for the <a>SetStackPolicy</a> action.</p>
- * @public
- */
-export interface SetStackPolicyInput {
-  /**
-   * <p>The name or unique stack ID that you want to associate a policy with.</p>
-   * @public
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>Structure containing the stack policy body. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html">Prevent updates to stack resources</a> in the <i>CloudFormation User Guide</i>.
-   *       You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
-   *       parameter, but not both.</p>
-   * @public
-   */
-  StackPolicyBody?: string | undefined;
-
-  /**
-   * <p>Location of a file containing the stack policy. The URL must point to a policy (maximum
-   *       size: 16 KB) located in an Amazon S3 bucket in the same Amazon Web Services Region as the stack. The location for
-   *       an Amazon S3 bucket must start with <code>https://</code>. You can specify either the
-   *         <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
-   *       both.</p>
-   * @public
-   */
-  StackPolicyURL?: string | undefined;
 }

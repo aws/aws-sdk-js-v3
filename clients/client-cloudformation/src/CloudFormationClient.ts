@@ -183,6 +183,7 @@ import {
   ListGeneratedTemplatesCommandInput,
   ListGeneratedTemplatesCommandOutput,
 } from "./commands/ListGeneratedTemplatesCommand";
+import { ListHookResultsCommandInput, ListHookResultsCommandOutput } from "./commands/ListHookResultsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListResourceScanRelatedResourcesCommandInput,
@@ -322,6 +323,7 @@ export type ServiceInputTypes =
   | ListChangeSetsCommandInput
   | ListExportsCommandInput
   | ListGeneratedTemplatesCommandInput
+  | ListHookResultsCommandInput
   | ListImportsCommandInput
   | ListResourceScanRelatedResourcesCommandInput
   | ListResourceScanResourcesCommandInput
@@ -409,6 +411,7 @@ export type ServiceOutputTypes =
   | ListChangeSetsCommandOutput
   | ListExportsCommandOutput
   | ListGeneratedTemplatesCommandOutput
+  | ListHookResultsCommandOutput
   | ListImportsCommandOutput
   | ListResourceScanRelatedResourcesCommandOutput
   | ListResourceScanResourcesCommandOutput

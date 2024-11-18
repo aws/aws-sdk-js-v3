@@ -48,6 +48,7 @@ export * from "./ImportStacksToStackSetCommand";
 export * from "./ListChangeSetsCommand";
 export * from "./ListExportsCommand";
 export * from "./ListGeneratedTemplatesCommand";
+export * from "./ListHookResultsCommand";
 export * from "./ListImportsCommand";
 export * from "./ListResourceScanRelatedResourcesCommand";
 export * from "./ListResourceScanResourcesCommand";

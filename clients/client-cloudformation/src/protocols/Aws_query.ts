@@ -152,6 +152,7 @@ import {
   ListGeneratedTemplatesCommandInput,
   ListGeneratedTemplatesCommandOutput,
 } from "../commands/ListGeneratedTemplatesCommand";
+import { ListHookResultsCommandInput, ListHookResultsCommandOutput } from "../commands/ListHookResultsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "../commands/ListImportsCommand";
 import {
   ListResourceScanRelatedResourcesCommandInput,
@@ -334,6 +335,8 @@ import {
   GetTemplateOutput,
   GetTemplateSummaryInput,
   GetTemplateSummaryOutput,
+  HookResultNotFoundException,
+  HookResultSummary,
   ImportStacksToStackSetInput,
   ImportStacksToStackSetOutput,
   InsufficientCapabilitiesException,
@@ -347,6 +350,8 @@ import {
   ListExportsOutput,
   ListGeneratedTemplatesInput,
   ListGeneratedTemplatesOutput,
+  ListHookResultsInput,
+  ListHookResultsOutput,
   ListImportsInput,
   ListImportsOutput,
   ListResourceScanRelatedResourcesInput,
@@ -398,8 +403,6 @@ import {
   RecordHandlerProgressOutput,
   RegisterPublisherInput,
   RegisterPublisherOutput,
-  RegisterTypeInput,
-  RegisterTypeOutput,
   RequiredActivatedType,
   ResourceAttribute,
   ResourceChange,
@@ -413,12 +416,9 @@ import {
   ResourceTargetDefinition,
   ResourceToImport,
   RollbackConfiguration,
-  RollbackStackInput,
-  RollbackStackOutput,
   RollbackTrigger,
   ScannedResource,
   ScannedResourceIdentifier,
-  SetStackPolicyInput,
   Stack,
   StackDriftInformation,
   StackDriftInformationSummary,
@@ -470,7 +470,12 @@ import {
   Warnings,
 } from "../models/models_0";
 import {
+  RegisterTypeInput,
+  RegisterTypeOutput,
   ResourceScanLimitExceededException,
+  RollbackStackInput,
+  RollbackStackOutput,
+  SetStackPolicyInput,
   SetTypeConfigurationInput,
   SetTypeConfigurationOutput,
   SetTypeDefaultVersionInput,
@@ -1325,6 +1330,23 @@ export const se_ListGeneratedTemplatesCommand = async (
   body = buildFormUrlencodedString({
     ...se_ListGeneratedTemplatesInput(input, context),
     [_A]: _LGT,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListHookResultsCommand
+ */
+export const se_ListHookResultsCommand = async (
+  input: ListHookResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListHookResultsInput(input, context),
+    [_A]: _LHR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2863,6 +2885,26 @@ export const de_ListGeneratedTemplatesCommand = async (
 };
 
 /**
+ * deserializeAws_queryListHookResultsCommand
+ */
+export const de_ListHookResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListHookResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListHookResultsOutput(data.ListHookResultsResult, context);
+  const response: ListHookResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryListImportsCommand
  */
 export const de_ListImportsCommand = async (
@@ -3595,6 +3637,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "StackNotFoundException":
     case "com.amazonaws.cloudformation#StackNotFoundException":
       throw await de_StackNotFoundExceptionRes(parsedOutput, context);
+    case "HookResultNotFound":
+    case "com.amazonaws.cloudformation#HookResultNotFoundException":
+      throw await de_HookResultNotFoundExceptionRes(parsedOutput, context);
     case "ResourceScanInProgress":
     case "com.amazonaws.cloudformation#ResourceScanInProgressException":
       throw await de_ResourceScanInProgressExceptionRes(parsedOutput, context);
@@ -3707,6 +3752,22 @@ const de_GeneratedTemplateNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_GeneratedTemplateNotFoundException(body.Error, context);
   const exception = new GeneratedTemplateNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryHookResultNotFoundExceptionRes
+ */
+const de_HookResultNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<HookResultNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_HookResultNotFoundException(body.Error, context);
+  const exception = new HookResultNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5388,6 +5449,23 @@ const se_ListGeneratedTemplatesInput = (input: ListGeneratedTemplatesInput, cont
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryListHookResultsInput
+ */
+const se_ListHookResultsInput = (input: ListHookResultsInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_TTa] != null) {
+    entries[_TTa] = input[_TTa];
+  }
+  if (input[_TI] != null) {
+    entries[_TI] = input[_TI];
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -8213,6 +8291,57 @@ const de_GetTemplateSummaryOutput = (output: any, context: __SerdeContext): GetT
 };
 
 /**
+ * deserializeAws_queryHookResultNotFoundException
+ */
+const de_HookResultNotFoundException = (output: any, context: __SerdeContext): HookResultNotFoundException => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryHookResultSummaries
+ */
+const de_HookResultSummaries = (output: any, context: __SerdeContext): HookResultSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HookResultSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryHookResultSummary
+ */
+const de_HookResultSummary = (output: any, context: __SerdeContext): HookResultSummary => {
+  const contents: any = {};
+  if (output[_IP] != null) {
+    contents[_IP] = __expectString(output[_IP]);
+  }
+  if (output[_FM] != null) {
+    contents[_FM] = __expectString(output[_FM]);
+  }
+  if (output[_TN] != null) {
+    contents[_TN] = __expectString(output[_TN]);
+  }
+  if (output[_TVI] != null) {
+    contents[_TVI] = __expectString(output[_TVI]);
+  }
+  if (output[_TCVI] != null) {
+    contents[_TCVI] = __expectString(output[_TCVI]);
+  }
+  if (output[_S] != null) {
+    contents[_S] = __expectString(output[_S]);
+  }
+  if (output[_HSR] != null) {
+    contents[_HSR] = __expectString(output[_HSR]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryImports
  */
 const de_Imports = (output: any, context: __SerdeContext): string[] => {
@@ -8346,6 +8475,28 @@ const de_ListGeneratedTemplatesOutput = (output: any, context: __SerdeContext): 
     contents[_Su] = [];
   } else if (output[_Su] != null && output[_Su][_m] != null) {
     contents[_Su] = de_TemplateSummaries(__getArrayIfSingleItem(output[_Su][_m]), context);
+  }
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryListHookResultsOutput
+ */
+const de_ListHookResultsOutput = (output: any, context: __SerdeContext): ListHookResultsOutput => {
+  const contents: any = {};
+  if (output[_TTa] != null) {
+    contents[_TTa] = __expectString(output[_TTa]);
+  }
+  if (output[_TI] != null) {
+    contents[_TI] = __expectString(output[_TI]);
+  }
+  if (output.HookResults === "") {
+    contents[_HR] = [];
+  } else if (output[_HR] != null && output[_HR][_m] != null) {
+    contents[_HR] = de_HookResultSummaries(__getArrayIfSingleItem(output[_HR][_m]), context);
   }
   if (output[_NT] != null) {
     contents[_NT] = __expectString(output[_NT]);
@@ -11217,6 +11368,7 @@ const _H = "Hooks";
 const _HFM = "HookFailureMode";
 const _HIC = "HookInvocationCount";
 const _HIP = "HookInvocationPoint";
+const _HR = "HookResults";
 const _HS = "HookStatus";
 const _HSR = "HookStatusReason";
 const _HT = "HookType";
@@ -11242,6 +11394,7 @@ const _LDCT = "LastDriftCheckTimestamp";
 const _LE = "ListExports";
 const _LGN = "LogGroupName";
 const _LGT = "ListGeneratedTemplates";
+const _LHR = "ListHookResults";
 const _LI = "ListImports";
 const _LIH = "LogicalIdHierarchy";
 const _LOI = "LastOperationId";
@@ -11440,6 +11593,7 @@ const _TCy = "TypeConfigurations";
 const _TD = "TargetDetails";
 const _TDe = "TemplateDescription";
 const _TH = "TypeHierarchy";
+const _TI = "TargetId";
 const _TIM = "TimeoutInMinutes";
 const _TK = "TagKey";
 const _TN = "TypeName";

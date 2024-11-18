@@ -610,6 +610,14 @@ ListGeneratedTemplates
 </details>
 <details>
 <summary>
+ListHookResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListHookResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListHookResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListHookResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListImports
 </summary>
 

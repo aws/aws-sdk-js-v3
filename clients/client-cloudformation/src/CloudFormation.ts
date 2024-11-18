@@ -232,6 +232,11 @@ import {
   ListGeneratedTemplatesCommandInput,
   ListGeneratedTemplatesCommandOutput,
 } from "./commands/ListGeneratedTemplatesCommand";
+import {
+  ListHookResultsCommand,
+  ListHookResultsCommandInput,
+  ListHookResultsCommandOutput,
+} from "./commands/ListHookResultsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListResourceScanRelatedResourcesCommand,
@@ -424,6 +429,7 @@ const commands = {
   ListChangeSetsCommand,
   ListExportsCommand,
   ListGeneratedTemplatesCommand,
+  ListHookResultsCommand,
   ListImportsCommand,
   ListResourceScanRelatedResourcesCommand,
   ListResourceScanResourcesCommand,
@@ -1245,6 +1251,20 @@ export interface CloudFormation {
     args: ListGeneratedTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListGeneratedTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHookResultsCommand}
+   */
+  listHookResults(
+    args: ListHookResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHookResultsCommandOutput>;
+  listHookResults(args: ListHookResultsCommandInput, cb: (err: any, data?: ListHookResultsCommandOutput) => void): void;
+  listHookResults(
+    args: ListHookResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHookResultsCommandOutput) => void
   ): void;
 
   /**

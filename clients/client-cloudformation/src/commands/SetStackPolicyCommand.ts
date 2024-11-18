@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetStackPolicyInput } from "../models/models_0";
+import { SetStackPolicyInput } from "../models/models_1";
 import { de_SetStackPolicyCommand, se_SetStackPolicyCommand } from "../protocols/Aws_query";
 
 /**
