@@ -211,6 +211,11 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *   AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
  *     CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
  *   },
+ *   AvailabilityZoneImpairmentPolicy: { // AvailabilityZoneImpairmentPolicy
+ *     ZonalShiftEnabled: true || false,
+ *     ImpairedZoneHealthCheckBehavior: "ReplaceUnhealthy" || "IgnoreUnhealthy",
+ *   },
+ *   SkipZonalShiftValidation: true || false,
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

@@ -496,6 +496,15 @@ export interface AttachTrafficSourcesType {
    * @public
    */
   TrafficSources: TrafficSourceIdentifier[] | undefined;
+
+  /**
+   * <p>
+   *             If you enable zonal shift with cross-zone disabled load balancers, capacity could become imbalanced across Availability Zones. To skip the validation, specify <code>true</code>. For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   *         </p>
+   * @public
+   */
+  SkipZonalShiftValidation?: boolean | undefined;
 }
 
 /**
@@ -782,6 +791,48 @@ export interface AvailabilityZoneDistribution {
    * @public
    */
   CapacityDistributionStrategy?: CapacityDistributionStrategy | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImpairedZoneHealthCheckBehavior = {
+  IgnoreUnhealthy: "IgnoreUnhealthy",
+  ReplaceUnhealthy: "ReplaceUnhealthy",
+} as const;
+
+/**
+ * @public
+ */
+export type ImpairedZoneHealthCheckBehavior =
+  (typeof ImpairedZoneHealthCheckBehavior)[keyof typeof ImpairedZoneHealthCheckBehavior];
+
+/**
+ * <p>
+ *             Describes an Availability Zone impairment policy.
+ *         </p>
+ * @public
+ */
+export interface AvailabilityZoneImpairmentPolicy {
+  /**
+   * <p>
+   *             If <code>true</code>, enable zonal shift for your Auto Scaling group.
+   *         </p>
+   * @public
+   */
+  ZonalShiftEnabled?: boolean | undefined;
+
+  /**
+   * <p>
+   *             Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select <code>Replace unhealthy</code>, instances that appear unhealthy will be replaced in all Availability Zones.
+   *             If you select <code>Ignore unhealthy</code>, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto Scaling group zonal shift</a>
+   *             in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   *
+   *         </p>
+   * @public
+   */
+  ImpairedZoneHealthCheckBehavior?: ImpairedZoneHealthCheckBehavior | undefined;
 }
 
 /**
@@ -2149,6 +2200,23 @@ export interface CreateAutoScalingGroupType {
    * @public
    */
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution | undefined;
+
+  /**
+   * <p>
+   *             The policy for Availability Zone impairment.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy | undefined;
+
+  /**
+   * <p>
+   *             If you enable zonal shift with cross-zone disabled load balancers, capacity could become imbalanced across Availability Zones. To skip the validation, specify <code>true</code>. For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   *         </p>
+   * @public
+   */
+  SkipZonalShiftValidation?: boolean | undefined;
 }
 
 /**
@@ -3535,6 +3603,14 @@ export interface AutoScalingGroup {
    * @public
    */
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution | undefined;
+
+  /**
+   * <p>
+   *             The Availability Zone impairment policy.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy | undefined;
 }
 
 /**
@@ -8303,4 +8379,21 @@ export interface UpdateAutoScalingGroupType {
    * @public
    */
   AvailabilityZoneDistribution?: AvailabilityZoneDistribution | undefined;
+
+  /**
+   * <p>
+   *             The policy for Availability Zone impairment.
+   *         </p>
+   * @public
+   */
+  AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy | undefined;
+
+  /**
+   * <p>
+   *         If you enable zonal shift with cross-zone disabled load balancers, capacity could become imbalanced across Availability Zones. To skip the validation, specify <code>true</code>. For more information, see
+   *         <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html">Auto Scaling group zonal shift</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+   *     </p>
+   * @public
+   */
+  SkipZonalShiftValidation?: boolean | undefined;
 }

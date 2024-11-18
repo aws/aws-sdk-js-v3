@@ -67,6 +67,7 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *       Type: "STRING_VALUE",
  *     },
  *   ],
+ *   SkipZonalShiftValidation: true || false,
  * };
  * const command = new AttachTrafficSourcesCommand(input);
  * const response = await client.send(command);

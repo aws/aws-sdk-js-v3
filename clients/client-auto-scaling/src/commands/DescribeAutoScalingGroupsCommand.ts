@@ -250,6 +250,10 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //       AvailabilityZoneDistribution: { // AvailabilityZoneDistribution
  * //         CapacityDistributionStrategy: "balanced-only" || "balanced-best-effort",
  * //       },
+ * //       AvailabilityZoneImpairmentPolicy: { // AvailabilityZoneImpairmentPolicy
+ * //         ZonalShiftEnabled: true || false,
+ * //         ImpairedZoneHealthCheckBehavior: "ReplaceUnhealthy" || "IgnoreUnhealthy",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

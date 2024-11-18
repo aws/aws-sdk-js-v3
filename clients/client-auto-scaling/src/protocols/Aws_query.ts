@@ -254,6 +254,7 @@ import {
   AutoScalingInstanceDetails,
   AutoScalingInstancesType,
   AvailabilityZoneDistribution,
+  AvailabilityZoneImpairmentPolicy,
   BaselineEbsBandwidthMbpsRequest,
   BatchDeleteScheduledActionAnswer,
   BatchDeleteScheduledActionType,
@@ -3180,6 +3181,9 @@ const se_AttachTrafficSourcesType = (input: AttachTrafficSourcesType, context: _
       entries[loc] = value;
     });
   }
+  if (input[_SZSV] != null) {
+    entries[_SZSV] = input[_SZSV];
+  }
   return entries;
 };
 
@@ -3256,6 +3260,20 @@ const se_AvailabilityZoneDistribution = (input: AvailabilityZoneDistribution, co
   const entries: any = {};
   if (input[_CDS] != null) {
     entries[_CDS] = input[_CDS];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryAvailabilityZoneImpairmentPolicy
+ */
+const se_AvailabilityZoneImpairmentPolicy = (input: AvailabilityZoneImpairmentPolicy, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_ZSE] != null) {
+    entries[_ZSE] = input[_ZSE];
+  }
+  if (input[_IZHCB] != null) {
+    entries[_IZHCB] = input[_IZHCB];
   }
   return entries;
 };
@@ -3616,6 +3634,16 @@ const se_CreateAutoScalingGroupType = (input: CreateAutoScalingGroupType, contex
       const loc = `AvailabilityZoneDistribution.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_AZIP] != null) {
+    const memberEntries = se_AvailabilityZoneImpairmentPolicy(input[_AZIP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneImpairmentPolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_SZSV] != null) {
+    entries[_SZSV] = input[_SZSV];
   }
   return entries;
 };
@@ -6385,6 +6413,16 @@ const se_UpdateAutoScalingGroupType = (input: UpdateAutoScalingGroupType, contex
       entries[loc] = value;
     });
   }
+  if (input[_AZIP] != null) {
+    const memberEntries = se_AvailabilityZoneImpairmentPolicy(input[_AZIP], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AvailabilityZoneImpairmentPolicy.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_SZSV] != null) {
+    entries[_SZSV] = input[_SZSV];
+  }
   return entries;
 };
 
@@ -6829,6 +6867,9 @@ const de_AutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingG
   if (output[_AZD] != null) {
     contents[_AZD] = de_AvailabilityZoneDistribution(output[_AZD], context);
   }
+  if (output[_AZIP] != null) {
+    contents[_AZIP] = de_AvailabilityZoneImpairmentPolicy(output[_AZIP], context);
+  }
   return contents;
 };
 
@@ -6942,6 +6983,23 @@ const de_AvailabilityZoneDistribution = (output: any, context: __SerdeContext): 
   const contents: any = {};
   if (output[_CDS] != null) {
     contents[_CDS] = __expectString(output[_CDS]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryAvailabilityZoneImpairmentPolicy
+ */
+const de_AvailabilityZoneImpairmentPolicy = (
+  output: any,
+  context: __SerdeContext
+): AvailabilityZoneImpairmentPolicy => {
+  const contents: any = {};
+  if (output[_ZSE] != null) {
+    contents[_ZSE] = __parseBoolean(output[_ZSE]);
+  }
+  if (output[_IZHCB] != null) {
+    contents[_IZHCB] = __expectString(output[_IZHCB]);
   }
   return contents;
 };
@@ -9466,6 +9524,7 @@ const _ATd = "AdjustmentType";
 const _ATdj = "AdjustmentTypes";
 const _AZ = "AvailabilityZones";
 const _AZD = "AvailabilityZoneDistribution";
+const _AZIP = "AvailabilityZoneImpairmentPolicy";
 const _AZv = "AvailabilityZone";
 const _Ac = "Activities";
 const _Act = "Activity";
@@ -9595,6 +9654,7 @@ const _IT = "InstanceType";
 const _ITU = "InstancesToUpdate";
 const _ITUOR = "InstancesToUpdateOnRollback";
 const _IW = "InstanceWarmup";
+const _IZHCB = "ImpairedZoneHealthCheckBehavior";
 const _Id = "Id";
 const _Ide = "Identifier";
 const _In = "Instances";
@@ -9758,6 +9818,7 @@ const _SRGP = "ShouldRespectGracePeriod";
 const _SRu = "SuspensionReason";
 const _ST = "StartTime";
 const _SUGA = "ScheduledUpdateGroupActions";
+const _SZSV = "SkipZonalShiftValidation";
 const _St = "Stat";
 const _Sta = "Status";
 const _Stat = "State";
@@ -9795,6 +9856,7 @@ const _WC = "WeightedCapacity";
 const _WPC = "WarmPoolConfiguration";
 const _WPP = "WarmPoolProgress";
 const _WPS = "WarmPoolSize";
+const _ZSE = "ZonalShiftEnabled";
 const _m = "message";
 const _me = "member";
 
