@@ -476,9 +476,9 @@ export const VideoCapability = {
 export type VideoCapability = (typeof VideoCapability)[keyof typeof VideoCapability];
 
 /**
- * <p>The configuration for the allowed video and screen sharing capabilities for participants present over the
- *    call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
- *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ * <p>The configuration for the allowed video and screen sharing capabilities for participants
+ *    present over the call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen
+ *     sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  * @public
  */
 export interface ParticipantCapabilities {
@@ -490,7 +490,8 @@ export interface ParticipantCapabilities {
   Video?: VideoCapability | undefined;
 
   /**
-   * <p>The screen sharing capability that is enabled for the participant. <code>SEND</code> indicates the participant can share their screen.</p>
+   * <p>The screen sharing capability that is enabled for the participant. <code>SEND</code>
+   *    indicates the participant can share their screen.</p>
    * @public
    */
   ScreenShare?: ScreenShareCapability | undefined;
@@ -593,9 +594,9 @@ export interface AgentInfo {
   DeviceInfo?: DeviceInfo | undefined;
 
   /**
-   * <p>The configuration for the allowed video and screen sharing capabilities for participants present over the
-   *    call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
-   *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>The configuration for the allowed video and screen sharing capabilities for participants
+   *    present over the call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen
+   *     sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    * @public
    */
   Capabilities?: ParticipantCapabilities | undefined;
@@ -2806,6 +2807,12 @@ export interface CreateContactFlowResponse {
    * @public
    */
   ContactFlowArn?: string | undefined;
+
+  /**
+   * <p>Indicates the checksum value of the flow content.</p>
+   * @public
+   */
+  FlowContentSha256?: string | undefined;
 }
 
 /**
@@ -2928,6 +2935,64 @@ export class InvalidContactFlowModuleException extends __BaseException {
     Object.setPrototypeOf(this, InvalidContactFlowModuleException.prototype);
     this.Problems = opts.Problems;
   }
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowVersionRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The description of the flow version.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow.</p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>Indicates the checksum value of the flow content.</p>
+   * @public
+   */
+  FlowContentSha256?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactFlowVersionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the flow.</p>
+   * @public
+   */
+  ContactFlowArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow version.</p>
+   * @public
+   */
+  Version?: number | undefined;
 }
 
 /**
@@ -3652,6 +3717,7 @@ export const IntegrationType = {
   EVENT: "EVENT",
   FILE_SCANNER: "FILE_SCANNER",
   PINPOINT_APP: "PINPOINT_APP",
+  Q_MESSAGE_TEMPLATES: "Q_MESSAGE_TEMPLATES",
   VOICE_ID: "VOICE_ID",
   WISDOM_ASSISTANT: "WISDOM_ASSISTANT",
   WISDOM_KNOWLEDGE_BASE: "WISDOM_KNOWLEDGE_BASE",
@@ -5580,7 +5646,7 @@ export interface CreateUseCaseResponse {
  *             <p>The <code>FirstName</code> and <code>LastName</code> length constraints below apply only to
  *     instances using SAML for identity management. If you are using Amazon Connect for identity
  *     management, the length constraints are 1-255 for <code>FirstName</code>, and 1-256 for
- *     <code>LastName</code>. </p>
+ *      <code>LastName</code>. </p>
  *          </important>
  * @public
  */
@@ -6985,9 +7051,9 @@ export interface Customer {
   DeviceInfo?: DeviceInfo | undefined;
 
   /**
-   * <p>The configuration for the allowed video and screen sharing capabilities for participants present over the
-   *    call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
-   *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * <p>The configuration for the allowed video and screen sharing capabilities for participants
+   *    present over the call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen
+   *     sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    * @public
    */
   Capabilities?: ParticipantCapabilities | undefined;
@@ -7071,36 +7137,6 @@ export interface QueueInfo {
    * @public
    */
   EnqueueTimestamp?: Date | undefined;
-}
-
-/**
- * <p>An object to specify the expiration of a routing step.</p>
- * @public
- */
-export interface Expiry {
-  /**
-   * <p>The number of seconds to wait before expiring the routing step.</p>
-   * @public
-   */
-  DurationInSeconds?: number | undefined;
-
-  /**
-   * <p>The timestamp indicating when the routing step expires.</p>
-   * @public
-   */
-  ExpiryTimestamp?: Date | undefined;
-}
-
-/**
- * <p>An object to define AgentsCriteria.</p>
- * @public
- */
-export interface MatchCriteria {
-  /**
-   * <p>An object to define agentIds.</p>
-   * @public
-   */
-  AgentsCriteria?: AgentsCriteria | undefined;
 }
 
 /**

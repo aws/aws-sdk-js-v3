@@ -53,6 +53,7 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * // { // CreateContactFlowResponse
  * //   ContactFlowId: "STRING_VALUE",
  * //   ContactFlowArn: "STRING_VALUE",
+ * //   FlowContentSha256: "STRING_VALUE",
  * // };
  *
  * ```

@@ -107,6 +107,12 @@ export interface SearchContactFlowsCommandOutput extends SearchContactFlowsRespo
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       IsDefault: true || false,
+ * //       FlowContentSha256: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //       VersionDescription: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //       LastModifiedRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

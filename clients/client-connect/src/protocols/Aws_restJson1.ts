@@ -116,6 +116,10 @@ import {
   CreateContactFlowModuleCommandOutput,
 } from "../commands/CreateContactFlowModuleCommand";
 import {
+  CreateContactFlowVersionCommandInput,
+  CreateContactFlowVersionCommandOutput,
+} from "../commands/CreateContactFlowVersionCommand";
+import {
   CreateEvaluationFormCommandInput,
   CreateEvaluationFormCommandOutput,
 } from "../commands/CreateEvaluationFormCommand";
@@ -384,6 +388,10 @@ import {
   ListContactFlowModulesCommandOutput,
 } from "../commands/ListContactFlowModulesCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "../commands/ListContactFlowsCommand";
+import {
+  ListContactFlowVersionsCommandInput,
+  ListContactFlowVersionsCommandOutput,
+} from "../commands/ListContactFlowVersionsCommand";
 import {
   ListContactReferencesCommandInput,
   ListContactReferencesCommandOutput,
@@ -802,7 +810,6 @@ import {
   EvaluationFormSingleSelectQuestionOption,
   EvaluationFormSingleSelectQuestionProperties,
   EventBridgeActionDefinition,
-  Expiry,
   FieldValue,
   FieldValueUnion,
   HoursOfOperationConfig,
@@ -821,7 +828,6 @@ import {
   LexBot,
   LexV2Bot,
   LimitExceededException,
-  MatchCriteria,
   MediaConcurrency,
   MonitorCapability,
   NotificationRecipientType,
@@ -874,6 +880,7 @@ import {
   AttributeCondition,
   AuthenticationProfileSummary,
   ContactFilter,
+  ContactFlow,
   ContactFlowNotPublishedException,
   Credentials,
   CurrentMetric,
@@ -889,6 +896,7 @@ import {
   EvaluationNote,
   EvaluationScore,
   EvaluationSummary,
+  Expiry,
   Filters,
   FilterV2,
   Grouping,
@@ -905,6 +913,7 @@ import {
   Instance,
   InstanceSummary,
   IntervalDetails,
+  MatchCriteria,
   MetricDataV2,
   MetricFilterV2,
   MetricInterval,
@@ -933,7 +942,6 @@ import {
   RuleSummary,
   SecurityKey,
   SecurityProfile,
-  SecurityProfileSummary,
   SegmentAttributeValue,
   SignInConfig,
   SignInDistribution,
@@ -1011,6 +1019,7 @@ import {
   SearchCriteria,
   SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
+  SecurityProfileSummary,
   Sort,
   Step,
   TagSearchCondition,
@@ -1629,6 +1638,33 @@ export const se_CreateContactFlowModuleCommand = async (
       Description: [],
       Name: [],
       Tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateContactFlowVersionCommand
+ */
+export const se_CreateContactFlowVersionCommand = async (
+  input: CreateContactFlowVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/version");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      FlowContentSha256: [],
+      LastModifiedRegion: [],
+      LastModifiedTime: (_) => _.getTime() / 1_000,
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -3770,6 +3806,27 @@ export const se_ListContactFlowsCommand = async (
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
     [_cFT]: [() => input.ContactFlowTypes !== void 0, () => input[_CFT]! || []],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListContactFlowVersionsCommand
+ */
+export const se_ListContactFlowVersionsCommand = async (
+  input: ListContactFlowVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/versions");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
+  const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
@@ -7338,6 +7395,7 @@ export const de_CreateContactFlowCommand = async (
   const doc = take(data, {
     ContactFlowArn: __expectString,
     ContactFlowId: __expectString,
+    FlowContentSha256: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -7360,6 +7418,28 @@ export const de_CreateContactFlowModuleCommand = async (
   const doc = take(data, {
     Arn: __expectString,
     Id: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateContactFlowVersionCommand
+ */
+export const de_CreateContactFlowVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContactFlowVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContactFlowArn: __expectString,
+    Version: __expectLong,
   });
   Object.assign(contents, doc);
   return contents;
@@ -8340,7 +8420,7 @@ export const de_DescribeContactFlowCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    ContactFlow: _json,
+    ContactFlow: (_) => de_ContactFlow(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -9475,6 +9555,28 @@ export const de_ListContactFlowsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListContactFlowVersionsCommand
+ */
+export const de_ListContactFlowVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContactFlowVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContactFlowVersionSummaryList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListContactReferencesCommand
  */
 export const de_ListContactReferencesCommand = async (
@@ -10512,7 +10614,7 @@ export const de_SearchContactFlowsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
-    ContactFlows: _json,
+    ContactFlows: (_) => de_ContactFlowSearchSummaryList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -13958,7 +14060,28 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
   }) as any;
 };
 
-// de_ContactFlow omitted.
+/**
+ * deserializeAws_restJson1ContactFlow
+ */
+const de_ContactFlow = (output: any, context: __SerdeContext): ContactFlow => {
+  return take(output, {
+    Arn: __expectString,
+    Content: __expectString,
+    Description: __expectString,
+    FlowContentSha256: __expectString,
+    Id: __expectString,
+    IsDefault: __expectBoolean,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    State: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Type: __expectString,
+    Version: __expectLong,
+    VersionDescription: __expectString,
+  }) as any;
+};
 
 // de_ContactFlowModule omitted.
 
@@ -13968,11 +14091,25 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
 
 // de_ContactFlowModuleSummary omitted.
 
-// de_ContactFlowSearchSummaryList omitted.
+/**
+ * deserializeAws_restJson1ContactFlowSearchSummaryList
+ */
+const de_ContactFlowSearchSummaryList = (output: any, context: __SerdeContext): ContactFlow[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContactFlow(entry, context);
+    });
+  return retVal;
+};
 
 // de_ContactFlowSummary omitted.
 
 // de_ContactFlowSummaryList omitted.
+
+// de_ContactFlowVersionSummary omitted.
+
+// de_ContactFlowVersionSummaryList omitted.
 
 // de_ContactReferences omitted.
 

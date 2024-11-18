@@ -128,6 +128,11 @@ import {
   CreateContactFlowModuleCommandOutput,
 } from "./commands/CreateContactFlowModuleCommand";
 import {
+  CreateContactFlowVersionCommand,
+  CreateContactFlowVersionCommandInput,
+  CreateContactFlowVersionCommandOutput,
+} from "./commands/CreateContactFlowVersionCommand";
+import {
   CreateEvaluationFormCommand,
   CreateEvaluationFormCommandInput,
   CreateEvaluationFormCommandOutput,
@@ -611,6 +616,11 @@ import {
   ListContactFlowsCommandInput,
   ListContactFlowsCommandOutput,
 } from "./commands/ListContactFlowsCommand";
+import {
+  ListContactFlowVersionsCommand,
+  ListContactFlowVersionsCommandInput,
+  ListContactFlowVersionsCommandOutput,
+} from "./commands/ListContactFlowVersionsCommand";
 import {
   ListContactReferencesCommand,
   ListContactReferencesCommandInput,
@@ -1235,6 +1245,7 @@ const commands = {
   CreateAgentStatusCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
+  CreateContactFlowVersionCommand,
   CreateEvaluationFormCommand,
   CreateHoursOfOperationCommand,
   CreateInstanceCommand,
@@ -1339,6 +1350,7 @@ const commands = {
   ListContactEvaluationsCommand,
   ListContactFlowModulesCommand,
   ListContactFlowsCommand,
+  ListContactFlowVersionsCommand,
   ListContactReferencesCommand,
   ListDefaultVocabulariesCommand,
   ListEvaluationFormsCommand,
@@ -1875,6 +1887,23 @@ export interface Connect {
     args: CreateContactFlowModuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateContactFlowModuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateContactFlowVersionCommand}
+   */
+  createContactFlowVersion(
+    args: CreateContactFlowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactFlowVersionCommandOutput>;
+  createContactFlowVersion(
+    args: CreateContactFlowVersionCommandInput,
+    cb: (err: any, data?: CreateContactFlowVersionCommandOutput) => void
+  ): void;
+  createContactFlowVersion(
+    args: CreateContactFlowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactFlowVersionCommandOutput) => void
   ): void;
 
   /**
@@ -3505,6 +3534,23 @@ export interface Connect {
     args: ListContactFlowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListContactFlowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContactFlowVersionsCommand}
+   */
+  listContactFlowVersions(
+    args: ListContactFlowVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactFlowVersionsCommandOutput>;
+  listContactFlowVersions(
+    args: ListContactFlowVersionsCommandInput,
+    cb: (err: any, data?: ListContactFlowVersionsCommandOutput) => void
+  ): void;
+  listContactFlowVersions(
+    args: ListContactFlowVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactFlowVersionsCommandOutput) => void
   ): void;
 
   /**

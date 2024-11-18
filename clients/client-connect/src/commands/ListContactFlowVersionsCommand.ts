@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartScreenSharingRequest, StartScreenSharingResponse } from "../models/models_2";
-import { de_StartScreenSharingCommand, se_StartScreenSharingCommand } from "../protocols/Aws_restJson1";
+import { ListContactFlowVersionsRequest, ListContactFlowVersionsResponse } from "../models/models_1";
+import { de_ListContactFlowVersionsCommand, se_ListContactFlowVersionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,41 +17,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link StartScreenSharingCommand}.
+ * The input for {@link ListContactFlowVersionsCommand}.
  */
-export interface StartScreenSharingCommandInput extends StartScreenSharingRequest {}
+export interface ListContactFlowVersionsCommandInput extends ListContactFlowVersionsRequest {}
 /**
  * @public
  *
- * The output of {@link StartScreenSharingCommand}.
+ * The output of {@link ListContactFlowVersionsCommand}.
  */
-export interface StartScreenSharingCommandOutput extends StartScreenSharingResponse, __MetadataBearer {}
+export interface ListContactFlowVersionsCommandOutput extends ListContactFlowVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Starts screen sharing for a contact. For more information about screen sharing, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web,
- *     video calling, and screen sharing capabilities</a> in the <i>Amazon Connect Administrator
- *     Guide</i>. </p>
+ * <p>Returns all the available versions for the specified Amazon Connect instance and flow
+ *    identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, StartScreenSharingCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, StartScreenSharingCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, ListContactFlowVersionsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListContactFlowVersionsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // StartScreenSharingRequest
- *   ClientToken: "STRING_VALUE",
+ * const input = { // ListContactFlowVersionsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ContactId: "STRING_VALUE", // required
+ *   ContactFlowId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
- * const command = new StartScreenSharingCommand(input);
+ * const command = new ListContactFlowVersionsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListContactFlowVersionsResponse
+ * //   ContactFlowVersionSummaryList: [ // ContactFlowVersionSummaryList
+ * //     { // ContactFlowVersionSummary
+ * //       Arn: "STRING_VALUE",
+ * //       VersionDescription: "STRING_VALUE",
+ * //       Version: Number("long"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param StartScreenSharingCommandInput - {@link StartScreenSharingCommandInput}
- * @returns {@link StartScreenSharingCommandOutput}
- * @see {@link StartScreenSharingCommandInput} for command's `input` shape.
- * @see {@link StartScreenSharingCommandOutput} for command's `response` shape.
+ * @param ListContactFlowVersionsCommandInput - {@link ListContactFlowVersionsCommandInput}
+ * @returns {@link ListContactFlowVersionsCommandOutput}
+ * @see {@link ListContactFlowVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListContactFlowVersionsCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -77,10 +86,10 @@ export interface StartScreenSharingCommandOutput extends StartScreenSharingRespo
  *
  * @public
  */
-export class StartScreenSharingCommand extends $Command
+export class ListContactFlowVersionsCommand extends $Command
   .classBuilder<
-    StartScreenSharingCommandInput,
-    StartScreenSharingCommandOutput,
+    ListContactFlowVersionsCommandInput,
+    ListContactFlowVersionsCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -92,21 +101,21 @@ export class StartScreenSharingCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "StartScreenSharing", {})
-  .n("ConnectClient", "StartScreenSharingCommand")
+  .s("AmazonConnectService", "ListContactFlowVersions", {})
+  .n("ConnectClient", "ListContactFlowVersionsCommand")
   .f(void 0, void 0)
-  .ser(se_StartScreenSharingCommand)
-  .de(de_StartScreenSharingCommand)
+  .ser(se_ListContactFlowVersionsCommand)
+  .de(de_ListContactFlowVersionsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartScreenSharingRequest;
-      output: {};
+      input: ListContactFlowVersionsRequest;
+      output: ListContactFlowVersionsResponse;
     };
     sdk: {
-      input: StartScreenSharingCommandInput;
-      output: StartScreenSharingCommandOutput;
+      input: ListContactFlowVersionsCommandInput;
+      output: ListContactFlowVersionsCommandOutput;
     };
   };
 }

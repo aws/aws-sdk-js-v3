@@ -133,6 +133,10 @@ import {
   CreateContactFlowModuleCommandOutput,
 } from "./commands/CreateContactFlowModuleCommand";
 import {
+  CreateContactFlowVersionCommandInput,
+  CreateContactFlowVersionCommandOutput,
+} from "./commands/CreateContactFlowVersionCommand";
+import {
   CreateEvaluationFormCommandInput,
   CreateEvaluationFormCommandOutput,
 } from "./commands/CreateEvaluationFormCommand";
@@ -401,6 +405,10 @@ import {
   ListContactFlowModulesCommandOutput,
 } from "./commands/ListContactFlowModulesCommand";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand";
+import {
+  ListContactFlowVersionsCommandInput,
+  ListContactFlowVersionsCommandOutput,
+} from "./commands/ListContactFlowVersionsCommand";
 import {
   ListContactReferencesCommandInput,
   ListContactReferencesCommandOutput,
@@ -812,6 +820,7 @@ export type ServiceInputTypes =
   | CreateAgentStatusCommandInput
   | CreateContactFlowCommandInput
   | CreateContactFlowModuleCommandInput
+  | CreateContactFlowVersionCommandInput
   | CreateEvaluationFormCommandInput
   | CreateHoursOfOperationCommandInput
   | CreateInstanceCommandInput
@@ -915,6 +924,7 @@ export type ServiceInputTypes =
   | ListBotsCommandInput
   | ListContactEvaluationsCommandInput
   | ListContactFlowModulesCommandInput
+  | ListContactFlowVersionsCommandInput
   | ListContactFlowsCommandInput
   | ListContactReferencesCommandInput
   | ListDefaultVocabulariesCommandInput
@@ -1074,6 +1084,7 @@ export type ServiceOutputTypes =
   | CreateAgentStatusCommandOutput
   | CreateContactFlowCommandOutput
   | CreateContactFlowModuleCommandOutput
+  | CreateContactFlowVersionCommandOutput
   | CreateEvaluationFormCommandOutput
   | CreateHoursOfOperationCommandOutput
   | CreateInstanceCommandOutput
@@ -1177,6 +1188,7 @@ export type ServiceOutputTypes =
   | ListBotsCommandOutput
   | ListContactEvaluationsCommandOutput
   | ListContactFlowModulesCommandOutput
+  | ListContactFlowVersionsCommandOutput
   | ListContactFlowsCommandOutput
   | ListContactReferencesCommandOutput
   | ListDefaultVocabulariesCommandOutput

@@ -13,6 +13,7 @@ export * from "./ListAuthenticationProfilesPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListContactEvaluationsPaginator";
 export * from "./ListContactFlowModulesPaginator";
+export * from "./ListContactFlowVersionsPaginator";
 export * from "./ListContactFlowsPaginator";
 export * from "./ListContactReferencesPaginator";
 export * from "./ListDefaultVocabulariesPaginator";

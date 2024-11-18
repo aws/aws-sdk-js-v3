@@ -27,7 +27,6 @@ import {
   Endpoint,
   EvaluationFormQuestion,
   EvaluationFormScoringStrategy,
-  Expiry,
   FileStatusType,
   FileUseCaseType,
   HoursOfOperationConfig,
@@ -78,6 +77,7 @@ import {
   EvaluationAnswerData,
   EvaluationFormVersionStatus,
   EvaluationNote,
+  Expiry,
   HierarchyGroup,
   HierarchyGroupSummary,
   HoursOfOperation,
@@ -98,6 +98,126 @@ import {
   TrafficDistributionGroupStatus,
   WisdomInfo,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListSecurityProfilePermissionsResponse {
+  /**
+   * <p>The permissions granted to the security profile. For a complete list of valid permissions,
+   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List
+   *     of security profile permissions</a>.</p>
+   * @public
+   */
+  Permissions?: string[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfilesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains information about a security profile.</p>
+ * @public
+ */
+export interface SecurityProfileSummary {
+  /**
+   * <p>The identifier of the security profile.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the security profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the security profile.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The timestamp when this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where this resource was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSecurityProfilesResponse {
+  /**
+   * <p>Information about the security profiles.</p>
+   * @public
+   */
+  SecurityProfileSummaryList?: SecurityProfileSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource. All Amazon Connect resources (instances, queues, flows, routing
+   *    profiles, etc) have an ARN. To locate the ARN for an instance, for example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">Find your Amazon Connect instance ID/ARN</a>. </p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
 
 /**
  * @public

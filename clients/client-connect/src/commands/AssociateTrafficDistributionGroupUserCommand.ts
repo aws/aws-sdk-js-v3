@@ -37,8 +37,8 @@ export interface AssociateTrafficDistributionGroupUserCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates an agent with a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
- *    created.</p>
+ * <p>Associates an agent with a traffic distribution group. This API can be called only in the
+ *    Region where the traffic distribution group is created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

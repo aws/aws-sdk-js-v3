@@ -43,7 +43,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * const client = new ConnectClient(config);
  * const input = { // ListIntegrationAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
+ *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   IntegrationArn: "STRING_VALUE",
@@ -56,7 +56,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //       IntegrationAssociationArn: "STRING_VALUE",
  * //       InstanceId: "STRING_VALUE",
- * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
+ * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
  * //       IntegrationArn: "STRING_VALUE",
  * //       SourceApplicationUrl: "STRING_VALUE",
  * //       SourceApplicationName: "STRING_VALUE",
