@@ -32,7 +32,7 @@ export interface ListHostedConfigurationVersionsCommandOutput extends HostedConf
 
 /**
  * <p>Lists configurations stored in the AppConfig hosted configuration store by
- *          version.</p>
+ *          version. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

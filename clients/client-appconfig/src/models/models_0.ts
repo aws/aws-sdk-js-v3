@@ -62,11 +62,7 @@ export interface AccountSettings {
 
 /**
  * <p>An action defines the tasks that the extension performs during the AppConfig
- *          workflow. Each action includes an action point such as
- *             <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or
- *             <code>ON_DEPLOYMENT</code>. Each action also includes a name, a URI to an Lambda function, and an Amazon Resource Name (ARN) for an Identity and Access Management
- *          assume role. You specify the name, URI, and ARN for each <i>action point</i>
- *          defined in the extension. You can specify the following actions for an extension:</p>
+ *          workflow. Each action includes an action point, as shown in the following list: </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -76,6 +72,11 @@ export interface AccountSettings {
  *             <li>
  *                <p>
  *                   <code>PRE_START_DEPLOYMENT</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>AT_DEPLOYMENT_TICK</code>
  *                </p>
  *             </li>
  *             <li>
@@ -104,6 +105,9 @@ export interface AccountSettings {
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>Each action also includes a name, a URI to an Lambda function, and an
+ *          Amazon Resource Name (ARN) for an Identity and Access Management assume role. You specify the name,
+ *          URI, and ARN for each <i>action point</i> defined in the extension.</p>
  * @public
  */
 export interface Action {
@@ -189,6 +193,7 @@ export interface ActionInvocation {
  * @enum
  */
 export const ActionPoint = {
+  AT_DEPLOYMENT_TICK: "AT_DEPLOYMENT_TICK",
   ON_DEPLOYMENT_BAKING: "ON_DEPLOYMENT_BAKING",
   ON_DEPLOYMENT_COMPLETE: "ON_DEPLOYMENT_COMPLETE",
   ON_DEPLOYMENT_ROLLED_BACK: "ON_DEPLOYMENT_ROLLED_BACK",
@@ -591,7 +596,7 @@ export interface CreateConfigurationProfileRequest {
    *             <li>
    *                <p>For an Amazon S3 object, specify the URI in the following format:
    *                   <code>s3://<bucket>/<objectKey> </code>. Here is an example:
-   *                   <code>s3://my-bucket/my-app/us-east-1/my-config.json</code>
+   *                      <code>s3://amzn-s3-demo-bucket/my-app/us-east-1/my-config.json</code>
    *                </p>
    *             </li>
    *             <li>
@@ -2639,8 +2644,9 @@ export interface ListHostedConfigurationVersionsRequest {
   ConfigurationProfileId: string | undefined;
 
   /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that
-   *          you can specify in a subsequent call to get the next set of results.</p>
+   * <p>The maximum number of items to return for this call. If <code>MaxResults</code> is not
+   *          provided in the call, AppConfig returns the maximum of 50. The call also returns
+   *          a token that you can specify in a subsequent call to get the next set of results.</p>
    * @public
    */
   MaxResults?: number | undefined;
