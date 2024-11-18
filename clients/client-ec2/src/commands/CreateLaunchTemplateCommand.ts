@@ -301,6 +301,12 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  *       AutoRecovery: "default" || "disabled",
  *     },
  *     DisableApiStop: true || false,
+ *     Operator: { // OperatorRequest
+ *       Principal: "STRING_VALUE",
+ *     },
+ *   },
+ *   Operator: {
+ *     Principal: "STRING_VALUE",
  *   },
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -330,6 +336,10 @@ export interface CreateLaunchTemplateCommandOutput extends CreateLaunchTemplateR
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     Operator: { // OperatorResponse
+ * //       Managed: true || false,
+ * //       Principal: "STRING_VALUE",
+ * //     },
  * //   },
  * //   Warning: { // ValidationWarning
  * //     Errors: [ // ErrorSet

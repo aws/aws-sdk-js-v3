@@ -39,6 +39,7 @@ import {
   LocalGatewayRoute,
   ManagedPrefixList,
   MarketType,
+  OperatorRequest,
   Placement,
   RuleAction,
   ShutdownBehavior,
@@ -101,13 +102,67 @@ import {
   VolumeModification,
 } from "./models_5";
 
-import {
-  CapacityReservationSpecification,
-  ModifyVerifiedAccessTrustProviderDeviceOptions,
-  ModifyVerifiedAccessTrustProviderOidcOptions,
-  ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog,
-  Purchase,
-} from "./models_6";
+import { CapacityReservationSpecification, Purchase } from "./models_6";
+
+/**
+ * <p>Modifies the configuration of the specified device-based Amazon Web Services Verified Access trust provider.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessTrustProviderDeviceOptions {
+  /**
+   * <p> The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens. </p>
+   * @public
+   */
+  PublicSigningKeyUrl?: string | undefined;
+}
+
+/**
+ * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   * @public
+   */
+  Issuer?: string | undefined;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   * @public
+   */
+  AuthorizationEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   * @public
+   */
+  TokenEndpoint?: string | undefined;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   * @public
+   */
+  UserInfoEndpoint?: string | undefined;
+
+  /**
+   * <p>The client identifier.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The client secret.</p>
+   * @public
+   */
+  ClientSecret?: string | undefined;
+
+  /**
+   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+}
 
 /**
  * @public
@@ -4990,6 +5045,12 @@ export interface RunInstancesRequest {
   EnablePrimaryIpv6?: boolean | undefined;
 
   /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the operation, without actually making the
    *   request, and provides an error response. If you have the required permissions, the error response is
    *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -6530,6 +6591,16 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
+  obj: ModifyVerifiedAccessTrustProviderOidcOptions
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

@@ -302,6 +302,10 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //       AutoRecovery: "default" || "disabled",
  * //     },
  * //     DisableApiStop: true || false,
+ * //     Operator: { // OperatorResponse
+ * //       Managed: true || false,
+ * //       Principal: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

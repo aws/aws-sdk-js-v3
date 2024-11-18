@@ -92,6 +92,10 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * //     { // InstanceStatus
  * //       AvailabilityZone: "STRING_VALUE",
  * //       OutpostArn: "STRING_VALUE",
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
  * //       Events: [ // InstanceStatusEventList
  * //         { // InstanceStatusEvent
  * //           InstanceEventId: "STRING_VALUE",

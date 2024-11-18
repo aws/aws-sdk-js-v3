@@ -102,6 +102,10 @@ export interface DescribeInstanceImageMetadataCommandOutput
  * //         DeprecationTime: "STRING_VALUE",
  * //         IsPublic: true || false,
  * //       },
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

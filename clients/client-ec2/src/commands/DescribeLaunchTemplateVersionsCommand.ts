@@ -330,6 +330,14 @@ export interface DescribeLaunchTemplateVersionsCommandOutput
  * //           AutoRecovery: "default" || "disabled",
  * //         },
  * //         DisableApiStop: true || false,
+ * //         Operator: { // OperatorResponse
+ * //           Managed: true || false,
+ * //           Principal: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       Operator: {
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

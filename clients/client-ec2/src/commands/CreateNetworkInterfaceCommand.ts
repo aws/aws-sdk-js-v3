@@ -71,6 +71,9 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  *     UdpStreamTimeout: Number("int"),
  *     UdpTimeout: Number("int"),
  *   },
+ *   Operator: { // OperatorRequest
+ *     Principal: "STRING_VALUE",
+ *   },
  *   SubnetId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   PrivateIpAddress: "STRING_VALUE",
@@ -189,6 +192,10 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
  * //     DenyAllIgwTraffic: true || false,
  * //     Ipv6Native: true || false,
  * //     Ipv6Address: "STRING_VALUE",
+ * //     Operator: { // OperatorResponse
+ * //       Managed: true || false,
+ * //       Principal: "STRING_VALUE",
+ * //     },
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };

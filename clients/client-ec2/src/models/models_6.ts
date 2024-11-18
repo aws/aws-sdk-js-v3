@@ -57,7 +57,6 @@ import {
   LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
-  NetworkInsightsAccessScopeContent,
   Placement,
   PlatformValues,
   RequestIpamResourceTag,
@@ -73,6 +72,7 @@ import {
   AutoAcceptSharedAttachmentsValue,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
+  NetworkInsightsAccessScopeContent,
   SSEType,
   SubnetCidrReservation,
   TrafficDirection,
@@ -130,12 +130,68 @@ import {
 } from "./models_4";
 
 import {
+  CoipAddressUsage,
   ExcessCapacityTerminationPolicy,
   LaunchTemplateConfig,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
   VerifiedAccessInstanceLoggingConfiguration,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetCoipPoolUsageResult {
+  /**
+   * <p>The ID of the customer-owned address pool.</p>
+   * @public
+   */
+  CoipPoolId?: string | undefined;
+
+  /**
+   * <p>Information about the address usage.</p>
+   * @public
+   */
+  CoipAddressUsages?: CoipAddressUsage[] | undefined;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   * @public
+   */
+  LocalGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConsoleOutputRequest {
+  /**
+   * <p>The ID of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>When enabled, retrieves the latest console output for the instance.</p>
+   *          <p>Default: disabled (<code>false</code>)</p>
+   * @public
+   */
+  Latest?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -9162,66 +9218,6 @@ export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
 }
 
 /**
- * <p>Modifies the configuration of the specified device-based Amazon Web Services Verified Access trust provider.</p>
- * @public
- */
-export interface ModifyVerifiedAccessTrustProviderDeviceOptions {
-  /**
-   * <p> The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens. </p>
-   * @public
-   */
-  PublicSigningKeyUrl?: string | undefined;
-}
-
-/**
- * <p>Options for an OpenID Connect-compatible user-identity trust provider.</p>
- * @public
- */
-export interface ModifyVerifiedAccessTrustProviderOidcOptions {
-  /**
-   * <p>The OIDC issuer.</p>
-   * @public
-   */
-  Issuer?: string | undefined;
-
-  /**
-   * <p>The OIDC authorization endpoint.</p>
-   * @public
-   */
-  AuthorizationEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC token endpoint.</p>
-   * @public
-   */
-  TokenEndpoint?: string | undefined;
-
-  /**
-   * <p>The OIDC user info endpoint.</p>
-   * @public
-   */
-  UserInfoEndpoint?: string | undefined;
-
-  /**
-   * <p>The client identifier.</p>
-   * @public
-   */
-  ClientId?: string | undefined;
-
-  /**
-   * <p>The client secret.</p>
-   * @public
-   */
-  ClientSecret?: string | undefined;
-
-  /**
-   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
-   * @public
-   */
-  Scope?: string | undefined;
-}
-
-/**
  * @internal
  */
 export const GetInstanceTpmEkPubResultFilterSensitiveLog = (obj: GetInstanceTpmEkPubResult): any => ({
@@ -9373,14 +9369,4 @@ export const ImportVolumeRequestFilterSensitiveLog = (obj: ImportVolumeRequest):
 export const ImportVolumeResultFilterSensitiveLog = (obj: ImportVolumeResult): any => ({
   ...obj,
   ...(obj.ConversionTask && { ConversionTask: ConversionTaskFilterSensitiveLog(obj.ConversionTask) }),
-});
-
-/**
- * @internal
- */
-export const ModifyVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
-  obj: ModifyVerifiedAccessTrustProviderOidcOptions
-): any => ({
-  ...obj,
-  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
 });

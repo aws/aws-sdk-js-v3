@@ -2525,7 +2525,6 @@ import {
   CreateNetworkAclRequest,
   CreateNetworkAclResult,
   CreateNetworkInsightsAccessScopeRequest,
-  CreateNetworkInsightsAccessScopeResult,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2634,11 +2633,12 @@ import {
   NetworkBandwidthGbps,
   NetworkBandwidthGbpsRequest,
   NetworkInsightsAccessScope,
-  NetworkInsightsAccessScopeContent,
   NetworkInterfaceCount,
   NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
   OnDemandOptionsRequest,
+  OperatorRequest,
+  OperatorResponse,
   Placement,
   PlacementResponse,
   PrivateDnsNameOptionsOnLaunch,
@@ -2668,6 +2668,7 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateNetworkInsightsAccessScopeResult,
   CreateNetworkInsightsPathRequest,
   CreateNetworkInsightsPathResult,
   CreateNetworkInterfacePermissionRequest,
@@ -2802,8 +2803,6 @@ import {
   DeleteIpamResult,
   DeleteIpamScopeRequest,
   DeleteIpamScopeResult,
-  DeleteKeyPairRequest,
-  DeleteKeyPairResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2815,6 +2814,7 @@ import {
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAssociation,
@@ -2925,6 +2925,8 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteKeyPairRequest,
+  DeleteKeyPairResult,
   DeleteLaunchTemplateRequest,
   DeleteLaunchTemplateResult,
   DeleteLaunchTemplateVersionsRequest,
@@ -3122,8 +3124,6 @@ import {
   DescribeHostsResult,
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
-  DescribeIdentityIdFormatRequest,
-  DescribeIdentityIdFormatResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3181,6 +3181,8 @@ import {
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
   CreateVolumePermission,
+  DescribeIdentityIdFormatRequest,
+  DescribeIdentityIdFormatResult,
   DescribeIdFormatRequest,
   DescribeIdFormatResult,
   DescribeImageAttributeRequest,
@@ -3312,8 +3314,6 @@ import {
   DescribeSnapshotsRequest,
   DescribeSnapshotsResult,
   DescribeSnapshotTierStatusRequest,
-  DescribeSnapshotTierStatusResult,
-  DescribeSpotDatafeedSubscriptionRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3435,6 +3435,8 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeSnapshotTierStatusResult,
+  DescribeSpotDatafeedSubscriptionRequest,
   DescribeSpotDatafeedSubscriptionResult,
   DescribeSpotFleetInstancesRequest,
   DescribeSpotFleetInstancesResponse,
@@ -3661,8 +3663,6 @@ import {
   GetCapacityReservationUsageRequest,
   GetCapacityReservationUsageResult,
   GetCoipPoolUsageRequest,
-  GetCoipPoolUsageResult,
-  GetConsoleOutputRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3723,6 +3723,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetCoipPoolUsageResult,
+  GetConsoleOutputRequest,
   GetConsoleOutputResult,
   GetConsoleScreenshotRequest,
   GetConsoleScreenshotResult,
@@ -3951,8 +3953,6 @@ import {
   ModifyVerifiedAccessInstanceLoggingConfigurationResult,
   ModifyVerifiedAccessInstanceRequest,
   ModifyVerifiedAccessInstanceResult,
-  ModifyVerifiedAccessTrustProviderDeviceOptions,
-  ModifyVerifiedAccessTrustProviderOidcOptions,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -4005,6 +4005,8 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVerifiedAccessTrustProviderDeviceOptions,
+  ModifyVerifiedAccessTrustProviderOidcOptions,
   ModifyVerifiedAccessTrustProviderRequest,
   ModifyVerifiedAccessTrustProviderResult,
   ModifyVolumeAttributeRequest,
@@ -31108,6 +31110,13 @@ const se_CreateLaunchTemplateRequest = (input: CreateLaunchTemplateRequest, cont
       entries[loc] = value;
     });
   }
+  if (input[_O] != null) {
+    const memberEntries = se_OperatorRequest(input[_O], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Operator.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_TS] != null) {
     const memberEntries = se_TagSpecificationList(input[_TS], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -31601,6 +31610,13 @@ const se_CreateNetworkInterfaceRequest = (input: CreateNetworkInterfaceRequest, 
     const memberEntries = se_ConnectionTrackingSpecificationRequest(input[_CTS], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionTrackingSpecification.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_O] != null) {
+    const memberEntries = se_OperatorRequest(input[_O], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Operator.${key}`;
       entries[loc] = value;
     });
   }
@@ -32345,8 +32361,8 @@ const se_CreateTransitGatewayConnectRequest = (
   if (input[_TTGAI] != null) {
     entries[_TTGAI] = input[_TTGAI];
   }
-  if (input[_O] != null) {
-    const memberEntries = se_CreateTransitGatewayConnectRequestOptions(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_CreateTransitGatewayConnectRequestOptions(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -32390,8 +32406,8 @@ const se_CreateTransitGatewayMulticastDomainRequest = (
   if (input[_TGI] != null) {
     entries[_TGI] = input[_TGI];
   }
-  if (input[_O] != null) {
-    const memberEntries = se_CreateTransitGatewayMulticastDomainRequestOptions(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_CreateTransitGatewayMulticastDomainRequestOptions(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -32450,8 +32466,8 @@ const se_CreateTransitGatewayPeeringAttachmentRequest = (
   if (input[_PRe] != null) {
     entries[_PRe] = input[_PRe];
   }
-  if (input[_O] != null) {
-    const memberEntries = se_CreateTransitGatewayPeeringAttachmentRequestOptions(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_CreateTransitGatewayPeeringAttachmentRequestOptions(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -32542,8 +32558,8 @@ const se_CreateTransitGatewayRequest = (input: CreateTransitGatewayRequest, cont
   if (input[_De] != null) {
     entries[_De] = input[_De];
   }
-  if (input[_O] != null) {
-    const memberEntries = se_TransitGatewayRequestOptions(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_TransitGatewayRequestOptions(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -32657,8 +32673,8 @@ const se_CreateTransitGatewayVpcAttachmentRequest = (
       entries[loc] = value;
     });
   }
-  if (input[_O] != null) {
-    const memberEntries = se_CreateTransitGatewayVpcAttachmentRequestOptions(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_CreateTransitGatewayVpcAttachmentRequestOptions(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -33133,6 +33149,13 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
   if (input[_CTl] != null) {
     entries[_CTl] = input[_CTl];
   }
+  if (input[_O] != null) {
+    const memberEntries = se_OperatorRequest(input[_O], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Operator.${key}`;
+      entries[loc] = value;
+    });
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -33405,8 +33428,8 @@ const se_CreateVpnConnectionRequest = (input: CreateVpnConnectionRequest, contex
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
-  if (input[_O] != null) {
-    const memberEntries = se_VpnConnectionOptionsSpecification(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_VpnConnectionOptionsSpecification(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -47546,8 +47569,8 @@ const se_ModifyTransitGatewayRequest = (input: ModifyTransitGatewayRequest, cont
   if (input[_De] != null) {
     entries[_De] = input[_De];
   }
-  if (input[_O] != null) {
-    const memberEntries = se_ModifyTransitGatewayOptions(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_ModifyTransitGatewayOptions(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -47584,8 +47607,8 @@ const se_ModifyTransitGatewayVpcAttachmentRequest = (
       entries[loc] = value;
     });
   }
-  if (input[_O] != null) {
-    const memberEntries = se_ModifyTransitGatewayVpcAttachmentRequestOptions(input[_O], context);
+  if (input[_Op] != null) {
+    const memberEntries = se_ModifyTransitGatewayVpcAttachmentRequestOptions(input[_Op], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Options.${key}`;
       entries[loc] = value;
@@ -48888,6 +48911,17 @@ const se_OnDemandOptionsRequest = (input: OnDemandOptionsRequest, context: __Ser
   }
   if (input[_MTP] != null) {
     entries[_MTP] = input[_MTP];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2OperatorRequest
+ */
+const se_OperatorRequest = (input: OperatorRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Prin] != null) {
+    entries[_Prin] = input[_Prin];
   }
   return entries;
 };
@@ -50903,6 +50937,13 @@ const se_RequestLaunchTemplateData = (input: RequestLaunchTemplateData, context:
   if (input[_DAS] != null) {
     entries[_DAS] = input[_DAS];
   }
+  if (input[_O] != null) {
+    const memberEntries = se_OperatorRequest(input[_O], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Operator.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -51877,6 +51918,13 @@ const se_RunInstancesRequest = (input: RunInstancesRequest, context: __SerdeCont
   }
   if (input[_EPI] != null) {
     entries[_EPI] = input[_EPI];
+  }
+  if (input[_O] != null) {
+    const memberEntries = se_OperatorRequest(input[_O], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Operator.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
@@ -64364,6 +64412,9 @@ const de_EbsInstanceBlockDevice = (output: any, context: __SerdeContext): EbsIns
   if (output[_vOI] != null) {
     contents[_VOI] = __expectString(output[_vOI]);
   }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
+  }
   return contents;
 };
 
@@ -68498,6 +68549,9 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_cIBM] != null) {
     contents[_CIBM] = __expectString(output[_cIBM]);
   }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
+  }
   if (output[_iI] != null) {
     contents[_IIn] = __expectString(output[_iI]);
   }
@@ -68986,6 +69040,9 @@ const de_InstanceImageMetadata = (output: any, context: __SerdeContext): Instanc
   if (output[_iM] != null) {
     contents[_IMm] = de_ImageMetadata(output[_iM], context);
   }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
+  }
   return contents;
 };
 
@@ -69236,6 +69293,9 @@ const de_InstanceNetworkInterface = (output: any, context: __SerdeContext): Inst
   }
   if (output[_cTC] != null) {
     contents[_CTC] = de_ConnectionTrackingSpecificationResponse(output[_cTC], context);
+  }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
   }
   return contents;
 };
@@ -69600,6 +69660,9 @@ const de_InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus
   }
   if (output[_oA] != null) {
     contents[_OA] = __expectString(output[_oA]);
+  }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
   }
   if (output.eventsSet === "") {
     contents[_Ev] = [];
@@ -71555,6 +71618,9 @@ const de_LaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
+  }
   return contents;
 };
 
@@ -72193,6 +72259,9 @@ const de_LaunchTemplateVersion = (output: any, context: __SerdeContext): LaunchT
   }
   if (output[_lTD] != null) {
     contents[_LTD] = de_ResponseLaunchTemplateData(output[_lTD], context);
+  }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
   }
   return contents;
 };
@@ -74505,6 +74574,9 @@ const de_NetworkInterface = (output: any, context: __SerdeContext): NetworkInter
   if (output[_iApv] != null) {
     contents[_IApv] = __expectString(output[_iApv]);
   }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
+  }
   return contents;
 };
 
@@ -74890,6 +74962,20 @@ const de_OnDemandOptions = (output: any, context: __SerdeContext): OnDemandOptio
   }
   if (output[_mTP] != null) {
     contents[_MTP] = __expectString(output[_mTP]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2OperatorResponse
+ */
+const de_OperatorResponse = (output: any, context: __SerdeContext): OperatorResponse => {
+  const contents: any = {};
+  if (output[_mana] != null) {
+    contents[_Mana] = __parseBoolean(output[_mana]);
+  }
+  if (output[_p] != null) {
+    contents[_Prin] = __expectString(output[_p]);
   }
   return contents;
 };
@@ -77133,6 +77219,9 @@ const de_ResponseLaunchTemplateData = (output: any, context: __SerdeContext): Re
   }
   if (output[_dASi] != null) {
     contents[_DAS] = __parseBoolean(output[_dASi]);
+  }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
   }
   return contents;
 };
@@ -80253,8 +80342,8 @@ const de_TransitGateway = (output: any, context: __SerdeContext): TransitGateway
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output[_op] != null) {
-    contents[_O] = de_TransitGatewayOptions(output[_op], context);
+  if (output[_opt] != null) {
+    contents[_Op] = de_TransitGatewayOptions(output[_opt], context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -80446,8 +80535,8 @@ const de_TransitGatewayConnect = (output: any, context: __SerdeContext): Transit
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output[_op] != null) {
-    contents[_O] = de_TransitGatewayConnectOptions(output[_op], context);
+  if (output[_opt] != null) {
+    contents[_Op] = de_TransitGatewayConnectOptions(output[_opt], context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -80620,8 +80709,8 @@ const de_TransitGatewayMulticastDomain = (output: any, context: __SerdeContext):
   if (output[_oI] != null) {
     contents[_OIwn] = __expectString(output[_oI]);
   }
-  if (output[_op] != null) {
-    contents[_O] = de_TransitGatewayMulticastDomainOptions(output[_op], context);
+  if (output[_opt] != null) {
+    contents[_Op] = de_TransitGatewayMulticastDomainOptions(output[_opt], context);
   }
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
@@ -80898,8 +80987,8 @@ const de_TransitGatewayPeeringAttachment = (output: any, context: __SerdeContext
   if (output[_aTI] != null) {
     contents[_ATIc] = de_PeeringTgwInfo(output[_aTI], context);
   }
-  if (output[_op] != null) {
-    contents[_O] = de_TransitGatewayPeeringAttachmentOptions(output[_op], context);
+  if (output[_opt] != null) {
+    contents[_Op] = de_TransitGatewayPeeringAttachmentOptions(output[_opt], context);
   }
   if (output[_sta] != null) {
     contents[_Statu] = de_PeeringAttachmentStatus(output[_sta], context);
@@ -81491,8 +81580,8 @@ const de_TransitGatewayVpcAttachment = (output: any, context: __SerdeContext): T
   if (output[_cTre] != null) {
     contents[_CTre] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTre]));
   }
-  if (output[_op] != null) {
-    contents[_O] = de_TransitGatewayVpcAttachmentOptions(output[_op], context);
+  if (output[_opt] != null) {
+    contents[_Op] = de_TransitGatewayVpcAttachmentOptions(output[_opt], context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -82588,6 +82677,9 @@ const de_Volume = (output: any, context: __SerdeContext): Volume => {
   if (output[_sTs] != null) {
     contents[_STs] = __expectString(output[_sTs]);
   }
+  if (output[_op] != null) {
+    contents[_O] = de_OperatorResponse(output[_op], context);
+  }
   if (output[_vIo] != null) {
     contents[_VIo] = __expectString(output[_vIo]);
   }
@@ -83387,8 +83479,8 @@ const de_VpnConnection = (output: any, context: __SerdeContext): VpnConnection =
   if (output[_gAS] != null) {
     contents[_GAS] = __expectString(output[_gAS]);
   }
-  if (output[_op] != null) {
-    contents[_O] = de_VpnConnectionOptions(output[_op], context);
+  if (output[_opt] != null) {
+    contents[_Op] = de_VpnConnectionOptions(output[_opt], context);
   }
   if (output.routes === "") {
     contents[_Rout] = [];
@@ -85280,6 +85372,7 @@ const _MVi = "MinVersion";
 const _Ma = "Max";
 const _Mai = "Main";
 const _Man = "Manufacturer";
+const _Mana = "Managed";
 const _Mar = "Marketplace";
 const _Me = "Message";
 const _Mes = "Messages";
@@ -85360,7 +85453,7 @@ const _NT = "NextToken";
 const _NTI = "NitroTpmInfo";
 const _NTS = "NitroTpmSupport";
 const _NTe = "NetworkType";
-const _O = "Options";
+const _O = "Operator";
 const _OA = "OutpostArn";
 const _OAr = "OrganizationArn";
 const _OArg = "OrganizationArns";
@@ -85400,6 +85493,7 @@ const _OU = "OccurrenceUnit";
 const _OUA = "OrganizationalUnitArn";
 const _OUAr = "OrganizationalUnitArns";
 const _OVT = "OriginalVolumeType";
+const _Op = "Options";
 const _Or = "Origin";
 const _Ou = "Output";
 const _Ov = "Overrides";
@@ -87144,6 +87238,7 @@ const _mVE = "managesVpcEndpoints";
 const _ma = "max";
 const _mai = "main";
 const _man = "manufacturer";
+const _mana = "managed";
 const _mar = "marketplace";
 const _me = "message";
 const _mem = "member";
@@ -87250,7 +87345,8 @@ const _oTr = "originalThroughput";
 const _oU = "occurrenceUnit";
 const _oUA = "organizationalUnitArn";
 const _oVT = "originalVolumeType";
-const _op = "options";
+const _op = "operator";
+const _opt = "options";
 const _ou = "output";
 const _ov = "overrides";
 const _ow = "owner";

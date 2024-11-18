@@ -71,6 +71,10 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -221,6 +221,9 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *   },
  *   DisableApiStop: true || false,
  *   EnablePrimaryIpv6: true || false,
+ *   Operator: { // OperatorRequest
+ *     Principal: "STRING_VALUE",
+ *   },
  *   DryRun: true || false,
  *   DisableApiTermination: true || false,
  *   InstanceInitiatedShutdownBehavior: "stop" || "terminate",
@@ -313,6 +316,10 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //             VolumeId: "STRING_VALUE",
  * //             AssociatedResource: "STRING_VALUE",
  * //             VolumeOwnerId: "STRING_VALUE",
+ * //             Operator: { // OperatorResponse
+ * //               Managed: true || false,
+ * //               Principal: "STRING_VALUE",
+ * //             },
  * //           },
  * //         },
  * //       ],
@@ -416,6 +423,10 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //             UdpStreamTimeout: Number("int"),
  * //             UdpTimeout: Number("int"),
  * //           },
+ * //           Operator: {
+ * //             Managed: true || false,
+ * //             Principal: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       OutpostArn: "STRING_VALUE",
@@ -483,6 +494,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //         AutoRecovery: "disabled" || "default",
  * //       },
  * //       CurrentInstanceBootMode: "legacy-bios" || "uefi",
+ * //       Operator: "<OperatorResponse>",
  * //       InstanceId: "STRING_VALUE",
  * //       ImageId: "STRING_VALUE",
  * //       State: { // InstanceState

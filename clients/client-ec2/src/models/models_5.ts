@@ -109,7 +109,40 @@ import {
   StatisticType,
 } from "./models_3";
 
-import { AttributeBooleanValue, RIProductDescription } from "./models_4";
+import { AttributeBooleanValue, RIProductDescription, SnapshotTierStatus } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotTierStatusResult {
+  /**
+   * <p>Information about the snapshot's storage tier.</p>
+   * @public
+   */
+  SnapshotTierStatuses?: SnapshotTierStatus[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeSpotDatafeedSubscription.</p>
+ * @public
+ */
+export interface DescribeSpotDatafeedSubscriptionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
@@ -9814,61 +9847,6 @@ export interface CoipAddressUsage {
    * @public
    */
   CoIp?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoipPoolUsageResult {
-  /**
-   * <p>The ID of the customer-owned address pool.</p>
-   * @public
-   */
-  CoipPoolId?: string | undefined;
-
-  /**
-   * <p>Information about the address usage.</p>
-   * @public
-   */
-  CoipAddressUsages?: CoipAddressUsage[] | undefined;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableId?: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetConsoleOutputRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>When enabled, retrieves the latest console output for the instance.</p>
-   *          <p>Default: disabled (<code>false</code>)</p>
-   * @public
-   */
-  Latest?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

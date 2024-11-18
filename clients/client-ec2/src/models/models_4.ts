@@ -44,6 +44,7 @@ import {
   NatGateway,
   NetworkAcl,
   NetworkInsightsAccessScope,
+  OperatorResponse,
   Placement,
   PlatformValues,
   StateReason,
@@ -66,6 +67,47 @@ import {
 } from "./models_2";
 
 import { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute, PermissionGroup, ProductCode } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeIdentityIdFormatRequest {
+  /**
+   * <p>The type of resource: <code>bundle</code> |
+   *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
+   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
+   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
+   *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
+   *           <code>network-acl</code> | <code>network-acl-association</code> |
+   *           <code>network-interface</code> | <code>network-interface-attachment</code> |
+   *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
+   *           <code>route-table-association</code> | <code>security-group</code> |
+   *           <code>snapshot</code> | <code>subnet</code> |
+   *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
+   *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
+   *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
+   *          </p>
+   * @public
+   */
+  Resource?: string | undefined;
+
+  /**
+   * <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
+   * @public
+   */
+  PrincipalArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIdentityIdFormatResult {
+  /**
+   * <p>Information about the ID format for the resources.</p>
+   * @public
+   */
+  Statuses?: IdFormat[] | undefined;
+}
 
 /**
  * @public
@@ -1471,6 +1513,12 @@ export interface EbsInstanceBlockDevice {
    * @public
    */
   VolumeOwnerId?: string | undefined;
+
+  /**
+   * <p>The entity that manages the EBS volume.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -2232,6 +2280,12 @@ export interface InstanceImageMetadata {
    * @public
    */
   ImageMetadata?: ImageMetadata | undefined;
+
+  /**
+   * <p>The entity that manages the instance.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -3700,6 +3754,12 @@ export interface InstanceNetworkInterface {
    * @public
    */
   ConnectionTrackingConfiguration?: ConnectionTrackingSpecificationResponse | undefined;
+
+  /**
+   * <p>The entity that manages the network interface.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -3984,6 +4044,12 @@ export interface Instance {
    * @public
    */
   CurrentInstanceBootMode?: InstanceBootModeValues | undefined;
+
+  /**
+   * <p>The entity that manages the instance.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 
   /**
    * <p>The ID of the instance.</p>
@@ -4519,6 +4585,12 @@ export interface InstanceStatus {
    * @public
    */
   OutpostArn?: string | undefined;
+
+  /**
+   * <p>The entity that manages the instance.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 
   /**
    * <p>Any scheduled events associated with the instance.</p>
@@ -12441,39 +12513,6 @@ export interface SnapshotTierStatus {
    * @public
    */
   RestoreExpiryTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSnapshotTierStatusResult {
-  /**
-   * <p>Information about the snapshot's storage tier.</p>
-   * @public
-   */
-  SnapshotTierStatuses?: SnapshotTierStatus[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeSpotDatafeedSubscription.</p>
- * @public
- */
-export interface DescribeSpotDatafeedSubscriptionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *             <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

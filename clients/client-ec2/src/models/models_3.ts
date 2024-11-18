@@ -94,6 +94,48 @@ import {
 /**
  * @public
  */
+export interface DeleteKeyPairRequest {
+  /**
+   * <p>The name of the key pair.</p>
+   * @public
+   */
+  KeyName?: string | undefined;
+
+  /**
+   * <p>The ID of the key pair.</p>
+   * @public
+   */
+  KeyPairId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteKeyPairResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+
+  /**
+   * <p>The ID of the key pair.</p>
+   * @public
+   */
+  KeyPairId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteLaunchTemplateRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually
@@ -8771,47 +8813,6 @@ export interface DescribeIamInstanceProfileAssociationsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIdentityIdFormatRequest {
-  /**
-   * <p>The type of resource: <code>bundle</code> |
-   *           <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |
-   *           <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code> |
-   *           <code>export-task</code> | <code>flow-log</code> | <code>image</code> |
-   *           <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code> |
-   *           <code>network-acl</code> | <code>network-acl-association</code> |
-   *           <code>network-interface</code> | <code>network-interface-attachment</code> |
-   *           <code>prefix-list</code> | <code>reservation</code> | <code>route-table</code> |
-   *           <code>route-table-association</code> | <code>security-group</code> |
-   *           <code>snapshot</code> | <code>subnet</code> |
-   *           <code>subnet-cidr-block-association</code> | <code>volume</code> | <code>vpc</code>
-   *           | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> |
-   *           <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>
-   *          </p>
-   * @public
-   */
-  Resource?: string | undefined;
-
-  /**
-   * <p>The ARN of the principal, which can be an IAM role, IAM user, or the root user.</p>
-   * @public
-   */
-  PrincipalArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIdentityIdFormatResult {
-  /**
-   * <p>Information about the ID format for the resources.</p>
-   * @public
-   */
-  Statuses?: IdFormat[] | undefined;
 }
 
 /**

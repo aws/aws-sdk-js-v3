@@ -9,7 +9,6 @@ import {
   AcceleratorTotalMemoryMiB,
   AcceleratorTotalMemoryMiBRequest,
   AcceleratorType,
-  AccessScopePath,
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
@@ -9066,6 +9065,18 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
 }
 
 /**
+ * <p>The entity that manages the resource.</p>
+ * @public
+ */
+export interface OperatorRequest {
+  /**
+   * <p>The entity that manages the resource.</p>
+   * @public
+   */
+  Principal?: string | undefined;
+}
+
+/**
  * <p>Describes the placement of an instance.</p>
  * @public
  */
@@ -9549,6 +9560,12 @@ export interface RequestLaunchTemplateData {
    * @public
    */
   DisableApiStop?: boolean | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
 }
 
 /**
@@ -9592,6 +9609,12 @@ export interface CreateLaunchTemplateRequest {
   LaunchTemplateData: RequestLaunchTemplateData | undefined;
 
   /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
    * <p>The tags to apply to the launch template on creation. To tag the launch template, the
    *             resource type must be <code>launch-template</code>.</p>
    *          <p>To specify the tags for the resources that are created when an instance is
@@ -9599,6 +9622,26 @@ export interface CreateLaunchTemplateRequest {
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * <p>Describes whether the resource is managed by an entity and, if so,
+ *             describes the entity that manages it.</p>
+ * @public
+ */
+export interface OperatorResponse {
+  /**
+   * <p>If <code>true</code>, the resource is managed by an entity.</p>
+   * @public
+   */
+  Managed?: boolean | undefined;
+
+  /**
+   * <p>If <code>managed</code> is <code>true</code>, then the principal is returned.
+   *             The principal is the entity that manages the resource.</p>
+   * @public
+   */
+  Principal?: string | undefined;
 }
 
 /**
@@ -9647,6 +9690,12 @@ export interface LaunchTemplate {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -10856,6 +10905,12 @@ export interface ResponseLaunchTemplateData {
    * @public
    */
   DisableApiStop?: boolean | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -10910,6 +10965,12 @@ export interface LaunchTemplateVersion {
    * @public
    */
   LaunchTemplateData?: ResponseLaunchTemplateData | undefined;
+
+  /**
+   * <p>The entity that manages the launch template.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -12303,47 +12364,6 @@ export interface NetworkInsightsAccessScope {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Describes the Network Access Scope content.</p>
- * @public
- */
-export interface NetworkInsightsAccessScopeContent {
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeId?: string | undefined;
-
-  /**
-   * <p>The paths to match.</p>
-   * @public
-   */
-  MatchPaths?: AccessScopePath[] | undefined;
-
-  /**
-   * <p>The paths to exclude.</p>
-   * @public
-   */
-  ExcludePaths?: AccessScopePath[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInsightsAccessScopeResult {
-  /**
-   * <p>The Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScope?: NetworkInsightsAccessScope | undefined;
-
-  /**
-   * <p>The Network Access Scope content.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent | undefined;
 }
 
 /**

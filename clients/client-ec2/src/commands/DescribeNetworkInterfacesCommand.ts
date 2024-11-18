@@ -156,6 +156,10 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //       DenyAllIgwTraffic: true || false,
  * //       Ipv6Native: true || false,
  * //       Ipv6Address: "STRING_VALUE",
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

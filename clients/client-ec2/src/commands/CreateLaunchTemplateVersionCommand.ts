@@ -304,6 +304,9 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *       AutoRecovery: "default" || "disabled",
  *     },
  *     DisableApiStop: true || false,
+ *     Operator: { // OperatorRequest
+ *       Principal: "STRING_VALUE",
+ *     },
  *   },
  *   ResolveAlias: true || false,
  * };
@@ -568,6 +571,14 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //         AutoRecovery: "default" || "disabled",
  * //       },
  * //       DisableApiStop: true || false,
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     Operator: {
+ * //       Managed: true || false,
+ * //       Principal: "STRING_VALUE",
  * //     },
  * //   },
  * //   Warning: { // ValidationWarning

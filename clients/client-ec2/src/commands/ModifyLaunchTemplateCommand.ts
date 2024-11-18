@@ -60,6 +60,10 @@ export interface ModifyLaunchTemplateCommandOutput extends ModifyLaunchTemplateR
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     Operator: { // OperatorResponse
+ * //       Managed: true || false,
+ * //       Principal: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -82,6 +82,10 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * //       MultiAttachEnabled: true || false,
  * //       Throughput: Number("int"),
  * //       SseType: "sse-ebs" || "sse-kms" || "none",
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
  * //       VolumeId: "STRING_VALUE",
  * //       Size: Number("int"),
  * //       SnapshotId: "STRING_VALUE",

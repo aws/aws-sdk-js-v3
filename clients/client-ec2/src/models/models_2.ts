@@ -2,6 +2,7 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AccessScopePath,
   ApplianceModeSupportValue,
   AttachmentStatus,
   CurrencyCodeValues,
@@ -50,12 +51,56 @@ import {
   IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  NetworkInsightsAccessScope,
+  OperatorRequest,
+  OperatorResponse,
   PrivateIpAddressSpecification,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes the Network Access Scope content.</p>
+ * @public
+ */
+export interface NetworkInsightsAccessScopeContent {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeId?: string | undefined;
+
+  /**
+   * <p>The paths to match.</p>
+   * @public
+   */
+  MatchPaths?: AccessScopePath[] | undefined;
+
+  /**
+   * <p>The paths to exclude.</p>
+   * @public
+   */
+  ExcludePaths?: AccessScopePath[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsAccessScopeResult {
+  /**
+   * <p>The Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScope?: NetworkInsightsAccessScope | undefined;
+
+  /**
+   * <p>The Network Access Scope content.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeContent?: NetworkInsightsAccessScopeContent | undefined;
+}
 
 /**
  * <p>Describes a port range.</p>
@@ -429,6 +474,12 @@ export interface CreateNetworkInterfaceRequest {
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
 
   /**
    * <p>The ID of the subnet to associate with the network interface.</p>
@@ -986,6 +1037,12 @@ export interface NetworkInterface {
    * @public
    */
   Ipv6Address?: string | undefined;
+
+  /**
+   * <p>The entity that manages the network interface.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 }
 
 /**
@@ -6295,6 +6352,12 @@ export interface CreateVolumeRequest {
   ClientToken?: string | undefined;
 
   /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -6381,6 +6444,12 @@ export interface Volume {
    * @public
    */
   SseType?: SSEType | undefined;
+
+  /**
+   * <p>The entity that manages the volume.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
 
   /**
    * <p>The ID of the volume.</p>
@@ -9430,48 +9499,6 @@ export interface DeleteIpamScopeResult {
    * @public
    */
   IpamScope?: IpamScope | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKeyPairRequest {
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>The ID of the key pair.</p>
-   * @public
-   */
-  KeyPairId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteKeyPairResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-
-  /**
-   * <p>The ID of the key pair.</p>
-   * @public
-   */
-  KeyPairId?: string | undefined;
 }
 
 /**

@@ -60,6 +60,10 @@ export interface DescribeInstanceAttributeCommandOutput extends InstanceAttribut
  * //         VolumeId: "STRING_VALUE",
  * //         AssociatedResource: "STRING_VALUE",
  * //         VolumeOwnerId: "STRING_VALUE",
+ * //         Operator: { // OperatorResponse
+ * //           Managed: true || false,
+ * //           Principal: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],

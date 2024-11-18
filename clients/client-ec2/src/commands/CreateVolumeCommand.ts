@@ -68,6 +68,9 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *   MultiAttachEnabled: true || false,
  *   Throughput: Number("int"),
  *   ClientToken: "STRING_VALUE",
+ *   Operator: { // OperatorRequest
+ *     Principal: "STRING_VALUE",
+ *   },
  *   DryRun: true || false,
  * };
  * const command = new CreateVolumeCommand(input);
@@ -86,6 +89,10 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  * //   MultiAttachEnabled: true || false,
  * //   Throughput: Number("int"),
  * //   SseType: "sse-ebs" || "sse-kms" || "none",
+ * //   Operator: { // OperatorResponse
+ * //     Managed: true || false,
+ * //     Principal: "STRING_VALUE",
+ * //   },
  * //   VolumeId: "STRING_VALUE",
  * //   Size: Number("int"),
  * //   SnapshotId: "STRING_VALUE",
