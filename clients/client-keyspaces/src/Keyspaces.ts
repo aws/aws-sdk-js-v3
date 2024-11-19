@@ -47,6 +47,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateKeyspaceCommand,
+  UpdateKeyspaceCommandInput,
+  UpdateKeyspaceCommandOutput,
+} from "./commands/UpdateKeyspaceCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import { KeyspacesClient, KeyspacesClientConfig } from "./KeyspacesClient";
 
@@ -68,6 +73,7 @@ const commands = {
   RestoreTableCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateKeyspaceCommand,
   UpdateTableCommand,
 };
 
@@ -276,6 +282,20 @@ export interface Keyspaces {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKeyspaceCommand}
+   */
+  updateKeyspace(
+    args: UpdateKeyspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyspaceCommandOutput>;
+  updateKeyspace(args: UpdateKeyspaceCommandInput, cb: (err: any, data?: UpdateKeyspaceCommandOutput) => void): void;
+  updateKeyspace(
+    args: UpdateKeyspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyspaceCommandOutput) => void
   ): void;
 
   /**

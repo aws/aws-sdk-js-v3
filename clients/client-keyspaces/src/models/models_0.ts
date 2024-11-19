@@ -1096,7 +1096,7 @@ export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
   /**
-   * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource could't be found.</p>
+   * <p>The unique identifier in the format of Amazon Resource Name (ARN) for the resource couldn’t be found.</p>
    * @public
    */
   resourceArn?: string | undefined;
@@ -1294,6 +1294,55 @@ export interface GetKeyspaceRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const KeyspaceStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type KeyspaceStatus = (typeof KeyspaceStatus)[keyof typeof KeyspaceStatus];
+
+/**
+ * <p>
+ *          This shows the summary status of the keyspace after a new Amazon Web Services Region was added.
+ *       </p>
+ * @public
+ */
+export interface ReplicationGroupStatus {
+  /**
+   * <p>
+   *          The name of the Region that was added to the keyspace.
+   *       </p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>
+   *          The status of the keyspace.
+   *       </p>
+   * @public
+   */
+  keyspaceStatus: KeyspaceStatus | undefined;
+
+  /**
+   * <p>
+   *          This shows the replication progress of tables in the keyspace. The value is expressed as a percentage of the newly replicated tables
+   *          with status <code>Active</code> compared to the total number of tables in the keyspace.
+   *       </p>
+   * @public
+   */
+  tablesReplicationProgress?: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetKeyspaceResponse {
   /**
@@ -1323,6 +1372,14 @@ export interface GetKeyspaceResponse {
    * @public
    */
   replicationRegions?: string[] | undefined;
+
+  /**
+   * <p>
+   *          A list of all Regions the keyspace is replicated in after the update keyspace operation and their status.
+   *       </p>
+   * @public
+   */
+  replicationGroupStatuses?: ReplicationGroupStatus[] | undefined;
 }
 
 /**
@@ -2116,6 +2173,58 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateKeyspaceRequest {
+  /**
+   * <p>
+   *          The name of the keyspace.
+   *       </p>
+   * @public
+   */
+  keyspaceName: string | undefined;
+
+  /**
+   * <p>
+   *             The replication specification of the keyspace includes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>regionList</code> - up to six Amazon Web Services Regions where the keyspace is replicated in.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>replicationStrategy</code> - the required value is <code>SINGLE_REGION</code> or
+   *                <code>MULTI_REGION</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  replicationSpecification: ReplicationSpecification | undefined;
+
+  /**
+   * <p>The client-side timestamp setting of the table.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps-how-it-works.html">How it works: Amazon Keyspaces client-side timestamps</a> in the <i>Amazon Keyspaces Developer
+   *             Guide</i>.</p>
+   * @public
+   */
+  clientSideTimestamps?: ClientSideTimestamps | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKeyspaceResponse {
+  /**
+   * <p>
+   *          The unique identifier of the keyspace in the format of an Amazon Resource Name (ARN).
+   *       </p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
 
 /**
  * @public

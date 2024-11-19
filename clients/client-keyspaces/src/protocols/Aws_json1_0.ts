@@ -47,6 +47,7 @@ import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListT
 import { RestoreTableCommandInput, RestoreTableCommandOutput } from "../commands/RestoreTableCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateKeyspaceCommandInput, UpdateKeyspaceCommandOutput } from "../commands/UpdateKeyspaceCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
 import { KeyspacesServiceException as __BaseException } from "../models/KeyspacesServiceException";
 import {
@@ -98,6 +99,7 @@ import {
   TargetTrackingScalingPolicyConfiguration,
   TimeToLive,
   UntagResourceRequest,
+  UpdateKeyspaceRequest,
   UpdateTableRequest,
   ValidationException,
 } from "../models/models_0";
@@ -318,6 +320,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateKeyspaceCommand
+ */
+export const se_UpdateKeyspaceCommand = async (
+  input: UpdateKeyspaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateKeyspace");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -677,6 +692,26 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateKeyspaceCommand
+ */
+export const de_UpdateKeyspaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKeyspaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateKeyspaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0UpdateTableCommand
  */
 export const de_UpdateTableCommand = async (
@@ -1004,6 +1039,8 @@ const se_TargetTrackingScalingPolicyConfiguration = (
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateKeyspaceRequest omitted.
+
 /**
  * serializeAws_json1_0UpdateTableRequest
  */
@@ -1235,6 +1272,10 @@ const de_ReplicaSpecificationSummaryList = (output: any, context: __SerdeContext
   return retVal;
 };
 
+// de_ReplicationGroupStatus omitted.
+
+// de_ReplicationGroupStatusList omitted.
+
 // de_ResourceNotFoundException omitted.
 
 // de_RestoreTableResponse omitted.
@@ -1279,6 +1320,8 @@ const de_TargetTrackingScalingPolicyConfiguration = (
 // de_TypeNameList omitted.
 
 // de_UntagResourceResponse omitted.
+
+// de_UpdateKeyspaceResponse omitted.
 
 // de_UpdateTableResponse omitted.
 

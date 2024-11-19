@@ -354,6 +354,14 @@ UntagResource
 </details>
 <details>
 <summary>
+UpdateKeyspace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/keyspaces/command/UpdateKeyspaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/UpdateKeyspaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-keyspaces/Interface/UpdateKeyspaceCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateTable
 </summary>
 

@@ -16,4 +16,5 @@ export * from "./ListTypesCommand";
 export * from "./RestoreTableCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateKeyspaceCommand";
 export * from "./UpdateTableCommand";

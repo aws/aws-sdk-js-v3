@@ -76,6 +76,7 @@ import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTy
 import { RestoreTableCommandInput, RestoreTableCommandOutput } from "./commands/RestoreTableCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateKeyspaceCommandInput, UpdateKeyspaceCommandOutput } from "./commands/UpdateKeyspaceCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   ClientInputEndpointParameters,
@@ -109,6 +110,7 @@ export type ServiceInputTypes =
   | RestoreTableCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateKeyspaceCommandInput
   | UpdateTableCommandInput;
 
 /**
@@ -132,6 +134,7 @@ export type ServiceOutputTypes =
   | RestoreTableCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateKeyspaceCommandOutput
   | UpdateTableCommandOutput;
 
 /**

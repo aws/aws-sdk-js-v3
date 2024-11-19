@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
-import { DeleteTypeRequest, DeleteTypeResponse } from "../models/models_0";
-import { de_DeleteTypeCommand, se_DeleteTypeCommand } from "../protocols/Aws_json1_0";
+import { UpdateKeyspaceRequest, UpdateKeyspaceResponse } from "../models/models_0";
+import { de_UpdateKeyspaceCommand, se_UpdateKeyspaceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
@@ -17,46 +17,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteTypeCommand}.
+ * The input for {@link UpdateKeyspaceCommand}.
  */
-export interface DeleteTypeCommandInput extends DeleteTypeRequest {}
+export interface UpdateKeyspaceCommandInput extends UpdateKeyspaceRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteTypeCommand}.
+ * The output of {@link UpdateKeyspaceCommand}.
  */
-export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataBearer {}
+export interface UpdateKeyspaceCommandOutput extends UpdateKeyspaceResponse, __MetadataBearer {}
 
 /**
  * <p>
- *          The <code>DeleteType</code> operation deletes a user-defined type (UDT). You can only delete a type that is not used in a table
- *          or another UDT.
+ *          Adds a new Amazon Web Services Region to the keyspace.  You can add a new Region to a keyspace that is either a single or a multi-Region keyspace.
+ *          The new replica Region is applied to all tables in the keyspace. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/keyspaces-multi-region-add-replica.html">Add an Amazon Web Services Region to a keyspace in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer
+ *                Guide</i>.
  *       </p>
- *          <p>To configure the required permissions, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-drop">Permissions to delete a UDT</a>
- *          in the <i>Amazon Keyspaces Developer Guide</i>.</p>
+ *          <p>To change a single-Region to a multi-Region keyspace, you have to enable client-side timestamps
+ *          for all tables in the keyspace. For more information, see
+ *          <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/client-side-timestamps.html">Client-side timestamps in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer
+ *                Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KeyspacesClient, DeleteTypeCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
- * // const { KeyspacesClient, DeleteTypeCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
+ * import { KeyspacesClient, UpdateKeyspaceCommand } from "@aws-sdk/client-keyspaces"; // ES Modules import
+ * // const { KeyspacesClient, UpdateKeyspaceCommand } = require("@aws-sdk/client-keyspaces"); // CommonJS import
  * const client = new KeyspacesClient(config);
- * const input = { // DeleteTypeRequest
+ * const input = { // UpdateKeyspaceRequest
  *   keyspaceName: "STRING_VALUE", // required
- *   typeName: "STRING_VALUE", // required
+ *   replicationSpecification: { // ReplicationSpecification
+ *     replicationStrategy: "STRING_VALUE", // required
+ *     regionList: [ // RegionList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   clientSideTimestamps: { // ClientSideTimestamps
+ *     status: "STRING_VALUE", // required
+ *   },
  * };
- * const command = new DeleteTypeCommand(input);
+ * const command = new UpdateKeyspaceCommand(input);
  * const response = await client.send(command);
- * // { // DeleteTypeResponse
- * //   keyspaceArn: "STRING_VALUE", // required
- * //   typeName: "STRING_VALUE", // required
+ * // { // UpdateKeyspaceResponse
+ * //   resourceArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param DeleteTypeCommandInput - {@link DeleteTypeCommandInput}
- * @returns {@link DeleteTypeCommandOutput}
- * @see {@link DeleteTypeCommandInput} for command's `input` shape.
- * @see {@link DeleteTypeCommandOutput} for command's `response` shape.
+ * @param UpdateKeyspaceCommandInput - {@link UpdateKeyspaceCommandInput}
+ * @returns {@link UpdateKeyspaceCommandOutput}
+ * @see {@link UpdateKeyspaceCommandInput} for command's `input` shape.
+ * @see {@link UpdateKeyspaceCommandOutput} for command's `response` shape.
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -86,10 +96,10 @@ export interface DeleteTypeCommandOutput extends DeleteTypeResponse, __MetadataB
  *
  * @public
  */
-export class DeleteTypeCommand extends $Command
+export class UpdateKeyspaceCommand extends $Command
   .classBuilder<
-    DeleteTypeCommandInput,
-    DeleteTypeCommandOutput,
+    UpdateKeyspaceCommandInput,
+    UpdateKeyspaceCommandOutput,
     KeyspacesClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -101,21 +111,21 @@ export class DeleteTypeCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KeyspacesService", "DeleteType", {})
-  .n("KeyspacesClient", "DeleteTypeCommand")
+  .s("KeyspacesService", "UpdateKeyspace", {})
+  .n("KeyspacesClient", "UpdateKeyspaceCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteTypeCommand)
-  .de(de_DeleteTypeCommand)
+  .ser(se_UpdateKeyspaceCommand)
+  .de(de_UpdateKeyspaceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteTypeRequest;
-      output: DeleteTypeResponse;
+      input: UpdateKeyspaceRequest;
+      output: UpdateKeyspaceResponse;
     };
     sdk: {
-      input: DeleteTypeCommandInput;
-      output: DeleteTypeCommandOutput;
+      input: UpdateKeyspaceCommandInput;
+      output: UpdateKeyspaceCommandOutput;
     };
   };
 }

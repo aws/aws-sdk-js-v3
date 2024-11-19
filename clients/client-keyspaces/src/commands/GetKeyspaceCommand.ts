@@ -28,7 +28,8 @@ export interface GetKeyspaceCommandInput extends GetKeyspaceRequest {}
 export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the name and the Amazon Resource Name (ARN) of the specified table.</p>
+ * <p>Returns the name of the specified keyspace, the Amazon Resource Name (ARN), the replication strategy, the Amazon Web Services Regions of
+ *          a multi-Region keyspace, and the status of newly added Regions after an <code>UpdateKeyspace</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +47,13 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * //   replicationStrategy: "STRING_VALUE", // required
  * //   replicationRegions: [ // RegionList
  * //     "STRING_VALUE",
+ * //   ],
+ * //   replicationGroupStatuses: [ // ReplicationGroupStatusList
+ * //     { // ReplicationGroupStatus
+ * //       region: "STRING_VALUE", // required
+ * //       keyspaceStatus: "STRING_VALUE", // required
+ * //       tablesReplicationProgress: "STRING_VALUE",
+ * //     },
  * //   ],
  * // };
  *

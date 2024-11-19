@@ -33,7 +33,8 @@ export interface ListTypesCommandOutput extends ListTypesResponse, __MetadataBea
  *       </p>
  *          <p>To read keyspace metadata using <code>ListTypes</code>, the
  *          IAM principal needs <code>Select</code> action
- *          permissions for the system keyspace.</p>
+ *          permissions for the system keyspace. To configure the required permissions, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/configure-udt-permissions.html#udt-permissions-view">Permissions to view a UDT</a>
+ *          in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
