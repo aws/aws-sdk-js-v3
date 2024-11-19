@@ -66,8 +66,12 @@ export interface DescribeReplicationConfigurationsCommandOutput
  * //           FileSystemId: "STRING_VALUE", // required
  * //           Region: "STRING_VALUE", // required
  * //           LastReplicatedTimestamp: new Date("TIMESTAMP"),
+ * //           OwnerId: "STRING_VALUE",
+ * //           StatusMessage: "STRING_VALUE",
+ * //           RoleArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SourceFileSystemOwnerId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

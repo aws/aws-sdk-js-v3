@@ -45,6 +45,7 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * const client = new EFSClient(config);
  * const input = { // DeleteReplicationConfigurationRequest
  *   SourceFileSystemId: "STRING_VALUE", // required
+ *   DeletionMode: "ALL_CONFIGURATIONS" || "LOCAL_CONFIGURATION_ONLY",
  * };
  * const command = new DeleteReplicationConfigurationCommand(input);
  * const response = await client.send(command);

@@ -50,8 +50,8 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *                <p>File systems cannot transition into Archive storage before transitioning into IA  storage. Therefore,
  *         TransitionToArchive must either not be set or must be later than TransitionToIA.</p>
  *                <note>
- *                   <p> The Archive storage class is available only for file systems that use the Elastic Throughput mode
- * and the General Purpose Performance mode. </p>
+ *                   <p> The Archive storage class is available only for file systems that use the Elastic throughput mode
+ * and the General Purpose performance mode. </p>
  *                </note>
  *             </li>
  *          </ul>
@@ -76,7 +76,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *          <ul>
  *             <li>
  *                <p>The ID for the file system for which you are enabling, disabling, or modifying
- *           Lifecycle management.</p>
+ *           lifecycle management.</p>
  *             </li>
  *             <li>
  *                <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that

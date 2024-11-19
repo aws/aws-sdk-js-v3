@@ -124,10 +124,11 @@ export interface CreationInfo {
 }
 
 /**
- * <p>Specifies the directory on the Amazon EFS file system that the access point provides access to.
- *       The access point exposes the specified file system path as
- *       the root directory of your file system to applications using the access point.
- *       NFS clients using the access point can only access data in the access point's <code>RootDirectory</code> and it's subdirectories.</p>
+ * <p>Specifies the directory on the Amazon EFS file system that the access point
+ *       provides access to. The access point exposes the specified file system path as the root
+ *       directory of your file system to applications using the access point. NFS clients using the
+ *       access point can only access data in the access point's <code>RootDirectory</code> and its
+ *       subdirectories.</p>
  * @public
  */
 export interface RootDirectory {
@@ -751,7 +752,7 @@ export interface CreateFileSystemRequest {
   CreationToken?: string | undefined;
 
   /**
-   * <p>The Performance mode of the file system. We recommend <code>generalPurpose</code>
+   * <p>The performance mode of the file system. We recommend <code>generalPurpose</code>
    *       performance mode for all file systems. File systems using the <code>maxIO</code> performance
    *       mode can scale to higher levels of aggregate throughput and operations per second with a
    *       tradeoff of slightly higher latencies for most file operations. The performance mode
@@ -833,11 +834,10 @@ export interface CreateFileSystemRequest {
   ProvisionedThroughputInMibps?: number | undefined;
 
   /**
-   * <p>Used to create a One Zone file system. It specifies the Amazon Web Services
+   * <p>For One Zone file systems, specify the Amazon Web Services
    *       Availability Zone in which to create the file system. Use the format <code>us-east-1a</code> to
    *       specify the  Availability Zone. For more information about One Zone file systems, see
-   *         <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage
-   *         classes</a> in the <i>Amazon EFS User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type">EFS file system types</a> in the <i>Amazon EFS User Guide</i>.</p>
    *          <note>
    *             <p>One Zone file systems are not available in all Availability Zones in Amazon Web Services Regions where Amazon EFS is available.</p>
    *          </note>
@@ -1085,7 +1085,7 @@ export interface FileSystemDescription {
   SizeInBytes: FileSystemSize | undefined;
 
   /**
-   * <p>The Performance mode of the file system.</p>
+   * <p>The performance mode of the file system.</p>
    * @public
    */
   PerformanceMode: PerformanceMode | undefined;
@@ -1689,11 +1689,42 @@ export class SubnetNotFound extends __BaseException {
 /**
  * <p>Describes the new or existing destination file system for the replication
  *       configuration.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If you want to replicate to a new file system, do not specify the File System ID
+ *           for the destination file system. Amazon EFS creates a new, empty file system.
+ *           For One Zone storage, specify the Availability Zone to create the file system in. To
+ *           use an Key Management Service key other than the default KMS key, then
+ *           specify it. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/create-replication.html">Configuring replication to new Amazon EFS file system</a> in the <i>Amazon EFS User
+ *                 Guide</i>.</p>
+ *                <note>
+ *                   <p>After the file system is created, you cannot change the KMS key or the performance mode.</p>
+ *                </note>
+ *             </li>
+ *             <li>
+ *                <p>If you want to replicate to an existing file system that's in the same account
+ *           as the source file system, then you need to
+ *           provide the ID or Amazon Resource Name (ARN) of the file system to which to replicate. The file system's replication
+ *           overwrite protection must be disabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication#replicate-existing-destination">Replicating to
+ *             an existing file system</a> in the <i>Amazon EFS User
+ *               Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you are replicating the file system to a file system that's in a different account than the
+ *         source file system (cross-account replication), you need to provide the ARN for the file system and the IAM role that allows Amazon EFS to perform
+ *           replication on the destination account. The file system's replication overwrite protection
+ *           must be disabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/cross-account-replication.html">Replicating across Amazon Web Services accounts</a> in the <i>Amazon EFS User
+ *           Guide</i>.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface DestinationToCreate {
   /**
-   * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region in which to create the destination file system.</p>
+   * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region in which to create the destination file system. The Region must be enabled
+   *       for the Amazon Web Services account that owns the source file system. For more information, see
+   *         <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General
+   *         Reference Reference Guide</i>.</p>
    * @public
    */
   Region?: string | undefined;
@@ -1715,7 +1746,7 @@ export interface DestinationToCreate {
    *             <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    *             </li>
    *             <li>
-   *                <p>ARN - The Amazon Resource Name (ARN) for the key, for example
+   *                <p>ARN - The ARN for the key, for example
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    *             </li>
    *             <li>
@@ -1732,12 +1763,21 @@ export interface DestinationToCreate {
   KmsKeyId?: string | undefined;
 
   /**
-   * <p>The ID of the file system to use for the destination. The file system's replication
-   *       overwrite replication must be disabled. If you do not provide an ID, then EFS creates a new
-   *       file system for the replication destination.</p>
+   * <p>The ID or ARN of the file system to use for the destination.
+   *       For cross-account replication, this must be an  ARN. The file system's
+   *       replication overwrite replication must be disabled. If no ID or ARN is
+   *       specified, then a new file system is created. </p>
    * @public
    */
   FileSystemId?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows Amazon EFS
+   *       to perform replication on its behalf. This is optional for same-account
+   *       replication and required for cross-account replication.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1782,24 +1822,10 @@ export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof Replicat
  */
 export interface Destination {
   /**
-   * <p>Describes the status of the destination EFS file system.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>Paused</code> state occurs as a result of opting out of the source or
-   *           destination Region after the replication configuration was created. To resume replication
-   *           for the file system, you need to again opt in to the Amazon Web Services Region. For more
-   *           information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference
-   *             Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>Error</code> state occurs when either the source or the destination file
-   *           system (or both) is in a failed state and is unrecoverable. For more information, see
-   *           <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html">Monitoring
-   *             replication status</a> in the <i>Amazon EFS User Guide</i>. You must delete the replication configuration, and then
-   *           restore the most recent backup of the failed file system (either the source or the
-   *           destination) to a new file system.</p>
-   *             </li>
-   *          </ul>
+   * <p>Describes the status of the replication configuration. For more information
+   *     about replication status, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html">Viewing
+   *       replication details</a> in the <i>Amazon EFS User Guide</i>.
+   *     </p>
    * @public
    */
   Status: ReplicationStatus | undefined;
@@ -1824,6 +1850,30 @@ export interface Destination {
    * @public
    */
   LastReplicatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>ID of the Amazon Web Services account in which the destination file system resides.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>Message that provides details about the <code>PAUSED</code> or <code>ERRROR</code> state
+   *       of the replication destination configuration. For more information
+   *       about replication status messages, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html">Viewing
+   *         replication details</a> in the <i>Amazon EFS User Guide</i>.
+   *     </p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows Amazon EFS
+   *        to perform replication on its behalf. This is optional for same-account
+   *       replication and required for cross-account replication.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1869,6 +1919,12 @@ export interface ReplicationConfigurationDescription {
    * @public
    */
   Destinations: Destination[] | undefined;
+
+  /**
+   * <p>ID of the Amazon Web Services account in which the source file system resides.</p>
+   * @public
+   */
+  SourceFileSystemOwnerId?: string | undefined;
 }
 
 /**
@@ -2132,6 +2188,20 @@ export class MountTargetNotFound extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const DeletionMode = {
+  ALL_CONFIGURATIONS: "ALL_CONFIGURATIONS",
+  LOCAL_CONFIGURATION_ONLY: "LOCAL_CONFIGURATION_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionMode = (typeof DeletionMode)[keyof typeof DeletionMode];
+
+/**
+ * @public
  */
 export interface DeleteReplicationConfigurationRequest {
   /**
@@ -2139,6 +2209,26 @@ export interface DeleteReplicationConfigurationRequest {
    * @public
    */
   SourceFileSystemId: string | undefined;
+
+  /**
+   * <p>When replicating across Amazon Web Services accounts or across Amazon Web Services Regions,
+   *       Amazon EFS deletes the replication configuration from both the source
+   *       and destination account or Region (<code>ALL_CONFIGURATIONS</code>) by default.
+   *       If there's a configuration or permissions issue that prevents Amazon EFS from deleting the
+   *       replication configuration from both sides, you can use the <code>LOCAL_CONFIGURATION_ONLY</code> mode
+   *       to delete the replication configuration from only the local side (the account
+   *        or Region from which the delete is performed). </p>
+   *          <note>
+   *             <p>Only use the <code>LOCAL_CONFIGURATION_ONLY</code> mode in the case that Amazon EFS is unable
+   *        to delete the replication configuration in both the source and destination account or Region.
+   *         Deleting the local configuration
+   *        leaves the configuration in the other account or Region unrecoverable.</p>
+   *             <p>Additionally, do not use this mode for same-account, same-region replication as doing so results in a
+   *         BadRequest exception error.</p>
+   *          </note>
+   * @public
+   */
+  DeletionMode?: DeletionMode | undefined;
 }
 
 /**
@@ -2507,7 +2597,7 @@ export type TransitionToPrimaryStorageClassRules =
   (typeof TransitionToPrimaryStorageClassRules)[keyof typeof TransitionToPrimaryStorageClassRules];
 
 /**
- * <p>Describes a policy used by Lifecycle management that specifies when to transition files
+ * <p>Describes a policy used by lifecycle management that specifies when to transition files
  *       into and out of storage classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">Managing file system
  *       storage</a>.</p>
  *          <note>
@@ -2540,7 +2630,7 @@ export interface LifecyclePolicy {
 
   /**
    * <p>The number of days after files were last accessed in primary storage (the
-   *       Standard storage class) files at which to move them to Archive
+   *       Standard storage class) at which to move them to Archive
    *       storage. Metadata operations such as listing the contents of a directory don't count as
    *       file access events.</p>
    * @public
@@ -2699,7 +2789,8 @@ export class IncorrectMountTargetState extends __BaseException {
 export interface DescribeReplicationConfigurationsRequest {
   /**
    * <p>You can retrieve the replication configuration for a specific file system by providing its
-   *       file system ID.</p>
+   *       file system ID. For cross-account,cross-region replication, an account can only describe the replication
+   *       configuration for a file system in its own Region.</p>
    * @public
    */
   FileSystemId?: string | undefined;
@@ -2954,7 +3045,7 @@ export interface PutFileSystemPolicyRequest {
   /**
    * <p>The <code>FileSystemPolicy</code> that you're creating. Accepts a JSON formatted
    *       policy definition. EFS file system policies have a 20,000 character limit. To find
-   *       out more about the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">EFS Resource-based Policies</a>. </p>
+   *       out more about the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/security_iam_service-with-iam.html#security_iam_service-with-iam-resource-based-policies">Resource-based policies within Amazon EFS</a>. </p>
    * @public
    */
   Policy: string | undefined;
@@ -2985,7 +3076,7 @@ export interface PutLifecycleConfigurationRequest {
   /**
    * <p>An array of <code>LifecyclePolicy</code> objects that define the file system's
    *         <code>LifecycleConfiguration</code> object. A <code>LifecycleConfiguration</code> object
-   *       informs EFS Lifecycle management of the following:</p>
+   *       informs lifecycle management of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3005,8 +3096,8 @@ export interface PutLifecycleConfigurationRequest {
    *                <p>File systems cannot transition into Archive storage before transitioning into IA  storage. Therefore,
    *         TransitionToArchive must either not be set or must be later than TransitionToIA.</p>
    *                <note>
-   *                   <p> The Archive storage class is available only for file systems that use the Elastic Throughput mode
-   * and the General Purpose Performance mode. </p>
+   *                   <p>The Archive storage class is available only for file systems that use the Elastic throughput mode
+   * and the General Purpose performance mode. </p>
    *                </note>
    *             </li>
    *             <li>
@@ -3208,7 +3299,7 @@ export interface UpdateFileSystemProtectionRequest {
    *             </li>
    *          </ul>
    *          <p>If the replication configuration is deleted, the file system's replication overwrite
-   *       protection is re-enabled, the file system becomes writeable.</p>
+   *       protection is re-enabled and the file system becomes writeable.</p>
    * @public
    */
   ReplicationOverwriteProtection?: ReplicationOverwriteProtection | undefined;

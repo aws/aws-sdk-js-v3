@@ -64,17 +64,16 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *         system state.</p>
  *          </note>
  *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you choose
- *       for your file system. We recommend <code>generalPurpose</code> performance mode for all file
- *       systems. File systems using the <code>maxIO</code> mode is a previous generation performance type that is designed for highly parallelized workloads that can tolerate higher latencies
- *           than the General Purpose mode. Max I/O mode is not supported for One Zone file systems or
+ *       for your file system. We recommend <code>generalPurpose</code>
+ *             <code>PerformanceMode</code> for all file
+ *       systems. The <code>maxIO</code> mode is a previous generation performance type that is designed for highly parallelized workloads that can tolerate higher latencies
+ *           than the <code>generalPurpose</code> mode. <code>MaxIO</code> mode is not supported for One Zone file systems or
  *           file systems that use Elastic throughput.</p>
- *          <important>
- *             <p>Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.</p>
- *          </important>
- *          <p>The performance mode can't be changed after
- *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
+ *          <p>The <code>PerformanceMode</code> can't be changed after the file system has been
+ *       created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
  *         modes</a>.</p>
- *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code> parameter.</p>
+ *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code>
+ *       parameter.</p>
  *          <p>After the file system is fully created, Amazon EFS sets its lifecycle state to
  *         <code>available</code>, at which point you can create one or more mount targets for the file
  *       system in your VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS file system on an EC2 instances in
