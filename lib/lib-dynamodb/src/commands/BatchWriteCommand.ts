@@ -20,12 +20,16 @@ export type BatchWriteCommandInput = Omit<__BatchWriteItemCommandInput, "Request
     | Record<
         string,
         (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
-          PutRequest?: Omit<PutRequest, "Item"> & {
-            Item: Record<string, NativeAttributeValue> | undefined;
-          };
-          DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-            Key: Record<string, NativeAttributeValue> | undefined;
-          };
+          PutRequest?:
+            | (Omit<PutRequest, "Item"> & {
+                Item: Record<string, NativeAttributeValue> | undefined;
+              })
+            | undefined;
+          DeleteRequest?:
+            | (Omit<DeleteRequest, "Key"> & {
+                Key: Record<string, NativeAttributeValue> | undefined;
+              })
+            | undefined;
         })[]
       >
     | undefined;

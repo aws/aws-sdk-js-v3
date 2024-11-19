@@ -16,7 +16,7 @@ export { DynamoDBDocumentClientCommand, $Command };
  * @public
  */
 export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, "Parameters"> & {
-  Parameters?: NativeAttributeValue[];
+  Parameters?: NativeAttributeValue[] | undefined;
 };
 
 /**

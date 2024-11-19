@@ -17,14 +17,16 @@ export { DynamoDBDocumentClientCommand, $Command };
  */
 export type PutCommandInput = Omit<__PutItemCommandInput, "Item" | "Expected" | "ExpressionAttributeValues"> & {
   Item: Record<string, NativeAttributeValue> | undefined;
-  Expected?: Record<
-    string,
-    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue;
-      AttributeValueList?: NativeAttributeValue[];
-    }
-  >;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
+  Expected?:
+    | Record<
+        string,
+        Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
+          Value?: NativeAttributeValue | undefined;
+          AttributeValueList?: NativeAttributeValue[] | undefined;
+        }
+      >
+    | undefined;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

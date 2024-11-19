@@ -19,14 +19,16 @@ export type ScanCommandInput = Omit<
   __ScanCommandInput,
   "ScanFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"
 > & {
-  ScanFilter?: Record<
-    string,
-    Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[];
-    }
-  >;
-  ExclusiveStartKey?: Record<string, NativeAttributeValue>;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
+  ScanFilter?:
+    | Record<
+        string,
+        Omit<Condition, "AttributeValueList"> & {
+          AttributeValueList?: NativeAttributeValue[] | undefined;
+        }
+      >
+    | undefined;
+  ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

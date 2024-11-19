@@ -17,14 +17,16 @@ export { DynamoDBDocumentClientCommand, $Command };
  */
 export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expected" | "ExpressionAttributeValues"> & {
   Key: Record<string, NativeAttributeValue> | undefined;
-  Expected?: Record<
-    string,
-    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue;
-      AttributeValueList?: NativeAttributeValue[];
-    }
-  >;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
+  Expected?:
+    | Record<
+        string,
+        | Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
+            Value?: NativeAttributeValue;
+            AttributeValueList?: NativeAttributeValue[] | undefined;
+          }
+      >
+    | undefined;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

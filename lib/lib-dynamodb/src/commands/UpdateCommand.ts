@@ -20,20 +20,24 @@ export type UpdateCommandInput = Omit<
   "Key" | "AttributeUpdates" | "Expected" | "ExpressionAttributeValues"
 > & {
   Key: Record<string, NativeAttributeValue> | undefined;
-  AttributeUpdates?: Record<
-    string,
-    Omit<AttributeValueUpdate, "Value"> & {
-      Value?: NativeAttributeValue;
-    }
-  >;
-  Expected?: Record<
-    string,
-    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue;
-      AttributeValueList?: NativeAttributeValue[];
-    }
-  >;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
+  AttributeUpdates?:
+    | Record<
+        string,
+        Omit<AttributeValueUpdate, "Value"> & {
+          Value?: NativeAttributeValue;
+        }
+      >
+    | undefined;
+  Expected?:
+    | Record<
+        string,
+        Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
+          Value?: NativeAttributeValue;
+          AttributeValueList?: NativeAttributeValue[] | undefined;
+        }
+      >
+    | undefined;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
