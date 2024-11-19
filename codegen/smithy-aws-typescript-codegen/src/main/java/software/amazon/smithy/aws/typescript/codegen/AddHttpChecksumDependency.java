@@ -197,7 +197,6 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         OperationShape operation
     ) {
         Map<String, Object> params = new TreeMap<String, Object>();
-        params.put("input", Symbol.builder().name("this.input").build());
 
         HttpChecksumTrait httpChecksumTrait = operation.expectTrait(HttpChecksumTrait.class);
         params.put("requestChecksumRequired", httpChecksumTrait.isRequestChecksumRequired());
