@@ -10,14 +10,24 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ResponseChecksumValidation } from "./constants";
+import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 
 export interface FlexibleChecksumsInputMiddlewareConfig {
+  /**
+   * Indicates an operation requires a checksum in its HTTP request.
+   */
+  requestChecksumRequired: boolean;
+
   /**
    * Defines a top-level operation input member used to opt-in to best-effort validation
    * of a checksum returned in the HTTP response of the operation.
    */
   requestValidationModeMember?: string;
+
+  /**
+   * Defines a top-level operation input member that is used to configure request checksum behavior.
+   */
+  requestAlgorithmMember?: string;
 }
 
 /**
@@ -47,17 +57,44 @@ export const flexibleChecksumsInputMiddleware =
   ): SerializeHandler<any, Output> =>
   async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
     const input = args.input;
-    const { requestValidationModeMember } = middlewareConfig;
+    const { requestValidationModeMember, requestAlgorithmMember, requestChecksumRequired } = middlewareConfig;
+
+    const requestChecksumCalculation = await config.requestChecksumCalculation();
     const responseChecksumValidation = await config.responseChecksumValidation();
 
-    if (responseChecksumValidation === ResponseChecksumValidation.WHEN_REQUIRED) {
-      setFeature(context, "FLEXIBLE_CHECKSUMS_RES_WHEN_REQUIRED", "c");
-    } else {
-      setFeature(context, "FLEXIBLE_CHECKSUMS_RES_WHEN_SUPPORTED", "b");
+    switch (requestChecksumCalculation) {
+      case RequestChecksumCalculation.WHEN_REQUIRED:
+        setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_WHEN_REQUIRED", "a");
+        break;
+      case RequestChecksumCalculation.WHEN_SUPPORTED:
+        setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_WHEN_SUPPORTED", "Z");
+        break;
     }
 
-    if (requestValidationModeMember && responseChecksumValidation === ResponseChecksumValidation.WHEN_SUPPORTED) {
-      input[requestValidationModeMember] = "ENABLED";
+    switch (responseChecksumValidation) {
+      case ResponseChecksumValidation.WHEN_REQUIRED:
+        setFeature(context, "FLEXIBLE_CHECKSUMS_RES_WHEN_REQUIRED", "c");
+        break;
+      case ResponseChecksumValidation.WHEN_SUPPORTED:
+        setFeature(context, "FLEXIBLE_CHECKSUMS_RES_WHEN_SUPPORTED", "b");
+        break;
+    }
+
+    // The value for input member to configure flexible checksum is not set.
+    if (requestAlgorithmMember && !input[requestAlgorithmMember]) {
+      // Set requestAlgorithmMember as default checksum algorithm only if request checksum calculation is supported
+      // or request checksum is required.
+      if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired) {
+        input[requestAlgorithmMember] = DEFAULT_CHECKSUM_ALGORITHM;
+      }
+    }
+
+    // The value for input member to opt-in to best-effort validation of a checksum returned in the HTTP response is not set.
+    if (requestValidationModeMember && !input[requestValidationModeMember]) {
+      // Set requestValidationModeMember as ENABLED only if response checksum validation is supported.
+      if (responseChecksumValidation === ResponseChecksumValidation.WHEN_SUPPORTED) {
+        input[requestValidationModeMember] = "ENABLED";
+      }
     }
 
     return next(args);
