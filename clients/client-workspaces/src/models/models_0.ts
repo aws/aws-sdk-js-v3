@@ -2293,7 +2293,7 @@ export interface WorkspaceProperties {
    *                   <p>Only available for WorkSpaces created with PCoIP bundles.</p>
    *                </li>
    *                <li>
-   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>DCV</code> (formerly WSP).</p>
+   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>
    *                </li>
    *                <li>
    *                   <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles
@@ -5166,6 +5166,8 @@ export interface DescribeWorkspaceImagesRequest {
  */
 export const WorkspaceImageErrorDetailCode = {
   ADDITIONAL_DRIVES_ATTACHED: "AdditionalDrivesAttached",
+  ADDITIONAL_DRIVES_PRESENT: "AdditionalDrivesPresent",
+  AMAZON_SSM_AGENT_ENABLED: "AmazonSsmAgentEnabled",
   ANTI_VIRUS_INSTALLED: "AntiVirusInstalled",
   APPX_PACKAGES_INSTALLED: "AppXPackagesInstalled",
   AUTO_LOGON_ENABLED: "AutoLogonEnabled",
@@ -5174,23 +5176,37 @@ export const WorkspaceImageErrorDetailCode = {
   DHCP_DISABLED: "DHCPDisabled",
   DISK_FREE_SPACE: "DiskFreeSpace",
   DISK_SIZE_EXCEEDED: "DiskSizeExceeded",
+  DOMAIN_ACCOUNT_SERVICES_FOUND: "DomainAccountServicesFound",
   DOMAIN_JOINED: "DomainJoined",
+  ENVIRONMENT_VARIABLES_PATH_MISSING_ENTRIES: "EnvironmentVariablesPathMissingEntries",
   FIREWALL_ENABLED: "FirewallEnabled",
   INCOMPATIBLE_PARTITIONING: "IncompatiblePartitioning",
+  INSUFFICIENT_DISK_SPACE: "InsufficientDiskSpace",
+  INSUFFICIENT_REARM_COUNT: "InsufficientRearmCount",
+  INVALID_IP: "InvalidIp",
   IN_PLACE_UPGRADE: "InPlaceUpgrade",
   MULTIPLE_BOOT_PARTITION: "MultipleBootPartition",
+  MULTIPLE_USER_PROFILES: "MultipleUserProfiles",
   OFFICE_INSTALLED: "OfficeInstalled",
   OS_NOT_SUPPORTED: "OSNotSupported",
   OUTDATED_POWERSHELL_VERSION: "OutdatedPowershellVersion",
   PCOIP_AGENT_INSTALLED: "PCoIPAgentInstalled",
   PENDING_REBOOT: "PendingReboot",
   REALTIME_UNIVERSAL_DISABLED: "RealTimeUniversalDisabled",
+  REMOTE_DESKTOP_SERVICES_DISABLED: "RemoteDesktopServicesDisabled",
   RESERVED_STORAGE_IN_USE: "ReservedStorageInUse",
   SIXTY_FOUR_BIT_OS: "Requires64BitOS",
+  STAGED_APPX_PACKAGE: "StagedAppxPackage",
+  SYSPREP_FILE_MISSING: "SysPrepFileMissing",
   UEFI_NOT_SUPPORTED: "UEFINotSupported",
   UNKNOWN_ERROR: "UnknownError",
+  UNSUPPORTED_OS_UPGRADE: "UnsupportedOsUpgrade",
+  UNSUPPORTED_SECURITY_PROTOCOL: "UnsupportedSecurityProtocol",
+  USER_PROFILE_MISSING: "UserProfileMissing",
   VMWARE_TOOLS_INSTALLED: "VMWareToolsInstalled",
+  WINDOWS_MODULES_INSTALLER_DISABLED: "WindowsModulesInstallerDisabled",
   WINDOWS_UPDATES_ENABLED: "WindowsUpdatesEnabled",
+  WINDOWS_UPDATES_REQUIRED: "WindowsUpdatesRequired",
   WORKSPACES_BYOL_ACCOUNT_DISABLED: "WorkspacesBYOLAccountDisabled",
   WORKSPACES_BYOL_ACCOUNT_NOT_FOUND: "WorkspacesBYOLAccountNotFound",
   ZERO_REARM_COUNT: "ZeroRearmCount",
@@ -6114,12 +6130,12 @@ export interface ImportWorkspaceImageRequest {
 
   /**
    * <p>The ingestion process to be used when importing the image, depending on which protocol
-   *          you want to use for your BYOL Workspace image, either PCoIP, DCV, or
-   *          bring your own protocol (BYOP). To use WSP, specify a value that ends in
-   *          <code>_DCV</code>. To use PCoIP, specify a value that does not end in <code>_DCV</code>.
+   *          you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming Protocol
+   *          (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that ends in
+   *          <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>.
    *          To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>
    *          <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify
-   *          <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_DCV</code>, or <code>BYOL_REGULAR_BYOP</code>,
+   *          <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>,
    *          depending on the protocol.</p>
    *          <note>
    *             <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values
@@ -6159,8 +6175,8 @@ export interface ImportWorkspaceImageRequest {
    *                   time.</p>
    *                </li>
    *                <li>
-   *                   <p>During the image import process, non-GPU DCV (formerly WSP) WorkSpaces with Windows 11 support
-   *                   only <code>Microsoft_Office_2019</code>. GPU DCV (formerly WSP) WorkSpaces with Windows 11 do not
+   *                   <p>During the image import process, non-GPU WSP WorkSpaces with Windows 11 support
+   *                   only <code>Microsoft_Office_2019</code>. GPU WSP WorkSpaces with Windows 11 do not
    *                   support Office installation.</p>
    *                </li>
    *             </ul>

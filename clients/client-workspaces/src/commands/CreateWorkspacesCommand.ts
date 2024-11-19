@@ -40,7 +40,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *                </li>
  *                <li>
  *                   <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles
- *                   because <code>DCV</code> (formerly WSP) is the default protocol for those bundles.</p>
+ *                   because <code>WSP</code> is the default protocol for those bundles.</p>
  *                </li>
  *                <li>
  *                   <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
