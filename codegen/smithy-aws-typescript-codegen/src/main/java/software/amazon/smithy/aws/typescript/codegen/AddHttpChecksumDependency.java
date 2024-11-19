@@ -25,7 +25,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.HttpChecksumTrait;
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
@@ -197,7 +196,6 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         OperationShape operation
     ) {
         Map<String, Object> params = new TreeMap<String, Object>();
-        params.put("input", Symbol.builder().name("this.input").build());
 
         HttpChecksumTrait httpChecksumTrait = operation.expectTrait(HttpChecksumTrait.class);
         params.put("requestChecksumRequired", httpChecksumTrait.isRequestChecksumRequired());
