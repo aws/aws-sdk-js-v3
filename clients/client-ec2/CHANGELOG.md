@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-ec2:** This release adds VPC Block Public Access (VPC BPA), a new declarative control which blocks resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. ([7905a8e](https://github.com/aws/aws-sdk-js-v3/commit/7905a8e0411106fb5e50118d6602e83016c8f349))
+
+
+
+
+
 # [3.695.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.694.0...v3.695.0) (2024-11-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-mwaa:** Amazon MWAA now supports a new environment class, mw1.micro, ideal for workloads requiring fewer resources than mw1.small. This class supports a single instance of each Airflow component: Scheduler, Worker, and Webserver. ([a64d4bb](https://github.com/aws/aws-sdk-js-v3/commit/a64d4bbc7064086e53aebfcd133382742987fa17))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-mwaa

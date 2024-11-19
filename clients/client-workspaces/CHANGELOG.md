@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-workspaces:** Releasing new ErrorCodes for Image Validation failure during CreateWorkspaceImage process ([5649e47](https://github.com/aws/aws-sdk-js-v3/commit/5649e47d187f7b92eca63991a657ec4d0b8a1568))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-efs:** Add support for the new parameters in EFS replication APIs ([1f77893](https://github.com/aws/aws-sdk-js-v3/commit/1f778937ab8e58907ec400190456ab8d1ae72c04))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-efs

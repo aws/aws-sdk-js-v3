@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-dns",
-  "version": "3.693.0",
+  "version": "3.696.0",
   "description": "Implementations of DNS host resolvers.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-b2bi:** Add new X12 transactions sets and versions ([cb3d07b](https://github.com/aws/aws-sdk-js-v3/commit/cb3d07bb24621fa3c3cc95dfea03259cdc6fbfec))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-b2bi

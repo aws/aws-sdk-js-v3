@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-b2bi:** Add new X12 transactions sets and versions ([cb3d07b](https://github.com/aws/aws-sdk-js-v3/commit/cb3d07bb24621fa3c3cc95dfea03259cdc6fbfec))
+* **client-ec2:** This release adds VPC Block Public Access (VPC BPA), a new declarative control which blocks resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. ([7905a8e](https://github.com/aws/aws-sdk-js-v3/commit/7905a8e0411106fb5e50118d6602e83016c8f349))
+* **client-ecs:** This release introduces support for configuring the version consistency feature for individual containers defined within a task definition. The configuration allows to specify whether ECS should resolve the container image tag specified in the container definition to an image digest. ([d632c0c](https://github.com/aws/aws-sdk-js-v3/commit/d632c0c493274f6bc044723f39327485163c4c96))
+* **client-efs:** Add support for the new parameters in EFS replication APIs ([1f77893](https://github.com/aws/aws-sdk-js-v3/commit/1f778937ab8e58907ec400190456ab8d1ae72c04))
+* **client-glue:** AWS Glue Data Catalog now enhances managed table optimizations of Apache Iceberg tables that can be accessed only from a specific Amazon Virtual Private Cloud (VPC) environment. ([844a1da](https://github.com/aws/aws-sdk-js-v3/commit/844a1daf3a19dcd69ebc337680a772ba377465a1))
+* **client-keyspaces:** Amazon Keyspaces Multi-Region Replication: Adds support to add new regions to multi and single-region keyspaces. ([9c30b3a](https://github.com/aws/aws-sdk-js-v3/commit/9c30b3abf1bfb7a8d0f9dad170ddb1fdc988d795))
+* **client-mwaa:** Amazon MWAA now supports a new environment class, mw1.micro, ideal for workloads requiring fewer resources than mw1.small. This class supports a single instance of each Airflow component: Scheduler, Worker, and Webserver. ([a64d4bb](https://github.com/aws/aws-sdk-js-v3/commit/a64d4bbc7064086e53aebfcd133382742987fa17))
+* **client-taxsettings:** Release Tax Inheritance APIs,  Tax Exemption APIs, and functionality update for some existing Tax Registration APIs ([da73fe5](https://github.com/aws/aws-sdk-js-v3/commit/da73fe5ceb70fc73697fda15b5e62fc18b433ea7))
+* **client-workspaces:** Releasing new ErrorCodes for Image Validation failure during CreateWorkspaceImage process ([5649e47](https://github.com/aws/aws-sdk-js-v3/commit/5649e47d187f7b92eca63991a657ec4d0b8a1568))
+* **clients:** update client endpoints as of 2024-11-19 ([3a63d0b](https://github.com/aws/aws-sdk-js-v3/commit/3a63d0b03d250ff6a65b2cd395f494bd70340aed))
+
+
+
+
+
 # [3.695.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.694.0...v3.695.0) (2024-11-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-taxsettings:** Release Tax Inheritance APIs,  Tax Exemption APIs, and functionality update for some existing Tax Registration APIs ([da73fe5](https://github.com/aws/aws-sdk-js-v3/commit/da73fe5ceb70fc73697fda15b5e62fc18b433ea7))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-taxsettings

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+
+### Features
+
+* **client-keyspaces:** Amazon Keyspaces Multi-Region Replication: Adds support to add new regions to multi and single-region keyspaces. ([9c30b3a](https://github.com/aws/aws-sdk-js-v3/commit/9c30b3abf1bfb7a8d0f9dad170ddb1fdc988d795))
+
+
+
+
+
 # [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-keyspaces
