@@ -286,7 +286,7 @@ export interface CreateEnvironmentInput {
   AirflowConfigurationOptions?: Record<string, string> | undefined;
 
   /**
-   * <p>The environment class type. Valid values: <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>, <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>.</p>
+   * <p>The environment class type. Valid values: <code>mw1.micro</code>, <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>, <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>.</p>
    * @public
    */
   EnvironmentClass?: string | undefined;
@@ -347,7 +347,9 @@ export interface CreateEnvironmentInput {
    * <p>The number of Apache Airflow schedulers to run in your environment. Valid values:</p>
    *          <ul>
    *             <li>
-   *                <p>v2 - Accepts between <code>2</code> to <code>5</code>. Defaults to <code>2</code>.</p>
+   *                <p>v2 - For environments larger than mw1.micro, accepts values from
+   *                         <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all
+   *                     environment sizes except mw1.micro, which defaults to <code>1</code>.</p>
    *             </li>
    *             <li>
    *                <p>v1 - Accepts <code>1</code>.</p>
@@ -374,7 +376,9 @@ export interface CreateEnvironmentInput {
    *             the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease,
    *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
    *         </p>
-   *          <p>Valid values: Accepts between <code>2</code> and <code>5</code>. Defaults to <code>2</code>.</p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
    * @public
    */
   MinWebservers?: number | undefined;
@@ -388,7 +392,9 @@ export interface CreateEnvironmentInput {
    *             rate, Amazon MWAA will increase the number of web servers up to the number set in <code>MaxWebserers</code>. As TPS rates decrease
    *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
    *         </p>
-   *          <p>Valid values: Accepts between <code>2</code> and <code>5</code>. Defaults to <code>2</code>.</p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
    * @public
    */
   MaxWebservers?: number | undefined;
@@ -864,7 +870,7 @@ export interface Environment {
   AirflowConfigurationOptions?: Record<string, string> | undefined;
 
   /**
-   * <p>The environment class type. Valid values: <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>, <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>.</p>
+   * <p>The environment class type. Valid values: <code>mw1.micro</code>, <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>, <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>.</p>
    * @public
    */
   EnvironmentClass?: string | undefined;
@@ -957,7 +963,9 @@ export interface Environment {
    *             the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease,
    *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
    *         </p>
-   *          <p>Valid values: Accepts between <code>2</code> and <code>5</code>. Defaults to <code>2</code>.</p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
    * @public
    */
   MinWebservers?: number | undefined;
@@ -971,7 +979,9 @@ export interface Environment {
    *             rate, Amazon MWAA will increase the number of web servers up to the number set in <code>MaxWebserers</code>. As TPS rates decrease
    *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
    *         </p>
-   *          <p>Valid values: Accepts between <code>2</code> and <code>5</code>. Defaults to <code>2</code>.</p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
    * @public
    */
   MaxWebservers?: number | undefined;
@@ -1524,7 +1534,10 @@ export interface UpdateEnvironmentInput {
   AirflowConfigurationOptions?: Record<string, string> | undefined;
 
   /**
-   * <p>The environment class type. Valid values: <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>, <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>.</p>
+   * <p>The environment class type. Valid values: <code>mw1.micro</code>,
+   *                 <code>mw1.small</code>, <code>mw1.medium</code>, <code>mw1.large</code>,
+   *                 <code>mw1.xlarge</code>, and <code>mw1.2xlarge</code>. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/environment-class.html">Amazon MWAA environment class</a>. </p>
    * @public
    */
   EnvironmentClass?: string | undefined;
@@ -1579,7 +1592,9 @@ export interface UpdateEnvironmentInput {
    *             the Apache Airflow CLI. As the transaction-per-second rate, and the network load, decrease,
    *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
    *         </p>
-   *          <p>Valid values: Accepts between <code>2</code> and <code>5</code>. Defaults to <code>2</code>.</p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
    * @public
    */
   MinWebservers?: number | undefined;
@@ -1593,7 +1608,9 @@ export interface UpdateEnvironmentInput {
    *             rate, Amazon MWAA will increase the number of web servers up to the number set in <code>MaxWebserers</code>. As TPS rates decrease
    *             Amazon MWAA disposes of the additional web servers, and scales down to the number set in <code>MinxWebserers</code>.
    *         </p>
-   *          <p>Valid values: Accepts between <code>2</code> and <code>5</code>. Defaults to <code>2</code>.</p>
+   *          <p>Valid values: For environments larger than mw1.micro, accepts values from
+   *                 <code>2</code> to <code>5</code>. Defaults to <code>2</code> for all environment
+   *             sizes except mw1.micro, which defaults to <code>1</code>.</p>
    * @public
    */
   MaxWebservers?: number | undefined;
