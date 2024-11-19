@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSnapshotTierStatusRequest } from "../models/models_4";
-import { DescribeSnapshotTierStatusResult } from "../models/models_5";
+import { DescribeSnapshotTierStatusRequest, DescribeSnapshotTierStatusResult } from "../models/models_5";
 import { de_DescribeSnapshotTierStatusCommand, se_DescribeSnapshotTierStatusCommand } from "../protocols/Aws_ec2";
 
 /**

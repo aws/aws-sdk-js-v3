@@ -107,6 +107,9 @@ export interface CreateVpcCommandOutput extends CreateVpcResult, __MetadataBeare
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     BlockPublicAccessStates: { // BlockPublicAccessStates
+ * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
+ * //     },
  * //     VpcId: "STRING_VALUE",
  * //     State: "pending" || "available",
  * //     CidrBlock: "STRING_VALUE",

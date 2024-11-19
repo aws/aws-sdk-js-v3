@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetAssociatedEnclaveCertificateIamRolesRequest,
   GetAssociatedEnclaveCertificateIamRolesResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_GetAssociatedEnclaveCertificateIamRolesCommand,
   se_GetAssociatedEnclaveCertificateIamRolesCommand,

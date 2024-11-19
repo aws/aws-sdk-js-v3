@@ -3,6 +3,7 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AccessScopePath,
+  AccessScopePathRequest,
   ApplianceModeSupportValue,
   AttachmentStatus,
   CurrencyCodeValues,
@@ -45,13 +46,8 @@ import {
   GatewayType,
   InstanceIpv6Address,
   Ipam,
-  IpamExternalResourceVerificationToken,
-  IpamPool,
-  IpamResourceDiscovery,
-  IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  NetworkInsightsAccessScope,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
@@ -60,6 +56,80 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateNetworkInsightsAccessScopeRequest {
+  /**
+   * <p>The paths to match.</p>
+   * @public
+   */
+  MatchPaths?: AccessScopePathRequest[] | undefined;
+
+  /**
+   * <p>The paths to exclude.</p>
+   * @public
+   */
+  ExcludePaths?: AccessScopePathRequest[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
+   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a Network Access Scope.</p>
+ * @public
+ */
+export interface NetworkInsightsAccessScope {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeArn?: string | undefined;
+
+  /**
+   * <p>The creation date.</p>
+   * @public
+   */
+  CreatedDate?: Date | undefined;
+
+  /**
+   * <p>The last updated date.</p>
+   * @public
+   */
+  UpdatedDate?: Date | undefined;
+
+  /**
+   * <p>The tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * <p>Describes the Network Access Scope content.</p>
@@ -1693,12 +1763,13 @@ export interface CreateRestoreImageTaskRequest {
    *       snapshots, or both.</p>
    *          <ul>
    *             <li>
-   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
+   *           <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To
-   *           tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The
-   *           same tag is applied to all of the snapshots that are created.</p>
+   *                <p>To tag the snapshots, the value for <code>ResourceType</code> must be
+   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
+   *           created.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6618,6 +6689,176 @@ export interface CreateVpcResult {
  * @public
  * @enum
  */
+export const InternetGatewayExclusionMode = {
+  allow_bidirectional: "allow-bidirectional",
+  allow_egress: "allow-egress",
+} as const;
+
+/**
+ * @public
+ */
+export type InternetGatewayExclusionMode =
+  (typeof InternetGatewayExclusionMode)[keyof typeof InternetGatewayExclusionMode];
+
+/**
+ * @public
+ */
+export interface CreateVpcBlockPublicAccessExclusionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A subnet ID.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>A VPC ID.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The exclusion mode for internet gateway traffic.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-allowed</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress-access-allowed</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayExclusionMode: InternetGatewayExclusionMode | undefined;
+
+  /**
+   * <p>
+   *             <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcBlockPublicAccessExclusionState = {
+  create_complete: "create-complete",
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_in_progress: "delete-in-progress",
+  disable_complete: "disable-complete",
+  disable_in_progress: "disable-in-progress",
+  update_complete: "update-complete",
+  update_failed: "update-failed",
+  update_in_progress: "update-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcBlockPublicAccessExclusionState =
+  (typeof VpcBlockPublicAccessExclusionState)[keyof typeof VpcBlockPublicAccessExclusionState];
+
+/**
+ * <p>A VPC BPA exclusion is a mode that can be applied to a single VPC or subnet that exempts it from the account’s BPA mode and will allow bidirectional or egress-only access. You can create BPA exclusions for VPCs and subnets even when BPA is not enabled on the account to ensure that there is no traffic disruption to the exclusions when VPC BPA is turned on. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcBlockPublicAccessExclusion {
+  /**
+   * <p>The ID of the exclusion.</p>
+   * @public
+   */
+  ExclusionId?: string | undefined;
+
+  /**
+   * <p>The exclusion mode for internet gateway traffic.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-allowed</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress-access-allowed</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayExclusionMode?: InternetGatewayExclusionMode | undefined;
+
+  /**
+   * <p>The ARN of the exclusion.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The state of the exclusion.</p>
+   * @public
+   */
+  State?: VpcBlockPublicAccessExclusionState | undefined;
+
+  /**
+   * <p>The reason for the current exclusion state.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>When the exclusion was created.</p>
+   * @public
+   */
+  CreationTimestamp?: Date | undefined;
+
+  /**
+   * <p>When the exclusion was last updated.</p>
+   * @public
+   */
+  LastUpdateTimestamp?: Date | undefined;
+
+  /**
+   * <p>When the exclusion was deleted.</p>
+   * @public
+   */
+  DeletionTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   *             <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcBlockPublicAccessExclusionResult {
+  /**
+   * <p>Details about an exclusion.</p>
+   * @public
+   */
+  VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const DnsRecordIpType = {
   dualstack: "dualstack",
   ipv4: "ipv4",
@@ -9388,117 +9629,6 @@ export interface DeleteIpamExternalResourceVerificationTokenRequest {
    * @public
    */
   IpamExternalResourceVerificationTokenId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamExternalResourceVerificationTokenResult {
-  /**
-   * <p>The verification token.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationToken?: IpamExternalResourceVerificationToken | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPoolRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the pool to delete.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>Enables you to quickly delete an IPAM pool and all resources within that pool, including
-   *          provisioned CIDRs, allocations, and other pools.</p>
-   *          <important>
-   *             <p>You can only use this option to delete pools in the private scope or pools in the public scope with a source resource. A source resource is a resource used to provision CIDRs to a resource planning pool.</p>
-   *          </important>
-   * @public
-   */
-  Cascade?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamPoolResult {
-  /**
-   * <p>Information about the results of the deletion.</p>
-   * @public
-   */
-  IpamPool?: IpamPool | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamResourceDiscoveryRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IPAM resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamResourceDiscoveryResult {
-  /**
-   * <p>The IPAM resource discovery.</p>
-   * @public
-   */
-  IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamScopeRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the scope to delete.</p>
-   * @public
-   */
-  IpamScopeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamScopeResult {
-  /**
-   * <p>Information about the results of the deletion.</p>
-   * @public
-   */
-  IpamScope?: IpamScope | undefined;
 }
 
 /**

@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeIamInstanceProfileAssociationsCommand,
   se_DescribeIamInstanceProfileAssociationsCommand,

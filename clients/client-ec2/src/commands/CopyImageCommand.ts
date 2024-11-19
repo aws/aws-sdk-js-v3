@@ -31,13 +31,14 @@ export interface CopyImageCommandOutput extends CopyImageResult, __MetadataBeare
  * <p>Initiates an AMI copy operation. You can copy an AMI from one Region to another, or from a
  *       Region to an Outpost. You can't copy an AMI from an Outpost to a Region, from one Outpost to
  *       another, or within the same Outpost. To copy an AMI to another partition, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
- *          <p>When you copy an AMI from one Region to another, the destination Region is the
- *      	current Region.</p>
- *          <p>When you copy an AMI from a Region to an Outpost, specify the ARN of the Outpost as
- *    	  the destination. Backing snapshots copied to an Outpost are encrypted by default using
- *    	  the default encryption key for the Region or the key that you specify. Outposts do not
- *    	  support unencrypted snapshots.</p>
- *          <p>For information about the prerequisites  when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>When you copy an AMI from one Region to another, the destination Region is the current
+ *       Region.</p>
+ *          <p>When you copy an AMI from a Region to an Outpost, specify the ARN of the Outpost as the
+ *       destination. Backing snapshots copied to an Outpost are encrypted by default using the default
+ *       encryption key for the Region or the key that you specify. Outposts do not support unencrypted
+ *       snapshots.</p>
+ *          <p>For information about the prerequisites when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the
+ *         <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

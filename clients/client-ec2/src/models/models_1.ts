@@ -9,7 +9,6 @@ import {
   AcceleratorTotalMemoryMiB,
   AcceleratorTotalMemoryMiBRequest,
   AcceleratorType,
-  AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
   AddressFamily,
@@ -2524,6 +2523,47 @@ export interface CreateDefaultSubnetRequest {
  * @public
  * @enum
  */
+export const BlockPublicAccessMode = {
+  block_bidirectional: "block-bidirectional",
+  block_ingress: "block-ingress",
+  off: "off",
+} as const;
+
+/**
+ * @public
+ */
+export type BlockPublicAccessMode = (typeof BlockPublicAccessMode)[keyof typeof BlockPublicAccessMode];
+
+/**
+ * <p>The state of VPC Block Public Access (BPA).</p>
+ * @public
+ */
+export interface BlockPublicAccessStates {
+  /**
+   * <p>The mode of VPC BPA.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-allowed</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-blocked</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ingress-access-blocked</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayBlockMode?: BlockPublicAccessMode | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const HostnameType = {
   ip_name: "ip-name",
   resource_name: "resource-name",
@@ -2670,6 +2710,12 @@ export interface Subnet {
   PrivateDnsNameOptionsOnLaunch?: PrivateDnsNameOptionsOnLaunch | undefined;
 
   /**
+   * <p>The state of VPC Block Public Access (BPA).</p>
+   * @public
+   */
+  BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
+
+  /**
    * <p>The ID of the subnet.</p>
    * @public
    */
@@ -2814,6 +2860,12 @@ export interface Vpc {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The state of VPC Block Public Access (BPA).</p>
+   * @public
+   */
+  BlockPublicAccessStates?: BlockPublicAccessStates | undefined;
 
   /**
    * <p>The ID of the VPC.</p>
@@ -6090,8 +6142,8 @@ export interface CreateImageRequest {
    *           <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
-   *           are attached to the instance, the value for <code>ResourceType</code> must be
+   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes
+   *           that are attached to the instance, the value for <code>ResourceType</code> must be
    *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
    *           created.</p>
    *             </li>
@@ -6118,7 +6170,9 @@ export interface CreateImageRequest {
 
   /**
    * <p>A name for the new image.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces
+   *       ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or
+   *       underscores(_)</p>
    * @public
    */
   Name: string | undefined;
@@ -6130,21 +6184,21 @@ export interface CreateImageRequest {
   Description?: string | undefined;
 
   /**
-   * <p>Indicates whether or not the instance should be automatically rebooted before creating
-   *        the image. Specify one of the following values:</p>
+   * <p>Indicates whether or not the instance should be automatically rebooted before creating the
+   *       image. Specify one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>true</code> - The instance is not rebooted before creating the image. This
-   *            creates crash-consistent snapshots that include only the data that has been written
-   *            to the volumes at the time the snapshots are created. Buffered data and data in
-   *            memory that has not yet been written to the volumes is not included in the snapshots.</p>
+   *           creates crash-consistent snapshots that include only the data that has been written to the
+   *           volumes at the time the snapshots are created. Buffered data and data in memory that has
+   *           not yet been written to the volumes is not included in the snapshots.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>false</code> - The instance is rebooted before creating the image. This
-   *            ensures that all buffered data and data in memory is written to the volumes before the
-   *            snapshots are created.</p>
+   *                   <code>false</code> - The instance is rebooted before creating the image. This ensures
+   *           that all buffered data and data in memory is written to the volumes before the snapshots
+   *           are created.</p>
    *             </li>
    *          </ul>
    *          <p>Default: <code>false</code>
@@ -9057,8 +9111,8 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * <p>A security group connection tracking specification that enables you to set the timeout
    *             for connection tracking on an Elastic network interface. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest | undefined;
@@ -10552,8 +10606,8 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
   /**
    * <p>A security group connection tracking specification that enables you to set the timeout
    *             for connection tracking on an Elastic network interface. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Idle connection tracking timeout</a> in the
+   *             <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ConnectionTrackingSpecification?: ConnectionTrackingSpecification | undefined;
@@ -12290,80 +12344,6 @@ export interface CreateNetworkAclEntryRequest {
    * @public
    */
   PortRange?: PortRange | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInsightsAccessScopeRequest {
-  /**
-   * <p>The paths to match.</p>
-   * @public
-   */
-  MatchPaths?: AccessScopePathRequest[] | undefined;
-
-  /**
-   * <p>The paths to exclude.</p>
-   * @public
-   */
-  ExcludePaths?: AccessScopePathRequest[] | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information,
-   *    see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">How to ensure idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The tags to apply.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a Network Access Scope.</p>
- * @public
- */
-export interface NetworkInsightsAccessScope {
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeArn?: string | undefined;
-
-  /**
-   * <p>The creation date.</p>
-   * @public
-   */
-  CreatedDate?: Date | undefined;
-
-  /**
-   * <p>The last updated date.</p>
-   * @public
-   */
-  UpdatedDate?: Date | undefined;
-
-  /**
-   * <p>The tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }
 
 /**

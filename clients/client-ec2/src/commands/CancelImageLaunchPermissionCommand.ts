@@ -28,10 +28,9 @@ export interface CancelImageLaunchPermissionCommandInput extends CancelImageLaun
 export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLaunchPermissionResult, __MetadataBearer {}
 
 /**
- * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
- *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html">
- *         Cancel having an AMI shared with your Amazon Web Services account</a> in the
- *       <i>Amazon EC2 User Guide</i>.</p>
+ * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI.
+ *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cancel-sharing-an-AMI.html"> Cancel having an AMI shared with
+ *         your Amazon Web Services account</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

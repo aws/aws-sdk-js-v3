@@ -21,6 +21,8 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
+  VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
 } from "./models_0";
@@ -50,6 +52,7 @@ import {
 import {
   DnsOptionsSpecification,
   IKEVersionsRequestListValue,
+  InternetGatewayExclusionMode,
   IpAddressType,
   PayerResponsibility,
   Phase1DHGroupNumbersRequestListValue,
@@ -62,7 +65,10 @@ import {
   SSEType,
   SubnetConfiguration,
   TransitGatewayRoute,
+  VerifiedAccessEndpoint,
+  VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
+  VpcBlockPublicAccessExclusion,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
   VpnTunnelLogOptionsSpecification,
@@ -87,22 +93,465 @@ import {
   NetworkInsightsAnalysis,
   PublicIpv4PoolRange,
   ScheduledInstance,
-  SnapshotAttributeName,
   TpmSupportValues,
 } from "./models_4";
 
 import {
   InstanceNetworkInterfaceSpecification,
+  InternetGatewayBlockMode,
   RunInstancesMonitoringEnabled,
+  SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
   SpotInstanceRequest,
   SpotInstanceRequestFilterSensitiveLog,
   SpotPlacement,
+  VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
+  VpcBlockPublicAccessOptions,
 } from "./models_5";
 
-import { CapacityReservationSpecification, Purchase } from "./models_6";
+import {
+  CapacityReservationSpecification,
+  ModifyVerifiedAccessEndpointEniOptions,
+  ModifyVerifiedAccessEndpointLoadBalancerOptions,
+  Purchase,
+} from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointRequest {
+  /**
+   * <p>The ID of the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupId?: string | undefined;
+
+  /**
+   * <p>The load balancer details if creating the Verified Access endpoint as
+   *          <code>load-balancer</code>type.</p>
+   * @public
+   */
+  LoadBalancerOptions?: ModifyVerifiedAccessEndpointLoadBalancerOptions | undefined;
+
+  /**
+   * <p>The network interface options.</p>
+   * @public
+   */
+  NetworkInterfaceOptions?: ModifyVerifiedAccessEndpointEniOptions | undefined;
+
+  /**
+   * <p>A description for the Verified Access endpoint.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointResult {
+  /**
+   * <p>Details about the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpoint?: VerifiedAccessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointPolicyRequest {
+  /**
+   * <p>The ID of the Verified Access endpoint.</p>
+   * @public
+   */
+  VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The options for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The options in use for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessGroupRequest {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId?: string | undefined;
+
+  /**
+   * <p>A description for the Verified Access group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessGroupResult {
+  /**
+   * <p>Details about the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroup?: VerifiedAccessGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessGroupPolicyRequest {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   * @public
+   */
+  VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The options for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessGroupPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   * @public
+   */
+  PolicyEnabled?: boolean | undefined;
+
+  /**
+   * <p>The Verified Access policy document.</p>
+   * @public
+   */
+  PolicyDocument?: string | undefined;
+
+  /**
+   * <p>The options in use for server side encryption.</p>
+   * @public
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessInstanceRequest {
+  /**
+   * <p>The ID of the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>A description for the Verified Access instance.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessInstanceResult {
+  /**
+   * <p>Details about the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstance?: VerifiedAccessInstance | undefined;
+}
+
+/**
+ * <p>Options for CloudWatch Logs as a logging destination.</p>
+ * @public
+ */
+export interface VerifiedAccessLogCloudWatchLogsDestinationOptions {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The ID of the CloudWatch Logs log group.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+}
+
+/**
+ * <p>Describes Amazon Kinesis Data Firehose logging options.</p>
+ * @public
+ */
+export interface VerifiedAccessLogKinesisDataFirehoseDestinationOptions {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The ID of the delivery stream.</p>
+   * @public
+   */
+  DeliveryStream?: string | undefined;
+}
+
+/**
+ * <p>Options for Amazon S3 as a logging destination.</p>
+ * @public
+ */
+export interface VerifiedAccessLogS3DestinationOptions {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The bucket name.</p>
+   * @public
+   */
+  BucketName?: string | undefined;
+
+  /**
+   * <p>The bucket prefix.</p>
+   * @public
+   */
+  Prefix?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Options for Verified Access logs.</p>
+ * @public
+ */
+export interface VerifiedAccessLogOptions {
+  /**
+   * <p>Sends Verified Access logs to Amazon S3.</p>
+   * @public
+   */
+  S3?: VerifiedAccessLogS3DestinationOptions | undefined;
+
+  /**
+   * <p>Sends Verified Access logs to CloudWatch Logs.</p>
+   * @public
+   */
+  CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestinationOptions | undefined;
+
+  /**
+   * <p>Sends Verified Access logs to Kinesis.</p>
+   * @public
+   */
+  KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestinationOptions | undefined;
+
+  /**
+   * <p>The logging version.</p>
+   *          <p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code>
+   *          </p>
+   * @public
+   */
+  LogVersion?: string | undefined;
+
+  /**
+   * <p>Indicates whether to include trust data sent by trust providers in the logs.</p>
+   * @public
+   */
+  IncludeTrustContext?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
+  /**
+   * <p>The ID of the Verified Access instance.</p>
+   * @public
+   */
+  VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>The configuration options for Verified Access instances.</p>
+   * @public
+   */
+  AccessLogs: VerifiedAccessLogOptions | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
+  /**
+   * <p>The logging configuration for the Verified Access instance.</p>
+   * @public
+   */
+  LoggingConfiguration?: VerifiedAccessInstanceLoggingConfiguration | undefined;
+}
 
 /**
  * <p>Modifies the configuration of the specified device-based Amazon Web Services Verified Access trust provider.</p>
@@ -399,6 +848,96 @@ export interface ModifyVpcAttributeRequest {
    * @public
    */
   EnableNetworkAddressUsageMetrics?: AttributeBooleanValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcBlockPublicAccessExclusionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of an exclusion.</p>
+   * @public
+   */
+  ExclusionId: string | undefined;
+
+  /**
+   * <p>The exclusion mode for internet gateway traffic.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-allowed</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress-access-allowed</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayExclusionMode: InternetGatewayExclusionMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcBlockPublicAccessExclusionResult {
+  /**
+   * <p>Details related to the exclusion.</p>
+   * @public
+   */
+  VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcBlockPublicAccessOptionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The mode of VPC BPA.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-allowed</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-blocked</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ingress-access-blocked</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayBlockMode: InternetGatewayBlockMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyVpcBlockPublicAccessOptionsResult {
+  /**
+   * <p>Details related to the VPC Block Public Access (BPA) options.</p>
+   * @public
+   */
+  VpcBlockPublicAccessOptions?: VpcBlockPublicAccessOptions | undefined;
 }
 
 /**
@@ -2115,28 +2654,31 @@ export interface RebootInstancesRequest {
 export interface RegisterImageRequest {
   /**
    * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
-   *    		<code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed
-   *    		by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
-   *    		<i>Amazon S3 Service Developer Guide</i>.</p>
+   *         <code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be
+   *       accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
+   *         <i>Amazon S3 Service Developer Guide</i>.</p>
    * @public
    */
   ImageLocation?: string | undefined;
 
   /**
-   * <p>The billing product codes. Your account must be authorized to specify billing product codes.</p>
+   * <p>The billing product codes. Your account must be authorized to specify billing product
+   *       codes.</p>
    *          <p>If your account is not authorized to specify billing product codes, you can publish AMIs
    *       that include billable software and list them on the Amazon Web Services Marketplace. You must first register as a seller
    *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as a
-   *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
-   *         products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
+   *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based products</a> in the
+   *         <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
    * @public
    */
   BillingProducts?: string[] | undefined;
 
   /**
-   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p>
+   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI
+   *       supports both UEFI and Legacy BIOS.</p>
    *          <note>
-   *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
+   *             <p>The operating system contained in the AMI must be configured to support the specified
+   *         boot mode.</p>
    *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
@@ -2166,10 +2708,10 @@ export interface RegisterImageRequest {
    *       launched from this AMI will have <code>HttpTokens</code> automatically set to
    *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
    *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
-   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <note>
-   *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>
+   *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support
+   *         IMDSv2.</p>
    *          </note>
    * @public
    */
@@ -2194,7 +2736,9 @@ export interface RegisterImageRequest {
 
   /**
    * <p>A name for your AMI.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces
+   *       ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or
+   *       underscores(_)</p>
    * @public
    */
   Name: string | undefined;
@@ -2207,8 +2751,8 @@ export interface RegisterImageRequest {
 
   /**
    * <p>The architecture of the AMI.</p>
-   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
-   *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
+   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>. For instance store-backed AMIs, the
+   *       architecture specified in the manifest file.</p>
    * @public
    */
   Architecture?: ArchitectureValues | undefined;
@@ -2233,10 +2777,11 @@ export interface RegisterImageRequest {
 
   /**
    * <p>The block device mapping entries.</p>
-   *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p>
-   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same
-   *       Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can
-   *       be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS local
+   *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the
+   *       encryption state of the volume.</p>
+   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost
+   *       or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can be used
+   *       to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS local
    *         snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
@@ -2251,16 +2796,20 @@ export interface RegisterImageRequest {
   VirtualizationType?: string | undefined;
 
   /**
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p>
+   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
+   *       Function interface for the AMI and any instances that you launch from the AMI.</p>
    *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
+   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make
+   *       instances launched from the AMI unreachable.</p>
    * @public
    */
   SriovNetSupport?: string | undefined;
 
   /**
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
+   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any
+   *       instances that you launch from the AMI.</p>
+   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make
+   *       instances launched from the AMI unreachable.</p>
    * @public
    */
   EnaSupport?: boolean | undefined;
@@ -3689,7 +4238,8 @@ export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typ
  */
 export interface ResetImageAttributeRequest {
   /**
-   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
+   * <p>The attribute to reset (currently you can only reset the launch permission
+   *       attribute).</p>
    * @public
    */
   Attribute: ResetImageAttributeName | undefined;

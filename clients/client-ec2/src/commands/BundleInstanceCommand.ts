@@ -34,9 +34,11 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
 
 /**
  * <p>Bundles an Amazon instance store-backed Windows instance.</p>
- *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance store volumes is not preserved.</p>
+ *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance
+ *       store volumes is not preserved.</p>
  *          <note>
- *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are backed by Amazon EBS.</p>
+ *             <p>This action is not applicable for Linux/Unix instances or Windows instances that are
+ *         backed by Amazon EBS.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

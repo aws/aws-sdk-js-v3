@@ -10,7 +10,6 @@ import {
   AsnAssociation,
   AssociationStatus,
   BatchState,
-  CapacityReservationState,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
@@ -71,9 +70,12 @@ import {
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  Snapshot,
+  SnapshotState,
   SpotDatafeedSubscription,
   SpotInstanceStateFault,
   State,
+  StorageTier,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorSession,
@@ -88,6 +90,7 @@ import {
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
   Volume,
+  VpcBlockPublicAccessExclusion,
   VpcEndpoint,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
@@ -104,12 +107,382 @@ import {
   FastSnapshotRestoreStateCode,
   Filter,
   MetricType,
-  PeriodType,
+  PermissionGroup,
   ProductCode,
   StatisticType,
 } from "./models_3";
 
-import { AttributeBooleanValue, RIProductDescription, SnapshotTierStatus } from "./models_4";
+import { AttributeBooleanValue, RIProductDescription } from "./models_4";
+
+/**
+ * @public
+ * @enum
+ */
+export const SnapshotAttributeName = {
+  createVolumePermission: "createVolumePermission",
+  productCodes: "productCodes",
+} as const;
+
+/**
+ * @public
+ */
+export type SnapshotAttributeName = (typeof SnapshotAttributeName)[keyof typeof SnapshotAttributeName];
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotAttributeRequest {
+  /**
+   * <p>The snapshot attribute you would like to view.</p>
+   * @public
+   */
+  Attribute: SnapshotAttributeName | undefined;
+
+  /**
+   * <p>The ID of the EBS snapshot.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the user or group to be added or removed from the list of create volume
+ *       permissions for a volume.</p>
+ * @public
+ */
+export interface CreateVolumePermission {
+  /**
+   * <p>The ID of the Amazon Web Services account to be added or removed.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+
+  /**
+   * <p>The group to be added or removed. The possible value is <code>all</code>.</p>
+   * @public
+   */
+  Group?: PermissionGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotAttributeResult {
+  /**
+   * <p>The product codes.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[] | undefined;
+
+  /**
+   * <p>The ID of the EBS snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The users and groups that have the permissions for creating volumes from the
+   *       snapshot.</p>
+   * @public
+   */
+  CreateVolumePermissions?: CreateVolumePermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotsRequest {
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Scopes the results to snapshots with the specified owners. You can specify a combination of
+   *       Amazon Web Services account IDs, <code>self</code>, and <code>amazon</code>.</p>
+   * @public
+   */
+  OwnerIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the Amazon Web Services accounts that can create volumes from the snapshot.</p>
+   * @public
+   */
+  RestorableByUserIds?: string[] | undefined;
+
+  /**
+   * <p>The snapshot IDs.</p>
+   *          <p>Default: Describes the snapshots for which you have create volume permissions.</p>
+   * @public
+   */
+  SnapshotIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code> - A description of the snapshot.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>encrypted</code> - Indicates whether the snapshot is encrypted
+   *             (<code>true</code> | <code>false</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-alias</code> - The owner alias, from an Amazon-maintained list
+   *           (<code>amazon</code>).
+   *           This is not the user-configured Amazon Web Services account alias set using the IAM console.
+   *           We recommend that you use the related parameter instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that
+   *           you use the related parameter instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>progress</code> - The progress of the snapshot, as a percentage (for example,
+   *           80%).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code> - The snapshot ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>start-time</code> - The time stamp when the snapshot was initiated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> - The status of the snapshot (<code>pending</code> |
+   *             <code>completed</code> | <code>error</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>storage-tier</code> - The storage tier of the snapshot (<code>archive</code> |
+   *           <code>standard</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The ID of the volume the snapshot is for.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-size</code> - The size of the volume, in GiB.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the snapshots.</p>
+   * @public
+   */
+  Snapshots?: Snapshot[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSnapshotTierStatusRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>snapshot-id</code> - The snapshot ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>volume-id</code> - The ID of the volume the snapshot is for.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archival-in-progress</code> | <code>archival-completed</code> |
+   *           <code>archival-failed</code> | <code>permanent-restore-in-progress</code> | <code>permanent-restore-completed</code> | <code>permanent-restore-failed</code> |
+   * 		<code>temporary-restore-in-progress</code> | <code>temporary-restore-completed</code> | <code>temporary-restore-failed</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TieringOperationStatus = {
+  archival_completed: "archival-completed",
+  archival_failed: "archival-failed",
+  archival_in_progress: "archival-in-progress",
+  permanent_restore_completed: "permanent-restore-completed",
+  permanent_restore_failed: "permanent-restore-failed",
+  permanent_restore_in_progress: "permanent-restore-in-progress",
+  temporary_restore_completed: "temporary-restore-completed",
+  temporary_restore_failed: "temporary-restore-failed",
+  temporary_restore_in_progress: "temporary-restore-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type TieringOperationStatus = (typeof TieringOperationStatus)[keyof typeof TieringOperationStatus];
+
+/**
+ * <p>Provides information about a snapshot's storage tier.</p>
+ * @public
+ */
+export interface SnapshotTierStatus {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The ID of the volume from which the snapshot was created.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The state of the snapshot.</p>
+   * @public
+   */
+  Status?: SnapshotState | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the snapshot.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The tags that are assigned to the snapshot.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The storage tier in which the snapshot is stored. <code>standard</code> indicates
+   *       that the snapshot is stored in the standard snapshot storage tier and that it is ready
+   *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
+   *       it must be restored before it can be used.</p>
+   * @public
+   */
+  StorageTier?: StorageTier | undefined;
+
+  /**
+   * <p>The date and time when the last archive or restore process was started.</p>
+   * @public
+   */
+  LastTieringStartTime?: Date | undefined;
+
+  /**
+   * <p>The progress of the last archive or restore process, as a percentage.</p>
+   * @public
+   */
+  LastTieringProgress?: number | undefined;
+
+  /**
+   * <p>The status of the last archive or restore process.</p>
+   * @public
+   */
+  LastTieringOperationStatus?: TieringOperationStatus | undefined;
+
+  /**
+   * <p>A message describing the status of the last archive or restore process.</p>
+   * @public
+   */
+  LastTieringOperationStatusDetail?: string | undefined;
+
+  /**
+   * <p>The date and time when the last archive process was completed.</p>
+   * @public
+   */
+  ArchivalCompleteTime?: Date | undefined;
+
+  /**
+   * <p>Only for archived snapshots that are temporarily restored. Indicates the date and
+   *       time when a temporarily restored snapshot will be automatically re-archived.</p>
+   * @public
+   */
+  RestoreExpiryTime?: Date | undefined;
+}
 
 /**
  * @public
@@ -2318,7 +2691,8 @@ export interface DescribeStaleSecurityGroupsResult {
  */
 export interface DescribeStoreImageTasksRequest {
   /**
-   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
+   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a
+   *       request.</p>
    * @public
    */
   ImageIds?: string[] | undefined;
@@ -2565,7 +2939,7 @@ export interface DescribeSubnetsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -5287,6 +5661,200 @@ export interface DescribeVpcAttributeResult {
 /**
  * @public
  */
+export interface DescribeVpcBlockPublicAccessExclusionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Filters for the request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>resource-arn</code> - The Amazon Resource Name (ARN) of a exclusion.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>internet-gateway-exclusion-mode</code> - The mode of a VPC BPA exclusion. Possible values: <code>bidirectional-access-allowed | egress-access-allowed</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of VPC BPA. Possible values: <code>create-in-progress | create-complete | update-in-progress | update-complete | delete-in-progress | deleted-complete | disable-in-progress | disable-complete</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-value</code>: The value of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific value, regardless of the tag key.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>IDs of exclusions.</p>
+   * @public
+   */
+  ExclusionIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcBlockPublicAccessExclusionsResult {
+  /**
+   * <p>Details related to the exclusions.</p>
+   * @public
+   */
+  VpcBlockPublicAccessExclusions?: VpcBlockPublicAccessExclusion[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcBlockPublicAccessOptionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InternetGatewayBlockMode = {
+  block_bidirectional: "block-bidirectional",
+  block_ingress: "block-ingress",
+  off: "off",
+} as const;
+
+/**
+ * @public
+ */
+export type InternetGatewayBlockMode = (typeof InternetGatewayBlockMode)[keyof typeof InternetGatewayBlockMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const VpcBlockPublicAccessState = {
+  default_state: "default-state",
+  update_complete: "update-complete",
+  update_in_progress: "update-in-progress",
+} as const;
+
+/**
+ * @public
+ */
+export type VpcBlockPublicAccessState = (typeof VpcBlockPublicAccessState)[keyof typeof VpcBlockPublicAccessState];
+
+/**
+ * <p>VPC Block public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * @public
+ */
+export interface VpcBlockPublicAccessOptions {
+  /**
+   * <p>An Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>An Amazon Web Services Region.</p>
+   * @public
+   */
+  AwsRegion?: string | undefined;
+
+  /**
+   * <p>The current state of VPC BPA.</p>
+   * @public
+   */
+  State?: VpcBlockPublicAccessState | undefined;
+
+  /**
+   * <p>The current mode of VPC BPA.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-allowed</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bidirectional-access-blocked</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ingress-access-blocked</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  InternetGatewayBlockMode?: InternetGatewayBlockMode | undefined;
+
+  /**
+   * <p>The reason for the current state.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+
+  /**
+   * <p>The last time the VPC BPA mode was updated.</p>
+   * @public
+   */
+  LastUpdateTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeVpcBlockPublicAccessOptionsResult {
+  /**
+   * <p>Details related to the options.</p>
+   * @public
+   */
+  VpcBlockPublicAccessOptions?: VpcBlockPublicAccessOptions | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeVpcClassicLinkRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -5312,7 +5880,7 @@ export interface DescribeVpcClassicLinkRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -6193,7 +6761,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -6293,7 +6861,7 @@ export interface DescribeVpcsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -6878,8 +7446,9 @@ export interface DisableFastLaunchRequest {
   ImageId: string | undefined;
 
   /**
-   * <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This parameter overrides
-   * 			any errors that are encountered while cleaning up resources in your account.</p>
+   * <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This
+   *       parameter overrides any errors that are encountered while cleaning up resources in your
+   *       account.</p>
    * @public
    */
   Force?: boolean | undefined;
@@ -6904,28 +7473,29 @@ export interface DisableFastLaunchResult {
   ImageId?: string | undefined;
 
   /**
-   * <p>The pre-provisioning resource type that must be cleaned after turning off Windows fast launch
-   * 			for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
+   * <p>The pre-provisioning resource type that must be cleaned after turning off Windows fast
+   *       launch for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
    * @public
    */
   ResourceType?: FastLaunchResourceType | undefined;
 
   /**
-   * <p>Parameters that were used for Windows fast launch for the Windows AMI before
-   * 			Windows fast launch was disabled. This informs the clean-up process.</p>
+   * <p>Parameters that were used for Windows fast launch for the Windows AMI before Windows fast
+   *       launch was disabled. This informs the clean-up process.</p>
    * @public
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
 
   /**
-   * <p>The launch template that was used to launch Windows instances from pre-provisioned snapshots.</p>
+   * <p>The launch template that was used to launch Windows instances from pre-provisioned
+   *       snapshots.</p>
    * @public
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
 
   /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
-   * 			create pre-provisioned snapshots for Windows fast launch.</p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   *       pre-provisioned snapshots for Windows fast launch.</p>
    * @public
    */
   MaxParallelLaunches?: number | undefined;
@@ -8257,39 +8827,42 @@ export interface EnableEbsEncryptionByDefaultResult {
  * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
  *          <note>
  *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
- * 				<code>LaunchTemplateId</code>, but not both.</p>
+ *           <code>LaunchTemplateId</code>, but not both.</p>
  *          </note>
  * @public
  */
 export interface FastLaunchLaunchTemplateSpecificationRequest {
   /**
-   * <p>Specify the ID of the launch template that the AMI should use for Windows fast launch.</p>
+   * <p>Specify the ID of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
    * @public
    */
   LaunchTemplateId?: string | undefined;
 
   /**
-   * <p>Specify the name of the launch template that the AMI should use for Windows fast launch.</p>
+   * <p>Specify the name of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
    * @public
    */
   LaunchTemplateName?: string | undefined;
 
   /**
-   * <p>Specify the version of the launch template that the AMI should use for Windows fast launch.</p>
+   * <p>Specify the version of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
    * @public
    */
   Version: string | undefined;
 }
 
 /**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch
- * 			enabled AMI.</p>
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
+ *       fast launch enabled AMI.</p>
  * @public
  */
 export interface FastLaunchSnapshotConfigurationRequest {
   /**
-   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch
-   * 			enabled AMI.</p>
+   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch enabled
+   *       AMI.</p>
    * @public
    */
   TargetResourceCount?: number | undefined;
@@ -8307,31 +8880,31 @@ export interface EnableFastLaunchRequest {
 
   /**
    * <p>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
-   * 			Supported values include: <code>snapshot</code>, which is the default value.</p>
+   *       Supported values include: <code>snapshot</code>, which is the default value.</p>
    * @public
    */
   ResourceType?: string | undefined;
 
   /**
    * <p>Configuration settings for creating and managing the snapshots that are used for
-   * 			pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
-   * 			must be <code>snapshot</code>.</p>
+   *       pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
+   *       must be <code>snapshot</code>.</p>
    * @public
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest | undefined;
 
   /**
    * <p>The launch template to use when launching Windows instances from pre-provisioned
-   * 			snapshots. Launch template parameters can include either the name or ID of the launch
-   * 			template, but not both.</p>
+   *       snapshots. Launch template parameters can include either the name or ID of the launch
+   *       template, but not both.</p>
    * @public
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest | undefined;
 
   /**
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   * 			pre-provisioned snapshots for Windows fast launch. Value must be
-   * 			<code>6</code> or greater.</p>
+   *       pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or
+   *       greater.</p>
    * @public
    */
   MaxParallelLaunches?: number | undefined;
@@ -8356,28 +8929,30 @@ export interface EnableFastLaunchResult {
   ImageId?: string | undefined;
 
   /**
-   * <p>The type of resource that was defined for pre-provisioning the AMI for Windows fast launch.</p>
+   * <p>The type of resource that was defined for pre-provisioning the AMI for Windows fast
+   *       launch.</p>
    * @public
    */
   ResourceType?: FastLaunchResourceType | undefined;
 
   /**
    * <p>Settings to create and manage the pre-provisioned snapshots that Amazon EC2 uses for faster
-   * 			launches from the Windows AMI. This property is returned when the associated
-   * 			<code>resourceType</code> is <code>snapshot</code>.</p>
+   *       launches from the Windows AMI. This property is returned when the associated
+   *         <code>resourceType</code> is <code>snapshot</code>.</p>
    * @public
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
 
   /**
-   * <p>The launch template that is used when launching Windows instances from pre-provisioned snapshots.</p>
+   * <p>The launch template that is used when launching Windows instances from pre-provisioned
+   *       snapshots.</p>
    * @public
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
 
   /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
-   * 			create pre-provisioned snapshots for Windows fast launch.</p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   *       pre-provisioned snapshots for Windows fast launch.</p>
    * @public
    */
   MaxParallelLaunches?: number | undefined;
@@ -8678,10 +9253,10 @@ export interface EnableImageDeprecationRequest {
   /**
    * <p>The date and time to deprecate the AMI, in UTC, in the following format:
    *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the
-   *       nearest minute.</p>
+   *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
    *          <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10
-   *       years from now, except for public AMIs, where the upper limit is 2 years from the creation date.</p>
+   *       years from now, except for public AMIs, where the upper limit is 2 years from the creation
+   *       date.</p>
    * @public
    */
   DeprecateAt: Date | undefined;
@@ -9331,522 +9906,6 @@ export interface ExportTransitGatewayRoutesResult {
    * @public
    */
   S3Location?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssociatedEnclaveCertificateIamRolesRequest {
-  /**
-   * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
-   * 			S3 object information.</p>
-   * @public
-   */
-  CertificateArn: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Information about the associated IAM roles.</p>
- * @public
- */
-export interface AssociatedRole {
-  /**
-   * <p>The ARN of the associated IAM role.</p>
-   * @public
-   */
-  AssociatedRoleArn?: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket in which the Amazon S3 object is stored.</p>
-   * @public
-   */
-  CertificateS3BucketName?: string | undefined;
-
-  /**
-   * <p>The key of the Amazon S3 object where the certificate, certificate chain, and encrypted private key bundle
-   * 			are stored. The object key is formatted as follows: <code>role_arn</code>/<code>certificate_arn</code>.
-   * 		</p>
-   * @public
-   */
-  CertificateS3ObjectKey?: string | undefined;
-
-  /**
-   * <p>The ID of the KMS key used to encrypt the private key.</p>
-   * @public
-   */
-  EncryptionKmsKeyId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssociatedEnclaveCertificateIamRolesResult {
-  /**
-   * <p>Information about the associated IAM roles.</p>
-   * @public
-   */
-  AssociatedRoles?: AssociatedRole[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssociatedIpv6PoolCidrsRequest {
-  /**
-   * <p>The ID of the IPv6 address pool.</p>
-   * @public
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes an IPv6 CIDR block association.</p>
- * @public
- */
-export interface Ipv6CidrAssociation {
-  /**
-   * <p>The IPv6 CIDR block.</p>
-   * @public
-   */
-  Ipv6Cidr?: string | undefined;
-
-  /**
-   * <p>The resource that's associated with the IPv6 CIDR block.</p>
-   * @public
-   */
-  AssociatedResource?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssociatedIpv6PoolCidrsResult {
-  /**
-   * <p>Information about the IPv6 CIDR block associations.</p>
-   * @public
-   */
-  Ipv6CidrAssociations?: Ipv6CidrAssociation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>A query used for retrieving network health data. </p>
- * @public
- */
-export interface DataQuery {
-  /**
-   * <p>A user-defined ID associated with a data query that's returned in the <code>dataResponse</code> identifying the query. For example, if you set the Id to <code>MyQuery01</code>in the query, the <code>dataResponse</code> identifies the query as <code>MyQuery01</code>.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The Region or Availability Zone that's the target for the data query. For example, <code>eu-north-1</code>.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The metric used for the network performance request.</p>
-   * @public
-   */
-  Metric?: MetricType | undefined;
-
-  /**
-   * <p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code>
-   *          and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all
-   *          the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>
-   * @public
-   */
-  Statistic?: StatisticType | undefined;
-
-  /**
-   * <p>The aggregation period used for the data query.</p>
-   * @public
-   */
-  Period?: PeriodType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAwsNetworkPerformanceDataRequest {
-  /**
-   * <p>A list of network performance data queries.</p>
-   * @public
-   */
-  DataQueries?: DataQuery[] | undefined;
-
-  /**
-   * <p>The starting time for the performance data request. The starting time must be formatted
-   *          as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-10T12:00:00.000Z</code>.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The ending time for the performance data request. The end time must be formatted as <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2022-06-12T12:00:00.000Z</code>.</p>
-   * @public
-   */
-  EndTime?: Date | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Indicates whether the network was healthy or degraded at a particular point. The value is aggregated from the <code>startDate</code> to the <code>endDate</code>. Currently only <code>five_minutes</code> is supported.</p>
- * @public
- */
-export interface MetricPoint {
-  /**
-   * <p>The start date for the metric point. The starting date for the metric point. The starting time must be formatted
-   *          as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-10T12:00:00.000Z</code>.</p>
-   * @public
-   */
-  StartDate?: Date | undefined;
-
-  /**
-   * <p>The end date for the metric point. The ending time must be formatted as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-12T12:00:00.000Z</code>.</p>
-   * @public
-   */
-  EndDate?: Date | undefined;
-
-  Value?: number | undefined;
-  /**
-   * <p>The status of the metric point.</p>
-   * @public
-   */
-  Status?: string | undefined;
-}
-
-/**
- * <p>The response to a <code>DataQuery</code>.</p>
- * @public
- */
-export interface DataResponse {
-  /**
-   * <p>The ID passed in the <code>DataQuery</code>.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
-   * @public
-   */
-  Source?: string | undefined;
-
-  /**
-   * <p>The Region or Availability Zone that's the destination for the data query. For example, <code>eu-west-1</code>.</p>
-   * @public
-   */
-  Destination?: string | undefined;
-
-  /**
-   * <p>The metric used for the network performance request.</p>
-   * @public
-   */
-  Metric?: MetricType | undefined;
-
-  /**
-   * <p>The statistic used for the network performance request.</p>
-   * @public
-   */
-  Statistic?: StatisticType | undefined;
-
-  /**
-   * <p>The period used for the network performance request.</p>
-   * @public
-   */
-  Period?: PeriodType | undefined;
-
-  /**
-   * <p>A list of <code>MetricPoint</code> objects.</p>
-   * @public
-   */
-  MetricPoints?: MetricPoint[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAwsNetworkPerformanceDataResult {
-  /**
-   * <p>The list of data responses.</p>
-   * @public
-   */
-  DataResponses?: DataResponse[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityReservationUsageRequest {
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId: string | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
-   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Information about the Capacity Reservation usage.</p>
- * @public
- */
-export interface InstanceUsage {
-  /**
-   * <p>The ID of the Amazon Web Services account that is making use of the Capacity Reservation.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The number of instances the Amazon Web Services account currently has in the Capacity Reservation.</p>
-   * @public
-   */
-  UsedInstanceCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCapacityReservationUsageResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   * @public
-   */
-  CapacityReservationId?: string | undefined;
-
-  /**
-   * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
-   * @public
-   */
-  TotalInstanceCount?: number | undefined;
-
-  /**
-   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified
-   * 					in your request. The reserved capacity is no longer available for your use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no
-   * 					longer available for your use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
-   * 					provisioning is still pending.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code> - The Capacity Reservation request has failed. A request might fail
-   * 					due to invalid request parameters, capacity constraints, or instance limit constraints.
-   * 					Failed requests are retained for 60 minutes.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: CapacityReservationState | undefined;
-
-  /**
-   * <p>Information about the Capacity Reservation usage.</p>
-   * @public
-   */
-  InstanceUsages?: InstanceUsage[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCoipPoolUsageRequest {
-  /**
-   * <p>The ID of the address pool.</p>
-   * @public
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services account that is using the customer-owned IP address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.aws-service</code> - The Amazon Web Services service that is using the customer-owned IP address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>coip-address-usage.co-ip</code> - The customer-owned IP address.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes address usage for a customer-owned address pool.</p>
- * @public
- */
-export interface CoipAddressUsage {
-  /**
-   * <p>The allocation ID of the address.</p>
-   * @public
-   */
-  AllocationId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services service.</p>
-   * @public
-   */
-  AwsService?: string | undefined;
-
-  /**
-   * <p>The customer-owned IP address.</p>
-   * @public
-   */
-  CoIp?: string | undefined;
 }
 
 /**

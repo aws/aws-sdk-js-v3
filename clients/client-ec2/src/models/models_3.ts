@@ -9,10 +9,7 @@ import {
   AddressAttribute,
   AddressAttributeName,
   AddressTransfer,
-  AllocationState,
-  AllowsMultipleInstanceTypes,
   AssociationStatus,
-  AutoPlacement,
   BundleTask,
   BundleTaskFilterSensitiveLog,
   ByoipCidr,
@@ -20,9 +17,6 @@ import {
   CapacityReservationTenancy,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
-  HostMaintenance,
-  HostRecovery,
-  IamInstanceProfileAssociation,
   Tag,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
@@ -58,6 +52,10 @@ import {
   FleetReplacementStrategy,
   FleetType,
   InstanceLifecycle,
+  IpamExternalResourceVerificationToken,
+  IpamPool,
+  IpamResourceDiscovery,
+  IpamScope,
   LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
   LocalGatewayRoute,
@@ -89,7 +87,119 @@ import {
   TransitGatewayRouteTableAnnouncement,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
+  VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteIpamExternalResourceVerificationTokenResult {
+  /**
+   * <p>The verification token.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationToken?: IpamExternalResourceVerificationToken | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPoolRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the pool to delete.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>Enables you to quickly delete an IPAM pool and all resources within that pool, including
+   *          provisioned CIDRs, allocations, and other pools.</p>
+   *          <important>
+   *             <p>You can only use this option to delete pools in the private scope or pools in the public scope with a source resource. A source resource is a resource used to provision CIDRs to a resource planning pool.</p>
+   *          </important>
+   * @public
+   */
+  Cascade?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamPoolResult {
+  /**
+   * <p>Information about the results of the deletion.</p>
+   * @public
+   */
+  IpamPool?: IpamPool | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamResourceDiscoveryRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IPAM resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamResourceDiscoveryResult {
+  /**
+   * <p>The IPAM resource discovery.</p>
+   * @public
+   */
+  IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamScopeRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the scope to delete.</p>
+   * @public
+   */
+  IpamScopeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamScopeResult {
+  /**
+   * <p>Information about the results of the deletion.</p>
+   * @public
+   */
+  IpamScope?: IpamScope | undefined;
+}
 
 /**
  * @public
@@ -1754,6 +1864,36 @@ export interface DeleteVpcRequest {
 /**
  * @public
  */
+export interface DeleteVpcBlockPublicAccessExclusionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the exclusion.</p>
+   * @public
+   */
+  ExclusionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcBlockPublicAccessExclusionResult {
+  /**
+   * <p>Details about an exclusion.</p>
+   * @public
+   */
+  VpcBlockPublicAccessExclusion?: VpcBlockPublicAccessExclusion | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteVpcEndpointConnectionNotificationsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -3137,7 +3277,8 @@ export interface DescribeBundleTasksRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>progress</code> - The level of task completion, as a percentage (for example, 20%).</p>
+   *                   <code>progress</code> - The level of task completion, as a percentage (for example,
+   *           20%).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3149,12 +3290,14 @@ export interface DescribeBundleTasksRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>start-time</code> - The time the task started (for example, 2013-09-15T17:15:20.000Z).</p>
+   *                   <code>start-time</code> - The time the task started (for example,
+   *           2013-09-15T17:15:20.000Z).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the task (<code>pending</code> | <code>waiting-for-shutdown</code> | <code>bundling</code> |
-   *            <code>storing</code> | <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p>
+   *                   <code>state</code> - The state of the task (<code>pending</code> |
+   *             <code>waiting-for-shutdown</code> | <code>bundling</code> | <code>storing</code> |
+   *             <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4058,7 +4201,7 @@ export interface DescribeClassicLinkInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -5561,7 +5704,7 @@ export interface DescribeDhcpOptionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -5628,7 +5771,7 @@ export interface DescribeEgressOnlyInternetGatewaysRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -6091,14 +6234,14 @@ export const FastLaunchResourceType = {
 export type FastLaunchResourceType = (typeof FastLaunchResourceType)[keyof typeof FastLaunchResourceType];
 
 /**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch
- * 			enabled Windows AMI.</p>
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
+ *       fast launch enabled Windows AMI.</p>
  * @public
  */
 export interface FastLaunchSnapshotConfigurationResponse {
   /**
-   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast launch
-   * 			enabled AMI.</p>
+   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast
+   *       launch enabled AMI.</p>
    * @public
    */
   TargetResourceCount?: number | undefined;
@@ -6123,8 +6266,9 @@ export const FastLaunchStateCode = {
 export type FastLaunchStateCode = (typeof FastLaunchStateCode)[keyof typeof FastLaunchStateCode];
 
 /**
- * <p>Describe details about a Windows image with Windows fast launch enabled that meets the requested
- * 			criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>
+ * <p>Describe details about a Windows image with Windows fast launch enabled that meets the
+ *       requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action
+ *       filters.</p>
  * @public
  */
 export interface DescribeFastLaunchImagesSuccessItem {
@@ -6136,28 +6280,28 @@ export interface DescribeFastLaunchImagesSuccessItem {
 
   /**
    * <p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values
-   * 			include: <code>snapshot</code>.</p>
+   *       include: <code>snapshot</code>.</p>
    * @public
    */
   ResourceType?: FastLaunchResourceType | undefined;
 
   /**
-   * <p>A group of parameters that are used for pre-provisioning the associated
-   * 			Windows AMI using snapshots.</p>
+   * <p>A group of parameters that are used for pre-provisioning the associated Windows AMI using
+   *       snapshots.</p>
    * @public
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse | undefined;
 
   /**
-   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches
-   * 			Windows instances from pre-provisioned snapshots.</p>
+   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches Windows
+   *       instances from pre-provisioned snapshots.</p>
    * @public
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse | undefined;
 
   /**
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   * 			pre-provisioned snapshots for Windows fast launch.</p>
+   *       pre-provisioned snapshots for Windows fast launch.</p>
    * @public
    */
   MaxParallelLaunches?: number | undefined;
@@ -6192,8 +6336,8 @@ export interface DescribeFastLaunchImagesSuccessItem {
  */
 export interface DescribeFastLaunchImagesResult {
   /**
-   * <p>A collection of details about the fast-launch enabled Windows images that meet
-   * 			the requested criteria.</p>
+   * <p>A collection of details about the fast-launch enabled Windows images that meet the
+   *       requested criteria.</p>
    * @public
    */
   FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[] | undefined;
@@ -8418,398 +8562,6 @@ export interface DescribeHostReservationsResult {
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHostsRequest {
-  /**
-   * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
-   *             launches.</p>
-   * @public
-   */
-  HostIds?: string[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   *          <p>You cannot specify this parameter and the host IDs parameter in the same
-   *             request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>auto-placement</code> - Whether auto-placement is enabled or disabled
-   *                         (<code>on</code> | <code>off</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the host.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>client-token</code> - The idempotency token that you provided when you
-   *                     allocated the host.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>host-reservation-id</code> - The ID of the reservation assigned to this
-   *                     host.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type size that the Dedicated Host is
-   *                     configured to support.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The allocation state of the Dedicated Host
-   *                         (<code>available</code> | <code>under-assessment</code> |
-   *                         <code>permanent-failure</code> | <code>released</code> |
-   *                         <code>released-permanent-failure</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filter?: Filter[] | undefined;
-}
-
-/**
- * <p>Information about the number of instances that can be launched onto the Dedicated
- *             Host.</p>
- * @public
- */
-export interface InstanceCapacity {
-  /**
-   * <p>The number of instances that can be launched onto the Dedicated Host based on the
-   *             host's available capacity.</p>
-   * @public
-   */
-  AvailableCapacity?: number | undefined;
-
-  /**
-   * <p>The instance type supported by the Dedicated Host.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The total number of instances that can be launched onto the Dedicated Host if there
-   *             are no instances running on it.</p>
-   * @public
-   */
-  TotalCapacity?: number | undefined;
-}
-
-/**
- * <p>The capacity information for instances that can be launched onto the Dedicated Host.
- *         </p>
- * @public
- */
-export interface AvailableCapacity {
-  /**
-   * <p>The number of instances that can be launched onto the Dedicated Host depending on the
-   *             host's available capacity. For Dedicated Hosts that support multiple instance types,
-   *             this parameter represents the number of instances for each instance size that is
-   *             supported on the host.</p>
-   * @public
-   */
-  AvailableInstanceCapacity?: InstanceCapacity[] | undefined;
-
-  /**
-   * <p>The number of vCPUs available for launching instances onto the Dedicated Host.</p>
-   * @public
-   */
-  AvailableVCpus?: number | undefined;
-}
-
-/**
- * <p>Describes the properties of a Dedicated Host.</p>
- * @public
- */
-export interface HostProperties {
-  /**
-   * <p>The number of cores on the Dedicated Host.</p>
-   * @public
-   */
-  Cores?: number | undefined;
-
-  /**
-   * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
-   *             If the host supports multiple instance types, no <b>instanceType</b> is returned.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The instance family supported by the Dedicated Host. For example,
-   *             <code>m5</code>.</p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-
-  /**
-   * <p>The number of sockets on the Dedicated Host.</p>
-   * @public
-   */
-  Sockets?: number | undefined;
-
-  /**
-   * <p>The total number of vCPUs on the Dedicated Host.</p>
-   * @public
-   */
-  TotalVCpus?: number | undefined;
-}
-
-/**
- * <p>Describes an instance running on a Dedicated Host.</p>
- * @public
- */
-export interface HostInstance {
-  /**
-   * <p>The ID of instance that is running on the Dedicated Host.</p>
-   * @public
-   */
-  InstanceId?: string | undefined;
-
-  /**
-   * <p>The instance type (for example, <code>m3.medium</code>) of the running
-   *             instance.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the instance.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-}
-
-/**
- * <p>Describes the properties of the Dedicated Host.</p>
- * @public
- */
-export interface Host {
-  /**
-   * <p>Whether auto-placement is on or off.</p>
-   * @public
-   */
-  AutoPlacement?: AutoPlacement | undefined;
-
-  /**
-   * <p>The Availability Zone of the Dedicated Host.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>Information about the instances running on the Dedicated Host.</p>
-   * @public
-   */
-  AvailableCapacity?: AvailableCapacity | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The ID of the Dedicated Host.</p>
-   * @public
-   */
-  HostId?: string | undefined;
-
-  /**
-   * <p>The hardware specifications of the Dedicated Host.</p>
-   * @public
-   */
-  HostProperties?: HostProperties | undefined;
-
-  /**
-   * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code> response if
-   *             the Dedicated Host doesn't have an associated reservation.</p>
-   * @public
-   */
-  HostReservationId?: string | undefined;
-
-  /**
-   * <p>The IDs and instance type that are currently running on the Dedicated Host.</p>
-   * @public
-   */
-  Instances?: HostInstance[] | undefined;
-
-  /**
-   * <p>The Dedicated Host's state.</p>
-   * @public
-   */
-  State?: AllocationState | undefined;
-
-  /**
-   * <p>The time that the Dedicated Host was allocated.</p>
-   * @public
-   */
-  AllocationTime?: Date | undefined;
-
-  /**
-   * <p>The time that the Dedicated Host was released.</p>
-   * @public
-   */
-  ReleaseTime?: Date | undefined;
-
-  /**
-   * <p>Any tags assigned to the Dedicated Host.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
-   * @public
-   */
-  HostRecovery?: HostRecovery | undefined;
-
-  /**
-   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same
-   *             instance family. If the value is <code>on</code>, the Dedicated Host supports multiple
-   *             instance types in the instance family. If the value is <code>off</code>, the Dedicated
-   *             Host supports a single instance type only.</p>
-   * @public
-   */
-  AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the Dedicated Host.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone in which the Dedicated Host is allocated.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-
-  /**
-   * <p>Indicates whether the Dedicated Host is in a host resource group. If <b>memberOfServiceLinkedResourceGroup</b> is <code>true</code>, the
-   *             host is in a host resource group; otherwise, it is not.</p>
-   * @public
-   */
-  MemberOfServiceLinkedResourceGroup?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the
-   *             Dedicated Host is allocated.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>Indicates whether host maintenance is enabled or disabled for the Dedicated
-   *             Host.</p>
-   * @public
-   */
-  HostMaintenance?: HostMaintenance | undefined;
-
-  /**
-   * <p>The ID of the Outpost hardware asset on which the Dedicated Host is allocated.</p>
-   * @public
-   */
-  AssetId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHostsResult {
-  /**
-   * <p>Information about the Dedicated Hosts.</p>
-   * @public
-   */
-  Hosts?: Host[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIamInstanceProfileAssociationsRequest {
-  /**
-   * <p>The IAM instance profile associations.</p>
-   * @public
-   */
-  AssociationIds?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-id</code> - The ID of the instance.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the association (<code>associating</code> |
-   *                 <code>associated</code> | <code>disassociating</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of
-   *             items, make another request with the token returned in the output. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *             Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeIamInstanceProfileAssociationsResult {
-  /**
-   * <p>Information about the IAM instance profile associations.</p>
-   * @public
-   */
-  IamInstanceProfileAssociations?: IamInstanceProfileAssociation[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *             This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string | undefined;

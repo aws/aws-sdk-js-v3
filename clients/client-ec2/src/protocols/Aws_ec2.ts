@@ -458,6 +458,10 @@ import {
   CreateVerifiedAccessTrustProviderCommandOutput,
 } from "../commands/CreateVerifiedAccessTrustProviderCommand";
 import { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "../commands/CreateVolumeCommand";
+import {
+  CreateVpcBlockPublicAccessExclusionCommandInput,
+  CreateVpcBlockPublicAccessExclusionCommandOutput,
+} from "../commands/CreateVpcBlockPublicAccessExclusionCommand";
 import { CreateVpcCommandInput, CreateVpcCommandOutput } from "../commands/CreateVpcCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
 import {
@@ -695,6 +699,10 @@ import {
   DeleteVerifiedAccessTrustProviderCommandOutput,
 } from "../commands/DeleteVerifiedAccessTrustProviderCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "../commands/DeleteVolumeCommand";
+import {
+  DeleteVpcBlockPublicAccessExclusionCommandInput,
+  DeleteVpcBlockPublicAccessExclusionCommandOutput,
+} from "../commands/DeleteVpcBlockPublicAccessExclusionCommand";
 import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "../commands/DeleteVpcCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
@@ -1253,6 +1261,14 @@ import {
   DescribeVpcAttributeCommandInput,
   DescribeVpcAttributeCommandOutput,
 } from "../commands/DescribeVpcAttributeCommand";
+import {
+  DescribeVpcBlockPublicAccessExclusionsCommandInput,
+  DescribeVpcBlockPublicAccessExclusionsCommandOutput,
+} from "../commands/DescribeVpcBlockPublicAccessExclusionsCommand";
+import {
+  DescribeVpcBlockPublicAccessOptionsCommandInput,
+  DescribeVpcBlockPublicAccessOptionsCommandOutput,
+} from "../commands/DescribeVpcBlockPublicAccessOptionsCommand";
 import {
   DescribeVpcClassicLinkCommandInput,
   DescribeVpcClassicLinkCommandOutput,
@@ -1913,6 +1929,14 @@ import {
 } from "../commands/ModifyVolumeAttributeCommand";
 import { ModifyVolumeCommandInput, ModifyVolumeCommandOutput } from "../commands/ModifyVolumeCommand";
 import { ModifyVpcAttributeCommandInput, ModifyVpcAttributeCommandOutput } from "../commands/ModifyVpcAttributeCommand";
+import {
+  ModifyVpcBlockPublicAccessExclusionCommandInput,
+  ModifyVpcBlockPublicAccessExclusionCommandOutput,
+} from "../commands/ModifyVpcBlockPublicAccessExclusionCommand";
+import {
+  ModifyVpcBlockPublicAccessOptionsCommandInput,
+  ModifyVpcBlockPublicAccessOptionsCommandOutput,
+} from "../commands/ModifyVpcBlockPublicAccessOptionsCommand";
 import { ModifyVpcEndpointCommandInput, ModifyVpcEndpointCommandOutput } from "../commands/ModifyVpcEndpointCommand";
 import {
   ModifyVpcEndpointConnectionNotificationCommandInput,
@@ -2434,6 +2458,7 @@ import {
   BaselineEbsBandwidthMbps,
   BaselineEbsBandwidthMbpsRequest,
   BlockDeviceMapping,
+  BlockPublicAccessStates,
   CapacityReservation,
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
@@ -2524,7 +2549,6 @@ import {
   CreateNetworkAclEntryRequest,
   CreateNetworkAclRequest,
   CreateNetworkAclResult,
-  CreateNetworkInsightsAccessScopeRequest,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2632,7 +2656,6 @@ import {
   NetworkAclEntry,
   NetworkBandwidthGbps,
   NetworkBandwidthGbpsRequest,
-  NetworkInsightsAccessScope,
   NetworkInterfaceCount,
   NetworkInterfaceCountRequest,
   NewDhcpConfiguration,
@@ -2668,6 +2691,7 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateNetworkInsightsAccessScopeRequest,
   CreateNetworkInsightsAccessScopeResult,
   CreateNetworkInsightsPathRequest,
   CreateNetworkInsightsPathResult,
@@ -2750,6 +2774,8 @@ import {
   CreateVerifiedAccessTrustProviderRequest,
   CreateVerifiedAccessTrustProviderResult,
   CreateVolumeRequest,
+  CreateVpcBlockPublicAccessExclusionRequest,
+  CreateVpcBlockPublicAccessExclusionResult,
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
   CreateVpcEndpointRequest,
@@ -2794,15 +2820,8 @@ import {
   DeleteInstanceEventWindowResult,
   DeleteInternetGatewayRequest,
   DeleteIpamExternalResourceVerificationTokenRequest,
-  DeleteIpamExternalResourceVerificationTokenResult,
-  DeleteIpamPoolRequest,
-  DeleteIpamPoolResult,
   DeleteIpamRequest,
-  DeleteIpamResourceDiscoveryRequest,
-  DeleteIpamResourceDiscoveryResult,
   DeleteIpamResult,
-  DeleteIpamScopeRequest,
-  DeleteIpamScopeResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2814,6 +2833,7 @@ import {
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  NetworkInsightsAccessScope,
   NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
   NetworkInterface,
@@ -2891,6 +2911,7 @@ import {
   VerifiedAccessSseSpecificationRequest,
   VgwTelemetry,
   Volume,
+  VpcBlockPublicAccessExclusion,
   VpcEndpoint,
   VpnConnection,
   VpnConnectionOptions,
@@ -2906,7 +2927,6 @@ import {
   AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
-  AvailableCapacity,
   Byoasn,
   CapacityBlockOffering,
   CapacityReservationBillingRequest,
@@ -2925,6 +2945,13 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteIpamExternalResourceVerificationTokenResult,
+  DeleteIpamPoolRequest,
+  DeleteIpamPoolResult,
+  DeleteIpamResourceDiscoveryRequest,
+  DeleteIpamResourceDiscoveryResult,
+  DeleteIpamScopeRequest,
+  DeleteIpamScopeResult,
   DeleteKeyPairRequest,
   DeleteKeyPairResult,
   DeleteLaunchTemplateRequest,
@@ -3012,6 +3039,8 @@ import {
   DeleteVerifiedAccessTrustProviderRequest,
   DeleteVerifiedAccessTrustProviderResult,
   DeleteVolumeRequest,
+  DeleteVpcBlockPublicAccessExclusionRequest,
+  DeleteVpcBlockPublicAccessExclusionResult,
   DeleteVpcEndpointConnectionNotificationsRequest,
   DeleteVpcEndpointConnectionNotificationsResult,
   DeleteVpcEndpointServiceConfigurationsRequest,
@@ -3120,10 +3149,6 @@ import {
   DescribeHostReservationOfferingsResult,
   DescribeHostReservationsRequest,
   DescribeHostReservationsResult,
-  DescribeHostsRequest,
-  DescribeHostsResult,
-  DescribeIamInstanceProfileAssociationsRequest,
-  DescribeIamInstanceProfileAssociationsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3147,16 +3172,12 @@ import {
   FpgaImageAttribute,
   FpgaImageState,
   HistoryRecordEntry,
-  Host,
-  HostInstance,
   HostOffering,
-  HostProperties,
   HostReservation,
   IdFormat,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
   ImportVolumeTaskDetails,
-  InstanceCapacity,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
@@ -3176,11 +3197,15 @@ import {
 import {
   ArchitectureType,
   AttributeBooleanValue,
+  AvailableCapacity,
   BootModeType,
   CapacityReservationSpecificationResponse,
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
-  CreateVolumePermission,
+  DescribeHostsRequest,
+  DescribeHostsResult,
+  DescribeIamInstanceProfileAssociationsRequest,
+  DescribeIamInstanceProfileAssociationsResult,
   DescribeIdentityIdFormatRequest,
   DescribeIdentityIdFormatResult,
   DescribeIdFormatRequest,
@@ -3309,11 +3334,6 @@ import {
   DescribeSecurityGroupsResult,
   DescribeSecurityGroupVpcAssociationsRequest,
   DescribeSecurityGroupVpcAssociationsResult,
-  DescribeSnapshotAttributeRequest,
-  DescribeSnapshotAttributeResult,
-  DescribeSnapshotsRequest,
-  DescribeSnapshotsResult,
-  DescribeSnapshotTierStatusRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3331,6 +3351,9 @@ import {
   GpuDeviceMemoryInfo,
   GpuInfo,
   HibernationOptions,
+  Host,
+  HostInstance,
+  HostProperties,
   Image,
   ImageAttribute,
   ImageMetadata,
@@ -3345,6 +3368,7 @@ import {
   InstanceAttachmentEnaSrdUdpSpecification,
   InstanceAttribute,
   InstanceBlockDeviceMapping,
+  InstanceCapacity,
   InstanceCreditSpecification,
   InstanceImageMetadata,
   InstanceIpv4Prefix,
@@ -3419,7 +3443,6 @@ import {
   SlotStartTimeRangeRequest,
   SnapshotDetail,
   SnapshotTaskDetail,
-  SnapshotTierStatus,
   SupportedAdditionalProcessorFeature,
   UsageClassType,
   UserBucketDetails,
@@ -3427,14 +3450,16 @@ import {
   VirtualizationType,
 } from "../models/models_4";
 import {
-  AssociatedRole,
   ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   ClientCertificateRevocationListStatus,
-  CoipAddressUsage,
-  DataQuery,
-  DataResponse,
+  CreateVolumePermission,
+  DescribeSnapshotAttributeRequest,
+  DescribeSnapshotAttributeResult,
+  DescribeSnapshotsRequest,
+  DescribeSnapshotsResult,
+  DescribeSnapshotTierStatusRequest,
   DescribeSnapshotTierStatusResult,
   DescribeSpotDatafeedSubscriptionRequest,
   DescribeSpotDatafeedSubscriptionResult,
@@ -3506,6 +3531,10 @@ import {
   DescribeVolumeStatusResult,
   DescribeVpcAttributeRequest,
   DescribeVpcAttributeResult,
+  DescribeVpcBlockPublicAccessExclusionsRequest,
+  DescribeVpcBlockPublicAccessExclusionsResult,
+  DescribeVpcBlockPublicAccessOptionsRequest,
+  DescribeVpcBlockPublicAccessOptionsResult,
   DescribeVpcClassicLinkDnsSupportRequest,
   DescribeVpcClassicLinkDnsSupportResult,
   DescribeVpcClassicLinkRequest,
@@ -3654,28 +3683,17 @@ import {
   ExportTransitGatewayRoutesResult,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
-  GetAssociatedEnclaveCertificateIamRolesRequest,
-  GetAssociatedEnclaveCertificateIamRolesResult,
-  GetAssociatedIpv6PoolCidrsRequest,
-  GetAssociatedIpv6PoolCidrsResult,
-  GetAwsNetworkPerformanceDataRequest,
-  GetAwsNetworkPerformanceDataResult,
-  GetCapacityReservationUsageRequest,
-  GetCapacityReservationUsageResult,
-  GetCoipPoolUsageRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
-  InstanceUsage,
-  Ipv6CidrAssociation,
   LaunchSpecification,
   LaunchTemplateConfig,
   LaunchTemplateOverrides,
   LoadBalancersConfig,
-  MetricPoint,
   PrivateDnsDetails,
   RunInstancesMonitoringEnabled,
   ServiceDetail,
+  SnapshotTierStatus,
   SpotCapacityRebalance,
   SpotFleetLaunchSpecification,
   SpotFleetMonitoring,
@@ -3709,20 +3727,34 @@ import {
   VolumeStatusEvent,
   VolumeStatusInfo,
   VolumeStatusItem,
+  VpcBlockPublicAccessOptions,
   VpcClassicLink,
   VpcEndpointConnection,
 } from "../models/models_5";
 import {
+  AssociatedRole,
   AthenaIntegration,
   BlobAttributeValue,
   CapacityReservationGroup,
   CapacityReservationSpecification,
   ClientData,
+  CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DataQuery,
+  DataResponse,
   DiskImage,
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetAssociatedEnclaveCertificateIamRolesRequest,
+  GetAssociatedEnclaveCertificateIamRolesResult,
+  GetAssociatedIpv6PoolCidrsRequest,
+  GetAssociatedIpv6PoolCidrsResult,
+  GetAwsNetworkPerformanceDataRequest,
+  GetAwsNetworkPerformanceDataResult,
+  GetCapacityReservationUsageRequest,
+  GetCapacityReservationUsageResult,
+  GetCoipPoolUsageRequest,
   GetCoipPoolUsageResult,
   GetConsoleOutputRequest,
   GetConsoleOutputResult,
@@ -3834,6 +3866,7 @@ import {
   InstanceMetadataDefaultsResponse,
   InstanceRequirementsWithMetadataRequest,
   InstanceTypeInfoFromInstanceRequirements,
+  InstanceUsage,
   IntegrateServices,
   IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
@@ -3844,6 +3877,7 @@ import {
   IpamPublicAddressTag,
   IpamPublicAddressTags,
   IpamResourceCidr,
+  Ipv6CidrAssociation,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
   ListImagesInRecycleBinResult,
@@ -3854,6 +3888,7 @@ import {
   LockSnapshotRequest,
   LockSnapshotResult,
   MaintenanceDetails,
+  MetricPoint,
   ModifyAddressAttributeRequest,
   ModifyAddressAttributeResult,
   ModifyAvailabilityZoneGroupRequest,
@@ -3941,18 +3976,6 @@ import {
   ModifyTransitGatewayVpcAttachmentResult,
   ModifyVerifiedAccessEndpointEniOptions,
   ModifyVerifiedAccessEndpointLoadBalancerOptions,
-  ModifyVerifiedAccessEndpointPolicyRequest,
-  ModifyVerifiedAccessEndpointPolicyResult,
-  ModifyVerifiedAccessEndpointRequest,
-  ModifyVerifiedAccessEndpointResult,
-  ModifyVerifiedAccessGroupPolicyRequest,
-  ModifyVerifiedAccessGroupPolicyResult,
-  ModifyVerifiedAccessGroupRequest,
-  ModifyVerifiedAccessGroupResult,
-  ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
-  ModifyVerifiedAccessInstanceLoggingConfigurationResult,
-  ModifyVerifiedAccessInstanceRequest,
-  ModifyVerifiedAccessInstanceResult,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -3983,10 +4006,6 @@ import {
   UnsuccessfulInstanceCreditSpecificationItemError,
   UserBucket,
   UserData,
-  VerifiedAccessLogCloudWatchLogsDestinationOptions,
-  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
-  VerifiedAccessLogOptions,
-  VerifiedAccessLogS3DestinationOptions,
   VolumeDetail,
   VpnConnectionDeviceType,
 } from "../models/models_6";
@@ -4005,6 +4024,18 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVerifiedAccessEndpointPolicyRequest,
+  ModifyVerifiedAccessEndpointPolicyResult,
+  ModifyVerifiedAccessEndpointRequest,
+  ModifyVerifiedAccessEndpointResult,
+  ModifyVerifiedAccessGroupPolicyRequest,
+  ModifyVerifiedAccessGroupPolicyResult,
+  ModifyVerifiedAccessGroupRequest,
+  ModifyVerifiedAccessGroupResult,
+  ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
+  ModifyVerifiedAccessInstanceLoggingConfigurationResult,
+  ModifyVerifiedAccessInstanceRequest,
+  ModifyVerifiedAccessInstanceResult,
   ModifyVerifiedAccessTrustProviderDeviceOptions,
   ModifyVerifiedAccessTrustProviderOidcOptions,
   ModifyVerifiedAccessTrustProviderRequest,
@@ -4013,6 +4044,10 @@ import {
   ModifyVolumeRequest,
   ModifyVolumeResult,
   ModifyVpcAttributeRequest,
+  ModifyVpcBlockPublicAccessExclusionRequest,
+  ModifyVpcBlockPublicAccessExclusionResult,
+  ModifyVpcBlockPublicAccessOptionsRequest,
+  ModifyVpcBlockPublicAccessOptionsResult,
   ModifyVpcEndpointConnectionNotificationRequest,
   ModifyVpcEndpointConnectionNotificationResult,
   ModifyVpcEndpointRequest,
@@ -4190,6 +4225,10 @@ import {
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
+  VerifiedAccessLogCloudWatchLogsDestinationOptions,
+  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+  VerifiedAccessLogOptions,
+  VerifiedAccessLogS3DestinationOptions,
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
 } from "../models/models_7";
@@ -6490,6 +6529,23 @@ export const se_CreateVpcCommand = async (
 };
 
 /**
+ * serializeAws_ec2CreateVpcBlockPublicAccessExclusionCommand
+ */
+export const se_CreateVpcBlockPublicAccessExclusionCommand = async (
+  input: CreateVpcBlockPublicAccessExclusionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateVpcBlockPublicAccessExclusionRequest(input, context),
+    [_A]: _CVBPAE,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_ec2CreateVpcEndpointCommand
  */
 export const se_CreateVpcEndpointCommand = async (
@@ -7759,6 +7815,23 @@ export const se_DeleteVpcCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteVpcRequest(input, context),
     [_A]: _DVe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DeleteVpcBlockPublicAccessExclusionCommand
+ */
+export const se_DeleteVpcBlockPublicAccessExclusionCommand = async (
+  input: DeleteVpcBlockPublicAccessExclusionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteVpcBlockPublicAccessExclusionRequest(input, context),
+    [_A]: _DVBPAE,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10445,6 +10518,40 @@ export const se_DescribeVpcAttributeCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeVpcAttributeRequest(input, context),
     [_A]: _DVAe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeVpcBlockPublicAccessExclusionsCommand
+ */
+export const se_DescribeVpcBlockPublicAccessExclusionsCommand = async (
+  input: DescribeVpcBlockPublicAccessExclusionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeVpcBlockPublicAccessExclusionsRequest(input, context),
+    [_A]: _DVBPAEe,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2DescribeVpcBlockPublicAccessOptionsCommand
+ */
+export const se_DescribeVpcBlockPublicAccessOptionsCommand = async (
+  input: DescribeVpcBlockPublicAccessOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeVpcBlockPublicAccessOptionsRequest(input, context),
+    [_A]: _DVBPAO,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13607,6 +13714,40 @@ export const se_ModifyVpcAttributeCommand = async (
   body = buildFormUrlencodedString({
     ...se_ModifyVpcAttributeRequest(input, context),
     [_A]: _MVAo,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyVpcBlockPublicAccessExclusionCommand
+ */
+export const se_ModifyVpcBlockPublicAccessExclusionCommand = async (
+  input: ModifyVpcBlockPublicAccessExclusionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyVpcBlockPublicAccessExclusionRequest(input, context),
+    [_A]: _MVBPAE,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_ec2ModifyVpcBlockPublicAccessOptionsCommand
+ */
+export const se_ModifyVpcBlockPublicAccessOptionsCommand = async (
+  input: ModifyVpcBlockPublicAccessOptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyVpcBlockPublicAccessOptionsRequest(input, context),
+    [_A]: _MVBPAO,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -17706,6 +17847,26 @@ export const de_CreateVpcCommand = async (
 };
 
 /**
+ * deserializeAws_ec2CreateVpcBlockPublicAccessExclusionCommand
+ */
+export const de_CreateVpcBlockPublicAccessExclusionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcBlockPublicAccessExclusionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateVpcBlockPublicAccessExclusionResult(data, context);
+  const response: CreateVpcBlockPublicAccessExclusionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_ec2CreateVpcEndpointCommand
  */
 export const de_CreateVpcEndpointCommand = async (
@@ -19150,6 +19311,26 @@ export const de_DeleteVpcCommand = async (
   await collectBody(output.body, context);
   const response: DeleteVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DeleteVpcBlockPublicAccessExclusionCommand
+ */
+export const de_DeleteVpcBlockPublicAccessExclusionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcBlockPublicAccessExclusionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteVpcBlockPublicAccessExclusionResult(data, context);
+  const response: DeleteVpcBlockPublicAccessExclusionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -22296,6 +22477,46 @@ export const de_DescribeVpcAttributeCommand = async (
   let contents: any = {};
   contents = de_DescribeVpcAttributeResult(data, context);
   const response: DescribeVpcAttributeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeVpcBlockPublicAccessExclusionsCommand
+ */
+export const de_DescribeVpcBlockPublicAccessExclusionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcBlockPublicAccessExclusionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeVpcBlockPublicAccessExclusionsResult(data, context);
+  const response: DescribeVpcBlockPublicAccessExclusionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2DescribeVpcBlockPublicAccessOptionsCommand
+ */
+export const de_DescribeVpcBlockPublicAccessOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcBlockPublicAccessOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeVpcBlockPublicAccessOptionsResult(data, context);
+  const response: DescribeVpcBlockPublicAccessOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -25967,6 +26188,46 @@ export const de_ModifyVpcAttributeCommand = async (
   await collectBody(output.body, context);
   const response: ModifyVpcAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyVpcBlockPublicAccessExclusionCommand
+ */
+export const de_ModifyVpcBlockPublicAccessExclusionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVpcBlockPublicAccessExclusionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyVpcBlockPublicAccessExclusionResult(data, context);
+  const response: ModifyVpcBlockPublicAccessExclusionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2ModifyVpcBlockPublicAccessOptionsCommand
+ */
+export const de_ModifyVpcBlockPublicAccessOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVpcBlockPublicAccessOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyVpcBlockPublicAccessOptionsResult(data, context);
+  const response: ModifyVpcBlockPublicAccessOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -33163,6 +33424,36 @@ const se_CreateVolumeRequest = (input: CreateVolumeRequest, context: __SerdeCont
 };
 
 /**
+ * serializeAws_ec2CreateVpcBlockPublicAccessExclusionRequest
+ */
+const se_CreateVpcBlockPublicAccessExclusionRequest = (
+  input: CreateVpcBlockPublicAccessExclusionRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_SIub] != null) {
+    entries[_SIub] = input[_SIub];
+  }
+  if (input[_VI] != null) {
+    entries[_VI] = input[_VI];
+  }
+  if (input[_IGEM] != null) {
+    entries[_IGEM] = input[_IGEM];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2CreateVpcEndpointConnectionNotificationRequest
  */
 const se_CreateVpcEndpointConnectionNotificationRequest = (
@@ -34721,6 +35012,23 @@ const se_DeleteVolumeRequest = (input: DeleteVolumeRequest, context: __SerdeCont
   }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DeleteVpcBlockPublicAccessExclusionRequest
+ */
+const se_DeleteVpcBlockPublicAccessExclusionRequest = (
+  input: DeleteVpcBlockPublicAccessExclusionRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_EIxc] != null) {
+    entries[_EIxc] = input[_EIxc];
   }
   return entries;
 };
@@ -39477,6 +39785,54 @@ const se_DescribeVpcAttributeRequest = (input: DescribeVpcAttributeRequest, cont
   if (input[_VI] != null) {
     entries[_VI] = input[_VI];
   }
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeVpcBlockPublicAccessExclusionsRequest
+ */
+const se_DescribeVpcBlockPublicAccessExclusionsRequest = (
+  input: DescribeVpcBlockPublicAccessExclusionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_FilterList(input[_Fi], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_EIxcl] != null) {
+    const memberEntries = se_VpcBlockPublicAccessExclusionIdList(input[_EIxcl], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ExclusionId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2DescribeVpcBlockPublicAccessOptionsRequest
+ */
+const se_DescribeVpcBlockPublicAccessOptionsRequest = (
+  input: DescribeVpcBlockPublicAccessOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -48073,6 +48429,43 @@ const se_ModifyVpcAttributeRequest = (input: ModifyVpcAttributeRequest, context:
 };
 
 /**
+ * serializeAws_ec2ModifyVpcBlockPublicAccessExclusionRequest
+ */
+const se_ModifyVpcBlockPublicAccessExclusionRequest = (
+  input: ModifyVpcBlockPublicAccessExclusionRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_EIxc] != null) {
+    entries[_EIxc] = input[_EIxc];
+  }
+  if (input[_IGEM] != null) {
+    entries[_IGEM] = input[_IGEM];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2ModifyVpcBlockPublicAccessOptionsRequest
+ */
+const se_ModifyVpcBlockPublicAccessOptionsRequest = (
+  input: ModifyVpcBlockPublicAccessOptionsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_DRr] != null) {
+    entries[_DRr] = input[_DRr];
+  }
+  if (input[_IGBM] != null) {
+    entries[_IGBM] = input[_IGBM];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2ModifyVpcEndpointConnectionNotificationRequest
  */
 const se_ModifyVpcEndpointConnectionNotificationRequest = (
@@ -54587,6 +54980,22 @@ const se_VolumeIdStringList = (input: string[], context: __SerdeContext): any =>
 };
 
 /**
+ * serializeAws_ec2VpcBlockPublicAccessExclusionIdList
+ */
+const se_VpcBlockPublicAccessExclusionIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2VpcClassicLinkIdList
  */
 const se_VpcClassicLinkIdList = (input: string[], context: __SerdeContext): any => {
@@ -55069,7 +55478,7 @@ const de_AcceptReservedInstancesExchangeQuoteResult = (
 ): AcceptReservedInstancesExchangeQuoteResult => {
   const contents: any = {};
   if (output[_eI] != null) {
-    contents[_EIxc] = __expectString(output[_eI]);
+    contents[_EIxch] = __expectString(output[_eI]);
   }
   return contents;
 };
@@ -56639,6 +57048,17 @@ const de_BlockDeviceMappingList = (output: any, context: __SerdeContext): BlockD
     .map((entry: any) => {
       return de_BlockDeviceMapping(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2BlockPublicAccessStates
+ */
+const de_BlockPublicAccessStates = (output: any, context: __SerdeContext): BlockPublicAccessStates => {
+  const contents: any = {};
+  if (output[_iGBM] != null) {
+    contents[_IGBM] = __expectString(output[_iGBM]);
+  }
+  return contents;
 };
 
 /**
@@ -59404,6 +59824,20 @@ const de_CreateVolumePermissionList = (output: any, context: __SerdeContext): Cr
 };
 
 /**
+ * deserializeAws_ec2CreateVpcBlockPublicAccessExclusionResult
+ */
+const de_CreateVpcBlockPublicAccessExclusionResult = (
+  output: any,
+  context: __SerdeContext
+): CreateVpcBlockPublicAccessExclusionResult => {
+  const contents: any = {};
+  if (output[_vBPAE] != null) {
+    contents[_VBPAE] = de_VpcBlockPublicAccessExclusion(output[_vBPAE], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult
  */
 const de_CreateVpcEndpointConnectionNotificationResult = (
@@ -60449,6 +60883,20 @@ const de_DeleteVerifiedAccessTrustProviderResult = (
   const contents: any = {};
   if (output[_vATP] != null) {
     contents[_VATP] = de_VerifiedAccessTrustProvider(output[_vATP], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DeleteVpcBlockPublicAccessExclusionResult
+ */
+const de_DeleteVpcBlockPublicAccessExclusionResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteVpcBlockPublicAccessExclusionResult => {
+  const contents: any = {};
+  if (output[_vBPAE] != null) {
+    contents[_VBPAE] = de_VpcBlockPublicAccessExclusion(output[_vBPAE], context);
   }
   return contents;
 };
@@ -63288,6 +63736,39 @@ const de_DescribeVpcAttributeResult = (output: any, context: __SerdeContext): De
   }
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeVpcBlockPublicAccessExclusionsResult
+ */
+const de_DescribeVpcBlockPublicAccessExclusionsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVpcBlockPublicAccessExclusionsResult => {
+  const contents: any = {};
+  if (output.vpcBlockPublicAccessExclusionSet === "") {
+    contents[_VBPAEp] = [];
+  } else if (output[_vBPAES] != null && output[_vBPAES][_i] != null) {
+    contents[_VBPAEp] = de_VpcBlockPublicAccessExclusionList(__getArrayIfSingleItem(output[_vBPAES][_i]), context);
+  }
+  if (output[_nTe] != null) {
+    contents[_NT] = __expectString(output[_nTe]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2DescribeVpcBlockPublicAccessOptionsResult
+ */
+const de_DescribeVpcBlockPublicAccessOptionsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVpcBlockPublicAccessOptionsResult => {
+  const contents: any = {};
+  if (output[_vBPAO] != null) {
+    contents[_VBPAO] = de_VpcBlockPublicAccessOptions(output[_vBPAO], context);
   }
   return contents;
 };
@@ -73651,6 +74132,34 @@ const de_ModifyVolumeResult = (output: any, context: __SerdeContext): ModifyVolu
 };
 
 /**
+ * deserializeAws_ec2ModifyVpcBlockPublicAccessExclusionResult
+ */
+const de_ModifyVpcBlockPublicAccessExclusionResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVpcBlockPublicAccessExclusionResult => {
+  const contents: any = {};
+  if (output[_vBPAE] != null) {
+    contents[_VBPAE] = de_VpcBlockPublicAccessExclusion(output[_vBPAE], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2ModifyVpcBlockPublicAccessOptionsResult
+ */
+const de_ModifyVpcBlockPublicAccessOptionsResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVpcBlockPublicAccessOptionsResult => {
+  const contents: any = {};
+  if (output[_vBPAO] != null) {
+    contents[_VBPAO] = de_VpcBlockPublicAccessOptions(output[_vBPAO], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult
  */
 const de_ModifyVpcEndpointConnectionNotificationResult = (
@@ -79485,6 +79994,9 @@ const de_Subnet = (output: any, context: __SerdeContext): Subnet => {
   if (output[_pDNOOL] != null) {
     contents[_PDNOOL] = de_PrivateDnsNameOptionsOnLaunch(output[_pDNOOL], context);
   }
+  if (output[_bPAS] != null) {
+    contents[_BPAS] = de_BlockPublicAccessStates(output[_bPAS], context);
+  }
   if (output[_sIu] != null) {
     contents[_SIub] = __expectString(output[_sIu]);
   }
@@ -83042,6 +83554,9 @@ const de_Vpc = (output: any, context: __SerdeContext): Vpc => {
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
+  if (output[_bPAS] != null) {
+    contents[_BPAS] = de_BlockPublicAccessStates(output[_bPAS], context);
+  }
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
   }
@@ -83080,6 +83595,83 @@ const de_VpcAttachmentList = (output: any, context: __SerdeContext): VpcAttachme
     .map((entry: any) => {
       return de_VpcAttachment(entry, context);
     });
+};
+
+/**
+ * deserializeAws_ec2VpcBlockPublicAccessExclusion
+ */
+const de_VpcBlockPublicAccessExclusion = (output: any, context: __SerdeContext): VpcBlockPublicAccessExclusion => {
+  const contents: any = {};
+  if (output[_eIx] != null) {
+    contents[_EIxc] = __expectString(output[_eIx]);
+  }
+  if (output[_iGEM] != null) {
+    contents[_IGEM] = __expectString(output[_iGEM]);
+  }
+  if (output[_rAe] != null) {
+    contents[_RAes] = __expectString(output[_rAe]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_rea] != null) {
+    contents[_Rea] = __expectString(output[_rea]);
+  }
+  if (output[_cTrea] != null) {
+    contents[_CTrea] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTrea]));
+  }
+  if (output[_lUTas] != null) {
+    contents[_LUTas] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_lUTas]));
+  }
+  if (output[_dTele] != null) {
+    contents[_DTelet] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_dTele]));
+  }
+  if (output.tagSet === "") {
+    contents[_Ta] = [];
+  } else if (output[_tS] != null && output[_tS][_i] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2VpcBlockPublicAccessExclusionList
+ */
+const de_VpcBlockPublicAccessExclusionList = (
+  output: any,
+  context: __SerdeContext
+): VpcBlockPublicAccessExclusion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VpcBlockPublicAccessExclusion(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2VpcBlockPublicAccessOptions
+ */
+const de_VpcBlockPublicAccessOptions = (output: any, context: __SerdeContext): VpcBlockPublicAccessOptions => {
+  const contents: any = {};
+  if (output[_aAI] != null) {
+    contents[_AAI] = __expectString(output[_aAI]);
+  }
+  if (output[_aRw] != null) {
+    contents[_ARw] = __expectString(output[_aRw]);
+  }
+  if (output[_st] != null) {
+    contents[_Stat] = __expectString(output[_st]);
+  }
+  if (output[_iGBM] != null) {
+    contents[_IGBM] = __expectString(output[_iGBM]);
+  }
+  if (output[_rea] != null) {
+    contents[_Rea] = __expectString(output[_rea]);
+  }
+  if (output[_lUTas] != null) {
+    contents[_LUTas] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_lUTas]));
+  }
+  return contents;
 };
 
 /**
@@ -83866,6 +84458,7 @@ const _ARs = "AssociatedResource";
 const _ARss = "AssociatedRoles";
 const _ARu = "AutoRecovery";
 const _ARut = "AuthorizationRules";
+const _ARw = "AwsRegion";
 const _AS = "AllocationStrategy";
 const _ASA = "AmazonSideAsn";
 const _ASCB = "AssociateSubnetCidrBlock";
@@ -83968,6 +84561,7 @@ const _BN = "BucketName";
 const _BO = "BgpOptions";
 const _BOu = "BucketOwner";
 const _BP = "BurstablePerformance";
+const _BPAS = "BlockPublicAccessStates";
 const _BPS = "BurstablePerformanceSupported";
 const _BPi = "BillingProducts";
 const _BS = "BgpStatus";
@@ -84209,6 +84803,7 @@ const _CVAE = "CreateVerifiedAccessEndpoint";
 const _CVAG = "CreateVerifiedAccessGroup";
 const _CVAI = "CreateVerifiedAccessInstance";
 const _CVATP = "CreateVerifiedAccessTrustProvider";
+const _CVBPAE = "CreateVpcBlockPublicAccessExclusion";
 const _CVC = "CreateVpnConnection";
 const _CVCR = "CreateVpnConnectionRoute";
 const _CVE = "CreateVpcEndpoint";
@@ -84563,6 +85158,7 @@ const _DTS = "DpdTimeoutSeconds";
 const _DTe = "DescribeTags";
 const _DTel = "DeletionTime";
 const _DTele = "DeleteTime";
+const _DTelet = "DeletionTimestamp";
 const _DTep = "DeprecationTime";
 const _DTi = "DisablingTime";
 const _DTis = "DisabledTime";
@@ -84579,6 +85175,9 @@ const _DVATP = "DeleteVerifiedAccessTrustProvider";
 const _DVATPe = "DescribeVerifiedAccessTrustProviders";
 const _DVATPet = "DetachVerifiedAccessTrustProvider";
 const _DVAe = "DescribeVpcAttribute";
+const _DVBPAE = "DeleteVpcBlockPublicAccessExclusion";
+const _DVBPAEe = "DescribeVpcBlockPublicAccessExclusions";
+const _DVBPAO = "DescribeVpcBlockPublicAccessOptions";
 const _DVC = "DeleteVpnConnection";
 const _DVCB = "DisassociateVpcCidrBlock";
 const _DVCL = "DescribeVpcClassicLink";
@@ -84685,7 +85284,9 @@ const _EIf = "EfaInfo";
 const _EIv = "EventInformation";
 const _EIve = "EventId";
 const _EIx = "ExportImage";
-const _EIxc = "ExchangeId";
+const _EIxc = "ExclusionId";
+const _EIxch = "ExchangeId";
+const _EIxcl = "ExclusionIds";
 const _EKKI = "EncryptionKmsKeyId";
 const _ELADI = "EnableLniAtDeviceIndex";
 const _ELBL = "ElasticLoadBalancerListener";
@@ -84960,6 +85561,8 @@ const _IFCS = "InstanceFamilyCreditSpecification";
 const _IFR = "IamFleetRole";
 const _IFRn = "IngressFilterRules";
 const _IG = "InstanceGenerations";
+const _IGBM = "InternetGatewayBlockMode";
+const _IGEM = "InternetGatewayExclusionMode";
 const _IGI = "InternetGatewayId";
 const _IGIn = "InternetGatewayIds";
 const _IGn = "InternetGateway";
@@ -85231,6 +85834,7 @@ const _LTi = "LicenseType";
 const _LTo = "LocalTarget";
 const _LUT = "LastUpdateTime";
 const _LUTa = "LastUpdatedTime";
+const _LUTas = "LastUpdateTimestamp";
 const _LV = "LogVersion";
 const _LVN = "LatestVersionNumber";
 const _La = "Latest";
@@ -85355,6 +85959,8 @@ const _MVAI = "ModifyVerifiedAccessInstance";
 const _MVAILC = "ModifyVerifiedAccessInstanceLoggingConfiguration";
 const _MVATP = "ModifyVerifiedAccessTrustProvider";
 const _MVAo = "ModifyVpcAttribute";
+const _MVBPAE = "ModifyVpcBlockPublicAccessExclusion";
+const _MVBPAO = "ModifyVpcBlockPublicAccessOptions";
 const _MVC = "ModifyVpnConnection";
 const _MVCO = "ModifyVpnConnectionOptions";
 const _MVE = "ModifyVpcEndpoint";
@@ -85668,6 +86274,7 @@ const _RAP = "RemoveAllowedPrincipals";
 const _RART = "RemoveAllocationResourceTags";
 const _RATC = "RestoreAddressToClassic";
 const _RAe = "ResolveAlias";
+const _RAes = "ResourceArn";
 const _RAo = "RoleArn";
 const _RAu = "RuleAction";
 const _RB = "RequestedBy";
@@ -86249,6 +86856,9 @@ const _VATPI = "VerifiedAccessTrustProviderId";
 const _VATPIe = "VerifiedAccessTrustProviderIds";
 const _VATPe = "VerifiedAccessTrustProviders";
 const _VAp = "VpcAttachments";
+const _VBPAE = "VpcBlockPublicAccessExclusion";
+const _VBPAEp = "VpcBlockPublicAccessExclusions";
+const _VBPAO = "VpcBlockPublicAccessOptions";
 const _VC = "VpnConnection";
 const _VCC = "VCpuCount";
 const _VCDSC = "VpnConnectionDeviceSampleConfiguration";
@@ -86409,6 +87019,7 @@ const _aRcc = "acceptanceRequired";
 const _aRd = "addressRegion";
 const _aRs = "associatedResource";
 const _aRu = "autoRecovery";
+const _aRw = "awsRegion";
 const _aS = "associationState";
 const _aSA = "amazonSideAsn";
 const _aSS = "amdSevSnp";
@@ -86484,6 +87095,7 @@ const _bMa = "bareMetal";
 const _bN = "bucketName";
 const _bO = "bucketOwner";
 const _bP = "burstablePerformance";
+const _bPAS = "blockPublicAccessStates";
 const _bPS = "burstablePerformanceSupported";
 const _bS = "byoasnSet";
 const _bSg = "bgpStatus";
@@ -86701,6 +87313,7 @@ const _dTPT = "deviceTrustProviderType";
 const _dTS = "dpdTimeoutSeconds";
 const _dTe = "deprecationTime";
 const _dTel = "deleteTime";
+const _dTele = "deletionTimestamp";
 const _dTi = "disablingTime";
 const _dTis = "disabledTime";
 const _dV = "destinationVpc";
@@ -86759,6 +87372,7 @@ const _eIb = "ebsInfo";
 const _eIf = "efaInfo";
 const _eIv = "eventInformation";
 const _eIve = "eventId";
+const _eIx = "exclusionId";
 const _eKKI = "encryptionKmsKeyId";
 const _eLADI = "enableLniAtDeviceIndex";
 const _eLBL = "elasticLoadBalancerListener";
@@ -86948,6 +87562,8 @@ const _iFCS = "instanceFamilyCreditSpecification";
 const _iFR = "iamFleetRole";
 const _iFRS = "ingressFilterRuleSet";
 const _iG = "internetGateway";
+const _iGBM = "internetGatewayBlockMode";
+const _iGEM = "internetGatewayExclusionMode";
 const _iGI = "internetGatewayId";
 const _iGS = "internetGatewaySet";
 const _iGSn = "instanceGenerationSet";
@@ -87179,6 +87795,7 @@ const _lTi = "licenseType";
 const _lTo = "locationType";
 const _lUT = "lastUpdateTime";
 const _lUTa = "lastUpdatedTime";
+const _lUTas = "lastUpdateTimestamp";
 const _lV = "logVersion";
 const _lVN = "latestVersionNumber";
 const _lo = "location";
@@ -87479,6 +88096,7 @@ const _pu = "public";
 const _pur = "purchase";
 const _r = "return";
 const _rA = "ruleAction";
+const _rAe = "resourceArn";
 const _rB = "requestedBy";
 const _rBET = "recycleBinEnterTime";
 const _rBETe = "recycleBinExitTime";
@@ -87921,6 +88539,9 @@ const _vAIS = "verifiedAccessInstanceSet";
 const _vATP = "verifiedAccessTrustProvider";
 const _vATPI = "verifiedAccessTrustProviderId";
 const _vATPS = "verifiedAccessTrustProviderSet";
+const _vBPAE = "vpcBlockPublicAccessExclusion";
+const _vBPAES = "vpcBlockPublicAccessExclusionSet";
+const _vBPAO = "vpcBlockPublicAccessOptions";
 const _vC = "vpnConnection";
 const _vCC = "vCpuCount";
 const _vCDSC = "vpnConnectionDeviceSampleConfiguration";

@@ -81,6 +81,9 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     BlockPublicAccessStates: { // BlockPublicAccessStates
+ * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
+ * //     },
  * //     VpcId: "STRING_VALUE",
  * //     State: "pending" || "available",
  * //     CidrBlock: "STRING_VALUE",

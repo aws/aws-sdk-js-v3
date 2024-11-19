@@ -648,6 +648,11 @@ import {
   CreateVolumeCommandInput,
   CreateVolumeCommandOutput,
 } from "./commands/CreateVolumeCommand";
+import {
+  CreateVpcBlockPublicAccessExclusionCommand,
+  CreateVpcBlockPublicAccessExclusionCommandInput,
+  CreateVpcBlockPublicAccessExclusionCommandOutput,
+} from "./commands/CreateVpcBlockPublicAccessExclusionCommand";
 import { CreateVpcCommand, CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
 import {
   CreateVpcEndpointCommand,
@@ -1007,6 +1012,11 @@ import {
   DeleteVolumeCommandInput,
   DeleteVolumeCommandOutput,
 } from "./commands/DeleteVolumeCommand";
+import {
+  DeleteVpcBlockPublicAccessExclusionCommand,
+  DeleteVpcBlockPublicAccessExclusionCommandInput,
+  DeleteVpcBlockPublicAccessExclusionCommandOutput,
+} from "./commands/DeleteVpcBlockPublicAccessExclusionCommand";
 import { DeleteVpcCommand, DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommand,
@@ -1798,6 +1808,16 @@ import {
   DescribeVpcAttributeCommandInput,
   DescribeVpcAttributeCommandOutput,
 } from "./commands/DescribeVpcAttributeCommand";
+import {
+  DescribeVpcBlockPublicAccessExclusionsCommand,
+  DescribeVpcBlockPublicAccessExclusionsCommandInput,
+  DescribeVpcBlockPublicAccessExclusionsCommandOutput,
+} from "./commands/DescribeVpcBlockPublicAccessExclusionsCommand";
+import {
+  DescribeVpcBlockPublicAccessOptionsCommand,
+  DescribeVpcBlockPublicAccessOptionsCommandInput,
+  DescribeVpcBlockPublicAccessOptionsCommandOutput,
+} from "./commands/DescribeVpcBlockPublicAccessOptionsCommand";
 import {
   DescribeVpcClassicLinkCommand,
   DescribeVpcClassicLinkCommandInput,
@@ -2705,6 +2725,16 @@ import {
   ModifyVpcAttributeCommandOutput,
 } from "./commands/ModifyVpcAttributeCommand";
 import {
+  ModifyVpcBlockPublicAccessExclusionCommand,
+  ModifyVpcBlockPublicAccessExclusionCommandInput,
+  ModifyVpcBlockPublicAccessExclusionCommandOutput,
+} from "./commands/ModifyVpcBlockPublicAccessExclusionCommand";
+import {
+  ModifyVpcBlockPublicAccessOptionsCommand,
+  ModifyVpcBlockPublicAccessOptionsCommandInput,
+  ModifyVpcBlockPublicAccessOptionsCommandOutput,
+} from "./commands/ModifyVpcBlockPublicAccessOptionsCommand";
+import {
   ModifyVpcEndpointCommand,
   ModifyVpcEndpointCommandInput,
   ModifyVpcEndpointCommandOutput,
@@ -3257,6 +3287,7 @@ const commands = {
   CreateVerifiedAccessTrustProviderCommand,
   CreateVolumeCommand,
   CreateVpcCommand,
+  CreateVpcBlockPublicAccessExclusionCommand,
   CreateVpcEndpointCommand,
   CreateVpcEndpointConnectionNotificationCommand,
   CreateVpcEndpointServiceConfigurationCommand,
@@ -3332,6 +3363,7 @@ const commands = {
   DeleteVerifiedAccessTrustProviderCommand,
   DeleteVolumeCommand,
   DeleteVpcCommand,
+  DeleteVpcBlockPublicAccessExclusionCommand,
   DeleteVpcEndpointConnectionNotificationsCommand,
   DeleteVpcEndpointsCommand,
   DeleteVpcEndpointServiceConfigurationsCommand,
@@ -3490,6 +3522,8 @@ const commands = {
   DescribeVolumesModificationsCommand,
   DescribeVolumeStatusCommand,
   DescribeVpcAttributeCommand,
+  DescribeVpcBlockPublicAccessExclusionsCommand,
+  DescribeVpcBlockPublicAccessOptionsCommand,
   DescribeVpcClassicLinkCommand,
   DescribeVpcClassicLinkDnsSupportCommand,
   DescribeVpcEndpointConnectionNotificationsCommand,
@@ -3676,6 +3710,8 @@ const commands = {
   ModifyVolumeCommand,
   ModifyVolumeAttributeCommand,
   ModifyVpcAttributeCommand,
+  ModifyVpcBlockPublicAccessExclusionCommand,
+  ModifyVpcBlockPublicAccessOptionsCommand,
   ModifyVpcEndpointCommand,
   ModifyVpcEndpointConnectionNotificationCommand,
   ModifyVpcEndpointServiceConfigurationCommand,
@@ -5961,6 +5997,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateVpcBlockPublicAccessExclusionCommand}
+   */
+  createVpcBlockPublicAccessExclusion(
+    args: CreateVpcBlockPublicAccessExclusionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcBlockPublicAccessExclusionCommandOutput>;
+  createVpcBlockPublicAccessExclusion(
+    args: CreateVpcBlockPublicAccessExclusionCommandInput,
+    cb: (err: any, data?: CreateVpcBlockPublicAccessExclusionCommandOutput) => void
+  ): void;
+  createVpcBlockPublicAccessExclusion(
+    args: CreateVpcBlockPublicAccessExclusionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcBlockPublicAccessExclusionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateVpcEndpointCommand}
    */
   createVpcEndpoint(
@@ -7169,6 +7222,23 @@ export interface EC2 {
     args: DeleteVpcCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteVpcBlockPublicAccessExclusionCommand}
+   */
+  deleteVpcBlockPublicAccessExclusion(
+    args: DeleteVpcBlockPublicAccessExclusionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcBlockPublicAccessExclusionCommandOutput>;
+  deleteVpcBlockPublicAccessExclusion(
+    args: DeleteVpcBlockPublicAccessExclusionCommandInput,
+    cb: (err: any, data?: DeleteVpcBlockPublicAccessExclusionCommandOutput) => void
+  ): void;
+  deleteVpcBlockPublicAccessExclusion(
+    args: DeleteVpcBlockPublicAccessExclusionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcBlockPublicAccessExclusionCommandOutput) => void
   ): void;
 
   /**
@@ -9942,6 +10012,42 @@ export interface EC2 {
     args: DescribeVpcAttributeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeVpcAttributeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeVpcBlockPublicAccessExclusionsCommand}
+   */
+  describeVpcBlockPublicAccessExclusions(): Promise<DescribeVpcBlockPublicAccessExclusionsCommandOutput>;
+  describeVpcBlockPublicAccessExclusions(
+    args: DescribeVpcBlockPublicAccessExclusionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcBlockPublicAccessExclusionsCommandOutput>;
+  describeVpcBlockPublicAccessExclusions(
+    args: DescribeVpcBlockPublicAccessExclusionsCommandInput,
+    cb: (err: any, data?: DescribeVpcBlockPublicAccessExclusionsCommandOutput) => void
+  ): void;
+  describeVpcBlockPublicAccessExclusions(
+    args: DescribeVpcBlockPublicAccessExclusionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcBlockPublicAccessExclusionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeVpcBlockPublicAccessOptionsCommand}
+   */
+  describeVpcBlockPublicAccessOptions(): Promise<DescribeVpcBlockPublicAccessOptionsCommandOutput>;
+  describeVpcBlockPublicAccessOptions(
+    args: DescribeVpcBlockPublicAccessOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcBlockPublicAccessOptionsCommandOutput>;
+  describeVpcBlockPublicAccessOptions(
+    args: DescribeVpcBlockPublicAccessOptionsCommandInput,
+    cb: (err: any, data?: DescribeVpcBlockPublicAccessOptionsCommandOutput) => void
+  ): void;
+  describeVpcBlockPublicAccessOptions(
+    args: DescribeVpcBlockPublicAccessOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcBlockPublicAccessOptionsCommandOutput) => void
   ): void;
 
   /**
@@ -13042,6 +13148,40 @@ export interface EC2 {
     args: ModifyVpcAttributeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyVpcAttributeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyVpcBlockPublicAccessExclusionCommand}
+   */
+  modifyVpcBlockPublicAccessExclusion(
+    args: ModifyVpcBlockPublicAccessExclusionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVpcBlockPublicAccessExclusionCommandOutput>;
+  modifyVpcBlockPublicAccessExclusion(
+    args: ModifyVpcBlockPublicAccessExclusionCommandInput,
+    cb: (err: any, data?: ModifyVpcBlockPublicAccessExclusionCommandOutput) => void
+  ): void;
+  modifyVpcBlockPublicAccessExclusion(
+    args: ModifyVpcBlockPublicAccessExclusionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVpcBlockPublicAccessExclusionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyVpcBlockPublicAccessOptionsCommand}
+   */
+  modifyVpcBlockPublicAccessOptions(
+    args: ModifyVpcBlockPublicAccessOptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVpcBlockPublicAccessOptionsCommandOutput>;
+  modifyVpcBlockPublicAccessOptions(
+    args: ModifyVpcBlockPublicAccessOptionsCommandInput,
+    cb: (err: any, data?: ModifyVpcBlockPublicAccessOptionsCommandOutput) => void
+  ): void;
+  modifyVpcBlockPublicAccessOptions(
+    args: ModifyVpcBlockPublicAccessOptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVpcBlockPublicAccessOptionsCommandOutput) => void
   ): void;
 
   /**

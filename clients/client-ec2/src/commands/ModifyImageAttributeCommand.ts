@@ -28,12 +28,14 @@ export interface ModifyImageAttributeCommandInput extends ModifyImageAttributeRe
 export interface ModifyImageAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
- *          <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the following parameters:
- *        <code>Description</code>, <code>ImdsSupport</code>, or <code>LaunchPermission</code>.</p>
+ * <p>Modifies the specified attribute of the specified AMI. You can specify only one attribute
+ *       at a time.</p>
+ *          <p>To specify the attribute, you can use the <code>Attribute</code> parameter, or one of the
+ *       following parameters: <code>Description</code>, <code>ImdsSupport</code>, or
+ *         <code>LaunchPermission</code>.</p>
  *          <p>Images with an Amazon Web Services Marketplace product code cannot be made public.</p>
- *          <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport on an instance
- *        and create an AMI from the instance.</p>
+ *          <p>To enable the SriovNetSupport enhanced networking attribute of an image, enable
+ *       SriovNetSupport on an instance and create an AMI from the instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

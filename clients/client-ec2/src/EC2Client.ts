@@ -487,6 +487,10 @@ import {
   CreateVerifiedAccessTrustProviderCommandOutput,
 } from "./commands/CreateVerifiedAccessTrustProviderCommand";
 import { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "./commands/CreateVolumeCommand";
+import {
+  CreateVpcBlockPublicAccessExclusionCommandInput,
+  CreateVpcBlockPublicAccessExclusionCommandOutput,
+} from "./commands/CreateVpcBlockPublicAccessExclusionCommand";
 import { CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import {
@@ -724,6 +728,10 @@ import {
   DeleteVerifiedAccessTrustProviderCommandOutput,
 } from "./commands/DeleteVerifiedAccessTrustProviderCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
+import {
+  DeleteVpcBlockPublicAccessExclusionCommandInput,
+  DeleteVpcBlockPublicAccessExclusionCommandOutput,
+} from "./commands/DeleteVpcBlockPublicAccessExclusionCommand";
 import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
 import {
   DeleteVpcEndpointConnectionNotificationsCommandInput,
@@ -1282,6 +1290,14 @@ import {
   DescribeVpcAttributeCommandInput,
   DescribeVpcAttributeCommandOutput,
 } from "./commands/DescribeVpcAttributeCommand";
+import {
+  DescribeVpcBlockPublicAccessExclusionsCommandInput,
+  DescribeVpcBlockPublicAccessExclusionsCommandOutput,
+} from "./commands/DescribeVpcBlockPublicAccessExclusionsCommand";
+import {
+  DescribeVpcBlockPublicAccessOptionsCommandInput,
+  DescribeVpcBlockPublicAccessOptionsCommandOutput,
+} from "./commands/DescribeVpcBlockPublicAccessOptionsCommand";
 import {
   DescribeVpcClassicLinkCommandInput,
   DescribeVpcClassicLinkCommandOutput,
@@ -1942,6 +1958,14 @@ import {
 } from "./commands/ModifyVolumeAttributeCommand";
 import { ModifyVolumeCommandInput, ModifyVolumeCommandOutput } from "./commands/ModifyVolumeCommand";
 import { ModifyVpcAttributeCommandInput, ModifyVpcAttributeCommandOutput } from "./commands/ModifyVpcAttributeCommand";
+import {
+  ModifyVpcBlockPublicAccessExclusionCommandInput,
+  ModifyVpcBlockPublicAccessExclusionCommandOutput,
+} from "./commands/ModifyVpcBlockPublicAccessExclusionCommand";
+import {
+  ModifyVpcBlockPublicAccessOptionsCommandInput,
+  ModifyVpcBlockPublicAccessOptionsCommandOutput,
+} from "./commands/ModifyVpcBlockPublicAccessOptionsCommand";
 import { ModifyVpcEndpointCommandInput, ModifyVpcEndpointCommandOutput } from "./commands/ModifyVpcEndpointCommand";
 import {
   ModifyVpcEndpointConnectionNotificationCommandInput,
@@ -2366,6 +2390,7 @@ export type ServiceInputTypes =
   | CreateVerifiedAccessInstanceCommandInput
   | CreateVerifiedAccessTrustProviderCommandInput
   | CreateVolumeCommandInput
+  | CreateVpcBlockPublicAccessExclusionCommandInput
   | CreateVpcCommandInput
   | CreateVpcEndpointCommandInput
   | CreateVpcEndpointConnectionNotificationCommandInput
@@ -2441,6 +2466,7 @@ export type ServiceInputTypes =
   | DeleteVerifiedAccessInstanceCommandInput
   | DeleteVerifiedAccessTrustProviderCommandInput
   | DeleteVolumeCommandInput
+  | DeleteVpcBlockPublicAccessExclusionCommandInput
   | DeleteVpcCommandInput
   | DeleteVpcEndpointConnectionNotificationsCommandInput
   | DeleteVpcEndpointServiceConfigurationsCommandInput
@@ -2600,6 +2626,8 @@ export type ServiceInputTypes =
   | DescribeVolumesCommandInput
   | DescribeVolumesModificationsCommandInput
   | DescribeVpcAttributeCommandInput
+  | DescribeVpcBlockPublicAccessExclusionsCommandInput
+  | DescribeVpcBlockPublicAccessOptionsCommandInput
   | DescribeVpcClassicLinkCommandInput
   | DescribeVpcClassicLinkDnsSupportCommandInput
   | DescribeVpcEndpointConnectionNotificationsCommandInput
@@ -2786,6 +2814,8 @@ export type ServiceInputTypes =
   | ModifyVolumeAttributeCommandInput
   | ModifyVolumeCommandInput
   | ModifyVpcAttributeCommandInput
+  | ModifyVpcBlockPublicAccessExclusionCommandInput
+  | ModifyVpcBlockPublicAccessOptionsCommandInput
   | ModifyVpcEndpointCommandInput
   | ModifyVpcEndpointConnectionNotificationCommandInput
   | ModifyVpcEndpointServiceConfigurationCommandInput
@@ -3008,6 +3038,7 @@ export type ServiceOutputTypes =
   | CreateVerifiedAccessInstanceCommandOutput
   | CreateVerifiedAccessTrustProviderCommandOutput
   | CreateVolumeCommandOutput
+  | CreateVpcBlockPublicAccessExclusionCommandOutput
   | CreateVpcCommandOutput
   | CreateVpcEndpointCommandOutput
   | CreateVpcEndpointConnectionNotificationCommandOutput
@@ -3083,6 +3114,7 @@ export type ServiceOutputTypes =
   | DeleteVerifiedAccessInstanceCommandOutput
   | DeleteVerifiedAccessTrustProviderCommandOutput
   | DeleteVolumeCommandOutput
+  | DeleteVpcBlockPublicAccessExclusionCommandOutput
   | DeleteVpcCommandOutput
   | DeleteVpcEndpointConnectionNotificationsCommandOutput
   | DeleteVpcEndpointServiceConfigurationsCommandOutput
@@ -3242,6 +3274,8 @@ export type ServiceOutputTypes =
   | DescribeVolumesCommandOutput
   | DescribeVolumesModificationsCommandOutput
   | DescribeVpcAttributeCommandOutput
+  | DescribeVpcBlockPublicAccessExclusionsCommandOutput
+  | DescribeVpcBlockPublicAccessOptionsCommandOutput
   | DescribeVpcClassicLinkCommandOutput
   | DescribeVpcClassicLinkDnsSupportCommandOutput
   | DescribeVpcEndpointConnectionNotificationsCommandOutput
@@ -3428,6 +3462,8 @@ export type ServiceOutputTypes =
   | ModifyVolumeAttributeCommandOutput
   | ModifyVolumeCommandOutput
   | ModifyVpcAttributeCommandOutput
+  | ModifyVpcBlockPublicAccessExclusionCommandOutput
+  | ModifyVpcBlockPublicAccessOptionsCommandOutput
   | ModifyVpcEndpointCommandOutput
   | ModifyVpcEndpointConnectionNotificationCommandOutput
   | ModifyVpcEndpointServiceConfigurationCommandOutput

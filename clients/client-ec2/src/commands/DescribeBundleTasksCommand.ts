@@ -34,12 +34,14 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
 /**
  * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
  *          <note>
- *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
+ *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no
+ *         longer in the list, you can still register an AMI from it. Just use
+ *           <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided
+ *         to the bundle task.</p>
  *          </note>
  *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *          structures, might vary. Applications should not assume the elements appear in a
- *          particular order.</p>
+ *             <p>The order of the elements in the response, including those within nested structures,
+ *         might vary. Applications should not assume the elements appear in a particular order.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

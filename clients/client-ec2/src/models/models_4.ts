@@ -2,11 +2,17 @@
 import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
+  AllocationState,
+  AllowsMultipleInstanceTypes,
   AlternatePathHint,
   AttachmentStatus,
+  AutoPlacement,
   CurrencyCodeValues,
   Explanation,
+  HostMaintenance,
+  HostRecovery,
   IamInstanceProfile,
+  IamInstanceProfileAssociation,
   InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
   IpPermission,
@@ -43,7 +49,6 @@ import {
   ManagedPrefixList,
   NatGateway,
   NetworkAcl,
-  NetworkInsightsAccessScope,
   OperatorResponse,
   Placement,
   PlatformValues,
@@ -53,6 +58,7 @@ import {
 
 import {
   GroupIdentifier,
+  NetworkInsightsAccessScope,
   NetworkInsightsPath,
   NetworkInterface,
   NetworkInterfaceAttachment,
@@ -61,12 +67,401 @@ import {
   PlacementGroup,
   ReplaceRootVolumeTask,
   RouteTable,
-  Snapshot,
-  SnapshotState,
-  StorageTier,
 } from "./models_2";
 
 import { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute, PermissionGroup, ProductCode } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeHostsRequest {
+  /**
+   * <p>The IDs of the Dedicated Hosts. The IDs are used for targeted instance
+   *             launches.</p>
+   * @public
+   */
+  HostIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   *          <p>You cannot specify this parameter and the host IDs parameter in the same
+   *             request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>auto-placement</code> - Whether auto-placement is enabled or disabled
+   *                         (<code>on</code> | <code>off</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the host.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>client-token</code> - The idempotency token that you provided when you
+   *                     allocated the host.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>host-reservation-id</code> - The ID of the reservation assigned to this
+   *                     host.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type size that the Dedicated Host is
+   *                     configured to support.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The allocation state of the Dedicated Host
+   *                         (<code>available</code> | <code>under-assessment</code> |
+   *                         <code>permanent-failure</code> | <code>released</code> |
+   *                         <code>released-permanent-failure</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filter?: Filter[] | undefined;
+}
+
+/**
+ * <p>Information about the number of instances that can be launched onto the Dedicated
+ *             Host.</p>
+ * @public
+ */
+export interface InstanceCapacity {
+  /**
+   * <p>The number of instances that can be launched onto the Dedicated Host based on the
+   *             host's available capacity.</p>
+   * @public
+   */
+  AvailableCapacity?: number | undefined;
+
+  /**
+   * <p>The instance type supported by the Dedicated Host.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The total number of instances that can be launched onto the Dedicated Host if there
+   *             are no instances running on it.</p>
+   * @public
+   */
+  TotalCapacity?: number | undefined;
+}
+
+/**
+ * <p>The capacity information for instances that can be launched onto the Dedicated Host.
+ *         </p>
+ * @public
+ */
+export interface AvailableCapacity {
+  /**
+   * <p>The number of instances that can be launched onto the Dedicated Host depending on the
+   *             host's available capacity. For Dedicated Hosts that support multiple instance types,
+   *             this parameter represents the number of instances for each instance size that is
+   *             supported on the host.</p>
+   * @public
+   */
+  AvailableInstanceCapacity?: InstanceCapacity[] | undefined;
+
+  /**
+   * <p>The number of vCPUs available for launching instances onto the Dedicated Host.</p>
+   * @public
+   */
+  AvailableVCpus?: number | undefined;
+}
+
+/**
+ * <p>Describes the properties of a Dedicated Host.</p>
+ * @public
+ */
+export interface HostProperties {
+  /**
+   * <p>The number of cores on the Dedicated Host.</p>
+   * @public
+   */
+  Cores?: number | undefined;
+
+  /**
+   * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
+   *             If the host supports multiple instance types, no <b>instanceType</b> is returned.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The instance family supported by the Dedicated Host. For example,
+   *             <code>m5</code>.</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+
+  /**
+   * <p>The number of sockets on the Dedicated Host.</p>
+   * @public
+   */
+  Sockets?: number | undefined;
+
+  /**
+   * <p>The total number of vCPUs on the Dedicated Host.</p>
+   * @public
+   */
+  TotalVCpus?: number | undefined;
+}
+
+/**
+ * <p>Describes an instance running on a Dedicated Host.</p>
+ * @public
+ */
+export interface HostInstance {
+  /**
+   * <p>The ID of instance that is running on the Dedicated Host.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The instance type (for example, <code>m3.medium</code>) of the running
+   *             instance.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the instance.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+}
+
+/**
+ * <p>Describes the properties of the Dedicated Host.</p>
+ * @public
+ */
+export interface Host {
+  /**
+   * <p>Whether auto-placement is on or off.</p>
+   * @public
+   */
+  AutoPlacement?: AutoPlacement | undefined;
+
+  /**
+   * <p>The Availability Zone of the Dedicated Host.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>Information about the instances running on the Dedicated Host.</p>
+   * @public
+   */
+  AvailableCapacity?: AvailableCapacity | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The ID of the Dedicated Host.</p>
+   * @public
+   */
+  HostId?: string | undefined;
+
+  /**
+   * <p>The hardware specifications of the Dedicated Host.</p>
+   * @public
+   */
+  HostProperties?: HostProperties | undefined;
+
+  /**
+   * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code> response if
+   *             the Dedicated Host doesn't have an associated reservation.</p>
+   * @public
+   */
+  HostReservationId?: string | undefined;
+
+  /**
+   * <p>The IDs and instance type that are currently running on the Dedicated Host.</p>
+   * @public
+   */
+  Instances?: HostInstance[] | undefined;
+
+  /**
+   * <p>The Dedicated Host's state.</p>
+   * @public
+   */
+  State?: AllocationState | undefined;
+
+  /**
+   * <p>The time that the Dedicated Host was allocated.</p>
+   * @public
+   */
+  AllocationTime?: Date | undefined;
+
+  /**
+   * <p>The time that the Dedicated Host was released.</p>
+   * @public
+   */
+  ReleaseTime?: Date | undefined;
+
+  /**
+   * <p>Any tags assigned to the Dedicated Host.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
+   * @public
+   */
+  HostRecovery?: HostRecovery | undefined;
+
+  /**
+   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same
+   *             instance family. If the value is <code>on</code>, the Dedicated Host supports multiple
+   *             instance types in the instance family. If the value is <code>off</code>, the Dedicated
+   *             Host supports a single instance type only.</p>
+   * @public
+   */
+  AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the Dedicated Host.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the Dedicated Host is allocated.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the Dedicated Host is in a host resource group. If <b>memberOfServiceLinkedResourceGroup</b> is <code>true</code>, the
+   *             host is in a host resource group; otherwise, it is not.</p>
+   * @public
+   */
+  MemberOfServiceLinkedResourceGroup?: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the
+   *             Dedicated Host is allocated.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>Indicates whether host maintenance is enabled or disabled for the Dedicated
+   *             Host.</p>
+   * @public
+   */
+  HostMaintenance?: HostMaintenance | undefined;
+
+  /**
+   * <p>The ID of the Outpost hardware asset on which the Dedicated Host is allocated.</p>
+   * @public
+   */
+  AssetId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHostsResult {
+  /**
+   * <p>Information about the Dedicated Hosts.</p>
+   * @public
+   */
+  Hosts?: Host[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIamInstanceProfileAssociationsRequest {
+  /**
+   * <p>The IAM instance profile associations.</p>
+   * @public
+   */
+  AssociationIds?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-id</code> - The ID of the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the association (<code>associating</code> |
+   *                 <code>associated</code> | <code>disassociating</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of
+   *             items, make another request with the token returned in the output. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeIamInstanceProfileAssociationsResult {
+  /**
+   * <p>Information about the IAM instance profile associations.</p>
+   * @public
+   */
+  IamInstanceProfileAssociations?: IamInstanceProfileAssociation[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -177,9 +572,9 @@ export interface DescribeImageAttributeRequest {
   /**
    * <p>The AMI attribute.</p>
    *          <p>
-   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated.
-   *    	    Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about
-   *    	    the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
+   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is
+   *       deprecated. Using this attribute returns the <code>Client.AuthFailure</code> error. To get
+   *       information about the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
    * @public
    */
   Attribute: ImageAttributeName | undefined;
@@ -254,7 +649,8 @@ export interface ImageAttribute {
   RamdiskId?: AttributeValue | undefined;
 
   /**
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
+   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is
+   *       enabled.</p>
    * @public
    */
   SriovNetSupport?: AttributeValue | undefined;
@@ -274,9 +670,9 @@ export interface ImageAttribute {
   /**
    * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
    *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
-   *       <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
+   *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
    *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   UefiData?: AttributeValue | undefined;
@@ -298,8 +694,7 @@ export interface ImageAttribute {
    *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
    *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
    *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ImdsSupport?: AttributeValue | undefined;
@@ -340,14 +735,13 @@ export interface ImageAttribute {
  */
 export interface DescribeImagesRequest {
   /**
-   * <p>Scopes the images by users with explicit launch permissions.
-   *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
-   * 				or <code>all</code> (public AMIs).</p>
+   * <p>Scopes the images by users with explicit launch permissions. Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request), or <code>all</code>
+   *       (public AMIs).</p>
    *          <ul>
    *             <li>
-   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs
-   *           shared with that specific Amazon Web Services account ID are returned. However, AMIs that
-   *           are shared with the account’s organization or organizational unit (OU) are not
+   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs shared
+   *           with that specific Amazon Web Services account ID are returned. However, AMIs that are
+   *           shared with the account’s organization or organizational unit (OU) are not
    *           returned.</p>
    *             </li>
    *             <li>
@@ -372,9 +766,10 @@ export interface DescribeImagesRequest {
 
   /**
    * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, <code>aws-backup-vault</code>, and <code>aws-marketplace</code>.
-   *       If you omit this parameter, the results include all images for which you have launch permissions,
-   *       regardless of ownership.</p>
+   *         Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>,
+   *         <code>aws-backup-vault</code>, and <code>aws-marketplace</code>. If you omit this parameter,
+   *       the results include all images for which you have launch permissions, regardless of
+   *       ownership.</p>
    * @public
    */
   Owners?: string[] | undefined;
@@ -424,18 +819,19 @@ export interface DescribeImagesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> |
-   *           <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p>
+   *                   <code>architecture</code> - The image architecture (<code>i386</code> |
+   *             <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> |
+   *             <code>arm64_mac</code>).</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-   *         	whether the Amazon EBS volume is deleted on instance termination.</p>
+   *           whether the Amazon EBS volume is deleted on instance termination.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for
-   *           example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block
+   *           device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -444,7 +840,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>
+   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in
+   *           GiB.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -454,7 +851,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>
+   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS
+   *           volume is encrypted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -470,8 +868,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking
-   *           with ENA is enabled.</p>
+   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking with
+   *           ENA is enabled.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -505,19 +903,21 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>).
-   *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
-   *         	set using the IAM console. We recommend that you use the <b>Owner</b>
-   *         	request parameter instead of this filter.</p>
+   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
+   *             <code>aws-backup-vault</code> | <code>aws-marketplace</code>). The valid aliases are
+   *           defined in an Amazon-maintained list. This is not the Amazon Web Services account alias
+   *           that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the
-   *       		<b>Owner</b> request parameter instead of this filter.</p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
+   *           that you use the <b>Owner</b> request parameter instead of this
+   *           filter.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p>
+   *                   <code>platform</code> - The platform. The only supported value is
+   *           <code>windows</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -525,7 +925,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>
+   *                   <code>product-code.type</code> - The type of the product code
+   *           (<code>marketplace</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -533,7 +934,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
+   *                   <code>root-device-name</code> - The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -561,8 +963,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates
-   *                     that enhanced networking with the Intel 82599 VF interface is enabled.</p>
+   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates that
+   *           enhanced networking with the Intel 82599 VF interface is enabled.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -735,11 +1137,10 @@ export interface Image {
   /**
    * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
    *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
-   *         	List API</a>. You can view these fields on the <b>Instances</b> or
-   *     	<b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are
-   *     	returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>
-   *     	command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a>
-   *     	command in the CLI.</p>
+   *         List API</a>. You can view these fields on the <b>Instances</b> or <b>AMIs</b> pages in the Amazon EC2 console,
+   *       or in the responses that are returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> command in
+   *       the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a> command in the
+   *       CLI.</p>
    * @public
    */
   UsageOperation?: string | undefined;
@@ -770,7 +1171,8 @@ export interface Image {
   Hypervisor?: HypervisorType | undefined;
 
   /**
-   * <p>The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>).</p>
+   * <p>The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> |
+   *         <code>aws-marketplace</code>).</p>
    * @public
    */
   ImageOwnerAlias?: string | undefined;
@@ -788,13 +1190,15 @@ export interface Image {
   RootDeviceName?: string | undefined;
 
   /**
-   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
+   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance
+   *       store volume.</p>
    * @public
    */
   RootDeviceType?: DeviceType | undefined;
 
   /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
+   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is
+   *       enabled.</p>
    * @public
    */
   SriovNetSupport?: string | undefined;
@@ -825,18 +1229,16 @@ export interface Image {
   BootMode?: BootModeValues | undefined;
 
   /**
-   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
-   *       <i>Amazon EC2 User Guide</i>.</p>
+   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   TpmSupport?: TpmSupportValues | undefined;
 
   /**
    * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the
-   *       nearest minute.</p>
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
+   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
    * @public
    */
   DeprecationTime?: string | undefined;
@@ -846,8 +1248,7 @@ export interface Image {
    *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
    *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
    *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   ImdsSupport?: ImdsSupportValues | undefined;
@@ -867,7 +1268,7 @@ export interface Image {
 
   /**
    * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *       format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
+   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
    *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
    *          <note>
    *             <p>
@@ -912,7 +1313,8 @@ export interface Image {
   ImageLocation?: string | undefined;
 
   /**
-   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
+   * <p>The current state of the AMI. If the state is <code>available</code>, the image is
+   *       successfully registered and can be used to launch an instance.</p>
    * @public
    */
   State?: ImageState | undefined;
@@ -930,9 +1332,9 @@ export interface Image {
   CreationDate?: string | undefined;
 
   /**
-   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
-   * 				this image has public launch permissions or <code>false</code>
-   * 				if it has only implicit and explicit launch permissions.</p>
+   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code>
+   *       if this image has public launch permissions or <code>false</code> if it has only implicit and
+   *       explicit launch permissions.</p>
    * @public
    */
   Public?: boolean | undefined;
@@ -2109,15 +2511,16 @@ export interface ImageMetadata {
   OwnerId?: string | undefined;
 
   /**
-   * <p>The current state of the AMI. If the state is <code>available</code>, the AMI
-   *       is successfully registered and can be used to launch an instance.</p>
+   * <p>The current state of the AMI. If the state is <code>available</code>, the AMI is
+   *       successfully registered and can be used to launch an instance.</p>
    * @public
    */
   State?: ImageState | undefined;
 
   /**
    * <p>The alias of the AMI owner.</p>
-   *          <p>Valid values: <code>amazon</code> | <code>aws-backup-vault</code> | <code>aws-marketplace</code>
+   *          <p>Valid values: <code>amazon</code> | <code>aws-backup-vault</code> |
+   *         <code>aws-marketplace</code>
    *          </p>
    * @public
    */
@@ -6421,7 +6824,7 @@ export interface DescribeInternetGatewaysRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -8463,7 +8866,7 @@ export interface DescribeNatGatewaysRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -8620,7 +9023,7 @@ export interface DescribeNetworkAclsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -11142,7 +11545,7 @@ export interface DescribeRouteTablesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *                   <code>tag</code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
@@ -12143,376 +12546,6 @@ export interface DescribeSecurityGroupVpcAssociationsResult {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SnapshotAttributeName = {
-  createVolumePermission: "createVolumePermission",
-  productCodes: "productCodes",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotAttributeName = (typeof SnapshotAttributeName)[keyof typeof SnapshotAttributeName];
-
-/**
- * @public
- */
-export interface DescribeSnapshotAttributeRequest {
-  /**
-   * <p>The snapshot attribute you would like to view.</p>
-   * @public
-   */
-  Attribute: SnapshotAttributeName | undefined;
-
-  /**
-   * <p>The ID of the EBS snapshot.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the user or group to be added or removed from the list of create volume
- *       permissions for a volume.</p>
- * @public
- */
-export interface CreateVolumePermission {
-  /**
-   * <p>The ID of the Amazon Web Services account to be added or removed.</p>
-   * @public
-   */
-  UserId?: string | undefined;
-
-  /**
-   * <p>The group to be added or removed. The possible value is <code>all</code>.</p>
-   * @public
-   */
-  Group?: PermissionGroup | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSnapshotAttributeResult {
-  /**
-   * <p>The product codes.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-
-  /**
-   * <p>The ID of the EBS snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The users and groups that have the permissions for creating volumes from the
-   *       snapshot.</p>
-   * @public
-   */
-  CreateVolumePermissions?: CreateVolumePermission[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSnapshotsRequest {
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Scopes the results to snapshots with the specified owners. You can specify a combination of
-   *       Amazon Web Services account IDs, <code>self</code>, and <code>amazon</code>.</p>
-   * @public
-   */
-  OwnerIds?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the Amazon Web Services accounts that can create volumes from the snapshot.</p>
-   * @public
-   */
-  RestorableByUserIds?: string[] | undefined;
-
-  /**
-   * <p>The snapshot IDs.</p>
-   *          <p>Default: Describes the snapshots for which you have create volume permissions.</p>
-   * @public
-   */
-  SnapshotIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - A description of the snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>encrypted</code> - Indicates whether the snapshot is encrypted
-   *             (<code>true</code> | <code>false</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-alias</code> - The owner alias, from an Amazon-maintained list
-   *           (<code>amazon</code>).
-   *           This is not the user-configured Amazon Web Services account alias set using the IAM console.
-   *           We recommend that you use the related parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that
-   *           you use the related parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>progress</code> - The progress of the snapshot, as a percentage (for example,
-   *           80%).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code> - The snapshot ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>start-time</code> - The time stamp when the snapshot was initiated.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>status</code> - The status of the snapshot (<code>pending</code> |
-   *             <code>completed</code> | <code>error</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>storage-tier</code> - The storage tier of the snapshot (<code>archive</code> |
-   *           <code>standard</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-id</code> - The ID of the volume the snapshot is for.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-size</code> - The size of the volume, in GiB.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSnapshotsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *   This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the snapshots.</p>
-   * @public
-   */
-  Snapshots?: Snapshot[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSnapshotTierStatusRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>snapshot-id</code> - The snapshot ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>volume-id</code> - The ID of the volume the snapshot is for.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>last-tiering-operation</code> - The state of the last archive or restore action. (<code>archival-in-progress</code> | <code>archival-completed</code> |
-   *           <code>archival-failed</code> | <code>permanent-restore-in-progress</code> | <code>permanent-restore-completed</code> | <code>permanent-restore-failed</code> |
-   * 		<code>temporary-restore-in-progress</code> | <code>temporary-restore-completed</code> | <code>temporary-restore-failed</code>)</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *   Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TieringOperationStatus = {
-  archival_completed: "archival-completed",
-  archival_failed: "archival-failed",
-  archival_in_progress: "archival-in-progress",
-  permanent_restore_completed: "permanent-restore-completed",
-  permanent_restore_failed: "permanent-restore-failed",
-  permanent_restore_in_progress: "permanent-restore-in-progress",
-  temporary_restore_completed: "temporary-restore-completed",
-  temporary_restore_failed: "temporary-restore-failed",
-  temporary_restore_in_progress: "temporary-restore-in-progress",
-} as const;
-
-/**
- * @public
- */
-export type TieringOperationStatus = (typeof TieringOperationStatus)[keyof typeof TieringOperationStatus];
-
-/**
- * <p>Provides information about a snapshot's storage tier.</p>
- * @public
- */
-export interface SnapshotTierStatus {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The ID of the volume from which the snapshot was created.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
-
-  /**
-   * <p>The state of the snapshot.</p>
-   * @public
-   */
-  Status?: SnapshotState | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the snapshot.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The tags that are assigned to the snapshot.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The storage tier in which the snapshot is stored. <code>standard</code> indicates
-   *       that the snapshot is stored in the standard snapshot storage tier and that it is ready
-   *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
-   *       it must be restored before it can be used.</p>
-   * @public
-   */
-  StorageTier?: StorageTier | undefined;
-
-  /**
-   * <p>The date and time when the last archive or restore process was started.</p>
-   * @public
-   */
-  LastTieringStartTime?: Date | undefined;
-
-  /**
-   * <p>The progress of the last archive or restore process, as a percentage.</p>
-   * @public
-   */
-  LastTieringProgress?: number | undefined;
-
-  /**
-   * <p>The status of the last archive or restore process.</p>
-   * @public
-   */
-  LastTieringOperationStatus?: TieringOperationStatus | undefined;
-
-  /**
-   * <p>A message describing the status of the last archive or restore process.</p>
-   * @public
-   */
-  LastTieringOperationStatusDetail?: string | undefined;
-
-  /**
-   * <p>The date and time when the last archive process was completed.</p>
-   * @public
-   */
-  ArchivalCompleteTime?: Date | undefined;
-
-  /**
-   * <p>Only for archived snapshots that are temporarily restored. Indicates the date and
-   *       time when a temporarily restored snapshot will be automatically re-archived.</p>
-   * @public
-   */
-  RestoreExpiryTime?: Date | undefined;
 }
 
 /**

@@ -9,6 +9,7 @@ import {
   Affinity,
   ApplianceModeSupportValue,
   AutoPlacement,
+  CapacityReservationState,
   CurrencyCodeValues,
   DnsSupportValue,
   EnaSrdSpecification,
@@ -29,8 +30,6 @@ import {
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   UnsuccessfulItem,
-  VerifiedAccessInstance,
-  VerifiedAccessSseSpecificationResponse,
 } from "./models_0";
 
 import {
@@ -84,10 +83,7 @@ import {
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
-  VerifiedAccessEndpoint,
   VerifiedAccessEndpointProtocol,
-  VerifiedAccessGroup,
-  VerifiedAccessSseSpecificationRequest,
   VpnEcmpSupportValue,
 } from "./models_2";
 
@@ -98,8 +94,11 @@ import {
   FpgaImageAttribute,
   FpgaImageAttributeName,
   IpamPoolCidr,
+  MetricType,
   PaymentOption,
+  PeriodType,
   PermissionGroup,
+  StatisticType,
 } from "./models_3";
 
 import {
@@ -108,7 +107,6 @@ import {
   ArchitectureValues,
   AttributeBooleanValue,
   BootModeValues,
-  CreateVolumePermission,
   HttpTokensState,
   ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
@@ -121,7 +119,6 @@ import {
   LaunchPermission,
   LockState,
   ReservedInstancesConfiguration,
-  SnapshotAttributeName,
   SnapshotDetail,
   SnapshotDetailFilterSensitiveLog,
   SnapshotTaskDetail,
@@ -130,13 +127,529 @@ import {
 } from "./models_4";
 
 import {
-  CoipAddressUsage,
+  CreateVolumePermission,
   ExcessCapacityTerminationPolicy,
   LaunchTemplateConfig,
+  SnapshotAttributeName,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
-  VerifiedAccessInstanceLoggingConfiguration,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetAssociatedEnclaveCertificateIamRolesRequest {
+  /**
+   * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
+   * 			S3 object information.</p>
+   * @public
+   */
+  CertificateArn: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about the associated IAM roles.</p>
+ * @public
+ */
+export interface AssociatedRole {
+  /**
+   * <p>The ARN of the associated IAM role.</p>
+   * @public
+   */
+  AssociatedRoleArn?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket in which the Amazon S3 object is stored.</p>
+   * @public
+   */
+  CertificateS3BucketName?: string | undefined;
+
+  /**
+   * <p>The key of the Amazon S3 object where the certificate, certificate chain, and encrypted private key bundle
+   * 			are stored. The object key is formatted as follows: <code>role_arn</code>/<code>certificate_arn</code>.
+   * 		</p>
+   * @public
+   */
+  CertificateS3ObjectKey?: string | undefined;
+
+  /**
+   * <p>The ID of the KMS key used to encrypt the private key.</p>
+   * @public
+   */
+  EncryptionKmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssociatedEnclaveCertificateIamRolesResult {
+  /**
+   * <p>Information about the associated IAM roles.</p>
+   * @public
+   */
+  AssociatedRoles?: AssociatedRole[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssociatedIpv6PoolCidrsRequest {
+  /**
+   * <p>The ID of the IPv6 address pool.</p>
+   * @public
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes an IPv6 CIDR block association.</p>
+ * @public
+ */
+export interface Ipv6CidrAssociation {
+  /**
+   * <p>The IPv6 CIDR block.</p>
+   * @public
+   */
+  Ipv6Cidr?: string | undefined;
+
+  /**
+   * <p>The resource that's associated with the IPv6 CIDR block.</p>
+   * @public
+   */
+  AssociatedResource?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssociatedIpv6PoolCidrsResult {
+  /**
+   * <p>Information about the IPv6 CIDR block associations.</p>
+   * @public
+   */
+  Ipv6CidrAssociations?: Ipv6CidrAssociation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A query used for retrieving network health data. </p>
+ * @public
+ */
+export interface DataQuery {
+  /**
+   * <p>A user-defined ID associated with a data query that's returned in the <code>dataResponse</code> identifying the query. For example, if you set the Id to <code>MyQuery01</code>in the query, the <code>dataResponse</code> identifies the query as <code>MyQuery01</code>.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The Region or Availability Zone that's the target for the data query. For example, <code>eu-north-1</code>.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The metric used for the network performance request.</p>
+   * @public
+   */
+  Metric?: MetricType | undefined;
+
+  /**
+   * <p>The metric data aggregation period, <code>p50</code>, between the specified <code>startDate</code>
+   *          and <code>endDate</code>. For example, a metric of <code>five_minutes</code> is the median of all
+   *          the data points gathered within those five minutes. <code>p50</code> is the only supported metric.</p>
+   * @public
+   */
+  Statistic?: StatisticType | undefined;
+
+  /**
+   * <p>The aggregation period used for the data query.</p>
+   * @public
+   */
+  Period?: PeriodType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAwsNetworkPerformanceDataRequest {
+  /**
+   * <p>A list of network performance data queries.</p>
+   * @public
+   */
+  DataQueries?: DataQuery[] | undefined;
+
+  /**
+   * <p>The starting time for the performance data request. The starting time must be formatted
+   *          as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-10T12:00:00.000Z</code>.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The ending time for the performance data request. The end time must be formatted as <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2022-06-12T12:00:00.000Z</code>.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Indicates whether the network was healthy or degraded at a particular point. The value is aggregated from the <code>startDate</code> to the <code>endDate</code>. Currently only <code>five_minutes</code> is supported.</p>
+ * @public
+ */
+export interface MetricPoint {
+  /**
+   * <p>The start date for the metric point. The starting date for the metric point. The starting time must be formatted
+   *          as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-10T12:00:00.000Z</code>.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The end date for the metric point. The ending time must be formatted as <code>yyyy-mm-ddThh:mm:ss</code>.  For example, <code>2022-06-12T12:00:00.000Z</code>.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  Value?: number | undefined;
+  /**
+   * <p>The status of the metric point.</p>
+   * @public
+   */
+  Status?: string | undefined;
+}
+
+/**
+ * <p>The response to a <code>DataQuery</code>.</p>
+ * @public
+ */
+export interface DataResponse {
+  /**
+   * <p>The ID passed in the <code>DataQuery</code>.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Region or Availability Zone that's the source for the data query. For example, <code>us-east-1</code>.</p>
+   * @public
+   */
+  Source?: string | undefined;
+
+  /**
+   * <p>The Region or Availability Zone that's the destination for the data query. For example, <code>eu-west-1</code>.</p>
+   * @public
+   */
+  Destination?: string | undefined;
+
+  /**
+   * <p>The metric used for the network performance request.</p>
+   * @public
+   */
+  Metric?: MetricType | undefined;
+
+  /**
+   * <p>The statistic used for the network performance request.</p>
+   * @public
+   */
+  Statistic?: StatisticType | undefined;
+
+  /**
+   * <p>The period used for the network performance request.</p>
+   * @public
+   */
+  Period?: PeriodType | undefined;
+
+  /**
+   * <p>A list of <code>MetricPoint</code> objects.</p>
+   * @public
+   */
+  MetricPoints?: MetricPoint[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAwsNetworkPerformanceDataResult {
+  /**
+   * <p>The list of data responses.</p>
+   * @public
+   */
+  DataResponses?: DataResponse[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityReservationUsageRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about the Capacity Reservation usage.</p>
+ * @public
+ */
+export interface InstanceUsage {
+  /**
+   * <p>The ID of the Amazon Web Services account that is making use of the Capacity Reservation.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The number of instances the Amazon Web Services account currently has in the Capacity Reservation.</p>
+   * @public
+   */
+  UsedInstanceCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityReservationUsageResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
+   * @public
+   */
+  TotalInstanceCount?: number | undefined;
+
+  /**
+   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified
+   * 					in your request. The reserved capacity is no longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no
+   * 					longer available for your use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
+   * 					provisioning is still pending.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - The Capacity Reservation request has failed. A request might fail
+   * 					due to invalid request parameters, capacity constraints, or instance limit constraints.
+   * 					Failed requests are retained for 60 minutes.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: CapacityReservationState | undefined;
+
+  /**
+   * <p>Information about the Capacity Reservation usage.</p>
+   * @public
+   */
+  InstanceUsages?: InstanceUsage[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCoipPoolUsageRequest {
+  /**
+   * <p>The ID of the address pool.</p>
+   * @public
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.allocation-id</code> - The allocation ID of the address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.aws-account-id</code> - The ID of the Amazon Web Services account that is using the customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.aws-service</code> - The Amazon Web Services service that is using the customer-owned IP address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>coip-address-usage.co-ip</code> - The customer-owned IP address.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes address usage for a customer-owned address pool.</p>
+ * @public
+ */
+export interface CoipAddressUsage {
+  /**
+   * <p>The allocation ID of the address.</p>
+   * @public
+   */
+  AllocationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service.</p>
+   * @public
+   */
+  AwsService?: string | undefined;
+
+  /**
+   * <p>The customer-owned IP address.</p>
+   * @public
+   */
+  CoIp?: string | undefined;
+}
 
 /**
  * @public
@@ -4879,8 +5392,8 @@ export interface ImportVolumeResult {
  */
 export interface ListImagesInRecycleBinRequest {
   /**
-   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that
-   *       are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>
+   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that are in the
+   *       Recycle Bin. You can specify up to 20 IDs in a single request.</p>
    * @public
    */
   ImageIds?: string[] | undefined;
@@ -6046,13 +6559,15 @@ export interface ModifyIdFormatRequest {
  */
 export interface LaunchPermissionModifications {
   /**
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of
+   *       launch permissions for the AMI.</p>
    * @public
    */
   Add?: LaunchPermission[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of
+   *       launch permissions for the AMI.</p>
    * @public
    */
   Remove?: LaunchPermission[] | undefined;
@@ -6065,7 +6580,8 @@ export interface LaunchPermissionModifications {
 export interface ModifyImageAttributeRequest {
   /**
    * <p>The name of the attribute to modify.</p>
-   *          <p>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code>
+   *          <p>Valid values: <code>description</code> | <code>imdsSupport</code> |
+   *         <code>launchPermission</code>
    *          </p>
    * @public
    */
@@ -6090,8 +6606,8 @@ export interface ModifyImageAttributeRequest {
   LaunchPermission?: LaunchPermissionModifications | undefined;
 
   /**
-   * <p>The operation type.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The operation type. This parameter can be used only when the <code>Attribute</code>
+   *       parameter is <code>launchPermission</code>.</p>
    * @public
    */
   OperationType?: OperationType | undefined;
@@ -6103,34 +6619,37 @@ export interface ModifyImageAttributeRequest {
   ProductCodes?: string[] | undefined;
 
   /**
-   * <p>The user groups.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The user groups. This parameter can be used only when the <code>Attribute</code> parameter
+   *       is <code>launchPermission</code>.</p>
    * @public
    */
   UserGroups?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services account IDs.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The Amazon Web Services account IDs. This parameter can be used only when the
+   *         <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    * @public
    */
   UserIds?: string[] | undefined;
 
   /**
-   * <p>The value of the attribute being modified.
-   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code>imdsSupport</code>.</p>
+   * <p>The value of the attribute being modified. This parameter can be used only when the
+   *         <code>Attribute</code> parameter is <code>description</code> or
+   *       <code>imdsSupport</code>.</p>
    * @public
    */
   Value?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when
+   *       the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    * @public
    */
   OrganizationArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used
+   *       only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    * @public
    */
   OrganizationalUnitArns?: string[] | undefined;
@@ -6138,13 +6657,13 @@ export interface ModifyImageAttributeRequest {
   /**
    * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
    *       launched from this AMI will have <code>HttpTokens</code> automatically set to
-   *       <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
+   *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
    *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
-   *       <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <important>
-   *             <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the value to <code>v2.0</code>,
-   *         you can't undo it. The only way to “reset” your AMI is to create a new AMI from the underlying snapshot.</p>
+   *             <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the
+   *         value to <code>v2.0</code>, you can't undo it. The only way to “reset” your AMI is to create
+   *         a new AMI from the underlying snapshot.</p>
    *          </important>
    * @public
    */
@@ -8780,441 +9299,6 @@ export interface ModifyVerifiedAccessEndpointEniOptions {
    * @public
    */
   Port?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessEndpointRequest {
-  /**
-   * <p>The ID of the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpointId: string | undefined;
-
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId?: string | undefined;
-
-  /**
-   * <p>The load balancer details if creating the Verified Access endpoint as
-   *          <code>load-balancer</code>type.</p>
-   * @public
-   */
-  LoadBalancerOptions?: ModifyVerifiedAccessEndpointLoadBalancerOptions | undefined;
-
-  /**
-   * <p>The network interface options.</p>
-   * @public
-   */
-  NetworkInterfaceOptions?: ModifyVerifiedAccessEndpointEniOptions | undefined;
-
-  /**
-   * <p>A description for the Verified Access endpoint.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessEndpointResult {
-  /**
-   * <p>Details about the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpoint?: VerifiedAccessEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessEndpointPolicyRequest {
-  /**
-   * <p>The ID of the Verified Access endpoint.</p>
-   * @public
-   */
-  VerifiedAccessEndpointId: string | undefined;
-
-  /**
-   * <p>The status of the Verified Access policy.</p>
-   * @public
-   */
-  PolicyEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Verified Access policy document.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The options for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessEndpointPolicyResult {
-  /**
-   * <p>The status of the Verified Access policy.</p>
-   * @public
-   */
-  PolicyEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Verified Access policy document.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>The options in use for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessGroupRequest {
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId: string | undefined;
-
-  /**
-   * <p>The ID of the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId?: string | undefined;
-
-  /**
-   * <p>A description for the Verified Access group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessGroupResult {
-  /**
-   * <p>Details about the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroup?: VerifiedAccessGroup | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessGroupPolicyRequest {
-  /**
-   * <p>The ID of the Verified Access group.</p>
-   * @public
-   */
-  VerifiedAccessGroupId: string | undefined;
-
-  /**
-   * <p>The status of the Verified Access policy.</p>
-   * @public
-   */
-  PolicyEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Verified Access policy document.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The options for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationRequest | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessGroupPolicyResult {
-  /**
-   * <p>The status of the Verified Access policy.</p>
-   * @public
-   */
-  PolicyEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Verified Access policy document.</p>
-   * @public
-   */
-  PolicyDocument?: string | undefined;
-
-  /**
-   * <p>The options in use for server side encryption.</p>
-   * @public
-   */
-  SseSpecification?: VerifiedAccessSseSpecificationResponse | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessInstanceRequest {
-  /**
-   * <p>The ID of the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId: string | undefined;
-
-  /**
-   * <p>A description for the Verified Access instance.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessInstanceResult {
-  /**
-   * <p>Details about the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstance?: VerifiedAccessInstance | undefined;
-}
-
-/**
- * <p>Options for CloudWatch Logs as a logging destination.</p>
- * @public
- */
-export interface VerifiedAccessLogCloudWatchLogsDestinationOptions {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
-
-  /**
-   * <p>The ID of the CloudWatch Logs log group.</p>
-   * @public
-   */
-  LogGroup?: string | undefined;
-}
-
-/**
- * <p>Describes Amazon Kinesis Data Firehose logging options.</p>
- * @public
- */
-export interface VerifiedAccessLogKinesisDataFirehoseDestinationOptions {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
-
-  /**
-   * <p>The ID of the delivery stream.</p>
-   * @public
-   */
-  DeliveryStream?: string | undefined;
-}
-
-/**
- * <p>Options for Amazon S3 as a logging destination.</p>
- * @public
- */
-export interface VerifiedAccessLogS3DestinationOptions {
-  /**
-   * <p>Indicates whether logging is enabled.</p>
-   * @public
-   */
-  Enabled: boolean | undefined;
-
-  /**
-   * <p>The bucket name.</p>
-   * @public
-   */
-  BucketName?: string | undefined;
-
-  /**
-   * <p>The bucket prefix.</p>
-   * @public
-   */
-  Prefix?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the Amazon S3 bucket.</p>
-   * @public
-   */
-  BucketOwner?: string | undefined;
-}
-
-/**
- * <p>Options for Verified Access logs.</p>
- * @public
- */
-export interface VerifiedAccessLogOptions {
-  /**
-   * <p>Sends Verified Access logs to Amazon S3.</p>
-   * @public
-   */
-  S3?: VerifiedAccessLogS3DestinationOptions | undefined;
-
-  /**
-   * <p>Sends Verified Access logs to CloudWatch Logs.</p>
-   * @public
-   */
-  CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestinationOptions | undefined;
-
-  /**
-   * <p>Sends Verified Access logs to Kinesis.</p>
-   * @public
-   */
-  KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestinationOptions | undefined;
-
-  /**
-   * <p>The logging version.</p>
-   *          <p>Valid values: <code>ocsf-0.1</code> | <code>ocsf-1.0.0-rc.2</code>
-   *          </p>
-   * @public
-   */
-  LogVersion?: string | undefined;
-
-  /**
-   * <p>Indicates whether to include trust data sent by trust providers in the logs.</p>
-   * @public
-   */
-  IncludeTrustContext?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
-  /**
-   * <p>The ID of the Verified Access instance.</p>
-   * @public
-   */
-  VerifiedAccessInstanceId: string | undefined;
-
-  /**
-   * <p>The configuration options for Verified Access instances.</p>
-   * @public
-   */
-  AccessLogs: VerifiedAccessLogOptions | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
-   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
-  /**
-   * <p>The logging configuration for the Verified Access instance.</p>
-   * @public
-   */
-  LoggingConfiguration?: VerifiedAccessInstanceLoggingConfiguration | undefined;
 }
 
 /**

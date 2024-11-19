@@ -28,8 +28,8 @@ export interface ListImagesInRecycleBinCommandInput extends ListImagesInRecycleB
 export interface ListImagesInRecycleBinCommandOutput extends ListImagesInRecycleBinResult, __MetadataBearer {}
 
 /**
- * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information,
- *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
+ * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information, see
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
  *         Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

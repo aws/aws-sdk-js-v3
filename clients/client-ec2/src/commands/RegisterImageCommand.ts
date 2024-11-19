@@ -44,18 +44,17 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *          <p>
  *             <b>Register a snapshot of a root device volume</b>
  *          </p>
- *          <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from
- *        a snapshot of a root device volume. You specify the snapshot using a block device mapping.
- *        You can't set the encryption state of the volume using the block device mapping. If the
- *        snapshot is encrypted, or encryption by default is enabled, the root volume of an instance
- *        launched from the AMI is encrypted.</p>
+ *          <p>You can use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot
+ *       of a root device volume. You specify the snapshot using a block device mapping. You can't set
+ *       the encryption state of the volume using the block device mapping. If the snapshot is
+ *       encrypted, or encryption by default is enabled, the root volume of an instance launched from
+ *       the AMI is encrypted.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html#creating-launching-ami-from-snapshot">Create an AMI from a snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIEncryption.html">Use encryption with Amazon EBS-backed
  *         AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>
  *             <b>Amazon Web Services Marketplace product codes</b>
  *          </p>
- *          <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new
- *       AMI.</p>
+ *          <p>If any snapshots have Amazon Web Services Marketplace product codes, they are copied to the new AMI.</p>
  *          <p>In most cases, AMIs for Windows, RedHat, SUSE, and SQL Server require correct licensing
  *       information to be present on the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI billing
  *         information</a> in the <i>Amazon EC2 User Guide</i>. When creating an AMI from

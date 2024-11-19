@@ -28,11 +28,12 @@ export interface CreateImageCommandInput extends CreateImageRequest {}
 export interface CreateImageCommandOutput extends CreateImageResult, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance
- *      	that is either running or stopped.</p>
- *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
- *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
- *      	the instance automatically launches with those additional volumes.</p>
+ * <p>Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that is either running or
+ *       stopped.</p>
+ *          <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition
+ *       to the root device volume, the new AMI contains block device mapping information for those
+ *       volumes. When you launch an instance from this new AMI, the instance automatically launches
+ *       with those additional volumes.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux
  *         AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example

@@ -80,6 +80,9 @@ export interface CreateDefaultSubnetCommandOutput extends CreateDefaultSubnetRes
  * //       EnableResourceNameDnsARecord: true || false,
  * //       EnableResourceNameDnsAAAARecord: true || false,
  * //     },
+ * //     BlockPublicAccessStates: { // BlockPublicAccessStates
+ * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
+ * //     },
  * //     SubnetId: "STRING_VALUE",
  * //     State: "pending" || "available" || "unavailable",
  * //     VpcId: "STRING_VALUE",

@@ -7073,21 +7073,23 @@ export interface AuthorizeSecurityGroupIngressResult {
 }
 
 /**
- * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>
+ * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed
+ *       AMI.</p>
  * @public
  */
 export interface S3Storage {
   /**
    * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
-   *        key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best
-   *          Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference
-   *            Guide</i>.</p>
+   *       key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best Practices for Amazon Web Services
+   *         accounts</a> in the <i>Account ManagementReference Guide</i>.</p>
    * @public
    */
   AWSAccessKeyId?: string | undefined;
 
   /**
-   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.</p>
+   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a
+   *       new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone
+   *       else, Amazon EC2 returns an error.</p>
    * @public
    */
   Bucket?: string | undefined;
@@ -7099,7 +7101,8 @@ export interface S3Storage {
   Prefix?: string | undefined;
 
   /**
-   * <p>An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.</p>
+   * <p>An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your
+   *       behalf.</p>
    * @public
    */
   UploadPolicy?: Uint8Array | undefined;
@@ -7136,7 +7139,9 @@ export interface BundleInstanceRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.</p>
+   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a
+   *       new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone
+   *       else, Amazon EC2 returns an error.</p>
    * @public
    */
   Storage: Storage | undefined;
@@ -8047,9 +8052,9 @@ export interface CopyFpgaImageResult {
  */
 export interface CopyImageRequest {
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure
-   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
-   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For
+   *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *       in the <i>Amazon EC2 API Reference</i>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -8071,9 +8076,9 @@ export interface CopyImageRequest {
   Encrypted?: boolean | undefined;
 
   /**
-   * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
-   *    		encrypted volumes. If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used.
-   *    		If you specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
+   * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating encrypted volumes.
+   *       If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used. If you
+   *       specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
    *          <p>You can specify a KMS key using any of the following:</p>
    *          <ul>
    *             <li>
@@ -8089,8 +8094,8 @@ export interface CopyImageRequest {
    *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
    *             </li>
    *          </ul>
-   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
-   *       the action can appear to complete, but eventually fails.</p>
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier
+   *       that is not valid, the action can appear to complete, but eventually fails.</p>
    *          <p>The specified KMS key must exist in the destination Region.</p>
    *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    * @public
@@ -8116,13 +8121,12 @@ export interface CopyImageRequest {
   SourceRegion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only
-   *   		specify this parameter when copying an AMI from an Amazon Web Services Region to an Outpost.
-   *   		The AMI must be in the Region of the destination Outpost. You cannot copy an
-   *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
-   *   		Outpost.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-amis">Copy AMIs from an Amazon Web Services
-   *         Region to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this
+   *       parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The AMI must be in the
+   *       Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from
+   *       one Outpost to another, or within the same Outpost.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-amis">Copy AMIs from an Amazon Web Services Region
+   *         to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
    * @public
    */
   DestinationOutpostArn?: string | undefined;
@@ -8154,7 +8158,7 @@ export interface CopyImageRequest {
    *             </li>
    *             <li>
    *                <p>To tag the new snapshots, the value for <code>ResourceType</code> must be
-   *           <code>snapshot</code>. The same tag is applied to all the new snapshots.</p>
+   *             <code>snapshot</code>. The same tag is applied to all the new snapshots.</p>
    *             </li>
    *          </ul>
    *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
