@@ -29,12 +29,12 @@ describe(flexibleChecksumsMiddleware.name, () => {
 
   const mockInput = {};
   const mockConfig = {} as PreviouslyResolved;
-  const mockMiddlewareConfig = { input: mockInput, requestChecksumRequired: false };
+  const mockMiddlewareConfig = { requestChecksumRequired: false };
 
   const mockBody = { body: "mockRequestBody" };
   const mockHeaders = { "content-length": 100, "content-encoding": "gzip" };
   const mockRequest = { body: mockBody, headers: mockHeaders };
-  const mockArgs = { request: mockRequest } as BuildHandlerArguments<any>;
+  const mockArgs = { input: mockInput, request: mockRequest } as BuildHandlerArguments<any>;
   const mockResult = { response: { body: "mockResponsebody" } };
 
   beforeEach(() => {

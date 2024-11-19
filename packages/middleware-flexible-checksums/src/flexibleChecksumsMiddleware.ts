@@ -21,10 +21,6 @@ import { stringHasher } from "./stringHasher";
 
 export interface FlexibleChecksumsRequestMiddlewareConfig {
   /**
-   * The input object for the operation.
-   */
-  input: Object;
-
   /**
    * Indicates an operation requires a checksum in its HTTP request.
    */
@@ -57,10 +53,10 @@ export const flexibleChecksumsMiddleware =
       return next(args);
     }
 
-    const { request } = args;
+    const { request, input } = args;
     const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
-    const { input, requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
+    const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(
       input,
