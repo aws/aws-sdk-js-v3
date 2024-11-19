@@ -7619,6 +7619,47 @@ export interface RetentionConfiguration {
 }
 
 /**
+ * <p>An object that describes the VPC configuration for a table optimizer.</p>
+ *          <p>This configuration is necessary to perform optimization on tables that are in a customer VPC.</p>
+ * @public
+ */
+export type TableOptimizerVpcConfiguration =
+  | TableOptimizerVpcConfiguration.GlueConnectionNameMember
+  | TableOptimizerVpcConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TableOptimizerVpcConfiguration {
+  /**
+   * <p>The name of the Glue connection used for the VPC for the table optimizer.</p>
+   * @public
+   */
+  export interface GlueConnectionNameMember {
+    glueConnectionName: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    glueConnectionName?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    glueConnectionName: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TableOptimizerVpcConfiguration, visitor: Visitor<T>): T => {
+    if (value.glueConnectionName !== undefined) return visitor.glueConnectionName(value.glueConnectionName);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Contains details on the configuration of a table optimizer. You pass this configuration when creating or updating a table optimizer.</p>
  * @public
  */
@@ -7634,6 +7675,13 @@ export interface TableOptimizerConfiguration {
    * @public
    */
   enabled?: boolean | undefined;
+
+  /**
+   * <p>A <code>TableOptimizerVpcConfiguration</code> object representing the VPC configuration for a table optimizer.</p>
+   *          <p>This configuration is necessary to perform optimization on tables that are in a customer VPC.</p>
+   * @public
+   */
+  vpcConfiguration?: TableOptimizerVpcConfiguration | undefined;
 
   /**
    * <p>The configuration for a snapshot retention optimizer.</p>
@@ -9237,11 +9285,6 @@ export interface CancelDataQualityRuleRecommendationRunRequest {
    */
   RunId: string | undefined;
 }
-
-/**
- * @public
- */
-export interface CancelDataQualityRuleRecommendationRunResponse {}
 
 /**
  * @internal

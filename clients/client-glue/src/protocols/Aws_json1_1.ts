@@ -756,6 +756,7 @@ import {
   TableOptimizer,
   TableOptimizerConfiguration,
   TableOptimizerRun,
+  TableOptimizerVpcConfiguration,
   ThrottlingException,
   TimestampedInclusionAnnotation,
   TransformConfigParameter,
@@ -989,7 +990,6 @@ import {
   DataQualityRulesetEvaluationRunFilter,
   DataQualityRulesetFilterCriteria,
   DataQualityRulesetListDetails,
-  DevEndpointCustomLibraries,
   EvaluationMetrics,
   FindMatchesMetrics,
   GetMLTaskRunResponse,
@@ -1176,6 +1176,7 @@ import {
   BatchGetJobsResponse,
   CodeGenConfigurationNode,
   CreateJobRequest,
+  DevEndpointCustomLibraries,
   GetJobResponse,
   GetJobsResponse,
   GetTableResponse,
@@ -11486,6 +11487,8 @@ const se_TableInput = (input: TableInput, context: __SerdeContext): any => {
 
 // se_TableOptimizerConfiguration omitted.
 
+// se_TableOptimizerVpcConfiguration omitted.
+
 // se_TagKeysList omitted.
 
 // se_TagResourceRequest omitted.
@@ -15423,6 +15426,8 @@ const de_TableOptimizerRuns = (output: any, context: __SerdeContext): TableOptim
     });
   return retVal;
 };
+
+// de_TableOptimizerVpcConfiguration omitted.
 
 /**
  * deserializeAws_json1_1TableStatus

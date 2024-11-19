@@ -44,6 +44,11 @@ import {
 /**
  * @public
  */
+export interface CancelDataQualityRuleRecommendationRunResponse {}
+
+/**
+ * @public
+ */
 export interface CancelDataQualityRulesetEvaluationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
@@ -3276,7 +3281,7 @@ export interface CreateTableOptimizerRequest {
   TableName: string | undefined;
 
   /**
-   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   * <p>The type of table optimizer.</p>
    * @public
    */
   Type: TableOptimizerType | undefined;
@@ -7747,23 +7752,6 @@ export interface LabelingSetGenerationTaskRunProperties {
    */
   OutputS3Path?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TaskType = {
-  EVALUATION: "EVALUATION",
-  EXPORT_LABELS: "EXPORT_LABELS",
-  FIND_MATCHES: "FIND_MATCHES",
-  IMPORT_LABELS: "IMPORT_LABELS",
-  LABELING_SET_GENERATION: "LABELING_SET_GENERATION",
-} as const;
-
-/**
- * @public
- */
-export type TaskType = (typeof TaskType)[keyof typeof TaskType];
 
 /**
  * @internal

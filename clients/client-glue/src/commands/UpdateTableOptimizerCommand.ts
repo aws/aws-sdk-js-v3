@@ -43,6 +43,9 @@ export interface UpdateTableOptimizerCommandOutput extends UpdateTableOptimizerR
  *   TableOptimizerConfiguration: { // TableOptimizerConfiguration
  *     roleArn: "STRING_VALUE",
  *     enabled: true || false,
+ *     vpcConfiguration: { // TableOptimizerVpcConfiguration Union: only one key present
+ *       glueConnectionName: "STRING_VALUE",
+ *     },
  *     retentionConfiguration: { // RetentionConfiguration
  *       icebergConfiguration: { // IcebergRetentionConfiguration
  *         snapshotRetentionPeriodInDays: Number("int"),

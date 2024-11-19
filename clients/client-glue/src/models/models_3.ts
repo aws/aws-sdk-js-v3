@@ -108,7 +108,6 @@ import {
 
 import {
   ColumnRowFilter,
-  DevEndpointCustomLibraries,
   FederatedTable,
   ResourceAction,
   ResourceState,
@@ -116,6 +115,35 @@ import {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * <p>Custom libraries to be loaded into a development endpoint.</p>
+ * @public
+ */
+export interface DevEndpointCustomLibraries {
+  /**
+   * <p>The paths to one or more Python libraries in an Amazon Simple Storage Service (Amazon S3)
+   *       bucket that should be loaded in your <code>DevEndpoint</code>. Multiple values must be
+   *       complete paths separated by a comma.</p>
+   *          <note>
+   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
+   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
+   *         analysis library, are not currently supported.</p>
+   *          </note>
+   * @public
+   */
+  ExtraPythonLibsS3Path?: string | undefined;
+
+  /**
+   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
+   *       in your <code>DevEndpoint</code>.</p>
+   *          <note>
+   *             <p>You can only use pure Java/Scala libraries with a <code>DevEndpoint</code>.</p>
+   *          </note>
+   * @public
+   */
+  ExtraJarsS3Path?: string | undefined;
+}
 
 /**
  * @public
@@ -687,7 +715,7 @@ export interface UpdateTableOptimizerRequest {
   TableName: string | undefined;
 
   /**
-   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   * <p>The type of table optimizer.</p>
    * @public
    */
   Type: TableOptimizerType | undefined;

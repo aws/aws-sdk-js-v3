@@ -28,7 +28,7 @@ export interface CreateTableOptimizerCommandInput extends CreateTableOptimizerRe
 export interface CreateTableOptimizerCommandOutput extends CreateTableOptimizerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new table optimizer for a specific function. <code>compaction</code> is the only currently supported optimizer type.</p>
+ * <p>Creates a new table optimizer for a specific function. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +43,9 @@ export interface CreateTableOptimizerCommandOutput extends CreateTableOptimizerR
  *   TableOptimizerConfiguration: { // TableOptimizerConfiguration
  *     roleArn: "STRING_VALUE",
  *     enabled: true || false,
+ *     vpcConfiguration: { // TableOptimizerVpcConfiguration Union: only one key present
+ *       glueConnectionName: "STRING_VALUE",
+ *     },
  *     retentionConfiguration: { // RetentionConfiguration
  *       icebergConfiguration: { // IcebergRetentionConfiguration
  *         snapshotRetentionPeriodInDays: Number("int"),
