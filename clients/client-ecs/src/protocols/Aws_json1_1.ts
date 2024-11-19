@@ -378,7 +378,6 @@ import {
   Ulimit,
   UnsupportedFeatureException,
   UntagResourceRequest,
-  UpdateCapacityProviderRequest,
   UpdateInProgressException,
   VersionInfo,
   Volume,
@@ -388,6 +387,7 @@ import {
 import {
   MissingVersionException,
   NoUpdateAvailableException,
+  UpdateCapacityProviderRequest,
   UpdateClusterRequest,
   UpdateClusterSettingsRequest,
   UpdateContainerAgentRequest,

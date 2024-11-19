@@ -158,6 +158,7 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * //         ],
  * //         startTimeout: Number("int"),
  * //         stopTimeout: Number("int"),
+ * //         versionConsistency: "enabled" || "disabled",
  * //         hostname: "STRING_VALUE",
  * //         user: "STRING_VALUE",
  * //         workingDirectory: "STRING_VALUE",

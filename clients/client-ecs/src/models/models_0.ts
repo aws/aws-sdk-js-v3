@@ -5514,6 +5514,20 @@ export interface Ulimit {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const VersionConsistency = {
+  DISABLED: "disabled",
+  ENABLED: "enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type VersionConsistency = (typeof VersionConsistency)[keyof typeof VersionConsistency];
+
+/**
  * <p>Details on a data volume from another container in the same task definition.</p>
  * @public
  */
@@ -5932,6 +5946,17 @@ export interface ContainerDefinition {
    * @public
    */
   stopTimeout?: number | undefined;
+
+  /**
+   * <p>Specifies whether Amazon ECS will resolve the container image tag
+   * 			provided in the container definition to an image digest. By default, the
+   * 			value is <code>enabled</code>. If you set the value for a container as
+   * 			<code>disabled</code>, Amazon ECS will not resolve the provided container image tag
+   * 			to a digest and will use the original image URI specified in the container definition for deployment.
+   * 			For more information about container image resolution, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability">Container image resolution</a> in the <i>Amazon ECS Developer Guide</i>.</p>
+   * @public
+   */
+  versionConsistency?: VersionConsistency | undefined;
 
   /**
    * <p>The hostname to use for your container. This parameter maps to <code>Hostname</code> in the docker
@@ -12685,24 +12710,6 @@ export interface AutoScalingGroupProviderUpdate {
    * @public
    */
   managedDraining?: ManagedDraining | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCapacityProviderRequest {
-  /**
-   * <p>The name of the capacity provider to update.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>An object that represent the parameters to update for the Auto Scaling group capacity
-   * 			provider.</p>
-   * @public
-   */
-  autoScalingGroupProvider: AutoScalingGroupProviderUpdate | undefined;
 }
 
 /**

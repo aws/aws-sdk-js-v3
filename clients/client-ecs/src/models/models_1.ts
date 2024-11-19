@@ -4,6 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { ECSServiceException as __BaseException } from "./ECSServiceException";
 
 import {
+  AutoScalingGroupProviderUpdate,
   CapacityProvider,
   CapacityProviderStrategyItem,
   Cluster,
@@ -28,6 +29,24 @@ import {
   TaskSet,
   VpcLatticeConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateCapacityProviderRequest {
+  /**
+   * <p>The name of the capacity provider to update.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An object that represent the parameters to update for the Auto Scaling group capacity
+   * 			provider.</p>
+   * @public
+   */
+  autoScalingGroupProvider: AutoScalingGroupProviderUpdate | undefined;
+}
 
 /**
  * @public
