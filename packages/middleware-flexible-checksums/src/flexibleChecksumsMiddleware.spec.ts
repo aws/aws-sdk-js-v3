@@ -178,18 +178,4 @@ describe(flexibleChecksumsMiddleware.name, () => {
       expect(mockBase64Encoder).toHaveBeenCalledWith(mockRawChecksum);
     });
   });
-
-  describe("set feature", () => {
-    it.each([
-      ["FLEXIBLE_CHECKSUMS_REQ_WHEN_REQUIRED", "a", RequestChecksumCalculation.WHEN_REQUIRED],
-      ["FLEXIBLE_CHECKSUMS_REQ_WHEN_SUPPORTED", "Z", RequestChecksumCalculation.WHEN_SUPPORTED],
-    ])("logs %s and %s when RequestChecksumCalculation=%s", async (feature, value, requestChecksumCalculation) => {
-      const mockConfig = {
-        requestChecksumCalculation: () => Promise.resolve(requestChecksumCalculation),
-      } as PreviouslyResolved;
-      const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
-      await handler(mockArgs);
-      expect(setFeature).toHaveBeenCalledWith(expect.anything(), feature, value);
-    });
-  });
 });

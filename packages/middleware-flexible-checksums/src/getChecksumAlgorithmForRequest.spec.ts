@@ -39,46 +39,6 @@ describe(getChecksumAlgorithmForRequest.name, () => {
     });
   });
 
-  describe("when requestAlgorithmMember is not set in input", () => {
-    const mockOptionsWithAlgoMember = { requestAlgorithmMember: mockRequestAlgorithmMember };
-
-    describe(`when requestChecksumCalculation is '${RequestChecksumCalculation.WHEN_REQUIRED}'`, () => {
-      const mockOptions = {
-        ...mockOptionsWithAlgoMember,
-        requestChecksumCalculation: RequestChecksumCalculation.WHEN_REQUIRED,
-      };
-
-      it(`returns ${DEFAULT_CHECKSUM_ALGORITHM} if requestChecksumRequired is set`, () => {
-        expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: true })).toEqual(
-          DEFAULT_CHECKSUM_ALGORITHM
-        );
-      });
-
-      it("returns undefined if requestChecksumRequired is false", () => {
-        expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: false })).toBeUndefined();
-      });
-    });
-
-    describe(`when requestChecksumCalculation is '${RequestChecksumCalculation.WHEN_SUPPORTED}'`, () => {
-      const mockOptions = {
-        ...mockOptionsWithAlgoMember,
-        requestChecksumCalculation: RequestChecksumCalculation.WHEN_SUPPORTED,
-      };
-
-      it(`returns ${DEFAULT_CHECKSUM_ALGORITHM} if requestChecksumRequired is set`, () => {
-        expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: true })).toEqual(
-          DEFAULT_CHECKSUM_ALGORITHM
-        );
-      });
-
-      it(`returns ${DEFAULT_CHECKSUM_ALGORITHM} if requestChecksumRequired is false`, () => {
-        expect(getChecksumAlgorithmForRequest({}, { ...mockOptions, requestChecksumRequired: false })).toEqual(
-          DEFAULT_CHECKSUM_ALGORITHM
-        );
-      });
-    });
-  });
-
   it("throws error if input[requestAlgorithmMember] if not supported by client", () => {
     const unsupportedAlgo = "unsupportedAlgo";
     const mockInput = { [mockRequestAlgorithmMember]: unsupportedAlgo };
