@@ -360,7 +360,6 @@ export class GetObjectCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
         requestChecksumRequired: false,
         requestValidationModeMember: "ChecksumMode",
         responseAlgorithms: ["CRC32", "CRC32C", "SHA256", "SHA1"],
