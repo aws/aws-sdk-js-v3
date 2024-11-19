@@ -306,6 +306,10 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  *             bucket: "STRING_VALUE", // required
  *             key: "STRING_VALUE", // required
  *           },
+ *           file: { // TaxRegistrationDocFile
+ *             fileName: "STRING_VALUE", // required
+ *             fileContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
+ *           },
  *         },
  *       ],
  *     },

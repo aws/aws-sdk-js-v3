@@ -50,6 +50,7 @@ export interface GetTaxRegistrationDocumentCommandOutput extends GetTaxRegistrat
  * const response = await client.send(command);
  * // { // GetTaxRegistrationDocumentResponse
  * //   destinationFilePath: "STRING_VALUE",
+ * //   presignedS3Url: "STRING_VALUE",
  * // };
  *
  * ```

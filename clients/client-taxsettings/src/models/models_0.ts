@@ -4,6 +4,27 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsServiceException";
 
 /**
+ * <p>The access is denied for the Amazon Web Services Support API.
+ *     </p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
  * <p> The details of the address associated with the TRN information. </p>
  * @public
  */
@@ -1064,6 +1085,50 @@ export interface AdditionalInfoRequest {
 }
 
 /**
+ * <p>Failed to upload the tax exemption document to Amazon Web Services Support case.
+ *     </p>
+ * @public
+ */
+export class AttachmentUploadException extends __BaseException {
+  readonly name: "AttachmentUploadException" = "AttachmentUploadException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AttachmentUploadException, __BaseException>) {
+    super({
+      name: "AttachmentUploadException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentUploadException.prototype);
+  }
+}
+
+/**
+ * <p>The address domain associate with the tax information.
+ *     </p>
+ * @public
+ */
+export interface Authority {
+  /**
+   * <p>
+   *       The country code for the country that the address is in.
+   *     </p>
+   * @public
+   */
+  country: string | undefined;
+
+  /**
+   * <p>
+   *       The state that the address is located.
+   *     </p>
+   * @public
+   */
+  state?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface BatchDeleteTaxRegistrationRequest {
@@ -1232,6 +1297,215 @@ export class ValidationException extends __BaseException {
 }
 
 /**
+ * @public
+ */
+export interface BatchGetTaxExemptionsRequest {
+  /**
+   * <p>
+   *       List of unique account identifiers.
+   *     </p>
+   * @public
+   */
+  accountIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityExemptionAccountStatus = {
+  Expired: "Expired",
+  None: "None",
+  Pending: "Pending",
+  Valid: "Valid",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityExemptionAccountStatus =
+  (typeof EntityExemptionAccountStatus)[keyof typeof EntityExemptionAccountStatus];
+
+/**
+ * <p>The tax exemption type.
+ *     </p>
+ * @public
+ */
+export interface TaxExemptionType {
+  /**
+   * <p>The tax exemption's type display name.
+   *     </p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The tax exemption's type description.
+   *     </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tax exemption's applicable jurisdictions.
+   *     </p>
+   * @public
+   */
+  applicableJurisdictions?: Authority[] | undefined;
+}
+
+/**
+ * <p>The tax exemption.
+ *     </p>
+ * @public
+ */
+export interface TaxExemption {
+  /**
+   * <p>The address domain associate with tax exemption.
+   *     </p>
+   * @public
+   */
+  authority: Authority | undefined;
+
+  /**
+   * <p>The tax exemption type.
+   *     </p>
+   * @public
+   */
+  taxExemptionType: TaxExemptionType | undefined;
+
+  /**
+   * <p>The tax exemption effective date.
+   *     </p>
+   * @public
+   */
+  effectiveDate?: Date | undefined;
+
+  /**
+   * <p>The tax exemption expiration date.
+   *     </p>
+   * @public
+   */
+  expirationDate?: Date | undefined;
+
+  /**
+   * <p>The tax exemption recording time in the <code>TaxSettings</code> system.
+   *     </p>
+   * @public
+   */
+  systemEffectiveDate?: Date | undefined;
+
+  /**
+   * <p>The tax exemption status.
+   *     </p>
+   * @public
+   */
+  status?: EntityExemptionAccountStatus | undefined;
+}
+
+/**
+ * <p>The tax exemption details.
+ *     </p>
+ * @public
+ */
+export interface TaxExemptionDetails {
+  /**
+   * <p>Tax exemptions.
+   *     </p>
+   * @public
+   */
+  taxExemptions?: TaxExemption[] | undefined;
+
+  /**
+   * <p>The indicator if the tax exemption is inherited from the consolidated billing family management account.
+   *     </p>
+   * @public
+   */
+  heritageObtainedDetails?: boolean | undefined;
+
+  /**
+   * <p>The consolidated billing family management account the tax exemption inherited from.
+   *     </p>
+   * @public
+   */
+  heritageObtainedParentEntity?: string | undefined;
+
+  /**
+   * <p>The reason of the heritage inheritance.
+   *     </p>
+   * @public
+   */
+  heritageObtainedReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetTaxExemptionsResponse {
+  /**
+   * <p>The tax exemption details map of accountId and tax exemption details.
+   *     </p>
+   * @public
+   */
+  taxExemptionDetailsMap?: Record<string, TaxExemptionDetails> | undefined;
+
+  /**
+   * <p>The list of accounts that failed to get tax exemptions.
+   *     </p>
+   * @public
+   */
+  failedAccounts?: string[] | undefined;
+}
+
+/**
+ * <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>404</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.errorCode = opts.errorCode;
+  }
+}
+
+/**
+ * <p>The tax registration document.
+ *     </p>
+ * @public
+ */
+export interface TaxRegistrationDocFile {
+  /**
+   * <p>The tax registration document name.
+   *     </p>
+   * @public
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The tax registration document content.
+   *     </p>
+   * @public
+   */
+  fileContent: Uint8Array | undefined;
+}
+
+/**
  * <p>The Amazon S3 bucket in your account where your tax document is located.</p>
  * @public
  */
@@ -1258,7 +1532,14 @@ export interface TaxRegistrationDocument {
    * <p>The Amazon S3 location where your tax registration document is stored.</p>
    * @public
    */
-  s3Location: SourceS3Location | undefined;
+  s3Location?: SourceS3Location | undefined;
+
+  /**
+   * <p>The tax registration document.
+   *     </p>
+   * @public
+   */
+  file?: TaxRegistrationDocFile | undefined;
 }
 
 /**
@@ -1419,6 +1700,27 @@ export interface BatchPutTaxRegistrationResponse {
 }
 
 /**
+ * <p>You've exceeded the Amazon Web Services Support case creation limit for your account.
+ *     </p>
+ * @public
+ */
+export class CaseCreationLimitExceededException extends __BaseException {
+  readonly name: "CaseCreationLimitExceededException" = "CaseCreationLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CaseCreationLimitExceededException, __BaseException>) {
+    super({
+      name: "CaseCreationLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CaseCreationLimitExceededException.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface DeleteSupplementalTaxRegistrationRequest {
@@ -1435,33 +1737,6 @@ export interface DeleteSupplementalTaxRegistrationRequest {
  * @public
  */
 export interface DeleteSupplementalTaxRegistrationResponse {}
-
-/**
- * <p>The exception thrown when the input doesn't have a resource associated to it.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>404</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.errorCode = opts.errorCode;
-  }
-}
 
 /**
  * @public
@@ -1497,6 +1772,75 @@ export interface DestinationS3Location {
    * @public
    */
   prefix?: string | undefined;
+}
+
+/**
+ * <p>The exemption certificate.
+ *     </p>
+ * @public
+ */
+export interface ExemptionCertificate {
+  /**
+   * <p>The exemption certificate file name.
+   *     </p>
+   * @public
+   */
+  documentName: string | undefined;
+
+  /**
+   * <p>The exemption certificate file content.
+   *     </p>
+   * @public
+   */
+  documentFile: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTaxExemptionTypesRequest {}
+
+/**
+ * @public
+ */
+export interface GetTaxExemptionTypesResponse {
+  /**
+   * <p>The supported types of tax exemptions.
+   *     </p>
+   * @public
+   */
+  taxExemptionTypes?: TaxExemptionType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTaxInheritanceRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const HeritageStatus = {
+  OptIn: "OptIn",
+  OptOut: "OptOut",
+} as const;
+
+/**
+ * @public
+ */
+export type HeritageStatus = (typeof HeritageStatus)[keyof typeof HeritageStatus];
+
+/**
+ * @public
+ */
+export interface GetTaxInheritanceResponse {
+  /**
+   * <p>The tax inheritance status.
+   *     </p>
+   * @public
+   */
+  heritageStatus?: HeritageStatus | undefined;
 }
 
 /**
@@ -1592,7 +1936,7 @@ export interface GetTaxRegistrationDocumentRequest {
    * <p>The Amazon S3 bucket that you specify to download your tax documents to.</p>
    * @public
    */
-  destinationS3Location: DestinationS3Location | undefined;
+  destinationS3Location?: DestinationS3Location | undefined;
 
   /**
    * <p>The metadata for your tax document.</p>
@@ -1610,6 +1954,13 @@ export interface GetTaxRegistrationDocumentResponse {
    * @public
    */
   destinationFilePath?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 presigned URL of the tax registration document.
+   *     </p>
+   * @public
+   */
+  presignedS3Url?: string | undefined;
 }
 
 /**
@@ -1725,6 +2076,42 @@ export interface ListSupplementalTaxRegistrationsResponse {
 /**
  * @public
  */
+export interface ListTaxExemptionsRequest {
+  /**
+   * <p>The number of results you want in one response.
+   *     </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTaxExemptionsResponse {
+  /**
+   * <p>The token to retrieve the next set of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The tax exemption details map of <code>accountId</code> and tax exemption details.
+   *     </p>
+   * @public
+   */
+  taxExemptionDetailsMap?: Record<string, TaxExemptionDetails> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTaxRegistrationsRequest {
   /**
    * <p>Number of <code>accountDetails</code> results you want in one response. </p>
@@ -1828,6 +2215,69 @@ export interface PutSupplementalTaxRegistrationResponse {
    */
   status: TaxRegistrationStatus | undefined;
 }
+
+/**
+ * @public
+ */
+export interface PutTaxExemptionRequest {
+  /**
+   * <p>
+   *       The list of unique account identifiers.
+   *     </p>
+   * @public
+   */
+  accountIds: string[] | undefined;
+
+  /**
+   * <p>The address domain associate with the tax information.
+   *     </p>
+   * @public
+   */
+  authority: Authority | undefined;
+
+  /**
+   * <p>The exemption type.
+   *     </p>
+   * @public
+   */
+  exemptionType: string | undefined;
+
+  /**
+   * <p>The exemption certificate.
+   *     </p>
+   * @public
+   */
+  exemptionCertificate: ExemptionCertificate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTaxExemptionResponse {
+  /**
+   * <p>The customer support case ID.
+   *     </p>
+   * @public
+   */
+  caseId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTaxInheritanceRequest {
+  /**
+   * <p>The tax inheritance status.
+   *     </p>
+   * @public
+   */
+  heritageStatus?: HeritageStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTaxInheritanceResponse {}
 
 /**
  * @public

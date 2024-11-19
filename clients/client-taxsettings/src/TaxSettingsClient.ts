@@ -58,6 +58,10 @@ import {
   BatchDeleteTaxRegistrationCommandOutput,
 } from "./commands/BatchDeleteTaxRegistrationCommand";
 import {
+  BatchGetTaxExemptionsCommandInput,
+  BatchGetTaxExemptionsCommandOutput,
+} from "./commands/BatchGetTaxExemptionsCommand";
+import {
   BatchPutTaxRegistrationCommandInput,
   BatchPutTaxRegistrationCommandOutput,
 } from "./commands/BatchPutTaxRegistrationCommand";
@@ -69,6 +73,11 @@ import {
   DeleteTaxRegistrationCommandInput,
   DeleteTaxRegistrationCommandOutput,
 } from "./commands/DeleteTaxRegistrationCommand";
+import {
+  GetTaxExemptionTypesCommandInput,
+  GetTaxExemptionTypesCommandOutput,
+} from "./commands/GetTaxExemptionTypesCommand";
+import { GetTaxInheritanceCommandInput, GetTaxInheritanceCommandOutput } from "./commands/GetTaxInheritanceCommand";
 import { GetTaxRegistrationCommandInput, GetTaxRegistrationCommandOutput } from "./commands/GetTaxRegistrationCommand";
 import {
   GetTaxRegistrationDocumentCommandInput,
@@ -78,6 +87,7 @@ import {
   ListSupplementalTaxRegistrationsCommandInput,
   ListSupplementalTaxRegistrationsCommandOutput,
 } from "./commands/ListSupplementalTaxRegistrationsCommand";
+import { ListTaxExemptionsCommandInput, ListTaxExemptionsCommandOutput } from "./commands/ListTaxExemptionsCommand";
 import {
   ListTaxRegistrationsCommandInput,
   ListTaxRegistrationsCommandOutput,
@@ -86,6 +96,8 @@ import {
   PutSupplementalTaxRegistrationCommandInput,
   PutSupplementalTaxRegistrationCommandOutput,
 } from "./commands/PutSupplementalTaxRegistrationCommand";
+import { PutTaxExemptionCommandInput, PutTaxExemptionCommandOutput } from "./commands/PutTaxExemptionCommand";
+import { PutTaxInheritanceCommandInput, PutTaxInheritanceCommandOutput } from "./commands/PutTaxInheritanceCommand";
 import { PutTaxRegistrationCommandInput, PutTaxRegistrationCommandOutput } from "./commands/PutTaxRegistrationCommand";
 import {
   ClientInputEndpointParameters,
@@ -103,14 +115,20 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchDeleteTaxRegistrationCommandInput
+  | BatchGetTaxExemptionsCommandInput
   | BatchPutTaxRegistrationCommandInput
   | DeleteSupplementalTaxRegistrationCommandInput
   | DeleteTaxRegistrationCommandInput
+  | GetTaxExemptionTypesCommandInput
+  | GetTaxInheritanceCommandInput
   | GetTaxRegistrationCommandInput
   | GetTaxRegistrationDocumentCommandInput
   | ListSupplementalTaxRegistrationsCommandInput
+  | ListTaxExemptionsCommandInput
   | ListTaxRegistrationsCommandInput
   | PutSupplementalTaxRegistrationCommandInput
+  | PutTaxExemptionCommandInput
+  | PutTaxInheritanceCommandInput
   | PutTaxRegistrationCommandInput;
 
 /**
@@ -118,14 +136,20 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | BatchDeleteTaxRegistrationCommandOutput
+  | BatchGetTaxExemptionsCommandOutput
   | BatchPutTaxRegistrationCommandOutput
   | DeleteSupplementalTaxRegistrationCommandOutput
   | DeleteTaxRegistrationCommandOutput
+  | GetTaxExemptionTypesCommandOutput
+  | GetTaxInheritanceCommandOutput
   | GetTaxRegistrationCommandOutput
   | GetTaxRegistrationDocumentCommandOutput
   | ListSupplementalTaxRegistrationsCommandOutput
+  | ListTaxExemptionsCommandOutput
   | ListTaxRegistrationsCommandOutput
   | PutSupplementalTaxRegistrationCommandOutput
+  | PutTaxExemptionCommandOutput
+  | PutTaxInheritanceCommandOutput
   | PutTaxRegistrationCommandOutput;
 
 /**

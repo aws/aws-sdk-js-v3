@@ -6,10 +6,13 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
+  expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
   map,
+  parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -24,6 +27,10 @@ import {
   BatchDeleteTaxRegistrationCommandOutput,
 } from "../commands/BatchDeleteTaxRegistrationCommand";
 import {
+  BatchGetTaxExemptionsCommandInput,
+  BatchGetTaxExemptionsCommandOutput,
+} from "../commands/BatchGetTaxExemptionsCommand";
+import {
   BatchPutTaxRegistrationCommandInput,
   BatchPutTaxRegistrationCommandOutput,
 } from "../commands/BatchPutTaxRegistrationCommand";
@@ -35,6 +42,11 @@ import {
   DeleteTaxRegistrationCommandInput,
   DeleteTaxRegistrationCommandOutput,
 } from "../commands/DeleteTaxRegistrationCommand";
+import {
+  GetTaxExemptionTypesCommandInput,
+  GetTaxExemptionTypesCommandOutput,
+} from "../commands/GetTaxExemptionTypesCommand";
+import { GetTaxInheritanceCommandInput, GetTaxInheritanceCommandOutput } from "../commands/GetTaxInheritanceCommand";
 import { GetTaxRegistrationCommandInput, GetTaxRegistrationCommandOutput } from "../commands/GetTaxRegistrationCommand";
 import {
   GetTaxRegistrationDocumentCommandInput,
@@ -44,6 +56,7 @@ import {
   ListSupplementalTaxRegistrationsCommandInput,
   ListSupplementalTaxRegistrationsCommandOutput,
 } from "../commands/ListSupplementalTaxRegistrationsCommand";
+import { ListTaxExemptionsCommandInput, ListTaxExemptionsCommandOutput } from "../commands/ListTaxExemptionsCommand";
 import {
   ListTaxRegistrationsCommandInput,
   ListTaxRegistrationsCommandOutput,
@@ -52,14 +65,21 @@ import {
   PutSupplementalTaxRegistrationCommandInput,
   PutSupplementalTaxRegistrationCommandOutput,
 } from "../commands/PutSupplementalTaxRegistrationCommand";
+import { PutTaxExemptionCommandInput, PutTaxExemptionCommandOutput } from "../commands/PutTaxExemptionCommand";
+import { PutTaxInheritanceCommandInput, PutTaxInheritanceCommandOutput } from "../commands/PutTaxInheritanceCommand";
 import { PutTaxRegistrationCommandInput, PutTaxRegistrationCommandOutput } from "../commands/PutTaxRegistrationCommand";
 import {
+  AccessDeniedException,
   AdditionalInfoRequest,
   Address,
+  AttachmentUploadException,
+  Authority,
   CanadaAdditionalInfo,
+  CaseCreationLimitExceededException,
   ConflictException,
   DestinationS3Location,
   EstoniaAdditionalInfo,
+  ExemptionCertificate,
   GeorgiaAdditionalInfo,
   InternalServerException,
   IsraelAdditionalInfo,
@@ -76,6 +96,9 @@ import {
   SpainAdditionalInfo,
   SupplementalTaxRegistrationEntry,
   TaxDocumentMetadata,
+  TaxExemption,
+  TaxExemptionDetails,
+  TaxRegistrationDocFile,
   TaxRegistrationDocument,
   TaxRegistrationEntry,
   TurkeyAdditionalInfo,
@@ -108,6 +131,28 @@ export const se_BatchDeleteTaxRegistrationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1BatchGetTaxExemptionsCommand
+ */
+export const se_BatchGetTaxExemptionsCommand = async (
+  input: BatchGetTaxExemptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/BatchGetTaxExemptions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1BatchPutTaxRegistrationCommand
  */
 export const se_BatchPutTaxRegistrationCommand = async (
@@ -123,7 +168,7 @@ export const se_BatchPutTaxRegistrationCommand = async (
   body = JSON.stringify(
     take(input, {
       accountIds: (_) => _json(_),
-      taxRegistrationEntry: (_) => _json(_),
+      taxRegistrationEntry: (_) => se_TaxRegistrationEntry(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -170,6 +215,36 @@ export const se_DeleteTaxRegistrationCommand = async (
       accountId: [],
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTaxExemptionTypesCommand
+ */
+export const se_GetTaxExemptionTypesCommand = async (
+  input: GetTaxExemptionTypesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/GetTaxExemptionTypes");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTaxInheritanceCommand
+ */
+export const se_GetTaxInheritanceCommand = async (
+  input: GetTaxInheritanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/GetTaxInheritance");
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -243,6 +318,29 @@ export const se_ListSupplementalTaxRegistrationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListTaxExemptionsCommand
+ */
+export const se_ListTaxExemptionsCommand = async (
+  input: ListTaxExemptionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListTaxExemptions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTaxRegistrationsCommand
  */
 export const se_ListTaxRegistrationsCommand = async (
@@ -288,6 +386,53 @@ export const se_PutSupplementalTaxRegistrationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutTaxExemptionCommand
+ */
+export const se_PutTaxExemptionCommand = async (
+  input: PutTaxExemptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/PutTaxExemption");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accountIds: (_) => _json(_),
+      authority: (_) => _json(_),
+      exemptionCertificate: (_) => se_ExemptionCertificate(_, context),
+      exemptionType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutTaxInheritanceCommand
+ */
+export const se_PutTaxInheritanceCommand = async (
+  input: PutTaxInheritanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/PutTaxInheritance");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      heritageStatus: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutTaxRegistrationCommand
  */
 export const se_PutTaxRegistrationCommand = async (
@@ -303,7 +448,7 @@ export const se_PutTaxRegistrationCommand = async (
   body = JSON.stringify(
     take(input, {
       accountId: [],
-      taxRegistrationEntry: (_) => _json(_),
+      taxRegistrationEntry: (_) => se_TaxRegistrationEntry(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -326,6 +471,28 @@ export const de_BatchDeleteTaxRegistrationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetTaxExemptionsCommand
+ */
+export const de_BatchGetTaxExemptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetTaxExemptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedAccounts: _json,
+    taxExemptionDetailsMap: (_) => de_TaxExemptionDetailsMap(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -388,6 +555,48 @@ export const de_DeleteTaxRegistrationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetTaxExemptionTypesCommand
+ */
+export const de_GetTaxExemptionTypesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTaxExemptionTypesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    taxExemptionTypes: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTaxInheritanceCommand
+ */
+export const de_GetTaxInheritanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTaxInheritanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    heritageStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetTaxRegistrationCommand
  */
 export const de_GetTaxRegistrationCommand = async (
@@ -424,6 +633,7 @@ export const de_GetTaxRegistrationDocumentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     destinationFilePath: __expectString,
+    presignedS3Url: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -446,6 +656,28 @@ export const de_ListSupplementalTaxRegistrationsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     taxRegistrations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTaxExemptionsCommand
+ */
+export const de_ListTaxExemptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTaxExemptionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    taxExemptionDetailsMap: (_) => de_TaxExemptionDetailsMap(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -496,6 +728,44 @@ export const de_PutSupplementalTaxRegistrationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutTaxExemptionCommand
+ */
+export const de_PutTaxExemptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutTaxExemptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    caseId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutTaxInheritanceCommand
+ */
+export const de_PutTaxInheritanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutTaxInheritanceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutTaxRegistrationCommand
  */
 export const de_PutTaxRegistrationCommand = async (
@@ -538,6 +808,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFoundException":
     case "com.amazonaws.taxsettings#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.taxsettings#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AttachmentUploadException":
+    case "com.amazonaws.taxsettings#AttachmentUploadException":
+      throw await de_AttachmentUploadExceptionRes(parsedOutput, context);
+    case "CaseCreationLimitExceededException":
+    case "com.amazonaws.taxsettings#CaseCreationLimitExceededException":
+      throw await de_CaseCreationLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -549,6 +828,66 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
 };
 
 const throwDefaultError = withBaseException(__BaseException);
+/**
+ * deserializeAws_restJson1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1AttachmentUploadExceptionRes
+ */
+const de_AttachmentUploadExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AttachmentUploadException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new AttachmentUploadException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1CaseCreationLimitExceededExceptionRes
+ */
+const de_CaseCreationLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CaseCreationLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new CaseCreationLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 /**
  * deserializeAws_restJson1ConflictExceptionRes
  */
@@ -634,11 +973,23 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Address omitted.
 
+// se_Authority omitted.
+
 // se_CanadaAdditionalInfo omitted.
 
 // se_DestinationS3Location omitted.
 
 // se_EstoniaAdditionalInfo omitted.
+
+/**
+ * serializeAws_restJson1ExemptionCertificate
+ */
+const se_ExemptionCertificate = (input: ExemptionCertificate, context: __SerdeContext): any => {
+  return take(input, {
+    documentFile: context.base64Encoder,
+    documentName: [],
+  });
+};
 
 // se_GeorgiaAdditionalInfo omitted.
 
@@ -668,21 +1019,72 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_TaxDocumentMetadata omitted.
 
-// se_TaxRegistrationDocument omitted.
+/**
+ * serializeAws_restJson1TaxRegistrationDocFile
+ */
+const se_TaxRegistrationDocFile = (input: TaxRegistrationDocFile, context: __SerdeContext): any => {
+  return take(input, {
+    fileContent: context.base64Encoder,
+    fileName: [],
+  });
+};
 
-// se_TaxRegistrationDocuments omitted.
+/**
+ * serializeAws_restJson1TaxRegistrationDocument
+ */
+const se_TaxRegistrationDocument = (input: TaxRegistrationDocument, context: __SerdeContext): any => {
+  return take(input, {
+    file: (_) => se_TaxRegistrationDocFile(_, context),
+    s3Location: _json,
+  });
+};
 
-// se_TaxRegistrationEntry omitted.
+/**
+ * serializeAws_restJson1TaxRegistrationDocuments
+ */
+const se_TaxRegistrationDocuments = (input: TaxRegistrationDocument[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_TaxRegistrationDocument(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1TaxRegistrationEntry
+ */
+const se_TaxRegistrationEntry = (input: TaxRegistrationEntry, context: __SerdeContext): any => {
+  return take(input, {
+    additionalTaxInformation: _json,
+    certifiedEmailId: [],
+    legalAddress: _json,
+    legalName: [],
+    registrationId: [],
+    registrationType: [],
+    sector: [],
+    verificationDetails: (_) => se_VerificationDetails(_, context),
+  });
+};
 
 // se_TurkeyAdditionalInfo omitted.
 
 // se_UkraineAdditionalInfo omitted.
 
-// se_VerificationDetails omitted.
+/**
+ * serializeAws_restJson1VerificationDetails
+ */
+const se_VerificationDetails = (input: VerificationDetails, context: __SerdeContext): any => {
+  return take(input, {
+    dateOfBirth: [],
+    taxRegistrationDocuments: (_) => se_TaxRegistrationDocuments(_, context),
+  });
+};
 
 // de_AccountDetails omitted.
 
 // de_AccountDetailsList omitted.
+
+// de_AccountIds omitted.
 
 // de_AccountMetaData omitted.
 
@@ -691,6 +1093,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_Address omitted.
 
 // de_AddressRoleMap omitted.
+
+// de_Authorities omitted.
+
+// de_Authority omitted.
 
 // de_BatchDeleteTaxRegistrationError omitted.
 
@@ -739,6 +1145,61 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_TaxDocumentMetadata omitted.
 
 // de_TaxDocumentMetadatas omitted.
+
+/**
+ * deserializeAws_restJson1TaxExemption
+ */
+const de_TaxExemption = (output: any, context: __SerdeContext): TaxExemption => {
+  return take(output, {
+    authority: _json,
+    effectiveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    expirationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    systemEffectiveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    taxExemptionType: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TaxExemptionDetails
+ */
+const de_TaxExemptionDetails = (output: any, context: __SerdeContext): TaxExemptionDetails => {
+  return take(output, {
+    heritageObtainedDetails: __expectBoolean,
+    heritageObtainedParentEntity: __expectString,
+    heritageObtainedReason: __expectString,
+    taxExemptions: (_: any) => de_TaxExemptions(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TaxExemptionDetailsMap
+ */
+const de_TaxExemptionDetailsMap = (output: any, context: __SerdeContext): Record<string, TaxExemptionDetails> => {
+  return Object.entries(output).reduce((acc: Record<string, TaxExemptionDetails>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_TaxExemptionDetails(value, context);
+    return acc;
+  }, {} as Record<string, TaxExemptionDetails>);
+};
+
+/**
+ * deserializeAws_restJson1TaxExemptions
+ */
+const de_TaxExemptions = (output: any, context: __SerdeContext): TaxExemption[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_TaxExemption(entry, context);
+    });
+  return retVal;
+};
+
+// de_TaxExemptionType omitted.
+
+// de_TaxExemptionTypes omitted.
 
 // de_TaxInheritanceDetails omitted.
 
