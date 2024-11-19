@@ -74,8 +74,3 @@ export enum ChecksumLocation {
  * @internal
  */
 export const DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.CRC32;
-
-/**
- * @internal
- */
-export const S3_EXPRESS_DEFAULT_CHECKSUM_ALGORITHM = ChecksumAlgorithm.CRC32;

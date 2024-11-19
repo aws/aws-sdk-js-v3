@@ -1,9 +1,4 @@
-import {
-  ChecksumAlgorithm,
-  DEFAULT_CHECKSUM_ALGORITHM,
-  RequestChecksumCalculation,
-  S3_EXPRESS_DEFAULT_CHECKSUM_ALGORITHM,
-} from "./constants";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
 import { CLIENT_SUPPORTED_ALGORITHMS } from "./types";
 
 export interface GetChecksumAlgorithmForRequestOptions {
@@ -30,22 +25,14 @@ export interface GetChecksumAlgorithmForRequestOptions {
  */
 export const getChecksumAlgorithmForRequest = (
   input: any,
-  {
-    requestChecksumRequired,
-    requestAlgorithmMember,
-    requestChecksumCalculation,
-  }: GetChecksumAlgorithmForRequestOptions,
-  isS3Express?: boolean
+  { requestChecksumRequired, requestAlgorithmMember, requestChecksumCalculation }: GetChecksumAlgorithmForRequestOptions
 ): ChecksumAlgorithm | undefined => {
-  const defaultAlgorithm = isS3Express ? S3_EXPRESS_DEFAULT_CHECKSUM_ALGORITHM : DEFAULT_CHECKSUM_ALGORITHM;
-
-  // Either the Operation input member that is used to configure request checksum behavior is not set, or
-  // the value for input member to configure flexible checksum is not set.
-  if (!requestAlgorithmMember || !input[requestAlgorithmMember]) {
+  // The Operation input member that is used to configure request checksum behavior is not set.
+  if (!requestAlgorithmMember) {
     // Select an algorithm only if request checksum calculation is supported
     // or request checksum is required.
     return requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired
-      ? defaultAlgorithm
+      ? DEFAULT_CHECKSUM_ALGORITHM
       : undefined;
   }
 

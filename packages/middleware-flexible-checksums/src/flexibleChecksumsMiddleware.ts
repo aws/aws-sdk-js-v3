@@ -71,21 +71,11 @@ export const flexibleChecksumsMiddleware =
     const requestChecksumCalculation = await config.requestChecksumCalculation();
     const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
-    if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_REQUIRED) {
-      setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_WHEN_REQUIRED", "a");
-    } else {
-      setFeature(context, "FLEXIBLE_CHECKSUMS_REQ_WHEN_SUPPORTED", "Z");
-    }
-
-    const checksumAlgorithm = getChecksumAlgorithmForRequest(
-      input,
-      {
-        requestChecksumRequired,
-        requestAlgorithmMember,
-        requestChecksumCalculation,
-      },
-      !!context.isS3ExpressBucket
-    );
+    const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
+      requestChecksumRequired,
+      requestAlgorithmMember,
+      requestChecksumCalculation,
+    });
     let updatedBody = requestBody;
     let updatedHeaders = headers;
 
