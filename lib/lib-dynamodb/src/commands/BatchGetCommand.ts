@@ -30,13 +30,15 @@ export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItem
  * @public
  */
 export type BatchGetCommandOutput = Omit<__BatchGetItemCommandOutput, "Responses" | "UnprocessedKeys"> & {
-  Responses?: Record<string, Record<string, NativeAttributeValue>[]>;
-  UnprocessedKeys?: Record<
-    string,
-    Omit<KeysAndAttributes, "Keys"> & {
-      Keys: Record<string, NativeAttributeValue>[] | undefined;
-    }
-  >;
+  Responses?: Record<string, Record<string, NativeAttributeValue>[]> | undefined;
+  UnprocessedKeys?:
+    | Record<
+        string,
+        Omit<KeysAndAttributes, "Keys"> & {
+          Keys: Record<string, NativeAttributeValue>[] | undefined;
+        }
+      >
+    | undefined;
 };
 
 /**

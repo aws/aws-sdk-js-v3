@@ -20,30 +20,36 @@ export type UpdateCommandInput = Omit<
   "Key" | "AttributeUpdates" | "Expected" | "ExpressionAttributeValues"
 > & {
   Key: Record<string, NativeAttributeValue> | undefined;
-  AttributeUpdates?: Record<
-    string,
-    Omit<AttributeValueUpdate, "Value"> & {
-      Value?: NativeAttributeValue;
-    }
-  >;
-  Expected?: Record<
-    string,
-    Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue;
-      AttributeValueList?: NativeAttributeValue[];
-    }
-  >;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
+  AttributeUpdates?:
+    | Record<
+        string,
+        Omit<AttributeValueUpdate, "Value"> & {
+          Value?: NativeAttributeValue | undefined;
+        }
+      >
+    | undefined;
+  Expected?:
+    | Record<
+        string,
+        Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
+          Value?: NativeAttributeValue | undefined;
+          AttributeValueList?: NativeAttributeValue[] | undefined;
+        }
+      >
+    | undefined;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
 export type UpdateCommandOutput = Omit<__UpdateItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
-  Attributes?: Record<string, NativeAttributeValue>;
-  ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: Record<string, NativeAttributeValue>;
-  };
+  Attributes?: Record<string, NativeAttributeValue> | undefined;
+  ItemCollectionMetrics?:
+    | (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
+        ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+      })
+    | undefined;
 };
 
 /**
