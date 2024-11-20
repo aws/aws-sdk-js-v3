@@ -33,6 +33,11 @@ import {
   ExportECSServiceRecommendationsCommandOutput,
 } from "./commands/ExportECSServiceRecommendationsCommand";
 import {
+  ExportIdleRecommendationsCommand,
+  ExportIdleRecommendationsCommandInput,
+  ExportIdleRecommendationsCommandOutput,
+} from "./commands/ExportIdleRecommendationsCommand";
+import {
   ExportLambdaFunctionRecommendationsCommand,
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
@@ -93,6 +98,11 @@ import {
   GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "./commands/GetEnrollmentStatusesForOrganizationCommand";
 import {
+  GetIdleRecommendationsCommand,
+  GetIdleRecommendationsCommandInput,
+  GetIdleRecommendationsCommandOutput,
+} from "./commands/GetIdleRecommendationsCommand";
+import {
   GetLambdaFunctionRecommendationsCommand,
   GetLambdaFunctionRecommendationsCommandInput,
   GetLambdaFunctionRecommendationsCommandOutput,
@@ -141,6 +151,7 @@ const commands = {
   ExportEBSVolumeRecommendationsCommand,
   ExportEC2InstanceRecommendationsCommand,
   ExportECSServiceRecommendationsCommand,
+  ExportIdleRecommendationsCommand,
   ExportLambdaFunctionRecommendationsCommand,
   ExportLicenseRecommendationsCommand,
   ExportRDSDatabaseRecommendationsCommand,
@@ -153,6 +164,7 @@ const commands = {
   GetEffectiveRecommendationPreferencesCommand,
   GetEnrollmentStatusCommand,
   GetEnrollmentStatusesForOrganizationCommand,
+  GetIdleRecommendationsCommand,
   GetLambdaFunctionRecommendationsCommand,
   GetLicenseRecommendationsCommand,
   GetRDSDatabaseRecommendationProjectedMetricsCommand,
@@ -265,6 +277,23 @@ export interface ComputeOptimizer {
     args: ExportECSServiceRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportECSServiceRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportIdleRecommendationsCommand}
+   */
+  exportIdleRecommendations(
+    args: ExportIdleRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportIdleRecommendationsCommandOutput>;
+  exportIdleRecommendations(
+    args: ExportIdleRecommendationsCommandInput,
+    cb: (err: any, data?: ExportIdleRecommendationsCommandOutput) => void
+  ): void;
+  exportIdleRecommendations(
+    args: ExportIdleRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportIdleRecommendationsCommandOutput) => void
   ): void;
 
   /**
@@ -475,6 +504,24 @@ export interface ComputeOptimizer {
     args: GetEnrollmentStatusesForOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEnrollmentStatusesForOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIdleRecommendationsCommand}
+   */
+  getIdleRecommendations(): Promise<GetIdleRecommendationsCommandOutput>;
+  getIdleRecommendations(
+    args: GetIdleRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdleRecommendationsCommandOutput>;
+  getIdleRecommendations(
+    args: GetIdleRecommendationsCommandInput,
+    cb: (err: any, data?: GetIdleRecommendationsCommandOutput) => void
+  ): void;
+  getIdleRecommendations(
+    args: GetIdleRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdleRecommendationsCommandOutput) => void
   ): void;
 
   /**

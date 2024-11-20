@@ -264,6 +264,14 @@ ExportECSServiceRecommendations
 </details>
 <details>
 <summary>
+ExportIdleRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportIdleRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportIdleRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportIdleRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ExportLambdaFunctionRecommendations
 </summary>
 
@@ -356,6 +364,14 @@ GetEnrollmentStatusesForOrganization
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetEnrollmentStatusesForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEnrollmentStatusesForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEnrollmentStatusesForOrganizationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetIdleRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetIdleRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetIdleRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetIdleRecommendationsCommandOutput/)
 
 </details>
 <details>

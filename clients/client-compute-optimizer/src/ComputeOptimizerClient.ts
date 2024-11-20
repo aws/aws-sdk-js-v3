@@ -78,6 +78,10 @@ import {
   ExportECSServiceRecommendationsCommandOutput,
 } from "./commands/ExportECSServiceRecommendationsCommand";
 import {
+  ExportIdleRecommendationsCommandInput,
+  ExportIdleRecommendationsCommandOutput,
+} from "./commands/ExportIdleRecommendationsCommand";
+import {
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/ExportLambdaFunctionRecommendationsCommand";
@@ -125,6 +129,10 @@ import {
   GetEnrollmentStatusesForOrganizationCommandInput,
   GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "./commands/GetEnrollmentStatusesForOrganizationCommand";
+import {
+  GetIdleRecommendationsCommandInput,
+  GetIdleRecommendationsCommandOutput,
+} from "./commands/GetIdleRecommendationsCommand";
 import {
   GetLambdaFunctionRecommendationsCommandInput,
   GetLambdaFunctionRecommendationsCommandOutput,
@@ -178,6 +186,7 @@ export type ServiceInputTypes =
   | ExportEBSVolumeRecommendationsCommandInput
   | ExportEC2InstanceRecommendationsCommandInput
   | ExportECSServiceRecommendationsCommandInput
+  | ExportIdleRecommendationsCommandInput
   | ExportLambdaFunctionRecommendationsCommandInput
   | ExportLicenseRecommendationsCommandInput
   | ExportRDSDatabaseRecommendationsCommandInput
@@ -190,6 +199,7 @@ export type ServiceInputTypes =
   | GetEffectiveRecommendationPreferencesCommandInput
   | GetEnrollmentStatusCommandInput
   | GetEnrollmentStatusesForOrganizationCommandInput
+  | GetIdleRecommendationsCommandInput
   | GetLambdaFunctionRecommendationsCommandInput
   | GetLicenseRecommendationsCommandInput
   | GetRDSDatabaseRecommendationProjectedMetricsCommandInput
@@ -209,6 +219,7 @@ export type ServiceOutputTypes =
   | ExportEBSVolumeRecommendationsCommandOutput
   | ExportEC2InstanceRecommendationsCommandOutput
   | ExportECSServiceRecommendationsCommandOutput
+  | ExportIdleRecommendationsCommandOutput
   | ExportLambdaFunctionRecommendationsCommandOutput
   | ExportLicenseRecommendationsCommandOutput
   | ExportRDSDatabaseRecommendationsCommandOutput
@@ -221,6 +232,7 @@ export type ServiceOutputTypes =
   | GetEffectiveRecommendationPreferencesCommandOutput
   | GetEnrollmentStatusCommandOutput
   | GetEnrollmentStatusesForOrganizationCommandOutput
+  | GetIdleRecommendationsCommandOutput
   | GetLambdaFunctionRecommendationsCommandOutput
   | GetLicenseRecommendationsCommandOutput
   | GetRDSDatabaseRecommendationProjectedMetricsCommandOutput

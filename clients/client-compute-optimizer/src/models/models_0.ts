@@ -1217,6 +1217,7 @@ export const ResourceType = {
   EBS_VOLUME: "EbsVolume",
   EC2_INSTANCE: "Ec2Instance",
   ECS_SERVICE: "EcsService",
+  IDLE: "Idle",
   LAMBDA_FUNCTION: "LambdaFunction",
   LICENSE: "License",
   NOT_APPLICABLE: "NotApplicable",
@@ -2819,6 +2820,182 @@ export interface ExportECSServiceRecommendationsResponse {
  * @public
  * @enum
  */
+export const ExportableIdleField = {
+  ACCOUNT_ID: "AccountId",
+  FINDING: "Finding",
+  FINDING_DESCRIPTION: "FindingDescription",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RESOURCE_ARN: "ResourceArn",
+  RESOURCE_ID: "ResourceId",
+  RESOURCE_TYPE: "ResourceType",
+  SAVINGS_OPPORTUNITY: "SavingsOpportunity",
+  SAVINGS_OPPORTUNITY_AFTER_DISCOUNT: "SavingsOpportunityAfterDiscount",
+  TAGS: "Tags",
+  UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
+  UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM: "UtilizationMetricsDatabaseConnectionsMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeReadIOPSMaximum",
+  UTILIZATION_METRICS_EBS_VOLUME_WRITE_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeWriteIOPSMaximum",
+  UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
+  UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
+  UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
+  UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportableIdleField = (typeof ExportableIdleField)[keyof typeof ExportableIdleField];
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleRecommendationFilterName = {
+  FINDING: "Finding",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleRecommendationFilterName =
+  (typeof IdleRecommendationFilterName)[keyof typeof IdleRecommendationFilterName];
+
+/**
+ * <p>Describes a filter that returns a more specific list of idle resource recommendations.</p>
+ * @public
+ */
+export interface IdleRecommendationFilter {
+  /**
+   * <p>
+   *             The name of the filter.
+   *         </p>
+   *          <p>
+   *             Specify <code>Finding</code> to return recommendations with a specific finding classification.
+   *         </p>
+   *          <p>You can filter your idle resource recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             idle resource recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all idle resource service recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your idle resource recommendations. Use
+   *             this filter to find all of your idle resource recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your idle resource service recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
+   * @public
+   */
+  name?: IdleRecommendationFilterName | undefined;
+
+  /**
+   * <p>The value of the filter.</p>
+   * @public
+   */
+  values?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportIdleRecommendationsRequest {
+  /**
+   * <p>
+   *             The Amazon Web Services account IDs for the export idle resource recommendations.
+   *         </p>
+   *          <p>If your account is the management account or the delegated administrator
+   *             of an organization, use this parameter to specify the member account you want to
+   *             export recommendations to.</p>
+   *          <p>This parameter can't be specified together with the include member accounts
+   *             parameter. The parameters are mutually exclusive.</p>
+   *          <p>If this parameter or the include member accounts parameter is omitted,
+   *             the recommendations for member accounts aren't included in the export.</p>
+   *          <p>You can specify multiple account IDs per request.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+
+  /**
+   * <p>An array of objects to specify a filter that exports a more specific set of idle resource recommendations.</p>
+   * @public
+   */
+  filters?: IdleRecommendationFilter[] | undefined;
+
+  /**
+   * <p>The recommendations data to include in the export file. For more information about the
+   *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
+   *                     Guide</i>.</p>
+   * @public
+   */
+  fieldsToExport?: ExportableIdleField[] | undefined;
+
+  /**
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             key prefix for a recommendations export job.</p>
+   *          <p>You must create the destination Amazon S3 bucket for your recommendations
+   *             export before you create the export job. Compute Optimizer does not create the S3 bucket
+   *             for you. After you create the S3 bucket, ensure that it has the required permission
+   *             policy to allow Compute Optimizer to write the export file to it. If you plan to specify
+   *             an object prefix when you create the export job, you must include the object prefix in
+   *             the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the
+   *                     <i>Compute Optimizer User Guide</i>.</p>
+   * @public
+   */
+  s3DestinationConfig: S3DestinationConfig | undefined;
+
+  /**
+   * <p>The format of the export file. The CSV file is the only export file format currently supported.</p>
+   * @public
+   */
+  fileFormat?: FileFormat | undefined;
+
+  /**
+   * <p>If your account is the management account or the delegated administrator of an organization,
+   *             this parameter indicates whether to include recommendations for resources in all member accounts of
+   *             the organization.</p>
+   *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
+   *             Compute Optimizer must be enabled in the organization account. For more information,
+   *             see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the
+   *             <i>Compute Optimizer User Guide</i>.</p>
+   *          <p>If this parameter is omitted, recommendations for member accounts of the
+   *             organization aren't included in the export file.</p>
+   *          <p>If this parameter or the account ID parameter is omitted, recommendations for
+   *             member accounts aren't included in the export.</p>
+   * @public
+   */
+  includeMemberAccounts?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportIdleRecommendationsResponse {
+  /**
+   * <p>
+   *             The identification number of the export job.
+   *         </p>
+   *          <p>To view the status of an export job, use the
+   *             <a>DescribeRecommendationExportJobs</a> action and specify the job ID.
+   *         </p>
+   * @public
+   */
+  jobId?: string | undefined;
+
+  /**
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             object keys of a recommendations export file, and its associated metadata file.</p>
+   * @public
+   */
+  s3Destination?: S3Destination | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ExportableLambdaFunctionField = {
   ACCOUNT_ID: "AccountId",
   CURRENT_CONFIGURATION_MEMORY_SIZE: "CurrentConfigurationMemorySize",
@@ -3227,12 +3404,14 @@ export const ExportableRDSDBField = {
   ACCOUNT_ID: "AccountId",
   CURRENT_DB_INSTANCE_CLASS: "CurrentDBInstanceClass",
   CURRENT_INSTANCE_ON_DEMAND_HOURLY_PRICE: "CurrentInstanceOnDemandHourlyPrice",
+  CURRENT_INSTANCE_PERFORMANCE_RISK: "CurrentInstancePerformanceRisk",
   CURRENT_STORAGE_CONFIGURATION_ALLOCATED_STORAGE: "CurrentStorageConfigurationAllocatedStorage",
   CURRENT_STORAGE_CONFIGURATION_IOPS: "CurrentStorageConfigurationIOPS",
   CURRENT_STORAGE_CONFIGURATION_MAX_ALLOCATED_STORAGE: "CurrentStorageConfigurationMaxAllocatedStorage",
   CURRENT_STORAGE_CONFIGURATION_STORAGE_THROUGHPUT: "CurrentStorageConfigurationStorageThroughput",
   CURRENT_STORAGE_CONFIGURATION_STORAGE_TYPE: "CurrentStorageConfigurationStorageType",
   CURRENT_STORAGE_ON_DEMAND_MONTHLY_PRICE: "CurrentStorageOnDemandMonthlyPrice",
+  DB_CLUSTER_IDENTIFIER: "DBClusterIdentifier",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES:
     "EffectiveRecommendationPreferencesCpuVendorArchitectures",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS:
@@ -3267,6 +3446,7 @@ export const ExportableRDSDBField = {
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
   LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
   MULTI_AZ_DB_INSTANCE: "MultiAZDBInstance",
+  PROMOTION_TIER: "PromotionTier",
   RESOURCE_ARN: "ResourceArn",
   STORAGE_FINDING: "StorageFinding",
   STORAGE_FINDING_REASON_CODES: "StorageFindingReasonCodes",
@@ -3290,6 +3470,13 @@ export const ExportableRDSDBField = {
   STORAGE_RECOMMENDATION_OPTIONS_STORAGE_THROUGHPUT: "StorageRecommendationOptionsStorageThroughput",
   STORAGE_RECOMMENDATION_OPTIONS_STORAGE_TYPE: "StorageRecommendationOptionsStorageType",
   TAGS: "Tags",
+  UTILIZATION_METRICS_AURORA_MEMORY_HEALTH_STATE_MAXIMUM: "UtilizationMetricsAuroraMemoryHealthStateMaximum",
+  UTILIZATION_METRICS_AURORA_MEMORY_NUM_DECLINED_SQL_TOTAL_MAXIMUM:
+    "UtilizationMetricsAuroraMemoryNumDeclinedSqlTotalMaximum",
+  UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_CONN_TOTAL_MAXIMUM:
+    "UtilizationMetricsAuroraMemoryNumKillConnTotalMaximum",
+  UTILIZATION_METRICS_AURORA_MEMORY_NUM_KILL_QUERY_TOTAL_MAXIMUM:
+    "UtilizationMetricsAuroraMemoryNumKillQueryTotalMaximum",
   UTILIZATION_METRICS_CPU_MAXIMUM: "UtilizationMetricsCpuMaximum",
   UTILIZATION_METRICS_DATABASE_CONNECTIONS_MAXIMUM: "UtilizationMetricsDatabaseConnectionsMaximum",
   UTILIZATION_METRICS_EBS_VOLUME_READ_IOPS_MAXIMUM: "UtilizationMetricsEBSVolumeReadIOPSMaximum",
@@ -3301,6 +3488,12 @@ export const ExportableRDSDBField = {
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
   UTILIZATION_METRICS_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM: "UtilizationMetricsNetworkReceiveThroughputMaximum",
   UTILIZATION_METRICS_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM: "UtilizationMetricsNetworkTransmitThroughputMaximum",
+  UTILIZATION_METRICS_READ_IOPS_EPHEMERAL_STORAGE_MAXIMUM: "UtilizationMetricsReadIOPSEphemeralStorageMaximum",
+  UTILIZATION_METRICS_STORAGE_NETWORK_RECEIVE_THROUGHPUT_MAXIMUM:
+    "UtilizationMetricsStorageNetworkReceiveThroughputMaximum",
+  UTILIZATION_METRICS_STORAGE_NETWORK_TRANSMIT_THROUGHPUT_MAXIMUM:
+    "UtilizationMetricsStorageNetworkTransmitThroughputMaximum",
+  UTILIZATION_METRICS_WRITE_IOPS_EPHEMERAL_STORAGE_MAXIMUM: "UtilizationMetricsWriteIOPSEphemeralStorageMaximum",
 } as const;
 
 /**
@@ -3630,10 +3823,29 @@ export interface GetEBSVolumeRecommendationsRequest {
 export interface VolumeConfiguration {
   /**
    * <p>The volume type.</p>
-   *          <p>This can be <code>gp2</code> for General Purpose SSD, <code>io1</code> or
-   *                 <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized
-   *             HDD, <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic
-   *             volumes.</p>
+   *          <p>The volume types can be the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>General Purpose SSD <code>gp2</code> and <code>gp3</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Provisioned IOPS SSD <code>io1</code>, <code>io2</code>, and <code>io2 Block Express</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Throughput Optimized HDD <code>st1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Cold HDD <code>sc1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Magnetic volumes <code>standard</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   volumeType?: string | undefined;
@@ -6318,6 +6530,375 @@ export interface GetEnrollmentStatusesForOrganizationResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const Dimension = {
+  SAVINGS_VALUE: "SavingsValue",
+  SAVINGS_VALUE_AFTER_DISCOUNT: "SavingsValueAfterDiscount",
+} as const;
+
+/**
+ * @public
+ */
+export type Dimension = (typeof Dimension)[keyof typeof Dimension];
+
+/**
+ * @public
+ * @enum
+ */
+export const Order = {
+  ASC: "Asc",
+  DESC: "Desc",
+} as const;
+
+/**
+ * @public
+ */
+export type Order = (typeof Order)[keyof typeof Order];
+
+/**
+ * <p>Describes how the recommendations are ordered.</p>
+ * @public
+ */
+export interface OrderBy {
+  /**
+   * <p>The dimension values to sort the recommendations.</p>
+   * @public
+   */
+  dimension?: Dimension | undefined;
+
+  /**
+   * <p>The order to sort the recommendations.</p>
+   * @public
+   */
+  order?: Order | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIdleRecommendationsRequest {
+  /**
+   * <p>The ARN that identifies the idle resource.</p>
+   * @public
+   */
+  resourceArns?: string[] | undefined;
+
+  /**
+   * <p>The token to advance to the next page of idle resource recommendations.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of idle resource recommendations to return with a single request. </p>
+   *          <p>To retrieve the remaining results,
+   *             make another request with the returned <code>nextToken</code> value.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>An array of objects to specify a filter that returns a more specific list of idle resource recommendations.</p>
+   * @public
+   */
+  filters?: IdleRecommendationFilter[] | undefined;
+
+  /**
+   * <p>Return the idle resource recommendations to the specified Amazon Web Services account IDs.</p>
+   *          <p>If your account is the management account
+   *             or the delegated administrator of an organization, use this parameter to return the idle resource recommendations to
+   *             specific member accounts.</p>
+   *          <p>You can only specify one account ID per request.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+
+  /**
+   * <p>The order to sort the idle resource recommendations.</p>
+   * @public
+   */
+  orderBy?: OrderBy | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleRecommendationResourceType = {
+  AUTO_SCALING_GROUP: "AutoScalingGroup",
+  EBS_VOLUME: "EBSVolume",
+  EC2_INSTANCE: "EC2Instance",
+  ECS_SERVICE: "ECSService",
+  RDS_DB_INSTANCE: "RDSDBInstance",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleRecommendationResourceType =
+  (typeof IdleRecommendationResourceType)[keyof typeof IdleRecommendationResourceType];
+
+/**
+ * <p>Returns of list of resources that doesn't have idle recommendations.</p>
+ * @public
+ */
+export interface IdleRecommendationError {
+  /**
+   * <p>The ID of the error.</p>
+   * @public
+   */
+  identifier?: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  code?: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The type of resource associated with the error.</p>
+   * @public
+   */
+  resourceType?: IdleRecommendationResourceType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleFinding = {
+  IDLE: "Idle",
+  UNATTACHED: "Unattached",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleFinding = (typeof IdleFinding)[keyof typeof IdleFinding];
+
+/**
+ * <p>Describes the estimated monthly savings possible for idle resources by adopting Compute Optimizer recommendations.</p>
+ * @public
+ */
+export interface IdleEstimatedMonthlySavings {
+  /**
+   * <p>The currency of the estimated monthly savings.</p>
+   * @public
+   */
+  currency?: Currency | undefined;
+
+  /**
+   * <p>The value of the estimated monthly savings for Idle resources.</p>
+   * @public
+   */
+  value?: number | undefined;
+}
+
+/**
+ * <p>Describes the savings opportunity for idle resource recommendations.</p>
+ * @public
+ */
+export interface IdleSavingsOpportunity {
+  /**
+   * <p>The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer's idle resource recommendations.</p>
+   * @public
+   */
+  savingsOpportunityPercentage?: number | undefined;
+
+  /**
+   * <p>The estimated monthly savings possible by adopting Compute Optimizer's idle resource recommendations.</p>
+   * @public
+   */
+  estimatedMonthlySavings?: IdleEstimatedMonthlySavings | undefined;
+}
+
+/**
+ * <p>Describes the savings opportunity for idle resource recommendations after applying discounts.</p>
+ *          <p>Savings opportunity represents the estimated monthly savings after applying discounts. You can achieve this by implementing a given Compute Optimizer recommendation.</p>
+ * @public
+ */
+export interface IdleSavingsOpportunityAfterDiscounts {
+  /**
+   * <p>The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer's idle resource recommendations. This includes any applicable discounts.</p>
+   * @public
+   */
+  savingsOpportunityPercentage?: number | undefined;
+
+  /**
+   * <p>The estimated monthly savings possible by adopting Compute Optimizer's idle resource recommendations. This includes any applicable discounts.</p>
+   * @public
+   */
+  estimatedMonthlySavings?: IdleEstimatedMonthlySavings | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IdleMetricName = {
+  CPU: "CPU",
+  DATABASE_CONNECTIONS: "DatabaseConnections",
+  EBS_VOLUME_READ_IOPS: "EBSVolumeReadIOPS",
+  EBS_VOLUME_WRITE_IOPS: "EBSVolumeWriteIOPS",
+  MEMORY: "Memory",
+  NETWORK_IN_BYTES_PER_SECOND: "NetworkInBytesPerSecond",
+  NETWORK_OUT_BYTES_PER_SECOND: "NetworkOutBytesPerSecond",
+  VOLUME_READ_OPS_PER_SECOND: "VolumeReadOpsPerSecond",
+  VOLUME_WRITE_OPS_PER_SECOND: "VolumeWriteOpsPerSecond",
+} as const;
+
+/**
+ * @public
+ */
+export type IdleMetricName = (typeof IdleMetricName)[keyof typeof IdleMetricName];
+
+/**
+ * <p>Describes the utilization metric of an idle resource.</p>
+ * @public
+ */
+export interface IdleUtilizationMetric {
+  /**
+   * <p>The name of the utilization metric.</p>
+   * @public
+   */
+  name?: IdleMetricName | undefined;
+
+  /**
+   * <p>
+   *             The statistic of the utilization metric.
+   *         </p>
+   *          <p>The Compute Optimizer API, Command Line Interface (CLI), and SDKs
+   *             return utilization metrics using only the <code>Maximum</code> statistic, which is the
+   *             highest value observed during the specified period.</p>
+   *          <p>The Compute Optimizer console displays graphs for some utilization metrics using the
+   *             <code>Average</code> statistic, which is the value of <code>Sum</code> /
+   *             <code>SampleCount</code> during the specified period. For more information, see
+   *             <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/viewing-recommendations.html">Viewing resource
+   *                 recommendations</a> in the <i>Compute Optimizer User
+   *                     Guide</i>. You can also get averaged utilization metric data for your resources
+   *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
+   *                 User Guide</a>.</p>
+   * @public
+   */
+  statistic?: MetricStatistic | undefined;
+
+  /**
+   * <p>The value of the utilization metric.</p>
+   * @public
+   */
+  value?: number | undefined;
+}
+
+/**
+ * <p>Describes an Idle resource recommendation.</p>
+ * @public
+ */
+export interface IdleRecommendation {
+  /**
+   * <p>The ARN of the current idle resource.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the resource.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of resource that is idle.</p>
+   * @public
+   */
+  resourceType?: IdleRecommendationResourceType | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the idle resource.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The finding classification of an idle resource.</p>
+   * @public
+   */
+  finding?: IdleFinding | undefined;
+
+  /**
+   * <p>A summary of the findings for the resource.</p>
+   * @public
+   */
+  findingDescription?: string | undefined;
+
+  /**
+   * <p>The savings opportunity for the idle resource.</p>
+   * @public
+   */
+  savingsOpportunity?: IdleSavingsOpportunity | undefined;
+
+  /**
+   * <p>The savings opportunity for the idle resource after any applying discounts.</p>
+   * @public
+   */
+  savingsOpportunityAfterDiscounts?: IdleSavingsOpportunityAfterDiscounts | undefined;
+
+  /**
+   * <p>An array of objects that describe the utilization metrics of the idle resource.</p>
+   * @public
+   */
+  utilizationMetrics?: IdleUtilizationMetric[] | undefined;
+
+  /**
+   * <p>The number of days the idle resource utilization metrics were analyzed.</p>
+   * @public
+   */
+  lookBackPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The timestamp of when the idle resource recommendation was last generated.</p>
+   * @public
+   */
+  lastRefreshTimestamp?: Date | undefined;
+
+  /**
+   * <p>A list of tags assigned to your idle resource recommendations.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIdleRecommendationsResponse {
+  /**
+   * <p>The token to advance to the next page of idle resource recommendations.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An array of objects that describe the idle resource recommendations.</p>
+   * @public
+   */
+  idleRecommendations?: IdleRecommendation[] | undefined;
+
+  /**
+   * <p>An array of objects that describe errors of the request.</p>
+   * @public
+   */
+  errors?: IdleRecommendationError[] | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetLambdaFunctionRecommendationsRequest {
   /**
@@ -7397,6 +7978,10 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsRequest {
  * @enum
  */
 export const RDSDBMetricName = {
+  AURORA_MEMORY_HEALTH_STATE: "AuroraMemoryHealthState",
+  AURORA_MEMORY_NUM_DECLINED_SQL: "AuroraMemoryNumDeclinedSql",
+  AURORA_MEMORY_NUM_KILL_CONN_TOTAL: "AuroraMemoryNumKillConnTotal",
+  AURORA_MEMORY_NUM_KILL_QUERY_TOTAL: "AuroraMemoryNumKillQueryTotal",
   CPU: "CPU",
   DATABASE_CONNECTIONS: "DatabaseConnections",
   EBS_VOLUME_READ_IOPS: "EBSVolumeReadIOPS",
@@ -7407,6 +7992,10 @@ export const RDSDBMetricName = {
   MEMORY: "Memory",
   NETWORK_RECEIVE_THROUGHPUT: "NetworkReceiveThroughput",
   NETWORK_TRANSMIT_THROUGHPUT: "NetworkTransmitThroughput",
+  READ_IOPS_EPHEMERAL_STORAGE: "ReadIOPSEphemeralStorage",
+  STORAGE_NETWORK_RECEIVE_THROUGHPUT: "StorageNetworkReceiveThroughput",
+  STORAGE_NETWORK_TRANSMIT_THROUGHPUT: "StorageNetworkTransmitThroughput",
+  WRITE_IOPS_EPHEMERAL_STORAGE: "WriteIOPSEphemeralStorage",
 } as const;
 
 /**
@@ -7565,6 +8154,23 @@ export interface GetRDSDatabaseRecommendationsRequest {
    */
   recommendationPreferences?: RecommendationPreferences | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const RDSCurrentInstancePerformanceRisk = {
+  HIGH: "High",
+  LOW: "Low",
+  MEDIUM: "Medium",
+  VERY_LOW: "VeryLow",
+} as const;
+
+/**
+ * @public
+ */
+export type RDSCurrentInstancePerformanceRisk =
+  (typeof RDSCurrentInstancePerformanceRisk)[keyof typeof RDSCurrentInstancePerformanceRisk];
 
 /**
  * <p>
@@ -7730,9 +8336,14 @@ export type RDSInstanceFinding = (typeof RDSInstanceFinding)[keyof typeof RDSIns
 export const RDSInstanceFindingReasonCode = {
   CPU_OVER_PROVISIONED: "CPUOverprovisioned",
   CPU_UNDER_PROVISIONED: "CPUUnderprovisioned",
+  DB_CLUSTER_WRITER_UNDER_PROVISIONED: "DBClusterWriterUnderprovisioned",
   EBS_IOPS_OVER_PROVISIONED: "EBSIOPSOverprovisioned",
+  EBS_IOPS_UNDER_PROVISIONED: "EBSIOPSUnderprovisioned",
   EBS_THROUGHPUT_OVER_PROVISIONED: "EBSThroughputOverprovisioned",
   EBS_THROUGHPUT_UNDER_PROVISIONED: "EBSThroughputUnderprovisioned",
+  INSTANCE_STORAGE_READ_IOPS_UNDER_PROVISIONED: "InstanceStorageReadIOPSUnderprovisioned",
+  INSTANCE_STORAGE_WRITE_IOPS_UNDER_PROVISIONED: "InstanceStorageWriteIOPSUnderprovisioned",
+  MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
   NETWORK_BANDWIDTH_OVER_PROVISIONED: "NetworkBandwidthOverprovisioned",
   NETWORK_BANDWIDTH_UNDER_PROVISIONED: "NetworkBandwidthUnderprovisioned",
   NEW_ENGINE_VERSION_AVAILABLE: "NewEngineVersionAvailable",
@@ -8124,6 +8735,12 @@ export interface RDSDBRecommendation {
   engineVersion?: string | undefined;
 
   /**
+   * <p>The promotion tier for the Aurora instance.</p>
+   * @public
+   */
+  promotionTier?: number | undefined;
+
+  /**
    * <p>
    *             The DB instance class of the current RDS instance.
    *         </p>
@@ -8138,6 +8755,12 @@ export interface RDSDBRecommendation {
    * @public
    */
   currentStorageConfiguration?: DBStorageConfiguration | undefined;
+
+  /**
+   * <p>The identifier for DB cluster.</p>
+   * @public
+   */
+  dbClusterIdentifier?: string | undefined;
 
   /**
    * <p>
@@ -8224,6 +8847,12 @@ export interface RDSDBRecommendation {
    * @public
    */
   instanceFindingReasonCodes?: RDSInstanceFindingReasonCode[] | undefined;
+
+  /**
+   * <p>The performance risk for the current DB instance.</p>
+   * @public
+   */
+  currentInstancePerformanceRisk?: RDSCurrentInstancePerformanceRisk | undefined;
 
   /**
    * <p>
@@ -8555,6 +9184,24 @@ export interface CurrentPerformanceRiskRatings {
 }
 
 /**
+ * <p>Describes the findings summary of the idle resources.</p>
+ * @public
+ */
+export interface IdleSummary {
+  /**
+   * <p>The name of the finding group for the idle resources.</p>
+   * @public
+   */
+  name?: IdleFinding | undefined;
+
+  /**
+   * <p>The count of idle resources in the finding group.</p>
+   * @public
+   */
+  value?: number | undefined;
+}
+
+/**
  * <p>
  *             The estimated monthly savings after you adjust the configurations of your instances running on the
  *             inferred workload types to the recommended configurations. If the <code>inferredWorkloadTypes</code>
@@ -8695,6 +9342,14 @@ export interface RecommendationSummary {
   summaries?: Summary[] | undefined;
 
   /**
+   * <p>
+   *             Describes the findings summary of the idle resources.
+   *         </p>
+   * @public
+   */
+  idleSummaries?: IdleSummary[] | undefined;
+
+  /**
    * <p>The resource type that the recommendation summary applies to.</p>
    * @public
    */
@@ -8712,6 +9367,48 @@ export interface RecommendationSummary {
    * @public
    */
   savingsOpportunity?: SavingsOpportunity | undefined;
+
+  /**
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  idleSavingsOpportunity?: SavingsOpportunity | undefined;
+
+  /**
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   * @public
+   */
+  aggregatedSavingsOpportunity?: SavingsOpportunity | undefined;
 
   /**
    * <p>An object that describes the performance risk ratings for a given resource

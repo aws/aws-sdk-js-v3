@@ -71,7 +71,7 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * //           metadataKey: "STRING_VALUE",
  * //         },
  * //       },
- * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance",
+ * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance" || "Idle",
  * //       status: "Queued" || "InProgress" || "Complete" || "Failed",
  * //       creationTimestamp: new Date("TIMESTAMP"),
  * //       lastUpdatedTimestamp: new Date("TIMESTAMP"),

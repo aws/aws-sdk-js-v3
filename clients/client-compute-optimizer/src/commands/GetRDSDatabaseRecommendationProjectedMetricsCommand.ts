@@ -67,7 +67,7 @@ export interface GetRDSDatabaseRecommendationProjectedMetricsCommandOutput
  * //       rank: Number("int"),
  * //       projectedMetrics: [ // RDSDatabaseProjectedMetrics
  * //         { // RDSDatabaseProjectedMetric
- * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections",
+ * //           name: "CPU" || "Memory" || "EBSVolumeStorageSpaceUtilization" || "NetworkReceiveThroughput" || "NetworkTransmitThroughput" || "EBSVolumeReadIOPS" || "EBSVolumeWriteIOPS" || "EBSVolumeReadThroughput" || "EBSVolumeWriteThroughput" || "DatabaseConnections" || "StorageNetworkReceiveThroughput" || "StorageNetworkTransmitThroughput" || "AuroraMemoryHealthState" || "AuroraMemoryNumDeclinedSql" || "AuroraMemoryNumKillConnTotal" || "AuroraMemoryNumKillQueryTotal" || "ReadIOPSEphemeralStorage" || "WriteIOPSEphemeralStorage",
  * //           timestamps: [ // Timestamps
  * //             new Date("TIMESTAMP"),
  * //           ],

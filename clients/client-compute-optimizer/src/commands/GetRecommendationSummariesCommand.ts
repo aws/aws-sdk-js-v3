@@ -84,11 +84,31 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //           ],
  * //         },
  * //       ],
+ * //       idleSummaries: [ // IdleSummaries
+ * //         { // IdleSummary
+ * //           name: "Idle" || "Unattached",
+ * //           value: Number("double"),
+ * //         },
+ * //       ],
  * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage",
  * //       accountId: "STRING_VALUE",
  * //       savingsOpportunity: { // SavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),
  * //         estimatedMonthlySavings: { // EstimatedMonthlySavings
+ * //           currency: "USD" || "CNY",
+ * //           value: Number("double"),
+ * //         },
+ * //       },
+ * //       idleSavingsOpportunity: {
+ * //         savingsOpportunityPercentage: Number("double"),
+ * //         estimatedMonthlySavings: {
+ * //           currency: "USD" || "CNY",
+ * //           value: Number("double"),
+ * //         },
+ * //       },
+ * //       aggregatedSavingsOpportunity: {
+ * //         savingsOpportunityPercentage: Number("double"),
+ * //         estimatedMonthlySavings: {
  * //           currency: "USD" || "CNY",
  * //           value: Number("double"),
  * //         },
