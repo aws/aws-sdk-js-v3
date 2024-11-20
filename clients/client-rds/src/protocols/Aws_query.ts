@@ -10277,6 +10277,18 @@ const se_CreateBlueGreenDeploymentRequest = (input: CreateBlueGreenDeploymentReq
   if (input[_UTSC] != null) {
     entries[_UTSC] = input[_UTSC];
   }
+  if (input[_TI] != null) {
+    entries[_TI] = input[_TI];
+  }
+  if (input[_TST] != null) {
+    entries[_TST] = input[_TST];
+  }
+  if (input[_TAS] != null) {
+    entries[_TAS] = input[_TAS];
+  }
+  if (input[_TSTa] != null) {
+    entries[_TSTa] = input[_TSTa];
+  }
   return entries;
 };
 
@@ -19584,8 +19596,8 @@ const de_DBRecommendation = (output: any, context: __SerdeContext): DBRecommenda
   if (output[_RIe] != null) {
     contents[_RIe] = __expectString(output[_RIe]);
   }
-  if (output[_TI] != null) {
-    contents[_TI] = __expectString(output[_TI]);
+  if (output[_TIy] != null) {
+    contents[_TIy] = __expectString(output[_TIy]);
   }
   if (output[_Se] != null) {
     contents[_Se] = __expectString(output[_Se]);
@@ -21193,8 +21205,8 @@ const de_ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   if (output[_STnap] != null) {
     contents[_STnap] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_STnap]));
   }
-  if (output[_TST] != null) {
-    contents[_TST] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TST]));
+  if (output[_TSTas] != null) {
+    contents[_TSTas] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TSTas]));
   }
   if (output[_TET] != null) {
     contents[_TET] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_TET]));
@@ -25856,6 +25868,7 @@ const _Sub = "Subnet";
 const _Sw = "Switchover";
 const _T = "Tags";
 const _TA = "TargetArn";
+const _TAS = "TargetAllocatedStorage";
 const _TAi = "TimeoutAction";
 const _TCA = "TdeCredentialArn";
 const _TCAZ = "TargetCustomAvailabilityZone";
@@ -25888,7 +25901,8 @@ const _TGA = "TargetGroupArn";
 const _TGMDI = "TransitGatewayMulticastDomainId";
 const _TGN = "TargetGroupName";
 const _TH = "TargetHealth";
-const _TI = "TypeId";
+const _TI = "TargetIops";
+const _TIy = "TypeId";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TM = "TargetMember";
@@ -25897,7 +25911,9 @@ const _TOGD = "TargetOptionGroupDescription";
 const _TOGI = "TargetOptionGroupIdentifier";
 const _TR = "TargetRole";
 const _TRy = "TypeRecommendation";
-const _TST = "TaskStartTime";
+const _TST = "TargetStorageType";
+const _TSTa = "TargetStorageThroughput";
+const _TSTas = "TaskStartTime";
 const _Ta = "Target";
 const _Tag = "Tag";
 const _Tar = "Targets";

@@ -3346,6 +3346,41 @@ export interface CreateBlueGreenDeploymentRequest {
    * @public
    */
   UpgradeTargetStorageConfig?: boolean | undefined;
+
+  /**
+   * <p>The amount of Provisioned IOPS (input/output operations per second) to allocate for the green DB instance.
+   *             For information about valid IOPS values, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html">Amazon RDS DB instance storage</a>
+   *             in the <i>Amazon RDS User Guide</i>.</p>
+   *          <p>This setting doesn't apply to Amazon Aurora blue/green deployments.</p>
+   * @public
+   */
+  TargetIops?: number | undefined;
+
+  /**
+   * <p>The storage type to associate with the green DB instance.</p>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2</code>
+   *          </p>
+   *          <p>This setting doesn't apply to Amazon Aurora blue/green deployments.</p>
+   * @public
+   */
+  TargetStorageType?: string | undefined;
+
+  /**
+   * <p>The amount of storage in gibibytes (GiB) to allocate for the green DB instance. You can choose to
+   *             increase or decrease the allocated storage on the green DB instance.</p>
+   *          <p>This setting doesn't apply to Amazon Aurora blue/green deployments.</p>
+   * @public
+   */
+  TargetAllocatedStorage?: number | undefined;
+
+  /**
+   * <p>The storage throughput value for the green DB instance.</p>
+   *          <p>This setting applies only to the <code>gp3</code> storage type.</p>
+   *          <p>This setting doesn't apply to Amazon Aurora blue/green deployments.</p>
+   * @public
+   */
+  TargetStorageThroughput?: number | undefined;
 }
 
 /**

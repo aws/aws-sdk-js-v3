@@ -31,8 +31,8 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * <p>Creates a blue/green deployment.</p>
  *          <p>A blue/green deployment creates a staging environment that copies the production environment.
  *             In a blue/green deployment, the blue environment is the current production environment.
- *             The green environment is the staging environment. The staging environment stays in sync
- *             with the current production environment using logical replication.</p>
+ *             The green environment is the staging environment, and it stays in sync
+ *             with the current production environment.</p>
  *          <p>You can make changes to the databases in the green environment without affecting
  *             production workloads. For example, you can upgrade the major or minor DB engine version, change
  *             database parameters, or make schema changes in the staging environment. You can thoroughly test
@@ -63,6 +63,10 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  *   ],
  *   TargetDBInstanceClass: "STRING_VALUE",
  *   UpgradeTargetStorageConfig: true || false,
+ *   TargetIops: Number("int"),
+ *   TargetStorageType: "STRING_VALUE",
+ *   TargetAllocatedStorage: Number("int"),
+ *   TargetStorageThroughput: Number("int"),
  * };
  * const command = new CreateBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
