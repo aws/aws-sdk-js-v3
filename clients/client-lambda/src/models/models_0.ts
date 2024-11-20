@@ -1824,6 +1824,7 @@ export const Runtime = {
   nodejs16x: "nodejs16.x",
   nodejs18x: "nodejs18.x",
   nodejs20x: "nodejs20.x",
+  nodejs22x: "nodejs22.x",
   nodejs43: "nodejs4.3",
   nodejs43edge: "nodejs4.3-edge",
   nodejs610: "nodejs6.10",
