@@ -66,6 +66,36 @@ export interface ReservationPlan {
 }
 
 /**
+ * A service override applied by MediaConvert to the settings that you have configured. If you see any overrides, we recommend that you contact AWS Support.
+ * @public
+ */
+export interface ServiceOverride {
+  /**
+   * Details about the service override that MediaConvert has applied.
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * The name of the setting that MediaConvert has applied an override to.
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * The current value of the service override that MediaConvert has applied.
+   * @public
+   */
+  OverrideValue?: string | undefined;
+
+  /**
+   * The value of the setting that you configured, prior to any overrides that MediaConvert has applied.
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -89,6 +119,12 @@ export interface Queue {
    * @public
    */
   Arn?: string | undefined;
+
+  /**
+   * The maximum number of jobs your queue can process concurrently.
+   * @public
+   */
+  ConcurrentJobs?: number | undefined;
 
   /**
    * The timestamp in epoch seconds for when you created the queue.
@@ -131,6 +167,12 @@ export interface Queue {
    * @public
    */
   ReservationPlan?: ReservationPlan | undefined;
+
+  /**
+   * A list of any service overrides applied by MediaConvert to the settings that you have configured. If you see any overrides, we recommend that you contact AWS Support.
+   * @public
+   */
+  ServiceOverrides?: ServiceOverride[] | undefined;
 
   /**
    * Queues can be ACTIVE or PAUSED. If you pause a queue, the service won't begin processing jobs in that queue. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
@@ -565,6 +607,12 @@ export interface ReservationPlanSettings {
  * @public
  */
 export interface CreateQueueRequest {
+  /**
+   * Specify the maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, specify the number of jobs you can process concurrently in your reservation plan instead.
+   * @public
+   */
+  ConcurrentJobs?: number | undefined;
+
   /**
    * Optional. A description of the queue that you are creating.
    * @public
@@ -1143,6 +1191,18 @@ export interface ListQueuesResponse {
    * @public
    */
   Queues?: Queue[] | undefined;
+
+  /**
+   * The maximum number of jobs that MediaConvert can process at one time, across all of your on-demand queues in the current AWS Region.
+   * @public
+   */
+  TotalConcurrentJobs?: number | undefined;
+
+  /**
+   * The remaining number of concurrent jobs that are not associated with a queue and are available to allocate to a queue. You can allocate these jobs when you create or update a queue.
+   * @public
+   */
+  UnallocatedConcurrentJobs?: number | undefined;
 }
 
 /**
@@ -1457,6 +1517,12 @@ export interface UpdatePresetResponse {
  * @public
  */
 export interface UpdateQueueRequest {
+  /**
+   * Specify the maximum number of jobs your queue can process concurrently. For on-demand queues, the value you enter is constrained by your service quotas for Maximum concurrent jobs, per on-demand queue and Maximum concurrent jobs, per account. For reserved queues, update your reservation plan instead in order to increase your yearly commitment.
+   * @public
+   */
+  ConcurrentJobs?: number | undefined;
+
   /**
    * The new description for the queue, if you are changing it.
    * @public

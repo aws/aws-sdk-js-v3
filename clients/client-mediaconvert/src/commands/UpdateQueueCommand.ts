@@ -36,6 +36,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * // const { MediaConvertClient, UpdateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // UpdateQueueRequest
+ *   ConcurrentJobs: Number("int"),
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   ReservationPlanSettings: { // ReservationPlanSettings
@@ -50,6 +51,7 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * // { // UpdateQueueResponse
  * //   Queue: { // Queue
  * //     Arn: "STRING_VALUE",
+ * //     ConcurrentJobs: Number("int"),
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
@@ -64,6 +66,14 @@ export interface UpdateQueueCommandOutput extends UpdateQueueResponse, __Metadat
  * //       ReservedSlots: Number("int"),
  * //       Status: "ACTIVE" || "EXPIRED",
  * //     },
+ * //     ServiceOverrides: [ // __listOfServiceOverride
+ * //       { // ServiceOverride
+ * //         Message: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         OverrideValue: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     Status: "ACTIVE" || "PAUSED",
  * //     SubmittedJobsCount: Number("int"),
  * //     Type: "SYSTEM" || "CUSTOM",

@@ -36,6 +36,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * // const { MediaConvertClient, CreateQueueCommand } = require("@aws-sdk/client-mediaconvert"); // CommonJS import
  * const client = new MediaConvertClient(config);
  * const input = { // CreateQueueRequest
+ *   ConcurrentJobs: Number("int"),
  *   Description: "STRING_VALUE",
  *   Name: "STRING_VALUE", // required
  *   PricingPlan: "ON_DEMAND" || "RESERVED",
@@ -54,6 +55,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * // { // CreateQueueResponse
  * //   Queue: { // Queue
  * //     Arn: "STRING_VALUE",
+ * //     ConcurrentJobs: Number("int"),
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
@@ -68,6 +70,14 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * //       ReservedSlots: Number("int"),
  * //       Status: "ACTIVE" || "EXPIRED",
  * //     },
+ * //     ServiceOverrides: [ // __listOfServiceOverride
+ * //       { // ServiceOverride
+ * //         Message: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         OverrideValue: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     Status: "ACTIVE" || "PAUSED",
  * //     SubmittedJobsCount: Number("int"),
  * //     Type: "SYSTEM" || "CUSTOM",

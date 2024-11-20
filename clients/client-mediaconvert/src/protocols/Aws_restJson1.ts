@@ -265,6 +265,7 @@ import {
   ReservationPlan,
   ReservationPlanSettings,
   ResourceTags,
+  ServiceOverride,
   TooManyRequestsException,
 } from "../models/models_2";
 
@@ -413,6 +414,7 @@ export const se_CreateQueueCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      concurrentJobs: [, , `ConcurrentJobs`],
       description: [, , `Description`],
       name: [, , `Name`],
       pricingPlan: [, , `PricingPlan`],
@@ -888,6 +890,7 @@ export const se_UpdateQueueCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      concurrentJobs: [, , `ConcurrentJobs`],
       description: [, , `Description`],
       reservationPlanSettings: [, (_) => se_ReservationPlanSettings(_, context), `ReservationPlanSettings`],
       status: [, , `Status`],
@@ -1310,6 +1313,8 @@ export const de_ListQueuesCommand = async (
   const doc = take(data, {
     NextToken: [, __expectString, `nextToken`],
     Queues: [, (_) => de___listOfQueue(_, context), `queues`],
+    TotalConcurrentJobs: [, __expectInt32, `totalConcurrentJobs`],
+    UnallocatedConcurrentJobs: [, __expectInt32, `unallocatedConcurrentJobs`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -4941,6 +4946,18 @@ const de___listOfQueueTransition = (output: any, context: __SerdeContext): Queue
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1__listOfServiceOverride
+ */
+const de___listOfServiceOverride = (output: any, context: __SerdeContext): ServiceOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceOverride(entry, context);
+    });
+  return retVal;
+};
+
 // de___listOfTeletextPageType omitted.
 
 /**
@@ -7202,6 +7219,7 @@ const de_ProresSettings = (output: any, context: __SerdeContext): ProresSettings
 const de_Queue = (output: any, context: __SerdeContext): Queue => {
   return take(output, {
     Arn: [, __expectString, `arn`],
+    ConcurrentJobs: [, __expectInt32, `concurrentJobs`],
     CreatedAt: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `createdAt`],
     Description: [, __expectString, `description`],
     LastUpdated: [, (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))), `lastUpdated`],
@@ -7209,6 +7227,7 @@ const de_Queue = (output: any, context: __SerdeContext): Queue => {
     PricingPlan: [, __expectString, `pricingPlan`],
     ProgressingJobsCount: [, __expectInt32, `progressingJobsCount`],
     ReservationPlan: [, (_: any) => de_ReservationPlan(_, context), `reservationPlan`],
+    ServiceOverrides: [, (_: any) => de___listOfServiceOverride(_, context), `serviceOverrides`],
     Status: [, __expectString, `status`],
     SubmittedJobsCount: [, __expectInt32, `submittedJobsCount`],
     Type: [, __expectString, `type`],
@@ -7312,6 +7331,18 @@ const de_S3EncryptionSettings = (output: any, context: __SerdeContext): S3Encryp
 const de_SccDestinationSettings = (output: any, context: __SerdeContext): SccDestinationSettings => {
   return take(output, {
     Framerate: [, __expectString, `framerate`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ServiceOverride
+ */
+const de_ServiceOverride = (output: any, context: __SerdeContext): ServiceOverride => {
+  return take(output, {
+    Message: [, __expectString, `message`],
+    Name: [, __expectString, `name`],
+    OverrideValue: [, __expectString, `overrideValue`],
+    Value: [, __expectString, `value`],
   }) as any;
 };
 

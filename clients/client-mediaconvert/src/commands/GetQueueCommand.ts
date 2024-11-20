@@ -43,6 +43,7 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * // { // GetQueueResponse
  * //   Queue: { // Queue
  * //     Arn: "STRING_VALUE",
+ * //     ConcurrentJobs: Number("int"),
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     LastUpdated: new Date("TIMESTAMP"),
@@ -57,6 +58,14 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  * //       ReservedSlots: Number("int"),
  * //       Status: "ACTIVE" || "EXPIRED",
  * //     },
+ * //     ServiceOverrides: [ // __listOfServiceOverride
+ * //       { // ServiceOverride
+ * //         Message: "STRING_VALUE",
+ * //         Name: "STRING_VALUE",
+ * //         OverrideValue: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     Status: "ACTIVE" || "PAUSED",
  * //     SubmittedJobsCount: Number("int"),
  * //     Type: "SYSTEM" || "CUSTOM",
