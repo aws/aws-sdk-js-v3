@@ -28,8 +28,27 @@ export interface CreateRuleCommandInput extends CreateRuleRequest {}
 export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Recycle Bin retention rule. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin-working-with-rules.html#recycle-bin-create-rule">
- *       Create Recycle Bin retention rules</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>Creates a Recycle Bin retention rule. You can create two types of retention rules:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Tag-level retention rules</b> - These retention rules use
+ *           resource tags to identify the resources to protect. For each retention rule, you specify one or
+ *           more tag key and value pairs. Resources (of the specified type) that have at least one of these
+ *           tag key and value pairs are automatically retained in the Recycle Bin upon deletion. Use this
+ *           type of retention rule to protect specific resources in your account based on their tags.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Region-level retention rules</b> - These retention rules,
+ *           by default, apply to all of the resources (of the specified type) in the Region, even if the
+ *           resources are not tagged. However, you can specify exclusion tags to exclude resources that have
+ *           specific tags. Use this type of retention rule to protect all resources of a specific type in a
+ *           Region.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recycle-bin.html">
+ *       Create Recycle Bin retention rules</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +80,12 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *       UnlockDelayUnit: "DAYS", // required
  *     },
  *   },
+ *   ExcludeResourceTags: [ // ExcludeResourceTags
+ *     {
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
@@ -93,6 +118,12 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * //   },
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   RuleArn: "STRING_VALUE",
+ * //   ExcludeResourceTags: [ // ExcludeResourceTags
+ * //     {
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

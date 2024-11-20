@@ -66,6 +66,7 @@ export const se_CreateRuleCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
+      ExcludeResourceTags: (_) => _json(_),
       LockConfiguration: (_) => _json(_),
       ResourceTags: (_) => _json(_),
       ResourceType: [],
@@ -124,6 +125,7 @@ export const se_ListRulesCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      ExcludeResourceTags: (_) => _json(_),
       LockState: [],
       MaxResults: [],
       NextToken: [],
@@ -249,6 +251,7 @@ export const se_UpdateRuleCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
+      ExcludeResourceTags: (_) => _json(_),
       ResourceTags: (_) => _json(_),
       ResourceType: [],
       RetentionPeriod: (_) => _json(_),
@@ -274,6 +277,7 @@ export const de_CreateRuleCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Description: __expectString,
+    ExcludeResourceTags: _json,
     Identifier: __expectString,
     LockConfiguration: _json,
     LockState: __expectString,
@@ -321,6 +325,7 @@ export const de_GetRuleCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Description: __expectString,
+    ExcludeResourceTags: _json,
     Identifier: __expectString,
     LockConfiguration: _json,
     LockEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -394,6 +399,7 @@ export const de_LockRuleCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Description: __expectString,
+    ExcludeResourceTags: _json,
     Identifier: __expectString,
     LockConfiguration: _json,
     LockState: __expectString,
@@ -440,6 +446,7 @@ export const de_UnlockRuleCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Description: __expectString,
+    ExcludeResourceTags: _json,
     Identifier: __expectString,
     LockConfiguration: _json,
     LockEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -487,6 +494,7 @@ export const de_UpdateRuleCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Description: __expectString,
+    ExcludeResourceTags: _json,
     Identifier: __expectString,
     LockEndTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LockState: __expectString,
@@ -634,6 +642,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_ExcludeResourceTags omitted.
+
 // se_LockConfiguration omitted.
 
 // se_ResourceTag omitted.
@@ -647,6 +657,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagList omitted.
 
 // se_UnlockDelay omitted.
+
+// de_ExcludeResourceTags omitted.
 
 // de_LockConfiguration omitted.
 

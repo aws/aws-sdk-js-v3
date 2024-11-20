@@ -46,6 +46,12 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *     },
  *   ],
  *   LockState: "locked" || "pending_unlock" || "unlocked",
+ *   ExcludeResourceTags: [ // ExcludeResourceTags
+ *     {
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new ListRulesCommand(input);
  * const response = await client.send(command);

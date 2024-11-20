@@ -28,7 +28,12 @@ export interface LockRuleCommandInput extends LockRuleRequest {}
 export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Locks a retention rule. A locked retention rule can't be modified or deleted.</p>
+ * <p>Locks a Region-level retention rule. A locked retention rule can't be modified or
+ *       deleted.</p>
+ *          <note>
+ *             <p>You can't lock tag-level retention rules, or Region-level retention rules that
+ *         have exclusion tags.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +74,12 @@ export interface LockRuleCommandOutput extends LockRuleResponse, __MetadataBeare
  * //   },
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   RuleArn: "STRING_VALUE",
+ * //   ExcludeResourceTags: [ // ExcludeResourceTags
+ * //     {
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

@@ -52,6 +52,12 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *       ResourceTagValue: "STRING_VALUE",
  *     },
  *   ],
+ *   ExcludeResourceTags: [ // ExcludeResourceTags
+ *     {
+ *       ResourceTagKey: "STRING_VALUE", // required
+ *       ResourceTagValue: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
@@ -73,6 +79,12 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   LockEndTime: new Date("TIMESTAMP"),
  * //   RuleArn: "STRING_VALUE",
+ * //   ExcludeResourceTags: [ // ExcludeResourceTags
+ * //     {
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

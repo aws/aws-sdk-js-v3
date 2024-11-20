@@ -4,6 +4,25 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { RbinServiceException as __BaseException } from "./RbinServiceException";
 
 /**
+ * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
+ *       rule.</p>
+ * @public
+ */
+export interface ResourceTag {
+  /**
+   * <p>The tag key.</p>
+   * @public
+   */
+  ResourceTagKey: string | undefined;
+
+  /**
+   * <p>The tag value.</p>
+   * @public
+   */
+  ResourceTagValue?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -48,25 +67,6 @@ export interface LockConfiguration {
    * @public
    */
   UnlockDelay: UnlockDelay | undefined;
-}
-
-/**
- * <p>Information about the resource tags used to identify resources that are retained by the retention
- *       rule.</p>
- * @public
- */
-export interface ResourceTag {
-  /**
-   * <p>The tag key.</p>
-   * @public
-   */
-  ResourceTagKey: string | undefined;
-
-  /**
-   * <p>The tag value.</p>
-   * @public
-   */
-  ResourceTagValue?: string | undefined;
 }
 
 /**
@@ -165,7 +165,7 @@ export interface CreateRuleRequest {
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>Specifies the resource tags to use to identify resources that are to be retained by a
+   * <p>[Tag-level retention rules only] Specifies the resource tags to use to identify resources that are to be retained by a
    *   tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that
    *   have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have
    *   any of the specified tag key and value pairs, it is immediately deleted without being retained by the retention rule.</p>
@@ -182,6 +182,15 @@ export interface CreateRuleRequest {
    * @public
    */
   LockConfiguration?: LockConfiguration | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded,
+   * or ignored, by a Region-level retention rule. Resources that have any of these tags are not retained by the retention rule
+   * upon deletion.</p>
+   *          <p>You can't specify exclusion tags for tag-level retention rules.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -248,7 +257,7 @@ export interface CreateRuleResponse {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
    * @public
    */
@@ -268,7 +277,7 @@ export interface CreateRuleResponse {
   LockConfiguration?: LockConfiguration | undefined;
 
   /**
-   * <p>The lock state for the retention rule.</p>
+   * <p>[Region-level retention rules only] The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -301,6 +310,13 @@ export interface CreateRuleResponse {
    * @public
    */
   RuleArn?: string | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be
+   * excluded, or ignored, by the retention rule.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -548,7 +564,7 @@ export interface GetRuleResponse {
   RetentionPeriod?: RetentionPeriod | undefined;
 
   /**
-   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
    * @public
    */
@@ -568,7 +584,7 @@ export interface GetRuleResponse {
   LockConfiguration?: LockConfiguration | undefined;
 
   /**
-   * <p>The lock state for the retention rule.</p>
+   * <p>[Region-level retention rules only] The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -609,6 +625,13 @@ export interface GetRuleResponse {
    * @public
    */
   RuleArn?: string | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be
+   * excluded, or ignored, by the retention rule.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -639,7 +662,7 @@ export interface ListRulesRequest {
   ResourceType: ResourceType | undefined;
 
   /**
-   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
    * @public
    */
@@ -651,6 +674,13 @@ export interface ListRulesRequest {
    * @public
    */
   LockState?: LockState | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be
+   * excluded, or ignored, by the retention rule.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -677,7 +707,7 @@ export interface RuleSummary {
   RetentionPeriod?: RetentionPeriod | undefined;
 
   /**
-   * <p>The lock state for the retention rule.</p>
+   * <p>[Region-level retention rules only] The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -797,7 +827,7 @@ export interface LockRuleResponse {
   RetentionPeriod?: RetentionPeriod | undefined;
 
   /**
-   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
    * @public
    */
@@ -817,7 +847,7 @@ export interface LockRuleResponse {
   LockConfiguration?: LockConfiguration | undefined;
 
   /**
-   * <p>The lock state for the retention rule.</p>
+   * <p>[Region-level retention rules only] The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -850,6 +880,13 @@ export interface LockRuleResponse {
    * @public
    */
   RuleArn?: string | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be
+   * excluded, or ignored, by the retention rule.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -914,7 +951,7 @@ export interface UnlockRuleResponse {
   RetentionPeriod?: RetentionPeriod | undefined;
 
   /**
-   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
    * @public
    */
@@ -934,7 +971,7 @@ export interface UnlockRuleResponse {
   LockConfiguration?: LockConfiguration | undefined;
 
   /**
-   * <p>The lock state for the retention rule.</p>
+   * <p>[Region-level retention rules only] The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -975,6 +1012,13 @@ export interface UnlockRuleResponse {
    * @public
    */
   RuleArn?: string | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be
+   * excluded, or ignored, by the retention rule.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -1031,7 +1075,7 @@ export interface UpdateRuleRequest {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>Specifies the resource tags to use to identify resources that are to be retained by a
+   * <p>[Tag-level retention rules only] Specifies the resource tags to use to identify resources that are to be retained by a
    *   tag-level retention rule. For tag-level retention rules, only deleted resources, of the specified resource type, that
    *   have one or more of the specified tag key and value pairs are retained. If a resource is deleted, but it does not have
    *   any of the specified tag key and value pairs, it is immediately deleted without being retained by the retention rule.</p>
@@ -1042,6 +1086,15 @@ export interface UpdateRuleRequest {
    * @public
    */
   ResourceTags?: ResourceTag[] | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Specifies the exclusion tags to use to identify resources that are to be excluded,
+   * or ignored, by a Region-level retention rule. Resources that have any of these tags are not retained by the retention rule
+   * upon deletion.</p>
+   *          <p>You can't specify exclusion tags for tag-level retention rules.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
 
 /**
@@ -1073,7 +1126,7 @@ export interface UpdateRuleResponse {
   ResourceType?: ResourceType | undefined;
 
   /**
-   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   * <p>[Tag-level retention rules only] Information about the resource tags used to identify resources that are retained by the retention
    *       rule.</p>
    * @public
    */
@@ -1087,7 +1140,7 @@ export interface UpdateRuleResponse {
   Status?: RuleStatus | undefined;
 
   /**
-   * <p>The lock state for the retention rule.</p>
+   * <p>[Region-level retention rules only] The lock state for the retention rule.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1128,4 +1181,11 @@ export interface UpdateRuleResponse {
    * @public
    */
   RuleArn?: string | undefined;
+
+  /**
+   * <p>[Region-level retention rules only] Information about the exclusion tags used to identify resources that are to be
+   * excluded, or ignored, by the retention rule.</p>
+   * @public
+   */
+  ExcludeResourceTags?: ResourceTag[] | undefined;
 }
