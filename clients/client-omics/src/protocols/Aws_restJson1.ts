@@ -74,6 +74,7 @@ import {
   CreateReferenceStoreCommandInput,
   CreateReferenceStoreCommandOutput,
 } from "../commands/CreateReferenceStoreCommand";
+import { CreateRunCacheCommandInput, CreateRunCacheCommandOutput } from "../commands/CreateRunCacheCommand";
 import { CreateRunGroupCommandInput, CreateRunGroupCommandOutput } from "../commands/CreateRunGroupCommand";
 import {
   CreateSequenceStoreCommandInput,
@@ -95,6 +96,7 @@ import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "../commands/DeleteReferenceStoreCommand";
+import { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "../commands/DeleteRunCacheCommand";
 import { DeleteRunCommandInput, DeleteRunCommandOutput } from "../commands/DeleteRunCommand";
 import { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "../commands/DeleteRunGroupCommand";
 import {
@@ -137,6 +139,7 @@ import {
   GetReferenceMetadataCommandOutput,
 } from "../commands/GetReferenceMetadataCommand";
 import { GetReferenceStoreCommandInput, GetReferenceStoreCommandOutput } from "../commands/GetReferenceStoreCommand";
+import { GetRunCacheCommandInput, GetRunCacheCommandOutput } from "../commands/GetRunCacheCommand";
 import { GetRunCommandInput, GetRunCommandOutput } from "../commands/GetRunCommand";
 import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "../commands/GetRunGroupCommand";
 import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "../commands/GetRunTaskCommand";
@@ -190,6 +193,7 @@ import {
   ListReferenceStoresCommandInput,
   ListReferenceStoresCommandOutput,
 } from "../commands/ListReferenceStoresCommand";
+import { ListRunCachesCommandInput, ListRunCachesCommandOutput } from "../commands/ListRunCachesCommand";
 import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "../commands/ListRunGroupsCommand";
 import { ListRunsCommandInput, ListRunsCommandOutput } from "../commands/ListRunsCommand";
 import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "../commands/ListRunTasksCommand";
@@ -240,6 +244,7 @@ import {
   UpdateAnnotationStoreVersionCommandInput,
   UpdateAnnotationStoreVersionCommandOutput,
 } from "../commands/UpdateAnnotationStoreVersionCommand";
+import { UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput } from "../commands/UpdateRunCacheCommand";
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "../commands/UpdateRunGroupCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "../commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "../commands/UpdateWorkflowCommand";
@@ -285,6 +290,7 @@ import {
   ReferenceStoreFilter,
   RequestTimeoutException,
   ResourceNotFoundException,
+  RunCacheListItem,
   RunGroupListItem,
   RunListItem,
   SchemaValueType,
@@ -645,6 +651,42 @@ export const se_CreateReferenceStoreCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateRunCacheCommand
+ */
+export const se_CreateRunCacheCommand = async (
+  input: CreateRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/runCache");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      cacheBehavior: [],
+      cacheBucketOwnerId: [],
+      cacheS3Location: [],
+      description: [],
+      name: [],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken()],
+      tags: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateRunGroupCommand
  */
 export const se_CreateRunGroupCommand = async (
@@ -942,6 +984,30 @@ export const se_DeleteRunCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/run/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteRunCacheCommand
+ */
+export const se_DeleteRunCacheCommand = async (
+  input: DeleteRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/runCache/{id}");
   b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1407,6 +1473,30 @@ export const se_GetRunCommand = async (input: GetRunCommandInput, context: __Ser
   }
   b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRunCacheCommand
+ */
+export const se_GetRunCacheCommand = async (
+  input: GetRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/runCache/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1999,6 +2089,33 @@ export const se_ListReferenceStoresCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListRunCachesCommand
+ */
+export const se_ListRunCachesCommand = async (
+  input: ListRunCachesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/runCache");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_sT]: [, input[_sT]!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRunGroupsCommand
  */
 export const se_ListRunGroupsCommand = async (
@@ -2460,6 +2577,8 @@ export const se_StartRunCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      cacheBehavior: [],
+      cacheId: [],
       logLevel: [],
       name: [],
       outputUri: [],
@@ -2636,6 +2755,39 @@ export const se_UpdateAnnotationStoreVersionCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "analytics-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateRunCacheCommand
+ */
+export const se_UpdateRunCacheCommand = async (
+  input: UpdateRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/runCache/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      cacheBehavior: [],
+      description: [],
+      name: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -3022,6 +3174,30 @@ export const de_CreateReferenceStoreCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateRunCacheCommand
+ */
+export const de_CreateRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRunCacheCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateRunGroupCommand
  */
 export const de_CreateRunGroupCommand = async (
@@ -3227,6 +3403,23 @@ export const de_DeleteRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRunCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRunCacheCommand
+ */
+export const de_DeleteRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRunCacheCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3692,9 +3885,12 @@ export const de_GetRunCommand = async (
   const doc = take(data, {
     accelerators: __expectString,
     arn: __expectString,
+    cacheBehavior: __expectString,
+    cacheId: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
     digest: __expectString,
+    engineVersion: __expectString,
     failureReason: __expectString,
     id: __expectString,
     logLevel: __expectString,
@@ -3721,6 +3917,36 @@ export const de_GetRunCommand = async (
     workflowId: __expectString,
     workflowOwnerId: __expectString,
     workflowType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRunCacheCommand
+ */
+export const de_GetRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRunCacheCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    cacheBehavior: __expectString,
+    cacheBucketOwnerId: __expectString,
+    cacheS3Uri: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3770,6 +3996,8 @@ export const de_GetRunTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    cacheHit: __expectBoolean,
+    cacheS3Uri: __expectString,
     cpus: __expectInt32,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     failureReason: __expectString,
@@ -4197,6 +4425,28 @@ export const de_ListReferenceStoresCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     referenceStores: (_) => de_ReferenceStoreDetailList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRunCachesCommand
+ */
+export const de_ListRunCachesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRunCachesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_RunCacheList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4654,6 +4904,23 @@ export const de_UpdateAnnotationStoreVersionCommand = async (
     versionName: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRunCacheCommand
+ */
+export const de_UpdateRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRunCacheCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -5569,6 +5836,33 @@ const de_ReferenceStoreDetailList = (output: any, context: __SerdeContext): Refe
 };
 
 /**
+ * deserializeAws_restJson1RunCacheList
+ */
+const de_RunCacheList = (output: any, context: __SerdeContext): RunCacheListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RunCacheListItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RunCacheListItem
+ */
+const de_RunCacheListItem = (output: any, context: __SerdeContext): RunCacheListItem => {
+  return take(output, {
+    arn: __expectString,
+    cacheBehavior: __expectString,
+    cacheS3Uri: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1RunGroupList
  */
 const de_RunGroupList = (output: any, context: __SerdeContext): RunGroupListItem[] => {
@@ -5729,6 +6023,8 @@ const de_TaskList = (output: any, context: __SerdeContext): TaskListItem[] => {
  */
 const de_TaskListItem = (output: any, context: __SerdeContext): TaskListItem => {
   return take(output, {
+    cacheHit: __expectBoolean,
+    cacheS3Uri: __expectString,
     cpus: __expectInt32,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     gpus: __expectInt32,

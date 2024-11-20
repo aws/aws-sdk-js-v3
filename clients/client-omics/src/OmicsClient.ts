@@ -89,6 +89,7 @@ import {
   CreateReferenceStoreCommandInput,
   CreateReferenceStoreCommandOutput,
 } from "./commands/CreateReferenceStoreCommand";
+import { CreateRunCacheCommandInput, CreateRunCacheCommandOutput } from "./commands/CreateRunCacheCommand";
 import { CreateRunGroupCommandInput, CreateRunGroupCommandOutput } from "./commands/CreateRunGroupCommand";
 import {
   CreateSequenceStoreCommandInput,
@@ -110,6 +111,7 @@ import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "./commands/DeleteReferenceStoreCommand";
+import { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "./commands/DeleteRunCacheCommand";
 import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "./commands/DeleteRunGroupCommand";
 import {
@@ -152,6 +154,7 @@ import {
   GetReferenceMetadataCommandOutput,
 } from "./commands/GetReferenceMetadataCommand";
 import { GetReferenceStoreCommandInput, GetReferenceStoreCommandOutput } from "./commands/GetReferenceStoreCommand";
+import { GetRunCacheCommandInput, GetRunCacheCommandOutput } from "./commands/GetRunCacheCommand";
 import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
 import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
 import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
@@ -205,6 +208,7 @@ import {
   ListReferenceStoresCommandInput,
   ListReferenceStoresCommandOutput,
 } from "./commands/ListReferenceStoresCommand";
+import { ListRunCachesCommandInput, ListRunCachesCommandOutput } from "./commands/ListRunCachesCommand";
 import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "./commands/ListRunGroupsCommand";
 import { ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand";
 import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "./commands/ListRunTasksCommand";
@@ -255,6 +259,7 @@ import {
   UpdateAnnotationStoreVersionCommandInput,
   UpdateAnnotationStoreVersionCommandOutput,
 } from "./commands/UpdateAnnotationStoreVersionCommand";
+import { UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput } from "./commands/UpdateRunCacheCommand";
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "./commands/UpdateRunGroupCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "./commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
@@ -285,6 +290,7 @@ export type ServiceInputTypes =
   | CreateAnnotationStoreVersionCommandInput
   | CreateMultipartReadSetUploadCommandInput
   | CreateReferenceStoreCommandInput
+  | CreateRunCacheCommandInput
   | CreateRunGroupCommandInput
   | CreateSequenceStoreCommandInput
   | CreateShareCommandInput
@@ -294,6 +300,7 @@ export type ServiceInputTypes =
   | DeleteAnnotationStoreVersionsCommandInput
   | DeleteReferenceCommandInput
   | DeleteReferenceStoreCommandInput
+  | DeleteRunCacheCommandInput
   | DeleteRunCommandInput
   | DeleteRunGroupCommandInput
   | DeleteSequenceStoreCommandInput
@@ -312,6 +319,7 @@ export type ServiceInputTypes =
   | GetReferenceImportJobCommandInput
   | GetReferenceMetadataCommandInput
   | GetReferenceStoreCommandInput
+  | GetRunCacheCommandInput
   | GetRunCommandInput
   | GetRunGroupCommandInput
   | GetRunTaskCommandInput
@@ -332,6 +340,7 @@ export type ServiceInputTypes =
   | ListReferenceImportJobsCommandInput
   | ListReferenceStoresCommandInput
   | ListReferencesCommandInput
+  | ListRunCachesCommandInput
   | ListRunGroupsCommandInput
   | ListRunTasksCommandInput
   | ListRunsCommandInput
@@ -352,6 +361,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAnnotationStoreCommandInput
   | UpdateAnnotationStoreVersionCommandInput
+  | UpdateRunCacheCommandInput
   | UpdateRunGroupCommandInput
   | UpdateVariantStoreCommandInput
   | UpdateWorkflowCommandInput
@@ -372,6 +382,7 @@ export type ServiceOutputTypes =
   | CreateAnnotationStoreVersionCommandOutput
   | CreateMultipartReadSetUploadCommandOutput
   | CreateReferenceStoreCommandOutput
+  | CreateRunCacheCommandOutput
   | CreateRunGroupCommandOutput
   | CreateSequenceStoreCommandOutput
   | CreateShareCommandOutput
@@ -381,6 +392,7 @@ export type ServiceOutputTypes =
   | DeleteAnnotationStoreVersionsCommandOutput
   | DeleteReferenceCommandOutput
   | DeleteReferenceStoreCommandOutput
+  | DeleteRunCacheCommandOutput
   | DeleteRunCommandOutput
   | DeleteRunGroupCommandOutput
   | DeleteSequenceStoreCommandOutput
@@ -399,6 +411,7 @@ export type ServiceOutputTypes =
   | GetReferenceImportJobCommandOutput
   | GetReferenceMetadataCommandOutput
   | GetReferenceStoreCommandOutput
+  | GetRunCacheCommandOutput
   | GetRunCommandOutput
   | GetRunGroupCommandOutput
   | GetRunTaskCommandOutput
@@ -419,6 +432,7 @@ export type ServiceOutputTypes =
   | ListReferenceImportJobsCommandOutput
   | ListReferenceStoresCommandOutput
   | ListReferencesCommandOutput
+  | ListRunCachesCommandOutput
   | ListRunGroupsCommandOutput
   | ListRunTasksCommandOutput
   | ListRunsCommandOutput
@@ -439,6 +453,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAnnotationStoreCommandOutput
   | UpdateAnnotationStoreVersionCommandOutput
+  | UpdateRunCacheCommandOutput
   | UpdateRunGroupCommandOutput
   | UpdateVariantStoreCommandOutput
   | UpdateWorkflowCommandOutput

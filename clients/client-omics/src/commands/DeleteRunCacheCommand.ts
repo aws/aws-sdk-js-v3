@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRunTasksRequest, ListRunTasksResponse } from "../models/models_0";
+import { DeleteRunCacheRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_ListRunTasksCommand, se_ListRunTasksCommand } from "../protocols/Aws_restJson1";
+import { de_DeleteRunCacheCommand, se_DeleteRunCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,58 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRunTasksCommand}.
+ * The input for {@link DeleteRunCacheCommand}.
  */
-export interface ListRunTasksCommandInput extends ListRunTasksRequest {}
+export interface DeleteRunCacheCommandInput extends DeleteRunCacheRequest {}
 /**
  * @public
  *
- * The output of {@link ListRunTasksCommand}.
+ * The output of {@link DeleteRunCacheCommand}.
  */
-export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __MetadataBearer {}
+export interface DeleteRunCacheCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of tasks for a run.</p>
+ * <p>Delete a run cache. This action removes the cache metadata stored in the service account,
+ *       but doesn't delete the data in Amazon S3.
+ *       You can access the cache data in Amazon S3, for inspection or to troubleshoot issues.
+ *       You can remove old cache data using standard S3 <code>Delete</code> operations.
+ *     </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-delete.html">Deleting a run cache</a> in the AWS HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListRunTasksCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListRunTasksCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, DeleteRunCacheCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, DeleteRunCacheCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // ListRunTasksRequest
+ * const input = { // DeleteRunCacheRequest
  *   id: "STRING_VALUE", // required
- *   status: "STRING_VALUE",
- *   startingToken: "STRING_VALUE",
- *   maxResults: Number("int"),
  * };
- * const command = new ListRunTasksCommand(input);
+ * const command = new DeleteRunCacheCommand(input);
  * const response = await client.send(command);
- * // { // ListRunTasksResponse
- * //   items: [ // TaskList
- * //     { // TaskListItem
- * //       taskId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
- * //       name: "STRING_VALUE",
- * //       cpus: Number("int"),
- * //       cacheHit: true || false,
- * //       cacheS3Uri: "STRING_VALUE",
- * //       memory: Number("int"),
- * //       creationTime: new Date("TIMESTAMP"),
- * //       startTime: new Date("TIMESTAMP"),
- * //       stopTime: new Date("TIMESTAMP"),
- * //       gpus: Number("int"),
- * //       instanceType: "STRING_VALUE",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListRunTasksCommandInput - {@link ListRunTasksCommandInput}
- * @returns {@link ListRunTasksCommandOutput}
- * @see {@link ListRunTasksCommandInput} for command's `input` shape.
- * @see {@link ListRunTasksCommandOutput} for command's `response` shape.
+ * @param DeleteRunCacheCommandInput - {@link DeleteRunCacheCommandInput}
+ * @returns {@link DeleteRunCacheCommandOutput}
+ * @see {@link DeleteRunCacheCommandInput} for command's `input` shape.
+ * @see {@link DeleteRunCacheCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,10 +84,10 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  *
  * @public
  */
-export class ListRunTasksCommand extends $Command
+export class DeleteRunCacheCommand extends $Command
   .classBuilder<
-    ListRunTasksCommandInput,
-    ListRunTasksCommandOutput,
+    DeleteRunCacheCommandInput,
+    DeleteRunCacheCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,21 +99,21 @@ export class ListRunTasksCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "ListRunTasks", {})
-  .n("OmicsClient", "ListRunTasksCommand")
+  .s("Omics", "DeleteRunCache", {})
+  .n("OmicsClient", "DeleteRunCacheCommand")
   .f(void 0, void 0)
-  .ser(se_ListRunTasksCommand)
-  .de(de_ListRunTasksCommand)
+  .ser(se_DeleteRunCacheCommand)
+  .de(de_DeleteRunCacheCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRunTasksRequest;
-      output: ListRunTasksResponse;
+      input: DeleteRunCacheRequest;
+      output: {};
     };
     sdk: {
-      input: ListRunTasksCommandInput;
-      output: ListRunTasksCommandOutput;
+      input: DeleteRunCacheCommandInput;
+      output: DeleteRunCacheCommandOutput;
     };
   };
 }

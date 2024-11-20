@@ -29,6 +29,10 @@ export interface ListRunsCommandOutput extends ListRunsResponse, __MetadataBeare
 
 /**
  * <p>Retrieves a list of runs.</p>
+ *          <p>HealthOmics stores a fixed number of runs that are available to the console and API. If
+ *       the ListRuns response doesn't include specific runs that you expected, you can find run logs
+ *       for all runs in the CloudWatch logs. For more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch logs</a>
+ *       in the <i>AWS HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

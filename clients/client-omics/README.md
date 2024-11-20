@@ -294,6 +294,14 @@ CreateReferenceStore
 </details>
 <details>
 <summary>
+CreateRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/CreateRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateRunCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateRunGroup
 </summary>
 
@@ -370,6 +378,14 @@ DeleteRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCacheCommandOutput/)
 
 </details>
 <details>
@@ -514,6 +530,14 @@ GetRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunCacheCommandOutput/)
 
 </details>
 <details>
@@ -666,6 +690,14 @@ ListReferenceStores
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListReferenceStoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListReferenceStoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListReferenceStoresCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRunCaches
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListRunCachesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunCachesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunCachesCommandOutput/)
 
 </details>
 <details>
@@ -826,6 +858,14 @@ UpdateAnnotationStoreVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateAnnotationStoreVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateAnnotationStoreVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateAnnotationStoreVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunCacheCommandOutput/)
 
 </details>
 <details>

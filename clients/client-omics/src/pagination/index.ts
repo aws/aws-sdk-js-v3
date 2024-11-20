@@ -12,6 +12,7 @@ export * from "./ListReadSetsPaginator";
 export * from "./ListReferenceImportJobsPaginator";
 export * from "./ListReferenceStoresPaginator";
 export * from "./ListReferencesPaginator";
+export * from "./ListRunCachesPaginator";
 export * from "./ListRunGroupsPaginator";
 export * from "./ListRunTasksPaginator";
 export * from "./ListRunsPaginator";

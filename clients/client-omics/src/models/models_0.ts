@@ -2389,6 +2389,20 @@ export interface BatchDeleteReadSetResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const CacheBehavior = {
+  CACHE_ALWAYS: "CACHE_ALWAYS",
+  CACHE_ON_FAILURE: "CACHE_ON_FAILURE",
+} as const;
+
+/**
+ * @public
+ */
+export type CacheBehavior = (typeof CacheBehavior)[keyof typeof CacheBehavior];
+
+/**
+ * @public
  */
 export interface CancelRunRequest {
   /**
@@ -2720,6 +2734,111 @@ export interface CreateReferenceStoreResponse {
    * @public
    */
   creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRunCacheRequest {
+  /**
+   * <p>Default cache behavior for runs that use this cache. Supported values are:</p>
+   *          <p>
+   *             <code>CACHE_ON_FAILURE</code>: Caches task outputs from completed tasks for runs that fail. This setting is
+   *         useful if you're debugging a workflow that fails after several
+   *         tasks completed successfully. The subsequent run uses the cache outputs for previously-completed tasks if the task definition,
+   *         inputs, and container in ECR are identical to the prior run.</p>
+   *          <p>
+   *             <code>CACHE_ALWAYS</code>: Caches task outputs from completed tasks for all runs. This setting
+   *        is useful in development mode, but do not use it in a production setting.</p>
+   *          <p>If you don't specify a value, the default behavior is CACHE_ON_FAILURE.
+   *       When you start a run that uses this cache, you can override the default cache behavior.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the AWS HealthOmics User Guide.</p>
+   * @public
+   */
+  cacheBehavior?: CacheBehavior | undefined;
+
+  /**
+   * <p>Specify the S3 location for storing the cached task outputs.
+   *       This data must be immediately accessible (not in an archived state).</p>
+   * @public
+   */
+  cacheS3Location: string | undefined;
+
+  /**
+   * <p>Enter a description of the run cache.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Enter a user-friendly name for the run cache.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A unique request token, to ensure idempotency. If you don't specify a token,
+   *       HealthOmics automatically generates a universally unique identifier (UUID) for the request.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+
+  /**
+   * <p>Specify one or more tags to associate with this run cache.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The AWS account ID of the expected owner of the S3 bucket for the run cache.
+   *       If not provided, your account ID is set as the owner of the bucket.</p>
+   * @public
+   */
+  cacheBucketOwnerId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RunCacheStatus = {
+  ACTIVE: "ACTIVE",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type RunCacheStatus = (typeof RunCacheStatus)[keyof typeof RunCacheStatus];
+
+/**
+ * @public
+ */
+export interface CreateRunCacheResponse {
+  /**
+   * <p>Unique resource identifier for the run cache.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Identifier for the run cache.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>Run cache status.</p>
+   * @public
+   */
+  status?: RunCacheStatus | undefined;
+
+  /**
+   * <p>The tags associated with this run cache.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3235,6 +3354,17 @@ export interface DeleteReferenceStoreResponse {}
 export interface DeleteRunRequest {
   /**
    * <p>The run's ID.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRunCacheRequest {
+  /**
+   * <p>Run cache identifier for the cache you want to delete.</p>
    * @public
    */
   id: string | undefined;
@@ -4760,6 +4890,24 @@ export interface GetRunResponse {
   id?: string | undefined;
 
   /**
+   * <p>The run cache associated with the run.</p>
+   * @public
+   */
+  cacheId?: string | undefined;
+
+  /**
+   * <p>The run cache behavior for the run.</p>
+   * @public
+   */
+  cacheBehavior?: CacheBehavior | undefined;
+
+  /**
+   * <p>The workflow engine version.</p>
+   * @public
+   */
+  engineVersion?: string | undefined;
+
+  /**
    * <p>The run's status.</p>
    * @public
    */
@@ -4939,6 +5087,82 @@ export interface GetRunResponse {
 /**
  * @public
  */
+export interface GetRunCacheRequest {
+  /**
+   * <p>The identifier of the run cache to retrieve.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRunCacheResponse {
+  /**
+   * <p>Unique resource identifier for the run cache.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The default cache behavior for runs using this cache.</p>
+   * @public
+   */
+  cacheBehavior?: CacheBehavior | undefined;
+
+  /**
+   * <p>The identifier of the bucket owner.</p>
+   * @public
+   */
+  cacheBucketOwnerId?: string | undefined;
+
+  /**
+   * <p>The S3 URI where the cache data is stored.</p>
+   * @public
+   */
+  cacheS3Uri?: string | undefined;
+
+  /**
+   * <p>Creation time of the run cache (an ISO 8601 formatted string).</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The run cache description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The run cache ID.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The run cache name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The run cache status.</p>
+   * @public
+   */
+  status?: RunCacheStatus | undefined;
+
+  /**
+   * <p>The tags associated with the run cache.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetRunGroupRequest {
   /**
    * <p>The group's ID.</p>
@@ -5069,6 +5293,18 @@ export interface GetRunTaskResponse {
    * @public
    */
   cpus?: number | undefined;
+
+  /**
+   * <p>Set to true if AWS HealthOmics found a matching entry in the run cache for this task.</p>
+   * @public
+   */
+  cacheHit?: boolean | undefined;
+
+  /**
+   * <p>The S3 URI of the cache location.</p>
+   * @public
+   */
+  cacheS3Uri?: string | undefined;
 
   /**
    * <p>The task's memory use in gigabytes.</p>
@@ -6697,6 +6933,89 @@ export interface ListReferenceStoresResponse {
 /**
  * @public
  */
+export interface ListRunCachesRequest {
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Optional pagination token returned from a prior call to the <code>ListRunCaches</code> API operation.</p>
+   * @public
+   */
+  startingToken?: string | undefined;
+}
+
+/**
+ * <p>List entry for one run cache.</p>
+ * @public
+ */
+export interface RunCacheListItem {
+  /**
+   * <p>Unique resource identifier for the run cache.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Default cache behavior for the run cache.</p>
+   * @public
+   */
+  cacheBehavior?: CacheBehavior | undefined;
+
+  /**
+   * <p>The S3 uri for the run cache data.</p>
+   * @public
+   */
+  cacheS3Uri?: string | undefined;
+
+  /**
+   * <p>The time that this run cache was created (an ISO 8601 formatted string).</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The identifier for this run cache.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The name of the run cache.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The run cache status.</p>
+   * @public
+   */
+  status?: RunCacheStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRunCachesResponse {
+  /**
+   * <p>Details about each run cache in the response.</p>
+   * @public
+   */
+  items?: RunCacheListItem[] | undefined;
+
+  /**
+   * <p>Pagination token to retrieve additional run caches. If the response does not have a
+   *       <code>nextToken</code>value, you have reached to the end of the list.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListRunGroupsRequest {
   /**
    * <p>The run groups' name.</p>
@@ -6973,6 +7292,18 @@ export interface TaskListItem {
    * @public
    */
   cpus?: number | undefined;
+
+  /**
+   * <p>Set to true if AWS HealthOmics found a matching entry in the run cache for this task.</p>
+   * @public
+   */
+  cacheHit?: boolean | undefined;
+
+  /**
+   * <p>The S3 URI of the cache location.</p>
+   * @public
+   */
+  cacheS3Uri?: string | undefined;
 
   /**
    * <p>The task's memory use in gigabyes.</p>
@@ -7696,6 +8027,35 @@ export interface StartReferenceImportJobResponse {
 /**
  * @public
  */
+export interface UpdateRunCacheRequest {
+  /**
+   * <p>Update the default run cache behavior.</p>
+   * @public
+   */
+  cacheBehavior?: CacheBehavior | undefined;
+
+  /**
+   * <p>Update the run cache description.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The identifier of the run cache you want to update.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Update the name of the run cache.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateRunGroupRequest {
   /**
    * <p>The group's ID.</p>
@@ -7769,6 +8129,21 @@ export interface StartRunRequest {
   name?: string | undefined;
 
   /**
+   * <p>Identifier of the cache associated with this run. If you don't specify a cache ID, no task outputs are cached
+   *     for this run.</p>
+   * @public
+   */
+  cacheId?: string | undefined;
+
+  /**
+   * <p>The cache behavior for the run. You specify this value if you want to override
+   *        the default behavior for the cache. You had set the default value when you created the cache.
+   *       For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/how-run-cache.html#run-cache-behavior">Run cache behavior</a> in the AWS HealthOmics User Guide.</p>
+   * @public
+   */
+  cacheBehavior?: CacheBehavior | undefined;
+
+  /**
    * <p>The run's group ID.</p>
    * @public
    */
@@ -7818,7 +8193,14 @@ export interface StartRunRequest {
   requestId?: string | undefined;
 
   /**
-   * <p>The retention mode for the run.</p>
+   * <p>The retention mode for the run. The default value is RETAIN. </p>
+   *          <p>HealthOmics stores a fixed number of runs that are available to the console and API.
+   *       In the default mode (RETAIN), you need to remove runs manually when the number of run exceeds the maximum.
+   *       If you set the retention mode to <code>REMOVE</code>, HealthOmics automatically
+   *       removes runs (that have mode set to REMOVE) when the number of run exceeds the maximum.
+   *       All run logs are available in CloudWatch logs, if you need information about a run that is no longer available to the API.</p>
+   *          <p>For more information about retention mode, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Specifying run retention mode</a>
+   *     in the <i>AWS HealthOmics User Guide</i>.</p>
    * @public
    */
   retentionMode?: RunRetentionMode | undefined;
@@ -7843,7 +8225,7 @@ export interface StartRunRequest {
  */
 export interface StartRunResponse {
   /**
-   * <p>The run's ARN.</p>
+   * <p>Unique resource identifier for the run.</p>
    * @public
    */
   arn?: string | undefined;

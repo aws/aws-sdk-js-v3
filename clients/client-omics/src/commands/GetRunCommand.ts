@@ -30,6 +30,10 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
 /**
  * <p>Gets information about a workflow run.</p>
  *          <p>If a workflow is shared with you, you cannot export information about the run.</p>
+ *          <p>HealthOmics stores a fixed number of runs that are available to the console and API. If
+ *       GetRun doesn't return the requested run, you can find run logs
+ *       for all runs in the CloudWatch logs. For more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch logs</a>
+ *         in the <i>AWS HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +51,9 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * // { // GetRunResponse
  * //   arn: "STRING_VALUE",
  * //   id: "STRING_VALUE",
+ * //   cacheId: "STRING_VALUE",
+ * //   cacheBehavior: "STRING_VALUE",
+ * //   engineVersion: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   workflowId: "STRING_VALUE",
  * //   workflowType: "STRING_VALUE",

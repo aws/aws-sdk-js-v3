@@ -50,6 +50,11 @@ import {
   CreateReferenceStoreCommandOutput,
 } from "./commands/CreateReferenceStoreCommand";
 import {
+  CreateRunCacheCommand,
+  CreateRunCacheCommandInput,
+  CreateRunCacheCommandOutput,
+} from "./commands/CreateRunCacheCommand";
+import {
   CreateRunGroupCommand,
   CreateRunGroupCommandInput,
   CreateRunGroupCommandOutput,
@@ -90,6 +95,11 @@ import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "./commands/DeleteReferenceStoreCommand";
+import {
+  DeleteRunCacheCommand,
+  DeleteRunCacheCommandInput,
+  DeleteRunCacheCommandOutput,
+} from "./commands/DeleteRunCacheCommand";
 import { DeleteRunCommand, DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import {
   DeleteRunGroupCommand,
@@ -168,6 +178,7 @@ import {
   GetReferenceStoreCommandInput,
   GetReferenceStoreCommandOutput,
 } from "./commands/GetReferenceStoreCommand";
+import { GetRunCacheCommand, GetRunCacheCommandInput, GetRunCacheCommandOutput } from "./commands/GetRunCacheCommand";
 import { GetRunCommand, GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
 import { GetRunGroupCommand, GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
 import { GetRunTaskCommand, GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
@@ -248,6 +259,11 @@ import {
   ListReferenceStoresCommandInput,
   ListReferenceStoresCommandOutput,
 } from "./commands/ListReferenceStoresCommand";
+import {
+  ListRunCachesCommand,
+  ListRunCachesCommandInput,
+  ListRunCachesCommandOutput,
+} from "./commands/ListRunCachesCommand";
 import {
   ListRunGroupsCommand,
   ListRunGroupsCommandInput,
@@ -333,6 +349,11 @@ import {
   UpdateAnnotationStoreVersionCommandOutput,
 } from "./commands/UpdateAnnotationStoreVersionCommand";
 import {
+  UpdateRunCacheCommand,
+  UpdateRunCacheCommandInput,
+  UpdateRunCacheCommandOutput,
+} from "./commands/UpdateRunCacheCommand";
+import {
   UpdateRunGroupCommand,
   UpdateRunGroupCommandInput,
   UpdateRunGroupCommandOutput,
@@ -366,6 +387,7 @@ const commands = {
   CreateAnnotationStoreVersionCommand,
   CreateMultipartReadSetUploadCommand,
   CreateReferenceStoreCommand,
+  CreateRunCacheCommand,
   CreateRunGroupCommand,
   CreateSequenceStoreCommand,
   CreateShareCommand,
@@ -376,6 +398,7 @@ const commands = {
   DeleteReferenceCommand,
   DeleteReferenceStoreCommand,
   DeleteRunCommand,
+  DeleteRunCacheCommand,
   DeleteRunGroupCommand,
   DeleteSequenceStoreCommand,
   DeleteShareCommand,
@@ -394,6 +417,7 @@ const commands = {
   GetReferenceMetadataCommand,
   GetReferenceStoreCommand,
   GetRunCommand,
+  GetRunCacheCommand,
   GetRunGroupCommand,
   GetRunTaskCommand,
   GetSequenceStoreCommand,
@@ -413,6 +437,7 @@ const commands = {
   ListReferenceImportJobsCommand,
   ListReferencesCommand,
   ListReferenceStoresCommand,
+  ListRunCachesCommand,
   ListRunGroupsCommand,
   ListRunsCommand,
   ListRunTasksCommand,
@@ -433,6 +458,7 @@ const commands = {
   UntagResourceCommand,
   UpdateAnnotationStoreCommand,
   UpdateAnnotationStoreVersionCommand,
+  UpdateRunCacheCommand,
   UpdateRunGroupCommand,
   UpdateVariantStoreCommand,
   UpdateWorkflowCommand,
@@ -616,6 +642,20 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link CreateRunCacheCommand}
+   */
+  createRunCache(
+    args: CreateRunCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRunCacheCommandOutput>;
+  createRunCache(args: CreateRunCacheCommandInput, cb: (err: any, data?: CreateRunCacheCommandOutput) => void): void;
+  createRunCache(
+    args: CreateRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRunCacheCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRunGroupCommand}
    */
   createRunGroup(
@@ -762,6 +802,20 @@ export interface Omics {
     args: DeleteRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRunCacheCommand}
+   */
+  deleteRunCache(
+    args: DeleteRunCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRunCacheCommandOutput>;
+  deleteRunCache(args: DeleteRunCacheCommandInput, cb: (err: any, data?: DeleteRunCacheCommandOutput) => void): void;
+  deleteRunCache(
+    args: DeleteRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRunCacheCommandOutput) => void
   ): void;
 
   /**
@@ -1038,6 +1092,17 @@ export interface Omics {
     args: GetRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRunCacheCommand}
+   */
+  getRunCache(args: GetRunCacheCommandInput, options?: __HttpHandlerOptions): Promise<GetRunCacheCommandOutput>;
+  getRunCache(args: GetRunCacheCommandInput, cb: (err: any, data?: GetRunCacheCommandOutput) => void): void;
+  getRunCache(
+    args: GetRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRunCacheCommandOutput) => void
   ): void;
 
   /**
@@ -1328,6 +1393,18 @@ export interface Omics {
     args: ListReferenceStoresCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReferenceStoresCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRunCachesCommand}
+   */
+  listRunCaches(): Promise<ListRunCachesCommandOutput>;
+  listRunCaches(args: ListRunCachesCommandInput, options?: __HttpHandlerOptions): Promise<ListRunCachesCommandOutput>;
+  listRunCaches(args: ListRunCachesCommandInput, cb: (err: any, data?: ListRunCachesCommandOutput) => void): void;
+  listRunCaches(
+    args: ListRunCachesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRunCachesCommandOutput) => void
   ): void;
 
   /**
@@ -1626,6 +1703,20 @@ export interface Omics {
     args: UpdateAnnotationStoreVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAnnotationStoreVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRunCacheCommand}
+   */
+  updateRunCache(
+    args: UpdateRunCacheCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRunCacheCommandOutput>;
+  updateRunCache(args: UpdateRunCacheCommandInput, cb: (err: any, data?: UpdateRunCacheCommandOutput) => void): void;
+  updateRunCache(
+    args: UpdateRunCacheCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRunCacheCommandOutput) => void
   ): void;
 
   /**

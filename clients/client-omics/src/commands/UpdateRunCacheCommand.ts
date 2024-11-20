@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRunTasksRequest, ListRunTasksResponse } from "../models/models_0";
+import { UpdateRunCacheRequest } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_ListRunTasksCommand, se_ListRunTasksCommand } from "../protocols/Aws_restJson1";
+import { de_UpdateRunCacheCommand, se_UpdateRunCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,58 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRunTasksCommand}.
+ * The input for {@link UpdateRunCacheCommand}.
  */
-export interface ListRunTasksCommandInput extends ListRunTasksRequest {}
+export interface UpdateRunCacheCommandInput extends UpdateRunCacheRequest {}
 /**
  * @public
  *
- * The output of {@link ListRunTasksCommand}.
+ * The output of {@link UpdateRunCacheCommand}.
  */
-export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __MetadataBearer {}
+export interface UpdateRunCacheCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of tasks for a run.</p>
+ * <p>Update a run cache. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListRunTasksCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListRunTasksCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, UpdateRunCacheCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, UpdateRunCacheCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // ListRunTasksRequest
+ * const input = { // UpdateRunCacheRequest
+ *   cacheBehavior: "STRING_VALUE",
+ *   description: "STRING_VALUE",
  *   id: "STRING_VALUE", // required
- *   status: "STRING_VALUE",
- *   startingToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ *   name: "STRING_VALUE",
  * };
- * const command = new ListRunTasksCommand(input);
+ * const command = new UpdateRunCacheCommand(input);
  * const response = await client.send(command);
- * // { // ListRunTasksResponse
- * //   items: [ // TaskList
- * //     { // TaskListItem
- * //       taskId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
- * //       name: "STRING_VALUE",
- * //       cpus: Number("int"),
- * //       cacheHit: true || false,
- * //       cacheS3Uri: "STRING_VALUE",
- * //       memory: Number("int"),
- * //       creationTime: new Date("TIMESTAMP"),
- * //       startTime: new Date("TIMESTAMP"),
- * //       stopTime: new Date("TIMESTAMP"),
- * //       gpus: Number("int"),
- * //       instanceType: "STRING_VALUE",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListRunTasksCommandInput - {@link ListRunTasksCommandInput}
- * @returns {@link ListRunTasksCommandOutput}
- * @see {@link ListRunTasksCommandInput} for command's `input` shape.
- * @see {@link ListRunTasksCommandOutput} for command's `response` shape.
+ * @param UpdateRunCacheCommandInput - {@link UpdateRunCacheCommandInput}
+ * @returns {@link UpdateRunCacheCommandOutput}
+ * @see {@link UpdateRunCacheCommandInput} for command's `input` shape.
+ * @see {@link UpdateRunCacheCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,10 +82,10 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  *
  * @public
  */
-export class ListRunTasksCommand extends $Command
+export class UpdateRunCacheCommand extends $Command
   .classBuilder<
-    ListRunTasksCommandInput,
-    ListRunTasksCommandOutput,
+    UpdateRunCacheCommandInput,
+    UpdateRunCacheCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,21 +97,21 @@ export class ListRunTasksCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "ListRunTasks", {})
-  .n("OmicsClient", "ListRunTasksCommand")
+  .s("Omics", "UpdateRunCache", {})
+  .n("OmicsClient", "UpdateRunCacheCommand")
   .f(void 0, void 0)
-  .ser(se_ListRunTasksCommand)
-  .de(de_ListRunTasksCommand)
+  .ser(se_UpdateRunCacheCommand)
+  .de(de_UpdateRunCacheCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRunTasksRequest;
-      output: ListRunTasksResponse;
+      input: UpdateRunCacheRequest;
+      output: {};
     };
     sdk: {
-      input: ListRunTasksCommandInput;
-      output: ListRunTasksCommandOutput;
+      input: UpdateRunCacheCommandInput;
+      output: UpdateRunCacheCommandOutput;
     };
   };
 }

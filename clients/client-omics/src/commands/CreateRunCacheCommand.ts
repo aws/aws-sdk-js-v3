@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRunTasksRequest, ListRunTasksResponse } from "../models/models_0";
+import { CreateRunCacheRequest, CreateRunCacheResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_ListRunTasksCommand, se_ListRunTasksCommand } from "../protocols/Aws_restJson1";
+import { de_CreateRunCacheCommand, se_CreateRunCacheCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,58 +17,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRunTasksCommand}.
+ * The input for {@link CreateRunCacheCommand}.
  */
-export interface ListRunTasksCommandInput extends ListRunTasksRequest {}
+export interface CreateRunCacheCommandInput extends CreateRunCacheRequest {}
 /**
  * @public
  *
- * The output of {@link ListRunTasksCommand}.
+ * The output of {@link CreateRunCacheCommand}.
  */
-export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __MetadataBearer {}
+export interface CreateRunCacheCommandOutput extends CreateRunCacheResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of tasks for a run.</p>
+ * <p>You can create a run cache to save the task outputs from completed tasks in a run for a private workflow.
+ *       Subsequent runs use the task outputs from the cache, rather than computing the task outputs again.
+ *       You specify an Amazon S3 location where HealthOmics saves the cached data. This data must be
+ *       immediately accessible (not in an archived state).</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/workflow-cache-create.html">Creating a run cache</a> in the AWS HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, ListRunTasksCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, ListRunTasksCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, CreateRunCacheCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, CreateRunCacheCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // ListRunTasksRequest
- *   id: "STRING_VALUE", // required
- *   status: "STRING_VALUE",
- *   startingToken: "STRING_VALUE",
- *   maxResults: Number("int"),
+ * const input = { // CreateRunCacheRequest
+ *   cacheBehavior: "STRING_VALUE",
+ *   cacheS3Location: "STRING_VALUE", // required
+ *   description: "STRING_VALUE",
+ *   name: "STRING_VALUE",
+ *   requestId: "STRING_VALUE", // required
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   cacheBucketOwnerId: "STRING_VALUE",
  * };
- * const command = new ListRunTasksCommand(input);
+ * const command = new CreateRunCacheCommand(input);
  * const response = await client.send(command);
- * // { // ListRunTasksResponse
- * //   items: [ // TaskList
- * //     { // TaskListItem
- * //       taskId: "STRING_VALUE",
- * //       status: "STRING_VALUE",
- * //       name: "STRING_VALUE",
- * //       cpus: Number("int"),
- * //       cacheHit: true || false,
- * //       cacheS3Uri: "STRING_VALUE",
- * //       memory: Number("int"),
- * //       creationTime: new Date("TIMESTAMP"),
- * //       startTime: new Date("TIMESTAMP"),
- * //       stopTime: new Date("TIMESTAMP"),
- * //       gpus: Number("int"),
- * //       instanceType: "STRING_VALUE",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // CreateRunCacheResponse
+ * //   arn: "STRING_VALUE",
+ * //   id: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param ListRunTasksCommandInput - {@link ListRunTasksCommandInput}
- * @returns {@link ListRunTasksCommandOutput}
- * @see {@link ListRunTasksCommandInput} for command's `input` shape.
- * @see {@link ListRunTasksCommandOutput} for command's `response` shape.
+ * @param CreateRunCacheCommandInput - {@link CreateRunCacheCommandInput}
+ * @returns {@link CreateRunCacheCommandOutput}
+ * @see {@link CreateRunCacheCommandInput} for command's `input` shape.
+ * @see {@link CreateRunCacheCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -100,10 +98,10 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  *
  * @public
  */
-export class ListRunTasksCommand extends $Command
+export class CreateRunCacheCommand extends $Command
   .classBuilder<
-    ListRunTasksCommandInput,
-    ListRunTasksCommandOutput,
+    CreateRunCacheCommandInput,
+    CreateRunCacheCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -115,21 +113,21 @@ export class ListRunTasksCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "ListRunTasks", {})
-  .n("OmicsClient", "ListRunTasksCommand")
+  .s("Omics", "CreateRunCache", {})
+  .n("OmicsClient", "CreateRunCacheCommand")
   .f(void 0, void 0)
-  .ser(se_ListRunTasksCommand)
-  .de(de_ListRunTasksCommand)
+  .ser(se_CreateRunCacheCommand)
+  .de(de_CreateRunCacheCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRunTasksRequest;
-      output: ListRunTasksResponse;
+      input: CreateRunCacheRequest;
+      output: CreateRunCacheResponse;
     };
     sdk: {
-      input: ListRunTasksCommandInput;
-      output: ListRunTasksCommandOutput;
+      input: CreateRunCacheCommandInput;
+      output: CreateRunCacheCommandOutput;
     };
   };
 }

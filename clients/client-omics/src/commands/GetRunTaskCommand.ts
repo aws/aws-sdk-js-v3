@@ -46,6 +46,8 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  * //   status: "STRING_VALUE",
  * //   name: "STRING_VALUE",
  * //   cpus: Number("int"),
+ * //   cacheHit: true || false,
+ * //   cacheS3Uri: "STRING_VALUE",
  * //   memory: Number("int"),
  * //   creationTime: new Date("TIMESTAMP"),
  * //   startTime: new Date("TIMESTAMP"),
