@@ -100,6 +100,9 @@ export interface SetSubnetsCommandOutput extends SetSubnetsOutput, __MetadataBea
  * @throws {@link AvailabilityZoneNotSupportedException} (client fault)
  *  <p>The specified Availability Zone is not supported.</p>
  *
+ * @throws {@link CapacityReservationPendingException} (client fault)
+ *  <p>There is a pending capacity reservation.</p>
+ *
  * @throws {@link InvalidConfigurationRequestException} (client fault)
  *  <p>The requested configuration is not valid.</p>
  *

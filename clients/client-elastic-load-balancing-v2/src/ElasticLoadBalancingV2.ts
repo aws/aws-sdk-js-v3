@@ -71,6 +71,11 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  DescribeCapacityReservationCommand,
+  DescribeCapacityReservationCommandInput,
+  DescribeCapacityReservationCommandOutput,
+} from "./commands/DescribeCapacityReservationCommand";
+import {
   DescribeListenerAttributesCommand,
   DescribeListenerAttributesCommandInput,
   DescribeListenerAttributesCommandOutput,
@@ -156,6 +161,11 @@ import {
   GetTrustStoreRevocationContentCommandOutput,
 } from "./commands/GetTrustStoreRevocationContentCommand";
 import {
+  ModifyCapacityReservationCommand,
+  ModifyCapacityReservationCommandInput,
+  ModifyCapacityReservationCommandOutput,
+} from "./commands/ModifyCapacityReservationCommand";
+import {
   ModifyListenerAttributesCommand,
   ModifyListenerAttributesCommandInput,
   ModifyListenerAttributesCommandOutput,
@@ -237,6 +247,7 @@ const commands = {
   DeleteTrustStoreCommand,
   DeregisterTargetsCommand,
   DescribeAccountLimitsCommand,
+  DescribeCapacityReservationCommand,
   DescribeListenerAttributesCommand,
   DescribeListenerCertificatesCommand,
   DescribeListenersCommand,
@@ -254,6 +265,7 @@ const commands = {
   GetResourcePolicyCommand,
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreRevocationContentCommand,
+  ModifyCapacityReservationCommand,
   ModifyListenerCommand,
   ModifyListenerAttributesCommand,
   ModifyLoadBalancerAttributesCommand,
@@ -519,6 +531,23 @@ export interface ElasticLoadBalancingV2 {
     args: DescribeAccountLimitsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityReservationCommand}
+   */
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityReservationCommandOutput>;
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationCommandOutput) => void
+  ): void;
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityReservationCommandOutput) => void
   ): void;
 
   /**
@@ -802,6 +831,23 @@ export interface ElasticLoadBalancingV2 {
     args: GetTrustStoreRevocationContentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTrustStoreRevocationContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyCapacityReservationCommand}
+   */
+  modifyCapacityReservation(
+    args: ModifyCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCapacityReservationCommandOutput>;
+  modifyCapacityReservation(
+    args: ModifyCapacityReservationCommandInput,
+    cb: (err: any, data?: ModifyCapacityReservationCommandOutput) => void
+  ): void;
+  modifyCapacityReservation(
+    args: ModifyCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCapacityReservationCommandOutput) => void
   ): void;
 
   /**

@@ -10,6 +10,7 @@ import {
   getArrayIfSingleItem as __getArrayIfSingleItem,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
+  strictParseFloat as __strictParseFloat,
   strictParseInt32 as __strictParseInt32,
   strictParseLong as __strictParseLong,
   withBaseException,
@@ -49,6 +50,10 @@ import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "../commands/DescribeAccountLimitsCommand";
+import {
+  DescribeCapacityReservationCommandInput,
+  DescribeCapacityReservationCommandOutput,
+} from "../commands/DescribeCapacityReservationCommand";
 import {
   DescribeListenerAttributesCommandInput,
   DescribeListenerAttributesCommandOutput,
@@ -106,6 +111,10 @@ import {
   GetTrustStoreRevocationContentCommandOutput,
 } from "../commands/GetTrustStoreRevocationContentCommand";
 import {
+  ModifyCapacityReservationCommandInput,
+  ModifyCapacityReservationCommandOutput,
+} from "../commands/ModifyCapacityReservationCommand";
+import {
   ModifyListenerAttributesCommandInput,
   ModifyListenerAttributesCommandOutput,
 } from "../commands/ModifyListenerAttributesCommand";
@@ -153,6 +162,10 @@ import {
   AvailabilityZone,
   AvailabilityZoneNotSupportedException,
   CaCertificatesBundleNotFoundException,
+  CapacityDecreaseRequestsLimitExceededException,
+  CapacityReservationPendingException,
+  CapacityReservationStatus,
+  CapacityUnitsLimitExceededException,
   Certificate,
   CertificateNotFoundException,
   Cipher,
@@ -183,6 +196,8 @@ import {
   DeregisterTargetsOutput,
   DescribeAccountLimitsInput,
   DescribeAccountLimitsOutput,
+  DescribeCapacityReservationInput,
+  DescribeCapacityReservationOutput,
   DescribeListenerAttributesInput,
   DescribeListenerAttributesOutput,
   DescribeListenerCertificatesInput,
@@ -231,6 +246,7 @@ import {
   HttpHeaderConditionConfig,
   HttpRequestMethodConditionConfig,
   IncompatibleProtocolsException,
+  InsufficientCapacityException,
   InvalidCaCertificatesBundleException,
   InvalidConfigurationRequestException,
   InvalidLoadBalancerActionException,
@@ -249,6 +265,9 @@ import {
   LoadBalancerNotFoundException,
   LoadBalancerState,
   Matcher,
+  MinimumLoadBalancerCapacity,
+  ModifyCapacityReservationInput,
+  ModifyCapacityReservationOutput,
   ModifyListenerAttributesInput,
   ModifyListenerAttributesOutput,
   ModifyListenerInput,
@@ -267,6 +286,7 @@ import {
   OperationNotPermittedException,
   PathPatternConditionConfig,
   PriorityInUseException,
+  PriorRequestNotCompleteException,
   QueryStringConditionConfig,
   QueryStringKeyValuePair,
   RedirectActionConfig,
@@ -331,6 +351,7 @@ import {
   TrustStoreNotReadyException,
   TrustStoreRevocation,
   UnsupportedProtocolException,
+  ZonalCapacityReservationState,
 } from "../models/models_0";
 
 /**
@@ -600,6 +621,23 @@ export const se_DescribeAccountLimitsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeAccountLimitsInput(input, context),
     [_A]: _DAL,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeCapacityReservationCommand
+ */
+export const se_DescribeCapacityReservationCommand = async (
+  input: DescribeCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeCapacityReservationInput(input, context),
+    [_A]: _DCR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -889,6 +927,23 @@ export const se_GetTrustStoreRevocationContentCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetTrustStoreRevocationContentInput(input, context),
     [_A]: _GTSRC,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryModifyCapacityReservationCommand
+ */
+export const se_ModifyCapacityReservationCommand = async (
+  input: ModifyCapacityReservationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyCapacityReservationInput(input, context),
+    [_A]: _MCR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1470,6 +1525,26 @@ export const de_DescribeAccountLimitsCommand = async (
 };
 
 /**
+ * deserializeAws_queryDescribeCapacityReservationCommand
+ */
+export const de_DescribeCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCapacityReservationOutput(data.DescribeCapacityReservationResult, context);
+  const response: DescribeCapacityReservationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryDescribeListenerAttributesCommand
  */
 export const de_DescribeListenerAttributesCommand = async (
@@ -1803,6 +1878,26 @@ export const de_GetTrustStoreRevocationContentCommand = async (
   let contents: any = {};
   contents = de_GetTrustStoreRevocationContentOutput(data.GetTrustStoreRevocationContentResult, context);
   const response: GetTrustStoreRevocationContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyCapacityReservationCommand
+ */
+export const de_ModifyCapacityReservationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCapacityReservationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyCapacityReservationOutput(data.ModifyCapacityReservationResult, context);
+  const response: ModifyCapacityReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2272,6 +2367,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceNotFound":
     case "com.amazonaws.elasticloadbalancingv2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "CapacityDecreaseRequestLimitExceeded":
+    case "com.amazonaws.elasticloadbalancingv2#CapacityDecreaseRequestsLimitExceededException":
+      throw await de_CapacityDecreaseRequestsLimitExceededExceptionRes(parsedOutput, context);
+    case "CapacityReservationPending":
+    case "com.amazonaws.elasticloadbalancingv2#CapacityReservationPendingException":
+      throw await de_CapacityReservationPendingExceptionRes(parsedOutput, context);
+    case "CapacityUnitsLimitExceeded":
+    case "com.amazonaws.elasticloadbalancingv2#CapacityUnitsLimitExceededException":
+      throw await de_CapacityUnitsLimitExceededExceptionRes(parsedOutput, context);
+    case "InsufficientCapacity":
+    case "com.amazonaws.elasticloadbalancingv2#InsufficientCapacityException":
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
+    case "PriorRequestNotComplete":
+    case "com.amazonaws.elasticloadbalancingv2#PriorRequestNotCompleteException":
+      throw await de_PriorRequestNotCompleteExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2340,6 +2450,54 @@ const de_CaCertificatesBundleNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_CaCertificatesBundleNotFoundException(body.Error, context);
   const exception = new CaCertificatesBundleNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryCapacityDecreaseRequestsLimitExceededExceptionRes
+ */
+const de_CapacityDecreaseRequestsLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CapacityDecreaseRequestsLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CapacityDecreaseRequestsLimitExceededException(body.Error, context);
+  const exception = new CapacityDecreaseRequestsLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryCapacityReservationPendingExceptionRes
+ */
+const de_CapacityReservationPendingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CapacityReservationPendingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CapacityReservationPendingException(body.Error, context);
+  const exception = new CapacityReservationPendingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryCapacityUnitsLimitExceededExceptionRes
+ */
+const de_CapacityUnitsLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CapacityUnitsLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_CapacityUnitsLimitExceededException(body.Error, context);
+  const exception = new CapacityUnitsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2484,6 +2642,22 @@ const de_IncompatibleProtocolsExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_IncompatibleProtocolsException(body.Error, context);
   const exception = new IncompatibleProtocolsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryInsufficientCapacityExceptionRes
+ */
+const de_InsufficientCapacityExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InsufficientCapacityException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InsufficientCapacityException(body.Error, context);
+  const exception = new InsufficientCapacityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2676,6 +2850,22 @@ const de_PriorityInUseExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_PriorityInUseException(body.Error, context);
   const exception = new PriorityInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryPriorRequestNotCompleteExceptionRes
+ */
+const de_PriorRequestNotCompleteExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PriorRequestNotCompleteException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_PriorRequestNotCompleteException(body.Error, context);
+  const exception = new PriorRequestNotCompleteException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3795,6 +3985,17 @@ const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, contex
 };
 
 /**
+ * serializeAws_queryDescribeCapacityReservationInput
+ */
+const se_DescribeCapacityReservationInput = (input: DescribeCapacityReservationInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDescribeListenerAttributesInput
  */
 const se_DescribeListenerAttributesInput = (input: DescribeListenerAttributesInput, context: __SerdeContext): any => {
@@ -4438,6 +4639,38 @@ const se_Matcher = (input: Matcher, context: __SerdeContext): any => {
   }
   if (input[_GC] != null) {
     entries[_GC] = input[_GC];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryMinimumLoadBalancerCapacity
+ */
+const se_MinimumLoadBalancerCapacity = (input: MinimumLoadBalancerCapacity, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CU] != null) {
+    entries[_CU] = input[_CU];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryModifyCapacityReservationInput
+ */
+const se_ModifyCapacityReservationInput = (input: ModifyCapacityReservationInput, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_LBA] != null) {
+    entries[_LBA] = input[_LBA];
+  }
+  if (input[_MLBC] != null) {
+    const memberEntries = se_MinimumLoadBalancerCapacity(input[_MLBC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MinimumLoadBalancerCapacity.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RCR] != null) {
+    entries[_RCR] = input[_RCR];
   }
   return entries;
 };
@@ -5822,6 +6055,62 @@ const de_CaCertificatesBundleNotFoundException = (
 };
 
 /**
+ * deserializeAws_queryCapacityDecreaseRequestsLimitExceededException
+ */
+const de_CapacityDecreaseRequestsLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): CapacityDecreaseRequestsLimitExceededException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityReservationPendingException
+ */
+const de_CapacityReservationPendingException = (
+  output: any,
+  context: __SerdeContext
+): CapacityReservationPendingException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityReservationStatus
+ */
+const de_CapacityReservationStatus = (output: any, context: __SerdeContext): CapacityReservationStatus => {
+  const contents: any = {};
+  if (output[_Cod] != null) {
+    contents[_Cod] = __expectString(output[_Cod]);
+  }
+  if (output[_R] != null) {
+    contents[_R] = __expectString(output[_R]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryCapacityUnitsLimitExceededException
+ */
+const de_CapacityUnitsLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): CapacityUnitsLimitExceededException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryCertificate
  */
 const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
@@ -6032,6 +6321,31 @@ const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): D
   }
   if (output[_NM] != null) {
     contents[_NM] = __expectString(output[_NM]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDescribeCapacityReservationOutput
+ */
+const de_DescribeCapacityReservationOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeCapacityReservationOutput => {
+  const contents: any = {};
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_DRR] != null) {
+    contents[_DRR] = __strictParseInt32(output[_DRR]) as number;
+  }
+  if (output[_MLBC] != null) {
+    contents[_MLBC] = de_MinimumLoadBalancerCapacity(output[_MLBC], context);
+  }
+  if (output.CapacityReservationState === "") {
+    contents[_CRS] = [];
+  } else if (output[_CRS] != null && output[_CRS][_m] != null) {
+    contents[_CRS] = de_ZonalCapacityReservationStates(__getArrayIfSingleItem(output[_CRS][_m]), context);
   }
   return contents;
 };
@@ -6501,6 +6815,17 @@ const de_IncompatibleProtocolsException = (output: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_queryInsufficientCapacityException
+ */
+const de_InsufficientCapacityException = (output: any, context: __SerdeContext): InsufficientCapacityException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryInvalidCaCertificatesBundleException
  */
 const de_InvalidCaCertificatesBundleException = (
@@ -6899,6 +7224,39 @@ const de_Matcher = (output: any, context: __SerdeContext): Matcher => {
 };
 
 /**
+ * deserializeAws_queryMinimumLoadBalancerCapacity
+ */
+const de_MinimumLoadBalancerCapacity = (output: any, context: __SerdeContext): MinimumLoadBalancerCapacity => {
+  const contents: any = {};
+  if (output[_CU] != null) {
+    contents[_CU] = __strictParseInt32(output[_CU]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryModifyCapacityReservationOutput
+ */
+const de_ModifyCapacityReservationOutput = (output: any, context: __SerdeContext): ModifyCapacityReservationOutput => {
+  const contents: any = {};
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_DRR] != null) {
+    contents[_DRR] = __strictParseInt32(output[_DRR]) as number;
+  }
+  if (output[_MLBC] != null) {
+    contents[_MLBC] = de_MinimumLoadBalancerCapacity(output[_MLBC], context);
+  }
+  if (output.CapacityReservationState === "") {
+    contents[_CRS] = [];
+  } else if (output[_CRS] != null && output[_CRS][_m] != null) {
+    contents[_CRS] = de_ZonalCapacityReservationStates(__getArrayIfSingleItem(output[_CRS][_m]), context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryModifyListenerAttributesOutput
  */
 const de_ModifyListenerAttributesOutput = (output: any, context: __SerdeContext): ModifyListenerAttributesOutput => {
@@ -7043,6 +7401,20 @@ const de_PathPatternConditionConfig = (output: any, context: __SerdeContext): Pa
  * deserializeAws_queryPriorityInUseException
  */
 const de_PriorityInUseException = (output: any, context: __SerdeContext): PriorityInUseException => {
+  const contents: any = {};
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryPriorRequestNotCompleteException
+ */
+const de_PriorRequestNotCompleteException = (
+  output: any,
+  context: __SerdeContext
+): PriorRequestNotCompleteException => {
   const contents: any = {};
   if (output[_Me] != null) {
     contents[_Me] = __expectString(output[_Me]);
@@ -8027,6 +8399,34 @@ const de_UnsupportedProtocolException = (output: any, context: __SerdeContext): 
   return contents;
 };
 
+/**
+ * deserializeAws_queryZonalCapacityReservationState
+ */
+const de_ZonalCapacityReservationState = (output: any, context: __SerdeContext): ZonalCapacityReservationState => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = de_CapacityReservationStatus(output[_St], context);
+  }
+  if (output[_AZ] != null) {
+    contents[_AZ] = __expectString(output[_AZ]);
+  }
+  if (output[_ECU] != null) {
+    contents[_ECU] = __strictParseFloat(output[_ECU]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryZonalCapacityReservationStates
+ */
+const de_ZonalCapacityReservationStates = (output: any, context: __SerdeContext): ZonalCapacityReservationState[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ZonalCapacityReservationState(entry, context);
+    });
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -8096,17 +8496,20 @@ const _CL = "CreateListener";
 const _CLB = "CreateLoadBalancer";
 const _COIP = "CustomerOwnedIpv4Pool";
 const _CR = "CreateRule";
+const _CRS = "CapacityReservationState";
 const _CS = "ClientSecret";
 const _CT = "ContentType";
 const _CTG = "CreateTargetGroup";
 const _CTS = "CreateTrustStore";
 const _CTr = "CreatedTime";
+const _CU = "CapacityUnits";
 const _Ci = "Ciphers";
 const _Co = "Conditions";
 const _Cod = "Code";
 const _D = "Description";
 const _DA = "DefaultActions";
 const _DAL = "DescribeAccountLimits";
+const _DCR = "DescribeCapacityReservation";
 const _DL = "DeleteListener";
 const _DLA = "DescribeListenerAttributes";
 const _DLB = "DeleteLoadBalancer";
@@ -8116,6 +8519,7 @@ const _DLC = "DescribeListenerCertificates";
 const _DLe = "DescribeListeners";
 const _DNSN = "DNSName";
 const _DR = "DeleteRule";
+const _DRR = "DecreaseRequestsRemaining";
 const _DRe = "DescribeRules";
 const _DS = "DurationSeconds";
 const _DSSLP = "DescribeSSLPolicies";
@@ -8131,6 +8535,7 @@ const _DTSR = "DescribeTrustStoreRevocations";
 const _DTSe = "DescribeTrustStores";
 const _DTe = "DescribeTags";
 const _E = "Enabled";
+const _ECU = "EffectiveCapacityUnits";
 const _EPFISN = "EnablePrefixForIpv6SourceNat";
 const _ESGIROPLT = "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic";
 const _F = "Field";
@@ -8171,15 +8576,18 @@ const _LBAo = "LoadBalancerArns";
 const _LBAoa = "LoadBalancerAddresses";
 const _LBN = "LoadBalancerName";
 const _LBT = "LoadBalancerType";
+const _LMT = "LastModifiedTime";
 const _Li = "Limits";
 const _Lo = "Location";
 const _M = "Matcher";
 const _MA = "MutualAuthentication";
 const _MB = "MessageBody";
+const _MCR = "ModifyCapacityReservation";
 const _MIE = "MitigationInEffect";
 const _ML = "ModifyListener";
 const _MLA = "ModifyListenerAttributes";
 const _MLBA = "ModifyLoadBalancerAttributes";
+const _MLBC = "MinimumLoadBalancerCapacity";
 const _MR = "ModifyRule";
 const _MTG = "ModifyTargetGroup";
 const _MTGA = "ModifyTargetGroupAttributes";
@@ -8213,6 +8621,7 @@ const _RAe = "ResourceArn";
 const _RAu = "RuleArn";
 const _RAul = "RuleArns";
 const _RC = "RedirectConfig";
+const _RCR = "ResetCapacityReservation";
 const _RCe = "RevocationContents";
 const _RI = "RevocationIds";
 const _RIe = "RevocationId";

@@ -1188,6 +1188,107 @@ export class CaCertificatesBundleNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>You've exceeded the daily capacity decrease limit for this reservation.</p>
+ * @public
+ */
+export class CapacityDecreaseRequestsLimitExceededException extends __BaseException {
+  readonly name: "CapacityDecreaseRequestsLimitExceededException" = "CapacityDecreaseRequestsLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CapacityDecreaseRequestsLimitExceededException, __BaseException>) {
+    super({
+      name: "CapacityDecreaseRequestsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CapacityDecreaseRequestsLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>There is a pending capacity reservation.</p>
+ * @public
+ */
+export class CapacityReservationPendingException extends __BaseException {
+  readonly name: "CapacityReservationPendingException" = "CapacityReservationPendingException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CapacityReservationPendingException, __BaseException>) {
+    super({
+      name: "CapacityReservationPendingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CapacityReservationPendingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationStateEnum = {
+  FAILED: "failed",
+  PENDING: "pending",
+  PROVISIONED: "provisioned",
+  REBALANCING: "rebalancing",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationStateEnum =
+  (typeof CapacityReservationStateEnum)[keyof typeof CapacityReservationStateEnum];
+
+/**
+ * <p>The status of a capacity reservation.</p>
+ * @public
+ */
+export interface CapacityReservationStatus {
+  /**
+   * <p>The status code.</p>
+   * @public
+   */
+  Code?: CapacityReservationStateEnum | undefined;
+
+  /**
+   * <p>The reason code for the status.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+}
+
+/**
+ * <p>You've exceeded the capacity units limit.</p>
+ * @public
+ */
+export class CapacityUnitsLimitExceededException extends __BaseException {
+  readonly name: "CapacityUnitsLimitExceededException" = "CapacityUnitsLimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CapacityUnitsLimitExceededException, __BaseException>) {
+    super({
+      name: "CapacityUnitsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CapacityUnitsLimitExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>Information about a cipher used in a policy.</p>
  * @public
  */
@@ -3661,6 +3762,82 @@ export interface DescribeAccountLimitsOutput {
 /**
  * @public
  */
+export interface DescribeCapacityReservationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * @public
+   */
+  LoadBalancerArn: string | undefined;
+}
+
+/**
+ * <p>The capacity reservation status for each availability zone.</p>
+ * @public
+ */
+export interface ZonalCapacityReservationState {
+  /**
+   * <p>The state of the capacity reservation.</p>
+   * @public
+   */
+  State?: CapacityReservationStatus | undefined;
+
+  /**
+   * <p>Information about the availability zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of effective capacity units.</p>
+   * @public
+   */
+  EffectiveCapacityUnits?: number | undefined;
+}
+
+/**
+ * <p>The minimum capacity for a load balancer.</p>
+ * @public
+ */
+export interface MinimumLoadBalancerCapacity {
+  /**
+   * <p>The number of capacity units.</p>
+   * @public
+   */
+  CapacityUnits?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityReservationOutput {
+  /**
+   * <p>The last time the capacity reservation was modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The amount of daily capacity decreases remaining.</p>
+   * @public
+   */
+  DecreaseRequestsRemaining?: number | undefined;
+
+  /**
+   * <p>The requested minimum capacity reservation for the load balancer</p>
+   * @public
+   */
+  MinimumLoadBalancerCapacity?: MinimumLoadBalancerCapacity | undefined;
+
+  /**
+   * <p>The state of the capacity reservation.</p>
+   * @public
+   */
+  CapacityReservationState?: ZonalCapacityReservationState[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeListenerAttributesInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the listener.</p>
@@ -5070,6 +5247,102 @@ export interface GetTrustStoreRevocationContentOutput {
    * @public
    */
   Location?: string | undefined;
+}
+
+/**
+ * <p>There is insufficient capacity to reserve.</p>
+ * @public
+ */
+export class InsufficientCapacityException extends __BaseException {
+  readonly name: "InsufficientCapacityException" = "InsufficientCapacityException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
+    super({
+      name: "InsufficientCapacityException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ModifyCapacityReservationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+   * @public
+   */
+  LoadBalancerArn: string | undefined;
+
+  /**
+   * <p>The minimum load balancer capacity reserved.</p>
+   * @public
+   */
+  MinimumLoadBalancerCapacity?: MinimumLoadBalancerCapacity | undefined;
+
+  /**
+   * <p>Resets the capacity reservation.</p>
+   * @public
+   */
+  ResetCapacityReservation?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCapacityReservationOutput {
+  /**
+   * <p>The last time the capacity reservation was modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The amount of daily capacity decreases remaining.</p>
+   * @public
+   */
+  DecreaseRequestsRemaining?: number | undefined;
+
+  /**
+   * <p>The requested minimum capacity reservation for the load balancer</p>
+   * @public
+   */
+  MinimumLoadBalancerCapacity?: MinimumLoadBalancerCapacity | undefined;
+
+  /**
+   * <p>The state of the capacity reservation.</p>
+   * @public
+   */
+  CapacityReservationState?: ZonalCapacityReservationState[] | undefined;
+}
+
+/**
+ * <p>This operation is not allowed while a prior request has not been completed.</p>
+ * @public
+ */
+export class PriorRequestNotCompleteException extends __BaseException {
+  readonly name: "PriorRequestNotCompleteException" = "PriorRequestNotCompleteException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PriorRequestNotCompleteException, __BaseException>) {
+    super({
+      name: "PriorRequestNotCompleteException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PriorRequestNotCompleteException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**

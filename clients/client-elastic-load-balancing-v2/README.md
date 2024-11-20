@@ -362,6 +362,14 @@ DescribeAccountLimits
 </details>
 <details>
 <summary>
+DescribeCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/DescribeCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/DescribeCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/DescribeCapacityReservationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeListenerAttributes
 </summary>
 
@@ -494,6 +502,14 @@ GetTrustStoreRevocationContent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/GetTrustStoreRevocationContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/GetTrustStoreRevocationContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/GetTrustStoreRevocationContentCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyCapacityReservation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elastic-load-balancing-v2/command/ModifyCapacityReservationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/ModifyCapacityReservationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elastic-load-balancing-v2/Interface/ModifyCapacityReservationCommandOutput/)
 
 </details>
 <details>

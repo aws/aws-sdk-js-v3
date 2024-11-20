@@ -82,6 +82,10 @@ import {
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
 import {
+  DescribeCapacityReservationCommandInput,
+  DescribeCapacityReservationCommandOutput,
+} from "./commands/DescribeCapacityReservationCommand";
+import {
   DescribeListenerAttributesCommandInput,
   DescribeListenerAttributesCommandOutput,
 } from "./commands/DescribeListenerAttributesCommand";
@@ -137,6 +141,10 @@ import {
   GetTrustStoreRevocationContentCommandInput,
   GetTrustStoreRevocationContentCommandOutput,
 } from "./commands/GetTrustStoreRevocationContentCommand";
+import {
+  ModifyCapacityReservationCommandInput,
+  ModifyCapacityReservationCommandOutput,
+} from "./commands/ModifyCapacityReservationCommand";
 import {
   ModifyListenerAttributesCommandInput,
   ModifyListenerAttributesCommandOutput,
@@ -198,6 +206,7 @@ export type ServiceInputTypes =
   | DeleteTrustStoreCommandInput
   | DeregisterTargetsCommandInput
   | DescribeAccountLimitsCommandInput
+  | DescribeCapacityReservationCommandInput
   | DescribeListenerAttributesCommandInput
   | DescribeListenerCertificatesCommandInput
   | DescribeListenersCommandInput
@@ -215,6 +224,7 @@ export type ServiceInputTypes =
   | GetResourcePolicyCommandInput
   | GetTrustStoreCaCertificatesBundleCommandInput
   | GetTrustStoreRevocationContentCommandInput
+  | ModifyCapacityReservationCommandInput
   | ModifyListenerAttributesCommandInput
   | ModifyListenerCommandInput
   | ModifyLoadBalancerAttributesCommandInput
@@ -251,6 +261,7 @@ export type ServiceOutputTypes =
   | DeleteTrustStoreCommandOutput
   | DeregisterTargetsCommandOutput
   | DescribeAccountLimitsCommandOutput
+  | DescribeCapacityReservationCommandOutput
   | DescribeListenerAttributesCommandOutput
   | DescribeListenerCertificatesCommandOutput
   | DescribeListenersCommandOutput
@@ -268,6 +279,7 @@ export type ServiceOutputTypes =
   | GetResourcePolicyCommandOutput
   | GetTrustStoreCaCertificatesBundleCommandOutput
   | GetTrustStoreRevocationContentCommandOutput
+  | ModifyCapacityReservationCommandOutput
   | ModifyListenerAttributesCommandOutput
   | ModifyListenerCommandOutput
   | ModifyLoadBalancerAttributesCommandOutput
