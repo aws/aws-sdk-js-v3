@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDomainUnitsForParentInput, ListDomainUnitsForParentOutput } from "../models/models_1";
-import { de_ListDomainUnitsForParentCommand, se_ListDomainUnitsForParentCommand } from "../protocols/Aws_restJson1";
+import { DeleteRuleInput, DeleteRuleOutput } from "../models/models_1";
+import { de_DeleteRuleCommand, se_DeleteRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,55 +17,57 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDomainUnitsForParentCommand}.
+ * The input for {@link DeleteRuleCommand}.
  */
-export interface ListDomainUnitsForParentCommandInput extends ListDomainUnitsForParentInput {}
+export interface DeleteRuleCommandInput extends DeleteRuleInput {}
 /**
  * @public
  *
- * The output of {@link ListDomainUnitsForParentCommand}.
+ * The output of {@link DeleteRuleCommand}.
  */
-export interface ListDomainUnitsForParentCommandOutput extends ListDomainUnitsForParentOutput, __MetadataBearer {}
+export interface DeleteRuleCommandOutput extends DeleteRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Lists child domain units for the specified parent domain unit.</p>
+ * <p>Deletes a rule in Amazon DataZone. A rule is a formal agreement that enforces specific
+ *          requirements across user workflows (e.g., publishing assets to the catalog, requesting
+ *          subscriptions, creating projects) within the Amazon DataZone data portal. These rules help
+ *          maintain consistency, ensure compliance, and uphold governance standards in data management
+ *          processes. For instance, a metadata enforcement rule can specify the required information
+ *          for creating a subscription request or publishing a data asset to the catalog, ensuring
+ *          alignment with organizational standards.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, ListDomainUnitsForParentCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, ListDomainUnitsForParentCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, DeleteRuleCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, DeleteRuleCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * const client = new DataZoneClient(config);
- * const input = { // ListDomainUnitsForParentInput
+ * const input = { // DeleteRuleInput
  *   domainIdentifier: "STRING_VALUE", // required
- *   parentDomainUnitIdentifier: "STRING_VALUE", // required
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ *   identifier: "STRING_VALUE", // required
  * };
- * const command = new ListDomainUnitsForParentCommand(input);
+ * const command = new DeleteRuleCommand(input);
  * const response = await client.send(command);
- * // { // ListDomainUnitsForParentOutput
- * //   items: [ // DomainUnitSummaries // required
- * //     { // DomainUnitSummary
- * //       name: "STRING_VALUE", // required
- * //       id: "STRING_VALUE", // required
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param ListDomainUnitsForParentCommandInput - {@link ListDomainUnitsForParentCommandInput}
- * @returns {@link ListDomainUnitsForParentCommandOutput}
- * @see {@link ListDomainUnitsForParentCommandInput} for command's `input` shape.
- * @see {@link ListDomainUnitsForParentCommandOutput} for command's `response` shape.
+ * @param DeleteRuleCommandInput - {@link DeleteRuleCommandInput}
+ * @returns {@link DeleteRuleCommandOutput}
+ * @see {@link DeleteRuleCommandInput} for command's `input` shape.
+ * @see {@link DeleteRuleCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict while performing this action.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource cannot be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -81,10 +83,10 @@ export interface ListDomainUnitsForParentCommandOutput extends ListDomainUnitsFo
  *
  * @public
  */
-export class ListDomainUnitsForParentCommand extends $Command
+export class DeleteRuleCommand extends $Command
   .classBuilder<
-    ListDomainUnitsForParentCommandInput,
-    ListDomainUnitsForParentCommandOutput,
+    DeleteRuleCommandInput,
+    DeleteRuleCommandOutput,
     DataZoneClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +98,21 @@ export class ListDomainUnitsForParentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("DataZone", "ListDomainUnitsForParent", {})
-  .n("DataZoneClient", "ListDomainUnitsForParentCommand")
+  .s("DataZone", "DeleteRule", {})
+  .n("DataZoneClient", "DeleteRuleCommand")
   .f(void 0, void 0)
-  .ser(se_ListDomainUnitsForParentCommand)
-  .de(de_ListDomainUnitsForParentCommand)
+  .ser(se_DeleteRuleCommand)
+  .de(de_DeleteRuleCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDomainUnitsForParentInput;
-      output: ListDomainUnitsForParentOutput;
+      input: DeleteRuleInput;
+      output: {};
     };
     sdk: {
-      input: ListDomainUnitsForParentCommandInput;
-      output: ListDomainUnitsForParentCommandOutput;
+      input: DeleteRuleCommandInput;
+      output: DeleteRuleCommandOutput;
     };
   };
 }

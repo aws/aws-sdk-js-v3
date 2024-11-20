@@ -124,6 +124,14 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  * //       ],
  * //       reviewerId: "STRING_VALUE",
  * //       decisionComment: "STRING_VALUE",
+ * //       existingSubscriptionId: "STRING_VALUE",
+ * //       metadataFormsSummary: [ // MetadataFormsSummary
+ * //         { // MetadataFormSummary
+ * //           formName: "STRING_VALUE",
+ * //           typeName: "STRING_VALUE", // required
+ * //           typeRevision: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

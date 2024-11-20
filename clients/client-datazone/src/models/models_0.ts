@@ -320,6 +320,36 @@ export interface AcceptSubscriptionRequestInput {
 }
 
 /**
+ * <p>The details of a metadata form.</p>
+ * @public
+ */
+export interface FormOutput {
+  /**
+   * <p>The name of the metadata form.</p>
+   * @public
+   */
+  formName: string | undefined;
+
+  /**
+   * <p>The name of the metadata form type.</p>
+   * @public
+   */
+  typeName?: string | undefined;
+
+  /**
+   * <p>The revision of the metadata form type.</p>
+   * @public
+   */
+  typeRevision?: string | undefined;
+
+  /**
+   * <p>The content of the metadata form.</p>
+   * @public
+   */
+  content?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -733,6 +763,18 @@ export interface AcceptSubscriptionRequestOutput {
    * @public
    */
   decisionComment?: string | undefined;
+
+  /**
+   * <p>The ID of the existing subscription.</p>
+   * @public
+   */
+  existingSubscriptionId?: string | undefined;
+
+  /**
+   * <p>The metadata form in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormOutput[] | undefined;
 }
 
 /**
@@ -1953,36 +1995,6 @@ export interface CreateAssetInput {
    * @public
    */
   clientToken?: string | undefined;
-}
-
-/**
- * <p>The details of a metadata form.</p>
- * @public
- */
-export interface FormOutput {
-  /**
-   * <p>The name of the metadata form.</p>
-   * @public
-   */
-  formName: string | undefined;
-
-  /**
-   * <p>The name of the metadata form type.</p>
-   * @public
-   */
-  typeName?: string | undefined;
-
-  /**
-   * <p>The revision of the metadata form type.</p>
-   * @public
-   */
-  typeRevision?: string | undefined;
-
-  /**
-   * <p>The content of the metadata form.</p>
-   * @public
-   */
-  content?: string | undefined;
 }
 
 /**
@@ -3786,6 +3798,38 @@ export interface AssetTypeItem {
    * @public
    */
   updatedBy?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleScopeSelectionMode = {
+  ALL: "ALL",
+  SPECIFIC: "SPECIFIC",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleScopeSelectionMode = (typeof RuleScopeSelectionMode)[keyof typeof RuleScopeSelectionMode];
+
+/**
+ * <p>The asset type for the rule details.</p>
+ * @public
+ */
+export interface AssetTypesForRule {
+  /**
+   * <p>The selection mode for the rule.</p>
+   * @public
+   */
+  selectionMode: RuleScopeSelectionMode | undefined;
+
+  /**
+   * <p>The specific asset types that are included in the rule.</p>
+   * @public
+   */
+  specificAssetTypes?: string[] | undefined;
 }
 
 /**
@@ -7013,6 +7057,337 @@ export interface CreateProjectMembershipInput {
 export interface CreateProjectMembershipOutput {}
 
 /**
+ * @public
+ * @enum
+ */
+export const RuleAction = {
+  CREATE_SUBSCRIPTION_REQUEST: "CREATE_SUBSCRIPTION_REQUEST",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
+
+/**
+ * <p>The reference of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormReference {
+  /**
+   * <p>The type ID of the metadata form reference.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The type revision of the metadata form reference.</p>
+   * @public
+   */
+  typeRevision: string | undefined;
+}
+
+/**
+ * <p>The enforcement details of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormEnforcementDetail {
+  /**
+   * <p>The required metadata forms.</p>
+   * @public
+   */
+  requiredMetadataForms?: MetadataFormReference[] | undefined;
+}
+
+/**
+ * <p>The details of a rule.</p>
+ * @public
+ */
+export type RuleDetail = RuleDetail.MetadataFormEnforcementDetailMember | RuleDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuleDetail {
+  /**
+   * <p>The enforcement detail of the metadata form.</p>
+   * @public
+   */
+  export interface MetadataFormEnforcementDetailMember {
+    metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataFormEnforcementDetail?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RuleDetail, visitor: Visitor<T>): T => {
+    if (value.metadataFormEnforcementDetail !== undefined)
+      return visitor.metadataFormEnforcementDetail(value.metadataFormEnforcementDetail);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Specifies projects in which the rule is created.</p>
+ * @public
+ */
+export interface ProjectsForRule {
+  /**
+   * <p>The selection mode of the rule.</p>
+   * @public
+   */
+  selectionMode: RuleScopeSelectionMode | undefined;
+
+  /**
+   * <p>The specific projects in which the rule is created.</p>
+   * @public
+   */
+  specificProjects?: string[] | undefined;
+}
+
+/**
+ * <p>The scope of a rule.</p>
+ * @public
+ */
+export interface RuleScope {
+  /**
+   * <p>The asset type included in the rule scope.</p>
+   * @public
+   */
+  assetType?: AssetTypesForRule | undefined;
+
+  /**
+   * <p>The data product included in the rule scope.</p>
+   * @public
+   */
+  dataProduct?: boolean | undefined;
+
+  /**
+   * <p>The project included in the rule scope.</p>
+   * @public
+   */
+  project?: ProjectsForRule | undefined;
+}
+
+/**
+ * <p>The target for the domain unit.</p>
+ * @public
+ */
+export interface DomainUnitTarget {
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  domainUnitId: string | undefined;
+
+  /**
+   * <p>Specifies whether to apply a rule to the child domain units.</p>
+   * @public
+   */
+  includeChildDomainUnits?: boolean | undefined;
+}
+
+/**
+ * <p>The target of the rule.</p>
+ * @public
+ */
+export type RuleTarget = RuleTarget.DomainUnitTargetMember | RuleTarget.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuleTarget {
+  /**
+   * <p>The ID of the domain unit.</p>
+   * @public
+   */
+  export interface DomainUnitTargetMember {
+    domainUnitTarget: DomainUnitTarget;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    domainUnitTarget?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    domainUnitTarget: (value: DomainUnitTarget) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RuleTarget, visitor: Visitor<T>): T => {
+    if (value.domainUnitTarget !== undefined) return visitor.domainUnitTarget(value.domainUnitTarget);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateRuleInput {
+  /**
+   * <p>The ID of the domain where the rule is created.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
+   *          request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleType = {
+  METADATA_FORM_ENFORCEMENT: "METADATA_FORM_ENFORCEMENT",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleTargetType = {
+  DOMAIN_UNIT: "DOMAIN_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleTargetType = (typeof RuleTargetType)[keyof typeof RuleTargetType];
+
+/**
+ * @public
+ */
+export interface CreateRuleOutput {
+  /**
+   * <p>The ID of the rule.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The type of the rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>The target of the rule.</p>
+   * @public
+   */
+  target: RuleTarget | undefined;
+
+  /**
+   * <p>The action of the rule.</p>
+   * @public
+   */
+  action: RuleAction | undefined;
+
+  /**
+   * <p>The scope of the rule.</p>
+   * @public
+   */
+  scope: RuleScope | undefined;
+
+  /**
+   * <p>The detail of the rule.</p>
+   * @public
+   */
+  detail: RuleDetail | undefined;
+
+  /**
+   * <p>The target type of the rule.</p>
+   * @public
+   */
+  targetType?: RuleTargetType | undefined;
+
+  /**
+   * <p>The description of the rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the rule is created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The user who creates the rule.</p>
+   * @public
+   */
+  createdBy: string | undefined;
+}
+
+/**
  * <p>A revision to be made to an asset published in a Amazon DataZone catalog.</p>
  * @public
  */
@@ -7447,6 +7822,12 @@ export interface CreateSubscriptionRequestInput {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The metadata form included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormInput[] | undefined;
 }
 
 /**
@@ -7524,6 +7905,18 @@ export interface CreateSubscriptionRequestOutput {
    * @public
    */
   decisionComment?: string | undefined;
+
+  /**
+   * <p>The ID of the existing subscription.</p>
+   * @public
+   */
+  existingSubscriptionId?: string | undefined;
+
+  /**
+   * <p>The metadata form included in the subscription request.</p>
+   * @public
+   */
+  metadataForms?: FormOutput[] | undefined;
 }
 
 /**
@@ -10186,471 +10579,6 @@ export interface ListDomainsInput {
 }
 
 /**
- * <p>A summary of a Amazon DataZone domain.</p>
- * @public
- */
-export interface DomainSummary {
-  /**
-   * <p>The ID of the Amazon DataZone domain.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>A name of an Amazon DataZone domain.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of an Amazon DataZone domain.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The ARN of the Amazon DataZone domain.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Web Services account that manages the domain.</p>
-   * @public
-   */
-  managedAccountId: string | undefined;
-
-  /**
-   * <p>The status of the Amazon DataZone domain.</p>
-   * @public
-   */
-  status: DomainStatus | undefined;
-
-  /**
-   * <p>The data portal URL for the Amazon DataZone domain.</p>
-   * @public
-   */
-  portalUrl?: string | undefined;
-
-  /**
-   * <p>A timestamp of when a Amazon DataZone domain was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>A timestamp of when a Amazon DataZone domain was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDomainsOutput {
-  /**
-   * <p>The results of the <code>ListDomains</code> action.</p>
-   * @public
-   */
-  items: DomainSummary[] | undefined;
-
-  /**
-   * <p>When the number of domains is greater than the default value for the
-   *             <code>MaxResults</code> parameter, or if you explicitly specify a value for
-   *             <code>MaxResults</code> that is less than the number of domains, the response includes a
-   *          pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code>
-   *          value in a subsequent call to <code>ListDomains</code> to list the next set of
-   *          domains.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainInput {
-  /**
-   * <p>The ID of the Amazon Web Services domain that is to be updated.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateDomain</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The single sign-on option to be updated as part of the <code>UpdateDomain</code>
-   *          action.</p>
-   * @public
-   */
-  singleSignOn?: SingleSignOn | undefined;
-
-  /**
-   * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code>
-   *          action.</p>
-   * @public
-   */
-  domainExecutionRole?: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateDomain</code> action.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that is provided to ensure the idempotency of the
-   *          request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainOutput {
-  /**
-   * <p>The identifier of the Amazon DataZone domain.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The ID of the root domain unit.</p>
-   * @public
-   */
-  rootDomainUnitId?: string | undefined;
-
-  /**
-   * <p>The description to be updated as part of the <code>UpdateDomain</code> action.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The single sign-on option of the Amazon DataZone domain.</p>
-   * @public
-   */
-  singleSignOn?: SingleSignOn | undefined;
-
-  /**
-   * <p>The domain execution role to be updated as part of the <code>UpdateDomain</code>
-   *          action.</p>
-   * @public
-   */
-  domainExecutionRole?: string | undefined;
-
-  /**
-   * <p>The name to be updated as part of the <code>UpdateDomain</code> action.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Specifies the timestamp of when the domain was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDomainUnitInput {
-  /**
-   * <p>The ID of the domain where you want to delete a domain unit.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the domain unit that you want to delete.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDomainUnitOutput {}
-
-/**
- * @public
- */
-export interface GetDomainUnitInput {
-  /**
-   * <p>The ID of the domain where you want to get a domain unit.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the domain unit that you want to get.</p>
-   * @public
-   */
-  identifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDomainUnitOutput {
-  /**
-   * <p>The ID of the domain unit.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The ID of the domain in which the domain unit lives.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The name of the domain unit.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ID of the parent domain unit.</p>
-   * @public
-   */
-  parentDomainUnitId?: string | undefined;
-
-  /**
-   * <p>The description of the domain unit.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The owners of the domain unit.</p>
-   * @public
-   */
-  owners: DomainUnitOwnerProperties[] | undefined;
-
-  /**
-   * <p>The time stamp at which the domain unit was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the domain unit was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the domain unit.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The user who last updated the domain unit.</p>
-   * @public
-   */
-  lastUpdatedBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDomainUnitsForParentInput {
-  /**
-   * <p>The ID of the domain in which you want to list domain units for a parent domain
-   *          unit.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the parent domain unit.</p>
-   * @public
-   */
-  parentDomainUnitIdentifier: string | undefined;
-
-  /**
-   * <p>The maximum number of domain units to return in a single call to
-   *          ListDomainUnitsForParent. When the number of domain units to be listed is greater than the
-   *          value of MaxResults, the response contains a NextToken value that you can use in a
-   *          subsequent call to ListDomainUnitsForParent to list the next set of domain units.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>When the number of domain units is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of domain units, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListDomainUnitsForParent to list the next set
-   *          of domain units.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The summary of the domain unit.</p>
- * @public
- */
-export interface DomainUnitSummary {
-  /**
-   * <p>The name of the domain unit summary.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ID of the domain unit summary.</p>
-   * @public
-   */
-  id: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDomainUnitsForParentOutput {
-  /**
-   * <p>The results returned by this action.</p>
-   * @public
-   */
-  items: DomainUnitSummary[] | undefined;
-
-  /**
-   * <p>When the number of domain units is greater than the default value for the MaxResults
-   *          parameter, or if you explicitly specify a value for MaxResults that is less than the number
-   *          of domain units, the response includes a pagination token named NextToken. You can specify
-   *          this NextToken value in a subsequent call to ListDomainUnitsForParent to list the next set
-   *          of domain units.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainUnitInput {
-  /**
-   * <p>The ID of the domain where you want to update a domain unit.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the domain unit that you want to update.</p>
-   * @public
-   */
-  identifier: string | undefined;
-
-  /**
-   * <p>The description of the domain unit that you want to update.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The name of the domain unit that you want to update.</p>
-   * @public
-   */
-  name?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDomainUnitOutput {
-  /**
-   * <p>The ID of the domain unit that you want to update.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The ID of the domain where you want to update the domain unit.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The name of the domain unit that you want to update.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The owners of the domain unit that you want to update.</p>
-   * @public
-   */
-  owners: DomainUnitOwnerProperties[] | undefined;
-
-  /**
-   * <p>The description of the domain unit that you want to update.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The ID of the parent domain unit.</p>
-   * @public
-   */
-  parentDomainUnitId?: string | undefined;
-
-  /**
-   * <p>The time stamp at which the domain unit that you want to update was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp at which the domain unit was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The user who created the domain unit that you want to update.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-
-  /**
-   * <p>The user who last updated the domain unit.</p>
-   * @public
-   */
-  lastUpdatedBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteEnvironmentBlueprintConfigurationInput {
-  /**
-   * <p>The ID of the Amazon DataZone domain in which the blueprint configuration is deleted.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The ID of the blueprint the configuration of which is deleted.</p>
-   * @public
-   */
-  environmentBlueprintIdentifier: string | undefined;
-}
-
-/**
  * @internal
  */
 export const AcceptChoiceFilterSensitiveLog = (obj: AcceptChoice): any => ({
@@ -10672,6 +10600,14 @@ export const AcceptPredictionsInputFilterSensitiveLog = (obj: AcceptPredictionsI
 export const AcceptSubscriptionRequestInputFilterSensitiveLog = (obj: AcceptSubscriptionRequestInput): any => ({
   ...obj,
   ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FormOutputFilterSensitiveLog = (obj: FormOutput): any => ({
+  ...obj,
+  ...(obj.typeName && { typeName: SENSITIVE_STRING }),
 });
 
 /**
@@ -10752,6 +10688,7 @@ export const AcceptSubscriptionRequestOutputFilterSensitiveLog = (obj: AcceptSub
     subscribedListings: obj.subscribedListings.map((item) => SubscribedListingFilterSensitiveLog(item)),
   }),
   ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
+  ...(obj.metadataForms && { metadataForms: obj.metadataForms.map((item) => FormOutputFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -10770,14 +10707,6 @@ export const CreateAssetInputFilterSensitiveLog = (obj: CreateAssetInput): any =
   ...(obj.externalIdentifier && { externalIdentifier: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
   ...(obj.formsInput && { formsInput: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const FormOutputFilterSensitiveLog = (obj: FormOutput): any => ({
-  ...obj,
-  ...(obj.typeName && { typeName: SENSITIVE_STRING }),
 });
 
 /**
@@ -11190,10 +11119,33 @@ export const CreateProjectOutputFilterSensitiveLog = (obj: CreateProjectOutput):
 /**
  * @internal
  */
+export const CreateRuleInputFilterSensitiveLog = (obj: CreateRuleInput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.target && { target: obj.target }),
+  ...(obj.detail && { detail: obj.detail }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRuleOutputFilterSensitiveLog = (obj: CreateRuleOutput): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.target && { target: obj.target }),
+  ...(obj.detail && { detail: obj.detail }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateSubscriptionRequestInputFilterSensitiveLog = (obj: CreateSubscriptionRequestInput): any => ({
   ...obj,
   ...(obj.subscribedPrincipals && { subscribedPrincipals: obj.subscribedPrincipals.map((item) => item) }),
   ...(obj.requestReason && { requestReason: SENSITIVE_STRING }),
+  ...(obj.metadataForms && { metadataForms: SENSITIVE_STRING }),
 });
 
 /**
@@ -11209,6 +11161,7 @@ export const CreateSubscriptionRequestOutputFilterSensitiveLog = (obj: CreateSub
     subscribedListings: obj.subscribedListings.map((item) => SubscribedListingFilterSensitiveLog(item)),
   }),
   ...(obj.decisionComment && { decisionComment: SENSITIVE_STRING }),
+  ...(obj.metadataForms && { metadataForms: obj.metadataForms.map((item) => FormOutputFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -11405,50 +11358,4 @@ export const DataSourceRunActivityFilterSensitiveLog = (obj: DataSourceRunActivi
   ...(obj.database && { database: SENSITIVE_STRING }),
   ...(obj.technicalName && { technicalName: SENSITIVE_STRING }),
   ...(obj.technicalDescription && { technicalDescription: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DomainSummaryFilterSensitiveLog = (obj: DomainSummary): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ListDomainsOutputFilterSensitiveLog = (obj: ListDomainsOutput): any => ({
-  ...obj,
-  ...(obj.items && { items: obj.items.map((item) => DomainSummaryFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const GetDomainUnitOutputFilterSensitiveLog = (obj: GetDomainUnitOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.owners && { owners: obj.owners.map((item) => item) }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainUnitInputFilterSensitiveLog = (obj: UpdateDomainUnitInput): any => ({
-  ...obj,
-  ...(obj.description && { description: SENSITIVE_STRING }),
-  ...(obj.name && { name: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const UpdateDomainUnitOutputFilterSensitiveLog = (obj: UpdateDomainUnitOutput): any => ({
-  ...obj,
-  ...(obj.name && { name: SENSITIVE_STRING }),
-  ...(obj.owners && { owners: obj.owners.map((item) => item) }),
-  ...(obj.description && { description: SENSITIVE_STRING }),
 });

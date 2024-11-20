@@ -106,6 +106,7 @@ import {
   CreateProjectMembershipCommandInput,
   CreateProjectMembershipCommandOutput,
 } from "./commands/CreateProjectMembershipCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateSubscriptionGrantCommandInput,
   CreateSubscriptionGrantCommandOutput,
@@ -148,6 +149,7 @@ import {
   DeleteProjectMembershipCommandInput,
   DeleteProjectMembershipCommandOutput,
 } from "./commands/DeleteProjectMembershipCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSubscriptionGrantCommandInput,
   DeleteSubscriptionGrantCommandOutput,
@@ -212,6 +214,7 @@ import {
   GetMetadataGenerationRunCommandOutput,
 } from "./commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
 import {
   GetSubscriptionGrantCommandInput,
@@ -280,6 +283,7 @@ import {
   ListProjectMembershipsCommandOutput,
 } from "./commands/ListProjectMembershipsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListSubscriptionGrantsCommandInput,
   ListSubscriptionGrantsCommandOutput,
@@ -350,6 +354,7 @@ import { UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput } from "./comma
 import { UpdateGlossaryTermCommandInput, UpdateGlossaryTermCommandOutput } from "./commands/UpdateGlossaryTermCommand";
 import { UpdateGroupProfileCommandInput, UpdateGroupProfileCommandOutput } from "./commands/UpdateGroupProfileCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSubscriptionGrantStatusCommandInput,
   UpdateSubscriptionGrantStatusCommandOutput,
@@ -404,6 +409,7 @@ export type ServiceInputTypes =
   | CreateListingChangeSetCommandInput
   | CreateProjectCommandInput
   | CreateProjectMembershipCommandInput
+  | CreateRuleCommandInput
   | CreateSubscriptionGrantCommandInput
   | CreateSubscriptionRequestCommandInput
   | CreateSubscriptionTargetCommandInput
@@ -425,6 +431,7 @@ export type ServiceInputTypes =
   | DeleteListingCommandInput
   | DeleteProjectCommandInput
   | DeleteProjectMembershipCommandInput
+  | DeleteRuleCommandInput
   | DeleteSubscriptionGrantCommandInput
   | DeleteSubscriptionRequestCommandInput
   | DeleteSubscriptionTargetCommandInput
@@ -453,6 +460,7 @@ export type ServiceInputTypes =
   | GetListingCommandInput
   | GetMetadataGenerationRunCommandInput
   | GetProjectCommandInput
+  | GetRuleCommandInput
   | GetSubscriptionCommandInput
   | GetSubscriptionGrantCommandInput
   | GetSubscriptionRequestDetailsCommandInput
@@ -479,6 +487,7 @@ export type ServiceInputTypes =
   | ListPolicyGrantsCommandInput
   | ListProjectMembershipsCommandInput
   | ListProjectsCommandInput
+  | ListRulesCommandInput
   | ListSubscriptionGrantsCommandInput
   | ListSubscriptionRequestsCommandInput
   | ListSubscriptionTargetsCommandInput
@@ -513,6 +522,7 @@ export type ServiceInputTypes =
   | UpdateGlossaryTermCommandInput
   | UpdateGroupProfileCommandInput
   | UpdateProjectCommandInput
+  | UpdateRuleCommandInput
   | UpdateSubscriptionGrantStatusCommandInput
   | UpdateSubscriptionRequestCommandInput
   | UpdateSubscriptionTargetCommandInput
@@ -548,6 +558,7 @@ export type ServiceOutputTypes =
   | CreateListingChangeSetCommandOutput
   | CreateProjectCommandOutput
   | CreateProjectMembershipCommandOutput
+  | CreateRuleCommandOutput
   | CreateSubscriptionGrantCommandOutput
   | CreateSubscriptionRequestCommandOutput
   | CreateSubscriptionTargetCommandOutput
@@ -569,6 +580,7 @@ export type ServiceOutputTypes =
   | DeleteListingCommandOutput
   | DeleteProjectCommandOutput
   | DeleteProjectMembershipCommandOutput
+  | DeleteRuleCommandOutput
   | DeleteSubscriptionGrantCommandOutput
   | DeleteSubscriptionRequestCommandOutput
   | DeleteSubscriptionTargetCommandOutput
@@ -597,6 +609,7 @@ export type ServiceOutputTypes =
   | GetListingCommandOutput
   | GetMetadataGenerationRunCommandOutput
   | GetProjectCommandOutput
+  | GetRuleCommandOutput
   | GetSubscriptionCommandOutput
   | GetSubscriptionGrantCommandOutput
   | GetSubscriptionRequestDetailsCommandOutput
@@ -623,6 +636,7 @@ export type ServiceOutputTypes =
   | ListPolicyGrantsCommandOutput
   | ListProjectMembershipsCommandOutput
   | ListProjectsCommandOutput
+  | ListRulesCommandOutput
   | ListSubscriptionGrantsCommandOutput
   | ListSubscriptionRequestsCommandOutput
   | ListSubscriptionTargetsCommandOutput
@@ -657,6 +671,7 @@ export type ServiceOutputTypes =
   | UpdateGlossaryTermCommandOutput
   | UpdateGroupProfileCommandOutput
   | UpdateProjectCommandOutput
+  | UpdateRuleCommandOutput
   | UpdateSubscriptionGrantStatusCommandOutput
   | UpdateSubscriptionRequestCommandOutput
   | UpdateSubscriptionTargetCommandOutput

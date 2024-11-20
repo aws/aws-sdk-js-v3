@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteEnvironmentBlueprintConfigurationInput } from "../models/models_0";
-import { DeleteEnvironmentBlueprintConfigurationOutput } from "../models/models_1";
+import {
+  DeleteEnvironmentBlueprintConfigurationInput,
+  DeleteEnvironmentBlueprintConfigurationOutput,
+} from "../models/models_1";
 import {
   de_DeleteEnvironmentBlueprintConfigurationCommand,
   se_DeleteEnvironmentBlueprintConfigurationCommand,

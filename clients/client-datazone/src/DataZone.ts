@@ -128,6 +128,7 @@ import {
   CreateProjectMembershipCommandInput,
   CreateProjectMembershipCommandOutput,
 } from "./commands/CreateProjectMembershipCommand";
+import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateSubscriptionGrantCommand,
   CreateSubscriptionGrantCommandInput,
@@ -229,6 +230,7 @@ import {
   DeleteProjectMembershipCommandInput,
   DeleteProjectMembershipCommandOutput,
 } from "./commands/DeleteProjectMembershipCommand";
+import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSubscriptionGrantCommand,
   DeleteSubscriptionGrantCommandInput,
@@ -345,6 +347,7 @@ import {
   GetMetadataGenerationRunCommandOutput,
 } from "./commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommand, GetProjectCommandInput, GetProjectCommandOutput } from "./commands/GetProjectCommand";
+import { GetRuleCommand, GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
 import {
   GetSubscriptionCommand,
   GetSubscriptionCommandInput,
@@ -471,6 +474,7 @@ import {
   ListProjectsCommandInput,
   ListProjectsCommandOutput,
 } from "./commands/ListProjectsCommand";
+import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListSubscriptionGrantsCommand,
   ListSubscriptionGrantsCommandInput,
@@ -629,6 +633,7 @@ import {
   UpdateProjectCommandInput,
   UpdateProjectCommandOutput,
 } from "./commands/UpdateProjectCommand";
+import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSubscriptionGrantStatusCommand,
   UpdateSubscriptionGrantStatusCommandInput,
@@ -678,6 +683,7 @@ const commands = {
   CreateListingChangeSetCommand,
   CreateProjectCommand,
   CreateProjectMembershipCommand,
+  CreateRuleCommand,
   CreateSubscriptionGrantCommand,
   CreateSubscriptionRequestCommand,
   CreateSubscriptionTargetCommand,
@@ -699,6 +705,7 @@ const commands = {
   DeleteListingCommand,
   DeleteProjectCommand,
   DeleteProjectMembershipCommand,
+  DeleteRuleCommand,
   DeleteSubscriptionGrantCommand,
   DeleteSubscriptionRequestCommand,
   DeleteSubscriptionTargetCommand,
@@ -727,6 +734,7 @@ const commands = {
   GetListingCommand,
   GetMetadataGenerationRunCommand,
   GetProjectCommand,
+  GetRuleCommand,
   GetSubscriptionCommand,
   GetSubscriptionGrantCommand,
   GetSubscriptionRequestDetailsCommand,
@@ -753,6 +761,7 @@ const commands = {
   ListPolicyGrantsCommand,
   ListProjectMembershipsCommand,
   ListProjectsCommand,
+  ListRulesCommand,
   ListSubscriptionGrantsCommand,
   ListSubscriptionRequestsCommand,
   ListSubscriptionsCommand,
@@ -787,6 +796,7 @@ const commands = {
   UpdateGlossaryTermCommand,
   UpdateGroupProfileCommand,
   UpdateProjectCommand,
+  UpdateRuleCommand,
   UpdateSubscriptionGrantStatusCommand,
   UpdateSubscriptionRequestCommand,
   UpdateSubscriptionTargetCommand,
@@ -1204,6 +1214,17 @@ export interface DataZone {
   ): void;
 
   /**
+   * @see {@link CreateRuleCommand}
+   */
+  createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
+  createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  createRule(
+    args: CreateRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateSubscriptionGrantCommand}
    */
   createSubscriptionGrant(
@@ -1525,6 +1546,17 @@ export interface DataZone {
     args: DeleteProjectMembershipCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProjectMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRuleCommand}
+   */
+  deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  deleteRule(
+    args: DeleteRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
   ): void;
 
   /**
@@ -1929,6 +1961,17 @@ export interface DataZone {
     args: GetProjectCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetProjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRuleCommand}
+   */
+  getRule(args: GetRuleCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleCommandOutput>;
+  getRule(args: GetRuleCommandInput, cb: (err: any, data?: GetRuleCommandOutput) => void): void;
+  getRule(
+    args: GetRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRuleCommandOutput) => void
   ): void;
 
   /**
@@ -2351,6 +2394,17 @@ export interface DataZone {
     args: ListProjectsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProjectsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRulesCommand}
+   */
+  listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
+  listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
+  listRules(
+    args: ListRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRulesCommandOutput) => void
   ): void;
 
   /**
@@ -2887,6 +2941,17 @@ export interface DataZone {
     args: UpdateProjectCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProjectCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRuleCommand}
+   */
+  updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
+  updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
+  updateRule(
+    args: UpdateRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRuleCommandOutput) => void
   ): void;
 
   /**

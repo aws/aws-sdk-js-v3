@@ -87,6 +87,7 @@ import {
   CreateProjectMembershipCommandInput,
   CreateProjectMembershipCommandOutput,
 } from "../commands/CreateProjectMembershipCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import {
   CreateSubscriptionGrantCommandInput,
   CreateSubscriptionGrantCommandOutput,
@@ -129,6 +130,7 @@ import {
   DeleteProjectMembershipCommandInput,
   DeleteProjectMembershipCommandOutput,
 } from "../commands/DeleteProjectMembershipCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand";
 import {
   DeleteSubscriptionGrantCommandInput,
   DeleteSubscriptionGrantCommandOutput,
@@ -193,6 +195,7 @@ import {
   GetMetadataGenerationRunCommandOutput,
 } from "../commands/GetMetadataGenerationRunCommand";
 import { GetProjectCommandInput, GetProjectCommandOutput } from "../commands/GetProjectCommand";
+import { GetRuleCommandInput, GetRuleCommandOutput } from "../commands/GetRuleCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "../commands/GetSubscriptionCommand";
 import {
   GetSubscriptionGrantCommandInput,
@@ -261,6 +264,7 @@ import {
   ListProjectMembershipsCommandOutput,
 } from "../commands/ListProjectMembershipsCommand";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "../commands/ListProjectsCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import {
   ListSubscriptionGrantsCommandInput,
   ListSubscriptionGrantsCommandOutput,
@@ -331,6 +335,7 @@ import { UpdateGlossaryCommandInput, UpdateGlossaryCommandOutput } from "../comm
 import { UpdateGlossaryTermCommandInput, UpdateGlossaryTermCommandOutput } from "../commands/UpdateGlossaryTermCommand";
 import { UpdateGroupProfileCommandInput, UpdateGroupProfileCommandOutput } from "../commands/UpdateGroupProfileCommand";
 import { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "../commands/UpdateProjectCommand";
+import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "../commands/UpdateRuleCommand";
 import {
   UpdateSubscriptionGrantStatusCommandInput,
   UpdateSubscriptionGrantStatusCommandOutput,
@@ -363,6 +368,7 @@ import {
   AssetRevision,
   AssetTargetNameMap,
   AssetTypeItem,
+  AssetTypesForRule,
   AwsConsoleLinkParameters,
   BusinessNameGenerationConfiguration,
   ColumnFilterConfiguration,
@@ -382,10 +388,10 @@ import {
   DataSourceRunActivity,
   DataSourceRunSummary,
   DataSourceSummary,
-  DomainSummary,
   DomainUnitFilterForProject,
   DomainUnitGrantFilter,
   DomainUnitPolicyGrantPrincipal,
+  DomainUnitTarget,
   EnvironmentParameter,
   EqualToExpression,
   FailureCause,
@@ -406,6 +412,8 @@ import {
   LikeExpression,
   ListingRevisionInput,
   Member,
+  MetadataFormEnforcementDetail,
+  MetadataFormReference,
   Model,
   NotEqualToExpression,
   NotInExpression,
@@ -420,6 +428,7 @@ import {
   PredictionConfiguration,
   ProjectGrantFilter,
   ProjectPolicyGrantPrincipal,
+  ProjectsForRule,
   RecommendationConfiguration,
   RedshiftClusterStorage,
   RedshiftCredentialConfiguration,
@@ -429,6 +438,9 @@ import {
   RelationalFilterConfiguration,
   ResourceNotFoundException,
   RowFilterExpression,
+  RuleDetail,
+  RuleScope,
+  RuleTarget,
   ScheduleConfiguration,
   ServiceQuotaExceededException,
   SingleSignOn,
@@ -447,6 +459,7 @@ import {
 } from "../models/models_0";
 import {
   AssetFilterConfiguration,
+  DomainSummary,
   EnvironmentBlueprintConfigurationItem,
   EnvironmentBlueprintSummary,
   EnvironmentProfileSummary,
@@ -471,6 +484,7 @@ import {
   RejectRule,
   RowFilter,
   RowFilterConfiguration,
+  RuleSummary,
   SearchInItem,
   SearchInventoryResultItem,
   SearchOutputAdditionalAttribute,
@@ -1178,6 +1192,35 @@ export const se_CreateProjectMembershipCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateRuleCommand
+ */
+export const se_CreateRuleCommand = async (
+  input: CreateRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/rules");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      action: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      detail: (_) => _json(_),
+      name: [],
+      scope: (_) => _json(_),
+      target: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateSubscriptionGrantCommand
  */
 export const se_CreateSubscriptionGrantCommand = async (
@@ -1221,6 +1264,7 @@ export const se_CreateSubscriptionRequestCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      metadataForms: (_) => _json(_),
       requestReason: [],
       subscribedListings: (_) => _json(_),
       subscribedPrincipals: (_) => _json(_),
@@ -1596,6 +1640,23 @@ export const se_DeleteProjectMembershipCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteRuleCommand
+ */
+export const se_DeleteRuleCommand = async (
+  input: DeleteRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/rules/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -2102,6 +2163,26 @@ export const se_GetProjectCommand = async (
   b.p("identifier", () => input.identifier!, "{identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRuleCommand
+ */
+export const se_GetRuleCommand = async (
+  input: GetRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/rules/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  const query: any = map({
+    [_r]: [, input[_r]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2663,6 +2744,34 @@ export const se_ListProjectsCommand = async (
     [_n]: [, input[_n]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRulesCommand
+ */
+export const se_ListRulesCommand = async (
+  input: ListRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/domains/{domainIdentifier}/list-rules/{targetType}/{targetIdentifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("targetType", () => input.targetType!, "{targetType}", false);
+  b.p("targetIdentifier", () => input.targetIdentifier!, "{targetIdentifier}", false);
+  const query: any = map({
+    [_rT]: [, input[_rT]!],
+    [_rA]: [, input[_a]!],
+    [_pIr]: [() => input.projectIds !== void 0, () => input[_pIr]! || []],
+    [_aTs]: [() => input.assetTypes !== void 0, () => input[_aTs]! || []],
+    [_dP]: [() => input.dataProduct !== void 0, () => input[_dP]!.toString()],
+    [_iC]: [() => input.includeCascaded !== void 0, () => input[_iC]!.toString()],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3558,6 +3667,34 @@ export const se_UpdateProjectCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateRuleCommand
+ */
+export const se_UpdateRuleCommand = async (
+  input: UpdateRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/domains/{domainIdentifier}/rules/{identifier}");
+  b.p("domainIdentifier", () => input.domainIdentifier!, "{domainIdentifier}", false);
+  b.p("identifier", () => input.identifier!, "{identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      detail: (_) => _json(_),
+      includeChildDomainUnits: [],
+      name: [],
+      scope: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateSubscriptionGrantStatusCommand
  */
 export const se_UpdateSubscriptionGrantStatusCommand = async (
@@ -3705,7 +3842,9 @@ export const de_AcceptSubscriptionRequestCommand = async (
     createdBy: __expectString,
     decisionComment: __expectString,
     domainId: __expectString,
+    existingSubscriptionId: __expectString,
     id: __expectString,
+    metadataForms: _json,
     requestReason: __expectString,
     reviewerId: __expectString,
     status: __expectString,
@@ -4402,6 +4541,37 @@ export const de_CreateProjectMembershipCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateRuleCommand
+ */
+export const de_CreateRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRuleCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    action: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    detail: (_) => _json(__expectUnion(_)),
+    identifier: __expectString,
+    name: __expectString,
+    ruleType: __expectString,
+    scope: _json,
+    target: (_) => _json(__expectUnion(_)),
+    targetType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateSubscriptionGrantCommand
  */
 export const de_CreateSubscriptionGrantCommand = async (
@@ -4451,7 +4621,9 @@ export const de_CreateSubscriptionRequestCommand = async (
     createdBy: __expectString,
     decisionComment: __expectString,
     domainId: __expectString,
+    existingSubscriptionId: __expectString,
     id: __expectString,
+    metadataForms: _json,
     requestReason: __expectString,
     reviewerId: __expectString,
     status: __expectString,
@@ -4831,6 +5003,23 @@ export const de_DeleteProjectMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectMembershipCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRuleCommand
+ */
+export const de_DeleteRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRuleCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -5661,6 +5850,40 @@ export const de_GetProjectCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetRuleCommand
+ */
+export const de_GetRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    action: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    detail: (_) => _json(__expectUnion(_)),
+    identifier: __expectString,
+    lastUpdatedBy: __expectString,
+    name: __expectString,
+    revision: __expectString,
+    ruleType: __expectString,
+    scope: _json,
+    target: (_) => _json(__expectUnion(_)),
+    targetType: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSubscriptionCommand
  */
 export const de_GetSubscriptionCommand = async (
@@ -5741,7 +5964,9 @@ export const de_GetSubscriptionRequestDetailsCommand = async (
     createdBy: __expectString,
     decisionComment: __expectString,
     domainId: __expectString,
+    existingSubscriptionId: __expectString,
     id: __expectString,
+    metadataForms: _json,
     requestReason: __expectString,
     reviewerId: __expectString,
     status: __expectString,
@@ -6280,6 +6505,28 @@ export const de_ListProjectsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRulesCommand
+ */
+export const de_ListRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_RuleSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListSubscriptionGrantsCommand
  */
 export const de_ListSubscriptionGrantsCommand = async (
@@ -6522,7 +6769,9 @@ export const de_RejectSubscriptionRequestCommand = async (
     createdBy: __expectString,
     decisionComment: __expectString,
     domainId: __expectString,
+    existingSubscriptionId: __expectString,
     id: __expectString,
+    metadataForms: _json,
     requestReason: __expectString,
     reviewerId: __expectString,
     status: __expectString,
@@ -7146,6 +7395,39 @@ export const de_UpdateProjectCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateRuleCommand
+ */
+export const de_UpdateRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    action: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    createdBy: __expectString,
+    description: __expectString,
+    detail: (_) => _json(__expectUnion(_)),
+    identifier: __expectString,
+    lastUpdatedBy: __expectString,
+    name: __expectString,
+    revision: __expectString,
+    ruleType: __expectString,
+    scope: _json,
+    target: (_) => _json(__expectUnion(_)),
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateSubscriptionGrantStatusCommand
  */
 export const de_UpdateSubscriptionGrantStatusCommand = async (
@@ -7195,7 +7477,9 @@ export const de_UpdateSubscriptionRequestCommand = async (
     createdBy: __expectString,
     decisionComment: __expectString,
     domainId: __expectString,
+    existingSubscriptionId: __expectString,
     id: __expectString,
+    metadataForms: _json,
     requestReason: __expectString,
     reviewerId: __expectString,
     status: __expectString,
@@ -7507,6 +7791,8 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 
 // se_AssetTargetNames omitted.
 
+// se_AssetTypesForRule omitted.
+
 // se_AuthorizedPrincipalIdentifiers omitted.
 
 // se_AwsConsoleLinkParameters omitted.
@@ -7540,6 +7826,8 @@ const se_AssetFilterConfiguration = (input: AssetFilterConfiguration, context: _
 // se_DomainUnitGrantFilter omitted.
 
 // se_DomainUnitPolicyGrantPrincipal omitted.
+
+// se_DomainUnitTarget omitted.
 
 // se_EnabledRegionList omitted.
 
@@ -7622,6 +7910,12 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 
 // se_Member omitted.
 
+// se_MetadataFormEnforcementDetail omitted.
+
+// se_MetadataFormInputs omitted.
+
+// se_MetadataFormReference omitted.
+
 // se_MetadataGenerationRunTarget omitted.
 
 // se_Model omitted.
@@ -7653,6 +7947,8 @@ const se_FilterList = (input: FilterClause[], context: __SerdeContext): any => {
 // se_ProjectGrantFilter omitted.
 
 // se_ProjectPolicyGrantPrincipal omitted.
+
+// se_ProjectsForRule omitted.
 
 // se_ProvisioningConfiguration omitted.
 
@@ -7692,6 +7988,8 @@ const se_RejectRule = (input: RejectRule, context: __SerdeContext): any => {
 
 // se_RelationalFilterConfigurations omitted.
 
+// se_RequiredMetadataFormList omitted.
+
 /**
  * serializeAws_restJson1RowFilter
  */
@@ -7726,6 +8024,16 @@ const se_RowFilterList = (input: RowFilter[], context: __SerdeContext): any => {
       return se_RowFilter(entry, context);
     });
 };
+
+// se_RuleAssetTypeList omitted.
+
+// se_RuleDetail omitted.
+
+// se_RuleProjectIdentifierList omitted.
+
+// se_RuleScope omitted.
+
+// se_RuleTarget omitted.
 
 // se_S3LocationList omitted.
 
@@ -7981,6 +8289,8 @@ const de_AssetTypeItem = (output: any, context: __SerdeContext): AssetTypeItem =
     updatedBy: __expectString,
   }) as any;
 };
+
+// de_AssetTypesForRule omitted.
 
 // de_AuthorizedPrincipalIdentifiers omitted.
 
@@ -8256,6 +8566,8 @@ const de_DomainSummary = (output: any, context: __SerdeContext): DomainSummary =
 // de_DomainUnitSummaries omitted.
 
 // de_DomainUnitSummary omitted.
+
+// de_DomainUnitTarget omitted.
 
 // de_DomainUnitUserProperties omitted.
 
@@ -8617,6 +8929,16 @@ const de_ListingItem = (output: any, context: __SerdeContext): ListingItem => {
 
 // de_MemberDetails omitted.
 
+// de_MetadataFormEnforcementDetail omitted.
+
+// de_MetadataFormReference omitted.
+
+// de_MetadataForms omitted.
+
+// de_MetadataFormsSummary omitted.
+
+// de_MetadataFormSummary omitted.
+
 /**
  * deserializeAws_restJson1MetadataGenerationRunItem
  */
@@ -8740,6 +9062,8 @@ const de_PolicyGrantMember = (output: any, context: __SerdeContext): PolicyGrant
 
 // de_ProjectPolicyGrantPrincipal omitted.
 
+// de_ProjectsForRule omitted.
+
 /**
  * deserializeAws_restJson1ProjectSummaries
  */
@@ -8798,6 +9122,8 @@ const de_ProjectSummary = (output: any, context: __SerdeContext): ProjectSummary
 
 // de_RelationalFilterConfigurations omitted.
 
+// de_RequiredMetadataFormList omitted.
+
 // de_Resource omitted.
 
 // de_ResourceList omitted.
@@ -8847,6 +9173,46 @@ const de_RowFilterList = (output: any, context: __SerdeContext): RowFilter[] => 
     });
   return retVal;
 };
+
+// de_RuleAssetTypeList omitted.
+
+// de_RuleDetail omitted.
+
+// de_RuleProjectIdentifierList omitted.
+
+// de_RuleScope omitted.
+
+/**
+ * deserializeAws_restJson1RuleSummaries
+ */
+const de_RuleSummaries = (output: any, context: __SerdeContext): RuleSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RuleSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RuleSummary
+ */
+const de_RuleSummary = (output: any, context: __SerdeContext): RuleSummary => {
+  return take(output, {
+    action: __expectString,
+    identifier: __expectString,
+    lastUpdatedBy: __expectString,
+    name: __expectString,
+    revision: __expectString,
+    ruleType: __expectString,
+    scope: _json,
+    target: (_: any) => _json(__expectUnion(_)),
+    targetType: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_RuleTarget omitted.
 
 // de_RunStatisticsForAssets omitted.
 
@@ -9064,7 +9430,9 @@ const de_SubscriptionRequestSummary = (output: any, context: __SerdeContext): Su
     createdBy: __expectString,
     decisionComment: __expectString,
     domainId: __expectString,
+    existingSubscriptionId: __expectString,
     id: __expectString,
+    metadataFormsSummary: _json,
     requestReason: __expectString,
     reviewerId: __expectString,
     status: __expectString,
@@ -9236,13 +9604,16 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
+const _a = "action";
 const _aAI = "awsAccountId";
 const _aAR = "awsAccountRegion";
 const _aPI = "approverProjectId";
 const _aT = "afterTimestamp";
+const _aTs = "assetTypes";
 const _bT = "beforeTimestamp";
 const _cT = "clientToken";
 const _d = "direction";
+const _dP = "dataProduct";
 const _eA = "endedAt";
 const _eBI = "environmentBlueprintIdentifier";
 const _eI = "environmentIdentifier";
@@ -9253,6 +9624,7 @@ const _eTGTE = "eventTimestampGTE";
 const _eTLTE = "eventTimestampLTE";
 const _fN = "formName";
 const _gI = "groupIdentifier";
+const _iC = "includeCascaded";
 const _lR = "listingRevision";
 const _m = "managed";
 const _mR = "maxResults";
@@ -9262,9 +9634,12 @@ const _oPI = "owningProjectId";
 const _p = "provider";
 const _pDUI = "parentDomainUnitIdentifier";
 const _pI = "projectIdentifier";
+const _pIr = "projectIds";
 const _pT = "policyType";
 const _r = "revision";
+const _rA = "ruleAction";
 const _rPORF = "retainPermissionsOnRevokeFailure";
+const _rT = "ruleType";
 const _s = "status";
 const _sA = "startedAt";
 const _sB = "sortBy";

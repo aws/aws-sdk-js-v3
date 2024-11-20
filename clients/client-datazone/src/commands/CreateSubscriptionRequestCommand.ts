@@ -56,6 +56,14 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  *   ],
  *   requestReason: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   metadataForms: [ // MetadataFormInputs
+ *     { // FormInput
+ *       formName: "STRING_VALUE", // required
+ *       typeIdentifier: "STRING_VALUE",
+ *       typeRevision: "STRING_VALUE",
+ *       content: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateSubscriptionRequestCommand(input);
  * const response = await client.send(command);
@@ -129,6 +137,15 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * //   ],
  * //   reviewerId: "STRING_VALUE",
  * //   decisionComment: "STRING_VALUE",
+ * //   existingSubscriptionId: "STRING_VALUE",
+ * //   metadataForms: [ // MetadataForms
+ * //     { // FormOutput
+ * //       formName: "STRING_VALUE", // required
+ * //       typeName: "STRING_VALUE",
+ * //       typeRevision: "STRING_VALUE",
+ * //       content: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```

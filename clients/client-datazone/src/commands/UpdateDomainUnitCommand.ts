@@ -11,7 +11,7 @@ import {
   UpdateDomainUnitInputFilterSensitiveLog,
   UpdateDomainUnitOutput,
   UpdateDomainUnitOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateDomainUnitCommand, se_UpdateDomainUnitCommand } from "../protocols/Aws_restJson1";
 
 /**

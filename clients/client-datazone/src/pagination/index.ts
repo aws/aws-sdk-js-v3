@@ -20,6 +20,7 @@ export * from "./ListNotificationsPaginator";
 export * from "./ListPolicyGrantsPaginator";
 export * from "./ListProjectMembershipsPaginator";
 export * from "./ListProjectsPaginator";
+export * from "./ListRulesPaginator";
 export * from "./ListSubscriptionGrantsPaginator";
 export * from "./ListSubscriptionRequestsPaginator";
 export * from "./ListSubscriptionTargetsPaginator";
