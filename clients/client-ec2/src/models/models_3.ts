@@ -16,7 +16,7 @@ import {
   CapacityReservationFleetState,
   CapacityReservationTenancy,
   ClientVpnAuthorizationRuleStatus,
-  CurrencyCodeValues,
+  InstanceEventWindowState,
   Tag,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
@@ -52,6 +52,7 @@ import {
   FleetReplacementStrategy,
   FleetType,
   InstanceLifecycle,
+  Ipam,
   IpamExternalResourceVerificationToken,
   IpamPool,
   IpamResourceDiscovery,
@@ -89,6 +90,130 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * <p>The state of the event window.</p>
+ * @public
+ */
+export interface InstanceEventWindowStateChange {
+  /**
+   * <p>The ID of the event window.</p>
+   * @public
+   */
+  InstanceEventWindowId?: string | undefined;
+
+  /**
+   * <p>The current state of the event window.</p>
+   * @public
+   */
+  State?: InstanceEventWindowState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceEventWindowResult {
+  /**
+   * <p>The state of the event window.</p>
+   * @public
+   */
+  InstanceEventWindowState?: InstanceEventWindowStateChange | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInternetGatewayRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the internet gateway.</p>
+   * @public
+   */
+  InternetGatewayId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM to delete.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and
+   *          any allocations in the pools in private scopes. You cannot delete the IPAM with this option if there is a pool in your public scope. If you use this option, IPAM does the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Deallocates any CIDRs allocated to VPC resources (such as VPCs) in pools in private scopes.</p>
+   *                <note>
+   *                   <p>No VPC resources are deleted as a result of enabling this option. The CIDR associated with the resource will no longer be allocated from an IPAM pool, but the CIDR itself will remain unchanged.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>Deprovisions all IPv4 CIDRs provisioned to IPAM pools in private scopes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deletes all IPAM pools in private scopes.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deletes all non-default private scopes in the IPAM.</p>
+   *             </li>
+   *             <li>
+   *                <p>Deletes the default public and private scopes and the IPAM.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Cascade?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamResult {
+  /**
+   * <p>Information about the results of the deletion.</p>
+   * @public
+   */
+  Ipam?: Ipam | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamExternalResourceVerificationTokenRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token ID.</p>
+   * @public
+   */
+  IpamExternalResourceVerificationTokenId: string | undefined;
+}
 
 /**
  * @public
@@ -8317,255 +8442,6 @@ export const PaymentOption = {
  * @public
  */
 export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
-
-/**
- * <p>Details about the Dedicated Host Reservation offering.</p>
- * @public
- */
-export interface HostOffering {
-  /**
-   * <p>The currency of the offering.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The duration of the offering (in seconds).</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The hourly price of the offering.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The instance family of the offering.</p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-
-  /**
-   * <p>The ID of the offering.</p>
-   * @public
-   */
-  OfferingId?: string | undefined;
-
-  /**
-   * <p>The available payment option.</p>
-   * @public
-   */
-  PaymentOption?: PaymentOption | undefined;
-
-  /**
-   * <p>The upfront price of the offering. Does not apply to No Upfront offerings.</p>
-   * @public
-   */
-  UpfrontPrice?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHostReservationOfferingsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the offerings.</p>
-   * @public
-   */
-  OfferingSet?: HostOffering[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHostReservationsRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-family</code> - The instance family (for example,
-   *                     <code>m4</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
-   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the reservation (<code>payment-pending</code>
-   *                     | <code>payment-failed</code> | <code>active</code> |
-   *                     <code>retired</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filter?: Filter[] | undefined;
-
-  /**
-   * <p>The host reservation IDs.</p>
-   * @public
-   */
-  HostReservationIdSet?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ReservationState = {
-  ACTIVE: "active",
-  PAYMENT_FAILED: "payment-failed",
-  PAYMENT_PENDING: "payment-pending",
-  RETIRED: "retired",
-} as const;
-
-/**
- * @public
- */
-export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
-
-/**
- * <p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>
- * @public
- */
-export interface HostReservation {
-  /**
-   * <p>The number of Dedicated Hosts the reservation is associated with.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
-   *             amounts are specified. At this time, the only supported currency is
-   *             <code>USD</code>.</p>
-   * @public
-   */
-  CurrencyCode?: CurrencyCodeValues | undefined;
-
-  /**
-   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000 (1
-   *                 year)</code> | <code>94608000 (3 years)</code>.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-
-  /**
-   * <p>The date and time that the reservation ends.</p>
-   * @public
-   */
-  End?: Date | undefined;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
-   * @public
-   */
-  HostIdSet?: string[] | undefined;
-
-  /**
-   * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
-   * @public
-   */
-  HostReservationId?: string | undefined;
-
-  /**
-   * <p>The hourly price of the reservation.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The instance family of the Dedicated Host Reservation. The instance family on the
-   *             Dedicated Host must be the same in order for it to benefit from the reservation.</p>
-   * @public
-   */
-  InstanceFamily?: string | undefined;
-
-  /**
-   * <p>The ID of the reservation. This remains the same regardless of which Dedicated Hosts
-   *             are associated with it.</p>
-   * @public
-   */
-  OfferingId?: string | undefined;
-
-  /**
-   * <p>The payment option selected for this reservation.</p>
-   * @public
-   */
-  PaymentOption?: PaymentOption | undefined;
-
-  /**
-   * <p>The date and time that the reservation started.</p>
-   * @public
-   */
-  Start?: Date | undefined;
-
-  /**
-   * <p>The state of the reservation.</p>
-   * @public
-   */
-  State?: ReservationState | undefined;
-
-  /**
-   * <p>The upfront price of the reservation.</p>
-   * @public
-   */
-  UpfrontPrice?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the Dedicated Host Reservation.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHostReservationsResult {
-  /**
-   * <p>Details about the reservation's configuration.</p>
-   * @public
-   */
-  HostReservationSet?: HostReservation[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
 
 /**
  * @internal

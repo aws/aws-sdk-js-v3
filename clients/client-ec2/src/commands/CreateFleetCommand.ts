@@ -104,7 +104,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *               Max: Number("int"),
  *             },
  *             CpuManufacturers: [ // CpuManufacturerSet
- *               "intel" || "amd" || "amazon-web-services",
+ *               "intel" || "amd" || "amazon-web-services" || "apple",
  *             ],
  *             MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *               Min: Number("double"),
@@ -162,6 +162,15 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *               "STRING_VALUE",
  *             ],
  *             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *             BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *               Cpu: { // CpuPerformanceFactorRequest
+ *                 References: [ // PerformanceFactorReferenceSetRequest
+ *                   { // PerformanceFactorReferenceRequest
+ *                     InstanceFamily: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *             },
  *           },
  *           ImageId: "STRING_VALUE",
  *         },
@@ -225,7 +234,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //               Max: Number("int"),
  * //             },
  * //             CpuManufacturers: [ // CpuManufacturerSet
- * //               "intel" || "amd" || "amazon-web-services",
+ * //               "intel" || "amd" || "amazon-web-services" || "apple",
  * //             ],
  * //             MemoryGiBPerVCpu: { // MemoryGiBPerVCpu
  * //               Min: Number("double"),
@@ -283,6 +292,15 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //               "STRING_VALUE",
  * //             ],
  * //             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ * //             BaselinePerformanceFactors: { // BaselinePerformanceFactors
+ * //               Cpu: { // CpuPerformanceFactor
+ * //                 References: [ // PerformanceFactorReferenceSet
+ * //                   { // PerformanceFactorReference
+ * //                     InstanceFamily: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //           ImageId: "STRING_VALUE",
  * //         },
@@ -320,7 +338,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //               Max: Number("int"),
  * //             },
  * //             CpuManufacturers: [
- * //               "intel" || "amd" || "amazon-web-services",
+ * //               "intel" || "amd" || "amazon-web-services" || "apple",
  * //             ],
  * //             MemoryGiBPerVCpu: {
  * //               Min: Number("double"),
@@ -378,6 +396,15 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //               "STRING_VALUE",
  * //             ],
  * //             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ * //             BaselinePerformanceFactors: {
+ * //               Cpu: {
+ * //                 References: [
+ * //                   {
+ * //                     InstanceFamily: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
  * //           },
  * //           ImageId: "STRING_VALUE",
  * //         },

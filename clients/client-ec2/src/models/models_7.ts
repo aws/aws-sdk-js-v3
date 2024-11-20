@@ -5,16 +5,20 @@ import {
   AddedPrincipal,
   AddressAttribute,
   AddressAttributeName,
+  ApplianceModeSupportValue,
   ByoipCidr,
   CapacityReservationInstancePlatform,
   ClientVpnAuthorizationRuleStatus,
   CurrencyCodeValues,
+  DnsSupportValue,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   IpPermission,
+  Ipv6SupportValue,
   NatGatewayAddress,
   PortRange,
   RouteTableAssociationState,
+  SecurityGroupReferencingSupportValue,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
   TransitGatewayMulticastDomainAssociations,
@@ -35,7 +39,6 @@ import {
   CreditSpecificationRequest,
   ElasticGpuSpecification,
   HostnameType,
-  IcmpTypeCode,
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   LocalGatewayRoute,
@@ -43,7 +46,6 @@ import {
   MarketType,
   OperatorRequest,
   Placement,
-  RuleAction,
   ShutdownBehavior,
   SpotInstanceType,
   VolumeType,
@@ -51,6 +53,7 @@ import {
 
 import {
   DnsOptionsSpecification,
+  IcmpTypeCode,
   IKEVersionsRequestListValue,
   InternetGatewayExclusionMode,
   IpAddressType,
@@ -61,11 +64,14 @@ import {
   Phase2DHGroupNumbersRequestListValue,
   Phase2EncryptionAlgorithmsRequestListValue,
   Phase2IntegrityAlgorithmsRequestListValue,
+  RuleAction,
   SnapshotState,
   SSEType,
   SubnetConfiguration,
+  TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   VerifiedAccessEndpoint,
+  VerifiedAccessEndpointProtocol,
   VerifiedAccessGroup,
   VerifiedAccessSseSpecificationRequest,
   VpcBlockPublicAccessExclusion,
@@ -111,12 +117,144 @@ import {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 
-import {
-  CapacityReservationSpecification,
-  ModifyVerifiedAccessEndpointEniOptions,
-  ModifyVerifiedAccessEndpointLoadBalancerOptions,
-  Purchase,
-} from "./models_6";
+import { CapacityReservationSpecification, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayPrefixListReferenceResult {
+  /**
+   * <p>Information about the prefix list reference.</p>
+   * @public
+   */
+  TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference | undefined;
+}
+
+/**
+ * <p>Describes the options for a VPC attachment.</p>
+ * @public
+ */
+export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
+  /**
+   * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
+   * @public
+   */
+  DnsSupport?: DnsSupportValue | undefined;
+
+  /**
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
+   *
+   * </p>
+   *          <p>This option is disabled by default.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+   * @public
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
+
+  /**
+   * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
+   * @public
+   */
+  Ipv6Support?: Ipv6SupportValue | undefined;
+
+  /**
+   * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+   * @public
+   */
+  ApplianceModeSupport?: ApplianceModeSupportValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>
+   * @public
+   */
+  AddSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of one or more subnets to remove.</p>
+   * @public
+   */
+  RemoveSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The new VPC attachment options.</p>
+   * @public
+   */
+  Options?: ModifyTransitGatewayVpcAttachmentRequestOptions | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayVpcAttachmentResult {
+  /**
+   * <p>Information about the modified attachment.</p>
+   * @public
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
+}
+
+/**
+ * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
+ *             <code>load-balancer</code> type.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
+  /**
+   * <p>The IDs of the subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The IP protocol.</p>
+   * @public
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | undefined;
+
+  /**
+   * <p>The IP port number.</p>
+   * @public
+   */
+  Port?: number | undefined;
+}
+
+/**
+ * <p>Describes the options when modifying a Verified Access endpoint with the
+ *             <code>network-interface</code> type.</p>
+ * @public
+ */
+export interface ModifyVerifiedAccessEndpointEniOptions {
+  /**
+   * <p>The IP protocol.</p>
+   * @public
+   */
+  Protocol?: VerifiedAccessEndpointProtocol | undefined;
+
+  /**
+   * <p>The IP port number.</p>
+   * @public
+   */
+  Port?: number | undefined;
+}
 
 /**
  * @public
@@ -5516,7 +5654,7 @@ export interface RunInstancesRequest {
    * <p>Information about the Capacity Reservation targeting option. If you do not specify this parameter, the
    *             instance's Capacity Reservation preference defaults to <code>open</code>, which enables
    *             it to run in any open Capacity Reservation that has matching attributes (instance type,
-   *             platform, Availability Zone).</p>
+   *             platform, Availability Zone, and tenancy).</p>
    * @public
    */
   CapacityReservationSpecification?: CapacityReservationSpecification | undefined;

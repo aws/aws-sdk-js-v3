@@ -7,7 +7,6 @@ import {
   AddPrefixListEntry,
   AddressAttribute,
   Affinity,
-  ApplianceModeSupportValue,
   AutoPlacement,
   CapacityReservationState,
   CurrencyCodeValues,
@@ -19,7 +18,6 @@ import {
   InstanceEventWindow,
   InstanceMatchCriteria,
   IpamPoolAllocation,
-  Ipv6SupportValue,
   SecurityGroupReferencingSupportValue,
   SubnetAssociation,
   Tag,
@@ -28,7 +26,6 @@ import {
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayPolicyTableAssociation,
-  TransitGatewayVpcAttachment,
   UnsuccessfulItem,
 } from "./models_0";
 
@@ -83,13 +80,13 @@ import {
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayPrefixListReference,
-  VerifiedAccessEndpointProtocol,
   VpnEcmpSupportValue,
 } from "./models_2";
 
 import {
   ConversionTask,
   ConversionTaskFilterSensitiveLog,
+  ExportTaskS3Location,
   Filter,
   FpgaImageAttribute,
   FpgaImageAttributeName,
@@ -134,6 +131,240 @@ import {
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface ExportClientVpnClientConfigurationResult {
+  /**
+   * <p>The contents of the Client VPN endpoint configuration file.</p>
+   * @public
+   */
+  ClientConfiguration?: string | undefined;
+}
+
+/**
+ * <p>Describes the destination for an export image task.</p>
+ * @public
+ */
+export interface ExportTaskS3LocationRequest {
+  /**
+   * <p>The destination Amazon S3 bucket.</p>
+   * @public
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>The prefix (logical hierarchy) in the bucket.</p>
+   * @public
+   */
+  S3Prefix?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportImageRequest {
+  /**
+   * <p>Token to enable idempotency for export image requests.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A description of the image being exported. The maximum length is 255 characters.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The disk image format.</p>
+   * @public
+   */
+  DiskImageFormat: DiskImageFormat | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the image.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist.</p>
+   * @public
+   */
+  S3ExportLocation: ExportTaskS3LocationRequest | undefined;
+
+  /**
+   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
+   *    S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
+   * @public
+   */
+  RoleName?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the export image task during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportImageResult {
+  /**
+   * <p>A description of the image being exported.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The disk image format for the exported image.</p>
+   * @public
+   */
+  DiskImageFormat?: DiskImageFormat | undefined;
+
+  /**
+   * <p>The ID of the export image task.</p>
+   * @public
+   */
+  ExportImageTaskId?: string | undefined;
+
+  /**
+   * <p>The ID of the image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
+   *    S3 bucket.</p>
+   * @public
+   */
+  RoleName?: string | undefined;
+
+  /**
+   * <p>The percent complete of the export image task.</p>
+   * @public
+   */
+  Progress?: string | undefined;
+
+  /**
+   * <p>Information about the destination Amazon S3 bucket.</p>
+   * @public
+   */
+  S3ExportLocation?: ExportTaskS3Location | undefined;
+
+  /**
+   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
+   *     <code>deleting</code>, and <code>deleted</code>.</p>
+   * @public
+   */
+  Status?: string | undefined;
+
+  /**
+   * <p>The status message for the export image task.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the export image task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportTransitGatewayRoutesRequest {
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>type</code> - The type of route (<code>propagated</code> |
+   *                <code>static</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The name of the S3 bucket.</p>
+   * @public
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportTransitGatewayRoutesResult {
+  /**
+   * <p>The URL of the exported file in Amazon S3. For example,
+   *          s3://<i>bucket_name</i>/VPCTransitGateway/TransitGatewayRouteTables/<i>file_name</i>.</p>
+   * @public
+   */
+  S3Location?: string | undefined;
+}
 
 /**
  * @public
@@ -6894,14 +7125,14 @@ export interface ModifyInstanceAttributeRequest {
 }
 
 /**
- * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
- * 			at a time. If you specify <code>CapacityReservationPreference</code> and
- * 			<code>CapacityReservationTarget</code>, the request fails.</p>
- *          <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
- * 			to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has
- * 			matching attributes (instance type, platform, Availability Zone). Use the
- * 			<code>CapacityReservationTarget</code> parameter to explicitly target a specific
- * 			   	Capacity Reservation or a Capacity Reservation group.</p>
+ * <p>Describes an instance's Capacity Reservation targeting option. </p>
+ *          <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to
+ * 			run as an On-Demand Instance, to run in any <code>open</code> Capacity Reservation that
+ * 			has matching attributes, or to run only in a Capacity Reservation or Capacity
+ * 			Reservation group. Use the <code>CapacityReservationTarget</code> parameter to
+ * 			explicitly target a specific Capacity Reservation or a Capacity Reservation
+ * 			group.</p>
+ *          <p>You can only specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code> if the <code>CapacityReservationPreference</code> is <code>capacity-reservations-only</code>.</p>
  * @public
  */
 export interface CapacityReservationSpecification {
@@ -6910,12 +7141,18 @@ export interface CapacityReservationSpecification {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes
-   * 				(instance type, platform, Availability Zone).</p>
+   *                   <code>capacity-reservations-only</code> - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The
+   *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
+   * 					Reservation that has matching attributes (instance type, platform, Availability
+   * 					Zone, and tenancy). If capacity isn't available, the instance runs as an
+   * 					On-Demand Instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code> - The instance doesn't run in a Capacity Reservation even if one is available. The
    * 					instance runs as an On-Demand Instance.</p>
    *             </li>
    *          </ul>
@@ -9162,143 +9399,6 @@ export interface ModifyTransitGatewayPrefixListReferenceRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayPrefixListReferenceResult {
-  /**
-   * <p>Information about the prefix list reference.</p>
-   * @public
-   */
-  TransitGatewayPrefixListReference?: TransitGatewayPrefixListReference | undefined;
-}
-
-/**
- * <p>Describes the options for a VPC attachment.</p>
- * @public
- */
-export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
-  /**
-   * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
-   * @public
-   */
-  DnsSupport?: DnsSupportValue | undefined;
-
-  /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
-   *
-   * </p>
-   *          <p>This option is disabled by default.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
-   * @public
-   */
-  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
-
-  /**
-   * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
-   * @public
-   */
-  Ipv6Support?: Ipv6SupportValue | undefined;
-
-  /**
-   * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
-   * @public
-   */
-  ApplianceModeSupport?: ApplianceModeSupportValue | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>The IDs of one or more subnets to add. You can specify at most one subnet per Availability Zone.</p>
-   * @public
-   */
-  AddSubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The IDs of one or more subnets to remove.</p>
-   * @public
-   */
-  RemoveSubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The new VPC attachment options.</p>
-   * @public
-   */
-  Options?: ModifyTransitGatewayVpcAttachmentRequestOptions | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the modified attachment.</p>
-   * @public
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment | undefined;
-}
-
-/**
- * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
- *             <code>load-balancer</code> type.</p>
- * @public
- */
-export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
-  /**
-   * <p>The IDs of the subnets.</p>
-   * @public
-   */
-  SubnetIds?: string[] | undefined;
-
-  /**
-   * <p>The IP protocol.</p>
-   * @public
-   */
-  Protocol?: VerifiedAccessEndpointProtocol | undefined;
-
-  /**
-   * <p>The IP port number.</p>
-   * @public
-   */
-  Port?: number | undefined;
-}
-
-/**
- * <p>Describes the options when modifying a Verified Access endpoint with the
- *             <code>network-interface</code> type.</p>
- * @public
- */
-export interface ModifyVerifiedAccessEndpointEniOptions {
-  /**
-   * <p>The IP protocol.</p>
-   * @public
-   */
-  Protocol?: VerifiedAccessEndpointProtocol | undefined;
-
-  /**
-   * <p>The IP port number.</p>
-   * @public
-   */
-  Port?: number | undefined;
 }
 
 /**

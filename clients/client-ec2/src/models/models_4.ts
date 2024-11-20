@@ -15,11 +15,9 @@ import {
   IamInstanceProfileAssociation,
   InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
-  IpPermission,
   PathComponent,
   ReservedInstancesListing,
   SecurityGroupRule,
-  SecurityGroupVpcAssociationState,
   Tag,
 } from "./models_0";
 
@@ -48,7 +46,6 @@ import {
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
   NatGateway,
-  NetworkAcl,
   OperatorResponse,
   Placement,
   PlatformValues,
@@ -58,6 +55,7 @@ import {
 
 import {
   GroupIdentifier,
+  NetworkAcl,
   NetworkInsightsAccessScope,
   NetworkInsightsPath,
   NetworkInterface,
@@ -69,7 +67,264 @@ import {
   RouteTable,
 } from "./models_2";
 
-import { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute, PermissionGroup, ProductCode } from "./models_3";
+import {
+  Byoasn,
+  Filter,
+  IdFormat,
+  InstanceTagNotificationAttribute,
+  PaymentOption,
+  PermissionGroup,
+  ProductCode,
+} from "./models_3";
+
+/**
+ * <p>Details about the Dedicated Host Reservation offering.</p>
+ * @public
+ */
+export interface HostOffering {
+  /**
+   * <p>The currency of the offering.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+
+  /**
+   * <p>The duration of the offering (in seconds).</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The hourly price of the offering.</p>
+   * @public
+   */
+  HourlyPrice?: string | undefined;
+
+  /**
+   * <p>The instance family of the offering.</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+
+  /**
+   * <p>The ID of the offering.</p>
+   * @public
+   */
+  OfferingId?: string | undefined;
+
+  /**
+   * <p>The available payment option.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption | undefined;
+
+  /**
+   * <p>The upfront price of the offering. Does not apply to No Upfront offerings.</p>
+   * @public
+   */
+  UpfrontPrice?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHostReservationOfferingsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the offerings.</p>
+   * @public
+   */
+  OfferingSet?: HostOffering[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHostReservationsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-family</code> - The instance family (for example,
+   *                     <code>m4</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the reservation (<code>payment-pending</code>
+   *                     | <code>payment-failed</code> | <code>active</code> |
+   *                     <code>retired</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filter?: Filter[] | undefined;
+
+  /**
+   * <p>The host reservation IDs.</p>
+   * @public
+   */
+  HostReservationIdSet?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservationState = {
+  ACTIVE: "active",
+  PAYMENT_FAILED: "payment-failed",
+  PAYMENT_PENDING: "payment-pending",
+  RETIRED: "retired",
+} as const;
+
+/**
+ * @public
+ */
+export type ReservationState = (typeof ReservationState)[keyof typeof ReservationState];
+
+/**
+ * <p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>
+ * @public
+ */
+export interface HostReservation {
+  /**
+   * <p>The number of Dedicated Hosts the reservation is associated with.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
+   *             amounts are specified. At this time, the only supported currency is
+   *             <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+
+  /**
+   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000 (1
+   *                 year)</code> | <code>94608000 (3 years)</code>.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>The date and time that the reservation ends.</p>
+   * @public
+   */
+  End?: Date | undefined;
+
+  /**
+   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
+   * @public
+   */
+  HostIdSet?: string[] | undefined;
+
+  /**
+   * <p>The ID of the reservation that specifies the associated Dedicated Hosts.</p>
+   * @public
+   */
+  HostReservationId?: string | undefined;
+
+  /**
+   * <p>The hourly price of the reservation.</p>
+   * @public
+   */
+  HourlyPrice?: string | undefined;
+
+  /**
+   * <p>The instance family of the Dedicated Host Reservation. The instance family on the
+   *             Dedicated Host must be the same in order for it to benefit from the reservation.</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+
+  /**
+   * <p>The ID of the reservation. This remains the same regardless of which Dedicated Hosts
+   *             are associated with it.</p>
+   * @public
+   */
+  OfferingId?: string | undefined;
+
+  /**
+   * <p>The payment option selected for this reservation.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption | undefined;
+
+  /**
+   * <p>The date and time that the reservation started.</p>
+   * @public
+   */
+  Start?: Date | undefined;
+
+  /**
+   * <p>The state of the reservation.</p>
+   * @public
+   */
+  State?: ReservationState | undefined;
+
+  /**
+   * <p>The upfront price of the reservation.</p>
+   * @public
+   */
+  UpfrontPrice?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the Dedicated Host Reservation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHostReservationsResult {
+  /**
+   * <p>Details about the reservation's configuration.</p>
+   * @public
+   */
+  HostReservationSet?: HostReservation[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -12178,371 +12433,6 @@ export interface DescribeSecurityGroupRulesResult {
   /**
    * <p>The token to include in another request to get the next page of items.
    *             This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupsRequest {
-  /**
-   * <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p>
-   *          <p>Default: Describes all of your security groups.</p>
-   * @public
-   */
-  GroupIds?: string[] | undefined;
-
-  /**
-   * <p>[Default VPC] The names of the security groups. You can specify either
-   * 			the security group name or the security group ID.</p>
-   *          <p>Default: Describes all of your security groups.</p>
-   * @public
-   */
-  GroupNames?: string[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *             Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of items,
-   *             make another request with the token returned in the output. This value can be between 5 and 1000.
-   *             If this parameter is not specified, then all items are returned. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - The description of the security group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.cidr</code> - An IPv4 CIDR block for an outbound
-   *                     security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.from-port</code> - For an outbound rule, the
-   *                     start of port range for the TCP and UDP protocols, or an ICMP type
-   *                     number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.group-id</code> - The ID of a security group
-   *                     that has been referenced in an outbound security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.group-name</code> - The name of a security group
-   *                     that is referenced in an outbound security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an
-   *                     outbound security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.prefix-list-id</code> - The ID of a prefix list to which a security group rule allows outbound access.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.protocol</code> - The IP protocol for an
-   *                     outbound security group rule (<code>tcp</code> | <code>udp</code> |
-   *                         <code>icmp</code>, a protocol number, or -1 for all protocols).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.to-port</code> - For an outbound rule, the end
-   *                     of port range for the TCP and UDP protocols, or an ICMP code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>egress.ip-permission.user-id</code> - The ID of an Amazon Web Services account that
-   *                     has been referenced in an outbound security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>group-id</code> - The ID of the security group. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>group-name</code> - The name of the security group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security
-   *                     group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.from-port</code> - For an inbound rule, the start of port
-   *                     range for the TCP and UDP protocols, or an ICMP type number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.group-id</code> - The ID of a security group that has been
-   *                     referenced in an inbound security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.group-name</code> - The name of a security group that is
-   *                     referenced in an inbound security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an inbound security
-   *                     group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.prefix-list-id</code> - The ID of a prefix list from which a security group rule allows inbound access.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.protocol</code> - The IP protocol for an inbound security
-   *                 group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a
-   *                 protocol number, or -1 for all protocols).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.to-port</code> - For an inbound rule, the end of port range
-   *                     for the TCP and UDP protocols, or an ICMP code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ip-permission.user-id</code> - The ID of an Amazon Web Services account that has been
-   *                     referenced in an inbound security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner of the security group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC specified when the security group was created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes a security group.</p>
- * @public
- */
-export interface SecurityGroup {
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>The outbound rules associated with the security group.</p>
-   * @public
-   */
-  IpPermissionsEgress?: IpPermission[] | undefined;
-
-  /**
-   * <p>Any tags assigned to the security group.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the VPC for the security group.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The ARN of the security group.</p>
-   * @public
-   */
-  SecurityGroupArn?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the security group.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The name of the security group.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>A description of the security group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The inbound rules associated with the security group.</p>
-   * @public
-   */
-  IpPermissions?: IpPermission[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the security groups.</p>
-   * @public
-   */
-  SecurityGroups?: SecurityGroup[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupVpcAssociationsRequest {
-  /**
-   * <p>Security group VPC association filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>group-id</code>: The security group ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code>: The ID of the associated VPC.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-owner-id</code>: The account ID of the VPC owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code>: The state of the association.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code>: The key/value combination of a tag assigned to the resource. Use
-   *                     the tag key in the filter name and the tag value as the filter value. For
-   *                     example, to find all resources that have a tag with the key <code>Owner</code>
-   *                     and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter
-   *                     name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code>: The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>A security group association with a VPC that you made with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html">AssociateSecurityGroupVpc</a>.</p>
- * @public
- */
-export interface SecurityGroupVpcAssociation {
-  /**
-   * <p>The association's security group ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>The association's VPC ID.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID of the owner of the VPC.</p>
-   * @public
-   */
-  VpcOwnerId?: string | undefined;
-
-  /**
-   * <p>The association's state.</p>
-   * @public
-   */
-  State?: SecurityGroupVpcAssociationState | undefined;
-
-  /**
-   * <p>The association's state reason.</p>
-   * @public
-   */
-  StateReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupVpcAssociationsResult {
-  /**
-   * <p>The security group VPC associations.</p>
-   * @public
-   */
-  SecurityGroupVpcAssociations?: SecurityGroupVpcAssociation[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -14,6 +14,7 @@ import {
   IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamResourceDiscoveryAssociation,
+  IpPermission,
   NatGatewayAddress,
   ResourceType,
   SecurityGroupVpcAssociationState,
@@ -42,7 +43,6 @@ import {
   _InstanceType,
   BlockDeviceMapping,
   ConnectionTrackingSpecificationRequest,
-  DiskImageFormat,
   EnaSrdSpecificationRequest,
   FleetLaunchTemplateSpecification,
   FleetType,
@@ -99,7 +99,6 @@ import {
 
 import {
   EventInformation,
-  ExportTaskS3Location,
   FastLaunchLaunchTemplateSpecificationResponse,
   FastLaunchResourceType,
   FastLaunchSnapshotConfigurationResponse,
@@ -113,6 +112,371 @@ import {
 } from "./models_3";
 
 import { AttributeBooleanValue, RIProductDescription } from "./models_4";
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupsRequest {
+  /**
+   * <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p>
+   *          <p>Default: Describes all of your security groups.</p>
+   * @public
+   */
+  GroupIds?: string[] | undefined;
+
+  /**
+   * <p>[Default VPC] The names of the security groups. You can specify either
+   * 			the security group name or the security group ID.</p>
+   *          <p>Default: Describes all of your security groups.</p>
+   * @public
+   */
+  GroupNames?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items,
+   *             make another request with the token returned in the output. This value can be between 5 and 1000.
+   *             If this parameter is not specified, then all items are returned. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>description</code> - The description of the security group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.cidr</code> - An IPv4 CIDR block for an outbound
+   *                     security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.from-port</code> - For an outbound rule, the
+   *                     start of port range for the TCP and UDP protocols, or an ICMP type
+   *                     number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.group-id</code> - The ID of a security group
+   *                     that has been referenced in an outbound security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.group-name</code> - The name of a security group
+   *                     that is referenced in an outbound security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an
+   *                     outbound security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.prefix-list-id</code> - The ID of a prefix list to which a security group rule allows outbound access.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.protocol</code> - The IP protocol for an
+   *                     outbound security group rule (<code>tcp</code> | <code>udp</code> |
+   *                         <code>icmp</code>, a protocol number, or -1 for all protocols).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.to-port</code> - For an outbound rule, the end
+   *                     of port range for the TCP and UDP protocols, or an ICMP code.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>egress.ip-permission.user-id</code> - The ID of an Amazon Web Services account that
+   *                     has been referenced in an outbound security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code> - The ID of the security group. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>group-name</code> - The name of the security group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.cidr</code> - An IPv4 CIDR block for an inbound security
+   *                     group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.from-port</code> - For an inbound rule, the start of port
+   *                     range for the TCP and UDP protocols, or an ICMP type number.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.group-id</code> - The ID of a security group that has been
+   *                     referenced in an inbound security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.group-name</code> - The name of a security group that is
+   *                     referenced in an inbound security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.ipv6-cidr</code> - An IPv6 CIDR block for an inbound security
+   *                     group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.prefix-list-id</code> - The ID of a prefix list from which a security group rule allows inbound access.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.protocol</code> - The IP protocol for an inbound security
+   *                 group rule (<code>tcp</code> | <code>udp</code> | <code>icmp</code>, a
+   *                 protocol number, or -1 for all protocols).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.to-port</code> - For an inbound rule, the end of port range
+   *                     for the TCP and UDP protocols, or an ICMP code.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ip-permission.user-id</code> - The ID of an Amazon Web Services account that has been
+   *                     referenced in an inbound security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner of the security group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC specified when the security group was created.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes a security group.</p>
+ * @public
+ */
+export interface SecurityGroup {
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>The outbound rules associated with the security group.</p>
+   * @public
+   */
+  IpPermissionsEgress?: IpPermission[] | undefined;
+
+  /**
+   * <p>Any tags assigned to the security group.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the VPC for the security group.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ARN of the security group.</p>
+   * @public
+   */
+  SecurityGroupArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the security group.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The name of the security group.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>A description of the security group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The inbound rules associated with the security group.</p>
+   * @public
+   */
+  IpPermissions?: IpPermission[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the security groups.</p>
+   * @public
+   */
+  SecurityGroups?: SecurityGroup[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupVpcAssociationsRequest {
+  /**
+   * <p>Security group VPC association filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code>: The security group ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code>: The ID of the associated VPC.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-owner-id</code>: The account ID of the VPC owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code>: The state of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code>: The key/value combination of a tag assigned to the resource. Use
+   *                     the tag key in the filter name and the tag value as the filter value. For
+   *                     example, to find all resources that have a tag with the key <code>Owner</code>
+   *                     and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter
+   *                     name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code>: The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>A security group association with a VPC that you made with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateSecurityGroupVpc.html">AssociateSecurityGroupVpc</a>.</p>
+ * @public
+ */
+export interface SecurityGroupVpcAssociation {
+  /**
+   * <p>The association's security group ID.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>The association's VPC ID.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the owner of the VPC.</p>
+   * @public
+   */
+  VpcOwnerId?: string | undefined;
+
+  /**
+   * <p>The association's state.</p>
+   * @public
+   */
+  State?: SecurityGroupVpcAssociationState | undefined;
+
+  /**
+   * <p>The association's state reason.</p>
+   * @public
+   */
+  StateReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupVpcAssociationsResult {
+  /**
+   * <p>The security group VPC associations.</p>
+   * @public
+   */
+  SecurityGroupVpcAssociations?: SecurityGroupVpcAssociation[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -9672,240 +10036,6 @@ export interface ExportClientVpnClientConfigurationRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportClientVpnClientConfigurationResult {
-  /**
-   * <p>The contents of the Client VPN endpoint configuration file.</p>
-   * @public
-   */
-  ClientConfiguration?: string | undefined;
-}
-
-/**
- * <p>Describes the destination for an export image task.</p>
- * @public
- */
-export interface ExportTaskS3LocationRequest {
-  /**
-   * <p>The destination Amazon S3 bucket.</p>
-   * @public
-   */
-  S3Bucket: string | undefined;
-
-  /**
-   * <p>The prefix (logical hierarchy) in the bucket.</p>
-   * @public
-   */
-  S3Prefix?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportImageRequest {
-  /**
-   * <p>Token to enable idempotency for export image requests.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>A description of the image being exported. The maximum length is 255 characters.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The disk image format.</p>
-   * @public
-   */
-  DiskImageFormat: DiskImageFormat | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the image.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket for the destination image. The destination bucket must exist.</p>
-   * @public
-   */
-  S3ExportLocation: ExportTaskS3LocationRequest | undefined;
-
-  /**
-   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
-   *    S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
-   * @public
-   */
-  RoleName?: string | undefined;
-
-  /**
-   * <p>The tags to apply to the export image task during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportImageResult {
-  /**
-   * <p>A description of the image being exported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The disk image format for the exported image.</p>
-   * @public
-   */
-  DiskImageFormat?: DiskImageFormat | undefined;
-
-  /**
-   * <p>The ID of the export image task.</p>
-   * @public
-   */
-  ExportImageTaskId?: string | undefined;
-
-  /**
-   * <p>The ID of the image.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
-   *    S3 bucket.</p>
-   * @public
-   */
-  RoleName?: string | undefined;
-
-  /**
-   * <p>The percent complete of the export image task.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>Information about the destination Amazon S3 bucket.</p>
-   * @public
-   */
-  S3ExportLocation?: ExportTaskS3Location | undefined;
-
-  /**
-   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
-   *     <code>deleting</code>, and <code>deleted</code>.</p>
-   * @public
-   */
-  Status?: string | undefined;
-
-  /**
-   * <p>The status message for the export image task.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the export image task.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportTransitGatewayRoutesRequest {
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.exact-match</code> - The exact match of the specified filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>type</code> - The type of route (<code>propagated</code> |
-   *                <code>static</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The name of the S3 bucket.</p>
-   * @public
-   */
-  S3Bucket: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportTransitGatewayRoutesResult {
-  /**
-   * <p>The URL of the exported file in Amazon S3. For example,
-   *          s3://<i>bucket_name</i>/VPCTransitGateway/TransitGatewayRouteTables/<i>file_name</i>.</p>
-   * @public
-   */
-  S3Location?: string | undefined;
 }
 
 /**

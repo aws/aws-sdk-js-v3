@@ -23,7 +23,6 @@ import {
   InstanceEventWindow,
   InstanceMatchCriteria,
   NatGatewayAddress,
-  PortRange,
   ResourceType,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -3196,6 +3195,120 @@ export interface BaselineEbsBandwidthMbpsRequest {
 }
 
 /**
+ * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+ *          instance types that match your specified attributes will be compared against the CPU
+ *          performance of the referenced instance family, regardless of CPU manufacturer or
+ *          architecture.</p>
+ *          <note>
+ *             <p>Currently, only one instance family can be specified in the list.</p>
+ *          </note>
+ * @public
+ */
+export interface PerformanceFactorReferenceRequest {
+  /**
+   * <p>The instance family to use as a baseline reference.</p>
+   *          <note>
+   *             <p>Ensure that you specify the correct value for the instance family. The instance
+   *             family is everything before the period (<code>.</code>) in the instance type name. For
+   *             example, in the instance type <code>c6i.large</code>, the instance family is
+   *             <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
+   *                instance type naming conventions</a> in <i>Amazon EC2 Instance
+   *                   Types</i>.</p>
+   *          </note>
+   *          <p>The following instance families are <i>not supported</i> for performance
+   *          protection:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>c1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>g3</code> | <code>g3s</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hpc7g</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>m1</code> | <code>m2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mac1</code> | <code>mac2</code> | <code>mac2-m1ultra</code> |
+   *                <code>mac2-m2</code> | <code>mac2-m2pro</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>p3dn</code> | <code>p4d</code> | <code>p5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>t1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>u-12tb1</code> | <code>u-18tb1</code> | <code>u-24tb1</code> |
+   *                <code>u-3tb1</code> | <code>u-6tb1</code> | <code>u-9tb1</code> |
+   *                <code>u7i-12tb</code> | <code>u7in-16tb</code> | <code>u7in-24tb</code> |
+   *                <code>u7in-32tb</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you enable performance protection by specifying a supported instance family, the
+   *          returned instance types will exclude the above unsupported instance families.</p>
+   *          <p>If you specify an unsupported instance family as a value for baseline performance, the
+   *          API returns an empty response for  and an exception for , , , and .</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+}
+
+/**
+ * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
+ * @public
+ */
+export interface CpuPerformanceFactorRequest {
+  /**
+   * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+   *          instance types that match your specified attributes will be compared against the CPU
+   *          performance of the referenced instance family, regardless of CPU manufacturer or
+   *          architecture differences.</p>
+   *          <note>
+   *             <p>Currently, only one instance family can be specified in the list.</p>
+   *          </note>
+   * @public
+   */
+  References?: PerformanceFactorReferenceRequest[] | undefined;
+}
+
+/**
+ * <p>The baseline performance to consider, using an instance family as a baseline reference.
+ *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
+ *          baseline to guide instance type selection, but there is no guarantee that the selected
+ *          instance types will always exceed the baseline for every application.</p>
+ *          <p>Currently, this parameter only supports CPU performance as a baseline performance
+ *          factor. For example, specifying <code>c6i</code> would use the CPU performance of the
+ *          <code>c6i</code> family as the baseline reference.</p>
+ * @public
+ */
+export interface BaselinePerformanceFactorsRequest {
+  /**
+   * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
+   * @public
+   */
+  Cpu?: CpuPerformanceFactorRequest | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -3217,6 +3330,7 @@ export type BurstablePerformance = (typeof BurstablePerformance)[keyof typeof Bu
 export const CpuManufacturer = {
   AMAZON_WEB_SERVICES: "amazon-web-services",
   AMD: "amd",
+  APPLE: "apple",
   INTEL: "intel",
 } as const;
 
@@ -3817,6 +3931,17 @@ export interface InstanceRequirementsRequest {
    * @public
    */
   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number | undefined;
+
+  /**
+   * <p>The baseline performance to consider, using an instance family as a baseline reference.
+   *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
+   *          baseline to guide instance type selection, but there is no guarantee that the selected
+   *          instance types will always exceed the baseline for every application. Currently, this
+   *          parameter only supports CPU performance as a baseline performance factor. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection">Performance protection</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest | undefined;
 }
 
 /**
@@ -4718,6 +4843,120 @@ export interface BaselineEbsBandwidthMbps {
 }
 
 /**
+ * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+ *          instance types that match your specified attributes will be compared against the CPU
+ *          performance of the referenced instance family, regardless of CPU manufacturer or
+ *          architecture.</p>
+ *          <note>
+ *             <p>Currently, only one instance family can be specified in the list.</p>
+ *          </note>
+ * @public
+ */
+export interface PerformanceFactorReference {
+  /**
+   * <p>The instance family to use as a baseline reference.</p>
+   *          <note>
+   *             <p>Ensure that you specify the correct value for the instance family. The instance
+   *             family is everything before the period (<code>.</code>) in the instance type name. For
+   *             example, in the instance type <code>c6i.large</code>, the instance family is
+   *                <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
+   *                instance type naming conventions</a> in <i>Amazon EC2 Instance
+   *             Types</i>.</p>
+   *          </note>
+   *          <p>The following instance families are <i>not supported</i> for performance
+   *          protection:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>c1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>g3</code> | <code>g3s</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hpc7g</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>m1</code> | <code>m2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mac1</code> | <code>mac2</code> | <code>mac2-m1ultra</code> |
+   *                <code>mac2-m2</code> | <code>mac2-m2pro</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>p3dn</code> | <code>p4d</code> | <code>p5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>t1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>u-12tb1</code> | <code>u-18tb1</code> | <code>u-24tb1</code> |
+   *                <code>u-3tb1</code> | <code>u-6tb1</code> | <code>u-9tb1</code> |
+   *                <code>u7i-12tb</code> | <code>u7in-16tb</code> | <code>u7in-24tb</code> |
+   *                <code>u7in-32tb</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you enable performance protection by specifying a supported instance family, the
+   *          returned instance types will exclude the above unsupported instance families.</p>
+   *          <p>If you specify an unsupported instance family as a value for baseline performance, the
+   *          API returns an empty response for  and an exception for , , , and .</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+}
+
+/**
+ * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
+ * @public
+ */
+export interface CpuPerformanceFactor {
+  /**
+   * <p>Specify an instance family to use as the baseline reference for CPU performance. All
+   *          instance types that match your specified attributes will be compared against the CPU
+   *          performance of the referenced instance family, regardless of CPU manufacturer or
+   *          architecture differences.</p>
+   *          <note>
+   *             <p>Currently, only one instance family can be specified in the list.</p>
+   *          </note>
+   * @public
+   */
+  References?: PerformanceFactorReference[] | undefined;
+}
+
+/**
+ * <p>The baseline performance to consider, using an instance family as a baseline reference.
+ *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
+ *          baseline to guide instance type selection, but there is no guarantee that the selected
+ *          instance types will always exceed the baseline for every application.</p>
+ *          <p>Currently, this parameter only supports CPU performance as a baseline performance
+ *          factor. For example, specifying <code>c6i</code> would use the CPU performance of the
+ *          <code>c6i</code> family as the baseline reference.</p>
+ * @public
+ */
+export interface BaselinePerformanceFactors {
+  /**
+   * <p>The CPU performance to consider, using an instance family as the baseline reference.</p>
+   * @public
+   */
+  Cpu?: CpuPerformanceFactor | undefined;
+}
+
+/**
  * <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
  *          <p></p>
  * @public
@@ -5268,6 +5507,17 @@ export interface InstanceRequirements {
    * @public
    */
   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number | undefined;
+
+  /**
+   * <p>The baseline performance to consider, using an instance family as a baseline reference.
+   *          The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this
+   *          baseline to guide instance type selection, but there is no guarantee that the selected
+   *          instance types will always exceed the baseline for every application. Currently, this
+   *          parameter only supports CPU performance as a baseline performance factor. For more
+   *          information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection">Performance protection</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  BaselinePerformanceFactors?: BaselinePerformanceFactors | undefined;
 }
 
 /**
@@ -8297,6 +8547,7 @@ export interface LaunchTemplateBlockDeviceMappingRequest {
  * @enum
  */
 export const CapacityReservationPreference = {
+  capacity_reservations_only: "capacity-reservations-only",
   none: "none",
   open: "open",
 } as const;
@@ -12116,234 +12367,6 @@ export interface NetworkAclAssociation {
    * @public
    */
   SubnetId?: string | undefined;
-}
-
-/**
- * <p>Describes the ICMP type and code.</p>
- * @public
- */
-export interface IcmpTypeCode {
-  /**
-   * <p>The ICMP code. A value of -1 means all codes for the specified ICMP type.</p>
-   * @public
-   */
-  Code?: number | undefined;
-
-  /**
-   * <p>The ICMP type. A value of -1 means all types.</p>
-   * @public
-   */
-  Type?: number | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const RuleAction = {
-  allow: "allow",
-  deny: "deny",
-} as const;
-
-/**
- * @public
- */
-export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
-
-/**
- * <p>Describes an entry in a network ACL.</p>
- * @public
- */
-export interface NetworkAclEntry {
-  /**
-   * <p>The IPv4 network range to allow or deny, in CIDR notation.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).</p>
-   * @public
-   */
-  Egress?: boolean | undefined;
-
-  /**
-   * <p>ICMP protocol: The ICMP type and code.</p>
-   * @public
-   */
-  IcmpTypeCode?: IcmpTypeCode | undefined;
-
-  /**
-   * <p>The IPv6 network range to allow or deny, in CIDR notation.</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>TCP or UDP protocols: The range of ports the rule applies to.</p>
-   * @public
-   */
-  PortRange?: PortRange | undefined;
-
-  /**
-   * <p>The protocol number. A value of "-1" means all protocols.</p>
-   * @public
-   */
-  Protocol?: string | undefined;
-
-  /**
-   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
-   * @public
-   */
-  RuleAction?: RuleAction | undefined;
-
-  /**
-   * <p>The rule number for the entry. ACL entries are processed in ascending order by rule number.</p>
-   * @public
-   */
-  RuleNumber?: number | undefined;
-}
-
-/**
- * <p>Describes a network ACL.</p>
- * @public
- */
-export interface NetworkAcl {
-  /**
-   * <p>Any associations between the network ACL and your subnets</p>
-   * @public
-   */
-  Associations?: NetworkAclAssociation[] | undefined;
-
-  /**
-   * <p>The entries (rules) in the network ACL.</p>
-   * @public
-   */
-  Entries?: NetworkAclEntry[] | undefined;
-
-  /**
-   * <p>Indicates whether this is the default network ACL for the VPC.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   * @public
-   */
-  NetworkAclId?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the network ACL.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ID of the VPC for the network ACL.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the network ACL.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkAclResult {
-  /**
-   * <p>Information about the network ACL.</p>
-   * @public
-   */
-  NetworkAcl?: NetworkAcl | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkAclEntryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * <p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p>
-   *          <p>Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.</p>
-   * @public
-   */
-  RuleNumber: number | undefined;
-
-  /**
-   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
-   *   			protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
-   * 			allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
-   * 			protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
-   * 			codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
-   * 			and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
-   * @public
-   */
-  Protocol: string | undefined;
-
-  /**
-   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
-   * @public
-   */
-  RuleAction: RuleAction | undefined;
-
-  /**
-   * <p>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</p>
-   * @public
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
-   * 		        <code>172.16.0.0/24</code>). We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   * @public
-   */
-  CidrBlock?: string | undefined;
-
-  /**
-   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
-   *                 <code>2001:db8:1234:1a00::/64</code>).</p>
-   * @public
-   */
-  Ipv6CidrBlock?: string | undefined;
-
-  /**
-   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
-   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
-   * @public
-   */
-  IcmpTypeCode?: IcmpTypeCode | undefined;
-
-  /**
-   * <p>TCP or UDP protocols: The range of ports the rule applies to.
-   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
-   * @public
-   */
-  PortRange?: PortRange | undefined;
 }
 
 /**

@@ -10,9 +10,9 @@ import {
   DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
-  InstanceEventWindowState,
   Ipv4PrefixSpecification,
   Ipv6SupportValue,
+  PortRange,
   Protocol,
   ReservedInstancesListing,
   RouteTableAssociationState,
@@ -45,9 +45,9 @@ import {
   Ec2InstanceConnectEndpoint,
   GatewayType,
   InstanceIpv6Address,
-  Ipam,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  NetworkAclAssociation,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
@@ -56,6 +56,234 @@ import {
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes the ICMP type and code.</p>
+ * @public
+ */
+export interface IcmpTypeCode {
+  /**
+   * <p>The ICMP code. A value of -1 means all codes for the specified ICMP type.</p>
+   * @public
+   */
+  Code?: number | undefined;
+
+  /**
+   * <p>The ICMP type. A value of -1 means all types.</p>
+   * @public
+   */
+  Type?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleAction = {
+  allow: "allow",
+  deny: "deny",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleAction = (typeof RuleAction)[keyof typeof RuleAction];
+
+/**
+ * <p>Describes an entry in a network ACL.</p>
+ * @public
+ */
+export interface NetworkAclEntry {
+  /**
+   * <p>The IPv4 network range to allow or deny, in CIDR notation.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>Indicates whether the rule is an egress rule (applied to traffic leaving the subnet).</p>
+   * @public
+   */
+  Egress?: boolean | undefined;
+
+  /**
+   * <p>ICMP protocol: The ICMP type and code.</p>
+   * @public
+   */
+  IcmpTypeCode?: IcmpTypeCode | undefined;
+
+  /**
+   * <p>The IPv6 network range to allow or deny, in CIDR notation.</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string | undefined;
+
+  /**
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.</p>
+   * @public
+   */
+  PortRange?: PortRange | undefined;
+
+  /**
+   * <p>The protocol number. A value of "-1" means all protocols.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
+   * @public
+   */
+  RuleAction?: RuleAction | undefined;
+
+  /**
+   * <p>The rule number for the entry. ACL entries are processed in ascending order by rule number.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+}
+
+/**
+ * <p>Describes a network ACL.</p>
+ * @public
+ */
+export interface NetworkAcl {
+  /**
+   * <p>Any associations between the network ACL and your subnets</p>
+   * @public
+   */
+  Associations?: NetworkAclAssociation[] | undefined;
+
+  /**
+   * <p>The entries (rules) in the network ACL.</p>
+   * @public
+   */
+  Entries?: NetworkAclEntry[] | undefined;
+
+  /**
+   * <p>Indicates whether this is the default network ACL for the VPC.</p>
+   * @public
+   */
+  IsDefault?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network ACL.</p>
+   * @public
+   */
+  NetworkAclId?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the network ACL.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the VPC for the network ACL.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the network ACL.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkAclResult {
+  /**
+   * <p>Information about the network ACL.</p>
+   * @public
+   */
+  NetworkAcl?: NetworkAcl | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkAclEntryRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network ACL.</p>
+   * @public
+   */
+  NetworkAclId: string | undefined;
+
+  /**
+   * <p>The rule number for the entry (for example, 100). ACL entries are processed in ascending order by rule number.</p>
+   *          <p>Constraints: Positive integer from 1 to 32766. The range 32767 to 65535 is reserved for internal use.</p>
+   * @public
+   */
+  RuleNumber: number | undefined;
+
+  /**
+   * <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a
+   *   			protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is
+   * 			allowed, regardless of any ports or ICMP types or codes that you specify. If you specify
+   * 			protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and
+   * 			codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6)
+   * 			and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+   * @public
+   */
+  Protocol: string | undefined;
+
+  /**
+   * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
+   * @public
+   */
+  RuleAction: RuleAction | undefined;
+
+  /**
+   * <p>Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet).</p>
+   * @public
+   */
+  Egress: boolean | undefined;
+
+  /**
+   * <p>The IPv4 network range to allow or deny, in CIDR notation (for example
+   * 		        <code>172.16.0.0/24</code>). We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   * @public
+   */
+  CidrBlock?: string | undefined;
+
+  /**
+   * <p>The IPv6 network range to allow or deny, in CIDR notation (for example
+   *                 <code>2001:db8:1234:1a00::/64</code>).</p>
+   * @public
+   */
+  Ipv6CidrBlock?: string | undefined;
+
+  /**
+   * <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol
+   * 		        1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+   * @public
+   */
+  IcmpTypeCode?: IcmpTypeCode | undefined;
+
+  /**
+   * <p>TCP or UDP protocols: The range of ports the rule applies to.
+   * 		        Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
+   * @public
+   */
+  PortRange?: PortRange | undefined;
+}
 
 /**
  * @public
@@ -9505,130 +9733,6 @@ export interface DeleteInstanceEventWindowRequest {
    * @public
    */
   InstanceEventWindowId: string | undefined;
-}
-
-/**
- * <p>The state of the event window.</p>
- * @public
- */
-export interface InstanceEventWindowStateChange {
-  /**
-   * <p>The ID of the event window.</p>
-   * @public
-   */
-  InstanceEventWindowId?: string | undefined;
-
-  /**
-   * <p>The current state of the event window.</p>
-   * @public
-   */
-  State?: InstanceEventWindowState | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceEventWindowResult {
-  /**
-   * <p>The state of the event window.</p>
-   * @public
-   */
-  InstanceEventWindowState?: InstanceEventWindowStateChange | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInternetGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the internet gateway.</p>
-   * @public
-   */
-  InternetGatewayId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM to delete.</p>
-   * @public
-   */
-  IpamId: string | undefined;
-
-  /**
-   * <p>Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and
-   *          any allocations in the pools in private scopes. You cannot delete the IPAM with this option if there is a pool in your public scope. If you use this option, IPAM does the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Deallocates any CIDRs allocated to VPC resources (such as VPCs) in pools in private scopes.</p>
-   *                <note>
-   *                   <p>No VPC resources are deleted as a result of enabling this option. The CIDR associated with the resource will no longer be allocated from an IPAM pool, but the CIDR itself will remain unchanged.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>Deprovisions all IPv4 CIDRs provisioned to IPAM pools in private scopes.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deletes all IPAM pools in private scopes.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deletes all non-default private scopes in the IPAM.</p>
-   *             </li>
-   *             <li>
-   *                <p>Deletes the default public and private scopes and the IPAM.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Cascade?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamResult {
-  /**
-   * <p>Information about the results of the deletion.</p>
-   * @public
-   */
-  Ipam?: Ipam | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteIpamExternalResourceVerificationTokenRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token ID.</p>
-   * @public
-   */
-  IpamExternalResourceVerificationTokenId: string | undefined;
 }
 
 /**

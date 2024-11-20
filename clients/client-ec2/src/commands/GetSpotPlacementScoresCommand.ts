@@ -69,7 +69,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *         Max: Number("int"),
  *       },
  *       CpuManufacturers: [ // CpuManufacturerSet
- *         "intel" || "amd" || "amazon-web-services",
+ *         "intel" || "amd" || "amazon-web-services" || "apple",
  *       ],
  *       MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *         Min: Number("double"),
@@ -127,6 +127,15 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *         "STRING_VALUE",
  *       ],
  *       MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *       BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *         Cpu: { // CpuPerformanceFactorRequest
+ *           References: [ // PerformanceFactorReferenceSetRequest
+ *             { // PerformanceFactorReferenceRequest
+ *               InstanceFamily: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   },
  *   DryRun: true || false,

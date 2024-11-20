@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExportImageRequest, ExportImageResult } from "../models/models_5";
+import { ExportImageRequest, ExportImageResult } from "../models/models_6";
 import { de_ExportImageCommand, se_ExportImageCommand } from "../protocols/Aws_ec2";
 
 /**

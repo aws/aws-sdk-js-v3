@@ -6,8 +6,10 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteIpamExternalResourceVerificationTokenRequest } from "../models/models_2";
-import { DeleteIpamExternalResourceVerificationTokenResult } from "../models/models_3";
+import {
+  DeleteIpamExternalResourceVerificationTokenRequest,
+  DeleteIpamExternalResourceVerificationTokenResult,
+} from "../models/models_3";
 import {
   de_DeleteIpamExternalResourceVerificationTokenCommand,
   se_DeleteIpamExternalResourceVerificationTokenCommand,

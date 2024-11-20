@@ -199,7 +199,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //       AmdSevSnp: "enabled" || "disabled",
  * //     },
  * //     CapacityReservationSpecification: { // LaunchTemplateCapacityReservationSpecificationResponse
- * //       CapacityReservationPreference: "open" || "none",
+ * //       CapacityReservationPreference: "capacity-reservations-only" || "open" || "none",
  * //       CapacityReservationTarget: { // CapacityReservationTargetResponse
  * //         CapacityReservationId: "STRING_VALUE",
  * //         CapacityReservationResourceGroupArn: "STRING_VALUE",
@@ -234,7 +234,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //         Max: Number("int"),
  * //       },
  * //       CpuManufacturers: [ // CpuManufacturerSet
- * //         "intel" || "amd" || "amazon-web-services",
+ * //         "intel" || "amd" || "amazon-web-services" || "apple",
  * //       ],
  * //       MemoryGiBPerVCpu: { // MemoryGiBPerVCpu
  * //         Min: Number("double"),
@@ -292,6 +292,15 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
  * //         "STRING_VALUE",
  * //       ],
  * //       MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ * //       BaselinePerformanceFactors: { // BaselinePerformanceFactors
+ * //         Cpu: { // CpuPerformanceFactor
+ * //           References: [ // PerformanceFactorReferenceSet
+ * //             { // PerformanceFactorReference
+ * //               InstanceFamily: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //     PrivateDnsNameOptions: { // LaunchTemplatePrivateDnsNameOptions
  * //       HostnameType: "ip-name" || "resource-name",

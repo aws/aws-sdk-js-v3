@@ -85,7 +85,7 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *               Max: Number("int"),
  *             },
  *             CpuManufacturers: [ // CpuManufacturerSet
- *               "intel" || "amd" || "amazon-web-services",
+ *               "intel" || "amd" || "amazon-web-services" || "apple",
  *             ],
  *             MemoryGiBPerVCpu: { // MemoryGiBPerVCpu
  *               Min: Number("double"),
@@ -143,6 +143,15 @@ export interface ModifySpotFleetRequestCommandOutput extends ModifySpotFleetRequ
  *               "STRING_VALUE",
  *             ],
  *             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *             BaselinePerformanceFactors: { // BaselinePerformanceFactors
+ *               Cpu: { // CpuPerformanceFactor
+ *                 References: [ // PerformanceFactorReferenceSet
+ *                   { // PerformanceFactorReference
+ *                     InstanceFamily: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *             },
  *           },
  *         },
  *       ],

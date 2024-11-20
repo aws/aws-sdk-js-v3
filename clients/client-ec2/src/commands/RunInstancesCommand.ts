@@ -187,7 +187,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *     AmdSevSnp: "enabled" || "disabled",
  *   },
  *   CapacityReservationSpecification: { // CapacityReservationSpecification
- *     CapacityReservationPreference: "open" || "none",
+ *     CapacityReservationPreference: "capacity-reservations-only" || "open" || "none",
  *     CapacityReservationTarget: { // CapacityReservationTarget
  *       CapacityReservationId: "STRING_VALUE",
  *       CapacityReservationResourceGroupArn: "STRING_VALUE",
@@ -454,7 +454,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  * //       },
  * //       CapacityReservationId: "STRING_VALUE",
  * //       CapacityReservationSpecification: { // CapacityReservationSpecificationResponse
- * //         CapacityReservationPreference: "open" || "none",
+ * //         CapacityReservationPreference: "capacity-reservations-only" || "open" || "none",
  * //         CapacityReservationTarget: { // CapacityReservationTargetResponse
  * //           CapacityReservationId: "STRING_VALUE",
  * //           CapacityReservationResourceGroupArn: "STRING_VALUE",

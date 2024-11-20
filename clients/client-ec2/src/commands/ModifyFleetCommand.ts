@@ -95,7 +95,7 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *               Max: Number("int"),
  *             },
  *             CpuManufacturers: [ // CpuManufacturerSet
- *               "intel" || "amd" || "amazon-web-services",
+ *               "intel" || "amd" || "amazon-web-services" || "apple",
  *             ],
  *             MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *               Min: Number("double"),
@@ -153,6 +153,15 @@ export interface ModifyFleetCommandOutput extends ModifyFleetResult, __MetadataB
  *               "STRING_VALUE",
  *             ],
  *             MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *             BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *               Cpu: { // CpuPerformanceFactorRequest
+ *                 References: [ // PerformanceFactorReferenceSetRequest
+ *                   { // PerformanceFactorReferenceRequest
+ *                     InstanceFamily: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *             },
  *           },
  *           ImageId: "STRING_VALUE",
  *         },

@@ -190,7 +190,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                 Max: Number("int"),
  * //               },
  * //               CpuManufacturers: [ // CpuManufacturerSet
- * //                 "intel" || "amd" || "amazon-web-services",
+ * //                 "intel" || "amd" || "amazon-web-services" || "apple",
  * //               ],
  * //               MemoryGiBPerVCpu: { // MemoryGiBPerVCpu
  * //                 Min: Number("double"),
@@ -248,6 +248,15 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                 "STRING_VALUE",
  * //               ],
  * //               MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ * //               BaselinePerformanceFactors: { // BaselinePerformanceFactors
+ * //                 Cpu: { // CpuPerformanceFactor
+ * //                   References: [ // PerformanceFactorReferenceSet
+ * //                     { // PerformanceFactorReference
+ * //                       InstanceFamily: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
  * //             },
  * //             SecurityGroups: [ // GroupIdentifierList
  * //               { // GroupIdentifier
@@ -282,7 +291,7 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                     Max: Number("int"),
  * //                   },
  * //                   CpuManufacturers: [
- * //                     "intel" || "amd" || "amazon-web-services",
+ * //                     "intel" || "amd" || "amazon-web-services" || "apple",
  * //                   ],
  * //                   MemoryGiBPerVCpu: {
  * //                     Min: Number("double"),
@@ -340,6 +349,15 @@ export interface DescribeSpotFleetRequestsCommandOutput extends DescribeSpotFlee
  * //                     "STRING_VALUE",
  * //                   ],
  * //                   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ * //                   BaselinePerformanceFactors: {
+ * //                     Cpu: {
+ * //                       References: [
+ * //                         {
+ * //                           InstanceFamily: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
  * //                 },
  * //               },
  * //             ],

@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ModifyTransitGatewayPrefixListReferenceRequest,
-  ModifyTransitGatewayPrefixListReferenceResult,
-} from "../models/models_6";
+import { ModifyTransitGatewayPrefixListReferenceRequest } from "../models/models_6";
+import { ModifyTransitGatewayPrefixListReferenceResult } from "../models/models_7";
 import {
   de_ModifyTransitGatewayPrefixListReferenceCommand,
   se_ModifyTransitGatewayPrefixListReferenceCommand,

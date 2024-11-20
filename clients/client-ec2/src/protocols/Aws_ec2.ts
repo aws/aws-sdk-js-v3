@@ -2457,6 +2457,8 @@ import {
   AttributeValue,
   BaselineEbsBandwidthMbps,
   BaselineEbsBandwidthMbpsRequest,
+  BaselinePerformanceFactors,
+  BaselinePerformanceFactorsRequest,
   BlockDeviceMapping,
   BlockPublicAccessStates,
   CapacityReservation,
@@ -2476,6 +2478,8 @@ import {
   ConnectionTrackingSpecification,
   ConnectionTrackingSpecificationRequest,
   CpuManufacturer,
+  CpuPerformanceFactor,
+  CpuPerformanceFactorRequest,
   CreateCapacityReservationBySplittingRequest,
   CreateCapacityReservationBySplittingResult,
   CreateCapacityReservationFleetRequest,
@@ -2546,9 +2550,7 @@ import {
   CreateManagedPrefixListResult,
   CreateNatGatewayRequest,
   CreateNatGatewayResult,
-  CreateNetworkAclEntryRequest,
   CreateNetworkAclRequest,
-  CreateNetworkAclResult,
   CreditSpecification,
   CreditSpecificationRequest,
   CustomerGateway,
@@ -2575,7 +2577,6 @@ import {
   FleetLaunchTemplateSpecificationRequest,
   FleetSpotCapacityRebalanceRequest,
   FleetSpotMaintenanceStrategiesRequest,
-  IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
   InstanceExportDetails,
   InstanceGeneration,
@@ -2651,9 +2652,7 @@ import {
   MemoryMiB,
   MemoryMiBRequest,
   NatGateway,
-  NetworkAcl,
   NetworkAclAssociation,
-  NetworkAclEntry,
   NetworkBandwidthGbps,
   NetworkBandwidthGbpsRequest,
   NetworkInterfaceCount,
@@ -2662,6 +2661,8 @@ import {
   OnDemandOptionsRequest,
   OperatorRequest,
   OperatorResponse,
+  PerformanceFactorReference,
+  PerformanceFactorReferenceRequest,
   Placement,
   PlacementResponse,
   PrivateDnsNameOptionsOnLaunch,
@@ -2691,6 +2692,8 @@ import {
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
   ConnectionTrackingConfiguration,
+  CreateNetworkAclEntryRequest,
+  CreateNetworkAclResult,
   CreateNetworkInsightsAccessScopeRequest,
   CreateNetworkInsightsAccessScopeResult,
   CreateNetworkInsightsPathRequest,
@@ -2817,22 +2820,19 @@ import {
   DeleteInstanceConnectEndpointRequest,
   DeleteInstanceConnectEndpointResult,
   DeleteInstanceEventWindowRequest,
-  DeleteInstanceEventWindowResult,
-  DeleteInternetGatewayRequest,
-  DeleteIpamExternalResourceVerificationTokenRequest,
-  DeleteIpamRequest,
-  DeleteIpamResult,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
   FilterPortRange,
   GroupIdentifier,
+  IcmpTypeCode,
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
-  InstanceEventWindowStateChange,
   InstanceSpecification,
   Ipv6PrefixSpecification,
   LastError,
+  NetworkAcl,
+  NetworkAclEntry,
   NetworkInsightsAccessScope,
   NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
@@ -2945,11 +2945,16 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteInstanceEventWindowResult,
+  DeleteInternetGatewayRequest,
+  DeleteIpamExternalResourceVerificationTokenRequest,
   DeleteIpamExternalResourceVerificationTokenResult,
   DeleteIpamPoolRequest,
   DeleteIpamPoolResult,
+  DeleteIpamRequest,
   DeleteIpamResourceDiscoveryRequest,
   DeleteIpamResourceDiscoveryResult,
+  DeleteIpamResult,
   DeleteIpamScopeRequest,
   DeleteIpamScopeResult,
   DeleteKeyPairRequest,
@@ -3146,9 +3151,6 @@ import {
   DescribeFpgaImagesRequest,
   DescribeFpgaImagesResult,
   DescribeHostReservationOfferingsRequest,
-  DescribeHostReservationOfferingsResult,
-  DescribeHostReservationsRequest,
-  DescribeHostReservationsResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -3172,12 +3174,11 @@ import {
   FpgaImageAttribute,
   FpgaImageState,
   HistoryRecordEntry,
-  HostOffering,
-  HostReservation,
   IdFormat,
   ImportInstanceTaskDetails,
   ImportInstanceVolumeDetailItem,
   ImportVolumeTaskDetails,
+  InstanceEventWindowStateChange,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
@@ -3202,6 +3203,9 @@ import {
   CapacityReservationSpecificationResponse,
   ConnectionTrackingSpecificationResponse,
   CpuOptions,
+  DescribeHostReservationOfferingsResult,
+  DescribeHostReservationsRequest,
+  DescribeHostReservationsResult,
   DescribeHostsRequest,
   DescribeHostsResult,
   DescribeIamInstanceProfileAssociationsRequest,
@@ -3330,10 +3334,6 @@ import {
   DescribeSecurityGroupReferencesResult,
   DescribeSecurityGroupRulesRequest,
   DescribeSecurityGroupRulesResult,
-  DescribeSecurityGroupsRequest,
-  DescribeSecurityGroupsResult,
-  DescribeSecurityGroupVpcAssociationsRequest,
-  DescribeSecurityGroupVpcAssociationsResult,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3353,7 +3353,9 @@ import {
   HibernationOptions,
   Host,
   HostInstance,
+  HostOffering,
   HostProperties,
+  HostReservation,
   Image,
   ImageAttribute,
   ImageMetadata,
@@ -3436,9 +3438,7 @@ import {
   ScheduledInstanceAvailability,
   ScheduledInstanceRecurrence,
   ScheduledInstanceRecurrenceRequest,
-  SecurityGroup,
   SecurityGroupReference,
-  SecurityGroupVpcAssociation,
   SlotDateTimeRangeRequest,
   SlotStartTimeRangeRequest,
   SnapshotDetail,
@@ -3455,6 +3455,10 @@ import {
   ClassicLoadBalancersConfig,
   ClientCertificateRevocationListStatus,
   CreateVolumePermission,
+  DescribeSecurityGroupsRequest,
+  DescribeSecurityGroupsResult,
+  DescribeSecurityGroupVpcAssociationsRequest,
+  DescribeSecurityGroupVpcAssociationsResult,
   DescribeSnapshotAttributeRequest,
   DescribeSnapshotAttributeResult,
   DescribeSnapshotsRequest,
@@ -3675,12 +3679,6 @@ import {
   ExportClientVpnClientCertificateRevocationListRequest,
   ExportClientVpnClientCertificateRevocationListResult,
   ExportClientVpnClientConfigurationRequest,
-  ExportClientVpnClientConfigurationResult,
-  ExportImageRequest,
-  ExportImageResult,
-  ExportTaskS3LocationRequest,
-  ExportTransitGatewayRoutesRequest,
-  ExportTransitGatewayRoutesResult,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
   HistoryRecord,
@@ -3692,6 +3690,8 @@ import {
   LoadBalancersConfig,
   PrivateDnsDetails,
   RunInstancesMonitoringEnabled,
+  SecurityGroup,
+  SecurityGroupVpcAssociation,
   ServiceDetail,
   SnapshotTierStatus,
   SpotCapacityRebalance,
@@ -3746,6 +3746,12 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  ExportClientVpnClientConfigurationResult,
+  ExportImageRequest,
+  ExportImageResult,
+  ExportTaskS3LocationRequest,
+  ExportTransitGatewayRoutesRequest,
+  ExportTransitGatewayRoutesResult,
   GetAssociatedEnclaveCertificateIamRolesRequest,
   GetAssociatedEnclaveCertificateIamRolesResult,
   GetAssociatedIpv6PoolCidrsRequest,
@@ -3968,14 +3974,8 @@ import {
   ModifyTrafficMirrorSessionResult,
   ModifyTransitGatewayOptions,
   ModifyTransitGatewayPrefixListReferenceRequest,
-  ModifyTransitGatewayPrefixListReferenceResult,
   ModifyTransitGatewayRequest,
   ModifyTransitGatewayResult,
-  ModifyTransitGatewayVpcAttachmentRequest,
-  ModifyTransitGatewayVpcAttachmentRequestOptions,
-  ModifyTransitGatewayVpcAttachmentResult,
-  ModifyVerifiedAccessEndpointEniOptions,
-  ModifyVerifiedAccessEndpointLoadBalancerOptions,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -4024,6 +4024,12 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyTransitGatewayPrefixListReferenceResult,
+  ModifyTransitGatewayVpcAttachmentRequest,
+  ModifyTransitGatewayVpcAttachmentRequestOptions,
+  ModifyTransitGatewayVpcAttachmentResult,
+  ModifyVerifiedAccessEndpointEniOptions,
+  ModifyVerifiedAccessEndpointLoadBalancerOptions,
   ModifyVerifiedAccessEndpointPolicyRequest,
   ModifyVerifiedAccessEndpointPolicyResult,
   ModifyVerifiedAccessEndpointRequest,
@@ -29473,6 +29479,39 @@ const se_BaselineEbsBandwidthMbpsRequest = (input: BaselineEbsBandwidthMbpsReque
 };
 
 /**
+ * serializeAws_ec2BaselinePerformanceFactors
+ */
+const se_BaselinePerformanceFactors = (input: BaselinePerformanceFactors, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Cp] != null) {
+    const memberEntries = se_CpuPerformanceFactor(input[_Cp], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Cpu.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2BaselinePerformanceFactorsRequest
+ */
+const se_BaselinePerformanceFactorsRequest = (
+  input: BaselinePerformanceFactorsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_Cp] != null) {
+    const memberEntries = se_CpuPerformanceFactorRequest(input[_Cp], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Cpu.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2BillingProductList
  */
 const se_BillingProductList = (input: string[], context: __SerdeContext): any => {
@@ -30327,6 +30366,36 @@ const se_CpuOptionsRequest = (input: CpuOptionsRequest, context: __SerdeContext)
   }
   if (input[_ASS] != null) {
     entries[_ASS] = input[_ASS];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CpuPerformanceFactor
+ */
+const se_CpuPerformanceFactor = (input: CpuPerformanceFactor, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_R] != null) {
+    const memberEntries = se_PerformanceFactorReferenceSet(input[_R], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ReferenceSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2CpuPerformanceFactorRequest
+ */
+const se_CpuPerformanceFactorRequest = (input: CpuPerformanceFactorRequest, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_R] != null) {
+    const memberEntries = se_PerformanceFactorReferenceSetRequest(input[_R], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Reference.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -32374,8 +32443,8 @@ const se_CreateTagsRequest = (input: CreateTagsRequest, context: __SerdeContext)
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
-  if (input[_R] != null) {
-    const memberEntries = se_ResourceIdList(input[_R], context);
+  if (input[_Re] != null) {
+    const memberEntries = se_ResourceIdList(input[_Re], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -33352,8 +33421,8 @@ const se_CreateVolumePermissionModifications = (
       entries[loc] = value;
     });
   }
-  if (input[_Re] != null) {
-    const memberEntries = se_CreateVolumePermissionList(input[_Re], context);
+  if (input[_Rem] != null) {
+    const memberEntries = se_CreateVolumePermissionList(input[_Rem], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -34647,8 +34716,8 @@ const se_DeleteTagsRequest = (input: DeleteTagsRequest, context: __SerdeContext)
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
-  if (input[_R] != null) {
-    const memberEntries = se_ResourceIdList(input[_R], context);
+  if (input[_Re] != null) {
+    const memberEntries = se_ResourceIdList(input[_Re], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceId.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -38111,8 +38180,8 @@ const se_DescribePrincipalIdFormatRequest = (input: DescribePrincipalIdFormatReq
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
-  if (input[_R] != null) {
-    const memberEntries = se_ResourceList(input[_R], context);
+  if (input[_Re] != null) {
+    const memberEntries = se_ResourceList(input[_Re], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Resource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -44624,6 +44693,13 @@ const se_InstanceRequirements = (input: InstanceRequirements, context: __SerdeCo
   if (input[_MSPAPOOODP] != null) {
     entries[_MSPAPOOODP] = input[_MSPAPOOODP];
   }
+  if (input[_BPF] != null) {
+    const memberEntries = se_BaselinePerformanceFactors(input[_BPF], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BaselinePerformanceFactors.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -44771,6 +44847,13 @@ const se_InstanceRequirementsRequest = (input: InstanceRequirementsRequest, cont
   }
   if (input[_MSPAPOOODP] != null) {
     entries[_MSPAPOOODP] = input[_MSPAPOOODP];
+  }
+  if (input[_BPF] != null) {
+    const memberEntries = se_BaselinePerformanceFactorsRequest(input[_BPF], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `BaselinePerformanceFactors.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -45310,8 +45393,8 @@ const se_LaunchPermissionModifications = (input: LaunchPermissionModifications, 
       entries[loc] = value;
     });
   }
-  if (input[_Re] != null) {
-    const memberEntries = se_LaunchPermissionList(input[_Re], context);
+  if (input[_Rem] != null) {
+    const memberEntries = se_LaunchPermissionList(input[_Rem], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -46177,8 +46260,8 @@ const se_LoadPermissionModifications = (input: LoadPermissionModifications, cont
       entries[loc] = value;
     });
   }
-  if (input[_Re] != null) {
-    const memberEntries = se_LoadPermissionListRequest(input[_Re], context);
+  if (input[_Rem] != null) {
+    const memberEntries = se_LoadPermissionListRequest(input[_Rem], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Remove.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -49492,6 +49575,72 @@ const se_PeeringConnectionOptionsRequest = (input: PeeringConnectionOptionsReque
 };
 
 /**
+ * serializeAws_ec2PerformanceFactorReference
+ */
+const se_PerformanceFactorReference = (input: PerformanceFactorReference, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IF] != null) {
+    entries[_IF] = input[_IF];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2PerformanceFactorReferenceRequest
+ */
+const se_PerformanceFactorReferenceRequest = (
+  input: PerformanceFactorReferenceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input[_IF] != null) {
+    entries[_IF] = input[_IF];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2PerformanceFactorReferenceSet
+ */
+const se_PerformanceFactorReferenceSet = (input: PerformanceFactorReference[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_PerformanceFactorReference(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_ec2PerformanceFactorReferenceSetRequest
+ */
+const se_PerformanceFactorReferenceSetRequest = (
+  input: PerformanceFactorReferenceRequest[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_PerformanceFactorReferenceRequest(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`Item.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_ec2Phase1DHGroupNumbersRequestList
  */
 const se_Phase1DHGroupNumbersRequestList = (
@@ -51859,8 +52008,8 @@ const se_ResourceList = (input: string[], context: __SerdeContext): any => {
  */
 const se_ResourceStatementRequest = (input: ResourceStatementRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_R] != null) {
-    const memberEntries = se_ValueStringList(input[_R], context);
+  if (input[_Re] != null) {
+    const memberEntries = se_ValueStringList(input[_Re], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Resource.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
@@ -57020,6 +57169,17 @@ const de_BaselineEbsBandwidthMbps = (output: any, context: __SerdeContext): Base
 };
 
 /**
+ * deserializeAws_ec2BaselinePerformanceFactors
+ */
+const de_BaselinePerformanceFactors = (output: any, context: __SerdeContext): BaselinePerformanceFactors => {
+  const contents: any = {};
+  if (output[_cp] != null) {
+    contents[_Cp] = de_CpuPerformanceFactor(output[_cp], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2BlockDeviceMapping
  */
 const de_BlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
@@ -58736,6 +58896,19 @@ const de_CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
   }
   if (output[_aSS] != null) {
     contents[_ASS] = __expectString(output[_aSS]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2CpuPerformanceFactor
+ */
+const de_CpuPerformanceFactor = (output: any, context: __SerdeContext): CpuPerformanceFactor => {
+  const contents: any = {};
+  if (output.referenceSet === "") {
+    contents[_R] = [];
+  } else if (output[_rS] != null && output[_rS][_i] != null) {
+    contents[_R] = de_PerformanceFactorReferenceSet(__getArrayIfSingleItem(output[_rS][_i]), context);
   }
   return contents;
 };
@@ -62107,8 +62280,8 @@ const de_DescribeInstancesResult = (output: any, context: __SerdeContext): Descr
   }
   if (output.reservationSet === "") {
     contents[_Rese] = [];
-  } else if (output[_rS] != null && output[_rS][_i] != null) {
-    contents[_Rese] = de_ReservationList(__getArrayIfSingleItem(output[_rS][_i]), context);
+  } else if (output[_rSe] != null && output[_rSe][_i] != null) {
+    contents[_Rese] = de_ReservationList(__getArrayIfSingleItem(output[_rSe][_i]), context);
   }
   return contents;
 };
@@ -66517,8 +66690,8 @@ const de_FleetSet = (output: any, context: __SerdeContext): FleetData[] => {
  */
 const de_FleetSpotCapacityRebalance = (output: any, context: __SerdeContext): FleetSpotCapacityRebalance => {
   const contents: any = {};
-  if (output[_rSe] != null) {
-    contents[_RS] = __expectString(output[_rSe]);
+  if (output[_rSep] != null) {
+    contents[_RS] = __expectString(output[_rSep]);
   }
   if (output[_tD] != null) {
     contents[_TDe] = __strictParseInt32(output[_tD]) as number;
@@ -70074,6 +70247,9 @@ const de_InstanceRequirements = (output: any, context: __SerdeContext): Instance
   }
   if (output[_mSPAPOOODP] != null) {
     contents[_MSPAPOOODP] = __strictParseInt32(output[_mSPAPOOODP]) as number;
+  }
+  if (output[_bPF] != null) {
+    contents[_BPF] = de_BaselinePerformanceFactors(output[_bPF], context);
   }
   return contents;
 };
@@ -75721,6 +75897,28 @@ const de_PeeringTgwInfo = (output: any, context: __SerdeContext): PeeringTgwInfo
 };
 
 /**
+ * deserializeAws_ec2PerformanceFactorReference
+ */
+const de_PerformanceFactorReference = (output: any, context: __SerdeContext): PerformanceFactorReference => {
+  const contents: any = {};
+  if (output[_iF] != null) {
+    contents[_IF] = __expectString(output[_iF]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2PerformanceFactorReferenceSet
+ */
+const de_PerformanceFactorReferenceSet = (output: any, context: __SerdeContext): PerformanceFactorReference[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PerformanceFactorReference(entry, context);
+    });
+};
+
+/**
  * deserializeAws_ec2Phase1DHGroupNumbersList
  */
 const de_Phase1DHGroupNumbersList = (output: any, context: __SerdeContext): Phase1DHGroupNumbersListValue[] => {
@@ -77561,9 +77759,9 @@ const de_ResetFpgaImageAttributeResult = (output: any, context: __SerdeContext):
 const de_ResourceStatement = (output: any, context: __SerdeContext): ResourceStatement => {
   const contents: any = {};
   if (output.resourceSet === "") {
-    contents[_R] = [];
+    contents[_Re] = [];
   } else if (output[_rSeso] != null && output[_rSeso][_i] != null) {
-    contents[_R] = de_ValueStringList(__getArrayIfSingleItem(output[_rSeso][_i]), context);
+    contents[_Re] = de_ValueStringList(__getArrayIfSingleItem(output[_rSeso][_i]), context);
   }
   if (output.resourceTypeSet === "") {
     contents[_RTeso] = [];
@@ -79213,8 +79411,8 @@ const de_snapshotTierStatusSet = (output: any, context: __SerdeContext): Snapsho
  */
 const de_SpotCapacityRebalance = (output: any, context: __SerdeContext): SpotCapacityRebalance => {
   const contents: any = {};
-  if (output[_rSe] != null) {
-    contents[_RS] = __expectString(output[_rSe]);
+  if (output[_rSep] != null) {
+    contents[_RS] = __expectString(output[_rSep]);
   }
   if (output[_tD] != null) {
     contents[_TDe] = __strictParseInt32(output[_tD]) as number;
@@ -84562,6 +84760,7 @@ const _BO = "BgpOptions";
 const _BOu = "BucketOwner";
 const _BP = "BurstablePerformance";
 const _BPAS = "BlockPublicAccessStates";
+const _BPF = "BaselinePerformanceFactors";
 const _BPS = "BurstablePerformanceSupported";
 const _BPi = "BillingProducts";
 const _BS = "BgpStatus";
@@ -84833,6 +85032,7 @@ const _Conf = "Configured";
 const _Conn = "Connections";
 const _Cor = "Cores";
 const _Cou = "Count";
+const _Cp = "Cpu";
 const _D = "Destination";
 const _DA = "DescribeAddresses";
 const _DAA = "DescribeAccountAttributes";
@@ -86266,7 +86466,7 @@ const _Prov = "Provisioned";
 const _Pu = "Public";
 const _Pur = "Purchase";
 const _Q = "Quantity";
-const _R = "Resources";
+const _R = "References";
 const _RA = "ReleaseAddress";
 const _RAA = "ResetAddressAttribute";
 const _RAG = "RevokeAllGroups";
@@ -86426,11 +86626,12 @@ const _RVT = "ReplaceVpnTunnel";
 const _RVe = "ReservationValue";
 const _RWS = "ReplayWindowSize";
 const _Ra = "Ramdisk";
-const _Re = "Remove";
+const _Re = "Resources";
 const _Rea = "Reason";
 const _Rec = "Recurrence";
 const _Reg = "Regions";
 const _Regi = "Region";
+const _Rem = "Remove";
 const _Req = "Requested";
 const _Res = "Resource";
 const _Rese = "Reservations";
@@ -87096,6 +87297,7 @@ const _bN = "bucketName";
 const _bO = "bucketOwner";
 const _bP = "burstablePerformance";
 const _bPAS = "blockPublicAccessStates";
+const _bPF = "baselinePerformanceFactors";
 const _bPS = "burstablePerformanceSupported";
 const _bS = "byoasnSet";
 const _bSg = "bgpStatus";
@@ -87238,6 +87440,7 @@ const _conf = "configured";
 const _cont = "context";
 const _cor = "cores";
 const _cou = "count";
+const _cp = "cpu";
 const _d = "destination";
 const _dA = "destinationArn";
 const _dAIT = "denyAllIgwTraffic";
@@ -88159,10 +88362,11 @@ const _rR = "resourceRegion";
 const _rRVT = "replaceRootVolumeTask";
 const _rRVTI = "replaceRootVolumeTaskId";
 const _rRVTS = "replaceRootVolumeTaskSet";
-const _rS = "reservationSet";
+const _rS = "referenceSet";
 const _rSGRS = "revokedSecurityGroupRuleSet";
 const _rST = "restoreStartTime";
-const _rSe = "replacementStrategy";
+const _rSe = "reservationSet";
+const _rSep = "replacementStrategy";
 const _rSes = "resourceStatement";
 const _rSeso = "resourceSet";
 const _rSo = "routeSet";

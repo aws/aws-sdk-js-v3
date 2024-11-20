@@ -71,7 +71,7 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *       Max: Number("int"),
  *     },
  *     CpuManufacturers: [ // CpuManufacturerSet
- *       "intel" || "amd" || "amazon-web-services",
+ *       "intel" || "amd" || "amazon-web-services" || "apple",
  *     ],
  *     MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *       Min: Number("double"),
@@ -129,6 +129,15 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *       "STRING_VALUE",
  *     ],
  *     MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *     BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *       Cpu: { // CpuPerformanceFactorRequest
+ *         References: [ // PerformanceFactorReferenceSetRequest
+ *           { // PerformanceFactorReferenceRequest
+ *             InstanceFamily: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",

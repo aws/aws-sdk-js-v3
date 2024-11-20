@@ -241,7 +241,7 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  * //           },
  * //           CapacityReservationId: "STRING_VALUE",
  * //           CapacityReservationSpecification: { // CapacityReservationSpecificationResponse
- * //             CapacityReservationPreference: "open" || "none",
+ * //             CapacityReservationPreference: "capacity-reservations-only" || "open" || "none",
  * //             CapacityReservationTarget: { // CapacityReservationTargetResponse
  * //               CapacityReservationId: "STRING_VALUE",
  * //               CapacityReservationResourceGroupArn: "STRING_VALUE",
