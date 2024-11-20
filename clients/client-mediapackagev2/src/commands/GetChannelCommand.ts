@@ -59,6 +59,12 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   InputSwitchConfiguration: { // InputSwitchConfiguration
+ * //     MQCSInputSwitching: true || false,
+ * //   },
+ * //   OutputHeaderConfiguration: { // OutputHeaderConfiguration
+ * //     PublishMQCS: true || false,
+ * //   },
  * // };
  *
  * ```

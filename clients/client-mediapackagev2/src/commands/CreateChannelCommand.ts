@@ -41,6 +41,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   ClientToken: "STRING_VALUE",
  *   InputType: "HLS" || "CMAF",
  *   Description: "STRING_VALUE",
+ *   InputSwitchConfiguration: { // InputSwitchConfiguration
+ *     MQCSInputSwitching: true || false,
+ *   },
+ *   OutputHeaderConfiguration: { // OutputHeaderConfiguration
+ *     PublishMQCS: true || false,
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -64,6 +70,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   InputSwitchConfiguration: { // InputSwitchConfiguration
+ * //     MQCSInputSwitching: true || false,
+ * //   },
+ * //   OutputHeaderConfiguration: { // OutputHeaderConfiguration
+ * //     PublishMQCS: true || false,
  * //   },
  * // };
  *

@@ -268,6 +268,8 @@ export const ValidationExceptionType = {
   NUM_MANIFESTS_LOW: "NUM_MANIFESTS_LOW",
   ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION:
     "ONLY_CMAF_INPUT_TYPE_ALLOW_FORCE_ENDPOINT_ERROR_CONFIGURATION",
+  ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_INPUT_SWITCHING",
+  ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION: "ONLY_CMAF_INPUT_TYPE_ALLOW_MQCS_OUTPUT_CONFIGURATION",
   PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES: "PERIOD_TRIGGERS_NONE_SPECIFIED_WITH_ADDITIONAL_VALUES",
   ROLE_ARN_INVALID_FORMAT: "ROLE_ARN_INVALID_FORMAT",
   ROLE_ARN_LENGTH_OUT_OF_RANGE: "ROLE_ARN_LENGTH_OUT_OF_RANGE",
@@ -449,6 +451,18 @@ export interface PutChannelPolicyRequest {
 export interface PutChannelPolicyResponse {}
 
 /**
+ * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.</p>
+ * @public
+ */
+export interface InputSwitchConfiguration {
+  /**
+   * <p>When true, AWS Elemental MediaPackage performs input switching based on the MQCS. Default is true. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  MQCSInputSwitching?: boolean | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -461,6 +475,18 @@ export const InputType = {
  * @public
  */
 export type InputType = (typeof InputType)[keyof typeof InputType];
+
+/**
+ * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
+ * @public
+ */
+export interface OutputHeaderConfiguration {
+  /**
+   * <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  PublishMQCS?: boolean | undefined;
+}
 
 /**
  * @public
@@ -506,6 +532,18 @@ export interface CreateChannelRequest {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 
   /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p>
@@ -612,6 +650,18 @@ export interface CreateChannelResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**
@@ -749,6 +799,18 @@ export interface GetChannelResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**
@@ -1201,8 +1263,7 @@ export interface CreateHlsManifestConfiguration {
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
@@ -1253,8 +1314,7 @@ export interface CreateLowLatencyHlsManifestConfiguration {
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
@@ -1825,8 +1885,7 @@ export interface GetHlsManifestConfiguration {
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
@@ -1883,8 +1942,7 @@ export interface GetLowLatencyHlsManifestConfiguration {
   /**
    * <p>Inserts EXT-X-PROGRAM-DATE-TIME tags in the output manifest at the interval that you specify. If you don't enter an interval,
    *          EXT-X-PROGRAM-DATE-TIME tags aren't included in the manifest.
-   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.
-   *          ID3Timed metadata messages generate every 5 seconds whenever the content is ingested.</p>
+   *          The tags sync the stream to the wall clock so that viewers can seek to a specific time in the playback timeline on the player.</p>
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    * @public
    */
@@ -2671,6 +2729,18 @@ export interface UpdateChannelRequest {
    * @public
    */
   Description?: string | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**
@@ -2747,6 +2817,18 @@ export interface UpdateChannelResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  InputSwitchConfiguration?: InputSwitchConfiguration | undefined;
+
+  /**
+   * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
+   * @public
+   */
+  OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 }
 
 /**

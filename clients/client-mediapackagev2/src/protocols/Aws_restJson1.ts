@@ -112,8 +112,10 @@ import {
   HarvestedManifests,
   HarvesterScheduleConfiguration,
   HarvestJob,
+  InputSwitchConfiguration,
   InternalServerException,
   OriginEndpointListConfiguration,
+  OutputHeaderConfiguration,
   ResourceNotFoundException,
   S3DestinationConfig,
   Scte,
@@ -170,7 +172,9 @@ export const se_CreateChannelCommand = async (
     take(input, {
       ChannelName: [],
       Description: [],
+      InputSwitchConfiguration: (_) => _json(_),
       InputType: [],
+      OutputHeaderConfiguration: (_) => _json(_),
       tags: [, (_) => _json(_), `Tags`],
     })
   );
@@ -670,6 +674,8 @@ export const se_UpdateChannelCommand = async (
   body = JSON.stringify(
     take(input, {
       Description: [],
+      InputSwitchConfiguration: (_) => _json(_),
+      OutputHeaderConfiguration: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -772,8 +778,10 @@ export const de_CreateChannelCommand = async (
     Description: __expectString,
     ETag: __expectString,
     IngestEndpoints: _json,
+    InputSwitchConfiguration: _json,
     InputType: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OutputHeaderConfiguration: _json,
     Tags: _json,
   });
   Object.assign(contents, doc);
@@ -986,8 +994,10 @@ export const de_GetChannelCommand = async (
     Description: __expectString,
     ETag: __expectString,
     IngestEndpoints: _json,
+    InputSwitchConfiguration: _json,
     InputType: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OutputHeaderConfiguration: _json,
     Tags: _json,
   });
   Object.assign(contents, doc);
@@ -1339,8 +1349,10 @@ export const de_UpdateChannelCommand = async (
     Description: __expectString,
     ETag: __expectString,
     IngestEndpoints: _json,
+    InputSwitchConfiguration: _json,
     InputType: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OutputHeaderConfiguration: _json,
     Tags: [, _json, `tags`],
   });
   Object.assign(contents, doc);
@@ -1730,6 +1742,10 @@ const se_HarvesterScheduleConfiguration = (input: HarvesterScheduleConfiguration
   });
 };
 
+// se_InputSwitchConfiguration omitted.
+
+// se_OutputHeaderConfiguration omitted.
+
 // se_S3DestinationConfig omitted.
 
 // se_Scte omitted.
@@ -1995,6 +2011,8 @@ const de_HarvestJobsList = (output: any, context: __SerdeContext): HarvestJob[] 
 
 // de_IngestEndpointList omitted.
 
+// de_InputSwitchConfiguration omitted.
+
 // de_ListDashManifestConfiguration omitted.
 
 // de_ListDashManifests omitted.
@@ -2038,6 +2056,8 @@ const de_OriginEndpointsList = (output: any, context: __SerdeContext): OriginEnd
     });
   return retVal;
 };
+
+// de_OutputHeaderConfiguration omitted.
 
 // de_S3DestinationConfig omitted.
 

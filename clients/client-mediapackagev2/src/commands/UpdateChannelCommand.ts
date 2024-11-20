@@ -41,6 +41,12 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   ChannelName: "STRING_VALUE", // required
  *   ETag: "STRING_VALUE",
  *   Description: "STRING_VALUE",
+ *   InputSwitchConfiguration: { // InputSwitchConfiguration
+ *     MQCSInputSwitching: true || false,
+ *   },
+ *   OutputHeaderConfiguration: { // OutputHeaderConfiguration
+ *     PublishMQCS: true || false,
+ *   },
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -61,6 +67,12 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   InputSwitchConfiguration: { // InputSwitchConfiguration
+ * //     MQCSInputSwitching: true || false,
+ * //   },
+ * //   OutputHeaderConfiguration: { // OutputHeaderConfiguration
+ * //     PublishMQCS: true || false,
  * //   },
  * // };
  *
