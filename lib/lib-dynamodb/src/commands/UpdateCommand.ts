@@ -24,7 +24,7 @@ export type UpdateCommandInput = Omit<
     | Record<
         string,
         Omit<AttributeValueUpdate, "Value"> & {
-          Value?: NativeAttributeValue;
+          Value?: NativeAttributeValue | undefined;
         }
       >
     | undefined;
@@ -32,7 +32,7 @@ export type UpdateCommandInput = Omit<
     | Record<
         string,
         Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-          Value?: NativeAttributeValue;
+          Value?: NativeAttributeValue | undefined;
           AttributeValueList?: NativeAttributeValue[] | undefined;
         }
       >
@@ -44,10 +44,12 @@ export type UpdateCommandInput = Omit<
  * @public
  */
 export type UpdateCommandOutput = Omit<__UpdateItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
-  Attributes?: Record<string, NativeAttributeValue>;
-  ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: Record<string, NativeAttributeValue>;
-  };
+  Attributes?: Record<string, NativeAttributeValue> | undefined;
+  ItemCollectionMetrics?:
+    | (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
+        ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+      })
+    | undefined;
 };
 
 /**

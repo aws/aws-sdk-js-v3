@@ -31,9 +31,11 @@ export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "Tran
  * @public
  */
 export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Responses"> & {
-  Responses?: (Omit<ItemResponse, "Item"> & {
-    Item?: Record<string, NativeAttributeValue>;
-  })[];
+  Responses?:
+    | (Omit<ItemResponse, "Item"> & {
+        Item?: Record<string, NativeAttributeValue> | undefined;
+      })[]
+    | undefined;
 };
 
 /**

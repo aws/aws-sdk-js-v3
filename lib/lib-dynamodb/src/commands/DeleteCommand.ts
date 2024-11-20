@@ -20,10 +20,10 @@ export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expecte
   Expected?:
     | Record<
         string,
-        | Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-            Value?: NativeAttributeValue;
-            AttributeValueList?: NativeAttributeValue[] | undefined;
-          }
+        Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
+          Value?: NativeAttributeValue | undefined;
+          AttributeValueList?: NativeAttributeValue[] | undefined;
+        }
       >
     | undefined;
   ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
@@ -33,10 +33,12 @@ export type DeleteCommandInput = Omit<__DeleteItemCommandInput, "Key" | "Expecte
  * @public
  */
 export type DeleteCommandOutput = Omit<__DeleteItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
-  Attributes?: Record<string, NativeAttributeValue>;
-  ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: Record<string, NativeAttributeValue>;
-  };
+  Attributes?: Record<string, NativeAttributeValue> | undefined;
+  ItemCollectionMetrics?:
+    | (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
+        ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+      })
+    | undefined;
 };
 
 /**

@@ -23,7 +23,7 @@ export type GetCommandInput = Omit<__GetItemCommandInput, "Key"> & {
  * @public
  */
 export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
-  Item?: Record<string, NativeAttributeValue>;
+  Item?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

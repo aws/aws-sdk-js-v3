@@ -43,8 +43,8 @@ export type QueryCommandInput = Omit<
  * @public
  */
 export type QueryCommandOutput = Omit<__QueryCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[];
-  LastEvaluatedKey?: Record<string, NativeAttributeValue>;
+  Items?: Record<string, NativeAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

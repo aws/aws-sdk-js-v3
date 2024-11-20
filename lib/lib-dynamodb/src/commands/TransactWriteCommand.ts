@@ -50,12 +50,14 @@ export type TransactWriteCommandInput = Omit<__TransactWriteItemsCommandInput, "
  * @public
  */
 export type TransactWriteCommandOutput = Omit<__TransactWriteItemsCommandOutput, "ItemCollectionMetrics"> & {
-  ItemCollectionMetrics?: Record<
-    string,
-    (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-      ItemCollectionKey?: Record<string, NativeAttributeValue>;
-    })[]
-  >;
+  ItemCollectionMetrics?:
+    | Record<
+        string,
+        (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
+          ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+        })[]
+      >
+    | undefined;
 };
 
 /**

@@ -42,23 +42,31 @@ export type BatchWriteCommandOutput = Omit<
   __BatchWriteItemCommandOutput,
   "UnprocessedItems" | "ItemCollectionMetrics"
 > & {
-  UnprocessedItems?: Record<
-    string,
-    (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
-      PutRequest?: Omit<PutRequest, "Item"> & {
-        Item: Record<string, NativeAttributeValue> | undefined;
-      };
-      DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-        Key: Record<string, NativeAttributeValue> | undefined;
-      };
-    })[]
-  >;
-  ItemCollectionMetrics?: Record<
-    string,
-    (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-      ItemCollectionKey?: Record<string, NativeAttributeValue>;
-    })[]
-  >;
+  UnprocessedItems?:
+    | Record<
+        string,
+        (Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
+          PutRequest?:
+            | (Omit<PutRequest, "Item"> & {
+                Item: Record<string, NativeAttributeValue> | undefined;
+              })
+            | undefined;
+          DeleteRequest?:
+            | (Omit<DeleteRequest, "Key"> & {
+                Key: Record<string, NativeAttributeValue> | undefined;
+              })
+            | undefined;
+        })[]
+      >
+    | undefined;
+  ItemCollectionMetrics?:
+    | Record<
+        string,
+        (Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
+          ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+        })[]
+      >
+    | undefined;
 };
 
 /**

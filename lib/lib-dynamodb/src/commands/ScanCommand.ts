@@ -35,8 +35,8 @@ export type ScanCommandInput = Omit<
  * @public
  */
 export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[];
-  LastEvaluatedKey?: Record<string, NativeAttributeValue>;
+  Items?: Record<string, NativeAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

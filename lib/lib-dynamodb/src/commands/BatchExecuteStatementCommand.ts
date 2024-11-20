@@ -27,12 +27,16 @@ export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementComm
  * @public
  */
 export type BatchExecuteStatementCommandOutput = Omit<__BatchExecuteStatementCommandOutput, "Responses"> & {
-  Responses?: (Omit<BatchStatementResponse, "Error" | "Item"> & {
-    Error?: Omit<BatchStatementError, "Item"> & {
-      Item?: Record<string, NativeAttributeValue>;
-    };
-    Item?: Record<string, NativeAttributeValue>;
-  })[];
+  Responses?:
+    | (Omit<BatchStatementResponse, "Error" | "Item"> & {
+        Error?:
+          | (Omit<BatchStatementError, "Item"> & {
+              Item?: Record<string, NativeAttributeValue> | undefined;
+            })
+          | undefined;
+        Item?: Record<string, NativeAttributeValue> | undefined;
+      })[]
+    | undefined;
 };
 
 /**
