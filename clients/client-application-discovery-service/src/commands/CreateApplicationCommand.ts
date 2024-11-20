@@ -42,6 +42,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * const input = { // CreateApplicationRequest
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   wave: "STRING_VALUE",
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);

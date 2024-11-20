@@ -43,6 +43,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *   configurationId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   wave: "STRING_VALUE",
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

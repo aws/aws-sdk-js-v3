@@ -442,16 +442,22 @@ export interface BatchDeleteImportDataResponse {
  */
 export interface CreateApplicationRequest {
   /**
-   * <p>Name of the application to be created.</p>
+   * <p>The name of the application to be created.</p>
    * @public
    */
   name: string | undefined;
 
   /**
-   * <p>Description of the application to be created.</p>
+   * <p>The description of the application to be created.</p>
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The name of the migration wave of the application to be created.</p>
+   * @public
+   */
+  wave?: string | undefined;
 }
 
 /**
@@ -459,7 +465,7 @@ export interface CreateApplicationRequest {
  */
 export interface CreateApplicationResponse {
   /**
-   * <p>Configuration ID of an application to be created.</p>
+   * <p>The configuration ID of an application to be created.</p>
    * @public
    */
   configurationId?: string | undefined;
@@ -1374,6 +1380,7 @@ export interface DescribeExportTasksResponse {
  * @enum
  */
 export const ImportTaskFilterName = {
+  FILE_CLASSIFICATION: "FILE_CLASSIFICATION",
   IMPORT_TASK_ID: "IMPORT_TASK_ID",
   NAME: "NAME",
   STATUS: "STATUS",
@@ -1436,6 +1443,22 @@ export interface DescribeImportTasksRequest {
  * @public
  * @enum
  */
+export const FileClassification = {
+  IMPORT_TEMPLATE: "IMPORT_TEMPLATE",
+  MODELIZEIT_EXPORT: "MODELIZEIT_EXPORT",
+  RVTOOLS_EXPORT: "RVTOOLS_EXPORT",
+  VMWARE_NSX_EXPORT: "VMWARE_NSX_EXPORT",
+} as const;
+
+/**
+ * @public
+ */
+export type FileClassification = (typeof FileClassification)[keyof typeof FileClassification];
+
+/**
+ * @public
+ * @enum
+ */
 export const ImportStatus = {
   DELETE_COMPLETE: "DELETE_COMPLETE",
   DELETE_FAILED: "DELETE_FAILED",
@@ -1446,6 +1469,7 @@ export const ImportStatus = {
   IMPORT_FAILED: "IMPORT_FAILED",
   IMPORT_FAILED_RECORD_LIMIT_EXCEEDED: "IMPORT_FAILED_RECORD_LIMIT_EXCEEDED",
   IMPORT_FAILED_SERVER_LIMIT_EXCEEDED: "IMPORT_FAILED_SERVER_LIMIT_EXCEEDED",
+  IMPORT_FAILED_UNSUPPORTED_FILE_TYPE: "IMPORT_FAILED_UNSUPPORTED_FILE_TYPE",
   IMPORT_IN_PROGRESS: "IMPORT_IN_PROGRESS",
   INTERNAL_ERROR: "INTERNAL_ERROR",
 } as const;
@@ -1520,6 +1544,12 @@ export interface ImportTask {
    * @public
    */
   importDeletedTime?: Date | undefined;
+
+  /**
+   * <p>The type of file detected by the import task.</p>
+   * @public
+   */
+  fileClassification?: FileClassification | undefined;
 
   /**
    * <p>The total number of server records in the import file that were successfully
@@ -2794,6 +2824,12 @@ export interface UpdateApplicationRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>The new migration wave of the application that you want to update.</p>
+   * @public
+   */
+  wave?: string | undefined;
 }
 
 /**

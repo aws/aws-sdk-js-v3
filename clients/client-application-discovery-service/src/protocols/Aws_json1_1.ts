@@ -1717,6 +1717,7 @@ const de_ImportTask = (output: any, context: __SerdeContext): ImportTask => {
     applicationImportSuccess: __expectInt32,
     clientRequestToken: __expectString,
     errorsAndFailedEntriesZip: __expectString,
+    fileClassification: __expectString,
     importCompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     importDeletedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     importRequestTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

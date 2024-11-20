@@ -77,6 +77,9 @@ export interface StartBatchDeleteConfigurationTaskCommandOutput
  * @throws {@link HomeRegionNotSetException} (client fault)
  *  <p>The home Region is not set. Set the home Region to continue.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
