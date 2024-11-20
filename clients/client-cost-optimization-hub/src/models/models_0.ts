@@ -73,6 +73,7 @@ export interface AccountEnrollmentStatus {
  * @enum
  */
 export const ActionType = {
+  DELETE: "Delete",
   MIGRATE_TO_GRAVITON: "MigrateToGraviton",
   PURCHASE_RESERVED_INSTANCES: "PurchaseReservedInstances",
   PURCHASE_SAVINGS_PLANS: "PurchaseSavingsPlans",

@@ -67,7 +67,7 @@ export interface GetRecommendationCommandOutput extends GetRecommendationRespons
  * //   estimatedMonthlyCost: Number("double"),
  * //   implementationEffort: "VeryLow" || "Low" || "Medium" || "High" || "VeryHigh",
  * //   restartNeeded: true || false,
- * //   actionType: "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton",
+ * //   actionType: "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton" || "Delete",
  * //   rollbackPossible: true || false,
  * //   currentResourceDetails: { // ResourceDetails Union: only one key present
  * //     lambdaFunction: { // LambdaFunction
