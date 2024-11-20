@@ -40,7 +40,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *                </li>
  *                <li>
  *                   <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles
- *                   because <code>WSP</code> is the default protocol for those bundles.</p>
+ *                   because <code>DCV</code> (formerly WSP) is the default protocol for those bundles.</p>
  *                </li>
  *                <li>
  *                   <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces
@@ -79,7 +79,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *         Protocols: [ // ProtocolList
  *           "PCOIP" || "WSP",
  *         ],
- *         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ *         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
  *       },
  *       Tags: [ // TagList
  *         { // Tag
@@ -112,7 +112,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //           Protocols: [ // ProtocolList
  * //             "PCOIP" || "WSP",
  * //           ],
- * //           OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ * //           OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
  * //         },
  * //         Tags: [ // TagList
  * //           { // Tag
@@ -151,7 +151,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //         Protocols: [
  * //           "PCOIP" || "WSP",
  * //         ],
- * //         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ * //         OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
  * //       },
  * //       ModificationStates: [ // ModificationStateList
  * //         { // ModificationState

@@ -54,7 +54,7 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  *     Protocols: [ // ProtocolList
  *       "PCOIP" || "WSP",
  *     ],
- *     OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8",
+ *     OperatingSystemName: "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
  *   },
  *   DataReplication: "NO_REPLICATION" || "PRIMARY_AS_SOURCE",
  * };
