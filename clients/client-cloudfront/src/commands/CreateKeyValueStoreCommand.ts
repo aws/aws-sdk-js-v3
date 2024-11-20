@@ -70,14 +70,14 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The key value store entity already exists. You must provide a unique key value store
+ *  <p>The entity already exists. You must provide a unique
  * 			entity.</p>
  *
  * @throws {@link EntityLimitExceeded} (client fault)
- *  <p>The key value store entity limit has been exceeded.</p>
+ *  <p>The entity limit has been exceeded.</p>
  *
  * @throws {@link EntitySizeLimitExceeded} (client fault)
- *  <p>The key value store entity size limit was exceeded.</p>
+ *  <p>The entity size limit was exceeded.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>

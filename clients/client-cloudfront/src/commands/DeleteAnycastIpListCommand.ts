@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteKeyValueStoreRequest } from "../models/models_1";
-import { de_DeleteKeyValueStoreCommand, se_DeleteKeyValueStoreCommand } from "../protocols/Aws_restXml";
+import { DeleteAnycastIpListRequest } from "../models/models_1";
+import { de_DeleteAnycastIpListCommand, se_DeleteAnycastIpListCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -17,38 +17,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteKeyValueStoreCommand}.
+ * The input for {@link DeleteAnycastIpListCommand}.
  */
-export interface DeleteKeyValueStoreCommandInput extends DeleteKeyValueStoreRequest {}
+export interface DeleteAnycastIpListCommandInput extends DeleteAnycastIpListRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteKeyValueStoreCommand}.
+ * The output of {@link DeleteAnycastIpListCommand}.
  */
-export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
+export interface DeleteAnycastIpListCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Specifies the key value store to delete.</p>
+ * <p>Deletes an Anycast static IP list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, DeleteKeyValueStoreCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, DeleteKeyValueStoreCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeleteAnycastIpListCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, DeleteAnycastIpListCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = { // DeleteKeyValueStoreRequest
- *   Name: "STRING_VALUE", // required
+ * const input = { // DeleteAnycastIpListRequest
+ *   Id: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE", // required
  * };
- * const command = new DeleteKeyValueStoreCommand(input);
+ * const command = new DeleteAnycastIpListCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteKeyValueStoreCommandInput - {@link DeleteKeyValueStoreCommandInput}
- * @returns {@link DeleteKeyValueStoreCommandOutput}
- * @see {@link DeleteKeyValueStoreCommandInput} for command's `input` shape.
- * @see {@link DeleteKeyValueStoreCommandOutput} for command's `response` shape.
+ * @param DeleteAnycastIpListCommandInput - {@link DeleteAnycastIpListCommandInput}
+ * @returns {@link DeleteAnycastIpListCommandOutput}
+ * @see {@link DeleteAnycastIpListCommandInput} for command's `input` shape.
+ * @see {@link DeleteAnycastIpListCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link AccessDenied} (client fault)
@@ -59,6 +59,12 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link EntityNotFound} (client fault)
  *  <p>The entity was not found.</p>
+ *
+ * @throws {@link IllegalDelete} (client fault)
+ *  <p>Deletion is not allowed for this entity.</p>
+ *
+ * @throws {@link InvalidArgument} (client fault)
+ *  <p>An argument is invalid.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
@@ -74,23 +80,11 @@ export interface DeleteKeyValueStoreCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  * @public
- * @example To delete a KeyValueStore
- * ```javascript
- * // Use the following command to delete a KeyValueStore.
- * const input = {
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-keyvaluestore-name"
- * };
- * const command = new DeleteKeyValueStoreCommand(input);
- * await client.send(command);
- * // example id: example-1
- * ```
- *
  */
-export class DeleteKeyValueStoreCommand extends $Command
+export class DeleteAnycastIpListCommand extends $Command
   .classBuilder<
-    DeleteKeyValueStoreCommandInput,
-    DeleteKeyValueStoreCommandOutput,
+    DeleteAnycastIpListCommandInput,
+    DeleteAnycastIpListCommandOutput,
     CloudFrontClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,21 +96,21 @@ export class DeleteKeyValueStoreCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Cloudfront2020_05_31", "DeleteKeyValueStore", {})
-  .n("CloudFrontClient", "DeleteKeyValueStoreCommand")
+  .s("Cloudfront2020_05_31", "DeleteAnycastIpList", {})
+  .n("CloudFrontClient", "DeleteAnycastIpListCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteKeyValueStoreCommand)
-  .de(de_DeleteKeyValueStoreCommand)
+  .ser(se_DeleteAnycastIpListCommand)
+  .de(de_DeleteAnycastIpListCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteKeyValueStoreRequest;
+      input: DeleteAnycastIpListRequest;
       output: {};
     };
     sdk: {
-      input: DeleteKeyValueStoreCommandInput;
-      output: DeleteKeyValueStoreCommandOutput;
+      input: DeleteAnycastIpListCommandInput;
+      output: DeleteAnycastIpListCommandOutput;
     };
   };
 }

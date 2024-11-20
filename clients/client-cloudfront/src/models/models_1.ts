@@ -7,6 +7,8 @@ import {
   ActiveTrustedSigners,
   Aliases,
   AliasICPRecordal,
+  AnycastIpList,
+  AnycastIpListCollection,
   CacheBehaviors,
   CachePolicy,
   CachePolicyConfig,
@@ -44,24 +46,258 @@ import {
   OriginAccessControlSigningBehaviors,
   OriginAccessControlSigningProtocols,
   OriginGroups,
+  OriginProtocolPolicy,
   OriginRequestPolicy,
   OriginRequestPolicyConfig,
   Origins,
+  OriginSslProtocols,
   PriceClass,
   PublicKey,
   PublicKeyConfig,
   QueryArgProfileConfig,
   RealtimeLogConfig,
-  ResponseHeadersPolicyContentSecurityPolicy,
-  ResponseHeadersPolicyContentTypeOptions,
-  ResponseHeadersPolicyCorsConfig,
-  ResponseHeadersPolicyCustomHeadersConfig,
-  ResponseHeadersPolicyRemoveHeadersConfig,
+  ResponseHeadersPolicyAccessControlAllowHeaders,
+  ResponseHeadersPolicyAccessControlAllowMethods,
   Restrictions,
   Tags,
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
+
+/**
+ * <p>A list of origins (domain names) that CloudFront can use as the value for the
+ * 				<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyAccessControlAllowOrigins {
+  /**
+   * <p>The number of origins in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of origins (domain names). You can specify <code>*</code> to allow all
+   * 			origins.</p>
+   * @public
+   */
+  Items: string[] | undefined;
+}
+
+/**
+ * <p>A list of HTTP headers that CloudFront includes as values for the
+ * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
+ * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyAccessControlExposeHeaders {
+  /**
+   * <p>The number of HTTP headers in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP headers. You can specify <code>*</code> to expose all headers.</p>
+   * @public
+   */
+  Items?: string[] | undefined;
+}
+
+/**
+ * <p>A configuration for a set of HTTP response headers that are used for cross-origin
+ * 			resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for
+ * 			CORS requests that match a cache behavior associated with this response headers
+ * 			policy.</p>
+ *          <p>For more information about CORS, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource
+ * 				Sharing (CORS)</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyCorsConfig {
+  /**
+   * <p>A list of origins (domain names) that CloudFront can use as the value for the
+   * 				<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOrigins | undefined;
+
+  /**
+   * <p>A list of HTTP header names that CloudFront includes as values for the
+   * 				<code>Access-Control-Allow-Headers</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Headers</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers">Access-Control-Allow-Headers</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeaders | undefined;
+
+  /**
+   * <p>A list of HTTP methods that CloudFront includes as values for the
+   * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethods | undefined;
+
+  /**
+   * <p>A Boolean that CloudFront uses as the value for the
+   * 				<code>Access-Control-Allow-Credentials</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Allow-Credentials</code> HTTP
+   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials">Access-Control-Allow-Credentials</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlAllowCredentials: boolean | undefined;
+
+  /**
+   * <p>A list of HTTP headers that CloudFront includes as values for the
+   * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
+   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlExposeHeaders?: ResponseHeadersPolicyAccessControlExposeHeaders | undefined;
+
+  /**
+   * <p>A number that CloudFront uses as the value for the <code>Access-Control-Max-Age</code> HTTP
+   * 			response header.</p>
+   *          <p>For more information about the <code>Access-Control-Max-Age</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age">Access-Control-Max-Age</a> in the MDN Web Docs.</p>
+   * @public
+   */
+  AccessControlMaxAgeSec?: number | undefined;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides HTTP response headers received from
+   * 			the origin with the ones specified in this response headers policy.</p>
+   * @public
+   */
+  OriginOverride: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP response header name and its value. CloudFront includes this header in HTTP
+ * 			responses that it sends for requests that match a cache behavior that's associated with
+ * 			this response headers policy.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyCustomHeader {
+  /**
+   * <p>The HTTP response header name.</p>
+   * @public
+   */
+  Header: string | undefined;
+
+  /**
+   * <p>The value for the HTTP response header.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides a response header with the same name
+   * 			received from the origin with the header specified here.</p>
+   * @public
+   */
+  Override: boolean | undefined;
+}
+
+/**
+ * <p>A list of HTTP response header names and their values. CloudFront includes these headers in
+ * 			HTTP responses that it sends for requests that match a cache behavior that's associated
+ * 			with this response headers policy.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyCustomHeadersConfig {
+  /**
+   * <p>The number of HTTP response headers in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP response headers and their values.</p>
+   * @public
+   */
+  Items?: ResponseHeadersPolicyCustomHeader[] | undefined;
+}
+
+/**
+ * <p>The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the
+ * 			cache behavior that this response headers policy is attached to.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyRemoveHeader {
+  /**
+   * <p>The HTTP header name.</p>
+   * @public
+   */
+  Header: string | undefined;
+}
+
+/**
+ * <p>A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the
+ * 			cache behavior that this response headers policy is attached to.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyRemoveHeadersConfig {
+  /**
+   * <p>The number of HTTP header names in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP header names.</p>
+   * @public
+   */
+  Items?: ResponseHeadersPolicyRemoveHeader[] | undefined;
+}
+
+/**
+ * <p>The policy directives and their values that CloudFront includes as values for the
+ * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Content-Security-Policy</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyContentSecurityPolicy {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the
+   * 				<code>Content-Security-Policy</code> HTTP response header received from the origin
+   * 			with the one specified in this response headers policy.</p>
+   * @public
+   */
+  Override: boolean | undefined;
+
+  /**
+   * <p>The policy directives and their values that CloudFront includes as values for the
+   * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+   * @public
+   */
+  ContentSecurityPolicy: string | undefined;
+}
+
+/**
+ * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
+ * 			header with its value set to <code>nosniff</code>.</p>
+ *          <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyContentTypeOptions {
+  /**
+   * <p>A Boolean that determines whether CloudFront overrides the
+   * 				<code>X-Content-Type-Options</code> HTTP response header received from the origin
+   * 			with the one specified in this response headers policy.</p>
+   * @public
+   */
+  Override: boolean | undefined;
+}
 
 /**
  * @public
@@ -636,7 +872,7 @@ export interface StreamingLoggingConfig {
 
   /**
    * <p>The Amazon S3 bucket to store the access logs in, for example,
-   * 				<code>myawslogbucket.s3.amazonaws.com</code>.</p>
+   * 				<code>amzn-s3-demo-bucket.s3.amazonaws.com</code>.</p>
    * @public
    */
   Bucket: string | undefined;
@@ -977,28 +1213,150 @@ export interface CreateStreamingDistributionWithTagsResult {
 }
 
 /**
+ * <p>An Amazon CloudFront VPC origin endpoint configuration.</p>
  * @public
  */
-export interface DeleteCachePolicyRequest {
+export interface VpcOriginEndpointConfig {
   /**
-   * <p>The unique identifier for the cache policy that you are deleting. To get the
-   * 			identifier, you can use <code>ListCachePolicies</code>.</p>
+   * <p>The name of the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ARN of the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The HTTP port for the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  HTTPPort: number | undefined;
+
+  /**
+   * <p>The HTTPS port of the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  HTTPSPort: number | undefined;
+
+  /**
+   * <p>The origin protocol policy for the CloudFront VPC origin endpoint configuration.</p>
+   * @public
+   */
+  OriginProtocolPolicy: OriginProtocolPolicy | undefined;
+
+  /**
+   * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
+   * 			when establishing an HTTPS connection with your origin.</p>
+   * @public
+   */
+  OriginSslProtocols?: OriginSslProtocols | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateVpcOriginRequest {
+  /**
+   * <p>The VPC origin endpoint configuration.</p>
+   * @public
+   */
+  VpcOriginEndpointConfig: VpcOriginEndpointConfig | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+}
+
+/**
+ * <p>An Amazon CloudFront VPC origin.</p>
+ * @public
+ */
+export interface VpcOrigin {
+  /**
+   * <p>The VPC origin ID.</p>
    * @public
    */
   Id: string | undefined;
 
   /**
-   * <p>The version of the cache policy that you are deleting. The version is the cache
-   * 			policy's <code>ETag</code> value, which you can get using
-   * 			<code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or
-   * 				<code>GetCachePolicyConfig</code>.</p>
+   * <p>The VPC origin ARN.</p>
    * @public
    */
-  IfMatch?: string | undefined;
+  Arn: string | undefined;
+
+  /**
+   * <p>The VPC origin status.</p>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The VPC origin created time.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin last modified time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin endpoint configuration.</p>
+   * @public
+   */
+  VpcOriginEndpointConfig: VpcOriginEndpointConfig | undefined;
 }
 
 /**
- * <p>You cannot delete a managed policy.</p>
+ * @public
+ */
+export interface CreateVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin location.</p>
+   * @public
+   */
+  Location?: string | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAnycastIpListRequest {
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the Anycast static IP list that
+   * 			you are deleting.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * <p>Deletion is not allowed for this entity.</p>
  * @public
  */
 export class IllegalDelete extends __BaseException {
@@ -1017,6 +1375,27 @@ export class IllegalDelete extends __BaseException {
     Object.setPrototypeOf(this, IllegalDelete.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface DeleteCachePolicyRequest {
+  /**
+   * <p>The unique identifier for the cache policy that you are deleting. To get the
+   * 			identifier, you can use <code>ListCachePolicies</code>.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The version of the cache policy that you are deleting. The version is the cache
+   * 			policy's <code>ETag</code> value, which you can get using
+   * 			<code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or
+   * 				<code>GetCachePolicyConfig</code>.</p>
+   * @public
+   */
+  IfMatch?: string | undefined;
 }
 
 /**
@@ -1415,28 +1794,6 @@ export interface DeleteKeyValueStoreRequest {
 }
 
 /**
- * <p>The key value store entity was not found.</p>
- * @public
- */
-export class EntityNotFound extends __BaseException {
-  readonly name: "EntityNotFound" = "EntityNotFound";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityNotFound, __BaseException>) {
-    super({
-      name: "EntityNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityNotFound.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface DeleteMonitoringSubscriptionRequest {
@@ -1773,6 +2130,40 @@ export class StreamingDistributionNotDisabled extends __BaseException {
 /**
  * @public
  */
+export interface DeleteVpcOriginRequest {
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The VPC origin to delete, if a match occurs.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeFunctionRequest {
   /**
    * <p>The name of the function that you are getting information about.</p>
@@ -1827,6 +2218,34 @@ export interface DescribeKeyValueStoreResult {
 
   /**
    * <p>The <code>ETag</code> of the resulting key value store.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnycastIpListRequest {
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnycastIpListResult {
+  /**
+   * <p>The Anycast static IP list details.</p>
+   * @public
+   */
+  AnycastIpList?: AnycastIpList | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the Anycast static IP list.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -2708,6 +3127,65 @@ export interface GetStreamingDistributionConfigResult {
 /**
  * @public
  */
+export interface GetVpcOriginRequest {
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnycastIpListsRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur
+   * 			after the marker. To get the next page of the list, set this field's value to the value
+   * 			of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of Anycast static IP lists that you want returned in the
+   * 			response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnycastIpListsResult {
+  /**
+   * <p>Root level tag for the <code>AnycastIpLists</code> parameters.</p>
+   * @public
+   */
+  AnycastIpLists?: AnycastIpListCollection | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListCachePoliciesRequest {
   /**
    * <p>A filter to return only the specified kinds of cache policies. Valid values
@@ -3235,6 +3713,12 @@ export interface DistributionSummary {
    * @public
    */
   Staging: boolean | undefined;
+
+  /**
+   * <p>ID of the Anycast static IP list that is associated with the distribution.</p>
+   * @public
+   */
+  AnycastIpListId?: string | undefined;
 }
 
 /**
@@ -3292,6 +3776,43 @@ export interface DistributionList {
 export interface ListDistributionsResult {
   /**
    * <p>The <code>DistributionList</code> type.</p>
+   * @public
+   */
+  DistributionList?: DistributionList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByAnycastIpListIdRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur
+   * 			after the marker. To get the next page of the list, set this field's value to the value
+   * 			of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of distributions that you want returned in the
+   * 			response.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  AnycastIpListId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByAnycastIpListIdResult {
+  /**
+   * <p>A distribution list.</p>
    * @public
    */
   DistributionList?: DistributionList | undefined;
@@ -3530,6 +4051,40 @@ export interface ListDistributionsByResponseHeadersPolicyIdRequest {
  * @public
  */
 export interface ListDistributionsByResponseHeadersPolicyIdResult {
+  /**
+   * <p>A list of distribution IDs.</p>
+   * @public
+   */
+  DistributionIdList?: DistributionIdList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByVpcOriginIdRequest {
+  /**
+   * <p>The marker associated with the VPC origin distributions list.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of items included in the list.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  VpcOriginId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDistributionsByVpcOriginIdResult {
   /**
    * <p>A list of distribution IDs.</p>
    * @public
@@ -4866,6 +5421,127 @@ export interface ListTagsForResourceResult {
 /**
  * @public
  */
+export interface ListVpcOriginsRequest {
+  /**
+   * <p>The marker associated with the VPC origins list.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of items included in the list.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>A summary of the CloudFront VPC origin.</p>
+ * @public
+ */
+export interface VpcOriginSummary {
+  /**
+   * <p>The VPC origin summary ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The VPC origin summary name.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The VPC origin summary status.</p>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The VPC origin summary created time.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin summary last modified time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The VPC origin summary ARN.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The VPC origin summary origin endpoint ARN.</p>
+   * @public
+   */
+  OriginEndpointArn: string | undefined;
+}
+
+/**
+ * <p>A list of CloudFront VPC origins.</p>
+ * @public
+ */
+export interface VpcOriginList {
+  /**
+   * <p>The marker associated with the VPC origins list.</p>
+   * @public
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>The next marker associated with the VPC origins list.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The maximum number of items included in the list.</p>
+   * @public
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>A flag that indicates whether more VPC origins remain to be listed. If
+   * 			your results were truncated, you can make a follow-up pagination request using the
+   * 			<code>Marker</code> request parameter to retrieve more VPC origins in the
+   * 			list.</p>
+   * @public
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The number of VPC origins in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The items of the VPC origins list.</p>
+   * @public
+   */
+  Items?: VpcOriginSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcOriginsResult {
+  /**
+   * <p>List of VPC origins.</p>
+   * @public
+   */
+  VpcOriginList?: VpcOriginList | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PublishFunctionRequest {
   /**
    * <p>The name of the function that you are publishing.</p>
@@ -5745,6 +6421,46 @@ export interface UpdateStreamingDistributionResult {
 }
 
 /**
+ * @public
+ */
+export interface UpdateVpcOriginRequest {
+  /**
+   * <p>The VPC origin endpoint configuration.</p>
+   * @public
+   */
+  VpcOriginEndpointConfig: VpcOriginEndpointConfig | undefined;
+
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The VPC origin to update, if a match occurs.</p>
+   * @public
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateVpcOriginResult {
+  /**
+   * <p>The VPC origin.</p>
+   * @public
+   */
+  VpcOrigin?: VpcOrigin | undefined;
+
+  /**
+   * <p>The VPC origin ETag.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
  * @internal
  */
 export const GetDistributionResultFilterSensitiveLog = (obj: GetDistributionResult): any => ({
@@ -5786,6 +6502,15 @@ export const DistributionListFilterSensitiveLog = (obj: DistributionList): any =
  * @internal
  */
 export const ListDistributionsResultFilterSensitiveLog = (obj: ListDistributionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDistributionsByAnycastIpListIdResultFilterSensitiveLog = (
+  obj: ListDistributionsByAnycastIpListIdResult
+): any => ({
   ...obj,
 });
 

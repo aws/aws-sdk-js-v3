@@ -61,7 +61,7 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  *  <p>Access denied.</p>
  *
  * @throws {@link IllegalDelete} (client fault)
- *  <p>You cannot delete a managed policy.</p>
+ *  <p>Deletion is not allowed for this entity.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>

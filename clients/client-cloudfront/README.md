@@ -226,6 +226,14 @@ CopyDistribution
 </details>
 <details>
 <summary>
+CreateAnycastIpList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateAnycastIpListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateAnycastIpListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateAnycastIpListCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCachePolicy
 </summary>
 
@@ -378,6 +386,22 @@ CreateStreamingDistributionWithTags
 </details>
 <details>
 <summary>
+CreateVpcOrigin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/CreateVpcOriginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateVpcOriginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/CreateVpcOriginCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteAnycastIpList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteAnycastIpListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteAnycastIpListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteAnycastIpListCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteCachePolicy
 </summary>
 
@@ -506,6 +530,14 @@ DeleteStreamingDistribution
 </details>
 <details>
 <summary>
+DeleteVpcOrigin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DeleteVpcOriginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteVpcOriginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DeleteVpcOriginCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeFunction
 </summary>
 
@@ -518,6 +550,14 @@ DescribeKeyValueStore
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/DescribeKeyValueStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DescribeKeyValueStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/DescribeKeyValueStoreCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAnycastIpList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetAnycastIpListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetAnycastIpListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetAnycastIpListCommandOutput/)
 
 </details>
 <details>
@@ -746,6 +786,22 @@ GetStreamingDistributionConfig
 </details>
 <details>
 <summary>
+GetVpcOrigin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/GetVpcOriginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetVpcOriginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/GetVpcOriginCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAnycastIpLists
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListAnycastIpListsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListAnycastIpListsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListAnycastIpListsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCachePolicies
 </summary>
 
@@ -786,6 +842,14 @@ ListDistributions
 </details>
 <details>
 <summary>
+ListDistributionsByAnycastIpListId
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByAnycastIpListIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByAnycastIpListIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByAnycastIpListIdCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDistributionsByCachePolicyId
 </summary>
 
@@ -822,6 +886,14 @@ ListDistributionsByResponseHeadersPolicyId
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByResponseHeadersPolicyIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByResponseHeadersPolicyIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByResponseHeadersPolicyIdCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDistributionsByVpcOriginId
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListDistributionsByVpcOriginIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByVpcOriginIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListDistributionsByVpcOriginIdCommandOutput/)
 
 </details>
 <details>
@@ -934,6 +1006,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListVpcOrigins
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/ListVpcOriginsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListVpcOriginsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/ListVpcOriginsCommandOutput/)
 
 </details>
 <details>
@@ -1094,5 +1174,13 @@ UpdateStreamingDistribution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateStreamingDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateStreamingDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateStreamingDistributionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateVpcOrigin
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudfront/command/UpdateVpcOriginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateVpcOriginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudfront/Interface/UpdateVpcOriginCommandOutput/)
 
 </details>

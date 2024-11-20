@@ -29,6 +29,10 @@ import {
 
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "../commands/AssociateAliasCommand";
 import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "../commands/CopyDistributionCommand";
+import {
+  CreateAnycastIpListCommandInput,
+  CreateAnycastIpListCommandOutput,
+} from "../commands/CreateAnycastIpListCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "../commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
@@ -87,6 +91,11 @@ import {
   CreateStreamingDistributionWithTagsCommandInput,
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "../commands/CreateStreamingDistributionWithTagsCommand";
+import { CreateVpcOriginCommandInput, CreateVpcOriginCommandOutput } from "../commands/CreateVpcOriginCommand";
+import {
+  DeleteAnycastIpListCommandInput,
+  DeleteAnycastIpListCommandOutput,
+} from "../commands/DeleteAnycastIpListCommand";
 import { DeleteCachePolicyCommandInput, DeleteCachePolicyCommandOutput } from "../commands/DeleteCachePolicyCommand";
 import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
@@ -136,11 +145,13 @@ import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "../commands/DeleteStreamingDistributionCommand";
+import { DeleteVpcOriginCommandInput, DeleteVpcOriginCommandOutput } from "../commands/DeleteVpcOriginCommand";
 import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "../commands/DescribeFunctionCommand";
 import {
   DescribeKeyValueStoreCommandInput,
   DescribeKeyValueStoreCommandOutput,
 } from "../commands/DescribeKeyValueStoreCommand";
+import { GetAnycastIpListCommandInput, GetAnycastIpListCommandOutput } from "../commands/GetAnycastIpListCommand";
 import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "../commands/GetCachePolicyCommand";
 import {
   GetCachePolicyConfigCommandInput,
@@ -229,6 +240,8 @@ import {
   GetStreamingDistributionConfigCommandInput,
   GetStreamingDistributionConfigCommandOutput,
 } from "../commands/GetStreamingDistributionConfigCommand";
+import { GetVpcOriginCommandInput, GetVpcOriginCommandOutput } from "../commands/GetVpcOriginCommand";
+import { ListAnycastIpListsCommandInput, ListAnycastIpListsCommandOutput } from "../commands/ListAnycastIpListsCommand";
 import { ListCachePoliciesCommandInput, ListCachePoliciesCommandOutput } from "../commands/ListCachePoliciesCommand";
 import {
   ListCloudFrontOriginAccessIdentitiesCommandInput,
@@ -242,6 +255,10 @@ import {
   ListContinuousDeploymentPoliciesCommandInput,
   ListContinuousDeploymentPoliciesCommandOutput,
 } from "../commands/ListContinuousDeploymentPoliciesCommand";
+import {
+  ListDistributionsByAnycastIpListIdCommandInput,
+  ListDistributionsByAnycastIpListIdCommandOutput,
+} from "../commands/ListDistributionsByAnycastIpListIdCommand";
 import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
@@ -262,6 +279,10 @@ import {
   ListDistributionsByResponseHeadersPolicyIdCommandInput,
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "../commands/ListDistributionsByResponseHeadersPolicyIdCommand";
+import {
+  ListDistributionsByVpcOriginIdCommandInput,
+  ListDistributionsByVpcOriginIdCommandOutput,
+} from "../commands/ListDistributionsByVpcOriginIdCommand";
 import {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
@@ -304,6 +325,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "../commands/ListVpcOriginsCommand";
 import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "../commands/PublishFunctionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestFunctionCommandInput, TestFunctionCommandOutput } from "../commands/TestFunctionCommand";
@@ -357,6 +379,7 @@ import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "../commands/UpdateStreamingDistributionCommand";
+import { UpdateVpcOriginCommandInput, UpdateVpcOriginCommandOutput } from "../commands/UpdateVpcOriginCommand";
 import { CloudFrontServiceException as __BaseException } from "../models/CloudFrontServiceException";
 import {
   AccessDenied,
@@ -365,6 +388,9 @@ import {
   Aliases,
   AliasICPRecordal,
   AllowedMethods,
+  AnycastIpList,
+  AnycastIpListCollection,
+  AnycastIpListSummary,
   BatchTooLarge,
   CacheBehavior,
   CacheBehaviors,
@@ -380,6 +406,7 @@ import {
   CachePolicySummary,
   CannotChangeImmutablePublicKeyFields,
   CannotDeleteEntityWhileInUse,
+  CannotUpdateEntityWhileInUse,
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityAlreadyExists,
   CloudFrontOriginAccessIdentityConfig,
@@ -409,6 +436,7 @@ import {
   EndPoint,
   EntityAlreadyExists,
   EntityLimitExceeded,
+  EntityNotFound,
   EntitySizeLimitExceeded,
   FieldLevelEncryption,
   FieldLevelEncryptionConfig,
@@ -427,6 +455,7 @@ import {
   FunctionSizeLimitExceeded,
   FunctionSummary,
   GeoRestriction,
+  GrpcConfig,
   Headers,
   IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
   IllegalOriginAccessConfiguration,
@@ -525,15 +554,6 @@ import {
   ResponseHeadersPolicyAccessControlAllowHeaders,
   ResponseHeadersPolicyAccessControlAllowMethods,
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
-  ResponseHeadersPolicyAccessControlAllowOrigins,
-  ResponseHeadersPolicyAccessControlExposeHeaders,
-  ResponseHeadersPolicyContentSecurityPolicy,
-  ResponseHeadersPolicyContentTypeOptions,
-  ResponseHeadersPolicyCorsConfig,
-  ResponseHeadersPolicyCustomHeader,
-  ResponseHeadersPolicyCustomHeadersConfig,
-  ResponseHeadersPolicyRemoveHeader,
-  ResponseHeadersPolicyRemoveHeadersConfig,
   Restrictions,
   S3OriginConfig,
   SessionStickinessConfig,
@@ -597,6 +617,7 @@ import {
   TrustedSigners,
   UnsupportedOperation,
   ViewerCertificate,
+  VpcOriginConfig,
 } from "../models/models_0";
 import {
   CloudFrontOriginAccessIdentityInUse,
@@ -610,7 +631,6 @@ import {
   DistributionList,
   DistributionNotDisabled,
   DistributionSummary,
-  EntityNotFound,
   FieldLevelEncryptionConfigInUse,
   FieldLevelEncryptionList,
   FieldLevelEncryptionProfileInUse,
@@ -645,12 +665,21 @@ import {
   RealtimeLogConfigs,
   ResourceInUse,
   ResponseHeadersPolicy,
+  ResponseHeadersPolicyAccessControlAllowOrigins,
+  ResponseHeadersPolicyAccessControlExposeHeaders,
   ResponseHeadersPolicyAlreadyExists,
   ResponseHeadersPolicyConfig,
+  ResponseHeadersPolicyContentSecurityPolicy,
+  ResponseHeadersPolicyContentTypeOptions,
+  ResponseHeadersPolicyCorsConfig,
+  ResponseHeadersPolicyCustomHeader,
+  ResponseHeadersPolicyCustomHeadersConfig,
   ResponseHeadersPolicyFrameOptions,
   ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyList,
   ResponseHeadersPolicyReferrerPolicy,
+  ResponseHeadersPolicyRemoveHeader,
+  ResponseHeadersPolicyRemoveHeadersConfig,
   ResponseHeadersPolicySecurityHeadersConfig,
   ResponseHeadersPolicyServerTimingHeadersConfig,
   ResponseHeadersPolicyStrictTransportSecurity,
@@ -674,6 +703,10 @@ import {
   TooManyResponseHeadersPolicies,
   TooManyStreamingDistributionCNAMEs,
   TooManyStreamingDistributions,
+  VpcOrigin,
+  VpcOriginEndpointConfig,
+  VpcOriginList,
+  VpcOriginSummary,
 } from "../models/models_1";
 
 /**
@@ -719,6 +752,36 @@ export const se_CopyDistributionCommand = async (
   }
   if (input[_E] != null) {
     bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlCreateAnycastIpListCommand
+ */
+export const se_CreateAnycastIpListCommand = async (
+  input: CreateAnycastIpListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/anycast-ip-list");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_CAILR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_IC] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_IC])).n(_IC));
+  }
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_AILN, input[_N]).n(_N));
+  }
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
   }
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -1207,6 +1270,51 @@ export const se_CreateStreamingDistributionWithTagsCommand = async (
 };
 
 /**
+ * serializeAws_restXmlCreateVpcOriginCommand
+ */
+export const se_CreateVpcOriginCommand = async (
+  input: CreateVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/vpc-origin");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_CVOR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
+  }
+  if (input[_VOEC] != null) {
+    bn.c(se_VpcOriginEndpointConfig(input[_VOEC], context).n(_VOEC));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlDeleteAnycastIpListCommand
+ */
+export const se_DeleteAnycastIpListCommand = async (
+  input: DeleteAnycastIpListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/anycast-ip-list/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlDeleteCachePolicyCommand
  */
 export const se_DeleteCachePolicyCommand = async (
@@ -1502,6 +1610,24 @@ export const se_DeleteStreamingDistributionCommand = async (
 };
 
 /**
+ * serializeAws_restXmlDeleteVpcOriginCommand
+ */
+export const se_DeleteVpcOriginCommand = async (
+  input: DeleteVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/vpc-origin/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlDescribeFunctionCommand
  */
 export const se_DescribeFunctionCommand = async (
@@ -1531,6 +1657,22 @@ export const se_DescribeKeyValueStoreCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/key-value-store/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlGetAnycastIpListCommand
+ */
+export const se_GetAnycastIpListCommand = async (
+  input: GetAnycastIpListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/anycast-ip-list/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -2000,6 +2142,41 @@ export const se_GetStreamingDistributionConfigCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetVpcOriginCommand
+ */
+export const se_GetVpcOriginCommand = async (
+  input: GetVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/vpc-origin/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListAnycastIpListsCommand
+ */
+export const se_ListAnycastIpListsCommand = async (
+  input: ListAnycastIpListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/anycast-ip-list");
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlListCachePoliciesCommand
  */
 export const se_ListCachePoliciesCommand = async (
@@ -2010,7 +2187,7 @@ export const se_ListCachePoliciesCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/cache-policy");
   const query: any = map({
-    [_T]: [, input[_T]!],
+    [_Ty]: [, input[_Ty]!],
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
@@ -2088,6 +2265,26 @@ export const se_ListDistributionsCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/2020-05-31/distribution");
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListDistributionsByAnycastIpListIdCommand
+ */
+export const se_ListDistributionsByAnycastIpListIdCommand = async (
+  input: ListDistributionsByAnycastIpListIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distributionsByAnycastIpListId/{AnycastIpListId}");
+  b.p("AnycastIpListId", () => input.AnycastIpListId!, "{AnycastIpListId}", false);
   const query: any = map({
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
@@ -2201,6 +2398,26 @@ export const se_ListDistributionsByResponseHeadersPolicyIdCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/distributionsByResponseHeadersPolicyId/{ResponseHeadersPolicyId}");
   b.p("ResponseHeadersPolicyId", () => input.ResponseHeadersPolicyId!, "{ResponseHeadersPolicyId}", false);
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListDistributionsByVpcOriginIdCommand
+ */
+export const se_ListDistributionsByVpcOriginIdCommand = async (
+  input: ListDistributionsByVpcOriginIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distributionsByVpcOriginId/{VpcOriginId}");
+  b.p("VpcOriginId", () => input.VpcOriginId!, "{VpcOriginId}", false);
   const query: any = map({
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
@@ -2377,7 +2594,7 @@ export const se_ListOriginRequestPoliciesCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/origin-request-policy");
   const query: any = map({
-    [_T]: [, input[_T]!],
+    [_Ty]: [, input[_Ty]!],
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
@@ -2435,7 +2652,7 @@ export const se_ListResponseHeadersPoliciesCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/response-headers-policy");
   const query: any = map({
-    [_T]: [, input[_T]!],
+    [_Ty]: [, input[_Ty]!],
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
@@ -2475,6 +2692,25 @@ export const se_ListTagsForResourceCommand = async (
   b.bp("/2020-05-31/tagging");
   const query: any = map({
     [_R]: [, __expectNonNull(input[_R]!, `Resource`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListVpcOriginsCommand
+ */
+export const se_ListVpcOriginsCommand = async (
+  input: ListVpcOriginsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/vpc-origin");
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -3005,6 +3241,32 @@ export const se_UpdateStreamingDistributionCommand = async (
 };
 
 /**
+ * serializeAws_restXmlUpdateVpcOriginCommand
+ */
+export const se_UpdateVpcOriginCommand = async (
+  input: UpdateVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/vpc-origin/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  let contents: any;
+  if (input.VpcOriginEndpointConfig !== undefined) {
+    contents = se_VpcOriginEndpointConfig(input.VpcOriginEndpointConfig, context);
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body += contents.toString();
+  }
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * deserializeAws_restXmlAssociateAliasCommand
  */
 export const de_AssociateAliasCommand = async (
@@ -3038,6 +3300,25 @@ export const de_CopyDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateAnycastIpListCommand
+ */
+export const de_CreateAnycastIpListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnycastIpListCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.AnycastIpList = de_AnycastIpList(data, context);
   return contents;
 };
 
@@ -3419,6 +3700,43 @@ export const de_CreateStreamingDistributionWithTagsCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlCreateVpcOriginCommand
+ */
+export const de_CreateVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcOriginCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteAnycastIpListCommand
+ */
+export const de_DeleteAnycastIpListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnycastIpListCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDeleteCachePolicyCommand
  */
 export const de_DeleteCachePolicyCommand = async (
@@ -3691,6 +4009,25 @@ export const de_DeleteStreamingDistributionCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlDeleteVpcOriginCommand
+ */
+export const de_DeleteVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcOriginCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDescribeFunctionCommand
  */
 export const de_DescribeFunctionCommand = async (
@@ -3725,6 +4062,25 @@ export const de_DescribeKeyValueStoreCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetAnycastIpListCommand
+ */
+export const de_GetAnycastIpListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnycastIpListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.AnycastIpList = de_AnycastIpList(data, context);
   return contents;
 };
 
@@ -4261,6 +4617,43 @@ export const de_GetStreamingDistributionConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlGetVpcOriginCommand
+ */
+export const de_GetVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcOriginCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListAnycastIpListsCommand
+ */
+export const de_ListAnycastIpListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnycastIpListsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.AnycastIpLists = de_AnycastIpListCollection(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlListCachePoliciesCommand
  */
 export const de_ListCachePoliciesCommand = async (
@@ -4351,6 +4744,24 @@ export const de_ListDistributionsCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlListDistributionsByAnycastIpListIdCommand
+ */
+export const de_ListDistributionsByAnycastIpListIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByAnycastIpListIdCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionList = de_DistributionList(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlListDistributionsByCachePolicyIdCommand
  */
 export const de_ListDistributionsByCachePolicyIdCommand = async (
@@ -4429,6 +4840,24 @@ export const de_ListDistributionsByResponseHeadersPolicyIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDistributionsByResponseHeadersPolicyIdCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionIdList = de_DistributionIdList(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListDistributionsByVpcOriginIdCommand
+ */
+export const de_ListDistributionsByVpcOriginIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByVpcOriginIdCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4689,6 +5118,24 @@ export const de_ListTagsForResourceCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Tags = de_Tags(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListVpcOriginsCommand
+ */
+export const de_ListVpcOriginsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcOriginsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOriginList = de_VpcOriginList(data, context);
   return contents;
 };
 
@@ -5068,6 +5515,25 @@ export const de_UpdateStreamingDistributionCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlUpdateVpcOriginCommand
+ */
+export const de_UpdateVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcOriginCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restXmlCommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -5272,6 +5738,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TrustedSignerDoesNotExist":
     case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
+    case "EntityAlreadyExists":
+    case "com.amazonaws.cloudfront#EntityAlreadyExists":
+      throw await de_EntityAlreadyExistsRes(parsedOutput, context);
+    case "EntityLimitExceeded":
+    case "com.amazonaws.cloudfront#EntityLimitExceeded":
+      throw await de_EntityLimitExceededRes(parsedOutput, context);
+    case "InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
+      throw await de_InvalidTaggingRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      throw await de_UnsupportedOperationRes(parsedOutput, context);
     case "CachePolicyAlreadyExists":
     case "com.amazonaws.cloudfront#CachePolicyAlreadyExists":
       throw await de_CachePolicyAlreadyExistsRes(parsedOutput, context);
@@ -5305,6 +5783,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ContinuousDeploymentPolicyInUse":
     case "com.amazonaws.cloudfront#ContinuousDeploymentPolicyInUse":
       throw await de_ContinuousDeploymentPolicyInUseRes(parsedOutput, context);
+    case "EntityNotFound":
+    case "com.amazonaws.cloudfront#EntityNotFound":
+      throw await de_EntityNotFoundRes(parsedOutput, context);
     case "IllegalOriginAccessConfiguration":
     case "com.amazonaws.cloudfront#IllegalOriginAccessConfiguration":
       throw await de_IllegalOriginAccessConfigurationRes(parsedOutput, context);
@@ -5314,9 +5795,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NoSuchContinuousDeploymentPolicy":
     case "com.amazonaws.cloudfront#NoSuchContinuousDeploymentPolicy":
       throw await de_NoSuchContinuousDeploymentPolicyRes(parsedOutput, context);
-    case "InvalidTagging":
-    case "com.amazonaws.cloudfront#InvalidTagging":
-      throw await de_InvalidTaggingRes(parsedOutput, context);
     case "FieldLevelEncryptionConfigAlreadyExists":
     case "com.amazonaws.cloudfront#FieldLevelEncryptionConfigAlreadyExists":
       throw await de_FieldLevelEncryptionConfigAlreadyExistsRes(parsedOutput, context);
@@ -5362,9 +5840,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyFunctions":
     case "com.amazonaws.cloudfront#TooManyFunctions":
       throw await de_TooManyFunctionsRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.cloudfront#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
     case "BatchTooLarge":
     case "com.amazonaws.cloudfront#BatchTooLarge":
       throw await de_BatchTooLargeRes(parsedOutput, context);
@@ -5380,12 +5855,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyPublicKeysInKeyGroup":
     case "com.amazonaws.cloudfront#TooManyPublicKeysInKeyGroup":
       throw await de_TooManyPublicKeysInKeyGroupRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.cloudfront#EntityAlreadyExists":
-      throw await de_EntityAlreadyExistsRes(parsedOutput, context);
-    case "EntityLimitExceeded":
-    case "com.amazonaws.cloudfront#EntityLimitExceeded":
-      throw await de_EntityLimitExceededRes(parsedOutput, context);
     case "EntitySizeLimitExceeded":
     case "com.amazonaws.cloudfront#EntitySizeLimitExceeded":
       throw await de_EntitySizeLimitExceededRes(parsedOutput, context);
@@ -5449,12 +5918,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyStreamingDistributions":
     case "com.amazonaws.cloudfront#TooManyStreamingDistributions":
       throw await de_TooManyStreamingDistributionsRes(parsedOutput, context);
-    case "CachePolicyInUse":
-    case "com.amazonaws.cloudfront#CachePolicyInUse":
-      throw await de_CachePolicyInUseRes(parsedOutput, context);
+    case "CannotDeleteEntityWhileInUse":
+    case "com.amazonaws.cloudfront#CannotDeleteEntityWhileInUse":
+      throw await de_CannotDeleteEntityWhileInUseRes(parsedOutput, context);
     case "IllegalDelete":
     case "com.amazonaws.cloudfront#IllegalDelete":
       throw await de_IllegalDeleteRes(parsedOutput, context);
+    case "CachePolicyInUse":
+    case "com.amazonaws.cloudfront#CachePolicyInUse":
+      throw await de_CachePolicyInUseRes(parsedOutput, context);
     case "CloudFrontOriginAccessIdentityInUse":
     case "com.amazonaws.cloudfront#CloudFrontOriginAccessIdentityInUse":
       throw await de_CloudFrontOriginAccessIdentityInUseRes(parsedOutput, context);
@@ -5482,12 +5954,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceInUse":
     case "com.amazonaws.cloudfront#ResourceInUse":
       throw await de_ResourceInUseRes(parsedOutput, context);
-    case "CannotDeleteEntityWhileInUse":
-    case "com.amazonaws.cloudfront#CannotDeleteEntityWhileInUse":
-      throw await de_CannotDeleteEntityWhileInUseRes(parsedOutput, context);
-    case "EntityNotFound":
-    case "com.amazonaws.cloudfront#EntityNotFound":
-      throw await de_EntityNotFoundRes(parsedOutput, context);
     case "NoSuchMonitoringSubscription":
     case "com.amazonaws.cloudfront#NoSuchMonitoringSubscription":
       throw await de_NoSuchMonitoringSubscriptionRes(parsedOutput, context);
@@ -5524,6 +5990,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "CannotChangeImmutablePublicKeyFields":
     case "com.amazonaws.cloudfront#CannotChangeImmutablePublicKeyFields":
       throw await de_CannotChangeImmutablePublicKeyFieldsRes(parsedOutput, context);
+    case "CannotUpdateEntityWhileInUse":
+    case "com.amazonaws.cloudfront#CannotUpdateEntityWhileInUse":
+      throw await de_CannotUpdateEntityWhileInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5634,6 +6103,25 @@ const de_CannotDeleteEntityWhileInUseRes = async (
     contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CannotDeleteEntityWhileInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlCannotUpdateEntityWhileInUseRes
+ */
+const de_CannotUpdateEntityWhileInUseRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CannotUpdateEntityWhileInUse> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
+  }
+  const exception = new CannotUpdateEntityWhileInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -8411,6 +8899,9 @@ const se_CacheBehavior = (input: CacheBehavior, context: __SerdeContext): any =>
   if (input[_RHPI] != null) {
     bn.c(__XmlNode.of(_st, input[_RHPI]).n(_RHPI));
   }
+  if (input[_GC] != null) {
+    bn.c(se_GrpcConfig(input[_GC], context).n(_GC));
+  }
   if (input[_FV] != null) {
     bn.c(se_ForwardedValues(input[_FV], context).n(_FV));
   }
@@ -8814,6 +9305,9 @@ const se_DefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeCo
   if (input[_RHPI] != null) {
     bn.c(__XmlNode.of(_st, input[_RHPI]).n(_RHPI));
   }
+  if (input[_GC] != null) {
+    bn.c(se_GrpcConfig(input[_GC], context).n(_GC));
+  }
   if (input[_FV] != null) {
     bn.c(se_ForwardedValues(input[_FV], context).n(_FV));
   }
@@ -8887,6 +9381,9 @@ const se_DistributionConfig = (input: DistributionConfig, context: __SerdeContex
   if (input[_S] != null) {
     bn.c(__XmlNode.of(_b, String(input[_S])).n(_S));
   }
+  if (input[_AILI] != null) {
+    bn.c(__XmlNode.of(_st, input[_AILI]).n(_AILI));
+  }
   return bn;
 };
 
@@ -8898,8 +9395,8 @@ const se_DistributionConfigWithTags = (input: DistributionConfigWithTags, contex
   if (input[_DC] != null) {
     bn.c(se_DistributionConfig(input[_DC], context).n(_DC));
   }
-  if (input[_Ta] != null) {
-    bn.c(se_Tags(input[_Ta], context).n(_Ta));
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
   }
   return bn;
 };
@@ -9137,6 +9634,17 @@ const se_GeoRestriction = (input: GeoRestriction, context: __SerdeContext): any 
 };
 
 /**
+ * serializeAws_restXmlGrpcConfig
+ */
+const se_GrpcConfig = (input: GrpcConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_GC);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
+  return bn;
+};
+
+/**
  * serializeAws_restXmlHeaderList
  */
 const se_HeaderList = (input: string[], context: __SerdeContext): any => {
@@ -9307,8 +9815,8 @@ const se_LoggingConfig = (input: LoggingConfig, context: __SerdeContext): any =>
   if (input[_E] != null) {
     bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input[_IC] != null) {
-    bn.c(__XmlNode.of(_b, String(input[_IC])).n(_IC));
+  if (input[_ICn] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_ICn])).n(_ICn));
   }
   if (input[_B] != null) {
     bn.c(__XmlNode.of(_st, input[_B]).n(_B));
@@ -9364,6 +9872,9 @@ const se_Origin = (input: Origin, context: __SerdeContext): any => {
   }
   if (input[_COC] != null) {
     bn.c(se_CustomOriginConfig(input[_COC], context).n(_COC));
+  }
+  if (input[_VOC] != null) {
+    bn.c(se_VpcOriginConfig(input[_VOC], context).n(_VOC));
   }
   if (input[_CA] != null) {
     bn.c(__XmlNode.of(_i, String(input[_CA])).n(_CA));
@@ -10346,8 +10857,8 @@ const se_StreamingDistributionConfigWithTags = (
   if (input[_SDC] != null) {
     bn.c(se_StreamingDistributionConfig(input[_SDC], context).n(_SDC));
   }
-  if (input[_Ta] != null) {
-    bn.c(se_Tags(input[_Ta], context).n(_Ta));
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
   }
   return bn;
 };
@@ -10373,7 +10884,7 @@ const se_StreamingLoggingConfig = (input: StreamingLoggingConfig, context: __Ser
  * serializeAws_restXmlTag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_Tag);
+  const bn = new __XmlNode(_Ta);
   if (input[_K] != null) {
     bn.c(__XmlNode.of(_TK, input[_K]).n(_K));
   }
@@ -10412,7 +10923,7 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
     .filter((e: any) => e != null)
     .map((entry) => {
       const n = se_Tag(entry, context);
-      return n.n(_Tag);
+      return n.n(_Ta);
     });
 };
 
@@ -10420,7 +10931,7 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  * serializeAws_restXmlTags
  */
 const se_Tags = (input: Tags, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_Ta);
+  const bn = new __XmlNode(_T);
   bn.lc(input, "Items", "Items", () => se_TagList(input[_I]!, context));
   return bn;
 };
@@ -10436,8 +10947,8 @@ const se_TrafficConfig = (input: TrafficConfig, context: __SerdeContext): any =>
   if (input[_SHCi] != null) {
     bn.c(se_ContinuousDeploymentSingleHeaderConfig(input[_SHCi], context).n(_SHCi));
   }
-  if (input[_T] != null) {
-    bn.c(__XmlNode.of(_CDPT, input[_T]).n(_T));
+  if (input[_Ty] != null) {
+    bn.c(__XmlNode.of(_CDPT, input[_Ty]).n(_Ty));
   }
   return bn;
 };
@@ -10504,6 +11015,41 @@ const se_ViewerCertificate = (input: ViewerCertificate, context: __SerdeContext)
     bn.c(__XmlNode.of(_st, input[_Ce]).n(_Ce));
   }
   bn.cc(input, _CS);
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlVpcOriginConfig
+ */
+const se_VpcOriginConfig = (input: VpcOriginConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_VOC);
+  if (input[_VOI] != null) {
+    bn.c(__XmlNode.of(_st, input[_VOI]).n(_VOI));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlVpcOriginEndpointConfig
+ */
+const se_VpcOriginEndpointConfig = (input: VpcOriginEndpointConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_VOEC);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+  }
+  if (input[_Ar] != null) {
+    bn.c(__XmlNode.of(_st, input[_Ar]).n(_Ar));
+  }
+  if (input[_HTTPP] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_HTTPP])).n(_HTTPP));
+  }
+  if (input[_HTTPSP] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_HTTPSP])).n(_HTTPSP));
+  }
+  bn.cc(input, _OPP);
+  if (input[_OSP] != null) {
+    bn.c(se_OriginSslProtocols(input[_OSP], context).n(_OSP));
+  }
   return bn;
 };
 
@@ -10664,6 +11210,113 @@ const de_AllowedMethods = (output: any, context: __SerdeContext): AllowedMethods
 };
 
 /**
+ * deserializeAws_restXmlAnycastIpList
+ */
+const de_AnycastIpList = (output: any, context: __SerdeContext): AnycastIpList => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output.AnycastIps === "") {
+    contents[_AI] = [];
+  } else if (output[_AI] != null && output[_AI][_AIn] != null) {
+    contents[_AI] = de_AnycastIps(__getArrayIfSingleItem(output[_AI][_AIn]), context);
+  }
+  if (output[_IC] != null) {
+    contents[_IC] = __strictParseInt32(output[_IC]) as number;
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAnycastIpListCollection
+ */
+const de_AnycastIpListCollection = (output: any, context: __SerdeContext): AnycastIpListCollection => {
+  const contents: any = {};
+  if (output.Items === "") {
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_AILS] != null) {
+    contents[_I] = de_AnycastIpListSummaries(__getArrayIfSingleItem(output[_I][_AILS]), context);
+  }
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
+  }
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
+  }
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
+  }
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAnycastIpListSummaries
+ */
+const de_AnycastIpListSummaries = (output: any, context: __SerdeContext): AnycastIpListSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnycastIpListSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlAnycastIpListSummary
+ */
+const de_AnycastIpListSummary = (output: any, context: __SerdeContext): AnycastIpListSummary => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_IC] != null) {
+    contents[_IC] = __strictParseInt32(output[_IC]) as number;
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAnycastIps
+ */
+const de_AnycastIps = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+/**
  * deserializeAws_restXmlAwsAccountNumberList
  */
 const de_AwsAccountNumberList = (output: any, context: __SerdeContext): string[] => {
@@ -10723,6 +11376,9 @@ const de_CacheBehavior = (output: any, context: __SerdeContext): CacheBehavior =
   }
   if (output[_RHPI] != null) {
     contents[_RHPI] = __expectString(output[_RHPI]);
+  }
+  if (output[_GC] != null) {
+    contents[_GC] = de_GrpcConfig(output[_GC], context);
   }
   if (output[_FV] != null) {
     contents[_FV] = de_ForwardedValues(output[_FV], context);
@@ -10894,8 +11550,8 @@ const de_CachePolicyQueryStringsConfig = (output: any, context: __SerdeContext):
  */
 const de_CachePolicySummary = (output: any, context: __SerdeContext): CachePolicySummary => {
   const contents: any = {};
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   if (output[_CPa] != null) {
     contents[_CPa] = de_CachePolicy(output[_CPa], context);
@@ -11024,8 +11680,8 @@ const de_ConflictingAlias = (output: any, context: __SerdeContext): ConflictingA
   if (output[_DI] != null) {
     contents[_DI] = __expectString(output[_DI]);
   }
-  if (output[_AI] != null) {
-    contents[_AI] = __expectString(output[_AI]);
+  if (output[_AIc] != null) {
+    contents[_AIc] = __expectString(output[_AIc]);
   }
   return contents;
 };
@@ -11419,6 +12075,9 @@ const de_DefaultCacheBehavior = (output: any, context: __SerdeContext): DefaultC
   if (output[_RHPI] != null) {
     contents[_RHPI] = __expectString(output[_RHPI]);
   }
+  if (output[_GC] != null) {
+    contents[_GC] = de_GrpcConfig(output[_GC], context);
+  }
   if (output[_FV] != null) {
     contents[_FV] = de_ForwardedValues(output[_FV], context);
   }
@@ -11535,6 +12194,9 @@ const de_DistributionConfig = (output: any, context: __SerdeContext): Distributi
   }
   if (output[_S] != null) {
     contents[_S] = __parseBoolean(output[_S]);
+  }
+  if (output[_AILI] != null) {
+    contents[_AILI] = __expectString(output[_AILI]);
   }
   return contents;
 };
@@ -11675,6 +12337,9 @@ const de_DistributionSummary = (output: any, context: __SerdeContext): Distribut
   }
   if (output[_S] != null) {
     contents[_S] = __parseBoolean(output[_S]);
+  }
+  if (output[_AILI] != null) {
+    contents[_AILI] = __expectString(output[_AILI]);
   }
   return contents;
 };
@@ -12174,6 +12839,17 @@ const de_GeoRestriction = (output: any, context: __SerdeContext): GeoRestriction
 };
 
 /**
+ * deserializeAws_restXmlGrpcConfig
+ */
+const de_GrpcConfig = (output: any, context: __SerdeContext): GrpcConfig => {
+  const contents: any = {};
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlHeaderList
  */
 const de_HeaderList = (output: any, context: __SerdeContext): string[] => {
@@ -12596,8 +13272,8 @@ const de_LoggingConfig = (output: any, context: __SerdeContext): LoggingConfig =
   if (output[_E] != null) {
     contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output[_IC] != null) {
-    contents[_IC] = __parseBoolean(output[_IC]);
+  if (output[_ICn] != null) {
+    contents[_ICn] = __parseBoolean(output[_ICn]);
   }
   if (output[_B] != null) {
     contents[_B] = __expectString(output[_B]);
@@ -12652,6 +13328,9 @@ const de_Origin = (output: any, context: __SerdeContext): Origin => {
   }
   if (output[_COC] != null) {
     contents[_COC] = de_CustomOriginConfig(output[_COC], context);
+  }
+  if (output[_VOC] != null) {
+    contents[_VOC] = de_VpcOriginConfig(output[_VOC], context);
   }
   if (output[_CA] != null) {
     contents[_CA] = __strictParseInt32(output[_CA]) as number;
@@ -13017,8 +13696,8 @@ const de_OriginRequestPolicyQueryStringsConfig = (
  */
 const de_OriginRequestPolicySummary = (output: any, context: __SerdeContext): OriginRequestPolicySummary => {
   const contents: any = {};
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   if (output[_ORP] != null) {
     contents[_ORP] = de_OriginRequestPolicy(output[_ORP], context);
@@ -13838,8 +14517,8 @@ const de_ResponseHeadersPolicyStrictTransportSecurity = (
  */
 const de_ResponseHeadersPolicySummary = (output: any, context: __SerdeContext): ResponseHeadersPolicySummary => {
   const contents: any = {};
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   if (output[_RHP] != null) {
     contents[_RHP] = de_ResponseHeadersPolicy(output[_RHP], context);
@@ -14211,8 +14890,8 @@ const de_Tags = (output: any, context: __SerdeContext): Tags => {
   const contents: any = {};
   if (output.Items === "") {
     contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Tag] != null) {
-    contents[_I] = de_TagList(__getArrayIfSingleItem(output[_I][_Tag]), context);
+  } else if (output[_I] != null && output[_I][_Ta] != null) {
+    contents[_I] = de_TagList(__getArrayIfSingleItem(output[_I][_Ta]), context);
   }
   return contents;
 };
@@ -14253,8 +14932,8 @@ const de_TrafficConfig = (output: any, context: __SerdeContext): TrafficConfig =
   if (output[_SHCi] != null) {
     contents[_SHCi] = de_ContinuousDeploymentSingleHeaderConfig(output[_SHCi], context);
   }
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   return contents;
 };
@@ -14337,6 +15016,137 @@ const de_ViewerCertificate = (output: any, context: __SerdeContext): ViewerCerti
   return contents;
 };
 
+/**
+ * deserializeAws_restXmlVpcOrigin
+ */
+const de_VpcOrigin = (output: any, context: __SerdeContext): VpcOrigin => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_VOEC] != null) {
+    contents[_VOEC] = de_VpcOriginEndpointConfig(output[_VOEC], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginConfig
+ */
+const de_VpcOriginConfig = (output: any, context: __SerdeContext): VpcOriginConfig => {
+  const contents: any = {};
+  if (output[_VOI] != null) {
+    contents[_VOI] = __expectString(output[_VOI]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginEndpointConfig
+ */
+const de_VpcOriginEndpointConfig = (output: any, context: __SerdeContext): VpcOriginEndpointConfig => {
+  const contents: any = {};
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_HTTPP] != null) {
+    contents[_HTTPP] = __strictParseInt32(output[_HTTPP]) as number;
+  }
+  if (output[_HTTPSP] != null) {
+    contents[_HTTPSP] = __strictParseInt32(output[_HTTPSP]) as number;
+  }
+  if (output[_OPP] != null) {
+    contents[_OPP] = __expectString(output[_OPP]);
+  }
+  if (output[_OSP] != null) {
+    contents[_OSP] = de_OriginSslProtocols(output[_OSP], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginList
+ */
+const de_VpcOriginList = (output: any, context: __SerdeContext): VpcOriginList => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
+  }
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
+  }
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
+  }
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
+  }
+  if (output.Items === "") {
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_VOS] != null) {
+    contents[_I] = de_VpcOriginSummaryList(__getArrayIfSingleItem(output[_I][_VOS]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginSummary
+ */
+const de_VpcOriginSummary = (output: any, context: __SerdeContext): VpcOriginSummary => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_OEA] != null) {
+    contents[_OEA] = __expectString(output[_OEA]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginSummaryList
+ */
+const de_VpcOriginSummaryList = (output: any, context: __SerdeContext): VpcOriginSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VpcOriginSummary(entry, context);
+    });
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -14358,17 +15168,24 @@ const _ACAO = "AccessControlAllowOrigins";
 const _ACEH = "AccessControlExposeHeaders";
 const _ACMAS = "AccessControlMaxAgeSec";
 const _ACMCA = "ACMCertificateArn";
-const _AI = "AccountId";
+const _AI = "AnycastIps";
 const _AICPR = "AliasICPRecordals";
 const _AICPRl = "AliasICPRecordal";
+const _AILI = "AnycastIpListId";
+const _AILN = "AnycastIpListName";
+const _AILS = "AnycastIpListSummary";
+const _AIc = "AccountId";
+const _AIn = "AnycastIp";
 const _AM = "AllowedMethods";
 const _ARN = "ARN";
 const _ATKG = "ActiveTrustedKeyGroups";
 const _ATS = "ActiveTrustedSigners";
 const _Al = "Aliases";
+const _Ar = "Arn";
 const _B = "Bucket";
 const _C = "Comment";
 const _CA = "ConnectionAttempts";
+const _CAILR = "CreateAnycastIpListRequest";
 const _CAo = "ConflictingAlias";
 const _CB = "CacheBehavior";
 const _CBa = "CacheBehaviors";
@@ -14421,6 +15238,7 @@ const _CTon = "ConnectionTimeout";
 const _CTr = "CreatedTime";
 const _CTre = "CreateTime";
 const _CU = "ComputeUtilization";
+const _CVOR = "CreateVpcOriginRequest";
 const _Ce = "Certificate";
 const _Co = "Compress";
 const _Coo = "Cookies";
@@ -14481,6 +15299,7 @@ const _FWQAPIU = "ForwardWhenQueryArgProfileIsUnknown";
 const _Fi = "Field";
 const _Fo = "Format";
 const _For = "Forward";
+const _GC = "GrpcConfig";
 const _GR = "GeoRestriction";
 const _GRLCR = "GetRealtimeLogConfigRequest";
 const _GRT = "GeoRestrictionType";
@@ -14497,8 +15316,9 @@ const _I = "Items";
 const _IAMCI = "IAMCertificateId";
 const _IB = "InvalidationBatch";
 const _IBn = "IncludeBody";
-const _IC = "IncludeCookies";
+const _IC = "IpCount";
 const _ICPRS = "ICPRecordalStatus";
+const _ICn = "IncludeCookies";
 const _IIPVE = "IsIPV6Enabled";
 const _IM = "IfMatch";
 const _IPIB = "InProgressInvalidationBatches";
@@ -14555,6 +15375,7 @@ const _OACSB = "OriginAccessControlSigningBehaviors";
 const _OACSP = "OriginAccessControlSigningProtocols";
 const _OAI = "OriginAccessIdentity";
 const _OCH = "OriginCustomHeader";
+const _OEA = "OriginEndpointArn";
 const _OG = "OriginGroups";
 const _OGFC = "OriginGroupFailoverCriteria";
 const _OGM = "OriginGroupMember";
@@ -14676,7 +15497,7 @@ const _SWC = "SingleWeightConfig";
 const _Si = "Signer";
 const _St = "Stage";
 const _Sta = "Status";
-const _T = "Type";
+const _T = "Tags";
 const _TC = "TrafficConfig";
 const _TFR = "TestFunctionRequest";
 const _TK = "TagKey";
@@ -14685,13 +15506,17 @@ const _TKa = "TagKeys";
 const _TOI = "TargetOriginId";
 const _TS = "TrustedSigners";
 const _TV = "TagValue";
-const _Ta = "Tags";
-const _Tag = "Tag";
+const _Ta = "Tag";
+const _Ty = "Type";
 const _UFR = "UpdateFunctionRequest";
 const _UKVSR = "UpdateKeyValueStoreRequest";
 const _URLCR = "UpdateRealtimeLogConfigRequest";
 const _V = "Value";
 const _VC = "ViewerCertificate";
+const _VOC = "VpcOriginConfig";
+const _VOEC = "VpcOriginEndpointConfig";
+const _VOI = "VpcOriginId";
+const _VOS = "VpcOriginSummary";
 const _VPP = "ViewerProtocolPolicy";
 const _W = "Weight";
 const _WACLI = "WebACLId";

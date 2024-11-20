@@ -113,6 +113,9 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },
+ * //               VpcOriginConfig: { // VpcOriginConfig
+ * //                 VpcOriginId: "STRING_VALUE", // required
+ * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
  * //               OriginShield: { // OriginShield
@@ -202,6 +205,9 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //           CachePolicyId: "STRING_VALUE",
  * //           OriginRequestPolicyId: "STRING_VALUE",
  * //           ResponseHeadersPolicyId: "STRING_VALUE",
+ * //           GrpcConfig: { // GrpcConfig
+ * //             Enabled: true || false, // required
+ * //           },
  * //           ForwardedValues: { // ForwardedValues
  * //             QueryString: true || false, // required
  * //             Cookies: { // CookiePreference
@@ -285,6 +291,9 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //               CachePolicyId: "STRING_VALUE",
  * //               OriginRequestPolicyId: "STRING_VALUE",
  * //               ResponseHeadersPolicyId: "STRING_VALUE",
+ * //               GrpcConfig: {
+ * //                 Enabled: true || false, // required
+ * //               },
  * //               ForwardedValues: {
  * //                 QueryString: true || false, // required
  * //                 Cookies: {
@@ -357,6 +366,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //           },
  * //         ],
  * //         Staging: true || false, // required
+ * //         AnycastIpListId: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

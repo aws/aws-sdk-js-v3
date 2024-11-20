@@ -7,11 +7,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  ListDistributionsByWebACLIdRequest,
-  ListDistributionsByWebACLIdResult,
-  ListDistributionsByWebACLIdResultFilterSensitiveLog,
+  ListDistributionsByAnycastIpListIdRequest,
+  ListDistributionsByAnycastIpListIdResult,
+  ListDistributionsByAnycastIpListIdResultFilterSensitiveLog,
 } from "../models/models_1";
-import { de_ListDistributionsByWebACLIdCommand, se_ListDistributionsByWebACLIdCommand } from "../protocols/Aws_restXml";
+import {
+  de_ListDistributionsByAnycastIpListIdCommand,
+  se_ListDistributionsByAnycastIpListIdCommand,
+} from "../protocols/Aws_restXml";
 
 /**
  * @public
@@ -21,32 +24,34 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListDistributionsByWebACLIdCommand}.
+ * The input for {@link ListDistributionsByAnycastIpListIdCommand}.
  */
-export interface ListDistributionsByWebACLIdCommandInput extends ListDistributionsByWebACLIdRequest {}
+export interface ListDistributionsByAnycastIpListIdCommandInput extends ListDistributionsByAnycastIpListIdRequest {}
 /**
  * @public
  *
- * The output of {@link ListDistributionsByWebACLIdCommand}.
+ * The output of {@link ListDistributionsByAnycastIpListIdCommand}.
  */
-export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributionsByWebACLIdResult, __MetadataBearer {}
+export interface ListDistributionsByAnycastIpListIdCommandOutput
+  extends ListDistributionsByAnycastIpListIdResult,
+    __MetadataBearer {}
 
 /**
- * <p>List the distributions that are associated with a specified WAF web ACL.</p>
+ * <p>Lists the distributions in your account that are associated with the specified <code>AnycastIpListId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, ListDistributionsByWebACLIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, ListDistributionsByWebACLIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, ListDistributionsByAnycastIpListIdCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, ListDistributionsByAnycastIpListIdCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const input = { // ListDistributionsByWebACLIdRequest
+ * const input = { // ListDistributionsByAnycastIpListIdRequest
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
- *   WebACLId: "STRING_VALUE", // required
+ *   AnycastIpListId: "STRING_VALUE", // required
  * };
- * const command = new ListDistributionsByWebACLIdCommand(input);
+ * const command = new ListDistributionsByAnycastIpListIdCommand(input);
  * const response = await client.send(command);
- * // { // ListDistributionsByWebACLIdResult
+ * // { // ListDistributionsByAnycastIpListIdResult
  * //   DistributionList: { // DistributionList
  * //     Marker: "STRING_VALUE", // required
  * //     NextMarker: "STRING_VALUE",
@@ -359,31 +364,33 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  *
  * ```
  *
- * @param ListDistributionsByWebACLIdCommandInput - {@link ListDistributionsByWebACLIdCommandInput}
- * @returns {@link ListDistributionsByWebACLIdCommandOutput}
- * @see {@link ListDistributionsByWebACLIdCommandInput} for command's `input` shape.
- * @see {@link ListDistributionsByWebACLIdCommandOutput} for command's `response` shape.
+ * @param ListDistributionsByAnycastIpListIdCommandInput - {@link ListDistributionsByAnycastIpListIdCommandInput}
+ * @returns {@link ListDistributionsByAnycastIpListIdCommandOutput}
+ * @see {@link ListDistributionsByAnycastIpListIdCommandInput} for command's `input` shape.
+ * @see {@link ListDistributionsByAnycastIpListIdCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
+ *
+ * @throws {@link AccessDenied} (client fault)
+ *  <p>Access denied.</p>
+ *
+ * @throws {@link EntityNotFound} (client fault)
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
- * @throws {@link InvalidWebACLId} (client fault)
- *  <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest
- * 			version of WAF, use the ACL ARN, for example
- * 				<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
- * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
- * 				<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>This operation is not supported in this region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  * @public
  */
-export class ListDistributionsByWebACLIdCommand extends $Command
+export class ListDistributionsByAnycastIpListIdCommand extends $Command
   .classBuilder<
-    ListDistributionsByWebACLIdCommandInput,
-    ListDistributionsByWebACLIdCommandOutput,
+    ListDistributionsByAnycastIpListIdCommandInput,
+    ListDistributionsByAnycastIpListIdCommandOutput,
     CloudFrontClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -395,21 +402,21 @@ export class ListDistributionsByWebACLIdCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Cloudfront2020_05_31", "ListDistributionsByWebACLId", {})
-  .n("CloudFrontClient", "ListDistributionsByWebACLIdCommand")
-  .f(void 0, ListDistributionsByWebACLIdResultFilterSensitiveLog)
-  .ser(se_ListDistributionsByWebACLIdCommand)
-  .de(de_ListDistributionsByWebACLIdCommand)
+  .s("Cloudfront2020_05_31", "ListDistributionsByAnycastIpListId", {})
+  .n("CloudFrontClient", "ListDistributionsByAnycastIpListIdCommand")
+  .f(void 0, ListDistributionsByAnycastIpListIdResultFilterSensitiveLog)
+  .ser(se_ListDistributionsByAnycastIpListIdCommand)
+  .de(de_ListDistributionsByAnycastIpListIdCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListDistributionsByWebACLIdRequest;
-      output: ListDistributionsByWebACLIdResult;
+      input: ListDistributionsByAnycastIpListIdRequest;
+      output: ListDistributionsByAnycastIpListIdResult;
     };
     sdk: {
-      input: ListDistributionsByWebACLIdCommandInput;
-      output: ListDistributionsByWebACLIdCommandOutput;
+      input: ListDistributionsByAnycastIpListIdCommandInput;
+      output: ListDistributionsByAnycastIpListIdCommandOutput;
     };
   };
 }

@@ -361,6 +361,143 @@ export interface AllowedMethods {
 }
 
 /**
+ * <p>An Anycast static IP list.</p>
+ * @public
+ */
+export interface AnycastIpList {
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the Anycast static IP list.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the Anycast static IP list. Valid values: <code>Deployed</code>, <code>Deploying</code>, or <code>Failed</code>.</p>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Anycast static IP list.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The static IP addresses that are allocated to the Anycast static IP list.</p>
+   * @public
+   */
+  AnycastIps: string[] | undefined;
+
+  /**
+   * <p>The number of IP addresses in the Anycast static IP list.</p>
+   * @public
+   */
+  IpCount: number | undefined;
+
+  /**
+   * <p>The last time the Anycast static IP list was modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * <p>An abbreviated version of the <a>AnycastIpList</a> structure. Omits the allocated static IP addresses (<a>AnycastIpList$AnycastIps</a>).</p>
+ * @public
+ */
+export interface AnycastIpListSummary {
+  /**
+   * <p>The ID of the Anycast static IP list.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the Anycast static IP list.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The deployment status of the Anycast static IP list. Valid values: Deployed, Deploying, or Failed.</p>
+   * @public
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Anycast static IP list.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The number of IP addresses in the Anycast static IP list.</p>
+   * @public
+   */
+  IpCount: number | undefined;
+
+  /**
+   * <p>The last time the Anycast static IP list was modified.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+}
+
+/**
+ * <p>The Anycast static IP list collection.</p>
+ * @public
+ */
+export interface AnycastIpListCollection {
+  /**
+   * <p>Items in the Anycast static IP list collection. Each item is of the <a>AnycastIpListSummary</a> structure type.</p>
+   * @public
+   */
+  Items?: AnycastIpListSummary[] | undefined;
+
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list. The response includes items in the list that occur
+   * 			after the marker. To get the next page of the list, set this field's value to the value
+   * 			of <code>NextMarker</code> from the current page's response.</p>
+   * @public
+   */
+  Marker: string | undefined;
+
+  /**
+   * <p>Indicates the next page of the Anycast static IP list collection. To get the next page of the
+   * 			list, use this value in the <code>Marker</code> field of your request.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The maximum number of Anycast static IP list collections that you want returned in the
+   * 			response.</p>
+   * @public
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>If there are more items in the list collection than are in this response, this value is
+   * 			<code>true</code>.</p>
+   * @public
+   */
+  IsTruncated: boolean | undefined;
+
+  /**
+   * <p>The quantity of Anycast static IP lists in the collection.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+}
+
+/**
  * @public
  */
 export interface AssociateAliasRequest {
@@ -778,6 +915,24 @@ export interface FunctionAssociations {
 }
 
 /**
+ * <p>Amazon CloudFront supports gRPC, an open-source remote procedure call (RPC) framework built on
+ * 			HTTP/2. gRPC offers bi-directional streaming and binary protocol that buffers payloads,
+ * 			making it suitable for applications that require low latency communications.</p>
+ *          <p>To enable your distribution to handle gRPC requests, you must include HTTP/2 as one of the supported <code>HTTP</code> versions and allow <code>HTTP</code> methods, including <code>POST</code>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-using-grpc.html">Using gRPC with CloudFront distributions</a> in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * @public
+ */
+export interface GrpcConfig {
+  /**
+   * <p>Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your
+   * 			origins.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
  * <p>A complex type that contains a Lambda@Edge function association.</p>
  * @public
  */
@@ -1145,6 +1300,12 @@ export interface CacheBehavior {
    * @public
    */
   ResponseHeadersPolicyId?: string | undefined;
+
+  /**
+   * <p>The gRPC configuration for your cache behavior.</p>
+   * @public
+   */
+  GrpcConfig?: GrpcConfig | undefined;
 
   /**
    * @deprecated
@@ -1817,7 +1978,7 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
 }
 
 /**
- * <p>The key value store entity cannot be deleted while it is in use.</p>
+ * <p>The entity cannot be deleted while it is in use.</p>
  * @public
  */
 export class CannotDeleteEntityWhileInUse extends __BaseException {
@@ -1834,6 +1995,28 @@ export class CannotDeleteEntityWhileInUse extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, CannotDeleteEntityWhileInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The entity cannot be updated while it is in use.</p>
+ * @public
+ */
+export class CannotUpdateEntityWhileInUse extends __BaseException {
+  readonly name: "CannotUpdateEntityWhileInUse" = "CannotUpdateEntityWhileInUse";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CannotUpdateEntityWhileInUse, __BaseException>) {
+    super({
+      name: "CannotUpdateEntityWhileInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CannotUpdateEntityWhileInUse.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2231,6 +2414,12 @@ export interface DefaultCacheBehavior {
   ResponseHeadersPolicyId?: string | undefined;
 
   /**
+   * <p>The gRPC configuration for your cache behavior.</p>
+   * @public
+   */
+  GrpcConfig?: GrpcConfig | undefined;
+
+  /**
    * @deprecated
    *
    * <p>This field is deprecated. We recommend that you use a cache policy or an origin
@@ -2320,22 +2509,31 @@ export const HttpVersion = {
 export type HttpVersion = (typeof HttpVersion)[keyof typeof HttpVersion];
 
 /**
- * <p>A complex type that controls whether access logs are written for the
- * 			distribution.</p>
+ * <p>A complex type that specifies whether access logs are written for the distribution.</p>
+ *          <note>
+ *             <p>If you already enabled standard logging (legacy) and you want to enable standard logging
+ * 				(v2) to send your access logs to Amazon S3, we recommend that you specify a
+ * 					<i>different</i> Amazon S3 bucket or use a <i>separate
+ * 					path</i> in the same bucket (for example, use a log prefix or
+ * 				partitioning). This helps you keep track of which log files are associated with
+ * 				which logging subscription and prevents log files from overwriting each other. For
+ * 				more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html">Standard logging (access logs)</a> in the
+ * 					<i>Amazon CloudFront Developer Guide</i>.</p>
+ *          </note>
  * @public
  */
 export interface LoggingConfig {
   /**
-   * <p>Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't
-   * 			want to enable logging when you create a distribution or if you want to disable logging
-   * 			for an existing distribution, specify <code>false</code> for <code>Enabled</code>, and
-   * 			specify empty <code>Bucket</code> and <code>Prefix</code> elements. If you specify
+   * <p>Specifies whether you want CloudFront to save access logs to an Amazon S3 bucket. If you don't want to
+   * 			enable logging when you create a distribution or if you want to disable logging for an
+   * 			existing distribution, specify <code>false</code> for <code>Enabled</code>, and specify
+   * 			empty <code>Bucket</code> and <code>Prefix</code> elements. If you specify
    * 				<code>false</code> for <code>Enabled</code> but you specify values for
-   * 				<code>Bucket</code>, <code>prefix</code>, and <code>IncludeCookies</code>, the
-   * 			values are automatically deleted.</p>
+   * 				<code>Bucket</code> and  <code>prefix</code>, the values are automatically
+   * 			deleted.</p>
    * @public
    */
-  Enabled: boolean | undefined;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Specifies whether you want CloudFront to include cookies in access logs, specify
@@ -2346,14 +2544,14 @@ export interface LoggingConfig {
    * 				<code>false</code> for <code>IncludeCookies</code>.</p>
    * @public
    */
-  IncludeCookies: boolean | undefined;
+  IncludeCookies?: boolean | undefined;
 
   /**
    * <p>The Amazon S3 bucket to store the access logs in, for example,
-   * 				<code>myawslogbucket.s3.amazonaws.com</code>.</p>
+   * 				<code>amzn-s3-demo-bucket.s3.amazonaws.com</code>.</p>
    * @public
    */
-  Bucket: string | undefined;
+  Bucket?: string | undefined;
 
   /**
    * <p>An optional string that you want CloudFront to prefix to the access log
@@ -2362,7 +2560,7 @@ export interface LoggingConfig {
    * 			include an empty <code>Prefix</code> element in the <code>Logging</code> element.</p>
    * @public
    */
-  Prefix: string | undefined;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -2719,6 +2917,18 @@ export interface S3OriginConfig {
 }
 
 /**
+ * <p>An Amazon CloudFront VPC origin configuration.</p>
+ * @public
+ */
+export interface VpcOriginConfig {
+  /**
+   * <p>The VPC origin ID.</p>
+   * @public
+   */
+  VpcOriginId: string | undefined;
+}
+
+/**
  * <p>An origin.</p>
  *          <p>An origin is the location where content is stored, and from which CloudFront gets content to
  * 			serve to viewers. To specify an origin:</p>
@@ -2808,6 +3018,12 @@ export interface Origin {
    * @public
    */
   CustomOriginConfig?: CustomOriginConfig | undefined;
+
+  /**
+   * <p>The VPC origin configuration.</p>
+   * @public
+   */
+  VpcOriginConfig?: VpcOriginConfig | undefined;
 
   /**
    * <p>The number of times that CloudFront attempts to connect to the origin. The minimum number is
@@ -3449,6 +3665,12 @@ export interface DistributionConfig {
    * @public
    */
   Staging?: boolean | undefined;
+
+  /**
+   * <p>ID of the Anycast static IP list that is associated with the distribution.</p>
+   * @public
+   */
+  AnycastIpListId?: string | undefined;
 }
 
 /**
@@ -4904,6 +5126,171 @@ export class TrustedSignerDoesNotExist extends __BaseException {
 }
 
 /**
+ * <p>A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>A string that contains <code>Tag</code> key.</p>
+   *          <p>The string length should be between 1 and 128 characters. Valid characters include
+   * 				<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, space, and the special
+   * 			characters <code>_ - . : / = + @</code>.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>A string that contains an optional <code>Tag</code> value.</p>
+   *          <p>The string length should be between 0 and 256 characters. Valid characters include
+   * 				<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, space, and the special
+   * 			characters <code>_ - . : / = + @</code>.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+ * @public
+ */
+export interface Tags {
+  /**
+   * <p>A complex type that contains <code>Tag</code> elements.</p>
+   * @public
+   */
+  Items?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAnycastIpListRequest {
+  /**
+   * <p>Name of the Anycast static IP list.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The number of static IP addresses that are allocated to the Anycast static IP list.</p>
+   * @public
+   */
+  IpCount: number | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * @public
+   */
+  Tags?: Tags | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAnycastIpListResult {
+  /**
+   * <p>A response structure that includes the version identifier (ETag) and the created <a>AnycastIpList</a> structure.</p>
+   * @public
+   */
+  AnycastIpList?: AnycastIpList | undefined;
+
+  /**
+   * <p>The version identifier for the current version of the Anycast static IP list.</p>
+   * @public
+   */
+  ETag?: string | undefined;
+}
+
+/**
+ * <p>The entity already exists. You must provide a unique
+ * 			entity.</p>
+ * @public
+ */
+export class EntityAlreadyExists extends __BaseException {
+  readonly name: "EntityAlreadyExists" = "EntityAlreadyExists";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityAlreadyExists, __BaseException>) {
+    super({
+      name: "EntityAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The entity limit has been exceeded.</p>
+ * @public
+ */
+export class EntityLimitExceeded extends __BaseException {
+  readonly name: "EntityLimitExceeded" = "EntityLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityLimitExceeded, __BaseException>) {
+    super({
+      name: "EntityLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The tagging specified is not valid.</p>
+ * @public
+ */
+export class InvalidTagging extends __BaseException {
+  readonly name: "InvalidTagging" = "InvalidTagging";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidTagging, __BaseException>) {
+    super({
+      name: "InvalidTagging",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidTagging.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>This operation is not supported in this region.</p>
+ * @public
+ */
+export class UnsupportedOperation extends __BaseException {
+  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
+    super({
+      name: "UnsupportedOperation",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * @public
  */
 export interface CreateCachePolicyRequest {
@@ -5522,6 +5909,28 @@ export interface CreateDistributionResult {
 }
 
 /**
+ * <p>The entity was not found.</p>
+ * @public
+ */
+export class EntityNotFound extends __BaseException {
+  readonly name: "EntityNotFound" = "EntityNotFound";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityNotFound, __BaseException>) {
+    super({
+      name: "EntityNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>An origin cannot contain both an origin access control (OAC) and an origin access
  * 			identity (OAI).</p>
  * @public
@@ -5590,42 +5999,6 @@ export class NoSuchContinuousDeploymentPolicy extends __BaseException {
 }
 
 /**
- * <p>A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>A string that contains <code>Tag</code> key.</p>
-   *          <p>The string length should be between 1 and 128 characters. Valid characters include
-   * 				<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, space, and the special
-   * 			characters <code>_ - . : / = + @</code>.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>A string that contains an optional <code>Tag</code> value.</p>
-   *          <p>The string length should be between 0 and 256 characters. Valid characters include
-   * 				<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, space, and the special
-   * 			characters <code>_ - . : / = + @</code>.</p>
-   * @public
-   */
-  Value?: string | undefined;
-}
-
-/**
- * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
- * @public
- */
-export interface Tags {
-  /**
-   * <p>A complex type that contains <code>Tag</code> elements.</p>
-   * @public
-   */
-  Items?: Tag[] | undefined;
-}
-
-/**
  * <p>A distribution Configuration and a list of tags to be associated with the
  * 			distribution.</p>
  * @public
@@ -5678,28 +6051,6 @@ export interface CreateDistributionWithTagsResult {
    * @public
    */
   ETag?: string | undefined;
-}
-
-/**
- * <p>The tagging specified is not valid.</p>
- * @public
- */
-export class InvalidTagging extends __BaseException {
-  readonly name: "InvalidTagging" = "InvalidTagging";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidTagging, __BaseException>) {
-    super({
-      name: "InvalidTagging",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidTagging.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -6638,28 +6989,6 @@ export class TooManyFunctions extends __BaseException {
 }
 
 /**
- * <p>This operation is not supported in this region.</p>
- * @public
- */
-export class UnsupportedOperation extends __BaseException {
-  readonly name: "UnsupportedOperation" = "UnsupportedOperation";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnsupportedOperation, __BaseException>) {
-    super({
-      name: "UnsupportedOperation",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnsupportedOperation.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>A complex type that contains information about the objects that you want to
  * 			invalidate. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects">Specifying the Objects to Invalidate</a> in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
@@ -7084,52 +7413,7 @@ export interface CreateKeyValueStoreResult {
 }
 
 /**
- * <p>The key value store entity already exists. You must provide a unique key value store
- * 			entity.</p>
- * @public
- */
-export class EntityAlreadyExists extends __BaseException {
-  readonly name: "EntityAlreadyExists" = "EntityAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityAlreadyExists, __BaseException>) {
-    super({
-      name: "EntityAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The key value store entity limit has been exceeded.</p>
- * @public
- */
-export class EntityLimitExceeded extends __BaseException {
-  readonly name: "EntityLimitExceeded" = "EntityLimitExceeded";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<EntityLimitExceeded, __BaseException>) {
-    super({
-      name: "EntityLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, EntityLimitExceeded.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The key value store entity size limit was exceeded.</p>
+ * <p>The entity size limit was exceeded.</p>
  * @public
  */
 export class EntitySizeLimitExceeded extends __BaseException {
@@ -8334,241 +8618,6 @@ export interface ResponseHeadersPolicyAccessControlAllowMethods {
    * @public
    */
   Items: ResponseHeadersPolicyAccessControlAllowMethodsValues[] | undefined;
-}
-
-/**
- * <p>A list of origins (domain names) that CloudFront can use as the value for the
- * 				<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
- *          <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
- * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
- * @public
- */
-export interface ResponseHeadersPolicyAccessControlAllowOrigins {
-  /**
-   * <p>The number of origins in the list.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The list of origins (domain names). You can specify <code>*</code> to allow all
-   * 			origins.</p>
-   * @public
-   */
-  Items: string[] | undefined;
-}
-
-/**
- * <p>A list of HTTP headers that CloudFront includes as values for the
- * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
- *          <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
- * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
- * @public
- */
-export interface ResponseHeadersPolicyAccessControlExposeHeaders {
-  /**
-   * <p>The number of HTTP headers in the list.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The list of HTTP headers. You can specify <code>*</code> to expose all headers.</p>
-   * @public
-   */
-  Items?: string[] | undefined;
-}
-
-/**
- * <p>A configuration for a set of HTTP response headers that are used for cross-origin
- * 			resource sharing (CORS). CloudFront adds these headers to HTTP responses that it sends for
- * 			CORS requests that match a cache behavior associated with this response headers
- * 			policy.</p>
- *          <p>For more information about CORS, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin Resource
- * 				Sharing (CORS)</a> in the MDN Web Docs.</p>
- * @public
- */
-export interface ResponseHeadersPolicyCorsConfig {
-  /**
-   * <p>A list of origins (domain names) that CloudFront can use as the value for the
-   * 				<code>Access-Control-Allow-Origin</code> HTTP response header.</p>
-   *          <p>For more information about the <code>Access-Control-Allow-Origin</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin">Access-Control-Allow-Origin</a> in the MDN Web Docs.</p>
-   * @public
-   */
-  AccessControlAllowOrigins: ResponseHeadersPolicyAccessControlAllowOrigins | undefined;
-
-  /**
-   * <p>A list of HTTP header names that CloudFront includes as values for the
-   * 				<code>Access-Control-Allow-Headers</code> HTTP response header.</p>
-   *          <p>For more information about the <code>Access-Control-Allow-Headers</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers">Access-Control-Allow-Headers</a> in the MDN Web Docs.</p>
-   * @public
-   */
-  AccessControlAllowHeaders: ResponseHeadersPolicyAccessControlAllowHeaders | undefined;
-
-  /**
-   * <p>A list of HTTP methods that CloudFront includes as values for the
-   * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
-   *          <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
-   * @public
-   */
-  AccessControlAllowMethods: ResponseHeadersPolicyAccessControlAllowMethods | undefined;
-
-  /**
-   * <p>A Boolean that CloudFront uses as the value for the
-   * 				<code>Access-Control-Allow-Credentials</code> HTTP response header.</p>
-   *          <p>For more information about the <code>Access-Control-Allow-Credentials</code> HTTP
-   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials">Access-Control-Allow-Credentials</a> in the MDN Web Docs.</p>
-   * @public
-   */
-  AccessControlAllowCredentials: boolean | undefined;
-
-  /**
-   * <p>A list of HTTP headers that CloudFront includes as values for the
-   * 				<code>Access-Control-Expose-Headers</code> HTTP response header.</p>
-   *          <p>For more information about the <code>Access-Control-Expose-Headers</code> HTTP
-   * 			response header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers">Access-Control-Expose-Headers</a> in the MDN Web Docs.</p>
-   * @public
-   */
-  AccessControlExposeHeaders?: ResponseHeadersPolicyAccessControlExposeHeaders | undefined;
-
-  /**
-   * <p>A number that CloudFront uses as the value for the <code>Access-Control-Max-Age</code> HTTP
-   * 			response header.</p>
-   *          <p>For more information about the <code>Access-Control-Max-Age</code> HTTP response
-   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age">Access-Control-Max-Age</a> in the MDN Web Docs.</p>
-   * @public
-   */
-  AccessControlMaxAgeSec?: number | undefined;
-
-  /**
-   * <p>A Boolean that determines whether CloudFront overrides HTTP response headers received from
-   * 			the origin with the ones specified in this response headers policy.</p>
-   * @public
-   */
-  OriginOverride: boolean | undefined;
-}
-
-/**
- * <p>An HTTP response header name and its value. CloudFront includes this header in HTTP
- * 			responses that it sends for requests that match a cache behavior that's associated with
- * 			this response headers policy.</p>
- * @public
- */
-export interface ResponseHeadersPolicyCustomHeader {
-  /**
-   * <p>The HTTP response header name.</p>
-   * @public
-   */
-  Header: string | undefined;
-
-  /**
-   * <p>The value for the HTTP response header.</p>
-   * @public
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>A Boolean that determines whether CloudFront overrides a response header with the same name
-   * 			received from the origin with the header specified here.</p>
-   * @public
-   */
-  Override: boolean | undefined;
-}
-
-/**
- * <p>A list of HTTP response header names and their values. CloudFront includes these headers in
- * 			HTTP responses that it sends for requests that match a cache behavior that's associated
- * 			with this response headers policy.</p>
- * @public
- */
-export interface ResponseHeadersPolicyCustomHeadersConfig {
-  /**
-   * <p>The number of HTTP response headers in the list.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The list of HTTP response headers and their values.</p>
-   * @public
-   */
-  Items?: ResponseHeadersPolicyCustomHeader[] | undefined;
-}
-
-/**
- * <p>The name of an HTTP header that CloudFront removes from HTTP responses to requests that match the
- * 			cache behavior that this response headers policy is attached to.</p>
- * @public
- */
-export interface ResponseHeadersPolicyRemoveHeader {
-  /**
-   * <p>The HTTP header name.</p>
-   * @public
-   */
-  Header: string | undefined;
-}
-
-/**
- * <p>A list of HTTP header names that CloudFront removes from HTTP responses to requests that match the
- * 			cache behavior that this response headers policy is attached to.</p>
- * @public
- */
-export interface ResponseHeadersPolicyRemoveHeadersConfig {
-  /**
-   * <p>The number of HTTP header names in the list.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The list of HTTP header names.</p>
-   * @public
-   */
-  Items?: ResponseHeadersPolicyRemoveHeader[] | undefined;
-}
-
-/**
- * <p>The policy directives and their values that CloudFront includes as values for the
- * 				<code>Content-Security-Policy</code> HTTP response header.</p>
- *          <p>For more information about the <code>Content-Security-Policy</code> HTTP response
- * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
- * @public
- */
-export interface ResponseHeadersPolicyContentSecurityPolicy {
-  /**
-   * <p>A Boolean that determines whether CloudFront overrides the
-   * 				<code>Content-Security-Policy</code> HTTP response header received from the origin
-   * 			with the one specified in this response headers policy.</p>
-   * @public
-   */
-  Override: boolean | undefined;
-
-  /**
-   * <p>The policy directives and their values that CloudFront includes as values for the
-   * 				<code>Content-Security-Policy</code> HTTP response header.</p>
-   * @public
-   */
-  ContentSecurityPolicy: string | undefined;
-}
-
-/**
- * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
- * 			header with its value set to <code>nosniff</code>.</p>
- *          <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
- * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
- * @public
- */
-export interface ResponseHeadersPolicyContentTypeOptions {
-  /**
-   * <p>A Boolean that determines whether CloudFront overrides the
-   * 				<code>X-Content-Type-Options</code> HTTP response header received from the origin
-   * 			with the one specified in this response headers policy.</p>
-   * @public
-   */
-  Override: boolean | undefined;
 }
 
 /**

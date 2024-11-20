@@ -64,7 +64,7 @@ export interface DescribeKeyValueStoreCommandOutput extends DescribeKeyValueStor
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The key value store entity was not found.</p>
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>

@@ -123,6 +123,9 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
  * //             },
+ * //             VpcOriginConfig: { // VpcOriginConfig
+ * //               VpcOriginId: "STRING_VALUE", // required
+ * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),
  * //             OriginShield: { // OriginShield
@@ -212,6 +215,9 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //         CachePolicyId: "STRING_VALUE",
  * //         OriginRequestPolicyId: "STRING_VALUE",
  * //         ResponseHeadersPolicyId: "STRING_VALUE",
+ * //         GrpcConfig: { // GrpcConfig
+ * //           Enabled: true || false, // required
+ * //         },
  * //         ForwardedValues: { // ForwardedValues
  * //           QueryString: true || false, // required
  * //           Cookies: { // CookiePreference
@@ -295,6 +301,9 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //             CachePolicyId: "STRING_VALUE",
  * //             OriginRequestPolicyId: "STRING_VALUE",
  * //             ResponseHeadersPolicyId: "STRING_VALUE",
+ * //             GrpcConfig: {
+ * //               Enabled: true || false, // required
+ * //             },
  * //             ForwardedValues: {
  * //               QueryString: true || false, // required
  * //               Cookies: {
@@ -338,10 +347,10 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //       },
  * //       Comment: "STRING_VALUE", // required
  * //       Logging: { // LoggingConfig
- * //         Enabled: true || false, // required
- * //         IncludeCookies: true || false, // required
- * //         Bucket: "STRING_VALUE", // required
- * //         Prefix: "STRING_VALUE", // required
+ * //         Enabled: true || false,
+ * //         IncludeCookies: true || false,
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
  * //       },
  * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
  * //       Enabled: true || false, // required
@@ -368,6 +377,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //       IsIPV6Enabled: true || false,
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
+ * //       AnycastIpListId: "STRING_VALUE",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
