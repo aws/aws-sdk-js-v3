@@ -1,4 +1,4 @@
-import { ChecksumAlgorithm } from "@aws-sdk/middleware-flexible-checksums";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM } from "@aws-sdk/middleware-flexible-checksums";
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildMiddleware } from "@smithy/types";
 import { Readable } from "stream";
@@ -23,11 +23,14 @@ describe("Flexible Checksums", () => {
     ["", ChecksumAlgorithm.SHA256, "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="],
     ["abc", ChecksumAlgorithm.SHA256, "ungWv48Bz+pBQUDeXa4iI7ADYaOWF3qctBD/YfIAFa0="],
     ["Hello world", ChecksumAlgorithm.SHA256, "ZOyIygCyaOW6GjVnihtTFtIS9PNmskdyMlNKiuyjfzw="],
+
+    // Choose default checksum algorithm when explicily not provided.
+    ["Hello world", undefined, "i9aeUg=="],
   ];
 
   describe("putObject", () => {
     testCases.forEach(([body, checksumAlgorithm, checksumValue]) => {
-      const checksumHeader = `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`;
+      const checksumHeader = `x-amz-checksum-${(checksumAlgorithm ?? DEFAULT_CHECKSUM_ALGORITHM).toLowerCase()}`;
 
       describe(`sets ${checksumHeader}="${checksumValue}"" for checksum="${checksumAlgorithm}"`, () => {
         const getBodyAsReadableStream = (content: string) => {
@@ -49,7 +52,7 @@ describe("Flexible Checksums", () => {
             // middleware intercept the request and return it early
             const request = args.request as HttpRequest;
             const { headers } = request;
-            expect(headers["x-amz-sdk-checksum-algorithm"]).to.equal(checksumAlgorithm);
+            expect(headers["x-amz-sdk-checksum-algorithm"]).to.equal(checksumAlgorithm ?? DEFAULT_CHECKSUM_ALGORITHM);
             expect(headers[checksumHeader]).to.equal(checksumValue);
             return { output: {} as any, response: {} as any };
           };
@@ -120,13 +123,14 @@ describe("Flexible Checksums", () => {
 
   describe("getObject", async () => {
     testCases.forEach(([body, checksumAlgorithm, checksumValue]) => {
-      const checksumHeader = `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`;
+      const checksumHeader = `x-amz-checksum-${(checksumAlgorithm ?? DEFAULT_CHECKSUM_ALGORITHM).toLowerCase()}`;
 
       it(`validates ${checksumHeader}="${checksumValue}"" set for checksum="${checksumAlgorithm}"`, async () => {
         const responseBody = new Readable();
         responseBody.push(body);
         responseBody.push(null);
         const responseChecksumValidator: BuildMiddleware<any, any> = (next, context) => async (args) => {
+          expect(args.input.ChecksumMode).to.equal("ENABLED");
           const request = args.request as HttpRequest;
           return {
             output: {
@@ -159,7 +163,8 @@ describe("Flexible Checksums", () => {
         const { Body } = await client.getObject({
           Bucket: "bucket",
           Key: "key",
-          ChecksumMode: "ENABLED",
+          // Do not pass ChecksumMode if algorithm is not explicitly defined. It'll be set by SDK.
+          ChecksumMode: checksumAlgorithm ? "ENABLED" : undefined,
         });
         (Body as Readable).on("data", (chunk) => {
           expect(chunk.toString()).to.equal(body);
