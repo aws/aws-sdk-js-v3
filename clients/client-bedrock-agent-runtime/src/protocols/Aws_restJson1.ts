@@ -37,6 +37,7 @@ import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from ".
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "../commands/GetAgentMemoryCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "../commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "../commands/InvokeFlowCommand";
+import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "../commands/OptimizePromptCommand";
 import {
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
@@ -45,6 +46,7 @@ import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/Retriev
 import { BedrockAgentRuntimeServiceException as __BaseException } from "../models/BedrockAgentRuntimeServiceException";
 import {
   AccessDeniedException,
+  AnalyzePromptEvent,
   ApiResult,
   Attribution,
   BadGatewayException,
@@ -81,6 +83,7 @@ import {
   InferenceConfig,
   InferenceConfiguration,
   InputFile,
+  InputPrompt,
   InternalServerException,
   InvocationResultMember,
   KnowledgeBaseConfiguration,
@@ -94,6 +97,8 @@ import {
   MemorySessionSummary,
   ModelInvocationInput,
   Observation,
+  OptimizedPromptEvent,
+  OptimizedPromptStream,
   OrchestrationConfiguration,
   OrchestrationTrace,
   OutputFile,
@@ -115,6 +120,7 @@ import {
   ServiceQuotaExceededException,
   SessionState,
   TextInferenceConfig,
+  TextPrompt,
   ThrottlingException,
   Trace,
   TracePart,
@@ -212,6 +218,29 @@ export const se_InvokeFlowCommand = async (
     take(input, {
       enableTrace: [],
       inputs: (_) => se_FlowInputs(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1OptimizePromptCommand
+ */
+export const se_OptimizePromptCommand = async (
+  input: OptimizePromptCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/optimize-prompt");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      input: (_) => _json(_),
+      targetModelId: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -343,6 +372,24 @@ export const de_InvokeFlowCommand = async (
   });
   const data: any = output.body;
   contents.responseStream = de_FlowResponseStream(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1OptimizePromptCommand
+ */
+export const de_OptimizePromptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<OptimizePromptCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = output.body;
+  contents.optimizedPrompt = de_OptimizedPromptStream(data, context);
   return contents;
 };
 
@@ -691,6 +738,60 @@ const de_FlowResponseStream = (
   });
 };
 /**
+ * deserializeAws_restJson1OptimizedPromptStream
+ */
+const de_OptimizedPromptStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<OptimizedPromptStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["optimizedPromptEvent"] != null) {
+      return {
+        optimizedPromptEvent: await de_OptimizedPromptEvent_event(event["optimizedPromptEvent"], context),
+      };
+    }
+    if (event["analyzePromptEvent"] != null) {
+      return {
+        analyzePromptEvent: await de_AnalyzePromptEvent_event(event["analyzePromptEvent"], context),
+      };
+    }
+    if (event["internalServerException"] != null) {
+      return {
+        internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
+      };
+    }
+    if (event["throttlingException"] != null) {
+      return {
+        throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
+      };
+    }
+    if (event["validationException"] != null) {
+      return {
+        validationException: await de_ValidationException_event(event["validationException"], context),
+      };
+    }
+    if (event["dependencyFailedException"] != null) {
+      return {
+        dependencyFailedException: await de_DependencyFailedException_event(
+          event["dependencyFailedException"],
+          context
+        ),
+      };
+    }
+    if (event["accessDeniedException"] != null) {
+      return {
+        accessDeniedException: await de_AccessDeniedException_event(event["accessDeniedException"], context),
+      };
+    }
+    if (event["badGatewayException"] != null) {
+      return {
+        badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+/**
  * deserializeAws_restJson1ResponseStream
  */
 const de_ResponseStream = (
@@ -782,6 +883,12 @@ const de_AccessDeniedException_event = async (output: any, context: __SerdeConte
   };
   return de_AccessDeniedExceptionRes(parsedOutput, context);
 };
+const de_AnalyzePromptEvent_event = async (output: any, context: __SerdeContext): Promise<AnalyzePromptEvent> => {
+  const contents: AnalyzePromptEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
 const de_BadGatewayException_event = async (output: any, context: __SerdeContext): Promise<BadGatewayException> => {
   const parsedOutput: any = {
     ...output,
@@ -839,6 +946,12 @@ const de_InternalServerException_event = async (
     body: await parseBody(output.body, context),
   };
   return de_InternalServerExceptionRes(parsedOutput, context);
+};
+const de_OptimizedPromptEvent_event = async (output: any, context: __SerdeContext): Promise<OptimizedPromptEvent> => {
+  const contents: OptimizedPromptEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
 };
 const de_PayloadPart_event = async (output: any, context: __SerdeContext): Promise<PayloadPart> => {
   const contents: PayloadPart = {} as any;
@@ -1095,6 +1208,8 @@ const se_InputFiles = (input: InputFile[], context: __SerdeContext): any => {
     });
 };
 
+// se_InputPrompt omitted.
+
 // se_InvocationResultMember omitted.
 
 /**
@@ -1266,6 +1381,8 @@ const se_TextInferenceConfig = (input: TextInferenceConfig, context: __SerdeCont
   });
 };
 
+// se_TextPrompt omitted.
+
 /**
  * serializeAws_restJson1Document
  */
@@ -1276,6 +1393,8 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 // de_ActionGroupInvocationInput omitted.
 
 // de_ActionGroupInvocationOutput omitted.
+
+// de_AnalyzePromptEvent omitted.
 
 // de_ApiContentMap omitted.
 
@@ -1672,6 +1791,10 @@ const de_Observation = (output: any, context: __SerdeContext): Observation => {
   }) as any;
 };
 
+// de_OptimizedPrompt omitted.
+
+// de_OptimizedPromptEvent omitted.
+
 // de_OrchestrationModelInvocationOutput omitted.
 
 /**
@@ -1861,6 +1984,8 @@ const de_RetrievedReferences = (output: any, context: __SerdeContext): Retrieved
 // de_Span omitted.
 
 // de_StopSequences omitted.
+
+// de_TextPrompt omitted.
 
 // de_TextResponsePart omitted.
 

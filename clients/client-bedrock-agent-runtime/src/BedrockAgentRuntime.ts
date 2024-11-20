@@ -16,6 +16,11 @@ import {
 import { InvokeAgentCommand, InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
 import { InvokeFlowCommand, InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
 import {
+  OptimizePromptCommand,
+  OptimizePromptCommandInput,
+  OptimizePromptCommandOutput,
+} from "./commands/OptimizePromptCommand";
+import {
   RetrieveAndGenerateCommand,
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
@@ -27,6 +32,7 @@ const commands = {
   GetAgentMemoryCommand,
   InvokeAgentCommand,
   InvokeFlowCommand,
+  OptimizePromptCommand,
   RetrieveCommand,
   RetrieveAndGenerateCommand,
 };
@@ -83,6 +89,20 @@ export interface BedrockAgentRuntime {
     args: InvokeFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OptimizePromptCommand}
+   */
+  optimizePrompt(
+    args: OptimizePromptCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OptimizePromptCommandOutput>;
+  optimizePrompt(args: OptimizePromptCommandInput, cb: (err: any, data?: OptimizePromptCommandOutput) => void): void;
+  optimizePrompt(
+    args: OptimizePromptCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OptimizePromptCommandOutput) => void
   ): void;
 
   /**

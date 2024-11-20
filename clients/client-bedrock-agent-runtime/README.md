@@ -237,6 +237,14 @@ InvokeFlow
 </details>
 <details>
 <summary>
+OptimizePrompt
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agent-runtime/command/OptimizePromptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent-runtime/Interface/OptimizePromptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agent-runtime/Interface/OptimizePromptCommandOutput/)
+
+</details>
+<details>
+<summary>
 Retrieve
 </summary>
 

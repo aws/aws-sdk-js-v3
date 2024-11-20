@@ -63,6 +63,7 @@ import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from ".
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "./commands/GetAgentMemoryCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
+import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "./commands/OptimizePromptCommand";
 import {
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
@@ -87,6 +88,7 @@ export type ServiceInputTypes =
   | GetAgentMemoryCommandInput
   | InvokeAgentCommandInput
   | InvokeFlowCommandInput
+  | OptimizePromptCommandInput
   | RetrieveAndGenerateCommandInput
   | RetrieveCommandInput;
 
@@ -98,6 +100,7 @@ export type ServiceOutputTypes =
   | GetAgentMemoryCommandOutput
   | InvokeAgentCommandOutput
   | InvokeFlowCommandOutput
+  | OptimizePromptCommandOutput
   | RetrieveAndGenerateCommandOutput
   | RetrieveCommandOutput;
 

@@ -76,7 +76,7 @@ export interface RequestBody {
 }
 
 /**
- * <p>Contains information about the action group being invoked. For more information about the possible structures, see the InvocationInput tab in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-orchestration.html">OrchestrationTrace</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Contains information about the action group being invoked. For more information about the possible structures, see the InvocationInput tab in <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-orchestration.html">OrchestrationTrace</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @public
  */
 export interface ActionGroupInvocationInput {
@@ -4144,6 +4144,335 @@ export interface GetAgentMemoryResponse {
 }
 
 /**
+ * <p>Contains information about the text prompt to optimize.</p>
+ * @public
+ */
+export interface TextPrompt {
+  /**
+   * <p>The text in the text prompt to optimize.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>Contains information about the prompt to optimize.</p>
+ * @public
+ */
+export type InputPrompt = InputPrompt.TextPromptMember | InputPrompt.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InputPrompt {
+  /**
+   * <p>Contains information about the text prompt to optimize.</p>
+   * @public
+   */
+  export interface TextPromptMember {
+    textPrompt: TextPrompt;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    textPrompt?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    textPrompt: (value: TextPrompt) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InputPrompt, visitor: Visitor<T>): T => {
+    if (value.textPrompt !== undefined) return visitor.textPrompt(value.textPrompt);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface OptimizePromptRequest {
+  /**
+   * <p>Contains the prompt to optimize.</p>
+   * @public
+   */
+  input: InputPrompt | undefined;
+
+  /**
+   * <p>The unique identifier of the model that you want to optimize the prompt for.</p>
+   * @public
+   */
+  targetModelId: string | undefined;
+}
+
+/**
+ * <p>An event in which the prompt was analyzed in preparation for optimization.</p>
+ * @public
+ */
+export interface AnalyzePromptEvent {
+  /**
+   * <p>A message describing the analysis of the prompt.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the optimized prompt.</p>
+ * @public
+ */
+export type OptimizedPrompt = OptimizedPrompt.TextPromptMember | OptimizedPrompt.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OptimizedPrompt {
+  /**
+   * <p>Contains information about the text in the prompt that was optimized.</p>
+   * @public
+   */
+  export interface TextPromptMember {
+    textPrompt: TextPrompt;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    textPrompt?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    textPrompt: (value: TextPrompt) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OptimizedPrompt, visitor: Visitor<T>): T => {
+    if (value.textPrompt !== undefined) return visitor.textPrompt(value.textPrompt);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>An event in which the prompt was optimized.</p>
+ * @public
+ */
+export interface OptimizedPromptEvent {
+  /**
+   * <p>Contains information about the optimized prompt.</p>
+   * @public
+   */
+  optimizedPrompt?: OptimizedPrompt | undefined;
+}
+
+/**
+ * <p>The stream containing events in the prompt optimization process.</p>
+ * @public
+ */
+export type OptimizedPromptStream =
+  | OptimizedPromptStream.AccessDeniedExceptionMember
+  | OptimizedPromptStream.AnalyzePromptEventMember
+  | OptimizedPromptStream.BadGatewayExceptionMember
+  | OptimizedPromptStream.DependencyFailedExceptionMember
+  | OptimizedPromptStream.InternalServerExceptionMember
+  | OptimizedPromptStream.OptimizedPromptEventMember
+  | OptimizedPromptStream.ThrottlingExceptionMember
+  | OptimizedPromptStream.ValidationExceptionMember
+  | OptimizedPromptStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OptimizedPromptStream {
+  /**
+   * <p>An event in which the prompt was optimized.</p>
+   * @public
+   */
+  export interface OptimizedPromptEventMember {
+    optimizedPromptEvent: OptimizedPromptEvent;
+    analyzePromptEvent?: never;
+    internalServerException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    dependencyFailedException?: never;
+    accessDeniedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An event in which the prompt was analyzed in preparation for optimization.</p>
+   * @public
+   */
+  export interface AnalyzePromptEventMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent: AnalyzePromptEvent;
+    internalServerException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    dependencyFailedException?: never;
+    accessDeniedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An internal server error occurred. Retry your request.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent?: never;
+    internalServerException: InternalServerException;
+    throttlingException?: never;
+    validationException?: never;
+    dependencyFailedException?: never;
+    accessDeniedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Your request was throttled because of service-wide limitations. Resubmit your request later or in a different region. You can also purchase <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> to increase the rate or number of tokens you can process.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent?: never;
+    internalServerException?: never;
+    throttlingException: ThrottlingException;
+    validationException?: never;
+    dependencyFailedException?: never;
+    accessDeniedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input validation failed. Check your request parameters and retry the request.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent?: never;
+    internalServerException?: never;
+    throttlingException?: never;
+    validationException: ValidationException;
+    dependencyFailedException?: never;
+    accessDeniedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+   * @public
+   */
+  export interface DependencyFailedExceptionMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent?: never;
+    internalServerException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    dependencyFailedException: DependencyFailedException;
+    accessDeniedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+   * @public
+   */
+  export interface AccessDeniedExceptionMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent?: never;
+    internalServerException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    dependencyFailedException?: never;
+    accessDeniedException: AccessDeniedException;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
+   * @public
+   */
+  export interface BadGatewayExceptionMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent?: never;
+    internalServerException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    dependencyFailedException?: never;
+    accessDeniedException?: never;
+    badGatewayException: BadGatewayException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    optimizedPromptEvent?: never;
+    analyzePromptEvent?: never;
+    internalServerException?: never;
+    throttlingException?: never;
+    validationException?: never;
+    dependencyFailedException?: never;
+    accessDeniedException?: never;
+    badGatewayException?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    optimizedPromptEvent: (value: OptimizedPromptEvent) => T;
+    analyzePromptEvent: (value: AnalyzePromptEvent) => T;
+    internalServerException: (value: InternalServerException) => T;
+    throttlingException: (value: ThrottlingException) => T;
+    validationException: (value: ValidationException) => T;
+    dependencyFailedException: (value: DependencyFailedException) => T;
+    accessDeniedException: (value: AccessDeniedException) => T;
+    badGatewayException: (value: BadGatewayException) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OptimizedPromptStream, visitor: Visitor<T>): T => {
+    if (value.optimizedPromptEvent !== undefined) return visitor.optimizedPromptEvent(value.optimizedPromptEvent);
+    if (value.analyzePromptEvent !== undefined) return visitor.analyzePromptEvent(value.analyzePromptEvent);
+    if (value.internalServerException !== undefined)
+      return visitor.internalServerException(value.internalServerException);
+    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
+    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
+    if (value.dependencyFailedException !== undefined)
+      return visitor.dependencyFailedException(value.dependencyFailedException);
+    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
+    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface OptimizePromptResponse {
+  /**
+   * <p>The prompt after being optimized for the task.</p>
+   * @public
+   */
+  optimizedPrompt: AsyncIterable<OptimizedPromptStream> | undefined;
+}
+
+/**
  * <p>Contains the query made to the knowledge base.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -6036,6 +6365,75 @@ export const ResponseStreamFilterSensitiveLog = (obj: ResponseStream): any => {
 export const InvokeAgentResponseFilterSensitiveLog = (obj: InvokeAgentResponse): any => ({
   ...obj,
   ...(obj.completion && { completion: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
+export const TextPromptFilterSensitiveLog = (obj: TextPrompt): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InputPromptFilterSensitiveLog = (obj: InputPrompt): any => {
+  if (obj.textPrompt !== undefined) return { textPrompt: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const OptimizePromptRequestFilterSensitiveLog = (obj: OptimizePromptRequest): any => ({
+  ...obj,
+  ...(obj.input && { input: InputPromptFilterSensitiveLog(obj.input) }),
+});
+
+/**
+ * @internal
+ */
+export const AnalyzePromptEventFilterSensitiveLog = (obj: AnalyzePromptEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OptimizedPromptFilterSensitiveLog = (obj: OptimizedPrompt): any => {
+  if (obj.textPrompt !== undefined) return { textPrompt: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const OptimizedPromptEventFilterSensitiveLog = (obj: OptimizedPromptEvent): any => ({
+  ...obj,
+  ...(obj.optimizedPrompt && { optimizedPrompt: OptimizedPromptFilterSensitiveLog(obj.optimizedPrompt) }),
+});
+
+/**
+ * @internal
+ */
+export const OptimizedPromptStreamFilterSensitiveLog = (obj: OptimizedPromptStream): any => {
+  if (obj.optimizedPromptEvent !== undefined) return { optimizedPromptEvent: SENSITIVE_STRING };
+  if (obj.analyzePromptEvent !== undefined) return { analyzePromptEvent: SENSITIVE_STRING };
+  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
+  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.validationException !== undefined) return { validationException: obj.validationException };
+  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
+  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
+  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const OptimizePromptResponseFilterSensitiveLog = (obj: OptimizePromptResponse): any => ({
+  ...obj,
+  ...(obj.optimizedPrompt && { optimizedPrompt: "STREAMING_CONTENT" }),
 });
 
 /**
