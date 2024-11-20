@@ -30,7 +30,7 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
 
 /**
  * <p> You can use this API to run a scheduled query manually. </p>
- *          <p>If you enabled <code>QueryInsights</code>, this API also returns insights and metrics related to the query that you executed as part of an Amazon SNS notification. <code>QueryInsights</code> helps with performance tuning of your query.</p>
+ *          <p>If you enabled <code>QueryInsights</code>, this API also returns insights and metrics related to the query that you executed as part of an Amazon SNS notification. <code>QueryInsights</code> helps with performance tuning of your query. For more information about <code>QueryInsights</code>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/using-query-insights.html">Using query insights to optimize queries in Amazon Timestream</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,21 +58,19 @@ export interface ExecuteScheduledQueryCommandOutput extends __MetadataBearer {}
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You are not authorized to perform this action. </p>
+ *  <p>You do not have the necessary permissions to access the account settings.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ *  <p>An internal server error occurred while processing the request.</p>
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *  <p>The requested endpoint is invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was throttled due to excessive requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>

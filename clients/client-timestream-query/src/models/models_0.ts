@@ -4,7 +4,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TimestreamQueryServiceException as __BaseException } from "./TimestreamQueryServiceException";
 
 /**
- * <p> You are not authorized to perform this action. </p>
+ * <p>You do not have the necessary permissions to access the account settings.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -23,6 +23,36 @@ export class AccessDeniedException extends __BaseException {
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * <p>Details on SNS that are required to send the notification.</p>
+ * @public
+ */
+export interface SnsConfiguration {
+  /**
+   * <p>SNS topic ARN that the scheduled query status notifications will be sent to.</p>
+   * @public
+   */
+  TopicArn: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for notifications related to account settings.</p>
+ * @public
+ */
+export interface AccountSettingsNotificationConfiguration {
+  /**
+   * <p>Details on SNS that are required to send the notification.</p>
+   * @public
+   */
+  SnsConfiguration?: SnsConfiguration | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that grants Timestream permission to publish notifications. This field is only visible if SNS Topic is provided when updating the account settings.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
 }
 
 /**
@@ -50,9 +80,7 @@ export interface CancelQueryResponse {
 }
 
 /**
- * <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ * <p>An internal server error occurred while processing the request.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
@@ -74,7 +102,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested endpoint was not valid.</p>
+ * <p>The requested endpoint is invalid.</p>
  * @public
  */
 export class InvalidEndpointException extends __BaseException {
@@ -96,7 +124,7 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * <p>The request was throttled due to excessive requests.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -161,6 +189,20 @@ export const ScalarType = {
  * @public
  */
 export type ScalarType = (typeof ScalarType)[keyof typeof ScalarType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ComputeMode = {
+  ON_DEMAND: "ON_DEMAND",
+  PROVISIONED: "PROVISIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeMode = (typeof ComputeMode)[keyof typeof ComputeMode];
 
 /**
  * <p> Unable to poll results for a cancelled query. </p>
@@ -237,25 +279,13 @@ export interface ErrorReportConfiguration {
 }
 
 /**
- * <p>Details on SNS that are required to send the notification.</p>
- * @public
- */
-export interface SnsConfiguration {
-  /**
-   * <p>SNS topic ARN that the scheduled query status notifications will be sent to.</p>
-   * @public
-   */
-  TopicArn: string | undefined;
-}
-
-/**
  * <p>Notification configuration for a scheduled query. A notification is sent by Timestream
  *             when a scheduled query is created, its state is updated or when it is deleted. </p>
  * @public
  */
 export interface NotificationConfiguration {
   /**
-   * <p>Details on SNS configuration. </p>
+   * <p>Details about the Amazon Simple Notification Service (SNS) configuration. This field is visible only when SNS Topic is provided when updating the account settings.  </p>
    * @public
    */
   SnsConfiguration: SnsConfiguration | undefined;
@@ -693,6 +723,87 @@ export interface DescribeAccountSettingsRequest {}
  * @public
  * @enum
  */
+export const LastUpdateStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdateStatus];
+
+/**
+ * <p>Configuration object that contains the most recent account settings update, visible only if settings have been updated previously.</p>
+ * @public
+ */
+export interface LastUpdate {
+  /**
+   * <p>The number of TimeStream Compute Units (TCUs) requested in the last account settings update.</p>
+   * @public
+   */
+  TargetQueryTCU?: number | undefined;
+
+  /**
+   * <p>The status of the last update. Can be either <code>PENDING</code>, <code>FAILED</code>, or <code>SUCCEEDED</code>.</p>
+   * @public
+   */
+  Status?: LastUpdateStatus | undefined;
+
+  /**
+   * <p>Error message describing the last account settings update status, visible only if an error occurred.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
+ * <p>The response to a request to update the provisioned capacity settings for querying data.</p>
+ * @public
+ */
+export interface ProvisionedCapacityResponse {
+  /**
+   * <p>The number of Timestream Compute Units (TCUs) provisioned in the account. This field is only visible when the compute mode is <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  ActiveQueryTCU?: number | undefined;
+
+  /**
+   * <p>An object that contains settings for notifications that are sent whenever the provisioned capacity settings are modified. This field is only visible when the compute mode is <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  NotificationConfiguration?: AccountSettingsNotificationConfiguration | undefined;
+
+  /**
+   * <p>Information about the last update to the provisioned capacity settings.</p>
+   * @public
+   */
+  LastUpdate?: LastUpdate | undefined;
+}
+
+/**
+ * <p>The response to a request to retrieve or update the compute capacity settings for querying data.</p>
+ * @public
+ */
+export interface QueryComputeResponse {
+  /**
+   * <p>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai)  region, the API operation only recognizes the value <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  ComputeMode?: ComputeMode | undefined;
+
+  /**
+   * <p>Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.</p>
+   * @public
+   */
+  ProvisionedCapacity?: ProvisionedCapacityResponse | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const QueryPricingModel = {
   BYTES_SCANNED: "BYTES_SCANNED",
   COMPUTE_UNITS: "COMPUTE_UNITS",
@@ -708,16 +819,28 @@ export type QueryPricingModel = (typeof QueryPricingModel)[keyof typeof QueryPri
  */
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The maximum number of <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/tcu.html">Timestream compute units</a> (TCUs) the service will use at any point in time to serve your queries.</p>
+   * <p>The maximum number of <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/tcu.html">Timestream compute units</a> (TCUs) the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. This configuration is applicable only for on-demand usage of (TCUs).
+   *
+   *
+   *         </p>
    * @public
    */
   MaxQueryTCU?: number | undefined;
 
   /**
    * <p>The pricing model for queries in your account.</p>
+   *          <note>
+   *             <p>The <code>QueryPricingModel</code> parameter is used by several Timestream operations; however, the <code>UpdateAccountSettings</code> API operation doesn't recognize any values other than <code>COMPUTE_UNITS</code>.</p>
+   *          </note>
    * @public
    */
   QueryPricingModel?: QueryPricingModel | undefined;
+
+  /**
+   * <p>An object that contains the usage settings for Timestream Compute Units (TCUs) in your account for the query workload. </p>
+   * @public
+   */
+  QueryCompute?: QueryComputeResponse | undefined;
 }
 
 /**
@@ -1436,6 +1559,24 @@ export interface PrepareQueryRequest {
 }
 
 /**
+ * <p>A request to update the provisioned capacity settings for querying data.</p>
+ * @public
+ */
+export interface ProvisionedCapacityRequest {
+  /**
+   * <p>The target compute capacity for querying data, specified in Timestream Compute Units (TCUs).</p>
+   * @public
+   */
+  TargetQueryTCU: number | undefined;
+
+  /**
+   * <p>Configuration settings for notifications related to the provisioned capacity update.</p>
+   * @public
+   */
+  NotificationConfiguration?: AccountSettingsNotificationConfiguration | undefined;
+}
+
+/**
  * <p>
  *             Timestream was unable to run the query successfully. </p>
  * @public
@@ -1731,6 +1872,24 @@ export interface QueryStatus {
 }
 
 /**
+ * <p>A request to retrieve or update the compute capacity settings for querying data.</p>
+ * @public
+ */
+export interface QueryComputeRequest {
+  /**
+   * <p>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai)  region, the API operation only recognizes the value <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  ComputeMode?: ComputeMode | undefined;
+
+  /**
+   * <p>Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.</p>
+   * @public
+   */
+  ProvisionedCapacity?: ProvisionedCapacityRequest | undefined;
+}
+
+/**
  * @public
  */
 export interface TagResourceRequest {
@@ -1782,8 +1941,8 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on.</p>
-   *          <p>The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default quotas</a>.</p>
+   * <p>The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see Default quotas. This configuration is applicable only for on-demand usage of Timestream Compute Units (TCUs).</p>
+   *          <p>The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for <code>maxQueryTCU</code>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default quotas</a>.</p>
    * @public
    */
   MaxQueryTCU?: number | undefined;
@@ -1796,6 +1955,15 @@ export interface UpdateAccountSettingsRequest {
    * @public
    */
   QueryPricingModel?: QueryPricingModel | undefined;
+
+  /**
+   * <p>Modifies the query compute settings configured in your account, including the query pricing model and provisioned Timestream Compute Units (TCUs) in your account.</p>
+   *          <note>
+   *             <p>This API is idempotent, meaning that making the same request multiple times will have the same effect as making the request once.</p>
+   *          </note>
+   * @public
+   */
+  QueryCompute?: QueryComputeRequest | undefined;
 }
 
 /**
@@ -1813,6 +1981,12 @@ export interface UpdateAccountSettingsResponse {
    * @public
    */
   QueryPricingModel?: QueryPricingModel | undefined;
+
+  /**
+   * <p>Confirms the updated account settings for querying data in your account.</p>
+   * @public
+   */
+  QueryCompute?: QueryComputeResponse | undefined;
 }
 
 /**

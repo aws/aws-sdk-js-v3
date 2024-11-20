@@ -32,7 +32,7 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * <p>
  *             <code>Query</code> is a synchronous operation that enables you to run a query against
  *             your Amazon Timestream data.</p>
- *          <p>If you enabled <code>QueryInsights</code>, this API also returns insights and metrics related to the query that you executed. <code>QueryInsights</code> helps with performance tuning of your query.</p>
+ *          <p>If you enabled <code>QueryInsights</code>, this API also returns insights and metrics related to the query that you executed. <code>QueryInsights</code> helps with performance tuning of your query. For more information about <code>QueryInsights</code>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/using-query-insights.html">Using query insights to optimize queries in Amazon Timestream</a>.</p>
  *          <note>
  *             <p>The maximum number of <code>Query</code> API requests you're allowed to make with <code>QueryInsights</code> enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.</p>
  *          </note>
@@ -179,25 +179,23 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You are not authorized to perform this action. </p>
+ *  <p>You do not have the necessary permissions to access the account settings.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p> Unable to poll results for a cancelled query. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ *  <p>An internal server error occurred while processing the request.</p>
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *  <p>The requested endpoint is invalid.</p>
  *
  * @throws {@link QueryExecutionException} (client fault)
  *  <p>
  *             Timestream was unable to run the query successfully. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was throttled due to excessive requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>

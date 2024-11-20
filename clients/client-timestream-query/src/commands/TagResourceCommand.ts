@@ -60,7 +60,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link InvalidEndpointException} (client fault)
- *  <p>The requested endpoint was not valid.</p>
+ *  <p>The requested endpoint is invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
@@ -69,7 +69,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>You have exceeded the service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was throttled due to excessive requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>

@@ -76,12 +76,10 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @see {@link TimestreamQueryClientResolvedConfig | config} for TimestreamQueryClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ *  <p>An internal server error occurred while processing the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling.</p>
+ *  <p>The request was throttled due to excessive requests.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p> Invalid or malformed request. </p>

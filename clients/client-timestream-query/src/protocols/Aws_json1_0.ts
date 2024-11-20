@@ -67,6 +67,7 @@ import {
 } from "../commands/UpdateScheduledQueryCommand";
 import {
   AccessDeniedException,
+  AccountSettingsNotificationConfiguration,
   CancelQueryRequest,
   ColumnInfo,
   ConflictException,
@@ -92,6 +93,8 @@ import {
   ParameterMapping,
   PrepareQueryRequest,
   PrepareQueryResponse,
+  ProvisionedCapacityRequest,
+  QueryComputeRequest,
   QueryExecutionException,
   QueryInsights,
   QueryInsightsResponse,
@@ -788,6 +791,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_AccountSettingsNotificationConfiguration omitted.
+
 // se_CancelQueryRequest omitted.
 
 /**
@@ -852,6 +857,10 @@ const se_ExecuteScheduledQueryRequest = (input: ExecuteScheduledQueryRequest, co
 
 // se_PrepareQueryRequest omitted.
 
+// se_ProvisionedCapacityRequest omitted.
+
+// se_QueryComputeRequest omitted.
+
 // se_QueryInsights omitted.
 
 /**
@@ -894,6 +903,8 @@ const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
 // se_UpdateScheduledQueryRequest omitted.
 
 // de_AccessDeniedException omitted.
+
+// de_AccountSettingsNotificationConfiguration omitted.
 
 // de_CancelQueryResponse omitted.
 
@@ -979,6 +990,8 @@ const de_DescribeScheduledQueryResponse = (output: any, context: __SerdeContext)
 
 // de_InvalidEndpointException omitted.
 
+// de_LastUpdate omitted.
+
 /**
  * deserializeAws_json1_0ListScheduledQueriesResponse
  */
@@ -1037,6 +1050,10 @@ const de_PrepareQueryResponse = (output: any, context: __SerdeContext): PrepareQ
     QueryString: __expectString,
   }) as any;
 };
+
+// de_ProvisionedCapacityResponse omitted.
+
+// de_QueryComputeResponse omitted.
 
 // de_QueryExecutionException omitted.
 
