@@ -181,6 +181,15 @@ export interface DescribeInstanceRefreshesCommandOutput extends DescribeInstance
  * //                   AllowedInstanceTypes: [ // AllowedInstanceTypes
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                   BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ * //                     Cpu: { // CpuPerformanceFactorRequest
+ * //                       References: [ // PerformanceFactorReferenceSetRequest
+ * //                         { // PerformanceFactorReferenceRequest
+ * //                           InstanceFamily: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
  * //                 },
  * //               },
  * //             ],

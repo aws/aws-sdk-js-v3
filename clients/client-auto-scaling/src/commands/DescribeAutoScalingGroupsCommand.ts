@@ -150,6 +150,15 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //                 AllowedInstanceTypes: [ // AllowedInstanceTypes
  * //                   "STRING_VALUE",
  * //                 ],
+ * //                 BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ * //                   Cpu: { // CpuPerformanceFactorRequest
+ * //                     References: [ // PerformanceFactorReferenceSetRequest
+ * //                       { // PerformanceFactorReferenceRequest
+ * //                         InstanceFamily: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 },
  * //               },
  * //             },
  * //           ],
@@ -253,6 +262,17 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //       AvailabilityZoneImpairmentPolicy: { // AvailabilityZoneImpairmentPolicy
  * //         ZonalShiftEnabled: true || false,
  * //         ImpairedZoneHealthCheckBehavior: "ReplaceUnhealthy" || "IgnoreUnhealthy",
+ * //       },
+ * //       CapacityReservationSpecification: { // CapacityReservationSpecification
+ * //         CapacityReservationPreference: "capacity-reservations-only" || "capacity-reservations-first" || "none" || "default",
+ * //         CapacityReservationTarget: { // CapacityReservationTarget
+ * //           CapacityReservationIds: [ // CapacityReservationIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           CapacityReservationResourceGroupArns: [ // CapacityReservationResourceGroupArns
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   ],

@@ -146,6 +146,15 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *               AllowedInstanceTypes: [ // AllowedInstanceTypes
  *                 "STRING_VALUE",
  *               ],
+ *               BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *                 Cpu: { // CpuPerformanceFactorRequest
+ *                   References: [ // PerformanceFactorReferenceSetRequest
+ *                     { // PerformanceFactorReferenceRequest
+ *                       InstanceFamily: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *               },
  *             },
  *           },
  *         ],

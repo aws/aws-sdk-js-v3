@@ -166,6 +166,15 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *             AllowedInstanceTypes: [ // AllowedInstanceTypes
  *               "STRING_VALUE",
  *             ],
+ *             BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *               Cpu: { // CpuPerformanceFactorRequest
+ *                 References: [ // PerformanceFactorReferenceSetRequest
+ *                   { // PerformanceFactorReferenceRequest
+ *                     InstanceFamily: "STRING_VALUE",
+ *                   },
+ *                 ],
+ *               },
+ *             },
  *           },
  *         },
  *       ],
@@ -212,6 +221,17 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *     ImpairedZoneHealthCheckBehavior: "ReplaceUnhealthy" || "IgnoreUnhealthy",
  *   },
  *   SkipZonalShiftValidation: true || false,
+ *   CapacityReservationSpecification: { // CapacityReservationSpecification
+ *     CapacityReservationPreference: "capacity-reservations-only" || "capacity-reservations-first" || "none" || "default",
+ *     CapacityReservationTarget: { // CapacityReservationTarget
+ *       CapacityReservationIds: [ // CapacityReservationIds
+ *         "STRING_VALUE",
+ *       ],
+ *       CapacityReservationResourceGroupArns: [ // CapacityReservationResourceGroupArns
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new UpdateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

@@ -836,6 +836,89 @@ export interface AvailabilityZoneImpairmentPolicy {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const CapacityReservationPreference = {
+  CapacityReservationsFirst: "capacity-reservations-first",
+  CapacityReservationsOnly: "capacity-reservations-only",
+  Default: "default",
+  None: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationPreference =
+  (typeof CapacityReservationPreference)[keyof typeof CapacityReservationPreference];
+
+/**
+ * <p>
+ *             The target for the Capacity Reservation. Specify Capacity Reservations IDs or Capacity Reservation resource group ARNs.
+ *         </p>
+ * @public
+ */
+export interface CapacityReservationTarget {
+  /**
+   * <p>
+   *             The Capacity Reservation IDs to launch instances into.
+   *         </p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>
+   *             The resource group ARNs of the Capacity Reservation to launch instances into.
+   *         </p>
+   * @public
+   */
+  CapacityReservationResourceGroupArns?: string[] | undefined;
+}
+
+/**
+ * <p>
+ *             Describes the Capacity Reservation preference and targeting options. If you specify <code>open</code> or <code>none</code> for <code>CapacityReservationPreference</code>, do not specify a <code>CapacityReservationTarget</code>.
+ *         </p>
+ * @public
+ */
+export interface CapacityReservationSpecification {
+  /**
+   * <p>
+   *             The capacity reservation preference. The following options are available:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-reservations-only</code> - Auto Scaling will only launch instances into a Capacity Reservation or Capacity Reservation resource group. If capacity isn't available, instances will fail to launch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-reservations-first</code> - Auto Scaling will try to launch instances into a Capacity Reservation or Capacity Reservation resource group first. If capacity isn't available, instances will run in On-Demand capacity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code> - Auto Scaling will not launch instances into a Capacity Reservation. Instances will run in On-Demand capacity. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - Auto Scaling uses the Capacity Reservation preference from your launch template or an open Capacity Reservation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CapacityReservationPreference?: CapacityReservationPreference | undefined;
+
+  /**
+   * <p>
+   *             Describes a target Capacity Reservation or Capacity Reservation resource group.
+   *         </p>
+   * @public
+   */
+  CapacityReservationTarget?: CapacityReservationTarget | undefined;
+}
+
+/**
  * <p>Describes an instance maintenance policy.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -1137,6 +1220,115 @@ export interface BaselineEbsBandwidthMbpsRequest {
    * @public
    */
   Max?: number | undefined;
+}
+
+/**
+ * <p>
+ *             Specify an instance family to use as the baseline reference for CPU performance. All instance types that All instance types that match your specified attributes will be compared against the CPU performance of the
+ *             referenced instance family, regardless of CPU manufacturer or architecture differences.
+ *         </p>
+ *          <note>
+ *             <p>Currently only one instance family can be specified in the list.</p>
+ *          </note>
+ * @public
+ */
+export interface PerformanceFactorReferenceRequest {
+  /**
+   * <p>
+   *             The instance family to use as a baseline reference.
+   *         </p>
+   *          <note>
+   *             <p>Make sure that you specify the correct value for the instance family. The instance family is everything before the period (.) in the instance type name. For example, in the instance <code>c6i.large</code>, the
+   *             instance family is <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2 instance type naming conventions</a> in
+   *             <i>Amazon EC2 Instance Types</i>.</p>
+   *          </note>
+   *          <p>The following instance types are <i>not supported</i> for performance protection.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>c1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>g3| g3s</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hpc7g</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>m1| m2</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>mac1 | mac2 | mac2-m1ultra | mac2-m2 | mac2-m2pro</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>p3dn | p4d | p5</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>t1</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>u-12tb1 | u-18tb1 | u-24tb1 | u-3tb1 | u-6tb1 | u-9tb1 | u7i-12tb | u7in-16tb | u7in-24tb | u7in-32tb</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>If you performance protection by specifying a supported instance family, the returned instance types will exclude the preceding unsupported instance families.</p>
+   *          <p>If you specify an unsupported instance family as a value for baseline performance, the API returns an empty response.</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+}
+
+/**
+ * <p>
+ *             The CPU performance to consider, using an instance family as the baseline reference.
+ *         </p>
+ * @public
+ */
+export interface CpuPerformanceFactorRequest {
+  /**
+   * <p>
+   *             Specify an instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes will be compared against the CPU performance of the
+   *             referenced instance family, regardless of CPU manufacturer or architecture differences.
+   *         </p>
+   *          <note>
+   *             <p>Currently only one instance family can be specified in the list.</p>
+   *          </note>
+   * @public
+   */
+  References?: PerformanceFactorReferenceRequest[] | undefined;
+}
+
+/**
+ * <p>
+ *             The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Auto Scaling uses
+ *             this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
+ *         </p>
+ *          <p>Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying <code>c6i</code> uses the CPU performance of the <code>c6i</code>
+ *         family as the baseline reference.</p>
+ * @public
+ */
+export interface BaselinePerformanceFactorsRequest {
+  /**
+   * <p>
+   *             The CPU performance to consider, using an instance family as the baseline reference.
+   *         </p>
+   * @public
+   */
+  Cpu?: CpuPerformanceFactorRequest | undefined;
 }
 
 /**
@@ -1718,6 +1910,14 @@ export interface InstanceRequirements {
    * @public
    */
   AllowedInstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>
+   *             The baseline performance factors for the instance requirements.
+   *         </p>
+   * @public
+   */
+  BaselinePerformanceFactors?: BaselinePerformanceFactorsRequest | undefined;
 }
 
 /**
@@ -2217,6 +2417,14 @@ export interface CreateAutoScalingGroupType {
    * @public
    */
   SkipZonalShiftValidation?: boolean | undefined;
+
+  /**
+   * <p>
+   *         The capacity reservation specification for the Auto Scaling group.
+   *     </p>
+   * @public
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
 }
 
 /**
@@ -3611,6 +3819,14 @@ export interface AutoScalingGroup {
    * @public
    */
   AvailabilityZoneImpairmentPolicy?: AvailabilityZoneImpairmentPolicy | undefined;
+
+  /**
+   * <p>
+   *             The capacity reservation specification.
+   *         </p>
+   * @public
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
 }
 
 /**
@@ -8396,4 +8612,12 @@ export interface UpdateAutoScalingGroupType {
    * @public
    */
   SkipZonalShiftValidation?: boolean | undefined;
+
+  /**
+   * <p>
+   *             The capacity reservation specification for the Auto Scaling group.
+   *         </p>
+   * @public
+   */
+  CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
 }
