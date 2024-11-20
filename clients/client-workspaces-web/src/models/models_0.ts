@@ -264,6 +264,40 @@ export class ValidationException extends __BaseException {
 /**
  * @public
  */
+export interface AssociateDataProtectionSettingsRequest {
+  /**
+   * <p>The ARN of the web portal.</p>
+   * @public
+   */
+  portalArn: string | undefined;
+
+  /**
+   * <p>The ARN of the data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateDataProtectionSettingsResponse {
+  /**
+   * <p>The ARN of the web portal.</p>
+   * @public
+   */
+  portalArn: string | undefined;
+
+  /**
+   * <p>The ARN of the data protection settings resource.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface AssociateIpAccessSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -727,6 +761,426 @@ export interface UpdateBrowserSettingsResponse {
    * @public
    */
   browserSettings: BrowserSettings | undefined;
+}
+
+/**
+ * <p>The pattern configuration for redacting custom data types in session.</p>
+ * @public
+ */
+export interface CustomPattern {
+  /**
+   * <p>The pattern name for the custom pattern.</p>
+   * @public
+   */
+  patternName: string | undefined;
+
+  /**
+   * <p>The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: “/ab+c/gi”.</p>
+   * @public
+   */
+  patternRegex: string | undefined;
+
+  /**
+   * <p>The pattern description for the customer pattern.</p>
+   * @public
+   */
+  patternDescription?: string | undefined;
+
+  /**
+   * <p>The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, “/ab+c/gi”</p>
+   * @public
+   */
+  keywordRegex?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RedactionPlaceHolderType = {
+  CUSTOM_TEXT: "CustomText",
+} as const;
+
+/**
+ * @public
+ */
+export type RedactionPlaceHolderType = (typeof RedactionPlaceHolderType)[keyof typeof RedactionPlaceHolderType];
+
+/**
+ * <p>The redaction placeholder that will replace the redacted text in session.</p>
+ * @public
+ */
+export interface RedactionPlaceHolder {
+  /**
+   * <p>The redaction placeholder type that will replace the redacted text in session.</p>
+   * @public
+   */
+  redactionPlaceHolderType: RedactionPlaceHolderType | undefined;
+
+  /**
+   * <p>The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.</p>
+   * @public
+   */
+  redactionPlaceHolderText?: string | undefined;
+}
+
+/**
+ * <p>The set of patterns that determine the data types redacted in session.</p>
+ * @public
+ */
+export interface InlineRedactionPattern {
+  /**
+   * <p>The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required.</p>
+   * @public
+   */
+  builtInPatternId?: string | undefined;
+
+  /**
+   * <p>&gt;The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.</p>
+   * @public
+   */
+  customPattern?: CustomPattern | undefined;
+
+  /**
+   * <p>The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.</p>
+   * @public
+   */
+  redactionPlaceHolder: RedactionPlaceHolder | undefined;
+
+  /**
+   * <p>The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.</p>
+   * @public
+   */
+  enforcedUrls?: string[] | undefined;
+
+  /**
+   * <p>The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.</p>
+   * @public
+   */
+  exemptUrls?: string[] | undefined;
+
+  /**
+   * <p>The confidence level for inline redaction pattern. This indicates the certainty of data
+   *          type matches in the redaction process. Confidence level 3 means high confidence, and
+   *          requires a formatted text pattern match in order for content to be redacted. Confidence
+   *          level 2 means medium confidence, and redaction considers both formatted and unformatted
+   *          text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and
+   *          redaction is enforced for both formatted pattern + unformatted pattern without keyword.
+   *          This overrides the global confidence level.</p>
+   * @public
+   */
+  confidenceLevel?: number | undefined;
+}
+
+/**
+ * <p>The configuration for in-session inline redaction.</p>
+ * @public
+ */
+export interface InlineRedactionConfiguration {
+  /**
+   * <p>The inline redaction patterns to be enabled for the inline redaction configuration.</p>
+   * @public
+   */
+  inlineRedactionPatterns: InlineRedactionPattern[] | undefined;
+
+  /**
+   * <p>The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.</p>
+   * @public
+   */
+  globalEnforcedUrls?: string[] | undefined;
+
+  /**
+   * <p>The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.</p>
+   * @public
+   */
+  globalExemptUrls?: string[] | undefined;
+
+  /**
+   * <p>The global confidence level for the inline redaction configuration. This indicates the
+   *          certainty of data type matches in the redaction process. Confidence level 3 means high
+   *          confidence, and requires a formatted text pattern match in order for content to be
+   *          redacted. Confidence level 2 means medium confidence, and redaction considers both
+   *          formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1
+   *          means low confidence, and redaction is enforced for both formatted pattern + unformatted
+   *          pattern without keyword. This is applied to patterns that do not have a pattern-level
+   *          confidence level. Defaults to confidence level 2.</p>
+   * @public
+   */
+  globalConfidenceLevel?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataProtectionSettingsRequest {
+  /**
+   * <p>The display name of the data protection settings.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The description of the data protection settings.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tags to add to the data protection settings resource. A tag is a key-value pair.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The custom managed key of the data protection settings.</p>
+   * @public
+   */
+  customerManagedKey?: string | undefined;
+
+  /**
+   * <p>Additional encryption context of the data protection settings.</p>
+   * @public
+   */
+  additionalEncryptionContext?: Record<string, string> | undefined;
+
+  /**
+   * <p>The inline redaction configuration of the data protection settings that will be applied to all sessions.</p>
+   * @public
+   */
+  inlineRedactionConfiguration?: InlineRedactionConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. Idempotency ensures that an API request completes only once. With an idempotent
+   *          request, if the original request completes successfully, subsequent retries with the same
+   *          client token returns the result from the original successful request. </p>
+   *          <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services
+   *          SDK.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataProtectionSettingsResponse {
+  /**
+   * <p>The ARN of the data protection settings resource.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataProtectionSettingsRequest {
+  /**
+   * <p>The ARN of the data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDataProtectionSettingsResponse {}
+
+/**
+ * @public
+ */
+export interface GetDataProtectionSettingsRequest {
+  /**
+   * <p>The ARN of the data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+}
+
+/**
+ * <p>The data protection settings resource that can be associated with a web portal.</p>
+ * @public
+ */
+export interface DataProtectionSettings {
+  /**
+   * <p>The ARN of the data protection settings resource.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+
+  /**
+   * <p>The inline redaction configuration for the data protection settings.</p>
+   * @public
+   */
+  inlineRedactionConfiguration?: InlineRedactionConfiguration | undefined;
+
+  /**
+   * <p>A list of web portal ARNs that this data protection settings resource is associated
+   *          with.</p>
+   * @public
+   */
+  associatedPortalArns?: string[] | undefined;
+
+  /**
+   * <p>The display name of the data protection settings.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The description of the data protection settings.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The creation date timestamp of the data protection settings.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+
+  /**
+   * <p>The customer managed key used to encrypt sensitive information in the data protection
+   *          settings.</p>
+   * @public
+   */
+  customerManagedKey?: string | undefined;
+
+  /**
+   * <p>The additional encryption context of the data protection settings.</p>
+   * @public
+   */
+  additionalEncryptionContext?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataProtectionSettingsResponse {
+  /**
+   * <p>The data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettings?: DataProtectionSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataProtectionSettingsRequest {
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *          operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be included in the next page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary of the data protection settings.</p>
+ * @public
+ */
+export interface DataProtectionSettingsSummary {
+  /**
+   * <p>The ARN of the data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+
+  /**
+   * <p>The display name of the data protection settings.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The description of the data protection settings.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The creation date timestamp of the data protection settings.</p>
+   * @public
+   */
+  creationDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDataProtectionSettingsResponse {
+  /**
+   * <p>The data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettings?: DataProtectionSettingsSummary[] | undefined;
+
+  /**
+   * <p>The pagination token used to retrieve the next page of results for this
+   *          operation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDataProtectionSettingsRequest {
+  /**
+   * <p>The ARN of the data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettingsArn: string | undefined;
+
+  /**
+   * <p>The inline redaction configuration of the data protection settings that will be applied to all sessions.</p>
+   * @public
+   */
+  inlineRedactionConfiguration?: InlineRedactionConfiguration | undefined;
+
+  /**
+   * <p>The display name of the data protection settings.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The description of the data protection settings.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *          request. Idempotency ensures that an API request completes only once. With an idempotent
+   *          request, if the original request completes successfully, subsequent retries with the same
+   *          client token return the result from the original successful request. </p>
+   *          <p>If you do not specify a client token, one is automatically generated by the Amazon Web Services
+   *          SDK.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDataProtectionSettingsResponse {
+  /**
+   * <p>The data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettings: DataProtectionSettings | undefined;
 }
 
 /**
@@ -2426,6 +2880,22 @@ export interface DisassociateBrowserSettingsResponse {}
 /**
  * @public
  */
+export interface DisassociateDataProtectionSettingsRequest {
+  /**
+   * <p>The ARN of the web portal.</p>
+   * @public
+   */
+  portalArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateDataProtectionSettingsResponse {}
+
+/**
+ * @public
+ */
 export interface DisassociateIpAccessSettingsRequest {
   /**
    * <p>The ARN of the web portal.</p>
@@ -2595,6 +3065,12 @@ export interface Portal {
    * @public
    */
   browserSettingsArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the user settings that is associated with the web portal.</p>
@@ -2784,6 +3260,12 @@ export interface PortalSummary {
    * @public
    */
   browserSettingsArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the data protection settings.</p>
+   * @public
+   */
+  dataProtectionSettingsArn?: string | undefined;
 
   /**
    * <p>The ARN of the user settings that is associated with the web portal.</p>
@@ -4103,6 +4585,135 @@ export const UpdateBrowserSettingsRequestFilterSensitiveLog = (obj: UpdateBrowse
 export const UpdateBrowserSettingsResponseFilterSensitiveLog = (obj: UpdateBrowserSettingsResponse): any => ({
   ...obj,
   ...(obj.browserSettings && { browserSettings: BrowserSettingsFilterSensitiveLog(obj.browserSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const CustomPatternFilterSensitiveLog = (obj: CustomPattern): any => ({
+  ...obj,
+  ...(obj.patternName && { patternName: SENSITIVE_STRING }),
+  ...(obj.patternRegex && { patternRegex: SENSITIVE_STRING }),
+  ...(obj.patternDescription && { patternDescription: SENSITIVE_STRING }),
+  ...(obj.keywordRegex && { keywordRegex: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RedactionPlaceHolderFilterSensitiveLog = (obj: RedactionPlaceHolder): any => ({
+  ...obj,
+  ...(obj.redactionPlaceHolderText && { redactionPlaceHolderText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InlineRedactionPatternFilterSensitiveLog = (obj: InlineRedactionPattern): any => ({
+  ...obj,
+  ...(obj.builtInPatternId && { builtInPatternId: SENSITIVE_STRING }),
+  ...(obj.customPattern && { customPattern: CustomPatternFilterSensitiveLog(obj.customPattern) }),
+  ...(obj.redactionPlaceHolder && {
+    redactionPlaceHolder: RedactionPlaceHolderFilterSensitiveLog(obj.redactionPlaceHolder),
+  }),
+  ...(obj.enforcedUrls && { enforcedUrls: SENSITIVE_STRING }),
+  ...(obj.exemptUrls && { exemptUrls: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InlineRedactionConfigurationFilterSensitiveLog = (obj: InlineRedactionConfiguration): any => ({
+  ...obj,
+  ...(obj.inlineRedactionPatterns && {
+    inlineRedactionPatterns: obj.inlineRedactionPatterns.map((item) => InlineRedactionPatternFilterSensitiveLog(item)),
+  }),
+  ...(obj.globalEnforcedUrls && { globalEnforcedUrls: SENSITIVE_STRING }),
+  ...(obj.globalExemptUrls && { globalExemptUrls: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDataProtectionSettingsRequestFilterSensitiveLog = (
+  obj: CreateDataProtectionSettingsRequest
+): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+  ...(obj.inlineRedactionConfiguration && {
+    inlineRedactionConfiguration: InlineRedactionConfigurationFilterSensitiveLog(obj.inlineRedactionConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataProtectionSettingsFilterSensitiveLog = (obj: DataProtectionSettings): any => ({
+  ...obj,
+  ...(obj.inlineRedactionConfiguration && {
+    inlineRedactionConfiguration: InlineRedactionConfigurationFilterSensitiveLog(obj.inlineRedactionConfiguration),
+  }),
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDataProtectionSettingsResponseFilterSensitiveLog = (obj: GetDataProtectionSettingsResponse): any => ({
+  ...obj,
+  ...(obj.dataProtectionSettings && {
+    dataProtectionSettings: DataProtectionSettingsFilterSensitiveLog(obj.dataProtectionSettings),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DataProtectionSettingsSummaryFilterSensitiveLog = (obj: DataProtectionSettingsSummary): any => ({
+  ...obj,
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListDataProtectionSettingsResponseFilterSensitiveLog = (obj: ListDataProtectionSettingsResponse): any => ({
+  ...obj,
+  ...(obj.dataProtectionSettings && {
+    dataProtectionSettings: obj.dataProtectionSettings.map((item) =>
+      DataProtectionSettingsSummaryFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataProtectionSettingsRequestFilterSensitiveLog = (
+  obj: UpdateDataProtectionSettingsRequest
+): any => ({
+  ...obj,
+  ...(obj.inlineRedactionConfiguration && {
+    inlineRedactionConfiguration: InlineRedactionConfigurationFilterSensitiveLog(obj.inlineRedactionConfiguration),
+  }),
+  ...(obj.displayName && { displayName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDataProtectionSettingsResponseFilterSensitiveLog = (
+  obj: UpdateDataProtectionSettingsResponse
+): any => ({
+  ...obj,
+  ...(obj.dataProtectionSettings && {
+    dataProtectionSettings: DataProtectionSettingsFilterSensitiveLog(obj.dataProtectionSettings),
+  }),
 });
 
 /**

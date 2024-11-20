@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListBrowserSettingsPaginator";
+export * from "./ListDataProtectionSettingsPaginator";
 export * from "./ListIdentityProvidersPaginator";
 export * from "./ListIpAccessSettingsPaginator";
 export * from "./ListNetworkSettingsPaginator";

@@ -58,6 +58,10 @@ import {
   AssociateBrowserSettingsCommandOutput,
 } from "./commands/AssociateBrowserSettingsCommand";
 import {
+  AssociateDataProtectionSettingsCommandInput,
+  AssociateDataProtectionSettingsCommandOutput,
+} from "./commands/AssociateDataProtectionSettingsCommand";
+import {
   AssociateIpAccessSettingsCommandInput,
   AssociateIpAccessSettingsCommandOutput,
 } from "./commands/AssociateIpAccessSettingsCommand";
@@ -82,6 +86,10 @@ import {
   CreateBrowserSettingsCommandOutput,
 } from "./commands/CreateBrowserSettingsCommand";
 import {
+  CreateDataProtectionSettingsCommandInput,
+  CreateDataProtectionSettingsCommandOutput,
+} from "./commands/CreateDataProtectionSettingsCommand";
+import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
@@ -104,6 +112,10 @@ import {
   DeleteBrowserSettingsCommandInput,
   DeleteBrowserSettingsCommandOutput,
 } from "./commands/DeleteBrowserSettingsCommand";
+import {
+  DeleteDataProtectionSettingsCommandInput,
+  DeleteDataProtectionSettingsCommandOutput,
+} from "./commands/DeleteDataProtectionSettingsCommand";
 import {
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput,
@@ -128,6 +140,10 @@ import {
   DisassociateBrowserSettingsCommandOutput,
 } from "./commands/DisassociateBrowserSettingsCommand";
 import {
+  DisassociateDataProtectionSettingsCommandInput,
+  DisassociateDataProtectionSettingsCommandOutput,
+} from "./commands/DisassociateDataProtectionSettingsCommand";
+import {
   DisassociateIpAccessSettingsCommandInput,
   DisassociateIpAccessSettingsCommandOutput,
 } from "./commands/DisassociateIpAccessSettingsCommand";
@@ -149,6 +165,10 @@ import {
 } from "./commands/DisassociateUserSettingsCommand";
 import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
 import { GetBrowserSettingsCommandInput, GetBrowserSettingsCommandOutput } from "./commands/GetBrowserSettingsCommand";
+import {
+  GetDataProtectionSettingsCommandInput,
+  GetDataProtectionSettingsCommandOutput,
+} from "./commands/GetDataProtectionSettingsCommand";
 import {
   GetIdentityProviderCommandInput,
   GetIdentityProviderCommandOutput,
@@ -178,6 +198,10 @@ import {
   ListBrowserSettingsCommandInput,
   ListBrowserSettingsCommandOutput,
 } from "./commands/ListBrowserSettingsCommand";
+import {
+  ListDataProtectionSettingsCommandInput,
+  ListDataProtectionSettingsCommandOutput,
+} from "./commands/ListDataProtectionSettingsCommand";
 import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
@@ -213,6 +237,10 @@ import {
   UpdateBrowserSettingsCommandOutput,
 } from "./commands/UpdateBrowserSettingsCommand";
 import {
+  UpdateDataProtectionSettingsCommandInput,
+  UpdateDataProtectionSettingsCommandOutput,
+} from "./commands/UpdateDataProtectionSettingsCommand";
+import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
@@ -247,12 +275,14 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateBrowserSettingsCommandInput
+  | AssociateDataProtectionSettingsCommandInput
   | AssociateIpAccessSettingsCommandInput
   | AssociateNetworkSettingsCommandInput
   | AssociateTrustStoreCommandInput
   | AssociateUserAccessLoggingSettingsCommandInput
   | AssociateUserSettingsCommandInput
   | CreateBrowserSettingsCommandInput
+  | CreateDataProtectionSettingsCommandInput
   | CreateIdentityProviderCommandInput
   | CreateIpAccessSettingsCommandInput
   | CreateNetworkSettingsCommandInput
@@ -261,6 +291,7 @@ export type ServiceInputTypes =
   | CreateUserAccessLoggingSettingsCommandInput
   | CreateUserSettingsCommandInput
   | DeleteBrowserSettingsCommandInput
+  | DeleteDataProtectionSettingsCommandInput
   | DeleteIdentityProviderCommandInput
   | DeleteIpAccessSettingsCommandInput
   | DeleteNetworkSettingsCommandInput
@@ -269,6 +300,7 @@ export type ServiceInputTypes =
   | DeleteUserAccessLoggingSettingsCommandInput
   | DeleteUserSettingsCommandInput
   | DisassociateBrowserSettingsCommandInput
+  | DisassociateDataProtectionSettingsCommandInput
   | DisassociateIpAccessSettingsCommandInput
   | DisassociateNetworkSettingsCommandInput
   | DisassociateTrustStoreCommandInput
@@ -276,6 +308,7 @@ export type ServiceInputTypes =
   | DisassociateUserSettingsCommandInput
   | ExpireSessionCommandInput
   | GetBrowserSettingsCommandInput
+  | GetDataProtectionSettingsCommandInput
   | GetIdentityProviderCommandInput
   | GetIpAccessSettingsCommandInput
   | GetNetworkSettingsCommandInput
@@ -287,6 +320,7 @@ export type ServiceInputTypes =
   | GetUserAccessLoggingSettingsCommandInput
   | GetUserSettingsCommandInput
   | ListBrowserSettingsCommandInput
+  | ListDataProtectionSettingsCommandInput
   | ListIdentityProvidersCommandInput
   | ListIpAccessSettingsCommandInput
   | ListNetworkSettingsCommandInput
@@ -300,6 +334,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrowserSettingsCommandInput
+  | UpdateDataProtectionSettingsCommandInput
   | UpdateIdentityProviderCommandInput
   | UpdateIpAccessSettingsCommandInput
   | UpdateNetworkSettingsCommandInput
@@ -313,12 +348,14 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateBrowserSettingsCommandOutput
+  | AssociateDataProtectionSettingsCommandOutput
   | AssociateIpAccessSettingsCommandOutput
   | AssociateNetworkSettingsCommandOutput
   | AssociateTrustStoreCommandOutput
   | AssociateUserAccessLoggingSettingsCommandOutput
   | AssociateUserSettingsCommandOutput
   | CreateBrowserSettingsCommandOutput
+  | CreateDataProtectionSettingsCommandOutput
   | CreateIdentityProviderCommandOutput
   | CreateIpAccessSettingsCommandOutput
   | CreateNetworkSettingsCommandOutput
@@ -327,6 +364,7 @@ export type ServiceOutputTypes =
   | CreateUserAccessLoggingSettingsCommandOutput
   | CreateUserSettingsCommandOutput
   | DeleteBrowserSettingsCommandOutput
+  | DeleteDataProtectionSettingsCommandOutput
   | DeleteIdentityProviderCommandOutput
   | DeleteIpAccessSettingsCommandOutput
   | DeleteNetworkSettingsCommandOutput
@@ -335,6 +373,7 @@ export type ServiceOutputTypes =
   | DeleteUserAccessLoggingSettingsCommandOutput
   | DeleteUserSettingsCommandOutput
   | DisassociateBrowserSettingsCommandOutput
+  | DisassociateDataProtectionSettingsCommandOutput
   | DisassociateIpAccessSettingsCommandOutput
   | DisassociateNetworkSettingsCommandOutput
   | DisassociateTrustStoreCommandOutput
@@ -342,6 +381,7 @@ export type ServiceOutputTypes =
   | DisassociateUserSettingsCommandOutput
   | ExpireSessionCommandOutput
   | GetBrowserSettingsCommandOutput
+  | GetDataProtectionSettingsCommandOutput
   | GetIdentityProviderCommandOutput
   | GetIpAccessSettingsCommandOutput
   | GetNetworkSettingsCommandOutput
@@ -353,6 +393,7 @@ export type ServiceOutputTypes =
   | GetUserAccessLoggingSettingsCommandOutput
   | GetUserSettingsCommandOutput
   | ListBrowserSettingsCommandOutput
+  | ListDataProtectionSettingsCommandOutput
   | ListIdentityProvidersCommandOutput
   | ListIpAccessSettingsCommandOutput
   | ListNetworkSettingsCommandOutput
@@ -366,6 +407,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrowserSettingsCommandOutput
+  | UpdateDataProtectionSettingsCommandOutput
   | UpdateIdentityProviderCommandOutput
   | UpdateIpAccessSettingsCommandOutput
   | UpdateNetworkSettingsCommandOutput

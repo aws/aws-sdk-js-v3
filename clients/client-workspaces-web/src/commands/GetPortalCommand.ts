@@ -50,6 +50,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * //     displayName: "STRING_VALUE",
  * //     creationDate: new Date("TIMESTAMP"),
  * //     browserSettingsArn: "STRING_VALUE",
+ * //     dataProtectionSettingsArn: "STRING_VALUE",
  * //     userSettingsArn: "STRING_VALUE",
  * //     networkSettingsArn: "STRING_VALUE",
  * //     trustStoreArn: "STRING_VALUE",
