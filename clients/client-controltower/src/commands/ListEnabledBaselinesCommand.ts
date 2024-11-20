@@ -45,9 +45,13 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  *     baselineIdentifiers: [ // EnabledBaselineBaselineIdentifiers
  *       "STRING_VALUE",
  *     ],
+ *     parentIdentifiers: [ // EnabledBaselineParentIdentifiers
+ *       "STRING_VALUE",
+ *     ],
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   includeChildren: true || false,
  * };
  * const command = new ListEnabledBaselinesCommand(input);
  * const response = await client.send(command);
@@ -58,6 +62,7 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  * //       baselineIdentifier: "STRING_VALUE", // required
  * //       baselineVersion: "STRING_VALUE",
  * //       targetIdentifier: "STRING_VALUE", // required
+ * //       parentIdentifier: "STRING_VALUE",
  * //       statusSummary: { // EnablementStatusSummary
  * //         status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
  * //         lastOperationIdentifier: "STRING_VALUE",

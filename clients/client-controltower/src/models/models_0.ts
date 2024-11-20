@@ -838,6 +838,12 @@ export interface EnabledBaselineDetails {
   targetIdentifier: string | undefined;
 
   /**
+   * <p>An ARN that represents the parent <code>EnabledBaseline</code> at the Organizational Unit (OU) level, from which the child <code>EnabledBaseline</code> inherits its configuration. The value is returned by <code>GetEnabledBaseline</code>.</p>
+   * @public
+   */
+  parentIdentifier?: string | undefined;
+
+  /**
    * <p>The deployment summary of an <code>EnabledControl</code> or <code>EnabledBaseline</code> resource.</p>
    * @public
    */
@@ -877,6 +883,12 @@ export interface EnabledBaselineFilter {
    * @public
    */
   baselineIdentifiers?: string[] | undefined;
+
+  /**
+   * <p>An optional filter that sets up a list of <code>parentIdentifiers</code> to filter the results of the <code>ListEnabledBaseline</code> output.</p>
+   * @public
+   */
+  parentIdentifiers?: string[] | undefined;
 }
 
 /**
@@ -900,6 +912,12 @@ export interface ListEnabledBaselinesInput {
    * @public
    */
   maxResults?: number | undefined;
+
+  /**
+   * <p>A value that can be  set to include the child enabled baselines in responses. The default value is false.</p>
+   * @public
+   */
+  includeChildren?: boolean | undefined;
 }
 
 /**
@@ -930,6 +948,12 @@ export interface EnabledBaselineSummary {
    * @public
    */
   targetIdentifier: string | undefined;
+
+  /**
+   * <p>An ARN that represents an object returned by <code>ListEnabledBaseline</code>, to describe an enabled baseline.</p>
+   * @public
+   */
+  parentIdentifier?: string | undefined;
 
   /**
    * <p>The deployment summary of an <code>EnabledControl</code> or <code>EnabledBaseline</code> resource.</p>

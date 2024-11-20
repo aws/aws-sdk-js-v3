@@ -479,6 +479,7 @@ export const se_ListEnabledBaselinesCommand = async (
   body = JSON.stringify(
     take(input, {
       filter: (_) => _json(_),
+      includeChildren: [],
       maxResults: [],
       nextToken: [],
     })
@@ -1564,6 +1565,8 @@ const se_EnabledBaselineParameters = (input: EnabledBaselineParameter[], context
     });
 };
 
+// se_EnabledBaselineParentIdentifiers omitted.
+
 // se_EnabledBaselineTargetIdentifiers omitted.
 
 // se_EnabledControlFilter omitted.
@@ -1692,6 +1695,7 @@ const de_EnabledBaselineDetails = (output: any, context: __SerdeContext): Enable
     baselineIdentifier: __expectString,
     baselineVersion: __expectString,
     parameters: (_: any) => de_EnabledBaselineParameterSummaries(_, context),
+    parentIdentifier: __expectString,
     statusSummary: _json,
     targetIdentifier: __expectString,
   }) as any;

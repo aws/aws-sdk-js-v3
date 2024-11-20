@@ -46,6 +46,7 @@ export interface GetEnabledBaselineCommandOutput extends GetEnabledBaselineOutpu
  * //     baselineIdentifier: "STRING_VALUE", // required
  * //     baselineVersion: "STRING_VALUE",
  * //     targetIdentifier: "STRING_VALUE", // required
+ * //     parentIdentifier: "STRING_VALUE",
  * //     statusSummary: { // EnablementStatusSummary
  * //       status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
  * //       lastOperationIdentifier: "STRING_VALUE",
