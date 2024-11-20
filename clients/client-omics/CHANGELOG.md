@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
+
+
+### Features
+
+* **client-omics:** Enabling call caching feature that allows customers to reuse previously computed results from a set of completed tasks in a new workflow run. ([ede3768](https://github.com/aws/aws-sdk-js-v3/commit/ede37683d1afd71b2be28ccd7d82a768820a7d2f))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

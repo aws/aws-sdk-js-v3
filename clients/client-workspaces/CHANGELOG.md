@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
+
+
+### Features
+
+* **client-workspaces:** Added support for Rocky Linux 8 on Amazon WorkSpaces Personal. ([0873d67](https://github.com/aws/aws-sdk-js-v3/commit/0873d67007a32a6246d3f59ca737e6ccba861c67))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 

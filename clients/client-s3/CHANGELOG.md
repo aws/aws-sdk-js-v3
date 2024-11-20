@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** use input from args and not middleware config ([#6677](https://github.com/aws/aws-sdk-js-v3/issues/6677)) ([199aad0](https://github.com/aws/aws-sdk-js-v3/commit/199aad028afbce3daf43fcd32267c41971133a43))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

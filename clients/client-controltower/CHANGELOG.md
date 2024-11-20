@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
+
+
+### Features
+
+* **client-controltower:** Adds support for child enabled baselines which allow you to see the enabled baseline status for individual accounts. ([d9ff29d](https://github.com/aws/aws-sdk-js-v3/commit/d9ff29d8f1b04e2c690368b981be845004bc65a5))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-controltower

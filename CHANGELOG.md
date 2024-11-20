@@ -3,6 +3,42 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
+
+
+### Bug Fixes
+
+* **middleware-flexible-checksums:** use input from args and not middleware config ([#6677](https://github.com/aws/aws-sdk-js-v3/issues/6677)) ([199aad0](https://github.com/aws/aws-sdk-js-v3/commit/199aad028afbce3daf43fcd32267c41971133a43))
+
+
+### Features
+
+* **client-application-discovery-service:** Add support to import data from commercially available discovery tools without file manipulation. ([2cc0b79](https://github.com/aws/aws-sdk-js-v3/commit/2cc0b793ca7d025682c6147b26bbf283f059b0f5))
+* **client-auto-scaling:** With this release, customers can prioritize launching instances into ODCRs using targets from ASGs or Launch Templates. Customers can express their baseline instances' CPU-performance in attribute-based Instance Requirements configuration by referencing an instance family that meets their needs. ([9c56b96](https://github.com/aws/aws-sdk-js-v3/commit/9c56b9681765258c5449d119a9797acd7a720a64))
+* **client-bedrock-agent-runtime:** Releasing new Prompt Optimization to enhance your prompts for improved performance ([9e49c84](https://github.com/aws/aws-sdk-js-v3/commit/9e49c849a057051685cadaf286e03be7562c049e))
+* **client-cloudfront:** Add support for gRPC, VPC origins, and Anycast IP Lists. Allow LoggingConfig IncludeCookies to be set regardless of whether the LoggingConfig is enabled. ([34946f7](https://github.com/aws/aws-sdk-js-v3/commit/34946f7482a6f1307daf09f160b484d0f6dcb915))
+* **client-compute-optimizer:** This release enables AWS Compute Optimizer to analyze and generate optimization recommendations for Amazon Aurora database instances. It also enables Compute Optimizer to identify idle Amazon EC2 instances, Amazon EBS volumes, Amazon ECS services running on Fargate, and Amazon RDS databases. ([15509fd](https://github.com/aws/aws-sdk-js-v3/commit/15509fdf784c1b8f32f6df9b299c7e77bfe68dd6))
+* **client-controltower:** Adds support for child enabled baselines which allow you to see the enabled baseline status for individual accounts. ([d9ff29d](https://github.com/aws/aws-sdk-js-v3/commit/d9ff29d8f1b04e2c690368b981be845004bc65a5))
+* **client-cost-optimization-hub:** This release adds action type "Delete" to the GetRecommendation, ListRecommendations and ListRecommendationSummaries APIs to support new EBS and ECS recommendations with action type "Delete". ([dc6c77d](https://github.com/aws/aws-sdk-js-v3/commit/dc6c77dd67b360ffd514c35d66320926a76eb88b))
+* **client-datazone:** This release supports Metadata Enforcement Rule feature for Create Subscription Request action. ([efe0aaf](https://github.com/aws/aws-sdk-js-v3/commit/efe0aaf598b4795889a73d76603d1f8e771014a2))
+* **client-ec2:** With this release, customers can express their desire to launch instances only in an ODCR or ODCR group rather than OnDemand capacity. Customers can express their baseline instances' CPU-performance in attribute-based Instance Requirements configuration by referencing an instance family. ([7cf2a36](https://github.com/aws/aws-sdk-js-v3/commit/7cf2a366d851d60a621b90ec296f49ec832fc666))
+* **client-ecs:** This release adds support for the Availability Zone rebalancing feature on Amazon ECS. ([3d12b74](https://github.com/aws/aws-sdk-js-v3/commit/3d12b747ba18df146c8b3d0dc374526d52f27624))
+* **client-elastic-load-balancing-v2:** This release adds support for configuring Load balancer Capacity Unit reservations ([1cc5eef](https://github.com/aws/aws-sdk-js-v3/commit/1cc5eef1604a154e52af6996afc6972b2678d704))
+* **client-lambda:** Add Node 22.x (node22.x) support to AWS Lambda ([11a5e31](https://github.com/aws/aws-sdk-js-v3/commit/11a5e31559289b635bebba57db7b2a849f175e97))
+* **client-mediaconvert:** This release adds the ability to reconfigure concurrent job settings for existing queues and create queues with custom concurrent job settings. ([3e06157](https://github.com/aws/aws-sdk-js-v3/commit/3e061571a08eccbc61f7680a6579d72b5d8f2bd4))
+* **client-mediapackagev2:** MediaPackage v2 now supports the Media Quality Confidence Score (MQCS) published from MediaLive. Customers can control input switching based on the MQCS and publishing HTTP Headers for the MQCS via the API. ([1708e8d](https://github.com/aws/aws-sdk-js-v3/commit/1708e8dc8431b0a618629ceb3f48b60f37c5eb87))
+* **client-omics:** Enabling call caching feature that allows customers to reuse previously computed results from a set of completed tasks in a new workflow run. ([ede3768](https://github.com/aws/aws-sdk-js-v3/commit/ede37683d1afd71b2be28ccd7d82a768820a7d2f))
+* **client-rbin:** This release adds support for exclusion tags for Recycle Bin, which allows you to identify resources that are to be excluded, or ignored, by a Region-level retention rule. ([c196753](https://github.com/aws/aws-sdk-js-v3/commit/c19675373f935701c5bd7cecac71f158b8868a26))
+* **client-rds:** This release adds support for scale storage on the DB instance using a Blue/Green Deployment. ([ed19e89](https://github.com/aws/aws-sdk-js-v3/commit/ed19e89a9dc98d252c2b7161c659b13eb17a3469))
+* **client-timestream-query:** This release adds support for Provisioning Timestream Compute Units (TCUs), a new feature that allows provisioning dedicated compute resources for your queries, providing predictable and cost-effective query performance. ([8584dff](https://github.com/aws/aws-sdk-js-v3/commit/8584dff50cb7da50d0cd5ed865dea899a59d280d))
+* **client-workspaces-web:** Added data protection settings with support for inline data redaction. ([b1f5b06](https://github.com/aws/aws-sdk-js-v3/commit/b1f5b06073cf9499039a581eba91a806a2555301))
+* **client-workspaces:** Added support for Rocky Linux 8 on Amazon WorkSpaces Personal. ([0873d67](https://github.com/aws/aws-sdk-js-v3/commit/0873d67007a32a6246d3f59ca737e6ccba861c67))
+* **clients:** update client endpoints as of 2024-11-20 ([ece0865](https://github.com/aws/aws-sdk-js-v3/commit/ece0865019d684b91f89cbaa10a381c3510ed44a))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 
