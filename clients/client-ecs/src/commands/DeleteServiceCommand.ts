@@ -337,6 +337,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  * //     enableExecuteCommand: true || false,
+ * //     availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

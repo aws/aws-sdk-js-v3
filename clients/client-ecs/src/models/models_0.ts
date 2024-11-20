@@ -1295,6 +1295,21 @@ export class ClusterNotFoundException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AvailabilityZoneRebalancing = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AvailabilityZoneRebalancing =
+  (typeof AvailabilityZoneRebalancing)[keyof typeof AvailabilityZoneRebalancing];
+
+/**
  * <p>One of the methods which provide a way for you to quickly identify when a deployment has failed, and
  * 			then to optionally roll back the failure to the last working deployment.</p>
  *          <p>When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback
@@ -1495,8 +1510,7 @@ export const DeploymentControllerType = {
 export type DeploymentControllerType = (typeof DeploymentControllerType)[keyof typeof DeploymentControllerType];
 
 /**
- * <p>The deployment controller to use for the service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment
- * 				types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * <p>The deployment controller to use for the service. </p>
  * @public
  */
 export interface DeploymentController {
@@ -1511,18 +1525,21 @@ export interface DeploymentController {
    * 						adds or removes from the service during a rolling update is controlled by adjusting the
    * 						minimum and maximum number of healthy tasks allowed during a service deployment, as
    * 						specified in the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeploymentConfiguration.html">DeploymentConfiguration</a>.</p>
+   *                <p>For more information about rolling deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Deploy Amazon ECS services by replacing tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *             </dd>
    *             <dt>CODE_DEPLOY</dt>
    *             <dd>
    *                <p>The blue/green (<code>CODE_DEPLOY</code>) deployment type uses the blue/green deployment
    * 						model powered by CodeDeploy, which allows you to verify a new deployment of a service before
    * 						sending production traffic to it.</p>
+   *                <p>For more information about blue/green deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html">Validate the state of an Amazon ECS service before deployment </a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *             </dd>
    *             <dt>EXTERNAL</dt>
    *             <dd>
    *                <p>The external (<code>EXTERNAL</code>) deployment type enables you to use any third-party
    * 						deployment controller for full control over the deployment process for an Amazon ECS
    * 						service.</p>
+   *                <p>For more information about external deployments, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-external.html">Deploy Amazon ECS services using a third-party controller </a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    *             </dd>
    *          </dl>
    * @public
@@ -2646,6 +2663,14 @@ export interface CreateServiceRequest {
    * @public
    */
   taskDefinition?: string | undefined;
+
+  /**
+   * <p>Indicates whether to use Availability Zone rebalancing for the service.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing an Amazon ECS service across Availability Zones</a> in
+   * 			the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * @public
+   */
+  availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
 
   /**
    * <p>A load balancer object representing the load balancers to use with your service. For more
@@ -3775,6 +3800,14 @@ export interface Service {
    * @public
    */
   enableExecuteCommand?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to use Availability Zone rebalancing for the service.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html">Balancing an Amazon ECS service across Availability Zones</a> in
+   * 			the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * @public
+   */
+  availabilityZoneRebalancing?: AvailabilityZoneRebalancing | undefined;
 }
 
 /**
@@ -12675,42 +12708,6 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
-
-/**
- * <p>The details of the Auto Scaling group capacity provider to update.</p>
- * @public
- */
-export interface AutoScalingGroupProviderUpdate {
-  /**
-   * <p>The managed scaling settings for the Auto Scaling group capacity provider.</p>
-   * @public
-   */
-  managedScaling?: ManagedScaling | undefined;
-
-  /**
-   * <p>The managed termination protection setting to use for the Auto Scaling group capacity provider. This
-   * 			determines whether the Auto Scaling group has managed termination protection.</p>
-   *          <important>
-   *             <p>When using managed termination protection, managed scaling must also be used otherwise managed
-   * 				termination protection doesn't work.</p>
-   *          </important>
-   *          <p>When managed termination protection is on, Amazon ECS prevents the Amazon EC2 instances in an Auto Scaling
-   * 			group that contain tasks from being terminated during a scale-in action. The Auto Scaling group and
-   * 			each instance in the Auto Scaling group must have instance protection from scale-in actions on. For
-   * 			more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
-   * 				Protection</a> in the <i>Auto Scaling User Guide</i>.</p>
-   *          <p>When managed termination protection is off, your Amazon EC2 instances aren't protected from termination
-   * 			when the Auto Scaling group scales in.</p>
-   * @public
-   */
-  managedTerminationProtection?: ManagedTerminationProtection | undefined;
-
-  /**
-   * <p>The managed draining option for the Auto Scaling group capacity provider. When you enable this, Amazon ECS manages and gracefully drains the EC2 container instances that are in the Auto Scaling group capacity provider.</p>
-   * @public
-   */
-  managedDraining?: ManagedDraining | undefined;
-}
 
 /**
  * @internal

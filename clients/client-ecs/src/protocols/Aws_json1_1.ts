@@ -187,7 +187,6 @@ import {
   Attribute,
   AttributeLimitExceededException,
   AutoScalingGroupProvider,
-  AutoScalingGroupProviderUpdate,
   AwsVpcConfiguration,
   BlockedException,
   CapacityProviderField,
@@ -385,6 +384,7 @@ import {
   VpcLatticeConfiguration,
 } from "../models/models_0";
 import {
+  AutoScalingGroupProviderUpdate,
   MissingVersionException,
   NoUpdateAvailableException,
   UpdateCapacityProviderRequest,
@@ -4105,6 +4105,7 @@ const de_Scale = (output: any, context: __SerdeContext): Scale => {
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
   return take(output, {
+    availabilityZoneRebalancing: __expectString,
     capacityProviderStrategy: _json,
     clusterArn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

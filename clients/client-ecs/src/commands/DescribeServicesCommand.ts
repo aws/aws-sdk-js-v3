@@ -325,6 +325,7 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * //       enableECSManagedTags: true || false,
  * //       propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  * //       enableExecuteCommand: true || false,
+ * //       availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   failures: [ // Failures

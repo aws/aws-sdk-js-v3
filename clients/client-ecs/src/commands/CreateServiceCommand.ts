@@ -122,6 +122,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *   cluster: "STRING_VALUE",
  *   serviceName: "STRING_VALUE", // required
  *   taskDefinition: "STRING_VALUE",
+ *   availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  *   loadBalancers: [ // LoadBalancers
  *     { // LoadBalancer
  *       targetGroupArn: "STRING_VALUE",
@@ -558,6 +559,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  * //     enableExecuteCommand: true || false,
+ * //     availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

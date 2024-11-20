@@ -190,6 +190,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       enable: true || false, // required
  *     },
  *   },
+ *   availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  *   networkConfiguration: { // NetworkConfiguration
  *     awsvpcConfiguration: { // AwsVpcConfiguration
  *       subnets: [ // required
@@ -591,6 +592,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
  * //     enableExecuteCommand: true || false,
+ * //     availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

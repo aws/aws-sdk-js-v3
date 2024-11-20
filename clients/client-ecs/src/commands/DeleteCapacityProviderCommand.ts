@@ -39,7 +39,7 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * 				<code>forceNewDeployment</code> option can be used to ensure that any tasks using the Amazon EC2
  * 			instance capacity provided by the capacity provider are transitioned to use the capacity from the
  * 			remaining capacity providers. Only capacity providers that aren't associated with a cluster can be
- * 			deleted. To remove a capacity provider from a cluster, you can either use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutCapacityProviderProviders.html">PutCapacityProviderProviders</a> or delete the cluster.</p>
+ * 			deleted. To remove a capacity provider from a cluster, you can either use <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> or delete the cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
