@@ -7,7 +7,7 @@ import { describe, expect, test as it } from "vitest";
 import { ChecksumAlgorithm as Algo, S3 } from "../../src/index";
 
 describe("Flexible Checksums", () => {
-  const testCases = [
+  const testCases: [string, string, string][] = [
     ["", ChecksumAlgorithm.CRC32, "AAAAAA=="],
     ["abc", ChecksumAlgorithm.CRC32, "NSRBwg=="],
     ["Hello world", ChecksumAlgorithm.CRC32, "i9aeUg=="],
@@ -26,10 +26,10 @@ describe("Flexible Checksums", () => {
   ];
 
   describe("putObject", () => {
-    testCases.forEach(([body, checksumAlgorithm, checksumValue]) => {
-      const checksumHeader = `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`;
-
-      describe(`sets ${checksumHeader}="${checksumValue}"" for checksum="${checksumAlgorithm}"`, () => {
+    describe.each(testCases)(
+      `for body="%s" and checksumAlgorithm="%s", sets checksum="%s"`,
+      (body, checksumAlgorithm, checksumValue) => {
+        const checksumHeader = `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`;
         const getBodyAsReadableStream = (content: string) => {
           const readableStream = new Readable();
           const separator = " ";
@@ -44,13 +44,15 @@ describe("Flexible Checksums", () => {
           return readableStream;
         };
 
-        it(`when body is sent as a request`, async () => {
+        it(`when body is sent as a string`, async () => {
           const requestChecksumValidator: BuildMiddleware<any, any> = (next) => async (args) => {
             // middleware intercept the request and return it early
             const request = args.request as HttpRequest;
             const { headers } = request;
-            expect(headers["x-amz-sdk-checksum-algorithm"]).to.equal(checksumAlgorithm);
-            expect(headers[checksumHeader]).to.equal(checksumValue);
+
+            expect(headers["x-amz-sdk-checksum-algorithm"]).toEqual(checksumAlgorithm);
+            expect(headers[checksumHeader]).toEqual(checksumValue);
+
             return { output: {} as any, response: {} as any };
           };
 
@@ -79,16 +81,16 @@ describe("Flexible Checksums", () => {
             // middleware intercept the request and return it early
             const request = args.request as HttpRequest;
             const { headers, body } = request;
-            expect(headers["content-length"]).to.be.undefined;
-            expect(headers["content-encoding"]).to.equal("aws-chunked");
-            expect(headers["transfer-encoding"]).to.equal("chunked");
-            expect(headers["x-amz-content-sha256"]).to.equal("STREAMING-UNSIGNED-PAYLOAD-TRAILER");
-            expect(headers["x-amz-trailer"]).to.equal(checksumHeader);
+            expect(headers["content-length"]).toBeUndefined();
+            expect(headers["content-encoding"]).toEqual("aws-chunked");
+            expect(headers["transfer-encoding"]).toEqual("chunked");
+            expect(headers["x-amz-content-sha256"]).toEqual("STREAMING-UNSIGNED-PAYLOAD-TRAILER");
+            expect(headers["x-amz-trailer"]).toEqual(checksumHeader);
             body.on("data", (data: any) => {
               const stringValue = data.toString();
               if (stringValue.startsWith(checksumHeader)) {
                 const receivedChecksum = stringValue.replace("\r\n", "").split(":")[1];
-                expect(receivedChecksum).to.equal(checksumValue);
+                expect(receivedChecksum).toEqual(checksumValue);
               }
             });
             return { output: {} as any, response: {} as any };
@@ -114,15 +116,16 @@ describe("Flexible Checksums", () => {
             ChecksumAlgorithm: checksumAlgorithm as Algo,
           });
         });
-      });
-    });
+      }
+    );
   });
 
   describe("getObject", async () => {
-    testCases.forEach(([body, checksumAlgorithm, checksumValue]) => {
-      const checksumHeader = `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`;
+    it.each(testCases)(
+      `for body="%s" and checksumAlgorithm="%s", validates ChecksumMode`,
+      async (body, checksumAlgorithm, checksumValue) => {
+        const checksumHeader = `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`;
 
-      it(`validates ${checksumHeader}="${checksumValue}"" set for checksum="${checksumAlgorithm}"`, async () => {
         const responseBody = new Readable();
         responseBody.push(body);
         responseBody.push(null);
@@ -162,9 +165,9 @@ describe("Flexible Checksums", () => {
           ChecksumMode: "ENABLED",
         });
         (Body as Readable).on("data", (chunk) => {
-          expect(chunk.toString()).to.equal(body);
+          expect(chunk.toString()).toEqual(body);
         });
-      });
-    });
+      }
+    );
   });
 });
