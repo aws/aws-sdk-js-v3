@@ -38,10 +38,15 @@ import {
   BillingGroupProperties,
   CertificateProviderOperation,
   ClientCertificateConfig,
+  CommandNamespace,
+  CommandParameter,
+  CommandParameterValue,
+  CommandPayload,
   CustomMetricType,
   DayOfWeek,
   DimensionType,
   FleetMetricUnit,
+  HttpUrlDestinationProperties,
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   LogLevel,
@@ -71,9 +76,142 @@ import {
   ThingTypeProperties,
   TimeoutConfig,
   TlsConfig,
-  TopicRuleDestination,
+  TopicRuleDestinationStatus,
   VerificationState,
+  VpcDestinationProperties,
 } from "./models_0";
+
+/**
+ * <p>A topic rule destination.</p>
+ * @public
+ */
+export interface TopicRuleDestination {
+  /**
+   * <p>The topic rule destination URL.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>The status of the topic rule destination. Valid values are:</p>
+   *          <dl>
+   *             <dt>IN_PROGRESS</dt>
+   *             <dd>
+   *                <p>A topic rule destination was created but has not been confirmed. You can set
+   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
+   *                   set <code>status</code> to <code>DISABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
+   *                   can set <code>status</code> to <code>ENABLED</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>.</p>
+   *             </dd>
+   *             <dt>ERROR</dt>
+   *             <dd>
+   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
+   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
+   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
+   *                      <code>UpdateTopicRuleDestination</code>. Calling
+   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
+   *                   be sent to your confirmation endpoint.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  status?: TopicRuleDestinationStatus | undefined;
+
+  /**
+   * <p>The date and time when the topic rule destination was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the topic rule destination was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Additional details or reason why the topic rule destination is in the current
+   *          status.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>Properties of the HTTP URL.</p>
+   * @public
+   */
+  httpUrlProperties?: HttpUrlDestinationProperties | undefined;
+
+  /**
+   * <p>Properties of the virtual private cloud (VPC) connection.</p>
+   * @public
+   */
+  vpcProperties?: VpcDestinationProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTopicRuleDestinationResponse {
+  /**
+   * <p>The topic rule destination.</p>
+   * @public
+   */
+  topicRuleDestination?: TopicRuleDestination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountAuditConfigurationRequest {
+  /**
+   * <p>If true, all scheduled audits are deleted.</p>
+   * @public
+   */
+  deleteScheduledAudits?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccountAuditConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAuditSuppressionRequest {
+  /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   * @public
+   */
+  checkName: string | undefined;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   * @public
+   */
+  resourceIdentifier: ResourceIdentifier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAuditSuppressionResponse {}
 
 /**
  * @public
@@ -215,6 +353,68 @@ export interface DeleteCertificateProviderResponse {}
 /**
  * @public
  */
+export interface DeleteCommandRequest {
+  /**
+   * <p>The unique identifier of the command to be deleted.</p>
+   * @public
+   */
+  commandId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCommandResponse {
+  /**
+   * <p>The status code for the command deletion request. The status code is in the 200 range
+   *         for a successful request.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the command hasn't been deprecated, or has been deprecated for a duration that
+   *             is shorter than the maximum time out duration of 12 hours, when calling the
+   *             <code>DeleteCommand</code> request, the deletion will be scheduled and a 202 status code
+   *             will be returned. While the command is being deleted, it will be in a
+   *             <code>pendingDeletion</code> state. Once the time out duration has been reached,
+   *             the command will be permanently removed from your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>If the command has been deprecated for a duration that is longer than the
+   *             maximum time out duration of 12 hours, when calling the <code>DeleteCommand</code> request,
+   *             the command will be deleted immediately and a 204 status code will be returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  statusCode?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCommandExecutionRequest {
+  /**
+   * <p>The unique identifier of the command execution that you want to delete from your
+   *       account.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the target device for which you want to delete
+   *       command executions.</p>
+   * @public
+   */
+  targetArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCommandExecutionResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteCustomMetricRequest {
   /**
    * <p>
@@ -307,22 +507,22 @@ export interface DeleteFleetMetricRequest {
 export interface DeleteJobRequest {
   /**
    * <p>The ID of the job to be deleted.</p>
-   *          <p>After a job deletion is completed, you may reuse this jobId when you create a new job.
-   *         However, this is not recommended, and you must ensure that your devices are not using the
-   *         jobId to refer to the deleted job.</p>
+   *          <p>After a job deletion is completed, you may reuse this jobId when you create a new
+   *             job. However, this is not recommended, and you must ensure that your devices are not
+   *             using the jobId to refer to the deleted job.</p>
    * @public
    */
   jobId: string | undefined;
 
   /**
-   * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you can
-   *         only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an exception
-   *         will occur. The default is false.</p>
+   * <p>(Optional) When true, you can delete a job which is "IN_PROGRESS". Otherwise, you
+   *             can only delete a job which is in a terminal state ("COMPLETED" or "CANCELED") or an
+   *             exception will occur. The default is false.</p>
    *          <note>
    *             <p>Deleting a job which is "IN_PROGRESS", will cause a device which is executing
-   *         the job to be unable to access job information or update the job execution status.
-   *         Use caution and ensure that each device executing a job which is deleted is able to recover to
-   *         a valid state.</p>
+   *                 the job to be unable to access job information or update the job execution status.
+   *                 Use caution and ensure that each device executing a job which is deleted is able to
+   *                 recover to a valid state.</p>
    *          </note>
    * @public
    */
@@ -330,15 +530,14 @@ export interface DeleteJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
    *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
-   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
-   *                     up IoT Greengrass core devices.</a>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
    *             </p>
    *          </note>
    * @public
@@ -363,22 +562,23 @@ export interface DeleteJobExecutionRequest {
   thingName: string | undefined;
 
   /**
-   * <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the
-   *         execution of a particular job on a particular device.</p>
-   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused
-   *         by IoT, so be sure you get and use the correct value here.</p>
+   * <p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers
+   *             to the execution of a particular job on a particular device.</p>
+   *          <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be
+   *             reused by IoT, so be sure you get and use the correct value here.</p>
    * @public
    */
   executionNumber: number | undefined;
 
   /**
-   * <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS". Otherwise,
-   *         you can only delete a job execution which is in a terminal state ("SUCCEEDED", "FAILED",
-   *         "REJECTED", "REMOVED" or "CANCELED") or an exception will occur. The default is false.</p>
+   * <p>(Optional) When true, you can delete a job execution which is "IN_PROGRESS".
+   *             Otherwise, you can only delete a job execution which is in a terminal state
+   *             ("SUCCEEDED", "FAILED", "REJECTED", "REMOVED" or "CANCELED") or an exception will occur.
+   *             The default is false.</p>
    *          <note>
-   *             <p>Deleting a job execution which is "IN_PROGRESS", will cause the device
-   *         to be unable to access job information or update the job execution status.
-   *         Use caution and ensure that the device is able to recover to a valid state.</p>
+   *             <p>Deleting a job execution which is "IN_PROGRESS", will cause the device to be
+   *                 unable to access job information or update the job execution status. Use caution and
+   *                 ensure that the device is able to recover to a valid state.</p>
    *          </note>
    * @public
    */
@@ -386,15 +586,14 @@ export interface DeleteJobExecutionRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
    *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
-   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
-   *                     up IoT Greengrass core devices.</a>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
    *             </p>
    *          </note>
    * @public
@@ -2501,7 +2700,7 @@ export interface DescribeJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>A flag that provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
+   * <p>Provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
    * @public
    */
   beforeSubstitution?: boolean | undefined;
@@ -2513,7 +2712,9 @@ export interface DescribeJobRequest {
  */
 export interface JobProcessDetails {
   /**
-   * <p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>
+   * <p>The target devices to which the job execution is being rolled out. This value will
+   *             be null after the job execution has finished rolling out to all the target
+   *             devices.</p>
    * @public
    */
   processingTargets?: string[] | undefined;
@@ -2555,8 +2756,9 @@ export interface JobProcessDetails {
   numberOfInProgressThings?: number | undefined;
 
   /**
-   * <p>The number of things that are no longer scheduled to execute the job because they have been deleted or
-   *             have been removed from the group that was a target of the job.</p>
+   * <p>The number of things that are no longer scheduled to execute the job because they
+   *             have been deleted or have been removed from the group that was a target of the
+   *             job.</p>
    * @public
    */
   numberOfRemovedThings?: number | undefined;
@@ -2603,7 +2805,8 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  */
 export interface Job {
   /**
-   * <p>An ARN identifying the job with format "arn:aws:iot:region:account:job/jobId".</p>
+   * <p>An ARN identifying the job with format
+   *             "arn:aws:iot:region:account:job/jobId".</p>
    * @public
    */
   jobArn?: string | undefined;
@@ -2615,15 +2818,16 @@ export interface Job {
   jobId?: string | undefined;
 
   /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a device when the thing representing
-   *             the device is added to a target group, even after the job was completed by all things originally in the
+   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete
+   *             after all those things specified as targets have completed the job (SNAPSHOT). If
+   *             continuous, the job may also be run on a thing when a change is detected in a target.
+   *             For example, a job will run on a device when the thing representing the device is added
+   *             to a target group, even after the job was completed by all things originally in the
    *             group. </p>
    *          <note>
-   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
-   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
-   *                 been created.</p>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic
+   *                 thing group targets. By using continuous jobs, devices that join the group receive
+   *                 the job execution even after the job has been created.</p>
    *          </note>
    * @public
    */
@@ -2631,14 +2835,14 @@ export interface Job {
 
   /**
    * <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
-   *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
+   *                 <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
    * @public
    */
   status?: JobStatus | undefined;
 
   /**
-   * <p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to
-   *           <code>true</code>.</p>
+   * <p>Will be <code>true</code> if the job was canceled with the optional
+   *                 <code>force</code> parameter set to <code>true</code>.</p>
    * @public
    */
   forceCanceled?: boolean | undefined;
@@ -2710,25 +2914,24 @@ export interface Job {
   jobProcessDetails?: JobProcessDetails | undefined;
 
   /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the timer expires, it will
-   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   * <p>Specifies the amount of time each device has to finish its execution of the job. A
+   *             timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If
+   *             the job execution status is not set to another terminal state before the timer expires,
+   *             it will be automatically set to <code>TIMED_OUT</code>.</p>
    * @public
    */
   timeoutConfig?: TimeoutConfig | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
    *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
-   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
-   *                     up IoT Greengrass core devices.</a>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
    *             </p>
    *          </note>
    * @public
@@ -2749,8 +2952,8 @@ export interface Job {
 
   /**
    * <p>A key-value map that pairs the patterns that need to be replaced in a managed
-   *             template job document schema. You can use the description of each key as a guidance
-   *             to specify the inputs during runtime when creating a job.</p>
+   *             template job document schema. You can use the description of each key as a guidance to
+   *             specify the inputs during runtime when creating a job.</p>
    *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
@@ -2762,9 +2965,8 @@ export interface Job {
   documentParameters?: Record<string, string> | undefined;
 
   /**
-   * <p>Indicates whether a job is concurrent. Will be true when a job is
-   *             rolling out new job executions or canceling previously created executions,
-   *             otherwise false.</p>
+   * <p>Indicates whether a job is concurrent. Will be true when a job is rolling out new job
+   *             executions or canceling previously created executions, otherwise false.</p>
    * @public
    */
   isConcurrent?: boolean | undefined;
@@ -2783,11 +2985,13 @@ export interface Job {
   scheduledJobRollouts?: ScheduledJobRollout[] | undefined;
 
   /**
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
-   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job
+   *             successfully completes. The package version must be in either the Published or
+   *             Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.The package version must be in either the
+   *             Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
-   *             Up to 25  package version ARNs are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a
+   *             single ARN. Up to 25 package version ARNs are allowed.</p>
    * @public
    */
   destinationPackageVersions?: string[] | undefined;
@@ -2827,8 +3031,8 @@ export interface DescribeJobExecutionRequest {
   thingName: string | undefined;
 
   /**
-   * <p>A string (consisting of the digits "0" through "9" which is used to specify a particular job execution
-   *             on a particular device.</p>
+   * <p>A string (consisting of the digits "0" through "9" which is used to specify a
+   *             particular job execution on a particular device.</p>
    * @public
    */
   executionNumber?: number | undefined;
@@ -2867,7 +3071,8 @@ export interface JobExecutionStatusDetails {
 }
 
 /**
- * <p>The job execution object represents the execution of a job on a particular device.</p>
+ * <p>The job execution object represents the execution of a job on a particular
+ *             device.</p>
  * @public
  */
 export interface JobExecution {
@@ -2885,14 +3090,15 @@ export interface JobExecution {
   status?: JobExecutionStatus | undefined;
 
   /**
-   * <p>Will be <code>true</code> if the job execution was canceled with the optional <code>force</code>
-   *           parameter set to <code>true</code>.</p>
+   * <p>Will be <code>true</code> if the job execution was canceled with the optional
+   *                 <code>force</code> parameter set to <code>true</code>.</p>
    * @public
    */
   forceCanceled?: boolean | undefined;
 
   /**
-   * <p>A collection of name/value pairs that describe the status of the job execution.</p>
+   * <p>A collection of name/value pairs that describe the status of the job
+   *             execution.</p>
    * @public
    */
   statusDetails?: JobExecutionStatusDetails | undefined;
@@ -2916,31 +3122,33 @@ export interface JobExecution {
   startedAt?: Date | undefined;
 
   /**
-   * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
+   * <p>The time, in seconds since the epoch, when the job execution was last
+   *             updated.</p>
    * @public
    */
   lastUpdatedAt?: Date | undefined;
 
   /**
-   * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
-   *             this particular device. It can be used in commands which return or update job execution information.
-   *         </p>
+   * <p>A string (consisting of the digits "0" through "9") which identifies this
+   *             particular job execution on this particular device. It can be used in commands which
+   *             return or update job execution information. </p>
    * @public
    */
   executionNumber?: number | undefined;
 
   /**
-   * <p>The version of the job execution. Job execution versions are incremented each time they are updated
-   *       by a device.</p>
+   * <p>The version of the job execution. Job execution versions are incremented each time
+   *             they are updated by a device.</p>
    * @public
    */
   versionNumber?: number | undefined;
 
   /**
    * <p>The estimated number of seconds that remain before the job execution status will be
-   *            changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes).
-   *            The actual job execution timeout can occur up to 60 seconds later than the estimated duration.
-   *        This value will not be included if the job execution has reached a terminal status.</p>
+   *             changed to <code>TIMED_OUT</code>. The timeout interval can be anywhere between 1 minute
+   *             and 7 days (1 to 10080 minutes). The actual job execution timeout can occur up to 60
+   *             seconds later than the estimated duration. This value will not be included if the job
+   *             execution has reached a terminal status.</p>
    * @public
    */
   approximateSecondsBeforeTimedOut?: number | undefined;
@@ -3027,10 +3235,10 @@ export interface DescribeJobTemplateResponse {
   abortConfig?: AbortConfig | undefined;
 
   /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the timer expires, it will
-   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   * <p>Specifies the amount of time each device has to finish its execution of the job. A
+   *             timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If
+   *             the job execution status is not set to another terminal state before the timer expires,
+   *             it will be automatically set to <code>TIMED_OUT</code>.</p>
    * @public
    */
   timeoutConfig?: TimeoutConfig | undefined;
@@ -3043,17 +3251,19 @@ export interface DescribeJobTemplateResponse {
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig | undefined;
 
   /**
-   * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
+   * <p>Allows you to configure an optional maintenance window for the rollout of a job
+   *             document to all devices in the target group for a job.</p>
    * @public
    */
   maintenanceWindows?: MaintenanceWindow[] | undefined;
 
   /**
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
-   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job
+   *             successfully completes. The package version must be in either the Published or
+   *             Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
-   *             Up to 25  package version ARNs are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a
+   *             single ARN. Up to 25 package version ARNs are allowed.</p>
    * @public
    */
   destinationPackageVersions?: string[] | undefined;
@@ -3079,8 +3289,8 @@ export interface DescribeManagedJobTemplateRequest {
 
 /**
  * <p>A map of key-value pairs containing the patterns that need to be replaced in a managed
- *             template job document schema. You can use the description of each key as a guidance to specify
- *             the inputs during runtime when creating a job.</p>
+ *             template job document schema. You can use the description of each key as a guidance to
+ *             specify the inputs during runtime when creating a job.</p>
  *          <note>
  *             <p>
  *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
@@ -3112,15 +3322,15 @@ export interface DocumentParameter {
   regex?: string | undefined;
 
   /**
-   * <p>An example illustrating a pattern that need to be replaced in a managed template
-   *             job document schema.</p>
+   * <p>An example illustrating a pattern that need to be replaced in a managed template job
+   *             document schema.</p>
    * @public
    */
   example?: string | undefined;
 
   /**
-   * <p>Specifies whether a pattern that needs to be replaced in a managed template job document
-   *             schema is optional or required.</p>
+   * <p>Specifies whether a pattern that needs to be replaced in a managed template job
+   *             document schema is optional or required.</p>
    * @public
    */
   optional?: boolean | undefined;
@@ -3161,8 +3371,8 @@ export interface DescribeManagedJobTemplateResponse {
   environments?: string[] | undefined;
 
   /**
-   * <p>A map of key-value pairs that you can use as guidance to specify the inputs for creating
-   *             a job from a managed template.</p>
+   * <p>A map of key-value pairs that you can use as guidance to specify the inputs for
+   *             creating a job from a managed template.</p>
    *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
@@ -4495,6 +4705,299 @@ export interface GetCardinalityResponse {
 /**
  * @public
  */
+export interface GetCommandRequest {
+  /**
+   * <p>The unique identifier of the command for which you want to retrieve
+   *             information.</p>
+   * @public
+   */
+  commandId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCommandResponse {
+  /**
+   * <p>The unique identifier of the command.</p>
+   * @public
+   */
+  commandId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the command. For example,
+   *                 <code>arn:aws:iot:<region>:<accountid>:command/<commandId></code>
+   *          </p>
+   * @public
+   */
+  commandArn?: string | undefined;
+
+  /**
+   * <p>The namespace of the command.</p>
+   * @public
+   */
+  namespace?: CommandNamespace | undefined;
+
+  /**
+   * <p>The user-friendly name in the console for the command.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>A short text description of the command.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A list of parameters for the command created.</p>
+   * @public
+   */
+  mandatoryParameters?: CommandParameter[] | undefined;
+
+  /**
+   * <p>The payload object that you provided for the command.</p>
+   * @public
+   */
+  payload?: CommandPayload | undefined;
+
+  /**
+   * <p>The IAM role that allows access to retrieve information about the command.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>The timestamp, when the command was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp, when the command was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the command has been deprecated.</p>
+   * @public
+   */
+  deprecated?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether the command is being deleted.</p>
+   * @public
+   */
+  pendingDeletion?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCommandExecutionRequest {
+  /**
+   * <p>The unique identifier for the command execution. This information is returned as a
+   *             response of the <code>StartCommandExecution</code> API request.</p>
+   * @public
+   */
+  executionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the device on which the command execution is being
+   *             performed.</p>
+   * @public
+   */
+  targetArn: string | undefined;
+
+  /**
+   * <p>Can be used to specify whether to include the result of the command execution
+   *             in the <code>GetCommandExecution</code> API response. Your device can use this
+   *             field to provide additional information about the command execution. You only
+   *             need to specify this field when using the <code>AWS-IoT</code> namespace.</p>
+   * @public
+   */
+  includeResult?: boolean | undefined;
+}
+
+/**
+ * <p>The result value of the command execution. The device can use the result field to
+ *             share additional details about the execution such as a return value of a remote function
+ *             call.</p>
+ *          <note>
+ *             <p>This field is not applicable if you use the <code>AWS-IoT-FleetWise</code>
+ *                 namespace.</p>
+ *          </note>
+ * @public
+ */
+export interface CommandExecutionResult {
+  /**
+   * <p>An attribute of type String. For example:</p>
+   *          <p>
+   *             <code>"S": "Hello"</code>
+   *          </p>
+   * @public
+   */
+  S?: string | undefined;
+
+  /**
+   * <p>An attribute of type Boolean. For example:</p>
+   *          <p>
+   *             <code>"BOOL": true</code>
+   *          </p>
+   * @public
+   */
+  B?: boolean | undefined;
+
+  /**
+   * <p>An attribute of type Binary.</p>
+   * @public
+   */
+  BIN?: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CommandExecutionStatus = {
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  REJECTED: "REJECTED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type CommandExecutionStatus = (typeof CommandExecutionStatus)[keyof typeof CommandExecutionStatus];
+
+/**
+ * <p>Provide additional context about the status of a command execution using a reason code
+ *             and description.</p>
+ * @public
+ */
+export interface StatusReason {
+  /**
+   * <p>A code that provides additional context for the command execution status.</p>
+   * @public
+   */
+  reasonCode: string | undefined;
+
+  /**
+   * <p>A literal string for devices to optionally provide additional information about the
+   *             reason code for a command execution status.</p>
+   * @public
+   */
+  reasonDescription?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCommandExecutionResponse {
+  /**
+   * <p>The unique identifier of the command execution.</p>
+   * @public
+   */
+  executionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the command. For example,
+   *             <code></code>arn:aws:iot:<region>:<accountid>:command/<commandId></p>
+   * @public
+   */
+  commandArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the device on which the command execution is being
+   *             performed.</p>
+   * @public
+   */
+  targetArn?: string | undefined;
+
+  /**
+   * <p>The status of the command execution. After your devices receive the command and start
+   *             performing the operations specified in the command, it can use the
+   *                 <code>UpdateCommandExecution</code> MQTT API to update the status
+   *             information.</p>
+   * @public
+   */
+  status?: CommandExecutionStatus | undefined;
+
+  /**
+   * <p>Your devices can use this parameter to provide additional context about the status of
+   *             a command execution using a reason code and description.</p>
+   * @public
+   */
+  statusReason?: StatusReason | undefined;
+
+  /**
+   * <p>The result value for the current state of the command execution. The status provides
+   *             information about the progress of the command execution. The device can use the result
+   *             field to share additional details about the execution such as a return value of a remote
+   *             function call.</p>
+   *          <note>
+   *             <p>If you use the <code>AWS-IoT-FleetWise</code> namespace, then this field is not
+   *                 applicable in the API response.</p>
+   *          </note>
+   * @public
+   */
+  result?: Record<string, CommandExecutionResult> | undefined;
+
+  /**
+   * <p>The list of parameters that the <code>StartCommandExecution</code> API used when
+   *             performing the command on the device.</p>
+   * @public
+   */
+  parameters?: Record<string, CommandParameterValue> | undefined;
+
+  /**
+   * <p>Specifies the amount of time in seconds that the device can take to finish a command
+   *             execution. A timer starts when the command execution is created. If the command
+   *             execution status is not set to another terminal state before the timer expires, it will
+   *             automatically update to <code>TIMED_OUT</code>.</p>
+   * @public
+   */
+  executionTimeoutSeconds?: number | undefined;
+
+  /**
+   * <p>The timestamp, when the command execution was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp, when the command execution was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp, when the command execution was started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp, when the command execution was completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>The time to live (TTL) parameter for the <code>GetCommandExecution</code> API.</p>
+   * @public
+   */
+  timeToLive?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetEffectivePoliciesRequest {
   /**
    * <p>The principal. Valid principals are CertificateArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:cert/<i>certificateId</i>), thingGroupArn (arn:aws:iot:<i>region</i>:<i>accountId</i>:thinggroup/<i>groupName</i>) and CognitoId (<i>region</i>:<i>id</i>).</p>
@@ -4908,7 +5411,7 @@ export interface GetJobDocumentRequest {
   jobId: string | undefined;
 
   /**
-   * <p>A flag that provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
+   * <p>Provides a view of the job document before and after the substitution parameters have been resolved with their exact values.</p>
    * @public
    */
   beforeSubstitution?: boolean | undefined;
@@ -6570,6 +7073,291 @@ export interface ListCertificatesByCAResponse {
 }
 
 /**
+ * <p>A filter that can be used to list command executions for a device that started or
+ *             completed before or after a particular date and time.</p>
+ * @public
+ */
+export interface TimeFilter {
+  /**
+   * <p>Filter to display command executions that started or completed only after a particular
+   *             date and time.</p>
+   * @public
+   */
+  after?: string | undefined;
+
+  /**
+   * <p>Filter to display command executions that started or completed only before a
+   *             particular date and time.</p>
+   * @public
+   */
+  before?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  Ascending: "ASCENDING",
+  Descending: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListCommandExecutionsRequest {
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <code>null</code> to receive the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The namespace of the command.</p>
+   * @public
+   */
+  namespace?: CommandNamespace | undefined;
+
+  /**
+   * <p>List all command executions for the device that have a particular status. For example,
+   *             you can filter the list to display only command executions that have failed or timed
+   *             out.</p>
+   * @public
+   */
+  status?: CommandExecutionStatus | undefined;
+
+  /**
+   * <p>Specify whether to list the command executions that were created in the
+   *             ascending or descending order. By default, the API returns all commands in the
+   *             descending order based on the start time or completion time of the executions, that are
+   *             determined by the <code>startTimeFilter</code> and <code>completeTimeFilter</code>
+   *             parameters.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>List all command executions that started any time before or after the
+   *             date and time that you specify. The date and time uses the format
+   *                 <code>yyyy-MM-dd'T'HH:mm</code>.</p>
+   * @public
+   */
+  startedTimeFilter?: TimeFilter | undefined;
+
+  /**
+   * <p>List all command executions that completed any time before or after the
+   *             date and time that you specify. The date and time uses the format
+   *                 <code>yyyy-MM-dd'T'HH:mm</code>.</p>
+   * @public
+   */
+  completedTimeFilter?: TimeFilter | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the target device. You can use this information to
+   *             list all command executions for a particular device.</p>
+   * @public
+   */
+  targetArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the command. You can use this information to
+   *             list all command executions for a particular command.</p>
+   * @public
+   */
+  commandArn?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a particular command execution.</p>
+ * @public
+ */
+export interface CommandExecutionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the command execution.</p>
+   * @public
+   */
+  commandArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the command execution.</p>
+   * @public
+   */
+  executionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target device for which the command is being
+   *             executed.</p>
+   * @public
+   */
+  targetArn?: string | undefined;
+
+  /**
+   * <p>The status of the command executions.</p>
+   * @public
+   */
+  status?: CommandExecutionStatus | undefined;
+
+  /**
+   * <p>The date and time at which the command execution was created for the target device.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the command started executing on the target device.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the command completed executing on the target
+   *             device.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCommandExecutionsResponse {
+  /**
+   * <p>The list of command executions.</p>
+   * @public
+   */
+  commandExecutions?: CommandExecutionSummary[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
+   *             additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCommandsRequest {
+  /**
+   * <p>The maximum number of results to return in this operation. By default, the API returns
+   *             up to a maximum of 25 results. You can override this default value to return up to a
+   *             maximum of 100 results for this operation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous
+   *             response; otherwise <code>null</code> to receive the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The namespace of the command. By default, the API returns all commands that have been
+   *             created for both <code>AWS-IoT</code> and <code>AWS-IoT-FleetWise</code> namespaces. You
+   *             can override this default value if you want to return all commands that have been
+   *             created only for a specific namespace.</p>
+   * @public
+   */
+  namespace?: CommandNamespace | undefined;
+
+  /**
+   * <p>A filter that can be used to display the list of commands that have a specific command
+   *             parameter name.</p>
+   * @public
+   */
+  commandParameterName?: string | undefined;
+
+  /**
+   * <p>Specify whether to list the commands that you have created in the ascending or
+   *             descending order. By default, the API returns all commands in the descending order based
+   *             on the time that they were created.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+}
+
+/**
+ * <p>Summary information about a particular command resource.</p>
+ * @public
+ */
+export interface CommandSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the command.</p>
+   * @public
+   */
+  commandArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the command.</p>
+   * @public
+   */
+  commandId?: string | undefined;
+
+  /**
+   * <p>The display name of the command.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the command has been deprecated.</p>
+   * @public
+   */
+  deprecated?: boolean | undefined;
+
+  /**
+   * <p>The timestamp, when the command was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp, when the command was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates whether the command is pending deletion.</p>
+   * @public
+   */
+  pendingDeletion?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCommandsResponse {
+  /**
+   * <p>The list of commands.</p>
+   * @public
+   */
+  commands?: CommandSummary[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <code>null</code> if there are no
+   *             additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListCustomMetricsRequest {
@@ -6769,683 +7557,6 @@ export interface DetectMitigationActionExecution {
    * @public
    */
   message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDetectMitigationActionsExecutionsResponse {
-  /**
-   * <p>
-   *       List of actions executions.
-   *     </p>
-   * @public
-   */
-  actionsExecutions?: DetectMitigationActionExecution[] | undefined;
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-   *     </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDetectMitigationActionsTasksRequest {
-  /**
-   * <p>The maximum number of results to return at one time. The default is 25.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>
-   *       The token for the next set of results.
-   *     </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>
-   *       A filter to limit results to those found after the specified time. You must
-   *       specify either the startTime and endTime or the taskId, but not both.
-   *     </p>
-   * @public
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>
-   *       The end of the time period for which ML Detect mitigation actions tasks are returned.
-   *     </p>
-   * @public
-   */
-  endTime: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDetectMitigationActionsTasksResponse {
-  /**
-   * <p>
-   *       The collection of ML Detect mitigation tasks that matched the filter criteria.
-   *     </p>
-   * @public
-   */
-  tasks?: DetectMitigationActionsTaskSummary[] | undefined;
-
-  /**
-   * <p>
-   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
-   *     </p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDimensionsRequest {
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to retrieve at one time.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDimensionsResponse {
-  /**
-   * <p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.</p>
-   * @public
-   */
-  dimensionNames?: string[] | undefined;
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDomainConfigurationsRequest {
-  /**
-   * <p>The marker for the next set of results.</p>
-   * @public
-   */
-  marker?: string | undefined;
-
-  /**
-   * <p>The result page size.</p>
-   * @public
-   */
-  pageSize?: number | undefined;
-
-  /**
-   * <p>The type of service delivered by the endpoint.</p>
-   * @public
-   */
-  serviceType?: ServiceType | undefined;
-}
-
-/**
- * <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain.
- *          A domain configuration can be associated with an Amazon Web Services-managed domain
- *          (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p>
- *          <ul>
- *             <li>
- *                <p>Data</p>
- *             </li>
- *             <li>
- *                <p>Jobs</p>
- *             </li>
- *             <li>
- *                <p>CredentialProvider</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface DomainConfigurationSummary {
-  /**
-   * <p>The name of the domain configuration. This value must be unique to a region.</p>
-   * @public
-   */
-  domainConfigurationName?: string | undefined;
-
-  /**
-   * <p>The ARN of the domain configuration.</p>
-   * @public
-   */
-  domainConfigurationArn?: string | undefined;
-
-  /**
-   * <p>The type of service delivered by the endpoint.</p>
-   * @public
-   */
-  serviceType?: ServiceType | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDomainConfigurationsResponse {
-  /**
-   * <p>A list of objects that contain summary information about the user's domain configurations.</p>
-   * @public
-   */
-  domainConfigurations?: DomainConfigurationSummary[] | undefined;
-
-  /**
-   * <p>The marker for the next set of results.</p>
-   * @public
-   */
-  nextMarker?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFleetMetricsRequest {
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
-   *        otherwise <code>null</code> to receive the first set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in this operation.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The name and ARN of a fleet metric.</p>
- * @public
- */
-export interface FleetMetricNameAndArn {
-  /**
-   * <p>The fleet metric name.</p>
-   * @public
-   */
-  metricName?: string | undefined;
-
-  /**
-   * <p>The fleet metric ARN.</p>
-   * @public
-   */
-  metricArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFleetMetricsResponse {
-  /**
-   * <p>The list of fleet metrics objects.</p>
-   * @public
-   */
-  fleetMetrics?: FleetMetricNameAndArn[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Will not be returned if the operation has returned
-   *       all results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIndicesRequest {
-  /**
-   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListIndicesResponse {
-  /**
-   * <p>The index names.</p>
-   * @public
-   */
-  indexNames?: string[] | undefined;
-
-  /**
-   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
-   *       results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobExecutionsForJobRequest {
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   * @public
-   */
-  jobId: string | undefined;
-
-  /**
-   * <p>The status of the job.</p>
-   * @public
-   */
-  status?: JobExecutionStatus | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>The job execution summary.</p>
- * @public
- */
-export interface JobExecutionSummary {
-  /**
-   * <p>The status of the job execution.</p>
-   * @public
-   */
-  status?: JobExecutionStatus | undefined;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
-   * @public
-   */
-  queuedAt?: Date | undefined;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job execution started.</p>
-   * @public
-   */
-  startedAt?: Date | undefined;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>A string (consisting of the digits "0" through "9") which identifies this particular job execution on
-   *             this particular device. It can be used later in commands which return or update job execution
-   *             information.</p>
-   * @public
-   */
-  executionNumber?: number | undefined;
-
-  /**
-   * <p>The number that indicates how many retry attempts have been completed for this
-   *         job on this device.</p>
-   * @public
-   */
-  retryAttempt?: number | undefined;
-}
-
-/**
- * <p>Contains a summary of information about job executions for a specific job.</p>
- * @public
- */
-export interface JobExecutionSummaryForJob {
-  /**
-   * <p>The ARN of the thing on which the job execution is running.</p>
-   * @public
-   */
-  thingArn?: string | undefined;
-
-  /**
-   * <p>Contains a subset of information about a job execution.</p>
-   * @public
-   */
-  jobExecutionSummary?: JobExecutionSummary | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobExecutionsForJobResponse {
-  /**
-   * <p>A list of job execution summaries.</p>
-   * @public
-   */
-  executionSummaries?: JobExecutionSummaryForJob[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobExecutionsForThingRequest {
-  /**
-   * <p>The thing name.</p>
-   * @public
-   */
-  thingName: string | undefined;
-
-  /**
-   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   * @public
-   */
-  status?: JobExecutionStatus | undefined;
-
-  /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *          <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
-   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
-   *                     up IoT Greengrass core devices.</a>
-   *             </p>
-   *          </note>
-   * @public
-   */
-  namespaceId?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   * @public
-   */
-  jobId?: string | undefined;
-}
-
-/**
- * <p>The job execution summary for a thing.</p>
- * @public
- */
-export interface JobExecutionSummaryForThing {
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   * @public
-   */
-  jobId?: string | undefined;
-
-  /**
-   * <p>Contains a subset of information about a job execution.</p>
-   * @public
-   */
-  jobExecutionSummary?: JobExecutionSummary | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobExecutionsForThingResponse {
-  /**
-   * <p>A list of job execution summaries.</p>
-   * @public
-   */
-  executionSummaries?: JobExecutionSummaryForThing[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobsRequest {
-  /**
-   * <p>An optional filter that lets you search for jobs that have the specified status.</p>
-   * @public
-   */
-  status?: JobStatus | undefined;
-
-  /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group. </p>
-   *          <note>
-   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
-   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
-   *                 been created.</p>
-   *          </note>
-   * @public
-   */
-  targetSelection?: TargetSelection | undefined;
-
-  /**
-   * <p>The maximum number of results to return per request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>A filter that limits the returned jobs to those for the specified group.</p>
-   * @public
-   */
-  thingGroupName?: string | undefined;
-
-  /**
-   * <p>A filter that limits the returned jobs to those for the specified group.</p>
-   * @public
-   */
-  thingGroupId?: string | undefined;
-
-  /**
-   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
-   *          <p>
-   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
-   *          </p>
-   *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
-   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
-   *             </p>
-   *          </note>
-   * @public
-   */
-  namespaceId?: string | undefined;
-}
-
-/**
- * <p>The job summary.</p>
- * @public
- */
-export interface JobSummary {
-  /**
-   * <p>The job ARN.</p>
-   * @public
-   */
-  jobArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier you assigned to this job when it was created.</p>
-   * @public
-   */
-  jobId?: string | undefined;
-
-  /**
-   * <p>The ID of the thing group.</p>
-   * @public
-   */
-  thingGroupId?: string | undefined;
-
-  /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group.</p>
-   *          <note>
-   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
-   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
-   *                 been created.</p>
-   *          </note>
-   * @public
-   */
-  targetSelection?: TargetSelection | undefined;
-
-  /**
-   * <p>The job summary status.</p>
-   * @public
-   */
-  status?: JobStatus | undefined;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job completed.</p>
-   * @public
-   */
-  completedAt?: Date | undefined;
-
-  /**
-   * <p>Indicates whether a job is concurrent. Will be true when a job is
-   *             rolling out new job executions or canceling previously created executions,
-   *             otherwise false.</p>
-   * @public
-   */
-  isConcurrent?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobsResponse {
-  /**
-   * <p>A list of jobs.</p>
-   * @public
-   */
-  jobs?: JobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListJobTemplatesRequest {
-  /**
-   * <p>The maximum number of results to return in the list.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token to use to return the next set of results in the list.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>An object that contains information about the job template.</p>
- * @public
- */
-export interface JobTemplateSummary {
-  /**
-   * <p>The ARN of the job template.</p>
-   * @public
-   */
-  jobTemplateArn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the job template.</p>
-   * @public
-   */
-  jobTemplateId?: string | undefined;
-
-  /**
-   * <p>A description of the job template.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The time, in seconds since the epoch, when the job template was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
 }
 
 /**

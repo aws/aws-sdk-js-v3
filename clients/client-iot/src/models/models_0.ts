@@ -50,15 +50,17 @@ export interface AbortCriteria {
   action: AbortAction | undefined;
 
   /**
-   * <p>The minimum percentage of job execution failures that must occur to initiate the job abort.</p>
-   *          <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99, but not 10.999).</p>
+   * <p>The minimum percentage of job execution failures that must occur to initiate the
+   *             job abort.</p>
+   *          <p>Amazon Web Services IoT Core supports up to two digits after the decimal (for example, 10.9 and 10.99,
+   *             but not 10.999).</p>
    * @public
    */
   thresholdPercentage: number | undefined;
 
   /**
-   * <p>The minimum number of things which must receive job execution notifications before the job
-   *             can be aborted.</p>
+   * <p>The minimum number of things which must receive job execution notifications before
+   *             the job can be aborted.</p>
    * @public
    */
   minNumberOfExecutedThings: number | undefined;
@@ -2430,7 +2432,7 @@ export interface AssociateSbomWithPackageVersionResponse {
 }
 
 /**
- * <p>A resource with the same name already exists.</p>
+ * <p>The request conflicts with the current state of the resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
@@ -2478,7 +2480,7 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>A limit has been exceeded.</p>
+ * <p>Service quota has been exceeded.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -2534,22 +2536,22 @@ export interface AssociateTargetsWithJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>An optional comment string describing why the job was associated with the targets.</p>
+   * <p>An optional comment string describing why the job was associated with the
+   *             targets.</p>
    * @public
    */
   comment?: string | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
    *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
-   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
-   *                     up IoT Greengrass core devices.</a>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
    *             </p>
    *          </note>
    * @public
@@ -3804,12 +3806,12 @@ export interface CancelJobRequest {
   comment?: string | undefined;
 
   /**
-   * <p>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and "QUEUED"
-   *           are canceled, otherwise only job executions with status "QUEUED" are canceled. The default
-   *           is <code>false</code>.</p>
-   *          <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing
-   *           the job to be unable to update the job execution status.  Use caution and ensure that each
-   *           device executing a job which is canceled is able to recover to a valid state.</p>
+   * <p>(Optional) If <code>true</code> job executions with status "IN_PROGRESS" and
+   *             "QUEUED" are canceled, otherwise only job executions with status "QUEUED" are canceled.
+   *             The default is <code>false</code>.</p>
+   *          <p>Canceling a job which is "IN_PROGRESS", will cause a device which is executing the
+   *             job to be unable to update the job execution status. Use caution and ensure that each
+   *             device executing a job which is canceled is able to recover to a valid state.</p>
    * @public
    */
   force?: boolean | undefined;
@@ -3856,31 +3858,33 @@ export interface CancelJobExecutionRequest {
 
   /**
    * <p>(Optional) If <code>true</code> the job execution will be canceled if it has status
-   *           IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status
-   *           QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set
-   *           <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code>
-   *           will be thrown. The default is <code>false</code>.</p>
-   *          <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be unable
-   *           to update the job execution status.  Use caution and ensure that the device is able to
-   *           recover to a valid state.</p>
+   *             IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has
+   *             status QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do
+   *             not set <code>force</code> to <code>true</code>, then an
+   *                 <code>InvalidStateTransitionException</code> will be thrown. The default is
+   *                 <code>false</code>.</p>
+   *          <p>Canceling a job execution which is "IN_PROGRESS", will cause the device to be
+   *             unable to update the job execution status. Use caution and ensure that the device is
+   *             able to recover to a valid state.</p>
    * @public
    */
   force?: boolean | undefined;
 
   /**
-   * <p>(Optional) The expected current version of the job execution. Each time you update the job
-   *           execution, its version is incremented. If the version of the job execution stored in Jobs does
-   *           not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that
-   *           contains the current job execution status data is returned. (This makes it unnecessary to
-   *           perform a separate DescribeJobExecution request in order to obtain the job execution status
-   *           data.)</p>
+   * <p>(Optional) The expected current version of the job execution. Each time you update
+   *             the job execution, its version is incremented. If the version of the job execution
+   *             stored in Jobs does not match, the update is rejected with a VersionMismatch error, and
+   *             an ErrorResponse that contains the current job execution status data is returned. (This
+   *             makes it unnecessary to perform a separate DescribeJobExecution request in order to
+   *             obtain the job execution status data.)</p>
    * @public
    */
   expectedVersion?: number | undefined;
 
   /**
-   * <p>A collection of name/value pairs that describe the status of the job execution. If not
-   *           specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.</p>
+   * <p>A collection of name/value pairs that describe the status of the job execution. If
+   *             not specified, the statusDetails are unchanged. You can specify at most 10 name/value
+   *             pairs.</p>
    * @public
    */
   statusDetails?: Record<string, string> | undefined;
@@ -4338,6 +4342,218 @@ export interface CreateCertificateProviderResponse {
 }
 
 /**
+ * <p>The range of possible values that's used to describe a specific command
+ *             parameter.</p>
+ *          <note>
+ *             <p>The <code>commandParameterValue</code> can only have one of the below fields
+ *                 listed.</p>
+ *          </note>
+ * @public
+ */
+export interface CommandParameterValue {
+  /**
+   * <p>An attribute of type String. For example:</p>
+   *          <p>
+   *             <code>"S": "Hello"</code>
+   *          </p>
+   * @public
+   */
+  S?: string | undefined;
+
+  /**
+   * <p>An attribute of type Boolean. For example:</p>
+   *          <p>
+   *             <code>"BOOL": true</code>
+   *          </p>
+   * @public
+   */
+  B?: boolean | undefined;
+
+  /**
+   * <p>An attribute of type Integer (Thirty-Two Bits).</p>
+   * @public
+   */
+  I?: number | undefined;
+
+  /**
+   * <p>An attribute of type Long.</p>
+   * @public
+   */
+  L?: number | undefined;
+
+  /**
+   * <p>An attribute of type Double (Sixty-Four Bits).</p>
+   * @public
+   */
+  D?: number | undefined;
+
+  /**
+   * <p>An attribute of type Binary. For example:</p>
+   *          <p>
+   *             <code>"B": "dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk"</code>
+   *          </p>
+   * @public
+   */
+  BIN?: Uint8Array | undefined;
+
+  /**
+   * <p>An attribute of type unsigned long.</p>
+   * @public
+   */
+  UL?: string | undefined;
+}
+
+/**
+ * <p>A map of key-value pairs that describe the command.</p>
+ * @public
+ */
+export interface CommandParameter {
+  /**
+   * <p>The name of a specific parameter used in a command and command execution.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The value used to describe the command. When you assign a value to a parameter, it
+   *             will override any default value that you had already specified.</p>
+   * @public
+   */
+  value?: CommandParameterValue | undefined;
+
+  /**
+   * <p>The default value used to describe the command. This is the value assumed by the
+   *             parameter if no other value is assigned to it.</p>
+   * @public
+   */
+  defaultValue?: CommandParameterValue | undefined;
+
+  /**
+   * <p>The description of the command parameter.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CommandNamespace = {
+  AWSIoT: "AWS-IoT",
+  AWSIoTFleetWise: "AWS-IoT-FleetWise",
+} as const;
+
+/**
+ * @public
+ */
+export type CommandNamespace = (typeof CommandNamespace)[keyof typeof CommandNamespace];
+
+/**
+ * <p>The command payload object that contains the instructions for the device
+ *         to process.</p>
+ * @public
+ */
+export interface CommandPayload {
+  /**
+   * <p>The static payload file for the command.</p>
+   * @public
+   */
+  content?: Uint8Array | undefined;
+
+  /**
+   * <p>The content type that specifies the format type of the payload file. This
+   *         field must use a type/subtype format, such as <code>application/json</code>.
+   *         For information about various content types, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types">Common MIME types</a>.</p>
+   * @public
+   */
+  contentType?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCommandRequest {
+  /**
+   * <p>A unique identifier for the command. We recommend using UUID. Alpha-numeric
+   *             characters, hyphens, and underscores are valid for use here.</p>
+   * @public
+   */
+  commandId: string | undefined;
+
+  /**
+   * <p>The namespace of the command. The MQTT reserved topics and validations will be used
+   *             for command executions according to the namespace setting.</p>
+   * @public
+   */
+  namespace?: CommandNamespace | undefined;
+
+  /**
+   * <p>The user-friendly name in the console for the command. This name doesn't have to be
+   *             unique. You can update the user-friendly name after you define it.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>A short text decription of the command.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The payload object for the command. You must specify this information when using
+   *         the <code>AWS-IoT</code> namespace.</p>
+   *          <p>You can upload a static payload file from your local storage that contains the
+   *         instructions for the device to process. The payload file can use any format. To
+   *         make sure that the device correctly interprets the payload, we recommend you to
+   *         specify the payload content type.</p>
+   * @public
+   */
+  payload?: CommandPayload | undefined;
+
+  /**
+   * <p>A list of parameters that are required by the <code>StartCommandExecution</code> API.
+   *             These parameters need to be specified only when using the <code>AWS-IoT-FleetWise</code>
+   *             namespace. You can either specify them here or when running the command using the
+   *                 <code>StartCommandExecution</code> API.</p>
+   * @public
+   */
+  mandatoryParameters?: CommandParameter[] | undefined;
+
+  /**
+   * <p>The IAM role that allows access to create the command.</p>
+   * @public
+   */
+  roleArn?: string | undefined;
+
+  /**
+   * <p>Name-value pairs that are used as metadata to manage a command.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCommandResponse {
+  /**
+   * <p>The unique identifier for the command.</p>
+   * @public
+   */
+  commandId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the command. For example,
+   *                 <code>arn:aws:iot:<region>:<accountid>:command/<commandId></code>
+   *          </p>
+   * @public
+   */
+  commandArn?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -4544,22 +4760,23 @@ export interface ServerCertificateConfig {
   /**
    * <p>The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments
    *          (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic
-   *          OCSP responses.  The Lambda function accepts a JSON string that's Base64-encoded.
-   *          Therefore, you must convert your OCSP response, which is typically in the Distinguished
-   *          Encoding Rules (DER) format, into a JSON string that's Base64-encoded. The Lambda
-   *          function's response is also a Base64-encoded JSON string and the response payload must not
-   *          exceed 8 kilobytes (KiB) in size. The Lambda function must be in the same Amazon Web Services region and
-   *          account as the domain configuration.</p>
+   *          OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the
+   *          Distinguished Encoding Rules (DER) format. The Lambda function's response is also a
+   *          base64-encoded OCSP response in the DER format. The response size must not exceed 4
+   *          kilobytes (KiB). The Lambda function must be in the same Amazon Web Services account and region as the
+   *          domain configuration. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-endpoints-cert-config.html#iot-custom-endpoints-cert-config-ocsp-private-endpoint.html">Configuring server certificate OCSP for private endpoints in Amazon Web Services IoT Core</a> from the
+   *          Amazon Web Services IoT Core developer guide.</p>
    * @public
    */
   ocspLambdaArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for an X.509 certificate stored in Amazon Web Services Certificate Manager (ACM).
-   *          If provided, Amazon Web Services IoT Core will use this certificate to validate the signature of the received OCSP response.
-   *          The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate,
-   *          depending on whether the ARN is provided or not. The certificate must be in the same Amazon Web Services region and account as the domain configuration.
-   *       </p>
+   * <p>The Amazon Resource Name (ARN) for an X.509 certificate stored in Amazon Web Services Certificate
+   *          Manager (ACM). If provided, Amazon Web Services IoT Core will use this certificate to validate the signature
+   *          of the received OCSP response. The OCSP responder must sign responses using either this
+   *          authorized responder certificate or the issuing certificate, depending on whether the ARN
+   *          is provided or not. The certificate must be in the same Amazon Web Services account and region as the
+   *          domain configuration.</p>
    * @public
    */
   ocspAuthorizedResponderArn?: string | undefined;
@@ -5064,8 +5281,8 @@ export const RetryableFailureType = {
 export type RetryableFailureType = (typeof RetryableFailureType)[keyof typeof RetryableFailureType];
 
 /**
- * <p>The criteria that determines how many retries are allowed for each failure
- *             type for a job.</p>
+ * <p>The criteria that determines how many retries are allowed for each failure type for a
+ *             job.</p>
  * @public
  */
 export interface RetryCriteria {
@@ -5083,8 +5300,8 @@ export interface RetryCriteria {
 }
 
 /**
- * <p>The configuration that determines how many retries are allowed for each failure
- *             type for a job.</p>
+ * <p>The configuration that determines how many retries are allowed for each failure type
+ *             for a job.</p>
  * @public
  */
 export interface JobExecutionsRetryConfig {
@@ -5097,18 +5314,21 @@ export interface JobExecutionsRetryConfig {
 }
 
 /**
- * <p>Allows you to define a criteria to initiate the increase in rate of rollout for a job.</p>
+ * <p>Allows you to define a criteria to initiate the increase in rate of rollout for a
+ *             job.</p>
  * @public
  */
 export interface RateIncreaseCriteria {
   /**
-   * <p>The threshold for number of notified things that will initiate the increase in rate of rollout.</p>
+   * <p>The threshold for number of notified things that will initiate the increase in rate
+   *             of rollout.</p>
    * @public
    */
   numberOfNotifiedThings?: number | undefined;
 
   /**
-   * <p>The threshold for number of succeeded things that will initiate the increase in rate of rollout.</p>
+   * <p>The threshold for number of succeeded things that will initiate the increase in
+   *             rate of rollout.</p>
    * @public
    */
   numberOfSucceededThings?: number | undefined;
@@ -5120,15 +5340,17 @@ export interface RateIncreaseCriteria {
  */
 export interface ExponentialRolloutRate {
   /**
-   * <p>The minimum number of things that will be notified of a pending job, per minute at the start of job rollout.
-   *             This parameter allows you to define the initial rate of rollout.</p>
+   * <p>The minimum number of things that will be notified of a pending job, per minute at
+   *             the start of job rollout. This parameter allows you to define the initial rate of
+   *             rollout.</p>
    * @public
    */
   baseRatePerMinute: number | undefined;
 
   /**
    * <p>The exponential factor to increase the rate of rollout for a job.</p>
-   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not 1.55).</p>
+   *          <p>Amazon Web Services IoT Core supports up to one digit after the decimal (for example, 1.5, but not
+   *             1.55).</p>
    * @public
    */
   incrementFactor: number | undefined;
@@ -5147,14 +5369,14 @@ export interface ExponentialRolloutRate {
 export interface JobExecutionsRolloutConfig {
   /**
    * <p>The maximum number of things that will be notified of a pending job, per minute.
-   *         This parameter allows you to create a staged rollout.</p>
+   *             This parameter allows you to create a staged rollout.</p>
    * @public
    */
   maximumPerMinute?: number | undefined;
 
   /**
-   * <p>The rate of increase for a job rollout.
-   *             This parameter allows you to define an exponential rate for a job rollout.</p>
+   * <p>The rate of increase for a job rollout. This parameter allows you to define an
+   *             exponential rate for a job rollout.</p>
    * @public
    */
   exponentialRate?: ExponentialRolloutRate | undefined;
@@ -5170,16 +5392,17 @@ export interface PresignedUrlConfig {
    *             where the job data/updates are stored. The role must also grant permission for IoT to
    *             download the files.</p>
    *          <important>
-   *             <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service
-   *                 confused deputy prevention</a> in the <i>Amazon Web Services IoT Core developer guide</i>.</p>
+   *             <p>For information about addressing the confused deputy problem, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/cross-service-confused-deputy-prevention.html">cross-service confused deputy prevention</a> in the <i>Amazon Web Services IoT Core
+   *                     developer guide</i>.</p>
    *          </important>
    * @public
    */
   roleArn?: string | undefined;
 
   /**
-   * <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600
-   *             seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.</p>
+   * <p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the
+   *             default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT
+   *             request for the job document.</p>
    * @public
    */
   expiresInSec?: number | undefined;
@@ -5201,7 +5424,9 @@ export const JobEndBehavior = {
 export type JobEndBehavior = (typeof JobEndBehavior)[keyof typeof JobEndBehavior];
 
 /**
- * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
+ * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a
+ *             recurring maintenance window with a predetermined start time and duration for the
+ *             rollout of a job document to all devices in a target group for a job.</p>
  * @public
  */
 export interface MaintenanceWindow {
@@ -5219,7 +5444,9 @@ export interface MaintenanceWindow {
 }
 
 /**
- * <p>Specifies the date and time that a job will begin the rollout of the job document to all devices in the target group. Additionally, you can specify the end behavior for each job execution when it reaches the scheduled end time.</p>
+ * <p>Specifies the date and time that a job will begin the rollout of the job document to
+ *             all devices in the target group. Additionally, you can specify the end behavior for each
+ *             job execution when it reaches the scheduled end time.</p>
  * @public
  */
 export interface SchedulingConfig {
@@ -5230,7 +5457,7 @@ export interface SchedulingConfig {
    *             format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the
    *             time.</p>
    *          <p>For more information on the syntax for <code>startTime</code> when using an API
-   *                 command or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
+   *             command or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
    * @public
    */
   startTime?: string | undefined;
@@ -5258,7 +5485,9 @@ export interface SchedulingConfig {
   endBehavior?: JobEndBehavior | undefined;
 
   /**
-   * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a recurring maintenance window with a predetermined start time and duration for the rollout of a job document to all devices in a target group for a job.</p>
+   * <p>An optional configuration within the <code>SchedulingConfig</code> to setup a
+   *             recurring maintenance window with a predetermined start time and duration for the
+   *             rollout of a job document to all devices in a target group for a job.</p>
    * @public
    */
   maintenanceWindows?: MaintenanceWindow[] | undefined;
@@ -5279,19 +5508,20 @@ export const TargetSelection = {
 export type TargetSelection = (typeof TargetSelection)[keyof typeof TargetSelection];
 
 /**
- * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
- *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
- *            execution status is not set to another terminal state before the timer expires, it will
- *            be automatically set to <code>TIMED_OUT</code>.</p>
+ * <p>Specifies the amount of time each device has to finish its execution of the job. A
+ *             timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If
+ *             the job execution status is not set to another terminal state before the timer expires,
+ *             it will be automatically set to <code>TIMED_OUT</code>.</p>
  * @public
  */
 export interface TimeoutConfig {
   /**
-   * <p>Specifies the amount of time, in minutes, this device has to finish execution of this job.
-   *            The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080 minutes). The
-   *            in progress timer can't be updated and will apply to all job executions for the job. Whenever a job
-   *            execution remains in the IN_PROGRESS status for longer than this interval, the job execution will fail
-   *            and switch to the terminal <code>TIMED_OUT</code> status.</p>
+   * <p>Specifies the amount of time, in minutes, this device has to finish execution of this
+   *             job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
+   *             minutes). The in progress timer can't be updated and will apply to all job executions
+   *             for the job. Whenever a job execution remains in the IN_PROGRESS status for longer than
+   *             this interval, the job execution will fail and switch to the terminal
+   *                 <code>TIMED_OUT</code> status.</p>
    * @public
    */
   inProgressTimeoutInMinutes?: number | undefined;
@@ -5302,8 +5532,8 @@ export interface TimeoutConfig {
  */
 export interface CreateJobRequest {
   /**
-   * <p>A job identifier which must be unique for your Amazon Web Services account. We recommend using a UUID. Alpha-numeric
-   *             characters, "-" and "_" are valid for use here.</p>
+   * <p>A job identifier which must be unique for your account. We recommend using a UUID.
+   *             Alpha-numeric characters, "-" and "_" are valid for use here.</p>
    * @public
    */
   jobId: string | undefined;
@@ -5315,16 +5545,20 @@ export interface CreateJobRequest {
   targets: string[] | undefined;
 
   /**
-   * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p>
-   *          <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>
+   * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL
+   *             and is required if you don't specify a value for <code>document</code>.</p>
+   *          <p>For example, <code>--document-source
+   *                 https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>
    *          </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a bucket</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a
+   *                 bucket</a>.</p>
    * @public
    */
   documentSource?: string | undefined;
 
   /**
-   * <p>The job document. Required if you don't specify a value for <code>documentSource</code>.</p>
+   * <p>The job document. Required if you don't specify a value for
+   *                 <code>documentSource</code>.</p>
    * @public
    */
   document?: string | undefined;
@@ -5342,14 +5576,15 @@ export interface CreateJobRequest {
   presignedUrlConfig?: PresignedUrlConfig | undefined;
 
   /**
-   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things
-   *             specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing
-   *             when a change is detected in a target. For example, a job will run on a thing when the thing is added to a
-   *             target group, even after the job was completed by all things originally in the group.</p>
+   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete
+   *             after all those things specified as targets have completed the job (SNAPSHOT). If
+   *             continuous, the job may also be run on a thing when a change is detected in a target.
+   *             For example, a job will run on a thing when the thing is added to a target group, even
+   *             after the job was completed by all things originally in the group.</p>
    *          <note>
-   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic thing group targets.
-   *                 By using continuous jobs, devices that join the group receive the job execution even after the job has
-   *                 been created.</p>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic
+   *                 thing group targets. By using continuous jobs, devices that join the group receive
+   *                 the job execution even after the job has been created.</p>
    *          </note>
    * @public
    */
@@ -5368,10 +5603,10 @@ export interface CreateJobRequest {
   abortConfig?: AbortConfig | undefined;
 
   /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job. The timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the time expires, it will be
-   *            automatically set to <code>TIMED_OUT</code>.</p>
+   * <p>Specifies the amount of time each device has to finish its execution of the job. The
+   *             timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If
+   *             the job execution status is not set to another terminal state before the time expires,
+   *             it will be automatically set to <code>TIMED_OUT</code>.</p>
    * @public
    */
   timeoutConfig?: TimeoutConfig | undefined;
@@ -5384,15 +5619,14 @@ export interface CreateJobRequest {
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
    *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
-   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
-   *                     up IoT Greengrass core devices.</a>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
    *             </p>
    *          </note>
    * @public
@@ -5412,7 +5646,8 @@ export interface CreateJobRequest {
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig | undefined;
 
   /**
-   * <p>Parameters of an Amazon Web Services managed template that you can specify to create the job document.</p>
+   * <p>Parameters of an Amazon Web Services managed template that you can specify to create the job
+   *             document.</p>
    *          <note>
    *             <p>
    *                <code>documentParameters</code> can only be used when creating jobs from Amazon Web Services
@@ -5431,11 +5666,12 @@ export interface CreateJobRequest {
   schedulingConfig?: SchedulingConfig | undefined;
 
   /**
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
-   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>. </p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job
+   *             successfully completes. The package version must be in either the Published or
+   *             Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>. </p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
-   *         Up to 25  package version ARNs are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a
+   *             single ARN. Up to 25 package version ARNs are allowed.</p>
    * @public
    */
   destinationPackageVersions?: string[] | undefined;
@@ -5470,7 +5706,7 @@ export interface CreateJobResponse {
 export interface CreateJobTemplateRequest {
   /**
    * <p>A unique identifier for the job template. We recommend using a UUID. Alpha-numeric
-   *         characters, "-", and "_" are valid for use here.</p>
+   *             characters, "-", and "_" are valid for use here.</p>
    * @public
    */
   jobTemplateId: string | undefined;
@@ -5482,16 +5718,20 @@ export interface CreateJobTemplateRequest {
   jobArn?: string | undefined;
 
   /**
-   * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p>
-   *          <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>
+   * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL
+   *             and is required if you don't specify a value for <code>document</code>.</p>
+   *          <p>For example, <code>--document-source
+   *                 https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>
    *          </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a bucket</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a
+   *                 bucket</a>.</p>
    * @public
    */
   documentSource?: string | undefined;
 
   /**
-   * <p>The job document. Required if you don't specify a value for <code>documentSource</code>.</p>
+   * <p>The job document. Required if you don't specify a value for
+   *                 <code>documentSource</code>.</p>
    * @public
    */
   document?: string | undefined;
@@ -5521,10 +5761,10 @@ export interface CreateJobTemplateRequest {
   abortConfig?: AbortConfig | undefined;
 
   /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job.  A timer
-   *            is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job
-   *            execution status is not set to another terminal state before the timer expires, it will
-   *            be automatically set to <code>TIMED_OUT</code>.</p>
+   * <p>Specifies the amount of time each device has to finish its execution of the job. A
+   *             timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If
+   *             the job execution status is not set to another terminal state before the timer expires,
+   *             it will be automatically set to <code>TIMED_OUT</code>.</p>
    * @public
    */
   timeoutConfig?: TimeoutConfig | undefined;
@@ -5542,17 +5782,19 @@ export interface CreateJobTemplateRequest {
   jobExecutionsRetryConfig?: JobExecutionsRetryConfig | undefined;
 
   /**
-   * <p>Allows you to configure an optional maintenance window for the rollout of a job document to all devices in the target group for a job.</p>
+   * <p>Allows you to configure an optional maintenance window for the rollout of a job
+   *             document to all devices in the target group for a job.</p>
    * @public
    */
   maintenanceWindows?: MaintenanceWindow[] | undefined;
 
   /**
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
-   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job
+   *             successfully completes. The package version must be in either the Published or
+   *             Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
-   *             Up to 25  package version ARNs are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a
+   *             single ARN. Up to 25 package version ARNs are allowed.</p>
    * @public
    */
   destinationPackageVersions?: string[] | undefined;
@@ -7759,138 +8001,6 @@ export interface VpcDestinationProperties {
    */
   roleArn?: string | undefined;
 }
-
-/**
- * <p>A topic rule destination.</p>
- * @public
- */
-export interface TopicRuleDestination {
-  /**
-   * <p>The topic rule destination URL.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>The status of the topic rule destination. Valid values are:</p>
-   *          <dl>
-   *             <dt>IN_PROGRESS</dt>
-   *             <dd>
-   *                <p>A topic rule destination was created but has not been confirmed. You can set
-   *                      <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *             <dt>ENABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is allowed. You can
-   *                   set <code>status</code> to <code>DISABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>DISABLED</dt>
-   *             <dd>
-   *                <p>Confirmation was completed, and traffic to this destination is not allowed. You
-   *                   can set <code>status</code> to <code>ENABLED</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>.</p>
-   *             </dd>
-   *             <dt>ERROR</dt>
-   *             <dd>
-   *                <p>Confirmation could not be completed, for example if the confirmation timed out.
-   *                   You can call <code>GetTopicRuleDestination</code> for details about the error. You
-   *                   can set <code>status</code> to <code>IN_PROGRESS</code> by calling
-   *                      <code>UpdateTopicRuleDestination</code>. Calling
-   *                      <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to
-   *                   be sent to your confirmation endpoint.</p>
-   *             </dd>
-   *          </dl>
-   * @public
-   */
-  status?: TopicRuleDestinationStatus | undefined;
-
-  /**
-   * <p>The date and time when the topic rule destination was created.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The date and time when the topic rule destination was last updated.</p>
-   * @public
-   */
-  lastUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>Additional details or reason why the topic rule destination is in the current
-   *          status.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>Properties of the HTTP URL.</p>
-   * @public
-   */
-  httpUrlProperties?: HttpUrlDestinationProperties | undefined;
-
-  /**
-   * <p>Properties of the virtual private cloud (VPC) connection.</p>
-   * @public
-   */
-  vpcProperties?: VpcDestinationProperties | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTopicRuleDestinationResponse {
-  /**
-   * <p>The topic rule destination.</p>
-   * @public
-   */
-  topicRuleDestination?: TopicRuleDestination | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountAuditConfigurationRequest {
-  /**
-   * <p>If true, all scheduled audits are deleted.</p>
-   * @public
-   */
-  deleteScheduledAudits?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAccountAuditConfigurationResponse {}
-
-/**
- * @public
- */
-export interface DeleteAuditSuppressionRequest {
-  /**
-   * <p>An audit check name. Checks must be enabled
-   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *         to select which checks are enabled.)</p>
-   * @public
-   */
-  checkName: string | undefined;
-
-  /**
-   * <p>Information that identifies the noncompliant resource.</p>
-   * @public
-   */
-  resourceIdentifier: ResourceIdentifier | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteAuditSuppressionResponse {}
 
 /**
  * @internal

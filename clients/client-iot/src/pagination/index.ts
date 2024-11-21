@@ -13,6 +13,8 @@ export * from "./ListBillingGroupsPaginator";
 export * from "./ListCACertificatesPaginator";
 export * from "./ListCertificatesByCAPaginator";
 export * from "./ListCertificatesPaginator";
+export * from "./ListCommandExecutionsPaginator";
+export * from "./ListCommandsPaginator";
 export * from "./ListCustomMetricsPaginator";
 export * from "./ListDetectMitigationActionsExecutionsPaginator";
 export * from "./ListDetectMitigationActionsTasksPaginator";

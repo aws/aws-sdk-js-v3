@@ -110,7 +110,7 @@ export interface CreateJobTemplateCommandOutput extends CreateJobTemplateRespons
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with the same name already exists.</p>
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An unexpected error has occurred.</p>

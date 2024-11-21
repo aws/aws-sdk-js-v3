@@ -31,14 +31,15 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * <p>Associates a group with a continuous job. The following criteria must be met: </p>
  *          <ul>
  *             <li>
- *                <p>The job must have been created with the <code>targetSelection</code> field set to
- *                     "CONTINUOUS".</p>
+ *                <p>The job must have been created with the <code>targetSelection</code> field
+ *                     set to "CONTINUOUS".</p>
  *             </li>
  *             <li>
  *                <p>The job status must currently be "IN_PROGRESS".</p>
  *             </li>
  *             <li>
- *                <p>The total number of targets associated with a job must not exceed 100.</p>
+ *                <p>The total number of targets associated with a job must not exceed
+ *                     100.</p>
  *             </li>
  *          </ul>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>

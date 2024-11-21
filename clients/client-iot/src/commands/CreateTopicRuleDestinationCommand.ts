@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { CreateTopicRuleDestinationRequest, CreateTopicRuleDestinationResponse } from "../models/models_0";
+import { CreateTopicRuleDestinationRequest } from "../models/models_0";
+import { CreateTopicRuleDestinationResponse } from "../models/models_1";
 import { de_CreateTopicRuleDestinationCommand, se_CreateTopicRuleDestinationCommand } from "../protocols/Aws_restJson1";
 
 /**

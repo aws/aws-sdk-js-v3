@@ -6,12 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  UpdatePackageRequest,
-  UpdatePackageRequestFilterSensitiveLog,
-  UpdatePackageResponse,
-} from "../models/models_2";
-import { de_UpdatePackageCommand, se_UpdatePackageCommand } from "../protocols/Aws_restJson1";
+import { UpdateCommandRequest, UpdateCommandResponse } from "../models/models_2";
+import { de_UpdateCommandCommand, se_UpdateCommandCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -21,42 +17,46 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdatePackageCommand}.
+ * The input for {@link UpdateCommandCommand}.
  */
-export interface UpdatePackageCommandInput extends UpdatePackageRequest {}
+export interface UpdateCommandCommandInput extends UpdateCommandRequest {}
 /**
  * @public
  *
- * The output of {@link UpdatePackageCommand}.
+ * The output of {@link UpdateCommandCommand}.
  */
-export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __MetadataBearer {}
+export interface UpdateCommandCommandOutput extends UpdateCommandResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the supported fields for a specific software package.</p>
- *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">UpdatePackage</a> and <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">GetIndexingConfiguration</a> actions.</p>
+ * <p>Update information about a command or mark a command for deprecation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTClient, UpdatePackageCommand } from "@aws-sdk/client-iot"; // ES Modules import
- * // const { IoTClient, UpdatePackageCommand } = require("@aws-sdk/client-iot"); // CommonJS import
+ * import { IoTClient, UpdateCommandCommand } from "@aws-sdk/client-iot"; // ES Modules import
+ * // const { IoTClient, UpdateCommandCommand } = require("@aws-sdk/client-iot"); // CommonJS import
  * const client = new IoTClient(config);
- * const input = { // UpdatePackageRequest
- *   packageName: "STRING_VALUE", // required
+ * const input = { // UpdateCommandRequest
+ *   commandId: "STRING_VALUE", // required
+ *   displayName: "STRING_VALUE",
  *   description: "STRING_VALUE",
- *   defaultVersionName: "STRING_VALUE",
- *   unsetDefaultVersion: true || false,
- *   clientToken: "STRING_VALUE",
+ *   deprecated: true || false,
  * };
- * const command = new UpdatePackageCommand(input);
+ * const command = new UpdateCommandCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // UpdateCommandResponse
+ * //   commandId: "STRING_VALUE",
+ * //   displayName: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
+ * //   deprecated: true || false,
+ * //   lastUpdatedAt: new Date("TIMESTAMP"),
+ * // };
  *
  * ```
  *
- * @param UpdatePackageCommandInput - {@link UpdatePackageCommandInput}
- * @returns {@link UpdatePackageCommandOutput}
- * @see {@link UpdatePackageCommandInput} for command's `input` shape.
- * @see {@link UpdatePackageCommandOutput} for command's `response` shape.
+ * @param UpdateCommandCommandInput - {@link UpdateCommandCommandInput}
+ * @returns {@link UpdateCommandCommandOutput}
+ * @see {@link UpdateCommandCommandInput} for command's `input` shape.
+ * @see {@link UpdateCommandCommandOutput} for command's `response` shape.
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -80,10 +80,10 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  *
  * @public
  */
-export class UpdatePackageCommand extends $Command
+export class UpdateCommandCommand extends $Command
   .classBuilder<
-    UpdatePackageCommandInput,
-    UpdatePackageCommandOutput,
+    UpdateCommandCommandInput,
+    UpdateCommandCommandOutput,
     IoTClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -95,21 +95,21 @@ export class UpdatePackageCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSIotService", "UpdatePackage", {})
-  .n("IoTClient", "UpdatePackageCommand")
-  .f(UpdatePackageRequestFilterSensitiveLog, void 0)
-  .ser(se_UpdatePackageCommand)
-  .de(de_UpdatePackageCommand)
+  .s("AWSIotService", "UpdateCommand", {})
+  .n("IoTClient", "UpdateCommandCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateCommandCommand)
+  .de(de_UpdateCommandCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdatePackageRequest;
-      output: {};
+      input: UpdateCommandRequest;
+      output: UpdateCommandResponse;
     };
     sdk: {
-      input: UpdatePackageCommandInput;
-      output: UpdatePackageCommandOutput;
+      input: UpdateCommandCommandInput;
+      output: UpdateCommandCommandOutput;
     };
   };
 }

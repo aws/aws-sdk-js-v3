@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListDimensionsRequest, ListDimensionsResponse } from "../models/models_1";
+import { ListDimensionsRequest, ListDimensionsResponse } from "../models/models_2";
 import { de_ListDimensionsCommand, se_ListDimensionsCommand } from "../protocols/Aws_restJson1";
 
 /**

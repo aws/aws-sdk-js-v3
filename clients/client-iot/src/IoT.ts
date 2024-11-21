@@ -109,6 +109,11 @@ import {
   CreateCertificateProviderCommandOutput,
 } from "./commands/CreateCertificateProviderCommand";
 import {
+  CreateCommandCommand,
+  CreateCommandCommandInput,
+  CreateCommandCommandOutput,
+} from "./commands/CreateCommandCommand";
+import {
   CreateCustomMetricCommand,
   CreateCustomMetricCommandInput,
   CreateCustomMetricCommandOutput,
@@ -265,6 +270,16 @@ import {
   DeleteCertificateProviderCommandInput,
   DeleteCertificateProviderCommandOutput,
 } from "./commands/DeleteCertificateProviderCommand";
+import {
+  DeleteCommandCommand,
+  DeleteCommandCommandInput,
+  DeleteCommandCommandOutput,
+} from "./commands/DeleteCommandCommand";
+import {
+  DeleteCommandExecutionCommand,
+  DeleteCommandExecutionCommandInput,
+  DeleteCommandExecutionCommandOutput,
+} from "./commands/DeleteCommandExecutionCommand";
 import {
   DeleteCustomMetricCommand,
   DeleteCustomMetricCommandInput,
@@ -613,6 +628,12 @@ import {
   GetCardinalityCommandInput,
   GetCardinalityCommandOutput,
 } from "./commands/GetCardinalityCommand";
+import { GetCommandCommand, GetCommandCommandInput, GetCommandCommandOutput } from "./commands/GetCommandCommand";
+import {
+  GetCommandExecutionCommand,
+  GetCommandExecutionCommandInput,
+  GetCommandExecutionCommandOutput,
+} from "./commands/GetCommandExecutionCommand";
 import {
   GetEffectivePoliciesCommand,
   GetEffectivePoliciesCommandInput,
@@ -750,6 +771,16 @@ import {
   ListCertificatesCommandInput,
   ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
+import {
+  ListCommandExecutionsCommand,
+  ListCommandExecutionsCommandInput,
+  ListCommandExecutionsCommandOutput,
+} from "./commands/ListCommandExecutionsCommand";
+import {
+  ListCommandsCommand,
+  ListCommandsCommandInput,
+  ListCommandsCommandOutput,
+} from "./commands/ListCommandsCommand";
 import {
   ListCustomMetricsCommand,
   ListCustomMetricsCommandInput,
@@ -1137,6 +1168,11 @@ import {
   UpdateCertificateProviderCommandOutput,
 } from "./commands/UpdateCertificateProviderCommand";
 import {
+  UpdateCommandCommand,
+  UpdateCommandCommandInput,
+  UpdateCommandCommandOutput,
+} from "./commands/UpdateCommandCommand";
+import {
   UpdateCustomMetricCommand,
   UpdateCustomMetricCommandInput,
   UpdateCustomMetricCommandOutput,
@@ -1268,6 +1304,7 @@ const commands = {
   CreateBillingGroupCommand,
   CreateCertificateFromCsrCommand,
   CreateCertificateProviderCommand,
+  CreateCommandCommand,
   CreateCustomMetricCommand,
   CreateDimensionCommand,
   CreateDomainConfigurationCommand,
@@ -1301,6 +1338,8 @@ const commands = {
   DeleteCACertificateCommand,
   DeleteCertificateCommand,
   DeleteCertificateProviderCommand,
+  DeleteCommandCommand,
+  DeleteCommandExecutionCommand,
   DeleteCustomMetricCommand,
   DeleteDimensionCommand,
   DeleteDomainConfigurationCommand,
@@ -1373,6 +1412,8 @@ const commands = {
   GetBehaviorModelTrainingSummariesCommand,
   GetBucketsAggregationCommand,
   GetCardinalityCommand,
+  GetCommandCommand,
+  GetCommandExecutionCommand,
   GetEffectivePoliciesCommand,
   GetIndexingConfigurationCommand,
   GetJobDocumentCommand,
@@ -1402,6 +1443,8 @@ const commands = {
   ListCertificateProvidersCommand,
   ListCertificatesCommand,
   ListCertificatesByCACommand,
+  ListCommandExecutionsCommand,
+  ListCommandsCommand,
   ListCustomMetricsCommand,
   ListDetectMitigationActionsExecutionsCommand,
   ListDetectMitigationActionsTasksCommand,
@@ -1484,6 +1527,7 @@ const commands = {
   UpdateCACertificateCommand,
   UpdateCertificateCommand,
   UpdateCertificateProviderCommand,
+  UpdateCommandCommand,
   UpdateCustomMetricCommand,
   UpdateDimensionCommand,
   UpdateDomainConfigurationCommand,
@@ -1870,6 +1914,17 @@ export interface IoT {
     args: CreateCertificateProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCertificateProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCommandCommand}
+   */
+  createCommand(args: CreateCommandCommandInput, options?: __HttpHandlerOptions): Promise<CreateCommandCommandOutput>;
+  createCommand(args: CreateCommandCommandInput, cb: (err: any, data?: CreateCommandCommandOutput) => void): void;
+  createCommand(
+    args: CreateCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCommandCommandOutput) => void
   ): void;
 
   /**
@@ -2388,6 +2443,34 @@ export interface IoT {
     args: DeleteCertificateProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCertificateProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCommandCommand}
+   */
+  deleteCommand(args: DeleteCommandCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCommandCommandOutput>;
+  deleteCommand(args: DeleteCommandCommandInput, cb: (err: any, data?: DeleteCommandCommandOutput) => void): void;
+  deleteCommand(
+    args: DeleteCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCommandExecutionCommand}
+   */
+  deleteCommandExecution(
+    args: DeleteCommandExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCommandExecutionCommandOutput>;
+  deleteCommandExecution(
+    args: DeleteCommandExecutionCommandInput,
+    cb: (err: any, data?: DeleteCommandExecutionCommandOutput) => void
+  ): void;
+  deleteCommandExecution(
+    args: DeleteCommandExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCommandExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -3543,6 +3626,34 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link GetCommandCommand}
+   */
+  getCommand(args: GetCommandCommandInput, options?: __HttpHandlerOptions): Promise<GetCommandCommandOutput>;
+  getCommand(args: GetCommandCommandInput, cb: (err: any, data?: GetCommandCommandOutput) => void): void;
+  getCommand(
+    args: GetCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCommandExecutionCommand}
+   */
+  getCommandExecution(
+    args: GetCommandExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommandExecutionCommandOutput>;
+  getCommandExecution(
+    args: GetCommandExecutionCommandInput,
+    cb: (err: any, data?: GetCommandExecutionCommandOutput) => void
+  ): void;
+  getCommandExecution(
+    args: GetCommandExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommandExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEffectivePoliciesCommand}
    */
   getEffectivePolicies(): Promise<GetEffectivePoliciesCommandOutput>;
@@ -4005,6 +4116,36 @@ export interface IoT {
     args: ListCertificatesByCACommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCertificatesByCACommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCommandExecutionsCommand}
+   */
+  listCommandExecutions(): Promise<ListCommandExecutionsCommandOutput>;
+  listCommandExecutions(
+    args: ListCommandExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommandExecutionsCommandOutput>;
+  listCommandExecutions(
+    args: ListCommandExecutionsCommandInput,
+    cb: (err: any, data?: ListCommandExecutionsCommandOutput) => void
+  ): void;
+  listCommandExecutions(
+    args: ListCommandExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommandExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCommandsCommand}
+   */
+  listCommands(): Promise<ListCommandsCommandOutput>;
+  listCommands(args: ListCommandsCommandInput, options?: __HttpHandlerOptions): Promise<ListCommandsCommandOutput>;
+  listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
+  listCommands(
+    args: ListCommandsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommandsCommandOutput) => void
   ): void;
 
   /**
@@ -5351,6 +5492,17 @@ export interface IoT {
     args: UpdateCertificateProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCertificateProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCommandCommand}
+   */
+  updateCommand(args: UpdateCommandCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCommandCommandOutput>;
+  updateCommand(args: UpdateCommandCommandInput, cb: (err: any, data?: UpdateCommandCommandOutput) => void): void;
+  updateCommand(
+    args: UpdateCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCommandCommandOutput) => void
   ): void;
 
   /**

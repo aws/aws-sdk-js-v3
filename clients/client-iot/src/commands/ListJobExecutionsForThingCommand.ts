@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListJobExecutionsForThingRequest, ListJobExecutionsForThingResponse } from "../models/models_1";
+import { ListJobExecutionsForThingRequest, ListJobExecutionsForThingResponse } from "../models/models_2";
 import { de_ListJobExecutionsForThingCommand, se_ListJobExecutionsForThingCommand } from "../protocols/Aws_restJson1";
 
 /**

@@ -46,8 +46,10 @@ import {
   RelatedResource,
   ResourceIdentifier,
   ServerCertificateConfig,
+  ServiceType,
   StreamFile,
   Tag,
+  TargetSelection,
   TemplateType,
   ThingGroupProperties,
   ThingPrincipalType,
@@ -66,11 +68,14 @@ import {
   CertificateMode,
   CertificateStatus,
   Configuration,
+  DetectMitigationActionExecution,
+  DetectMitigationActionsTaskSummary,
   DetectMitigationActionsTaskTarget,
   DomainConfigurationStatus,
   EventType,
   GroupNameAndArn,
-  JobTemplateSummary,
+  JobExecutionStatus,
+  JobStatus,
   LogTargetType,
   MitigationActionType,
   RegistrationConfig,
@@ -85,6 +90,687 @@ import {
 /**
  * @public
  */
+export interface ListDetectMitigationActionsExecutionsResponse {
+  /**
+   * <p>
+   *       List of actions executions.
+   *     </p>
+   * @public
+   */
+  actionsExecutions?: DetectMitigationActionExecution[] | undefined;
+
+  /**
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDetectMitigationActionsTasksRequest {
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>
+   *       The token for the next set of results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>
+   *       A filter to limit results to those found after the specified time. You must
+   *       specify either the startTime and endTime or the taskId, but not both.
+   *     </p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>
+   *       The end of the time period for which ML Detect mitigation actions tasks are returned.
+   *     </p>
+   * @public
+   */
+  endTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDetectMitigationActionsTasksResponse {
+  /**
+   * <p>
+   *       The collection of ML Detect mitigation tasks that matched the filter criteria.
+   *     </p>
+   * @public
+   */
+  tasks?: DetectMitigationActionsTaskSummary[] | undefined;
+
+  /**
+   * <p>
+   *       A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDimensionsRequest {
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to retrieve at one time.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDimensionsResponse {
+  /**
+   * <p>A list of the names of the defined dimensions. Use <code>DescribeDimension</code> to get details for a dimension.</p>
+   * @public
+   */
+  dimensionNames?: string[] | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainConfigurationsRequest {
+  /**
+   * <p>The marker for the next set of results.</p>
+   * @public
+   */
+  marker?: string | undefined;
+
+  /**
+   * <p>The result page size.</p>
+   * @public
+   */
+  pageSize?: number | undefined;
+
+  /**
+   * <p>The type of service delivered by the endpoint.</p>
+   * @public
+   */
+  serviceType?: ServiceType | undefined;
+}
+
+/**
+ * <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain.
+ *          A domain configuration can be associated with an Amazon Web Services-managed domain
+ *          (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Data</p>
+ *             </li>
+ *             <li>
+ *                <p>Jobs</p>
+ *             </li>
+ *             <li>
+ *                <p>CredentialProvider</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface DomainConfigurationSummary {
+  /**
+   * <p>The name of the domain configuration. This value must be unique to a region.</p>
+   * @public
+   */
+  domainConfigurationName?: string | undefined;
+
+  /**
+   * <p>The ARN of the domain configuration.</p>
+   * @public
+   */
+  domainConfigurationArn?: string | undefined;
+
+  /**
+   * <p>The type of service delivered by the endpoint.</p>
+   * @public
+   */
+  serviceType?: ServiceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDomainConfigurationsResponse {
+  /**
+   * <p>A list of objects that contain summary information about the user's domain configurations.</p>
+   * @public
+   */
+  domainConfigurations?: DomainConfigurationSummary[] | undefined;
+
+  /**
+   * <p>The marker for the next set of results.</p>
+   * @public
+   */
+  nextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFleetMetricsRequest {
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response;
+   *        otherwise <code>null</code> to receive the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in this operation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>The name and ARN of a fleet metric.</p>
+ * @public
+ */
+export interface FleetMetricNameAndArn {
+  /**
+   * <p>The fleet metric name.</p>
+   * @public
+   */
+  metricName?: string | undefined;
+
+  /**
+   * <p>The fleet metric ARN.</p>
+   * @public
+   */
+  metricArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFleetMetricsResponse {
+  /**
+   * <p>The list of fleet metrics objects.</p>
+   * @public
+   */
+  fleetMetrics?: FleetMetricNameAndArn[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Will not be returned if the operation has returned
+   *       all results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIndicesRequest {
+  /**
+   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListIndicesResponse {
+  /**
+   * <p>The index names.</p>
+   * @public
+   */
+  indexNames?: string[] | undefined;
+
+  /**
+   * <p>The token used to get the next set of results, or <code>null</code> if there are no additional
+   *       results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobExecutionsForJobRequest {
+  /**
+   * <p>The unique identifier you assigned to this job when it was created.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The status of the job.</p>
+   * @public
+   */
+  status?: JobExecutionStatus | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The job execution summary.</p>
+ * @public
+ */
+export interface JobExecutionSummary {
+  /**
+   * <p>The status of the job execution.</p>
+   * @public
+   */
+  status?: JobExecutionStatus | undefined;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job execution was queued.</p>
+   * @public
+   */
+  queuedAt?: Date | undefined;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job execution started.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job execution was last
+   *             updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>A string (consisting of the digits "0" through "9") which identifies this
+   *             particular job execution on this particular device. It can be used later in commands
+   *             which return or update job execution information.</p>
+   * @public
+   */
+  executionNumber?: number | undefined;
+
+  /**
+   * <p>The number that indicates how many retry attempts have been completed for this job on
+   *             this device.</p>
+   * @public
+   */
+  retryAttempt?: number | undefined;
+}
+
+/**
+ * <p>Contains a summary of information about job executions for a specific
+ *             job.</p>
+ * @public
+ */
+export interface JobExecutionSummaryForJob {
+  /**
+   * <p>The ARN of the thing on which the job execution is running.</p>
+   * @public
+   */
+  thingArn?: string | undefined;
+
+  /**
+   * <p>Contains a subset of information about a job execution.</p>
+   * @public
+   */
+  jobExecutionSummary?: JobExecutionSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobExecutionsForJobResponse {
+  /**
+   * <p>A list of job execution summaries.</p>
+   * @public
+   */
+  executionSummaries?: JobExecutionSummaryForJob[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <b>null</b> if
+   *             there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobExecutionsForThingRequest {
+  /**
+   * <p>The thing name.</p>
+   * @public
+   */
+  thingName: string | undefined;
+
+  /**
+   * <p>An optional filter that lets you search for jobs that have the specified
+   *             status.</p>
+   * @public
+   */
+  status?: JobExecutionStatus | undefined;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
+   *          <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *          <note>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  namespaceId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier you assigned to this job when it was created.</p>
+   * @public
+   */
+  jobId?: string | undefined;
+}
+
+/**
+ * <p>The job execution summary for a thing.</p>
+ * @public
+ */
+export interface JobExecutionSummaryForThing {
+  /**
+   * <p>The unique identifier you assigned to this job when it was created.</p>
+   * @public
+   */
+  jobId?: string | undefined;
+
+  /**
+   * <p>Contains a subset of information about a job execution.</p>
+   * @public
+   */
+  jobExecutionSummary?: JobExecutionSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobExecutionsForThingResponse {
+  /**
+   * <p>A list of job execution summaries.</p>
+   * @public
+   */
+  executionSummaries?: JobExecutionSummaryForThing[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <b>null</b> if
+   *             there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobsRequest {
+  /**
+   * <p>An optional filter that lets you search for jobs that have the specified
+   *             status.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete
+   *             after all those things specified as targets have completed the job (SNAPSHOT). If
+   *             continuous, the job may also be run on a thing when a change is detected in a target.
+   *             For example, a job will run on a thing when the thing is added to a target group, even
+   *             after the job was completed by all things originally in the group. </p>
+   *          <note>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic
+   *                 thing group targets. By using continuous jobs, devices that join the group receive
+   *                 the job execution even after the job has been created.</p>
+   *          </note>
+   * @public
+   */
+  targetSelection?: TargetSelection | undefined;
+
+  /**
+   * <p>The maximum number of results to return per request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A filter that limits the returned jobs to those for the specified group.</p>
+   * @public
+   */
+  thingGroupName?: string | undefined;
+
+  /**
+   * <p>A filter that limits the returned jobs to those for the specified group.</p>
+   * @public
+   */
+  thingGroupId?: string | undefined;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
+   *          <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *          <note>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
+   *             </p>
+   *          </note>
+   * @public
+   */
+  namespaceId?: string | undefined;
+}
+
+/**
+ * <p>The job summary.</p>
+ * @public
+ */
+export interface JobSummary {
+  /**
+   * <p>The job ARN.</p>
+   * @public
+   */
+  jobArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier you assigned to this job when it was created.</p>
+   * @public
+   */
+  jobId?: string | undefined;
+
+  /**
+   * <p>The ID of the thing group.</p>
+   * @public
+   */
+  thingGroupId?: string | undefined;
+
+  /**
+   * <p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete
+   *             after all those things specified as targets have completed the job (SNAPSHOT). If
+   *             continuous, the job may also be run on a thing when a change is detected in a target.
+   *             For example, a job will run on a thing when the thing is added to a target group, even
+   *             after the job was completed by all things originally in the group.</p>
+   *          <note>
+   *             <p>We recommend that you use continuous jobs instead of snapshot jobs for dynamic
+   *                 thing group targets. By using continuous jobs, devices that join the group receive
+   *                 the job execution even after the job has been created.</p>
+   *          </note>
+   * @public
+   */
+  targetSelection?: TargetSelection | undefined;
+
+  /**
+   * <p>The job summary status.</p>
+   * @public
+   */
+  status?: JobStatus | undefined;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job completed.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>Indicates whether a job is concurrent. Will be true when a job is rolling out new job
+   *             executions or canceling previously created executions, otherwise false.</p>
+   * @public
+   */
+  isConcurrent?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobsResponse {
+  /**
+   * <p>A list of jobs.</p>
+   * @public
+   */
+  jobs?: JobSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <b>null</b> if
+   *             there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListJobTemplatesRequest {
+  /**
+   * <p>The maximum number of results to return in the list.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to return the next set of results in the list.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>An object that contains information about the job template.</p>
+ * @public
+ */
+export interface JobTemplateSummary {
+  /**
+   * <p>The ARN of the job template.</p>
+   * @public
+   */
+  jobTemplateArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the job template.</p>
+   * @public
+   */
+  jobTemplateId?: string | undefined;
+
+  /**
+   * <p>A description of the job template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The time, in seconds since the epoch, when the job template was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListJobTemplatesResponse {
   /**
    * <p>A list of objects that contain information about the job templates.</p>
@@ -93,8 +779,8 @@ export interface ListJobTemplatesResponse {
   jobTemplates?: JobTemplateSummary[] | undefined;
 
   /**
-   * <p>The token for the next set of results, or <b>null</b> if there are no
-   *             additional results.</p>
+   * <p>The token for the next set of results, or <b>null</b> if
+   *             there are no additional results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -4356,6 +5042,71 @@ export interface UpdateCertificateProviderResponse {
 /**
  * @public
  */
+export interface UpdateCommandRequest {
+  /**
+   * <p>The unique identifier of the command to be updated.</p>
+   * @public
+   */
+  commandId: string | undefined;
+
+  /**
+   * <p>The new user-friendly name to use in the console for the command.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>A short text description of the command.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A boolean that you can use to specify whether to deprecate a command.</p>
+   * @public
+   */
+  deprecated?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCommandResponse {
+  /**
+   * <p>The unique identifier of the command.</p>
+   * @public
+   */
+  commandId?: string | undefined;
+
+  /**
+   * <p>The updated user-friendly display name in the console for the command.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The updated text description of the command.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The boolean that indicates whether the command was deprecated.</p>
+   * @public
+   */
+  deprecated?: boolean | undefined;
+
+  /**
+   * <p>The date and time (epoch timestamp in seconds) when the command was last
+   *             updated.</p>
+   * @public
+   */
+  lastUpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateCustomMetricRequest {
   /**
    * <p> The name of the custom metric.
@@ -4824,23 +5575,24 @@ export interface UpdateJobRequest {
   abortConfig?: AbortConfig | undefined;
 
   /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
-   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
+   * <p>Specifies the amount of time each device has to finish its execution of the job. The
+   *             timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If
+   *             the job execution status is not set to another terminal state before the time expires,
+   *             it will be automatically set to <code>TIMED_OUT</code>. </p>
    * @public
    */
   timeoutConfig?: TimeoutConfig | undefined;
 
   /**
    * <p>The namespace used to indicate that a job is a customer-managed job.</p>
-   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to MQTT topics that
-   *             contain the value in the following format.</p>
+   *          <p>When you specify a value for this parameter, Amazon Web Services IoT Core sends jobs notifications to
+   *             MQTT topics that contain the value in the following format.</p>
    *          <p>
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
-   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
-   *                     up IoT Greengrass core devices.</a>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
    *             </p>
    *          </note>
    * @public

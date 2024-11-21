@@ -84,14 +84,14 @@ export interface CreatePackageVersionCommandOutput extends CreatePackageVersionR
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with the same name already exists.</p>
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service
  *             is unavailable.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A limit has been exceeded.</p>
+ *  <p>Service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>

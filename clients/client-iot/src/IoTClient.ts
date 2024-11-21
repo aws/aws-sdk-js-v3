@@ -129,6 +129,7 @@ import {
   CreateCertificateProviderCommandInput,
   CreateCertificateProviderCommandOutput,
 } from "./commands/CreateCertificateProviderCommand";
+import { CreateCommandCommandInput, CreateCommandCommandOutput } from "./commands/CreateCommandCommand";
 import { CreateCustomMetricCommandInput, CreateCustomMetricCommandOutput } from "./commands/CreateCustomMetricCommand";
 import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "./commands/CreateDimensionCommand";
 import {
@@ -210,6 +211,11 @@ import {
   DeleteCertificateProviderCommandInput,
   DeleteCertificateProviderCommandOutput,
 } from "./commands/DeleteCertificateProviderCommand";
+import { DeleteCommandCommandInput, DeleteCommandCommandOutput } from "./commands/DeleteCommandCommand";
+import {
+  DeleteCommandExecutionCommandInput,
+  DeleteCommandExecutionCommandOutput,
+} from "./commands/DeleteCommandExecutionCommand";
 import { DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput } from "./commands/DeleteCustomMetricCommand";
 import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "./commands/DeleteDimensionCommand";
 import {
@@ -405,6 +411,11 @@ import {
   GetBucketsAggregationCommandOutput,
 } from "./commands/GetBucketsAggregationCommand";
 import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "./commands/GetCardinalityCommand";
+import { GetCommandCommandInput, GetCommandCommandOutput } from "./commands/GetCommandCommand";
+import {
+  GetCommandExecutionCommandInput,
+  GetCommandExecutionCommandOutput,
+} from "./commands/GetCommandExecutionCommand";
 import {
   GetEffectivePoliciesCommandInput,
   GetEffectivePoliciesCommandOutput,
@@ -473,6 +484,11 @@ import {
   ListCertificatesByCACommandOutput,
 } from "./commands/ListCertificatesByCACommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
+import {
+  ListCommandExecutionsCommandInput,
+  ListCommandExecutionsCommandOutput,
+} from "./commands/ListCommandExecutionsCommand";
+import { ListCommandsCommandInput, ListCommandsCommandOutput } from "./commands/ListCommandsCommand";
 import { ListCustomMetricsCommandInput, ListCustomMetricsCommandOutput } from "./commands/ListCustomMetricsCommand";
 import {
   ListDetectMitigationActionsExecutionsCommandInput,
@@ -717,6 +733,7 @@ import {
   UpdateCertificateProviderCommandInput,
   UpdateCertificateProviderCommandOutput,
 } from "./commands/UpdateCertificateProviderCommand";
+import { UpdateCommandCommandInput, UpdateCommandCommandOutput } from "./commands/UpdateCommandCommand";
 import { UpdateCustomMetricCommandInput, UpdateCustomMetricCommandOutput } from "./commands/UpdateCustomMetricCommand";
 import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "./commands/UpdateDimensionCommand";
 import {
@@ -816,6 +833,7 @@ export type ServiceInputTypes =
   | CreateBillingGroupCommandInput
   | CreateCertificateFromCsrCommandInput
   | CreateCertificateProviderCommandInput
+  | CreateCommandCommandInput
   | CreateCustomMetricCommandInput
   | CreateDimensionCommandInput
   | CreateDomainConfigurationCommandInput
@@ -849,6 +867,8 @@ export type ServiceInputTypes =
   | DeleteCACertificateCommandInput
   | DeleteCertificateCommandInput
   | DeleteCertificateProviderCommandInput
+  | DeleteCommandCommandInput
+  | DeleteCommandExecutionCommandInput
   | DeleteCustomMetricCommandInput
   | DeleteDimensionCommandInput
   | DeleteDomainConfigurationCommandInput
@@ -921,6 +941,8 @@ export type ServiceInputTypes =
   | GetBehaviorModelTrainingSummariesCommandInput
   | GetBucketsAggregationCommandInput
   | GetCardinalityCommandInput
+  | GetCommandCommandInput
+  | GetCommandExecutionCommandInput
   | GetEffectivePoliciesCommandInput
   | GetIndexingConfigurationCommandInput
   | GetJobDocumentCommandInput
@@ -950,6 +972,8 @@ export type ServiceInputTypes =
   | ListCertificateProvidersCommandInput
   | ListCertificatesByCACommandInput
   | ListCertificatesCommandInput
+  | ListCommandExecutionsCommandInput
+  | ListCommandsCommandInput
   | ListCustomMetricsCommandInput
   | ListDetectMitigationActionsExecutionsCommandInput
   | ListDetectMitigationActionsTasksCommandInput
@@ -1032,6 +1056,7 @@ export type ServiceInputTypes =
   | UpdateCACertificateCommandInput
   | UpdateCertificateCommandInput
   | UpdateCertificateProviderCommandInput
+  | UpdateCommandCommandInput
   | UpdateCustomMetricCommandInput
   | UpdateDimensionCommandInput
   | UpdateDomainConfigurationCommandInput
@@ -1082,6 +1107,7 @@ export type ServiceOutputTypes =
   | CreateBillingGroupCommandOutput
   | CreateCertificateFromCsrCommandOutput
   | CreateCertificateProviderCommandOutput
+  | CreateCommandCommandOutput
   | CreateCustomMetricCommandOutput
   | CreateDimensionCommandOutput
   | CreateDomainConfigurationCommandOutput
@@ -1115,6 +1141,8 @@ export type ServiceOutputTypes =
   | DeleteCACertificateCommandOutput
   | DeleteCertificateCommandOutput
   | DeleteCertificateProviderCommandOutput
+  | DeleteCommandCommandOutput
+  | DeleteCommandExecutionCommandOutput
   | DeleteCustomMetricCommandOutput
   | DeleteDimensionCommandOutput
   | DeleteDomainConfigurationCommandOutput
@@ -1187,6 +1215,8 @@ export type ServiceOutputTypes =
   | GetBehaviorModelTrainingSummariesCommandOutput
   | GetBucketsAggregationCommandOutput
   | GetCardinalityCommandOutput
+  | GetCommandCommandOutput
+  | GetCommandExecutionCommandOutput
   | GetEffectivePoliciesCommandOutput
   | GetIndexingConfigurationCommandOutput
   | GetJobDocumentCommandOutput
@@ -1216,6 +1246,8 @@ export type ServiceOutputTypes =
   | ListCertificateProvidersCommandOutput
   | ListCertificatesByCACommandOutput
   | ListCertificatesCommandOutput
+  | ListCommandExecutionsCommandOutput
+  | ListCommandsCommandOutput
   | ListCustomMetricsCommandOutput
   | ListDetectMitigationActionsExecutionsCommandOutput
   | ListDetectMitigationActionsTasksCommandOutput
@@ -1298,6 +1330,7 @@ export type ServiceOutputTypes =
   | UpdateCACertificateCommandOutput
   | UpdateCertificateCommandOutput
   | UpdateCertificateProviderCommandOutput
+  | UpdateCommandCommandOutput
   | UpdateCustomMetricCommandOutput
   | UpdateDimensionCommandOutput
   | UpdateDomainConfigurationCommandOutput

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteAuditSuppressionRequest, DeleteAuditSuppressionResponse } from "../models/models_0";
+import { DeleteAuditSuppressionRequest, DeleteAuditSuppressionResponse } from "../models/models_1";
 import { de_DeleteAuditSuppressionCommand, se_DeleteAuditSuppressionCommand } from "../protocols/Aws_restJson1";
 
 /**
