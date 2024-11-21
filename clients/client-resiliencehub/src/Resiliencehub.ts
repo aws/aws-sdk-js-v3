@@ -106,6 +106,11 @@ import {
   DescribeDraftAppVersionResourcesImportStatusCommandOutput,
 } from "./commands/DescribeDraftAppVersionResourcesImportStatusCommand";
 import {
+  DescribeMetricsExportCommand,
+  DescribeMetricsExportCommandInput,
+  DescribeMetricsExportCommandOutput,
+} from "./commands/DescribeMetricsExportCommand";
+import {
   DescribeResiliencyPolicyCommand,
   DescribeResiliencyPolicyCommandInput,
   DescribeResiliencyPolicyCommandOutput,
@@ -176,6 +181,7 @@ import {
   ListAppVersionsCommandInput,
   ListAppVersionsCommandOutput,
 } from "./commands/ListAppVersionsCommand";
+import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListRecommendationTemplatesCommand,
   ListRecommendationTemplatesCommandInput,
@@ -247,6 +253,11 @@ import {
   StartAppAssessmentCommandOutput,
 } from "./commands/StartAppAssessmentCommand";
 import {
+  StartMetricsExportCommand,
+  StartMetricsExportCommandInput,
+  StartMetricsExportCommandOutput,
+} from "./commands/StartMetricsExportCommand";
+import {
   StartResourceGroupingRecommendationTaskCommand,
   StartResourceGroupingRecommendationTaskCommandInput,
   StartResourceGroupingRecommendationTaskCommandOutput,
@@ -304,6 +315,7 @@ const commands = {
   DescribeAppVersionResourcesResolutionStatusCommand,
   DescribeAppVersionTemplateCommand,
   DescribeDraftAppVersionResourcesImportStatusCommand,
+  DescribeMetricsExportCommand,
   DescribeResiliencyPolicyCommand,
   DescribeResourceGroupingRecommendationTaskCommand,
   ImportResourcesToDraftAppVersionCommand,
@@ -319,6 +331,7 @@ const commands = {
   ListAppVersionResourceMappingsCommand,
   ListAppVersionResourcesCommand,
   ListAppVersionsCommand,
+  ListMetricsCommand,
   ListRecommendationTemplatesCommand,
   ListResiliencyPoliciesCommand,
   ListResourceGroupingRecommendationsCommand,
@@ -333,6 +346,7 @@ const commands = {
   RemoveDraftAppVersionResourceMappingsCommand,
   ResolveAppVersionResourcesCommand,
   StartAppAssessmentCommand,
+  StartMetricsExportCommand,
   StartResourceGroupingRecommendationTaskCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -718,6 +732,23 @@ export interface Resiliencehub {
   ): void;
 
   /**
+   * @see {@link DescribeMetricsExportCommand}
+   */
+  describeMetricsExport(
+    args: DescribeMetricsExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetricsExportCommandOutput>;
+  describeMetricsExport(
+    args: DescribeMetricsExportCommandInput,
+    cb: (err: any, data?: DescribeMetricsExportCommandOutput) => void
+  ): void;
+  describeMetricsExport(
+    args: DescribeMetricsExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetricsExportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeResiliencyPolicyCommand}
    */
   describeResiliencyPolicy(
@@ -966,6 +997,18 @@ export interface Resiliencehub {
   ): void;
 
   /**
+   * @see {@link ListMetricsCommand}
+   */
+  listMetrics(): Promise<ListMetricsCommandOutput>;
+  listMetrics(args: ListMetricsCommandInput, options?: __HttpHandlerOptions): Promise<ListMetricsCommandOutput>;
+  listMetrics(args: ListMetricsCommandInput, cb: (err: any, data?: ListMetricsCommandOutput) => void): void;
+  listMetrics(
+    args: ListMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetricsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRecommendationTemplatesCommand}
    */
   listRecommendationTemplates(): Promise<ListRecommendationTemplatesCommandOutput>;
@@ -1205,6 +1248,24 @@ export interface Resiliencehub {
     args: StartAppAssessmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartAppAssessmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMetricsExportCommand}
+   */
+  startMetricsExport(): Promise<StartMetricsExportCommandOutput>;
+  startMetricsExport(
+    args: StartMetricsExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMetricsExportCommandOutput>;
+  startMetricsExport(
+    args: StartMetricsExportCommandInput,
+    cb: (err: any, data?: StartMetricsExportCommandOutput) => void
+  ): void;
+  startMetricsExport(
+    args: StartMetricsExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMetricsExportCommandOutput) => void
   ): void;
 
   /**

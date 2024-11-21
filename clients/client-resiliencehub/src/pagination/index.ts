@@ -12,6 +12,7 @@ export * from "./ListAppVersionResourceMappingsPaginator";
 export * from "./ListAppVersionResourcesPaginator";
 export * from "./ListAppVersionsPaginator";
 export * from "./ListAppsPaginator";
+export * from "./ListMetricsPaginator";
 export * from "./ListRecommendationTemplatesPaginator";
 export * from "./ListResiliencyPoliciesPaginator";
 export * from "./ListResourceGroupingRecommendationsPaginator";

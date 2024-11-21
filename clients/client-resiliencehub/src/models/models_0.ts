@@ -30,7 +30,7 @@ export interface AcceptResourceGroupingRecommendationsRequest {
   appArn: string | undefined;
 
   /**
-   * <p>Indicates the list of resource grouping recommendations you want to include in your application.</p>
+   * <p>List of resource grouping recommendations you want to include in your application.</p>
    * @public
    */
   entries: AcceptGroupingRecommendationEntry[] | undefined;
@@ -69,7 +69,7 @@ export interface AcceptResourceGroupingRecommendationsResponse {
   appArn: string | undefined;
 
   /**
-   * <p>Indicates the list of resource grouping recommendations that could not be included in your application.</p>
+   * <p>List of resource grouping recommendations that could not be included in your application.</p>
    * @public
    */
   failedEntries: FailedGroupingRecommendationEntry[] | undefined;
@@ -944,7 +944,7 @@ export interface App {
   policyArn?: string | undefined;
 
   /**
-   * <p>Date and time when the app was created.</p>
+   * <p>Date and time when the application was created.</p>
    * @public
    */
   creationTime: Date | undefined;
@@ -1324,7 +1324,7 @@ export interface ResiliencyPolicy {
   policyName?: string | undefined;
 
   /**
-   * <p>The description for the policy.</p>
+   * <p>Description of the resiliency policy.</p>
    * @public
    */
   policyDescription?: string | undefined;
@@ -2922,13 +2922,13 @@ export interface CreateRecommendationTemplateResponse {
  */
 export interface CreateResiliencyPolicyRequest {
   /**
-   * <p>The name of the policy</p>
+   * <p>Name of the resiliency policy.</p>
    * @public
    */
   policyName: string | undefined;
 
   /**
-   * <p>The description for the policy.</p>
+   * <p>Description of the resiliency policy.</p>
    * @public
    */
   policyDescription?: string | undefined;
@@ -4059,6 +4059,62 @@ export interface DescribeDraftAppVersionResourcesImportStatusResponse {
 /**
  * @public
  */
+export interface DescribeMetricsExportRequest {
+  /**
+   * <p>Identifier of the metrics export task.</p>
+   * @public
+   */
+  metricsExportId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricsExportStatusType = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricsExportStatusType = (typeof MetricsExportStatusType)[keyof typeof MetricsExportStatusType];
+
+/**
+ * @public
+ */
+export interface DescribeMetricsExportResponse {
+  /**
+   * <p>Identifier for the metrics export task.</p>
+   * @public
+   */
+  metricsExportId: string | undefined;
+
+  /**
+   * <p>Indicates the status of the metrics export task.</p>
+   * @public
+   */
+  status: MetricsExportStatusType | undefined;
+
+  /**
+   * <p>Specifies the name of the Amazon S3 bucket where the exported metrics is stored.</p>
+   * @public
+   */
+  exportLocation?: S3Location | undefined;
+
+  /**
+   * <p>Explains the error that occurred while exporting the metrics.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeResiliencyPolicyRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is:
@@ -4099,7 +4155,7 @@ export interface DescribeResourceGroupingRecommendationTaskRequest {
   appArn: string | undefined;
 
   /**
-   * <p>Indicates the identifier of the grouping recommendation task.</p>
+   * <p>Identifier of the grouping recommendation task.</p>
    * @public
    */
   groupingId?: string | undefined;
@@ -4127,7 +4183,7 @@ export type ResourcesGroupingRecGenStatusType =
  */
 export interface DescribeResourceGroupingRecommendationTaskResponse {
   /**
-   * <p>Indicates the identifier of the grouping recommendation task.</p>
+   * <p>Identifier of the grouping recommendation task.</p>
    * @public
    */
   groupingId: string | undefined;
@@ -4139,7 +4195,7 @@ export interface DescribeResourceGroupingRecommendationTaskResponse {
   status: ResourcesGroupingRecGenStatusType | undefined;
 
   /**
-   * <p>Indicates the error that occurred while generating a grouping recommendation.</p>
+   * <p>Error that occurred while generating a grouping recommendation.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -4334,7 +4390,7 @@ export interface ListAppAssessmentComplianceDriftsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Indicates the maximum number of compliance drifts requested.</p>
+   * <p>Maximum number of compliance drifts requested.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -4480,7 +4536,7 @@ export interface ListAppAssessmentResourceDriftsRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Indicates the maximum number of drift results to include in the response. If more results
+   * <p>Maximum number of drift results to include in the response. If more results
    *       exist than the specified <code>MaxResults</code> value, a token is included in the response so
    *       that the remaining results can be retrieved.</p>
    * @public
@@ -4948,8 +5004,7 @@ export interface ListAppInputSourcesRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Maximum number of input sources to be displayed per Resilience Hub
-   *       application.</p>
+   * <p>Maximum number of input sources to be displayed per Resilience Hub application.</p>
    * @public
    */
   maxResults?: number | undefined;
@@ -5006,14 +5061,14 @@ export interface ListAppsRequest {
   appArn?: string | undefined;
 
   /**
-   * <p>Indicates the lower limit of the range that is used to filter applications based on their
+   * <p>Lower limit of the range that is used to filter applications based on their
    *       last assessment times.</p>
    * @public
    */
   fromLastAssessmentTime?: Date | undefined;
 
   /**
-   * <p>Indicates the upper limit of the range that is used to filter the applications based on
+   * <p>Upper limit of the range that is used to filter the applications based on
    *       their last assessment times.</p>
    * @public
    */
@@ -5298,6 +5353,160 @@ export interface ListAppVersionsResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const ConditionOperatorType = {
+  EQUALS: "Equals",
+  GREATER_OR_EQUALS: "GreaterOrEquals",
+  GREATER_THEN: "GreaterThen",
+  LESS_OR_EQUALS: "LessOrEquals",
+  LESS_THEN: "LessThen",
+  NOT_EQUALS: "NotEquals",
+} as const;
+
+/**
+ * @public
+ */
+export type ConditionOperatorType = (typeof ConditionOperatorType)[keyof typeof ConditionOperatorType];
+
+/**
+ * <p>Indicates the condition based on which you want to filter the metrics.</p>
+ * @public
+ */
+export interface Condition {
+  /**
+   * <p>Indicates the field in the metric.</p>
+   * @public
+   */
+  field: string | undefined;
+
+  /**
+   * <p>Indicates the type of operator or comparison to be used when evaluating a condition against the specified field. </p>
+   * @public
+   */
+  operator: ConditionOperatorType | undefined;
+
+  /**
+   * <p>Indicates the value or data against which a condition is evaluated.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldAggregationType = {
+  AVG: "Avg",
+  COUNT: "Count",
+  MAX: "Max",
+  MIN: "Min",
+  SUM: "Sum",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldAggregationType = (typeof FieldAggregationType)[keyof typeof FieldAggregationType];
+
+/**
+ * <p>Indicates the field or attribute of a resource or data structure on which a condition is being applied or evaluated.</p>
+ * @public
+ */
+export interface Field {
+  /**
+   * <p>Name of the field.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>(Optional) Indicates the type of aggregation or summary operation (such as Sum, Average, and so on) to be performed on a particular field or set of data.</p>
+   * @public
+   */
+  aggregation?: FieldAggregationType | undefined;
+}
+
+/**
+ * <p>Indicates the sorting order of the fields in the metrics.</p>
+ * @public
+ */
+export interface Sort {
+  /**
+   * <p>Indicates the order in which you want to sort the metrics. By default, the list is sorted in ascending order. To sort the list in descending order, set this field to False.</p>
+   * @public
+   */
+  field: string | undefined;
+
+  /**
+   * <p>Indicates the name or identifier of the field or attribute that should be used as the basis for sorting the metrics.</p>
+   * @public
+   */
+  ascending?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMetricsRequest {
+  /**
+   * <p>Null, or the token from a previous call to get the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Maximum number of results to include in the response. If more results exist than the specified
+   * <code>MaxResults</code> value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Indicates the list of fields in the data source.</p>
+   * @public
+   */
+  fields?: Field[] | undefined;
+
+  /**
+   * <p>Indicates the data source of the metrics.</p>
+   * @public
+   */
+  dataSource?: string | undefined;
+
+  /**
+   * <p>Indicates the list of all the conditions that were applied on the metrics.</p>
+   * @public
+   */
+  conditions?: Condition[] | undefined;
+
+  /**
+   * <p>(Optional) Indicates the order in which you want to sort the fields in the metrics. By default, the fields are sorted in the ascending order.</p>
+   * @public
+   */
+  sorts?: Sort[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMetricsResponse {
+  /**
+   * <p>Specifies all the list of metric values for each row of metrics.</p>
+   * @public
+   */
+  rows: string[][] | undefined;
+
+  /**
+   * <p>Token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface ListRecommendationTemplatesRequest {
   /**
@@ -5371,7 +5580,7 @@ export interface ListRecommendationTemplatesResponse {
  */
 export interface ListResiliencyPoliciesRequest {
   /**
-   * <p>The name of the policy</p>
+   * <p>Name of the resiliency policy.</p>
    * @public
    */
   policyName?: string | undefined;
@@ -6433,7 +6642,7 @@ export interface RejectResourceGroupingRecommendationsRequest {
   appArn: string | undefined;
 
   /**
-   * <p>Indicates the list of resource grouping recommendations you have selected to exclude from your application.</p>
+   * <p>List of resource grouping recommendations you have selected to exclude from your application.</p>
    * @public
    */
   entries: RejectGroupingRecommendationEntry[] | undefined;
@@ -6454,7 +6663,7 @@ export interface RejectResourceGroupingRecommendationsResponse {
   appArn: string | undefined;
 
   /**
-   * <p>Indicates the list of resource grouping recommendations that failed to get excluded in your application.</p>
+   * <p>List of resource grouping recommendations that failed to get excluded in your application.</p>
    * @public
    */
   failedEntries: FailedGroupingRecommendationEntry[] | undefined;
@@ -6646,6 +6855,41 @@ export interface StartAppAssessmentResponse {
 /**
  * @public
  */
+export interface StartMetricsExportRequest {
+  /**
+   * <p>(Optional) Specifies the name of the Amazon Simple Storage Service bucket where the exported metrics will be stored.</p>
+   * @public
+   */
+  bucketName?: string | undefined;
+
+  /**
+   * <p>Used for an idempotency token. A client token is a unique, case-sensitive string of up to 64 ASCII characters.
+   * You should not reuse the same client token for other API requests.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMetricsExportResponse {
+  /**
+   * <p>Identifier of the metrics export task.</p>
+   * @public
+   */
+  metricsExportId: string | undefined;
+
+  /**
+   * <p>Indicates the status of the metrics export task.</p>
+   * @public
+   */
+  status: MetricsExportStatusType | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartResourceGroupingRecommendationTaskRequest {
   /**
    * <p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is:
@@ -6673,7 +6917,7 @@ export interface StartResourceGroupingRecommendationTaskResponse {
   appArn: string | undefined;
 
   /**
-   * <p>Indicates the identifier of the grouping recommendation task.</p>
+   * <p>Identifier of the grouping recommendation task.</p>
    * @public
    */
   groupingId: string | undefined;
@@ -6685,7 +6929,7 @@ export interface StartResourceGroupingRecommendationTaskResponse {
   status: ResourcesGroupingRecGenStatusType | undefined;
 
   /**
-   * <p>Indicates the error that occurred while executing a grouping recommendation task.</p>
+   * <p>Error that occurred while executing a grouping recommendation task.</p>
    * @public
    */
   errorMessage?: string | undefined;
@@ -7045,20 +7289,19 @@ export interface UpdateResiliencyPolicyRequest {
   policyArn: string | undefined;
 
   /**
-   * <p>The name of the policy</p>
+   * <p>Name of the resiliency policy.</p>
    * @public
    */
   policyName?: string | undefined;
 
   /**
-   * <p>The description for the policy.</p>
+   * <p>Description of the resiliency policy.</p>
    * @public
    */
   policyDescription?: string | undefined;
 
   /**
-   * <p>Specifies a high-level geographical location constraint for where your resilience policy
-   *       data can be stored.</p>
+   * <p>Specifies a high-level geographical location constraint for where your resilience policy data can be stored.</p>
    * @public
    */
   dataLocationConstraint?: DataLocationConstraint | undefined;
@@ -7071,8 +7314,7 @@ export interface UpdateResiliencyPolicyRequest {
   tier?: ResiliencyPolicyTier | undefined;
 
   /**
-   * <p>The type of resiliency policy to be created, including the recovery time objective (RTO)
-   *       and recovery point objective (RPO) in seconds.</p>
+   * <p>Resiliency policy to be created, including the recovery time objective (RTO) and recovery point objective (RPO) in seconds.</p>
    * @public
    */
   policy?: Partial<Record<DisruptionType, FailurePolicy>> | undefined;
@@ -7083,7 +7325,7 @@ export interface UpdateResiliencyPolicyRequest {
  */
 export interface UpdateResiliencyPolicyResponse {
   /**
-   * <p>The type of resiliency policy that was updated, including the recovery time objective
+   * <p>The resiliency policy that was updated, including the recovery time objective
    *       (RTO) and recovery point objective (RPO) in seconds.</p>
    * @public
    */

@@ -393,6 +393,14 @@ DescribeDraftAppVersionResourcesImportStatus
 </details>
 <details>
 <summary>
+DescribeMetricsExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/DescribeMetricsExportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeMetricsExportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/DescribeMetricsExportCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeResiliencyPolicy
 </summary>
 
@@ -513,6 +521,14 @@ ListAppVersions
 </details>
 <details>
 <summary>
+ListMetrics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/ListMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/ListMetricsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRecommendationTemplates
 </summary>
 
@@ -621,6 +637,14 @@ StartAppAssessment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartAppAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartAppAssessmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartMetricsExport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehub/command/StartMetricsExportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartMetricsExportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehub/Interface/StartMetricsExportCommandOutput/)
 
 </details>
 <details>

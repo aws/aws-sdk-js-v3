@@ -36,7 +36,7 @@ export interface ListAppAssessmentComplianceDriftsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Indicates the list of compliance drifts that were detected while running an
+ * <p>List of compliance drifts that were detected while running an
  *       assessment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

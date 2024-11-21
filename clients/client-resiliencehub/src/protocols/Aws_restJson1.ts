@@ -110,6 +110,10 @@ import {
   DescribeDraftAppVersionResourcesImportStatusCommandOutput,
 } from "../commands/DescribeDraftAppVersionResourcesImportStatusCommand";
 import {
+  DescribeMetricsExportCommandInput,
+  DescribeMetricsExportCommandOutput,
+} from "../commands/DescribeMetricsExportCommand";
+import {
   DescribeResiliencyPolicyCommandInput,
   DescribeResiliencyPolicyCommandOutput,
 } from "../commands/DescribeResiliencyPolicyCommand";
@@ -160,6 +164,7 @@ import {
   ListAppVersionResourcesCommandOutput,
 } from "../commands/ListAppVersionResourcesCommand";
 import { ListAppVersionsCommandInput, ListAppVersionsCommandOutput } from "../commands/ListAppVersionsCommand";
+import { ListMetricsCommandInput, ListMetricsCommandOutput } from "../commands/ListMetricsCommand";
 import {
   ListRecommendationTemplatesCommandInput,
   ListRecommendationTemplatesCommandOutput,
@@ -210,6 +215,7 @@ import {
   ResolveAppVersionResourcesCommandOutput,
 } from "../commands/ResolveAppVersionResourcesCommand";
 import { StartAppAssessmentCommandInput, StartAppAssessmentCommandOutput } from "../commands/StartAppAssessmentCommand";
+import { StartMetricsExportCommandInput, StartMetricsExportCommandOutput } from "../commands/StartMetricsExportCommand";
 import {
   StartResourceGroupingRecommendationTaskCommandInput,
   StartResourceGroupingRecommendationTaskCommandOutput,
@@ -240,6 +246,7 @@ import {
   AppSummary,
   AppVersionSummary,
   ComponentRecommendation,
+  Condition,
   ConfigRecommendation,
   ConflictException,
   Cost,
@@ -248,6 +255,7 @@ import {
   EksSourceClusterNamespace,
   EventSubscription,
   FailurePolicy,
+  Field,
   GroupingRecommendation,
   InternalServerException,
   LogicalResourceId,
@@ -263,6 +271,7 @@ import {
   ResourceNotFoundException,
   ScoringComponentResiliencyScore,
   ServiceQuotaExceededException,
+  Sort,
   TerraformSource,
   ThrottlingException,
   UpdateRecommendationStatusItem,
@@ -845,6 +854,28 @@ export const se_DescribeDraftAppVersionResourcesImportStatusCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeMetricsExportCommand
+ */
+export const se_DescribeMetricsExportCommand = async (
+  input: DescribeMetricsExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/describe-metrics-export");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      metricsExportId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeResiliencyPolicyCommand
  */
 export const se_DescribeResiliencyPolicyCommand = async (
@@ -1213,6 +1244,33 @@ export const se_ListAppVersionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListMetricsCommand
+ */
+export const se_ListMetricsCommand = async (
+  input: ListMetricsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-metrics");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      conditions: (_) => _json(_),
+      dataSource: [],
+      fields: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sorts: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRecommendationTemplatesCommand
  */
 export const se_ListRecommendationTemplatesCommand = async (
@@ -1525,6 +1583,29 @@ export const se_StartAppAssessmentCommand = async (
       assessmentName: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartMetricsExportCommand
+ */
+export const se_StartMetricsExportCommand = async (
+  input: StartMetricsExportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/start-metrics-export");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      bucketName: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2247,6 +2328,30 @@ export const de_DescribeDraftAppVersionResourcesImportStatusCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeMetricsExportCommand
+ */
+export const de_DescribeMetricsExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMetricsExportCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errorMessage: __expectString,
+    exportLocation: _json,
+    metricsExportId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeResiliencyPolicyCommand
  */
 export const de_DescribeResiliencyPolicyCommand = async (
@@ -2584,6 +2689,28 @@ export const de_ListAppVersionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListMetricsCommand
+ */
+export const de_ListMetricsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetricsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    rows: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListRecommendationTemplatesCommand
  */
 export const de_ListRecommendationTemplatesCommand = async (
@@ -2889,6 +3016,28 @@ export const de_StartAppAssessmentCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     assessment: (_) => de_AppAssessment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartMetricsExportCommand
+ */
+export const de_StartMetricsExportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetricsExportCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    metricsExportId: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3253,6 +3402,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ArnList omitted.
 
+// se_Condition omitted.
+
+// se_ConditionList omitted.
+
 // se_DisruptionPolicy omitted.
 
 // se_EksNamespaceList omitted.
@@ -3270,6 +3423,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_EventSubscriptionList omitted.
 
 // se_FailurePolicy omitted.
+
+// se_Field omitted.
+
+// se_FieldList omitted.
 
 // se_IamRoleArnList omitted.
 
@@ -3290,6 +3447,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ResourceMapping omitted.
 
 // se_ResourceMappingList omitted.
+
+// se_Sort omitted.
+
+// se_SortList omitted.
 
 // se_String255List omitted.
 
@@ -3772,6 +3933,10 @@ const de_ResiliencyScore = (output: any, context: __SerdeContext): ResiliencySco
 // de_ResourceMapping omitted.
 
 // de_ResourceMappingList omitted.
+
+// de_Row omitted.
+
+// de_RowList omitted.
 
 // de_S3Location omitted.
 

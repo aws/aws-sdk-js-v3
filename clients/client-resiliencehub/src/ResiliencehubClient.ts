@@ -134,6 +134,10 @@ import {
   DescribeDraftAppVersionResourcesImportStatusCommandOutput,
 } from "./commands/DescribeDraftAppVersionResourcesImportStatusCommand";
 import {
+  DescribeMetricsExportCommandInput,
+  DescribeMetricsExportCommandOutput,
+} from "./commands/DescribeMetricsExportCommand";
+import {
   DescribeResiliencyPolicyCommandInput,
   DescribeResiliencyPolicyCommandOutput,
 } from "./commands/DescribeResiliencyPolicyCommand";
@@ -184,6 +188,7 @@ import {
   ListAppVersionResourcesCommandOutput,
 } from "./commands/ListAppVersionResourcesCommand";
 import { ListAppVersionsCommandInput, ListAppVersionsCommandOutput } from "./commands/ListAppVersionsCommand";
+import { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import {
   ListRecommendationTemplatesCommandInput,
   ListRecommendationTemplatesCommandOutput,
@@ -234,6 +239,7 @@ import {
   ResolveAppVersionResourcesCommandOutput,
 } from "./commands/ResolveAppVersionResourcesCommand";
 import { StartAppAssessmentCommandInput, StartAppAssessmentCommandOutput } from "./commands/StartAppAssessmentCommand";
+import { StartMetricsExportCommandInput, StartMetricsExportCommandOutput } from "./commands/StartMetricsExportCommand";
 import {
   StartResourceGroupingRecommendationTaskCommandInput,
   StartResourceGroupingRecommendationTaskCommandOutput,
@@ -292,6 +298,7 @@ export type ServiceInputTypes =
   | DescribeAppVersionResourcesResolutionStatusCommandInput
   | DescribeAppVersionTemplateCommandInput
   | DescribeDraftAppVersionResourcesImportStatusCommandInput
+  | DescribeMetricsExportCommandInput
   | DescribeResiliencyPolicyCommandInput
   | DescribeResourceGroupingRecommendationTaskCommandInput
   | ImportResourcesToDraftAppVersionCommandInput
@@ -307,6 +314,7 @@ export type ServiceInputTypes =
   | ListAppVersionResourcesCommandInput
   | ListAppVersionsCommandInput
   | ListAppsCommandInput
+  | ListMetricsCommandInput
   | ListRecommendationTemplatesCommandInput
   | ListResiliencyPoliciesCommandInput
   | ListResourceGroupingRecommendationsCommandInput
@@ -321,6 +329,7 @@ export type ServiceInputTypes =
   | RemoveDraftAppVersionResourceMappingsCommandInput
   | ResolveAppVersionResourcesCommandInput
   | StartAppAssessmentCommandInput
+  | StartMetricsExportCommandInput
   | StartResourceGroupingRecommendationTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -357,6 +366,7 @@ export type ServiceOutputTypes =
   | DescribeAppVersionResourcesResolutionStatusCommandOutput
   | DescribeAppVersionTemplateCommandOutput
   | DescribeDraftAppVersionResourcesImportStatusCommandOutput
+  | DescribeMetricsExportCommandOutput
   | DescribeResiliencyPolicyCommandOutput
   | DescribeResourceGroupingRecommendationTaskCommandOutput
   | ImportResourcesToDraftAppVersionCommandOutput
@@ -372,6 +382,7 @@ export type ServiceOutputTypes =
   | ListAppVersionResourcesCommandOutput
   | ListAppVersionsCommandOutput
   | ListAppsCommandOutput
+  | ListMetricsCommandOutput
   | ListRecommendationTemplatesCommandOutput
   | ListResiliencyPoliciesCommandOutput
   | ListResourceGroupingRecommendationsCommandOutput
@@ -386,6 +397,7 @@ export type ServiceOutputTypes =
   | RemoveDraftAppVersionResourceMappingsCommandOutput
   | ResolveAppVersionResourcesCommandOutput
   | StartAppAssessmentCommandOutput
+  | StartMetricsExportCommandOutput
   | StartResourceGroupingRecommendationTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
