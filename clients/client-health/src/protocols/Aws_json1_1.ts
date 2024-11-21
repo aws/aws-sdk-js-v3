@@ -836,6 +836,7 @@ const de_AffectedEntity = (output: any, context: __SerdeContext): AffectedEntity
   return take(output, {
     awsAccountId: __expectString,
     entityArn: __expectString,
+    entityMetadata: _json,
     entityUrl: __expectString,
     entityValue: __expectString,
     eventArn: __expectString,
@@ -980,6 +981,8 @@ const de_EntityList = (output: any, context: __SerdeContext): AffectedEntity[] =
     });
   return retVal;
 };
+
+// de_entityMetadata omitted.
 
 // de_entityStatuses omitted.
 

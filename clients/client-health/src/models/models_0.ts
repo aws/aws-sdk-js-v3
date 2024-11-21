@@ -109,6 +109,12 @@ export interface AffectedEntity {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Additional metadata about the affected entity.</p>
+   * @public
+   */
+  entityMetadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -170,7 +176,7 @@ export interface DescribeAffectedAccountsForOrganizationResponse {
   affectedAccounts?: string[] | undefined;
 
   /**
-   * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -715,7 +721,7 @@ export interface EventFilter {
   eventTypeCodes?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
   services?: string[] | undefined;
@@ -944,7 +950,7 @@ export interface Event {
   arn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
   service?: string | undefined;
@@ -1002,7 +1008,7 @@ export interface Event {
   statusCode?: EventStatusCode | undefined;
 
   /**
-   * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -1290,7 +1296,7 @@ export interface OrganizationEventFilter {
   awsAccountIds?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
   services?: string[] | undefined;
@@ -1415,7 +1421,7 @@ export interface OrganizationEvent {
   arn?: string | undefined;
 
   /**
-   * <p>The Amazon Web Service that is affected by the event, such as EC2 and RDS.</p>
+   * <p>The Amazon Web Services service that is affected by the event, such as EC2 and RDS.</p>
    * @public
    */
   service?: string | undefined;
@@ -1437,7 +1443,7 @@ export interface OrganizationEvent {
   eventTypeCategory?: EventTypeCategory | undefined;
 
   /**
-   * <p>This parameter specifies if the Health event is a public Amazon Web Service event or an account-specific event.</p>
+   * <p>This parameter specifies if the Health event is a public Amazon Web Services service event or an account-specific event.</p>
    *          <ul>
    *             <li>
    *                <p>If the <code>eventScopeCode</code> value is <code>PUBLIC</code>, then the
@@ -1525,7 +1531,7 @@ export interface EventTypeFilter {
   eventTypeCodes?: string[] | undefined;
 
   /**
-   * <p>The Amazon Web Services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services services associated with the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
   services?: string[] | undefined;
@@ -1590,7 +1596,7 @@ export interface DescribeEventTypesRequest {
  */
 export interface EventType {
   /**
-   * <p>The Amazon Web Service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
+   * <p>The Amazon Web Services service that is affected by the event. For example, <code>EC2</code>, <code>RDS</code>.</p>
    * @public
    */
   service?: string | undefined;

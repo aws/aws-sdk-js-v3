@@ -29,7 +29,7 @@ export interface DescribeEventTypesCommandOutput extends DescribeEventTypesRespo
 
 /**
  * <p>Returns the event types that meet the specified filter criteria. You can use this API
- *          operation to find information about the Health event, such as the category, Amazon Web Service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
+ *          operation to find information about the Health event, such as the category, Amazon Web Services service, and event code. The metadata for each event appears in the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EventType.html">EventType</a> object. </p>
  *          <p>If you don't specify a filter criteria, the API operation returns all event types, in no
  *          particular order. </p>
  *          <note>
