@@ -91,6 +91,10 @@ import {
   GetApproximateUsageRecordsCommandInput,
   GetApproximateUsageRecordsCommandOutput,
 } from "./commands/GetApproximateUsageRecordsCommand";
+import {
+  GetCommitmentPurchaseAnalysisCommandInput,
+  GetCommitmentPurchaseAnalysisCommandOutput,
+} from "./commands/GetCommitmentPurchaseAnalysisCommand";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "./commands/GetCostAndUsageCommand";
 import {
   GetCostAndUsageWithResourcesCommandInput,
@@ -138,6 +142,10 @@ import {
 import { GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand";
 import { GetUsageForecastCommandInput, GetUsageForecastCommandOutput } from "./commands/GetUsageForecastCommand";
 import {
+  ListCommitmentPurchaseAnalysesCommandInput,
+  ListCommitmentPurchaseAnalysesCommandOutput,
+} from "./commands/ListCommitmentPurchaseAnalysesCommand";
+import {
   ListCostAllocationTagBackfillHistoryCommandInput,
   ListCostAllocationTagBackfillHistoryCommandOutput,
 } from "./commands/ListCostAllocationTagBackfillHistoryCommand";
@@ -161,6 +169,10 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartCommitmentPurchaseAnalysisCommandInput,
+  StartCommitmentPurchaseAnalysisCommandOutput,
+} from "./commands/StartCommitmentPurchaseAnalysisCommand";
 import {
   StartCostAllocationTagBackfillCommandInput,
   StartCostAllocationTagBackfillCommandOutput,
@@ -213,6 +225,7 @@ export type ServiceInputTypes =
   | GetAnomalyMonitorsCommandInput
   | GetAnomalySubscriptionsCommandInput
   | GetApproximateUsageRecordsCommandInput
+  | GetCommitmentPurchaseAnalysisCommandInput
   | GetCostAndUsageCommandInput
   | GetCostAndUsageWithResourcesCommandInput
   | GetCostCategoriesCommandInput
@@ -229,12 +242,14 @@ export type ServiceInputTypes =
   | GetSavingsPlansUtilizationDetailsCommandInput
   | GetTagsCommandInput
   | GetUsageForecastCommandInput
+  | ListCommitmentPurchaseAnalysesCommandInput
   | ListCostAllocationTagBackfillHistoryCommandInput
   | ListCostAllocationTagsCommandInput
   | ListCostCategoryDefinitionsCommandInput
   | ListSavingsPlansPurchaseRecommendationGenerationCommandInput
   | ListTagsForResourceCommandInput
   | ProvideAnomalyFeedbackCommandInput
+  | StartCommitmentPurchaseAnalysisCommandInput
   | StartCostAllocationTagBackfillCommandInput
   | StartSavingsPlansPurchaseRecommendationGenerationCommandInput
   | TagResourceCommandInput
@@ -259,6 +274,7 @@ export type ServiceOutputTypes =
   | GetAnomalyMonitorsCommandOutput
   | GetAnomalySubscriptionsCommandOutput
   | GetApproximateUsageRecordsCommandOutput
+  | GetCommitmentPurchaseAnalysisCommandOutput
   | GetCostAndUsageCommandOutput
   | GetCostAndUsageWithResourcesCommandOutput
   | GetCostCategoriesCommandOutput
@@ -275,12 +291,14 @@ export type ServiceOutputTypes =
   | GetSavingsPlansUtilizationDetailsCommandOutput
   | GetTagsCommandOutput
   | GetUsageForecastCommandOutput
+  | ListCommitmentPurchaseAnalysesCommandOutput
   | ListCostAllocationTagBackfillHistoryCommandOutput
   | ListCostAllocationTagsCommandOutput
   | ListCostCategoryDefinitionsCommandOutput
   | ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
   | ListTagsForResourceCommandOutput
   | ProvideAnomalyFeedbackCommandOutput
+  | StartCommitmentPurchaseAnalysisCommandOutput
   | StartCostAllocationTagBackfillCommandOutput
   | StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
   | TagResourceCommandOutput

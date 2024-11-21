@@ -58,6 +58,11 @@ import {
   GetApproximateUsageRecordsCommandOutput,
 } from "./commands/GetApproximateUsageRecordsCommand";
 import {
+  GetCommitmentPurchaseAnalysisCommand,
+  GetCommitmentPurchaseAnalysisCommandInput,
+  GetCommitmentPurchaseAnalysisCommandOutput,
+} from "./commands/GetCommitmentPurchaseAnalysisCommand";
+import {
   GetCostAndUsageCommand,
   GetCostAndUsageCommandInput,
   GetCostAndUsageCommandOutput,
@@ -134,6 +139,11 @@ import {
   GetUsageForecastCommandOutput,
 } from "./commands/GetUsageForecastCommand";
 import {
+  ListCommitmentPurchaseAnalysesCommand,
+  ListCommitmentPurchaseAnalysesCommandInput,
+  ListCommitmentPurchaseAnalysesCommandOutput,
+} from "./commands/ListCommitmentPurchaseAnalysesCommand";
+import {
   ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagBackfillHistoryCommandInput,
   ListCostAllocationTagBackfillHistoryCommandOutput,
@@ -163,6 +173,11 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartCommitmentPurchaseAnalysisCommand,
+  StartCommitmentPurchaseAnalysisCommandInput,
+  StartCommitmentPurchaseAnalysisCommandOutput,
+} from "./commands/StartCommitmentPurchaseAnalysisCommand";
 import {
   StartCostAllocationTagBackfillCommand,
   StartCostAllocationTagBackfillCommandInput,
@@ -213,6 +228,7 @@ const commands = {
   GetAnomalyMonitorsCommand,
   GetAnomalySubscriptionsCommand,
   GetApproximateUsageRecordsCommand,
+  GetCommitmentPurchaseAnalysisCommand,
   GetCostAndUsageCommand,
   GetCostAndUsageWithResourcesCommand,
   GetCostCategoriesCommand,
@@ -229,12 +245,14 @@ const commands = {
   GetSavingsPlansUtilizationDetailsCommand,
   GetTagsCommand,
   GetUsageForecastCommand,
+  ListCommitmentPurchaseAnalysesCommand,
   ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagsCommand,
   ListCostCategoryDefinitionsCommand,
   ListSavingsPlansPurchaseRecommendationGenerationCommand,
   ListTagsForResourceCommand,
   ProvideAnomalyFeedbackCommand,
+  StartCommitmentPurchaseAnalysisCommand,
   StartCostAllocationTagBackfillCommand,
   StartSavingsPlansPurchaseRecommendationGenerationCommand,
   TagResourceCommand,
@@ -427,6 +445,23 @@ export interface CostExplorer {
     args: GetApproximateUsageRecordsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetApproximateUsageRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCommitmentPurchaseAnalysisCommand}
+   */
+  getCommitmentPurchaseAnalysis(
+    args: GetCommitmentPurchaseAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommitmentPurchaseAnalysisCommandOutput>;
+  getCommitmentPurchaseAnalysis(
+    args: GetCommitmentPurchaseAnalysisCommandInput,
+    cb: (err: any, data?: GetCommitmentPurchaseAnalysisCommandOutput) => void
+  ): void;
+  getCommitmentPurchaseAnalysis(
+    args: GetCommitmentPurchaseAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommitmentPurchaseAnalysisCommandOutput) => void
   ): void;
 
   /**
@@ -690,6 +725,24 @@ export interface CostExplorer {
   ): void;
 
   /**
+   * @see {@link ListCommitmentPurchaseAnalysesCommand}
+   */
+  listCommitmentPurchaseAnalyses(): Promise<ListCommitmentPurchaseAnalysesCommandOutput>;
+  listCommitmentPurchaseAnalyses(
+    args: ListCommitmentPurchaseAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommitmentPurchaseAnalysesCommandOutput>;
+  listCommitmentPurchaseAnalyses(
+    args: ListCommitmentPurchaseAnalysesCommandInput,
+    cb: (err: any, data?: ListCommitmentPurchaseAnalysesCommandOutput) => void
+  ): void;
+  listCommitmentPurchaseAnalyses(
+    args: ListCommitmentPurchaseAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommitmentPurchaseAnalysesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCostAllocationTagBackfillHistoryCommand}
    */
   listCostAllocationTagBackfillHistory(): Promise<ListCostAllocationTagBackfillHistoryCommandOutput>;
@@ -793,6 +846,23 @@ export interface CostExplorer {
     args: ProvideAnomalyFeedbackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCommitmentPurchaseAnalysisCommand}
+   */
+  startCommitmentPurchaseAnalysis(
+    args: StartCommitmentPurchaseAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCommitmentPurchaseAnalysisCommandOutput>;
+  startCommitmentPurchaseAnalysis(
+    args: StartCommitmentPurchaseAnalysisCommandInput,
+    cb: (err: any, data?: StartCommitmentPurchaseAnalysisCommandOutput) => void
+  ): void;
+  startCommitmentPurchaseAnalysis(
+    args: StartCommitmentPurchaseAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCommitmentPurchaseAnalysisCommandOutput) => void
   ): void;
 
   /**

@@ -308,6 +308,14 @@ GetApproximateUsageRecords
 </details>
 <details>
 <summary>
+GetCommitmentPurchaseAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCommitmentPurchaseAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCommitmentPurchaseAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCommitmentPurchaseAnalysisCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCostAndUsage
 </summary>
 
@@ -436,6 +444,14 @@ GetUsageForecast
 </details>
 <details>
 <summary>
+ListCommitmentPurchaseAnalyses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCommitmentPurchaseAnalysesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCommitmentPurchaseAnalysesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCommitmentPurchaseAnalysesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCostAllocationTagBackfillHistory
 </summary>
 
@@ -480,6 +496,14 @@ ProvideAnomalyFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ProvideAnomalyFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartCommitmentPurchaseAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/StartCommitmentPurchaseAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCommitmentPurchaseAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCommitmentPurchaseAnalysisCommandOutput/)
 
 </details>
 <details>

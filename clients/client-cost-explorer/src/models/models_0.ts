@@ -18,6 +18,528 @@ export const AccountScope = {
 export type AccountScope = (typeof AccountScope)[keyof typeof AccountScope];
 
 /**
+ * <p>Contains the hourly metrics for the given recommendation over the lookback period.
+ *         </p>
+ * @public
+ */
+export interface RecommendationDetailHourlyMetrics {
+  /**
+   * <p>The period of time that you want the usage and costs for.</p>
+   * @public
+   */
+  StartTime?: string | undefined;
+
+  /**
+   * <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings
+   *             Plan, over the length of the lookback period.</p>
+   * @public
+   */
+  EstimatedOnDemandCost?: string | undefined;
+
+  /**
+   * <p>The current amount of Savings Plans eligible usage that the Savings Plan
+   *             covered.</p>
+   * @public
+   */
+  CurrentCoverage?: string | undefined;
+
+  /**
+   * <p>The estimated coverage amount based on the recommended Savings Plan.</p>
+   * @public
+   */
+  EstimatedCoverage?: string | undefined;
+
+  /**
+   * <p>The estimated utilization for the recommended Savings Plan.</p>
+   * @public
+   */
+  EstimatedNewCommitmentUtilization?: string | undefined;
+}
+
+/**
+ * <p>Details about the Savings Plans purchase
+ *             analysis.</p>
+ * @public
+ */
+export interface SavingsPlansPurchaseAnalysisDetails {
+  /**
+   * <p>The currency code used for the
+   *             analysis.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>The lookback period in hours that's used to generate the
+   *             analysis.</p>
+   * @public
+   */
+  LookbackPeriodInHours?: string | undefined;
+
+  /**
+   * <p>The average value of hourly coverage over the lookback
+   *             period.</p>
+   * @public
+   */
+  CurrentAverageCoverage?: string | undefined;
+
+  /**
+   * <p>The average value of hourly On-Demand spend over the lookback
+   *             period.</p>
+   * @public
+   */
+  CurrentAverageHourlyOnDemandSpend?: string | undefined;
+
+  /**
+   * <p>The highest value of hourly On-Demand spend over the lookback
+   *             period.</p>
+   * @public
+   */
+  CurrentMaximumHourlyOnDemandSpend?: string | undefined;
+
+  /**
+   * <p>The lowest value of hourly On-Demand spend over the lookback
+   *             period.</p>
+   * @public
+   */
+  CurrentMinimumHourlyOnDemandSpend?: string | undefined;
+
+  /**
+   * <p>The current total On-Demand spend over the lookback
+   *             period.</p>
+   * @public
+   */
+  CurrentOnDemandSpend?: string | undefined;
+
+  /**
+   * <p>The existing hourly commitment for the Savings Plan
+   *             type.</p>
+   * @public
+   */
+  ExistingHourlyCommitment?: string | undefined;
+
+  /**
+   * <p>The recommended or custom hourly
+   *             commitment.</p>
+   * @public
+   */
+  HourlyCommitmentToPurchase?: string | undefined;
+
+  /**
+   * <p>The estimated coverage of the Savings
+   *             Plan.</p>
+   * @public
+   */
+  EstimatedAverageCoverage?: string | undefined;
+
+  /**
+   * <p>The estimated utilization of the Savings
+   *             Plan.</p>
+   * @public
+   */
+  EstimatedAverageUtilization?: string | undefined;
+
+  /**
+   * <p>The estimated monthly savings amount based on the Savings
+   *             Plan.</p>
+   * @public
+   */
+  EstimatedMonthlySavingsAmount?: string | undefined;
+
+  /**
+   * <p>The remaining On-Demand cost estimated to not be covered by the commitment, over the
+   *             length of the lookback period.</p>
+   * @public
+   */
+  EstimatedOnDemandCost?: string | undefined;
+
+  /**
+   * <p>The estimated On-Demand cost you expect with no additional commitment, based on your
+   *             usage of the selected time period and the Savings Plan you
+   *             own.</p>
+   * @public
+   */
+  EstimatedOnDemandCostWithCurrentCommitment?: string | undefined;
+
+  /**
+   * <p>The estimated return on investment that's based on the purchase commitment and
+   *             estimated savings. This is calculated as
+   *             estimatedSavingsAmount/estimatedSPCost*100.</p>
+   * @public
+   */
+  EstimatedROI?: string | undefined;
+
+  /**
+   * <p>The estimated savings amount that's based on the purchase commitment over the length
+   *             of the lookback period.</p>
+   * @public
+   */
+  EstimatedSavingsAmount?: string | undefined;
+
+  /**
+   * <p>The estimated savings percentage relative to the total cost over the cost calculation
+   *             lookback period.</p>
+   * @public
+   */
+  EstimatedSavingsPercentage?: string | undefined;
+
+  /**
+   * <p>The estimated cost of the purchase commitment over the length of the lookback
+   *             period.</p>
+   * @public
+   */
+  EstimatedCommitmentCost?: string | undefined;
+
+  /**
+   * <p>The date and time of the last hour that went into the
+   *             analysis.</p>
+   * @public
+   */
+  LatestUsageTimestamp?: string | undefined;
+
+  /**
+   * <p>The upfront cost of the Savings Plan, based on the selected payment
+   *             option.</p>
+   * @public
+   */
+  UpfrontCost?: string | undefined;
+
+  /**
+   * <p>Additional metadata that might be applicable to the
+   *             commitment.</p>
+   * @public
+   */
+  AdditionalMetadata?: string | undefined;
+
+  /**
+   * <p>The related hourly cost, coverage, and utilization metrics over the lookback
+   *             period.</p>
+   * @public
+   */
+  MetricsOverLookbackPeriod?: RecommendationDetailHourlyMetrics[] | undefined;
+}
+
+/**
+ * <p>Details about the analysis.</p>
+ * @public
+ */
+export interface AnalysisDetails {
+  /**
+   * <p>Details about the Savings Plans purchase
+   *             analysis.</p>
+   * @public
+   */
+  SavingsPlansPurchaseAnalysisDetails?: SavingsPlansPurchaseAnalysisDetails | undefined;
+}
+
+/**
+ * <p>The requested analysis can't be
+ *             found.</p>
+ * @public
+ */
+export class AnalysisNotFoundException extends __BaseException {
+  readonly name: "AnalysisNotFoundException" = "AnalysisNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AnalysisNotFoundException, __BaseException>) {
+    super({
+      name: "AnalysisNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AnalysisNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisStatus = {
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisStatus = (typeof AnalysisStatus)[keyof typeof AnalysisStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisType = {
+  CUSTOM_COMMITMENT: "CUSTOM_COMMITMENT",
+  MAX_SAVINGS: "MAX_SAVINGS",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisType = (typeof AnalysisType)[keyof typeof AnalysisType];
+
+/**
+ * <p>The time period of the request. </p>
+ * @public
+ */
+export interface DateInterval {
+  /**
+   * <p>The beginning of the time period. The start date is inclusive. For example, if
+   *                 <code>start</code> is <code>2017-01-01</code>, Amazon Web Services retrieves cost and
+   *             usage data starting at <code>2017-01-01</code> up to the end date. The start date must
+   *             be equal to or no later than the current date to avoid a validation error.</p>
+   * @public
+   */
+  Start: string | undefined;
+
+  /**
+   * <p>The end of the time period. The end date is exclusive. For example, if
+   *                 <code>end</code> is <code>2017-05-01</code>, Amazon Web Services retrieves cost and
+   *             usage data from the start date up to, but not including, <code>2017-05-01</code>.</p>
+   * @public
+   */
+  End: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentOption = {
+  ALL_UPFRONT: "ALL_UPFRONT",
+  HEAVY_UTILIZATION: "HEAVY_UTILIZATION",
+  LIGHT_UTILIZATION: "LIGHT_UTILIZATION",
+  MEDIUM_UTILIZATION: "MEDIUM_UTILIZATION",
+  NO_UPFRONT: "NO_UPFRONT",
+  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
+} as const;
+
+/**
+ * @public
+ */
+export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const SupportedSavingsPlansType = {
+  COMPUTE_SP: "COMPUTE_SP",
+  EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
+  SAGEMAKER_SP: "SAGEMAKER_SP",
+} as const;
+
+/**
+ * @public
+ */
+export type SupportedSavingsPlansType = (typeof SupportedSavingsPlansType)[keyof typeof SupportedSavingsPlansType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TermInYears = {
+  ONE_YEAR: "ONE_YEAR",
+  THREE_YEARS: "THREE_YEARS",
+} as const;
+
+/**
+ * @public
+ */
+export type TermInYears = (typeof TermInYears)[keyof typeof TermInYears];
+
+/**
+ * <p>The Savings Plans commitment
+ *             details.</p>
+ * @public
+ */
+export interface SavingsPlans {
+  /**
+   * <p>The payment option for the Savings Plans
+   *             commitment.</p>
+   * @public
+   */
+  PaymentOption?: PaymentOption | undefined;
+
+  /**
+   * <p>The Savings Plans type.</p>
+   * @public
+   */
+  SavingsPlansType?: SupportedSavingsPlansType | undefined;
+
+  /**
+   * <p>The Region associated with the Savings Plans
+   *             commitment.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The instance family of the Savings Plans
+   *             commitment.</p>
+   * @public
+   */
+  InstanceFamily?: string | undefined;
+
+  /**
+   * <p>The term that you want the Savings Plans commitment
+   *             for.</p>
+   * @public
+   */
+  TermInYears?: TermInYears | undefined;
+
+  /**
+   * <p>The Savings Plans commitment.</p>
+   * @public
+   */
+  SavingsPlansCommitment?: number | undefined;
+
+  /**
+   * <p>The unique ID that's used to distinguish commitments from one
+   *             another.</p>
+   * @public
+   */
+  OfferingId?: string | undefined;
+}
+
+/**
+ * <p>The configuration for the Savings Plans purchase
+ *             analysis.</p>
+ * @public
+ */
+export interface SavingsPlansPurchaseAnalysisConfiguration {
+  /**
+   * <p>The account scope that you want your analysis
+   *             for.</p>
+   * @public
+   */
+  AccountScope?: AccountScope | undefined;
+
+  /**
+   * <p>The account that the analysis is
+   *             for.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The type of analysis.</p>
+   * @public
+   */
+  AnalysisType: AnalysisType | undefined;
+
+  /**
+   * <p>Savings Plans to include in the
+   *             analysis.</p>
+   * @public
+   */
+  SavingsPlansToAdd: SavingsPlans[] | undefined;
+
+  /**
+   * <p>Savings Plans to exclude from the
+   *             analysis.</p>
+   * @public
+   */
+  SavingsPlansToExclude?: string[] | undefined;
+
+  /**
+   * <p>The time period associated with the
+   *             analysis.</p>
+   * @public
+   */
+  LookBackTimePeriod: DateInterval | undefined;
+}
+
+/**
+ * <p>The configuration for the commitment purchase
+ *             analysis.</p>
+ * @public
+ */
+export interface CommitmentPurchaseAnalysisConfiguration {
+  /**
+   * <p>The configuration for the Savings Plans purchase
+   *             analysis.</p>
+   * @public
+   */
+  SavingsPlansPurchaseAnalysisConfiguration?: SavingsPlansPurchaseAnalysisConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  INTERNAL_FAILURE: "INTERNAL_FAILURE",
+  INVALID_ACCOUNT_ID: "INVALID_ACCOUNT_ID",
+  INVALID_SAVINGS_PLANS_TO_ADD: "INVALID_SAVINGS_PLANS_TO_ADD",
+  INVALID_SAVINGS_PLANS_TO_EXCLUDE: "INVALID_SAVINGS_PLANS_TO_EXCLUDE",
+  NO_USAGE_FOUND: "NO_USAGE_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * <p>A summary of the analysis.</p>
+ * @public
+ */
+export interface AnalysisSummary {
+  /**
+   * <p>The estimated time for when the analysis will
+   *             complete.</p>
+   * @public
+   */
+  EstimatedCompletionTime?: string | undefined;
+
+  /**
+   * <p>The completion time of the analysis.</p>
+   * @public
+   */
+  AnalysisCompletionTime?: string | undefined;
+
+  /**
+   * <p>The start time of the analysis.</p>
+   * @public
+   */
+  AnalysisStartedTime?: string | undefined;
+
+  /**
+   * <p>The status of the analysis.</p>
+   * @public
+   */
+  AnalysisStatus?: AnalysisStatus | undefined;
+
+  /**
+   * <p>The error code used for the
+   *             analysis.</p>
+   * @public
+   */
+  ErrorCode?: ErrorCode | undefined;
+
+  /**
+   * <p>The analysis ID that's associated with the commitment
+   *             purchase.</p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The analysis configuration for the commitment purchase
+   *             analysis.</p>
+   * @public
+   */
+  CommitmentPurchaseAnalysisConfiguration?: CommitmentPurchaseAnalysisConfiguration | undefined;
+}
+
+/**
  * <p>Quantifies the anomaly. The higher score means that it's more anomalous. </p>
  * @public
  */
@@ -93,14 +615,14 @@ export interface Impact {
 }
 
 /**
- * <p>The combination of Amazon Web Servicesservice, linked account, linked account name,
+ * <p>The combination of Amazon Web Services service, linked account, linked account name,
  *             Region, and usage type where a cost anomaly is observed. The linked account name will
  *             only be available when the account name can be identified.</p>
  * @public
  */
 export interface RootCause {
   /**
-   * <p>The Amazon Web Servicesservice name that's associated with the cost anomaly. </p>
+   * <p>The Amazon Web Services service name that's associated with the cost anomaly. </p>
    * @public
    */
   Service?: string | undefined;
@@ -155,7 +677,7 @@ export interface Anomaly {
   AnomalyEndDate?: string | undefined;
 
   /**
-   * <p>The dimension for the anomaly (for example, an Amazon Web Servicesservice in a service
+   * <p>The dimension for the anomaly (for example, an Amazon Web Services service in a service
    *             monitor). </p>
    * @public
    */
@@ -1207,29 +1729,6 @@ export interface GetApproximateUsageRecordsRequest {
 }
 
 /**
- * <p>The time period of the request. </p>
- * @public
- */
-export interface DateInterval {
-  /**
-   * <p>The beginning of the time period. The start date is inclusive. For example, if
-   *                 <code>start</code> is <code>2017-01-01</code>, Amazon Web Services retrieves cost and
-   *             usage data starting at <code>2017-01-01</code> up to the end date. The start date must
-   *             be equal to or no later than the current date to avoid a validation error.</p>
-   * @public
-   */
-  Start: string | undefined;
-
-  /**
-   * <p>The end of the time period. The end date is exclusive. For example, if
-   *                 <code>end</code> is <code>2017-05-01</code>, Amazon Web Services retrieves cost and
-   *             usage data from the start date up to, but not including, <code>2017-05-01</code>.</p>
-   * @public
-   */
-  End: string | undefined;
-}
-
-/**
  * @public
  */
 export interface GetApproximateUsageRecordsResponse {
@@ -1250,6 +1749,74 @@ export interface GetApproximateUsageRecordsResponse {
    * @public
    */
   LookbackPeriod?: DateInterval | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCommitmentPurchaseAnalysisRequest {
+  /**
+   * <p>The analysis ID that's associated with the commitment purchase
+   *       analysis.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCommitmentPurchaseAnalysisResponse {
+  /**
+   * <p>The estimated time for when the analysis will
+   *       complete.</p>
+   * @public
+   */
+  EstimatedCompletionTime: string | undefined;
+
+  /**
+   * <p>The completion time of the analysis.</p>
+   * @public
+   */
+  AnalysisCompletionTime?: string | undefined;
+
+  /**
+   * <p>The start time of the analysis.</p>
+   * @public
+   */
+  AnalysisStartedTime: string | undefined;
+
+  /**
+   * <p>The analysis ID that's associated with the commitment purchase
+   *       analysis.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>The status of the analysis.</p>
+   * @public
+   */
+  AnalysisStatus: AnalysisStatus | undefined;
+
+  /**
+   * <p>The error code used for the analysis.</p>
+   * @public
+   */
+  ErrorCode?: ErrorCode | undefined;
+
+  /**
+   * <p>Details about the analysis.</p>
+   * @public
+   */
+  AnalysisDetails?: AnalysisDetails | undefined;
+
+  /**
+   * <p>The configuration for the commitment purchase
+   *       analysis.</p>
+   * @public
+   */
+  CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfiguration | undefined;
 }
 
 /**
@@ -1983,24 +2550,6 @@ export type LookbackPeriodInDays = (typeof LookbackPeriodInDays)[keyof typeof Lo
  * @public
  * @enum
  */
-export const PaymentOption = {
-  ALL_UPFRONT: "ALL_UPFRONT",
-  HEAVY_UTILIZATION: "HEAVY_UTILIZATION",
-  LIGHT_UTILIZATION: "LIGHT_UTILIZATION",
-  MEDIUM_UTILIZATION: "MEDIUM_UTILIZATION",
-  NO_UPFRONT: "NO_UPFRONT",
-  PARTIAL_UPFRONT: "PARTIAL_UPFRONT",
-} as const;
-
-/**
- * @public
- */
-export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
-
-/**
- * @public
- * @enum
- */
 export const OfferingClass = {
   CONVERTIBLE: "CONVERTIBLE",
   STANDARD: "STANDARD",
@@ -2037,20 +2586,6 @@ export interface ServiceSpecification {
    */
   EC2Specification?: EC2Specification | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TermInYears = {
-  ONE_YEAR: "ONE_YEAR",
-  THREE_YEARS: "THREE_YEARS",
-} as const;
-
-/**
- * @public
- */
-export type TermInYears = (typeof TermInYears)[keyof typeof TermInYears];
 
 /**
  * <p>Information about a recommendation, such as the timestamp for when Amazon Web Services
@@ -3549,60 +4084,6 @@ export interface GetSavingsPlanPurchaseRecommendationDetailsRequest {
 }
 
 /**
- * <p>Contains the hourly metrics for the given recommendation over the lookback period.
- *         </p>
- * @public
- */
-export interface RecommendationDetailHourlyMetrics {
-  /**
-   * <p>The period of time that you want the usage and costs for.</p>
-   * @public
-   */
-  StartTime?: string | undefined;
-
-  /**
-   * <p>The remaining On-Demand cost estimated to not be covered by the recommended Savings
-   *             Plan, over the length of the lookback period.</p>
-   * @public
-   */
-  EstimatedOnDemandCost?: string | undefined;
-
-  /**
-   * <p>The current amount of Savings Plans eligible usage that the Savings Plan
-   *             covered.</p>
-   * @public
-   */
-  CurrentCoverage?: string | undefined;
-
-  /**
-   * <p>The estimated coverage amount based on the recommended Savings Plan.</p>
-   * @public
-   */
-  EstimatedCoverage?: string | undefined;
-
-  /**
-   * <p>The estimated utilization for the recommended Savings Plan.</p>
-   * @public
-   */
-  EstimatedNewCommitmentUtilization?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SupportedSavingsPlansType = {
-  COMPUTE_SP: "COMPUTE_SP",
-  EC2_INSTANCE_SP: "EC2_INSTANCE_SP",
-  SAGEMAKER_SP: "SAGEMAKER_SP",
-} as const;
-
-/**
- * @public
- */
-export type SupportedSavingsPlansType = (typeof SupportedSavingsPlansType)[keyof typeof SupportedSavingsPlansType];
-
-/**
  * <p>The details and metrics for the given recommendation.</p>
  * @public
  */
@@ -4552,6 +5033,56 @@ export class UnresolvableUsageUnitException extends __BaseException {
 /**
  * @public
  */
+export interface ListCommitmentPurchaseAnalysesRequest {
+  /**
+   * <p>The status of the analysis.</p>
+   * @public
+   */
+  AnalysisStatus?: AnalysisStatus | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of
+   *       results.</p>
+   * @public
+   */
+  NextPageToken?: string | undefined;
+
+  /**
+   * <p>The number of analyses that you want returned in a single response
+   *       object.</p>
+   * @public
+   */
+  PageSize?: number | undefined;
+
+  /**
+   * <p>The analysis IDs associated with the commitment purchase
+   *       analyses.</p>
+   * @public
+   */
+  AnalysisIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCommitmentPurchaseAnalysesResponse {
+  /**
+   * <p>The list of analyses.</p>
+   * @public
+   */
+  AnalysisSummaryList?: AnalysisSummary[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of
+   *       results.</p>
+   * @public
+   */
+  NextPageToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListCostAllocationTagBackfillHistoryRequest {
   /**
    * <p>
@@ -5036,6 +5567,65 @@ export interface ProvideAnomalyFeedbackResponse {
 }
 
 /**
+ * <p>A request to generate a recommendation is already in progress.</p>
+ * @public
+ */
+export class GenerationExistsException extends __BaseException {
+  readonly name: "GenerationExistsException" = "GenerationExistsException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GenerationExistsException, __BaseException>) {
+    super({
+      name: "GenerationExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GenerationExistsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartCommitmentPurchaseAnalysisRequest {
+  /**
+   * <p>The configuration for the commitment purchase
+   *       analysis.</p>
+   * @public
+   */
+  CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCommitmentPurchaseAnalysisResponse {
+  /**
+   * <p>The analysis ID that's associated with the commitment purchase
+   *       analysis.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>The start time of the analysis.</p>
+   * @public
+   */
+  AnalysisStartedTime: string | undefined;
+
+  /**
+   * <p>The estimated time for when the analysis will
+   *       complete.</p>
+   * @public
+   */
+  EstimatedCompletionTime: string | undefined;
+}
+
+/**
  * <p>
  *             A request to backfill is already in progress. Once the previous request is complete, you can create another request.
  *         </p>
@@ -5082,28 +5672,6 @@ export interface StartCostAllocationTagBackfillResponse {
    * @public
    */
   BackfillRequest?: CostAllocationTagBackfillRequest | undefined;
-}
-
-/**
- * <p>A request to generate a recommendation is already in progress.</p>
- * @public
- */
-export class GenerationExistsException extends __BaseException {
-  readonly name: "GenerationExistsException" = "GenerationExistsException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<GenerationExistsException, __BaseException>) {
-    super({
-      name: "GenerationExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, GenerationExistsException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -5852,7 +6420,7 @@ export interface CostCategoryRule {
    *             object used to categorize costs. This supports dimensions, tags, and nested expressions.
    *             Currently the only dimensions supported are <code>LINKED_ACCOUNT</code>,
    *
-   *             <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, <code>LINKED_ACCOUNT_NAME</code>, <code>REGION</code>, and <code>USAGE_TYPE</code>.</p>
+   *             <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, <code>LINKED_ACCOUNT_NAME</code>, <code>REGION</code>, <code>USAGE_TYPE</code>, and <code>BILLING_ENTITY</code>.</p>
    *          <p>
    *             <code>RECORD_TYPE</code> is a dimension used for Cost Explorer APIs, and is also
    *             supported for Cost Category expressions. This dimension uses different terms, depending
@@ -6490,9 +7058,9 @@ export interface GetDimensionValuesRequest {
    *             <li>
    *                <p>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
    *           values are the following:</p>
-   *                <p>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Servicesservices.</p>
+   *                <p>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services services.</p>
    *                <p>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
-   *           reseller for Amazon Web Servicesservices in India.</p>
+   *           reseller for Amazon Web Services services in India.</p>
    *                <p>- Amazon Web Services Marketplace: The entity that supports the sale of solutions that are built on
    *             Amazon Web Services by third-party software providers.</p>
    *             </li>
@@ -7313,6 +7881,13 @@ export interface GetReservationUtilizationRequest {
    *             </li>
    *             <li>
    *                <p>SERVICE</p>
+   *                <note>
+   *                   <p>If  not specified, the <code>SERVICE</code> filter defaults to Amazon Elastic
+   *             Compute Cloud - Compute. Supported values for <code>SERVICE</code> are Amazon Elastic
+   *             Compute Cloud - Compute, Amazon Relational Database Service, Amazon ElastiCache, Amazon
+   *             Redshift, and Amazon Elasticsearch Service. The value for the <code>SERVICE</code>
+   *             filter should not exceed "1".</p>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>SCOPE</p>
