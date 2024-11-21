@@ -10,7 +10,7 @@ import {
   SendCommandRequestFilterSensitiveLog,
   SendCommandResult,
   SendCommandResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_SendCommandCommand, se_SendCommandCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

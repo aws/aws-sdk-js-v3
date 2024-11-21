@@ -37,6 +37,7 @@ import {
   ResolvedTargets,
   ResourceDataSyncAwsOrganizationsSource,
   ResourceDataSyncS3Destination,
+  ResourceType,
   ResourceTypeForTagging,
   ReviewStatus,
   Runbook,
@@ -1039,7 +1040,7 @@ export interface ParameterMetadata {
   Name?: string | undefined;
 
   /**
-   * <p>The (ARN) of the last user to update the parameter.</p>
+   * <p>The Amazon Resource Name (ARN) of the parameter.</p>
    * @public
    */
   ARN?: string | undefined;
@@ -2948,6 +2949,191 @@ export interface GetDocumentResult {
 
 /**
  * @public
+ */
+export interface GetExecutionPreviewRequest {
+  /**
+   * <p>The ID of the existing execution preview.</p>
+   * @public
+   */
+  ExecutionPreviewId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ImpactType = {
+  MUTATING: "Mutating",
+  NON_MUTATING: "NonMutating",
+  UNDETERMINED: "Undetermined",
+} as const;
+
+/**
+ * @public
+ */
+export type ImpactType = (typeof ImpactType)[keyof typeof ImpactType];
+
+/**
+ * <p>Information about the resources that would be included in the actual runbook execution, if
+ *    it were to be run.</p>
+ * @public
+ */
+export interface TargetPreview {
+  /**
+   * <p>The number of resources of a certain type included in an execution preview.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>A type of resource that was included in the execution preview.</p>
+   * @public
+   */
+  TargetType?: string | undefined;
+}
+
+/**
+ * <p>Information about the results of the execution preview.</p>
+ * @public
+ */
+export interface AutomationExecutionPreview {
+  /**
+   * <p>Information about the type of impact a runbook step would have on a resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Mutating</code>: The runbook step would make changes to the targets through actions
+   *      that create, modify, or delete resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Non_Mutating</code>: The runbook step would retrieve data about resources but not
+   *      make changes to them. This category generally includes <code>Describe*</code>,
+   *       <code>List*</code>, <code>Get*</code>, and similar read-only API actions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Undetermined</code>: An undetermined step invokes executions performed by another
+   *      orchestration service like Lambda, Step Functions, or Amazon Web Services Systems Manager Run Command. An undetermined step might also call a third-party API. Systems Manager Automation doesn't know the outcome of the orchestration processes or
+   *      third-party API executions, so the results of the steps are undetermined.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StepPreviews?: Partial<Record<ImpactType, number>> | undefined;
+
+  /**
+   * <p>Information about the Amazon Web Services Regions targeted by the execution preview.</p>
+   * @public
+   */
+  Regions?: string[] | undefined;
+
+  /**
+   * <p>Information that provides a preview of what the impact of running the specified Automation
+   *    runbook would be.</p>
+   * @public
+   */
+  TargetPreviews?: TargetPreview[] | undefined;
+
+  /**
+   * <p>Information about the Amazon Web Services accounts that were included in the execution
+   *    preview.</p>
+   * @public
+   */
+  TotalAccounts?: number | undefined;
+}
+
+/**
+ * <p>Information about the changes that would be made if an execution were run.</p>
+ * @public
+ */
+export type ExecutionPreview = ExecutionPreview.AutomationMember | ExecutionPreview.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExecutionPreview {
+  /**
+   * <p>Information about the changes that would be made if an Automation workflow were run.</p>
+   * @public
+   */
+  export interface AutomationMember {
+    Automation: AutomationExecutionPreview;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Automation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Automation: (value: AutomationExecutionPreview) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ExecutionPreview, visitor: Visitor<T>): T => {
+    if (value.Automation !== undefined) return visitor.Automation(value.Automation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionPreviewStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  PENDING: "Pending",
+  SUCCESS: "Success",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionPreviewStatus = (typeof ExecutionPreviewStatus)[keyof typeof ExecutionPreviewStatus];
+
+/**
+ * @public
+ */
+export interface GetExecutionPreviewResponse {
+  /**
+   * <p>The generated ID for the existing execution preview.</p>
+   * @public
+   */
+  ExecutionPreviewId?: string | undefined;
+
+  /**
+   * <p>A UTC timestamp indicating when the execution preview operation ended.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+
+  /**
+   * <p>The current status of the execution preview operation.</p>
+   * @public
+   */
+  Status?: ExecutionPreviewStatus | undefined;
+
+  /**
+   * <p>Supplemental information about the current status of the execution preview.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Information about the changes that would be made if an execution were run.</p>
+   * @public
+   */
+  ExecutionPreview?: ExecutionPreview | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const InventoryQueryOperatorType = {
@@ -3105,9 +3291,8 @@ export interface GetInventoryResult {
 }
 
 /**
- * <p>The specified aggregator isn't valid for inventory groups. Verify that the aggregator uses a
- *    valid inventory type such as <code>AWS:Application</code> or
- *    <code>AWS:InstanceInformation</code>.</p>
+ * <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you
+ *    provided is supported.</p>
  * @public
  */
 export class InvalidAggregatorException extends __BaseException {
@@ -5234,7 +5419,7 @@ export interface GetServiceSettingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
+   *                   <code>/ssm/appmanager/appmanager-enabled</code>
    *                </p>
    *             </li>
    *             <li>
@@ -5248,6 +5433,9 @@ export interface GetServiceSettingRequest {
    *                </p>
    *             </li>
    *             <li>
+   *                <p>/ssm/automation/enable-adaptive-concurrency</p>
+   *             </li>
+   *             <li>
    *                <p>
    *                   <code>/ssm/documents/console/public-sharing-permission</code>
    *                </p>
@@ -5255,6 +5443,11 @@ export interface GetServiceSettingRequest {
    *             <li>
    *                <p>
    *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
    *                </p>
    *             </li>
    *             <li>
@@ -7881,6 +8074,395 @@ export interface ListInventoryEntriesResult {
  * @public
  * @enum
  */
+export const NodeFilterKey = {
+  ACCOUNT_ID: "AccountId",
+  AGENT_TYPE: "AgentType",
+  AGENT_VERSION: "AgentVersion",
+  COMPUTER_NAME: "ComputerName",
+  INSTANCE_ID: "InstanceId",
+  INSTANCE_STATUS: "InstanceStatus",
+  IP_ADDRESS: "IpAddress",
+  MANAGED_STATUS: "ManagedStatus",
+  ORGANIZATIONAL_UNIT_ID: "OrganizationalUnitId",
+  ORGANIZATIONAL_UNIT_PATH: "OrganizationalUnitPath",
+  PLATFORM_NAME: "PlatformName",
+  PLATFORM_TYPE: "PlatformType",
+  PLATFORM_VERSION: "PlatformVersion",
+  REGION: "Region",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeFilterKey = (typeof NodeFilterKey)[keyof typeof NodeFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeFilterOperatorType = {
+  BEGIN_WITH: "BeginWith",
+  EQUAL: "Equal",
+  NOT_EQUAL: "NotEqual",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeFilterOperatorType = (typeof NodeFilterOperatorType)[keyof typeof NodeFilterOperatorType];
+
+/**
+ * <p>The filters for the operation.</p>
+ * @public
+ */
+export interface NodeFilter {
+  /**
+   * <p>The name of the filter.</p>
+   * @public
+   */
+  Key: NodeFilterKey | undefined;
+
+  /**
+   * <p>A filter value supported by the specified key. For example, for the key
+   *     <code>PlatformType</code>, supported values include <code>Linux</code> and
+   *    <code>Windows</code>.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>The type of filter operator.</p>
+   * @public
+   */
+  Type?: NodeFilterOperatorType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNodesRequest {
+  /**
+   * <p>The name of the resource data sync to retrieve information about. Required for
+   *    cross-account/cross-Region configurations. Optional for single account/single-Region
+   *    configurations.</p>
+   * @public
+   */
+  SyncName?: string | undefined;
+
+  /**
+   * <p>One or more filters. Use a filter to return a more specific list of managed nodes.</p>
+   * @public
+   */
+  Filters?: NodeFilter[] | undefined;
+
+  /**
+   * <p>The token for the next set of items to return. (You received this token from a previous
+   *    call.)</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this call. The call also returns a token that you
+   *    can specify in a subsequent call to get the next set of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedStatus = {
+  ALL: "All",
+  MANAGED: "Managed",
+  UNMANAGED: "Unmanaged",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagedStatus = (typeof ManagedStatus)[keyof typeof ManagedStatus];
+
+/**
+ * <p>Details about a specific managed node.</p>
+ * @public
+ */
+export interface InstanceInfo {
+  /**
+   * <p>The type of agent installed on the node.</p>
+   * @public
+   */
+  AgentType?: string | undefined;
+
+  /**
+   * <p>The version number of the agent installed on the node.</p>
+   * @public
+   */
+  AgentVersion?: string | undefined;
+
+  /**
+   * <p>The fully qualified host name of the managed node.</p>
+   * @public
+   */
+  ComputerName?: string | undefined;
+
+  /**
+   * <p>The current status of the managed node.</p>
+   * @public
+   */
+  InstanceStatus?: string | undefined;
+
+  /**
+   * <p>The IP address of the managed node.</p>
+   * @public
+   */
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>Indicates whether the node is managed by Systems Manager.</p>
+   * @public
+   */
+  ManagedStatus?: ManagedStatus | undefined;
+
+  /**
+   * <p>The operating system platform type of the managed node.</p>
+   * @public
+   */
+  PlatformType?: PlatformType | undefined;
+
+  /**
+   * <p>The name of the operating system platform running on your managed node.</p>
+   * @public
+   */
+  PlatformName?: string | undefined;
+
+  /**
+   * <p>The version of the OS platform running on your managed node. </p>
+   * @public
+   */
+  PlatformVersion?: string | undefined;
+
+  /**
+   * <p>The type of instance, either an EC2 instance or another supported machine type in a hybrid
+   *    fleet.</p>
+   * @public
+   */
+  ResourceType?: ResourceType | undefined;
+}
+
+/**
+ * <p>Information about a managed node's type.</p>
+ * @public
+ */
+export type NodeType = NodeType.InstanceMember | NodeType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace NodeType {
+  /**
+   * <p>Information about a specific managed node.</p>
+   * @public
+   */
+  export interface InstanceMember {
+    Instance: InstanceInfo;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Instance?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Instance: (value: InstanceInfo) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: NodeType, visitor: Visitor<T>): T => {
+    if (value.Instance !== undefined) return visitor.Instance(value.Instance);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Information about ownership of a managed node.</p>
+ * @public
+ */
+export interface NodeOwnerInfo {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the managed node.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The ID of the organization unit (OU) that the account is part of.</p>
+   * @public
+   */
+  OrganizationalUnitId?: string | undefined;
+
+  /**
+   * <p>The path for the organizational unit (OU) that owns the managed node. The path for the OU is
+   *    built using the IDs of the organization, root, and all OUs in the path down to and including the
+   *    OU. For example:</p>
+   *          <p>
+   *             <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/ou-jkl0-awsddddd/</code>
+   *          </p>
+   * @public
+   */
+  OrganizationalUnitPath?: string | undefined;
+}
+
+/**
+ * <p>Details about an individual managed node.</p>
+ * @public
+ */
+export interface Node {
+  /**
+   * <p>The UTC timestamp for when the managed node data was last captured.</p>
+   * @public
+   */
+  CaptureTime?: Date | undefined;
+
+  /**
+   * <p>The ID of the managed node.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>Information about the ownership of the managed node.</p>
+   * @public
+   */
+  Owner?: NodeOwnerInfo | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that a managed node was created in or assigned to.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>Information about the type of node.</p>
+   * @public
+   */
+  NodeType?: NodeType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListNodesResult {
+  /**
+   * <p>A list of managed nodes that match the specified filter criteria.</p>
+   * @public
+   */
+  Nodes?: Node[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>This operation is not supported for the current account. You must first enable the Systems Manager integrated experience in your account.</p>
+ * @public
+ */
+export class UnsupportedOperationException extends __BaseException {
+  readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnsupportedOperationException, __BaseException>) {
+    super({
+      name: "UnsupportedOperationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeAggregatorType = {
+  COUNT: "Count",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeAggregatorType = (typeof NodeAggregatorType)[keyof typeof NodeAggregatorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeAttributeName = {
+  AGENT_VERSION: "AgentVersion",
+  PLATFORM_NAME: "PlatformName",
+  PLATFORM_TYPE: "PlatformType",
+  PLATFORM_VERSION: "PlatformVersion",
+  REGION: "Region",
+  RESOURCE_TYPE: "ResourceType",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeAttributeName = (typeof NodeAttributeName)[keyof typeof NodeAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const NodeTypeName = {
+  INSTANCE: "Instance",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeTypeName = (typeof NodeTypeName)[keyof typeof NodeTypeName];
+
+/**
+ * @public
+ */
+export interface ListNodesSummaryResult {
+  /**
+   * <p>A collection of objects reporting information about your managed nodes, such as the count of
+   *    nodes by operating system.</p>
+   * @public
+   */
+  Summary?: Record<string, string>[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *    return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const OpsItemEventFilterKey = {
   OPSITEM_ID: "OpsItemId",
 } as const;
@@ -10215,7 +10797,7 @@ export interface ResetServiceSettingRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
+   *                   <code>/ssm/appmanager/appmanager-enabled</code>
    *                </p>
    *             </li>
    *             <li>
@@ -10229,6 +10811,9 @@ export interface ResetServiceSettingRequest {
    *                </p>
    *             </li>
    *             <li>
+   *                <p>/ssm/automation/enable-adaptive-concurrency</p>
+   *             </li>
+   *             <li>
    *                <p>
    *                   <code>/ssm/documents/console/public-sharing-permission</code>
    *                </p>
@@ -10236,6 +10821,11 @@ export interface ResetServiceSettingRequest {
    *             <li>
    *                <p>
    *                   <code>/ssm/managed-instance/activation-tier</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
    *                </p>
    *             </li>
    *             <li>
@@ -10257,689 +10847,6 @@ export interface ResetServiceSettingRequest {
    * @public
    */
   SettingId: string | undefined;
-}
-
-/**
- * <p>The result body of the ResetServiceSetting API operation.</p>
- * @public
- */
-export interface ResetServiceSettingResult {
-  /**
-   * <p>The current, effective service setting after calling the ResetServiceSetting API
-   *    operation.</p>
-   * @public
-   */
-  ServiceSetting?: ServiceSetting | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeSessionRequest {
-  /**
-   * <p>The ID of the disconnected session to resume.</p>
-   * @public
-   */
-  SessionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeSessionResponse {
-  /**
-   * <p>The ID of the session.</p>
-   * @public
-   */
-  SessionId?: string | undefined;
-
-  /**
-   * <p>An encrypted token value containing session and caller information. Used to authenticate the
-   *    connection to the managed node.</p>
-   * @public
-   */
-  TokenValue?: string | undefined;
-
-  /**
-   * <p>A URL back to SSM Agent on the managed node that the Session Manager client uses to send commands and
-   *    receive output from the managed node. Format: <code>wss://ssmmessages.<b>region</b>.amazonaws.com/v1/data-channel/<b>session-id</b>?stream=(input|output)</code>.</p>
-   *          <p>
-   *             <b>region</b> represents the Region identifier for an
-   * 						Amazon Web Services Region supported by Amazon Web Services Systems Manager, such as <code>us-east-2</code> for the US East (Ohio) Region.
-   * 						For a list of supported <b>region</b> values, see the <b>Region</b> column in <a href="https://docs.aws.amazon.com/general/latest/gr/ssm.html#ssm_region">Systems Manager service endpoints</a> in the
-   *         <i>Amazon Web Services General Reference</i>.</p>
-   *          <p>
-   *             <b>session-id</b> represents the ID of a Session Manager session, such as
-   *     <code>1a2b3c4dEXAMPLE</code>.</p>
-   * @public
-   */
-  StreamUrl?: string | undefined;
-}
-
-/**
- * <p>The specified step name and execution ID don't exist. Verify the information and try
- *    again.</p>
- * @public
- */
-export class AutomationStepNotFoundException extends __BaseException {
-  readonly name: "AutomationStepNotFoundException" = "AutomationStepNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AutomationStepNotFoundException, __BaseException>) {
-    super({
-      name: "AutomationStepNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AutomationStepNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The signal isn't valid for the current Automation execution.</p>
- * @public
- */
-export class InvalidAutomationSignalException extends __BaseException {
-  readonly name: "InvalidAutomationSignalException" = "InvalidAutomationSignalException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAutomationSignalException, __BaseException>) {
-    super({
-      name: "InvalidAutomationSignalException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAutomationSignalException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const SignalType = {
-  APPROVE: "Approve",
-  REJECT: "Reject",
-  RESUME: "Resume",
-  START_STEP: "StartStep",
-  STOP_STEP: "StopStep",
-} as const;
-
-/**
- * @public
- */
-export type SignalType = (typeof SignalType)[keyof typeof SignalType];
-
-/**
- * @public
- */
-export interface SendAutomationSignalRequest {
-  /**
-   * <p>The unique identifier for an existing Automation execution that you want to send the signal
-   *    to.</p>
-   * @public
-   */
-  AutomationExecutionId: string | undefined;
-
-  /**
-   * <p>The type of signal to send to an Automation execution. </p>
-   * @public
-   */
-  SignalType: SignalType | undefined;
-
-  /**
-   * <p>The data sent with the signal. The data schema depends on the type of signal used in the
-   *    request.</p>
-   *          <p>For <code>Approve</code> and <code>Reject</code> signal types, the payload is an optional
-   *    comment that you can send with the signal type. For example:</p>
-   *          <p>
-   *             <code>Comment="Looks good"</code>
-   *          </p>
-   *          <p>For <code>StartStep</code> and <code>Resume</code> signal types, you must send the name of
-   *    the Automation step to start or resume as the payload. For example:</p>
-   *          <p>
-   *             <code>StepName="step1"</code>
-   *          </p>
-   *          <p>For the <code>StopStep</code> signal type, you must send the step execution ID as the
-   *    payload. For example:</p>
-   *          <p>
-   *             <code>StepExecutionId="97fff367-fc5a-4299-aed8-0123456789ab"</code>
-   *          </p>
-   * @public
-   */
-  Payload?: Record<string, string[]> | undefined;
-}
-
-/**
- * @public
- */
-export interface SendAutomationSignalResult {}
-
-/**
- * <p>One or more configuration items isn't valid. Verify that a valid Amazon Resource Name (ARN)
- *    was provided for an Amazon Simple Notification Service topic.</p>
- * @public
- */
-export class InvalidNotificationConfig extends __BaseException {
-  readonly name: "InvalidNotificationConfig" = "InvalidNotificationConfig";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNotificationConfig, __BaseException>) {
-    super({
-      name: "InvalidNotificationConfig",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNotificationConfig.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The S3 bucket doesn't exist.</p>
- * @public
- */
-export class InvalidOutputFolder extends __BaseException {
-  readonly name: "InvalidOutputFolder" = "InvalidOutputFolder";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidOutputFolder, __BaseException>) {
-    super({
-      name: "InvalidOutputFolder",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidOutputFolder.prototype);
-  }
-}
-
-/**
- * <p>The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about
- *    configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in
- *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
- * @public
- */
-export class InvalidRole extends __BaseException {
-  readonly name: "InvalidRole" = "InvalidRole";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRole, __BaseException>) {
-    super({
-      name: "InvalidRole",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRole.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface SendCommandRequest {
-  /**
-   * <p>The IDs of the managed nodes where the command should run. Specifying managed node IDs is
-   *    most useful when you are targeting a limited number of managed nodes, though you can specify up
-   *    to 50 IDs.</p>
-   *          <p>To target a larger number of managed nodes, or if you prefer not to list individual node
-   *    IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
-   *    which accepts tag key-value pairs to identify the managed nodes to send commands to, you can a
-   *    send command to tens, hundreds, or thousands of nodes at once.</p>
-   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run commands at scale</a>
-   *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  InstanceIds?: string[] | undefined;
-
-  /**
-   * <p>An array of search criteria that targets managed nodes using a <code>Key,Value</code>
-   *    combination that you specify. Specifying targets is most useful when you want to send a command
-   *    to a large number of managed nodes at once. Using <code>Targets</code>, which accepts tag
-   *    key-value pairs to identify managed nodes, you can send a command to tens, hundreds, or thousands
-   *    of nodes at once.</p>
-   *          <p>To send a command to a smaller number of managed nodes, you can use the
-   *     <code>InstanceIds</code> option instead.</p>
-   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run commands at scale</a>
-   *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  Targets?: Target[] | undefined;
-
-  /**
-   * <p>The name of the Amazon Web Services Systems Manager document (SSM document) to run. This can be a public document or a
-   *    custom document. To run a shared document belonging to another account, specify the document
-   *    Amazon Resource Name (ARN). For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Sharing SSM
-   *     documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   *          <note>
-   *             <p>If you specify a document name or ARN that hasn't been shared with your account, you
-   *     receive an <code>InvalidDocument</code> error. </p>
-   *          </note>
-   * @public
-   */
-  DocumentName: string | undefined;
-
-  /**
-   * <p>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST, or a
-   *    specific version number. If you run commands by using the Command Line Interface (Amazon Web Services CLI), then
-   *    you must escape the first two options by using a backslash. If you specify a version number, then
-   *    you don't need to use the backslash. For example:</p>
-   *          <p>--document-version "\$DEFAULT"</p>
-   *          <p>--document-version "\$LATEST"</p>
-   *          <p>--document-version "3"</p>
-   * @public
-   */
-  DocumentVersion?: string | undefined;
-
-  /**
-   * <p>The Sha256 or Sha1 hash created by the system when the document was created. </p>
-   *          <note>
-   *             <p>Sha1 hashes have been deprecated.</p>
-   *          </note>
-   * @public
-   */
-  DocumentHash?: string | undefined;
-
-  /**
-   * <p>Sha256 or Sha1.</p>
-   *          <note>
-   *             <p>Sha1 hashes have been deprecated.</p>
-   *          </note>
-   * @public
-   */
-  DocumentHashType?: DocumentHashType | undefined;
-
-  /**
-   * <p>If this time is reached and the command hasn't already started running, it won't run.</p>
-   * @public
-   */
-  TimeoutSeconds?: number | undefined;
-
-  /**
-   * <p>User-specified information about the command, such as a brief description of what the
-   *    command should do.</p>
-   * @public
-   */
-  Comment?: string | undefined;
-
-  /**
-   * <p>The required and optional parameters specified in the document being run.</p>
-   * @public
-   */
-  Parameters?: Record<string, string[]> | undefined;
-
-  /**
-   * <p>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager
-   *    automatically determines the Amazon Web Services Region of the S3 bucket.</p>
-   * @public
-   */
-  OutputS3Region?: string | undefined;
-
-  /**
-   * <p>The name of the S3 bucket where command execution responses should be stored.</p>
-   * @public
-   */
-  OutputS3BucketName?: string | undefined;
-
-  /**
-   * <p>The directory structure within the S3 bucket where the responses should be stored.</p>
-   * @public
-   */
-  OutputS3KeyPrefix?: string | undefined;
-
-  /**
-   * <p>(Optional) The maximum number of managed nodes that are allowed to run the command at the
-   *    same time. You can specify a number such as 10 or a percentage such as 10%. The default value is
-   *     <code>50</code>. For more information about how to use <code>MaxConcurrency</code>, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
-   *     concurrency controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  MaxConcurrency?: string | undefined;
-
-  /**
-   * <p>The maximum number of errors allowed without the command failing. When the command fails one
-   *    more time beyond the value of <code>MaxErrors</code>, the systems stops sending the command to
-   *    additional targets. You can specify a number like 10 or a percentage like 10%. The default value
-   *    is <code>0</code>. For more information about how to use <code>MaxErrors</code>, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-maxerrors">Using
-   *     error controls</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  MaxErrors?: string | undefined;
-
-  /**
-   * <p>The ARN of the Identity and Access Management (IAM) service role to use to publish
-   *     Amazon Simple Notification Service (Amazon SNS) notifications for Run Command commands.</p>
-   *          <p>This role must provide the <code>sns:Publish</code> permission for your notification topic.
-   *    For information about creating and using this service role, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  ServiceRoleArn?: string | undefined;
-
-  /**
-   * <p>Configurations for sending notifications.</p>
-   * @public
-   */
-  NotificationConfig?: NotificationConfig | undefined;
-
-  /**
-   * <p>Enables Amazon Web Services Systems Manager to send Run Command output to Amazon CloudWatch Logs. Run Command is a
-   *    capability of Amazon Web Services Systems Manager.</p>
-   * @public
-   */
-  CloudWatchOutputConfig?: CloudWatchOutputConfig | undefined;
-
-  /**
-   * <p>The CloudWatch alarm you want to apply to your command.</p>
-   * @public
-   */
-  AlarmConfiguration?: AlarmConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface SendCommandResult {
-  /**
-   * <p>The request as it was received by Systems Manager. Also provides the command ID which can be used
-   *    future references to this request.</p>
-   * @public
-   */
-  Command?: Command | undefined;
-}
-
-/**
- * <p>The association isn't valid or doesn't exist. </p>
- * @public
- */
-export class InvalidAssociation extends __BaseException {
-  readonly name: "InvalidAssociation" = "InvalidAssociation";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAssociation, __BaseException>) {
-    super({
-      name: "InvalidAssociation",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAssociation.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface StartAssociationsOnceRequest {
-  /**
-   * <p>The association IDs that you want to run immediately and only one time.</p>
-   * @public
-   */
-  AssociationIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAssociationsOnceResult {}
-
-/**
- * <p>An Automation runbook with the specified name couldn't be found.</p>
- * @public
- */
-export class AutomationDefinitionNotFoundException extends __BaseException {
-  readonly name: "AutomationDefinitionNotFoundException" = "AutomationDefinitionNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AutomationDefinitionNotFoundException, __BaseException>) {
-    super({
-      name: "AutomationDefinitionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AutomationDefinitionNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An Automation runbook with the specified name and version couldn't be found.</p>
- * @public
- */
-export class AutomationDefinitionVersionNotFoundException extends __BaseException {
-  readonly name: "AutomationDefinitionVersionNotFoundException" = "AutomationDefinitionVersionNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AutomationDefinitionVersionNotFoundException, __BaseException>) {
-    super({
-      name: "AutomationDefinitionVersionNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AutomationDefinitionVersionNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of simultaneously running Automation executions exceeded the allowable
- *    limit.</p>
- * @public
- */
-export class AutomationExecutionLimitExceededException extends __BaseException {
-  readonly name: "AutomationExecutionLimitExceededException" = "AutomationExecutionLimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<AutomationExecutionLimitExceededException, __BaseException>) {
-    super({
-      name: "AutomationExecutionLimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, AutomationExecutionLimitExceededException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The supplied parameters for invoking the specified Automation runbook are incorrect. For
- *    example, they may not match the set of parameters permitted for the specified Automation
- *    document.</p>
- * @public
- */
-export class InvalidAutomationExecutionParametersException extends __BaseException {
-  readonly name: "InvalidAutomationExecutionParametersException" = "InvalidAutomationExecutionParametersException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidAutomationExecutionParametersException, __BaseException>) {
-    super({
-      name: "InvalidAutomationExecutionParametersException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidAutomationExecutionParametersException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface StartAutomationExecutionRequest {
-  /**
-   * <p>The name of the SSM document to run. This can be a public document or a custom document. To
-   *    run a shared document belonging to another account, specify the document ARN. For more
-   *    information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html">Sharing SSM documents</a>
-   *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
-   * @public
-   */
-  DocumentName: string | undefined;
-
-  /**
-   * <p>The version of the Automation runbook to use for this execution.</p>
-   * @public
-   */
-  DocumentVersion?: string | undefined;
-
-  /**
-   * <p>A key-value map of execution parameters, which match the declared parameters in the
-   *    Automation runbook.</p>
-   * @public
-   */
-  Parameters?: Record<string, string[]> | undefined;
-
-  /**
-   * <p>User-provided idempotency token. The token must be unique, is case insensitive, enforces the
-   *    UUID format, and can't be reused.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The execution mode of the automation. Valid modes include the following: Auto and
-   *    Interactive. The default mode is Auto.</p>
-   * @public
-   */
-  Mode?: ExecutionMode | undefined;
-
-  /**
-   * <p>The name of the parameter used as the target resource for the rate-controlled execution.
-   *    Required if you specify targets.</p>
-   * @public
-   */
-  TargetParameterName?: string | undefined;
-
-  /**
-   * <p>A key-value mapping to target resources. Required if you specify TargetParameterName.</p>
-   *          <p>If both this parameter and the <code>TargetLocation:Targets</code> parameter are supplied,
-   *     <code>TargetLocation:Targets</code> takes precedence.</p>
-   * @public
-   */
-  Targets?: Target[] | undefined;
-
-  /**
-   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
-   *    can't be specified together.</p>
-   * @public
-   */
-  TargetMaps?: Record<string, string[]>[] | undefined;
-
-  /**
-   * <p>The maximum number of targets allowed to run this task in parallel. You can specify a
-   *    number, such as 10, or a percentage, such as 10%. The default value is <code>10</code>.</p>
-   *          <p>If both this parameter and the <code>TargetLocation:TargetsMaxConcurrency</code> are
-   *    supplied, <code>TargetLocation:TargetsMaxConcurrency</code> takes precedence.</p>
-   * @public
-   */
-  MaxConcurrency?: string | undefined;
-
-  /**
-   * <p>The number of errors that are allowed before the system stops running the automation on
-   *    additional targets. You can specify either an absolute number of errors, for example 10, or a
-   *    percentage of the target set, for example 10%. If you specify 3, for example, the system stops
-   *    running the automation when the fourth error is received. If you specify 0, then the system stops
-   *    running the automation on additional targets after the first error result is returned. If you run
-   *    an automation on 50 resources and set max-errors to 10%, then the system stops running the
-   *    automation on additional targets when the sixth error is received.</p>
-   *          <p>Executions that are already running an automation when max-errors is reached are allowed to
-   *    complete, but some of these executions may fail as well. If you need to ensure that there won't
-   *    be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one
-   *    at a time.</p>
-   *          <p>If this parameter and the <code>TargetLocation:TargetsMaxErrors</code> parameter are both
-   *    supplied, <code>TargetLocation:TargetsMaxErrors</code> takes precedence.</p>
-   * @public
-   */
-  MaxErrors?: string | undefined;
-
-  /**
-   * <p>A location is a combination of Amazon Web Services Regions and/or Amazon Web Services accounts where you want to run the
-   *    automation. Use this operation to start an automation in multiple Amazon Web Services Regions and multiple
-   *    Amazon Web Services accounts. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Running automations in multiple Amazon Web Services Regions and accounts</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
-   * @public
-   */
-  TargetLocations?: TargetLocation[] | undefined;
-
-  /**
-   * <p>Optional metadata that you assign to a resource. You can specify a maximum of five tags for
-   *    an automation. Tags enable you to categorize a resource in different ways, such as by purpose,
-   *    owner, or environment. For example, you might want to tag an automation to identify an
-   *    environment or operating system. In this case, you could specify the following key-value
-   *    pairs:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Key=environment,Value=test</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Key=OS,Value=Windows</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>To add tags to an existing automation, use the <a>AddTagsToResource</a>
-   *     operation.</p>
-   *          </note>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The CloudWatch alarm you want to apply to your automation.</p>
-   * @public
-   */
-  AlarmConfiguration?: AlarmConfiguration | undefined;
-
-  /**
-   * <p>Specify a publicly accessible URL for a file that contains the <code>TargetLocations</code>
-   *    body. Currently, only files in presigned Amazon S3 buckets are supported. </p>
-   * @public
-   */
-  TargetLocationsURL?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAutomationExecutionResult {
-  /**
-   * <p>The unique ID of a newly scheduled automation execution.</p>
-   * @public
-   */
-  AutomationExecutionId?: string | undefined;
 }
 
 /**
@@ -11183,6 +11090,38 @@ export const ListCommandsResultFilterSensitiveLog = (obj: ListCommandsResult): a
 /**
  * @internal
  */
+export const InstanceInfoFilterSensitiveLog = (obj: InstanceInfo): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NodeTypeFilterSensitiveLog = (obj: NodeType): any => {
+  if (obj.Instance !== undefined) return { Instance: InstanceInfoFilterSensitiveLog(obj.Instance) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const NodeFilterSensitiveLog = (obj: Node): any => ({
+  ...obj,
+  ...(obj.NodeType && { NodeType: NodeTypeFilterSensitiveLog(obj.NodeType) }),
+});
+
+/**
+ * @internal
+ */
+export const ListNodesResultFilterSensitiveLog = (obj: ListNodesResult): any => ({
+  ...obj,
+  ...(obj.Nodes && { Nodes: obj.Nodes.map((item) => NodeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const PutParameterRequestFilterSensitiveLog = (obj: PutParameterRequest): any => ({
   ...obj,
   ...(obj.Value && { Value: SENSITIVE_STRING }),
@@ -11211,20 +11150,4 @@ export const RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog = (
     TaskInvocationParameters: MaintenanceWindowTaskInvocationParametersFilterSensitiveLog(obj.TaskInvocationParameters),
   }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SendCommandRequestFilterSensitiveLog = (obj: SendCommandRequest): any => ({
-  ...obj,
-  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SendCommandResultFilterSensitiveLog = (obj: SendCommandResult): any => ({
-  ...obj,
-  ...(obj.Command && { Command: CommandFilterSensitiveLog(obj.Command) }),
 });

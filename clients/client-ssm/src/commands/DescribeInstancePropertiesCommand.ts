@@ -114,7 +114,7 @@ export interface DescribeInstancePropertiesCommandOutput extends DescribeInstanc
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link InvalidActivationId} (client fault)
- *  <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
+ *  <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or
  *    ActivationCode and try again.</p>
  *
  * @throws {@link InvalidDocument} (client fault)

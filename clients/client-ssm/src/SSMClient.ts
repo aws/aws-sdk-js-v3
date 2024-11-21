@@ -270,6 +270,10 @@ import {
   GetDeployablePatchSnapshotForInstanceCommandOutput,
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
 import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
+import {
+  GetExecutionPreviewCommandInput,
+  GetExecutionPreviewCommandOutput,
+} from "./commands/GetExecutionPreviewCommand";
 import { GetInventoryCommandInput, GetInventoryCommandOutput } from "./commands/GetInventoryCommand";
 import { GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput } from "./commands/GetInventorySchemaCommand";
 import {
@@ -350,6 +354,8 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { ListNodesSummaryCommandInput, ListNodesSummaryCommandOutput } from "./commands/ListNodesSummaryCommand";
 import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "./commands/ListOpsItemEventsCommand";
 import {
   ListOpsItemRelatedItemsCommandInput,
@@ -418,6 +424,10 @@ import {
   StartChangeRequestExecutionCommandInput,
   StartChangeRequestExecutionCommandOutput,
 } from "./commands/StartChangeRequestExecutionCommand";
+import {
+  StartExecutionPreviewCommandInput,
+  StartExecutionPreviewCommandOutput,
+} from "./commands/StartExecutionPreviewCommand";
 import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
 import {
   StopAutomationExecutionCommandInput,
@@ -557,6 +567,7 @@ export type ServiceInputTypes =
   | GetDefaultPatchBaselineCommandInput
   | GetDeployablePatchSnapshotForInstanceCommandInput
   | GetDocumentCommandInput
+  | GetExecutionPreviewCommandInput
   | GetInventoryCommandInput
   | GetInventorySchemaCommandInput
   | GetMaintenanceWindowCommandInput
@@ -586,6 +597,8 @@ export type ServiceInputTypes =
   | ListDocumentVersionsCommandInput
   | ListDocumentsCommandInput
   | ListInventoryEntriesCommandInput
+  | ListNodesCommandInput
+  | ListNodesSummaryCommandInput
   | ListOpsItemEventsCommandInput
   | ListOpsItemRelatedItemsCommandInput
   | ListOpsMetadataCommandInput
@@ -609,6 +622,7 @@ export type ServiceInputTypes =
   | StartAssociationsOnceCommandInput
   | StartAutomationExecutionCommandInput
   | StartChangeRequestExecutionCommandInput
+  | StartExecutionPreviewCommandInput
   | StartSessionCommandInput
   | StopAutomationExecutionCommandInput
   | TerminateSessionCommandInput
@@ -702,6 +716,7 @@ export type ServiceOutputTypes =
   | GetDefaultPatchBaselineCommandOutput
   | GetDeployablePatchSnapshotForInstanceCommandOutput
   | GetDocumentCommandOutput
+  | GetExecutionPreviewCommandOutput
   | GetInventoryCommandOutput
   | GetInventorySchemaCommandOutput
   | GetMaintenanceWindowCommandOutput
@@ -731,6 +746,8 @@ export type ServiceOutputTypes =
   | ListDocumentVersionsCommandOutput
   | ListDocumentsCommandOutput
   | ListInventoryEntriesCommandOutput
+  | ListNodesCommandOutput
+  | ListNodesSummaryCommandOutput
   | ListOpsItemEventsCommandOutput
   | ListOpsItemRelatedItemsCommandOutput
   | ListOpsMetadataCommandOutput
@@ -754,6 +771,7 @@ export type ServiceOutputTypes =
   | StartAssociationsOnceCommandOutput
   | StartAutomationExecutionCommandOutput
   | StartChangeRequestExecutionCommandOutput
+  | StartExecutionPreviewCommandOutput
   | StartSessionCommandOutput
   | StopAutomationExecutionCommandOutput
   | TerminateSessionCommandOutput

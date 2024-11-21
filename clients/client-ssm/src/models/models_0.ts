@@ -3859,6 +3859,10 @@ export interface CreatePatchBaselineRequest {
 
   /**
    * <p>A set of global filters used to include patches in the baseline.</p>
+   *          <important>
+   *             <p>The <code>GlobalFilters</code> parameter can be configured only by using the CLI or an Amazon Web Services SDK. It can't be configured from the Patch Manager
+   *     console, and its value isn't displayed in the console.</p>
+   *          </important>
    * @public
    */
   GlobalFilters?: PatchFilterGroup | undefined;
@@ -4286,7 +4290,7 @@ export class InvalidActivation extends __BaseException {
 }
 
 /**
- * <p>The activation ID isn't valid. Verify the you entered the correct ActivationId or
+ * <p>The activation ID isn't valid. Verify that you entered the correct ActivationId or
  *    ActivationCode and try again.</p>
  * @public
  */
@@ -5281,7 +5285,7 @@ export interface DescribeActivationsResult {
 }
 
 /**
- * <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ * <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
  * @public
  */
 export class InvalidFilter extends __BaseException {
@@ -7740,7 +7744,7 @@ export interface InstanceInformation {
   IsLatestVersion?: boolean | undefined;
 
   /**
-   * <p>The operating system platform type. </p>
+   * <p>The operating system platform type.</p>
    * @public
    */
   PlatformType?: PlatformType | undefined;
@@ -8713,7 +8717,8 @@ export interface InstanceProperty {
   AgentVersion?: string | undefined;
 
   /**
-   * <p>The operating system platform type of the managed node. For example, Windows.</p>
+   * <p>The operating system platform type of the managed node. For example, Windows Server or
+   *     Amazon Linux 2.</p>
    * @public
    */
   PlatformType?: PlatformType | undefined;

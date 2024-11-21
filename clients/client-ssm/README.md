@@ -58,16 +58,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SSMClient` and
-the commands you need, for example `ListAssociationsCommand`:
+the commands you need, for example `ListNodesCommand`:
 
 ```js
 // ES5 example
-const { SSMClient, ListAssociationsCommand } = require("@aws-sdk/client-ssm");
+const { SSMClient, ListNodesCommand } = require("@aws-sdk/client-ssm");
 ```
 
 ```ts
 // ES6+ example
-import { SSMClient, ListAssociationsCommand } from "@aws-sdk/client-ssm";
+import { SSMClient, ListNodesCommand } from "@aws-sdk/client-ssm";
 ```
 
 ### Usage
@@ -86,7 +86,7 @@ const client = new SSMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListAssociationsCommand(params);
+const command = new ListNodesCommand(params);
 ```
 
 #### Async/await
@@ -165,7 +165,7 @@ const client = new AWS.SSM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listAssociations(params);
+  const data = await client.listNodes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -173,7 +173,7 @@ try {
 
 // Promises.
 client
-  .listAssociations(params)
+  .listNodes(params)
   .then((data) => {
     // process data.
   })
@@ -182,7 +182,7 @@ client
   });
 
 // callbacks.
-client.listAssociations(params, (err, data) => {
+client.listNodes(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -800,6 +800,14 @@ GetDocument
 </details>
 <details>
 <summary>
+GetExecutionPreview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/GetExecutionPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/GetExecutionPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/GetExecutionPreviewCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInventory
 </summary>
 
@@ -1032,6 +1040,22 @@ ListInventoryEntries
 </details>
 <details>
 <summary>
+ListNodes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListNodesSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListNodesSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListNodesSummaryCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListOpsItemEvents
 </summary>
 
@@ -1212,6 +1236,14 @@ StartChangeRequestExecution
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/StartChangeRequestExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartChangeRequestExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartChangeRequestExecutionCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartExecutionPreview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/StartExecutionPreviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartExecutionPreviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/StartExecutionPreviewCommandOutput/)
 
 </details>
 <details>

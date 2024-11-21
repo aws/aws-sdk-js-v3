@@ -349,6 +349,11 @@ import {
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
 import { GetDocumentCommand, GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
 import {
+  GetExecutionPreviewCommand,
+  GetExecutionPreviewCommandInput,
+  GetExecutionPreviewCommandOutput,
+} from "./commands/GetExecutionPreviewCommand";
+import {
   GetInventoryCommand,
   GetInventoryCommandInput,
   GetInventoryCommandOutput,
@@ -489,6 +494,12 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import {
+  ListNodesSummaryCommand,
+  ListNodesSummaryCommandInput,
+  ListNodesSummaryCommandOutput,
+} from "./commands/ListNodesSummaryCommand";
 import {
   ListOpsItemEventsCommand,
   ListOpsItemEventsCommandInput,
@@ -600,6 +611,11 @@ import {
   StartChangeRequestExecutionCommandInput,
   StartChangeRequestExecutionCommandOutput,
 } from "./commands/StartChangeRequestExecutionCommand";
+import {
+  StartExecutionPreviewCommand,
+  StartExecutionPreviewCommandInput,
+  StartExecutionPreviewCommandOutput,
+} from "./commands/StartExecutionPreviewCommand";
 import {
   StartSessionCommand,
   StartSessionCommandInput,
@@ -763,6 +779,7 @@ const commands = {
   GetDefaultPatchBaselineCommand,
   GetDeployablePatchSnapshotForInstanceCommand,
   GetDocumentCommand,
+  GetExecutionPreviewCommand,
   GetInventoryCommand,
   GetInventorySchemaCommand,
   GetMaintenanceWindowCommand,
@@ -792,6 +809,8 @@ const commands = {
   ListDocumentsCommand,
   ListDocumentVersionsCommand,
   ListInventoryEntriesCommand,
+  ListNodesCommand,
+  ListNodesSummaryCommand,
   ListOpsItemEventsCommand,
   ListOpsItemRelatedItemsCommand,
   ListOpsMetadataCommand,
@@ -815,6 +834,7 @@ const commands = {
   StartAssociationsOnceCommand,
   StartAutomationExecutionCommand,
   StartChangeRequestExecutionCommand,
+  StartExecutionPreviewCommand,
   StartSessionCommand,
   StopAutomationExecutionCommand,
   TerminateSessionCommand,
@@ -2006,6 +2026,23 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link GetExecutionPreviewCommand}
+   */
+  getExecutionPreview(
+    args: GetExecutionPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExecutionPreviewCommandOutput>;
+  getExecutionPreview(
+    args: GetExecutionPreviewCommandInput,
+    cb: (err: any, data?: GetExecutionPreviewCommandOutput) => void
+  ): void;
+  getExecutionPreview(
+    args: GetExecutionPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExecutionPreviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInventoryCommand}
    */
   getInventory(): Promise<GetInventoryCommandOutput>;
@@ -2463,6 +2500,35 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link ListNodesCommand}
+   */
+  listNodes(): Promise<ListNodesCommandOutput>;
+  listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
+  listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
+  listNodes(
+    args: ListNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNodesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListNodesSummaryCommand}
+   */
+  listNodesSummary(
+    args: ListNodesSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListNodesSummaryCommandOutput>;
+  listNodesSummary(
+    args: ListNodesSummaryCommandInput,
+    cb: (err: any, data?: ListNodesSummaryCommandOutput) => void
+  ): void;
+  listNodesSummary(
+    args: ListNodesSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListNodesSummaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOpsItemEventsCommand}
    */
   listOpsItemEvents(): Promise<ListOpsItemEventsCommandOutput>;
@@ -2829,6 +2895,23 @@ export interface SSM {
     args: StartChangeRequestExecutionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartChangeRequestExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartExecutionPreviewCommand}
+   */
+  startExecutionPreview(
+    args: StartExecutionPreviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartExecutionPreviewCommandOutput>;
+  startExecutionPreview(
+    args: StartExecutionPreviewCommandInput,
+    cb: (err: any, data?: StartExecutionPreviewCommandOutput) => void
+  ): void;
+  startExecutionPreview(
+    args: StartExecutionPreviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartExecutionPreviewCommandOutput) => void
   ): void;
 
   /**

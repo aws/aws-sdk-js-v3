@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResetServiceSettingRequest, ResetServiceSettingResult } from "../models/models_1";
+import { ResetServiceSettingRequest } from "../models/models_1";
+import { ResetServiceSettingResult } from "../models/models_2";
 import { de_ResetServiceSettingCommand, se_ResetServiceSettingCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

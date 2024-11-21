@@ -122,12 +122,11 @@ export interface GetOpsSummaryCommandOutput extends GetOpsSummaryResult, __Metad
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link InvalidAggregatorException} (client fault)
- *  <p>The specified aggregator isn't valid for inventory groups. Verify that the aggregator uses a
- *    valid inventory type such as <code>AWS:Application</code> or
- *    <code>AWS:InstanceInformation</code>.</p>
+ *  <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you
+ *    provided is supported.</p>
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
  *
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>

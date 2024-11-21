@@ -52,6 +52,8 @@ export * from "./ListComplianceItemsPaginator";
 export * from "./ListComplianceSummariesPaginator";
 export * from "./ListDocumentVersionsPaginator";
 export * from "./ListDocumentsPaginator";
+export * from "./ListNodesPaginator";
+export * from "./ListNodesSummaryPaginator";
 export * from "./ListOpsItemEventsPaginator";
 export * from "./ListOpsItemRelatedItemsPaginator";
 export * from "./ListOpsMetadataPaginator";

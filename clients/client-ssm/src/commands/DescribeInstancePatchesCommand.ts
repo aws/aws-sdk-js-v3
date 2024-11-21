@@ -78,7 +78,7 @@ export interface DescribeInstancePatchesCommandOutput extends DescribeInstancePa
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
  *
  * @throws {@link InvalidInstanceId} (client fault)
  *  <p>The following problems can cause this exception:</p>
