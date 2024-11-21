@@ -55,7 +55,7 @@ describe("Flexible Checksums", () => {
               return readableStream;
             };
 
-            it(`when body is sent as a request`, async () => {
+            it(`when body is sent as a string`, async () => {
               const requestChecksumValidator: BuildMiddleware<any, any> = (next) => async (args) => {
                 // middleware intercept the request and return it early
                 const request = args.request as HttpRequest;
@@ -70,10 +70,10 @@ describe("Flexible Checksums", () => {
                   expect(headers["x-amz-sdk-checksum-algorithm"]).toBeUndefined();
                   expect(headers[checksumHeader]).toBeUndefined();
                 } else {
-                  expect(headers["x-amz-sdk-checksum-algorithm"]).to.equal(
+                  expect(headers["x-amz-sdk-checksum-algorithm"]).toEqual(
                     checksumAlgorithm ?? DEFAULT_CHECKSUM_ALGORITHM
                   );
-                  expect(headers[checksumHeader]).to.equal(checksumValue);
+                  expect(headers[checksumHeader]).toEqual(checksumValue);
                 }
 
                 return { output: {} as any, response: {} as any };
@@ -105,16 +105,29 @@ describe("Flexible Checksums", () => {
                 // middleware intercept the request and return it early
                 const request = args.request as HttpRequest;
                 const { headers, body } = request;
-                expect(headers["content-length"]).to.be.undefined;
-                expect(headers["content-encoding"]).to.equal("aws-chunked");
-                expect(headers["transfer-encoding"]).to.equal("chunked");
-                expect(headers["x-amz-content-sha256"]).to.equal("STREAMING-UNSIGNED-PAYLOAD-TRAILER");
-                expect(headers["x-amz-trailer"]).to.equal(checksumHeader);
+                expect(headers["content-length"]).toBeUndefined();
+
+                // Headers are not set when checksumAlgorithm is not provided,
+                // and requestChecksumCalculation is explicitly set to WHEN_SUPPORTED.
+                if (
+                  checksumAlgorithm === undefined &&
+                  requestChecksumCalculation === RequestChecksumCalculation.WHEN_REQUIRED
+                ) {
+                  expect(headers["content-encoding"]).toBeUndefined();
+                  expect(headers["transfer-encoding"]).toBeUndefined();
+                  expect(headers["x-amz-content-sha256"]).toBeUndefined();
+                  expect(headers["x-amz-trailer"]).toBeUndefined();
+                } else {
+                  expect(headers["content-encoding"]).toEqual("aws-chunked");
+                  expect(headers["transfer-encoding"]).toEqual("chunked");
+                  expect(headers["x-amz-content-sha256"]).toEqual("STREAMING-UNSIGNED-PAYLOAD-TRAILER");
+                  expect(headers["x-amz-trailer"]).toEqual(checksumHeader);
+                }
                 body.on("data", (data: any) => {
                   const stringValue = data.toString();
                   if (stringValue.startsWith(checksumHeader)) {
                     const receivedChecksum = stringValue.replace("\r\n", "").split(":")[1];
-                    expect(receivedChecksum).to.equal(checksumValue);
+                    expect(receivedChecksum).toEqual(checksumValue);
                   }
                 });
                 return { output: {} as any, response: {} as any };
@@ -126,6 +139,7 @@ describe("Flexible Checksums", () => {
                   accessKeyId: "CLIENT_TEST",
                   secretAccessKey: "CLIENT_TEST",
                 },
+                requestChecksumCalculation,
               });
               client.middlewareStack.addRelativeTo(requestChecksumValidator, {
                 relation: "after",
@@ -207,7 +221,7 @@ describe("Flexible Checksums", () => {
               ChecksumMode: checksumAlgorithm ? "ENABLED" : undefined,
             });
             (Body as Readable).on("data", (chunk) => {
-              expect(chunk.toString()).to.equal(body);
+              expect(chunk.toString()).toEqual(body);
             });
           }
         );
