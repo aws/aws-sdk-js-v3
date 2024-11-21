@@ -7,6 +7,11 @@ import {
   BatchGetTracesCommandInput,
   BatchGetTracesCommandOutput,
 } from "./commands/BatchGetTracesCommand";
+import {
+  CancelTraceRetrievalCommand,
+  CancelTraceRetrievalCommandInput,
+  CancelTraceRetrievalCommandOutput,
+} from "./commands/CancelTraceRetrievalCommand";
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
   CreateSamplingRuleCommand,
@@ -31,6 +36,11 @@ import {
 } from "./commands/GetEncryptionConfigCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import {
+  GetIndexingRulesCommand,
+  GetIndexingRulesCommandInput,
+  GetIndexingRulesCommandOutput,
+} from "./commands/GetIndexingRulesCommand";
 import { GetInsightCommand, GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
 import {
   GetInsightEventsCommand,
@@ -47,6 +57,11 @@ import {
   GetInsightSummariesCommandInput,
   GetInsightSummariesCommandOutput,
 } from "./commands/GetInsightSummariesCommand";
+import {
+  GetRetrievedTracesGraphCommand,
+  GetRetrievedTracesGraphCommandInput,
+  GetRetrievedTracesGraphCommandOutput,
+} from "./commands/GetRetrievedTracesGraphCommand";
 import {
   GetSamplingRulesCommand,
   GetSamplingRulesCommandInput,
@@ -78,6 +93,11 @@ import {
   GetTraceGraphCommandOutput,
 } from "./commands/GetTraceGraphCommand";
 import {
+  GetTraceSegmentDestinationCommand,
+  GetTraceSegmentDestinationCommandInput,
+  GetTraceSegmentDestinationCommandOutput,
+} from "./commands/GetTraceSegmentDestinationCommand";
+import {
   GetTraceSummariesCommand,
   GetTraceSummariesCommandInput,
   GetTraceSummariesCommandOutput,
@@ -87,6 +107,11 @@ import {
   ListResourcePoliciesCommandInput,
   ListResourcePoliciesCommandOutput,
 } from "./commands/ListResourcePoliciesCommand";
+import {
+  ListRetrievedTracesCommand,
+  ListRetrievedTracesCommandInput,
+  ListRetrievedTracesCommandOutput,
+} from "./commands/ListRetrievedTracesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -112,6 +137,11 @@ import {
   PutTraceSegmentsCommandInput,
   PutTraceSegmentsCommandOutput,
 } from "./commands/PutTraceSegmentsCommand";
+import {
+  StartTraceRetrievalCommand,
+  StartTraceRetrievalCommandInput,
+  StartTraceRetrievalCommandOutput,
+} from "./commands/StartTraceRetrievalCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -120,14 +150,25 @@ import {
 } from "./commands/UntagResourceCommand";
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
+  UpdateIndexingRuleCommand,
+  UpdateIndexingRuleCommandInput,
+  UpdateIndexingRuleCommandOutput,
+} from "./commands/UpdateIndexingRuleCommand";
+import {
   UpdateSamplingRuleCommand,
   UpdateSamplingRuleCommandInput,
   UpdateSamplingRuleCommandOutput,
 } from "./commands/UpdateSamplingRuleCommand";
+import {
+  UpdateTraceSegmentDestinationCommand,
+  UpdateTraceSegmentDestinationCommandInput,
+  UpdateTraceSegmentDestinationCommandOutput,
+} from "./commands/UpdateTraceSegmentDestinationCommand";
 import { XRayClient, XRayClientConfig } from "./XRayClient";
 
 const commands = {
   BatchGetTracesCommand,
+  CancelTraceRetrievalCommand,
   CreateGroupCommand,
   CreateSamplingRuleCommand,
   DeleteGroupCommand,
@@ -136,27 +177,34 @@ const commands = {
   GetEncryptionConfigCommand,
   GetGroupCommand,
   GetGroupsCommand,
+  GetIndexingRulesCommand,
   GetInsightCommand,
   GetInsightEventsCommand,
   GetInsightImpactGraphCommand,
   GetInsightSummariesCommand,
+  GetRetrievedTracesGraphCommand,
   GetSamplingRulesCommand,
   GetSamplingStatisticSummariesCommand,
   GetSamplingTargetsCommand,
   GetServiceGraphCommand,
   GetTimeSeriesServiceStatisticsCommand,
   GetTraceGraphCommand,
+  GetTraceSegmentDestinationCommand,
   GetTraceSummariesCommand,
   ListResourcePoliciesCommand,
+  ListRetrievedTracesCommand,
   ListTagsForResourceCommand,
   PutEncryptionConfigCommand,
   PutResourcePolicyCommand,
   PutTelemetryRecordsCommand,
   PutTraceSegmentsCommand,
+  StartTraceRetrievalCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateGroupCommand,
+  UpdateIndexingRuleCommand,
   UpdateSamplingRuleCommand,
+  UpdateTraceSegmentDestinationCommand,
 };
 
 export interface XRay {
@@ -172,6 +220,23 @@ export interface XRay {
     args: BatchGetTracesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetTracesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelTraceRetrievalCommand}
+   */
+  cancelTraceRetrieval(
+    args: CancelTraceRetrievalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelTraceRetrievalCommandOutput>;
+  cancelTraceRetrieval(
+    args: CancelTraceRetrievalCommandInput,
+    cb: (err: any, data?: CancelTraceRetrievalCommandOutput) => void
+  ): void;
+  cancelTraceRetrieval(
+    args: CancelTraceRetrievalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelTraceRetrievalCommandOutput) => void
   ): void;
 
   /**
@@ -292,6 +357,24 @@ export interface XRay {
   ): void;
 
   /**
+   * @see {@link GetIndexingRulesCommand}
+   */
+  getIndexingRules(): Promise<GetIndexingRulesCommandOutput>;
+  getIndexingRules(
+    args: GetIndexingRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIndexingRulesCommandOutput>;
+  getIndexingRules(
+    args: GetIndexingRulesCommandInput,
+    cb: (err: any, data?: GetIndexingRulesCommandOutput) => void
+  ): void;
+  getIndexingRules(
+    args: GetIndexingRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIndexingRulesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInsightCommand}
    */
   getInsight(args: GetInsightCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightCommandOutput>;
@@ -351,6 +434,23 @@ export interface XRay {
     args: GetInsightSummariesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInsightSummariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRetrievedTracesGraphCommand}
+   */
+  getRetrievedTracesGraph(
+    args: GetRetrievedTracesGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRetrievedTracesGraphCommandOutput>;
+  getRetrievedTracesGraph(
+    args: GetRetrievedTracesGraphCommandInput,
+    cb: (err: any, data?: GetRetrievedTracesGraphCommandOutput) => void
+  ): void;
+  getRetrievedTracesGraph(
+    args: GetRetrievedTracesGraphCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRetrievedTracesGraphCommandOutput) => void
   ): void;
 
   /**
@@ -449,6 +549,24 @@ export interface XRay {
   ): void;
 
   /**
+   * @see {@link GetTraceSegmentDestinationCommand}
+   */
+  getTraceSegmentDestination(): Promise<GetTraceSegmentDestinationCommandOutput>;
+  getTraceSegmentDestination(
+    args: GetTraceSegmentDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTraceSegmentDestinationCommandOutput>;
+  getTraceSegmentDestination(
+    args: GetTraceSegmentDestinationCommandInput,
+    cb: (err: any, data?: GetTraceSegmentDestinationCommandOutput) => void
+  ): void;
+  getTraceSegmentDestination(
+    args: GetTraceSegmentDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTraceSegmentDestinationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTraceSummariesCommand}
    */
   getTraceSummaries(
@@ -481,6 +599,23 @@ export interface XRay {
     args: ListResourcePoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListResourcePoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRetrievedTracesCommand}
+   */
+  listRetrievedTraces(
+    args: ListRetrievedTracesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRetrievedTracesCommandOutput>;
+  listRetrievedTraces(
+    args: ListRetrievedTracesCommandInput,
+    cb: (err: any, data?: ListRetrievedTracesCommandOutput) => void
+  ): void;
+  listRetrievedTraces(
+    args: ListRetrievedTracesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRetrievedTracesCommandOutput) => void
   ): void;
 
   /**
@@ -569,6 +704,23 @@ export interface XRay {
   ): void;
 
   /**
+   * @see {@link StartTraceRetrievalCommand}
+   */
+  startTraceRetrieval(
+    args: StartTraceRetrievalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTraceRetrievalCommandOutput>;
+  startTraceRetrieval(
+    args: StartTraceRetrievalCommandInput,
+    cb: (err: any, data?: StartTraceRetrievalCommandOutput) => void
+  ): void;
+  startTraceRetrieval(
+    args: StartTraceRetrievalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTraceRetrievalCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -603,6 +755,23 @@ export interface XRay {
   ): void;
 
   /**
+   * @see {@link UpdateIndexingRuleCommand}
+   */
+  updateIndexingRule(
+    args: UpdateIndexingRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIndexingRuleCommandOutput>;
+  updateIndexingRule(
+    args: UpdateIndexingRuleCommandInput,
+    cb: (err: any, data?: UpdateIndexingRuleCommandOutput) => void
+  ): void;
+  updateIndexingRule(
+    args: UpdateIndexingRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIndexingRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateSamplingRuleCommand}
    */
   updateSamplingRule(
@@ -617,6 +786,24 @@ export interface XRay {
     args: UpdateSamplingRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateSamplingRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTraceSegmentDestinationCommand}
+   */
+  updateTraceSegmentDestination(): Promise<UpdateTraceSegmentDestinationCommandOutput>;
+  updateTraceSegmentDestination(
+    args: UpdateTraceSegmentDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTraceSegmentDestinationCommandOutput>;
+  updateTraceSegmentDestination(
+    args: UpdateTraceSegmentDestinationCommandInput,
+    cb: (err: any, data?: UpdateTraceSegmentDestinationCommandOutput) => void
+  ): void;
+  updateTraceSegmentDestination(
+    args: UpdateTraceSegmentDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTraceSegmentDestinationCommandOutput) => void
   ): void;
 }
 

@@ -43,8 +43,8 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  *             <code>annotation.account = "12345"</code>
  *          </p>
  *          <p>For a full list of indexed fields and keywords that you can use in filter expressions,
- *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter
- *         Expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
+ *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-filters">Use filter
+ *         expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

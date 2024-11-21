@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "./commands/BatchGetTracesCommand";
+import {
+  CancelTraceRetrievalCommandInput,
+  CancelTraceRetrievalCommandOutput,
+} from "./commands/CancelTraceRetrievalCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "./commands/CreateSamplingRuleCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
@@ -68,6 +72,7 @@ import {
 } from "./commands/GetEncryptionConfigCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import { GetIndexingRulesCommandInput, GetIndexingRulesCommandOutput } from "./commands/GetIndexingRulesCommand";
 import { GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
 import { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "./commands/GetInsightEventsCommand";
 import {
@@ -78,6 +83,10 @@ import {
   GetInsightSummariesCommandInput,
   GetInsightSummariesCommandOutput,
 } from "./commands/GetInsightSummariesCommand";
+import {
+  GetRetrievedTracesGraphCommandInput,
+  GetRetrievedTracesGraphCommandOutput,
+} from "./commands/GetRetrievedTracesGraphCommand";
 import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "./commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
@@ -90,11 +99,19 @@ import {
   GetTimeSeriesServiceStatisticsCommandOutput,
 } from "./commands/GetTimeSeriesServiceStatisticsCommand";
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand";
+import {
+  GetTraceSegmentDestinationCommandInput,
+  GetTraceSegmentDestinationCommandOutput,
+} from "./commands/GetTraceSegmentDestinationCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "./commands/GetTraceSummariesCommand";
 import {
   ListResourcePoliciesCommandInput,
   ListResourcePoliciesCommandOutput,
 } from "./commands/ListResourcePoliciesCommand";
+import {
+  ListRetrievedTracesCommandInput,
+  ListRetrievedTracesCommandOutput,
+} from "./commands/ListRetrievedTracesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -109,10 +126,19 @@ import {
   PutTelemetryRecordsCommandOutput,
 } from "./commands/PutTelemetryRecordsCommand";
 import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "./commands/PutTraceSegmentsCommand";
+import {
+  StartTraceRetrievalCommandInput,
+  StartTraceRetrievalCommandOutput,
+} from "./commands/StartTraceRetrievalCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import { UpdateIndexingRuleCommandInput, UpdateIndexingRuleCommandOutput } from "./commands/UpdateIndexingRuleCommand";
 import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "./commands/UpdateSamplingRuleCommand";
+import {
+  UpdateTraceSegmentDestinationCommandInput,
+  UpdateTraceSegmentDestinationCommandOutput,
+} from "./commands/UpdateTraceSegmentDestinationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -129,6 +155,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchGetTracesCommandInput
+  | CancelTraceRetrievalCommandInput
   | CreateGroupCommandInput
   | CreateSamplingRuleCommandInput
   | DeleteGroupCommandInput
@@ -137,33 +164,41 @@ export type ServiceInputTypes =
   | GetEncryptionConfigCommandInput
   | GetGroupCommandInput
   | GetGroupsCommandInput
+  | GetIndexingRulesCommandInput
   | GetInsightCommandInput
   | GetInsightEventsCommandInput
   | GetInsightImpactGraphCommandInput
   | GetInsightSummariesCommandInput
+  | GetRetrievedTracesGraphCommandInput
   | GetSamplingRulesCommandInput
   | GetSamplingStatisticSummariesCommandInput
   | GetSamplingTargetsCommandInput
   | GetServiceGraphCommandInput
   | GetTimeSeriesServiceStatisticsCommandInput
   | GetTraceGraphCommandInput
+  | GetTraceSegmentDestinationCommandInput
   | GetTraceSummariesCommandInput
   | ListResourcePoliciesCommandInput
+  | ListRetrievedTracesCommandInput
   | ListTagsForResourceCommandInput
   | PutEncryptionConfigCommandInput
   | PutResourcePolicyCommandInput
   | PutTelemetryRecordsCommandInput
   | PutTraceSegmentsCommandInput
+  | StartTraceRetrievalCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGroupCommandInput
-  | UpdateSamplingRuleCommandInput;
+  | UpdateIndexingRuleCommandInput
+  | UpdateSamplingRuleCommandInput
+  | UpdateTraceSegmentDestinationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | BatchGetTracesCommandOutput
+  | CancelTraceRetrievalCommandOutput
   | CreateGroupCommandOutput
   | CreateSamplingRuleCommandOutput
   | DeleteGroupCommandOutput
@@ -172,27 +207,34 @@ export type ServiceOutputTypes =
   | GetEncryptionConfigCommandOutput
   | GetGroupCommandOutput
   | GetGroupsCommandOutput
+  | GetIndexingRulesCommandOutput
   | GetInsightCommandOutput
   | GetInsightEventsCommandOutput
   | GetInsightImpactGraphCommandOutput
   | GetInsightSummariesCommandOutput
+  | GetRetrievedTracesGraphCommandOutput
   | GetSamplingRulesCommandOutput
   | GetSamplingStatisticSummariesCommandOutput
   | GetSamplingTargetsCommandOutput
   | GetServiceGraphCommandOutput
   | GetTimeSeriesServiceStatisticsCommandOutput
   | GetTraceGraphCommandOutput
+  | GetTraceSegmentDestinationCommandOutput
   | GetTraceSummariesCommandOutput
   | ListResourcePoliciesCommandOutput
+  | ListRetrievedTracesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutEncryptionConfigCommandOutput
   | PutResourcePolicyCommandOutput
   | PutTelemetryRecordsCommandOutput
   | PutTraceSegmentsCommandOutput
+  | StartTraceRetrievalCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGroupCommandOutput
-  | UpdateSamplingRuleCommandOutput;
+  | UpdateIndexingRuleCommandOutput
+  | UpdateSamplingRuleCommandOutput
+  | UpdateTraceSegmentDestinationCommandOutput;
 
 /**
  * @public

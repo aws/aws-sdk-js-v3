@@ -214,6 +214,14 @@ BatchGetTraces
 </details>
 <details>
 <summary>
+CancelTraceRetrieval
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/CancelTraceRetrievalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/CancelTraceRetrievalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/CancelTraceRetrievalCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateGroup
 </summary>
 
@@ -278,6 +286,14 @@ GetGroups
 </details>
 <details>
 <summary>
+GetIndexingRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/GetIndexingRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetIndexingRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetIndexingRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetInsight
 </summary>
 
@@ -306,6 +322,14 @@ GetInsightSummaries
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/GetInsightSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetInsightSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetInsightSummariesCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRetrievedTracesGraph
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/GetRetrievedTracesGraphCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetRetrievedTracesGraphCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetRetrievedTracesGraphCommandOutput/)
 
 </details>
 <details>
@@ -358,6 +382,14 @@ GetTraceGraph
 </details>
 <details>
 <summary>
+GetTraceSegmentDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/GetTraceSegmentDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetTraceSegmentDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/GetTraceSegmentDestinationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTraceSummaries
 </summary>
 
@@ -370,6 +402,14 @@ ListResourcePolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/ListResourcePoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/ListResourcePoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/ListResourcePoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRetrievedTraces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/ListRetrievedTracesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/ListRetrievedTracesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/ListRetrievedTracesCommandOutput/)
 
 </details>
 <details>
@@ -414,6 +454,14 @@ PutTraceSegments
 </details>
 <details>
 <summary>
+StartTraceRetrieval
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/StartTraceRetrievalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/StartTraceRetrievalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/StartTraceRetrievalCommandOutput/)
+
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -438,9 +486,25 @@ UpdateGroup
 </details>
 <details>
 <summary>
+UpdateIndexingRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/UpdateIndexingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/UpdateIndexingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/UpdateIndexingRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateSamplingRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/UpdateSamplingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/UpdateSamplingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/UpdateSamplingRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateTraceSegmentDestination
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/xray/command/UpdateTraceSegmentDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/UpdateTraceSegmentDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-xray/Interface/UpdateTraceSegmentDestinationCommandOutput/)
 
 </details>

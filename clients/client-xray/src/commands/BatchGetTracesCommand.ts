@@ -28,7 +28,10 @@ export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
 export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
+ * <note>
+ *             <p>You cannot find traces through this API if Transaction Search is enabled since trace is not indexed in X-Ray.</p>
+ *          </note>
+ *          <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
  *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
  *       list of trace IDs.</p>
  * @example

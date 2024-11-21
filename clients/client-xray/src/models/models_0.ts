@@ -193,8 +193,8 @@ export interface BatchGetTracesRequest {
  *       compiled from documents uploaded with <a href="https://docs.aws.amazon.com/xray/latest/api/API_PutTraceSegments.html">PutTraceSegments</a>, or an
  *         <code>inferred</code> segment for a downstream service, generated from a subsegment sent by
  *       the service that called it.</p>
- *          <p>For the full segment document schema, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">Amazon Web Services X-Ray Segment
- *       Documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
+ *          <p>For the full segment document schema, see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-api.html#xray-api-segmentdocuments">Amazon Web Services X-Ray segment
+ *       documents</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
  * @public
  */
 export interface Segment {
@@ -308,6 +308,49 @@ export class ThrottledException extends __BaseException {
     });
     Object.setPrototypeOf(this, ThrottledException.prototype);
     this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CancelTraceRetrievalRequest {
+  /**
+   * <p>
+   * Retrieval token.
+   * </p>
+   * @public
+   */
+  RetrievalToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelTraceRetrievalResult {}
+
+/**
+ * <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
+ *       correct.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  ResourceName?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
   }
 }
 
@@ -942,6 +985,139 @@ export interface GetGroupsResult {
 /**
  * @public
  */
+export interface GetIndexingRulesRequest {
+  /**
+   * <p>
+   * Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   *
+   *
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>
+ *   The indexing rule configuration for probabilistic sampling.
+ * </p>
+ * @public
+ */
+export interface ProbabilisticRuleValue {
+  /**
+   * <p>
+   *   Configured sampling percentage of traceIds. Note that sampling can be subject to limits to ensure completeness of data.
+   * </p>
+   * @public
+   */
+  DesiredSamplingPercentage: number | undefined;
+
+  /**
+   * <p>
+   *   Applied sampling percentage of traceIds.
+   * </p>
+   * @public
+   */
+  ActualSamplingPercentage?: number | undefined;
+}
+
+/**
+ * <p>
+ *   The indexing rule configuration.
+ * </p>
+ * @public
+ */
+export type IndexingRuleValue = IndexingRuleValue.ProbabilisticMember | IndexingRuleValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IndexingRuleValue {
+  /**
+   * <p>
+   *   Indexing rule configuration that is used to probabilistically  sample traceIds.
+   * </p>
+   * @public
+   */
+  export interface ProbabilisticMember {
+    Probabilistic: ProbabilisticRuleValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Probabilistic?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Probabilistic: (value: ProbabilisticRuleValue) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IndexingRuleValue, visitor: Visitor<T>): T => {
+    if (value.Probabilistic !== undefined) return visitor.Probabilistic(value.Probabilistic);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>
+ * Rule used to determine the server-side sampling rate for spans ingested through the CloudWatchLogs destination and indexed by X-Ray.
+ * </p>
+ * @public
+ */
+export interface IndexingRule {
+  /**
+   * <p>
+   *   The name of the indexing rule.
+   * </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   * Displays when the rule was last modified, in Unix time seconds.
+   * </p>
+   * @public
+   */
+  ModifiedAt?: Date | undefined;
+
+  /**
+   * <p>
+   *   The indexing rule.
+   * </p>
+   * @public
+   */
+  Rule?: IndexingRuleValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIndexingRulesResult {
+  /**
+   * <p>
+   *     Retrieves all indexing rules.</p>
+   * @public
+   */
+  IndexingRules?: IndexingRule[] | undefined;
+
+  /**
+   * <p>
+   *       Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   *     </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetInsightRequest {
   /**
    * <p>The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.</p>
@@ -1480,9 +1656,21 @@ export interface GetInsightSummariesResult {
 /**
  * @public
  */
-export interface GetSamplingRulesRequest {
+export interface GetRetrievedTracesGraphRequest {
   /**
-   * <p>Pagination token.</p>
+   * <p>
+   *     Retrieval token.
+   *   </p>
+   * @public
+   */
+  RetrievalToken: string | undefined;
+
+  /**
+   * <p>
+   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   *
+   *
+   *   </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -1490,265 +1678,52 @@ export interface GetSamplingRulesRequest {
 
 /**
  * @public
+ * @enum
  */
-export interface GetSamplingRulesResult {
-  /**
-   * <p>Rule definitions and metadata.</p>
-   * @public
-   */
-  SamplingRuleRecords?: SamplingRuleRecord[] | undefined;
-
-  /**
-   * <p>Pagination token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
+export const RetrievalStatus = {
+  CANCELLED: "CANCELLED",
+  COMPLETE: "COMPLETE",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SCHEDULED: "SCHEDULED",
+  TIMEOUT: "TIMEOUT",
+} as const;
 
 /**
  * @public
  */
-export interface GetSamplingStatisticSummariesRequest {
-  /**
-   * <p>Pagination token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
+export type RetrievalStatus = (typeof RetrievalStatus)[keyof typeof RetrievalStatus];
 
 /**
- * <p>Aggregated request sampling data for a sampling rule across all services for a 10-second window.</p>
+ * <p>
+ * The relation between two services.
+ * </p>
  * @public
  */
-export interface SamplingStatisticSummary {
+export interface GraphLink {
   /**
-   * <p>The name of the sampling rule.</p>
+   * <p>
+   * Relationship of a trace to the corresponding service.
+   * </p>
    * @public
    */
-  RuleName?: string | undefined;
+  ReferenceType?: string | undefined;
 
   /**
-   * <p>The start time of the reporting window.</p>
+   * <p>
+   * Source trace of a link relationship.
+   * </p>
    * @public
    */
-  Timestamp?: Date | undefined;
+  SourceTraceId?: string | undefined;
 
   /**
-   * <p>The number of requests that matched the rule.</p>
+   * <p>
+   * Destination traces of a link relationship.
+   * </p>
    * @public
    */
-  RequestCount?: number | undefined;
-
-  /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
-   * @public
-   */
-  BorrowCount?: number | undefined;
-
-  /**
-   * <p>The number of requests recorded.</p>
-   * @public
-   */
-  SampledCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSamplingStatisticSummariesResult {
-  /**
-   * <p>Information about the number of requests instrumented for each sampling
-   *          rule.</p>
-   * @public
-   */
-  SamplingStatisticSummaries?: SamplingStatisticSummary[] | undefined;
-
-  /**
-   * <p>Pagination token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Request sampling results for a single rule from a service. Results are for the last 10
- *       seconds unless the service has been assigned a longer reporting interval after a previous call
- *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
- * @public
- */
-export interface SamplingStatisticsDocument {
-  /**
-   * <p>The name of the sampling rule.</p>
-   * @public
-   */
-  RuleName: string | undefined;
-
-  /**
-   * <p>A unique identifier for the service in hexadecimal.</p>
-   * @public
-   */
-  ClientID: string | undefined;
-
-  /**
-   * <p>The current time.</p>
-   * @public
-   */
-  Timestamp: Date | undefined;
-
-  /**
-   * <p>The number of requests that matched the rule.</p>
-   * @public
-   */
-  RequestCount: number | undefined;
-
-  /**
-   * <p>The number of requests recorded.</p>
-   * @public
-   */
-  SampledCount: number | undefined;
-
-  /**
-   * <p>The number of requests recorded with borrowed reservoir quota.</p>
-   * @public
-   */
-  BorrowCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSamplingTargetsRequest {
-  /**
-   * <p>Information about rules that the service is using to sample requests.</p>
-   * @public
-   */
-  SamplingStatisticsDocuments: SamplingStatisticsDocument[] | undefined;
-}
-
-/**
- * <p>Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray
- *       calculates a new reservoir for each service based on the recent sampling results of all services that called
- *       <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
- * @public
- */
-export interface SamplingTargetDocument {
-  /**
-   * <p>The name of the sampling rule.</p>
-   * @public
-   */
-  RuleName?: string | undefined;
-
-  /**
-   * <p>The percentage of matching requests to instrument, after the reservoir is
-   *       exhausted.</p>
-   * @public
-   */
-  FixedRate?: number | undefined;
-
-  /**
-   * <p>The number of requests per second that X-Ray allocated for this service.</p>
-   * @public
-   */
-  ReservoirQuota?: number | undefined;
-
-  /**
-   * <p>When the reservoir quota expires.</p>
-   * @public
-   */
-  ReservoirQuotaTTL?: Date | undefined;
-
-  /**
-   * <p>The number of seconds for the service to wait before getting sampling targets
-   *       again.</p>
-   * @public
-   */
-  Interval?: number | undefined;
-}
-
-/**
- * <p>Sampling statistics from a call to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a> that X-Ray
- *       could not process.</p>
- * @public
- */
-export interface UnprocessedStatistics {
-  /**
-   * <p>The name of the sampling rule.</p>
-   * @public
-   */
-  RuleName?: string | undefined;
-
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  ErrorCode?: string | undefined;
-
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSamplingTargetsResult {
-  /**
-   * <p>Updated rules that the service should use to sample requests.</p>
-   * @public
-   */
-  SamplingTargetDocuments?: SamplingTargetDocument[] | undefined;
-
-  /**
-   * <p>The last time a user changed the sampling rule configuration. If
-   *          the sampling rule configuration changed since the service last retrieved it, the service
-   *          should call <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a> to get the latest version.</p>
-   * @public
-   */
-  LastRuleModification?: Date | undefined;
-
-  /**
-   * <p>Information about <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html">SamplingStatisticsDocument</a> that X-Ray could not
-   *          process.</p>
-   * @public
-   */
-  UnprocessedStatistics?: UnprocessedStatistics[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetServiceGraphRequest {
-  /**
-   * <p>The start of the time frame for which to generate a graph.</p>
-   * @public
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * <p>The end of the timeframe for which to generate a graph.</p>
-   * @public
-   */
-  EndTime: Date | undefined;
-
-  /**
-   * <p>The name of a group based on which you want to generate a graph.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.</p>
-   * @public
-   */
-  GroupARN?: string | undefined;
-
-  /**
-   * <p>Pagination token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
+  DestinationTraceIds?: string[] | undefined;
 }
 
 /**
@@ -1776,7 +1751,7 @@ export interface HistogramEntry {
  */
 export interface ErrorStatistics {
   /**
-   * <p>The number of requests that failed with a 419 throttling status code.</p>
+   * <p>The number of requests that failed with a 429 throttling status code.</p>
    * @public
    */
   ThrottleCount?: number | undefined;
@@ -2051,6 +2026,334 @@ export interface Service {
 }
 
 /**
+ * <p>
+ *   Retrieved information about an application that processed requests, users that made requests, or downstream services, resources, and applications that an application used.
+ * </p>
+ * @public
+ */
+export interface RetrievedService {
+  /**
+   * <p>Information about an application that processed requests, users that made requests, or downstream services,
+   *       resources, and applications that an application used.</p>
+   * @public
+   */
+  Service?: Service | undefined;
+
+  /**
+   * <p>
+   *  Relation between two 2 services.
+   * </p>
+   * @public
+   */
+  Links?: GraphLink[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRetrievedTracesGraphResult {
+  /**
+   * <p>
+   * Status of the retrieval.
+   * </p>
+   * @public
+   */
+  RetrievalStatus?: RetrievalStatus | undefined;
+
+  /**
+   * <p>
+   * Retrieved services.
+   * </p>
+   * @public
+   */
+  Services?: RetrievedService[] | undefined;
+
+  /**
+   * <p>
+   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   *
+   *
+   *   </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSamplingRulesRequest {
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSamplingRulesResult {
+  /**
+   * <p>Rule definitions and metadata.</p>
+   * @public
+   */
+  SamplingRuleRecords?: SamplingRuleRecord[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSamplingStatisticSummariesRequest {
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Aggregated request sampling data for a sampling rule across all services for a 10-second window.</p>
+ * @public
+ */
+export interface SamplingStatisticSummary {
+  /**
+   * <p>The name of the sampling rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The start time of the reporting window.</p>
+   * @public
+   */
+  Timestamp?: Date | undefined;
+
+  /**
+   * <p>The number of requests that matched the rule.</p>
+   * @public
+   */
+  RequestCount?: number | undefined;
+
+  /**
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   * @public
+   */
+  BorrowCount?: number | undefined;
+
+  /**
+   * <p>The number of requests recorded.</p>
+   * @public
+   */
+  SampledCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSamplingStatisticSummariesResult {
+  /**
+   * <p>Information about the number of requests instrumented for each sampling
+   *          rule.</p>
+   * @public
+   */
+  SamplingStatisticSummaries?: SamplingStatisticSummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Request sampling results for a single rule from a service. Results are for the last 10
+ *       seconds unless the service has been assigned a longer reporting interval after a previous call
+ *       to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * @public
+ */
+export interface SamplingStatisticsDocument {
+  /**
+   * <p>The name of the sampling rule.</p>
+   * @public
+   */
+  RuleName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the service in hexadecimal.</p>
+   * @public
+   */
+  ClientID: string | undefined;
+
+  /**
+   * <p>The current time.</p>
+   * @public
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>The number of requests that matched the rule.</p>
+   * @public
+   */
+  RequestCount: number | undefined;
+
+  /**
+   * <p>The number of requests recorded.</p>
+   * @public
+   */
+  SampledCount: number | undefined;
+
+  /**
+   * <p>The number of requests recorded with borrowed reservoir quota.</p>
+   * @public
+   */
+  BorrowCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSamplingTargetsRequest {
+  /**
+   * <p>Information about rules that the service is using to sample requests.</p>
+   * @public
+   */
+  SamplingStatisticsDocuments: SamplingStatisticsDocument[] | undefined;
+}
+
+/**
+ * <p>Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray
+ *       calculates a new reservoir for each service based on the recent sampling results of all services that called
+ *       <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a>.</p>
+ * @public
+ */
+export interface SamplingTargetDocument {
+  /**
+   * <p>The name of the sampling rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The percentage of matching requests to instrument, after the reservoir is
+   *       exhausted.</p>
+   * @public
+   */
+  FixedRate?: number | undefined;
+
+  /**
+   * <p>The number of requests per second that X-Ray allocated for this service.</p>
+   * @public
+   */
+  ReservoirQuota?: number | undefined;
+
+  /**
+   * <p>When the reservoir quota expires.</p>
+   * @public
+   */
+  ReservoirQuotaTTL?: Date | undefined;
+
+  /**
+   * <p>The number of seconds for the service to wait before getting sampling targets
+   *       again.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+}
+
+/**
+ * <p>Sampling statistics from a call to <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html">GetSamplingTargets</a> that X-Ray
+ *       could not process.</p>
+ * @public
+ */
+export interface UnprocessedStatistics {
+  /**
+   * <p>The name of the sampling rule.</p>
+   * @public
+   */
+  RuleName?: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSamplingTargetsResult {
+  /**
+   * <p>Updated rules that the service should use to sample requests.</p>
+   * @public
+   */
+  SamplingTargetDocuments?: SamplingTargetDocument[] | undefined;
+
+  /**
+   * <p>The last time a user changed the sampling rule configuration. If
+   *          the sampling rule configuration changed since the service last retrieved it, the service
+   *          should call <a href="https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingRules.html">GetSamplingRules</a> to get the latest version.</p>
+   * @public
+   */
+  LastRuleModification?: Date | undefined;
+
+  /**
+   * <p>Information about <a href="https://docs.aws.amazon.com/xray/latest/api/API_SamplingStatisticsDocument.html">SamplingStatisticsDocument</a> that X-Ray could not
+   *          process.</p>
+   * @public
+   */
+  UnprocessedStatistics?: UnprocessedStatistics[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetServiceGraphRequest {
+  /**
+   * <p>The start of the time frame for which to generate a graph.</p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>The end of the timeframe for which to generate a graph.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * <p>The name of a group based on which you want to generate a graph.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a group based on which you want to generate a graph.</p>
+   * @public
+   */
+  GroupARN?: string | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetServiceGraphResult {
@@ -2259,6 +2562,61 @@ export interface GetTraceGraphResult {
 
 /**
  * @public
+ */
+export interface GetTraceSegmentDestinationRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const TraceSegmentDestination = {
+  CloudWatchLogs: "CloudWatchLogs",
+  XRay: "XRay",
+} as const;
+
+/**
+ * @public
+ */
+export type TraceSegmentDestination = (typeof TraceSegmentDestination)[keyof typeof TraceSegmentDestination];
+
+/**
+ * @public
+ * @enum
+ */
+export const TraceSegmentDestinationStatus = {
+  ACTIVE: "ACTIVE",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type TraceSegmentDestinationStatus =
+  (typeof TraceSegmentDestinationStatus)[keyof typeof TraceSegmentDestinationStatus];
+
+/**
+ * @public
+ */
+export interface GetTraceSegmentDestinationResult {
+  /**
+   * <p>
+   * Retrieves the current destination.
+   * </p>
+   * @public
+   */
+  Destination?: TraceSegmentDestination | undefined;
+
+  /**
+   * <p>
+   *     Status of the retrieval.
+   *   </p>
+   * @public
+   */
+  Status?: TraceSegmentDestinationStatus | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const SamplingStrategyName = {
@@ -2321,7 +2679,7 @@ export interface GetTraceSummariesRequest {
   EndTime: Date | undefined;
 
   /**
-   * <p>A parameter to indicate whether to query trace summaries by TraceId, Event (trace update time), or Service (segment end time).</p>
+   * <p>Query trace summaries by TraceId (trace start time), Event (trace update time), or Service (trace segment end time).</p>
    * @public
    */
   TimeRangeType?: TimeRangeType | undefined;
@@ -2943,6 +3301,143 @@ export interface ListResourcePoliciesResult {
 
 /**
  * @public
+ * @enum
+ */
+export const TraceFormatType = {
+  OTEL: "OTEL",
+  XRAY: "XRAY",
+} as const;
+
+/**
+ * @public
+ */
+export type TraceFormatType = (typeof TraceFormatType)[keyof typeof TraceFormatType];
+
+/**
+ * @public
+ */
+export interface ListRetrievedTracesRequest {
+  /**
+   * <p>
+   * Retrieval token.
+   * </p>
+   * @public
+   */
+  RetrievalToken: string | undefined;
+
+  /**
+   * <p>
+   * Format of the requested traces.
+   * </p>
+   * @public
+   */
+  TraceFormat?: TraceFormatType | undefined;
+
+  /**
+   * <p>
+   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   *
+   *
+   *   </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>
+ *   A span from a trace that has been ingested by the X-Ray service. A span represents a unit of work or an operation performed by a service.
+ * </p>
+ * @public
+ */
+export interface Span {
+  /**
+   * <p>The span ID.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>
+   * The span document.</p>
+   * @public
+   */
+  Document?: string | undefined;
+}
+
+/**
+ * <p>
+ *   Retrieved collection of spans with matching trace IDs.
+ * </p>
+ * @public
+ */
+export interface RetrievedTrace {
+  /**
+   * <p>
+   *   The unique identifier for the span.
+   * </p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>
+   *   The length of time in seconds between the start time of the root span and the end time of the last span that completed.
+   * </p>
+   * @public
+   */
+  Duration?: number | undefined;
+
+  /**
+   * <p>
+   *   Spans that comprise the trace.
+   * </p>
+   * @public
+   */
+  Spans?: Span[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRetrievedTracesResult {
+  /**
+   * <p>
+   *     Status of the retrieval.
+   *   </p>
+   * @public
+   */
+  RetrievalStatus?: RetrievalStatus | undefined;
+
+  /**
+   * <p>
+   *     Format of the requested traces.
+   *   </p>
+   * @public
+   */
+  TraceFormat?: TraceFormatType | undefined;
+
+  /**
+   * <p>
+   * Full traces for the specified requests.
+   * </p>
+   * @public
+   */
+  Traces?: RetrievedTrace[] | undefined;
+
+  /**
+   * <p>
+   *     Specify the pagination token returned by a previous request to retrieve the next page of indexes.
+   *
+   *
+   *   </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface ListTagsForResourceRequest {
   /**
@@ -2975,31 +3470,6 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>The resource was not found. Verify that the name or Amazon Resource Name (ARN) of the resource is
- *       correct.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  ResourceName?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-    this.ResourceName = opts.ResourceName;
-  }
 }
 
 /**
@@ -3356,6 +3826,49 @@ export interface PutTraceSegmentsResult {
 /**
  * @public
  */
+export interface StartTraceRetrievalRequest {
+  /**
+   * <p>
+   *   Specify the trace IDs of the traces to be retrieved.
+   * </p>
+   * @public
+   */
+  TraceIds: string[] | undefined;
+
+  /**
+   * <p>
+   *   The start of the time range to retrieve traces. The range is inclusive, so the specified start time is included in the query.
+   *   Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+   * </p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>
+   *   The end of the time range to retrieve traces. The range is inclusive, so the specified end time is included in the query. Specified as epoch time,
+   *   the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTraceRetrievalResult {
+  /**
+   * <p>
+   * Retrieval token.
+   * </p>
+   * @public
+   */
+  RetrievalToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Number (ARN) of an X-Ray group or sampling rule.</p>
@@ -3499,6 +4012,100 @@ export interface UpdateGroupResult {
 }
 
 /**
+ * <p>
+ *   Update to the indexing rule configuration for probabilistic sampling.
+ * </p>
+ * @public
+ */
+export interface ProbabilisticRuleValueUpdate {
+  /**
+   * <p>
+   *   Configured sampling percentage of traceIds. Note that sampling can be subject to limits to ensure completeness of data.
+   * </p>
+   * @public
+   */
+  DesiredSamplingPercentage: number | undefined;
+}
+
+/**
+ * <p>
+ *   Update to an indexing rule.
+ * </p>
+ * @public
+ */
+export type IndexingRuleValueUpdate =
+  | IndexingRuleValueUpdate.ProbabilisticMember
+  | IndexingRuleValueUpdate.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IndexingRuleValueUpdate {
+  /**
+   * <p>
+   *     Indexing rule configuration that is used to probabilistically  sample traceIds.
+   *   </p>
+   * @public
+   */
+  export interface ProbabilisticMember {
+    Probabilistic: ProbabilisticRuleValueUpdate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Probabilistic?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Probabilistic: (value: ProbabilisticRuleValueUpdate) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: IndexingRuleValueUpdate, visitor: Visitor<T>): T => {
+    if (value.Probabilistic !== undefined) return visitor.Probabilistic(value.Probabilistic);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexingRuleRequest {
+  /**
+   * <p>
+   *   Name of the indexing rule to be updated.
+   * </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *     Rule configuration to be updated.
+   *   </p>
+   * @public
+   */
+  Rule: IndexingRuleValueUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIndexingRuleResult {
+  /**
+   * <p>
+   *     Updated indexing rule.
+   *   </p>
+   * @public
+   */
+  IndexingRule?: IndexingRule | undefined;
+}
+
+/**
  * <p>A document specifying changes to a sampling rule's configuration.</p>
  * @public
  */
@@ -3598,4 +4205,38 @@ export interface UpdateSamplingRuleResult {
    * @public
    */
   SamplingRuleRecord?: SamplingRuleRecord | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTraceSegmentDestinationRequest {
+  /**
+   * <p>
+   * The configured destination of trace segments.
+   * </p>
+   * @public
+   */
+  Destination?: TraceSegmentDestination | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTraceSegmentDestinationResult {
+  /**
+   * <p>
+   *     The destination of the trace segments.
+   *   </p>
+   * @public
+   */
+  Destination?: TraceSegmentDestination | undefined;
+
+  /**
+   * <p>
+   * The status of the update.
+   * </p>
+   * @public
+   */
+  Status?: TraceSegmentDestinationStatus | undefined;
 }
