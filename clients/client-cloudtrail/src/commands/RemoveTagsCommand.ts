@@ -28,7 +28,7 @@ export interface RemoveTagsCommandInput extends RemoveTagsRequest {}
 export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Removes the specified tags from a trail, event data store, or channel.</p>
+ * <p>Removes the specified tags from a trail, event data store, dashboard, or channel.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +69,8 @@ export interface RemoveTagsCommandOutput extends RemoveTagsResponse, __MetadataB
  *          </p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>

@@ -154,7 +154,11 @@ export interface CreateEventDataStoreCommandOutput extends CreateEventDataStoreR
  *          organization resource in a required service.</p>
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *  <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
  *          not have sufficient permissions for the operation.</p>
  *
  * @throws {@link InvalidEventSelectorsException} (client fault)

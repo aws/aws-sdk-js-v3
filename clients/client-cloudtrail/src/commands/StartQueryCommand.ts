@@ -48,11 +48,13 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *   QueryParameters: [ // QueryParameters
  *     "STRING_VALUE",
  *   ],
+ *   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * };
  * const command = new StartQueryCommand(input);
  * const response = await client.send(command);
  * // { // StartQueryResponse
  * //   QueryId: "STRING_VALUE",
+ * //   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -74,7 +76,11 @@ export interface StartQueryCommandOutput extends StartQueryResponse, __MetadataB
  *  <p>The event data store is inactive.</p>
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *  <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
  *          not have sufficient permissions for the operation.</p>
  *
  * @throws {@link InsufficientS3BucketPolicyException} (client fault)

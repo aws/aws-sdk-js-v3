@@ -119,7 +119,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
  *
  * @throws {@link TagsLimitExceededException} (client fault)
- *  <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
+ *  <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)

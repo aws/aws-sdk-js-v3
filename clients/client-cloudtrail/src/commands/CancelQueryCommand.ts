@@ -43,12 +43,14 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * const input = { // CancelQueryRequest
  *   EventDataStore: "STRING_VALUE",
  *   QueryId: "STRING_VALUE", // required
+ *   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
  * // { // CancelQueryResponse
  * //   QueryId: "STRING_VALUE", // required
  * //   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT", // required
+ * //   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * // };
  *
  * ```

@@ -28,7 +28,7 @@ export interface AddTagsCommandInput extends AddTagsRequest {}
 export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more tags to a trail, event data store, or channel, up to a limit of 50. Overwrites an
+ * <p>Adds one or more tags to a trail, event data store, dashboard, or channel, up to a limit of 50. Overwrites an
  *          existing tag's value when a new value is specified for an existing tag key. Tag key names
  *          must be unique; you cannot have two keys with the same name but different
  *          values. If you specify a key without a value, the tag will be created with the specified
@@ -75,6 +75,8 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  *          </p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -142,7 +144,7 @@ export interface AddTagsCommandOutput extends AddTagsResponse, __MetadataBearer 
  *  <p>This exception is thrown when the specified resource type is not supported by CloudTrail.</p>
  *
  * @throws {@link TagsLimitExceededException} (client fault)
- *  <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
+ *  <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  *
  * @throws {@link UnsupportedOperationException} (client fault)

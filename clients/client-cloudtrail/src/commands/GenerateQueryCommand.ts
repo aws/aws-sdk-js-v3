@@ -61,6 +61,7 @@ export interface GenerateQueryCommandOutput extends GenerateQueryResponse, __Met
  * // { // GenerateQueryResponse
  * //   QueryStatement: "STRING_VALUE",
  * //   QueryAlias: "STRING_VALUE",
+ * //   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * // };
  *
  * ```

@@ -140,7 +140,7 @@ export class AccountRegisteredException extends __BaseException {
 
 /**
  * <p>A custom key-value pair associated with a resource such as a CloudTrail
- *          trail, event data store, or channel.</p>
+ *          trail, event data store, dashboard, or channel.</p>
  * @public
  */
 export interface Tag {
@@ -160,18 +160,20 @@ export interface Tag {
 }
 
 /**
- * <p>Specifies the tags to add to a trail, event data store, or channel.</p>
+ * <p>Specifies the tags to add to a trail, event data store, dashboard, or channel.</p>
  * @public
  */
 export interface AddTagsRequest {
   /**
-   * <p>Specifies the ARN of the trail, event data store, or channel to which one or more tags will be
+   * <p>Specifies the ARN of the trail, event data store, dashboard, or channel to which one or more tags will be
    *          added.</p>
    *          <p>The format of a trail ARN is:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>The format of an event data store ARN is:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>The format of a dashboard ARN is: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
    *          </p>
    *          <p>The format of a channel ARN is:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -252,6 +254,8 @@ export class ChannelNotFoundException extends __BaseException {
  *          </p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -595,7 +599,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
+ * <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  * @public
  */
@@ -1085,6 +1089,14 @@ export interface CancelQueryRequest {
    * @public
    */
   QueryId: string | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -1121,6 +1133,14 @@ export interface CancelQueryResponse {
    * @public
    */
   QueryStatus: QueryStatus | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -1491,6 +1511,387 @@ export class InvalidSourceException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RefreshScheduleFrequencyUnit = {
+  DAYS: "DAYS",
+  HOURS: "HOURS",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshScheduleFrequencyUnit =
+  (typeof RefreshScheduleFrequencyUnit)[keyof typeof RefreshScheduleFrequencyUnit];
+
+/**
+ * <p>
+ * Specifies the frequency for a dashboard refresh schedule.
+ * </p>
+ *          <p>
+ *       For a custom dashboard, you can schedule a refresh for every 1, 6, 12, or 24 hours, or every day.
+ *    </p>
+ * @public
+ */
+export interface RefreshScheduleFrequency {
+  /**
+   * <p>
+   *    The unit to use for the refresh.
+   * </p>
+   *          <p>For custom dashboards, the unit can be <code>HOURS</code> or <code>DAYS</code>.</p>
+   *          <p>For the Highlights dashboard, the <code>Unit</code> must be <code>HOURS</code>.</p>
+   * @public
+   */
+  Unit?: RefreshScheduleFrequencyUnit | undefined;
+
+  /**
+   * <p>
+   * The value for the refresh schedule.
+   * </p>
+   *          <p>
+   *    For custom dashboards, the following values are valid when the unit is <code>HOURS</code>: <code>1</code>, <code>6</code>, <code>12</code>, <code>24</code>
+   *          </p>
+   *          <p>For custom dashboards, the only valid value when the unit is <code>DAYS</code> is <code>1</code>.</p>
+   *          <p>For the Highlights dashboard, the <code>Value</code> must be <code>6</code>.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RefreshScheduleStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshScheduleStatus = (typeof RefreshScheduleStatus)[keyof typeof RefreshScheduleStatus];
+
+/**
+ * <p>
+ * The schedule for a dashboard refresh.
+ * </p>
+ * @public
+ */
+export interface RefreshSchedule {
+  /**
+   * <p>
+   * The frequency at which you want the dashboard refreshed.
+   * </p>
+   * @public
+   */
+  Frequency?: RefreshScheduleFrequency | undefined;
+
+  /**
+   * <p>
+   * Specifies whether the refresh schedule is enabled. Set the value to <code>ENABLED</code> to enable the refresh schedule, or to <code>DISABLED</code> to turn off the refresh schedule.
+   * </p>
+   * @public
+   */
+  Status?: RefreshScheduleStatus | undefined;
+
+  /**
+   * <p>
+   *    The time of day in UTC to run the schedule; for hourly only refer to minutes; default is 00:00.
+   * </p>
+   * @public
+   */
+  TimeOfDay?: string | undefined;
+}
+
+/**
+ * <p>
+ * Contains information about a widget on a CloudTrail Lake dashboard.
+ * </p>
+ * @public
+ */
+export interface RequestWidget {
+  /**
+   * <p>
+   * The query statement for the widget. For custom dashboard widgets, you can query across multiple event data stores as long as all event data stores exist in your account.
+   * </p>
+   *          <note>
+   *             <p>When a query uses <code>?</code> with <code>eventTime</code>, <code>?</code> must be surrounded by single quotes as follows: <code>'?'</code>.</p>
+   *          </note>
+   * @public
+   */
+  QueryStatement: string | undefined;
+
+  /**
+   * <p>
+   *    The optional query parameters. The following query parameters are valid: <code>$StartTime$</code>, <code>$EndTime$</code>, and <code>$Period$</code>.
+   * </p>
+   * @public
+   */
+  QueryParameters?: string[] | undefined;
+
+  /**
+   * <p>
+   *    The view properties for the widget. For more information about view properties, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-widget-properties.html">
+   *       View properties for widgets
+   *    </a> in the <i>CloudTrail User Guide</i>.
+   * </p>
+   * @public
+   */
+  ViewProperties: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDashboardRequest {
+  /**
+   * <p>
+   *    The name of the dashboard. The name must be unique to your account.
+   * </p>
+   *          <p>To create the Highlights dashboard, the name must be <code>AWSCloudTrail-Highlights</code>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *    The refresh schedule configuration for the dashboard.
+   * </p>
+   *          <p>To create the Highlights dashboard, you must set a refresh schedule and set the <code>Status</code> to <code>ENABLED</code>. The <code>Unit</code> for the refresh schedule must be <code>HOURS</code>
+   *    and the <code>Value</code> must be <code>6</code>.</p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   * @public
+   */
+  TagsList?: Tag[] | undefined;
+
+  /**
+   * <p>
+   *    Specifies whether termination protection is enabled for the dashboard. If termination protection is enabled, you cannot delete the dashboard until termination protection is disabled.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for a custom dashboard. A custom dashboard can have a maximum of ten widgets.
+   * </p>
+   *          <p>You do not need to specify widgets for the Highlights dashboard.</p>
+   * @public
+   */
+  Widgets?: RequestWidget[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardType = (typeof DashboardType)[keyof typeof DashboardType];
+
+/**
+ * <p>
+ *    A widget on a CloudTrail Lake dashboard.
+ * </p>
+ * @public
+ */
+export interface Widget {
+  /**
+   * <p>The query alias used to identify the query for the widget.
+   * </p>
+   * @public
+   */
+  QueryAlias?: string | undefined;
+
+  /**
+   * <p>
+   * The SQL query statement for the widget.
+   * </p>
+   * @public
+   */
+  QueryStatement?: string | undefined;
+
+  /**
+   * <p>
+   *    The query parameters for the widget.
+   * </p>
+   * @public
+   */
+  QueryParameters?: string[] | undefined;
+
+  /**
+   * <p>
+   *    The view properties for the widget. For more information about view properties, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-widget-properties.html">
+   *       View properties for widgets
+   * </a> in the <i>CloudTrail User Guide</i>..
+   * </p>
+   * @public
+   */
+  ViewProperties?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDashboardResponse {
+  /**
+   * <p>
+   * The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The name of the dashboard.
+   * </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   * The dashboard type.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard.
+   * </p>
+   * @public
+   */
+  Widgets?: Widget[] | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   * @public
+   */
+  TagsList?: Tag[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule for the dashboard, if configured.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    Indicates whether termination protection is enabled for the dashboard.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ * @public
+ */
+export class InsufficientEncryptionPolicyException extends __BaseException {
+  readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientEncryptionPolicyException, __BaseException>) {
+    super({
+      name: "InsufficientEncryptionPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientEncryptionPolicyException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The query that was submitted has validation errors, or uses incorrect syntax or
+ *          unsupported keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User
+ *             Guide</i>.</p>
+ * @public
+ */
+export class InvalidQueryStatementException extends __BaseException {
+  readonly name: "InvalidQueryStatementException" = "InvalidQueryStatementException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidQueryStatementException, __BaseException>) {
+    super({
+      name: "InvalidQueryStatementException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidQueryStatementException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
+ *    This exception is thrown when the quota is exceeded. For information about CloudTrail quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail">Service quotas</a>
+ *    in the <i>Amazon Web Services General Reference</i>.
+ * </p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
  * @public
  */
@@ -1845,33 +2246,6 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
       ...opts,
     });
     Object.setPrototypeOf(this, InsufficientDependencyServiceAccessPermissionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This exception is thrown when the policy on the S3 bucket or KMS key does
- *          not have sufficient permissions for the operation.</p>
- * @public
- */
-export class InsufficientEncryptionPolicyException extends __BaseException {
-  readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientEncryptionPolicyException, __BaseException>) {
-    super({
-      name: "InsufficientEncryptionPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientEncryptionPolicyException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2762,6 +3136,24 @@ export interface DeleteChannelResponse {}
 /**
  * @public
  */
+export interface DeleteDashboardRequest {
+  /**
+   * <p>
+   * The name or ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDashboardResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteEventDataStoreRequest {
   /**
    * <p>The ARN (or the ID suffix of the ARN) of the event data store to delete.</p>
@@ -2864,10 +3256,15 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel you're deleting the resource-based policy from.
-   *          The following is the format of a resource ARN:
-   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
-   *       </p>
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel you're deleting the resource-based policy from.</p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -2880,9 +3277,16 @@ export interface DeleteResourcePolicyResponse {}
 
 /**
  * <p>
- *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. The following is the valid format for a resource ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
+ *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
  *       </p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
  * @public
  */
 export class ResourceARNNotValidException extends __BaseException {
@@ -3084,6 +3488,22 @@ export interface DescribeQueryRequest {
    * @public
    */
   QueryAlias?: string | undefined;
+
+  /**
+   * <p>
+   * The ID of the dashboard refresh.
+   * </p>
+   * @public
+   */
+  RefreshId?: string | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -3208,6 +3628,14 @@ export interface DescribeQueryResponse {
    * @public
    */
   Prompt?: string | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -3569,6 +3997,14 @@ export interface GenerateQueryResponse {
    * @public
    */
   QueryAlias?: string | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -3712,6 +4148,121 @@ export interface GetChannelResponse {
    * @public
    */
   IngestionStatus?: IngestionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDashboardRequest {
+  /**
+   * <p>
+   * The name or ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardStatus = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATED: "UPDATED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardStatus = (typeof DashboardStatus)[keyof typeof DashboardStatus];
+
+/**
+ * @public
+ */
+export interface GetDashboardResponse {
+  /**
+   * <p>
+   *    The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The type of dashboard.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   * The status of the dashboard.
+   * </p>
+   * @public
+   */
+  Status?: DashboardStatus | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard.
+   * </p>
+   * @public
+   */
+  Widgets?: Widget[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule for the dashboard, if configured.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was created.
+   * </p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was last updated.
+   * </p>
+   * @public
+   */
+  UpdatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The ID of the last dashboard refresh.
+   * </p>
+   * @public
+   */
+  LastRefreshId?: string | undefined;
+
+  /**
+   * <p>
+   * Provides information about failures for the last scheduled refresh.
+   * </p>
+   * @public
+   */
+  LastRefreshFailureReason?: string | undefined;
+
+  /**
+   * <p>
+   * Indicates whether termination protection is enabled for the dashboard.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -4513,6 +5064,14 @@ export interface GetQueryResultsRequest {
    * @public
    */
   MaxQueryResults?: number | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -4637,10 +5196,15 @@ export class InvalidNextTokenException extends __BaseException {
 export interface GetResourcePolicyRequest {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
-   *          The following is the format of a resource ARN:
-   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
-   *       </p>
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.</p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -4652,19 +5216,37 @@ export interface GetResourcePolicyRequest {
 export interface GetResourcePolicyResponse {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to resource-based policy.
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to resource-based policy.
    *       </p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
    * <p>
-   *          A JSON-formatted string that contains the resource-based policy attached to the CloudTrail channel.
+   *          A JSON-formatted string that contains the resource-based policy attached to the CloudTrail event data store, dashboard, or channel.
    *       </p>
    * @public
    */
   ResourcePolicy?: string | undefined;
+
+  /**
+   * <p>
+   *          The default resource-based policy that is automatically generated for the delegated administrator of an Organizations organization.
+   *          This policy will be evaluated in tandem with any policy you submit for the resource. For more information about this policy,
+   *          see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html#cloudtrail-lake-organizations-eds-rbp">Default resource policy for delegated administrators</a>.
+   *       </p>
+   * @public
+   */
+  DelegatedAdminResourcePolicy?: string | undefined;
 }
 
 /**
@@ -4698,11 +5280,14 @@ export interface GetTrailStatusRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which you are
    *          requesting status. To get the status of a shadow trail (a replication of the trail in
-   *          another Region), you must specify its ARN. The following is the format of a trail
-   *          ARN.</p>
+   *          another Region), you must specify its ARN.</p>
    *          <p>
-   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+   *          The following is the format of a trail
+   *          ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
+   *          <note>
+   *             <p>If the trail is an organization trail and you are a member account in the organization in Organizations, you must provide the full ARN of that trail, and not just the name.</p>
+   *          </note>
    * @public
    */
   Name: string | undefined;
@@ -4876,6 +5461,88 @@ export interface ListChannelsResponse {
 
   /**
    * <p>The token to use to get the next page of results after a previous API call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsRequest {
+  /**
+   * <p>
+   * Specify a name prefix to filter on.
+   * </p>
+   * @public
+   */
+  NamePrefix?: string | undefined;
+
+  /**
+   * <p>
+   * Specify a dashboard type to filter on: <code>CUSTOM</code> or <code>MANAGED</code>.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   *    A token you can use to get the next page of dashboard results.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *    The maximum number of dashboards to display on a single page.
+   * </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>
+ * Provides information about a CloudTrail Lake dashboard.
+ * </p>
+ * @public
+ */
+export interface DashboardDetail {
+  /**
+   * <p>
+   * The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The type of dashboard.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsResponse {
+  /**
+   * <p>
+   *    Contains information about dashboards in the account, in the current Region that match the applied filters.
+   * </p>
+   * @public
+   */
+  Dashboards?: DashboardDetail[] | undefined;
+
+  /**
+   * <p>
+   *    A token you can use to get the next page of dashboard results.
+   * </p>
    * @public
    */
   NextToken?: string | undefined;
@@ -5247,14 +5914,14 @@ export interface ListInsightsMetricDataRequest {
   Period?: number | undefined;
 
   /**
-   * <p>Type of datapoints to return. Valid values are <code>NonZeroData</code> and
+   * <p>Type of data points to return. Valid values are <code>NonZeroData</code> and
    *          <code>FillWithZeros</code>. The default is <code>NonZeroData</code>.</p>
    * @public
    */
   DataType?: InsightsMetricDataType | undefined;
 
   /**
-   * <p>The maximum number of datapoints to return. Valid values are integers from 1 to 21600.
+   * <p>The maximum number of data points to return. Valid values are integers from 1 to 21600.
    *          The default value is 21600.</p>
    * @public
    */
@@ -5603,13 +6270,15 @@ export interface ListQueriesResponse {
  */
 export interface ListTagsRequest {
   /**
-   * <p>Specifies a list of trail, event data store, or channel ARNs whose tags will be listed. The list
+   * <p>Specifies a list of trail, event data store, dashboard, or channel ARNs whose tags will be listed. The list
    *          has a limit of 20 ARNs.</p>
    *          <p> Example trail ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>Example event data store ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
    *          </p>
    *          <p>Example channel ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -6218,10 +6887,15 @@ export interface PutInsightSelectorsResponse {
 export interface PutResourcePolicyRequest {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
-   *          The following is the format of a resource ARN:
-   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
-   *       </p>
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.</p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -6230,24 +6904,9 @@ export interface PutResourcePolicyRequest {
    * <p>
    *          A JSON-formatted string for an Amazon Web Services resource-based policy.
    *       </p>
-   *          <p>The following are requirements for the resource policy:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                Contains only one action: cloudtrail-data:PutAuditEvents
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                Contains at least one statement. The policy can have a maximum of 20 statements.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                Each statement contains at least one principal. A statement can have a maximum of 50 principals.
-   *             </p>
-   *             </li>
-   *          </ul>
+   *          <p> For example resource-based policies, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail resource-based policy examples</a>
+   *          in the <i>CloudTrail User Guide</i>.</p>
    * @public
    */
   ResourcePolicy: string | undefined;
@@ -6259,43 +6918,43 @@ export interface PutResourcePolicyRequest {
 export interface PutResourcePolicyResponse {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.
    *       </p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn?: string | undefined;
 
   /**
    * <p>
-   *          The JSON-formatted string of the Amazon Web Services resource-based policy attached to the CloudTrail channel.
+   *          The JSON-formatted string of the Amazon Web Services resource-based policy attached to the CloudTrail event data store, dashboard, or channel.
    *       </p>
    * @public
    */
   ResourcePolicy?: string | undefined;
+
+  /**
+   * <p>
+   *          The default resource-based policy that is automatically generated for the delegated administrator of an Organizations organization.
+   *          This policy will be evaluated in tandem with any policy you submit for the resource. For more information about this policy,
+   *          see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html#cloudtrail-lake-organizations-eds-rbp">Default resource policy for delegated administrators</a>.
+   *       </p>
+   * @public
+   */
+  DelegatedAdminResourcePolicy?: string | undefined;
 }
 
 /**
  * <p>
  *          This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
  *       </p>
- *          <p>The following are requirements for the resource policy:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                Contains only one action: cloudtrail-data:PutAuditEvents
- *             </p>
- *             </li>
- *             <li>
- *                <p>
- *                Contains at least one statement. The policy can have a maximum of 20 statements.
- *             </p>
- *             </li>
- *             <li>
- *                <p>
- *                Each statement contains at least one principal. A statement can have a maximum of 50 principals.
- *             </p>
- *             </li>
- *          </ul>
  * @public
  */
 export class ResourcePolicyNotValidException extends __BaseException {
@@ -6368,18 +7027,20 @@ export interface RegisterOrganizationDelegatedAdminRequest {
 export interface RegisterOrganizationDelegatedAdminResponse {}
 
 /**
- * <p>Specifies the tags to remove from a trail, event data store, or channel.</p>
+ * <p>Specifies the tags to remove from a trail, event data store, dashboard, or channel.</p>
  * @public
  */
 export interface RemoveTagsRequest {
   /**
-   * <p>Specifies the ARN of the trail, event data store, or channel from which tags should be
+   * <p>Specifies the ARN of the trail, event data store, dashboard, or channel from which tags should be
    *          removed.</p>
    *          <p> Example trail ARN format:
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>Example event data store ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
    *          </p>
    *          <p>Example channel ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -6524,6 +7185,44 @@ export interface RestoreEventDataStoreResponse {
    * @public
    */
   BillingMode?: BillingMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardRefreshRequest {
+  /**
+   * <p>
+   * The name or ARN of the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>
+   *    The query parameter values for the dashboard
+   * </p>
+   *          <p>For custom dashboards, the following query parameters are valid: <code>$StartTime$</code>, <code>$EndTime$</code>, and <code>$Period$</code>.</p>
+   *          <p>For managed dashboards, the following query parameters are valid: <code>$StartTime$</code>,
+   *             <code>$EndTime$</code>, <code>$Period$</code>, and <code>$EventDataStoreId$</code>. The
+   *             <code>$EventDataStoreId$</code> query parameter is required.</p>
+   * @public
+   */
+  QueryParameterValues?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardRefreshResponse {
+  /**
+   * <p>
+   * The refresh ID for the dashboard.
+   * </p>
+   * @public
+   */
+  RefreshId?: string | undefined;
 }
 
 /**
@@ -6697,34 +7396,6 @@ export interface StartLoggingRequest {
 export interface StartLoggingResponse {}
 
 /**
- * <p>The query that was submitted has validation errors, or uses incorrect syntax or
- *          unsupported keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User
- *             Guide</i>.</p>
- * @public
- */
-export class InvalidQueryStatementException extends __BaseException {
-  readonly name: "InvalidQueryStatementException" = "InvalidQueryStatementException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   * @public
-   */
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidQueryStatementException, __BaseException>) {
-    super({
-      name: "InvalidQueryStatementException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidQueryStatementException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some
  *          queries to finish, and then run the query again.</p>
  * @public
@@ -6782,6 +7453,14 @@ export interface StartQueryRequest {
    * @public
    */
   QueryParameters?: string[] | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -6793,6 +7472,14 @@ export interface StartQueryResponse {
    * @public
    */
   QueryId?: string | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -6962,6 +7649,114 @@ export interface UpdateChannelResponse {
    * @public
    */
   Destinations?: Destination[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardRequest {
+  /**
+   * <p>
+   *    The name or ARN of the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard. A custom dashboard can have a maximum of 10 widgets.
+   * </p>
+   *          <p>To add new widgets, pass in an array that includes the existing widgets along with any new widgets. Run the <code>GetDashboard</code> operation to get the list of widgets for the dashboard.</p>
+   *          <p>To remove widgets, pass in an array that includes the existing widgets minus the widgets you want removed.</p>
+   * @public
+   */
+  Widgets?: RequestWidget[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule configuration for the dashboard.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    Specifies whether termination protection is enabled for the dashboard. If termination protection is enabled, you cannot delete the dashboard until termination protection is disabled.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardResponse {
+  /**
+   * <p>
+   * The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The name for the dashboard.
+   * </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   * The type of dashboard.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard.
+   * </p>
+   * @public
+   */
+  Widgets?: Widget[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule for the dashboard, if configured.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    Indicates whether termination protection is enabled for the dashboard.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was created.
+   * </p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was updated.
+   * </p>
+   * @public
+   */
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**

@@ -11,6 +11,11 @@ import {
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand";
 import {
+  CreateDashboardCommand,
+  CreateDashboardCommandInput,
+  CreateDashboardCommandOutput,
+} from "./commands/CreateDashboardCommand";
+import {
   CreateEventDataStoreCommand,
   CreateEventDataStoreCommandInput,
   CreateEventDataStoreCommandOutput,
@@ -21,6 +26,11 @@ import {
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand";
+import {
+  DeleteDashboardCommand,
+  DeleteDashboardCommandInput,
+  DeleteDashboardCommandOutput,
+} from "./commands/DeleteDashboardCommand";
 import {
   DeleteEventDataStoreCommand,
   DeleteEventDataStoreCommandInput,
@@ -64,6 +74,11 @@ import {
 } from "./commands/GenerateQueryCommand";
 import { GetChannelCommand, GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import {
+  GetDashboardCommand,
+  GetDashboardCommandInput,
+  GetDashboardCommandOutput,
+} from "./commands/GetDashboardCommand";
+import {
   GetEventDataStoreCommand,
   GetEventDataStoreCommandInput,
   GetEventDataStoreCommandOutput,
@@ -100,6 +115,11 @@ import {
   ListChannelsCommandInput,
   ListChannelsCommandOutput,
 } from "./commands/ListChannelsCommand";
+import {
+  ListDashboardsCommand,
+  ListDashboardsCommandInput,
+  ListDashboardsCommandOutput,
+} from "./commands/ListDashboardsCommand";
 import {
   ListEventDataStoresCommand,
   ListEventDataStoresCommandInput,
@@ -156,6 +176,11 @@ import {
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
 import {
+  StartDashboardRefreshCommand,
+  StartDashboardRefreshCommandInput,
+  StartDashboardRefreshCommandOutput,
+} from "./commands/StartDashboardRefreshCommand";
+import {
   StartEventDataStoreIngestionCommand,
   StartEventDataStoreIngestionCommandInput,
   StartEventDataStoreIngestionCommandOutput,
@@ -180,6 +205,11 @@ import {
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand";
 import {
+  UpdateDashboardCommand,
+  UpdateDashboardCommandInput,
+  UpdateDashboardCommandOutput,
+} from "./commands/UpdateDashboardCommand";
+import {
   UpdateEventDataStoreCommand,
   UpdateEventDataStoreCommandInput,
   UpdateEventDataStoreCommandOutput,
@@ -190,9 +220,11 @@ const commands = {
   AddTagsCommand,
   CancelQueryCommand,
   CreateChannelCommand,
+  CreateDashboardCommand,
   CreateEventDataStoreCommand,
   CreateTrailCommand,
   DeleteChannelCommand,
+  DeleteDashboardCommand,
   DeleteEventDataStoreCommand,
   DeleteResourcePolicyCommand,
   DeleteTrailCommand,
@@ -203,6 +235,7 @@ const commands = {
   EnableFederationCommand,
   GenerateQueryCommand,
   GetChannelCommand,
+  GetDashboardCommand,
   GetEventDataStoreCommand,
   GetEventSelectorsCommand,
   GetImportCommand,
@@ -212,6 +245,7 @@ const commands = {
   GetTrailCommand,
   GetTrailStatusCommand,
   ListChannelsCommand,
+  ListDashboardsCommand,
   ListEventDataStoresCommand,
   ListImportFailuresCommand,
   ListImportsCommand,
@@ -227,6 +261,7 @@ const commands = {
   RegisterOrganizationDelegatedAdminCommand,
   RemoveTagsCommand,
   RestoreEventDataStoreCommand,
+  StartDashboardRefreshCommand,
   StartEventDataStoreIngestionCommand,
   StartImportCommand,
   StartLoggingCommand,
@@ -235,6 +270,7 @@ const commands = {
   StopImportCommand,
   StopLoggingCommand,
   UpdateChannelCommand,
+  UpdateDashboardCommand,
   UpdateEventDataStoreCommand,
   UpdateTrailCommand,
 };
@@ -274,6 +310,20 @@ export interface CloudTrail {
   ): void;
 
   /**
+   * @see {@link CreateDashboardCommand}
+   */
+  createDashboard(
+    args: CreateDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDashboardCommandOutput>;
+  createDashboard(args: CreateDashboardCommandInput, cb: (err: any, data?: CreateDashboardCommandOutput) => void): void;
+  createDashboard(
+    args: CreateDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDashboardCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEventDataStoreCommand}
    */
   createEventDataStore(
@@ -310,6 +360,20 @@ export interface CloudTrail {
     args: DeleteChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDashboardCommand}
+   */
+  deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDashboardCommandOutput>;
+  deleteDashboard(args: DeleteDashboardCommandInput, cb: (err: any, data?: DeleteDashboardCommandOutput) => void): void;
+  deleteDashboard(
+    args: DeleteDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDashboardCommandOutput) => void
   ): void;
 
   /**
@@ -458,6 +522,17 @@ export interface CloudTrail {
   ): void;
 
   /**
+   * @see {@link GetDashboardCommand}
+   */
+  getDashboard(args: GetDashboardCommandInput, options?: __HttpHandlerOptions): Promise<GetDashboardCommandOutput>;
+  getDashboard(args: GetDashboardCommandInput, cb: (err: any, data?: GetDashboardCommandOutput) => void): void;
+  getDashboard(
+    args: GetDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDashboardCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEventDataStoreCommand}
    */
   getEventDataStore(
@@ -586,6 +661,21 @@ export interface CloudTrail {
     args: ListChannelsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDashboardsCommand}
+   */
+  listDashboards(): Promise<ListDashboardsCommandOutput>;
+  listDashboards(
+    args: ListDashboardsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDashboardsCommandOutput>;
+  listDashboards(args: ListDashboardsCommandInput, cb: (err: any, data?: ListDashboardsCommandOutput) => void): void;
+  listDashboards(
+    args: ListDashboardsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDashboardsCommandOutput) => void
   ): void;
 
   /**
@@ -810,6 +900,23 @@ export interface CloudTrail {
   ): void;
 
   /**
+   * @see {@link StartDashboardRefreshCommand}
+   */
+  startDashboardRefresh(
+    args: StartDashboardRefreshCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDashboardRefreshCommandOutput>;
+  startDashboardRefresh(
+    args: StartDashboardRefreshCommandInput,
+    cb: (err: any, data?: StartDashboardRefreshCommandOutput) => void
+  ): void;
+  startDashboardRefresh(
+    args: StartDashboardRefreshCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDashboardRefreshCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartEventDataStoreIngestionCommand}
    */
   startEventDataStoreIngestion(
@@ -909,6 +1016,20 @@ export interface CloudTrail {
     args: UpdateChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDashboardCommand}
+   */
+  updateDashboard(
+    args: UpdateDashboardCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDashboardCommandOutput>;
+  updateDashboard(args: UpdateDashboardCommandInput, cb: (err: any, data?: UpdateDashboardCommandOutput) => void): void;
+  updateDashboard(
+    args: UpdateDashboardCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDashboardCommandOutput) => void
   ): void;
 
   /**

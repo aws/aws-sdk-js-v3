@@ -56,12 +56,14 @@ import {
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
+import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import {
   CreateEventDataStoreCommandInput,
   CreateEventDataStoreCommandOutput,
 } from "./commands/CreateEventDataStoreCommand";
 import { CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
+import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import {
   DeleteEventDataStoreCommandInput,
   DeleteEventDataStoreCommandOutput,
@@ -81,6 +83,7 @@ import { DisableFederationCommandInput, DisableFederationCommandOutput } from ".
 import { EnableFederationCommandInput, EnableFederationCommandOutput } from "./commands/EnableFederationCommand";
 import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "./commands/GenerateQueryCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
+import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
 import { GetImportCommandInput, GetImportCommandOutput } from "./commands/GetImportCommand";
@@ -93,6 +96,7 @@ import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from ".
 import { GetTrailCommandInput, GetTrailCommandOutput } from "./commands/GetTrailCommand";
 import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "./commands/GetTrailStatusCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
+import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
@@ -124,6 +128,10 @@ import {
   RestoreEventDataStoreCommandOutput,
 } from "./commands/RestoreEventDataStoreCommand";
 import {
+  StartDashboardRefreshCommandInput,
+  StartDashboardRefreshCommandOutput,
+} from "./commands/StartDashboardRefreshCommand";
+import {
   StartEventDataStoreIngestionCommandInput,
   StartEventDataStoreIngestionCommandOutput,
 } from "./commands/StartEventDataStoreIngestionCommand";
@@ -137,6 +145,7 @@ import {
 import { StopImportCommandInput, StopImportCommandOutput } from "./commands/StopImportCommand";
 import { StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
+import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import {
   UpdateEventDataStoreCommandInput,
   UpdateEventDataStoreCommandOutput,
@@ -160,9 +169,11 @@ export type ServiceInputTypes =
   | AddTagsCommandInput
   | CancelQueryCommandInput
   | CreateChannelCommandInput
+  | CreateDashboardCommandInput
   | CreateEventDataStoreCommandInput
   | CreateTrailCommandInput
   | DeleteChannelCommandInput
+  | DeleteDashboardCommandInput
   | DeleteEventDataStoreCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteTrailCommandInput
@@ -173,6 +184,7 @@ export type ServiceInputTypes =
   | EnableFederationCommandInput
   | GenerateQueryCommandInput
   | GetChannelCommandInput
+  | GetDashboardCommandInput
   | GetEventDataStoreCommandInput
   | GetEventSelectorsCommandInput
   | GetImportCommandInput
@@ -182,6 +194,7 @@ export type ServiceInputTypes =
   | GetTrailCommandInput
   | GetTrailStatusCommandInput
   | ListChannelsCommandInput
+  | ListDashboardsCommandInput
   | ListEventDataStoresCommandInput
   | ListImportFailuresCommandInput
   | ListImportsCommandInput
@@ -197,6 +210,7 @@ export type ServiceInputTypes =
   | RegisterOrganizationDelegatedAdminCommandInput
   | RemoveTagsCommandInput
   | RestoreEventDataStoreCommandInput
+  | StartDashboardRefreshCommandInput
   | StartEventDataStoreIngestionCommandInput
   | StartImportCommandInput
   | StartLoggingCommandInput
@@ -205,6 +219,7 @@ export type ServiceInputTypes =
   | StopImportCommandInput
   | StopLoggingCommandInput
   | UpdateChannelCommandInput
+  | UpdateDashboardCommandInput
   | UpdateEventDataStoreCommandInput
   | UpdateTrailCommandInput;
 
@@ -215,9 +230,11 @@ export type ServiceOutputTypes =
   | AddTagsCommandOutput
   | CancelQueryCommandOutput
   | CreateChannelCommandOutput
+  | CreateDashboardCommandOutput
   | CreateEventDataStoreCommandOutput
   | CreateTrailCommandOutput
   | DeleteChannelCommandOutput
+  | DeleteDashboardCommandOutput
   | DeleteEventDataStoreCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteTrailCommandOutput
@@ -228,6 +245,7 @@ export type ServiceOutputTypes =
   | EnableFederationCommandOutput
   | GenerateQueryCommandOutput
   | GetChannelCommandOutput
+  | GetDashboardCommandOutput
   | GetEventDataStoreCommandOutput
   | GetEventSelectorsCommandOutput
   | GetImportCommandOutput
@@ -237,6 +255,7 @@ export type ServiceOutputTypes =
   | GetTrailCommandOutput
   | GetTrailStatusCommandOutput
   | ListChannelsCommandOutput
+  | ListDashboardsCommandOutput
   | ListEventDataStoresCommandOutput
   | ListImportFailuresCommandOutput
   | ListImportsCommandOutput
@@ -252,6 +271,7 @@ export type ServiceOutputTypes =
   | RegisterOrganizationDelegatedAdminCommandOutput
   | RemoveTagsCommandOutput
   | RestoreEventDataStoreCommandOutput
+  | StartDashboardRefreshCommandOutput
   | StartEventDataStoreIngestionCommandOutput
   | StartImportCommandOutput
   | StartLoggingCommandOutput
@@ -260,6 +280,7 @@ export type ServiceOutputTypes =
   | StopImportCommandOutput
   | StopLoggingCommandOutput
   | UpdateChannelCommandOutput
+  | UpdateDashboardCommandOutput
   | UpdateEventDataStoreCommandOutput
   | UpdateTrailCommandOutput;
 

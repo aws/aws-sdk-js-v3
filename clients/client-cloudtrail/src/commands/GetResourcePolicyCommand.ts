@@ -29,7 +29,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
 
 /**
  * <p>
- *          Retrieves the JSON text of the resource-based policy document attached to the CloudTrail channel.
+ *          Retrieves the JSON text of the resource-based policy document attached to the CloudTrail event data store, dashboard, or channel.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -45,6 +45,7 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * // { // GetResourcePolicyResponse
  * //   ResourceArn: "STRING_VALUE",
  * //   ResourcePolicy: "STRING_VALUE",
+ * //   DelegatedAdminResourcePolicy: "STRING_VALUE",
  * // };
  *
  * ```
@@ -60,9 +61,16 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  *
  * @throws {@link ResourceARNNotValidException} (client fault)
  *  <p>
- *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. The following is the valid format for a resource ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
+ *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
  *       </p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the specified resource is not found.</p>
