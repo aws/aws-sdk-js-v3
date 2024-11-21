@@ -57,6 +57,20 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
+ *       stateTemplates: [ // StateTemplateAssociations
+ *         { // StateTemplateAssociation
+ *           identifier: "STRING_VALUE", // required
+ *           stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ *             periodic: { // PeriodicStateTemplateUpdateStrategy
+ *               stateTemplateUpdateRate: { // TimePeriod
+ *                 unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *                 value: Number("int"), // required
+ *               },
+ *             },
+ *             onChange: {},
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
  * };

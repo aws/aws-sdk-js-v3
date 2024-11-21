@@ -49,7 +49,7 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * //   signalDecoders: [ // SignalDecoders
  * //     { // SignalDecoder
  * //       fullyQualifiedName: "STRING_VALUE", // required
- * //       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
+ * //       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL" || "CUSTOM_DECODING_SIGNAL", // required
  * //       interfaceId: "STRING_VALUE", // required
  * //       canSignal: { // CanSignal
  * //         messageId: Number("int"), // required
@@ -117,6 +117,9 @@ export interface ListDecoderManifestSignalsCommandOutput extends ListDecoderMani
  * //             },
  * //           ],
  * //         },
+ * //       },
+ * //       customDecodingSignal: { // CustomDecodingSignal
+ * //         id: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],

@@ -48,6 +48,20 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * //   attributes: { // attributesMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   stateTemplates: [ // StateTemplateAssociations
+ * //     { // StateTemplateAssociation
+ * //       identifier: "STRING_VALUE", // required
+ * //       stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ * //         periodic: { // PeriodicStateTemplateUpdateStrategy
+ * //           stateTemplateUpdateRate: { // TimePeriod
+ * //             unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ * //             value: Number("int"), // required
+ * //           },
+ * //         },
+ * //         onChange: {},
+ * //       },
+ * //     },
+ * //   ],
  * //   creationTime: new Date("TIMESTAMP"),
  * //   lastModificationTime: new Date("TIMESTAMP"),
  * // };

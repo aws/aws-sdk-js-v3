@@ -29,10 +29,6 @@ export interface UpdateFleetCommandOutput extends UpdateFleetResponse, __Metadat
 
 /**
  * <p> Updates the description of an existing fleet. </p>
- *          <note>
- *             <p>If the fleet is successfully updated, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
- *                 with an empty HTTP body.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

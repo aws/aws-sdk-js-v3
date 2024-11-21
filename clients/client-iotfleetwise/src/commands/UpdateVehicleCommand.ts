@@ -43,6 +43,23 @@ export interface UpdateVehicleCommandOutput extends UpdateVehicleResponse, __Met
  *     "<keys>": "STRING_VALUE",
  *   },
  *   attributeUpdateMode: "Overwrite" || "Merge",
+ *   stateTemplatesToAdd: [ // StateTemplateAssociations
+ *     { // StateTemplateAssociation
+ *       identifier: "STRING_VALUE", // required
+ *       stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ *         periodic: { // PeriodicStateTemplateUpdateStrategy
+ *           stateTemplateUpdateRate: { // TimePeriod
+ *             unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *             value: Number("int"), // required
+ *           },
+ *         },
+ *         onChange: {},
+ *       },
+ *     },
+ *   ],
+ *   stateTemplatesToRemove: [ // StateTemplateAssociationIdentifiers
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UpdateVehicleCommand(input);
  * const response = await client.send(command);

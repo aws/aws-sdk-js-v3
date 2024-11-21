@@ -28,8 +28,8 @@ export interface GetVehicleStatusCommandInput extends GetVehicleStatusRequest {}
 export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves information about the status of a vehicle with any associated campaigns.
- *         </p>
+ * <p> Retrieves information about the status of campaigns, decoder manifests, or state templates
+ *             associated with a vehicle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

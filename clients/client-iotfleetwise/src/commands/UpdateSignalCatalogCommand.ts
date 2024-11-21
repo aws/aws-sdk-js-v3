@@ -208,7 +208,8 @@ export interface UpdateSignalCatalogCommandOutput extends UpdateSignalCatalogRes
  *             specify the node type as branch, sensor, actuator, or attribute.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service quota was exceeded. </p>

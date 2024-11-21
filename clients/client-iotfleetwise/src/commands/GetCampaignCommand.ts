@@ -29,6 +29,9 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
 
 /**
  * <p> Retrieves information about a campaign. </p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +62,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //       name: "STRING_VALUE", // required
  * //       maxSampleCount: Number("long"),
  * //       minimumSamplingIntervalMs: Number("long"),
+ * //       dataPartitionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   collectionScheme: { // CollectionScheme Union: only one key present
@@ -89,6 +93,48 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //         timestreamTableArn: "STRING_VALUE", // required
  * //         executionRoleArn: "STRING_VALUE", // required
  * //       },
+ * //       mqttTopicConfig: { // MqttTopicConfig
+ * //         mqttTopicArn: "STRING_VALUE", // required
+ * //         executionRoleArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   dataPartitions: [ // DataPartitions
+ * //     { // DataPartition
+ * //       id: "STRING_VALUE", // required
+ * //       storageOptions: { // DataPartitionStorageOptions
+ * //         maximumSize: { // StorageMaximumSize
+ * //           unit: "MB" || "GB" || "TB", // required
+ * //           value: Number("int"), // required
+ * //         },
+ * //         storageLocation: "STRING_VALUE", // required
+ * //         minimumTimeToLive: { // StorageMinimumTimeToLive
+ * //           unit: "HOURS" || "DAYS" || "WEEKS", // required
+ * //           value: Number("int"), // required
+ * //         },
+ * //       },
+ * //       uploadOptions: { // DataPartitionUploadOptions
+ * //         expression: "STRING_VALUE", // required
+ * //         conditionLanguageVersion: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   signalsToFetch: [ // SignalFetchInformationList
+ * //     { // SignalFetchInformation
+ * //       fullyQualifiedName: "STRING_VALUE", // required
+ * //       signalFetchConfig: { // SignalFetchConfig Union: only one key present
+ * //         timeBased: { // TimeBasedSignalFetchConfig
+ * //           executionFrequencyMs: Number("long"), // required
+ * //         },
+ * //         conditionBased: { // ConditionBasedSignalFetchConfig
+ * //           conditionExpression: "STRING_VALUE", // required
+ * //           triggerMode: "ALWAYS" || "RISING_EDGE", // required
+ * //         },
+ * //       },
+ * //       conditionLanguageVersion: Number("int"),
+ * //       actions: [ // EventExpressionList // required
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };

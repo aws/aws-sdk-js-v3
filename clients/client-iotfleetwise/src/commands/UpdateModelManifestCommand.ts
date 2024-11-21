@@ -73,7 +73,8 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource wasn't found.</p>

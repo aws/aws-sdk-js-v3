@@ -30,6 +30,7 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
 /**
  * <p> Creates a decoder manifest using your existing CAN DBC file from your local device.
  *         </p>
+ *          <p>The CAN signal name must be unique and not repeated across CAN message definitions in a .dbc file. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,10 +76,12 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  *             more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link DecoderManifestValidationException} (client fault)
- *  <p>The request couldn't be completed because it contains signal decoders with one or more validation errors.</p>
+ *  <p>The request couldn't be completed because it contains signal decoders with one or more
+ *             validation errors.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource wasn't found.</p>

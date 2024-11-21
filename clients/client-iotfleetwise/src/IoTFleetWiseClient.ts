@@ -73,6 +73,10 @@ import {
   CreateSignalCatalogCommandInput,
   CreateSignalCatalogCommandOutput,
 } from "./commands/CreateSignalCatalogCommand";
+import {
+  CreateStateTemplateCommandInput,
+  CreateStateTemplateCommandOutput,
+} from "./commands/CreateStateTemplateCommand";
 import { CreateVehicleCommandInput, CreateVehicleCommandOutput } from "./commands/CreateVehicleCommand";
 import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "./commands/DeleteCampaignCommand";
 import {
@@ -88,6 +92,10 @@ import {
   DeleteSignalCatalogCommandInput,
   DeleteSignalCatalogCommandOutput,
 } from "./commands/DeleteSignalCatalogCommand";
+import {
+  DeleteStateTemplateCommandInput,
+  DeleteStateTemplateCommandOutput,
+} from "./commands/DeleteStateTemplateCommand";
 import { DeleteVehicleCommandInput, DeleteVehicleCommandOutput } from "./commands/DeleteVehicleCommand";
 import {
   DisassociateVehicleFleetCommandInput,
@@ -107,6 +115,7 @@ import {
   GetRegisterAccountStatusCommandOutput,
 } from "./commands/GetRegisterAccountStatusCommand";
 import { GetSignalCatalogCommandInput, GetSignalCatalogCommandOutput } from "./commands/GetSignalCatalogCommand";
+import { GetStateTemplateCommandInput, GetStateTemplateCommandOutput } from "./commands/GetStateTemplateCommand";
 import { GetVehicleCommandInput, GetVehicleCommandOutput } from "./commands/GetVehicleCommand";
 import { GetVehicleStatusCommandInput, GetVehicleStatusCommandOutput } from "./commands/GetVehicleStatusCommand";
 import {
@@ -145,6 +154,7 @@ import {
   ListSignalCatalogNodesCommandOutput,
 } from "./commands/ListSignalCatalogNodesCommand";
 import { ListSignalCatalogsCommandInput, ListSignalCatalogsCommandOutput } from "./commands/ListSignalCatalogsCommand";
+import { ListStateTemplatesCommandInput, ListStateTemplatesCommandOutput } from "./commands/ListStateTemplatesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -176,6 +186,10 @@ import {
   UpdateSignalCatalogCommandInput,
   UpdateSignalCatalogCommandOutput,
 } from "./commands/UpdateSignalCatalogCommand";
+import {
+  UpdateStateTemplateCommandInput,
+  UpdateStateTemplateCommandOutput,
+} from "./commands/UpdateStateTemplateCommand";
 import { UpdateVehicleCommandInput, UpdateVehicleCommandOutput } from "./commands/UpdateVehicleCommand";
 import {
   ClientInputEndpointParameters,
@@ -200,12 +214,14 @@ export type ServiceInputTypes =
   | CreateFleetCommandInput
   | CreateModelManifestCommandInput
   | CreateSignalCatalogCommandInput
+  | CreateStateTemplateCommandInput
   | CreateVehicleCommandInput
   | DeleteCampaignCommandInput
   | DeleteDecoderManifestCommandInput
   | DeleteFleetCommandInput
   | DeleteModelManifestCommandInput
   | DeleteSignalCatalogCommandInput
+  | DeleteStateTemplateCommandInput
   | DeleteVehicleCommandInput
   | DisassociateVehicleFleetCommandInput
   | GetCampaignCommandInput
@@ -216,6 +232,7 @@ export type ServiceInputTypes =
   | GetModelManifestCommandInput
   | GetRegisterAccountStatusCommandInput
   | GetSignalCatalogCommandInput
+  | GetStateTemplateCommandInput
   | GetVehicleCommandInput
   | GetVehicleStatusCommandInput
   | ImportDecoderManifestCommandInput
@@ -230,6 +247,7 @@ export type ServiceInputTypes =
   | ListModelManifestsCommandInput
   | ListSignalCatalogNodesCommandInput
   | ListSignalCatalogsCommandInput
+  | ListStateTemplatesCommandInput
   | ListTagsForResourceCommandInput
   | ListVehiclesCommandInput
   | ListVehiclesInFleetCommandInput
@@ -243,6 +261,7 @@ export type ServiceInputTypes =
   | UpdateFleetCommandInput
   | UpdateModelManifestCommandInput
   | UpdateSignalCatalogCommandInput
+  | UpdateStateTemplateCommandInput
   | UpdateVehicleCommandInput;
 
 /**
@@ -257,12 +276,14 @@ export type ServiceOutputTypes =
   | CreateFleetCommandOutput
   | CreateModelManifestCommandOutput
   | CreateSignalCatalogCommandOutput
+  | CreateStateTemplateCommandOutput
   | CreateVehicleCommandOutput
   | DeleteCampaignCommandOutput
   | DeleteDecoderManifestCommandOutput
   | DeleteFleetCommandOutput
   | DeleteModelManifestCommandOutput
   | DeleteSignalCatalogCommandOutput
+  | DeleteStateTemplateCommandOutput
   | DeleteVehicleCommandOutput
   | DisassociateVehicleFleetCommandOutput
   | GetCampaignCommandOutput
@@ -273,6 +294,7 @@ export type ServiceOutputTypes =
   | GetModelManifestCommandOutput
   | GetRegisterAccountStatusCommandOutput
   | GetSignalCatalogCommandOutput
+  | GetStateTemplateCommandOutput
   | GetVehicleCommandOutput
   | GetVehicleStatusCommandOutput
   | ImportDecoderManifestCommandOutput
@@ -287,6 +309,7 @@ export type ServiceOutputTypes =
   | ListModelManifestsCommandOutput
   | ListSignalCatalogNodesCommandOutput
   | ListSignalCatalogsCommandOutput
+  | ListStateTemplatesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListVehiclesCommandOutput
   | ListVehiclesInFleetCommandOutput
@@ -300,6 +323,7 @@ export type ServiceOutputTypes =
   | UpdateFleetCommandOutput
   | UpdateModelManifestCommandOutput
   | UpdateSignalCatalogCommandOutput
+  | UpdateStateTemplateCommandOutput
   | UpdateVehicleCommandOutput;
 
 /**
@@ -481,6 +505,9 @@ export interface IoTFleetWiseClientResolvedConfig extends IoTFleetWiseClientReso
  *             </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
  *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
  * @public
  */
 export class IoTFleetWiseClient extends __Client<

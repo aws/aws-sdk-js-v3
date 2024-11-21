@@ -51,6 +51,23 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  *         "<keys>": "STRING_VALUE",
  *       },
  *       attributeUpdateMode: "Overwrite" || "Merge",
+ *       stateTemplatesToAdd: [ // StateTemplateAssociations
+ *         { // StateTemplateAssociation
+ *           identifier: "STRING_VALUE", // required
+ *           stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ *             periodic: { // PeriodicStateTemplateUpdateStrategy
+ *               stateTemplateUpdateRate: { // TimePeriod
+ *                 unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *                 value: Number("int"), // required
+ *               },
+ *             },
+ *             onChange: {},
+ *           },
+ *         },
+ *       ],
+ *       stateTemplatesToRemove: [ // StateTemplateAssociationIdentifiers
+ *         "STRING_VALUE",
+ *       ],
  *     },
  *   ],
  * };

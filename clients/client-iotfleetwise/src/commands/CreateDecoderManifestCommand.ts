@@ -57,7 +57,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *   signalDecoders: [ // SignalDecoders
  *     { // SignalDecoder
  *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
+ *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL" || "CUSTOM_DECODING_SIGNAL", // required
  *       interfaceId: "STRING_VALUE", // required
  *       canSignal: { // CanSignal
  *         messageId: Number("int"), // required
@@ -126,12 +126,15 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *           ],
  *         },
  *       },
+ *       customDecodingSignal: { // CustomDecodingSignal
+ *         id: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
  *   networkInterfaces: [ // NetworkInterfaces
  *     { // NetworkInterface
  *       interfaceId: "STRING_VALUE", // required
- *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
+ *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE" || "CUSTOM_DECODING_INTERFACE", // required
  *       canInterface: { // CanInterface
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
@@ -150,8 +153,12 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         name: "STRING_VALUE", // required
  *         protocolName: "ROS_2", // required
  *       },
+ *       customDecodingInterface: { // CustomDecodingInterface
+ *         name: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
+ *   defaultForUnmappedSignals: "CUSTOM_DECODING",
  *   tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -182,7 +189,8 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *             more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link DecoderManifestValidationException} (client fault)
- *  <p>The request couldn't be completed because it contains signal decoders with one or more validation errors.</p>
+ *  <p>The request couldn't be completed because it contains signal decoders with one or more
+ *             validation errors.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service quota was exceeded. </p>
