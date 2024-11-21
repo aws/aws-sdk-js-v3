@@ -68,7 +68,7 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune" || "workspaces", // required
  *   ResourceId: "STRING_VALUE", // required
  *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount" || "workspaces:workspacespool:DesiredUserSessions", // required
- *   PolicyType: "StepScaling" || "TargetTrackingScaling",
+ *   PolicyType: "StepScaling" || "TargetTrackingScaling" || "PredictiveScaling",
  *   StepScalingPolicyConfiguration: { // StepScalingPolicyConfiguration
  *     AdjustmentType: "ChangeInCapacity" || "PercentChangeInCapacity" || "ExactCapacity",
  *     StepAdjustments: [ // StepAdjustments
@@ -125,6 +125,101 @@ export interface PutScalingPolicyCommandOutput extends PutScalingPolicyResponse,
  *     ScaleOutCooldown: Number("int"),
  *     ScaleInCooldown: Number("int"),
  *     DisableScaleIn: true || false,
+ *   },
+ *   PredictiveScalingPolicyConfiguration: { // PredictiveScalingPolicyConfiguration
+ *     MetricSpecifications: [ // PredictiveScalingMetricSpecifications // required
+ *       { // PredictiveScalingMetricSpecification
+ *         TargetValue: Number("double"), // required
+ *         PredefinedMetricPairSpecification: { // PredictiveScalingPredefinedMetricPairSpecification
+ *           PredefinedMetricType: "STRING_VALUE", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         PredefinedScalingMetricSpecification: { // PredictiveScalingPredefinedScalingMetricSpecification
+ *           PredefinedMetricType: "STRING_VALUE", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         PredefinedLoadMetricSpecification: { // PredictiveScalingPredefinedLoadMetricSpecification
+ *           PredefinedMetricType: "STRING_VALUE", // required
+ *           ResourceLabel: "STRING_VALUE",
+ *         },
+ *         CustomizedScalingMetricSpecification: { // PredictiveScalingCustomizedMetricSpecification
+ *           MetricDataQueries: [ // PredictiveScalingMetricDataQueries // required
+ *             { // PredictiveScalingMetricDataQuery
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: { // PredictiveScalingMetricStat
+ *                 Metric: { // PredictiveScalingMetric
+ *                   Dimensions: [ // PredictiveScalingMetricDimensions
+ *                     { // PredictiveScalingMetricDimension
+ *                       Name: "STRING_VALUE", // required
+ *                       Value: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   MetricName: "STRING_VALUE",
+ *                   Namespace: "STRING_VALUE",
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedLoadMetricSpecification: {
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Dimensions: [
+ *                     {
+ *                       Name: "STRING_VALUE", // required
+ *                       Value: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   MetricName: "STRING_VALUE",
+ *                   Namespace: "STRING_VALUE",
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *         CustomizedCapacityMetricSpecification: {
+ *           MetricDataQueries: [ // required
+ *             {
+ *               Id: "STRING_VALUE", // required
+ *               Expression: "STRING_VALUE",
+ *               MetricStat: {
+ *                 Metric: {
+ *                   Dimensions: [
+ *                     {
+ *                       Name: "STRING_VALUE", // required
+ *                       Value: "STRING_VALUE", // required
+ *                     },
+ *                   ],
+ *                   MetricName: "STRING_VALUE",
+ *                   Namespace: "STRING_VALUE",
+ *                 },
+ *                 Stat: "STRING_VALUE", // required
+ *                 Unit: "STRING_VALUE",
+ *               },
+ *               Label: "STRING_VALUE",
+ *               ReturnData: true || false,
+ *             },
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Mode: "ForecastOnly" || "ForecastAndScale",
+ *     SchedulingBufferTime: Number("int"),
+ *     MaxCapacityBreachBehavior: "HonorMaxCapacity" || "IncreaseMaxCapacity",
+ *     MaxCapacityBuffer: Number("int"),
  *   },
  * };
  * const command = new PutScalingPolicyCommand(input);

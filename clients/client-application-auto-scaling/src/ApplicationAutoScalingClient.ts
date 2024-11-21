@@ -82,6 +82,10 @@ import {
   DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
+  GetPredictiveScalingForecastCommandInput,
+  GetPredictiveScalingForecastCommandOutput,
+} from "./commands/GetPredictiveScalingForecastCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -115,6 +119,7 @@ export type ServiceInputTypes =
   | DescribeScalingActivitiesCommandInput
   | DescribeScalingPoliciesCommandInput
   | DescribeScheduledActionsCommandInput
+  | GetPredictiveScalingForecastCommandInput
   | ListTagsForResourceCommandInput
   | PutScalingPolicyCommandInput
   | PutScheduledActionCommandInput
@@ -133,6 +138,7 @@ export type ServiceOutputTypes =
   | DescribeScalingActivitiesCommandOutput
   | DescribeScalingPoliciesCommandOutput
   | DescribeScheduledActionsCommandOutput
+  | GetPredictiveScalingForecastCommandOutput
   | ListTagsForResourceCommandOutput
   | PutScalingPolicyCommandOutput
   | PutScheduledActionCommandOutput

@@ -6,6 +6,7 @@ export * from "./DescribeScalableTargetsCommand";
 export * from "./DescribeScalingActivitiesCommand";
 export * from "./DescribeScalingPoliciesCommand";
 export * from "./DescribeScheduledActionsCommand";
+export * from "./GetPredictiveScalingForecastCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutScalingPolicyCommand";
 export * from "./PutScheduledActionCommand";

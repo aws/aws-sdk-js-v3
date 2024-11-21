@@ -1259,6 +1259,14 @@ export interface ScalableTarget {
   MaxCapacity: number | undefined;
 
   /**
+   * <p>
+   *          The predicted capacity of the scalable target.
+   *       </p>
+   * @public
+   */
+  PredictedCapacity?: number | undefined;
+
+  /**
    * <p>The ARN of an IAM role that allows Application Auto Scaling to modify the scalable target on your
    *          behalf.</p>
    * @public
@@ -2111,6 +2119,7 @@ export interface DescribeScalingPoliciesRequest {
  * @enum
  */
 export const PolicyType = {
+  PredictiveScaling: "PredictiveScaling",
   StepScaling: "StepScaling",
   TargetTrackingScaling: "TargetTrackingScaling",
 } as const;
@@ -2119,6 +2128,428 @@ export const PolicyType = {
  * @public
  */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PredictiveScalingMaxCapacityBreachBehavior = {
+  HonorMaxCapacity: "HonorMaxCapacity",
+  IncreaseMaxCapacity: "IncreaseMaxCapacity",
+} as const;
+
+/**
+ * @public
+ */
+export type PredictiveScalingMaxCapacityBreachBehavior =
+  (typeof PredictiveScalingMaxCapacityBreachBehavior)[keyof typeof PredictiveScalingMaxCapacityBreachBehavior];
+
+/**
+ * <p>
+ *          Describes the dimension of a metric.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetricDimension {
+  /**
+   * <p>
+   *          The name of the dimension.
+   *       </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *          The value of the dimension.
+   *       </p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>
+ *          Describes the scaling metric.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetric {
+  /**
+   * <p>
+   *          Describes the dimensions of the metric.
+   *       </p>
+   * @public
+   */
+  Dimensions?: PredictiveScalingMetricDimension[] | undefined;
+
+  /**
+   * <p>
+   *          The name of the metric.
+   *       </p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>
+   *          The namespace of the metric.
+   *       </p>
+   * @public
+   */
+  Namespace?: string | undefined;
+}
+
+/**
+ * <p>
+ *          This structure defines the CloudWatch metric to return, along with the statistic and unit.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetricStat {
+  /**
+   * <p>
+   *          The CloudWatch metric to return, including the metric name, namespace, and dimensions. To
+   *          get the exact metric name, namespace, and dimensions, inspect the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html">Metric</a> object that is returned by a call to <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html">ListMetrics</a>.
+   *       </p>
+   * @public
+   */
+  Metric: PredictiveScalingMetric | undefined;
+
+  /**
+   * <p>
+   *          The statistic to return. It can include any CloudWatch statistic or extended statistic. For
+   *          a list of valid values, see the table in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic">Statistics</a> in the <i>Amazon CloudWatch User Guide</i>.
+   *       </p>
+   *          <p>The most commonly used metrics for predictive scaling are <code>Average</code> and
+   *          <code>Sum</code>.</p>
+   * @public
+   */
+  Stat: string | undefined;
+
+  /**
+   * <p>
+   *          The unit to use for the returned data points. For a complete list of the units that
+   *          CloudWatch supports, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">MetricDatum</a>
+   *          data type in the <i>Amazon CloudWatch API Reference</i>.
+   *       </p>
+   * @public
+   */
+  Unit?: string | undefined;
+}
+
+/**
+ * <p>
+ *          The metric data to return. Also defines whether this call is returning data for one
+ *          metric only, or whether it is performing a math expression on the values of returned
+ *          metric statistics to create a new time series. A time series is a series of data points,
+ *          each of which is associated with a timestamp.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingMetricDataQuery {
+  /**
+   * <p>
+   *          A short name that identifies the object's results in the response. This name must be
+   *          unique among all <code>MetricDataQuery</code> objects specified for a single scaling
+   *          policy. If you are performing math expressions on this set of data, this name represents
+   *          that data and can serve as a variable in the mathematical expression. The valid
+   *          characters are letters, numbers, and underscores. The first character must be a
+   *          lowercase letter.
+   *       </p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>
+   *          The math expression to perform on the returned data, if this object is performing a
+   *          math expression. This expression can use the <code>Id</code> of the other metrics to
+   *          refer to those metrics, and can also use the <code>Id</code> of other expressions to use
+   *          the result of those expressions.
+   *       </p>
+   *          <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *          <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   * @public
+   */
+  Expression?: string | undefined;
+
+  /**
+   * <p>
+   *          Information about the metric data to return.
+   *       </p>
+   *          <p>Conditional: Within each <code>MetricDataQuery</code> object, you must specify either
+   *          <code>Expression</code> or <code>MetricStat</code>, but not both.</p>
+   * @public
+   */
+  MetricStat?: PredictiveScalingMetricStat | undefined;
+
+  /**
+   * <p>
+   *          A human-readable label for this metric or expression. This is especially useful if
+   *          this is a math expression, so that you know what the value represents.
+   *       </p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>
+   *          Indicates whether to return the timestamps and raw data values of this metric.
+   *       </p>
+   *          <p>If you use any math expressions, specify <code>true</code> for this value for only the
+   *          final math expression that the metric specification is based on. You must specify
+   *          <code>false</code> for <code>ReturnData</code> for all the other metrics and
+   *          expressions used in the metric specification.</p>
+   *          <p>If you are only retrieving metrics and not performing any math expressions, do not
+   *          specify anything for <code>ReturnData</code>. This sets it to its default
+   *          (<code>true</code>).</p>
+   * @public
+   */
+  ReturnData?: boolean | undefined;
+}
+
+/**
+ * <p>
+ *          Represents a CloudWatch metric of your choosing for a predictive scaling policy.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingCustomizedMetricSpecification {
+  /**
+   * <p>
+   *          One or more metric data queries to provide data points for a metric specification.
+   *       </p>
+   * @public
+   */
+  MetricDataQueries: PredictiveScalingMetricDataQuery[] | undefined;
+}
+
+/**
+ * <p>
+ *          Describes a load metric for a predictive scaling policy.
+ *       </p>
+ *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
+ *          predictive scaling policy uses individually specified load and scaling metrics instead
+ *          of a metric pair.</p>
+ * @public
+ */
+export interface PredictiveScalingPredefinedLoadMetricSpecification {
+  /**
+   * <p>
+   *          The metric type.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricType: string | undefined;
+
+  /**
+   * <p>
+   *          A label that uniquely identifies a target group.
+   *       </p>
+   * @public
+   */
+  ResourceLabel?: string | undefined;
+}
+
+/**
+ * <p>
+ *          Represents a metric pair for a predictive scaling policy.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingPredefinedMetricPairSpecification {
+  /**
+   * <p>
+   *          Indicates which metrics to use. There are two different types of metrics for each
+   *          metric type: one is a load metric and one is a scaling metric.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricType: string | undefined;
+
+  /**
+   * <p>
+   *          A label that uniquely identifies a specific target group from which to determine
+   *          the total and average request count.
+   *       </p>
+   * @public
+   */
+  ResourceLabel?: string | undefined;
+}
+
+/**
+ * <p>
+ *          Describes a scaling metric for a predictive scaling policy.
+ *       </p>
+ *          <p>When returned in the output of <code>DescribePolicies</code>, it indicates that a
+ *          predictive scaling policy uses individually specified load and scaling metrics instead
+ *          of a metric pair.</p>
+ * @public
+ */
+export interface PredictiveScalingPredefinedScalingMetricSpecification {
+  /**
+   * <p>
+   *          The metric type.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricType: string | undefined;
+
+  /**
+   * <p>
+   *          A label that uniquely identifies a specific target group from which to determine
+   *          the average request count.
+   *       </p>
+   * @public
+   */
+  ResourceLabel?: string | undefined;
+}
+
+/**
+ * <p>
+ *          This structure specifies the metrics and target utilization settings for a predictive
+ *          scaling policy.
+ *       </p>
+ *          <p>You must specify either a metric pair, or a load metric and a scaling metric
+ *          individually. Specifying a metric pair instead of individual metrics provides a simpler
+ *          way to configure metrics for a scaling policy. You choose the metric pair, and the
+ *          policy automatically knows the correct sum and average statistics to use for the load
+ *          metric and the scaling metric.</p>
+ * @public
+ */
+export interface PredictiveScalingMetricSpecification {
+  /**
+   * <p>
+   *          Specifies the target utilization.
+   *       </p>
+   * @public
+   */
+  TargetValue: number | undefined;
+
+  /**
+   * <p>
+   *          The predefined metric pair specification that determines the appropriate scaling metric and load metric to use.
+   *       </p>
+   * @public
+   */
+  PredefinedMetricPairSpecification?: PredictiveScalingPredefinedMetricPairSpecification | undefined;
+
+  /**
+   * <p>
+   *          The predefined scaling metric specification.
+   *       </p>
+   * @public
+   */
+  PredefinedScalingMetricSpecification?: PredictiveScalingPredefinedScalingMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The predefined load metric specification.
+   *       </p>
+   * @public
+   */
+  PredefinedLoadMetricSpecification?: PredictiveScalingPredefinedLoadMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The customized scaling metric specification.
+   *       </p>
+   * @public
+   */
+  CustomizedScalingMetricSpecification?: PredictiveScalingCustomizedMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The customized load metric specification.
+   *       </p>
+   * @public
+   */
+  CustomizedLoadMetricSpecification?: PredictiveScalingCustomizedMetricSpecification | undefined;
+
+  /**
+   * <p>
+   *          The customized capacity metric specification.
+   *       </p>
+   * @public
+   */
+  CustomizedCapacityMetricSpecification?: PredictiveScalingCustomizedMetricSpecification | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PredictiveScalingMode = {
+  ForecastAndScale: "ForecastAndScale",
+  ForecastOnly: "ForecastOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type PredictiveScalingMode = (typeof PredictiveScalingMode)[keyof typeof PredictiveScalingMode];
+
+/**
+ * <p>
+ *          Represents a predictive scaling policy configuration.
+ *       </p>
+ * @public
+ */
+export interface PredictiveScalingPolicyConfiguration {
+  /**
+   * <p>
+   *          This structure includes the metrics and target utilization to use for predictive scaling.
+   *       </p>
+   *          <p>This is an array, but we currently only support a single metric specification. That
+   *          is, you can specify a target value and a single metric pair, or a target value and one
+   *          scaling metric and one load metric.</p>
+   * @public
+   */
+  MetricSpecifications: PredictiveScalingMetricSpecification[] | undefined;
+
+  /**
+   * <p>
+   *          The predictive scaling mode. Defaults to <code>ForecastOnly</code> if not specified.
+   *       </p>
+   * @public
+   */
+  Mode?: PredictiveScalingMode | undefined;
+
+  /**
+   * <p>
+   *          The amount of time, in seconds, that the start time can be advanced.
+   *       </p>
+   *          <p>The value must be less than the forecast interval duration of 3600 seconds (60
+   *          minutes). Defaults to 300 seconds if not specified. </p>
+   * @public
+   */
+  SchedulingBufferTime?: number | undefined;
+
+  /**
+   * <p>
+   *          Defines the behavior that should be applied if the forecast capacity approaches or
+   *          exceeds the maximum capacity. Defaults to
+   *          <code>HonorMaxCapacity</code> if not specified.
+   *       </p>
+   * @public
+   */
+  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior | undefined;
+
+  /**
+   * <p>
+   *          The size of the capacity buffer to use when the forecast capacity is close to or
+   *          exceeds the maximum capacity. The value is specified as a percentage relative to the
+   *          forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer,
+   *          such that if the forecast capacity is 50, and the maximum capacity is 40, then the
+   *          effective maximum capacity is 55.
+   *       </p>
+   *          <p>Required if the <code>MaxCapacityBreachBehavior</code> property is set to
+   *          <code>IncreaseMaxCapacity</code>, and cannot be used otherwise.</p>
+   * @public
+   */
+  MaxCapacityBuffer?: number | undefined;
+}
 
 /**
  * @public
@@ -2551,7 +2982,7 @@ export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 /**
  * <p>Represents a predefined metric for a target tracking scaling policy to use with
  *          Application Auto Scaling.</p>
- *          <p>For more information, <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitor-cloudwatch-metrics.html#predefined-metrics">Predefined metrics for target tracking scaling policies</a> in the
+ *          <p>For more information, <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitoring-cloudwatch.html#predefined-metrics">Predefined metrics for target tracking scaling policies</a> in the
  *             <i>Application Auto Scaling User Guide</i>.</p>
  * @public
  */
@@ -2885,6 +3316,14 @@ export interface ScalingPolicy {
    * @public
    */
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The predictive scaling policy configuration.
+   *       </p>
+   * @public
+   */
+  PredictiveScalingPolicyConfiguration?: PredictiveScalingPolicyConfiguration | undefined;
 
   /**
    * <p>The CloudWatch alarms associated with the scaling policy.</p>
@@ -3479,6 +3918,149 @@ export interface DescribeScheduledActionsResponse {
 /**
  * @public
  */
+export interface GetPredictiveScalingForecastRequest {
+  /**
+   * <p>
+   *          The namespace of the Amazon Web Services service that provides the resource. For a resource provided
+   *          by your own application or service, use <code>custom-resource</code> instead.
+   *       </p>
+   * @public
+   */
+  ServiceNamespace: ServiceNamespace | undefined;
+
+  /**
+   * <p>
+   *          The identifier of the resource.
+   *       </p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>
+   *          The scalable dimension.
+   *       </p>
+   * @public
+   */
+  ScalableDimension: ScalableDimension | undefined;
+
+  /**
+   * <p>The name of the policy.</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>
+   *          The inclusive start time of the time range for the forecast data to get. At most, the
+   *          date and time can be one year before the current date and time
+   *       </p>
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * <p>
+   *          The exclusive end time of the time range for the forecast data to get. The maximum
+   *          time duration between the start and end time is 30 days.
+   *       </p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
+ * <p>
+ *          A <code>GetPredictiveScalingForecast</code> call returns the capacity forecast for a
+ *          predictive scaling policy. This structure includes the data points for that capacity
+ *          forecast, along with the timestamps of those data points.
+ *       </p>
+ * @public
+ */
+export interface CapacityForecast {
+  /**
+   * <p>
+   *          The timestamps for the data points, in UTC format.
+   *       </p>
+   * @public
+   */
+  Timestamps: Date[] | undefined;
+
+  /**
+   * <p>
+   *          The values of the data points.
+   *       </p>
+   * @public
+   */
+  Values: number[] | undefined;
+}
+
+/**
+ * <p>
+ *          A <code>GetPredictiveScalingForecast</code> call returns the load forecast for a
+ *          predictive scaling policy. This structure includes the data points for that load
+ *          forecast, along with the timestamps of those data points and the metric specification.
+ *       </p>
+ * @public
+ */
+export interface LoadForecast {
+  /**
+   * <p>
+   *          The timestamps for the data points, in UTC format.
+   *       </p>
+   * @public
+   */
+  Timestamps: Date[] | undefined;
+
+  /**
+   * <p>
+   *          The values of the data points.
+   *       </p>
+   * @public
+   */
+  Values: number[] | undefined;
+
+  /**
+   * <p>
+   *          The metric specification for the load forecast.
+   *       </p>
+   * @public
+   */
+  MetricSpecification: PredictiveScalingMetricSpecification | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPredictiveScalingForecastResponse {
+  /**
+   * <p>
+   *          The load forecast.
+   *       </p>
+   * @public
+   */
+  LoadForecast?: LoadForecast[] | undefined;
+
+  /**
+   * <p>
+   *          The capacity forecast.
+   *       </p>
+   * @public
+   */
+  CapacityForecast?: CapacityForecast | undefined;
+
+  /**
+   * <p>
+   *         The time the forecast was made.
+   *       </p>
+   * @public
+   */
+  UpdateTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>Specify the ARN of the scalable target.</p>
@@ -3785,6 +4367,14 @@ export interface PutScalingPolicyRequest {
    * @public
    */
   TargetTrackingScalingPolicyConfiguration?: TargetTrackingScalingPolicyConfiguration | undefined;
+
+  /**
+   * <p>
+   *          The configuration of the predictive scaling policy.
+   *       </p>
+   * @public
+   */
+  PredictiveScalingPolicyConfiguration?: PredictiveScalingPolicyConfiguration | undefined;
 }
 
 /**

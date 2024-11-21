@@ -39,6 +39,11 @@ import {
   DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
+  GetPredictiveScalingForecastCommand,
+  GetPredictiveScalingForecastCommandInput,
+  GetPredictiveScalingForecastCommandOutput,
+} from "./commands/GetPredictiveScalingForecastCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -73,6 +78,7 @@ const commands = {
   DescribeScalingActivitiesCommand,
   DescribeScalingPoliciesCommand,
   DescribeScheduledActionsCommand,
+  GetPredictiveScalingForecastCommand,
   ListTagsForResourceCommand,
   PutScalingPolicyCommand,
   PutScheduledActionCommand,
@@ -199,6 +205,23 @@ export interface ApplicationAutoScaling {
     args: DescribeScheduledActionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeScheduledActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPredictiveScalingForecastCommand}
+   */
+  getPredictiveScalingForecast(
+    args: GetPredictiveScalingForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPredictiveScalingForecastCommandOutput>;
+  getPredictiveScalingForecast(
+    args: GetPredictiveScalingForecastCommandInput,
+    cb: (err: any, data?: GetPredictiveScalingForecastCommandOutput) => void
+  ): void;
+  getPredictiveScalingForecast(
+    args: GetPredictiveScalingForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPredictiveScalingForecastCommandOutput) => void
   ): void;
 
   /**
