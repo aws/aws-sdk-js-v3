@@ -61,11 +61,14 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  *     truststoreVersion: "STRING_VALUE",
  *   },
  *   ownershipVerificationCertificateArn: "STRING_VALUE",
+ *   policy: "STRING_VALUE",
  * };
  * const command = new CreateDomainNameCommand(input);
  * const response = await client.send(command);
  * // { // DomainName
  * //   domainName: "STRING_VALUE",
+ * //   domainNameId: "STRING_VALUE",
+ * //   domainNameArn: "STRING_VALUE",
  * //   certificateName: "STRING_VALUE",
  * //   certificateArn: "STRING_VALUE",
  * //   certificateUploadDate: new Date("TIMESTAMP"),
@@ -97,6 +100,8 @@ export interface CreateDomainNameCommandOutput extends DomainName, __MetadataBea
  * //     ],
  * //   },
  * //   ownershipVerificationCertificateArn: "STRING_VALUE",
+ * //   managementPolicy: "STRING_VALUE",
+ * //   policy: "STRING_VALUE",
  * // };
  *
  * ```

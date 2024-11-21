@@ -6,8 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteDomainNameRequest } from "../models/models_0";
-import { de_DeleteDomainNameCommand, se_DeleteDomainNameCommand } from "../protocols/Aws_restJson1";
+import { RejectDomainNameAccessAssociationRequest } from "../models/models_0";
+import {
+  de_RejectDomainNameAccessAssociationCommand,
+  se_RejectDomainNameAccessAssociationCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,38 +20,39 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteDomainNameCommand}.
+ * The input for {@link RejectDomainNameAccessAssociationCommand}.
  */
-export interface DeleteDomainNameCommandInput extends DeleteDomainNameRequest {}
+export interface RejectDomainNameAccessAssociationCommandInput extends RejectDomainNameAccessAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteDomainNameCommand}.
+ * The output of {@link RejectDomainNameAccessAssociationCommand}.
  */
-export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
+export interface RejectDomainNameAccessAssociationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the DomainName resource.</p>
+ * <p>Rejects a domain name access association with a private custom domain name.</p>
+ *          <p>To reject a domain name access association with an access association source in another AWS account, use this operation. To remove a domain name access association with an access association source in your own account, use the DeleteDomainNameAccessAssociation operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { APIGatewayClient, DeleteDomainNameCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
- * // const { APIGatewayClient, DeleteDomainNameCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
+ * import { APIGatewayClient, RejectDomainNameAccessAssociationCommand } from "@aws-sdk/client-api-gateway"; // ES Modules import
+ * // const { APIGatewayClient, RejectDomainNameAccessAssociationCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
- * const input = { // DeleteDomainNameRequest
- *   domainName: "STRING_VALUE", // required
- *   domainNameId: "STRING_VALUE",
+ * const input = { // RejectDomainNameAccessAssociationRequest
+ *   domainNameAccessAssociationArn: "STRING_VALUE", // required
+ *   domainNameArn: "STRING_VALUE", // required
  * };
- * const command = new DeleteDomainNameCommand(input);
+ * const command = new RejectDomainNameAccessAssociationCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteDomainNameCommandInput - {@link DeleteDomainNameCommandInput}
- * @returns {@link DeleteDomainNameCommandOutput}
- * @see {@link DeleteDomainNameCommandInput} for command's `input` shape.
- * @see {@link DeleteDomainNameCommandOutput} for command's `response` shape.
+ * @param RejectDomainNameAccessAssociationCommandInput - {@link RejectDomainNameAccessAssociationCommandInput}
+ * @returns {@link RejectDomainNameAccessAssociationCommandOutput}
+ * @see {@link RejectDomainNameAccessAssociationCommandInput} for command's `input` shape.
+ * @see {@link RejectDomainNameAccessAssociationCommandOutput} for command's `response` shape.
  * @see {@link APIGatewayClientResolvedConfig | config} for APIGatewayClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -71,10 +75,10 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteDomainNameCommand extends $Command
+export class RejectDomainNameAccessAssociationCommand extends $Command
   .classBuilder<
-    DeleteDomainNameCommandInput,
-    DeleteDomainNameCommandOutput,
+    RejectDomainNameAccessAssociationCommandInput,
+    RejectDomainNameAccessAssociationCommandOutput,
     APIGatewayClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -86,21 +90,21 @@ export class DeleteDomainNameCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("BackplaneControlService", "DeleteDomainName", {})
-  .n("APIGatewayClient", "DeleteDomainNameCommand")
+  .s("BackplaneControlService", "RejectDomainNameAccessAssociation", {})
+  .n("APIGatewayClient", "RejectDomainNameAccessAssociationCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteDomainNameCommand)
-  .de(de_DeleteDomainNameCommand)
+  .ser(se_RejectDomainNameAccessAssociationCommand)
+  .de(de_RejectDomainNameAccessAssociationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteDomainNameRequest;
+      input: RejectDomainNameAccessAssociationRequest;
       output: {};
     };
     sdk: {
-      input: DeleteDomainNameCommandInput;
-      output: DeleteDomainNameCommandOutput;
+      input: RejectDomainNameAccessAssociationCommandInput;
+      output: RejectDomainNameAccessAssociationCommandOutput;
     };
   };
 }

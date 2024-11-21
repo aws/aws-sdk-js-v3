@@ -38,6 +38,7 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * const input = { // GetDomainNamesRequest
  *   position: "STRING_VALUE",
  *   limit: Number("int"),
+ *   resourceOwner: "SELF" || "OTHER_ACCOUNTS",
  * };
  * const command = new GetDomainNamesCommand(input);
  * const response = await client.send(command);
@@ -45,6 +46,8 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * //   items: [ // ListOfDomainName
  * //     { // DomainName
  * //       domainName: "STRING_VALUE",
+ * //       domainNameId: "STRING_VALUE",
+ * //       domainNameArn: "STRING_VALUE",
  * //       certificateName: "STRING_VALUE",
  * //       certificateArn: "STRING_VALUE",
  * //       certificateUploadDate: new Date("TIMESTAMP"),
@@ -76,6 +79,8 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * //         ],
  * //       },
  * //       ownershipVerificationCertificateArn: "STRING_VALUE",
+ * //       managementPolicy: "STRING_VALUE",
+ * //       policy: "STRING_VALUE",
  * //     },
  * //   ],
  * //   position: "STRING_VALUE",

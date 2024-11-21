@@ -34,6 +34,11 @@ import {
   CreateDocumentationVersionCommandOutput,
 } from "./commands/CreateDocumentationVersionCommand";
 import {
+  CreateDomainNameAccessAssociationCommand,
+  CreateDomainNameAccessAssociationCommandInput,
+  CreateDomainNameAccessAssociationCommandOutput,
+} from "./commands/CreateDomainNameAccessAssociationCommand";
+import {
   CreateDomainNameCommand,
   CreateDomainNameCommandInput,
   CreateDomainNameCommandOutput,
@@ -105,6 +110,11 @@ import {
   DeleteDocumentationVersionCommandInput,
   DeleteDocumentationVersionCommandOutput,
 } from "./commands/DeleteDocumentationVersionCommand";
+import {
+  DeleteDomainNameAccessAssociationCommand,
+  DeleteDomainNameAccessAssociationCommandInput,
+  DeleteDomainNameAccessAssociationCommandOutput,
+} from "./commands/DeleteDomainNameAccessAssociationCommand";
 import {
   DeleteDomainNameCommand,
   DeleteDomainNameCommandInput,
@@ -246,6 +256,11 @@ import {
   GetDocumentationVersionsCommandOutput,
 } from "./commands/GetDocumentationVersionsCommand";
 import {
+  GetDomainNameAccessAssociationsCommand,
+  GetDomainNameAccessAssociationsCommandInput,
+  GetDomainNameAccessAssociationsCommandOutput,
+} from "./commands/GetDomainNameAccessAssociationsCommand";
+import {
   GetDomainNameCommand,
   GetDomainNameCommandInput,
   GetDomainNameCommandOutput,
@@ -373,6 +388,11 @@ import {
   PutMethodResponseCommandOutput,
 } from "./commands/PutMethodResponseCommand";
 import { PutRestApiCommand, PutRestApiCommandInput, PutRestApiCommandOutput } from "./commands/PutRestApiCommand";
+import {
+  RejectDomainNameAccessAssociationCommand,
+  RejectDomainNameAccessAssociationCommandInput,
+  RejectDomainNameAccessAssociationCommandOutput,
+} from "./commands/RejectDomainNameAccessAssociationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestInvokeAuthorizerCommand,
@@ -496,6 +516,7 @@ const commands = {
   CreateDocumentationPartCommand,
   CreateDocumentationVersionCommand,
   CreateDomainNameCommand,
+  CreateDomainNameAccessAssociationCommand,
   CreateModelCommand,
   CreateRequestValidatorCommand,
   CreateResourceCommand,
@@ -512,6 +533,7 @@ const commands = {
   DeleteDocumentationPartCommand,
   DeleteDocumentationVersionCommand,
   DeleteDomainNameCommand,
+  DeleteDomainNameAccessAssociationCommand,
   DeleteGatewayResponseCommand,
   DeleteIntegrationCommand,
   DeleteIntegrationResponseCommand,
@@ -544,6 +566,7 @@ const commands = {
   GetDocumentationVersionCommand,
   GetDocumentationVersionsCommand,
   GetDomainNameCommand,
+  GetDomainNameAccessAssociationsCommand,
   GetDomainNamesCommand,
   GetExportCommand,
   GetGatewayResponseCommand,
@@ -583,6 +606,7 @@ const commands = {
   PutMethodCommand,
   PutMethodResponseCommand,
   PutRestApiCommand,
+  RejectDomainNameAccessAssociationCommand,
   TagResourceCommand,
   TestInvokeAuthorizerCommand,
   TestInvokeMethodCommand,
@@ -724,6 +748,23 @@ export interface APIGateway {
     args: CreateDomainNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDomainNameCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDomainNameAccessAssociationCommand}
+   */
+  createDomainNameAccessAssociation(
+    args: CreateDomainNameAccessAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainNameAccessAssociationCommandOutput>;
+  createDomainNameAccessAssociation(
+    args: CreateDomainNameAccessAssociationCommandInput,
+    cb: (err: any, data?: CreateDomainNameAccessAssociationCommandOutput) => void
+  ): void;
+  createDomainNameAccessAssociation(
+    args: CreateDomainNameAccessAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDomainNameAccessAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -960,6 +1001,23 @@ export interface APIGateway {
     args: DeleteDomainNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDomainNameCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDomainNameAccessAssociationCommand}
+   */
+  deleteDomainNameAccessAssociation(
+    args: DeleteDomainNameAccessAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainNameAccessAssociationCommandOutput>;
+  deleteDomainNameAccessAssociation(
+    args: DeleteDomainNameAccessAssociationCommandInput,
+    cb: (err: any, data?: DeleteDomainNameAccessAssociationCommandOutput) => void
+  ): void;
+  deleteDomainNameAccessAssociation(
+    args: DeleteDomainNameAccessAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainNameAccessAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -1427,6 +1485,24 @@ export interface APIGateway {
     args: GetDomainNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDomainNameCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDomainNameAccessAssociationsCommand}
+   */
+  getDomainNameAccessAssociations(): Promise<GetDomainNameAccessAssociationsCommandOutput>;
+  getDomainNameAccessAssociations(
+    args: GetDomainNameAccessAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainNameAccessAssociationsCommandOutput>;
+  getDomainNameAccessAssociations(
+    args: GetDomainNameAccessAssociationsCommandInput,
+    cb: (err: any, data?: GetDomainNameAccessAssociationsCommandOutput) => void
+  ): void;
+  getDomainNameAccessAssociations(
+    args: GetDomainNameAccessAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainNameAccessAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -1945,6 +2021,23 @@ export interface APIGateway {
     args: PutRestApiCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRestApiCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectDomainNameAccessAssociationCommand}
+   */
+  rejectDomainNameAccessAssociation(
+    args: RejectDomainNameAccessAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectDomainNameAccessAssociationCommandOutput>;
+  rejectDomainNameAccessAssociation(
+    args: RejectDomainNameAccessAssociationCommandInput,
+    cb: (err: any, data?: RejectDomainNameAccessAssociationCommandOutput) => void
+  ): void;
+  rejectDomainNameAccessAssociation(
+    args: RejectDomainNameAccessAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectDomainNameAccessAssociationCommandOutput) => void
   ): void;
 
   /**

@@ -37,6 +37,7 @@ export interface UpdateBasePathMappingCommandOutput extends BasePathMapping, __M
  * const client = new APIGatewayClient(config);
  * const input = { // UpdateBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
+ *   domainNameId: "STRING_VALUE",
  *   basePath: "STRING_VALUE", // required
  *   patchOperations: [ // ListOfPatchOperation
  *     { // PatchOperation

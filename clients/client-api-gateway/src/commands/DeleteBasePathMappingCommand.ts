@@ -37,6 +37,7 @@ export interface DeleteBasePathMappingCommandOutput extends __MetadataBearer {}
  * const client = new APIGatewayClient(config);
  * const input = { // DeleteBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
+ *   domainNameId: "STRING_VALUE",
  *   basePath: "STRING_VALUE", // required
  * };
  * const command = new DeleteBasePathMappingCommand(input);

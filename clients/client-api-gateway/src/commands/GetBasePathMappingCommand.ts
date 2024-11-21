@@ -37,6 +37,7 @@ export interface GetBasePathMappingCommandOutput extends BasePathMapping, __Meta
  * const client = new APIGatewayClient(config);
  * const input = { // GetBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
+ *   domainNameId: "STRING_VALUE",
  *   basePath: "STRING_VALUE", // required
  * };
  * const command = new GetBasePathMappingCommand(input);

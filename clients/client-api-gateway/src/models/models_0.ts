@@ -4,6 +4,20 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { APIGatewayServiceException as __BaseException } from "./APIGatewayServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AccessAssociationSourceType = {
+  VPCE: "VPCE",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessAssociationSourceType =
+  (typeof AccessAssociationSourceType)[keyof typeof AccessAssociationSourceType];
+
+/**
  * <p>Access log settings, including the access log format and access log destination ARN.</p>
  * @public
  */
@@ -655,6 +669,12 @@ export interface CreateBasePathMappingRequest {
   domainName: string | undefined;
 
   /**
+   * <p>The identifier for the domain name resource. Supported only for private custom domain names.</p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>
    * @public
    */
@@ -1094,13 +1114,13 @@ export interface CreateDomainNameRequest {
   domainName: string | undefined;
 
   /**
-   * <p>The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
+   * <p>The user-friendly name of the certificate that will be used by edge-optimized endpoint or private endpoint for this domain name.</p>
    * @public
    */
   certificateName?: string | undefined;
 
   /**
-   * <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.</p>
+   * <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint or private endpoint for this domain name provided by your certificate authority.</p>
    * @public
    */
   certificateBody?: string | undefined;
@@ -1118,7 +1138,7 @@ export interface CreateDomainNameRequest {
   certificateChain?: string | undefined;
 
   /**
-   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint for this domain name. Certificate Manager is the only supported source.</p>
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.</p>
    * @public
    */
   certificateArn?: string | undefined;
@@ -1168,6 +1188,14 @@ export interface CreateDomainNameRequest {
    * @public
    */
   ownershipVerificationCertificateArn?: string | undefined;
+
+  /**
+   * <p>A stringified JSON policy document that applies to the <code>execute-api</code> service for this DomainName regardless of the caller and Method
+   *       configuration. Supported only for private custom
+   *       domain names.</p>
+   * @public
+   */
+  policy?: string | undefined;
 }
 
 /**
@@ -1232,19 +1260,32 @@ export interface DomainName {
   domainName?: string | undefined;
 
   /**
-   * <p>The name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
+   * <p>The identifier for the domain name resource. Supported only for private custom domain names.</p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
+   * <p>The ARN of the domain name. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameArn?: string | undefined;
+
+  /**
+   * <p>The name of the certificate that will be used by edge-optimized endpoint or private endpoint for this domain name.</p>
    * @public
    */
   certificateName?: string | undefined;
 
   /**
-   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint for this domain name. Certificate Manager is the only supported source.</p>
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.</p>
    * @public
    */
   certificateArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded. API Gateway doesn't change this value if you update the certificate.</p>
+   * <p>The timestamp when the certificate that was used by edge-optimized endpoint or private endpoint for this domain name was uploaded.</p>
    * @public
    */
   certificateUploadDate?: Date | undefined;
@@ -1330,6 +1371,99 @@ export interface DomainName {
    * @public
    */
   ownershipVerificationCertificateArn?: string | undefined;
+
+  /**
+   * <p>A stringified JSON policy document that applies to the API Gateway Management service for this DomainName. This policy document controls access for access association sources to create domain name access associations with this DomainName. Supported only for private custom domain names.</p>
+   * @public
+   */
+  managementPolicy?: string | undefined;
+
+  /**
+   * <p>A stringified JSON policy document that applies to the <code>execute-api</code> service for this DomainName regardless of the caller and Method
+   *       configuration. Supported only for private custom
+   *       domain names.</p>
+   * @public
+   */
+  policy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDomainNameAccessAssociationRequest {
+  /**
+   * <p>
+   *   The ARN of the domain name.
+   * </p>
+   * @public
+   */
+  domainNameArn: string | undefined;
+
+  /**
+   * <p>
+   * The type of the domain name access association source.
+   * </p>
+   * @public
+   */
+  accessAssociationSourceType: AccessAssociationSourceType | undefined;
+
+  /**
+   * <p>
+   * The identifier of the domain name access association source. For a VPCE, the value is the VPC endpoint ID.
+   * </p>
+   * @public
+   */
+  accessAssociationSource: string | undefined;
+
+  /**
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Represents a domain name access association between an access association source and a private custom domain name. With a domain name access association, an access association source can invoke a private custom domain name while isolated from the public internet.</p>
+ * @public
+ */
+export interface DomainNameAccessAssociation {
+  /**
+   * <p>The ARN of the domain name access association resource.
+   * </p>
+   * @public
+   */
+  domainNameAccessAssociationArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the domain name.
+   * </p>
+   * @public
+   */
+  domainNameArn?: string | undefined;
+
+  /**
+   * <p>
+   *   The type of the domain name access association source.
+   * </p>
+   * @public
+   */
+  accessAssociationSourceType?: AccessAssociationSourceType | undefined;
+
+  /**
+   * <p>
+   *   The ARN of the domain name access association source. For a VPCE, the ARN must be a VPC endpoint.
+   * </p>
+   * @public
+   */
+  accessAssociationSource?: string | undefined;
+
+  /**
+   * <p>
+   * The collection of tags. Each tag element is associated with a given resource.
+   * </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2673,6 +2807,14 @@ export interface DeleteBasePathMappingRequest {
   domainName: string | undefined;
 
   /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>The base path name of the BasePathMapping resource to delete.</p>
    *          <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
    * @public
@@ -2756,6 +2898,26 @@ export interface DeleteDomainNameRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainNameAccessAssociationRequest {
+  /**
+   * <p>
+   *   The ARN of the domain name access association resource.</p>
+   * @public
+   */
+  domainNameAccessAssociationArn: string | undefined;
 }
 
 /**
@@ -3253,6 +3415,13 @@ export interface GetBasePathMappingRequest {
   domainName: string | undefined;
 
   /**
+   * <p>The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>
    * @public
    */
@@ -3287,6 +3456,14 @@ export interface GetBasePathMappingsRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
@@ -3583,6 +3760,75 @@ export interface GetDomainNameRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DomainNameAccessAssociations {
+  /**
+   * <p>
+   * The current page of elements from this collection.
+   * </p>
+   * @public
+   */
+  items?: DomainNameAccessAssociation[] | undefined;
+
+  /**
+   * <p>The current pagination position in the paged result set.
+   * </p>
+   * @public
+   */
+  position?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
+  SELF: "SELF",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
+
+/**
+ * @public
+ */
+export interface GetDomainNameAccessAssociationsRequest {
+  /**
+   * <p>The current pagination position in the paged result set.
+   * </p>
+   * @public
+   */
+  position?: string | undefined;
+
+  /**
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+   * </p>
+   * @public
+   */
+  limit?: number | undefined;
+
+  /**
+   * <p> The owner of the domain name access association. Use <code>SELF</code> to only list the domain name access associations owned by your own account.
+   *       Use <code>OTHER_ACCOUNTS</code> to list the domain name access associations with your private custom domain names that are owned by other AWS
+   *       accounts.</p>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
 }
 
 /**
@@ -3619,6 +3865,13 @@ export interface GetDomainNamesRequest {
    * @public
    */
   limit?: number | undefined;
+
+  /**
+   * <p>The owner of the domain name access association.
+   * </p>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
 }
 
 /**
@@ -5139,6 +5392,26 @@ export interface PutRestApiRequest {
 }
 
 /**
+ * @public
+ */
+export interface RejectDomainNameAccessAssociationRequest {
+  /**
+   * <p>The ARN of the domain name access association resource.
+   * </p>
+   * @public
+   */
+  domainNameAccessAssociationArn: string | undefined;
+
+  /**
+   * <p>
+   * The ARN of the domain name.
+   * </p>
+   * @public
+   */
+  domainNameArn: string | undefined;
+}
+
+/**
  * <p>Adds or updates a tag on a given resource.</p>
  * @public
  */
@@ -5507,6 +5780,14 @@ export interface UpdateBasePathMappingRequest {
   domainName: string | undefined;
 
   /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>The base path of the BasePathMapping resource to change.</p>
    *          <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
    * @public
@@ -5620,6 +5901,14 @@ export interface UpdateDomainNameRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
 
   /**
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
