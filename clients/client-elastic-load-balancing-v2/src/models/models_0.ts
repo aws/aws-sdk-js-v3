@@ -3861,6 +3861,120 @@ export interface ListenerAttribute {
    *           valid range is 60-6000 seconds. The default is 350 seconds.</p>
    *             </li>
    *          </ul>
+   *          <p>The following attributes are only supported by Application Load Balancers.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Mtls-Clientcert-Serial-Number</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_mtls_clientcert_issuer.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Mtls-Clientcert-Issuer</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_mtls_clientcert_subject.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Mtls-Clientcert-Subject</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_mtls_clientcert_validity.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Mtls-Clientcert-Validity</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_mtls_clientcert_leaf.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Mtls-Clientcert-Leaf</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_mtls_clientcert.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Mtls-Clientcert</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_tls_version.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Tls-Version</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.request.x_amzn_tls_cipher_suite.header_name</code> -
+   *           Enables you to modify the header name of the
+   *           <b>X-Amzn-Tls-Cipher-Suite</b> HTTP request header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.server.enabled</code> -
+   *           Enables you to allow or remove the HTTP response server header.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.strict_transport_security.header_value</code> -
+   *           Informs browsers that the site should only be accessed using HTTPS, and that
+   *           any future attempts to access it using HTTP should automatically be converted
+   *           to HTTPS.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.access_control_allow_origin.header_value</code> -
+   *           Specifies which origins are allowed to access the server.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.access_control_allow_methods.header_value</code> -
+   *           Returns which HTTP methods are allowed when accessing the server from a different
+   *           origin.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.access_control_allow_headers.header_value</code> -
+   *           Specifies which headers can be used during the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.access_control_allow_credentials.header_value</code> -
+   *           Indicates whether the browser should include credentials such as cookies or
+   *           authentication when making requests.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.access_control_expose_headers.header_value</code> -
+   *           Returns which headers the browser can expose to the requesting client.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.access_control_max_age.header_value</code> -
+   *           Specifies how long the results of a preflight request can be cached, in seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.content_security_policy.header_value</code> -
+   *           Specifies restrictions enforced by the browser to help minimize the risk of certain
+   *           types of security threats.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.x_content_type_options.header_value</code> -
+   *           Indicates whether the MIME types advertised in the <b>Content-Type</b>
+   *           headers should be followed and not be changed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>routing.http.response.x_frame_options.header_value</code> - Indicates
+   *           whether the browser is allowed to render a page in a <b>frame</b>,
+   *           <b>iframe</b>, <b>embed</b> or
+   *           <b>object</b>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Key?: string | undefined;
@@ -4035,6 +4149,12 @@ export interface LoadBalancerAttribute {
    *             <code>true</code> for internal load balancers, preventing unintended access to your
    *           internal load balancer through an internet gateway.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>zonal_shift.config.enabled</code> - Indicates whether zonal shift is
+   *           enabled. The possible values are <code>true</code> and <code>false</code>. The
+   *           default is <code>false</code>.</p>
+   *             </li>
    *          </ul>
    *          <p>The following attributes are supported by only Application Load Balancers:</p>
    *          <ul>
@@ -4152,12 +4272,6 @@ export interface LoadBalancerAttribute {
    *           <code>availability_zone_affinity</code> with 100 percent zonal affinity,
    *           <code>partial_availability_zone_affinity</code> with 85 percent zonal affinity,
    *           and <code>any_availability_zone</code> with 0 percent zonal affinity.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>zonal_shift.config.enabled</code> - Indicates whether zonal shift is
-   *           enabled. The possible values are <code>true</code> and <code>false</code>. The
-   *           default is <code>false</code>.</p>
    *             </li>
    *          </ul>
    * @public
