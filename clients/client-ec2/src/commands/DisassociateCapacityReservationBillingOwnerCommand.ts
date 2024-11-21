@@ -37,10 +37,10 @@ export interface DisassociateCapacityReservationBillingOwnerCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels a pending request to assign billing of the unused capacity of a Capacity Reservation to a
- * 				consumer account, or revokes a request that has already been accepted. For more information, see
- * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html">Billing assignment for
- * 					shared Amazon EC2 Capacity Reservations</a>.</p>
+ * <p>Cancels a pending request to assign billing of the unused capacity of a Capacity
+ * 			Reservation to a consumer account, or revokes a request that has already been accepted.
+ * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html">Billing assignment for shared
+ * 					Amazon EC2 Capacity Reservations</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

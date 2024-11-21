@@ -52,6 +52,9 @@ import {
 } from "./models_1";
 
 import {
+  AutoAcceptSharedAttachmentsValue,
+  DefaultRouteTableAssociationValue,
+  DefaultRouteTablePropagationValue,
   DnsOptionsSpecification,
   IcmpTypeCode,
   IKEVersionsRequestListValue,
@@ -68,6 +71,14 @@ import {
   SnapshotState,
   SSEType,
   SubnetConfiguration,
+  TrafficDirection,
+  TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
+  TrafficMirrorNetworkService,
+  TrafficMirrorPortRangeRequest,
+  TrafficMirrorRuleAction,
+  TrafficMirrorSession,
+  TransitGateway,
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   VerifiedAccessEndpoint,
@@ -77,10 +88,18 @@ import {
   VpcBlockPublicAccessExclusion,
   VpnConnection,
   VpnConnectionFilterSensitiveLog,
+  VpnEcmpSupportValue,
   VpnTunnelLogOptionsSpecification,
 } from "./models_2";
 
-import { Byoasn, ClientVpnConnectionStatus, Filter, InstanceTagNotificationAttribute, IpamPoolCidr } from "./models_3";
+import {
+  Byoasn,
+  CapacityBlockExtension,
+  ClientVpnConnectionStatus,
+  Filter,
+  InstanceTagNotificationAttribute,
+  IpamPoolCidr,
+} from "./models_3";
 
 import {
   ArchitectureValues,
@@ -98,7 +117,6 @@ import {
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
   PublicIpv4PoolRange,
-  ScheduledInstance,
   TpmSupportValues,
 } from "./models_4";
 
@@ -106,6 +124,7 @@ import {
   InstanceNetworkInterfaceSpecification,
   InternetGatewayBlockMode,
   RunInstancesMonitoringEnabled,
+  ScheduledInstance,
   SnapshotAttributeName,
   SpotFleetRequestConfigData,
   SpotFleetRequestConfigDataFilterSensitiveLog,
@@ -118,6 +137,423 @@ import {
 } from "./models_5";
 
 import { CapacityReservationSpecification, Purchase } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
+   */
+  TrafficMirrorFilterId: string | undefined;
+
+  /**
+   * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
+   * @public
+   */
+  AddNetworkServices?: TrafficMirrorNetworkService[] | undefined;
+
+  /**
+   * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
+   * @public
+   */
+  RemoveNetworkServices?: TrafficMirrorNetworkService[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterNetworkServicesResult {
+  /**
+   * <p>The Traffic Mirror filter that the network service is associated with.</p>
+   * @public
+   */
+  TrafficMirrorFilter?: TrafficMirrorFilter | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrafficMirrorFilterRuleField = {
+  description: "description",
+  destination_port_range: "destination-port-range",
+  protocol: "protocol",
+  source_port_range: "source-port-range",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficMirrorFilterRuleField =
+  (typeof TrafficMirrorFilterRuleField)[keyof typeof TrafficMirrorFilterRuleField];
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterRuleRequest {
+  /**
+   * <p>The ID of the Traffic Mirror rule.</p>
+   * @public
+   */
+  TrafficMirrorFilterRuleId: string | undefined;
+
+  /**
+   * <p>The type of traffic to assign to the rule.</p>
+   * @public
+   */
+  TrafficDirection?: TrafficDirection | undefined;
+
+  /**
+   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
+   *          direction. The rules are processed in ascending order by rule number.</p>
+   * @public
+   */
+  RuleNumber?: number | undefined;
+
+  /**
+   * <p>The action to assign to the rule.</p>
+   * @public
+   */
+  RuleAction?: TrafficMirrorRuleAction | undefined;
+
+  /**
+   * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
+   * @public
+   */
+  DestinationPortRange?: TrafficMirrorPortRangeRequest | undefined;
+
+  /**
+   * <p>The port range to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  SourcePortRange?: TrafficMirrorPortRangeRequest | undefined;
+
+  /**
+   * <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  Protocol?: number | undefined;
+
+  /**
+   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  SourceCidrBlock?: string | undefined;
+
+  /**
+   * <p>The description to assign to the Traffic Mirror rule.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
+   *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
+   * @public
+   */
+  RemoveFields?: TrafficMirrorFilterRuleField[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorFilterRuleResult {
+  /**
+   * <note>
+   *             <p>Tags are not returned for ModifyTrafficMirrorFilterRule.</p>
+   *          </note>
+   *          <p>A Traffic Mirror rule.</p>
+   * @public
+   */
+  TrafficMirrorFilterRule?: TrafficMirrorFilterRule | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrafficMirrorSessionField = {
+  description: "description",
+  packet_length: "packet-length",
+  virtual_network_id: "virtual-network-id",
+} as const;
+
+/**
+ * @public
+ */
+export type TrafficMirrorSessionField = (typeof TrafficMirrorSessionField)[keyof typeof TrafficMirrorSessionField];
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorSessionRequest {
+  /**
+   * <p>The ID of the Traffic Mirror session.</p>
+   * @public
+   */
+  TrafficMirrorSessionId: string | undefined;
+
+  /**
+   * <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
+   * @public
+   */
+  TrafficMirrorTargetId?: string | undefined;
+
+  /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   * @public
+   */
+  TrafficMirrorFilterId?: string | undefined;
+
+  /**
+   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
+   *          <p>For sessions with Network Load Balancer (NLB) traffic mirror targets, the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
+   * @public
+   */
+  PacketLength?: number | undefined;
+
+  /**
+   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
+   *          <p>Valid values are 1-32766.</p>
+   * @public
+   */
+  SessionNumber?: number | undefined;
+
+  /**
+   * <p>The virtual network ID of the Traffic Mirror session.</p>
+   * @public
+   */
+  VirtualNetworkId?: number | undefined;
+
+  /**
+   * <p>The description to assign to the Traffic Mirror session.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The properties that you want to remove from the Traffic Mirror session.</p>
+   *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
+   * @public
+   */
+  RemoveFields?: TrafficMirrorSessionField[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrafficMirrorSessionResult {
+  /**
+   * <p>Information about the Traffic Mirror session.</p>
+   * @public
+   */
+  TrafficMirrorSession?: TrafficMirrorSession | undefined;
+}
+
+/**
+ * <p>The transit gateway options.</p>
+ * @public
+ */
+export interface ModifyTransitGatewayOptions {
+  /**
+   * <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+   * @public
+   */
+  AddTransitGatewayCidrBlocks?: string[] | undefined;
+
+  /**
+   * <p>Removes CIDR blocks for the transit gateway.</p>
+   * @public
+   */
+  RemoveTransitGatewayCidrBlocks?: string[] | undefined;
+
+  /**
+   * <p>Enable or disable Equal Cost Multipath Protocol support.</p>
+   * @public
+   */
+  VpnEcmpSupport?: VpnEcmpSupportValue | undefined;
+
+  /**
+   * <p>Enable or disable DNS support.</p>
+   * @public
+   */
+  DnsSupport?: DnsSupportValue | undefined;
+
+  /**
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
+   *
+   * </p>
+   *          <p>This option is disabled by default.</p>
+   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
+   * @public
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
+
+  /**
+   * <p>Enable or disable automatic acceptance of attachment requests.</p>
+   * @public
+   */
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | undefined;
+
+  /**
+   * <p>Enable or disable automatic association with the default association route table.</p>
+   * @public
+   */
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | undefined;
+
+  /**
+   * <p>The ID of the default association route table.</p>
+   * @public
+   */
+  AssociationDefaultRouteTableId?: string | undefined;
+
+  /**
+   * <p>Enable or disable automatic propagation of routes to the default propagation route table.</p>
+   * @public
+   */
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | undefined;
+
+  /**
+   * <p>The ID of the default propagation route table.</p>
+   * @public
+   */
+  PropagationDefaultRouteTableId?: string | undefined;
+
+  /**
+   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
+   *             The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
+   *          <p>The modify ASN operation is not allowed on a transit gateway if it has the following attachments:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Dynamic VPN</p>
+   *             </li>
+   *             <li>
+   *                <p>Static VPN</p>
+   *             </li>
+   *             <li>
+   *                <p>Direct Connect Gateway</p>
+   *             </li>
+   *             <li>
+   *                <p>Connect</p>
+   *             </li>
+   *          </ul>
+   *          <p>You must first delete all transit gateway attachments configured prior to modifying the ASN on
+   *             the transit gateway.</p>
+   * @public
+   */
+  AmazonSideAsn?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayRequest {
+  /**
+   * <p>The ID of the transit gateway.</p>
+   * @public
+   */
+  TransitGatewayId: string | undefined;
+
+  /**
+   * <p>The description for the transit gateway.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The options to modify.</p>
+   * @public
+   */
+  Options?: ModifyTransitGatewayOptions | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayResult {
+  /**
+   * <p>Information about the transit gateway.</p>
+   * @public
+   */
+  TransitGateway?: TransitGateway | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayPrefixListReferenceRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   * @public
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId: string | undefined;
+
+  /**
+   * <p>The ID of the attachment to which traffic is routed.</p>
+   * @public
+   */
+  TransitGatewayAttachmentId?: string | undefined;
+
+  /**
+   * <p>Indicates whether to drop traffic that matches this route.</p>
+   * @public
+   */
+  Blackhole?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -1011,11 +1447,11 @@ export interface ModifyVpcBlockPublicAccessExclusionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-allowed</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>egress-access-allowed</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1051,15 +1487,15 @@ export interface ModifyVpcBlockPublicAccessOptionsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-allowed</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-blocked</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ingress-access-blocked</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
    *             </li>
    *          </ul>
    * @public
@@ -2143,17 +2579,13 @@ export interface MoveCapacityReservationInstancesRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>
-   * 			The ID of the Capacity Reservation from which you want to move capacity.
-   * 		</p>
+   * <p> The ID of the Capacity Reservation from which you want to move capacity. </p>
    * @public
    */
   SourceCapacityReservationId: string | undefined;
 
   /**
-   * <p>
-   * 			The ID of the Capacity Reservation that you want to move capacity into.
-   * 		</p>
+   * <p> The ID of the Capacity Reservation that you want to move capacity into. </p>
    * @public
    */
   DestinationCapacityReservationId: string | undefined;
@@ -2171,25 +2603,20 @@ export interface MoveCapacityReservationInstancesRequest {
  */
 export interface MoveCapacityReservationInstancesResult {
   /**
-   * <p>
-   * 			Information about the source Capacity Reservation.
-   * 		</p>
+   * <p> Information about the source Capacity Reservation. </p>
    * @public
    */
   SourceCapacityReservation?: CapacityReservation | undefined;
 
   /**
-   * <p>
-   * 			Information about the destination Capacity Reservation.
-   * 		</p>
+   * <p> Information about the destination Capacity Reservation. </p>
    * @public
    */
   DestinationCapacityReservation?: CapacityReservation | undefined;
 
   /**
-   * <p>
-   * 			The number of instances that were moved from the source Capacity Reservation to the destination Capacity Reservation.
-   * 		</p>
+   * <p> The number of instances that were moved from the source Capacity Reservation to the
+   * 			destination Capacity Reservation. </p>
    * @public
    */
   InstanceCount?: number | undefined;
@@ -2551,6 +2978,40 @@ export interface PurchaseCapacityBlockResult {
    * @public
    */
   CapacityReservation?: CapacityReservation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockExtensionRequest {
+  /**
+   * <p>The ID of the Capacity Block extension offering to purchase.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferingId: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity reservation to be extended.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PurchaseCapacityBlockExtensionResult {
+  /**
+   * <p>The purchased Capacity Block extensions. </p>
+   * @public
+   */
+  CapacityBlockExtensions?: CapacityBlockExtension[] | undefined;
 }
 
 /**

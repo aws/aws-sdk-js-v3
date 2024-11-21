@@ -33,7 +33,8 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you purchase a specific instance type for a period of time.</p>
+ * <p>Describes Capacity Block offerings available for purchase in the Amazon Web Services Region that you're currently using. With Capacity Blocks, you purchase a
+ * 			specific instance type for a period of time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,7 @@ export interface DescribeCapacityBlockOfferingsCommandOutput
  * //       UpfrontFee: "STRING_VALUE",
  * //       CurrencyCode: "STRING_VALUE",
  * //       Tenancy: "default" || "dedicated",
+ * //       CapacityBlockDurationMinutes: Number("int"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

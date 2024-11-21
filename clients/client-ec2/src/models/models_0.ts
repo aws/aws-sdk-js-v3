@@ -2777,6 +2777,48 @@ export interface AddIpamOperatingRegion {
 }
 
 /**
+ * <p>Add an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ * @public
+ */
+export interface AddIpamOrganizationalUnitExclusion {
+  /**
+   * <p>An Amazon Web Services Organizations entity path. Build the path for the OU(s) using Amazon Web Services Organizations IDs separated by a <code>/</code>. Include all child OUs by ending the path with <code>/*</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Example 1</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path to a child OU: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/ou-jkl0-awsddddd/</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, <code>o-a1b2c3d4e5</code> is the organization ID, <code>r-f6g7h8i9j0example</code> is the root ID , <code>ou-ghi0-awsccccc</code> is an OU ID, and <code>ou-jkl0-awsddddd</code> is a child OU ID.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>IPAM will not manage the IP addresses in accounts in the child OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Example 2</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path where all child OUs will be part of the exclusion: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/*</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, IPAM will not manage the IP addresses in accounts in the OU (<code>ou-ghi0-awsccccc</code>) or in accounts in any OUs that are children of the OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on how to construct an entity path, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_access-advisor-viewing-orgs-entity-path">Understand the Amazon Web Services Organizations entity path</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  OrganizationsEntityPath?: string | undefined;
+}
+
+/**
  * <p>An entry for a prefix list.</p>
  * @public
  */
@@ -7422,7 +7464,8 @@ export interface CapacityReservationFleetCancellationState {
  */
 export interface CancelCapacityReservationFleetsResult {
   /**
-   * <p>Information about the Capacity Reservation Fleets that were successfully cancelled.</p>
+   * <p>Information about the Capacity Reservation Fleets that were successfully
+   * 			cancelled.</p>
    * @public
    */
   SuccessfulFleetCancellations?: CapacityReservationFleetCancellationState[] | undefined;
@@ -8324,6 +8367,21 @@ export interface CopySnapshotResult {
  * @public
  * @enum
  */
+export const CapacityReservationDeliveryPreference = {
+  FIXED: "fixed",
+  INCREMENTAL: "incremental",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationDeliveryPreference =
+  (typeof CapacityReservationDeliveryPreference)[keyof typeof CapacityReservationDeliveryPreference];
+
+/**
+ * @public
+ * @enum
+ */
 export const EndDateType = {
   limited: "limited",
   unlimited: "unlimited",
@@ -8404,7 +8462,12 @@ export interface CreateCapacityReservationRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>The instance type for which to reserve capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The instance type for which to reserve capacity.</p>
+   *          <note>
+   *             <p>You can request future-dated Capacity Reservations for instance types in the C, M, R, I,
+   * 				and T instance families only.</p>
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   InstanceType: string | undefined;
@@ -8428,15 +8491,18 @@ export interface CreateCapacityReservationRequest {
   AvailabilityZoneId?: string | undefined;
 
   /**
-   * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
+   * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one
+   * 			of the following tenancy settings:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
+   *                   <code>default</code> - The Capacity Reservation is created on hardware that is
+   * 					shared with other Amazon Web Services accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
+   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant
+   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8445,16 +8511,23 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
+   *          <note>
+   *             <p>You can request future-dated Capacity Reservations for an instance count
+   * 				with a minimum of 100 VPUs. For example, if you request a future-dated Capacity
+   * 				Reservation for <code>m5.xlarge</code> instances, you must request at least
+   * 				25 instances (<i>25 * m5.xlarge = 100 vCPUs</i>).</p>
+   *          </note>
    *          <p>Valid range: 1 - 1000</p>
    * @public
    */
   InstanceCount: number | undefined;
 
   /**
-   * <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides
-   * 			dedicated throughput to Amazon EBS and an optimized configuration stack to provide
-   * 			optimal I/O performance. This optimization isn't available with all instance types.
-   * 			Additional usage charges apply when using an EBS- optimized instance.</p>
+   * <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This
+   * 			optimization provides dedicated throughput to Amazon EBS and an optimized configuration
+   * 			stack to provide optimal I/O performance. This optimization isn't available with all
+   * 			instance types. Additional usage charges apply when using an EBS- optimized
+   * 			instance.</p>
    * @public
    */
   EbsOptimized?: boolean | undefined;
@@ -8468,33 +8541,38 @@ export interface CreateCapacityReservationRequest {
   EphemeralStorage?: boolean | undefined;
 
   /**
-   * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
-   * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
-   * 				<code>expired</code> when it reaches its end date and time.</p>
+   * <p>The date and time at which the Capacity Reservation expires. When a Capacity
+   * 			Reservation expires, the reserved capacity is released and you can no longer launch
+   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code>
+   * 			when it reaches its end date and time.</p>
    *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
-   * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
-   * 				<code>unlimited</code>.</p>
-   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
-   * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
+   * 			<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
+   * 			<code>unlimited</code>.</p>
+   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation
+   * 			is cancelled within an hour from the specified time. For example, if you specify
+   * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55
+   * 			and 14:30:55 on 5/31/2019.</p>
+   *          <p>If you are requesting a future-dated Capacity Reservation, you can't specify an end
+   * 			date and time that is within the commitment duration.</p>
    * @public
    */
   EndDate?: Date | undefined;
 
   /**
-   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
-   * 			types:</p>
+   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
+   * 			have one of the following end types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not
-   * 					provide an <code>EndDate</code> if the <code>EndDateType</code> is
-   * 						<code>unlimited</code>.</p>
+   *                   <code>unlimited</code> - The Capacity Reservation remains active until you
+   * 					explicitly cancel it. Do not provide an <code>EndDate</code> if the
+   * 						<code>EndDateType</code> is <code>unlimited</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time. You must
-   * 					provide an <code>EndDate</code> value if the <code>EndDateType</code> value is
-   * 						<code>limited</code>.</p>
+   *                   <code>limited</code> - The Capacity Reservation expires automatically at a
+   * 					specified date and time. You must provide an <code>EndDate</code> value if the
+   * 						<code>EndDateType</code> value is <code>limited</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8502,22 +8580,27 @@ export interface CreateCapacityReservationRequest {
   EndDateType?: EndDateType | undefined;
 
   /**
-   * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
-   * 			include:</p>
+   * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The
+   * 			options include:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>open</code> - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform,
-   * 				and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying
-   * 				any additional parameters.</p>
+   *                   <code>open</code> - The Capacity Reservation automatically matches all instances
+   * 					that have matching attributes (instance type, platform, and Availability Zone).
+   * 					Instances that have matching attributes run in the Capacity Reservation
+   * 					automatically without specifying any additional parameters.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>targeted</code> - The Capacity Reservation only accepts instances that have matching attributes
-   * 					(instance type, platform, and Availability Zone), and explicitly target the
-   * 					Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p>
+   *                   <code>targeted</code> - The Capacity Reservation only accepts instances that
+   * 					have matching attributes (instance type, platform, and Availability Zone), and
+   * 					explicitly target the Capacity Reservation. This ensures that only permitted
+   * 					instances can use the reserved capacity. </p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>If you are requesting a future-dated Capacity Reservation, you must specify <code>targeted</code>.</p>
+   *          </note>
    *          <p>Default: <code>open</code>
    *          </p>
    * @public
@@ -8537,13 +8620,20 @@ export interface CreateCapacityReservationRequest {
   DryRun?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.</p>
+   * <note>
+   *             <p>Not supported for future-dated Capacity Reservations.</p>
+   *          </note>
+   *          <p>The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity
+   * 			Reservation.</p>
    * @public
    */
   OutpostArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster placement group in which
+   * <note>
+   *             <p>Not supported for future-dated Capacity Reservations.</p>
+   *          </note>
+   *          <p>The Amazon Resource Name (ARN) of the cluster placement group in which
    * 			to create the Capacity Reservation. For more information, see
    * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
    * 				Capacity Reservations for cluster placement groups</a> in the
@@ -8551,6 +8641,48 @@ export interface CreateCapacityReservationRequest {
    * @public
    */
   PlacementGroupArn?: string | undefined;
+
+  /**
+   * <note>
+   *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
+   * 			Reservation for immediate use, omit this parameter. </p>
+   *          </note>
+   *          <p>The date and time at which the future-dated Capacity Reservation should become
+   * 			available for use, in the ISO8601 format in the UTC time zone
+   * 			(<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   *          <p>You can request a future-dated Capacity Reservation between 5 and 120 days in
+   * 			advance.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <note>
+   *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
+   * 			Reservation for immediate use, omit this parameter. </p>
+   *          </note>
+   *          <p>Specify a commitment duration, in seconds, for the future-dated Capacity Reservation.</p>
+   *          <p>The commitment duration is a minimum duration for which you commit to having the
+   * 			future-dated Capacity Reservation in the <code>active</code> state in your account
+   * 			after it has been delivered.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-concepts.html#cr-commitment-duration">
+   * 			Commitment duration</a>.</p>
+   * @public
+   */
+  CommitmentDuration?: number | undefined;
+
+  /**
+   * <note>
+   *             <p>Required for future-dated Capacity Reservations only. To create a Capacity
+   * 			Reservation for immediate use, omit this parameter. </p>
+   *          </note>
+   *          <p>Indicates that the requested capacity will be delivered in addition to any
+   * 			running instances or reserved capacity that you have in your account at the
+   * 			requested date and time.</p>
+   *          <p>The only supported value is <code>incremental</code>.</p>
+   * @public
+   */
+  DeliveryPreference?: CapacityReservationDeliveryPreference | undefined;
 }
 
 /**
@@ -8559,53 +8691,20 @@ export interface CreateCapacityReservationRequest {
  */
 export interface CapacityAllocation {
   /**
-   * <p>The usage type. <code>used</code> indicates that the instance capacity is
-   * 			in use by instances that are running in the Capacity Reservation.</p>
+   * <p>The usage type. <code>used</code> indicates that the instance capacity is in use by
+   * 			instances that are running in the Capacity Reservation.</p>
    * @public
    */
   AllocationType?: AllocationType | undefined;
 
   /**
    * <p>The amount of instance capacity associated with the usage. For example a value of
-   * 			<code>4</code> indicates that instance capacity for 4 instances is currently in use.</p>
+   * 				<code>4</code> indicates that instance capacity for 4 instances is currently in
+   * 			use.</p>
    * @public
    */
   Count?: number | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationType = {
-  CAPACITY_BLOCK: "capacity-block",
-  DEFAULT: "default",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationType = (typeof CapacityReservationType)[keyof typeof CapacityReservationType];
-
-/**
- * @public
- * @enum
- */
-export const CapacityReservationState = {
-  active: "active",
-  cancelled: "cancelled",
-  expired: "expired",
-  failed: "failed",
-  payment_failed: "payment-failed",
-  payment_pending: "payment-pending",
-  pending: "pending",
-  scheduled: "scheduled",
-} as const;
-
-/**
- * @public
- */
-export type CapacityReservationState = (typeof CapacityReservationState)[keyof typeof CapacityReservationState];
 
 /**
  * @internal

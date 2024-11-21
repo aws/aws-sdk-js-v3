@@ -4,13 +4,12 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 import {
   AccessScopeAnalysisFinding,
   AddIpamOperatingRegion,
+  AddIpamOrganizationalUnitExclusion,
   AddPrefixListEntry,
   AddressAttribute,
   Affinity,
   AutoPlacement,
-  CapacityReservationState,
   CurrencyCodeValues,
-  DnsSupportValue,
   EnaSrdSpecification,
   EndDateType,
   HostMaintenance,
@@ -18,7 +17,6 @@ import {
   InstanceEventWindow,
   InstanceMatchCriteria,
   IpamPoolAllocation,
-  SecurityGroupReferencingSupportValue,
   SubnetAssociation,
   Tag,
   TagSpecification,
@@ -33,6 +31,7 @@ import {
   _InstanceType,
   AttributeValue,
   CapacityReservationPreference,
+  CapacityReservationState,
   CapacityReservationTarget,
   ClientConnectOptions,
   ClientLoginBannerOptions,
@@ -65,22 +64,10 @@ import {
 } from "./models_1";
 
 import {
-  AutoAcceptSharedAttachmentsValue,
-  DefaultRouteTableAssociationValue,
-  DefaultRouteTablePropagationValue,
   NetworkInsightsAccessScopeContent,
   SSEType,
   SubnetCidrReservation,
-  TrafficDirection,
-  TrafficMirrorFilter,
-  TrafficMirrorFilterRule,
-  TrafficMirrorNetworkService,
-  TrafficMirrorPortRangeRequest,
-  TrafficMirrorRuleAction,
-  TrafficMirrorSession,
-  TransitGateway,
   TransitGatewayPrefixListReference,
-  VpnEcmpSupportValue,
 } from "./models_2";
 
 import {
@@ -88,11 +75,9 @@ import {
   ConversionTaskFilterSensitiveLog,
   ExportTaskS3Location,
   Filter,
-  FpgaImageAttribute,
   FpgaImageAttributeName,
   IpamPoolCidr,
   MetricType,
-  PaymentOption,
   PeriodType,
   PermissionGroup,
   StatisticType,
@@ -104,6 +89,7 @@ import {
   ArchitectureValues,
   AttributeBooleanValue,
   BootModeValues,
+  FpgaImageAttribute,
   HttpTokensState,
   ImportImageLicenseConfigurationResponse,
   InstanceAttributeName,
@@ -115,6 +101,7 @@ import {
   InstanceStatusEvent,
   LaunchPermission,
   LockState,
+  PaymentOption,
   ReservedInstancesConfiguration,
   SnapshotDetail,
   SnapshotDetailFilterSensitiveLog,
@@ -131,6 +118,191 @@ import {
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
 } from "./models_5";
+
+/**
+ * <p>Contains the parameters for EnableVgwRoutePropagation.</p>
+ * @public
+ */
+export interface EnableVgwRoutePropagationRequest {
+  /**
+   * <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private
+   *             gateway must be attached to the same VPC that the routing tables are associated with.
+   *         </p>
+   * @public
+   */
+  GatewayId: string | undefined;
+
+  /**
+   * <p>The ID of the route table. The routing table must be associated with the same VPC that
+   *             the virtual private gateway is attached to. </p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableVolumeIORequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableVpcClassicLinkRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableVpcClassicLinkResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableVpcClassicLinkDnsSupportRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableVpcClassicLinkDnsSupportResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportClientVpnClientCertificateRevocationListRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ClientCertificateRevocationListStatusCode = {
+  active: "active",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type ClientCertificateRevocationListStatusCode =
+  (typeof ClientCertificateRevocationListStatusCode)[keyof typeof ClientCertificateRevocationListStatusCode];
+
+/**
+ * <p>Describes the state of a client certificate revocation list.</p>
+ * @public
+ */
+export interface ClientCertificateRevocationListStatus {
+  /**
+   * <p>The state of the client certificate revocation list.</p>
+   * @public
+   */
+  Code?: ClientCertificateRevocationListStatusCode | undefined;
+
+  /**
+   * <p>A message about the status of the client certificate revocation list, if applicable.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportClientVpnClientCertificateRevocationListResult {
+  /**
+   * <p>Information about the client certificate revocation list.</p>
+   * @public
+   */
+  CertificateRevocationList?: string | undefined;
+
+  /**
+   * <p>The current state of the client certificate revocation list.</p>
+   * @public
+   */
+  Status?: ClientCertificateRevocationListStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ExportClientVpnClientConfigurationRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -710,13 +882,15 @@ export interface GetCapacityReservationUsageRequest {
  */
 export interface InstanceUsage {
   /**
-   * <p>The ID of the Amazon Web Services account that is making use of the Capacity Reservation.</p>
+   * <p>The ID of the Amazon Web Services account that is making use of the Capacity
+   * 			Reservation.</p>
    * @public
    */
   AccountId?: string | undefined;
 
   /**
-   * <p>The number of instances the Amazon Web Services account currently has in the Capacity Reservation.</p>
+   * <p>The number of instances the Amazon Web Services account currently has in the Capacity
+   * 			Reservation.</p>
    * @public
    */
   UsedInstanceCount?: number | undefined;
@@ -751,38 +925,63 @@ export interface GetCapacityReservationUsageResult {
   TotalInstanceCount?: number | undefined;
 
   /**
-   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+   * <p>The remaining capacity. Indicates the number of instances that can be launched in the
+   * 			Capacity Reservation.</p>
    * @public
    */
   AvailableInstanceCount?: number | undefined;
 
   /**
-   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
+   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of
+   * 			the following states:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
+   *                   <code>active</code> - The capacity is available for use.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified
-   * 					in your request. The reserved capacity is no longer available for your use.</p>
+   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time
+   * 		specified in your reservation request. The reserved capacity is no longer available for your use.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no
-   * 					longer available for your use.</p>
+   *                   <code>cancelled</code> - The Capacity Reservation was canceled. The reserved capacity is no
+   * 		longer available for your use.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
-   * 					provisioning is still pending.</p>
+   * 		provisioning is still pending.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>failed</code> - The Capacity Reservation request has failed. A request might fail
-   * 					due to invalid request parameters, capacity constraints, or instance limit constraints.
-   * 					Failed requests are retained for 60 minutes.</p>
+   *                   <code>failed</code> - The Capacity Reservation request has failed. A request can fail due to
+   * 		request parameters that are not valid, capacity constraints, or instance limit constraints. You
+   * 		can view a failed request for 60 minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations only</i>) The
+   * 		future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled
+   * 		for delivery on the requested start date.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations only</i>)
+   * 		Amazon EC2 is assessing your request for a future-dated Capacity Reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   * 		encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is
+   * 		unable to deliver the requested capacity by the requested start date and time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
+   * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1230,8 +1429,9 @@ export interface GetFlowLogsIntegrationTemplateResult {
  */
 export interface GetGroupsForCapacityReservationRequest {
   /**
-   * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is shared
-   * 			with you, the operation returns only Capacity Reservation groups that you own.</p>
+   * <p>The ID of the Capacity Reservation. If you specify a Capacity Reservation that is
+   * 			shared with you, the operation returns only Capacity Reservation groups that you
+   * 			own.</p>
    * @public
    */
   CapacityReservationId: string | undefined;
@@ -1285,7 +1485,8 @@ export interface GetGroupsForCapacityReservationResult {
   NextToken?: string | undefined;
 
   /**
-   * <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
+   * <p>Information about the resource groups to which the Capacity Reservation has been
+   * 			added.</p>
    * @public
    */
   CapacityReservationGroups?: CapacityReservationGroup[] | undefined;
@@ -2038,6 +2239,12 @@ export interface IpamDiscoveredAccount {
    * @public
    */
   LastSuccessfulDiscoveryTime?: Date | undefined;
+
+  /**
+   * <p>The ID of an Organizational Unit in Amazon Web Services Organizations.</p>
+   * @public
+   */
+  OrganizationalUnitId?: string | undefined;
 }
 
 /**
@@ -6081,18 +6288,20 @@ export interface ModifyCapacityReservationRequest {
   CapacityReservationId: string | undefined;
 
   /**
-   * <p>The number of instances for which to reserve capacity. The number of instances can't be increased or
-   * 		    	decreased by more than <code>1000</code> in a single request.</p>
+   * <p>The number of instances for which to reserve capacity. The number of instances can't
+   * 			be increased or decreased by more than <code>1000</code> in a single request.</p>
    * @public
    */
   InstanceCount?: number | undefined;
 
   /**
-   * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
-   * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
-   * 				<code>expired</code> when it reaches its end date and time.</p>
-   *          <p>The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
-   * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
+   * <p>The date and time at which the Capacity Reservation expires. When a Capacity
+   * 			Reservation expires, the reserved capacity is released and you can no longer launch
+   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code> when
+   * 			it reaches its end date and time.</p>
+   *          <p>The Capacity Reservation is cancelled within an hour from the specified time. For
+   * 			example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to
+   * 			end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
    *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
    * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
    * 				<code>unlimited</code>.</p>
@@ -6101,20 +6310,20 @@ export interface ModifyCapacityReservationRequest {
   EndDate?: Date | undefined;
 
   /**
-   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
-   * 			types:</p>
+   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
+   * 			have one of the following end types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not
-   * 					provide an <code>EndDate</code> value if <code>EndDateType</code> is
-   * 						<code>unlimited</code>.</p>
+   *                   <code>unlimited</code> - The Capacity Reservation remains active until you
+   * 					explicitly cancel it. Do not provide an <code>EndDate</code> value if
+   * 						<code>EndDateType</code> is <code>unlimited</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time. You must
-   * 					provide an <code>EndDate</code> value if <code>EndDateType</code> is
-   * 						<code>limited</code>.</p>
+   *                   <code>limited</code> - The Capacity Reservation expires automatically at a
+   * 					specified date and time. You must provide an <code>EndDate</code> value if
+   * 						<code>EndDateType</code> is <code>limited</code>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -6140,12 +6349,15 @@ export interface ModifyCapacityReservationRequest {
   AdditionalInfo?: string | undefined;
 
   /**
-   * <p>
-   * 			The matching criteria (instance eligibility) that you want to use in the modified Capacity Reservation. If you change the instance eligibility of an existing Capacity Reservation from <code>targeted</code> to <code>open</code>,
-   * 			any running instances that match the attributes of the Capacity Reservation, have the <code>CapacityReservationPreference</code> set to <code>open</code>, and
-   * 			are not yet running in the Capacity Reservation, will automatically use the modified Capacity Reservation.
-   * 		</p>
-   *          <p>To modify the instance eligibility, the Capacity Reservation must be completely idle (zero usage).</p>
+   * <p> The matching criteria (instance eligibility) that you want to use in the modified
+   * 			Capacity Reservation. If you change the instance eligibility of an existing Capacity
+   * 			Reservation from <code>targeted</code> to <code>open</code>, any running instances that
+   * 			match the attributes of the Capacity Reservation, have the
+   * 				<code>CapacityReservationPreference</code> set to <code>open</code>, and are not yet
+   * 			running in the Capacity Reservation, will automatically use the modified Capacity
+   * 			Reservation. </p>
+   *          <p>To modify the instance eligibility, the Capacity Reservation must be completely idle
+   * 			(zero usage).</p>
    * @public
    */
   InstanceMatchCriteria?: InstanceMatchCriteria | undefined;
@@ -6173,9 +6385,9 @@ export interface ModifyCapacityReservationFleetRequest {
   CapacityReservationFleetId: string | undefined;
 
   /**
-   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This
-   * 			value, together with the instance type weights that you assign to each instance type
-   * 			used by the Fleet determine the number of instances for which the Fleet reserves
+   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet.
+   * 			This value, together with the instance type weights that you assign to each instance
+   * 			type used by the Fleet determine the number of instances for which the Fleet reserves
    * 			capacity. Both values are based on units that make sense for your workload. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
    * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -6184,14 +6396,15 @@ export interface ModifyCapacityReservationFleetRequest {
   TotalTargetCapacity?: number | undefined;
 
   /**
-   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation
-   * 			Fleet expires, its state changes to <code>expired</code> and all of the Capacity Reservations in the
-   * 			Fleet expire.</p>
-   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you
-   * 			specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet is guaranteed
-   * 			to expire between <code>13:30:55</code> and <code>14:30:55</code> on <code>5/31/2019</code>.</p>
+   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
+   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the
+   * 			Capacity Reservations in the Fleet expire.</p>
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For
+   * 			example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
+   * 			Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and
+   * 				<code>14:30:55</code> on <code>5/31/2019</code>.</p>
    *          <p>You can't specify <b>EndDate</b> and <b>
-   * 			RemoveEndDate</b> in the same request.</p>
+   * 				RemoveEndDate</b> in the same request.</p>
    * @public
    */
   EndDate?: Date | undefined;
@@ -6203,11 +6416,10 @@ export interface ModifyCapacityReservationFleetRequest {
   DryRun?: boolean | undefined;
 
   /**
-   * <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you remove the
-   * 			end date, the Capacity Reservation Fleet does not expire and it remains active until you explicitly
-   * 			cancel it using the <b>CancelCapacityReservationFleet</b> action.</p>
-   *          <p>You can't specify <b>RemoveEndDate</b> and <b>
-   * 			EndDate</b> in the same request.</p>
+   * <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you
+   * 			remove the end date, the Capacity Reservation Fleet does not expire and it remains
+   * 			active until you explicitly cancel it using the <b>CancelCapacityReservationFleet</b> action.</p>
+   *          <p>You can't specify <b>RemoveEndDate</b> and <b> EndDate</b> in the same request.</p>
    * @public
    */
   RemoveEndDate?: boolean | undefined;
@@ -7137,18 +7349,21 @@ export interface ModifyInstanceAttributeRequest {
  */
 export interface CapacityReservationSpecification {
   /**
-   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
+   * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences
+   * 			include:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>capacity-reservations-only</code> - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.</p>
+   *                   <code>capacity-reservations-only</code> - The instance will only run in a
+   * 					Capacity Reservation or Capacity Reservation group. If capacity isn't
+   * 					available, the instance will fail to launch.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
-   * 					Reservation that has matching attributes (instance type, platform, Availability
-   * 					Zone, and tenancy). If capacity isn't available, the instance runs as an
-   * 					On-Demand Instance.</p>
+   * 					Reservation that has matching attributes (instance type, platform,
+   * 					Availability Zone, and tenancy). If capacity isn't available, the instance
+   * 					runs as an On-Demand Instance.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8101,6 +8316,48 @@ export interface ModifyIpamResourceCidrResult {
 }
 
 /**
+ * <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+ * @public
+ */
+export interface RemoveIpamOrganizationalUnitExclusion {
+  /**
+   * <p>An Amazon Web Services Organizations entity path. Build the path for the OU(s) using Amazon Web Services Organizations IDs separated by a <code>/</code>. Include all child OUs by ending the path with <code>/*</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Example 1</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path to a child OU: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/ou-jkl0-awsddddd/</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, <code>o-a1b2c3d4e5</code> is the organization ID, <code>r-f6g7h8i9j0example</code> is the root ID , <code>ou-ghi0-awsccccc</code> is an OU ID, and <code>ou-jkl0-awsddddd</code> is a child OU ID.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>IPAM will not manage the IP addresses in accounts in the child OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Example 2</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Path where all child OUs will be part of the exclusion: <code>o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/*</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>In this example, IPAM will not manage the IP addresses in accounts in the OU (<code>ou-ghi0-awsccccc</code>) or in accounts in any OUs that are children of the OU.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on how to construct an entity path, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_access-advisor-viewing-orgs-entity-path">Understand the Amazon Web Services Organizations entity path</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  OrganizationsEntityPath?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ModifyIpamResourceDiscoveryRequest {
@@ -8135,6 +8392,18 @@ export interface ModifyIpamResourceDiscoveryRequest {
    * @public
    */
   RemoveOperatingRegions?: RemoveIpamOperatingRegion[] | undefined;
+
+  /**
+   * <p>Add an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  AddOrganizationalUnitExclusions?: AddIpamOrganizationalUnitExclusion[] | undefined;
+
+  /**
+   * <p>Remove an Organizational Unit (OU) exclusion to your IPAM. If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion. There is a limit on the number of exclusions you can create. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html">Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  RemoveOrganizationalUnitExclusions?: RemoveIpamOrganizationalUnitExclusion[] | undefined;
 }
 
 /**
@@ -8982,423 +9251,6 @@ export interface ModifySubnetAttributeRequest {
    * @public
    */
   DisableLniAtDeviceIndex?: AttributeBooleanValue | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   * @public
-   */
-  TrafficMirrorFilterId: string | undefined;
-
-  /**
-   * <p>The network service, for example Amazon DNS, that you want to mirror.</p>
-   * @public
-   */
-  AddNetworkServices?: TrafficMirrorNetworkService[] | undefined;
-
-  /**
-   * <p>The network service, for example Amazon DNS, that you no longer want to mirror.</p>
-   * @public
-   */
-  RemoveNetworkServices?: TrafficMirrorNetworkService[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterNetworkServicesResult {
-  /**
-   * <p>The Traffic Mirror filter that the network service is associated with.</p>
-   * @public
-   */
-  TrafficMirrorFilter?: TrafficMirrorFilter | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TrafficMirrorFilterRuleField = {
-  description: "description",
-  destination_port_range: "destination-port-range",
-  protocol: "protocol",
-  source_port_range: "source-port-range",
-} as const;
-
-/**
- * @public
- */
-export type TrafficMirrorFilterRuleField =
-  (typeof TrafficMirrorFilterRuleField)[keyof typeof TrafficMirrorFilterRuleField];
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterRuleRequest {
-  /**
-   * <p>The ID of the Traffic Mirror rule.</p>
-   * @public
-   */
-  TrafficMirrorFilterRuleId: string | undefined;
-
-  /**
-   * <p>The type of traffic to assign to the rule.</p>
-   * @public
-   */
-  TrafficDirection?: TrafficDirection | undefined;
-
-  /**
-   * <p>The number of the Traffic Mirror rule. This number must be unique for each Traffic Mirror rule in a given
-   *          direction. The rules are processed in ascending order by rule number.</p>
-   * @public
-   */
-  RuleNumber?: number | undefined;
-
-  /**
-   * <p>The action to assign to the rule.</p>
-   * @public
-   */
-  RuleAction?: TrafficMirrorRuleAction | undefined;
-
-  /**
-   * <p>The destination ports that are associated with the Traffic Mirror rule.</p>
-   * @public
-   */
-  DestinationPortRange?: TrafficMirrorPortRangeRequest | undefined;
-
-  /**
-   * <p>The port range to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  SourcePortRange?: TrafficMirrorPortRangeRequest | undefined;
-
-  /**
-   * <p>The protocol, for example TCP, to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  Protocol?: number | undefined;
-
-  /**
-   * <p>The destination CIDR block to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The source CIDR block to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  SourceCidrBlock?: string | undefined;
-
-  /**
-   * <p>The description to assign to the Traffic Mirror rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The properties that you want to remove from the Traffic Mirror filter rule.</p>
-   *          <p>When you remove a property from a Traffic Mirror filter rule, the property is set to the default.</p>
-   * @public
-   */
-  RemoveFields?: TrafficMirrorFilterRuleField[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorFilterRuleResult {
-  /**
-   * <note>
-   *             <p>Tags are not returned for ModifyTrafficMirrorFilterRule.</p>
-   *          </note>
-   *          <p>A Traffic Mirror rule.</p>
-   * @public
-   */
-  TrafficMirrorFilterRule?: TrafficMirrorFilterRule | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const TrafficMirrorSessionField = {
-  description: "description",
-  packet_length: "packet-length",
-  virtual_network_id: "virtual-network-id",
-} as const;
-
-/**
- * @public
- */
-export type TrafficMirrorSessionField = (typeof TrafficMirrorSessionField)[keyof typeof TrafficMirrorSessionField];
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorSessionRequest {
-  /**
-   * <p>The ID of the Traffic Mirror session.</p>
-   * @public
-   */
-  TrafficMirrorSessionId: string | undefined;
-
-  /**
-   * <p>The Traffic Mirror target. The target must be in the same VPC as the source, or have a VPC peering connection with the source.</p>
-   * @public
-   */
-  TrafficMirrorTargetId?: string | undefined;
-
-  /**
-   * <p>The ID of the Traffic Mirror filter.</p>
-   * @public
-   */
-  TrafficMirrorFilterId?: string | undefined;
-
-  /**
-   * <p>The number of bytes in each packet to mirror. These are bytes after the VXLAN header. To mirror a subset, set this to the length (in bytes) to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target. Do not specify this parameter when you want to mirror the entire packet.</p>
-   *          <p>For sessions with Network Load Balancer (NLB) traffic mirror targets, the default <code>PacketLength</code> will be set to 8500. Valid values are 1-8500. Setting a <code>PacketLength</code> greater than 8500 will result in an error response.</p>
-   * @public
-   */
-  PacketLength?: number | undefined;
-
-  /**
-   * <p>The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.</p>
-   *          <p>Valid values are 1-32766.</p>
-   * @public
-   */
-  SessionNumber?: number | undefined;
-
-  /**
-   * <p>The virtual network ID of the Traffic Mirror session.</p>
-   * @public
-   */
-  VirtualNetworkId?: number | undefined;
-
-  /**
-   * <p>The description to assign to the Traffic Mirror session.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The properties that you want to remove from the Traffic Mirror session.</p>
-   *          <p>When you remove a property from a Traffic Mirror session, the property is set to the default.</p>
-   * @public
-   */
-  RemoveFields?: TrafficMirrorSessionField[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTrafficMirrorSessionResult {
-  /**
-   * <p>Information about the Traffic Mirror session.</p>
-   * @public
-   */
-  TrafficMirrorSession?: TrafficMirrorSession | undefined;
-}
-
-/**
- * <p>The transit gateway options.</p>
- * @public
- */
-export interface ModifyTransitGatewayOptions {
-  /**
-   * <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
-   * @public
-   */
-  AddTransitGatewayCidrBlocks?: string[] | undefined;
-
-  /**
-   * <p>Removes CIDR blocks for the transit gateway.</p>
-   * @public
-   */
-  RemoveTransitGatewayCidrBlocks?: string[] | undefined;
-
-  /**
-   * <p>Enable or disable Equal Cost Multipath Protocol support.</p>
-   * @public
-   */
-  VpnEcmpSupport?: VpnEcmpSupportValue | undefined;
-
-  /**
-   * <p>Enable or disable DNS support.</p>
-   * @public
-   */
-  DnsSupport?: DnsSupportValue | undefined;
-
-  /**
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway to simplify security group management.
-   *
-   * </p>
-   *          <p>This option is disabled by default.</p>
-   *          <p>For more information about security group referencing, see  <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#vpc-attachment-security">Security group referencing</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
-   * @public
-   */
-  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
-
-  /**
-   * <p>Enable or disable automatic acceptance of attachment requests.</p>
-   * @public
-   */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | undefined;
-
-  /**
-   * <p>Enable or disable automatic association with the default association route table.</p>
-   * @public
-   */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | undefined;
-
-  /**
-   * <p>The ID of the default association route table.</p>
-   * @public
-   */
-  AssociationDefaultRouteTableId?: string | undefined;
-
-  /**
-   * <p>Enable or disable automatic propagation of routes to the default propagation route table.</p>
-   * @public
-   */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | undefined;
-
-  /**
-   * <p>The ID of the default propagation route table.</p>
-   * @public
-   */
-  PropagationDefaultRouteTableId?: string | undefined;
-
-  /**
-   * <p>A private Autonomous System Number (ASN) for the Amazon side of a BGP session.
-   *             The range is 64512 to 65534 for 16-bit ASNs and 4200000000 to 4294967294 for 32-bit ASNs.</p>
-   *          <p>The modify ASN operation is not allowed on a transit gateway if it has the following attachments:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Dynamic VPN</p>
-   *             </li>
-   *             <li>
-   *                <p>Static VPN</p>
-   *             </li>
-   *             <li>
-   *                <p>Direct Connect Gateway</p>
-   *             </li>
-   *             <li>
-   *                <p>Connect</p>
-   *             </li>
-   *          </ul>
-   *          <p>You must first delete all transit gateway attachments configured prior to modifying the ASN on
-   *             the transit gateway.</p>
-   * @public
-   */
-  AmazonSideAsn?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayRequest {
-  /**
-   * <p>The ID of the transit gateway.</p>
-   * @public
-   */
-  TransitGatewayId: string | undefined;
-
-  /**
-   * <p>The description for the transit gateway.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The options to modify.</p>
-   * @public
-   */
-  Options?: ModifyTransitGatewayOptions | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayResult {
-  /**
-   * <p>Information about the transit gateway.</p>
-   * @public
-   */
-  TransitGateway?: TransitGateway | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyTransitGatewayPrefixListReferenceRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment to which traffic is routed.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>Indicates whether to drop traffic that matches this route.</p>
-   * @public
-   */
-  Blackhole?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

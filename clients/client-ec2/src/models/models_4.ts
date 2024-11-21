@@ -17,7 +17,6 @@ import {
   IpamResourceDiscoveryAssociation,
   PathComponent,
   ReservedInstancesListing,
-  SecurityGroupRule,
   Tag,
 } from "./models_0";
 
@@ -45,7 +44,6 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  NatGateway,
   OperatorResponse,
   Placement,
   PlatformValues,
@@ -55,6 +53,7 @@ import {
 
 import {
   GroupIdentifier,
+  NatGateway,
   NetworkAcl,
   NetworkInsightsAccessScope,
   NetworkInsightsPath,
@@ -72,10 +71,442 @@ import {
   Filter,
   IdFormat,
   InstanceTagNotificationAttribute,
-  PaymentOption,
+  LoadPermission,
   PermissionGroup,
-  ProductCode,
+  ProductCodeValues,
 } from "./models_3";
+
+/**
+ * <p>Describes a product code.</p>
+ * @public
+ */
+export interface ProductCode {
+  /**
+   * <p>The product code.</p>
+   * @public
+   */
+  ProductCodeId?: string | undefined;
+
+  /**
+   * <p>The type of product code.</p>
+   * @public
+   */
+  ProductCodeType?: ProductCodeValues | undefined;
+}
+
+/**
+ * <p>Describes an Amazon FPGA image (AFI) attribute.</p>
+ * @public
+ */
+export interface FpgaImageAttribute {
+  /**
+   * <p>The ID of the AFI.</p>
+   * @public
+   */
+  FpgaImageId?: string | undefined;
+
+  /**
+   * <p>The name of the AFI.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the AFI.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The load permissions.</p>
+   * @public
+   */
+  LoadPermissions?: LoadPermission[] | undefined;
+
+  /**
+   * <p>The product codes.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFpgaImageAttributeResult {
+  /**
+   * <p>Information about the attribute.</p>
+   * @public
+   */
+  FpgaImageAttribute?: FpgaImageAttribute | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFpgaImagesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The AFI IDs.</p>
+   * @public
+   */
+  FpgaImageIds?: string[] | undefined;
+
+  /**
+   * <p>Filters the AFI by owner. Specify an Amazon Web Services account ID, <code>self</code>
+   * 			(owner is the sender of the request), or an Amazon Web Services owner alias (valid values are
+   * 			<code>amazon</code> | <code>aws-marketplace</code>).</p>
+   * @public
+   */
+  Owners?: string[] | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>create-time</code> - The creation time of the AFI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>name</code> - The name of the AFI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-code</code> - The product code.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>shell-version</code> - The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>unavailable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>update-time</code> - The time of the most recent update.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
+ * @public
+ */
+export interface PciId {
+  /**
+   * <p>The ID of the device.</p>
+   * @public
+   */
+  DeviceId?: string | undefined;
+
+  /**
+   * <p>The ID of the vendor.</p>
+   * @public
+   */
+  VendorId?: string | undefined;
+
+  /**
+   * <p>The ID of the subsystem.</p>
+   * @public
+   */
+  SubsystemId?: string | undefined;
+
+  /**
+   * <p>The ID of the vendor for the subsystem.</p>
+   * @public
+   */
+  SubsystemVendorId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FpgaImageStateCode = {
+  available: "available",
+  failed: "failed",
+  pending: "pending",
+  unavailable: "unavailable",
+} as const;
+
+/**
+ * @public
+ */
+export type FpgaImageStateCode = (typeof FpgaImageStateCode)[keyof typeof FpgaImageStateCode];
+
+/**
+ * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
+ * @public
+ */
+export interface FpgaImageState {
+  /**
+   * <p>The state. The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - AFI bitstream generation is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>available</code> - The AFI is available for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - AFI bitstream generation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unavailable</code> - The AFI is no longer available for use.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Code?: FpgaImageStateCode | undefined;
+
+  /**
+   * <p>If the state is <code>failed</code>, this is the error message.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
+ * <p>Describes an Amazon FPGA image (AFI).</p>
+ * @public
+ */
+export interface FpgaImage {
+  /**
+   * <p>The FPGA image identifier (AFI ID).</p>
+   * @public
+   */
+  FpgaImageId?: string | undefined;
+
+  /**
+   * <p>The global FPGA image identifier (AGFI ID).</p>
+   * @public
+   */
+  FpgaImageGlobalId?: string | undefined;
+
+  /**
+   * <p>The name of the AFI.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the AFI.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
+   * @public
+   */
+  ShellVersion?: string | undefined;
+
+  /**
+   * <p>Information about the PCI bus.</p>
+   * @public
+   */
+  PciId?: PciId | undefined;
+
+  /**
+   * <p>Information about the state of the AFI.</p>
+   * @public
+   */
+  State?: FpgaImageState | undefined;
+
+  /**
+   * <p>The date and time the AFI was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The time of the most recent update to the AFI.</p>
+   * @public
+   */
+  UpdateTime?: Date | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the AFI.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The alias of the AFI owner. Possible values include <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.</p>
+   * @public
+   */
+  OwnerAlias?: string | undefined;
+
+  /**
+   * <p>The product codes for the AFI.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[] | undefined;
+
+  /**
+   * <p>Any tags assigned to the AFI.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Indicates whether the AFI is public.</p>
+   * @public
+   */
+  Public?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether data retention support is enabled for the AFI.</p>
+   * @public
+   */
+  DataRetentionSupport?: boolean | undefined;
+
+  /**
+   * <p>The instance types supported by the AFI.</p>
+   * @public
+   */
+  InstanceTypes?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFpgaImagesResult {
+  /**
+   * <p>Information about the FPGA images.</p>
+   * @public
+   */
+  FpgaImages?: FpgaImage[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeHostReservationOfferingsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-family</code> - The instance family of the offering (for example,
+   *                         <code>m4</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
+   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filter?: Filter[] | undefined;
+
+  /**
+   * <p>This is the maximum duration of the reservation to purchase, specified in seconds.
+   *             Reservations are available in one-year and three-year terms. The number of seconds
+   *             specified must be the number of seconds in a year (365x24x60x60) times one of the
+   *             supported durations (1 or 3). For example, specify 94608000 for three years.</p>
+   * @public
+   */
+  MaxDuration?: number | undefined;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>This is the minimum duration of the reservation you'd like to purchase, specified in
+   *             seconds. Reservations are available in one-year and three-year terms. The number of
+   *             seconds specified must be the number of seconds in a year (365x24x60x60) times one of
+   *             the supported durations (1 or 3). For example, specify 31536000 for one year.</p>
+   * @public
+   */
+  MinDuration?: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The ID of the reservation offering.</p>
+   * @public
+   */
+  OfferingId?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PaymentOption = {
+  ALL_UPFRONT: "AllUpfront",
+  NO_UPFRONT: "NoUpfront",
+  PARTIAL_UPFRONT: "PartialUpfront",
+} as const;
+
+/**
+ * @public
+ */
+export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
 
 /**
  * <p>Details about the Dedicated Host Reservation offering.</p>
@@ -12002,440 +12433,6 @@ export interface ScheduledInstanceRecurrence {
    * @public
    */
   OccurrenceUnit?: string | undefined;
-}
-
-/**
- * <p>Describes a schedule that is available for your Scheduled Instances.</p>
- * @public
- */
-export interface ScheduledInstanceAvailability {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of available instances.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The time period for the first schedule to start.</p>
-   * @public
-   */
-  FirstSlotStartTime?: Date | undefined;
-
-  /**
-   * <p>The hourly price for a single instance.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The instance type. You can specify one of the C3, C4, M4, or R3 instance types.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The maximum term. The only possible value is 365 days.</p>
-   * @public
-   */
-  MaxTermDurationInDays?: number | undefined;
-
-  /**
-   * <p>The minimum term. The only possible value is 365 days.</p>
-   * @public
-   */
-  MinTermDurationInDays?: number | undefined;
-
-  /**
-   * <p>The network platform.</p>
-   * @public
-   */
-  NetworkPlatform?: string | undefined;
-
-  /**
-   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The purchase token. This token expires in two hours.</p>
-   * @public
-   */
-  PurchaseToken?: string | undefined;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   * @public
-   */
-  Recurrence?: ScheduledInstanceRecurrence | undefined;
-
-  /**
-   * <p>The number of hours in the schedule.</p>
-   * @public
-   */
-  SlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The total number of hours for a single instance for the entire term.</p>
-   * @public
-   */
-  TotalScheduledInstanceHours?: number | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
- * @public
- */
-export interface DescribeScheduledInstanceAvailabilityResult {
-  /**
-   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the available Scheduled Instances.</p>
-   * @public
-   */
-  ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[] | undefined;
-}
-
-/**
- * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
- * @public
- */
-export interface SlotStartTimeRangeRequest {
-  /**
-   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
-   * @public
-   */
-  EarliestTime?: Date | undefined;
-
-  /**
-   * <p>The latest date and time, in UTC, for the Scheduled Instance to start.</p>
-   * @public
-   */
-  LatestTime?: Date | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeScheduledInstances.</p>
- * @public
- */
-export interface DescribeScheduledInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.
-   *          This value can be between 5 and 300. The default value is 100.
-   *          To retrieve the remaining results, make another call with the returned
-   *          <code>NextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Scheduled Instance IDs.</p>
-   * @public
-   */
-  ScheduledInstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The time period for the first schedule to start.</p>
-   * @public
-   */
-  SlotStartTimeRange?: SlotStartTimeRangeRequest | undefined;
-}
-
-/**
- * <p>Describes a Scheduled Instance.</p>
- * @public
- */
-export interface ScheduledInstance {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The date when the Scheduled Instance was purchased.</p>
-   * @public
-   */
-  CreateDate?: Date | undefined;
-
-  /**
-   * <p>The hourly price for a single instance.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The number of instances.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The network platform.</p>
-   * @public
-   */
-  NetworkPlatform?: string | undefined;
-
-  /**
-   * <p>The time for the next schedule to start.</p>
-   * @public
-   */
-  NextSlotStartTime?: Date | undefined;
-
-  /**
-   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The time that the previous schedule ended or will end.</p>
-   * @public
-   */
-  PreviousSlotEndTime?: Date | undefined;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   * @public
-   */
-  Recurrence?: ScheduledInstanceRecurrence | undefined;
-
-  /**
-   * <p>The Scheduled Instance ID.</p>
-   * @public
-   */
-  ScheduledInstanceId?: string | undefined;
-
-  /**
-   * <p>The number of hours in the schedule.</p>
-   * @public
-   */
-  SlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The end date for the Scheduled Instance.</p>
-   * @public
-   */
-  TermEndDate?: Date | undefined;
-
-  /**
-   * <p>The start date for the Scheduled Instance.</p>
-   * @public
-   */
-  TermStartDate?: Date | undefined;
-
-  /**
-   * <p>The total number of hours for a single instance for the entire term.</p>
-   * @public
-   */
-  TotalScheduledInstanceHours?: number | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeScheduledInstances.</p>
- * @public
- */
-export interface DescribeScheduledInstancesResult {
-  /**
-   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the Scheduled Instances.</p>
-   * @public
-   */
-  ScheduledInstanceSet?: ScheduledInstance[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupReferencesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the security groups in your account.</p>
-   * @public
-   */
-  GroupId: string[] | undefined;
-}
-
-/**
- * <p>Describes a VPC with a security group that references your security group.</p>
- * @public
- */
-export interface SecurityGroupReference {
-  /**
-   * <p>The ID of your security group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC with the referencing security group.</p>
-   * @public
-   */
-  ReferencingVpcId?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see
-   *           <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a>
-   *           in the <i>VPC Peering Guide</i>.</p>
-   * @public
-   */
-  VpcPeeringConnectionId?: string | undefined;
-
-  /**
-   * <note>
-   *             <p>This parameter is in preview and may not be available for your account.</p>
-   *          </note>
-   *          <p>The ID of the transit gateway (if applicable).</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupReferencesResult {
-  /**
-   * <p>Information about the VPCs with the referencing security groups.</p>
-   * @public
-   */
-  SecurityGroupReferenceSet?: SecurityGroupReference[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupRulesRequest {
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>group-id</code> - The ID of the security group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>security-group-rule-id</code> - The ID of the security group rule.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The IDs of the security group rules.</p>
-   * @public
-   */
-  SecurityGroupRuleIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request.
-   *             Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request. To get the next page of
-   *             items, make another request with the token returned in the output. This value
-   *             can be between 5 and 1000. If this parameter is not specified, then all items are
-   *             returned. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeSecurityGroupRulesResult {
-  /**
-   * <p>Information about security group rules.</p>
-   * @public
-   */
-  SecurityGroupRules?: SecurityGroupRule[] | undefined;
-
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *             This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

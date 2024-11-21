@@ -17,6 +17,7 @@ import {
   IpPermission,
   NatGatewayAddress,
   ResourceType,
+  SecurityGroupRule,
   SecurityGroupVpcAssociationState,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -107,11 +108,444 @@ import {
   Filter,
   MetricType,
   PermissionGroup,
-  ProductCode,
   StatisticType,
 } from "./models_3";
 
-import { AttributeBooleanValue, RIProductDescription } from "./models_4";
+import { AttributeBooleanValue, ProductCode, RIProductDescription, ScheduledInstanceRecurrence } from "./models_4";
+
+/**
+ * <p>Describes a schedule that is available for your Scheduled Instances.</p>
+ * @public
+ */
+export interface ScheduledInstanceAvailability {
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of available instances.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The time period for the first schedule to start.</p>
+   * @public
+   */
+  FirstSlotStartTime?: Date | undefined;
+
+  /**
+   * <p>The hourly price for a single instance.</p>
+   * @public
+   */
+  HourlyPrice?: string | undefined;
+
+  /**
+   * <p>The instance type. You can specify one of the C3, C4, M4, or R3 instance types.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The maximum term. The only possible value is 365 days.</p>
+   * @public
+   */
+  MaxTermDurationInDays?: number | undefined;
+
+  /**
+   * <p>The minimum term. The only possible value is 365 days.</p>
+   * @public
+   */
+  MinTermDurationInDays?: number | undefined;
+
+  /**
+   * <p>The network platform.</p>
+   * @public
+   */
+  NetworkPlatform?: string | undefined;
+
+  /**
+   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The purchase token. This token expires in two hours.</p>
+   * @public
+   */
+  PurchaseToken?: string | undefined;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   * @public
+   */
+  Recurrence?: ScheduledInstanceRecurrence | undefined;
+
+  /**
+   * <p>The number of hours in the schedule.</p>
+   * @public
+   */
+  SlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The total number of hours for a single instance for the entire term.</p>
+   * @public
+   */
+  TotalScheduledInstanceHours?: number | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
+ * @public
+ */
+export interface DescribeScheduledInstanceAvailabilityResult {
+  /**
+   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the available Scheduled Instances.</p>
+   * @public
+   */
+  ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[] | undefined;
+}
+
+/**
+ * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
+ * @public
+ */
+export interface SlotStartTimeRangeRequest {
+  /**
+   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
+   * @public
+   */
+  EarliestTime?: Date | undefined;
+
+  /**
+   * <p>The latest date and time, in UTC, for the Scheduled Instance to start.</p>
+   * @public
+   */
+  LatestTime?: Date | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeScheduledInstances.</p>
+ * @public
+ */
+export interface DescribeScheduledInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.
+   *          This value can be between 5 and 300. The default value is 100.
+   *          To retrieve the remaining results, make another call with the returned
+   *          <code>NextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Scheduled Instance IDs.</p>
+   * @public
+   */
+  ScheduledInstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The time period for the first schedule to start.</p>
+   * @public
+   */
+  SlotStartTimeRange?: SlotStartTimeRangeRequest | undefined;
+}
+
+/**
+ * <p>Describes a Scheduled Instance.</p>
+ * @public
+ */
+export interface ScheduledInstance {
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The date when the Scheduled Instance was purchased.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The hourly price for a single instance.</p>
+   * @public
+   */
+  HourlyPrice?: string | undefined;
+
+  /**
+   * <p>The number of instances.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The network platform.</p>
+   * @public
+   */
+  NetworkPlatform?: string | undefined;
+
+  /**
+   * <p>The time for the next schedule to start.</p>
+   * @public
+   */
+  NextSlotStartTime?: Date | undefined;
+
+  /**
+   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The time that the previous schedule ended or will end.</p>
+   * @public
+   */
+  PreviousSlotEndTime?: Date | undefined;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   * @public
+   */
+  Recurrence?: ScheduledInstanceRecurrence | undefined;
+
+  /**
+   * <p>The Scheduled Instance ID.</p>
+   * @public
+   */
+  ScheduledInstanceId?: string | undefined;
+
+  /**
+   * <p>The number of hours in the schedule.</p>
+   * @public
+   */
+  SlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The end date for the Scheduled Instance.</p>
+   * @public
+   */
+  TermEndDate?: Date | undefined;
+
+  /**
+   * <p>The start date for the Scheduled Instance.</p>
+   * @public
+   */
+  TermStartDate?: Date | undefined;
+
+  /**
+   * <p>The total number of hours for a single instance for the entire term.</p>
+   * @public
+   */
+  TotalScheduledInstanceHours?: number | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeScheduledInstances.</p>
+ * @public
+ */
+export interface DescribeScheduledInstancesResult {
+  /**
+   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the Scheduled Instances.</p>
+   * @public
+   */
+  ScheduledInstanceSet?: ScheduledInstance[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupReferencesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of the security groups in your account.</p>
+   * @public
+   */
+  GroupId: string[] | undefined;
+}
+
+/**
+ * <p>Describes a VPC with a security group that references your security group.</p>
+ * @public
+ */
+export interface SecurityGroupReference {
+  /**
+   * <p>The ID of your security group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC with the referencing security group.</p>
+   * @public
+   */
+  ReferencingVpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see
+   *           <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a>
+   *           in the <i>VPC Peering Guide</i>.</p>
+   * @public
+   */
+  VpcPeeringConnectionId?: string | undefined;
+
+  /**
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>The ID of the transit gateway (if applicable).</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupReferencesResult {
+  /**
+   * <p>Information about the VPCs with the referencing security groups.</p>
+   * @public
+   */
+  SecurityGroupReferenceSet?: SecurityGroupReference[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupRulesRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>group-id</code> - The ID of the security group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>security-group-rule-id</code> - The ID of the security group rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The IDs of the security group rules.</p>
+   * @public
+   */
+  SecurityGroupRuleIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *             Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of
+   *             items, make another request with the token returned in the output. This value
+   *             can be between 5 and 1000. If this parameter is not specified, then all items are
+   *             returned. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSecurityGroupRulesResult {
+  /**
+   * <p>Information about security group rules.</p>
+   * @public
+   */
+  SecurityGroupRules?: SecurityGroupRule[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *             This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -6043,7 +6477,7 @@ export interface DescribeVpcBlockPublicAccessExclusionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>internet-gateway-exclusion-mode</code> - The mode of a VPC BPA exclusion. Possible values: <code>bidirectional-access-allowed | egress-access-allowed</code>.</p>
+   *                   <code>internet-gateway-exclusion-mode</code> - The mode of a VPC BPA exclusion. Possible values: <code>allow-bidirectional | allow-egress</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6150,7 +6584,7 @@ export const VpcBlockPublicAccessState = {
 export type VpcBlockPublicAccessState = (typeof VpcBlockPublicAccessState)[keyof typeof VpcBlockPublicAccessState];
 
 /**
- * <p>VPC Block public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that you own in a Region from reaching or being reached from the internet through internet gateways and egress-only internet gateways. To learn more about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @public
  */
 export interface VpcBlockPublicAccessOptions {
@@ -6177,15 +6611,15 @@ export interface VpcBlockPublicAccessOptions {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-allowed</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-blocked</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ingress-access-blocked</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9851,191 +10285,6 @@ export interface EnableTransitGatewayRouteTablePropagationResult {
    * @public
    */
   Propagation?: TransitGatewayPropagation | undefined;
-}
-
-/**
- * <p>Contains the parameters for EnableVgwRoutePropagation.</p>
- * @public
- */
-export interface EnableVgwRoutePropagationRequest {
-  /**
-   * <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private
-   *             gateway must be attached to the same VPC that the routing tables are associated with.
-   *         </p>
-   * @public
-   */
-  GatewayId: string | undefined;
-
-  /**
-   * <p>The ID of the route table. The routing table must be associated with the same VPC that
-   *             the virtual private gateway is attached to. </p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableVolumeIORequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the volume.</p>
-   * @public
-   */
-  VolumeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableVpcClassicLinkRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableVpcClassicLinkResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableVpcClassicLinkDnsSupportRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableVpcClassicLinkDnsSupportResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportClientVpnClientCertificateRevocationListRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ClientCertificateRevocationListStatusCode = {
-  active: "active",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type ClientCertificateRevocationListStatusCode =
-  (typeof ClientCertificateRevocationListStatusCode)[keyof typeof ClientCertificateRevocationListStatusCode];
-
-/**
- * <p>Describes the state of a client certificate revocation list.</p>
- * @public
- */
-export interface ClientCertificateRevocationListStatus {
-  /**
-   * <p>The state of the client certificate revocation list.</p>
-   * @public
-   */
-  Code?: ClientCertificateRevocationListStatusCode | undefined;
-
-  /**
-   * <p>A message about the status of the client certificate revocation list, if applicable.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportClientVpnClientCertificateRevocationListResult {
-  /**
-   * <p>Information about the client certificate revocation list.</p>
-   * @public
-   */
-  CertificateRevocationList?: string | undefined;
-
-  /**
-   * <p>The current state of the client certificate revocation list.</p>
-   * @public
-   */
-  Status?: ClientCertificateRevocationListStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ExportClientVpnClientConfigurationRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }
 
 /**

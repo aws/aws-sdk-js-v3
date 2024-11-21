@@ -63,6 +63,7 @@ export interface GetIpamDiscoveredAccountsCommandOutput extends GetIpamDiscovere
  * //       },
  * //       LastAttemptedDiscoveryTime: new Date("TIMESTAMP"),
  * //       LastSuccessfulDiscoveryTime: new Date("TIMESTAMP"),
+ * //       OrganizationalUnitId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

@@ -39,6 +39,7 @@ import {
   DestinationFileFormat,
   DhcpOptions,
   DiskImageFormat,
+  Ec2InstanceConnectEndpoint,
   EgressOnlyInternetGateway,
   ExportTask,
   FleetCapacityReservation,
@@ -90,6 +91,73 @@ import {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteFpgaImageResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceConnectEndpointRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the EC2 Instance Connect Endpoint to delete.</p>
+   * @public
+   */
+  InstanceConnectEndpointId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceConnectEndpointResult {
+  /**
+   * <p>Information about the EC2 Instance Connect Endpoint.</p>
+   * @public
+   */
+  InstanceConnectEndpoint?: Ec2InstanceConnectEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteInstanceEventWindowRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to force delete the event window. Use the force delete parameter
+   *          if the event window is currently associated with targets.</p>
+   * @public
+   */
+  ForceDelete?: boolean | undefined;
+
+  /**
+   * <p>The ID of the event window.</p>
+   * @public
+   */
+  InstanceEventWindowId: string | undefined;
+}
 
 /**
  * <p>The state of the event window.</p>
@@ -3491,6 +3559,365 @@ export interface DescribeByoipCidrsResult {
 /**
  * @public
  */
+export interface DescribeCapacityBlockExtensionHistoryRequest {
+  /**
+   * <p>The IDs of Capacity Block reservations that you want to display the history
+   * 			for.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>One or more filters</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the
+   * 					extension.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The Availability Zone ID of the
+   * 					extension.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-block-extension-offering-id</code> - The ID of the extension
+   * 					offering.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-block-extension-status</code> - The status of the extension
+   * 						(<code>payment-pending</code> | <code>payment-failed</code> |
+   * 						<code>payment-succeeded</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>capacity-reservation-id</code> - The reservation ID of the
+   * 					extension.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type of the extension.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityBlockExtensionStatus = {
+  PAYMENT_FAILED: "payment-failed",
+  PAYMENT_PENDING: "payment-pending",
+  PAYMENT_SUCCEEDED: "payment-succeeded",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityBlockExtensionStatus =
+  (typeof CapacityBlockExtensionStatus)[keyof typeof CapacityBlockExtensionStatus];
+
+/**
+ * <p>Describes a Capacity Block extension. With an extension, you can
+ * 			extend the duration of time for an existing Capacity Block.</p>
+ * @public
+ */
+export interface CapacityBlockExtension {
+  /**
+   * <p>The reservation ID of the Capacity Block extension.</p>
+   * @public
+   */
+  CapacityReservationId?: string | undefined;
+
+  /**
+   * <p>The instance type of the Capacity Block extension.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances in the Capacity Block extension.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block extension.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the Capacity Block extension.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the Capacity Block extension offering.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferingId?: string | undefined;
+
+  /**
+   * <p>The duration of the Capacity Block extension in hours.</p>
+   * @public
+   */
+  CapacityBlockExtensionDurationHours?: number | undefined;
+
+  /**
+   * <p>The status of the Capacity Block extension. A Capacity Block extension can have one of
+   * 			the following statuses:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>payment-pending</code> - The Capacity Block extension payment is
+   * 					processing. If your payment can't be processed within 12 hours, the Capacity
+   * 					Block extension is failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-failed</code> - Payment for the Capacity Block extension request
+   * 					was not successful.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>payment-succeeded</code> - Payment for the Capacity Block extension
+   * 					request was successful. You receive an invoice that reflects the one-time
+   * 					upfront payment. In the invoice, you can associate the paid amount with the
+   * 					Capacity Block reservation ID.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CapacityBlockExtensionStatus?: CapacityBlockExtensionStatus | undefined;
+
+  /**
+   * <p>The date when the Capacity Block extension was purchased.</p>
+   * @public
+   */
+  CapacityBlockExtensionPurchaseDate?: Date | undefined;
+
+  /**
+   * <p>The start date of the Capacity Block extension.</p>
+   * @public
+   */
+  CapacityBlockExtensionStartDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the Capacity Block extension.</p>
+   * @public
+   */
+  CapacityBlockExtensionEndDate?: Date | undefined;
+
+  /**
+   * <p>The total price to be paid up front.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency of the payment for the Capacity Block extension.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockExtensionHistoryResult {
+  /**
+   * <p>Describes one or more of your Capacity Block extensions. The results describe only the
+   * 			Capacity Block extensions in the Amazon Web Services Region that you're currently using.</p>
+   * @public
+   */
+  CapacityBlockExtensions?: CapacityBlockExtension[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockExtensionOfferingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The duration of the Capacity Block extension offering in hours.</p>
+   * @public
+   */
+  CapacityBlockExtensionDurationHours: number | undefined;
+
+  /**
+   * <p>The ID of the Capacity reservation to be extended.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output. For more information,
+   *     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The recommended Capacity Block extension that fits your search requirements.</p>
+ * @public
+ */
+export interface CapacityBlockExtensionOffering {
+  /**
+   * <p>The ID of the Capacity Block extension offering.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferingId?: string | undefined;
+
+  /**
+   * <p>The instance type of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The number of instances in the Capacity Block extension offering.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The Availability Zone of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID of the Capacity Block that will be
+   * 			extended.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The start date of the Capacity Block that will be extended.</p>
+   * @public
+   */
+  StartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block extension will start. This date is
+   * 			also the same as the end date of the Capacity Block that will be
+   * 			extended.</p>
+   * @public
+   */
+  CapacityBlockExtensionStartDate?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Block extension expires. When a Capacity
+   * 			Block expires, the reserved capacity is released and you can no longer launch
+   * 			instances into it. The Capacity Block's state changes to <code>expired</code> when
+   * 			it reaches its end date</p>
+   * @public
+   */
+  CapacityBlockExtensionEndDate?: Date | undefined;
+
+  /**
+   * <p>The amount of time of the Capacity Block extension offering in hours.</p>
+   * @public
+   */
+  CapacityBlockExtensionDurationHours?: number | undefined;
+
+  /**
+   * <p>The total price of the Capacity Block extension offering, to be paid up front.</p>
+   * @public
+   */
+  UpfrontFee?: string | undefined;
+
+  /**
+   * <p>The currency of the payment for the Capacity Block extension offering.</p>
+   * @public
+   */
+  CurrencyCode?: string | undefined;
+
+  /**
+   * <p>Indicates the tenancy of the Capacity Block extension offering. A Capacity Block
+   * 			can have one of the following tenancy settings:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code> - The Capacity Block is created on hardware that is
+   * 					shared with other Amazon Web Services accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Block is created on single-tenant
+   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Tenancy?: CapacityReservationTenancy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCapacityBlockExtensionOfferingsResult {
+  /**
+   * <p>The recommended Capacity Block extension offerings for the dates specified.</p>
+   * @public
+   */
+  CapacityBlockExtensionOfferings?: CapacityBlockExtensionOffering[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeCapacityBlockOfferingsRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -3584,7 +4011,10 @@ export interface CapacityBlockOffering {
   EndDate?: Date | undefined;
 
   /**
-   * <p>The amount of time of the Capacity Block reservation in hours.</p>
+   * <p>The number of hours (in addition to <code>capacityBlockDurationMinutes</code>) for the
+   * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
+   * 			<b>04:55</b> and ends at <b>11:30</b>,
+   * 			the hours field would be <b>6</b>.</p>
    * @public
    */
   CapacityBlockDurationHours?: number | undefined;
@@ -3606,6 +4036,15 @@ export interface CapacityBlockOffering {
    * @public
    */
   Tenancy?: CapacityReservationTenancy | undefined;
+
+  /**
+   * <p>The number of minutes (in addition to <code>capacityBlockDurationHours</code>) for the
+   * 			duration of the Capacity Block reservation. For example, if a Capacity Block starts at
+   * 			<b>08:55</b> and ends at <b>11:30</b>,
+   * 			the minutes field would be <b>35</b>.</p>
+   * @public
+   */
+  CapacityBlockDurationMinutes?: number | undefined;
 }
 
 /**
@@ -3654,15 +4093,15 @@ export interface DescribeCapacityReservationBillingRequestsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>odcr-owner</code> - If you are the Capacity Reservation owner, specify this
-   * 					value to view requests that you have initiated. Not supported with the <code>requested-by</code>
-   * 					filter.</p>
+   *                   <code>odcr-owner</code> - If you are the Capacity Reservation owner, specify
+   * 					this value to view requests that you have initiated. Not supported with the
+   * 						<code>requested-by</code> filter.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>unused-reservation-billing-owner</code> - If you are the consumer account,
-   * 					specify this value to view requests that have been sent to you. Not supported with the
-   * 					<code>unused-reservation-billing-owner</code> filter.</p>
+   *                   <code>unused-reservation-billing-owner</code> - If you are the consumer
+   * 					account, specify this value to view requests that have been sent to you. Not
+   * 					supported with the <code>unused-reservation-billing-owner</code> filter.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3687,19 +4126,21 @@ export interface DescribeCapacityReservationBillingRequestsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>status</code> - The state of the request (<code>pending</code> | <code>accepted</code> |
-   * 					<code>rejected</code> | <code>cancelled</code> | <code>revoked</code> | <code>expired</code>).</p>
+   *                   <code>status</code> - The state of the request (<code>pending</code> |
+   * 						<code>accepted</code> | <code>rejected</code> | <code>cancelled</code> |
+   * 						<code>revoked</code> | <code>expired</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>requested-by</code> - The account ID of the Capacity Reservation owner that initiated
-   * 					the request. Not supported if you specify <code>requested-by</code> for <b>Role</b>.</p>
+   *                   <code>requested-by</code> - The account ID of the Capacity Reservation owner
+   * 					that initiated the request. Not supported if you specify
+   * 						<code>requested-by</code> for <b>Role</b>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>unused-reservation-billing-owner</code> - The ID of the consumer account to which the
-   * 					request was sent. Not supported if you specify <code>unused-reservation-billing-owner</code> for
-   * 					<b>Role</b>.</p>
+   *                   <code>unused-reservation-billing-owner</code> - The ID of the consumer account
+   * 					to which the request was sent. Not supported if you specify
+   * 						<code>unused-reservation-billing-owner</code> for <b>Role</b>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3757,7 +4198,8 @@ export type CapacityReservationBillingRequestStatus =
   (typeof CapacityReservationBillingRequestStatus)[keyof typeof CapacityReservationBillingRequestStatus];
 
 /**
- * <p>Information about a request to assign billing of the unused capacity of a Capacity Reservation.</p>
+ * <p>Information about a request to assign billing of the unused capacity of a Capacity
+ * 			Reservation.</p>
  * @public
  */
 export interface CapacityReservationBillingRequest {
@@ -3786,8 +4228,8 @@ export interface CapacityReservationBillingRequest {
   LastUpdateTime?: Date | undefined;
 
   /**
-   * <p>The status of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-billing-transfers.html">
-   * 			View billing assignment requests for a shared Amazon EC2 Capacity Reservation</a>.</p>
+   * <p>The status of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/view-billing-transfers.html"> View billing assignment
+   * 				requests for a shared Amazon EC2 Capacity Reservation</a>.</p>
    * @public
    */
   Status?: CapacityReservationBillingRequestStatus | undefined;
@@ -3850,21 +4292,26 @@ export interface DescribeCapacityReservationFleetsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the Fleet (<code>submitted</code> | <code>modifying</code> | <code>active</code> |
-   * 					<code>partially_fulfilled</code> | <code>expiring</code> | <code>expired</code> | <code>cancelling</code> |
-   * 					<code>cancelled</code> | <code>failed</code>).</p>
+   *                   <code>state</code> - The state of the Fleet (<code>submitted</code> |
+   * 						<code>modifying</code> | <code>active</code> |
+   * 						<code>partially_fulfilled</code> | <code>expiring</code> |
+   * 						<code>expired</code> | <code>cancelling</code> | <code>cancelled</code> |
+   * 						<code>failed</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-match-criteria</code> - The instance matching criteria for the Fleet. Only <code>open</code> is supported.</p>
+   *                   <code>instance-match-criteria</code> - The instance matching criteria for the
+   * 					Fleet. Only <code>open</code> is supported.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tenancy</code> - The tenancy of the Fleet (<code>default</code> | <code>dedicated</code>).</p>
+   *                   <code>tenancy</code> - The tenancy of the Fleet (<code>default</code> |
+   * 						<code>dedicated</code>).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>allocation-strategy</code> - The allocation strategy used by the Fleet. Only <code>prioritized</code> is supported.</p>
+   *                   <code>allocation-strategy</code> - The allocation strategy used by the Fleet.
+   * 					Only <code>prioritized</code> is supported.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3900,54 +4347,55 @@ export interface CapacityReservationFleet {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>submitted</code> - The Capacity Reservation Fleet request has been submitted
-   * 					and Amazon Elastic Compute Cloud is preparing to create the Capacity Reservations.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>modifying</code> - The Capacity Reservation Fleet is being modified. The Fleet
-   * 					remains in this state until the modification is complete.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>active</code> - The Capacity Reservation Fleet has fulfilled its total target
-   * 					capacity and it is attempting to maintain this capacity. The Fleet remains in this
-   * 					state until it is modified or deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>partially_fulfilled</code> - The Capacity Reservation Fleet has partially
-   * 					fulfilled its total target capacity. There is insufficient Amazon EC2 to
-   * 					fulfill the total target capacity. The Fleet is attempting to asynchronously fulfill
-   * 					its total target capacity.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expiring</code> - The Capacity Reservation Fleet has reach its end date and it
-   * 					is in the process of expiring. One or more of its Capacity reservations might still
-   * 					be active.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>expired</code> - The Capacity Reservation Fleet has reach its end date. The Fleet
-   * 					and its Capacity Reservations are expired. The Fleet can't create new Capacity
+   *                   <code>submitted</code> - The Capacity Reservation Fleet request has been
+   * 					submitted and Amazon Elastic Compute Cloud is preparing to create the Capacity
    * 					Reservations.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>cancelling</code> - The Capacity Reservation Fleet is in the process of being
-   * 					cancelled. One or more of its Capacity reservations might still be active.</p>
+   *                   <code>modifying</code> - The Capacity Reservation Fleet is being modified. The
+   * 					Fleet remains in this state until the modification is complete.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>cancelled</code> - The Capacity Reservation Fleet has been manually cancelled.
-   * 					The Fleet and its Capacity Reservations are cancelled and the Fleet can't create new
+   *                   <code>active</code> - The Capacity Reservation Fleet has fulfilled its total
+   * 					target capacity and it is attempting to maintain this capacity. The Fleet
+   * 					remains in this state until it is modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>partially_fulfilled</code> - The Capacity Reservation Fleet has
+   * 					partially fulfilled its total target capacity. There is insufficient Amazon EC2 to fulfill the total target capacity. The Fleet is attempting to
+   * 					asynchronously fulfill its total target capacity.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expiring</code> - The Capacity Reservation Fleet has reach its end date
+   * 					and it is in the process of expiring. One or more of its Capacity reservations
+   * 					might still be active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The Capacity Reservation Fleet has reach its end date.
+   * 					The Fleet and its Capacity Reservations are expired. The Fleet can't create new
    * 					Capacity Reservations.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>failed</code> - The Capacity Reservation Fleet failed to reserve capacity for
-   * 					the specified instance types.</p>
+   *                   <code>cancelling</code> - The Capacity Reservation Fleet is in the process of
+   * 					being cancelled. One or more of its Capacity reservations might still be
+   * 					active.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cancelled</code> - The Capacity Reservation Fleet has been manually
+   * 					cancelled. The Fleet and its Capacity Reservations are cancelled and the Fleet
+   * 					can't create new Capacity Reservations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - The Capacity Reservation Fleet failed to reserve
+   * 					capacity for the specified instance types.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3973,13 +4421,13 @@ export interface CapacityReservationFleet {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware that is
-   * 					shared with other Amazon Web Services accounts.</p>
+   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware
+   * 					that is shared with other Amazon Web Services accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation Fleet is created on single-tenant
-   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
+   *                   <code>dedicated</code> - The Capacity Reservation Fleet is created on
+   * 					single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3999,19 +4447,21 @@ export interface CapacityReservationFleet {
   CreateTime?: Date | undefined;
 
   /**
-   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All
-   * 			Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
-   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
-   * 			only. This means that instances that have matching attributes (instance type, platform, and
-   * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
-   * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
+   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
+   * 			All Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
+   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching
+   * 			criteria only. This means that instances that have matching attributes (instance type,
+   * 			platform, and Availability Zone) run in the Capacity Reservations automatically.
+   * 			Instances do not need to explicitly target a Capacity Reservation Fleet to use its
+   * 			reserved capacity.</p>
    * @public
    */
   InstanceMatchCriteria?: FleetInstanceMatchCriteria | undefined;
 
   /**
-   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the specified
-   * 			instance types to use. For more information, see For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">Allocation
+   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
+   * 			specified instance types to use. For more information, see For more information, see
+   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">Allocation
    * 				strategy</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
@@ -4075,113 +4525,138 @@ export interface DescribeCapacityReservationsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>instance-type</code> - The type of instance for which the Capacity Reservation reserves capacity.</p>
+   *                   <code>instance-type</code> - The type of instance for which the Capacity
+   * 					Reservation reserves capacity.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the Capacity Reservation.</p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the
+   * 					Capacity Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-platform</code> - The type of operating system for which the Capacity Reservation reserves capacity.</p>
+   *                   <code>instance-platform</code> - The type of operating system for which the
+   * 					Capacity Reservation reserves capacity.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the Capacity Reservation.</p>
+   *                   <code>availability-zone</code> - The Availability Zone of the Capacity
+   * 					Reservation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the
-   * 	  			following tenancy settings:</p>
+   *                   <code>tenancy</code> - Indicates the tenancy of the Capacity Reservation. A
+   * 					Capacity Reservation can have one of the following tenancy settings:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
+   *                         <code>default</code> - The Capacity Reservation is created on hardware
+   * 							that is shared with other Amazon Web Services accounts.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
+   *                         <code>dedicated</code> - The Capacity Reservation is created on
+   * 							single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was created.</p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost on
+   * 					which the Capacity Reservation was created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
+   *                   <code>state</code> - The current state of the Capacity Reservation. A Capacity
+   * 					Reservation can be in one of the following states:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>active</code>- The Capacity Reservation is active and the capacity is available for your use.</p>
+   *                         <code>active</code>- The Capacity Reservation is active and the
+   * 							capacity is available for your use.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified in your request.
-   * 	  				The reserved capacity is no longer available for your use.</p>
+   *                         <code>expired</code> - The Capacity Reservation expired automatically
+   * 							at the date and time specified in your request. The reserved capacity is
+   * 							no longer available for your use.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no longer available for your use.</p>
+   *                         <code>cancelled</code> - The Capacity Reservation was cancelled. The
+   * 							reserved capacity is no longer available for your use.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p>
+   *                         <code>pending</code> - The Capacity Reservation request was successful
+   * 							but the capacity provisioning is still pending.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters,
-   * 	  				capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p>
+   *                         <code>failed</code> - The Capacity Reservation request has failed. A
+   * 							request might fail due to invalid request parameters, capacity
+   * 							constraints, or instance limit constraints. Failed requests are retained
+   * 							for 60 minutes.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>start-date</code> - The date and time at which the Capacity Reservation was started.</p>
+   *                   <code>start-date</code> - The date and time at which the Capacity Reservation
+   * 					was started.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>end-date</code> - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is
-   * 	  			released and you can no longer launch instances into it. The Capacity Reservation's state changes to expired when it reaches its end date and time.</p>
+   *                   <code>end-date</code> - The date and time at which the Capacity Reservation
+   * 					expires. When a Capacity Reservation expires, the reserved capacity is released
+   * 					and you can no longer launch instances into it. The Capacity Reservation's state
+   * 					changes to expired when it reaches its end date and time.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>end-date-type</code> - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p>
+   *                   <code>end-date-type</code> - Indicates the way in which the Capacity
+   * 					Reservation ends. A Capacity Reservation can have one of the following end
+   * 					types:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>
+   *                         <code>unlimited</code> - The Capacity Reservation remains active until
+   * 							you explicitly cancel it.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p>
+   *                         <code>limited</code> - The Capacity Reservation expires automatically
+   * 							at a specified date and time.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>instance-match-criteria</code> - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p>
+   *                   <code>instance-match-criteria</code> - Indicates the type of instance launches
+   * 					that the Capacity Reservation accepts. The options include:</p>
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>open</code> - The Capacity Reservation accepts all instances that have matching
-   * 							attributes (instance type, platform, and Availability Zone). Instances
-   * 							that have matching attributes launch into the Capacity Reservation
-   * 							automatically without specifying any additional parameters.</p>
+   *                         <code>open</code> - The Capacity Reservation accepts all instances
+   * 							that have matching attributes (instance type, platform, and Availability
+   * 							Zone). Instances that have matching attributes launch into the Capacity
+   * 							Reservation automatically without specifying any additional
+   * 							parameters.</p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>targeted</code> - The Capacity Reservation only accepts instances that have matching
-   * 							attributes (instance type, platform, and Availability Zone), and
-   * 							explicitly target the Capacity Reservation. This ensures that only
-   * 							permitted instances can use the reserved capacity.</p>
+   *                         <code>targeted</code> - The Capacity Reservation only accepts
+   * 							instances that have matching attributes (instance type, platform, and
+   * 							Availability Zone), and explicitly target the Capacity Reservation. This
+   * 							ensures that only permitted instances can use the reserved
+   * 							capacity.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>placement-group-arn</code> - The ARN of the cluster placement group in which the Capacity Reservation was created.</p>
+   *                   <code>placement-group-arn</code> - The ARN of the cluster placement group in
+   * 					which the Capacity Reservation was created.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8010,438 +8485,6 @@ export const ProductCodeValues = {
  * @public
  */
 export type ProductCodeValues = (typeof ProductCodeValues)[keyof typeof ProductCodeValues];
-
-/**
- * <p>Describes a product code.</p>
- * @public
- */
-export interface ProductCode {
-  /**
-   * <p>The product code.</p>
-   * @public
-   */
-  ProductCodeId?: string | undefined;
-
-  /**
-   * <p>The type of product code.</p>
-   * @public
-   */
-  ProductCodeType?: ProductCodeValues | undefined;
-}
-
-/**
- * <p>Describes an Amazon FPGA image (AFI) attribute.</p>
- * @public
- */
-export interface FpgaImageAttribute {
-  /**
-   * <p>The ID of the AFI.</p>
-   * @public
-   */
-  FpgaImageId?: string | undefined;
-
-  /**
-   * <p>The name of the AFI.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the AFI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The load permissions.</p>
-   * @public
-   */
-  LoadPermissions?: LoadPermission[] | undefined;
-
-  /**
-   * <p>The product codes.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFpgaImageAttributeResult {
-  /**
-   * <p>Information about the attribute.</p>
-   * @public
-   */
-  FpgaImageAttribute?: FpgaImageAttribute | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFpgaImagesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The AFI IDs.</p>
-   * @public
-   */
-  FpgaImageIds?: string[] | undefined;
-
-  /**
-   * <p>Filters the AFI by owner. Specify an Amazon Web Services account ID, <code>self</code>
-   * 			(owner is the sender of the request), or an Amazon Web Services owner alias (valid values are
-   * 			<code>amazon</code> | <code>aws-marketplace</code>).</p>
-   * @public
-   */
-  Owners?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The creation time of the AFI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of the AFI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code</code> - The product code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>shell-version</code> - The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>unavailable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-time</code> - The time of the most recent update.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
- * @public
- */
-export interface PciId {
-  /**
-   * <p>The ID of the device.</p>
-   * @public
-   */
-  DeviceId?: string | undefined;
-
-  /**
-   * <p>The ID of the vendor.</p>
-   * @public
-   */
-  VendorId?: string | undefined;
-
-  /**
-   * <p>The ID of the subsystem.</p>
-   * @public
-   */
-  SubsystemId?: string | undefined;
-
-  /**
-   * <p>The ID of the vendor for the subsystem.</p>
-   * @public
-   */
-  SubsystemVendorId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const FpgaImageStateCode = {
-  available: "available",
-  failed: "failed",
-  pending: "pending",
-  unavailable: "unavailable",
-} as const;
-
-/**
- * @public
- */
-export type FpgaImageStateCode = (typeof FpgaImageStateCode)[keyof typeof FpgaImageStateCode];
-
-/**
- * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
- * @public
- */
-export interface FpgaImageState {
-  /**
-   * <p>The state. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - AFI bitstream generation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The AFI is available for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code> - AFI bitstream generation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unavailable</code> - The AFI is no longer available for use.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Code?: FpgaImageStateCode | undefined;
-
-  /**
-   * <p>If the state is <code>failed</code>, this is the error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes an Amazon FPGA image (AFI).</p>
- * @public
- */
-export interface FpgaImage {
-  /**
-   * <p>The FPGA image identifier (AFI ID).</p>
-   * @public
-   */
-  FpgaImageId?: string | undefined;
-
-  /**
-   * <p>The global FPGA image identifier (AGFI ID).</p>
-   * @public
-   */
-  FpgaImageGlobalId?: string | undefined;
-
-  /**
-   * <p>The name of the AFI.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the AFI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
-   * @public
-   */
-  ShellVersion?: string | undefined;
-
-  /**
-   * <p>Information about the PCI bus.</p>
-   * @public
-   */
-  PciId?: PciId | undefined;
-
-  /**
-   * <p>Information about the state of the AFI.</p>
-   * @public
-   */
-  State?: FpgaImageState | undefined;
-
-  /**
-   * <p>The date and time the AFI was created.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The time of the most recent update to the AFI.</p>
-   * @public
-   */
-  UpdateTime?: Date | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the AFI.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The alias of the AFI owner. Possible values include <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.</p>
-   * @public
-   */
-  OwnerAlias?: string | undefined;
-
-  /**
-   * <p>The product codes for the AFI.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-
-  /**
-   * <p>Any tags assigned to the AFI.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Indicates whether the AFI is public.</p>
-   * @public
-   */
-  Public?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether data retention support is enabled for the AFI.</p>
-   * @public
-   */
-  DataRetentionSupport?: boolean | undefined;
-
-  /**
-   * <p>The instance types supported by the AFI.</p>
-   * @public
-   */
-  InstanceTypes?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFpgaImagesResult {
-  /**
-   * <p>Information about the FPGA images.</p>
-   * @public
-   */
-  FpgaImages?: FpgaImage[] | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHostReservationOfferingsRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>instance-family</code> - The instance family of the offering (for example,
-   *                         <code>m4</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>payment-option</code> - The payment option (<code>NoUpfront</code> |
-   *                         <code>PartialUpfront</code> | <code>AllUpfront</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filter?: Filter[] | undefined;
-
-  /**
-   * <p>This is the maximum duration of the reservation to purchase, specified in seconds.
-   *             Reservations are available in one-year and three-year terms. The number of seconds
-   *             specified must be the number of seconds in a year (365x24x60x60) times one of the
-   *             supported durations (1 or 3). For example, specify 94608000 for three years.</p>
-   * @public
-   */
-  MaxDuration?: number | undefined;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>This is the minimum duration of the reservation you'd like to purchase, specified in
-   *             seconds. Reservations are available in one-year and three-year terms. The number of
-   *             seconds specified must be the number of seconds in a year (365x24x60x60) times one of
-   *             the supported durations (1 or 3). For example, specify 31536000 for one year.</p>
-   * @public
-   */
-  MinDuration?: number | undefined;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The ID of the reservation offering.</p>
-   * @public
-   */
-  OfferingId?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const PaymentOption = {
-  ALL_UPFRONT: "AllUpfront",
-  NO_UPFRONT: "NoUpfront",
-  PARTIAL_UPFRONT: "PartialUpfront",
-} as const;
-
-/**
- * @public
- */
-export type PaymentOption = (typeof PaymentOption)[keyof typeof PaymentOption];
 
 /**
  * @internal

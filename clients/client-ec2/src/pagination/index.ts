@@ -6,6 +6,10 @@ export * from "./DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator";
 
 export * from "./DescribeByoipCidrsPaginator";
 
+export * from "./DescribeCapacityBlockExtensionHistoryPaginator";
+
+export * from "./DescribeCapacityBlockExtensionOfferingsPaginator";
+
 export * from "./DescribeCapacityBlockOfferingsPaginator";
 
 export * from "./DescribeCapacityReservationBillingRequestsPaginator";
@@ -13,12 +17,10 @@ export * from "./DescribeCapacityReservationBillingRequestsPaginator";
 export * from "./DescribeCapacityReservationFleetsPaginator";
 
 export * from "./DescribeCapacityReservationsPaginator";
-
-export * from "./DescribeCarrierGatewaysPaginator";
-
-export * from "./DescribeClassicLinkInstancesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeCarrierGatewaysPaginator";
+export * from "./DescribeClassicLinkInstancesPaginator";
 export * from "./DescribeClientVpnAuthorizationRulesPaginator";
 export * from "./DescribeClientVpnConnectionsPaginator";
 export * from "./DescribeClientVpnEndpointsPaginator";

@@ -28,9 +28,9 @@ export interface GetCapacityReservationUsageCommandInput extends GetCapacityRese
 export interface GetCapacityReservationUsageCommandOutput extends GetCapacityReservationUsageResult, __MetadataBearer {}
 
 /**
- * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
- * 			and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
- * 			the Capacity Reservation owner's usage.</p>
+ * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is
+ * 			shared, it shows usage information for the Capacity Reservation owner and each Amazon Web Services account that is currently using the shared capacity. If the Capacity
+ * 			Reservation is not shared, it shows only the Capacity Reservation owner's usage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +51,7 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * //   InstanceType: "STRING_VALUE",
  * //   TotalInstanceCount: Number("int"),
  * //   AvailableInstanceCount: Number("int"),
- * //   State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //   State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //   InstanceUsages: [ // InstanceUsageSet
  * //     { // InstanceUsage
  * //       AccountId: "STRING_VALUE",

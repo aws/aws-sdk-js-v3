@@ -78,6 +78,11 @@ export interface CreateIpamResourceDiscoveryCommandOutput extends CreateIpamReso
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     OrganizationalUnitExclusions: [ // IpamOrganizationalUnitExclusionSet
+ * //       { // IpamOrganizationalUnitExclusion
+ * //         OrganizationsEntityPath: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -815,6 +815,14 @@ import {
 } from "./commands/DescribeBundleTasksCommand";
 import { DescribeByoipCidrsCommandInput, DescribeByoipCidrsCommandOutput } from "./commands/DescribeByoipCidrsCommand";
 import {
+  DescribeCapacityBlockExtensionHistoryCommandInput,
+  DescribeCapacityBlockExtensionHistoryCommandOutput,
+} from "./commands/DescribeCapacityBlockExtensionHistoryCommand";
+import {
+  DescribeCapacityBlockExtensionOfferingsCommandInput,
+  DescribeCapacityBlockExtensionOfferingsCommandOutput,
+} from "./commands/DescribeCapacityBlockExtensionOfferingsCommand";
+import {
   DescribeCapacityBlockOfferingsCommandInput,
   DescribeCapacityBlockOfferingsCommandOutput,
 } from "./commands/DescribeCapacityBlockOfferingsCommand";
@@ -2032,6 +2040,10 @@ import {
   PurchaseCapacityBlockCommandOutput,
 } from "./commands/PurchaseCapacityBlockCommand";
 import {
+  PurchaseCapacityBlockExtensionCommandInput,
+  PurchaseCapacityBlockExtensionCommandOutput,
+} from "./commands/PurchaseCapacityBlockExtensionCommand";
+import {
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
 } from "./commands/PurchaseHostReservationCommand";
@@ -2492,6 +2504,8 @@ export type ServiceInputTypes =
   | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput
   | DescribeBundleTasksCommandInput
   | DescribeByoipCidrsCommandInput
+  | DescribeCapacityBlockExtensionHistoryCommandInput
+  | DescribeCapacityBlockExtensionOfferingsCommandInput
   | DescribeCapacityBlockOfferingsCommandInput
   | DescribeCapacityReservationBillingRequestsCommandInput
   | DescribeCapacityReservationFleetsCommandInput
@@ -2836,6 +2850,7 @@ export type ServiceInputTypes =
   | ProvisionIpamPoolCidrCommandInput
   | ProvisionPublicIpv4PoolCidrCommandInput
   | PurchaseCapacityBlockCommandInput
+  | PurchaseCapacityBlockExtensionCommandInput
   | PurchaseHostReservationCommandInput
   | PurchaseReservedInstancesOfferingCommandInput
   | PurchaseScheduledInstancesCommandInput
@@ -3140,6 +3155,8 @@ export type ServiceOutputTypes =
   | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
   | DescribeBundleTasksCommandOutput
   | DescribeByoipCidrsCommandOutput
+  | DescribeCapacityBlockExtensionHistoryCommandOutput
+  | DescribeCapacityBlockExtensionOfferingsCommandOutput
   | DescribeCapacityBlockOfferingsCommandOutput
   | DescribeCapacityReservationBillingRequestsCommandOutput
   | DescribeCapacityReservationFleetsCommandOutput
@@ -3484,6 +3501,7 @@ export type ServiceOutputTypes =
   | ProvisionIpamPoolCidrCommandOutput
   | ProvisionPublicIpv4PoolCidrCommandOutput
   | PurchaseCapacityBlockCommandOutput
+  | PurchaseCapacityBlockExtensionCommandOutput
   | PurchaseHostReservationCommandOutput
   | PurchaseReservedInstancesOfferingCommandOutput
   | PurchaseScheduledInstancesCommandOutput

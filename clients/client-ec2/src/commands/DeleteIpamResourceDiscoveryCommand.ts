@@ -61,6 +61,11 @@ export interface DeleteIpamResourceDiscoveryCommandOutput extends DeleteIpamReso
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     OrganizationalUnitExclusions: [ // IpamOrganizationalUnitExclusionSet
+ * //       { // IpamOrganizationalUnitExclusion
+ * //         OrganizationsEntityPath: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

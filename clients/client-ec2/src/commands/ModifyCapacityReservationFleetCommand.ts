@@ -34,10 +34,11 @@ export interface ModifyCapacityReservationFleetCommandOutput
 
 /**
  * <p>Modifies a Capacity Reservation Fleet.</p>
- *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
- * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
- * 			to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for
- * 			all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
+ *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet
+ * 			automatically creates new Capacity Reservations, or modifies or cancels existing
+ * 			Capacity Reservations in the Fleet to meet the new total target capacity. When you
+ * 			modify the end date for the Fleet, the end dates for all of the individual Capacity
+ * 			Reservations in the Fleet are updated accordingly.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

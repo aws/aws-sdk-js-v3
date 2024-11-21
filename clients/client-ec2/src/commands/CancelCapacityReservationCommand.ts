@@ -28,8 +28,23 @@ export interface CancelCapacityReservationCommandInput extends CancelCapacityRes
 export interface CancelCapacityReservationCommandOutput extends CancelCapacityReservationResult, __MetadataBearer {}
 
 /**
- * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
- * 			<code>cancelled</code>.</p>
+ * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes
+ * 			the Capacity Reservation's state to <code>cancelled</code>.</p>
+ *          <p>You can cancel a Capacity Reservation that is in the following states:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>assessing</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>active</code> and there is no commitment duration or the commitment
+ * 					duration has elapsed. You can't cancel a future-dated Capacity Reservation during the commitment duration.</p>
+ *             </li>
+ *          </ul>
+ *          <p>If a future-dated Capacity Reservation enters the <code>delayed</code> state, the commitment
+ * 			duration is waived, and you can cancel it as soon as it enters the <code>active</code> state.</p>
  *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
  * 			instances that target the Capacity Reservation can no longer launch. Modify these instances to either
  * 			target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation

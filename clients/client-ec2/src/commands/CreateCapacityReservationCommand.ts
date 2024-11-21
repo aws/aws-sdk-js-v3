@@ -29,21 +29,28 @@ export interface CreateCapacityReservationCommandInput extends CreateCapacityRes
 export interface CreateCapacityReservationCommandOutput extends CreateCapacityReservationResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new Capacity Reservation with the specified attributes.</p>
- *          <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This
- * 			gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage.
- * 			By creating Capacity Reservations, you ensure that you always have access to Amazon EC2 capacity when you need it, for as long as you need it.
- * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>Your request to create a Capacity Reservation could fail if Amazon EC2 does not have sufficient capacity to
- * 			fulfill the request. If your request fails due to Amazon EC2 capacity constraints, either try
- * 			again at a later time, try in a different Availability Zone, or request a smaller
- * 			capacity reservation. If your application is flexible across instance types and sizes,
- * 			try to create a Capacity Reservation with different instance attributes.</p>
- *          <p>Your request could also fail if the requested quantity exceeds your On-Demand Instance
- * 			limit for the selected instance type. If your request fails due to limit constraints,
- * 			increase your On-Demand Instance limit for the required instance type and try again. For
- * 			more information about increasing your instance limits, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 Service
- * 				Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>Creates a new Capacity Reservation with the specified attributes. Capacity Reservations enable
+ * 			you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any
+ * 			duration.</p>
+ *          <p>You can create a Capacity Reservation at any time, and you can choose when it starts. You can create a
+ * 			Capacity Reservation for immediate use or you can request a Capacity Reservation for a future date.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">
+ * 			Reserve compute capacity with On-Demand Capacity Reservations</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>Your request to create a Capacity Reservation could fail if:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Amazon EC2 does not have sufficient capacity. In this case, try again at a later
+ * 					time, try in a different Availability Zone, or request a smaller Capacity Reservation. If
+ * 					your workload is flexible across instance types and sizes, try with different instance
+ * 					attributes.</p>
+ *             </li>
+ *             <li>
+ *                <p>The requested quantity exceeds your On-Demand Instance quota. In this case, increase your
+ * 					On-Demand Instance quota for the requested instance type and try again. For more information,
+ * 					see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">
+ * 						Amazon EC2 Service Quotas</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +84,9 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  *   DryRun: true || false,
  *   OutpostArn: "STRING_VALUE",
  *   PlacementGroupArn: "STRING_VALUE",
+ *   StartDate: new Date("TIMESTAMP"),
+ *   CommitmentDuration: Number("long"),
+ *   DeliveryPreference: "fixed" || "incremental",
  * };
  * const command = new CreateCapacityReservationCommand(input);
  * const response = await client.send(command);
@@ -94,7 +104,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * //     AvailableInstanceCount: Number("int"),
  * //     EbsOptimized: true || false,
  * //     EphemeralStorage: true || false,
- * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //     StartDate: new Date("TIMESTAMP"),
  * //     EndDate: new Date("TIMESTAMP"),
  * //     EndDateType: "unlimited" || "limited",
@@ -117,6 +127,11 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
  * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
+ * //     CommitmentInfo: { // CapacityReservationCommitmentInfo
+ * //       CommittedInstanceCount: Number("int"),
+ * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //     },
+ * //     DeliveryPreference: "fixed" || "incremental",
  * //   },
  * // };
  *

@@ -49,6 +49,16 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  *       RegionName: "STRING_VALUE",
  *     },
  *   ],
+ *   AddOrganizationalUnitExclusions: [ // AddIpamOrganizationalUnitExclusionSet
+ *     { // AddIpamOrganizationalUnitExclusion
+ *       OrganizationsEntityPath: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveOrganizationalUnitExclusions: [ // RemoveIpamOrganizationalUnitExclusionSet
+ *     { // RemoveIpamOrganizationalUnitExclusion
+ *       OrganizationsEntityPath: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new ModifyIpamResourceDiscoveryCommand(input);
  * const response = await client.send(command);
@@ -70,6 +80,11 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  * //       { // Tag
  * //         Key: "STRING_VALUE",
  * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     OrganizationalUnitExclusions: [ // IpamOrganizationalUnitExclusionSet
+ * //       { // IpamOrganizationalUnitExclusion
+ * //         OrganizationsEntityPath: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

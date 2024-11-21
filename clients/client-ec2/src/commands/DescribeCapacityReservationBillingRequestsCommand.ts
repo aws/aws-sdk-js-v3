@@ -37,9 +37,9 @@ export interface DescribeCapacityReservationBillingRequestsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes a request to assign the billing of the unused capacity of a Capacity Reservation.
- * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/transfer-billing.html">
- * 				Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
+ * <p>Describes a request to assign the billing of the unused capacity of a Capacity
+ * 			Reservation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/transfer-billing.html"> Billing assignment for shared
+ * 					Amazon EC2 Capacity Reservations</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

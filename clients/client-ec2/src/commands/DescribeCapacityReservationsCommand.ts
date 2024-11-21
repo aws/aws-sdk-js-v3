@@ -30,8 +30,9 @@ export interface DescribeCapacityReservationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
- * 		    	Amazon Web Services Region that you're currently using.</p>
+ * <p>Describes one or more of your Capacity Reservations. The results describe only the
+ * 			Capacity Reservations in the Amazon Web Services Region that you're currently
+ * 			using.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,7 +73,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * //       AvailableInstanceCount: Number("int"),
  * //       EbsOptimized: true || false,
  * //       EphemeralStorage: true || false,
- * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //       StartDate: new Date("TIMESTAMP"),
  * //       EndDate: new Date("TIMESTAMP"),
  * //       EndDateType: "unlimited" || "limited",
@@ -95,6 +96,11 @@ export interface DescribeCapacityReservationsCommandOutput
  * //       ],
  * //       ReservationType: "default" || "capacity-block",
  * //       UnusedReservationBillingOwnerId: "STRING_VALUE",
+ * //       CommitmentInfo: { // CapacityReservationCommitmentInfo
+ * //         CommittedInstanceCount: Number("int"),
+ * //         CommitmentEndDate: new Date("TIMESTAMP"),
+ * //       },
+ * //       DeliveryPreference: "fixed" || "incremental",
  * //     },
  * //   ],
  * // };

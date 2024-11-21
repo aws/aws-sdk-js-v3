@@ -37,9 +37,9 @@ export interface RejectCapacityReservationBillingOwnershipCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Rejects a request to assign billing of the available capacity of a shared Capacity Reservation
- * 			to your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html">
- * 				Billing assignment for shared Amazon EC2 Capacity Reservations</a>.</p>
+ * <p>Rejects a request to assign billing of the available capacity of a shared Capacity
+ * 			Reservation to your account. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/assign-billing.html"> Billing assignment for shared
+ * 					Amazon EC2 Capacity Reservations</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

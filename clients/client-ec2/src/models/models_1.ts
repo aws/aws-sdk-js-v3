@@ -14,15 +14,13 @@ import {
   AddressFamily,
   AttachmentStatus,
   CapacityAllocation,
+  CapacityReservationDeliveryPreference,
   CapacityReservationFleetState,
   CapacityReservationInstancePlatform,
-  CapacityReservationState,
   CapacityReservationTenancy,
-  CapacityReservationType,
   EndDateType,
   InstanceEventWindow,
   InstanceMatchCriteria,
-  NatGatewayAddress,
   ResourceType,
   SubnetIpv6CidrBlockAssociation,
   Tag,
@@ -32,6 +30,64 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Information about your commitment for a future-dated Capacity Reservation.</p>
+ * @public
+ */
+export interface CapacityReservationCommitmentInfo {
+  /**
+   * <p>The instance capacity that you committed to when you requested the future-dated
+   * 			Capacity Reservation.</p>
+   * @public
+   */
+  CommittedInstanceCount?: number | undefined;
+
+  /**
+   * <p>The date and time at which the commitment duration expires, in the ISO8601 format
+   * 			in the UTC time zone (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>). You can't decrease the
+   * 			instance count or cancel the Capacity Reservation before this date and time.</p>
+   * @public
+   */
+  CommitmentEndDate?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationType = {
+  CAPACITY_BLOCK: "capacity-block",
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationType = (typeof CapacityReservationType)[keyof typeof CapacityReservationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityReservationState = {
+  active: "active",
+  assessing: "assessing",
+  cancelled: "cancelled",
+  delayed: "delayed",
+  expired: "expired",
+  failed: "failed",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
+  pending: "pending",
+  scheduled: "scheduled",
+  unsupported: "unsupported",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationState = (typeof CapacityReservationState)[keyof typeof CapacityReservationState];
 
 /**
  * <p>Describes a Capacity Reservation.</p>
@@ -69,7 +125,8 @@ export interface CapacityReservation {
   InstanceType?: string | undefined;
 
   /**
-   * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
+   * <p>The type of operating system for which the Capacity Reservation reserves
+   * 			capacity.</p>
    * @public
    */
   InstancePlatform?: CapacityReservationInstancePlatform | undefined;
@@ -81,15 +138,18 @@ export interface CapacityReservation {
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
+   * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one
+   * 			of the following tenancy settings:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
+   *                   <code>default</code> - The Capacity Reservation is created on hardware that is
+   * 					shared with other Amazon Web Services accounts.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
+   *                   <code>dedicated</code> - The Capacity Reservation is created on single-tenant
+   * 					hardware that is dedicated to a single Amazon Web Services account.</p>
    *             </li>
    *          </ul>
    * @public
@@ -97,22 +157,25 @@ export interface CapacityReservation {
   Tenancy?: CapacityReservationTenancy | undefined;
 
   /**
-   * <p>The total number of instances for which the Capacity Reservation reserves capacity.</p>
+   * <p>The total number of instances for which the Capacity Reservation reserves
+   * 			capacity.</p>
    * @public
    */
   TotalInstanceCount?: number | undefined;
 
   /**
-   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+   * <p>The remaining capacity. Indicates the number of instances that can be launched in the
+   * 			Capacity Reservation.</p>
    * @public
    */
   AvailableInstanceCount?: number | undefined;
 
   /**
-   * <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides
-   * 			dedicated throughput to Amazon EBS and an optimized configuration stack to provide
-   * 			optimal I/O performance. This optimization isn't available with all instance types.
-   * 			Additional usage charges apply when using an EBS- optimized instance.</p>
+   * <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This
+   * 			optimization provides dedicated throughput to Amazon EBS and an optimized configuration
+   * 			stack to provide optimal I/O performance. This optimization isn't available with all
+   * 			instance types. Additional usage charges apply when using an EBS- optimized
+   * 			instance.</p>
    * @public
    */
   EbsOptimized?: boolean | undefined;
@@ -126,32 +189,56 @@ export interface CapacityReservation {
   EphemeralStorage?: boolean | undefined;
 
   /**
-   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
+   * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of
+   * 			the following states:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
+   *                   <code>active</code> - The capacity is available for use.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time specified
-   * 					in your request. The reserved capacity is no longer available for your use.</p>
+   *                   <code>expired</code> - The Capacity Reservation expired automatically at the date and time
+   * 		specified in your reservation request. The reserved capacity is no longer available for your use.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>cancelled</code> - The Capacity Reservation was cancelled. The reserved capacity is no
-   * 					longer available for your use.</p>
+   *                   <code>cancelled</code> - The Capacity Reservation was canceled. The reserved capacity is no
+   * 		longer available for your use.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>pending</code> - The Capacity Reservation request was successful but the capacity
-   * 					provisioning is still pending.</p>
+   * 		provisioning is still pending.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>failed</code> - The Capacity Reservation request has failed. A request might fail
-   * 					due to invalid request parameters, capacity constraints, or instance limit constraints.
-   * 					Failed requests are retained for 60 minutes.</p>
+   *                   <code>failed</code> - The Capacity Reservation request has failed. A request can fail due to
+   * 		request parameters that are not valid, capacity constraints, or instance limit constraints. You
+   * 		can view a failed request for 60 minutes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>scheduled</code> - (<i>Future-dated Capacity Reservations only</i>) The
+   * 		future-dated Capacity Reservation request was approved and the Capacity Reservation is scheduled
+   * 		for delivery on the requested start date.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>assessing</code> - (<i>Future-dated Capacity Reservations only</i>)
+   * 		Amazon EC2 is assessing your request for a future-dated Capacity Reservation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>delayed</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   * 		encountered a delay in provisioning the requested future-dated Capacity Reservation. Amazon EC2 is
+   * 		unable to deliver the requested capacity by the requested start date and time.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unsupported</code> - (<i>Future-dated Capacity Reservations only</i>) Amazon EC2
+   * 		can't support the future-dated Capacity Reservation request due to capacity constraints. You can view
+   * 		unsupported requests for 30 days. The Capacity Reservation will not be delivered.</p>
    *             </li>
    *          </ul>
    * @public
@@ -165,24 +252,27 @@ export interface CapacityReservation {
   StartDate?: Date | undefined;
 
   /**
-   * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
-   * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
-   * 				<code>expired</code> when it reaches its end date and time.</p>
+   * <p>The date and time at which the Capacity Reservation expires. When a Capacity
+   * 			Reservation expires, the reserved capacity is released and you can no longer launch
+   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code> when
+   * 			it reaches its end date and time.</p>
    * @public
    */
   EndDate?: Date | undefined;
 
   /**
-   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
-   * 			types:</p>
+   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
+   * 			have one of the following end types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>
+   *                   <code>unlimited</code> - The Capacity Reservation remains active until you
+   * 					explicitly cancel it.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p>
+   *                   <code>limited</code> - The Capacity Reservation expires automatically at a
+   * 					specified date and time.</p>
    *             </li>
    *          </ul>
    * @public
@@ -190,20 +280,22 @@ export interface CapacityReservation {
   EndDateType?: EndDateType | undefined;
 
   /**
-   * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
-   * 			include:</p>
+   * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The
+   * 			options include:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform,
-   * 				and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying
-   * 				any additional parameters.</p>
+   *                   <code>open</code> - The Capacity Reservation accepts all instances that have
+   * 					matching attributes (instance type, platform, and Availability Zone). Instances
+   * 					that have matching attributes launch into the Capacity Reservation automatically
+   * 					without specifying any additional parameters.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>targeted</code> - The Capacity Reservation only accepts instances that have matching attributes
-   * 					(instance type, platform, and Availability Zone), and explicitly target the
-   * 					Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p>
+   *                   <code>targeted</code> - The Capacity Reservation only accepts instances that
+   * 					have matching attributes (instance type, platform, and Availability Zone), and
+   * 					explicitly target the Capacity Reservation. This ensures that only permitted
+   * 					instances can use the reserved capacity. </p>
    *             </li>
    *          </ul>
    * @public
@@ -223,25 +315,24 @@ export interface CapacityReservation {
   Tags?: Tag[] | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost on which the Capacity
-   * 	  		Reservation was created.</p>
+   * <p>The Amazon Resource Name (ARN) of the Outpost on which the Capacity Reservation was
+   * 			created.</p>
    * @public
    */
   OutpostArn?: string | undefined;
 
   /**
    * <p>The ID of the Capacity Reservation Fleet to which the Capacity Reservation belongs.
-   * 			Only valid for Capacity Reservations that were created by a Capacity Reservation Fleet.</p>
+   * 			Only valid for Capacity Reservations that were created by a Capacity Reservation
+   * 			Fleet.</p>
    * @public
    */
   CapacityReservationFleetId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the cluster placement group in which
-   * 			the Capacity Reservation was created. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html">
-   * 				Capacity Reservations for cluster placement groups</a> in the
-   * 			<i>Amazon EC2 User Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the cluster placement group in which the Capacity
+   * 			Reservation was created. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html"> Capacity Reservations for cluster
+   * 				placement groups</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   PlacementGroupArn?: string | undefined;
@@ -259,11 +350,25 @@ export interface CapacityReservation {
   ReservationType?: CapacityReservationType | undefined;
 
   /**
-   * <p>The ID of the Amazon Web Services account to which billing of the unused capacity
-   * 			of the Capacity Reservation is assigned.</p>
+   * <p>The ID of the Amazon Web Services account to which billing of the unused capacity of
+   * 			the Capacity Reservation is assigned.</p>
    * @public
    */
   UnusedReservationBillingOwnerId?: string | undefined;
+
+  /**
+   * <p>Information about your commitment for a future-dated Capacity Reservation.</p>
+   * @public
+   */
+  CommitmentInfo?: CapacityReservationCommitmentInfo | undefined;
+
+  /**
+   * <p>The delivery method for a future-dated Capacity Reservation. <code>incremental</code>
+   * 			indicates that the requested capacity is delivered in addition to any running instances
+   * 			and reserved capacity that you have in your account at the requested date and time.</p>
+   * @public
+   */
+  DeliveryPreference?: CapacityReservationDeliveryPreference | undefined;
 }
 
 /**
@@ -294,25 +399,19 @@ export interface CreateCapacityReservationBySplittingRequest {
   ClientToken?: string | undefined;
 
   /**
-   * <p>
-   * 			The ID of the Capacity Reservation from which you want to split the capacity.
-   * 		</p>
+   * <p> The ID of the Capacity Reservation from which you want to split the capacity. </p>
    * @public
    */
   SourceCapacityReservationId: string | undefined;
 
   /**
-   * <p>
-   * 			The number of instances to split from the source Capacity Reservation.
-   * 		</p>
+   * <p> The number of instances to split from the source Capacity Reservation. </p>
    * @public
    */
   InstanceCount: number | undefined;
 
   /**
-   * <p>
-   * 			The tags to apply to the new Capacity Reservation.
-   * 		</p>
+   * <p> The tags to apply to the new Capacity Reservation. </p>
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
@@ -323,25 +422,20 @@ export interface CreateCapacityReservationBySplittingRequest {
  */
 export interface CreateCapacityReservationBySplittingResult {
   /**
-   * <p>
-   * 			Information about the source Capacity Reservation.
-   * 		</p>
+   * <p> Information about the source Capacity Reservation. </p>
    * @public
    */
   SourceCapacityReservation?: CapacityReservation | undefined;
 
   /**
-   * <p>
-   * 			Information about the destination Capacity Reservation.
-   * 		</p>
+   * <p> Information about the destination Capacity Reservation. </p>
    * @public
    */
   DestinationCapacityReservation?: CapacityReservation | undefined;
 
   /**
-   * <p>
-   * 			The number of instances in the new Capacity Reservation. The number of instances in the source Capacity Reservation was reduced by this amount.
-   * 		</p>
+   * <p> The number of instances in the new Capacity Reservation. The number of instances in
+   * 			the source Capacity Reservation was reduced by this amount. </p>
    * @public
    */
   InstanceCount?: number | undefined;
@@ -1248,49 +1342,53 @@ export interface ReservationFleetInstanceSpecification {
   InstanceType?: _InstanceType | undefined;
 
   /**
-   * <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
+   * <p>The type of operating system for which the Capacity Reservation Fleet reserves
+   * 			capacity.</p>
    * @public
    */
   InstancePlatform?: CapacityReservationInstancePlatform | undefined;
 
   /**
-   * <p>The number of capacity units provided by the specified instance type. This value, together
-   * 			with the total target capacity that you specify for the Fleet determine the number of
-   * 			instances for which the Fleet reserves capacity. Both values are based on units that
-   * 			make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * <p>The number of capacity units provided by the specified instance type. This value,
+   * 			together with the total target capacity that you specify for the Fleet determine the
+   * 			number of instances for which the Fleet reserves capacity. Both values are based on
+   * 			units that make sense for your workload. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
    * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Weight?: number | undefined;
 
   /**
-   * <p>The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A Capacity
-   * 			Reservation Fleet can't span Availability Zones. All instance type specifications that you specify
-   * 			for the Fleet must use the same Availability Zone.</p>
+   * <p>The Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A
+   * 			Capacity Reservation Fleet can't span Availability Zones. All instance type
+   * 			specifications that you specify for the Fleet must use the same Availability
+   * 			Zone.</p>
    * @public
    */
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the capacity. A
-   * 			Capacity Reservation Fleet can't span Availability Zones. All instance type specifications that you
-   * 			specify for the Fleet must use the same Availability Zone.</p>
+   * <p>The ID of the Availability Zone in which the Capacity Reservation Fleet reserves the
+   * 			capacity. A Capacity Reservation Fleet can't span Availability Zones. All instance type
+   * 			specifications that you specify for the Fleet must use the same Availability
+   * 			Zone.</p>
    * @public
    */
   AvailabilityZoneId?: string | undefined;
 
   /**
-   * <p>Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances types. This
-   * 			optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack
-   * 			to provide optimal I/O performance. This optimization isn't available with all instance types. Additional
-   * 			usage charges apply when using EBS-optimized instance types.</p>
+   * <p>Indicates whether the Capacity Reservation Fleet supports EBS-optimized instances
+   * 			types. This optimization provides dedicated throughput to Amazon EBS and an
+   * 			optimized configuration stack to provide optimal I/O performance. This optimization
+   * 			isn't available with all instance types. Additional usage charges apply when using
+   * 			EBS-optimized instance types.</p>
    * @public
    */
   EbsOptimized?: boolean | undefined;
 
   /**
-   * <p>The priority to assign to the instance type. This value is used to determine which of the
-   * 			instance types specified for the Fleet should be prioritized for use. A lower value
+   * <p>The priority to assign to the instance type. This value is used to determine which of
+   * 			the instance types specified for the Fleet should be prioritized for use. A lower value
    * 			indicates a high priority. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
    * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
@@ -1317,9 +1415,9 @@ export type FleetCapacityReservationTenancy =
  */
 export interface CreateCapacityReservationFleetRequest {
   /**
-   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the specified
-   * 			instance types to use. Currently, only the <code>prioritized</code> allocation strategy
-   * 			is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy"> Allocation
+   * <p>The strategy used by the Capacity Reservation Fleet to determine which of the
+   * 			specified instance types to use. Currently, only the <code>prioritized</code> allocation
+   * 			strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy"> Allocation
    * 				strategy</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>Valid values: <code>prioritized</code>
    *          </p>
@@ -1340,9 +1438,9 @@ export interface CreateCapacityReservationFleetRequest {
   InstanceTypeSpecifications: ReservationFleetInstanceSpecification[] | undefined;
 
   /**
-   * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations
-   * 			in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of
-   * 			the following tenancy settings:</p>
+   * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in
+   * 			the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the
+   * 			following tenancy settings:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -1360,9 +1458,9 @@ export interface CreateCapacityReservationFleetRequest {
   Tenancy?: FleetCapacityReservationTenancy | undefined;
 
   /**
-   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet. This
-   * 			value, together with the instance type weights that you assign to each instance type
-   * 			used by the Fleet determine the number of instances for which the Fleet reserves
+   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet.
+   * 			This value, together with the instance type weights that you assign to each instance
+   * 			type used by the Fleet determine the number of instances for which the Fleet reserves
    * 			capacity. Both values are based on units that make sense for your workload. For more
    * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
    * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
@@ -1372,31 +1470,31 @@ export interface CreateCapacityReservationFleetRequest {
 
   /**
    * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
-   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the Capacity
-   * 			Reservations in the Fleet expire.</p>
-   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
-   * 			if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet
-   * 			is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code> on
-   * 			<code>5/31/2019</code>.
-   * 		</p>
+   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the
+   * 			Capacity Reservations in the Fleet expire.</p>
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For
+   * 			example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
+   * 			Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and
+   * 				<code>14:30:55</code> on <code>5/31/2019</code>. </p>
    * @public
    */
   EndDate?: Date | undefined;
 
   /**
-   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All
-   * 			Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
-   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
-   * 			only. This means that instances that have matching attributes (instance type, platform, and
-   * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
-   * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
+   * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts.
+   * 			All Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
+   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching
+   * 			criteria only. This means that instances that have matching attributes (instance type,
+   * 			platform, and Availability Zone) run in the Capacity Reservations automatically.
+   * 			Instances do not need to explicitly target a Capacity Reservation Fleet to use its
+   * 			reserved capacity.</p>
    * @public
    */
   InstanceMatchCriteria?: FleetInstanceMatchCriteria | undefined;
 
   /**
-   * <p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned
-   * 			to the Capacity Reservations in the Fleet.</p>
+   * <p>The tags to assign to the Capacity Reservation Fleet. The tags are automatically
+   * 			assigned to the Capacity Reservations in the Fleet.</p>
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
@@ -1420,7 +1518,8 @@ export interface FleetCapacityReservation {
   CapacityReservationId?: string | undefined;
 
   /**
-   * <p>The ID of the Availability Zone in which the Capacity Reservation reserves capacity.</p>
+   * <p>The ID of the Availability Zone in which the Capacity Reservation reserves
+   * 			capacity.</p>
    * @public
    */
   AvailabilityZoneId?: string | undefined;
@@ -1432,7 +1531,8 @@ export interface FleetCapacityReservation {
   InstanceType?: _InstanceType | undefined;
 
   /**
-   * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
+   * <p>The type of operating system for which the Capacity Reservation reserves
+   * 			capacity.</p>
    * @public
    */
   InstancePlatform?: CapacityReservationInstancePlatform | undefined;
@@ -1444,21 +1544,23 @@ export interface FleetCapacityReservation {
   AvailabilityZone?: string | undefined;
 
   /**
-   * <p>The total number of instances for which the Capacity Reservation reserves capacity.</p>
+   * <p>The total number of instances for which the Capacity Reservation reserves
+   * 			capacity.</p>
    * @public
    */
   TotalInstanceCount?: number | undefined;
 
   /**
-   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * <p>The number of capacity units fulfilled by the Capacity Reservation. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
    * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   FulfilledCapacity?: number | undefined;
 
   /**
-   * <p>Indicates whether the Capacity Reservation reserves capacity for EBS-optimized instance types.</p>
+   * <p>Indicates whether the Capacity Reservation reserves capacity for EBS-optimized
+   * 			instance types.</p>
    * @public
    */
   EbsOptimized?: boolean | undefined;
@@ -1470,16 +1572,16 @@ export interface FleetCapacityReservation {
   CreateDate?: Date | undefined;
 
   /**
-   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">Instance type
+   * <p>The weight of the instance type in the Capacity Reservation Fleet. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-weight">Instance type
    * 				weight</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
   Weight?: number | undefined;
 
   /**
-   * <p>The priority of the instance type in the Capacity Reservation Fleet. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
+   * <p>The priority of the instance type in the Capacity Reservation Fleet. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#instance-priority">Instance type
    * 				priority</a> in the <i>Amazon EC2 User Guide</i>.</p>
    * @public
    */
@@ -1503,7 +1605,8 @@ export interface CreateCapacityReservationFleetResult {
   State?: CapacityReservationFleetState | undefined;
 
   /**
-   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves capacity.</p>
+   * <p>The total number of capacity units for which the Capacity Reservation Fleet reserves
+   * 			capacity.</p>
    * @public
    */
   TotalTargetCapacity?: number | undefined;
@@ -1545,7 +1648,8 @@ export interface CreateCapacityReservationFleetResult {
   Tenancy?: FleetCapacityReservationTenancy | undefined;
 
   /**
-   * <p>Information about the individual Capacity Reservations in the Capacity Reservation Fleet.</p>
+   * <p>Information about the individual Capacity Reservations in the Capacity Reservation
+   * 			Fleet.</p>
    * @public
    */
   FleetCapacityReservations?: FleetCapacityReservation[] | undefined;
@@ -2543,15 +2647,15 @@ export interface BlockPublicAccessStates {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-allowed</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
+   *                   <code>off</code>: VPC BPA is not enabled and traffic is allowed to and from internet gateways and egress-only internet gateways in this Region.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-blocked</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
+   *                   <code>block-bidirectional</code>: Block all traffic to and from internet gateways and egress-only internet gateways in this Region (except for excluded VPCs and subnets).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ingress-access-blocked</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
+   *                   <code>block-ingress</code>: Block all internet traffic to the VPCs in this Region (except for VPCs or subnets which are excluded). Only traffic to and from NAT gateways and egress-only internet gateways is allowed because these gateways only allow outbound connections to be established.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7998,6 +8102,18 @@ export interface CreateIpamResourceDiscoveryRequest {
 }
 
 /**
+ * <p>If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.</p>
+ * @public
+ */
+export interface IpamOrganizationalUnitExclusion {
+  /**
+   * <p>An Amazon Web Services Organizations entity path. For more information on the entity path, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_access-advisor-viewing-orgs-entity-path">Understand the Amazon Web Services Organizations entity path</a> in the <i>Amazon Web Services Identity and Access Management User Guide</i>.</p>
+   * @public
+   */
+  OrganizationsEntityPath?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -8129,6 +8245,12 @@ export interface IpamResourceDiscovery {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>If your IPAM is integrated with Amazon Web Services Organizations and you add an organizational unit (OU) exclusion, IPAM will not manage the IP addresses in accounts in that OU exclusion.</p>
+   * @public
+   */
+  OrganizationalUnitExclusions?: IpamOrganizationalUnitExclusion[] | undefined;
 }
 
 /**
@@ -8570,7 +8692,8 @@ export interface CapacityReservationTarget {
   CapacityReservationId?: string | undefined;
 
   /**
-   * <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
+   * <p>The ARN of the Capacity Reservation resource group in which to run the
+   * 			instance.</p>
    * @public
    */
   CapacityReservationResourceGroupArn?: string | undefined;
@@ -12166,208 +12289,6 @@ export const NatGatewayState = {
  * @public
  */
 export type NatGatewayState = (typeof NatGatewayState)[keyof typeof NatGatewayState];
-
-/**
- * <p>Describes a NAT gateway.</p>
- * @public
- */
-export interface NatGateway {
-  /**
-   * <p>The date and time the NAT gateway was created.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The date and time the NAT gateway was deleted, if applicable.</p>
-   * @public
-   */
-  DeleteTime?: Date | undefined;
-
-  /**
-   * <p>If the NAT gateway could not be created, specifies the error code for the failure.
-   *         (<code>InsufficientFreeAddressesInSubnet</code> | <code>Gateway.NotAttached</code> |
-   *          <code>InvalidAllocationID.NotFound</code> | <code>Resource.AlreadyAssociated</code> |
-   *          <code>InternalError</code> | <code>InvalidSubnetID.NotFound</code>)</p>
-   * @public
-   */
-  FailureCode?: string | undefined;
-
-  /**
-   * <p>If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway"</p>
-   *             </li>
-   *             <li>
-   *                <p>For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached"</p>
-   *             </li>
-   *             <li>
-   *                <p>For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway"</p>
-   *             </li>
-   *             <li>
-   *                <p>For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated"</p>
-   *             </li>
-   *             <li>
-   *                <p>For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again."</p>
-   *             </li>
-   *             <li>
-   *                <p>For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  FailureMessage?: string | undefined;
-
-  /**
-   * <p>Information about the IP addresses and network interface associated with the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
-
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-
-  /**
-   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-gateways">documented limits</a>,
-   *           contact Amazon Web Services Support.</p>
-   * @public
-   */
-  ProvisionedBandwidth?: ProvisionedBandwidth | undefined;
-
-  /**
-   * <p>The state of the NAT gateway.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code>: The NAT gateway is being created and is not ready to process
-   *           traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code>: The NAT gateway could not be created. Check the
-   *             <code>failureCode</code> and <code>failureMessage</code> fields for the reason.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code>: The NAT gateway is able to process traffic. This status remains
-   *           until you delete the NAT gateway, and does not indicate the health of the NAT gateway.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code>: The NAT gateway is in the process of being terminated and may
-   *           still be processing traffic.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code>: The NAT gateway has been terminated and is no longer processing
-   *           traffic.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: NatGatewayState | undefined;
-
-  /**
-   * <p>The ID of the subnet in which the NAT gateway is located.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The ID of the VPC in which the NAT gateway is located.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>The tags for the NAT gateway.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
-   * @public
-   */
-  ConnectivityType?: ConnectivityType | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNatGatewayResult {
-  /**
-   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Information about the NAT gateway.</p>
-   * @public
-   */
-  NatGateway?: NatGateway | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkAclRequest {
-  /**
-   * <p>The tags to assign to the network ACL.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   * @public
-   */
-  VpcId: string | undefined;
-}
-
-/**
- * <p>Describes an association between a network ACL and a subnet.</p>
- * @public
- */
-export interface NetworkAclAssociation {
-  /**
-   * <p>The ID of the association between a network ACL and a subnet.</p>
-   * @public
-   */
-  NetworkAclAssociationId?: string | undefined;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   * @public
-   */
-  NetworkAclId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-}
 
 /**
  * @internal

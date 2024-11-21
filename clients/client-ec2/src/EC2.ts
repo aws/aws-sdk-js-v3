@@ -1139,6 +1139,16 @@ import {
   DescribeByoipCidrsCommandOutput,
 } from "./commands/DescribeByoipCidrsCommand";
 import {
+  DescribeCapacityBlockExtensionHistoryCommand,
+  DescribeCapacityBlockExtensionHistoryCommandInput,
+  DescribeCapacityBlockExtensionHistoryCommandOutput,
+} from "./commands/DescribeCapacityBlockExtensionHistoryCommand";
+import {
+  DescribeCapacityBlockExtensionOfferingsCommand,
+  DescribeCapacityBlockExtensionOfferingsCommandInput,
+  DescribeCapacityBlockExtensionOfferingsCommandOutput,
+} from "./commands/DescribeCapacityBlockExtensionOfferingsCommand";
+import {
   DescribeCapacityBlockOfferingsCommand,
   DescribeCapacityBlockOfferingsCommandInput,
   DescribeCapacityBlockOfferingsCommandOutput,
@@ -2835,6 +2845,11 @@ import {
   PurchaseCapacityBlockCommandOutput,
 } from "./commands/PurchaseCapacityBlockCommand";
 import {
+  PurchaseCapacityBlockExtensionCommand,
+  PurchaseCapacityBlockExtensionCommandInput,
+  PurchaseCapacityBlockExtensionCommandOutput,
+} from "./commands/PurchaseCapacityBlockExtensionCommand";
+import {
   PurchaseHostReservationCommand,
   PurchaseHostReservationCommandInput,
   PurchaseHostReservationCommandOutput,
@@ -3388,6 +3403,8 @@ const commands = {
   DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
   DescribeBundleTasksCommand,
   DescribeByoipCidrsCommand,
+  DescribeCapacityBlockExtensionHistoryCommand,
+  DescribeCapacityBlockExtensionOfferingsCommand,
   DescribeCapacityBlockOfferingsCommand,
   DescribeCapacityReservationBillingRequestsCommand,
   DescribeCapacityReservationFleetsCommand,
@@ -3732,6 +3749,7 @@ const commands = {
   ProvisionIpamPoolCidrCommand,
   ProvisionPublicIpv4PoolCidrCommand,
   PurchaseCapacityBlockCommand,
+  PurchaseCapacityBlockExtensionCommand,
   PurchaseHostReservationCommand,
   PurchaseReservedInstancesOfferingCommand,
   PurchaseScheduledInstancesCommand,
@@ -7654,6 +7672,41 @@ export interface EC2 {
     args: DescribeByoipCidrsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeByoipCidrsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityBlockExtensionHistoryCommand}
+   */
+  describeCapacityBlockExtensionHistory(): Promise<DescribeCapacityBlockExtensionHistoryCommandOutput>;
+  describeCapacityBlockExtensionHistory(
+    args: DescribeCapacityBlockExtensionHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityBlockExtensionHistoryCommandOutput>;
+  describeCapacityBlockExtensionHistory(
+    args: DescribeCapacityBlockExtensionHistoryCommandInput,
+    cb: (err: any, data?: DescribeCapacityBlockExtensionHistoryCommandOutput) => void
+  ): void;
+  describeCapacityBlockExtensionHistory(
+    args: DescribeCapacityBlockExtensionHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityBlockExtensionHistoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityBlockExtensionOfferingsCommand}
+   */
+  describeCapacityBlockExtensionOfferings(
+    args: DescribeCapacityBlockExtensionOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityBlockExtensionOfferingsCommandOutput>;
+  describeCapacityBlockExtensionOfferings(
+    args: DescribeCapacityBlockExtensionOfferingsCommandInput,
+    cb: (err: any, data?: DescribeCapacityBlockExtensionOfferingsCommandOutput) => void
+  ): void;
+  describeCapacityBlockExtensionOfferings(
+    args: DescribeCapacityBlockExtensionOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityBlockExtensionOfferingsCommandOutput) => void
   ): void;
 
   /**
@@ -13522,6 +13575,23 @@ export interface EC2 {
     args: PurchaseCapacityBlockCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PurchaseCapacityBlockCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PurchaseCapacityBlockExtensionCommand}
+   */
+  purchaseCapacityBlockExtension(
+    args: PurchaseCapacityBlockExtensionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PurchaseCapacityBlockExtensionCommandOutput>;
+  purchaseCapacityBlockExtension(
+    args: PurchaseCapacityBlockExtensionCommandInput,
+    cb: (err: any, data?: PurchaseCapacityBlockExtensionCommandOutput) => void
+  ): void;
+  purchaseCapacityBlockExtension(
+    args: PurchaseCapacityBlockExtensionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PurchaseCapacityBlockExtensionCommandOutput) => void
   ): void;
 
   /**

@@ -12,6 +12,7 @@ import {
   DynamicRoutingValue,
   Ipv4PrefixSpecification,
   Ipv6SupportValue,
+  NatGatewayAddress,
   PortRange,
   Protocol,
   ReservedInstancesListing,
@@ -42,20 +43,223 @@ import {
   CoipCidr,
   CoipPool,
   ConnectionTrackingSpecificationRequest,
-  Ec2InstanceConnectEndpoint,
+  ConnectivityType,
   GatewayType,
   InstanceIpv6Address,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
-  NetworkAclAssociation,
+  NatGatewayState,
   OperatorRequest,
   OperatorResponse,
   PrivateIpAddressSpecification,
+  ProvisionedBandwidth,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a NAT gateway.</p>
+ * @public
+ */
+export interface NatGateway {
+  /**
+   * <p>The date and time the NAT gateway was created.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time the NAT gateway was deleted, if applicable.</p>
+   * @public
+   */
+  DeleteTime?: Date | undefined;
+
+  /**
+   * <p>If the NAT gateway could not be created, specifies the error code for the failure.
+   *         (<code>InsufficientFreeAddressesInSubnet</code> | <code>Gateway.NotAttached</code> |
+   *          <code>InvalidAllocationID.NotFound</code> | <code>Resource.AlreadyAssociated</code> |
+   *          <code>InternalError</code> | <code>InvalidSubnetID.NotFound</code>)</p>
+   * @public
+   */
+  FailureCode?: string | undefined;
+
+  /**
+   * <p>If the NAT gateway could not be created, specifies the error message for the failure, that corresponds to the error code.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For InsufficientFreeAddressesInSubnet: "Subnet has insufficient free addresses to create this NAT gateway"</p>
+   *             </li>
+   *             <li>
+   *                <p>For Gateway.NotAttached: "Network vpc-xxxxxxxx has no Internet gateway attached"</p>
+   *             </li>
+   *             <li>
+   *                <p>For InvalidAllocationID.NotFound: "Elastic IP address eipalloc-xxxxxxxx could not be associated with this NAT gateway"</p>
+   *             </li>
+   *             <li>
+   *                <p>For Resource.AlreadyAssociated: "Elastic IP address eipalloc-xxxxxxxx is already associated"</p>
+   *             </li>
+   *             <li>
+   *                <p>For InternalError: "Network interface eni-xxxxxxxx, created and used internally by this NAT gateway is in an invalid state. Please try again."</p>
+   *             </li>
+   *             <li>
+   *                <p>For InvalidSubnetID.NotFound: "The specified subnet subnet-xxxxxxxx does not exist or could not be found."</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureMessage?: string | undefined;
+
+  /**
+   * <p>Information about the IP addresses and network interface associated with the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
+
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId?: string | undefined;
+
+  /**
+   * <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html#vpc-limits-gateways">documented limits</a>,
+   *           contact Amazon Web Services Support.</p>
+   * @public
+   */
+  ProvisionedBandwidth?: ProvisionedBandwidth | undefined;
+
+  /**
+   * <p>The state of the NAT gateway.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code>: The NAT gateway is being created and is not ready to process
+   *           traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code>: The NAT gateway could not be created. Check the
+   *             <code>failureCode</code> and <code>failureMessage</code> fields for the reason.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>available</code>: The NAT gateway is able to process traffic. This status remains
+   *           until you delete the NAT gateway, and does not indicate the health of the NAT gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleting</code>: The NAT gateway is in the process of being terminated and may
+   *           still be processing traffic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>deleted</code>: The NAT gateway has been terminated and is no longer processing
+   *           traffic.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: NatGatewayState | undefined;
+
+  /**
+   * <p>The ID of the subnet in which the NAT gateway is located.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC in which the NAT gateway is located.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The tags for the NAT gateway.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
+   * @public
+   */
+  ConnectivityType?: ConnectivityType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNatGatewayResult {
+  /**
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Information about the NAT gateway.</p>
+   * @public
+   */
+  NatGateway?: NatGateway | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkAclRequest {
+  /**
+   * <p>The tags to assign to the network ACL.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   * @public
+   */
+  VpcId: string | undefined;
+}
+
+/**
+ * <p>Describes an association between a network ACL and a subnet.</p>
+ * @public
+ */
+export interface NetworkAclAssociation {
+  /**
+   * <p>The ID of the association between a network ACL and a subnet.</p>
+   * @public
+   */
+  NetworkAclAssociationId?: string | undefined;
+
+  /**
+   * <p>The ID of the network ACL.</p>
+   * @public
+   */
+  NetworkAclId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+}
 
 /**
  * <p>Describes the ICMP type and code.</p>
@@ -6957,11 +7161,11 @@ export interface CreateVpcBlockPublicAccessExclusionRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-allowed</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>egress-access-allowed</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
    *             </li>
    *          </ul>
    * @public
@@ -7016,11 +7220,11 @@ export interface VpcBlockPublicAccessExclusion {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>bidirectional-access-allowed</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
+   *                   <code>allow-bidirectional</code>: Allow all internet traffic to and from the excluded VPCs and subnets.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>egress-access-allowed</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
+   *                   <code>allow-egress</code>: Allow outbound internet traffic from the excluded VPCs and subnets. Block inbound internet traffic to the excluded VPCs and subnets. Only applies when VPC Block Public Access is set to Bidirectional.</p>
    *             </li>
    *          </ul>
    * @public
@@ -9666,73 +9870,6 @@ export interface DeleteFpgaImageRequest {
    * @public
    */
   FpgaImageId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFpgaImageResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceConnectEndpointRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the EC2 Instance Connect Endpoint to delete.</p>
-   * @public
-   */
-  InstanceConnectEndpointId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceConnectEndpointResult {
-  /**
-   * <p>Information about the EC2 Instance Connect Endpoint.</p>
-   * @public
-   */
-  InstanceConnectEndpoint?: Ec2InstanceConnectEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteInstanceEventWindowRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to force delete the event window. Use the force delete parameter
-   *          if the event window is currently associated with targets.</p>
-   * @public
-   */
-  ForceDelete?: boolean | undefined;
-
-  /**
-   * <p>The ID of the event window.</p>
-   * @public
-   */
-  InstanceEventWindowId: string | undefined;
 }
 
 /**

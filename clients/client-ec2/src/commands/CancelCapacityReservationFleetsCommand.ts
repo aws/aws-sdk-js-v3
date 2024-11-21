@@ -33,16 +33,17 @@ export interface CancelCapacityReservationFleetsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
- * 			Fleet, the following happens:</p>
+ * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity
+ * 			Reservation Fleet, the following happens:</p>
  *          <ul>
  *             <li>
- *                <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p>
+ *                <p>The Capacity Reservation Fleet's status changes to
+ * 					<code>cancelled</code>.</p>
  *             </li>
  *             <li>
- *                <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running
- * 					in the Capacity Reservations at the time of cancelling the Fleet continue to run in
- * 					shared capacity.</p>
+ *                <p>The individual Capacity Reservations in the Fleet are cancelled. Instances
+ * 					running in the Capacity Reservations at the time of cancelling the Fleet
+ * 					continue to run in shared capacity.</p>
  *             </li>
  *             <li>
  *                <p>The Fleet stops creating new Capacity Reservations.</p>

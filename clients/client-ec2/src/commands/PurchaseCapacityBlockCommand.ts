@@ -28,8 +28,9 @@ export interface PurchaseCapacityBlockCommandInput extends PurchaseCapacityBlock
 export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBlockResult, __MetadataBearer {}
 
 /**
- * <p>Purchase the Capacity Block for use with your account.
- * 		 With Capacity Blocks you ensure GPU capacity is available for machine learning (ML) workloads. You must specify the ID of the Capacity Block offering you are purchasing.</p>
+ * <p>Purchase the Capacity Block for use with your account. With Capacity Blocks you ensure
+ * 			GPU capacity is available for machine learning (ML) workloads. You must specify the ID
+ * 			of the Capacity Block offering you are purchasing.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +69,7 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * //     AvailableInstanceCount: Number("int"),
  * //     EbsOptimized: true || false,
  * //     EphemeralStorage: true || false,
- * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //     StartDate: new Date("TIMESTAMP"),
  * //     EndDate: new Date("TIMESTAMP"),
  * //     EndDateType: "unlimited" || "limited",
@@ -91,6 +92,11 @@ export interface PurchaseCapacityBlockCommandOutput extends PurchaseCapacityBloc
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
  * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
+ * //     CommitmentInfo: { // CapacityReservationCommitmentInfo
+ * //       CommittedInstanceCount: Number("int"),
+ * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //     },
+ * //     DeliveryPreference: "fixed" || "incremental",
  * //   },
  * // };
  *

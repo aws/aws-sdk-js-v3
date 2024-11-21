@@ -36,9 +36,10 @@ export interface CreateCapacityReservationBySplittingCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- * 			Create a new Capacity Reservation by splitting the capacity of the source Capacity Reservation. The new Capacity Reservation will have the same attributes as the source Capacity Reservation except for tags. The source Capacity Reservation must be <code>active</code> and owned by your Amazon Web Services account.
- * 		</p>
+ * <p> Create a new Capacity Reservation by splitting the capacity of the source Capacity
+ * 			Reservation. The new Capacity Reservation will have the same attributes as the source
+ * 			Capacity Reservation except for tags. The source Capacity Reservation must be
+ * 				<code>active</code> and owned by your Amazon Web Services account. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +79,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //     AvailableInstanceCount: Number("int"),
  * //     EbsOptimized: true || false,
  * //     EphemeralStorage: true || false,
- * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //     StartDate: new Date("TIMESTAMP"),
  * //     EndDate: new Date("TIMESTAMP"),
  * //     EndDateType: "unlimited" || "limited",
@@ -101,6 +102,11 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
  * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
+ * //     CommitmentInfo: { // CapacityReservationCommitmentInfo
+ * //       CommittedInstanceCount: Number("int"),
+ * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //     },
+ * //     DeliveryPreference: "fixed" || "incremental",
  * //   },
  * //   DestinationCapacityReservation: {
  * //     CapacityReservationId: "STRING_VALUE",
@@ -115,7 +121,7 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //     AvailableInstanceCount: Number("int"),
  * //     EbsOptimized: true || false,
  * //     EphemeralStorage: true || false,
- * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //     StartDate: new Date("TIMESTAMP"),
  * //     EndDate: new Date("TIMESTAMP"),
  * //     EndDateType: "unlimited" || "limited",
@@ -138,6 +144,11 @@ export interface CreateCapacityReservationBySplittingCommandOutput
  * //     ],
  * //     ReservationType: "default" || "capacity-block",
  * //     UnusedReservationBillingOwnerId: "STRING_VALUE",
+ * //     CommitmentInfo: {
+ * //       CommittedInstanceCount: Number("int"),
+ * //       CommitmentEndDate: new Date("TIMESTAMP"),
+ * //     },
+ * //     DeliveryPreference: "fixed" || "incremental",
  * //   },
  * //   InstanceCount: Number("int"),
  * // };

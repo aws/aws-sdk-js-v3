@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  DescribeScheduledInstanceAvailabilityRequest,
-  DescribeScheduledInstanceAvailabilityResult,
-} from "../models/models_4";
+import { DescribeScheduledInstanceAvailabilityRequest } from "../models/models_4";
+import { DescribeScheduledInstanceAvailabilityResult } from "../models/models_5";
 import {
   de_DescribeScheduledInstanceAvailabilityCommand,
   se_DescribeScheduledInstanceAvailabilityCommand,
