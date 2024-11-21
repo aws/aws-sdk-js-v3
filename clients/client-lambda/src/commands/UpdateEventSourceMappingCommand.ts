@@ -75,15 +75,11 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *                </p>
  *             </li>
  *          </ul>
- *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
+ *          <p>The following error handling options are available only for DynamoDB and Kinesis event sources:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -96,6 +92,14 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *             <li>
  *                <p>
  *                   <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka), the following option is also available:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, or
+ *             Amazon S3 bucket.</p>
  *             </li>
  *          </ul>
  *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
@@ -193,6 +197,11 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *     FullDocument: "UpdateLookup" || "Default",
  *   },
  *   KMSKeyArn: "STRING_VALUE",
+ *   MetricsConfig: { // EventSourceMappingMetricsConfig
+ *     Metrics: [ // EventSourceMappingMetricList
+ *       "EventCount",
+ *     ],
+ *   },
  * };
  * const command = new UpdateEventSourceMappingCommand(input);
  * const response = await client.send(command);
@@ -270,6 +279,11 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //     Message: "STRING_VALUE",
  * //   },
  * //   EventSourceMappingArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

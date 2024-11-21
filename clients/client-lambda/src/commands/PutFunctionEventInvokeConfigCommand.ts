@@ -39,9 +39,12 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  *       events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous
  *       invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with
  *         <a>UpdateFunctionConfiguration</a>.</p>
- *          <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>. You can configure separate destinations for successful invocations (on-success) and events
+ *          <p>To send an invocation record to a queue, topic, S3 bucket, function, or event bus, specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>. You can configure separate destinations for successful invocations (on-success) and events
  *       that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a
  *       dead-letter queue.</p>
+ *          <note>
+ *             <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

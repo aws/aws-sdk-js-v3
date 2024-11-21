@@ -117,6 +117,11 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * //     Message: "STRING_VALUE",
  * //   },
  * //   EventSourceMappingArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

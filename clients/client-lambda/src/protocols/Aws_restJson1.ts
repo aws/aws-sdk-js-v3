@@ -257,6 +257,8 @@ import {
   Environment,
   EphemeralStorage,
   EventSourceMappingConfiguration,
+  EventSourceMappingMetric,
+  EventSourceMappingMetricsConfig,
   FileSystemConfig,
   Filter,
   FilterCriteria,
@@ -452,6 +454,7 @@ export const se_CreateEventSourceMappingCommand = async (
       MaximumBatchingWindowInSeconds: [],
       MaximumRecordAgeInSeconds: [],
       MaximumRetryAttempts: [],
+      MetricsConfig: (_) => _json(_),
       ParallelizationFactor: [],
       Queues: (_) => _json(_),
       ScalingConfig: (_) => _json(_),
@@ -1694,6 +1697,7 @@ export const se_UpdateEventSourceMappingCommand = async (
       MaximumBatchingWindowInSeconds: [],
       MaximumRecordAgeInSeconds: [],
       MaximumRetryAttempts: [],
+      MetricsConfig: (_) => _json(_),
       ParallelizationFactor: [],
       ScalingConfig: (_) => _json(_),
       SourceAccessConfigurations: (_) => _json(_),
@@ -1954,6 +1958,7 @@ export const de_CreateEventSourceMappingCommand = async (
     MaximumBatchingWindowInSeconds: __expectInt32,
     MaximumRecordAgeInSeconds: __expectInt32,
     MaximumRetryAttempts: __expectInt32,
+    MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
     Queues: _json,
     ScalingConfig: _json,
@@ -2120,6 +2125,7 @@ export const de_DeleteEventSourceMappingCommand = async (
     MaximumBatchingWindowInSeconds: __expectInt32,
     MaximumRecordAgeInSeconds: __expectInt32,
     MaximumRetryAttempts: __expectInt32,
+    MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
     Queues: _json,
     ScalingConfig: _json,
@@ -2358,6 +2364,7 @@ export const de_GetEventSourceMappingCommand = async (
     MaximumBatchingWindowInSeconds: __expectInt32,
     MaximumRecordAgeInSeconds: __expectInt32,
     MaximumRetryAttempts: __expectInt32,
+    MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
     Queues: _json,
     ScalingConfig: _json,
@@ -3424,6 +3431,7 @@ export const de_UpdateEventSourceMappingCommand = async (
     MaximumBatchingWindowInSeconds: __expectInt32,
     MaximumRecordAgeInSeconds: __expectInt32,
     MaximumRetryAttempts: __expectInt32,
+    MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
     Queues: _json,
     ScalingConfig: _json,
@@ -4628,6 +4636,10 @@ const se_AliasRoutingConfiguration = (input: AliasRoutingConfiguration, context:
 
 // se_EphemeralStorage omitted.
 
+// se_EventSourceMappingMetricList omitted.
+
+// se_EventSourceMappingMetricsConfig omitted.
+
 // se_FileSystemConfig omitted.
 
 // se_FileSystemConfigList omitted.
@@ -4824,6 +4836,7 @@ const de_EventSourceMappingConfiguration = (output: any, context: __SerdeContext
     MaximumBatchingWindowInSeconds: __expectInt32,
     MaximumRecordAgeInSeconds: __expectInt32,
     MaximumRetryAttempts: __expectInt32,
+    MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
     Queues: _json,
     ScalingConfig: _json,
@@ -4839,6 +4852,10 @@ const de_EventSourceMappingConfiguration = (output: any, context: __SerdeContext
     UUID: __expectString,
   }) as any;
 };
+
+// de_EventSourceMappingMetricList omitted.
+
+// de_EventSourceMappingMetricsConfig omitted.
 
 /**
  * deserializeAws_restJson1EventSourceMappingsList

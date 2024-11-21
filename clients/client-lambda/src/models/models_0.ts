@@ -755,13 +755,11 @@ export interface CreateCodeSigningConfigResponse {
 export interface OnFailure {
   /**
    * <p>The Amazon Resource Name (ARN) of the destination resource.</p>
-   *          <p>To retain records of <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>,
-   *       you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function,
+   *          <p>To retain records of unsuccessful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>,
+   *       you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function,
    *       or Amazon EventBridge event bus as the destination.</p>
-   *          <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations">Kinesis and
-   *       DynamoDB event sources</a>, you can configure an Amazon SNS topic or
-   *       Amazon SQS queue as the destination.</p>
-   *          <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or
+   *          <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Kinesis</a>,
+   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">DynamoDB</a>, <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or
    *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>,
    *       you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
    * @public
@@ -771,6 +769,9 @@ export interface OnFailure {
 
 /**
  * <p>A destination for events that were processed successfully.</p>
+ *          <p>To retain records of successful <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>,
+ *       you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function,
+ *       or Amazon EventBridge event bus as the destination.</p>
  * @public
  */
 export interface OnSuccess {
@@ -891,6 +892,37 @@ export const FunctionResponseType = {
  * @public
  */
 export type FunctionResponseType = (typeof FunctionResponseType)[keyof typeof FunctionResponseType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventSourceMappingMetric = {
+  EventCount: "EventCount",
+} as const;
+
+/**
+ * @public
+ */
+export type EventSourceMappingMetric = (typeof EventSourceMappingMetric)[keyof typeof EventSourceMappingMetric];
+
+/**
+ * <p>The metrics configuration for your event source. Use this configuration object to define which metrics you want your
+ *       event source mapping to produce.</p>
+ * @public
+ */
+export interface EventSourceMappingMetricsConfig {
+  /**
+   * <p>
+   *       The metrics you want your event source mapping to produce. Include <code>EventCount</code> to receive event source mapping
+   *       metrics related to the number of events processed by your event source mapping. For more information about these metrics,
+   *       see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">
+   *       Event source mapping metrics</a>.
+   *     </p>
+   * @public
+   */
+  Metrics?: EventSourceMappingMetric[] | undefined;
+}
 
 /**
  * <p>(Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.</p>
@@ -1286,6 +1318,12 @@ export interface CreateEventSourceMappingRequest {
    * @public
    */
   KMSKeyArn?: string | undefined;
+
+  /**
+   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * @public
+   */
+  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 }
 
 /**
@@ -1514,6 +1552,12 @@ export interface EventSourceMappingConfiguration {
    * @public
    */
   EventSourceMappingArn?: string | undefined;
+
+  /**
+   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * @public
+   */
+  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 }
 
 /**
@@ -3647,6 +3691,10 @@ export interface FunctionEventInvokeConfig {
    *             </li>
    *             <li>
    *                <p>
+   *                   <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
@@ -3654,6 +3702,9 @@ export interface FunctionEventInvokeConfig {
    *                   <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+   *          </note>
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
@@ -6518,6 +6569,10 @@ export interface PutFunctionEventInvokeConfigRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
@@ -6525,6 +6580,9 @@ export interface PutFunctionEventInvokeConfigRequest {
    *                   <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+   *          </note>
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
@@ -7157,6 +7215,12 @@ export interface UpdateEventSourceMappingRequest {
    * @public
    */
   KMSKeyArn?: string | undefined;
+
+  /**
+   * <p>The metrics configuration for your event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics">Event source mapping metrics</a>.</p>
+   * @public
+   */
+  MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
 }
 
 /**
@@ -7495,6 +7559,10 @@ export interface UpdateFunctionEventInvokeConfigRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <b>Bucket</b> - The ARN of an Amazon S3 bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <b>Topic</b> - The ARN of a standard SNS topic.</p>
    *             </li>
    *             <li>
@@ -7502,6 +7570,9 @@ export interface UpdateFunctionEventInvokeConfigRequest {
    *                   <b>Event Bus</b> - The ARN of an Amazon EventBridge event bus.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+   *          </note>
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
