@@ -12,7 +12,7 @@ import { describe, expect, test as it } from "vitest";
 import { ChecksumAlgorithm as Algo, S3 } from "../../src/index";
 
 describe("Flexible Checksums", () => {
-  const testCases = [
+  const testCases: [string, string | undefined, string][] = [
     ["", ChecksumAlgorithm.CRC32, "AAAAAA=="],
     ["abc", ChecksumAlgorithm.CRC32, "NSRBwg=="],
     ["Hello world", ChecksumAlgorithm.CRC32, "i9aeUg=="],
