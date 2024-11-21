@@ -30,7 +30,7 @@ export interface GetBucketCorsCommandOutput extends GetBucketCorsOutput, __Metad
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the Cross-Origin Resource Sharing (CORS) configuration information set for the
  *          bucket.</p>

@@ -31,20 +31,22 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
 
 /**
  * <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
- *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You obtain this uploadID by sending the initiate multipart upload
- *          request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
- *          <p>The <code>ListParts</code> request returns a maximum of 1,000 uploaded parts. The limit of 1,000 parts is also the default value. You can restrict the number of parts in a response by specifying the
- *             <code>max-parts</code> request parameter. If your multipart upload consists of more than
- *          1,000 parts, the response returns an <code>IsTruncated</code> field with the value of <code>true</code>,
- *          and a <code>NextPartNumberMarker</code> element. To list remaining uploaded parts, in subsequent <code>ListParts</code>
- *          requests, include the <code>part-number-marker</code> query string parameter and set its value to
- *          the <code>NextPartNumberMarker</code> field value from the previous response.</p>
+ *          <p>To use this operation, you must provide the <code>upload ID</code> in the request. You
+ *          obtain this uploadID by sending the initiate multipart upload request through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateMultipartUpload.html">CreateMultipartUpload</a>.</p>
+ *          <p>The <code>ListParts</code> request returns a maximum of 1,000 uploaded parts. The limit
+ *          of 1,000 parts is also the default value. You can restrict the number of parts in a
+ *          response by specifying the <code>max-parts</code> request parameter. If your multipart
+ *          upload consists of more than 1,000 parts, the response returns an <code>IsTruncated</code>
+ *          field with the value of <code>true</code>, and a <code>NextPartNumberMarker</code> element.
+ *          To list remaining uploaded parts, in subsequent <code>ListParts</code> requests, include
+ *          the <code>part-number-marker</code> query string parameter and set its value to the
+ *             <code>NextPartNumberMarker</code> field value from the previous response.</p>
  *          <p>For more information on multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *          Upload</a> in the <i>Amazon S3
- *             User Guide</i>.</p>
+ *             Upload</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                <b>Directory buckets</b> -
+ *             For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
  *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          </note>
@@ -54,12 +56,15 @@ export interface ListPartsCommandOutput extends ListPartsOutput, __MetadataBeare
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *                         and Permissions</a> in the <i>Amazon S3
- *                            User Guide</i>.</p>
- *                      <p>If the upload was created using server-side encryption with Key Management Service (KMS) keys
- *                         (SSE-KMS) or dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), you must have permission
- *                         to the <code>kms:Decrypt</code> action for the <code>ListParts</code> request to succeed.</p>
+ *                         <b>General purpose bucket permissions</b> - For
+ *                         information about permissions required to use the multipart upload API, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If the upload was created using server-side encryption with Key Management Service
+ *                         (KMS) keys (SSE-KMS) or dual-layer server-side encryption with
+ *                         Amazon Web Services KMS keys (DSSE-KMS), you must have permission to the
+ *                            <code>kms:Decrypt</code> action for the <code>ListParts</code> request to
+ *                         succeed.</p>
  *                   </li>
  *                   <li>
  *                      <p>

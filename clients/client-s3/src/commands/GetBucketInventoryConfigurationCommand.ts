@@ -39,7 +39,7 @@ export interface GetBucketInventoryConfigurationCommandOutput
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns an inventory configuration (identified by the inventory configuration ID) from
  *          the bucket.</p>

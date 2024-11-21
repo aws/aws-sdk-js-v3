@@ -31,44 +31,46 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
 
 /**
  * <p>This operation enables you to delete multiple objects from a bucket using a single HTTP
- *          request. If you know the object keys that you want to delete, then this operation provides a
- *          suitable alternative to sending individual delete requests, reducing per-request
+ *          request. If you know the object keys that you want to delete, then this operation provides
+ *          a suitable alternative to sending individual delete requests, reducing per-request
  *          overhead.</p>
- *          <p>The request can contain a list of up to 1000 keys that you want to delete. In the XML, you
- *          provide the object key names, and optionally, version IDs if you want to delete a specific
- *          version of the object from a versioning-enabled bucket. For each key, Amazon S3 performs a
- *          delete operation and returns the result of that delete, success or failure, in the response.
- *          Note that if the object specified in the request is not found, Amazon S3 returns the result as
- *          deleted.</p>
+ *          <p>The request can contain a list of up to 1000 keys that you want to delete. In the XML,
+ *          you provide the object key names, and optionally, version IDs if you want to delete a
+ *          specific version of the object from a versioning-enabled bucket. For each key, Amazon S3
+ *          performs a delete operation and returns the result of that delete, success or failure, in
+ *          the response. Note that if the object specified in the request is not found, Amazon S3 returns
+ *          the result as deleted.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
+ *                      <b>Directory buckets</b> -
+ *                   S3 Versioning isn't enabled and supported for directory buckets.</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                      <b>Directory buckets</b> -
+ *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
  *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *             </ul>
  *          </note>
  *          <p>The operation supports two modes for the response: verbose and quiet. By default, the
- *          operation uses verbose mode in which the response includes the result of deletion of each key
- *          in your request. In quiet mode the response includes only keys where the delete operation
- *          encountered an error. For a successful deletion in a quiet mode, the operation does not return any information
- *          about the delete in the response body.</p>
+ *          operation uses verbose mode in which the response includes the result of deletion of each
+ *          key in your request. In quiet mode the response includes only keys where the delete
+ *          operation encountered an error. For a successful deletion in a quiet mode, the operation
+ *          does not return any information about the delete in the response body.</p>
  *          <p>When performing this action on an MFA Delete enabled bucket, that attempts to delete any
  *          versioned objects, you must include an MFA token. If you do not provide one, the entire
  *          request will fail, even if there are non-versioned objects you are trying to delete. If you
  *          provide an invalid token, whether there are versioned keys in the request or not, the
  *          entire Multi-Object Delete request will fail. For information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#MultiFactorAuthenticationDelete">MFA
- *             Delete</a> in the <i>Amazon S3
- *                User Guide</i>.</p>
+ *             Delete</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> - MFA delete is not supported by directory buckets.</p>
+ *                <b>Directory buckets</b> -
+ *             MFA delete is not supported by directory buckets.</p>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -76,20 +78,25 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - The following permissions are required in your policies when your
- *                         <code>DeleteObjects</code> request includes specific headers.</p>
+ *                         <b>General purpose bucket permissions</b> - The
+ *                         following permissions are required in your policies when your
+ *                            <code>DeleteObjects</code> request includes specific headers.</p>
  *                      <ul>
  *                         <li>
  *                            <p>
  *                               <b>
  *                                  <code>s3:DeleteObject</code>
- *                               </b> - To delete an object from a bucket, you must always specify the <code>s3:DeleteObject</code> permission.</p>
+ *                               </b>
+ *                               - To delete an object from a bucket, you must always specify
+ *                               the <code>s3:DeleteObject</code> permission.</p>
  *                         </li>
  *                         <li>
  *                            <p>
  *                               <b>
  *                                  <code>s3:DeleteObjectVersion</code>
- *                               </b> - To delete a specific version of an object from a versioning-enabled bucket, you must specify the <code>s3:DeleteObjectVersion</code> permission.</p>
+ *                               </b> - To delete a specific version of an object from a
+ *                               versioning-enabled bucket, you must specify the
+ *                                  <code>s3:DeleteObjectVersion</code> permission.</p>
  *                         </li>
  *                      </ul>
  *                   </li>
@@ -109,15 +116,19 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket</b> - The Content-MD5 request header is required for all Multi-Object Delete requests. Amazon S3
- *                      uses the header value to ensure that your request body has not been altered in
- *                      transit.</p>
+ *                         <b>General purpose bucket</b> - The Content-MD5
+ *                         request header is required for all Multi-Object Delete requests. Amazon S3 uses
+ *                         the header value to ensure that your request body has not been altered in
+ *                         transit.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket</b> - The Content-MD5 request header or a additional checksum request header
- *                      (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or
- *                      <code>x-amz-checksum-sha256</code>) is required for all Multi-Object Delete requests.</p>
+ *                         <b>Directory bucket</b> - The
+ *                         Content-MD5 request header or a additional checksum request header
+ *                         (including <code>x-amz-checksum-crc32</code>,
+ *                            <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or
+ *                            <code>x-amz-checksum-sha256</code>) is required for all Multi-Object
+ *                         Delete requests.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -169,6 +180,9 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  *       { // ObjectIdentifier
  *         Key: "STRING_VALUE", // required
  *         VersionId: "STRING_VALUE",
+ *         ETag: "STRING_VALUE",
+ *         LastModifiedTime: new Date("TIMESTAMP"),
+ *         Size: Number("long"),
  *       },
  *     ],
  *     Quiet: true || false,

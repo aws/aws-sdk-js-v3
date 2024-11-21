@@ -31,7 +31,7 @@ export interface PutObjectRetentionCommandOutput extends PutObjectRetentionOutpu
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Places an Object Retention configuration on an object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking Objects</a>.
  *          Users or accounts require the <code>s3:PutObjectRetention</code> permission in order to

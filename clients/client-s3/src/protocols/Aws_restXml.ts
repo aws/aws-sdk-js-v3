@@ -419,9 +419,12 @@ import {
   CSVInput,
   CSVOutput,
   Encryption,
+  EncryptionTypeMismatch,
   EndEvent,
   GlacierJobParameters,
   InputSerialization,
+  InvalidRequest,
+  InvalidWriteOffset,
   JSONInput,
   JSONOutput,
   MetadataEntry,
@@ -442,6 +445,7 @@ import {
   Stats,
   StatsEvent,
   Tagging,
+  TooManyParts,
   VersioningConfiguration,
   WebsiteConfiguration,
 } from "../models/models_1";
@@ -458,6 +462,7 @@ export const se_AbortMultipartUploadCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     [_xarp]: input[_RP]!,
     [_xaebo]: input[_EBO]!,
+    [_xaimit]: [() => isSerializableHeaderValue(input[_IMIT]), () => __dateToUtcString(input[_IMIT]!).toString()],
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -971,6 +976,9 @@ export const se_DeleteObjectCommand = async (
     [_xarp]: input[_RP]!,
     [_xabgr]: [() => isSerializableHeaderValue(input[_BGR]), () => input[_BGR]!.toString()],
     [_xaebo]: input[_EBO]!,
+    [_im]: input[_IM]!,
+    [_xaimlmt]: [() => isSerializableHeaderValue(input[_IMLMT]), () => __dateToUtcString(input[_IMLMT]!).toString()],
+    [_xaims]: [() => isSerializableHeaderValue(input[_IMS]), () => input[_IMS]!.toString()],
   });
   b.bp("/{Key+}");
   b.p("Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -1498,7 +1506,7 @@ export const se_GetObjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_im]: input[_IM]!,
-    [_ims]: [() => isSerializableHeaderValue(input[_IMS]), () => __dateToUtcString(input[_IMS]!).toString()],
+    [_ims]: [() => isSerializableHeaderValue(input[_IMSf]), () => __dateToUtcString(input[_IMSf]!).toString()],
     [_inm]: input[_INM]!,
     [_ius]: [() => isSerializableHeaderValue(input[_IUS]), () => __dateToUtcString(input[_IUS]!).toString()],
     [_ra]: input[_R]!,
@@ -1747,7 +1755,7 @@ export const se_HeadObjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     [_im]: input[_IM]!,
-    [_ims]: [() => isSerializableHeaderValue(input[_IMS]), () => __dateToUtcString(input[_IMS]!).toString()],
+    [_ims]: [() => isSerializableHeaderValue(input[_IMSf]), () => __dateToUtcString(input[_IMSf]!).toString()],
     [_inm]: input[_INM]!,
     [_ius]: [() => isSerializableHeaderValue(input[_IUS]), () => __dateToUtcString(input[_IUS]!).toString()],
     [_ra]: input[_R]!,
@@ -2637,6 +2645,7 @@ export const se_PutObjectCommand = async (
     [_xagr]: input[_GR]!,
     [_xagra]: input[_GRACP]!,
     [_xagwa]: input[_GWACP]!,
+    [_xawob]: [() => isSerializableHeaderValue(input[_WOB]), () => input[_WOB]!.toString()],
     [_xasse]: input[_SSE]!,
     [_xasc]: input[_SC]!,
     [_xawrl]: input[_WRL]!,
@@ -5154,6 +5163,7 @@ export const de_PutObjectCommand = async (
     [_SSEKMSKI]: [, output.headers[_xasseakki]],
     [_SSEKMSEC]: [, output.headers[_xassec]],
     [_BKE]: [() => void 0 !== output.headers[_xassebke], () => __parseBoolean(output.headers[_xassebke])],
+    [_Si]: [() => void 0 !== output.headers[_xaos], () => __strictParseLong(output.headers[_xaos])],
     [_RC]: [, output.headers[_xarc]],
   });
   await collectBody(output.body, context);
@@ -5408,6 +5418,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NotFound":
     case "com.amazonaws.s3#NotFound":
       throw await de_NotFoundRes(parsedOutput, context);
+    case "EncryptionTypeMismatch":
+    case "com.amazonaws.s3#EncryptionTypeMismatch":
+      throw await de_EncryptionTypeMismatchRes(parsedOutput, context);
+    case "InvalidRequest":
+    case "com.amazonaws.s3#InvalidRequest":
+      throw await de_InvalidRequestRes(parsedOutput, context);
+    case "InvalidWriteOffset":
+    case "com.amazonaws.s3#InvalidWriteOffset":
+      throw await de_InvalidWriteOffsetRes(parsedOutput, context);
+    case "TooManyParts":
+    case "com.amazonaws.s3#TooManyParts":
+      throw await de_TooManyPartsRes(parsedOutput, context);
     case "ObjectAlreadyInActiveTierError":
     case "com.amazonaws.s3#ObjectAlreadyInActiveTierError":
       throw await de_ObjectAlreadyInActiveTierErrorRes(parsedOutput, context);
@@ -5452,6 +5474,22 @@ const de_BucketAlreadyOwnedByYouRes = async (
 };
 
 /**
+ * deserializeAws_restXmlEncryptionTypeMismatchRes
+ */
+const de_EncryptionTypeMismatchRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EncryptionTypeMismatch> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new EncryptionTypeMismatch({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restXmlInvalidObjectStateRes
  */
 const de_InvalidObjectStateRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidObjectState> => {
@@ -5464,6 +5502,32 @@ const de_InvalidObjectStateRes = async (parsedOutput: any, context: __SerdeConte
     contents[_SC] = __expectString(data[_SC]);
   }
   const exception = new InvalidObjectState({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restXmlInvalidRequestRes
+ */
+const de_InvalidRequestRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidRequest> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new InvalidRequest({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restXmlInvalidWriteOffsetRes
+ */
+const de_InvalidWriteOffsetRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidWriteOffset> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new InvalidWriteOffset({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -5548,6 +5612,19 @@ const de_ObjectNotInActiveTierErrorRes = async (
   const contents: any = map({});
   const data: any = parsedOutput.body;
   const exception = new ObjectNotInActiveTierError({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restXmlTooManyPartsRes
+ */
+const de_TooManyPartsRes = async (parsedOutput: any, context: __SerdeContext): Promise<TooManyParts> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const exception = new TooManyParts({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -6684,6 +6761,13 @@ const se_ObjectIdentifier = (input: ObjectIdentifier, context: __SerdeContext): 
   }
   if (input[_VI] != null) {
     bn.c(__XmlNode.of(_OVI, input[_VI]).n(_VI));
+  }
+  bn.cc(input, _ETa);
+  if (input[_LMT] != null) {
+    bn.c(__XmlNode.of(_LMT, __dateToUtcString(input[_LMT]).toString()).n(_LMT));
+  }
+  if (input[_Si] != null) {
+    bn.c(__XmlNode.of(_Si, String(input[_Si])).n(_Si));
   }
   return bn;
 };
@@ -9833,7 +9917,10 @@ const _II = "InventoryId";
 const _IIOV = "InventoryIncludedObjectVersions";
 const _IL = "IsLatest";
 const _IM = "IfMatch";
-const _IMS = "IfModifiedSince";
+const _IMIT = "IfMatchInitiatedTime";
+const _IMLMT = "IfMatchLastModifiedTime";
+const _IMS = "IfMatchSize";
+const _IMSf = "IfModifiedSince";
 const _INM = "IfNoneMatch";
 const _IOF = "InventoryOptionalField";
 const _IOV = "IncludedObjectVersions";
@@ -9876,6 +9963,7 @@ const _LFC = "LambdaFunctionConfigurations";
 const _LFCa = "LambdaFunctionConfiguration";
 const _LI = "LocationInfo";
 const _LM = "LastModified";
+const _LMT = "LastModifiedTime";
 const _LNAS = "LocationNameAsString";
 const _LP = "LocationPrefix";
 const _LR = "LifecycleRule";
@@ -10102,6 +10190,7 @@ const _VIM = "VersionIdMarker";
 const _Va = "Value";
 const _Ve = "Versions";
 const _WC = "WebsiteConfiguration";
+const _WOB = "WriteOffsetBytes";
 const _WRL = "WebsiteRedirectLocation";
 const _Y = "Years";
 const _a = "analytics";
@@ -10258,6 +10347,9 @@ const _xagr = "x-amz-grant-read";
 const _xagra = "x-amz-grant-read-acp";
 const _xagw = "x-amz-grant-write";
 const _xagwa = "x-amz-grant-write-acp";
+const _xaimit = "x-amz-if-match-initiated-time";
+const _xaimlmt = "x-amz-if-match-last-modified-time";
+const _xaims = "x-amz-if-match-size";
 const _xam = "x-amz-mfa";
 const _xamd = "x-amz-metadata-directive";
 const _xamm = "x-amz-missing-meta";
@@ -10269,6 +10361,7 @@ const _xaolm = "x-amz-object-lock-mode";
 const _xaolrud = "x-amz-object-lock-retain-until-date";
 const _xaoo = "x-amz-object-ownership";
 const _xaooa = "x-amz-optional-object-attributes";
+const _xaos = "x-amz-object-size";
 const _xapnm = "x-amz-part-number-marker";
 const _xar = "x-amz-restore";
 const _xarc = "x-amz-request-charged";
@@ -10293,5 +10386,6 @@ const _xatc = "x-amz-tagging-count";
 const _xatd = "x-amz-tagging-directive";
 const _xatdmos = "x-amz-transition-default-minimum-object-size";
 const _xavi = "x-amz-version-id";
+const _xawob = "x-amz-write-offset-bytes";
 const _xawrl = "x-amz-website-redirect-location";
 const _xi = "x-id";

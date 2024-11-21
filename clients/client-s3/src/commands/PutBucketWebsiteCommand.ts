@@ -30,7 +30,7 @@ export interface PutBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the configuration of the website that is specified in the <code>website</code>
  *          subresource. To configure a bucket as a website, you can add this subresource on the bucket

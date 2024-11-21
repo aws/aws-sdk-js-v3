@@ -30,7 +30,7 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the tags for a bucket.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this,

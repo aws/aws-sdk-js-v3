@@ -31,7 +31,7 @@ export interface PutObjectLegalHoldCommandOutput extends PutObjectLegalHoldOutpu
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Applies a legal hold configuration to the specified object. For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking

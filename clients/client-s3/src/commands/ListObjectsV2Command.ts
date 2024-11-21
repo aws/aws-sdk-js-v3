@@ -33,24 +33,27 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *          use the request parameters as selection criteria to return a subset of the objects in a
  *          bucket. A <code>200 OK</code> response can contain valid or invalid XML. Make sure to
  *          design your application to parse the contents of the response and handle it appropriately.
- *
  *          For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing object keys
- *             programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
+ *             programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list of
+ *          your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>General purpose bucket</b> - For general purpose buckets, <code>ListObjectsV2</code> doesn't return prefixes that are related only to in-progress multipart uploads.</p>
+ *                      <b>General purpose bucket</b> - For general purpose buckets,
+ *                      <code>ListObjectsV2</code> doesn't return prefixes that are related only to
+ *                   in-progress multipart uploads.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> - For
+ *                   directory buckets, <code>ListObjectsV2</code> response includes the prefixes that
+ *                   are related only to in-progress multipart uploads. </p>
  *                </li>
  *                <li>
  *                   <p>
  *                      <b>Directory buckets</b> -
- *                For directory buckets, <code>ListObjectsV2</code> response includes the prefixes that are related only to in-progress multipart uploads.
- *               </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
  *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
@@ -62,11 +65,13 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - To use this operation, you must have READ access to the bucket. You must have permission to perform
- *                         the <code>s3:ListBucket</code> action. The bucket owner has this permission by default and
- *                         can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *                               Access Permissions to Your Amazon S3 Resources</a> in the
- *                         <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - To
+ *                         use this operation, you must have READ access to the bucket. You must have
+ *                         permission to perform the <code>s3:ListBucket</code> action. The bucket
+ *                         owner has this permission by default and can grant this permission to
+ *                         others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
+ *                            Permissions to Your Amazon S3 Resources</a> in the
+ *                            <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -84,11 +89,15 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket</b> - For general purpose buckets, <code>ListObjectsV2</code> returns objects in lexicographical order based on their key names.</p>
+ *                         <b>General purpose bucket</b> - For
+ *                         general purpose buckets, <code>ListObjectsV2</code> returns objects in
+ *                         lexicographical order based on their key names.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket</b> - For directory buckets, <code>ListObjectsV2</code> does not return objects in lexicographical order.</p>
+ *                         <b>Directory bucket</b> - For
+ *                         directory buckets, <code>ListObjectsV2</code> does not return objects in
+ *                         lexicographical order.</p>
  *                   </li>
  *                </ul>
  *             </dd>

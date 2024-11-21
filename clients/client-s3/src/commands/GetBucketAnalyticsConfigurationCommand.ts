@@ -35,7 +35,7 @@ export interface GetBucketAnalyticsConfigurationCommandOutput
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This implementation of the GET action returns an analytics configuration (identified by
  *          the analytics configuration ID) from the bucket.</p>

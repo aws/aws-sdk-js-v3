@@ -32,7 +32,7 @@ export interface DeleteBucketMetricsConfigurationCommandOutput extends __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Deletes a metrics configuration for the Amazon CloudWatch request metrics (specified by the
  *          metrics configuration ID) from the bucket. Note that this doesn't include the daily storage

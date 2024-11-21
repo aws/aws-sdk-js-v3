@@ -31,7 +31,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
  *          for a new or existing object in an S3 bucket. You must have the <code>WRITE_ACP</code>

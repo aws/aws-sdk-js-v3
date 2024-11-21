@@ -30,7 +30,7 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the tag-set of an object. You send the GET request against the tagging
  *          subresource associated with the object.</p>

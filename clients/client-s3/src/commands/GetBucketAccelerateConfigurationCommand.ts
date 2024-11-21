@@ -35,7 +35,7 @@ export interface GetBucketAccelerateConfigurationCommandOutput
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This implementation of the GET action uses the <code>accelerate</code> subresource to
  *          return the Transfer Acceleration state of a bucket, which is either <code>Enabled</code> or

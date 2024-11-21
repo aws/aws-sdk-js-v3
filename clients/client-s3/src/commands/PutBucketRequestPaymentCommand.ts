@@ -30,7 +30,7 @@ export interface PutBucketRequestPaymentCommandOutput extends __MetadataBearer {
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays
  *          for downloads from the bucket. This configuration parameter enables the bucket owner (only)

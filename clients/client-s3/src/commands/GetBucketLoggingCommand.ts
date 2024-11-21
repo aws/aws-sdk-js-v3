@@ -30,7 +30,7 @@ export interface GetBucketLoggingCommandOutput extends GetBucketLoggingOutput, _
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the logging status of a bucket and the permissions users have to view and modify
  *          that status.</p>

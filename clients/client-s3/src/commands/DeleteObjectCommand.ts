@@ -133,6 +133,9 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *   RequestPayer: "requester",
  *   BypassGovernanceRetention: true || false,
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   IfMatch: "STRING_VALUE",
+ *   IfMatchLastModifiedTime: new Date("TIMESTAMP"),
+ *   IfMatchSize: Number("long"),
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);

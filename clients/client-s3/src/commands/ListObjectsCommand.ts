@@ -30,7 +30,7 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
  *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK

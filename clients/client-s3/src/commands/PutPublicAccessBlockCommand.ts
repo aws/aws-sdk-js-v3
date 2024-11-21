@@ -30,7 +30,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
  *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>

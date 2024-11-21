@@ -30,7 +30,7 @@ export interface GetBucketOwnershipControlsCommandOutput extends GetBucketOwners
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Retrieves <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
  *          must have the <code>s3:GetBucketOwnershipControls</code> permission. For more information

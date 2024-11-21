@@ -32,7 +32,7 @@ export interface PutBucketMetricsConfigurationCommandOutput extends __MetadataBe
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
  *          You can have up to 1,000 metrics configurations per bucket. If you're updating an existing

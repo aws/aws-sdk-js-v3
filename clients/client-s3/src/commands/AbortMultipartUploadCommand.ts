@@ -36,23 +36,24 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *          to abort a given multipart upload multiple times in order to completely free all storage
  *          consumed by all parts. </p>
  *          <p>To verify that all parts have been removed and prevent getting charged for the part
- *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> API operation and ensure that
- *          the parts list is empty.</p>
+ *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> API operation and ensure
+ *          that the parts list is empty.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> -
- *                   If multipart uploads in a directory bucket are in progress, you can't delete the bucket until all the in-progress multipart uploads are aborted or completed.
- *                   To delete these in-progress multipart uploads, use the
- *                <code>ListMultipartUploads</code> operation to list the in-progress multipart
- *                uploads in the bucket and use the <code>AbortMultipartUpload</code> operation to
- *                abort all the in-progress multipart uploads.
- *                </p>
+ *                      <b>Directory buckets</b> - If multipart
+ *                   uploads in a directory bucket are in progress, you can't delete the bucket until
+ *                   all the in-progress multipart uploads are aborted or completed. To delete these
+ *                   in-progress multipart uploads, use the <code>ListMultipartUploads</code> operation
+ *                   to list the in-progress multipart uploads in the bucket and use the
+ *                      <code>AbortMultipartUpload</code> operation to abort all the in-progress
+ *                   multipart uploads. </p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                      <b>Directory buckets</b> -
+ *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
  *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
@@ -64,9 +65,10 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *                         and Permissions</a> in the <i>Amazon S3
- *                            User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - For
+ *                         information about permissions required to use the multipart upload, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -126,6 +128,7 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *   UploadId: "STRING_VALUE", // required
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   IfMatchInitiatedTime: new Date("TIMESTAMP"),
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);

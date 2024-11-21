@@ -32,7 +32,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Passes transformed objects to a <code>GetObject</code> operation when using Object Lambda access points. For
  *          information about Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with

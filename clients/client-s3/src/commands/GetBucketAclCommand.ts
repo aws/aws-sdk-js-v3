@@ -30,7 +30,7 @@ export interface GetBucketAclCommandOutput extends GetBucketAclOutput, __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This implementation of the <code>GET</code> action uses the <code>acl</code> subresource
  *          to return the access control list (ACL) of a bucket. To use <code>GET</code> to return the

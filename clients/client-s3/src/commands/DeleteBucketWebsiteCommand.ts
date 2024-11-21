@@ -29,7 +29,7 @@ export interface DeleteBucketWebsiteCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This action removes the website configuration for a bucket. Amazon S3 returns a <code>200
  *             OK</code> response upon successfully deleting a website configuration on the specified

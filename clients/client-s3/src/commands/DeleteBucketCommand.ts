@@ -34,7 +34,9 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> - If multipart uploads in a directory bucket are in progress, you can't delete the bucket until all the in-progress multipart uploads are aborted or completed.</p>
+ *                      <b>Directory buckets</b> - If multipart
+ *                   uploads in a directory bucket are in progress, you can't delete the bucket until
+ *                   all the in-progress multipart uploads are aborted or completed.</p>
  *                </li>
  *                <li>
  *                   <p>
@@ -51,11 +53,16 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - You must have the <code>s3:DeleteBucket</code> permission on the specified bucket in a policy.</p>
+ *                         <b>General purpose bucket permissions</b> - You
+ *                         must have the <code>s3:DeleteBucket</code> permission on the specified
+ *                         bucket in a policy.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket permissions</b> - You must have the <code>s3express:DeleteBucket</code> permission in an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource. For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>Directory bucket permissions</b> -
+ *                         You must have the <code>s3express:DeleteBucket</code> permission in
+ *                         an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *                         For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                </ul>
  *             </dd>

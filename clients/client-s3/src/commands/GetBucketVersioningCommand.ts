@@ -30,7 +30,7 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the versioning state of a bucket.</p>
  *          <p>To retrieve the versioning state of a bucket, you must be the bucket owner.</p>

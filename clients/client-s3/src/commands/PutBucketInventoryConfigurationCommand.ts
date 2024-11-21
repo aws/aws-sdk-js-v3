@@ -35,7 +35,7 @@ export interface PutBucketInventoryConfigurationCommandOutput extends __Metadata
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This implementation of the <code>PUT</code> action adds an inventory configuration
  *          (identified by the inventory ID) to the bucket. You can have up to 1,000 inventory

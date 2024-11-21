@@ -32,7 +32,7 @@ export interface DeleteBucketOwnershipControlsCommandOutput extends __MetadataBe
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Removes <code>OwnershipControls</code> for an Amazon S3 bucket. To use this operation, you
  *          must have the <code>s3:PutBucketOwnershipControls</code> permission. For more information

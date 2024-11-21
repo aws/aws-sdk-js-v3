@@ -30,7 +30,7 @@ export interface GetBucketPolicyStatusCommandOutput extends GetBucketPolicyStatu
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.
  *          In order to use this operation, you must have the <code>s3:GetBucketPolicyStatus</code>

@@ -33,7 +33,7 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a
  *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>

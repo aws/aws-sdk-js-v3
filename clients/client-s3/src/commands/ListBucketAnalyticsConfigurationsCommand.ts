@@ -35,7 +35,7 @@ export interface ListBucketAnalyticsConfigurationsCommandOutput
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Lists the analytics configurations for the bucket. You can have up to 1,000 analytics
  *          configurations per bucket.</p>

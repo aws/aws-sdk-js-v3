@@ -30,7 +30,7 @@ export interface GetBucketWebsiteCommandOutput extends GetBucketWebsiteOutput, _
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the website configuration for a bucket. To host website on Amazon S3, you can
  *          configure a bucket as website by adding a website configuration. For more information about

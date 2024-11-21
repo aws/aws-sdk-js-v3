@@ -35,7 +35,7 @@ export interface ListBucketMetricsConfigurationsCommandOutput
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Lists the metrics configurations for the bucket. The metrics configurations are only for
  *          the request metrics of the bucket and do not provide information on daily storage metrics.

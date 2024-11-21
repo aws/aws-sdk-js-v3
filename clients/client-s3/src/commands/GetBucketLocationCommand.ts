@@ -30,7 +30,7 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the Region the bucket resides in. You set the bucket's Region using the
  *             <code>LocationConstraint</code> request parameter in a <code>CreateBucket</code>

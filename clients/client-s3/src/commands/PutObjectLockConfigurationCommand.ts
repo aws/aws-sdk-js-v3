@@ -31,7 +31,7 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Places an Object Lock configuration on the specified bucket. The rule specified in the
  *          Object Lock configuration will be applied by default to every new object placed in the
@@ -48,8 +48,8 @@ export interface PutObjectLockConfigurationCommandOutput extends PutObjectLockCo
  *                      <code>Days</code> and <code>Years</code> at the same time.</p>
  *                </li>
  *                <li>
- *                   <p>You can enable Object Lock for new or existing buckets. For more
- *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html">Configuring Object
+ *                   <p>You can enable Object Lock for new or existing buckets. For more information,
+ *                   see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-configure.html">Configuring Object
  *                      Lock</a>.</p>
  *                </li>
  *             </ul>

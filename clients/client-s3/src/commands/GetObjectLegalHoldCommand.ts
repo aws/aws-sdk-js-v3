@@ -30,7 +30,7 @@ export interface GetObjectLegalHoldCommandOutput extends GetObjectLegalHoldOutpu
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Gets an object's current legal hold status. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Locking
  *          Objects</a>.</p>

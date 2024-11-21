@@ -184,7 +184,8 @@ export interface PutBucketPolicyRequest {
 
   /**
    * <p>The bucket policy as a JSON document.</p>
-   *          <p>For directory buckets, the only IAM action supported in the bucket policy is <code>s3express:CreateSession</code>.</p>
+   *          <p>For directory buckets, the only IAM action supported in the bucket policy is
+   *             <code>s3express:CreateSession</code>.</p>
    * @public
    */
   Policy: string | undefined;
@@ -538,14 +539,91 @@ export interface PutBucketWebsiteRequest {
 }
 
 /**
+ * <p>
+ *          The existing object was created with a different encryption type.
+ *          Subsequent write requests must include the appropriate encryption
+ *          parameters in the request or while creating the session.
+ *       </p>
+ * @public
+ */
+export class EncryptionTypeMismatch extends __BaseException {
+  readonly name: "EncryptionTypeMismatch" = "EncryptionTypeMismatch";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EncryptionTypeMismatch, __BaseException>) {
+    super({
+      name: "EncryptionTypeMismatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EncryptionTypeMismatch.prototype);
+  }
+}
+
+/**
+ * <p>You may receive this error in multiple cases. Depending on the reason for the error, you may receive one of the messages below:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Cannot specify both a write offset value and user-defined object metadata for existing objects.</p>
+ *             </li>
+ *             <li>
+ *                <p>Checksum Type mismatch occurred, expected checksum Type: sha1, actual checksum Type: crc32c.</p>
+ *             </li>
+ *             <li>
+ *                <p>Request body cannot be empty when 'write offset' is specified.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export class InvalidRequest extends __BaseException {
+  readonly name: "InvalidRequest" = "InvalidRequest";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequest, __BaseException>) {
+    super({
+      name: "InvalidRequest",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequest.prototype);
+  }
+}
+
+/**
+ * <p>
+ *          The write offset value that you specified does not match the current object size.
+ *       </p>
+ * @public
+ */
+export class InvalidWriteOffset extends __BaseException {
+  readonly name: "InvalidWriteOffset" = "InvalidWriteOffset";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidWriteOffset, __BaseException>) {
+    super({
+      name: "InvalidWriteOffset",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidWriteOffset.prototype);
+  }
+}
+
+/**
  * @public
  */
 export interface PutObjectOutput {
   /**
-   * <p>If the expiration is configured for the object (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>) in the <i>Amazon S3 User Guide</i>, the response includes this header. It
-   *          includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs that provide
-   *          information about object expiration. The value of the <code>rule-id</code> is
-   *          URL-encoded.</p>
+   * <p>If the expiration is configured for the object (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>) in the <i>Amazon S3 User Guide</i>,
+   *          the response includes this header. It includes the <code>expiry-date</code> and
+   *             <code>rule-id</code> key-value pairs that provide information about object expiration.
+   *          The value of the <code>rule-id</code> is URL-encoded.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -556,12 +634,13 @@ export interface PutObjectOutput {
   /**
    * <p>Entity tag for the uploaded object.</p>
    *          <p>
-   *             <b>General purpose buckets </b> - To ensure that data is not corrupted traversing the network,
-   *          for objects where the
-   *          ETag is the MD5 digest of the object, you can calculate the MD5 while putting an object to Amazon S3 and compare the returned ETag to
-   *       the calculated MD5 value.</p>
+   *             <b>General purpose buckets </b> - To ensure that data is not
+   *          corrupted traversing the network, for objects where the ETag is the MD5 digest of the
+   *          object, you can calculate the MD5 while putting an object to Amazon S3 and compare the returned
+   *          ETag to the calculated MD5 value.</p>
    *          <p>
-   *             <b>Directory buckets </b> - The ETag for the object in a directory bucket isn't the MD5 digest of the object.</p>
+   *             <b>Directory buckets </b> - The ETag for the object in
+   *          a directory bucket isn't the MD5 digest of the object.</p>
    * @public
    */
   ETag?: string | undefined;
@@ -614,10 +693,9 @@ export interface PutObjectOutput {
    *          for the object being stored. Amazon S3 returns this ID in the response. When you enable
    *          versioning for a bucket, if Amazon S3 receives multiple write requests for the same object
    *          simultaneously, it stores all of the objects. For more information about versioning, see
-   *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
-   *             Versioning-Enabled Buckets</a> in the <i>Amazon S3
-   *                User Guide</i>. For information about returning the versioning state
-   *          of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>. </p>
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/AddingObjectstoVersioningEnabledBuckets.html">Adding Objects to
+   *             Versioning-Enabled Buckets</a> in the <i>Amazon S3 User Guide</i>. For
+   *          information about returning the versioning state of a bucket, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketVersioning.html">GetBucketVersioning</a>. </p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -637,8 +715,8 @@ export interface PutObjectOutput {
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
-   *          response will include this header to provide the round-trip message integrity verification of
-   *          the customer-provided encryption key.</p>
+   *          response will include this header to provide the round-trip message integrity verification
+   *          of the customer-provided encryption key.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -670,6 +748,17 @@ export interface PutObjectOutput {
   BucketKeyEnabled?: boolean | undefined;
 
   /**
+   * <p>
+   *          The size of the object in bytes. This will only be present if you append to an object.
+   *       </p>
+   *          <note>
+   *             <p>This functionality is only supported for objects in the Amazon S3 Express One Zone storage class in directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  Size?: number | undefined;
+
+  /**
    * <p>If present, indicates that the requester was successfully charged for the
    *          request.</p>
    *          <note>
@@ -686,7 +775,7 @@ export interface PutObjectOutput {
 export interface PutObjectRequest {
   /**
    * <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned
-   *          ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>When adding a new object, you can use headers to grant ACL-based permissions to
    *          individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are
    *          then added to the ACL on the object. By default, all objects are private. Only the owner
@@ -699,7 +788,7 @@ export interface PutObjectRequest {
    *          specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code>
    *          canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that
    *          contain other ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a
-   *          <code>400</code> error with the error code <code>AccessControlListNotSupported</code>.
+   *             <code>400</code> error with the error code <code>AccessControlListNotSupported</code>.
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html"> Controlling ownership of
    *             objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
@@ -725,7 +814,8 @@ export interface PutObjectRequest {
   /**
    * <p>The bucket name to which the PUT action was initiated. </p>
    *          <p>
-   *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
+   *             <b>Directory buckets</b> -
+   *          When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
@@ -786,10 +876,10 @@ export interface PutObjectRequest {
    *          Content-MD5 mechanism as an end-to-end integrity check. For more information about REST
    *          request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p>
    *          <note>
-   *             <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an
-   *          object with a retention period configured using Amazon S3 Object Lock. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket
-   *          </a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is
+   *             required for any request to upload an object with a retention period configured using
+   *             Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket </a> in the
+   *                <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -844,10 +934,10 @@ export interface PutObjectRequest {
    *             <code>ChecksumAlgorithm</code> parameter and uses the checksum algorithm that matches the provided value in <code>x-amz-checksum-<i>algorithm</i>
    *             </code>.</p>
    *          <note>
-   *             <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an
-   *          object with a retention period configured using Amazon S3 Object Lock. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket
-   *          </a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is
+   *             required for any request to upload an object with a retention period configured using
+   *             Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket </a> in the
+   *                <i>Amazon S3 User Guide</i>.</p>
    *          </note>
    *          <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
    * @public
@@ -898,8 +988,11 @@ export interface PutObjectRequest {
   Expires?: Date | undefined;
 
   /**
-   * <p>Uploads the object only if the object key name does not already exist in the bucket specified. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error.</p>
-   *          <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should retry the upload.</p>
+   * <p>Uploads the object only if the object key name does not already exist in the bucket
+   *          specified. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error.</p>
+   *          <p>If a conflicting operation occurs during the upload S3 returns a <code>409
+   *             ConditionalRequestConflict</code> response. On a 409 failure you should retry the
+   *          upload.</p>
    *          <p>Expects the '*' (asterisk) character.</p>
    *          <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
@@ -977,33 +1070,47 @@ export interface PutObjectRequest {
   Key: string | undefined;
 
   /**
+   * <p>
+   *          Specifies the offset for appending data to existing objects in bytes.
+   *          The offset must be equal to the size of the existing object being appended to.
+   *          If no object exists, setting this header to 0 will create a new object.
+   *       </p>
+   *          <note>
+   *             <p>This functionality is only supported for objects in the Amazon S3 Express One Zone storage class in directory buckets.</p>
+   *          </note>
+   * @public
+   */
+  WriteOffsetBytes?: number | undefined;
+
+  /**
    * <p>A map of metadata to store with the object in S3.</p>
    * @public
    */
   Metadata?: Record<string, string> | undefined;
 
   /**
-   * <p>The server-side encryption algorithm that was used when you store this object in Amazon S3 (for example,
-   *             <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
+   * <p>The server-side encryption algorithm that was used when you store this object in Amazon S3
+   *          (for example, <code>AES256</code>, <code>aws:kms</code>, <code>aws:kms:dsse</code>).</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>General purpose buckets </b> - You have four mutually exclusive options to protect data using server-side encryption in
-   *             Amazon S3, depending on how you choose to manage the encryption keys. Specifically, the
-   *             encryption key options are Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS or
-   *             DSSE-KMS), and customer-provided keys (SSE-C). Amazon S3 encrypts data with server-side
-   *             encryption by using Amazon S3 managed keys (SSE-S3) by default. You can optionally tell Amazon S3 to
-   *             encrypt data at rest by using server-side encryption with other key options. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
-   *                Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *                   <b>General purpose buckets </b> - You have four mutually
+   *                exclusive options to protect data using server-side encryption in Amazon S3, depending on
+   *                how you choose to manage the encryption keys. Specifically, the encryption key
+   *                options are Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS or DSSE-KMS), and
+   *                customer-provided keys (SSE-C). Amazon S3 encrypts data with server-side encryption by
+   *                using Amazon S3 managed keys (SSE-S3) by default. You can optionally tell Amazon S3 to encrypt
+   *                data at rest by using server-side encryption with other key options. For more
+   *                information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side
+   *                   Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Directory buckets </b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
+   *                   <b>Directory buckets </b> -
+   *                For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
    *             <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects
    *  are automatically encrypted with the desired encryption settings. For more
-   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.
-   *          </p>
+   *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>. </p>
    *                <p>In the Zonal endpoint API calls (except <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>) using the REST API, the encryption request headers must match the encryption settings that are specified in the <code>CreateSession</code> request.
    *                             You can't override the values of the encryption settings (<code>x-amz-server-side-encryption</code>, <code>x-amz-server-side-encryption-aws-kms-key-id</code>, <code>x-amz-server-side-encryption-context</code>, and <code>x-amz-server-side-encryption-bucket-key-enabled</code>) that are specified in the <code>CreateSession</code> request.
    *                             You don't need to explicitly specify these encryption settings values in Zonal endpoint API calls, and
@@ -1026,16 +1133,17 @@ export interface PutObjectRequest {
   /**
    * <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The
    *          STANDARD storage class provides high durability and high availability. Depending on
-   *          performance needs, you can specify a different Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          performance needs, you can specify a different Storage Class. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage
+   *             Classes</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>For directory buckets, only the S3 Express One Zone storage class is supported to store newly created objects.</p>
+   *                   <p>For directory buckets, only the S3 Express One Zone storage class is supported to store
+   *                   newly created objects.</p>
    *                </li>
    *                <li>
-   *                   <p>Amazon S3 on Outposts only uses
-   *                the OUTPOSTS Storage Class.</p>
+   *                   <p>Amazon S3 on Outposts only uses the OUTPOSTS Storage Class.</p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1046,8 +1154,8 @@ export interface PutObjectRequest {
   /**
    * <p>If the bucket is configured as a website, redirects requests for this object to another
    *          object in the same bucket or to an external URL. Amazon S3 stores the value of this header in
-   *          the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a> in the <i>Amazon S3
-   *                User Guide</i>.</p>
+   *          the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <p>In the following example, the request header sets the redirect to an object
    *          (anotherPage.html) in the same bucket:</p>
    *          <p>
@@ -1060,8 +1168,7 @@ export interface PutObjectRequest {
    *          </p>
    *          <p>For more information about website hosting in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a> and
    *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">How to
-   *                Configure Website Page Redirects</a> in the <i>Amazon S3
-   *                   User Guide</i>. </p>
+   *             Configure Website Page Redirects</a> in the <i>Amazon S3 User Guide</i>. </p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -1071,7 +1178,7 @@ export interface PutObjectRequest {
 
   /**
    * <p>Specifies the algorithm to use when encrypting the object (for example,
-   *          <code>AES256</code>).</p>
+   *             <code>AES256</code>).</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -1157,9 +1264,9 @@ export interface PutObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -1199,7 +1306,8 @@ export interface PutObjectRequest {
 
   /**
    * <p>Specifies whether a legal hold will be applied to this object. For more information
-   *          about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a> in the
+   *             <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -1212,6 +1320,30 @@ export interface PutObjectRequest {
    * @public
    */
   ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * <p>
+ *          You have attempted to add more parts than the maximum of 10000
+ *          that are allowed for this object. You can use the CopyObject operation
+ *          to copy this object to another and then add more data to the newly copied object.
+ *       </p>
+ * @public
+ */
+export class TooManyParts extends __BaseException {
+  readonly name: "TooManyParts" = "TooManyParts";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyParts, __BaseException>) {
+    super({
+      name: "TooManyParts",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyParts.prototype);
+  }
 }
 
 /**
@@ -1328,9 +1460,9 @@ export interface PutObjectAclRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -1400,9 +1532,9 @@ export interface PutObjectLegalHoldRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -1479,9 +1611,9 @@ export interface PutObjectLockConfigurationRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -1568,9 +1700,9 @@ export interface PutObjectRetentionRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -1692,9 +1824,9 @@ export interface PutObjectTaggingRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -2352,9 +2484,9 @@ export interface RestoreObjectRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -2774,8 +2906,8 @@ export interface SelectObjectContentRequest {
  */
 export interface UploadPartOutput {
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for example,
-   *             <code>AES256</code>, <code>aws:kms</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
+   *          example, <code>AES256</code>, <code>aws:kms</code>).</p>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -2834,8 +2966,8 @@ export interface UploadPartOutput {
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
-   *          response will include this header to provide the round-trip message integrity verification of
-   *          the customer-provided encryption key.</p>
+   *          response will include this header to provide the round-trip message integrity verification
+   *          of the customer-provided encryption key.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -2880,7 +3012,8 @@ export interface UploadPartRequest {
   /**
    * <p>The name of the bucket to which the multipart upload was initiated.</p>
    *          <p>
-   *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
+   *             <b>Directory buckets</b> -
+   *          When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
@@ -2988,8 +3121,7 @@ export interface UploadPartRequest {
   UploadId: string | undefined;
 
   /**
-   * <p>Specifies the algorithm to use when encrypting the object (for example,
-   *          AES256).</p>
+   * <p>Specifies the algorithm to use when encrypting the object (for example, AES256).</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -3024,9 +3156,9 @@ export interface UploadPartRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -3117,8 +3249,8 @@ export interface UploadPartCopyOutput {
   CopyPartResult?: CopyPartResult | undefined;
 
   /**
-   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for example,
-   *             <code>AES256</code>, <code>aws:kms</code>).</p>
+   * <p>The server-side encryption algorithm used when you store this object in Amazon S3 (for
+   *          example, <code>AES256</code>, <code>aws:kms</code>).</p>
    * @public
    */
   ServerSideEncryption?: ServerSideEncryption | undefined;
@@ -3135,8 +3267,8 @@ export interface UploadPartCopyOutput {
 
   /**
    * <p>If server-side encryption with a customer-provided encryption key was requested, the
-   *          response will include this header to provide the round-trip message integrity verification of
-   *          the customer-provided encryption key.</p>
+   *          response will include this header to provide the round-trip message integrity verification
+   *          of the customer-provided encryption key.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -3175,7 +3307,8 @@ export interface UploadPartCopyRequest {
   /**
    * <p>The bucket name.</p>
    *          <p>
-   *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
+   *             <b>Directory buckets</b> -
+   *          When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
    *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
@@ -3221,22 +3354,22 @@ export interface UploadPartCopyRequest {
    *                <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.  </p>
    *             </li>
    *          </ul>
-   *          <p>If your bucket has versioning enabled, you could have multiple versions of the
-   *          same object. By default, <code>x-amz-copy-source</code> identifies the current
-   *          version of the source object to copy.
-   *          To copy a specific version of the source object to copy, append <code>?versionId=<version-id></code>
-   *          to the <code>x-amz-copy-source</code> request header (for example,
-   *          <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).
-   *          </p>
-   *          <p>If the current version is a delete marker and you
-   *          don't specify a versionId in the <code>x-amz-copy-source</code> request header, Amazon S3 returns a
-   *          <code>404 Not Found</code> error, because the object does not exist. If you specify versionId in the
-   *          <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3
-   *          returns an HTTP <code>400 Bad Request</code> error, because you are not allowed to specify a delete marker
-   *          as a version for the <code>x-amz-copy-source</code>. </p>
+   *          <p>If your bucket has versioning enabled, you could have multiple versions of the same
+   *          object. By default, <code>x-amz-copy-source</code> identifies the current version of the
+   *          source object to copy. To copy a specific version of the source object to copy, append
+   *             <code>?versionId=<version-id></code> to the <code>x-amz-copy-source</code> request
+   *          header (for example, <code>x-amz-copy-source:
+   *             /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>). </p>
+   *          <p>If the current version is a delete marker and you don't specify a versionId in the
+   *             <code>x-amz-copy-source</code> request header, Amazon S3 returns a <code>404 Not Found</code>
+   *          error, because the object does not exist. If you specify versionId in the
+   *             <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3 returns an
+   *          HTTP <code>400 Bad Request</code> error, because you are not allowed to specify a delete
+   *          marker as a version for the <code>x-amz-copy-source</code>. </p>
    *          <note>
    *             <p>
-   *                <b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
+   *                <b>Directory buckets</b> -
+   *             S3 Versioning isn't enabled and supported for directory buckets.</p>
    *          </note>
    * @public
    */
@@ -3244,16 +3377,15 @@ export interface UploadPartCopyRequest {
 
   /**
    * <p>Copies the object if its entity tag (ETag) matches the specified tag.</p>
-   *          <p>If both of the
-   *       <code>x-amz-copy-source-if-match</code> and
-   *       <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the
-   *       request as follows:</p>
+   *          <p>If both of the <code>x-amz-copy-source-if-match</code> and
+   *             <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the request as
+   *          follows:</p>
    *          <p>
    *             <code>x-amz-copy-source-if-match</code> condition evaluates to <code>true</code>,
    *          and;</p>
    *          <p>
    *             <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to
-   *          <code>false</code>;</p>
+   *             <code>false</code>;</p>
    *          <p>Amazon S3 returns <code>200 OK</code> and copies the data.
    *          </p>
    * @public
@@ -3262,16 +3394,15 @@ export interface UploadPartCopyRequest {
 
   /**
    * <p>Copies the object if it has been modified since the specified time.</p>
-   *          <p>If both of the
-   *       <code>x-amz-copy-source-if-none-match</code> and
-   *       <code>x-amz-copy-source-if-modified-since</code> headers are present in the
-   *       request as follows:</p>
+   *          <p>If both of the <code>x-amz-copy-source-if-none-match</code> and
+   *             <code>x-amz-copy-source-if-modified-since</code> headers are present in the request as
+   *          follows:</p>
    *          <p>
-   *             <code>x-amz-copy-source-if-none-match</code> condition evaluates to
-   *          <code>false</code>, and;</p>
+   *             <code>x-amz-copy-source-if-none-match</code> condition evaluates to <code>false</code>,
+   *          and;</p>
    *          <p>
    *             <code>x-amz-copy-source-if-modified-since</code> condition evaluates to
-   *          <code>true</code>;</p>
+   *             <code>true</code>;</p>
    *          <p>Amazon S3 returns <code>412 Precondition Failed</code> response code.
    *          </p>
    * @public
@@ -3280,16 +3411,15 @@ export interface UploadPartCopyRequest {
 
   /**
    * <p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>
-   *          <p>If both of the
-   *       <code>x-amz-copy-source-if-none-match</code> and
-   *       <code>x-amz-copy-source-if-modified-since</code> headers are present in the
-   *       request as follows:</p>
+   *          <p>If both of the <code>x-amz-copy-source-if-none-match</code> and
+   *             <code>x-amz-copy-source-if-modified-since</code> headers are present in the request as
+   *          follows:</p>
    *          <p>
-   *             <code>x-amz-copy-source-if-none-match</code> condition evaluates to
-   *          <code>false</code>, and;</p>
+   *             <code>x-amz-copy-source-if-none-match</code> condition evaluates to <code>false</code>,
+   *          and;</p>
    *          <p>
    *             <code>x-amz-copy-source-if-modified-since</code> condition evaluates to
-   *          <code>true</code>;</p>
+   *             <code>true</code>;</p>
    *          <p>Amazon S3 returns <code>412 Precondition Failed</code> response code.
    *          </p>
    * @public
@@ -3298,16 +3428,15 @@ export interface UploadPartCopyRequest {
 
   /**
    * <p>Copies the object if it hasn't been modified since the specified time.</p>
-   *          <p>If both of the
-   *          <code>x-amz-copy-source-if-match</code> and
-   *          <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the
-   *          request as follows:</p>
+   *          <p>If both of the <code>x-amz-copy-source-if-match</code> and
+   *             <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the request as
+   *          follows:</p>
    *          <p>
    *             <code>x-amz-copy-source-if-match</code> condition evaluates to <code>true</code>,
    *          and;</p>
    *          <p>
    *             <code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to
-   *          <code>false</code>;</p>
+   *             <code>false</code>;</p>
    *          <p>Amazon S3 returns <code>200 OK</code> and copies the data.
    *          </p>
    * @public
@@ -3343,8 +3472,7 @@ export interface UploadPartCopyRequest {
   UploadId: string | undefined;
 
   /**
-   * <p>Specifies the algorithm to use when encrypting the object (for example,
-   *          AES256).</p>
+   * <p>Specifies the algorithm to use when encrypting the object (for example, AES256).</p>
    *          <note>
    *             <p>This functionality is not supported when the destination bucket is a directory bucket.</p>
    *          </note>
@@ -3378,7 +3506,7 @@ export interface UploadPartCopyRequest {
 
   /**
    * <p>Specifies the algorithm to use when decrypting the source object (for example,
-   *          <code>AES256</code>).</p>
+   *             <code>AES256</code>).</p>
    *          <note>
    *             <p>This functionality is not supported when the source object is in a directory bucket.</p>
    *          </note>
@@ -3411,9 +3539,9 @@ export interface UploadPartCopyRequest {
   /**
    * <p>Confirms that the requester knows that they will be charged for the request. Bucket
    *          owners need not specify this parameter in their requests. If either the source or
-   *          destination S3 bucket has Requester Pays enabled, the requester will pay for
-   *          corresponding charges to copy the object. For information about downloading objects from
-   *          Requester Pays buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
+   *          destination S3 bucket has Requester Pays enabled, the requester will pay for corresponding
+   *          charges to copy the object. For information about downloading objects from Requester Pays
+   *          buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html">Downloading Objects in
    *             Requester Pays Buckets</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
@@ -3777,8 +3905,9 @@ export interface WriteGetObjectResponseRequest {
   SSECustomerAlgorithm?: string | undefined;
 
   /**
-   * <p> If present, specifies the ID (Key ID, Key ARN, or Key Alias) of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric
-   *          encryption customer managed key that was used for stored in Amazon S3 object. </p>
+   * <p> If present, specifies the ID (Key ID, Key ARN, or Key Alias) of the Amazon Web Services Key
+   *          Management Service (Amazon Web Services KMS) symmetric encryption customer managed key that was used for stored in
+   *          Amazon S3 object. </p>
    * @public
    */
   SSEKMSKeyId?: string | undefined;

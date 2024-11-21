@@ -33,7 +33,7 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Puts a S3 Intelligent-Tiering configuration to the specified bucket. You can have up to
  *          1,000 S3 Intelligent-Tiering configurations per bucket.</p>

@@ -30,7 +30,7 @@ export interface GetObjectAclCommandOutput extends GetObjectAclOutput, __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the access control list (ACL) of an object. To use this operation, you must have
  *             <code>s3:GetObjectAcl</code> permissions or <code>READ_ACP</code> access to the object.

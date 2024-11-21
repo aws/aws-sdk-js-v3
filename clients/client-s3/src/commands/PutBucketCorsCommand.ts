@@ -30,7 +30,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the <code>cors</code> configuration for your bucket. If the configuration exists,
  *          Amazon S3 replaces it.</p>

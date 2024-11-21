@@ -29,7 +29,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p> Deletes the replication configuration from the bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the

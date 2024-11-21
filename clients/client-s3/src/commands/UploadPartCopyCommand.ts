@@ -36,43 +36,50 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
 
 /**
  * <p>Uploads a part by copying data from an existing object as data source. To specify the
- *          data source, you add the request header <code>x-amz-copy-source</code> in your request. To specify
- *          a byte range, you add the request header <code>x-amz-copy-source-range</code> in your
- *          request. </p>
+ *          data source, you add the request header <code>x-amz-copy-source</code> in your request. To
+ *          specify a byte range, you add the request header <code>x-amz-copy-source-range</code> in
+ *          your request. </p>
  *          <p>For information about maximum and minimum part sizes and other multipart upload
  *          specifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html">Multipart upload limits</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <note>
- *             <p>Instead of copying data from an existing object as part data, you might use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
- *             action to upload new data as a part of an object in your request.</p>
+ *             <p>Instead of copying data from an existing object as part data, you might use the
+ *                <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a> action to upload new data as a part of an object in your
+ *             request.</p>
  *          </note>
  *          <p>You must initiate a multipart upload before you can upload any part. In response to your
  *          initiate request, Amazon S3 returns the upload ID, a unique identifier that you must include in
  *          your upload part request.</p>
- *          <p>For conceptual information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading
- *          Objects Using Multipart Upload</a> in the
- *          <i>Amazon S3 User Guide</i>. For information about copying objects using a single atomic action vs. a multipart
- *          upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations on Objects</a> in
- *          the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>For conceptual information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
+ *             Upload</a> in the <i>Amazon S3 User Guide</i>. For information about
+ *          copying objects using a single atomic action vs. a multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectOperations.html">Operations on
+ *             Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                <b>Directory buckets</b> -
+ *             For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
  *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          </note>
  *          <dl>
  *             <dt>Authentication and authorization</dt>
  *             <dd>
- *                <p>All <code>UploadPartCopy</code> requests must be authenticated and signed by using IAM credentials (access key ID and secret access key for the IAM identities). All headers with the <code>x-amz-</code> prefix, including
- *                         <code>x-amz-copy-source</code>, must be signed. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p>
+ *                <p>All <code>UploadPartCopy</code> requests must be authenticated and signed by
+ *                   using IAM credentials (access key ID and secret access key for the IAM
+ *                   identities). All headers with the <code>x-amz-</code> prefix, including
+ *                      <code>x-amz-copy-source</code>, must be signed. For more information, see
+ *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p>
  *                <p>
- *                   <b>Directory buckets</b> - You must use IAM credentials to authenticate and authorize your access to the <code>UploadPartCopy</code> API operation, instead of using the
- *                   temporary security credentials through the <code>CreateSession</code> API operation.</p>
- *                <p>Amazon Web Services CLI or SDKs handles authentication and authorization on your behalf.</p>
+ *                   <b>Directory buckets</b> - You must use IAM
+ *                   credentials to authenticate and authorize your access to the
+ *                      <code>UploadPartCopy</code> API operation, instead of using the temporary
+ *                   security credentials through the <code>CreateSession</code> API operation.</p>
+ *                <p>Amazon Web Services CLI or SDKs handles authentication and authorization on your
+ *                   behalf.</p>
  *             </dd>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You must have <code>READ</code> access to the source object and <code>WRITE</code>
- *                   access to the destination bucket.</p>
+ *                <p>You must have <code>READ</code> access to the source object and
+ *                      <code>WRITE</code> access to the destination bucket.</p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -118,8 +125,9 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                   <li>
  *                      <p>
  *                         <b>Directory bucket permissions</b> -
- *                         You must have permissions in a bucket policy or an IAM identity-based policy based on the source and destination
- *                         bucket types in an <code>UploadPartCopy</code> operation.</p>
+ *                         You must have permissions in a bucket policy or an IAM identity-based policy based on the
+ *                         source and destination bucket types in an <code>UploadPartCopy</code>
+ *                         operation.</p>
  *                      <ul>
  *                         <li>
  *                            <p>If the source object that you want to copy is in a
@@ -134,19 +142,21 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                         </li>
  *                         <li>
  *                            <p>If the copy destination is a directory bucket, you must have the
- *                               <b>
+ *                                  <b>
  *                                  <code>s3express:CreateSession</code>
  *                               </b> permission in the
- *                               <code>Action</code> element of a policy to write the object
- *                               to the destination. The <code>s3express:SessionMode</code> condition
- *                               key cannot be set to <code>ReadOnly</code> on the copy destination. </p>
+ *                                  <code>Action</code> element of a policy to write the object to the
+ *                               destination. The <code>s3express:SessionMode</code> condition key
+ *                               cannot be set to <code>ReadOnly</code> on the copy destination.
+ *                            </p>
  *                         </li>
  *                      </ul>
- *                      <p>If the object is encrypted with
- *                         SSE-KMS, you must also have the
- *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
- *                      <p>For example policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services Identity and Access Management (IAM) identity-based policies for S3 Express One Zone</a> in the
- *                         <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If the object is encrypted with SSE-KMS, you must also have the
+ *                            <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions
+ *                         in IAM identity-based policies and KMS key policies for the KMS
+ *                         key.</p>
+ *                      <p>For example policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies for S3 Express One Zone</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-identity-policies.html">Amazon Web Services Identity and Access Management (IAM) identity-based policies for
+ *                            S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -156,18 +166,22 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                   <li>
  *                      <p>
  *                         <b>General purpose buckets </b> -
- *
- *                      For information about using server-side encryption with customer-provided
- *                            encryption keys with the <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>.
- *                      </p>
+ *                          For information about using
+ *                         server-side encryption with customer-provided encryption keys with the
+ *                            <code>UploadPartCopy</code> operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>. </p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory buckets </b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). For more
+ *                         <b>Directory buckets </b> -
+ *                         For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                      <note>
- *                         <p>For directory buckets, when you perform a <code>CreateMultipartUpload</code> operation and an <code>UploadPartCopy</code> operation,
- *                         the request headers you provide in the <code>CreateMultipartUpload</code> request must match the default encryption configuration of the destination bucket. </p>
+ *                         <p>For directory buckets, when you perform a
+ *                               <code>CreateMultipartUpload</code> operation and an
+ *                               <code>UploadPartCopy</code> operation, the request headers you provide
+ *                            in the <code>CreateMultipartUpload</code> request must match the default
+ *                            encryption configuration of the destination bucket. </p>
  *                      </note>
  *                      <p>S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets
  * to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>. In this case, Amazon S3 makes a call to KMS every time a copy request is made for a KMS-encrypted object.</p>
@@ -183,8 +197,8 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                      <ul>
  *                         <li>
  *                            <p>Description: The specified multipart upload does not exist. The
- *                                  upload ID might be invalid, or the multipart upload might have been
- *                                  aborted or completed.</p>
+ *                               upload ID might be invalid, or the multipart upload might have been
+ *                               aborted or completed.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 404 Not Found</p>
@@ -197,7 +211,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                      <ul>
  *                         <li>
  *                            <p>Description: The specified copy source is not supported as a
- *                                     byte-range copy source.</p>
+ *                               byte-range copy source.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 400 Bad Request</p>

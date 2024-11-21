@@ -42,7 +42,8 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *          can be returned with a single call to <code>GetObjectAttributes</code>.</p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                <b>Directory buckets</b> -
+ *             For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
  *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          </note>
@@ -52,26 +53,29 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - To use
- *                         <code>GetObjectAttributes</code>, you must have READ access to the object. The permissions that you need to use this operation depend on whether the
- *                         bucket is versioned. If the bucket is versioned, you need both the
- *                         <code>s3:GetObjectVersion</code> and <code>s3:GetObjectVersionAttributes</code>
- *                         permissions for this operation. If the bucket is not versioned, you need the
- *                         <code>s3:GetObject</code> and <code>s3:GetObjectAttributes</code> permissions.
- *                         For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
- *                            a Policy</a> in the <i>Amazon S3 User Guide</i>. If the object
- *                         that you request does not exist, the error Amazon S3 returns depends on whether you
- *                         also have the <code>s3:ListBucket</code> permission.</p>
+ *                         <b>General purpose bucket permissions</b> - To
+ *                         use <code>GetObjectAttributes</code>, you must have READ access to the
+ *                         object. The permissions that you need to use this operation depend on
+ *                         whether the bucket is versioned. If the bucket is versioned, you need both
+ *                         the <code>s3:GetObjectVersion</code> and
+ *                            <code>s3:GetObjectVersionAttributes</code> permissions for this
+ *                         operation. If the bucket is not versioned, you need the
+ *                            <code>s3:GetObject</code> and <code>s3:GetObjectAttributes</code>
+ *                         permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying
+ *                            Permissions in a Policy</a> in the
+ *                            <i>Amazon S3 User Guide</i>. If the object that you request does
+ *                         not exist, the error Amazon S3 returns depends on whether you also have the
+ *                            <code>s3:ListBucket</code> permission.</p>
  *                      <ul>
  *                         <li>
- *                            <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3
- *                               returns an HTTP status code <code>404 Not Found</code> ("no such key")
- *                               error.</p>
+ *                            <p>If you have the <code>s3:ListBucket</code> permission on the
+ *                               bucket, Amazon S3 returns an HTTP status code <code>404 Not Found</code>
+ *                               ("no such key") error.</p>
  *                         </li>
  *                         <li>
- *                            <p>If you don't have the <code>s3:ListBucket</code> permission, Amazon S3 returns
- *                               an HTTP status code <code>403 Forbidden</code> ("access denied")
- *                               error.</p>
+ *                            <p>If you don't have the <code>s3:ListBucket</code> permission, Amazon S3
+ *                               returns an HTTP status code <code>403 Forbidden</code> ("access
+ *                               denied") error.</p>
  *                         </li>
  *                      </ul>
  *                   </li>
@@ -83,9 +87,12 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
- *                      <p>If the object is encrypted with
- *                      SSE-KMS, you must also have the
- *                         <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions in IAM identity-based policies and KMS key policies for the KMS key.</p>
+ *                      <p>If
+ *                         the
+ *                         object is encrypted with SSE-KMS, you must also have the
+ *                            <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions
+ *                         in IAM identity-based policies and KMS key policies for the KMS
+ *                         key.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -93,16 +100,22 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *             <dd>
  *                <note>
  *                   <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>,
- *                   should not be sent for <code>HEAD</code> requests if your object uses server-side
- *                   encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer server-side
- *                   encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side encryption with Amazon S3
- *                   managed encryption keys (SSE-S3). The <code>x-amz-server-side-encryption</code> header is used when you <code>PUT</code> an object to S3 and want to specify the encryption method.
- *                   If you include this header in a <code>GET</code> request for an object that uses these types of keys,
- *                   you’ll get an HTTP <code>400 Bad Request</code> error. It's because the encryption method can't be changed when you retrieve the object.</p>
+ *                      should not be sent for <code>HEAD</code> requests if your object uses
+ *                      server-side encryption with Key Management Service (KMS) keys (SSE-KMS), dual-layer
+ *                      server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or server-side
+ *                      encryption with Amazon S3 managed encryption keys (SSE-S3). The
+ *                         <code>x-amz-server-side-encryption</code> header is used when you
+ *                         <code>PUT</code> an object to S3 and want to specify the encryption method.
+ *                      If you include this header in a <code>GET</code> request for an object that
+ *                      uses these types of keys, you’ll get an HTTP <code>400 Bad Request</code>
+ *                      error. It's because the encryption method can't be changed when you retrieve
+ *                      the object.</p>
  *                </note>
  *                <p>If you encrypt an object by using server-side encryption with customer-provided
- *                   encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve the
- *                   metadata from the object, you must use the following headers to provide the encryption key for the server to be able to retrieve the object's metadata. The headers are: </p>
+ *                   encryption keys (SSE-C) when you store the object in Amazon S3, then when you retrieve
+ *                   the metadata from the object, you must use the following headers to provide the
+ *                   encryption key for the server to be able to retrieve the object's metadata. The
+ *                   headers are: </p>
  *                <ul>
  *                   <li>
  *                      <p>
@@ -120,12 +133,13 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *                      </p>
  *                   </li>
  *                </ul>
- *                <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
- *                   (Using Customer-Provided Encryption Keys)</a> in the <i>Amazon S3
- *                      User Guide</i>.</p>
+ *                <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side
+ *                      Encryption (Using Customer-Provided Encryption Keys)</a> in the
+ *                      <i>Amazon S3 User Guide</i>.</p>
  *                <note>
  *                   <p>
- *                      <b>Directory bucket permissions</b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
+ *                      <b>Directory bucket permissions</b> -
+ *                      For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your
  *             <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects
  *  are automatically encrypted with the desired encryption settings. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.</p>
@@ -134,43 +148,47 @@ export interface GetObjectAttributesCommandOutput extends GetObjectAttributesOut
  *             <dt>Versioning</dt>
  *             <dd>
  *                <p>
- *                   <b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets. For this API operation, only the <code>null</code> value of the version ID is supported by directory buckets. You can only specify <code>null</code>
- *                         to the <code>versionId</code> query parameter in the request.</p>
+ *                   <b>Directory buckets</b> -
+ *                   S3 Versioning isn't enabled and supported for directory buckets. For this API operation, only the <code>null</code> value of the version ID is supported by directory buckets. You can only specify <code>null</code> to the
+ *                      <code>versionId</code> query parameter in the request.</p>
  *             </dd>
  *             <dt>Conditional request headers</dt>
  *             <dd>
  *                <p>Consider the following when using request headers:</p>
  *                <ul>
  *                   <li>
- *                      <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers
- *                         are present in the request as follows, then Amazon S3 returns the HTTP status code
- *                         <code>200 OK</code> and the data requested:</p>
+ *                      <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code>
+ *                         headers are present in the request as follows, then Amazon S3 returns the HTTP
+ *                         status code <code>200 OK</code> and the data requested:</p>
  *                      <ul>
  *                         <li>
  *                            <p>
- *                               <code>If-Match</code> condition evaluates to <code>true</code>.</p>
+ *                               <code>If-Match</code> condition evaluates to
+ *                               <code>true</code>.</p>
  *                         </li>
  *                         <li>
  *                            <p>
  *                               <code>If-Unmodified-Since</code> condition evaluates to
- *                               <code>false</code>.</p>
+ *                                  <code>false</code>.</p>
  *                         </li>
  *                      </ul>
  *                      <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
  *                   </li>
  *                   <li>
- *                      <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code>
- *                         headers are present in the request as follows, then Amazon S3 returns the HTTP status code
- *                         <code>304 Not Modified</code>:</p>
+ *                      <p>If both of the <code>If-None-Match</code> and
+ *                            <code>If-Modified-Since</code> headers are present in the request as
+ *                         follows, then Amazon S3 returns the HTTP status code <code>304 Not
+ *                            Modified</code>:</p>
  *                      <ul>
  *                         <li>
  *                            <p>
- *                               <code>If-None-Match</code> condition evaluates to <code>false</code>.</p>
+ *                               <code>If-None-Match</code> condition evaluates to
+ *                                  <code>false</code>.</p>
  *                         </li>
  *                         <li>
  *                            <p>
  *                               <code>If-Modified-Since</code> condition evaluates to
- *                               <code>true</code>.</p>
+ *                                  <code>true</code>.</p>
  *                         </li>
  *                      </ul>
  *                      <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>

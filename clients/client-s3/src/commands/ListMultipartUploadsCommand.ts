@@ -29,39 +29,47 @@ export interface ListMultipartUploadsCommandInput extends ListMultipartUploadsRe
 export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsOutput, __MetadataBearer {}
 
 /**
- * <p>This operation lists in-progress multipart uploads in a bucket. An in-progress multipart upload is a
- *          multipart upload that has been initiated by the <code>CreateMultipartUpload</code> request, but
- *          has not yet been completed or aborted.</p>
+ * <p>This operation lists in-progress multipart uploads in a bucket. An in-progress multipart
+ *          upload is a multipart upload that has been initiated by the
+ *             <code>CreateMultipartUpload</code> request, but has not yet been completed or
+ *          aborted.</p>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets</b> - If multipart uploads in
+ *             a directory bucket are in progress, you can't delete the bucket until all the
+ *             in-progress multipart uploads are aborted or completed. To delete these in-progress
+ *             multipart uploads, use the <code>ListMultipartUploads</code> operation to list the
+ *             in-progress multipart uploads in the bucket and use the
+ *                <code>AbortMultipartUpload</code> operation to abort all the in-progress multipart
+ *             uploads. </p>
+ *          </note>
+ *          <p>The <code>ListMultipartUploads</code> operation returns a maximum of 1,000 multipart
+ *          uploads in the response. The limit of 1,000 multipart uploads is also the default value.
+ *          You can further limit the number of uploads in a response by specifying the
+ *             <code>max-uploads</code> request parameter. If there are more than 1,000 multipart
+ *          uploads that satisfy your <code>ListMultipartUploads</code> request, the response returns
+ *          an <code>IsTruncated</code> element with the value of <code>true</code>, a
+ *             <code>NextKeyMarker</code> element, and a <code>NextUploadIdMarker</code> element. To
+ *          list the remaining multipart uploads, you need to make subsequent
+ *             <code>ListMultipartUploads</code> requests. In these requests, include two query
+ *          parameters: <code>key-marker</code> and <code>upload-id-marker</code>. Set the value of
+ *             <code>key-marker</code> to the <code>NextKeyMarker</code> value from the previous
+ *          response. Similarly, set the value of <code>upload-id-marker</code> to the
+ *             <code>NextUploadIdMarker</code> value from the previous response.</p>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets</b> - The
+ *                <code>upload-id-marker</code> element and the <code>NextUploadIdMarker</code> element
+ *             aren't supported by directory buckets. To list the additional multipart uploads, you
+ *             only need to set the value of <code>key-marker</code> to the <code>NextKeyMarker</code>
+ *             value from the previous response. </p>
+ *          </note>
+ *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
+ *             Upload</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
  *                <b>Directory buckets</b> -
- *             If multipart uploads in a directory bucket are in progress, you can't delete the bucket until all the in-progress multipart uploads are aborted or completed.
- *             To delete these in-progress multipart uploads, use the <code>ListMultipartUploads</code> operation to list the in-progress multipart
- *             uploads in the bucket and use the <code>AbortMultipartUpload</code> operation to abort all the in-progress multipart uploads.
- *             </p>
- *          </note>
- *          <p>The <code>ListMultipartUploads</code> operation returns a maximum of 1,000 multipart uploads in the response. The limit of 1,000 multipart
- *          uploads is also the default
- *          value. You can further limit the number of uploads in a response by specifying the
- *          <code>max-uploads</code> request parameter. If there are more than 1,000 multipart uploads that
- *          satisfy your <code>ListMultipartUploads</code> request, the response returns an <code>IsTruncated</code> element
- *          with the value of <code>true</code>, a <code>NextKeyMarker</code> element, and a <code>NextUploadIdMarker</code> element.
- *          To list the remaining multipart uploads, you need to make subsequent <code>ListMultipartUploads</code> requests.
- *          In these requests, include two query parameters: <code>key-marker</code> and <code>upload-id-marker</code>.
- *          Set the value of <code>key-marker</code> to the <code>NextKeyMarker</code> value from the previous response.
- *          Similarly, set the value of <code>upload-id-marker</code> to the <code>NextUploadIdMarker</code> value from the previous response.</p>
- *          <note>
- *             <p>
- *                <b>Directory buckets</b> - The <code>upload-id-marker</code> element and
- *          the <code>NextUploadIdMarker</code> element aren't supported by directory buckets.
- *          To list the additional multipart uploads, you only need to set the value of <code>key-marker</code> to the <code>NextKeyMarker</code> value from the previous response. </p>
- *          </note>
- *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *          Upload</a> in the <i>Amazon S3
- *             User Guide</i>.</p>
- *          <note>
- *             <p>
- *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *             For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
  *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          </note>
@@ -71,9 +79,10 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *                         and Permissions</a> in the <i>Amazon S3
- *                            User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - For
+ *                         information about permissions required to use the multipart upload API, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -91,22 +100,30 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket</b> - In the <code>ListMultipartUploads</code> response, the multipart uploads are sorted based on two criteria:</p>
+ *                         <b>General purpose bucket</b> - In the
+ *                            <code>ListMultipartUploads</code> response, the multipart uploads are
+ *                         sorted based on two criteria:</p>
  *                      <ul>
  *                         <li>
- *                            <p>Key-based sorting - Multipart uploads are initially sorted in ascending order based on their object keys.</p>
+ *                            <p>Key-based sorting - Multipart uploads are initially sorted
+ *                               in ascending order based on their object keys.</p>
  *                         </li>
  *                         <li>
- *                            <p>Time-based sorting - For uploads that share the same object key,
- *                               they are further sorted in ascending order based on the upload initiation time. Among uploads with the same key, the one that was initiated first will appear before the ones that were initiated later.</p>
+ *                            <p>Time-based sorting - For uploads that share the same object
+ *                               key, they are further sorted in ascending order based on the upload
+ *                               initiation time. Among uploads with the same key, the one that was
+ *                               initiated first will appear before the ones that were initiated
+ *                               later.</p>
  *                         </li>
  *                      </ul>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket</b> - In the <code>ListMultipartUploads</code> response, the multipart uploads aren't sorted lexicographically based on the object keys.
+ *                         <b>Directory bucket</b> - In the
+ *                            <code>ListMultipartUploads</code> response, the multipart uploads aren't
+ *                         sorted lexicographically based on the object keys.
  *
- *                         </p>
+ *                      </p>
  *                   </li>
  *                </ul>
  *             </dd>

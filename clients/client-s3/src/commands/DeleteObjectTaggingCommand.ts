@@ -30,7 +30,7 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Removes the entire tag set from the specified object. For more information about
  *          managing object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"> Object Tagging</a>.</p>

@@ -32,7 +32,7 @@ export interface PutBucketNotificationConfigurationCommandOutput extends __Metad
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Enables notifications of specified events for a bucket. For more information about event
  *          notifications, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Event

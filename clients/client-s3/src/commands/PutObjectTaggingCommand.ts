@@ -31,7 +31,7 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the supplied tag-set to an object that already exists in a bucket. A tag is a
  *          key-value pair. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>

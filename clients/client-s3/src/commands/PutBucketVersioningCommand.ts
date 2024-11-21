@@ -30,16 +30,13 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <note>
  *             <p>When you enable versioning on a bucket for the first time, it might take a short
  *             amount of time for the change to be fully propagated. We recommend that you wait for 15
- *             minutes after enabling versioning before issuing write operations
- *             (<code>PUT</code>
- *             or
- *             <code>DELETE</code>)
- *             on objects in the bucket. </p>
+ *             minutes after enabling versioning before issuing write operations (<code>PUT</code> or
+ *                <code>DELETE</code>) on objects in the bucket. </p>
  *          </note>
  *          <p>Sets the versioning state of an existing bucket.</p>
  *          <p>You can set the versioning state with one of the following values:</p>
