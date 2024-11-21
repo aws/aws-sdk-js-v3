@@ -39,6 +39,22 @@ describe(getChecksumAlgorithmForRequest.name, () => {
     });
   });
 
+  describe("returns undefined if input[requestAlgorithmMember] is not set", () => {
+    describe.each([true, false])("when requestChecksumRequired='%s'", (requestChecksumRequired) => {
+      it.each([RequestChecksumCalculation.WHEN_SUPPORTED, RequestChecksumCalculation.WHEN_REQUIRED])(
+        "when requestChecksumCalculation='%s'",
+        (requestChecksumCalculation) => {
+          const mockOptions = {
+            requestChecksumRequired,
+            requestChecksumCalculation,
+            requestAlgorithmMember: mockRequestAlgorithmMember,
+          };
+          expect(getChecksumAlgorithmForRequest({}, mockOptions)).toBeUndefined();
+        }
+      );
+    });
+  });
+
   it("throws error if input[requestAlgorithmMember] if not supported by client", () => {
     const unsupportedAlgo = "unsupportedAlgo";
     const mockInput = { [mockRequestAlgorithmMember]: unsupportedAlgo };
