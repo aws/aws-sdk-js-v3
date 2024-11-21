@@ -12,6 +12,7 @@ import {
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   resolvedPath as __resolvedPath,
+  serializeFloat as __serializeFloat,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -20,6 +21,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   DescribeJobExecutionCommandInput,
@@ -30,6 +32,10 @@ import {
   GetPendingJobExecutionsCommandOutput,
 } from "../commands/GetPendingJobExecutionsCommand";
 import {
+  StartCommandExecutionCommandInput,
+  StartCommandExecutionCommandOutput,
+} from "../commands/StartCommandExecutionCommand";
+import {
   StartNextPendingJobExecutionCommandInput,
   StartNextPendingJobExecutionCommandOutput,
 } from "../commands/StartNextPendingJobExecutionCommand";
@@ -37,12 +43,17 @@ import { UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput } from 
 import { IoTJobsDataPlaneServiceException as __BaseException } from "../models/IoTJobsDataPlaneServiceException";
 import {
   CertificateValidationException,
+  CommandParameterValue,
+  ConflictException,
+  InternalServerException,
   InvalidRequestException,
   InvalidStateTransitionException,
   ResourceNotFoundException,
+  ServiceQuotaExceededException,
   ServiceUnavailableException,
   TerminalStateException,
   ThrottlingException,
+  ValidationException,
 } from "../models/models_0";
 
 /**
@@ -79,6 +90,32 @@ export const se_GetPendingJobExecutionsCommand = async (
   b.p("thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartCommandExecutionCommand
+ */
+export const se_StartCommandExecutionCommand = async (
+  input: StartCommandExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/command-executions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      commandArn: [],
+      executionTimeoutSeconds: [],
+      parameters: (_) => se_CommandExecutionParameterMap(_, context),
+      targetArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -180,6 +217,27 @@ export const de_GetPendingJobExecutionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartCommandExecutionCommand
+ */
+export const de_StartCommandExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCommandExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    executionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartNextPendingJobExecutionCommand
  */
 export const de_StartNextPendingJobExecutionCommand = async (
@@ -250,6 +308,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ThrottlingException":
     case "com.amazonaws.iotjobsdataplane#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotjobsdataplane#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotjobsdataplane#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.iotjobsdataplane#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotjobsdataplane#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "InvalidStateTransitionException":
     case "com.amazonaws.iotjobsdataplane#InvalidStateTransitionException":
       throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
@@ -278,6 +348,44 @@ const de_CertificateValidationExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new CertificateValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+    resourceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServerException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -345,6 +453,26 @@ const de_ResourceNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ServiceUnavailableExceptionRes
  */
 const de_ServiceUnavailableExceptionRes = async (
@@ -400,6 +528,54 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
     ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * serializeAws_restJson1CommandExecutionParameterMap
+ */
+const se_CommandExecutionParameterMap = (
+  input: Record<string, CommandParameterValue>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_CommandParameterValue(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1CommandParameterValue
+ */
+const se_CommandParameterValue = (input: CommandParameterValue, context: __SerdeContext): any => {
+  return take(input, {
+    B: [],
+    BIN: context.base64Encoder,
+    D: __serializeFloat,
+    I: [],
+    L: [],
+    S: [],
+    UL: [],
+  });
 };
 
 // se_DetailsMap omitted.
