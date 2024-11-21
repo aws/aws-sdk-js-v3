@@ -91,6 +91,7 @@ import {
   DeleteDeliverySourceCommandOutput,
 } from "./commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand";
+import { DeleteIndexPolicyCommandInput, DeleteIndexPolicyCommandOutput } from "./commands/DeleteIndexPolicyCommand";
 import {
   DeleteLogAnomalyDetectorCommandInput,
   DeleteLogAnomalyDetectorCommandOutput,
@@ -114,6 +115,7 @@ import {
   DeleteSubscriptionFilterCommandInput,
   DeleteSubscriptionFilterCommandOutput,
 } from "./commands/DeleteSubscriptionFilterCommand";
+import { DeleteTransformerCommandInput, DeleteTransformerCommandOutput } from "./commands/DeleteTransformerCommand";
 import {
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
@@ -139,6 +141,14 @@ import {
   DescribeExportTasksCommandInput,
   DescribeExportTasksCommandOutput,
 } from "./commands/DescribeExportTasksCommand";
+import {
+  DescribeFieldIndexesCommandInput,
+  DescribeFieldIndexesCommandOutput,
+} from "./commands/DescribeFieldIndexesCommand";
+import {
+  DescribeIndexPoliciesCommandInput,
+  DescribeIndexPoliciesCommandOutput,
+} from "./commands/DescribeIndexPoliciesCommand";
 import { DescribeLogGroupsCommandInput, DescribeLogGroupsCommandOutput } from "./commands/DescribeLogGroupsCommand";
 import { DescribeLogStreamsCommandInput, DescribeLogStreamsCommandOutput } from "./commands/DescribeLogStreamsCommand";
 import {
@@ -182,11 +192,16 @@ import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { GetTransformerCommandInput, GetTransformerCommandOutput } from "./commands/GetTransformerCommand";
 import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "./commands/ListAnomaliesCommand";
 import {
   ListLogAnomalyDetectorsCommandInput,
   ListLogAnomalyDetectorsCommandOutput,
 } from "./commands/ListLogAnomalyDetectorsCommand";
+import {
+  ListLogGroupsForQueryCommandInput,
+  ListLogGroupsForQueryCommandOutput,
+} from "./commands/ListLogGroupsForQueryCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -211,6 +226,7 @@ import {
   PutDestinationPolicyCommandInput,
   PutDestinationPolicyCommandOutput,
 } from "./commands/PutDestinationPolicyCommand";
+import { PutIndexPolicyCommandInput, PutIndexPolicyCommandOutput } from "./commands/PutIndexPolicyCommand";
 import { PutLogEventsCommandInput, PutLogEventsCommandOutput } from "./commands/PutLogEventsCommand";
 import { PutMetricFilterCommandInput, PutMetricFilterCommandOutput } from "./commands/PutMetricFilterCommand";
 import { PutQueryDefinitionCommandInput, PutQueryDefinitionCommandOutput } from "./commands/PutQueryDefinitionCommand";
@@ -220,12 +236,14 @@ import {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
+import { PutTransformerCommandInput, PutTransformerCommandOutput } from "./commands/PutTransformerCommand";
 import { StartLiveTailCommandInput, StartLiveTailCommandOutput } from "./commands/StartLiveTailCommand";
 import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "./commands/TestMetricFilterCommand";
+import { TestTransformerCommandInput, TestTransformerCommandOutput } from "./commands/TestTransformerCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "./commands/UntagLogGroupCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAnomalyCommandInput, UpdateAnomalyCommandOutput } from "./commands/UpdateAnomalyCommand";
@@ -266,6 +284,7 @@ export type ServiceInputTypes =
   | DeleteDeliveryDestinationPolicyCommandInput
   | DeleteDeliverySourceCommandInput
   | DeleteDestinationCommandInput
+  | DeleteIndexPolicyCommandInput
   | DeleteLogAnomalyDetectorCommandInput
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
@@ -274,6 +293,7 @@ export type ServiceInputTypes =
   | DeleteResourcePolicyCommandInput
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
+  | DeleteTransformerCommandInput
   | DescribeAccountPoliciesCommandInput
   | DescribeConfigurationTemplatesCommandInput
   | DescribeDeliveriesCommandInput
@@ -281,6 +301,8 @@ export type ServiceInputTypes =
   | DescribeDeliverySourcesCommandInput
   | DescribeDestinationsCommandInput
   | DescribeExportTasksCommandInput
+  | DescribeFieldIndexesCommandInput
+  | DescribeIndexPoliciesCommandInput
   | DescribeLogGroupsCommandInput
   | DescribeLogStreamsCommandInput
   | DescribeMetricFiltersCommandInput
@@ -300,8 +322,10 @@ export type ServiceInputTypes =
   | GetLogGroupFieldsCommandInput
   | GetLogRecordCommandInput
   | GetQueryResultsCommandInput
+  | GetTransformerCommandInput
   | ListAnomaliesCommandInput
   | ListLogAnomalyDetectorsCommandInput
+  | ListLogGroupsForQueryCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
@@ -311,18 +335,21 @@ export type ServiceInputTypes =
   | PutDeliverySourceCommandInput
   | PutDestinationCommandInput
   | PutDestinationPolicyCommandInput
+  | PutIndexPolicyCommandInput
   | PutLogEventsCommandInput
   | PutMetricFilterCommandInput
   | PutQueryDefinitionCommandInput
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
   | PutSubscriptionFilterCommandInput
+  | PutTransformerCommandInput
   | StartLiveTailCommandInput
   | StartQueryCommandInput
   | StopQueryCommandInput
   | TagLogGroupCommandInput
   | TagResourceCommandInput
   | TestMetricFilterCommandInput
+  | TestTransformerCommandInput
   | UntagLogGroupCommandInput
   | UntagResourceCommandInput
   | UpdateAnomalyCommandInput
@@ -347,6 +374,7 @@ export type ServiceOutputTypes =
   | DeleteDeliveryDestinationPolicyCommandOutput
   | DeleteDeliverySourceCommandOutput
   | DeleteDestinationCommandOutput
+  | DeleteIndexPolicyCommandOutput
   | DeleteLogAnomalyDetectorCommandOutput
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
@@ -355,6 +383,7 @@ export type ServiceOutputTypes =
   | DeleteResourcePolicyCommandOutput
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
+  | DeleteTransformerCommandOutput
   | DescribeAccountPoliciesCommandOutput
   | DescribeConfigurationTemplatesCommandOutput
   | DescribeDeliveriesCommandOutput
@@ -362,6 +391,8 @@ export type ServiceOutputTypes =
   | DescribeDeliverySourcesCommandOutput
   | DescribeDestinationsCommandOutput
   | DescribeExportTasksCommandOutput
+  | DescribeFieldIndexesCommandOutput
+  | DescribeIndexPoliciesCommandOutput
   | DescribeLogGroupsCommandOutput
   | DescribeLogStreamsCommandOutput
   | DescribeMetricFiltersCommandOutput
@@ -381,8 +412,10 @@ export type ServiceOutputTypes =
   | GetLogGroupFieldsCommandOutput
   | GetLogRecordCommandOutput
   | GetQueryResultsCommandOutput
+  | GetTransformerCommandOutput
   | ListAnomaliesCommandOutput
   | ListLogAnomalyDetectorsCommandOutput
+  | ListLogGroupsForQueryCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput
@@ -392,18 +425,21 @@ export type ServiceOutputTypes =
   | PutDeliverySourceCommandOutput
   | PutDestinationCommandOutput
   | PutDestinationPolicyCommandOutput
+  | PutIndexPolicyCommandOutput
   | PutLogEventsCommandOutput
   | PutMetricFilterCommandOutput
   | PutQueryDefinitionCommandOutput
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput
+  | PutTransformerCommandOutput
   | StartLiveTailCommandOutput
   | StartQueryCommandOutput
   | StopQueryCommandOutput
   | TagLogGroupCommandOutput
   | TagResourceCommandOutput
   | TestMetricFilterCommandOutput
+  | TestTransformerCommandOutput
   | UntagLogGroupCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnomalyCommandOutput

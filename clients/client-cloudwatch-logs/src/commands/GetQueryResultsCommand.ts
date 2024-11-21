@@ -65,7 +65,10 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * //   statistics: { // QueryStatistics
  * //     recordsMatched: Number("double"),
  * //     recordsScanned: Number("double"),
+ * //     estimatedRecordsSkipped: Number("double"),
  * //     bytesScanned: Number("double"),
+ * //     estimatedBytesSkipped: Number("double"),
+ * //     logGroupsScanned: Number("double"),
  * //   },
  * //   status: "Scheduled" || "Running" || "Complete" || "Failed" || "Cancelled" || "Timeout" || "Unknown",
  * //   encryptionKey: "STRING_VALUE",

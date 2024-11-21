@@ -77,6 +77,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *   destinationArn: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE",
  *   distribution: "Random" || "ByLogStream",
+ *   applyOnTransformedLogs: true || false,
  * };
  * const command = new PutSubscriptionFilterCommand(input);
  * const response = await client.send(command);
@@ -89,6 +90,9 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * @see {@link PutSubscriptionFilterCommandInput} for command's `input` shape.
  * @see {@link PutSubscriptionFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation is not valid on the specified resource.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>A parameter is specified incorrectly.</p>

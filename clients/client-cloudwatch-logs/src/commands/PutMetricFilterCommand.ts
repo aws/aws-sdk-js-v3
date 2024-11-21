@@ -34,7 +34,7 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *          <p>The maximum number of metric filters that can be associated with a log group is
  *       100.</p>
  *          <p>Using regular expressions to create metric filters is supported. For these filters,
- *       there is a quotas of quota of two regular expression patterns within a single filter pattern. There
+ *       there is a quota of two regular expression patterns within a single filter pattern. There
  *       is also a quota of five regular expression patterns per log group.
  *     For more information about using regular expressions in metric filters,
  *     see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
@@ -78,6 +78,7 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  *       unit: "Seconds" || "Microseconds" || "Milliseconds" || "Bytes" || "Kilobytes" || "Megabytes" || "Gigabytes" || "Terabytes" || "Bits" || "Kilobits" || "Megabits" || "Gigabits" || "Terabits" || "Percent" || "Count" || "Bytes/Second" || "Kilobytes/Second" || "Megabytes/Second" || "Gigabytes/Second" || "Terabytes/Second" || "Bits/Second" || "Kilobits/Second" || "Megabits/Second" || "Gigabits/Second" || "Terabits/Second" || "Count/Second" || "None",
  *     },
  *   ],
+ *   applyOnTransformedLogs: true || false,
  * };
  * const command = new PutMetricFilterCommand(input);
  * const response = await client.send(command);
@@ -90,6 +91,9 @@ export interface PutMetricFilterCommandOutput extends __MetadataBearer {}
  * @see {@link PutMetricFilterCommandInput} for command's `input` shape.
  * @see {@link PutMetricFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation is not valid on the specified resource.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>A parameter is specified incorrectly.</p>

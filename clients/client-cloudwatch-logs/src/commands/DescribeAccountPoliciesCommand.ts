@@ -36,11 +36,12 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * // const { CloudWatchLogsClient, DescribeAccountPoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeAccountPoliciesRequest
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY", // required
  *   policyName: "STRING_VALUE",
  *   accountIdentifiers: [ // AccountIds
  *     "STRING_VALUE",
  *   ],
+ *   nextToken: "STRING_VALUE",
  * };
  * const command = new DescribeAccountPoliciesCommand(input);
  * const response = await client.send(command);
@@ -50,12 +51,13 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * //       policyName: "STRING_VALUE",
  * //       policyDocument: "STRING_VALUE",
  * //       lastUpdatedTime: Number("long"),
- * //       policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY",
+ * //       policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY",
  * //       scope: "ALL",
  * //       selectionCriteria: "STRING_VALUE",
  * //       accountId: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```

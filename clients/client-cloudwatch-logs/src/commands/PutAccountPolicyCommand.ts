@@ -28,7 +28,8 @@ export interface PutAccountPolicyCommandInput extends PutAccountPolicyRequest {}
 export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an account-level data protection policy or subscription filter policy that applies to all log groups
+ * <p>Creates an account-level data protection policy, subscription filter policy, or field index policy
+ *       that applies to all log groups
  *       or a subset of log groups in the account.</p>
  *          <p>
  *             <b>Data protection policy</b>
@@ -89,6 +90,66 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  *       If you are updating an existing filter, you must specify the correct name in <code>PolicyName</code>.
  *       To perform a <code>PutAccountPolicy</code> subscription filter operation for any destination except a Lambda
  *       function, you must also have the <code>iam:PassRole</code> permission.</p>
+ *          <p>
+ *             <b>Transformer policy</b>
+ *          </p>
+ *          <p>Creates or updates a <i>log transformer policy</i> for your account. You use log transformers to transform log events into
+ *       a different format, making them easier for you to process and analyze. You can also transform logs from different sources into standardized formats that
+ *       contain
+ *       relevant, source-specific information. After you have created a transformer,
+ *       CloudWatch Logs performs this transformation at the time of log ingestion. You can then refer to the transformed versions of the logs during
+ *       operations such as querying with CloudWatch Logs Insights or creating metric filters or subscription filters.</p>
+ *          <p>You can also use a transformer to copy metadata from metadata keys into the log events themselves. This metadata can include log group name,
+ *       log stream name, account ID and Region.</p>
+ *          <p>A transformer for a log group is a series of processors, where each processor applies one type of transformation to the log events
+ *       ingested into this log group. For more information about the available processors to use in a transformer, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-Processors">
+ *         Processors that you can use</a>.</p>
+ *          <p>Having log events in standardized format enables visibility across your applications for your log analysis, reporting, and alarming needs.
+ *       CloudWatch Logs provides transformation for common log types with out-of-the-box transformation templates for major Amazon Web Services log sources such
+ *       as VPC flow logs, Lambda, and Amazon RDS. You can use pre-built transformation templates or create custom transformation policies.</p>
+ *          <p>You can create transformers only for the log groups in the Standard log class.</p>
+ *          <p>You can have one account-level transformer policy that applies to all log groups in the account.
+ *       Or you can create as many as 20 account-level transformer policies that are each scoped to a subset of log groups with
+ *       the <code>selectionCriteria</code> parameter. If you have multiple
+ *       account-level transformer policies with selection criteria, no two of them can use the same or overlapping log group name prefixes.
+ *       For example, if you have one policy filtered to log groups that start with <code>my-log</code>, you can't have another field index
+ *       policy filtered to <code>my-logpprod</code> or <code>my-logging</code>.</p>
+ *          <p>You can also set up a transformer at the log-group level. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html">PutTransformer</a>. If there is both a
+ *       log-group level transformer created with <code>PutTransformer</code> and an account-level transformer that could apply to the same log
+ *       group, the log group uses only the log-group level transformer. It ignores the account-level transformer.</p>
+ *          <p>
+ *             <b>Field index policy</b>
+ *          </p>
+ *          <p>You can use field index policies to create indexes on fields found in
+ *       log events in the log group. Creating field indexes can help lower the scan volume for CloudWatch Logs Insights queries that reference
+ *       those fields, because these queries attempt to skip the processing of log events that are known to not match the indexed field.
+ *       Good fields to index are fields that you often need to query for and fields or values that match only a small fraction of the total log events.
+ *       Common examples of indexes
+ *       include request ID, session ID, user IDs, or instance IDs. For more information, see
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html">Create field indexes to improve query performance and reduce costs</a>
+ *          </p>
+ *          <p>To find the fields that are in your log group events, use the
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogGroupFields.html">GetLogGroupFields</a>
+ *       operation.</p>
+ *          <p>For example, suppose you have created a field index for <code>requestId</code>. Then, any
+ *       CloudWatch Logs Insights query on that log group that includes <code>requestId = <i>value</i>
+ *             </code>
+ *       or <code>requestId in [<i>value</i>, <i>value</i>, ...]</code> will attempt to process only the log events where
+ *       the indexed field matches the specified value.</p>
+ *          <p>Matches of log events to the names of indexed fields are case-sensitive. For example, an indexed field
+ *       of <code>RequestId</code> won't match a log event containing <code>requestId</code>.</p>
+ *          <p>You can have one account-level field index policy that applies to all log groups in the account.
+ *       Or you can create as many as 20 account-level field index policies that are each scoped to a subset of log groups with
+ *       the <code>selectionCriteria</code> parameter. If you have multiple
+ *     account-level index policies with selection criteria, no two of them can use the same or overlapping log group name prefixes.
+ *     For example, if you have one policy filtered to log groups that start with <code>my-log</code>, you can't have another field index
+ *     policy filtered to <code>my-logpprod</code> or <code>my-logging</code>.</p>
+ *          <p>If you create an account-level field index policy in a monitoring account in cross-account observability, the policy is applied only
+ *     to the monitoring account and not to any source accounts.</p>
+ *          <p>If you want to create a field index policy for a single log group, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a> instead of
+ *       <code>PutAccountPolicy</code>. If you do so, that log group will use only that log-group level policy, and will ignore the account-level policy
+ *       that you create with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutAccountPolicy.html">PutAccountPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,7 +159,7 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * const input = { // PutAccountPolicyRequest
  *   policyName: "STRING_VALUE", // required
  *   policyDocument: "STRING_VALUE", // required
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY", // required
  *   scope: "ALL",
  *   selectionCriteria: "STRING_VALUE",
  * };
@@ -109,7 +170,7 @@ export interface PutAccountPolicyCommandOutput extends PutAccountPolicyResponse,
  * //     policyName: "STRING_VALUE",
  * //     policyDocument: "STRING_VALUE",
  * //     lastUpdatedTime: Number("long"),
- * //     policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY",
+ * //     policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY",
  * //     scope: "ALL",
  * //     selectionCriteria: "STRING_VALUE",
  * //     accountId: "STRING_VALUE",

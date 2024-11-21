@@ -55,6 +55,7 @@ export interface DescribeSubscriptionFiltersCommandOutput
  * //       destinationArn: "STRING_VALUE",
  * //       roleArn: "STRING_VALUE",
  * //       distribution: "Random" || "ByLogStream",
+ * //       applyOnTransformedLogs: true || false,
  * //       creationTime: Number("long"),
  * //     },
  * //   ],

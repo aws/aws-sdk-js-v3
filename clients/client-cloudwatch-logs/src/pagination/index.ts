@@ -22,3 +22,4 @@ export * from "./Interfaces";
 export * from "./GetLogEventsPaginator";
 export * from "./ListAnomaliesPaginator";
 export * from "./ListLogAnomalyDetectorsPaginator";
+export * from "./ListLogGroupsForQueryPaginator";
