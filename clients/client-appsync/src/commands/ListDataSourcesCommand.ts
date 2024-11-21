@@ -48,7 +48,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //       dataSourceArn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       type: "AWS_LAMBDA" || "AMAZON_DYNAMODB" || "AMAZON_ELASTICSEARCH" || "NONE" || "HTTP" || "RELATIONAL_DATABASE" || "AMAZON_OPENSEARCH_SERVICE" || "AMAZON_EVENTBRIDGE",
+ * //       type: "AWS_LAMBDA" || "AMAZON_DYNAMODB" || "AMAZON_ELASTICSEARCH" || "NONE" || "HTTP" || "RELATIONAL_DATABASE" || "AMAZON_OPENSEARCH_SERVICE" || "AMAZON_EVENTBRIDGE" || "AMAZON_BEDROCK_RUNTIME",
  * //       serviceRoleArn: "STRING_VALUE",
  * //       dynamodbConfig: { // DynamodbDataSourceConfig
  * //         tableName: "STRING_VALUE", // required
