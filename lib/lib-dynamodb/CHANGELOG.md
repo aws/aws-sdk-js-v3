@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** input types conflicts with client-dynamodb ([#6683](https://github.com/aws/aws-sdk-js-v3/issues/6683)) ([fb0e14e](https://github.com/aws/aws-sdk-js-v3/commit/fb0e14ee190dbff2bc3e4d67fcf66f6363e94a81)), closes [#6654](https://github.com/aws/aws-sdk-js-v3/issues/6654) [#6668](https://github.com/aws/aws-sdk-js-v3/issues/6668)
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/lib-dynamodb

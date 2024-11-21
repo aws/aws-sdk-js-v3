@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
+
+
+### Features
+
+* **client-iot-jobs-data-plane:** General Availability (GA) release of AWS IoT Device Management - Commands, to trigger light-weight remote actions on targeted devices ([b203a9c](https://github.com/aws/aws-sdk-js-v3/commit/b203a9c2f341ca2a08bf9575d1cffe15f474893d))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-iot-jobs-data-plane

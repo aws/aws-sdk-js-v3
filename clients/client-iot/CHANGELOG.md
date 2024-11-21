@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
+
+
+### Features
+
+* **client-iot:** General Availability (GA) release of AWS IoT Device Management - Commands, to trigger light-weight remote actions on targeted devices ([e47c526](https://github.com/aws/aws-sdk-js-v3/commit/e47c5263bfc26ebdb9e0918383b7bb463ccda53c))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-iot

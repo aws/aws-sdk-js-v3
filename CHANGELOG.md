@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** input types conflicts with client-dynamodb ([#6683](https://github.com/aws/aws-sdk-js-v3/issues/6683)) ([fb0e14e](https://github.com/aws/aws-sdk-js-v3/commit/fb0e14ee190dbff2bc3e4d67fcf66f6363e94a81)), closes [#6654](https://github.com/aws/aws-sdk-js-v3/issues/6654) [#6668](https://github.com/aws/aws-sdk-js-v3/issues/6668)
+
+
+### Features
+
+* **client-api-gateway:** Added support for custom domain names for private APIs. ([47f4d7f](https://github.com/aws/aws-sdk-js-v3/commit/47f4d7fac2583b1fb8d8323e2fb4ddd48d980d08))
+* **client-application-auto-scaling:** Application Auto Scaling now supports Predictive Scaling to proactively increase the desired capacity ahead of predicted demand, ensuring improved availability and responsiveness for customers' applications. This feature is currently only made available for Amazon ECS Service scalable targets. ([d8a4d0b](https://github.com/aws/aws-sdk-js-v3/commit/d8a4d0be89ed034217e1b011a284c082719e194d))
+* **client-appsync:** Add support for the Amazon Bedrock Runtime. ([dc03b5b](https://github.com/aws/aws-sdk-js-v3/commit/dc03b5bf81e923bff4213f6a05459d596c9ce098))
+* **client-cloudfront:** Adds support for Origin Selection between EMPv2 origins based on media quality score. ([2d9bc39](https://github.com/aws/aws-sdk-js-v3/commit/2d9bc3920132aef2e4c24e4b89da78cce98f098e))
+* **client-cloudtrail:** This release introduces new APIs for creating and managing CloudTrail Lake dashboards. It also adds support for resource-based policies on CloudTrail EventDataStore and Dashboard resource. ([72fc499](https://github.com/aws/aws-sdk-js-v3/commit/72fc49992f13a1bc39214fe2619cb6591cd8657a))
+* **client-cloudwatch-logs:** Adds "Create field indexes to improve query performance and reduce scan volume" and "Transform logs during ingestion". Updates documentation for "PutLogEvents with Entity". ([33993c9](https://github.com/aws/aws-sdk-js-v3/commit/33993c9aeca0486125def37350a7e4d24b8eadb7))
+* **client-cost-explorer:** This release introduces three new APIs that enable you to estimate the cost, coverage, and utilization impact of Savings Plans you plan to purchase. The three APIs are StartCommitmentPurchaseAnalysis, GetCommitmentPurchaseAnalysis, and ListCommitmentPurchaseAnalyses. ([1a8d64c](https://github.com/aws/aws-sdk-js-v3/commit/1a8d64ccb241208def96a4f63c849a2c338905fd))
+* **client-ec2:** Adds support for requesting future-dated Capacity Reservations with a minimum commitment duration, enabling IPAM for organizational units within AWS Organizations, reserving EC2 Capacity Blocks that start in 30 minutes, and extending the end date of existing Capacity Blocks. ([074cf4e](https://github.com/aws/aws-sdk-js-v3/commit/074cf4e830fce887c7920010dc966257e45c185d))
+* **client-elasticache:** Added support to modify the engine type for existing ElastiCache Users and User Groups. Customers can now modify the engine type from redis to valkey. ([217c2b5](https://github.com/aws/aws-sdk-js-v3/commit/217c2b5d231c4645d01145db739e83981f1e4c00))
+* **client-health:** Adds metadata property to an AffectedEntity. ([b98d358](https://github.com/aws/aws-sdk-js-v3/commit/b98d35840fb97f6ce755c7fde38ae04b63b970e8))
+* **client-iot-jobs-data-plane:** General Availability (GA) release of AWS IoT Device Management - Commands, to trigger light-weight remote actions on targeted devices ([b203a9c](https://github.com/aws/aws-sdk-js-v3/commit/b203a9c2f341ca2a08bf9575d1cffe15f474893d))
+* **client-iotfleetwise:** AWS IoT FleetWise now includes campaign parameters to store and forward data, configure MQTT topic as a data destination, and collect diagnostic trouble code data. It includes APIs for network agnostic data collection using custom decoding interfaces, and monitoring the last known state of vehicles. ([5d2c0b1](https://github.com/aws/aws-sdk-js-v3/commit/5d2c0b1be94797682c1330c5bd15cfc69bf43244))
+* **client-iot:** General Availability (GA) release of AWS IoT Device Management - Commands, to trigger light-weight remote actions on targeted devices ([e47c526](https://github.com/aws/aws-sdk-js-v3/commit/e47c5263bfc26ebdb9e0918383b7bb463ccda53c))
+* **client-lambda:** Adds support for metrics for event source mappings for AWS Lambda ([fb9ea84](https://github.com/aws/aws-sdk-js-v3/commit/fb9ea84973d1ebdf67f989b1a995fa7dcf363323))
+* **client-notificationscontacts:** This release adds support for AWS User Notifications Contacts. You can now configure and view email contacts for AWS User Notifications using the AWS SDK. ([6eede48](https://github.com/aws/aws-sdk-js-v3/commit/6eede48a8394ee2c25ac20f2c5e715b61ed830ff))
+* **client-notifications:** This release adds support for AWS User Notifications. You can now configure and view notifications from AWS services in a central location using the AWS SDK. ([a404f1b](https://github.com/aws/aws-sdk-js-v3/commit/a404f1ba18d151b6274b1ca5d0e895f9086e6ad9))
+* **client-resiliencehub:** AWS Resilience Hub's new summary view visually represents applications' resilience through charts, enabling efficient resilience management. It provides a consolidated view of the app portfolio's resilience state and allows data export for custom stakeholder reporting. ([415d379](https://github.com/aws/aws-sdk-js-v3/commit/415d379d772d78bd6f3d71deb696815c9eea7cf0))
+* **client-s3:** Add support for conditional deletes for the S3 DeleteObject and DeleteObjects APIs. Add support for write offset bytes option used to append to objects with the S3 PutObject API. ([d5b27f3](https://github.com/aws/aws-sdk-js-v3/commit/d5b27f31c7ec4928c89915b1cc97604041a2e658))
+* **client-ssm-quicksetup:** Add methods that retrieve details about deployed configurations: ListConfigurations, GetConfiguration ([1681d8f](https://github.com/aws/aws-sdk-js-v3/commit/1681d8f6d1ef1da8b87c6e3bd7d4563e8b26eefb))
+* **client-ssm:** Added support for providing high-level overviews of managed nodes and previewing the potential impact of a runbook execution. ([0f45892](https://github.com/aws/aws-sdk-js-v3/commit/0f45892ea46e8a78460a219bd7d847f0a1ae951a))
+* **client-xray:** AWS X-Ray introduces Transaction Search APIs, enabling span ingestion into CloudWatch Logs for high-scale trace data indexing. These APIs support span-level queries, trace graph generation, and metric correlation for deeper application insights. ([576ea4e](https://github.com/aws/aws-sdk-js-v3/commit/576ea4e14c13e300fa8a3908b7d9f605ff2c3178))
+* **clients:** update client endpoints as of 2024-11-21 ([010e6f3](https://github.com/aws/aws-sdk-js-v3/commit/010e6f3bf2cb872746355467b03fffab3c624871))
+
+
+
+
+
 # [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
 
 
