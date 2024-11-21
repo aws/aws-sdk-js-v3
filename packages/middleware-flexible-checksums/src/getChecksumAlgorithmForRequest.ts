@@ -36,6 +36,10 @@ export const getChecksumAlgorithmForRequest = (
       : undefined;
   }
 
+  if (!input[requestAlgorithmMember]) {
+    return undefined;
+  }
+
   const checksumAlgorithm = input[requestAlgorithmMember];
   // Validate that at least one algorithm from customer preference is supported by the SDK.
   if (!CLIENT_SUPPORTED_ALGORITHMS.includes(checksumAlgorithm)) {
