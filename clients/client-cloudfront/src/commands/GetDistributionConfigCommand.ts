@@ -120,6 +120,7 @@ export interface GetDistributionConfigCommandOutput extends GetDistributionConfi
  * //               },
  * //             ],
  * //           },
+ * //           SelectionCriteria: "default" || "media-quality-based",
  * //         },
  * //       ],
  * //     },

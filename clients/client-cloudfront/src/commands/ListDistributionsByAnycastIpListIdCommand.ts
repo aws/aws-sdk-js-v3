@@ -137,6 +137,7 @@ export interface ListDistributionsByAnycastIpListIdCommandOutput
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },

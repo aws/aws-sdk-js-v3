@@ -186,6 +186,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },

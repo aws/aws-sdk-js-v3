@@ -84,6 +84,28 @@ export interface ListDistributionsByVpcOriginIdCommandOutput
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  * @public
+ * @example To list distributions by VPC origin ID
+ * ```javascript
+ * // The following command lists distributions by VPC origin ID:
+ * const input = {
+ *   "VpcOriginId": "vo_BQwjxxQxjCaBcQLzJUFkDM"
+ * };
+ * const command = new ListDistributionsByVpcOriginIdCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DistributionIdList": {
+ *     "IsTruncated": false,
+ *     "Items": [],
+ *     "Marker": "a",
+ *     "MaxItems": 100,
+ *     "Quantity": 0
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListDistributionsByVpcOriginIdCommand extends $Command
   .classBuilder<

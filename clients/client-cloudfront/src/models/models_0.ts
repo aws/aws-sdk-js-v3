@@ -2627,11 +2627,27 @@ export interface OriginGroupMembers {
 }
 
 /**
- * <p>An origin group includes two origins (a primary origin and a second origin to failover to)
- * 			and a failover criteria that you specify. You create an origin group to support origin
- * 			failover in  CloudFront. When you create or update a distribution, you can specify the
- * 			origin group instead of a single origin, and CloudFront will failover from the primary
- * 			origin to the second origin under the failover conditions that you've chosen.</p>
+ * @public
+ * @enum
+ */
+export const OriginGroupSelectionCriteria = {
+  Default: "default",
+  MediaQualityBased: "media-quality-based",
+} as const;
+
+/**
+ * @public
+ */
+export type OriginGroupSelectionCriteria =
+  (typeof OriginGroupSelectionCriteria)[keyof typeof OriginGroupSelectionCriteria];
+
+/**
+ * <p>An origin group includes two origins (a primary origin and a secondary origin to failover
+ * 			to) and a failover criteria that you specify. You create an origin group to support
+ * 			origin failover in CloudFront. When you create or update a distribution, you can specify the
+ * 			origin group instead of a single origin, and CloudFront will failover from the primary origin
+ * 			to the secondary origin under the failover conditions that you've chosen.</p>
+ *          <p>Optionally, you can choose selection criteria for your origin group to specify how your origins are selected when your distribution routes viewer requests.</p>
  * @public
  */
 export interface OriginGroup {
@@ -2653,6 +2669,13 @@ export interface OriginGroup {
    * @public
    */
   Members: OriginGroupMembers | undefined;
+
+  /**
+   * <p>The selection criteria for the origin group. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating">Create an origin group</a> in the <i>Amazon CloudFront
+   * 				Developer Guide</i>.</p>
+   * @public
+   */
+  SelectionCriteria?: OriginGroupSelectionCriteria | undefined;
 }
 
 /**
@@ -8552,72 +8575,6 @@ export interface ResponseHeadersPolicyAccessControlAllowHeaders {
    * @public
    */
   Items: string[] | undefined;
-}
-
-/**
- * <p>A list of HTTP methods that CloudFront includes as values for the
- * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
- *          <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
- * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
- * @public
- */
-export interface ResponseHeadersPolicyAccessControlAllowMethods {
-  /**
-   * <p>The number of HTTP methods in the list.</p>
-   * @public
-   */
-  Quantity: number | undefined;
-
-  /**
-   * <p>The list of HTTP methods. Valid values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>GET</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>HEAD</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OPTIONS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PATCH</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>POST</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PUT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>ALL</code> is a special value that includes all of the listed HTTP
-   * 			methods.</p>
-   * @public
-   */
-  Items: ResponseHeadersPolicyAccessControlAllowMethodsValues[] | undefined;
 }
 
 /**

@@ -185,6 +185,7 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },

@@ -95,7 +95,7 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  * const input = {
  *   "Comment": "my-key-valuestore-comment",
  *   "ImportSource": {
- *     "SourceARN": "arn:aws:s3:::my-bucket/validJSON.json",
+ *     "SourceARN": "arn:aws:s3:::amzn-s3-demo-bucket/validJSON.json",
  *     "SourceType": "S3"
  *   },
  *   "Name": "my-keyvaluestore-name"

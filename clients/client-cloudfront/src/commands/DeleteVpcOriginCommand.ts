@@ -102,6 +102,44 @@ export interface DeleteVpcOriginCommandOutput extends DeleteVpcOriginResult, __M
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  * @public
+ * @example To delete a VPC origin
+ * ```javascript
+ * // The following command deletes a VPC origin:
+ * const input = {
+ *   "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *   "IfMatch": "E1F83G8C2ARO7P"
+ * };
+ * const command = new DeleteVpcOriginCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "E1PA6795UKMFR9",
+ *   "VpcOrigin": {
+ *     "Arn": "arn:aws:cloudfront::123456789012:vpcorigin/vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     "CreatedTime": "2024-10-15T17:19:42.318Z",
+ *     "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     "LastModifiedTime": "2024-10-15T17:57:08.965Z",
+ *     "Status": "Deploying",
+ *     "VpcOriginEndpointConfig": {
+ *       "Arn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
+ *       "HTTPPort": 80,
+ *       "HTTPSPort": 443,
+ *       "Name": "my-vpcorigin-name",
+ *       "OriginProtocolPolicy": "match-viewer",
+ *       "OriginSslProtocols": {
+ *         "Items": [
+ *           "TLSv1.1",
+ *           "TLSv1.2"
+ *         ],
+ *         "Quantity": 2
+ *       }
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteVpcOriginCommand extends $Command
   .classBuilder<

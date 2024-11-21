@@ -147,6 +147,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },

@@ -132,6 +132,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },

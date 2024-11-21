@@ -552,7 +552,6 @@ import {
   RealtimeLogConfigOwnerMismatch,
   RealtimeMetricsSubscriptionConfig,
   ResponseHeadersPolicyAccessControlAllowHeaders,
-  ResponseHeadersPolicyAccessControlAllowMethods,
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
   Restrictions,
   S3OriginConfig,
@@ -665,6 +664,7 @@ import {
   RealtimeLogConfigs,
   ResourceInUse,
   ResponseHeadersPolicy,
+  ResponseHeadersPolicyAccessControlAllowMethods,
   ResponseHeadersPolicyAccessControlAllowOrigins,
   ResponseHeadersPolicyAccessControlExposeHeaders,
   ResponseHeadersPolicyAlreadyExists,
@@ -9954,6 +9954,9 @@ const se_OriginGroup = (input: OriginGroup, context: __SerdeContext): any => {
   if (input[_Mem] != null) {
     bn.c(se_OriginGroupMembers(input[_Mem], context).n(_Mem));
   }
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_OGSC, input[_SC]).n(_SC));
+  }
   return bn;
 };
 
@@ -9962,8 +9965,8 @@ const se_OriginGroup = (input: OriginGroup, context: __SerdeContext): any => {
  */
 const se_OriginGroupFailoverCriteria = (input: OriginGroupFailoverCriteria, context: __SerdeContext): any => {
   const bn = new __XmlNode(_OGFC);
-  if (input[_SC] != null) {
-    bn.c(se_StatusCodes(input[_SC], context).n(_SC));
+  if (input[_SCt] != null) {
+    bn.c(se_StatusCodes(input[_SCt], context).n(_SCt));
   }
   return bn;
 };
@@ -10800,7 +10803,7 @@ const se_StatusCodeList = (input: number[], context: __SerdeContext): any => {
     .filter((e: any) => e != null)
     .map((entry) => {
       const n = __XmlNode.of(_i, String(entry));
-      return n.n(_SCt);
+      return n.n(_SCta);
     });
 };
 
@@ -10808,7 +10811,7 @@ const se_StatusCodeList = (input: number[], context: __SerdeContext): any => {
  * serializeAws_restXmlStatusCodes
  */
 const se_StatusCodes = (input: StatusCodes, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_SC);
+  const bn = new __XmlNode(_SCt);
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
@@ -13488,6 +13491,9 @@ const de_OriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
   if (output[_Mem] != null) {
     contents[_Mem] = de_OriginGroupMembers(output[_Mem], context);
   }
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
+  }
   return contents;
 };
 
@@ -13496,8 +13502,8 @@ const de_OriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
  */
 const de_OriginGroupFailoverCriteria = (output: any, context: __SerdeContext): OriginGroupFailoverCriteria => {
   const contents: any = {};
-  if (output[_SC] != null) {
-    contents[_SC] = de_StatusCodes(output[_SC], context);
+  if (output[_SCt] != null) {
+    contents[_SCt] = de_StatusCodes(output[_SCt], context);
   }
   return contents;
 };
@@ -14694,8 +14700,8 @@ const de_StatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
   }
   if (output.Items === "") {
     contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_SCt] != null) {
-    contents[_I] = de_StatusCodeList(__getArrayIfSingleItem(output[_I][_SCt]), context);
+  } else if (output[_I] != null && output[_I][_SCta] != null) {
+    contents[_I] = de_StatusCodeList(__getArrayIfSingleItem(output[_I][_SCta]), context);
   }
   return contents;
 };
@@ -15380,6 +15386,7 @@ const _OG = "OriginGroups";
 const _OGFC = "OriginGroupFailoverCriteria";
 const _OGM = "OriginGroupMember";
 const _OGMr = "OriginGroupMembers";
+const _OGSC = "OriginGroupSelectionCriteria";
 const _OGr = "OriginGroup";
 const _OI = "OriginId";
 const _OKT = "OriginKeepaliveTimeout";
@@ -15470,9 +15477,10 @@ const _S = "Staging";
 const _SARN = "SourceARN";
 const _SARNt = "StreamARN";
 const _SB = "SigningBehavior";
-const _SC = "StatusCodes";
+const _SC = "SelectionCriteria";
 const _SCUI = "S3CanonicalUserId";
-const _SCt = "StatusCode";
+const _SCt = "StatusCodes";
+const _SCta = "StatusCode";
 const _SDC = "StreamingDistributionConfig";
 const _SDCWT = "StreamingDistributionConfigWithTags";
 const _SDDN = "StagingDistributionDnsNames";

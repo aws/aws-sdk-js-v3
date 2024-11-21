@@ -120,6 +120,57 @@ export interface CreateVpcOriginCommandOutput extends CreateVpcOriginResult, __M
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  * @public
+ * @example To create a VPC origin
+ * ```javascript
+ * // The following command creates a VPC origin:
+ * const input = {
+ *   "VpcOriginEndpointConfig": {
+ *     "Arn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
+ *     "HTTPPort": 80,
+ *     "HTTPSPort": 443,
+ *     "Name": "my-vpcorigin-name",
+ *     "OriginProtocolPolicy": "match-viewer",
+ *     "OriginSslProtocols": {
+ *       "Items": [
+ *         "TLSv1.1",
+ *         "TLSv1.2"
+ *       ],
+ *       "Quantity": 2
+ *     }
+ *   }
+ * };
+ * const command = new CreateVpcOriginCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "E23ZP02F085DFQ",
+ *   "Location": "https://cloudfront.amazonaws.com/2020-05-31/vpc-origin/vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *   "VpcOrigin": {
+ *     "Arn": "arn:aws:cloudfront::123456789012:vpcorigin/vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     "CreatedTime": "2024-10-15T17:19:42.318Z",
+ *     "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     "LastModifiedTime": "2024-10-15T17:19:42.318Z",
+ *     "Status": "Deploying",
+ *     "VpcOriginEndpointConfig": {
+ *       "Arn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
+ *       "HTTPPort": 80,
+ *       "HTTPSPort": 443,
+ *       "Name": "my-vpcorigin-name",
+ *       "OriginProtocolPolicy": "match-viewer",
+ *       "OriginSslProtocols": {
+ *         "Items": [
+ *           "TLSv1.1",
+ *           "TLSv1.2"
+ *         ],
+ *         "Quantity": 2
+ *       }
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class CreateVpcOriginCommand extends $Command
   .classBuilder<

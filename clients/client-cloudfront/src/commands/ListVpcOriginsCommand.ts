@@ -86,6 +86,36 @@ export interface ListVpcOriginsCommandOutput extends ListVpcOriginsResult, __Met
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  * @public
+ * @example To list VPC origins
+ * ```javascript
+ * // The following command lists VPC origins:
+ * const input = {};
+ * const command = new ListVpcOriginsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VpcOriginList": {
+ *     "IsTruncated": true,
+ *     "Items": [
+ *       {
+ *         "Arn": "arn:aws:cloudfront::123456789012:vpcorigin/vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *         "CreatedTime": "2024-10-15T17:19:42.318Z",
+ *         "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *         "LastModifiedTime": "2024-10-15T17:24:35.188Z",
+ *         "Name": "my-vpcorigin-name",
+ *         "OriginEndpointArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
+ *         "Status": "Deployed"
+ *       }
+ *     ],
+ *     "Marker": "a",
+ *     "MaxItems": 100,
+ *     "Quantity": 1
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class ListVpcOriginsCommand extends $Command
   .classBuilder<

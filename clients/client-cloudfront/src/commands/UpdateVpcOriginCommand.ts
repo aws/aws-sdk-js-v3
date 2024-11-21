@@ -126,6 +126,58 @@ export interface UpdateVpcOriginCommandOutput extends UpdateVpcOriginResult, __M
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  * @public
+ * @example To update a VPC origin
+ * ```javascript
+ * // The following command updates a VPC origin:
+ * const input = {
+ *   "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *   "IfMatch": "ETVPDKIKX0DER",
+ *   "VpcOriginEndpointConfig": {
+ *     "Arn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
+ *     "HTTPPort": 80,
+ *     "HTTPSPort": 443,
+ *     "Name": "my-vpcorigin-name",
+ *     "OriginProtocolPolicy": "match-viewer",
+ *     "OriginSslProtocols": {
+ *       "Items": [
+ *         "TLSv1.1",
+ *         "TLSv1.2"
+ *       ],
+ *       "Quantity": 2
+ *     }
+ *   }
+ * };
+ * const command = new UpdateVpcOriginCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "E3UN6WX5RRO2AG",
+ *   "VpcOrigin": {
+ *     "Arn": "arn:aws:cloudfront::123456789012:vpcorigin/vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     "CreatedTime": "2024-10-15T17:19:42.318Z",
+ *     "Id": "vo_BQwjxxQxjCaBcQLzJUFkDM",
+ *     "LastModifiedTime": "2024-10-15T17:47:08.133Z",
+ *     "Status": "Deploying",
+ *     "VpcOriginEndpointConfig": {
+ *       "Arn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-alb-us-west-2/e6aa5c7d26415c6d",
+ *       "HTTPPort": 80,
+ *       "HTTPSPort": 443,
+ *       "Name": "my-vpcorigin-name",
+ *       "OriginProtocolPolicy": "match-viewer",
+ *       "OriginSslProtocols": {
+ *         "Items": [
+ *           "TLSv1.1",
+ *           "TLSv1.2"
+ *         ],
+ *         "Quantity": 2
+ *       }
+ *     }
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateVpcOriginCommand extends $Command
   .classBuilder<

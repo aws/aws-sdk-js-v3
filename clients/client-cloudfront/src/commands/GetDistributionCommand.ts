@@ -157,6 +157,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },

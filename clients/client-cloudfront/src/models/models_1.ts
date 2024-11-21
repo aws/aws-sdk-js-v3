@@ -57,12 +57,78 @@ import {
   QueryArgProfileConfig,
   RealtimeLogConfig,
   ResponseHeadersPolicyAccessControlAllowHeaders,
-  ResponseHeadersPolicyAccessControlAllowMethods,
+  ResponseHeadersPolicyAccessControlAllowMethodsValues,
   Restrictions,
   Tags,
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
+
+/**
+ * <p>A list of HTTP methods that CloudFront includes as values for the
+ * 				<code>Access-Control-Allow-Methods</code> HTTP response header.</p>
+ *          <p>For more information about the <code>Access-Control-Allow-Methods</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods">Access-Control-Allow-Methods</a> in the MDN Web Docs.</p>
+ * @public
+ */
+export interface ResponseHeadersPolicyAccessControlAllowMethods {
+  /**
+   * <p>The number of HTTP methods in the list.</p>
+   * @public
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The list of HTTP methods. Valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GET</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HEAD</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OPTIONS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PATCH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>POST</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PUT</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>
+   *             <code>ALL</code> is a special value that includes all of the listed HTTP
+   * 			methods.</p>
+   * @public
+   */
+  Items: ResponseHeadersPolicyAccessControlAllowMethodsValues[] | undefined;
+}
 
 /**
  * <p>A list of origins (domain names) that CloudFront can use as the value for the
