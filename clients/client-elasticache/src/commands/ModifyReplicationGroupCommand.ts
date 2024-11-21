@@ -32,7 +32,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling for Valkey or Redis OSS (cluster mode enabled)</a> in
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/scaling-redis-cluster-mode-enabled.html">Scaling for Valkey or Redis OSS (cluster mode enabled)</a> in
  *                     the ElastiCache User Guide</p>
  *             </li>
  *             <li>
@@ -252,7 +252,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>

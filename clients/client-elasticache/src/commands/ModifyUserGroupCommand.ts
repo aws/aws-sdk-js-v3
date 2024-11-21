@@ -43,6 +43,7 @@ export interface ModifyUserGroupCommandOutput extends UserGroup, __MetadataBeare
  *   UserIdsToRemove: [
  *     "STRING_VALUE",
  *   ],
+ *   Engine: "STRING_VALUE",
  * };
  * const command = new ModifyUserGroupCommand(input);
  * const response = await client.send(command);

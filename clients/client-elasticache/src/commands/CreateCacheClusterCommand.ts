@@ -245,7 +245,7 @@ export interface CreateCacheClusterCommandOutput extends CreateCacheClusterResul
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Two or more incompatible parameters were specified.</p>

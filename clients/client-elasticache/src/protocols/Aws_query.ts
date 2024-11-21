@@ -7299,6 +7299,9 @@ const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __Ser
       entries[loc] = value;
     });
   }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
+  }
   return entries;
 };
 
@@ -7335,6 +7338,9 @@ const se_ModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext)
       const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };

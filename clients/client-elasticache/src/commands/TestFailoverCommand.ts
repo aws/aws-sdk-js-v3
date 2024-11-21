@@ -91,7 +91,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ECEvents.Viewing.html">Viewing
+ *                         <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ECEvents.Viewing.html">Viewing
  *                                 ElastiCache Events</a> in the <i>ElastiCache User
  *                                 Guide</i>
  *                      </p>
@@ -103,7 +103,7 @@ export interface TestFailoverCommandOutput extends TestFailoverResult, __Metadat
  *                </ul>
  *             </li>
  *          </ul>
- *          <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html#auto-failover-test">Testing
+ *          <p>Also see, <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html#auto-failover-test">Testing
  *                 Multi-AZ </a> in the <i>ElastiCache User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

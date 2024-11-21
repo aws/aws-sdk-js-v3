@@ -45,7 +45,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *             shards (single primary and no replicas). Make sure there are enough available IP
  *             addresses to accommodate the increase. Common pitfalls include the subnets in the subnet
  *             group have too small a CIDR range or the subnets are shared and heavily used by other
- *             clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating a Subnet
+ *             clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.Creating.html">Creating a Subnet
  *                 Group</a>. For versions below 5.0.6, the limit is 250 per cluster.</p>
  *          <p>To request a limit increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Service Limits</a> and
  *             choose the limit type <b>Nodes per cluster per instance
@@ -53,7 +53,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *          <p>When a Valkey or Redis OSS (cluster mode disabled) replication group has been successfully created,
  *             you can add one or more read replicas to it, up to a total of 5 read replicas. If you
  *             need to increase or decrease the number of node groups (console: shards), you can use scaling.
- *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling self-designed clusters</a> in the <i>ElastiCache User
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Scaling.html">Scaling self-designed clusters</a> in the <i>ElastiCache User
  *                 Guide</i>.</p>
  *          <note>
  *             <p>This operation is valid for Valkey and Redis OSS only.</p>
@@ -307,7 +307,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>

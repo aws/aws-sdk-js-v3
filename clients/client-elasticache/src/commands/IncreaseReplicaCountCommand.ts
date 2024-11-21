@@ -195,7 +195,7 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>

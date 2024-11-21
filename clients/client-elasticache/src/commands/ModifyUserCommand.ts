@@ -49,6 +49,7 @@ export interface ModifyUserCommandOutput extends User, __MetadataBearer {}
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Engine: "STRING_VALUE",
  * };
  * const command = new ModifyUserCommand(input);
  * const response = await client.send(command);

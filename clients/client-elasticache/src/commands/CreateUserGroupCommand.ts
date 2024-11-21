@@ -29,7 +29,7 @@ export interface CreateUserGroupCommandOutput extends UserGroup, __MetadataBeare
 
 /**
  * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Creates a user group. For more
- *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
+ *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

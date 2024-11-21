@@ -42,7 +42,7 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html">Parameters and
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.html">Parameters and
  *                         Parameter Groups</a> in the ElastiCache User Guide.</p>
  *             </li>
  *          </ul>

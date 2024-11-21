@@ -1445,7 +1445,7 @@ export interface ReplicationGroup {
 
   /**
    * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more
-   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>
+   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>
    *          </p>
    * @public
    */
@@ -1584,7 +1584,7 @@ export interface ReplicationGroup {
   /**
    * <p>Enables data tiering. Data tiering is only supported for replication groups using the
    *             r6gd node type. This parameter must be set to true when using r6gd nodes. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/data-tiering.html">Data tiering</a>.</p>
    * @public
    */
   DataTiering?: DataTieringStatus | undefined;
@@ -1876,9 +1876,9 @@ export interface CopySnapshotMessage {
    * <p>The Amazon S3 bucket to which the snapshot is exported. This parameter is used only
    *             when exporting a snapshot for external access.</p>
    *          <p>When using this parameter to export a snapshot, be sure Amazon ElastiCache has the
-   *             needed permissions to this S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
+   *             needed permissions to this S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html#backups-exporting-grant-access">Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket</a> in the
    *                 <i>Amazon ElastiCache User Guide</i>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html">Exporting a
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/backups-exporting.html">Exporting a
    *                 Snapshot</a> in the <i>Amazon ElastiCache User Guide</i>.</p>
    * @public
    */
@@ -2072,7 +2072,7 @@ export interface Snapshot {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -2173,7 +2173,7 @@ export interface Snapshot {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -2434,7 +2434,7 @@ export interface Snapshot {
   /**
    * <p>Enables data tiering. Data tiering is only supported for replication groups using the
    *             r6gd node type. This parameter must be set to true when using r6gd nodes. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/data-tiering.html">Data tiering</a>.</p>
    * @public
    */
   DataTiering?: DataTieringStatus | undefined;
@@ -2736,7 +2736,7 @@ export interface CreateCacheClusterMessage {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -2837,7 +2837,7 @@ export interface CreateCacheClusterMessage {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -2928,7 +2928,7 @@ export interface CreateCacheClusterMessage {
    *             supported cache engine versions, use the DescribeCacheEngineVersions operation.</p>
    *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version
-   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html#VersionManagement">Selecting
    *                 a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
    *             version. If you want to use an earlier engine version, you must delete the existing
    *             cluster or replication group and create it anew with the earlier engine version. </p>
@@ -2951,7 +2951,7 @@ export interface CreateCacheClusterMessage {
    *             Cloud (Amazon VPC).</p>
    *          <important>
    *             <p>If you're going to launch your cluster in an Amazon VPC, you need to create a
-   *                 subnet group before you start creating a cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
+   *                 subnet group before you start creating a cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
    *          </important>
    * @public
    */
@@ -3162,7 +3162,7 @@ export interface CreateCacheClusterMessage {
  *     					<code>cache.m7g.16xlarge</code>
  *                      </p>
  *                      <note>
- *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+ *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
  *                         </p>
  *                      </note>
  *                      <p>
@@ -3263,7 +3263,7 @@ export interface CreateCacheClusterMessage {
  * 							<code>cache.r7g.16xlarge</code>
  *                      </p>
  *                      <note>
- *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+ *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
  *                         </p>
  *                      </note>
  *                      <p>
@@ -3588,7 +3588,7 @@ export interface CacheCluster {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -3689,7 +3689,7 @@ export interface CacheCluster {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -4045,7 +4045,7 @@ export interface CreateCacheClusterResult {
 
 /**
  * <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  * @public
  */
 export class InsufficientCacheClusterCapacityFault extends __BaseException {
@@ -4665,7 +4665,7 @@ export interface CreateGlobalReplicationGroupMessage {
    *             auto-generated prefix, guarantees uniqueness of the Global datastore name across
    *             multiple regions. </p>
    *          <p>For a full list of Amazon Regions and their respective Global datastore iD prefixes,
-   *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastores-CLI.html">Using the Amazon CLI with Global datastores </a>.</p>
+   *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Redis-Global-Datastores-CLI.html">Using the Amazon CLI with Global datastores </a>.</p>
    * @public
    */
   GlobalReplicationGroupIdSuffix: string | undefined;
@@ -4946,7 +4946,7 @@ export interface CreateReplicationGroupMessage {
 
   /**
    * <p>A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more
-   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>.</p>
+   *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/AutoFailover.html">Minimizing Downtime: Multi-AZ</a>.</p>
    * @public
    */
   MultiAZEnabled?: boolean | undefined;
@@ -5034,7 +5034,7 @@ export interface CreateReplicationGroupMessage {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -5135,7 +5135,7 @@ export interface CreateReplicationGroupMessage {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -5225,7 +5225,7 @@ export interface CreateReplicationGroupMessage {
    *                 <code>DescribeCacheEngineVersions</code> operation.</p>
    *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version
-   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html#VersionManagement">Selecting
    *                 a Cache Engine and Version</a>) in the <i>ElastiCache User
    *                 Guide</i>, but you cannot downgrade to an earlier engine version. If you want
    *             to use an earlier engine version, you must delete the existing cluster or replication
@@ -5259,7 +5259,7 @@ export interface CreateReplicationGroupMessage {
    * <p>The name of the cache subnet group to be used for the replication group.</p>
    *          <important>
    *             <p>If you're going to launch your cluster in an Amazon VPC, you need to create a
-   *                 subnet group before you start creating a cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
+   *                 subnet group before you start creating a cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.html">Subnets and Subnet Groups</a>.</p>
    *          </important>
    * @public
    */
@@ -5496,7 +5496,7 @@ export interface CreateReplicationGroupMessage {
   /**
    * <p>Enables data tiering. Data tiering is only supported for replication groups using the
    *             r6gd node type. This parameter must be set to true when using r6gd nodes. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/data-tiering.html">Data tiering</a>.</p>
    * @public
    */
   DataTieringEnabled?: boolean | undefined;
@@ -6640,7 +6640,7 @@ export interface DecreaseNodeGroupsInGlobalReplicationGroupResult {
 export interface ConfigureShard {
   /**
    * <p>The 4-digit id for the node group you are configuring. For Valkey or Redis OSS (cluster mode
-   *             disabled) replication groups, the node group id is always 0001. To find a Valkey or Redis OSS (cluster mode enabled)'s node group's (shard's) id, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/shard-find-id.html">Finding a Shard's
+   *             disabled) replication groups, the node group id is always 0001. To find a Valkey or Redis OSS (cluster mode enabled)'s node group's (shard's) id, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/shard-find-id.html">Finding a Shard's
    *                 Id</a>.</p>
    * @public
    */
@@ -7429,7 +7429,7 @@ export interface CacheNodeTypeSpecificParameter {
   /**
    * <p>Indicates whether a change to the parameter is applied immediately or requires a
    *             reboot for the change to be applied. You can force a reboot or wait until the next
-   *             maintenance window's reboot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting a
+   *             maintenance window's reboot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.Rebooting.html">Rebooting a
    *                 Cluster</a>.</p>
    * @public
    */
@@ -7495,7 +7495,7 @@ export interface Parameter {
   /**
    * <p>Indicates whether a change to the parameter is applied immediately or requires a
    *             reboot for the change to be applied. You can force a reboot or wait until the next
-   *             maintenance window's reboot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Rebooting.html">Rebooting a
+   *             maintenance window's reboot. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.Rebooting.html">Rebooting a
    *                 Cluster</a>.</p>
    * @public
    */
@@ -8032,7 +8032,7 @@ export interface DescribeReservedCacheNodesMessage {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -8133,7 +8133,7 @@ export interface DescribeReservedCacheNodesMessage {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -8314,7 +8314,7 @@ export interface ReservedCacheNode {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -8415,7 +8415,7 @@ export interface ReservedCacheNode {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -8613,7 +8613,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -8714,7 +8714,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -8869,7 +8869,7 @@ export interface ReservedCacheNodesOffering {
    *     					<code>cache.m7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -8970,7 +8970,7 @@ export interface ReservedCacheNodesOffering {
    * 							<code>cache.r7g.16xlarge</code>
    *                      </p>
    *                      <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
+   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
    *                      </note>
    *                      <p>
@@ -9337,7 +9337,7 @@ export interface ServiceUpdate {
 
   /**
    * <p>The recommendend date to apply the service update in order to ensure compliance. For
-   *             information on compliance, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service">Self-Service Security Updates for Compliance</a>.</p>
+   *             information on compliance, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/elasticache-compliance.html#elasticache-compliance-self-service">Self-Service Security Updates for Compliance</a>.</p>
    * @public
    */
   ServiceUpdateRecommendedApplyByDate?: Date | undefined;
@@ -9799,7 +9799,7 @@ export interface UpdateAction {
 
   /**
    * <p>The recommended date to apply the service update to ensure compliance. For information
-   *             on compliance, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/elasticache-compliance.html#elasticache-compliance-self-service">Self-Service Security Updates for Compliance</a>.</p>
+   *             on compliance, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/elasticache-compliance.html#elasticache-compliance-self-service">Self-Service Security Updates for Compliance</a>.</p>
    * @public
    */
   ServiceUpdateRecommendedApplyByDate?: Date | undefined;
@@ -10464,7 +10464,7 @@ export interface ModifyCacheClusterMessage {
    *             current Availability Zone. Only newly created nodes can be located in different
    *             Availability Zones. For guidance on how to move existing Memcached nodes to different
    *             Availability Zones, see the <b>Availability Zone
-   *                 Considerations</b> section of <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/mem-ug/CacheNodes.SupportedTypes.html">Cache Node
+   *                 Considerations</b> section of <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/CacheNodes.SupportedTypes.html">Cache Node
    *                 Considerations for Memcached</a>.</p>
    *          <p>
    *             <b>Impact of new add/remove requests upon pending requests</b>
@@ -10665,7 +10665,7 @@ export interface ModifyCacheClusterMessage {
    * <p>The upgraded version of the cache engine to be run on the cache nodes.</p>
    *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version
-   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html#VersionManagement">Selecting
    *                 a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
    *             version. If you want to use an earlier engine version, you must delete the existing
    *             cluster and create it anew with the earlier engine version. </p>
@@ -10741,7 +10741,7 @@ export interface ModifyCacheClusterMessage {
    *                <p>DELETE - allowed only when transitioning to RBAC</p>
    *             </li>
    *          </ul>
-   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with AUTH</a>
+   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/auth.html">Authenticating Users with AUTH</a>
    *          </p>
    * @public
    */
@@ -11162,7 +11162,7 @@ export interface ModifyReplicationGroupMessage {
    *             group.</p>
    *          <p>
    *             <b>Important:</b> You can upgrade to a newer engine version
-   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SelectEngine.html#VersionManagement">Selecting
+   *             (see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SelectEngine.html#VersionManagement">Selecting
    *                 a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine
    *             version. If you want to use an earlier engine version, you must delete the existing
    *             replication group and create it anew with the earlier engine version. </p>
@@ -11242,7 +11242,7 @@ export interface ModifyReplicationGroupMessage {
    *                <p>DELETE - allowed only when transitioning to RBAC</p>
    *             </li>
    *          </ul>
-   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html">Authenticating Users with AUTH</a>
+   *          <p> For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/auth.html">Authenticating Users with AUTH</a>
    *          </p>
    * @public
    */
@@ -11526,6 +11526,12 @@ export interface ModifyUserMessage {
    * @public
    */
   AuthenticationMode?: AuthenticationMode | undefined;
+
+  /**
+   * <p>The engine for a specific user. </p>
+   * @public
+   */
+  Engine?: string | undefined;
 }
 
 /**
@@ -11549,6 +11555,12 @@ export interface ModifyUserGroupMessage {
    * @public
    */
   UserIdsToRemove?: string[] | undefined;
+
+  /**
+   * <p>The engine for a user group. </p>
+   * @public
+   */
+  Engine?: string | undefined;
 }
 
 /**
