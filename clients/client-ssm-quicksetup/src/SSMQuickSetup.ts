@@ -13,6 +13,11 @@ import {
   DeleteConfigurationManagerCommandOutput,
 } from "./commands/DeleteConfigurationManagerCommand";
 import {
+  GetConfigurationCommand,
+  GetConfigurationCommandInput,
+  GetConfigurationCommandOutput,
+} from "./commands/GetConfigurationCommand";
+import {
   GetConfigurationManagerCommand,
   GetConfigurationManagerCommandInput,
   GetConfigurationManagerCommandOutput,
@@ -27,6 +32,11 @@ import {
   ListConfigurationManagersCommandInput,
   ListConfigurationManagersCommandOutput,
 } from "./commands/ListConfigurationManagersCommand";
+import {
+  ListConfigurationsCommand,
+  ListConfigurationsCommandInput,
+  ListConfigurationsCommandOutput,
+} from "./commands/ListConfigurationsCommand";
 import {
   ListQuickSetupTypesCommand,
   ListQuickSetupTypesCommandInput,
@@ -63,9 +73,11 @@ import { SSMQuickSetupClient, SSMQuickSetupClientConfig } from "./SSMQuickSetupC
 const commands = {
   CreateConfigurationManagerCommand,
   DeleteConfigurationManagerCommand,
+  GetConfigurationCommand,
   GetConfigurationManagerCommand,
   GetServiceSettingsCommand,
   ListConfigurationManagersCommand,
+  ListConfigurationsCommand,
   ListQuickSetupTypesCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
@@ -108,6 +120,23 @@ export interface SSMQuickSetup {
     args: DeleteConfigurationManagerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfigurationManagerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationCommand}
+   */
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationCommandOutput>;
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
+  ): void;
+  getConfiguration(
+    args: GetConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -161,6 +190,24 @@ export interface SSMQuickSetup {
     args: ListConfigurationManagersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListConfigurationManagersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationsCommand}
+   */
+  listConfigurations(): Promise<ListConfigurationsCommandOutput>;
+  listConfigurations(
+    args: ListConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationsCommandOutput>;
+  listConfigurations(
+    args: ListConfigurationsCommandInput,
+    cb: (err: any, data?: ListConfigurationsCommandOutput) => void
+  ): void;
+  listConfigurations(
+    args: ListConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationsCommandOutput) => void
   ): void;
 
   /**

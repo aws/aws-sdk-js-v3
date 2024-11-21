@@ -1261,10 +1261,11 @@ export interface ConfigurationDefinitionInput {
    *                      </p>
    *                      <ul>
    *                         <li>
-   *                            <p>Description: (Optional) A boolean value that
-   *                                                   determines whether instances are rebooted after
-   *                                                   patches are installed. The default value is
-   *                                                   "<code>false</code>".</p>
+   *                            <p>Description: (Optional) Determines whether
+   *                                                   instances are rebooted after patches are
+   *                                                   installed. Valid values are
+   *                                                   <code>RebootIfNeeded</code> and
+   *                                                   <code>NoReboot</code>.</p>
    *                         </li>
    *                      </ul>
    *                   </li>
@@ -1572,7 +1573,10 @@ export interface StatusSummary {
   Status?: Status | undefined;
 
   /**
-   * <p>When applicable, returns an informational message relevant to the current status and status type of the status summary object. We don't recommend implementing parsing logic around this value since the messages returned can vary in format.</p>
+   * <p>When applicable, returns an informational message relevant to the current status
+   *                   and status type of the status summary object. We don't recommend implementing
+   *                   parsing logic around this value since the messages returned can vary in
+   *                   format.</p>
    * @public
    */
   StatusMessage?: string | undefined;
@@ -1627,6 +1631,73 @@ export interface ConfigurationManagerSummary {
    * @public
    */
   ConfigurationDefinitionSummaries?: ConfigurationDefinitionSummary[] | undefined;
+}
+
+/**
+ * <p>Details for a Quick Setup configuration.</p>
+ * @public
+ */
+export interface ConfigurationSummary {
+  /**
+   * <p>A service generated identifier for the configuration.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The ARN of the configuration manager.</p>
+   * @public
+   */
+  ManagerArn?: string | undefined;
+
+  /**
+   * <p>The ID of the configuration definition.</p>
+   * @public
+   */
+  ConfigurationDefinitionId?: string | undefined;
+
+  /**
+   * <p>The type of the Quick Setup configuration.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The version of the Quick Setup type used.</p>
+   * @public
+   */
+  TypeVersion?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the configuration was deployed.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account where the configuration was deployed.</p>
+   * @public
+   */
+  Account?: string | undefined;
+
+  /**
+   * <p>The datetime stamp when the configuration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The common parameters and values for the configuration definition.</p>
+   * @public
+   */
+  FirstClassParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>A summary of the state of the configuration manager. This includes deployment
+   *                   statuses, association statuses, drift statuses, health checks, and more.</p>
+   * @public
+   */
+  StatusSummaries?: StatusSummary[] | undefined;
 }
 
 /**
@@ -1815,6 +1886,89 @@ export interface Filter {
 /**
  * @public
  */
+export interface GetConfigurationInput {
+  /**
+   * <p>A service generated identifier for the configuration.</p>
+   * @public
+   */
+  ConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationOutput {
+  /**
+   * <p>A service generated identifier for the configuration.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The ARN of the configuration manager.</p>
+   * @public
+   */
+  ManagerArn?: string | undefined;
+
+  /**
+   * <p>The ID of the configuration definition.</p>
+   * @public
+   */
+  ConfigurationDefinitionId?: string | undefined;
+
+  /**
+   * <p>The type of the Quick Setup configuration.</p>
+   * @public
+   */
+  Type?: string | undefined;
+
+  /**
+   * <p>The version of the Quick Setup type used.</p>
+   * @public
+   */
+  TypeVersion?: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account where the configuration was deployed.</p>
+   * @public
+   */
+  Account?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region where the configuration was deployed.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The datetime stamp when the configuration manager was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The datetime stamp when the configuration manager was last updated.</p>
+   * @public
+   */
+  LastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>A summary of the state of the configuration manager. This includes deployment
+   *                   statuses, association statuses, drift statuses, health checks, and more.</p>
+   * @public
+   */
+  StatusSummaries?: StatusSummary[] | undefined;
+
+  /**
+   * <p>The parameters for the configuration definition type.</p>
+   * @public
+   */
+  Parameters?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetConfigurationManagerInput {
   /**
    * <p>The ARN of the configuration manager.</p>
@@ -1937,6 +2091,60 @@ export interface ListConfigurationManagersOutput {
   /**
    * <p>The token to use when requesting the next set of configuration managers. If there
    *                   are no additional operations to return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationsInput {
+  /**
+   * <p>The token to use when requesting a specific set of items from a list.</p>
+   * @public
+   */
+  StartingToken?: string | undefined;
+
+  /**
+   * <p>Specifies the maximum number of configurations that are returned by the
+   *                   request.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+
+  /**
+   * <p>Filters the results returned by the request.</p>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The ARN of the configuration manager.</p>
+   * @public
+   */
+  ManagerArn?: string | undefined;
+
+  /**
+   * <p>The ID of the configuration definition.</p>
+   * @public
+   */
+  ConfigurationDefinitionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationsOutput {
+  /**
+   * <p>An array of configurations.</p>
+   * @public
+   */
+  ConfigurationsList?: ConfigurationSummary[] | undefined;
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to
+   *                   return, the string is empty.</p>
    * @public
    */
   NextToken?: string | undefined;

@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SSMQuickSetupClient` and
-the commands you need, for example `ListQuickSetupTypesCommand`:
+the commands you need, for example `ListConfigurationsCommand`:
 
 ```js
 // ES5 example
-const { SSMQuickSetupClient, ListQuickSetupTypesCommand } = require("@aws-sdk/client-ssm-quicksetup");
+const { SSMQuickSetupClient, ListConfigurationsCommand } = require("@aws-sdk/client-ssm-quicksetup");
 ```
 
 ```ts
 // ES6+ example
-import { SSMQuickSetupClient, ListQuickSetupTypesCommand } from "@aws-sdk/client-ssm-quicksetup";
+import { SSMQuickSetupClient, ListConfigurationsCommand } from "@aws-sdk/client-ssm-quicksetup";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new SSMQuickSetupClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListQuickSetupTypesCommand(params);
+const command = new ListConfigurationsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.SSMQuickSetup({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listQuickSetupTypes(params);
+  const data = await client.listConfigurations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .listQuickSetupTypes(params)
+  .listConfigurations(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.listQuickSetupTypes(params, (err, data) => {
+client.listConfigurations(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -223,6 +223,14 @@ DeleteConfigurationManager
 </details>
 <details>
 <summary>
+GetConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/GetConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/GetConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetConfigurationManager
 </summary>
 
@@ -243,6 +251,14 @@ ListConfigurationManagers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/ListConfigurationManagersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationManagersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationManagersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm-quicksetup/command/ListConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm-quicksetup/Interface/ListConfigurationsCommandOutput/)
 
 </details>
 <details>

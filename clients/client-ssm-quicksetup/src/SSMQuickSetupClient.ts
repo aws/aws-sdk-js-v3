@@ -61,6 +61,7 @@ import {
   DeleteConfigurationManagerCommandInput,
   DeleteConfigurationManagerCommandOutput,
 } from "./commands/DeleteConfigurationManagerCommand";
+import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetConfigurationManagerCommandInput,
   GetConfigurationManagerCommandOutput,
@@ -70,6 +71,7 @@ import {
   ListConfigurationManagersCommandInput,
   ListConfigurationManagersCommandOutput,
 } from "./commands/ListConfigurationManagersCommand";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand";
 import {
   ListQuickSetupTypesCommandInput,
   ListQuickSetupTypesCommandOutput,
@@ -109,9 +111,11 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateConfigurationManagerCommandInput
   | DeleteConfigurationManagerCommandInput
+  | GetConfigurationCommandInput
   | GetConfigurationManagerCommandInput
   | GetServiceSettingsCommandInput
   | ListConfigurationManagersCommandInput
+  | ListConfigurationsCommandInput
   | ListQuickSetupTypesCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
@@ -126,9 +130,11 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateConfigurationManagerCommandOutput
   | DeleteConfigurationManagerCommandOutput
+  | GetConfigurationCommandOutput
   | GetConfigurationManagerCommandOutput
   | GetServiceSettingsCommandOutput
   | ListConfigurationManagersCommandOutput
+  | ListConfigurationsCommandOutput
   | ListQuickSetupTypesCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
