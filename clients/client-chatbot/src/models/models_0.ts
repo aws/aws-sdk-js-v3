@@ -24,6 +24,102 @@ export interface AccountPreferences {
 }
 
 /**
+ * @public
+ */
+export interface AssociateToConfigurationRequest {
+  /**
+   * <p>The resource Amazon Resource Name (ARN) to link.</p>
+   * @public
+   */
+  Resource: string | undefined;
+
+  /**
+   * <p>The channel configuration to associate with the resource.</p>
+   * @public
+   */
+  ChatConfiguration: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateToConfigurationResult {}
+
+/**
+ * <p>Unexpected error during processing of request.</p>
+ * @public
+ */
+export class InternalServiceError extends __BaseException {
+  readonly name: "InternalServiceError" = "InternalServiceError";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
+    super({
+      name: "InternalServiceError",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServiceError.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+  }
+}
+
+/**
+ * <p>The request was rejected because it doesn't have valid credentials for the target resource.</p>
+ * @public
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
+  }
+}
+
+/**
+ * <p>A listing of an association with a channel configuration.</p>
+ * @public
+ */
+export interface AssociationListing {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource (for example, a custom action).</p>
+   * @public
+   */
+  Resource: string | undefined;
+}
+
+/**
  * <p>A key-value pair. A tag consists of a tag key and a tag value. Tag keys and tag values are both required, but tag values can be empty (null) strings.</p>
  *          <important>
  *             <p>Do not include confidential or sensitive information in this field. </p>
@@ -59,7 +155,7 @@ export interface ChimeWebhookConfiguration {
   WebhookDescription: string | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the ChimeWebhookConfiguration.</p>
+   * <p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration.</p>
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -274,26 +370,6 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name: "InvalidRequestException" = "InvalidRequestException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-  }
-}
-
-/**
  * <p>You have exceeded a service limit for AWS Chatbot.</p>
  * @public
  */
@@ -311,6 +387,140 @@ export class LimitExceededException extends __BaseException {
     });
     Object.setPrototypeOf(this, LimitExceededException.prototype);
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomActionAttachmentCriteriaOperator = {
+  EQUALS: "EQUALS",
+  HAS_VALUE: "HAS_VALUE",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomActionAttachmentCriteriaOperator =
+  (typeof CustomActionAttachmentCriteriaOperator)[keyof typeof CustomActionAttachmentCriteriaOperator];
+
+/**
+ * <p>A criteria for when a button should be shown based on values in the notification</p>
+ * @public
+ */
+export interface CustomActionAttachmentCriteria {
+  /**
+   * <p>The operation to perform on the named variable.</p>
+   * @public
+   */
+  Operator: CustomActionAttachmentCriteriaOperator | undefined;
+
+  /**
+   * <p>The name of the variable to operate on.</p>
+   * @public
+   */
+  VariableName: string | undefined;
+
+  /**
+   * <p>A value that is compared with the actual value of the variable based on the behavior of the operator.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Defines when a custom action button should be attached to a notification.</p>
+ * @public
+ */
+export interface CustomActionAttachment {
+  /**
+   * <p>The type of notification that the custom action should be attached to.</p>
+   * @public
+   */
+  NotificationType?: string | undefined;
+
+  /**
+   * <p>The text of the button that appears on the notification.</p>
+   * @public
+   */
+  ButtonText?: string | undefined;
+
+  /**
+   * <p>The criteria for when a button should be shown based on values in the notification.</p>
+   * @public
+   */
+  Criteria?: CustomActionAttachmentCriteria[] | undefined;
+
+  /**
+   * <p>The variables to extract from the notification.</p>
+   * @public
+   */
+  Variables?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The definition of the command to run when invoked as an alias or as an action button.</p>
+ * @public
+ */
+export interface CustomActionDefinition {
+  /**
+   * <p>The command string to run which may include variables by prefixing with a dollar sign ($).</p>
+   * @public
+   */
+  CommandText: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomActionRequest {
+  /**
+   * <p>The definition of the command to run when invoked as an alias or as an action button.</p>
+   * @public
+   */
+  Definition: CustomActionDefinition | undefined;
+
+  /**
+   * <p>The name used to invoke this action in a chat channel. For example, <code>@aws run my-alias</code>.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>Defines when this custom action button should be attached to a notification.</p>
+   * @public
+   */
+  Attachments?: CustomActionAttachment[] | undefined;
+
+  /**
+   * <p>A map of tags assigned to a resource. A tag is a string-to-string map of key-value pairs.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, subsequent retries with the same client token returns the result from the original successful request.</p>
+   *          <p>If you do not specify a client token, one is automatically generated by the SDK.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The name of the custom action. This name is included in the Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  ActionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCustomActionResult {
+  /**
+   * <p>The fully defined ARN of the custom action.</p>
+   * @public
+   */
+  CustomActionArn: string | undefined;
 }
 
 /**
@@ -654,7 +864,7 @@ export interface SlackChannelConfiguration {
   SlackChannelName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the SlackChannelConfiguration.</p>
+   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration.</p>
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -730,6 +940,176 @@ export interface CreateSlackChannelConfigurationResult {
 }
 
 /**
+ * <p>Represents a parameterized command that can be invoked as an alias or as a notification button in the chat client.</p>
+ * @public
+ */
+export interface CustomAction {
+  /**
+   * <p>The fully defined Amazon Resource Name (ARN) of the custom action.</p>
+   * @public
+   */
+  CustomActionArn: string | undefined;
+
+  /**
+   * <p>The definition of the command to run when invoked an alias or as an action button.</p>
+   * @public
+   */
+  Definition: CustomActionDefinition | undefined;
+
+  /**
+   * <p>The name used to invoke this action in the chat channel. For example, <code>@aws run my-alias</code>.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>Defines when this custom action button should be attached to a notification.</p>
+   * @public
+   */
+  Attachments?: CustomActionAttachment[] | undefined;
+
+  /**
+   * <p>The name of the custom action that is included in the ARN.</p>
+   * @public
+   */
+  ActionName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomActionRequest {
+  /**
+   * <p>The fully defined ARN of the custom action.</p>
+   * @public
+   */
+  CustomActionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCustomActionResult {}
+
+/**
+ * <p>We were unable to find the resource for your request</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface GetCustomActionRequest {
+  /**
+   * <p>Returns the fully defined Amazon Resource Name (ARN) of the custom action.</p>
+   * @public
+   */
+  CustomActionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCustomActionResult {
+  /**
+   * <p>Returns the custom action.</p>
+   * @public
+   */
+  CustomAction?: CustomAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomActionsRequest {
+  /**
+   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCustomActionsResult {
+  /**
+   * <p>A list of custom actions.</p>
+   * @public
+   */
+  CustomActions: string[] | undefined;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCustomActionRequest {
+  /**
+   * <p>The fully defined Amazon Resource Name (ARN) of the custom action.</p>
+   * @public
+   */
+  CustomActionArn: string | undefined;
+
+  /**
+   * <p>The definition of the command to run when invoked as an alias or as an action button.</p>
+   * @public
+   */
+  Definition: CustomActionDefinition | undefined;
+
+  /**
+   * <p>The name used to invoke this action in the chat channel. For example, <code>@aws run my-alias</code>.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+
+  /**
+   * <p>Defines when this custom action button should be attached to a notification.</p>
+   * @public
+   */
+  Attachments?: CustomActionAttachment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCustomActionResult {
+  /**
+   * <p>The fully defined ARN of the custom action.</p>
+   * @public
+   */
+  CustomActionArn: string | undefined;
+}
+
+/**
  * <p>We can’t process your request right now because of a server issue. Try again later.</p>
  * @public
  */
@@ -766,28 +1146,6 @@ export interface DeleteChimeWebhookConfigurationRequest {
  * @public
  */
 export interface DeleteChimeWebhookConfigurationResult {}
-
-/**
- * <p>We were unable to find the resource for your request</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.Message = opts.Message;
-  }
-}
 
 /**
  * <p>We can’t process your request right now because of a server issue. Try again later.</p>
@@ -1078,7 +1436,7 @@ export interface DescribeChimeWebhookConfigurationsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>An optional Amazon Resource Number (ARN) of a ChimeWebhookConfiguration to describe.</p>
+   * <p>An optional Amazon Resource Name (ARN) of a ChimeWebhookConfiguration to describe.</p>
    * @public
    */
   ChatConfigurationArn?: string | undefined;
@@ -1143,7 +1501,7 @@ export interface DescribeSlackChannelConfigurationsRequest {
   NextToken?: string | undefined;
 
   /**
-   * <p>An optional Amazon Resource Number (ARN) of a SlackChannelConfiguration to describe.</p>
+   * <p>An optional Amazon Resource Name (ARN) of a SlackChannelConfiguration to describe.</p>
    * @public
    */
   ChatConfigurationArn?: string | undefined;
@@ -1194,7 +1552,7 @@ export class DescribeSlackUserIdentitiesException extends __BaseException {
  */
 export interface DescribeSlackUserIdentitiesRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the SlackChannelConfiguration associated with the user identities to describe.</p>
+   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the user identities to describe.</p>
    * @public
    */
   ChatConfigurationArn?: string | undefined;
@@ -1228,7 +1586,7 @@ export interface SlackUserIdentity {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the SlackChannelConfiguration associated with the user identity to delete.</p>
+   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration associated with the user identity to delete.</p>
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -1361,6 +1719,28 @@ export interface DescribeSlackWorkspacesResult {
 }
 
 /**
+ * @public
+ */
+export interface DisassociateFromConfigurationRequest {
+  /**
+   * <p>The resource (for example, a custom action) Amazon Resource Name (ARN) to unlink.</p>
+   * @public
+   */
+  Resource: string | undefined;
+
+  /**
+   * <p>The channel configuration the resource is being disassociated from.</p>
+   * @public
+   */
+  ChatConfiguration: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateFromConfigurationResult {}
+
+/**
  * <p>We can’t process your request right now because of a server issue. Try again later.</p>
  * @public
  */
@@ -1425,7 +1805,7 @@ export class GetTeamsChannelConfigurationException extends __BaseException {
  */
 export interface GetTeamsChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.</p>
+   * <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration to retrieve.</p>
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -1443,25 +1823,43 @@ export interface GetTeamsChannelConfigurationResult {
 }
 
 /**
- * <p>Unexpected error during processing of request.</p>
  * @public
  */
-export class InternalServiceError extends __BaseException {
-  readonly name: "InternalServiceError" = "InternalServiceError";
-  readonly $fault: "server" = "server";
-  Message?: string | undefined;
+export interface ListAssociationsRequest {
   /**
-   * @internal
+   * <p>The channel configuration to list associations for.</p>
+   * @public
    */
-  constructor(opts: __ExceptionOptionType<InternalServiceError, __BaseException>) {
-    super({
-      name: "InternalServiceError",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServiceError.prototype);
-    this.Message = opts.Message;
-  }
+  ChatConfiguration: string | undefined;
+
+  /**
+   * <p>The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssociationsResult {
+  /**
+   * <p>The resources associated with this channel configuration.</p>
+   * @public
+   */
+  Associations: AssociationListing[] | undefined;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by MaxResults.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1611,7 +2009,7 @@ export class ListMicrosoftTeamsUserIdentitiesException extends __BaseException {
  */
 export interface ListMicrosoftTeamsUserIdentitiesRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identities to list.</p>
+   * <p>The Amazon Resource Name (ARN) of the MicrosoftTeamsChannelConfiguration associated with the user identities to list.</p>
    * @public
    */
   ChatConfigurationArn?: string | undefined;
@@ -1706,7 +2104,7 @@ export interface ListMicrosoftTeamsUserIdentitiesResult {
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The ARN you specified to list the tags of.</p>
+   * <p>The ARN of the resource to list tags for.</p>
    * @public
    */
   ResourceARN: string | undefined;
@@ -1886,7 +2284,7 @@ export class UpdateChimeWebhookConfigurationException extends __BaseException {
  */
 export interface UpdateChimeWebhookConfigurationRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the ChimeWebhookConfiguration to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the ChimeWebhookConfiguration to update.</p>
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -1964,7 +2362,7 @@ export class UpdateTeamsChannelConfigurationException extends __BaseException {
  */
 export interface UpdateTeamsChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the TeamsChannelConfiguration to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the TeamsChannelConfiguration to update.</p>
    * @public
    */
   ChatConfigurationArn: string | undefined;
@@ -2053,7 +2451,7 @@ export class UpdateSlackChannelConfigurationException extends __BaseException {
  */
 export interface UpdateSlackChannelConfigurationRequest {
   /**
-   * <p>The Amazon Resource Number (ARN) of the SlackChannelConfiguration to update.</p>
+   * <p>The Amazon Resource Name (ARN) of the SlackChannelConfiguration to update.</p>
    * @public
    */
   ChatConfigurationArn: string | undefined;

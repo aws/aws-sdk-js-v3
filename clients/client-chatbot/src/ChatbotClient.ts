@@ -54,9 +54,14 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AssociateToConfigurationCommandInput,
+  AssociateToConfigurationCommandOutput,
+} from "./commands/AssociateToConfigurationCommand";
+import {
   CreateChimeWebhookConfigurationCommandInput,
   CreateChimeWebhookConfigurationCommandOutput,
 } from "./commands/CreateChimeWebhookConfigurationCommand";
+import { CreateCustomActionCommandInput, CreateCustomActionCommandOutput } from "./commands/CreateCustomActionCommand";
 import {
   CreateMicrosoftTeamsChannelConfigurationCommandInput,
   CreateMicrosoftTeamsChannelConfigurationCommandOutput,
@@ -69,6 +74,7 @@ import {
   DeleteChimeWebhookConfigurationCommandInput,
   DeleteChimeWebhookConfigurationCommandOutput,
 } from "./commands/DeleteChimeWebhookConfigurationCommand";
+import { DeleteCustomActionCommandInput, DeleteCustomActionCommandOutput } from "./commands/DeleteCustomActionCommand";
 import {
   DeleteMicrosoftTeamsChannelConfigurationCommandInput,
   DeleteMicrosoftTeamsChannelConfigurationCommandOutput,
@@ -110,13 +116,20 @@ import {
   DescribeSlackWorkspacesCommandOutput,
 } from "./commands/DescribeSlackWorkspacesCommand";
 import {
+  DisassociateFromConfigurationCommandInput,
+  DisassociateFromConfigurationCommandOutput,
+} from "./commands/DisassociateFromConfigurationCommand";
+import {
   GetAccountPreferencesCommandInput,
   GetAccountPreferencesCommandOutput,
 } from "./commands/GetAccountPreferencesCommand";
+import { GetCustomActionCommandInput, GetCustomActionCommandOutput } from "./commands/GetCustomActionCommand";
 import {
   GetMicrosoftTeamsChannelConfigurationCommandInput,
   GetMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/GetMicrosoftTeamsChannelConfigurationCommand";
+import { ListAssociationsCommandInput, ListAssociationsCommandOutput } from "./commands/ListAssociationsCommand";
+import { ListCustomActionsCommandInput, ListCustomActionsCommandOutput } from "./commands/ListCustomActionsCommand";
 import {
   ListMicrosoftTeamsChannelConfigurationsCommandInput,
   ListMicrosoftTeamsChannelConfigurationsCommandOutput,
@@ -143,6 +156,7 @@ import {
   UpdateChimeWebhookConfigurationCommandInput,
   UpdateChimeWebhookConfigurationCommandOutput,
 } from "./commands/UpdateChimeWebhookConfigurationCommand";
+import { UpdateCustomActionCommandInput, UpdateCustomActionCommandOutput } from "./commands/UpdateCustomActionCommand";
 import {
   UpdateMicrosoftTeamsChannelConfigurationCommandInput,
   UpdateMicrosoftTeamsChannelConfigurationCommandOutput,
@@ -166,10 +180,13 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateToConfigurationCommandInput
   | CreateChimeWebhookConfigurationCommandInput
+  | CreateCustomActionCommandInput
   | CreateMicrosoftTeamsChannelConfigurationCommandInput
   | CreateSlackChannelConfigurationCommandInput
   | DeleteChimeWebhookConfigurationCommandInput
+  | DeleteCustomActionCommandInput
   | DeleteMicrosoftTeamsChannelConfigurationCommandInput
   | DeleteMicrosoftTeamsConfiguredTeamCommandInput
   | DeleteMicrosoftTeamsUserIdentityCommandInput
@@ -180,8 +197,12 @@ export type ServiceInputTypes =
   | DescribeSlackChannelConfigurationsCommandInput
   | DescribeSlackUserIdentitiesCommandInput
   | DescribeSlackWorkspacesCommandInput
+  | DisassociateFromConfigurationCommandInput
   | GetAccountPreferencesCommandInput
+  | GetCustomActionCommandInput
   | GetMicrosoftTeamsChannelConfigurationCommandInput
+  | ListAssociationsCommandInput
+  | ListCustomActionsCommandInput
   | ListMicrosoftTeamsChannelConfigurationsCommandInput
   | ListMicrosoftTeamsConfiguredTeamsCommandInput
   | ListMicrosoftTeamsUserIdentitiesCommandInput
@@ -190,6 +211,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAccountPreferencesCommandInput
   | UpdateChimeWebhookConfigurationCommandInput
+  | UpdateCustomActionCommandInput
   | UpdateMicrosoftTeamsChannelConfigurationCommandInput
   | UpdateSlackChannelConfigurationCommandInput;
 
@@ -197,10 +219,13 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateToConfigurationCommandOutput
   | CreateChimeWebhookConfigurationCommandOutput
+  | CreateCustomActionCommandOutput
   | CreateMicrosoftTeamsChannelConfigurationCommandOutput
   | CreateSlackChannelConfigurationCommandOutput
   | DeleteChimeWebhookConfigurationCommandOutput
+  | DeleteCustomActionCommandOutput
   | DeleteMicrosoftTeamsChannelConfigurationCommandOutput
   | DeleteMicrosoftTeamsConfiguredTeamCommandOutput
   | DeleteMicrosoftTeamsUserIdentityCommandOutput
@@ -211,8 +236,12 @@ export type ServiceOutputTypes =
   | DescribeSlackChannelConfigurationsCommandOutput
   | DescribeSlackUserIdentitiesCommandOutput
   | DescribeSlackWorkspacesCommandOutput
+  | DisassociateFromConfigurationCommandOutput
   | GetAccountPreferencesCommandOutput
+  | GetCustomActionCommandOutput
   | GetMicrosoftTeamsChannelConfigurationCommandOutput
+  | ListAssociationsCommandOutput
+  | ListCustomActionsCommandOutput
   | ListMicrosoftTeamsChannelConfigurationsCommandOutput
   | ListMicrosoftTeamsConfiguredTeamsCommandOutput
   | ListMicrosoftTeamsUserIdentitiesCommandOutput
@@ -221,6 +250,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAccountPreferencesCommandOutput
   | UpdateChimeWebhookConfigurationCommandOutput
+  | UpdateCustomActionCommandOutput
   | UpdateMicrosoftTeamsChannelConfigurationCommandOutput
   | UpdateSlackChannelConfigurationCommandOutput;
 
