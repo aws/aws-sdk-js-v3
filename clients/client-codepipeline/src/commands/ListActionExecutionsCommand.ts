@@ -105,6 +105,7 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * //             code: "STRING_VALUE",
  * //             message: "STRING_VALUE",
  * //           },
+ * //           logStreamARN: "STRING_VALUE",
  * //         },
  * //         outputVariables: { // OutputVariablesMap
  * //           "<keys>": "STRING_VALUE",

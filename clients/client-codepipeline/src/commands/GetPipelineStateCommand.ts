@@ -92,6 +92,7 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //               code: "STRING_VALUE",
  * //               message: "STRING_VALUE",
  * //             },
+ * //             logStreamARN: "STRING_VALUE",
  * //           },
  * //           entityUrl: "STRING_VALUE",
  * //           revisionUrl: "STRING_VALUE",

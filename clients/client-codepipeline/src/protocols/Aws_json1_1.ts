@@ -2820,6 +2820,7 @@ const de_ActionExecution = (output: any, context: __SerdeContext): ActionExecuti
     externalExecutionUrl: __expectString,
     lastStatusChange: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastUpdatedBy: __expectString,
+    logStreamARN: __expectString,
     percentComplete: __expectInt32,
     status: __expectString,
     summary: __expectString,
