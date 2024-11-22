@@ -40,7 +40,7 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Servicesservice,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -91,6 +91,11 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *       RequireSymbols: true || false,
  *       PasswordHistorySize: Number("int"),
  *       TemporaryPasswordValidityDays: Number("int"),
+ *     },
+ *     SignInPolicy: { // SignInPolicyType
+ *       AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
+ *         "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ *       ],
  *     },
  *   },
  *   DeletionProtection: "ACTIVE" || "INACTIVE",
@@ -182,6 +187,8 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  *       },
  *     ],
  *   },
+ *   PoolName: "STRING_VALUE",
+ *   UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
  * };
  * const command = new UpdateUserPoolCommand(input);
  * const response = await client.send(command);
@@ -198,6 +205,10 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>This exception is thrown if two or more modifications are happening
  *             concurrently.</p>
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -217,7 +228,7 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link NotAuthorizedException} (client fault)
@@ -226,6 +237,10 @@ export interface UpdateUserPoolCommandOutput extends UpdateUserPoolResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
+ *
+ * @throws {@link TierChangeNotAllowedException} (client fault)
+ *  <p>This exception is thrown when you've attempted to change your feature plan but
+ *             the operation isn't permitted.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>This exception is thrown when the user has made too many requests for a given

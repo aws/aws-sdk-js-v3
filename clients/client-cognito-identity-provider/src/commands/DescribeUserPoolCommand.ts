@@ -78,6 +78,11 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //         PasswordHistorySize: Number("int"),
  * //         TemporaryPasswordValidityDays: Number("int"),
  * //       },
+ * //       SignInPolicy: { // SignInPolicyType
+ * //         AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
+ * //           "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ * //         ],
+ * //       },
  * //     },
  * //     DeletionProtection: "ACTIVE" || "INACTIVE",
  * //     LambdaConfig: { // LambdaConfigType
@@ -203,6 +208,7 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //         },
  * //       ],
  * //     },
+ * //     UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
  * //   },
  * // };
  *

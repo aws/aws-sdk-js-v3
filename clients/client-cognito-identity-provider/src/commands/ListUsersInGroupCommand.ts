@@ -14,7 +14,7 @@ import {
   ListUsersInGroupRequest,
   ListUsersInGroupResponse,
   ListUsersInGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListUsersInGroupCommand, se_ListUsersInGroupCommand } from "../protocols/Aws_json1_1";
 
 /**

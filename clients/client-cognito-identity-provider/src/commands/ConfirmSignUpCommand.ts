@@ -14,6 +14,7 @@ import {
   ConfirmSignUpRequest,
   ConfirmSignUpRequestFilterSensitiveLog,
   ConfirmSignUpResponse,
+  ConfirmSignUpResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_ConfirmSignUpCommand, se_ConfirmSignUpCommand } from "../protocols/Aws_json1_1";
 
@@ -76,10 +77,13 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   Session: "STRING_VALUE",
  * };
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ConfirmSignUpResponse
+ * //   Session: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -169,7 +173,7 @@ export class ConfirmSignUpCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "ConfirmSignUp", {})
   .n("CognitoIdentityProviderClient", "ConfirmSignUpCommand")
-  .f(ConfirmSignUpRequestFilterSensitiveLog, void 0)
+  .f(ConfirmSignUpRequestFilterSensitiveLog, ConfirmSignUpResponseFilterSensitiveLog)
   .ser(se_ConfirmSignUpCommand)
   .de(de_ConfirmSignUpCommand)
   .build() {
@@ -177,7 +181,7 @@ export class ConfirmSignUpCommand extends $Command
   protected declare static __types: {
     api: {
       input: ConfirmSignUpRequest;
-      output: {};
+      output: ConfirmSignUpResponse;
     };
     sdk: {
       input: ConfirmSignUpCommandInput;

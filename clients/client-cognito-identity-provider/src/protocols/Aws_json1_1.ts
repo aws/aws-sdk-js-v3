@@ -16,6 +16,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
@@ -105,6 +106,10 @@ import {
   AssociateSoftwareTokenCommandOutput,
 } from "../commands/AssociateSoftwareTokenCommand";
 import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "../commands/ChangePasswordCommand";
+import {
+  CompleteWebAuthnRegistrationCommandInput,
+  CompleteWebAuthnRegistrationCommandOutput,
+} from "../commands/CompleteWebAuthnRegistrationCommand";
 import { ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput } from "../commands/ConfirmDeviceCommand";
 import {
   ConfirmForgotPasswordCommandInput,
@@ -116,6 +121,10 @@ import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "../commands/CreateIdentityProviderCommand";
+import {
+  CreateManagedLoginBrandingCommandInput,
+  CreateManagedLoginBrandingCommandOutput,
+} from "../commands/CreateManagedLoginBrandingCommand";
 import {
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
@@ -139,6 +148,10 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "../commands/DeleteIdentityProviderCommand";
 import {
+  DeleteManagedLoginBrandingCommandInput,
+  DeleteManagedLoginBrandingCommandOutput,
+} from "../commands/DeleteManagedLoginBrandingCommand";
+import {
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
 } from "../commands/DeleteResourceServerCommand";
@@ -157,9 +170,21 @@ import {
   DeleteUserPoolDomainCommandOutput,
 } from "../commands/DeleteUserPoolDomainCommand";
 import {
+  DeleteWebAuthnCredentialCommandInput,
+  DeleteWebAuthnCredentialCommandOutput,
+} from "../commands/DeleteWebAuthnCredentialCommand";
+import {
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
 } from "../commands/DescribeIdentityProviderCommand";
+import {
+  DescribeManagedLoginBrandingByClientCommandInput,
+  DescribeManagedLoginBrandingByClientCommandOutput,
+} from "../commands/DescribeManagedLoginBrandingByClientCommand";
+import {
+  DescribeManagedLoginBrandingCommandInput,
+  DescribeManagedLoginBrandingCommandOutput,
+} from "../commands/DescribeManagedLoginBrandingCommand";
 import {
   DescribeResourceServerCommandInput,
   DescribeResourceServerCommandOutput,
@@ -203,6 +228,7 @@ import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
 } from "../commands/GetUserAttributeVerificationCodeCommand";
+import { GetUserAuthFactorsCommandInput, GetUserAuthFactorsCommandOutput } from "../commands/GetUserAuthFactorsCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "../commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommandInput,
@@ -233,6 +259,10 @@ import { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "../comman
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
 import { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "../commands/ListUsersInGroupCommand";
 import {
+  ListWebAuthnCredentialsCommandInput,
+  ListWebAuthnCredentialsCommandOutput,
+} from "../commands/ListWebAuthnCredentialsCommand";
+import {
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput,
 } from "../commands/ResendConfirmationCodeCommand";
@@ -261,6 +291,10 @@ import {
 import { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "../commands/SetUserSettingsCommand";
 import { SignUpCommandInput, SignUpCommandOutput } from "../commands/SignUpCommand";
 import { StartUserImportJobCommandInput, StartUserImportJobCommandOutput } from "../commands/StartUserImportJobCommand";
+import {
+  StartWebAuthnRegistrationCommandInput,
+  StartWebAuthnRegistrationCommandOutput,
+} from "../commands/StartWebAuthnRegistrationCommand";
 import { StopUserImportJobCommandInput, StopUserImportJobCommandOutput } from "../commands/StopUserImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -274,6 +308,10 @@ import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "../commands/UpdateIdentityProviderCommand";
+import {
+  UpdateManagedLoginBrandingCommandInput,
+  UpdateManagedLoginBrandingCommandOutput,
+} from "../commands/UpdateManagedLoginBrandingCommand";
 import {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
@@ -344,13 +382,16 @@ import {
   AliasExistsException,
   AnalyticsConfigurationType,
   AnalyticsMetadataType,
+  AssetType,
   AssociateSoftwareTokenRequest,
   AttributeType,
   AuthEventType,
+  AuthFactorType,
   ChangePasswordRequest,
   CloudWatchLogsConfigurationType,
   CodeDeliveryFailureException,
   CodeMismatchException,
+  CompleteWebAuthnRegistrationRequest,
   CompromisedCredentialsActionsType,
   CompromisedCredentialsRiskConfigurationType,
   ConcurrentModificationException,
@@ -362,6 +403,8 @@ import {
   CreateGroupResponse,
   CreateIdentityProviderRequest,
   CreateIdentityProviderResponse,
+  CreateManagedLoginBrandingRequest,
+  CreateManagedLoginBrandingResponse,
   CreateResourceServerRequest,
   CreateUserImportJobRequest,
   CreateUserImportJobResponse,
@@ -375,15 +418,21 @@ import {
   CustomSMSLambdaVersionConfigType,
   DeleteGroupRequest,
   DeleteIdentityProviderRequest,
+  DeleteManagedLoginBrandingRequest,
   DeleteResourceServerRequest,
   DeleteUserAttributesRequest,
   DeleteUserPoolClientRequest,
   DeleteUserPoolDomainRequest,
   DeleteUserPoolRequest,
   DeleteUserRequest,
+  DeleteWebAuthnCredentialRequest,
   DeliveryMediumType,
   DescribeIdentityProviderRequest,
   DescribeIdentityProviderResponse,
+  DescribeManagedLoginBrandingByClientRequest,
+  DescribeManagedLoginBrandingByClientResponse,
+  DescribeManagedLoginBrandingRequest,
+  DescribeManagedLoginBrandingResponse,
   DescribeResourceServerRequest,
   DescribeRiskConfigurationRequest,
   DescribeRiskConfigurationResponse,
@@ -405,6 +454,7 @@ import {
   EventFilterType,
   ExpiredCodeException,
   ExplicitAuthFlowsType,
+  FeatureUnavailableInTierException,
   FirehoseConfigurationType,
   ForbiddenException,
   ForgetDeviceRequest,
@@ -421,14 +471,13 @@ import {
   GetUICustomizationRequest,
   GetUICustomizationResponse,
   GetUserAttributeVerificationCodeRequest,
+  GetUserAuthFactorsRequest,
   GetUserPoolMfaConfigRequest,
   GetUserRequest,
-  GlobalSignOutRequest,
   GroupExistsException,
   GroupType,
   HttpHeader,
   IdentityProviderType,
-  InitiateAuthRequest,
   InternalErrorException,
   InvalidEmailRoleAccessPolicyException,
   InvalidLambdaResponseException,
@@ -440,24 +489,9 @@ import {
   InvalidUserPoolConfigurationException,
   LambdaConfigType,
   LimitExceededException,
-  ListDevicesRequest,
-  ListDevicesResponse,
-  ListGroupsRequest,
-  ListGroupsResponse,
-  ListIdentityProvidersRequest,
-  ListIdentityProvidersResponse,
-  ListResourceServersRequest,
-  ListTagsForResourceRequest,
-  ListUserImportJobsRequest,
-  ListUserImportJobsResponse,
-  ListUserPoolClientsRequest,
-  ListUserPoolsRequest,
-  ListUserPoolsResponse,
-  ListUsersInGroupRequest,
-  ListUsersInGroupResponse,
-  ListUsersRequest,
-  ListUsersResponse,
   LogConfigurationType,
+  ManagedLoginBrandingExistsException,
+  ManagedLoginBrandingType,
   MessageTemplateType,
   MFAMethodNotFoundException,
   MFAOptionType,
@@ -471,18 +505,16 @@ import {
   PasswordResetRequiredException,
   PreconditionNotMetException,
   PreTokenGenerationVersionConfigType,
-  ProviderDescription,
   ProviderUserIdentifierType,
   RecoveryOptionType,
-  ResendConfirmationCodeRequest,
   ResourceNotFoundException,
   ResourceServerScopeType,
-  RespondToAuthChallengeRequest,
   RiskConfigurationType,
   RiskExceptionConfigurationType,
   S3ConfigurationType,
   SchemaAttributeType,
   ScopeDoesNotExistException,
+  SignInPolicyType,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -490,6 +522,7 @@ import {
   SoftwareTokenMFANotFoundException,
   SoftwareTokenMfaSettingsType,
   StringAttributeConstraintsType,
+  TierChangeNotAllowedException,
   TokenValidityUnitsType,
   TooManyFailedAttemptsException,
   TooManyRequestsException,
@@ -510,16 +543,45 @@ import {
   UserPoolAddOnNotEnabledException,
   UserPoolAddOnsType,
   UserPoolClientType,
-  UserPoolDescriptionType,
   UserPoolPolicyType,
   UserPoolTaggingException,
   UserPoolType,
   UserType,
   VerificationMessageTemplateType,
   VerifiedAttributeType,
+  WebAuthnChallengeNotFoundException,
+  WebAuthnClientMismatchException,
+  WebAuthnCredentialNotSupportedException,
+  WebAuthnNotEnabledException,
+  WebAuthnOriginNotAllowedException,
+  WebAuthnRelyingPartyMismatchException,
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  GlobalSignOutRequest,
+  InitiateAuthRequest,
+  ListDevicesRequest,
+  ListDevicesResponse,
+  ListGroupsRequest,
+  ListGroupsResponse,
+  ListIdentityProvidersRequest,
+  ListIdentityProvidersResponse,
+  ListResourceServersRequest,
+  ListTagsForResourceRequest,
+  ListUserImportJobsRequest,
+  ListUserImportJobsResponse,
+  ListUserPoolClientsRequest,
+  ListUserPoolsRequest,
+  ListUserPoolsResponse,
+  ListUsersInGroupRequest,
+  ListUsersInGroupResponse,
+  ListUsersRequest,
+  ListUsersResponse,
+  ListWebAuthnCredentialsRequest,
+  ListWebAuthnCredentialsResponse,
+  ProviderDescription,
+  ResendConfirmationCodeRequest,
+  RespondToAuthChallengeRequest,
   RevokeTokenRequest,
   SetLogDeliveryConfigurationRequest,
   SetRiskConfigurationRequest,
@@ -532,6 +594,8 @@ import {
   SignUpRequest,
   StartUserImportJobRequest,
   StartUserImportJobResponse,
+  StartWebAuthnRegistrationRequest,
+  StartWebAuthnRegistrationResponse,
   StopUserImportJobRequest,
   StopUserImportJobResponse,
   TagResourceRequest,
@@ -545,14 +609,20 @@ import {
   UpdateGroupResponse,
   UpdateIdentityProviderRequest,
   UpdateIdentityProviderResponse,
+  UpdateManagedLoginBrandingRequest,
+  UpdateManagedLoginBrandingResponse,
   UpdateResourceServerRequest,
   UpdateUserAttributesRequest,
   UpdateUserPoolClientRequest,
   UpdateUserPoolClientResponse,
   UpdateUserPoolDomainRequest,
   UpdateUserPoolRequest,
+  UserPoolDescriptionType,
   VerifySoftwareTokenRequest,
   VerifyUserAttributeRequest,
+  WebAuthnConfigurationMissingException,
+  WebAuthnConfigurationType,
+  WebAuthnCredentialDescription,
 } from "../models/models_1";
 
 /**
@@ -933,6 +1003,19 @@ export const se_ChangePasswordCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CompleteWebAuthnRegistrationCommand
+ */
+export const se_CompleteWebAuthnRegistrationCommand = async (
+  input: CompleteWebAuthnRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CompleteWebAuthnRegistration");
+  let body: any;
+  body = JSON.stringify(se_CompleteWebAuthnRegistrationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ConfirmDeviceCommand
  */
 export const se_ConfirmDeviceCommand = async (
@@ -994,6 +1077,19 @@ export const se_CreateIdentityProviderCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateIdentityProvider");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateManagedLoginBrandingCommand
+ */
+export const se_CreateManagedLoginBrandingCommand = async (
+  input: CreateManagedLoginBrandingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateManagedLoginBranding");
+  let body: any;
+  body = JSON.stringify(se_CreateManagedLoginBrandingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1089,6 +1185,19 @@ export const se_DeleteIdentityProviderCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteManagedLoginBrandingCommand
+ */
+export const se_DeleteManagedLoginBrandingCommand = async (
+  input: DeleteManagedLoginBrandingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteManagedLoginBranding");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteResourceServerCommand
  */
 export const se_DeleteResourceServerCommand = async (
@@ -1167,6 +1276,19 @@ export const se_DeleteUserPoolDomainCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteWebAuthnCredentialCommand
+ */
+export const se_DeleteWebAuthnCredentialCommand = async (
+  input: DeleteWebAuthnCredentialCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteWebAuthnCredential");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeIdentityProviderCommand
  */
 export const se_DescribeIdentityProviderCommand = async (
@@ -1174,6 +1296,32 @@ export const se_DescribeIdentityProviderCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeIdentityProvider");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeManagedLoginBrandingCommand
+ */
+export const se_DescribeManagedLoginBrandingCommand = async (
+  input: DescribeManagedLoginBrandingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeManagedLoginBranding");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeManagedLoginBrandingByClientCommand
+ */
+export const se_DescribeManagedLoginBrandingByClientCommand = async (
+  input: DescribeManagedLoginBrandingByClientCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeManagedLoginBrandingByClient");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1401,6 +1549,19 @@ export const se_GetUserAttributeVerificationCodeCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetUserAuthFactorsCommand
+ */
+export const se_GetUserAuthFactorsCommand = async (
+  input: GetUserAuthFactorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetUserAuthFactors");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetUserPoolMfaConfigCommand
  */
 export const se_GetUserPoolMfaConfigCommand = async (
@@ -1570,6 +1731,19 @@ export const se_ListUsersInGroupCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListWebAuthnCredentialsCommand
+ */
+export const se_ListWebAuthnCredentialsCommand = async (
+  input: ListWebAuthnCredentialsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListWebAuthnCredentials");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ResendConfirmationCodeCommand
  */
 export const se_ResendConfirmationCodeCommand = async (
@@ -1710,6 +1884,19 @@ export const se_StartUserImportJobCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartWebAuthnRegistrationCommand
+ */
+export const se_StartWebAuthnRegistrationCommand = async (
+  input: StartWebAuthnRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartWebAuthnRegistration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StopUserImportJobCommand
  */
 export const se_StopUserImportJobCommand = async (
@@ -1797,6 +1984,19 @@ export const se_UpdateIdentityProviderCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateIdentityProvider");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateManagedLoginBrandingCommand
+ */
+export const se_UpdateManagedLoginBrandingCommand = async (
+  input: UpdateManagedLoginBrandingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateManagedLoginBranding");
+  let body: any;
+  body = JSON.stringify(se_UpdateManagedLoginBrandingRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2460,6 +2660,26 @@ export const de_ChangePasswordCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CompleteWebAuthnRegistrationCommand
+ */
+export const de_CompleteWebAuthnRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CompleteWebAuthnRegistrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CompleteWebAuthnRegistrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ConfirmDeviceCommand
  */
 export const de_ConfirmDeviceCommand = async (
@@ -2553,6 +2773,26 @@ export const de_CreateIdentityProviderCommand = async (
   let contents: any = {};
   contents = de_CreateIdentityProviderResponse(data, context);
   const response: CreateIdentityProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateManagedLoginBrandingCommand
+ */
+export const de_CreateManagedLoginBrandingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateManagedLoginBrandingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateManagedLoginBrandingResponse(data, context);
+  const response: CreateManagedLoginBrandingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2694,6 +2934,23 @@ export const de_DeleteIdentityProviderCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteManagedLoginBrandingCommand
+ */
+export const de_DeleteManagedLoginBrandingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteManagedLoginBrandingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteManagedLoginBrandingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DeleteResourceServerCommand
  */
 export const de_DeleteResourceServerCommand = async (
@@ -2802,6 +3059,26 @@ export const de_DeleteUserPoolDomainCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteWebAuthnCredentialCommand
+ */
+export const de_DeleteWebAuthnCredentialCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWebAuthnCredentialCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteWebAuthnCredentialCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeIdentityProviderCommand
  */
 export const de_DescribeIdentityProviderCommand = async (
@@ -2815,6 +3092,46 @@ export const de_DescribeIdentityProviderCommand = async (
   let contents: any = {};
   contents = de_DescribeIdentityProviderResponse(data, context);
   const response: DescribeIdentityProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeManagedLoginBrandingCommand
+ */
+export const de_DescribeManagedLoginBrandingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeManagedLoginBrandingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeManagedLoginBrandingResponse(data, context);
+  const response: DescribeManagedLoginBrandingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeManagedLoginBrandingByClientCommand
+ */
+export const de_DescribeManagedLoginBrandingByClientCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeManagedLoginBrandingByClientCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeManagedLoginBrandingByClientResponse(data, context);
+  const response: DescribeManagedLoginBrandingByClientCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3159,6 +3476,26 @@ export const de_GetUserAttributeVerificationCodeCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetUserAuthFactorsCommand
+ */
+export const de_GetUserAuthFactorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetUserAuthFactorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetUserAuthFactorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetUserPoolMfaConfigCommand
  */
 export const de_GetUserPoolMfaConfigCommand = async (
@@ -3419,6 +3756,26 @@ export const de_ListUsersInGroupCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListWebAuthnCredentialsCommand
+ */
+export const de_ListWebAuthnCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWebAuthnCredentialsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListWebAuthnCredentialsResponse(data, context);
+  const response: ListWebAuthnCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ResendConfirmationCodeCommand
  */
 export const de_ResendConfirmationCodeCommand = async (
@@ -3639,6 +3996,26 @@ export const de_StartUserImportJobCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartWebAuthnRegistrationCommand
+ */
+export const de_StartWebAuthnRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWebAuthnRegistrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartWebAuthnRegistrationResponse(data, context);
+  const response: StartWebAuthnRegistrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StopUserImportJobCommand
  */
 export const de_StopUserImportJobCommand = async (
@@ -3772,6 +4149,26 @@ export const de_UpdateIdentityProviderCommand = async (
   let contents: any = {};
   contents = de_UpdateIdentityProviderResponse(data, context);
   const response: UpdateIdentityProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateManagedLoginBrandingCommand
+ */
+export const de_UpdateManagedLoginBrandingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateManagedLoginBrandingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateManagedLoginBrandingResponse(data, context);
+  const response: UpdateManagedLoginBrandingCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -4024,12 +4421,39 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ForbiddenException":
     case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "WebAuthnChallengeNotFoundException":
+    case "com.amazonaws.cognitoidentityprovider#WebAuthnChallengeNotFoundException":
+      throw await de_WebAuthnChallengeNotFoundExceptionRes(parsedOutput, context);
+    case "WebAuthnClientMismatchException":
+    case "com.amazonaws.cognitoidentityprovider#WebAuthnClientMismatchException":
+      throw await de_WebAuthnClientMismatchExceptionRes(parsedOutput, context);
+    case "WebAuthnCredentialNotSupportedException":
+    case "com.amazonaws.cognitoidentityprovider#WebAuthnCredentialNotSupportedException":
+      throw await de_WebAuthnCredentialNotSupportedExceptionRes(parsedOutput, context);
+    case "WebAuthnNotEnabledException":
+    case "com.amazonaws.cognitoidentityprovider#WebAuthnNotEnabledException":
+      throw await de_WebAuthnNotEnabledExceptionRes(parsedOutput, context);
+    case "WebAuthnOriginNotAllowedException":
+    case "com.amazonaws.cognitoidentityprovider#WebAuthnOriginNotAllowedException":
+      throw await de_WebAuthnOriginNotAllowedExceptionRes(parsedOutput, context);
+    case "WebAuthnRelyingPartyMismatchException":
+    case "com.amazonaws.cognitoidentityprovider#WebAuthnRelyingPartyMismatchException":
+      throw await de_WebAuthnRelyingPartyMismatchExceptionRes(parsedOutput, context);
     case "GroupExistsException":
     case "com.amazonaws.cognitoidentityprovider#GroupExistsException":
       throw await de_GroupExistsExceptionRes(parsedOutput, context);
     case "DuplicateProviderException":
     case "com.amazonaws.cognitoidentityprovider#DuplicateProviderException":
       throw await de_DuplicateProviderExceptionRes(parsedOutput, context);
+    case "ManagedLoginBrandingExistsException":
+    case "com.amazonaws.cognitoidentityprovider#ManagedLoginBrandingExistsException":
+      throw await de_ManagedLoginBrandingExistsExceptionRes(parsedOutput, context);
+    case "FeatureUnavailableInTierException":
+    case "com.amazonaws.cognitoidentityprovider#FeatureUnavailableInTierException":
+      throw await de_FeatureUnavailableInTierExceptionRes(parsedOutput, context);
+    case "TierChangeNotAllowedException":
+    case "com.amazonaws.cognitoidentityprovider#TierChangeNotAllowedException":
+      throw await de_TierChangeNotAllowedExceptionRes(parsedOutput, context);
     case "UserPoolTaggingException":
     case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
       throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
@@ -4051,6 +4475,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UnsupportedTokenTypeException":
     case "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException":
       throw await de_UnsupportedTokenTypeExceptionRes(parsedOutput, context);
+    case "WebAuthnConfigurationMissingException":
+    case "com.amazonaws.cognitoidentityprovider#WebAuthnConfigurationMissingException":
+      throw await de_WebAuthnConfigurationMissingExceptionRes(parsedOutput, context);
     case "EnableSoftwareTokenMFAException":
     case "com.amazonaws.cognitoidentityprovider#EnableSoftwareTokenMFAException":
       throw await de_EnableSoftwareTokenMFAExceptionRes(parsedOutput, context);
@@ -4170,6 +4597,22 @@ const de_ExpiredCodeExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ExpiredCodeException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1FeatureUnavailableInTierExceptionRes
+ */
+const de_FeatureUnavailableInTierExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<FeatureUnavailableInTierException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new FeatureUnavailableInTierException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4366,6 +4809,22 @@ const de_LimitExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ManagedLoginBrandingExistsExceptionRes
+ */
+const de_ManagedLoginBrandingExistsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ManagedLoginBrandingExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ManagedLoginBrandingExistsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1MFAMethodNotFoundExceptionRes
  */
 const de_MFAMethodNotFoundExceptionRes = async (
@@ -4487,6 +4946,22 @@ const de_SoftwareTokenMFANotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new SoftwareTokenMFANotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1TierChangeNotAllowedExceptionRes
+ */
+const de_TierChangeNotAllowedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TierChangeNotAllowedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TierChangeNotAllowedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4733,6 +5208,118 @@ const de_UserPoolTaggingExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * deserializeAws_json1_1WebAuthnChallengeNotFoundExceptionRes
+ */
+const de_WebAuthnChallengeNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebAuthnChallengeNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WebAuthnChallengeNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1WebAuthnClientMismatchExceptionRes
+ */
+const de_WebAuthnClientMismatchExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebAuthnClientMismatchException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WebAuthnClientMismatchException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1WebAuthnConfigurationMissingExceptionRes
+ */
+const de_WebAuthnConfigurationMissingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebAuthnConfigurationMissingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WebAuthnConfigurationMissingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1WebAuthnCredentialNotSupportedExceptionRes
+ */
+const de_WebAuthnCredentialNotSupportedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebAuthnCredentialNotSupportedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WebAuthnCredentialNotSupportedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1WebAuthnNotEnabledExceptionRes
+ */
+const de_WebAuthnNotEnabledExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebAuthnNotEnabledException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WebAuthnNotEnabledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1WebAuthnOriginNotAllowedExceptionRes
+ */
+const de_WebAuthnOriginNotAllowedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebAuthnOriginNotAllowedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WebAuthnOriginNotAllowedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1WebAuthnRelyingPartyMismatchExceptionRes
+ */
+const de_WebAuthnRelyingPartyMismatchExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<WebAuthnRelyingPartyMismatchException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new WebAuthnRelyingPartyMismatchException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 // se_AccountRecoverySettingType omitted.
 
 // se_AccountTakeoverActionsType omitted.
@@ -4801,9 +5388,35 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_AliasAttributesListType omitted.
 
+// se_AllowedFirstAuthFactorsListType omitted.
+
 // se_AnalyticsConfigurationType omitted.
 
 // se_AnalyticsMetadataType omitted.
+
+/**
+ * serializeAws_json1_1AssetListType
+ */
+const se_AssetListType = (input: AssetType[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AssetType(entry, context);
+    });
+};
+
+/**
+ * serializeAws_json1_1AssetType
+ */
+const se_AssetType = (input: AssetType, context: __SerdeContext): any => {
+  return take(input, {
+    Bytes: context.base64Encoder,
+    Category: [],
+    ColorMode: [],
+    Extension: [],
+    ResourceId: [],
+  });
+};
 
 // se_AssociateSoftwareTokenRequest omitted.
 
@@ -4833,6 +5446,19 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_CloudWatchLogsConfigurationType omitted.
 
+/**
+ * serializeAws_json1_1CompleteWebAuthnRegistrationRequest
+ */
+const se_CompleteWebAuthnRegistrationRequest = (
+  input: CompleteWebAuthnRegistrationRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AccessToken: [],
+    Credential: (_) => se_Document(_, context),
+  });
+};
+
 // se_CompromisedCredentialsActionsType omitted.
 
 // se_CompromisedCredentialsRiskConfigurationType omitted.
@@ -4848,6 +5474,22 @@ const de_UserPoolTaggingExceptionRes = async (
 // se_CreateGroupRequest omitted.
 
 // se_CreateIdentityProviderRequest omitted.
+
+/**
+ * serializeAws_json1_1CreateManagedLoginBrandingRequest
+ */
+const se_CreateManagedLoginBrandingRequest = (
+  input: CreateManagedLoginBrandingRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Assets: (_) => se_AssetListType(_, context),
+    ClientId: [],
+    Settings: (_) => se_Document(_, context),
+    UseCognitoProvidedValues: [],
+    UserPoolId: [],
+  });
+};
 
 // se_CreateResourceServerRequest omitted.
 
@@ -4871,6 +5513,8 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_DeleteIdentityProviderRequest omitted.
 
+// se_DeleteManagedLoginBrandingRequest omitted.
+
 // se_DeleteResourceServerRequest omitted.
 
 // se_DeleteUserAttributesRequest omitted.
@@ -4883,9 +5527,15 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_DeleteUserRequest omitted.
 
+// se_DeleteWebAuthnCredentialRequest omitted.
+
 // se_DeliveryMediumListType omitted.
 
 // se_DescribeIdentityProviderRequest omitted.
+
+// se_DescribeManagedLoginBrandingByClientRequest omitted.
+
+// se_DescribeManagedLoginBrandingRequest omitted.
 
 // se_DescribeResourceServerRequest omitted.
 
@@ -4902,6 +5552,13 @@ const de_UserPoolTaggingExceptionRes = async (
 // se_DeviceConfigurationType omitted.
 
 // se_DeviceSecretVerifierConfigType omitted.
+
+/**
+ * serializeAws_json1_1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 // se_EmailConfigurationType omitted.
 
@@ -4934,6 +5591,8 @@ const de_UserPoolTaggingExceptionRes = async (
 // se_GetUICustomizationRequest omitted.
 
 // se_GetUserAttributeVerificationCodeRequest omitted.
+
+// se_GetUserAuthFactorsRequest omitted.
 
 // se_GetUserPoolMfaConfigRequest omitted.
 
@@ -4970,6 +5629,8 @@ const de_UserPoolTaggingExceptionRes = async (
 // se_ListUsersInGroupRequest omitted.
 
 // se_ListUsersRequest omitted.
+
+// se_ListWebAuthnCredentialsRequest omitted.
 
 // se_LogConfigurationListType omitted.
 
@@ -5047,6 +5708,8 @@ const se_SetUICustomizationRequest = (input: SetUICustomizationRequest, context:
 
 // se_SetUserSettingsRequest omitted.
 
+// se_SignInPolicyType omitted.
+
 // se_SignUpRequest omitted.
 
 // se_SkippedIPRangeListType omitted.
@@ -5062,6 +5725,8 @@ const se_SetUICustomizationRequest = (input: SetUICustomizationRequest, context:
 // se_SoftwareTokenMfaSettingsType omitted.
 
 // se_StartUserImportJobRequest omitted.
+
+// se_StartWebAuthnRegistrationRequest omitted.
 
 // se_StopUserImportJobRequest omitted.
 
@@ -5082,6 +5747,22 @@ const se_SetUICustomizationRequest = (input: SetUICustomizationRequest, context:
 // se_UpdateGroupRequest omitted.
 
 // se_UpdateIdentityProviderRequest omitted.
+
+/**
+ * serializeAws_json1_1UpdateManagedLoginBrandingRequest
+ */
+const se_UpdateManagedLoginBrandingRequest = (
+  input: UpdateManagedLoginBrandingRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Assets: (_) => se_AssetListType(_, context),
+    ManagedLoginBrandingId: [],
+    Settings: (_) => se_Document(_, context),
+    UseCognitoProvidedValues: [],
+    UserPoolId: [],
+  });
+};
 
 // se_UpdateResourceServerRequest omitted.
 
@@ -5116,6 +5797,8 @@ const se_SetUICustomizationRequest = (input: SetUICustomizationRequest, context:
 // se_VerifySoftwareTokenRequest omitted.
 
 // se_VerifyUserAttributeRequest omitted.
+
+// se_WebAuthnConfigurationType omitted.
 
 // de_AccountRecoverySettingType omitted.
 
@@ -5232,7 +5915,34 @@ const de_AdminListUserAuthEventsResponse = (output: any, context: __SerdeContext
 
 // de_AliasExistsException omitted.
 
+// de_AllowedFirstAuthFactorsListType omitted.
+
 // de_AnalyticsConfigurationType omitted.
+
+/**
+ * deserializeAws_json1_1AssetListType
+ */
+const de_AssetListType = (output: any, context: __SerdeContext): AssetType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssetType(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1AssetType
+ */
+const de_AssetType = (output: any, context: __SerdeContext): AssetType => {
+  return take(output, {
+    Bytes: context.base64Decoder,
+    Category: __expectString,
+    ColorMode: __expectString,
+    Extension: __expectString,
+    ResourceId: __expectString,
+  }) as any;
+};
 
 // de_AssociateSoftwareTokenResponse omitted.
 
@@ -5274,6 +5984,8 @@ const de_AuthEventType = (output: any, context: __SerdeContext): AuthEventType =
   }) as any;
 };
 
+// de_AvailableChallengeListType omitted.
+
 // de_BlockedIPRangeListType omitted.
 
 // de_CallbackURLsListType omitted.
@@ -5298,11 +6010,15 @@ const de_AuthEventType = (output: any, context: __SerdeContext): AuthEventType =
 
 // de_CodeMismatchException omitted.
 
+// de_CompleteWebAuthnRegistrationResponse omitted.
+
 // de_CompromisedCredentialsActionsType omitted.
 
 // de_CompromisedCredentialsRiskConfigurationType omitted.
 
 // de_ConcurrentModificationException omitted.
+
+// de_ConfiguredUserAuthFactorsListType omitted.
 
 // de_ConfirmDeviceResponse omitted.
 
@@ -5325,6 +6041,18 @@ const de_CreateGroupResponse = (output: any, context: __SerdeContext): CreateGro
 const de_CreateIdentityProviderResponse = (output: any, context: __SerdeContext): CreateIdentityProviderResponse => {
   return take(output, {
     IdentityProvider: (_: any) => de_IdentityProviderType(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CreateManagedLoginBrandingResponse
+ */
+const de_CreateManagedLoginBrandingResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateManagedLoginBrandingResponse => {
+  return take(output, {
+    ManagedLoginBranding: (_: any) => de_ManagedLoginBrandingType(_, context),
   }) as any;
 };
 
@@ -5369,6 +6097,8 @@ const de_CreateUserPoolResponse = (output: any, context: __SerdeContext): Create
 
 // de_DeleteUserPoolDomainResponse omitted.
 
+// de_DeleteWebAuthnCredentialResponse omitted.
+
 /**
  * deserializeAws_json1_1DescribeIdentityProviderResponse
  */
@@ -5378,6 +6108,30 @@ const de_DescribeIdentityProviderResponse = (
 ): DescribeIdentityProviderResponse => {
   return take(output, {
     IdentityProvider: (_: any) => de_IdentityProviderType(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeManagedLoginBrandingByClientResponse
+ */
+const de_DescribeManagedLoginBrandingByClientResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeManagedLoginBrandingByClientResponse => {
+  return take(output, {
+    ManagedLoginBranding: (_: any) => de_ManagedLoginBrandingType(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeManagedLoginBrandingResponse
+ */
+const de_DescribeManagedLoginBrandingResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeManagedLoginBrandingResponse => {
+  return take(output, {
+    ManagedLoginBranding: (_: any) => de_ManagedLoginBrandingType(_, context),
   }) as any;
 };
 
@@ -5451,6 +6205,13 @@ const de_DeviceType = (output: any, context: __SerdeContext): DeviceType => {
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 // de_DomainDescriptionType omitted.
 
 // de_DuplicateProviderException omitted.
@@ -5481,6 +6242,8 @@ const de_EventFeedbackType = (output: any, context: __SerdeContext): EventFeedba
 // de_ExpiredCodeException omitted.
 
 // de_ExplicitAuthFlowsListType omitted.
+
+// de_FeatureUnavailableInTierException omitted.
 
 // de_FirehoseConfigurationType omitted.
 
@@ -5534,6 +6297,8 @@ const de_GetUICustomizationResponse = (output: any, context: __SerdeContext): Ge
 };
 
 // de_GetUserAttributeVerificationCodeResponse omitted.
+
+// de_GetUserAuthFactorsResponse omitted.
 
 // de_GetUserPoolMfaConfigResponse omitted.
 
@@ -5690,6 +6455,16 @@ const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersRe
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_1ListWebAuthnCredentialsResponse
+ */
+const de_ListWebAuthnCredentialsResponse = (output: any, context: __SerdeContext): ListWebAuthnCredentialsResponse => {
+  return take(output, {
+    Credentials: (_: any) => de_WebAuthnCredentialDescriptionListType(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
 // de_LogConfigurationListType omitted.
 
 // de_LogConfigurationType omitted.
@@ -5697,6 +6472,23 @@ const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersRe
 // de_LogDeliveryConfigurationType omitted.
 
 // de_LogoutURLsListType omitted.
+
+// de_ManagedLoginBrandingExistsException omitted.
+
+/**
+ * deserializeAws_json1_1ManagedLoginBrandingType
+ */
+const de_ManagedLoginBrandingType = (output: any, context: __SerdeContext): ManagedLoginBrandingType => {
+  return take(output, {
+    Assets: (_: any) => de_AssetListType(_, context),
+    CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ManagedLoginBrandingId: __expectString,
+    Settings: (_: any) => de_Document(_, context),
+    UseCognitoProvidedValues: __expectBoolean,
+    UserPoolId: __expectString,
+  }) as any;
+};
 
 // de_MessageTemplateType omitted.
 
@@ -5826,6 +6618,8 @@ const de_SetUICustomizationResponse = (output: any, context: __SerdeContext): Se
 
 // de_SetUserSettingsResponse omitted.
 
+// de_SignInPolicyType omitted.
+
 // de_SignUpResponse omitted.
 
 // de_SkippedIPRangeListType omitted.
@@ -5848,6 +6642,18 @@ const de_StartUserImportJobResponse = (output: any, context: __SerdeContext): St
 };
 
 /**
+ * deserializeAws_json1_1StartWebAuthnRegistrationResponse
+ */
+const de_StartWebAuthnRegistrationResponse = (
+  output: any,
+  context: __SerdeContext
+): StartWebAuthnRegistrationResponse => {
+  return take(output, {
+    CredentialCreationOptions: (_: any) => de_Document(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1StopUserImportJobResponse
  */
 const de_StopUserImportJobResponse = (output: any, context: __SerdeContext): StopUserImportJobResponse => {
@@ -5861,6 +6667,8 @@ const de_StopUserImportJobResponse = (output: any, context: __SerdeContext): Sto
 // de_SupportedIdentityProvidersListType omitted.
 
 // de_TagResourceResponse omitted.
+
+// de_TierChangeNotAllowedException omitted.
 
 // de_TokenValidityUnitsType omitted.
 
@@ -5916,6 +6724,18 @@ const de_UpdateGroupResponse = (output: any, context: __SerdeContext): UpdateGro
 const de_UpdateIdentityProviderResponse = (output: any, context: __SerdeContext): UpdateIdentityProviderResponse => {
   return take(output, {
     IdentityProvider: (_: any) => de_IdentityProviderType(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateManagedLoginBrandingResponse
+ */
+const de_UpdateManagedLoginBrandingResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateManagedLoginBrandingResponse => {
+  return take(output, {
+    ManagedLoginBranding: (_: any) => de_ManagedLoginBrandingType(_, context),
   }) as any;
 };
 
@@ -6095,6 +6915,7 @@ const de_UserPoolType = (output: any, context: __SerdeContext): UserPoolType => 
     UserAttributeUpdateSettings: _json,
     UserPoolAddOns: _json,
     UserPoolTags: _json,
+    UserPoolTier: __expectString,
     UsernameAttributes: _json,
     UsernameConfiguration: _json,
     VerificationMessageTemplate: _json,
@@ -6135,6 +6956,53 @@ const de_UserType = (output: any, context: __SerdeContext): UserType => {
 // de_VerifySoftwareTokenResponse omitted.
 
 // de_VerifyUserAttributeResponse omitted.
+
+// de_WebAuthnAuthenticatorTransportsList omitted.
+
+// de_WebAuthnChallengeNotFoundException omitted.
+
+// de_WebAuthnClientMismatchException omitted.
+
+// de_WebAuthnConfigurationMissingException omitted.
+
+// de_WebAuthnConfigurationType omitted.
+
+/**
+ * deserializeAws_json1_1WebAuthnCredentialDescription
+ */
+const de_WebAuthnCredentialDescription = (output: any, context: __SerdeContext): WebAuthnCredentialDescription => {
+  return take(output, {
+    AuthenticatorAttachment: __expectString,
+    AuthenticatorTransports: _json,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CredentialId: __expectString,
+    FriendlyCredentialName: __expectString,
+    RelyingPartyId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1WebAuthnCredentialDescriptionListType
+ */
+const de_WebAuthnCredentialDescriptionListType = (
+  output: any,
+  context: __SerdeContext
+): WebAuthnCredentialDescription[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WebAuthnCredentialDescription(entry, context);
+    });
+  return retVal;
+};
+
+// de_WebAuthnCredentialNotSupportedException omitted.
+
+// de_WebAuthnNotEnabledException omitted.
+
+// de_WebAuthnOriginNotAllowedException omitted.
+
+// de_WebAuthnRelyingPartyMismatchException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

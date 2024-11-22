@@ -10,7 +10,12 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SignUpRequest, SignUpRequestFilterSensitiveLog, SignUpResponse } from "../models/models_1";
+import {
+  SignUpRequest,
+  SignUpRequestFilterSensitiveLog,
+  SignUpResponse,
+  SignUpResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_SignUpCommand, se_SignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -48,7 +53,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Servicesservice,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -57,6 +62,13 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
+ *          <p>You might receive a <code>LimitExceeded</code> exception in response to this request
+ *             if you have exceeded a rate quota for email or SMS messages, and if your user pool
+ *             automatically verifies email addresses or phone numbers. When you get this exception in
+ *             the response, the user is successfully created and is in an <code>UNCONFIRMED</code>
+ *             state. You can send a new code with the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ResendConfirmationCode.html"> ResendConfirmationCode</a> request, or confirm the user as an administrator
+ *             with an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminConfirmSignUp.html">
+ *                 AdminConfirmSignUp</a> request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +79,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *   ClientId: "STRING_VALUE", // required
  *   SecretHash: "STRING_VALUE",
  *   Username: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE",
  *   UserAttributes: [ // AttributeListType
  *     { // AttributeType
  *       Name: "STRING_VALUE", // required
@@ -101,6 +113,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * //     AttributeName: "STRING_VALUE",
  * //   },
  * //   UserSub: "STRING_VALUE", // required
+ * //   Session: "STRING_VALUE",
  * // };
  *
  * ```
@@ -143,7 +156,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
@@ -195,7 +208,7 @@ export class SignUpCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "SignUp", {})
   .n("CognitoIdentityProviderClient", "SignUpCommand")
-  .f(SignUpRequestFilterSensitiveLog, void 0)
+  .f(SignUpRequestFilterSensitiveLog, SignUpResponseFilterSensitiveLog)
   .ser(se_SignUpCommand)
   .de(de_SignUpCommand)
   .build() {

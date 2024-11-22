@@ -519,6 +519,14 @@ ChangePassword
 </details>
 <details>
 <summary>
+CompleteWebAuthnRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/CompleteWebAuthnRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/CompleteWebAuthnRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/CompleteWebAuthnRegistrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ConfirmDevice
 </summary>
 
@@ -555,6 +563,14 @@ CreateIdentityProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/CreateIdentityProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/CreateIdentityProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/CreateIdentityProviderCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateManagedLoginBranding
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/CreateManagedLoginBrandingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/CreateManagedLoginBrandingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/CreateManagedLoginBrandingCommandOutput/)
 
 </details>
 <details>
@@ -615,6 +631,14 @@ DeleteIdentityProvider
 </details>
 <details>
 <summary>
+DeleteManagedLoginBranding
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteManagedLoginBrandingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DeleteManagedLoginBrandingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DeleteManagedLoginBrandingCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteResourceServer
 </summary>
 
@@ -663,10 +687,34 @@ DeleteUserPoolDomain
 </details>
 <details>
 <summary>
+DeleteWebAuthnCredential
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DeleteWebAuthnCredentialCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DeleteWebAuthnCredentialCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DeleteWebAuthnCredentialCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeIdentityProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DescribeIdentityProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DescribeIdentityProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DescribeIdentityProviderCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeManagedLoginBranding
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DescribeManagedLoginBrandingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DescribeManagedLoginBrandingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DescribeManagedLoginBrandingCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeManagedLoginBrandingByClient
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/DescribeManagedLoginBrandingByClientCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DescribeManagedLoginBrandingByClientCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/DescribeManagedLoginBrandingByClientCommandOutput/)
 
 </details>
 <details>
@@ -807,6 +855,14 @@ GetUserAttributeVerificationCode
 </details>
 <details>
 <summary>
+GetUserAuthFactors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/GetUserAuthFactorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/GetUserAuthFactorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/GetUserAuthFactorsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetUserPoolMfaConfig
 </summary>
 
@@ -911,6 +967,14 @@ ListUsersInGroup
 </details>
 <details>
 <summary>
+ListWebAuthnCredentials
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/ListWebAuthnCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/ListWebAuthnCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/ListWebAuthnCredentialsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ResendConfirmationCode
 </summary>
 
@@ -999,6 +1063,14 @@ StartUserImportJob
 </details>
 <details>
 <summary>
+StartWebAuthnRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/StartWebAuthnRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/StartWebAuthnRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/StartWebAuthnRegistrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopUserImportJob
 </summary>
 
@@ -1051,6 +1123,14 @@ UpdateIdentityProvider
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/UpdateIdentityProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/UpdateIdentityProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/UpdateIdentityProviderCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateManagedLoginBranding
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/UpdateManagedLoginBrandingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/UpdateManagedLoginBrandingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/UpdateManagedLoginBrandingCommandOutput/)
 
 </details>
 <details>

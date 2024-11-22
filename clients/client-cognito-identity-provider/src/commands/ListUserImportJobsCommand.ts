@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUserImportJobsRequest, ListUserImportJobsResponse } from "../models/models_0";
+import { ListUserImportJobsRequest, ListUserImportJobsResponse } from "../models/models_1";
 import { de_ListUserImportJobsCommand, se_ListUserImportJobsCommand } from "../protocols/Aws_json1_1";
 
 /**

@@ -136,6 +136,10 @@ import {
   AssociateSoftwareTokenCommandOutput,
 } from "./commands/AssociateSoftwareTokenCommand";
 import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "./commands/ChangePasswordCommand";
+import {
+  CompleteWebAuthnRegistrationCommandInput,
+  CompleteWebAuthnRegistrationCommandOutput,
+} from "./commands/CompleteWebAuthnRegistrationCommand";
 import { ConfirmDeviceCommandInput, ConfirmDeviceCommandOutput } from "./commands/ConfirmDeviceCommand";
 import {
   ConfirmForgotPasswordCommandInput,
@@ -147,6 +151,10 @@ import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
+import {
+  CreateManagedLoginBrandingCommandInput,
+  CreateManagedLoginBrandingCommandOutput,
+} from "./commands/CreateManagedLoginBrandingCommand";
 import {
   CreateResourceServerCommandInput,
   CreateResourceServerCommandOutput,
@@ -170,6 +178,10 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
 import {
+  DeleteManagedLoginBrandingCommandInput,
+  DeleteManagedLoginBrandingCommandOutput,
+} from "./commands/DeleteManagedLoginBrandingCommand";
+import {
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
 } from "./commands/DeleteResourceServerCommand";
@@ -188,9 +200,21 @@ import {
   DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand";
 import {
+  DeleteWebAuthnCredentialCommandInput,
+  DeleteWebAuthnCredentialCommandOutput,
+} from "./commands/DeleteWebAuthnCredentialCommand";
+import {
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
 } from "./commands/DescribeIdentityProviderCommand";
+import {
+  DescribeManagedLoginBrandingByClientCommandInput,
+  DescribeManagedLoginBrandingByClientCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingByClientCommand";
+import {
+  DescribeManagedLoginBrandingCommandInput,
+  DescribeManagedLoginBrandingCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingCommand";
 import {
   DescribeResourceServerCommandInput,
   DescribeResourceServerCommandOutput,
@@ -234,6 +258,7 @@ import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
 } from "./commands/GetUserAttributeVerificationCodeCommand";
+import { GetUserAuthFactorsCommandInput, GetUserAuthFactorsCommandOutput } from "./commands/GetUserAuthFactorsCommand";
 import { GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommandInput,
@@ -264,6 +289,10 @@ import { ListUserPoolsCommandInput, ListUserPoolsCommandOutput } from "./command
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import { ListUsersInGroupCommandInput, ListUsersInGroupCommandOutput } from "./commands/ListUsersInGroupCommand";
 import {
+  ListWebAuthnCredentialsCommandInput,
+  ListWebAuthnCredentialsCommandOutput,
+} from "./commands/ListWebAuthnCredentialsCommand";
+import {
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput,
 } from "./commands/ResendConfirmationCodeCommand";
@@ -292,6 +321,10 @@ import {
 import { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "./commands/SetUserSettingsCommand";
 import { SignUpCommandInput, SignUpCommandOutput } from "./commands/SignUpCommand";
 import { StartUserImportJobCommandInput, StartUserImportJobCommandOutput } from "./commands/StartUserImportJobCommand";
+import {
+  StartWebAuthnRegistrationCommandInput,
+  StartWebAuthnRegistrationCommandOutput,
+} from "./commands/StartWebAuthnRegistrationCommand";
 import { StopUserImportJobCommandInput, StopUserImportJobCommandOutput } from "./commands/StopUserImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -305,6 +338,10 @@ import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
+import {
+  UpdateManagedLoginBrandingCommandInput,
+  UpdateManagedLoginBrandingCommandOutput,
+} from "./commands/UpdateManagedLoginBrandingCommand";
 import {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
@@ -374,11 +411,13 @@ export type ServiceInputTypes =
   | AdminUserGlobalSignOutCommandInput
   | AssociateSoftwareTokenCommandInput
   | ChangePasswordCommandInput
+  | CompleteWebAuthnRegistrationCommandInput
   | ConfirmDeviceCommandInput
   | ConfirmForgotPasswordCommandInput
   | ConfirmSignUpCommandInput
   | CreateGroupCommandInput
   | CreateIdentityProviderCommandInput
+  | CreateManagedLoginBrandingCommandInput
   | CreateResourceServerCommandInput
   | CreateUserImportJobCommandInput
   | CreateUserPoolClientCommandInput
@@ -386,13 +425,17 @@ export type ServiceInputTypes =
   | CreateUserPoolDomainCommandInput
   | DeleteGroupCommandInput
   | DeleteIdentityProviderCommandInput
+  | DeleteManagedLoginBrandingCommandInput
   | DeleteResourceServerCommandInput
   | DeleteUserAttributesCommandInput
   | DeleteUserCommandInput
   | DeleteUserPoolClientCommandInput
   | DeleteUserPoolCommandInput
   | DeleteUserPoolDomainCommandInput
+  | DeleteWebAuthnCredentialCommandInput
   | DescribeIdentityProviderCommandInput
+  | DescribeManagedLoginBrandingByClientCommandInput
+  | DescribeManagedLoginBrandingCommandInput
   | DescribeResourceServerCommandInput
   | DescribeRiskConfigurationCommandInput
   | DescribeUserImportJobCommandInput
@@ -409,6 +452,7 @@ export type ServiceInputTypes =
   | GetSigningCertificateCommandInput
   | GetUICustomizationCommandInput
   | GetUserAttributeVerificationCodeCommandInput
+  | GetUserAuthFactorsCommandInput
   | GetUserCommandInput
   | GetUserPoolMfaConfigCommandInput
   | GlobalSignOutCommandInput
@@ -423,6 +467,7 @@ export type ServiceInputTypes =
   | ListUserPoolsCommandInput
   | ListUsersCommandInput
   | ListUsersInGroupCommandInput
+  | ListWebAuthnCredentialsCommandInput
   | ResendConfirmationCodeCommandInput
   | RespondToAuthChallengeCommandInput
   | RevokeTokenCommandInput
@@ -434,6 +479,7 @@ export type ServiceInputTypes =
   | SetUserSettingsCommandInput
   | SignUpCommandInput
   | StartUserImportJobCommandInput
+  | StartWebAuthnRegistrationCommandInput
   | StopUserImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -441,6 +487,7 @@ export type ServiceInputTypes =
   | UpdateDeviceStatusCommandInput
   | UpdateGroupCommandInput
   | UpdateIdentityProviderCommandInput
+  | UpdateManagedLoginBrandingCommandInput
   | UpdateResourceServerCommandInput
   | UpdateUserAttributesCommandInput
   | UpdateUserPoolClientCommandInput
@@ -482,11 +529,13 @@ export type ServiceOutputTypes =
   | AdminUserGlobalSignOutCommandOutput
   | AssociateSoftwareTokenCommandOutput
   | ChangePasswordCommandOutput
+  | CompleteWebAuthnRegistrationCommandOutput
   | ConfirmDeviceCommandOutput
   | ConfirmForgotPasswordCommandOutput
   | ConfirmSignUpCommandOutput
   | CreateGroupCommandOutput
   | CreateIdentityProviderCommandOutput
+  | CreateManagedLoginBrandingCommandOutput
   | CreateResourceServerCommandOutput
   | CreateUserImportJobCommandOutput
   | CreateUserPoolClientCommandOutput
@@ -494,13 +543,17 @@ export type ServiceOutputTypes =
   | CreateUserPoolDomainCommandOutput
   | DeleteGroupCommandOutput
   | DeleteIdentityProviderCommandOutput
+  | DeleteManagedLoginBrandingCommandOutput
   | DeleteResourceServerCommandOutput
   | DeleteUserAttributesCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserPoolClientCommandOutput
   | DeleteUserPoolCommandOutput
   | DeleteUserPoolDomainCommandOutput
+  | DeleteWebAuthnCredentialCommandOutput
   | DescribeIdentityProviderCommandOutput
+  | DescribeManagedLoginBrandingByClientCommandOutput
+  | DescribeManagedLoginBrandingCommandOutput
   | DescribeResourceServerCommandOutput
   | DescribeRiskConfigurationCommandOutput
   | DescribeUserImportJobCommandOutput
@@ -517,6 +570,7 @@ export type ServiceOutputTypes =
   | GetSigningCertificateCommandOutput
   | GetUICustomizationCommandOutput
   | GetUserAttributeVerificationCodeCommandOutput
+  | GetUserAuthFactorsCommandOutput
   | GetUserCommandOutput
   | GetUserPoolMfaConfigCommandOutput
   | GlobalSignOutCommandOutput
@@ -531,6 +585,7 @@ export type ServiceOutputTypes =
   | ListUserPoolsCommandOutput
   | ListUsersCommandOutput
   | ListUsersInGroupCommandOutput
+  | ListWebAuthnCredentialsCommandOutput
   | ResendConfirmationCodeCommandOutput
   | RespondToAuthChallengeCommandOutput
   | RevokeTokenCommandOutput
@@ -542,6 +597,7 @@ export type ServiceOutputTypes =
   | SetUserSettingsCommandOutput
   | SignUpCommandOutput
   | StartUserImportJobCommandOutput
+  | StartWebAuthnRegistrationCommandOutput
   | StopUserImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
@@ -549,6 +605,7 @@ export type ServiceOutputTypes =
   | UpdateDeviceStatusCommandOutput
   | UpdateGroupCommandOutput
   | UpdateIdentityProviderCommandOutput
+  | UpdateManagedLoginBrandingCommandOutput
   | UpdateResourceServerCommandOutput
   | UpdateUserAttributesCommandOutput
   | UpdateUserPoolClientCommandOutput

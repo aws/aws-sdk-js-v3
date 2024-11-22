@@ -149,6 +149,11 @@ import {
   ChangePasswordCommandOutput,
 } from "./commands/ChangePasswordCommand";
 import {
+  CompleteWebAuthnRegistrationCommand,
+  CompleteWebAuthnRegistrationCommandInput,
+  CompleteWebAuthnRegistrationCommandOutput,
+} from "./commands/CompleteWebAuthnRegistrationCommand";
+import {
   ConfirmDeviceCommand,
   ConfirmDeviceCommandInput,
   ConfirmDeviceCommandOutput,
@@ -169,6 +174,11 @@ import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
+import {
+  CreateManagedLoginBrandingCommand,
+  CreateManagedLoginBrandingCommandInput,
+  CreateManagedLoginBrandingCommandOutput,
+} from "./commands/CreateManagedLoginBrandingCommand";
 import {
   CreateResourceServerCommand,
   CreateResourceServerCommandInput,
@@ -201,6 +211,11 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
 import {
+  DeleteManagedLoginBrandingCommand,
+  DeleteManagedLoginBrandingCommandInput,
+  DeleteManagedLoginBrandingCommandOutput,
+} from "./commands/DeleteManagedLoginBrandingCommand";
+import {
   DeleteResourceServerCommand,
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
@@ -227,10 +242,25 @@ import {
   DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand";
 import {
+  DeleteWebAuthnCredentialCommand,
+  DeleteWebAuthnCredentialCommandInput,
+  DeleteWebAuthnCredentialCommandOutput,
+} from "./commands/DeleteWebAuthnCredentialCommand";
+import {
   DescribeIdentityProviderCommand,
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
 } from "./commands/DescribeIdentityProviderCommand";
+import {
+  DescribeManagedLoginBrandingByClientCommand,
+  DescribeManagedLoginBrandingByClientCommandInput,
+  DescribeManagedLoginBrandingByClientCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingByClientCommand";
+import {
+  DescribeManagedLoginBrandingCommand,
+  DescribeManagedLoginBrandingCommandInput,
+  DescribeManagedLoginBrandingCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingCommand";
 import {
   DescribeResourceServerCommand,
   DescribeResourceServerCommandInput,
@@ -303,6 +333,11 @@ import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
 } from "./commands/GetUserAttributeVerificationCodeCommand";
+import {
+  GetUserAuthFactorsCommand,
+  GetUserAuthFactorsCommandInput,
+  GetUserAuthFactorsCommandOutput,
+} from "./commands/GetUserAuthFactorsCommand";
 import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommand,
@@ -358,6 +393,11 @@ import {
   ListUsersInGroupCommandOutput,
 } from "./commands/ListUsersInGroupCommand";
 import {
+  ListWebAuthnCredentialsCommand,
+  ListWebAuthnCredentialsCommandInput,
+  ListWebAuthnCredentialsCommandOutput,
+} from "./commands/ListWebAuthnCredentialsCommand";
+import {
   ResendConfirmationCodeCommand,
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput,
@@ -405,6 +445,11 @@ import {
   StartUserImportJobCommandOutput,
 } from "./commands/StartUserImportJobCommand";
 import {
+  StartWebAuthnRegistrationCommand,
+  StartWebAuthnRegistrationCommandInput,
+  StartWebAuthnRegistrationCommandOutput,
+} from "./commands/StartWebAuthnRegistrationCommand";
+import {
   StopUserImportJobCommand,
   StopUserImportJobCommandInput,
   StopUserImportJobCommandOutput,
@@ -431,6 +476,11 @@ import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
+import {
+  UpdateManagedLoginBrandingCommand,
+  UpdateManagedLoginBrandingCommandInput,
+  UpdateManagedLoginBrandingCommandOutput,
+} from "./commands/UpdateManagedLoginBrandingCommand";
 import {
   UpdateResourceServerCommand,
   UpdateResourceServerCommandInput,
@@ -497,11 +547,13 @@ const commands = {
   AdminUserGlobalSignOutCommand,
   AssociateSoftwareTokenCommand,
   ChangePasswordCommand,
+  CompleteWebAuthnRegistrationCommand,
   ConfirmDeviceCommand,
   ConfirmForgotPasswordCommand,
   ConfirmSignUpCommand,
   CreateGroupCommand,
   CreateIdentityProviderCommand,
+  CreateManagedLoginBrandingCommand,
   CreateResourceServerCommand,
   CreateUserImportJobCommand,
   CreateUserPoolCommand,
@@ -509,13 +561,17 @@ const commands = {
   CreateUserPoolDomainCommand,
   DeleteGroupCommand,
   DeleteIdentityProviderCommand,
+  DeleteManagedLoginBrandingCommand,
   DeleteResourceServerCommand,
   DeleteUserCommand,
   DeleteUserAttributesCommand,
   DeleteUserPoolCommand,
   DeleteUserPoolClientCommand,
   DeleteUserPoolDomainCommand,
+  DeleteWebAuthnCredentialCommand,
   DescribeIdentityProviderCommand,
+  DescribeManagedLoginBrandingCommand,
+  DescribeManagedLoginBrandingByClientCommand,
   DescribeResourceServerCommand,
   DescribeRiskConfigurationCommand,
   DescribeUserImportJobCommand,
@@ -533,6 +589,7 @@ const commands = {
   GetUICustomizationCommand,
   GetUserCommand,
   GetUserAttributeVerificationCodeCommand,
+  GetUserAuthFactorsCommand,
   GetUserPoolMfaConfigCommand,
   GlobalSignOutCommand,
   InitiateAuthCommand,
@@ -546,6 +603,7 @@ const commands = {
   ListUserPoolsCommand,
   ListUsersCommand,
   ListUsersInGroupCommand,
+  ListWebAuthnCredentialsCommand,
   ResendConfirmationCodeCommand,
   RespondToAuthChallengeCommand,
   RevokeTokenCommand,
@@ -557,6 +615,7 @@ const commands = {
   SetUserSettingsCommand,
   SignUpCommand,
   StartUserImportJobCommand,
+  StartWebAuthnRegistrationCommand,
   StopUserImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -564,6 +623,7 @@ const commands = {
   UpdateDeviceStatusCommand,
   UpdateGroupCommand,
   UpdateIdentityProviderCommand,
+  UpdateManagedLoginBrandingCommand,
   UpdateResourceServerCommand,
   UpdateUserAttributesCommand,
   UpdateUserPoolCommand,
@@ -1048,6 +1108,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link CompleteWebAuthnRegistrationCommand}
+   */
+  completeWebAuthnRegistration(
+    args: CompleteWebAuthnRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteWebAuthnRegistrationCommandOutput>;
+  completeWebAuthnRegistration(
+    args: CompleteWebAuthnRegistrationCommandInput,
+    cb: (err: any, data?: CompleteWebAuthnRegistrationCommandOutput) => void
+  ): void;
+  completeWebAuthnRegistration(
+    args: CompleteWebAuthnRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteWebAuthnRegistrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ConfirmDeviceCommand}
    */
   confirmDevice(args: ConfirmDeviceCommandInput, options?: __HttpHandlerOptions): Promise<ConfirmDeviceCommandOutput>;
@@ -1112,6 +1189,23 @@ export interface CognitoIdentityProvider {
     args: CreateIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateManagedLoginBrandingCommand}
+   */
+  createManagedLoginBranding(
+    args: CreateManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateManagedLoginBrandingCommandOutput>;
+  createManagedLoginBranding(
+    args: CreateManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: CreateManagedLoginBrandingCommandOutput) => void
+  ): void;
+  createManagedLoginBranding(
+    args: CreateManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateManagedLoginBrandingCommandOutput) => void
   ): void;
 
   /**
@@ -1225,6 +1319,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link DeleteManagedLoginBrandingCommand}
+   */
+  deleteManagedLoginBranding(
+    args: DeleteManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteManagedLoginBrandingCommandOutput>;
+  deleteManagedLoginBranding(
+    args: DeleteManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: DeleteManagedLoginBrandingCommandOutput) => void
+  ): void;
+  deleteManagedLoginBranding(
+    args: DeleteManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteManagedLoginBrandingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteResourceServerCommand}
    */
   deleteResourceServer(
@@ -1318,6 +1429,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link DeleteWebAuthnCredentialCommand}
+   */
+  deleteWebAuthnCredential(
+    args: DeleteWebAuthnCredentialCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebAuthnCredentialCommandOutput>;
+  deleteWebAuthnCredential(
+    args: DeleteWebAuthnCredentialCommandInput,
+    cb: (err: any, data?: DeleteWebAuthnCredentialCommandOutput) => void
+  ): void;
+  deleteWebAuthnCredential(
+    args: DeleteWebAuthnCredentialCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWebAuthnCredentialCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeIdentityProviderCommand}
    */
   describeIdentityProvider(
@@ -1332,6 +1460,40 @@ export interface CognitoIdentityProvider {
     args: DescribeIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeManagedLoginBrandingCommand}
+   */
+  describeManagedLoginBranding(
+    args: DescribeManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeManagedLoginBrandingCommandOutput>;
+  describeManagedLoginBranding(
+    args: DescribeManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: DescribeManagedLoginBrandingCommandOutput) => void
+  ): void;
+  describeManagedLoginBranding(
+    args: DescribeManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeManagedLoginBrandingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeManagedLoginBrandingByClientCommand}
+   */
+  describeManagedLoginBrandingByClient(
+    args: DescribeManagedLoginBrandingByClientCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeManagedLoginBrandingByClientCommandOutput>;
+  describeManagedLoginBrandingByClient(
+    args: DescribeManagedLoginBrandingByClientCommandInput,
+    cb: (err: any, data?: DescribeManagedLoginBrandingByClientCommandOutput) => void
+  ): void;
+  describeManagedLoginBrandingByClient(
+    args: DescribeManagedLoginBrandingByClientCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeManagedLoginBrandingByClientCommandOutput) => void
   ): void;
 
   /**
@@ -1591,6 +1753,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link GetUserAuthFactorsCommand}
+   */
+  getUserAuthFactors(
+    args: GetUserAuthFactorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserAuthFactorsCommandOutput>;
+  getUserAuthFactors(
+    args: GetUserAuthFactorsCommandInput,
+    cb: (err: any, data?: GetUserAuthFactorsCommandOutput) => void
+  ): void;
+  getUserAuthFactors(
+    args: GetUserAuthFactorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUserAuthFactorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUserPoolMfaConfigCommand}
    */
   getUserPoolMfaConfig(
@@ -1776,6 +1955,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link ListWebAuthnCredentialsCommand}
+   */
+  listWebAuthnCredentials(
+    args: ListWebAuthnCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebAuthnCredentialsCommandOutput>;
+  listWebAuthnCredentials(
+    args: ListWebAuthnCredentialsCommandInput,
+    cb: (err: any, data?: ListWebAuthnCredentialsCommandOutput) => void
+  ): void;
+  listWebAuthnCredentials(
+    args: ListWebAuthnCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWebAuthnCredentialsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ResendConfirmationCodeCommand}
    */
   resendConfirmationCode(
@@ -1948,6 +2144,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link StartWebAuthnRegistrationCommand}
+   */
+  startWebAuthnRegistration(
+    args: StartWebAuthnRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartWebAuthnRegistrationCommandOutput>;
+  startWebAuthnRegistration(
+    args: StartWebAuthnRegistrationCommandInput,
+    cb: (err: any, data?: StartWebAuthnRegistrationCommandOutput) => void
+  ): void;
+  startWebAuthnRegistration(
+    args: StartWebAuthnRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartWebAuthnRegistrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopUserImportJobCommand}
    */
   stopUserImportJob(
@@ -2046,6 +2259,24 @@ export interface CognitoIdentityProvider {
     args: UpdateIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateManagedLoginBrandingCommand}
+   */
+  updateManagedLoginBranding(): Promise<UpdateManagedLoginBrandingCommandOutput>;
+  updateManagedLoginBranding(
+    args: UpdateManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateManagedLoginBrandingCommandOutput>;
+  updateManagedLoginBranding(
+    args: UpdateManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: UpdateManagedLoginBrandingCommandOutput) => void
+  ): void;
+  updateManagedLoginBranding(
+    args: UpdateManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateManagedLoginBrandingCommandOutput) => void
   ): void;
 
   /**

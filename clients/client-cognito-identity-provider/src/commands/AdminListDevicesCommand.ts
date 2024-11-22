@@ -37,7 +37,7 @@ export interface AdminListDevicesCommandInput extends AdminListDevicesRequest {}
 export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists devices, as an administrator.</p>
+ * <p>Lists a user's registered devices.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must

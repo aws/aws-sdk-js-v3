@@ -107,6 +107,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
+    case "CompleteWebAuthnRegistration": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
     case "ConfirmDevice": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
@@ -124,6 +128,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       break;
     }
     case "DeleteUserAttributes": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "DeleteWebAuthnCredential": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
@@ -147,6 +155,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
+    case "GetUserAuthFactors": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
     case "GlobalSignOut": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
@@ -156,6 +168,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       break;
     }
     case "ListDevices": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "ListWebAuthnCredentials": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
@@ -180,6 +196,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       break;
     }
     case "SignUp": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "StartWebAuthnRegistration": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }

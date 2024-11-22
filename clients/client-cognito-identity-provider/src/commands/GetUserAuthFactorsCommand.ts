@@ -11,11 +11,12 @@ import {
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  ChangePasswordRequest,
-  ChangePasswordRequestFilterSensitiveLog,
-  ChangePasswordResponse,
+  GetUserAuthFactorsRequest,
+  GetUserAuthFactorsRequestFilterSensitiveLog,
+  GetUserAuthFactorsResponse,
+  GetUserAuthFactorsResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols/Aws_json1_1";
+import { de_GetUserAuthFactorsCommand, se_GetUserAuthFactorsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -25,46 +26,57 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ChangePasswordCommand}.
+ * The input for {@link GetUserAuthFactorsCommand}.
  */
-export interface ChangePasswordCommandInput extends ChangePasswordRequest {}
+export interface GetUserAuthFactorsCommandInput extends GetUserAuthFactorsRequest {}
 /**
  * @public
  *
- * The output of {@link ChangePasswordCommand}.
+ * The output of {@link GetUserAuthFactorsCommand}.
  */
-export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __MetadataBearer {}
+export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsResponse, __MetadataBearer {}
 
 /**
- * <p>Changes the password for a specified user in a user pool.</p>
- *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
- *          <note>
- *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you can't use IAM credentials to authorize requests, and you can't
- *     grant IAM permissions in policies. For more information about authorization models in
- *     Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
- *          </note>
+ * <p>Lists the authentication options for the currently signed-in user. Returns the
+ *             following:</p>
+ *          <ol>
+ *             <li>
+ *                <p>The user's multi-factor authentication (MFA) preferences.</p>
+ *             </li>
+ *             <li>
+ *                <p>The user's options in the <code>USER_AUTH</code> flow that they can
+ *                     select in a <code>SELECT_CHALLENGE</code> response or request in a
+ *                         <code>PREFERRED_CHALLENGE</code>request.</p>
+ *             </li>
+ *          </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, ChangePasswordCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, ChangePasswordCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, GetUserAuthFactorsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, GetUserAuthFactorsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = { // ChangePasswordRequest
- *   PreviousPassword: "STRING_VALUE",
- *   ProposedPassword: "STRING_VALUE", // required
+ * const input = { // GetUserAuthFactorsRequest
  *   AccessToken: "STRING_VALUE", // required
  * };
- * const command = new ChangePasswordCommand(input);
+ * const command = new GetUserAuthFactorsCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // GetUserAuthFactorsResponse
+ * //   Username: "STRING_VALUE", // required
+ * //   PreferredMfaSetting: "STRING_VALUE",
+ * //   UserMFASettingList: [ // UserMFASettingListType
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ConfiguredUserAuthFactors: [ // ConfiguredUserAuthFactorsListType
+ * //     "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ * //   ],
+ * // };
  *
  * ```
  *
- * @param ChangePasswordCommandInput - {@link ChangePasswordCommandInput}
- * @returns {@link ChangePasswordCommandOutput}
- * @see {@link ChangePasswordCommandInput} for command's `input` shape.
- * @see {@link ChangePasswordCommandOutput} for command's `response` shape.
+ * @param GetUserAuthFactorsCommandInput - {@link GetUserAuthFactorsCommandInput}
+ * @returns {@link GetUserAuthFactorsCommandOutput}
+ * @see {@link GetUserAuthFactorsCommandInput} for command's `input` shape.
+ * @see {@link GetUserAuthFactorsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link ForbiddenException} (client fault)
@@ -78,19 +90,8 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             parameter.</p>
  *
- * @throws {@link InvalidPasswordException} (client fault)
- *  <p>This exception is thrown when Amazon Cognito encounters an invalid password.</p>
- *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
- *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
- *
- * @throws {@link PasswordHistoryPolicyViolationException} (client fault)
- *  <p>The message returned when a user's new password matches a previous password and
- *             doesn't comply with the password-history policy.</p>
  *
  * @throws {@link PasswordResetRequiredException} (client fault)
  *  <p>This exception is thrown when a password reset is required.</p>
@@ -114,10 +115,10 @@ export interface ChangePasswordCommandOutput extends ChangePasswordResponse, __M
  *
  * @public
  */
-export class ChangePasswordCommand extends $Command
+export class GetUserAuthFactorsCommand extends $Command
   .classBuilder<
-    ChangePasswordCommandInput,
-    ChangePasswordCommandOutput,
+    GetUserAuthFactorsCommandInput,
+    GetUserAuthFactorsCommandOutput,
     CognitoIdentityProviderClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -129,21 +130,21 @@ export class ChangePasswordCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSCognitoIdentityProviderService", "ChangePassword", {})
-  .n("CognitoIdentityProviderClient", "ChangePasswordCommand")
-  .f(ChangePasswordRequestFilterSensitiveLog, void 0)
-  .ser(se_ChangePasswordCommand)
-  .de(de_ChangePasswordCommand)
+  .s("AWSCognitoIdentityProviderService", "GetUserAuthFactors", {})
+  .n("CognitoIdentityProviderClient", "GetUserAuthFactorsCommand")
+  .f(GetUserAuthFactorsRequestFilterSensitiveLog, GetUserAuthFactorsResponseFilterSensitiveLog)
+  .ser(se_GetUserAuthFactorsCommand)
+  .de(de_GetUserAuthFactorsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ChangePasswordRequest;
-      output: {};
+      input: GetUserAuthFactorsRequest;
+      output: GetUserAuthFactorsResponse;
     };
     sdk: {
-      input: ChangePasswordCommandInput;
-      output: ChangePasswordCommandOutput;
+      input: GetUserAuthFactorsCommandInput;
+      output: GetUserAuthFactorsCommandOutput;
     };
   };
 }

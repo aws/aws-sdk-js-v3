@@ -10,7 +10,7 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0";
+import { ListGroupsRequest, ListGroupsResponse } from "../models/models_1";
 import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_json1_1";
 
 /**

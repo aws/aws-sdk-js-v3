@@ -80,6 +80,7 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * const input = { // UpdateUserPoolDomainRequest
  *   Domain: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
+ *   ManagedLoginVersion: Number("int"),
  *   CustomDomainConfig: { // CustomDomainConfigType
  *     CertificateArn: "STRING_VALUE", // required
  *   },
@@ -87,6 +88,7 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * const command = new UpdateUserPoolDomainCommand(input);
  * const response = await client.send(command);
  * // { // UpdateUserPoolDomainResponse
+ * //   ManagedLoginVersion: Number("int"),
  * //   CloudFrontDomain: "STRING_VALUE",
  * // };
  *
@@ -97,6 +99,10 @@ export interface UpdateUserPoolDomainCommandOutput extends UpdateUserPoolDomainR
  * @see {@link UpdateUserPoolDomainCommandInput} for command's `input` shape.
  * @see {@link UpdateUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>

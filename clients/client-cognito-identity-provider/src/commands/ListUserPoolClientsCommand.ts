@@ -14,7 +14,7 @@ import {
   ListUserPoolClientsRequest,
   ListUserPoolClientsResponse,
   ListUserPoolClientsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListUserPoolClientsCommand, se_ListUserPoolClientsCommand } from "../protocols/Aws_json1_1";
 
 /**

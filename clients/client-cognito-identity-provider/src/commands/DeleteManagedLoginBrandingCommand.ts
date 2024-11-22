@@ -10,8 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateUserPoolDomainRequest, CreateUserPoolDomainResponse } from "../models/models_0";
-import { de_CreateUserPoolDomainCommand, se_CreateUserPoolDomainCommand } from "../protocols/Aws_json1_1";
+import { DeleteManagedLoginBrandingRequest } from "../models/models_0";
+import { de_DeleteManagedLoginBrandingCommand, se_DeleteManagedLoginBrandingCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -21,19 +21,19 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateUserPoolDomainCommand}.
+ * The input for {@link DeleteManagedLoginBrandingCommand}.
  */
-export interface CreateUserPoolDomainCommandInput extends CreateUserPoolDomainRequest {}
+export interface DeleteManagedLoginBrandingCommandInput extends DeleteManagedLoginBrandingRequest {}
 /**
  * @public
  *
- * The output of {@link CreateUserPoolDomainCommand}.
+ * The output of {@link DeleteManagedLoginBrandingCommand}.
  */
-export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainResponse, __MetadataBearer {}
+export interface DeleteManagedLoginBrandingCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a new domain for a user pool. The domain hosts user pool domain services like
- *             managed login, the hosted UI (classic), and the user pool authorization server.</p>
+ * <p>Deletes a managed login branding style. When you delete a style, you delete the
+ *             branding association for an app client and restore it to default settings.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -57,35 +57,28 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, CreateUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, DeleteManagedLoginBrandingCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, DeleteManagedLoginBrandingCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
- * const input = { // CreateUserPoolDomainRequest
- *   Domain: "STRING_VALUE", // required
+ * const input = { // DeleteManagedLoginBrandingRequest
+ *   ManagedLoginBrandingId: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
- *   ManagedLoginVersion: Number("int"),
- *   CustomDomainConfig: { // CustomDomainConfigType
- *     CertificateArn: "STRING_VALUE", // required
- *   },
  * };
- * const command = new CreateUserPoolDomainCommand(input);
+ * const command = new DeleteManagedLoginBrandingCommand(input);
  * const response = await client.send(command);
- * // { // CreateUserPoolDomainResponse
- * //   ManagedLoginVersion: Number("int"),
- * //   CloudFrontDomain: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param CreateUserPoolDomainCommandInput - {@link CreateUserPoolDomainCommandInput}
- * @returns {@link CreateUserPoolDomainCommandOutput}
- * @see {@link CreateUserPoolDomainCommandInput} for command's `input` shape.
- * @see {@link CreateUserPoolDomainCommandOutput} for command's `response` shape.
+ * @param DeleteManagedLoginBrandingCommandInput - {@link DeleteManagedLoginBrandingCommandInput}
+ * @returns {@link DeleteManagedLoginBrandingCommandOutput}
+ * @see {@link DeleteManagedLoginBrandingCommandInput} for command's `input` shape.
+ * @see {@link DeleteManagedLoginBrandingCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
- * @throws {@link FeatureUnavailableInTierException} (client fault)
- *  <p>This exception is thrown when a feature you attempted to configure isn't
- *             available in your current feature plan.</p>
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>This exception is thrown if two or more modifications are happening
+ *             concurrently.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -94,10 +87,6 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *  <p>This exception is thrown when the Amazon Cognito service encounters an invalid
  *             parameter.</p>
  *
- * @throws {@link LimitExceededException} (client fault)
- *  <p>This exception is thrown when a user exceeds the limit for a requested Amazon Web Services
- *             resource.</p>
- *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
  *
@@ -105,15 +94,19 @@ export interface CreateUserPoolDomainCommandOutput extends CreateUserPoolDomainR
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  * @public
  */
-export class CreateUserPoolDomainCommand extends $Command
+export class DeleteManagedLoginBrandingCommand extends $Command
   .classBuilder<
-    CreateUserPoolDomainCommandInput,
-    CreateUserPoolDomainCommandOutput,
+    DeleteManagedLoginBrandingCommandInput,
+    DeleteManagedLoginBrandingCommandOutput,
     CognitoIdentityProviderClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -125,21 +118,21 @@ export class CreateUserPoolDomainCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSCognitoIdentityProviderService", "CreateUserPoolDomain", {})
-  .n("CognitoIdentityProviderClient", "CreateUserPoolDomainCommand")
+  .s("AWSCognitoIdentityProviderService", "DeleteManagedLoginBranding", {})
+  .n("CognitoIdentityProviderClient", "DeleteManagedLoginBrandingCommand")
   .f(void 0, void 0)
-  .ser(se_CreateUserPoolDomainCommand)
-  .de(de_CreateUserPoolDomainCommand)
+  .ser(se_DeleteManagedLoginBrandingCommand)
+  .de(de_DeleteManagedLoginBrandingCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateUserPoolDomainRequest;
-      output: CreateUserPoolDomainResponse;
+      input: DeleteManagedLoginBrandingRequest;
+      output: {};
     };
     sdk: {
-      input: CreateUserPoolDomainCommandInput;
-      output: CreateUserPoolDomainCommandOutput;
+      input: DeleteManagedLoginBrandingCommandInput;
+      output: DeleteManagedLoginBrandingCommandOutput;
     };
   };
 }

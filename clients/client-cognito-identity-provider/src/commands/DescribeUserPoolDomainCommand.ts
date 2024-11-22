@@ -56,6 +56,7 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * //     CustomDomainConfig: { // CustomDomainConfigType
  * //       CertificateArn: "STRING_VALUE", // required
  * //     },
+ * //     ManagedLoginVersion: Number("int"),
  * //   },
  * // };
  *

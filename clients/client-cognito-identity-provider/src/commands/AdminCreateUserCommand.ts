@@ -48,7 +48,7 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Servicesservice,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -62,8 +62,13 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *             placeholders for user name and temporary password.</p>
  *          <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code>
  *             for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
- *          <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
- *             they sign in and change their password.</p>
+ *          <p>In either case, if the user has a password, they will be in the
+ *                 <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and set their password.
+ *             Your invitation message template must have the <code>\{####\}</code> password placeholder
+ *             if your users have passwords. If your template doesn't have this placeholder, Amazon Cognito
+ *             doesn't deliver the invitation message. In this case, you must update your message
+ *             template and resend the password with a new <code>AdminCreateUser</code> request with a
+ *                 <code>MessageAction</code> value of <code>RESEND</code>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -171,7 +176,7 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link NotAuthorizedException} (client fault)

@@ -14,7 +14,7 @@ import {
   GlobalSignOutRequest,
   GlobalSignOutRequestFilterSensitiveLog,
   GlobalSignOutResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GlobalSignOutCommand, se_GlobalSignOutCommand } from "../protocols/Aws_json1_1";
 
 /**

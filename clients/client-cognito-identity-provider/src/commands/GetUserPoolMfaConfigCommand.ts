@@ -10,7 +10,8 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/models_0";
+import { GetUserPoolMfaConfigRequest } from "../models/models_0";
+import { GetUserPoolMfaConfigResponse } from "../models/models_1";
 import { de_GetUserPoolMfaConfigCommand, se_GetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -61,6 +62,10 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * //     Subject: "STRING_VALUE",
  * //   },
  * //   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * //   WebAuthnConfiguration: { // WebAuthnConfigurationType
+ * //     RelyingPartyId: "STRING_VALUE",
+ * //     UserVerification: "required" || "preferred",
+ * //   },
  * // };
  *
  * ```

@@ -40,7 +40,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Servicesservice,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -91,6 +91,11 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *       RequireSymbols: true || false,
  *       PasswordHistorySize: Number("int"),
  *       TemporaryPasswordValidityDays: Number("int"),
+ *     },
+ *     SignInPolicy: { // SignInPolicyType
+ *       AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
+ *         "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ *       ],
  *     },
  *   },
  *   DeletionProtection: "ACTIVE" || "INACTIVE",
@@ -208,6 +213,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *       },
  *     ],
  *   },
+ *   UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
  * };
  * const command = new CreateUserPoolCommand(input);
  * const response = await client.send(command);
@@ -224,6 +230,11 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * //         RequireSymbols: true || false,
  * //         PasswordHistorySize: Number("int"),
  * //         TemporaryPasswordValidityDays: Number("int"),
+ * //       },
+ * //       SignInPolicy: { // SignInPolicyType
+ * //         AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
+ * //           "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ * //         ],
  * //       },
  * //     },
  * //     DeletionProtection: "ACTIVE" || "INACTIVE",
@@ -350,6 +361,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * //         },
  * //       ],
  * //     },
+ * //     UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
  * //   },
  * // };
  *
@@ -360,6 +372,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * @see {@link CreateUserPoolCommandInput} for command's `input` shape.
  * @see {@link CreateUserPoolCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -379,7 +395,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
@@ -388,6 +404,10 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *
  * @throws {@link NotAuthorizedException} (client fault)
  *  <p>This exception is thrown when a user isn't authorized.</p>
+ *
+ * @throws {@link TierChangeNotAllowedException} (client fault)
+ *  <p>This exception is thrown when you've attempted to change your feature plan but
+ *             the operation isn't permitted.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>This exception is thrown when the user has made too many requests for a given

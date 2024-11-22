@@ -32,7 +32,7 @@ export interface SetUserPoolMfaConfigCommandInput extends SetUserPoolMfaConfigRe
 export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the user pool multi-factor authentication (MFA) configuration.</p>
+ * <p>Sets the user pool multi-factor authentication (MFA) and passkey configuration.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -41,7 +41,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Servicesservice,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -74,6 +74,10 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  *     Subject: "STRING_VALUE",
  *   },
  *   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ *   WebAuthnConfiguration: { // WebAuthnConfigurationType
+ *     RelyingPartyId: "STRING_VALUE",
+ *     UserVerification: "required" || "preferred",
+ *   },
  * };
  * const command = new SetUserPoolMfaConfigCommand(input);
  * const response = await client.send(command);
@@ -94,6 +98,10 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * //     Subject: "STRING_VALUE",
  * //   },
  * //   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * //   WebAuthnConfiguration: { // WebAuthnConfigurationType
+ * //     RelyingPartyId: "STRING_VALUE",
+ * //     UserVerification: "required" || "preferred",
+ * //   },
  * // };
  *
  * ```
@@ -107,6 +115,10 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>This exception is thrown if two or more modifications are happening
  *             concurrently.</p>
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -122,7 +134,7 @@ export interface SetUserPoolMfaConfigCommandOutput extends SetUserPoolMfaConfigR
  * @throws {@link InvalidSmsRoleTrustRelationshipException} (client fault)
  *  <p>This exception is thrown when the trust relationship is not valid for the role
  *             provided for SMS configuration. This can happen if you don't trust
- *             <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
+ *                 <code>cognito-idp.amazonaws.com</code> or the external ID provided in the role does
  *             not match what is provided in the SMS configuration for the user pool.</p>
  *
  * @throws {@link NotAuthorizedException} (client fault)
