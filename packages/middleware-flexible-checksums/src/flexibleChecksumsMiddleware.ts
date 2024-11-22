@@ -11,7 +11,7 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm, RequestChecksumCalculation } from "./constants";
+import { ChecksumAlgorithm } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
