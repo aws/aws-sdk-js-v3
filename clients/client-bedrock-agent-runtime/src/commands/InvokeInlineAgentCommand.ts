@@ -11,12 +11,12 @@ import {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  InvokeAgentRequest,
-  InvokeAgentRequestFilterSensitiveLog,
-  InvokeAgentResponse,
-  InvokeAgentResponseFilterSensitiveLog,
+  InvokeInlineAgentRequest,
+  InvokeInlineAgentRequestFilterSensitiveLog,
+  InvokeInlineAgentResponse,
+  InvokeInlineAgentResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_InvokeAgentCommand, se_InvokeAgentCommand } from "../protocols/Aws_restJson1";
+import { de_InvokeInlineAgentCommand, se_InvokeInlineAgentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -26,58 +26,56 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link InvokeAgentCommand}.
+ * The input for {@link InvokeInlineAgentCommand}.
  */
-export interface InvokeAgentCommandInput extends InvokeAgentRequest {}
+export interface InvokeInlineAgentCommandInput extends InvokeInlineAgentRequest {}
 /**
  * @public
  *
- * The output of {@link InvokeAgentCommand}.
+ * The output of {@link InvokeInlineAgentCommand}.
  */
-export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __MetadataBearer {}
+export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeAgent</code>.</p>
+ * <p>
+ *             Invokes an inline Amazon Bedrock agent using the configurations you provide with the request.
+ *         </p>
+ *          <ul>
+ *             <li>
+ *                <p>Specify the following fields for security purposes.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>(Optional) <code>customerEncryptionKeyArn</code> – The Amazon Resource Name (ARN) of a KMS key to encrypt the creation of the agent.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>(Optional) <code>idleSessionTTLinSeconds</code> – Specify the number of seconds for which the agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>To override the default prompt behavior for agent orchestration and to use advanced prompts, include a <code>promptOverrideConfiguration</code> object.
+ *                     For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>The agent instructions will not be honored if your agent has only one knowledge base, uses default prompts, has no action group, and user input is disabled.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeInlineAgent</code>.</p>
  *          </note>
- *          <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p>
- *          <ul>
- *             <li>
- *                <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p>
- *             </li>
- *             <li>
- *                <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
- *             </li>
- *             <li>
- *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
- *             </li>
- *             <li>
- *                <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p>
- *             </li>
- *          </ul>
- *          <p>The response is returned in the <code>bytes</code> field of the <code>chunk</code> object.</p>
- *          <ul>
- *             <li>
- *                <p>The <code>attribution</code> object contains citations for parts of the response.</p>
- *             </li>
- *             <li>
- *                <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p>
- *             </li>
- *             <li>
- *                <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p>
- *             </li>
- *             <li>
- *                <p>Errors are also surfaced in the response.</p>
- *             </li>
- *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentRuntimeClient, InvokeAgentCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
- * // const { BedrockAgentRuntimeClient, InvokeAgentCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * import { BedrockAgentRuntimeClient, InvokeInlineAgentCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
+ * // const { BedrockAgentRuntimeClient, InvokeInlineAgentCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
  * const client = new BedrockAgentRuntimeClient(config);
- * const input = { // InvokeAgentRequest
- *   sessionState: { // SessionState
+ * const input = { // InvokeInlineAgentRequest
+ *   sessionId: "STRING_VALUE", // required
+ *   customerEncryptionKeyArn: "STRING_VALUE",
+ *   endSession: true || false,
+ *   enableTrace: true || false,
+ *   inputText: "STRING_VALUE",
+ *   inlineSessionState: { // InlineSessionState
  *     sessionAttributes: { // SessionAttributesMap
  *       "<keys>": "STRING_VALUE",
  *     },
@@ -129,83 +127,139 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *         useCase: "CODE_INTERPRETER" || "CHAT", // required
  *       },
  *     ],
- *     knowledgeBaseConfigurations: [ // KnowledgeBaseConfigurations
- *       { // KnowledgeBaseConfiguration
- *         knowledgeBaseId: "STRING_VALUE", // required
- *         retrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
- *           vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
- *             numberOfResults: Number("int"),
- *             overrideSearchType: "HYBRID" || "SEMANTIC",
- *             filter: { // RetrievalFilter Union: only one key present
- *               equals: { // FilterAttribute
- *                 key: "STRING_VALUE", // required
- *                 value: "DOCUMENT_VALUE", // required
+ *   },
+ *   foundationModel: "STRING_VALUE", // required
+ *   instruction: "STRING_VALUE", // required
+ *   idleSessionTTLInSeconds: Number("int"),
+ *   actionGroups: [ // AgentActionGroups
+ *     { // AgentActionGroup
+ *       actionGroupName: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       parentActionGroupSignature: "AMAZON.UserInput" || "AMAZON.CodeInterpreter",
+ *       actionGroupExecutor: { // ActionGroupExecutor Union: only one key present
+ *         lambda: "STRING_VALUE",
+ *         customControl: "RETURN_CONTROL",
+ *       },
+ *       apiSchema: { // APISchema Union: only one key present
+ *         s3: { // S3Identifier
+ *           s3BucketName: "STRING_VALUE",
+ *           s3ObjectKey: "STRING_VALUE",
+ *         },
+ *         payload: "STRING_VALUE",
+ *       },
+ *       functionSchema: { // FunctionSchema Union: only one key present
+ *         functions: [ // Functions
+ *           { // FunctionDefinition
+ *             name: "STRING_VALUE", // required
+ *             description: "STRING_VALUE",
+ *             parameters: { // ParameterMap
+ *               "<keys>": { // ParameterDetail
+ *                 description: "STRING_VALUE",
+ *                 type: "string" || "number" || "integer" || "boolean" || "array", // required
+ *                 required: true || false,
  *               },
- *               notEquals: {
- *                 key: "STRING_VALUE", // required
- *                 value: "DOCUMENT_VALUE", // required
- *               },
- *               greaterThan: {
- *                 key: "STRING_VALUE", // required
- *                 value: "DOCUMENT_VALUE", // required
- *               },
- *               greaterThanOrEquals: {
- *                 key: "STRING_VALUE", // required
- *                 value: "DOCUMENT_VALUE", // required
- *               },
- *               lessThan: {
- *                 key: "STRING_VALUE", // required
- *                 value: "DOCUMENT_VALUE", // required
- *               },
- *               lessThanOrEquals: "<FilterAttribute>",
- *               in: "<FilterAttribute>",
- *               notIn: "<FilterAttribute>",
- *               startsWith: "<FilterAttribute>",
- *               listContains: "<FilterAttribute>",
- *               stringContains: "<FilterAttribute>",
- *               andAll: [ // RetrievalFilterList
- *                 {//  Union: only one key present
- *                   equals: "<FilterAttribute>",
- *                   notEquals: "<FilterAttribute>",
- *                   greaterThan: "<FilterAttribute>",
- *                   greaterThanOrEquals: "<FilterAttribute>",
- *                   lessThan: "<FilterAttribute>",
- *                   lessThanOrEquals: "<FilterAttribute>",
- *                   in: "<FilterAttribute>",
- *                   notIn: "<FilterAttribute>",
- *                   startsWith: "<FilterAttribute>",
- *                   listContains: "<FilterAttribute>",
- *                   stringContains: "<FilterAttribute>",
- *                   andAll: [
- *                     "<RetrievalFilter>",
- *                   ],
- *                   orAll: [
- *                     "<RetrievalFilter>",
- *                   ],
- *                 },
- *               ],
- *               orAll: [
- *                 "<RetrievalFilter>",
- *               ],
  *             },
+ *             requireConfirmation: "ENABLED" || "DISABLED",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
+ *   knowledgeBases: [ // KnowledgeBases
+ *     { // KnowledgeBase
+ *       knowledgeBaseId: "STRING_VALUE", // required
+ *       description: "STRING_VALUE", // required
+ *       retrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
+ *         vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
+ *           numberOfResults: Number("int"),
+ *           overrideSearchType: "HYBRID" || "SEMANTIC",
+ *           filter: { // RetrievalFilter Union: only one key present
+ *             equals: { // FilterAttribute
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             notEquals: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             greaterThan: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             greaterThanOrEquals: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             lessThan: {
+ *               key: "STRING_VALUE", // required
+ *               value: "DOCUMENT_VALUE", // required
+ *             },
+ *             lessThanOrEquals: "<FilterAttribute>",
+ *             in: "<FilterAttribute>",
+ *             notIn: "<FilterAttribute>",
+ *             startsWith: "<FilterAttribute>",
+ *             listContains: "<FilterAttribute>",
+ *             stringContains: "<FilterAttribute>",
+ *             andAll: [ // RetrievalFilterList
+ *               {//  Union: only one key present
+ *                 equals: "<FilterAttribute>",
+ *                 notEquals: "<FilterAttribute>",
+ *                 greaterThan: "<FilterAttribute>",
+ *                 greaterThanOrEquals: "<FilterAttribute>",
+ *                 lessThan: "<FilterAttribute>",
+ *                 lessThanOrEquals: "<FilterAttribute>",
+ *                 in: "<FilterAttribute>",
+ *                 notIn: "<FilterAttribute>",
+ *                 startsWith: "<FilterAttribute>",
+ *                 listContains: "<FilterAttribute>",
+ *                 stringContains: "<FilterAttribute>",
+ *                 andAll: [
+ *                   "<RetrievalFilter>",
+ *                 ],
+ *                 orAll: [
+ *                   "<RetrievalFilter>",
+ *                 ],
+ *               },
+ *             ],
+ *             orAll: [
+ *               "<RetrievalFilter>",
+ *             ],
  *           },
  *         },
  *       },
- *     ],
+ *     },
+ *   ],
+ *   guardrailConfiguration: { // GuardrailConfigurationWithArn
+ *     guardrailIdentifier: "STRING_VALUE", // required
+ *     guardrailVersion: "STRING_VALUE", // required
  *   },
- *   agentId: "STRING_VALUE", // required
- *   agentAliasId: "STRING_VALUE", // required
- *   sessionId: "STRING_VALUE", // required
- *   endSession: true || false,
- *   enableTrace: true || false,
- *   inputText: "STRING_VALUE",
- *   memoryId: "STRING_VALUE",
+ *   promptOverrideConfiguration: { // PromptOverrideConfiguration
+ *     promptConfigurations: [ // PromptConfigurations // required
+ *       { // PromptConfiguration
+ *         promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING" || "ROUTING_CLASSIFIER",
+ *         promptCreationMode: "DEFAULT" || "OVERRIDDEN",
+ *         promptState: "ENABLED" || "DISABLED",
+ *         basePromptTemplate: "STRING_VALUE",
+ *         inferenceConfiguration: { // InferenceConfiguration
+ *           temperature: Number("float"),
+ *           topP: Number("float"),
+ *           topK: Number("int"),
+ *           maximumLength: Number("int"),
+ *           stopSequences: [ // StopSequences
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         parserMode: "DEFAULT" || "OVERRIDDEN",
+ *       },
+ *     ],
+ *     overrideLambda: "STRING_VALUE",
+ *   },
  * };
- * const command = new InvokeAgentCommand(input);
+ * const command = new InvokeInlineAgentCommand(input);
  * const response = await client.send(command);
- * // { // InvokeAgentResponse
- * //   completion: { // ResponseStream Union: only one key present
- * //     chunk: { // PayloadPart
+ * // { // InvokeInlineAgentResponse
+ * //   completion: { // InlineAgentResponseStream Union: only one key present
+ * //     chunk: { // InlineAgentPayloadPart
  * //       bytes: new Uint8Array(),
  * //       attribution: { // Attribution
  * //         citations: [ // Citations
@@ -251,7 +305,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //         ],
  * //       },
  * //     },
- * //     trace: { // TracePart
+ * //     trace: { // InlineAgentTracePart
  * //       sessionId: "STRING_VALUE",
  * //       trace: { // Trace Union: only one key present
  * //         guardrailTrace: { // GuardrailTrace
@@ -567,11 +621,8 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //           failureReason: "STRING_VALUE",
  * //         },
  * //       },
- * //       agentId: "STRING_VALUE",
- * //       agentAliasId: "STRING_VALUE",
- * //       agentVersion: "STRING_VALUE",
  * //     },
- * //     returnControl: { // ReturnControlPayload
+ * //     returnControl: { // InlineAgentReturnControlPayload
  * //       invocationInputs: [ // InvocationInputs
  * //         { // InvocationInputMember Union: only one key present
  * //           apiInvocationInput: { // ApiInvocationInput
@@ -645,7 +696,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //       message: "STRING_VALUE",
  * //       resourceName: "STRING_VALUE",
  * //     },
- * //     files: { // FilePart
+ * //     files: { // InlineAgentFilePart
  * //       files: [ // OutputFiles
  * //         { // OutputFile
  * //           name: "STRING_VALUE",
@@ -657,15 +708,14 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //   },
  * //   contentType: "STRING_VALUE", // required
  * //   sessionId: "STRING_VALUE", // required
- * //   memoryId: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param InvokeAgentCommandInput - {@link InvokeAgentCommandInput}
- * @returns {@link InvokeAgentCommandOutput}
- * @see {@link InvokeAgentCommandInput} for command's `input` shape.
- * @see {@link InvokeAgentCommandOutput} for command's `response` shape.
+ * @param InvokeInlineAgentCommandInput - {@link InvokeInlineAgentCommandInput}
+ * @returns {@link InvokeInlineAgentCommandOutput}
+ * @see {@link InvokeInlineAgentCommandInput} for command's `input` shape.
+ * @see {@link InvokeInlineAgentCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -700,10 +750,10 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *
  * @public
  */
-export class InvokeAgentCommand extends $Command
+export class InvokeInlineAgentCommand extends $Command
   .classBuilder<
-    InvokeAgentCommandInput,
-    InvokeAgentCommandOutput,
+    InvokeInlineAgentCommandInput,
+    InvokeInlineAgentCommandOutput,
     BedrockAgentRuntimeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -715,7 +765,7 @@ export class InvokeAgentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentRunTimeService", "InvokeAgent", {
+  .s("AmazonBedrockAgentRunTimeService", "InvokeInlineAgent", {
     /**
      * @internal
      */
@@ -723,20 +773,20 @@ export class InvokeAgentCommand extends $Command
       output: true,
     },
   })
-  .n("BedrockAgentRuntimeClient", "InvokeAgentCommand")
-  .f(InvokeAgentRequestFilterSensitiveLog, InvokeAgentResponseFilterSensitiveLog)
-  .ser(se_InvokeAgentCommand)
-  .de(de_InvokeAgentCommand)
+  .n("BedrockAgentRuntimeClient", "InvokeInlineAgentCommand")
+  .f(InvokeInlineAgentRequestFilterSensitiveLog, InvokeInlineAgentResponseFilterSensitiveLog)
+  .ser(se_InvokeInlineAgentCommand)
+  .de(de_InvokeInlineAgentCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: InvokeAgentRequest;
-      output: InvokeAgentResponse;
+      input: InvokeInlineAgentRequest;
+      output: InvokeInlineAgentResponse;
     };
     sdk: {
-      input: InvokeAgentCommandInput;
-      output: InvokeAgentCommandOutput;
+      input: InvokeInlineAgentCommandInput;
+      output: InvokeInlineAgentCommandOutput;
     };
   };
 }

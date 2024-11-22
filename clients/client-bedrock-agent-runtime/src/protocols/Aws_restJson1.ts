@@ -37,6 +37,7 @@ import { DeleteAgentMemoryCommandInput, DeleteAgentMemoryCommandOutput } from ".
 import { GetAgentMemoryCommandInput, GetAgentMemoryCommandOutput } from "../commands/GetAgentMemoryCommand";
 import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "../commands/InvokeAgentCommand";
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "../commands/InvokeFlowCommand";
+import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "../commands/InvokeInlineAgentCommand";
 import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "../commands/OptimizePromptCommand";
 import {
   RetrieveAndGenerateCommandInput,
@@ -46,8 +47,11 @@ import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/Retriev
 import { BedrockAgentRuntimeServiceException as __BaseException } from "../models/BedrockAgentRuntimeServiceException";
 import {
   AccessDeniedException,
+  ActionGroupExecutor,
+  AgentActionGroup,
   AnalyzePromptEvent,
   ApiResult,
+  APISchema,
   Attribution,
   BadGatewayException,
   ByteContentDoc,
@@ -77,15 +81,25 @@ import {
   FlowTraceNodeOutputContent,
   FlowTraceNodeOutputEvent,
   FlowTraceNodeOutputField,
+  FunctionDefinition,
   FunctionResult,
+  FunctionSchema,
   GenerationConfiguration,
   GuardrailConfiguration,
+  GuardrailConfigurationWithArn,
   InferenceConfig,
   InferenceConfiguration,
+  InlineAgentFilePart,
+  InlineAgentPayloadPart,
+  InlineAgentResponseStream,
+  InlineAgentReturnControlPayload,
+  InlineAgentTracePart,
+  InlineSessionState,
   InputFile,
   InputPrompt,
   InternalServerException,
   InvocationResultMember,
+  KnowledgeBase,
   KnowledgeBaseConfiguration,
   KnowledgeBaseLookupOutput,
   KnowledgeBaseQuery,
@@ -102,9 +116,12 @@ import {
   OrchestrationConfiguration,
   OrchestrationTrace,
   OutputFile,
+  ParameterDetail,
   PayloadPart,
   PostProcessingTrace,
   PreProcessingTrace,
+  PromptConfiguration,
+  PromptOverrideConfiguration,
   PromptTemplate,
   QueryTransformationConfiguration,
   ResourceNotFoundException,
@@ -115,6 +132,7 @@ import {
   RetrieveAndGenerateSessionConfiguration,
   RetrievedReference,
   ReturnControlPayload,
+  S3Identifier,
   S3ObjectDoc,
   S3ObjectFile,
   ServiceQuotaExceededException,
@@ -218,6 +236,40 @@ export const se_InvokeFlowCommand = async (
     take(input, {
       enableTrace: [],
       inputs: (_) => se_FlowInputs(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1InvokeInlineAgentCommand
+ */
+export const se_InvokeInlineAgentCommand = async (
+  input: InvokeInlineAgentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/agents/{sessionId}");
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actionGroups: (_) => _json(_),
+      customerEncryptionKeyArn: [],
+      enableTrace: [],
+      endSession: [],
+      foundationModel: [],
+      guardrailConfiguration: (_) => _json(_),
+      idleSessionTTLInSeconds: [],
+      inlineSessionState: (_) => se_InlineSessionState(_, context),
+      inputText: [],
+      instruction: [],
+      knowledgeBases: (_) => se_KnowledgeBases(_, context),
+      promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -372,6 +424,26 @@ export const de_InvokeFlowCommand = async (
   });
   const data: any = output.body;
   contents.responseStream = de_FlowResponseStream(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1InvokeInlineAgentCommand
+ */
+export const de_InvokeInlineAgentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<InvokeInlineAgentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_cT]: [, output.headers[_xabact]],
+    [_sI]: [, output.headers[_xabasi]],
+  });
+  const data: any = output.body;
+  contents.completion = de_InlineAgentResponseStream(data, context);
   return contents;
 };
 
@@ -738,6 +810,91 @@ const de_FlowResponseStream = (
   });
 };
 /**
+ * deserializeAws_restJson1InlineAgentResponseStream
+ */
+const de_InlineAgentResponseStream = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<InlineAgentResponseStream> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["chunk"] != null) {
+      return {
+        chunk: await de_InlineAgentPayloadPart_event(event["chunk"], context),
+      };
+    }
+    if (event["trace"] != null) {
+      return {
+        trace: await de_InlineAgentTracePart_event(event["trace"], context),
+      };
+    }
+    if (event["returnControl"] != null) {
+      return {
+        returnControl: await de_InlineAgentReturnControlPayload_event(event["returnControl"], context),
+      };
+    }
+    if (event["internalServerException"] != null) {
+      return {
+        internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
+      };
+    }
+    if (event["validationException"] != null) {
+      return {
+        validationException: await de_ValidationException_event(event["validationException"], context),
+      };
+    }
+    if (event["resourceNotFoundException"] != null) {
+      return {
+        resourceNotFoundException: await de_ResourceNotFoundException_event(
+          event["resourceNotFoundException"],
+          context
+        ),
+      };
+    }
+    if (event["serviceQuotaExceededException"] != null) {
+      return {
+        serviceQuotaExceededException: await de_ServiceQuotaExceededException_event(
+          event["serviceQuotaExceededException"],
+          context
+        ),
+      };
+    }
+    if (event["throttlingException"] != null) {
+      return {
+        throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
+      };
+    }
+    if (event["accessDeniedException"] != null) {
+      return {
+        accessDeniedException: await de_AccessDeniedException_event(event["accessDeniedException"], context),
+      };
+    }
+    if (event["conflictException"] != null) {
+      return {
+        conflictException: await de_ConflictException_event(event["conflictException"], context),
+      };
+    }
+    if (event["dependencyFailedException"] != null) {
+      return {
+        dependencyFailedException: await de_DependencyFailedException_event(
+          event["dependencyFailedException"],
+          context
+        ),
+      };
+    }
+    if (event["badGatewayException"] != null) {
+      return {
+        badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
+      };
+    }
+    if (event["files"] != null) {
+      return {
+        files: await de_InlineAgentFilePart_event(event["files"], context),
+      };
+    }
+    return { $unknown: output };
+  });
+};
+/**
  * deserializeAws_restJson1OptimizedPromptStream
  */
 const de_OptimizedPromptStream = (
@@ -937,6 +1094,36 @@ const de_FlowTraceEvent_event = async (output: any, context: __SerdeContext): Pr
   Object.assign(contents, de_FlowTraceEvent(data, context));
   return contents;
 };
+const de_InlineAgentFilePart_event = async (output: any, context: __SerdeContext): Promise<InlineAgentFilePart> => {
+  const contents: InlineAgentFilePart = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_InlineAgentFilePart(data, context));
+  return contents;
+};
+const de_InlineAgentPayloadPart_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InlineAgentPayloadPart> => {
+  const contents: InlineAgentPayloadPart = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_InlineAgentPayloadPart(data, context));
+  return contents;
+};
+const de_InlineAgentReturnControlPayload_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<InlineAgentReturnControlPayload> => {
+  const contents: InlineAgentReturnControlPayload = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
+};
+const de_InlineAgentTracePart_event = async (output: any, context: __SerdeContext): Promise<InlineAgentTracePart> => {
+  const contents: InlineAgentTracePart = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_InlineAgentTracePart(data, context));
+  return contents;
+};
 const de_InternalServerException_event = async (
   output: any,
   context: __SerdeContext
@@ -1005,6 +1192,8 @@ const de_ValidationException_event = async (output: any, context: __SerdeContext
   };
   return de_ValidationExceptionRes(parsedOutput, context);
 };
+// se_ActionGroupExecutor omitted.
+
 /**
  * serializeAws_restJson1AdditionalModelRequestFields
  */
@@ -1025,7 +1214,13 @@ const se_AdditionalModelRequestFieldsValue = (input: __DocumentType, context: __
   return input;
 };
 
+// se_AgentActionGroup omitted.
+
+// se_AgentActionGroups omitted.
+
 // se_ApiResult omitted.
+
+// se_APISchema omitted.
 
 /**
  * serializeAws_restJson1ByteContentDoc
@@ -1161,7 +1356,13 @@ const se_FlowInputs = (input: FlowInput[], context: __SerdeContext): any => {
     });
 };
 
+// se_FunctionDefinition omitted.
+
 // se_FunctionResult omitted.
+
+// se_Functions omitted.
+
+// se_FunctionSchema omitted.
 
 /**
  * serializeAws_restJson1GenerationConfiguration
@@ -1177,12 +1378,40 @@ const se_GenerationConfiguration = (input: GenerationConfiguration, context: __S
 
 // se_GuardrailConfiguration omitted.
 
+// se_GuardrailConfigurationWithArn omitted.
+
 /**
  * serializeAws_restJson1InferenceConfig
  */
 const se_InferenceConfig = (input: InferenceConfig, context: __SerdeContext): any => {
   return take(input, {
     textInferenceConfig: (_) => se_TextInferenceConfig(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1InferenceConfiguration
+ */
+const se_InferenceConfiguration = (input: InferenceConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    maximumLength: [],
+    stopSequences: _json,
+    temperature: __serializeFloat,
+    topK: [],
+    topP: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1InlineSessionState
+ */
+const se_InlineSessionState = (input: InlineSessionState, context: __SerdeContext): any => {
+  return take(input, {
+    files: (_) => se_InputFiles(_, context),
+    invocationId: [],
+    promptSessionAttributes: _json,
+    returnControlInvocationResults: _json,
+    sessionAttributes: _json,
   });
 };
 
@@ -1211,6 +1440,17 @@ const se_InputFiles = (input: InputFile[], context: __SerdeContext): any => {
 // se_InputPrompt omitted.
 
 // se_InvocationResultMember omitted.
+
+/**
+ * serializeAws_restJson1KnowledgeBase
+ */
+const se_KnowledgeBase = (input: KnowledgeBase, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    knowledgeBaseId: [],
+    retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
+  });
+};
 
 /**
  * serializeAws_restJson1KnowledgeBaseConfiguration
@@ -1264,6 +1504,17 @@ const se_KnowledgeBaseRetrieveAndGenerateConfiguration = (
 };
 
 /**
+ * serializeAws_restJson1KnowledgeBases
+ */
+const se_KnowledgeBases = (input: KnowledgeBase[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_KnowledgeBase(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1KnowledgeBaseVectorSearchConfiguration
  */
 const se_KnowledgeBaseVectorSearchConfiguration = (
@@ -1286,6 +1537,45 @@ const se_OrchestrationConfiguration = (input: OrchestrationConfiguration, contex
     inferenceConfig: (_) => se_InferenceConfig(_, context),
     promptTemplate: _json,
     queryTransformationConfiguration: _json,
+  });
+};
+
+// se_ParameterDetail omitted.
+
+// se_ParameterMap omitted.
+
+/**
+ * serializeAws_restJson1PromptConfiguration
+ */
+const se_PromptConfiguration = (input: PromptConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    basePromptTemplate: [],
+    inferenceConfiguration: (_) => se_InferenceConfiguration(_, context),
+    parserMode: [],
+    promptCreationMode: [],
+    promptState: [],
+    promptType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1PromptConfigurations
+ */
+const se_PromptConfigurations = (input: PromptConfiguration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_PromptConfiguration(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1PromptOverrideConfiguration
+ */
+const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    overrideLambda: [],
+    promptConfigurations: (_) => se_PromptConfigurations(_, context),
   });
 };
 
@@ -1349,6 +1639,8 @@ const se_RetrieveAndGenerateConfiguration = (input: RetrieveAndGenerateConfigura
 
 // se_ReturnControlInvocationResults omitted.
 
+// se_S3Identifier omitted.
+
 // se_S3ObjectDoc omitted.
 
 // se_S3ObjectFile omitted.
@@ -1368,6 +1660,8 @@ const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
     sessionAttributes: _json,
   });
 };
+
+// se_StopSequences omitted.
 
 /**
  * serializeAws_restJson1TextInferenceConfig
@@ -1678,6 +1972,37 @@ const de_InferenceConfiguration = (output: any, context: __SerdeContext): Infere
     temperature: __limitedParseFloat32,
     topK: __expectInt32,
     topP: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InlineAgentFilePart
+ */
+const de_InlineAgentFilePart = (output: any, context: __SerdeContext): InlineAgentFilePart => {
+  return take(output, {
+    files: (_: any) => de_OutputFiles(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InlineAgentPayloadPart
+ */
+const de_InlineAgentPayloadPart = (output: any, context: __SerdeContext): InlineAgentPayloadPart => {
+  return take(output, {
+    attribution: (_: any) => de_Attribution(_, context),
+    bytes: context.base64Decoder,
+  }) as any;
+};
+
+// de_InlineAgentReturnControlPayload omitted.
+
+/**
+ * deserializeAws_restJson1InlineAgentTracePart
+ */
+const de_InlineAgentTracePart = (output: any, context: __SerdeContext): InlineAgentTracePart => {
+  return take(output, {
+    sessionId: __expectString,
+    trace: (_: any) => de_Trace(__expectUnion(_), context),
   }) as any;
 };
 

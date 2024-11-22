@@ -16,6 +16,11 @@ import {
 import { InvokeAgentCommand, InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/InvokeAgentCommand";
 import { InvokeFlowCommand, InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
 import {
+  InvokeInlineAgentCommand,
+  InvokeInlineAgentCommandInput,
+  InvokeInlineAgentCommandOutput,
+} from "./commands/InvokeInlineAgentCommand";
+import {
   OptimizePromptCommand,
   OptimizePromptCommandInput,
   OptimizePromptCommandOutput,
@@ -32,6 +37,7 @@ const commands = {
   GetAgentMemoryCommand,
   InvokeAgentCommand,
   InvokeFlowCommand,
+  InvokeInlineAgentCommand,
   OptimizePromptCommand,
   RetrieveCommand,
   RetrieveAndGenerateCommand,
@@ -89,6 +95,23 @@ export interface BedrockAgentRuntime {
     args: InvokeFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: InvokeFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link InvokeInlineAgentCommand}
+   */
+  invokeInlineAgent(
+    args: InvokeInlineAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<InvokeInlineAgentCommandOutput>;
+  invokeInlineAgent(
+    args: InvokeInlineAgentCommandInput,
+    cb: (err: any, data?: InvokeInlineAgentCommandOutput) => void
+  ): void;
+  invokeInlineAgent(
+    args: InvokeInlineAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: InvokeInlineAgentCommandOutput) => void
   ): void;
 
   /**

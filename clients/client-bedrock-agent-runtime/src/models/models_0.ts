@@ -29,6 +29,81 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const CustomControlMethod = {
+  RETURN_CONTROL: "RETURN_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomControlMethod = (typeof CustomControlMethod)[keyof typeof CustomControlMethod];
+
+/**
+ * <p>
+ *             Contains details about the Lambda function containing the business logic that is carried out upon invoking the action or the
+ *             custom control method for handling the information elicited from the user.
+ *         </p>
+ * @public
+ */
+export type ActionGroupExecutor =
+  | ActionGroupExecutor.CustomControlMember
+  | ActionGroupExecutor.LambdaMember
+  | ActionGroupExecutor.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ActionGroupExecutor {
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.
+   *         </p>
+   * @public
+   */
+  export interface LambdaMember {
+    lambda: string;
+    customControl?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>
+   *             To return the action group invocation results directly in the <code>InvokeInlineAgent</code> response, specify <code>RETURN_CONTROL</code>.
+   *         </p>
+   * @public
+   */
+  export interface CustomControlMember {
+    lambda?: never;
+    customControl: CustomControlMethod;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    lambda?: never;
+    customControl?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    lambda: (value: string) => T;
+    customControl: (value: CustomControlMethod) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ActionGroupExecutor, visitor: Visitor<T>): T => {
+    if (value.lambda !== undefined) return visitor.lambda(value.lambda);
+    if (value.customControl !== undefined) return visitor.customControl(value.customControl);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionType = {
   LAMBDA: "LAMBDA",
   RETURN_CONTROL: "RETURN_CONTROL",
@@ -145,6 +220,20 @@ export interface ActionGroupInvocationOutput {
  * @public
  * @enum
  */
+export const ActionGroupSignature = {
+  AMAZON_CODEINTERPRETER: "AMAZON.CodeInterpreter",
+  AMAZON_USERINPUT: "AMAZON.UserInput",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionGroupSignature = (typeof ActionGroupSignature)[keyof typeof ActionGroupSignature];
+
+/**
+ * @public
+ * @enum
+ */
 export const ActionInvocationType = {
   RESULT: "RESULT",
   USER_CONFIRMATION: "USER_CONFIRMATION",
@@ -155,6 +244,297 @@ export const ActionInvocationType = {
  * @public
  */
 export type ActionInvocationType = (typeof ActionInvocationType)[keyof typeof ActionInvocationType];
+
+/**
+ * <p>
+ *             The identifier information for an Amazon S3 bucket.
+ *         </p>
+ * @public
+ */
+export interface S3Identifier {
+  /**
+   * <p>
+   *             The name of the S3 bucket.
+   *         </p>
+   * @public
+   */
+  s3BucketName?: string | undefined;
+
+  /**
+   * <p>
+   *             The S3 object key for the S3 resource.
+   *         </p>
+   * @public
+   */
+  s3ObjectKey?: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains details about the OpenAPI schema for the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.
+ *             You can either include the schema directly in the payload field or you can upload it to an S3 bucket and specify the S3 bucket location in the s3 field.
+ *         </p>
+ * @public
+ */
+export type APISchema = APISchema.PayloadMember | APISchema.S3Member | APISchema.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace APISchema {
+  /**
+   * <p>
+   *             Contains details about the S3 object containing the OpenAPI schema for the action group.
+   *         </p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Identifier;
+    payload?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>
+   *             The JSON or YAML-formatted payload defining the OpenAPI schema for the action group.
+   *         </p>
+   * @public
+   */
+  export interface PayloadMember {
+    s3?: never;
+    payload: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    payload?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: S3Identifier) => T;
+    payload: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: APISchema, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    if (value.payload !== undefined) return visitor.payload(value.payload);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ParameterType = {
+  ARRAY: "array",
+  BOOLEAN: "boolean",
+  INTEGER: "integer",
+  NUMBER: "number",
+  STRING: "string",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
+
+/**
+ * <p>
+ *             Contains details about a parameter in a function for an action group.
+ *         </p>
+ * @public
+ */
+export interface ParameterDetail {
+  /**
+   * <p>
+   *             A description of the parameter. Helps the foundation model determine how to elicit the parameters from the user.
+   *         </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>
+   *             The data type of the parameter.
+   *         </p>
+   * @public
+   */
+  type: ParameterType | undefined;
+
+  /**
+   * <p>
+   *             Whether the parameter is required for the agent to complete the function for action group invocation.
+   *         </p>
+   * @public
+   */
+  required?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RequireConfirmation = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RequireConfirmation = (typeof RequireConfirmation)[keyof typeof RequireConfirmation];
+
+/**
+ * <p>
+ *             Defines parameters that the agent needs to invoke from the user to complete the function. Corresponds to an action in an action group.
+ *         </p>
+ * @public
+ */
+export interface FunctionDefinition {
+  /**
+   * <p>
+   *             A name for the function.
+   *         </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>
+   *             A description of the function and its purpose.
+   *         </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>
+   *             The parameters that the agent elicits from the user to fulfill the function.
+   *         </p>
+   * @public
+   */
+  parameters?: Record<string, ParameterDetail> | undefined;
+
+  /**
+   * <p>
+   *             Contains information if user confirmation is required to invoke the function.
+   *         </p>
+   * @public
+   */
+  requireConfirmation?: RequireConfirmation | undefined;
+}
+
+/**
+ * <p>
+ *             Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
+ *         </p>
+ * @public
+ */
+export type FunctionSchema = FunctionSchema.FunctionsMember | FunctionSchema.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FunctionSchema {
+  /**
+   * <p>
+   *             A list of functions that each define an action in the action group.
+   *         </p>
+   * @public
+   */
+  export interface FunctionsMember {
+    functions: FunctionDefinition[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    functions?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    functions: (value: FunctionDefinition[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FunctionSchema, visitor: Visitor<T>): T => {
+    if (value.functions !== undefined) return visitor.functions(value.functions);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>
+ *             Contains details of the inline agent's action group.
+ *         </p>
+ * @public
+ */
+export interface AgentActionGroup {
+  /**
+   * <p>
+   *             The name of the action group.
+   *         </p>
+   * @public
+   */
+  actionGroupName: string | undefined;
+
+  /**
+   * <p>
+   *             A description of the action group.
+   *         </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>
+   *             To allow your agent to request the user for additional information when trying to complete a task, set this field to <code>AMAZON.UserInput</code>.
+   *             You must leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.
+   *         </p>
+   *          <p>To allow your agent to generate, run, and troubleshoot code when trying to complete a task, set this field to <code>AMAZON.CodeInterpreter</code>. You must
+   *             leave the <code>description</code>, <code>apiSchema</code>, and <code>actionGroupExecutor</code> fields blank for this action group.</p>
+   *          <p>During orchestration, if your agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request,
+   *             it will invoke this action group instead and return an <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html">Observation</a> reprompting the user for more information.</p>
+   * @public
+   */
+  parentActionGroupSignature?: ActionGroupSignature | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking
+   *             the action or the custom control method for handling the information elicited from the user.
+   *         </p>
+   * @public
+   */
+  actionGroupExecutor?: ActionGroupExecutor | undefined;
+
+  /**
+   * <p>
+   *             Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted
+   *             payload defining the schema. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html">Action group OpenAPI schemas</a>.
+   *         </p>
+   * @public
+   */
+  apiSchema?: APISchema | undefined;
+
+  /**
+   * <p>
+   *             Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
+   *         </p>
+   * @public
+   */
+  functionSchema?: FunctionSchema | undefined;
+}
 
 /**
  * <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
@@ -2756,6 +3136,7 @@ export const PromptType = {
   ORCHESTRATION: "ORCHESTRATION",
   POST_PROCESSING: "POST_PROCESSING",
   PRE_PROCESSING: "PRE_PROCESSING",
+  ROUTING_CLASSIFIER: "ROUTING_CLASSIFIER",
 } as const;
 
 /**
@@ -3551,6 +3932,18 @@ export namespace Trace {
  */
 export interface TracePart {
   /**
+   * <p>The unique identifier of the session with the agent.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+   * @public
+   */
+  trace?: Trace | undefined;
+
+  /**
    * <p>The unique identifier of the agent.</p>
    * @public
    */
@@ -3563,22 +3956,10 @@ export interface TracePart {
   agentAliasId?: string | undefined;
 
   /**
-   * <p>The unique identifier of the session with the agent.</p>
-   * @public
-   */
-  sessionId?: string | undefined;
-
-  /**
    * <p>The version of the agent.</p>
    * @public
    */
   agentVersion?: string | undefined;
-
-  /**
-   * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
-   * @public
-   */
-  trace?: Trace | undefined;
 }
 
 /**
@@ -3964,6 +4345,649 @@ export interface InvokeAgentResponse {
    * @public
    */
   memoryId?: string | undefined;
+}
+
+/**
+ * <p>
+ *             The configuration details for the guardrail.
+ *         </p>
+ * @public
+ */
+export interface GuardrailConfigurationWithArn {
+  /**
+   * <p>
+   *             The unique identifier for the guardrail.
+   *         </p>
+   * @public
+   */
+  guardrailIdentifier: string | undefined;
+
+  /**
+   * <p>
+   *             The version of the guardrail.
+   *         </p>
+   * @public
+   */
+  guardrailVersion: string | undefined;
+}
+
+/**
+ * <p>
+ *             Contains parameters that specify various attributes that persist across a session or prompt. You can define session state
+ *             attributes as key-value pairs when writing a <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-lambda.html">Lambda function</a> for an action group or pass them when making an <code>InvokeInlineAgent</code> request.
+ *             Use session state attributes to control and provide conversational context for your inline agent and to help customize your agent's behavior.
+ *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>
+ *          </p>
+ * @public
+ */
+export interface InlineSessionState {
+  /**
+   * <p>
+   *             Contains attributes that persist across a session and the values of those attributes.
+   *         </p>
+   * @public
+   */
+  sessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>
+   *             Contains attributes that persist across a session and the values of those attributes.
+   *         </p>
+   * @public
+   */
+  promptSessionAttributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the results from the action group invocation. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
+   *         </p>
+   *          <note>
+   *             <p>If you include this field in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  returnControlInvocationResults?: InvocationResultMember[] | undefined;
+
+  /**
+   * <p>
+   *             The identifier of the invocation of an action. This value must match the <code>invocationId</code> returned in the <code>InvokeInlineAgent</code> response for the action
+   *             whose results are provided in the <code>returnControlInvocationResults</code> field. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-returncontrol.html">Return control to the agent developer</a>.
+   *         </p>
+   * @public
+   */
+  invocationId?: string | undefined;
+
+  /**
+   * <p>
+   *             Contains information about the files used by code interpreter.
+   *         </p>
+   * @public
+   */
+  files?: InputFile[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PromptState = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PromptState = (typeof PromptState)[keyof typeof PromptState];
+
+/**
+ * <p>
+ *             Contains configurations to override a prompt template in one part of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>.
+ *         </p>
+ * @public
+ */
+export interface PromptConfiguration {
+  /**
+   * <p>
+   *                 The step in the agent sequence that this prompt configuration applies to.
+   *             </p>
+   * @public
+   */
+  promptType?: PromptType | undefined;
+
+  /**
+   * <p>Specifies whether to override the default prompt template for this <code>promptType</code>. Set this value to <code>OVERRIDDEN</code> to use the prompt that you provide in the <code>basePromptTemplate</code>. If you leave it as <code>DEFAULT</code>, the agent uses a default prompt template.</p>
+   * @public
+   */
+  promptCreationMode?: CreationMode | undefined;
+
+  /**
+   * <p>Specifies whether to allow the inline agent to carry out the step specified in the <code>promptType</code>. If you set this value to <code>DISABLED</code>, the agent skips that step. The default state for each <code>promptType</code> is as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PRE_PROCESSING</code> – <code>ENABLED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ORCHESTRATION</code> – <code>ENABLED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KNOWLEDGE_BASE_RESPONSE_GENERATION</code> – <code>ENABLED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>POST_PROCESSING</code> – <code>DISABLED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  promptState?: PromptState | undefined;
+
+  /**
+   * <p>Defines the prompt template with which to replace the default prompt template. You can use placeholder variables in the base prompt template to customize the prompt. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-placeholders.html">Prompt template placeholder variables</a>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts-configure.html">Configure the prompt templates</a>.</p>
+   * @public
+   */
+  basePromptTemplate?: string | undefined;
+
+  /**
+   * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
+   * @public
+   */
+  inferenceConfiguration?: InferenceConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the <code>promptType</code>. If you set the field as <code>OVERRIDEN</code>, the <code>overrideLambda</code> field in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html">PromptOverrideConfiguration</a> must be specified with the ARN of a Lambda function.</p>
+   * @public
+   */
+  parserMode?: CreationMode | undefined;
+}
+
+/**
+ * <p>Contains configurations to override prompts in different parts of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>. </p>
+ * @public
+ */
+export interface PromptOverrideConfiguration {
+  /**
+   * <p>Contains configurations to override a prompt template in one part of an agent sequence. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/advanced-prompts.html">Advanced prompts</a>. </p>
+   * @public
+   */
+  promptConfigurations: PromptConfiguration[] | undefined;
+
+  /**
+   * <p>The ARN of the Lambda function to use when parsing the raw foundation model output in parts of the agent sequence.
+   *             If you specify this field, at least one of the <code>promptConfigurations</code> must contain a <code>parserMode</code> value that is
+   *             set to <code>OVERRIDDEN</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/lambda-parser.html">Parser Lambda function in Amazon Bedrock Agents</a>.
+   *         </p>
+   * @public
+   */
+  overrideLambda?: string | undefined;
+}
+
+/**
+ * <p>Contains a part of an agent response and citations for it. </p>
+ * @public
+ */
+export interface InlineAgentPayloadPart {
+  /**
+   * <p>A part of the agent response in bytes.</p>
+   * @public
+   */
+  bytes?: Uint8Array | undefined;
+
+  /**
+   * <p>Contains citations for a part of an agent response.</p>
+   * @public
+   */
+  attribution?: Attribution | undefined;
+}
+
+/**
+ * <p>Contains intermediate response for code interpreter if any files have been generated.</p>
+ * @public
+ */
+export interface InlineAgentFilePart {
+  /**
+   * <p>Files containing intermediate response for the user.</p>
+   * @public
+   */
+  files?: OutputFile[] | undefined;
+}
+
+/**
+ * <p>Contains information to return from the action group that the agent has predicted to invoke.</p>
+ *          <p>This data type is used in the <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html#API_agent-runtime_InvokeAgent_ResponseSyntax">InvokeAgent response</a>  API operation.</p>
+ * @public
+ */
+export interface InlineAgentReturnControlPayload {
+  /**
+   * <p>A list of objects that contain information about the parameters and inputs that need to be sent into the API operation or function, based on what the agent
+   *             determines from its session with the user.</p>
+   * @public
+   */
+  invocationInputs?: InvocationInputMember[] | undefined;
+
+  /**
+   * <p>The identifier of the action group invocation. </p>
+   * @public
+   */
+  invocationId?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling API actions and querying knowledge bases
+ *             and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer.
+ *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.</p>
+ * @public
+ */
+export interface InlineAgentTracePart {
+  /**
+   * <p>The unique identifier of the session with the agent.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>Contains one part of the agent's reasoning process and results from calling API actions and querying knowledge bases. You can use the trace to understand how the
+   *             agent arrived at the response it provided the customer. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-enablement">Trace enablement</a>.
+   *         </p>
+   * @public
+   */
+  trace?: Trace | undefined;
+}
+
+/**
+ * <p>The response from invoking the agent and associated citations and trace information.</p>
+ * @public
+ */
+export type InlineAgentResponseStream =
+  | InlineAgentResponseStream.AccessDeniedExceptionMember
+  | InlineAgentResponseStream.BadGatewayExceptionMember
+  | InlineAgentResponseStream.ChunkMember
+  | InlineAgentResponseStream.ConflictExceptionMember
+  | InlineAgentResponseStream.DependencyFailedExceptionMember
+  | InlineAgentResponseStream.FilesMember
+  | InlineAgentResponseStream.InternalServerExceptionMember
+  | InlineAgentResponseStream.ResourceNotFoundExceptionMember
+  | InlineAgentResponseStream.ReturnControlMember
+  | InlineAgentResponseStream.ServiceQuotaExceededExceptionMember
+  | InlineAgentResponseStream.ThrottlingExceptionMember
+  | InlineAgentResponseStream.TraceMember
+  | InlineAgentResponseStream.ValidationExceptionMember
+  | InlineAgentResponseStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InlineAgentResponseStream {
+  /**
+   * <p>Contains a part of an agent response and citations for it.</p>
+   * @public
+   */
+  export interface ChunkMember {
+    chunk: InlineAgentPayloadPart;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains information about the agent and session, alongside the agent's reasoning process and results from calling actions and querying
+   *             knowledge bases and metadata about the trace. You can use the trace to understand how the agent arrived at the response it provided the customer.
+   *             For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Trace events</a>.
+   *         </p>
+   * @public
+   */
+  export interface TraceMember {
+    chunk?: never;
+    trace: InlineAgentTracePart;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains the parameters and information that the agent elicited from the customer to carry out an action. This information is returned to the system
+   *             and can be used in your own setup for fulfilling the action.</p>
+   * @public
+   */
+  export interface ReturnControlMember {
+    chunk?: never;
+    trace?: never;
+    returnControl: InlineAgentReturnControlPayload;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An internal server error occurred. Retry your request.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException: InternalServerException;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Input validation failed. Check your request parameters and retry the request.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException: ValidationException;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again. </p>
+   * @public
+   */
+  export interface ResourceNotFoundExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException: ResourceNotFoundException;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
+   * @public
+   */
+  export interface ServiceQuotaExceededExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException: ServiceQuotaExceededException;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The number of requests exceeds the limit. Resubmit your request later.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException: ThrottlingException;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
+   * @public
+   */
+  export interface AccessDeniedExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException: AccessDeniedException;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was a conflict performing an operation. Resolve the conflict and retry your request. </p>
+   * @public
+   */
+  export interface ConflictExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException: ConflictException;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
+   * @public
+   */
+  export interface DependencyFailedExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException: DependencyFailedException;
+    badGatewayException?: never;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>There was an issue with a dependency due to a server issue. Retry your request. </p>
+   * @public
+   */
+  export interface BadGatewayExceptionMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException: BadGatewayException;
+    files?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains intermediate response for code interpreter if any files have been generated.</p>
+   * @public
+   */
+  export interface FilesMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files: InlineAgentFilePart;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    chunk?: never;
+    trace?: never;
+    returnControl?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    files?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    chunk: (value: InlineAgentPayloadPart) => T;
+    trace: (value: InlineAgentTracePart) => T;
+    returnControl: (value: InlineAgentReturnControlPayload) => T;
+    internalServerException: (value: InternalServerException) => T;
+    validationException: (value: ValidationException) => T;
+    resourceNotFoundException: (value: ResourceNotFoundException) => T;
+    serviceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
+    throttlingException: (value: ThrottlingException) => T;
+    accessDeniedException: (value: AccessDeniedException) => T;
+    conflictException: (value: ConflictException) => T;
+    dependencyFailedException: (value: DependencyFailedException) => T;
+    badGatewayException: (value: BadGatewayException) => T;
+    files: (value: InlineAgentFilePart) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: InlineAgentResponseStream, visitor: Visitor<T>): T => {
+    if (value.chunk !== undefined) return visitor.chunk(value.chunk);
+    if (value.trace !== undefined) return visitor.trace(value.trace);
+    if (value.returnControl !== undefined) return visitor.returnControl(value.returnControl);
+    if (value.internalServerException !== undefined)
+      return visitor.internalServerException(value.internalServerException);
+    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
+    if (value.resourceNotFoundException !== undefined)
+      return visitor.resourceNotFoundException(value.resourceNotFoundException);
+    if (value.serviceQuotaExceededException !== undefined)
+      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
+    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
+    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
+    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
+    if (value.dependencyFailedException !== undefined)
+      return visitor.dependencyFailedException(value.dependencyFailedException);
+    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
+    if (value.files !== undefined) return visitor.files(value.files);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface InvokeInlineAgentResponse {
+  /**
+   * <p>
+   *
+   *         </p>
+   * @public
+   */
+  completion: AsyncIterable<InlineAgentResponseStream> | undefined;
+
+  /**
+   * <p>
+   *             The MIME type of the input data in the request. The default value is application/json.
+   *         </p>
+   * @public
+   */
+  contentType: string | undefined;
+
+  /**
+   * <p>
+   *             The unique identifier of the session with the agent.
+   *         </p>
+   * @public
+   */
+  sessionId: string | undefined;
 }
 
 /**
@@ -5463,6 +6487,38 @@ export interface KnowledgeBaseRetrievalConfiguration {
 }
 
 /**
+ * <p>
+ *             Details of the knowledge base associated withe inline agent.
+ *         </p>
+ * @public
+ */
+export interface KnowledgeBase {
+  /**
+   * <p>
+   *             The unique identifier for a knowledge base associated with the inline agent.
+   *         </p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>
+   *             The description of the knowledge base associated with the inline agent.
+   *         </p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>
+   *             The configurations to apply to the knowledge base during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.
+   *         </p>
+   * @public
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
+}
+
+/**
  * <p>Configurations to apply to a knowledge base attached to the agent during query. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html#session-state-kb">Knowledge base retrieval configurations</a>.</p>
  * @public
  */
@@ -5586,6 +6642,124 @@ export interface RetrieveAndGenerateConfiguration {
    * @public
    */
   externalSourcesConfiguration?: ExternalSourcesRetrieveAndGenerateConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface InvokeInlineAgentRequest {
+  /**
+   * <p>
+   *             The unique identifier of the session. Use the same value across requests to continue the same conversation.
+   *         </p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Amazon Web Services KMS key to use to encrypt your inline agent.
+   *         </p>
+   * @public
+   */
+  customerEncryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>
+   *             Specifies whether to end the session with the inline agent or not.
+   *         </p>
+   * @public
+   */
+  endSession?: boolean | undefined;
+
+  /**
+   * <p>
+   *             Specifies whether to turn on the trace or not to track the agent's reasoning process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/trace-events.html">Using trace</a>.
+   *
+   *         </p>
+   * @public
+   */
+  enableTrace?: boolean | undefined;
+
+  /**
+   * <p>
+   *             The prompt text to send to the agent.
+   *         </p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  inputText?: string | undefined;
+
+  /**
+   * <p>
+   *             Parameters that specify the various attributes of a sessions. You can include attributes for the session or prompt or, if you configured an
+   *             action group to return control, results from invocation of the action group. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-session-state.html">Control session context</a>.
+   *         </p>
+   *          <note>
+   *             <p>If you include <code>returnControlInvocationResults</code> in the <code>sessionState</code> field, the <code>inputText</code> field will be ignored.</p>
+   *          </note>
+   * @public
+   */
+  inlineSessionState?: InlineSessionState | undefined;
+
+  /**
+   * <p>
+   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-ids.html#model-ids-arns">model identifier (ID)</a> of the model to use for orchestration by the inline agent. For example, <code>meta.llama3-1-70b-instruct-v1:0</code>.
+   *         </p>
+   * @public
+   */
+  foundationModel: string | undefined;
+
+  /**
+   * <p>
+   *             The instructions that tell the inline agent what it should do and how it should interact with users.
+   *         </p>
+   * @public
+   */
+  instruction: string | undefined;
+
+  /**
+   * <p>
+   *             The number of seconds for which the inline agent should maintain session information. After this time expires, the subsequent <code>InvokeInlineAgent</code> request begins a new session.
+   *         </p>
+   *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and the data provided before the timeout is deleted.</p>
+   * @public
+   */
+  idleSessionTTLInSeconds?: number | undefined;
+
+  /**
+   * <p>
+   *             A list of action groups with each action group defining the action the inline agent needs to carry out.
+   *         </p>
+   * @public
+   */
+  actionGroups?: AgentActionGroup[] | undefined;
+
+  /**
+   * <p>
+   *           Contains information of the knowledge bases to associate with.
+   *         </p>
+   * @public
+   */
+  knowledgeBases?: KnowledgeBase[] | undefined;
+
+  /**
+   * <p>
+   *             The <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails.html">guardrails</a> to assign to the inline agent.
+   *         </p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfigurationWithArn | undefined;
+
+  /**
+   * <p>
+   *            Configurations for advanced prompts used to override the default prompts to enhance the accuracy of the inline agent.
+   *         </p>
+   * @public
+   */
+  promptOverrideConfiguration?: PromptOverrideConfiguration | undefined;
 }
 
 /**
@@ -5738,6 +6912,44 @@ export const ActionGroupInvocationInputFilterSensitiveLog = (obj: ActionGroupInv
 export const ActionGroupInvocationOutputFilterSensitiveLog = (obj: ActionGroupInvocationOutput): any => ({
   ...obj,
   ...(obj.text && { text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
+  if (obj.s3 !== undefined) return { s3: obj.s3 };
+  if (obj.payload !== undefined) return { payload: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const FunctionDefinitionFilterSensitiveLog = (obj: FunctionDefinition): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FunctionSchemaFilterSensitiveLog = (obj: FunctionSchema): any => {
+  if (obj.functions !== undefined)
+    return { functions: obj.functions.map((item) => FunctionDefinitionFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const AgentActionGroupFilterSensitiveLog = (obj: AgentActionGroup): any => ({
+  ...obj,
+  ...(obj.actionGroupName && { actionGroupName: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.actionGroupExecutor && { actionGroupExecutor: obj.actionGroupExecutor }),
+  ...(obj.apiSchema && { apiSchema: APISchemaFilterSensitiveLog(obj.apiSchema) }),
+  ...(obj.functionSchema && { functionSchema: FunctionSchemaFilterSensitiveLog(obj.functionSchema) }),
 });
 
 /**
@@ -6370,6 +7582,101 @@ export const InvokeAgentResponseFilterSensitiveLog = (obj: InvokeAgentResponse):
 /**
  * @internal
  */
+export const InlineSessionStateFilterSensitiveLog = (obj: InlineSessionState): any => ({
+  ...obj,
+  ...(obj.returnControlInvocationResults && {
+    returnControlInvocationResults: obj.returnControlInvocationResults.map((item) =>
+      InvocationResultMemberFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.files && { files: obj.files.map((item) => InputFileFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PromptConfigurationFilterSensitiveLog = (obj: PromptConfiguration): any => ({
+  ...obj,
+  ...(obj.basePromptTemplate && { basePromptTemplate: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PromptOverrideConfigurationFilterSensitiveLog = (obj: PromptOverrideConfiguration): any => ({
+  ...obj,
+  ...(obj.promptConfigurations && {
+    promptConfigurations: obj.promptConfigurations.map((item) => PromptConfigurationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InlineAgentPayloadPartFilterSensitiveLog = (obj: InlineAgentPayloadPart): any => ({
+  ...obj,
+  ...(obj.bytes && { bytes: SENSITIVE_STRING }),
+  ...(obj.attribution && { attribution: AttributionFilterSensitiveLog(obj.attribution) }),
+});
+
+/**
+ * @internal
+ */
+export const InlineAgentFilePartFilterSensitiveLog = (obj: InlineAgentFilePart): any => ({
+  ...obj,
+  ...(obj.files && { files: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InlineAgentReturnControlPayloadFilterSensitiveLog = (obj: InlineAgentReturnControlPayload): any => ({
+  ...obj,
+  ...(obj.invocationInputs && {
+    invocationInputs: obj.invocationInputs.map((item) => InvocationInputMemberFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InlineAgentTracePartFilterSensitiveLog = (obj: InlineAgentTracePart): any => ({
+  ...obj,
+  ...(obj.trace && { trace: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InlineAgentResponseStreamFilterSensitiveLog = (obj: InlineAgentResponseStream): any => {
+  if (obj.chunk !== undefined) return { chunk: SENSITIVE_STRING };
+  if (obj.trace !== undefined) return { trace: SENSITIVE_STRING };
+  if (obj.returnControl !== undefined) return { returnControl: SENSITIVE_STRING };
+  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
+  if (obj.validationException !== undefined) return { validationException: obj.validationException };
+  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
+  if (obj.serviceQuotaExceededException !== undefined)
+    return { serviceQuotaExceededException: obj.serviceQuotaExceededException };
+  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
+  if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
+  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
+  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.files !== undefined) return { files: InlineAgentFilePartFilterSensitiveLog(obj.files) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const InvokeInlineAgentResponseFilterSensitiveLog = (obj: InvokeInlineAgentResponse): any => ({
+  ...obj,
+  ...(obj.completion && { completion: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
 export const TextPromptFilterSensitiveLog = (obj: TextPrompt): any => ({
   ...obj,
 });
@@ -6593,6 +7900,17 @@ export const KnowledgeBaseRetrievalConfigurationFilterSensitiveLog = (
 /**
  * @internal
  */
+export const KnowledgeBaseFilterSensitiveLog = (obj: KnowledgeBase): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.retrievalConfiguration && {
+    retrievalConfiguration: KnowledgeBaseRetrievalConfigurationFilterSensitiveLog(obj.retrievalConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const KnowledgeBaseConfigurationFilterSensitiveLog = (obj: KnowledgeBaseConfiguration): any => ({
   ...obj,
   ...(obj.retrievalConfiguration && {
@@ -6644,6 +7962,21 @@ export const RetrieveAndGenerateConfigurationFilterSensitiveLog = (obj: Retrieve
       obj.externalSourcesConfiguration
     ),
   }),
+});
+
+/**
+ * @internal
+ */
+export const InvokeInlineAgentRequestFilterSensitiveLog = (obj: InvokeInlineAgentRequest): any => ({
+  ...obj,
+  ...(obj.inputText && { inputText: SENSITIVE_STRING }),
+  ...(obj.inlineSessionState && { inlineSessionState: InlineSessionStateFilterSensitiveLog(obj.inlineSessionState) }),
+  ...(obj.instruction && { instruction: SENSITIVE_STRING }),
+  ...(obj.actionGroups && { actionGroups: obj.actionGroups.map((item) => AgentActionGroupFilterSensitiveLog(item)) }),
+  ...(obj.knowledgeBases && {
+    knowledgeBases: obj.knowledgeBases.map((item) => KnowledgeBaseFilterSensitiveLog(item)),
+  }),
+  ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
 });
 
 /**
