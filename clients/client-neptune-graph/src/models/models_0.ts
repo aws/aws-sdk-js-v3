@@ -2281,6 +2281,123 @@ export interface TagResourceOutput {}
 /**
  * @public
  */
+export interface CancelExportTaskInput {
+  /**
+   * <p>The unique identifier of the export task.</p>
+   * @public
+   */
+  taskIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportFormat = {
+  CSV: "CSV",
+  PARQUET: "PARQUET",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportFormat = (typeof ExportFormat)[keyof typeof ExportFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParquetType = {
+  COLUMNAR: "COLUMNAR",
+} as const;
+
+/**
+ * @public
+ */
+export type ParquetType = (typeof ParquetType)[keyof typeof ParquetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportTaskStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  DELETED: "DELETED",
+  EXPORTING: "EXPORTING",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportTaskStatus = (typeof ExportTaskStatus)[keyof typeof ExportTaskStatus];
+
+/**
+ * @public
+ */
+export interface CancelExportTaskOutput {
+  /**
+   * <p>The source graph identifier of the cancelled export task.</p>
+   * @public
+   */
+  graphId: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that will allow the exporting of data to the destination.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the export task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The current status of the export task. The status is <code>CANCELLING</code> when the
+   *       export task is cancelled.</p>
+   * @public
+   */
+  status: ExportTaskStatus | undefined;
+
+  /**
+   * <p>The format of the cancelled export task.</p>
+   * @public
+   */
+  format: ExportFormat | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the cancelled export task where data will be exported to.</p>
+   * @public
+   */
+  destination: string | undefined;
+
+  /**
+   * <p>The KMS key identifier of the cancelled export task.</p>
+   * @public
+   */
+  kmsKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The parquet type of the cancelled export task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
+   * <p>The reason that the export task has this status value.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CancelImportTaskInput {
   /**
    * <p>The unique identifier of the import task.</p>
@@ -2297,6 +2414,7 @@ export const Format = {
   CSV: "CSV",
   NTRIPLES: "NTRIPLES",
   OPEN_CYPHER: "OPEN_CYPHER",
+  PARQUET: "PARQUET",
 } as const;
 
 /**
@@ -2312,6 +2430,7 @@ export const ImportTaskStatus = {
   ANALYZING_DATA: "ANALYZING_DATA",
   CANCELLED: "CANCELLED",
   CANCELLING: "CANCELLING",
+  DELETED: "DELETED",
   EXPORTING: "EXPORTING",
   FAILED: "FAILED",
   IMPORTING: "IMPORTING",
@@ -2357,6 +2476,12 @@ export interface CancelImportTaskOutput {
    * @public
    */
   format?: Format | undefined;
+
+  /**
+   * <p>The parquet type of the cancelled import task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
 
   /**
    * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
@@ -2567,6 +2692,12 @@ export interface CreateGraphUsingImportTaskInput {
   format?: Format | undefined;
 
   /**
+   * <p>The parquet type of the import task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
    * <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported,
    *       meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is <code>ntriples</code>.
    *       For more information, see <a href="https://docs.aws.amazon.com/neptune-analytics/latest/userguide/using-rdf-data.html#rdf-handling">Handling RDF values</a>.</p>
@@ -2615,6 +2746,12 @@ export interface CreateGraphUsingImportTaskOutput {
   format?: Format | undefined;
 
   /**
+   * <p>The parquet type of the import task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
    * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
    * @public
    */
@@ -2634,6 +2771,204 @@ export interface CreateGraphUsingImportTaskOutput {
    * @public
    */
   importOptions?: ImportOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportTaskInput {
+  /**
+   * <p>The unique identifier of the export task.</p>
+   * @public
+   */
+  taskIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MultiValueHandlingType = {
+  PICK_FIRST: "PICK_FIRST",
+  TO_LIST: "TO_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiValueHandlingType = (typeof MultiValueHandlingType)[keyof typeof MultiValueHandlingType];
+
+/**
+ * <p>A structure representing a property's attributes. It is a map object of outputType, sourcePropertyName
+ *        and multiValueHandling.</p>
+ * @public
+ */
+export interface ExportFilterPropertyAttributes {
+  /**
+   * <p>Specifies the data type to use for the property in the exported data (e.g. "String", "Int", "Float").
+   *        If a type is not provided, the export process will determine the type. If a given property is present as multiple
+   *        types (e.g. one vertex has "height" stored as a double, and another edge has it stored as a string), the type
+   *        will be of Any type, otherwise, it will be the type of the property as present in vertices.</p>
+   * @public
+   */
+  outputType?: string | undefined;
+
+  /**
+   * <p>The name of the property as it exists in the original graph data. If not provided, it is assumed that the key
+   *        matches the desired sourcePropertyName.</p>
+   * @public
+   */
+  sourcePropertyName?: string | undefined;
+
+  /**
+   * <p>Specifies how to handle properties that have multiple values. Can be either <code>TO_LIST</code> to export all
+   *       values as a list, or <code>PICK_FIRST</code> to export the first value encountered. If not specified, the default
+   *       value is <code>PICK_FIRST</code>.</p>
+   * @public
+   */
+  multiValueHandling?: MultiValueHandlingType | undefined;
+}
+
+/**
+ * <p>Specifies whihc properties of that label should be included in the export.</p>
+ * @public
+ */
+export interface ExportFilterElement {
+  /**
+   * <p>Each property is defined by a key-value pair, where the key is the desired output property name (e.g. "name"),
+   *       and the value is an object.</p>
+   * @public
+   */
+  properties?: Record<string, ExportFilterPropertyAttributes> | undefined;
+}
+
+/**
+ * <p>This is the top-level field for specifying vertex or edge filters. If the ExportFilter is not provided,
+ *       then all properties for all labels will be exported. If the ExportFilter is provided but is an empty object,
+ *       then no data will be exported.</p>
+ * @public
+ */
+export interface ExportFilter {
+  /**
+   * <p>Used to specify filters on a per-label basis for vertices. This allows you to control which vertex labels
+   *       and properties are included in the export.</p>
+   * @public
+   */
+  vertexFilter?: Record<string, ExportFilterElement> | undefined;
+
+  /**
+   * <p>Used to specify filters on a per-label basis for edges. This allows you to control which edge labels
+   *       and properties are included in the export.</p>
+   * @public
+   */
+  edgeFilter?: Record<string, ExportFilterElement> | undefined;
+}
+
+/**
+ * <p>Contains details about the specified export task.</p>
+ * @public
+ */
+export interface ExportTaskDetails {
+  /**
+   * <p>The start time of the export task.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The time elapsed, in seconds, since the start time of the export task.</p>
+   * @public
+   */
+  timeElapsedSeconds: number | undefined;
+
+  /**
+   * <p>The number of progress percentage of the export task.</p>
+   * @public
+   */
+  progressPercentage: number | undefined;
+
+  /**
+   * <p>The number of exported vertices.</p>
+   * @public
+   */
+  numVerticesWritten?: number | undefined;
+
+  /**
+   * <p>The number of exported edges.</p>
+   * @public
+   */
+  numEdgesWritten?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExportTaskOutput {
+  /**
+   * <p>The source graph identifier of the export task.</p>
+   * @public
+   */
+  graphId: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that will allow data to be exported to the destination.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the export task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The current status of the export task.</p>
+   * @public
+   */
+  status: ExportTaskStatus | undefined;
+
+  /**
+   * <p>The format of the export task.</p>
+   * @public
+   */
+  format: ExportFormat | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the export task where data will be exported.</p>
+   * @public
+   */
+  destination: string | undefined;
+
+  /**
+   * <p>The KMS key identifier of the export task.</p>
+   * @public
+   */
+  kmsKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The parquet type of the export task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
+   * <p>The reason that the export task has this status value.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The details of the export task.</p>
+   * @public
+   */
+  exportTaskDetails?: ExportTaskDetails | undefined;
+
+  /**
+   * <p>The export filter of the export task.</p>
+   * @public
+   */
+  exportFilter?: ExportFilter | undefined;
 }
 
 /**
@@ -2734,6 +3069,12 @@ export interface GetImportTaskOutput {
   format?: Format | undefined;
 
   /**
+   * <p>The parquet type of the import task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
    * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
    * @public
    */
@@ -2818,7 +3159,7 @@ export interface GetImportTaskOutput {
   importTaskDetails?: ImportTaskDetails | undefined;
 
   /**
-   * <p>The number of the current attempt to execute the import task.</p>
+   * <p>The number of the current attempts to execute the import task.</p>
    * @public
    */
   attemptNumber?: number | undefined;
@@ -2828,6 +3169,100 @@ export interface GetImportTaskOutput {
    * @public
    */
   statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExportTasksInput {
+  /**
+   * <p>Pagination token used to paginate input.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of export tasks to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides details about an export task.</p>
+ * @public
+ */
+export interface ExportTaskSummary {
+  /**
+   * <p>The source graph identifier of the export task.</p>
+   * @public
+   */
+  graphId: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that will allow the data to be exported to the destination.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the export task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The current status of the export task.</p>
+   * @public
+   */
+  status: ExportTaskStatus | undefined;
+
+  /**
+   * <p>The format of the export task.</p>
+   * @public
+   */
+  format: ExportFormat | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the export task where data will be exported to.</p>
+   * @public
+   */
+  destination: string | undefined;
+
+  /**
+   * <p>The KMS key identifier of the export task.</p>
+   * @public
+   */
+  kmsKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The parquet type of the export task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
+   * <p>The reason that the export task has this status value.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExportTasksOutput {
+  /**
+   * <p>The requested list of export tasks.</p>
+   * @public
+   */
+  tasks: ExportTaskSummary[] | undefined;
+
+  /**
+   * <p>Pagination token used to paginate output.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2889,6 +3324,12 @@ export interface ImportTaskSummary {
   format?: Format | undefined;
 
   /**
+   * <p>The parquet type of the import task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
    * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>
    * @public
    */
@@ -2924,6 +3365,124 @@ export interface ListImportTasksOutput {
 /**
  * @public
  */
+export interface StartExportTaskInput {
+  /**
+   * <p>The source graph identifier of the export task.</p>
+   * @public
+   */
+  graphIdentifier: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that will allow data to be exported to the destination.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The format of the export task.</p>
+   * @public
+   */
+  format: ExportFormat | undefined;
+
+  /**
+   * <p>The Amazon S3 URI where data will be exported to.</p>
+   * @public
+   */
+  destination: string | undefined;
+
+  /**
+   * <p>The KMS key identifier of the export task.</p>
+   * @public
+   */
+  kmsKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The parquet type of the export task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
+   * <p>The export filter of the export task.</p>
+   * @public
+   */
+  exportFilter?: ExportFilter | undefined;
+
+  /**
+   * <p>Tags to be applied to the export task.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartExportTaskOutput {
+  /**
+   * <p>The source graph identifier of the export task.</p>
+   * @public
+   */
+  graphId: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that will allow data to be exported to the destination.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the export task.</p>
+   * @public
+   */
+  taskId: string | undefined;
+
+  /**
+   * <p>The current status of the export task.</p>
+   * @public
+   */
+  status: ExportTaskStatus | undefined;
+
+  /**
+   * <p>The format of the export task.</p>
+   * @public
+   */
+  format: ExportFormat | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the export task where data will be exported to.</p>
+   * @public
+   */
+  destination: string | undefined;
+
+  /**
+   * <p>The KMS key identifier of the export task.</p>
+   * @public
+   */
+  kmsKeyIdentifier: string | undefined;
+
+  /**
+   * <p>The parquet type of the export task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
+
+  /**
+   * <p>The reason that the export task has this status value.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The export filter of the export task.</p>
+   * @public
+   */
+  exportFilter?: ExportFilter | undefined;
+}
+
+/**
+ * @public
+ */
 export interface StartImportTaskInput {
   /**
    * <p>Options for how to perform an import.</p>
@@ -2951,6 +3510,12 @@ export interface StartImportTaskInput {
    * @public
    */
   format?: Format | undefined;
+
+  /**
+   * <p>The parquet type of the import task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
 
   /**
    * <p>The method to handle blank nodes in the dataset. Currently, only <code>convertToIri</code> is supported,
@@ -3002,6 +3567,12 @@ export interface StartImportTaskOutput {
    * @public
    */
   format?: Format | undefined;
+
+  /**
+   * <p>The parquet type of the import task.</p>
+   * @public
+   */
+  parquetType?: ParquetType | undefined;
 
   /**
    * <p>The ARN of the IAM role that will allow access to the data that is to be imported.</p>

@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListImportTasksInput, ListImportTasksOutput } from "../models/models_0";
+import { ListExportTasksInput, ListExportTasksOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_ListImportTasksCommand, se_ListImportTasksCommand } from "../protocols/Aws_restJson1";
+import { de_ListExportTasksCommand, se_ListExportTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,40 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListImportTasksCommand}.
+ * The input for {@link ListExportTasksCommand}.
  */
-export interface ListImportTasksCommandInput extends ListImportTasksInput {}
+export interface ListExportTasksCommandInput extends ListExportTasksInput {}
 /**
  * @public
  *
- * The output of {@link ListImportTasksCommand}.
+ * The output of {@link ListExportTasksCommand}.
  */
-export interface ListImportTasksCommandOutput extends ListImportTasksOutput, __MetadataBearer {}
+export interface ListExportTasksCommandOutput extends ListExportTasksOutput, __MetadataBearer {}
 
 /**
- * <p>Lists import tasks.</p>
+ * <p>Retrieves a list of export tasks.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneGraphClient, ListImportTasksCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
- * // const { NeptuneGraphClient, ListImportTasksCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * import { NeptuneGraphClient, ListExportTasksCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
+ * // const { NeptuneGraphClient, ListExportTasksCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
  * const client = new NeptuneGraphClient(config);
- * const input = { // ListImportTasksInput
+ * const input = { // ListExportTasksInput
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
- * const command = new ListImportTasksCommand(input);
+ * const command = new ListExportTasksCommand(input);
  * const response = await client.send(command);
- * // { // ListImportTasksOutput
- * //   tasks: [ // ImportTaskSummaryList // required
- * //     { // ImportTaskSummary
- * //       graphId: "STRING_VALUE",
- * //       taskId: "STRING_VALUE", // required
- * //       source: "STRING_VALUE", // required
- * //       format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
- * //       parquetType: "COLUMNAR",
+ * // { // ListExportTasksOutput
+ * //   tasks: [ // ExportTaskSummaryList // required
+ * //     { // ExportTaskSummary
+ * //       graphId: "STRING_VALUE", // required
  * //       roleArn: "STRING_VALUE", // required
- * //       status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
+ * //       taskId: "STRING_VALUE", // required
+ * //       status: "INITIALIZING" || "EXPORTING" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
+ * //       format: "PARQUET" || "CSV", // required
+ * //       destination: "STRING_VALUE", // required
+ * //       kmsKeyIdentifier: "STRING_VALUE", // required
+ * //       parquetType: "COLUMNAR",
+ * //       statusReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -58,10 +60,10 @@ export interface ListImportTasksCommandOutput extends ListImportTasksOutput, __M
  *
  * ```
  *
- * @param ListImportTasksCommandInput - {@link ListImportTasksCommandInput}
- * @returns {@link ListImportTasksCommandOutput}
- * @see {@link ListImportTasksCommandInput} for command's `input` shape.
- * @see {@link ListImportTasksCommandOutput} for command's `response` shape.
+ * @param ListExportTasksCommandInput - {@link ListExportTasksCommandInput}
+ * @returns {@link ListExportTasksCommandOutput}
+ * @see {@link ListExportTasksCommandInput} for command's `input` shape.
+ * @see {@link ListExportTasksCommandOutput} for command's `response` shape.
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -81,10 +83,10 @@ export interface ListImportTasksCommandOutput extends ListImportTasksOutput, __M
  *
  * @public
  */
-export class ListImportTasksCommand extends $Command
+export class ListExportTasksCommand extends $Command
   .classBuilder<
-    ListImportTasksCommandInput,
-    ListImportTasksCommandOutput,
+    ListExportTasksCommandInput,
+    ListExportTasksCommandOutput,
     NeptuneGraphClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -99,21 +101,21 @@ export class ListImportTasksCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonNeptuneGraph", "ListImportTasks", {})
-  .n("NeptuneGraphClient", "ListImportTasksCommand")
+  .s("AmazonNeptuneGraph", "ListExportTasks", {})
+  .n("NeptuneGraphClient", "ListExportTasksCommand")
   .f(void 0, void 0)
-  .ser(se_ListImportTasksCommand)
-  .de(de_ListImportTasksCommand)
+  .ser(se_ListExportTasksCommand)
+  .de(de_ListExportTasksCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListImportTasksInput;
-      output: ListImportTasksOutput;
+      input: ListExportTasksInput;
+      output: ListExportTasksOutput;
     };
     sdk: {
-      input: ListImportTasksCommandInput;
-      output: ListImportTasksCommandOutput;
+      input: ListExportTasksCommandInput;
+      output: ListExportTasksCommandOutput;
     };
   };
 }

@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CancelImportTaskInput, CancelImportTaskOutput } from "../models/models_0";
+import { CancelExportTaskInput, CancelExportTaskOutput } from "../models/models_0";
 import { NeptuneGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneGraphClient";
-import { de_CancelImportTaskCommand, se_CancelImportTaskCommand } from "../protocols/Aws_restJson1";
+import { de_CancelExportTaskCommand, se_CancelExportTaskCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,45 +17,47 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CancelImportTaskCommand}.
+ * The input for {@link CancelExportTaskCommand}.
  */
-export interface CancelImportTaskCommandInput extends CancelImportTaskInput {}
+export interface CancelExportTaskCommandInput extends CancelExportTaskInput {}
 /**
  * @public
  *
- * The output of {@link CancelImportTaskCommand}.
+ * The output of {@link CancelExportTaskCommand}.
  */
-export interface CancelImportTaskCommandOutput extends CancelImportTaskOutput, __MetadataBearer {}
+export interface CancelExportTaskCommandOutput extends CancelExportTaskOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified import task.</p>
+ * <p>Cancel the specified export task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NeptuneGraphClient, CancelImportTaskCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
- * // const { NeptuneGraphClient, CancelImportTaskCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
+ * import { NeptuneGraphClient, CancelExportTaskCommand } from "@aws-sdk/client-neptune-graph"; // ES Modules import
+ * // const { NeptuneGraphClient, CancelExportTaskCommand } = require("@aws-sdk/client-neptune-graph"); // CommonJS import
  * const client = new NeptuneGraphClient(config);
- * const input = { // CancelImportTaskInput
+ * const input = { // CancelExportTaskInput
  *   taskIdentifier: "STRING_VALUE", // required
  * };
- * const command = new CancelImportTaskCommand(input);
+ * const command = new CancelExportTaskCommand(input);
  * const response = await client.send(command);
- * // { // CancelImportTaskOutput
- * //   graphId: "STRING_VALUE",
- * //   taskId: "STRING_VALUE", // required
- * //   source: "STRING_VALUE", // required
- * //   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
- * //   parquetType: "COLUMNAR",
+ * // { // CancelExportTaskOutput
+ * //   graphId: "STRING_VALUE", // required
  * //   roleArn: "STRING_VALUE", // required
- * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
+ * //   taskId: "STRING_VALUE", // required
+ * //   status: "INITIALIZING" || "EXPORTING" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
+ * //   format: "PARQUET" || "CSV", // required
+ * //   destination: "STRING_VALUE", // required
+ * //   kmsKeyIdentifier: "STRING_VALUE", // required
+ * //   parquetType: "COLUMNAR",
+ * //   statusReason: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CancelImportTaskCommandInput - {@link CancelImportTaskCommandInput}
- * @returns {@link CancelImportTaskCommandOutput}
- * @see {@link CancelImportTaskCommandInput} for command's `input` shape.
- * @see {@link CancelImportTaskCommandOutput} for command's `response` shape.
+ * @param CancelExportTaskCommandInput - {@link CancelExportTaskCommandInput}
+ * @returns {@link CancelExportTaskCommandOutput}
+ * @see {@link CancelExportTaskCommandInput} for command's `input` shape.
+ * @see {@link CancelExportTaskCommandOutput} for command's `response` shape.
  * @see {@link NeptuneGraphClientResolvedConfig | config} for NeptuneGraphClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
@@ -78,10 +80,10 @@ export interface CancelImportTaskCommandOutput extends CancelImportTaskOutput, _
  *
  * @public
  */
-export class CancelImportTaskCommand extends $Command
+export class CancelExportTaskCommand extends $Command
   .classBuilder<
-    CancelImportTaskCommandInput,
-    CancelImportTaskCommandOutput,
+    CancelExportTaskCommandInput,
+    CancelExportTaskCommandOutput,
     NeptuneGraphClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -96,21 +98,21 @@ export class CancelImportTaskCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonNeptuneGraph", "CancelImportTask", {})
-  .n("NeptuneGraphClient", "CancelImportTaskCommand")
+  .s("AmazonNeptuneGraph", "CancelExportTask", {})
+  .n("NeptuneGraphClient", "CancelExportTaskCommand")
   .f(void 0, void 0)
-  .ser(se_CancelImportTaskCommand)
-  .de(de_CancelImportTaskCommand)
+  .ser(se_CancelExportTaskCommand)
+  .de(de_CancelExportTaskCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CancelImportTaskInput;
-      output: CancelImportTaskOutput;
+      input: CancelExportTaskInput;
+      output: CancelExportTaskOutput;
     };
     sdk: {
-      input: CancelImportTaskCommandInput;
-      output: CancelImportTaskCommandOutput;
+      input: CancelExportTaskCommandInput;
+      output: CancelExportTaskCommandOutput;
     };
   };
 }

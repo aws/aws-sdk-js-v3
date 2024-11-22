@@ -54,6 +54,7 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
 import { CancelImportTaskCommandInput, CancelImportTaskCommandOutput } from "./commands/CancelImportTaskCommand";
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
 import { CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand";
@@ -79,6 +80,7 @@ import {
   DeletePrivateGraphEndpointCommandOutput,
 } from "./commands/DeletePrivateGraphEndpointCommand";
 import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
+import { GetExportTaskCommandInput, GetExportTaskCommandOutput } from "./commands/GetExportTaskCommand";
 import { GetGraphCommandInput, GetGraphCommandOutput } from "./commands/GetGraphCommand";
 import { GetGraphSnapshotCommandInput, GetGraphSnapshotCommandOutput } from "./commands/GetGraphSnapshotCommand";
 import { GetGraphSummaryCommandInput, GetGraphSummaryCommandOutput } from "./commands/GetGraphSummaryCommand";
@@ -88,6 +90,7 @@ import {
   GetPrivateGraphEndpointCommandOutput,
 } from "./commands/GetPrivateGraphEndpointCommand";
 import { GetQueryCommandInput, GetQueryCommandOutput } from "./commands/GetQueryCommand";
+import { ListExportTasksCommandInput, ListExportTasksCommandOutput } from "./commands/ListExportTasksCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
 import { ListGraphSnapshotsCommandInput, ListGraphSnapshotsCommandOutput } from "./commands/ListGraphSnapshotsCommand";
 import { ListImportTasksCommandInput, ListImportTasksCommandOutput } from "./commands/ListImportTasksCommand";
@@ -105,6 +108,7 @@ import {
   RestoreGraphFromSnapshotCommandInput,
   RestoreGraphFromSnapshotCommandOutput,
 } from "./commands/RestoreGraphFromSnapshotCommand";
+import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand";
 import { StartImportTaskCommandInput, StartImportTaskCommandOutput } from "./commands/StartImportTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -124,6 +128,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CancelExportTaskCommandInput
   | CancelImportTaskCommandInput
   | CancelQueryCommandInput
   | CreateGraphCommandInput
@@ -134,12 +139,14 @@ export type ServiceInputTypes =
   | DeleteGraphSnapshotCommandInput
   | DeletePrivateGraphEndpointCommandInput
   | ExecuteQueryCommandInput
+  | GetExportTaskCommandInput
   | GetGraphCommandInput
   | GetGraphSnapshotCommandInput
   | GetGraphSummaryCommandInput
   | GetImportTaskCommandInput
   | GetPrivateGraphEndpointCommandInput
   | GetQueryCommandInput
+  | ListExportTasksCommandInput
   | ListGraphSnapshotsCommandInput
   | ListGraphsCommandInput
   | ListImportTasksCommandInput
@@ -148,6 +155,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ResetGraphCommandInput
   | RestoreGraphFromSnapshotCommandInput
+  | StartExportTaskCommandInput
   | StartImportTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -157,6 +165,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CancelExportTaskCommandOutput
   | CancelImportTaskCommandOutput
   | CancelQueryCommandOutput
   | CreateGraphCommandOutput
@@ -167,12 +176,14 @@ export type ServiceOutputTypes =
   | DeleteGraphSnapshotCommandOutput
   | DeletePrivateGraphEndpointCommandOutput
   | ExecuteQueryCommandOutput
+  | GetExportTaskCommandOutput
   | GetGraphCommandOutput
   | GetGraphSnapshotCommandOutput
   | GetGraphSummaryCommandOutput
   | GetImportTaskCommandOutput
   | GetPrivateGraphEndpointCommandOutput
   | GetQueryCommandOutput
+  | ListExportTasksCommandOutput
   | ListGraphSnapshotsCommandOutput
   | ListGraphsCommandOutput
   | ListImportTasksCommandOutput
@@ -181,6 +192,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ResetGraphCommandOutput
   | RestoreGraphFromSnapshotCommandOutput
+  | StartExportTaskCommandOutput
   | StartImportTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

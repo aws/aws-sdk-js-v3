@@ -46,7 +46,8 @@ export interface StartImportTaskCommandOutput extends StartImportTaskOutput, __M
  *   },
  *   failOnError: true || false,
  *   source: "STRING_VALUE", // required
- *   format: "CSV" || "OPEN_CYPHER" || "NTRIPLES",
+ *   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
+ *   parquetType: "COLUMNAR",
  *   blankNodeHandling: "convertToIri",
  *   graphIdentifier: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
@@ -57,9 +58,10 @@ export interface StartImportTaskCommandOutput extends StartImportTaskOutput, __M
  * //   graphId: "STRING_VALUE",
  * //   taskId: "STRING_VALUE", // required
  * //   source: "STRING_VALUE", // required
- * //   format: "CSV" || "OPEN_CYPHER" || "NTRIPLES",
+ * //   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
+ * //   parquetType: "COLUMNAR",
  * //   roleArn: "STRING_VALUE", // required
- * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
+ * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
  * //   importOptions: { // ImportOptions Union: only one key present
  * //     neptune: { // NeptuneImportOptions
  * //       s3ExportPath: "STRING_VALUE", // required
