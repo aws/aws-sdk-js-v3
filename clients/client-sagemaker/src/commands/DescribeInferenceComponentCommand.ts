@@ -70,6 +70,7 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //       MinMemoryRequiredInMb: Number("int"), // required
  * //       MaxMemoryRequiredInMb: Number("int"),
  * //     },
+ * //     BaseInferenceComponentName: "STRING_VALUE",
  * //   },
  * //   RuntimeConfig: { // InferenceComponentRuntimeConfigSummary
  * //     DesiredCopyCount: Number("int"),

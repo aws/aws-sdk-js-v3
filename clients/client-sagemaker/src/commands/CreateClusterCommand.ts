@@ -61,13 +61,21 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *       OnStartDeepHealthChecks: [ // OnStartDeepHealthChecks
  *         "InstanceStress" || "InstanceConnectivity",
  *       ],
+ *       OverrideVpcConfig: { // VpcConfig
+ *         SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // Subnets // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   ],
- *   VpcConfig: { // VpcConfig
- *     SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *   VpcConfig: {
+ *     SecurityGroupIds: [ // required
  *       "STRING_VALUE",
  *     ],
- *     Subnets: [ // Subnets // required
+ *     Subnets: [ // required
  *       "STRING_VALUE",
  *     ],
  *   },

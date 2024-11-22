@@ -56,6 +56,14 @@ export interface DescribeClusterNodeCommandOutput extends DescribeClusterNodeRes
  * //       SourceS3Uri: "STRING_VALUE", // required
  * //       OnCreate: "STRING_VALUE", // required
  * //     },
+ * //     OverrideVpcConfig: { // VpcConfig
+ * //       SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       Subnets: [ // Subnets // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //     ThreadsPerCore: Number("int"),
  * //     InstanceStorageConfigs: [ // ClusterInstanceStorageConfigs
  * //       { // ClusterInstanceStorageConfig Union: only one key present

@@ -5,7 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTrialComponentRequest, UpdateTrialComponentResponse } from "../models/models_4";
+import { UpdateTrialComponentRequest } from "../models/models_4";
+import { UpdateTrialComponentResponse } from "../models/models_5";
 import { de_UpdateTrialComponentCommand, se_UpdateTrialComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

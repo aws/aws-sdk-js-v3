@@ -141,6 +141,7 @@ import {
   InferenceExperimentStopDesiredState,
   IsTrackingServerActive,
   LambdaStepMetadata,
+  LineageGroupSummary,
   LineageType,
   MetricData,
   ModelCardExportJobStatus,
@@ -177,6 +178,24 @@ import {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListLineageGroupsResponse {
+  /**
+   * <p>A list of lineage groups and their properties.</p>
+   * @public
+   */
+  LineageGroupSummaries?: LineageGroupSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
+   *          algorithms, use it in the subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -10411,17 +10430,6 @@ export interface UpdateTrialComponentRequest {
    * @public
    */
   OutputArtifactsToRemove?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateTrialComponentResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
-   * @public
-   */
-  TrialComponentArn?: string | undefined;
 }
 
 /**

@@ -45,7 +45,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  * const input = { // CreateInferenceComponentInput
  *   InferenceComponentName: "STRING_VALUE", // required
  *   EndpointName: "STRING_VALUE", // required
- *   VariantName: "STRING_VALUE", // required
+ *   VariantName: "STRING_VALUE",
  *   Specification: { // InferenceComponentSpecification
  *     ModelName: "STRING_VALUE",
  *     Container: { // InferenceComponentContainerSpecification
@@ -65,6 +65,7 @@ export interface CreateInferenceComponentCommandOutput extends CreateInferenceCo
  *       MinMemoryRequiredInMb: Number("int"), // required
  *       MaxMemoryRequiredInMb: Number("int"),
  *     },
+ *     BaseInferenceComponentName: "STRING_VALUE",
  *   },
  *   RuntimeConfig: { // InferenceComponentRuntimeConfig
  *     CopyCount: Number("int"), // required

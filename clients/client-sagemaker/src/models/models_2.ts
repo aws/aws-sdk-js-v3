@@ -120,6 +120,11 @@ import {
   NetworkConfig,
   OfflineStoreConfig,
   OnlineStoreConfig,
+  OptimizationConfig,
+  OptimizationJobDeploymentInstanceType,
+  OptimizationJobModelSource,
+  OptimizationJobOutputConfig,
+  OptimizationVpcConfig,
   OutputConfig,
   ProcessingInstanceType,
   ProcessingS3UploadMode,
@@ -136,6 +141,107 @@ import {
   UserSettings,
   VendorGuidance,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateOptimizationJobRequest {
+  /**
+   * <p>A custom name for the new optimization job.</p>
+   * @public
+   */
+  OptimizationJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf. </p>
+   *          <p>During model optimization, Amazon SageMaker needs your permission to:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Read input data from an S3 bucket</p>
+   *             </li>
+   *             <li>
+   *                <p>Write model artifacts to an S3 bucket</p>
+   *             </li>
+   *             <li>
+   *                <p>Write logs to Amazon CloudWatch Logs</p>
+   *             </li>
+   *             <li>
+   *                <p>Publish metrics to Amazon CloudWatch</p>
+   *             </li>
+   *          </ul>
+   *          <p>You grant permissions for all of these tasks to an IAM role. To pass this
+   *          role to Amazon SageMaker, the caller of this API must have the
+   *             <code>iam:PassRole</code> permission. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles.</a>
+   *          </p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The location of the source model to optimize with an optimization job.</p>
+   * @public
+   */
+  ModelSource: OptimizationJobModelSource | undefined;
+
+  /**
+   * <p>The type of instance that hosts the optimized model that you create with the optimization job.</p>
+   * @public
+   */
+  DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
+
+  /**
+   * <p>The environment variables to set in the model container.</p>
+   * @public
+   */
+  OptimizationEnvironment?: Record<string, string> | undefined;
+
+  /**
+   * <p>Settings for each of the optimization techniques that the job applies.</p>
+   * @public
+   */
+  OptimizationConfigs: OptimizationConfig[] | undefined;
+
+  /**
+   * <p>Details for where to store the optimized model that you create with the optimization job.</p>
+   * @public
+   */
+  OutputConfig: OptimizationJobOutputConfig | undefined;
+
+  /**
+   * <p>Specifies a limit to how long a job can run. When the job reaches the time limit, SageMaker
+   *             ends the job. Use this API to cap costs.</p>
+   *          <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
+   *             which delays job termination for 120 seconds. Algorithms can use this 120-second window
+   *             to save the model artifacts, so the results of training are not lost. </p>
+   *          <p>The training algorithms provided by SageMaker automatically save the intermediate results
+   *             of a model training job when possible. This attempt to save artifacts is only a best
+   *             effort case as model might not be in a state from which it can be saved. For example, if
+   *             training has just started, the model might not be ready to save. When saved, this
+   *             intermediate data is a valid model artifact. You can use it to create a model with
+   *                 <code>CreateModel</code>.</p>
+   *          <note>
+   *             <p>The Neural Topic Model (NTM) currently does not support saving intermediate model
+   *                 artifacts. When training NTMs, make sure that the maximum runtime is sufficient for
+   *                 the training job to complete.</p>
+   *          </note>
+   * @public
+   */
+  StoppingCondition: StoppingCondition | undefined;
+
+  /**
+   * <p>A list of key-value pairs associated with the optimization job. For more information,
+   *          see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference
+   *             Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>A VPC in Amazon VPC that your optimized model has access to.</p>
+   * @public
+   */
+  VpcConfig?: OptimizationVpcConfig | undefined;
+}
 
 /**
  * @public
@@ -8481,11 +8587,17 @@ export interface InferenceComponentSpecificationSummary {
   StartupParameters?: InferenceComponentStartupParameters | undefined;
 
   /**
-   * <p>The compute resources allocated to run the model assigned
-   *          to the inference component.</p>
+   * <p>The compute resources allocated to run the model, plus any
+   *          adapter models, that you assign to the inference component.</p>
    * @public
    */
   ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements | undefined;
+
+  /**
+   * <p>The name of the base inference component that contains this inference component.</p>
+   * @public
+   */
+  BaseInferenceComponentName?: string | undefined;
 }
 
 /**
@@ -9099,26 +9211,6 @@ export interface InferenceRecommendation {
    */
   InvocationStartTime?: Date | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const RecommendationJobStatus = {
-  COMPLETED: "COMPLETED",
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  IN_PROGRESS: "IN_PROGRESS",
-  PENDING: "PENDING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type RecommendationJobStatus = (typeof RecommendationJobStatus)[keyof typeof RecommendationJobStatus];
 
 /**
  * @internal

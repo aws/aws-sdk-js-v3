@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateOptimizationJobRequest } from "../models/models_1";
-import { CreateOptimizationJobResponse } from "../models/models_2";
+import { CreateOptimizationJobRequest, CreateOptimizationJobResponse } from "../models/models_2";
 import { de_CreateOptimizationJobCommand, se_CreateOptimizationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
@@ -65,6 +64,12 @@ export interface CreateOptimizationJobCommandOutput extends CreateOptimizationJo
  *         },
  *       },
  *       ModelCompilationConfig: { // ModelCompilationConfig
+ *         Image: "STRING_VALUE",
+ *         OverrideEnvironment: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
+ *       ModelShardingConfig: { // ModelShardingConfig
  *         Image: "STRING_VALUE",
  *         OverrideEnvironment: {
  *           "<keys>": "STRING_VALUE",

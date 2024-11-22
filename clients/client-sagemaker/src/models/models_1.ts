@@ -7069,8 +7069,9 @@ export interface InferenceComponentRuntimeConfig {
 }
 
 /**
- * <p>Defines the compute resources to allocate to run a model that you assign to an inference
- *          component. These resources include CPU cores, accelerators, and memory.</p>
+ * <p>Defines the compute resources to allocate to run a model, plus any adapter models, that
+ *          you assign to an inference component. These resources include CPU cores, accelerators, and
+ *          memory.</p>
  * @public
  */
 export interface InferenceComponentComputeResourceRequirements {
@@ -7180,11 +7181,32 @@ export interface InferenceComponentSpecification {
   StartupParameters?: InferenceComponentStartupParameters | undefined;
 
   /**
-   * <p>The compute resources allocated to run the model assigned
-   *          to the inference component.</p>
+   * <p>The compute resources allocated to run the model, plus any
+   *          adapter models, that you assign to the inference component.</p>
+   *          <p>Omit this parameter if your request is meant to create an adapter inference component.
+   *          An adapter inference component is loaded by a base inference component, and it uses the
+   *          compute resources of the base inference component.</p>
    * @public
    */
-  ComputeResourceRequirements: InferenceComponentComputeResourceRequirements | undefined;
+  ComputeResourceRequirements?: InferenceComponentComputeResourceRequirements | undefined;
+
+  /**
+   * <p>The name of an existing inference component that is to contain the inference component
+   *          that you're creating with your request.</p>
+   *          <p>Specify this parameter only if your request is meant to create an adapter inference
+   *          component. An adapter inference component contains the path to an adapter model. The
+   *          purpose of the adapter model is to tailor the inference output of a base foundation model,
+   *          which is hosted by the base inference component. The adapter inference component uses the
+   *          compute resources that you assigned to the base inference component.</p>
+   *          <p>When you create an adapter inference component, use the <code>Container</code> parameter
+   *          to specify the location of the adapter artifacts. In the parameter value, use the
+   *             <code>ArtifactUrl</code> parameter of the
+   *             <code>InferenceComponentContainerSpecification</code> data type.</p>
+   *          <p>Before you can create an adapter inference component, you must have an existing
+   *          inference component that contains the foundation model that you want to adapt.</p>
+   * @public
+   */
+  BaseInferenceComponentName?: string | undefined;
 }
 
 /**
@@ -7208,7 +7230,7 @@ export interface CreateInferenceComponentInput {
    *          component.</p>
    * @public
    */
-  VariantName: string | undefined;
+  VariantName?: string | undefined;
 
   /**
    * <p>Details about the resources to deploy with this inference component, including the
@@ -7221,7 +7243,7 @@ export interface CreateInferenceComponentInput {
    * <p>Runtime settings for a model that is deployed with an inference component.</p>
    * @public
    */
-  RuntimeConfig: InferenceComponentRuntimeConfig | undefined;
+  RuntimeConfig?: InferenceComponentRuntimeConfig | undefined;
 
   /**
    * <p>A list of key-value pairs associated with the model. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
@@ -12830,6 +12852,24 @@ export interface ModelQuantizationConfig {
 }
 
 /**
+ * <p>Settings for the model sharding technique that's applied by a model optimization job.</p>
+ * @public
+ */
+export interface ModelShardingConfig {
+  /**
+   * <p>The URI of an LMI DLC in Amazon ECR. SageMaker uses this image to run the optimization.</p>
+   * @public
+   */
+  Image?: string | undefined;
+
+  /**
+   * <p>Environment variables that override the default ones in the model container.</p>
+   * @public
+   */
+  OverrideEnvironment?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Settings for an optimization technique that you apply with a model optimization
  *          job.</p>
  * @public
@@ -12837,6 +12877,7 @@ export interface ModelQuantizationConfig {
 export type OptimizationConfig =
   | OptimizationConfig.ModelCompilationConfigMember
   | OptimizationConfig.ModelQuantizationConfigMember
+  | OptimizationConfig.ModelShardingConfigMember
   | OptimizationConfig.$UnknownMember;
 
 /**
@@ -12850,6 +12891,7 @@ export namespace OptimizationConfig {
   export interface ModelQuantizationConfigMember {
     ModelQuantizationConfig: ModelQuantizationConfig;
     ModelCompilationConfig?: never;
+    ModelShardingConfig?: never;
     $unknown?: never;
   }
 
@@ -12860,6 +12902,18 @@ export namespace OptimizationConfig {
   export interface ModelCompilationConfigMember {
     ModelQuantizationConfig?: never;
     ModelCompilationConfig: ModelCompilationConfig;
+    ModelShardingConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Settings for the model sharding technique that's applied by a model optimization job.</p>
+   * @public
+   */
+  export interface ModelShardingConfigMember {
+    ModelQuantizationConfig?: never;
+    ModelCompilationConfig?: never;
+    ModelShardingConfig: ModelShardingConfig;
     $unknown?: never;
   }
 
@@ -12869,12 +12923,14 @@ export namespace OptimizationConfig {
   export interface $UnknownMember {
     ModelQuantizationConfig?: never;
     ModelCompilationConfig?: never;
+    ModelShardingConfig?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     ModelQuantizationConfig: (value: ModelQuantizationConfig) => T;
     ModelCompilationConfig: (value: ModelCompilationConfig) => T;
+    ModelShardingConfig: (value: ModelShardingConfig) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -12882,6 +12938,7 @@ export namespace OptimizationConfig {
     if (value.ModelQuantizationConfig !== undefined)
       return visitor.ModelQuantizationConfig(value.ModelQuantizationConfig);
     if (value.ModelCompilationConfig !== undefined) return visitor.ModelCompilationConfig(value.ModelCompilationConfig);
+    if (value.ModelShardingConfig !== undefined) return visitor.ModelShardingConfig(value.ModelShardingConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -12926,107 +12983,6 @@ export interface OptimizationVpcConfig {
    * @public
    */
   Subnets: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateOptimizationJobRequest {
-  /**
-   * <p>A custom name for the new optimization job.</p>
-   * @public
-   */
-  OptimizationJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf. </p>
-   *          <p>During model optimization, Amazon SageMaker needs your permission to:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Read input data from an S3 bucket</p>
-   *             </li>
-   *             <li>
-   *                <p>Write model artifacts to an S3 bucket</p>
-   *             </li>
-   *             <li>
-   *                <p>Write logs to Amazon CloudWatch Logs</p>
-   *             </li>
-   *             <li>
-   *                <p>Publish metrics to Amazon CloudWatch</p>
-   *             </li>
-   *          </ul>
-   *          <p>You grant permissions for all of these tasks to an IAM role. To pass this
-   *          role to Amazon SageMaker, the caller of this API must have the
-   *             <code>iam:PassRole</code> permission. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker Roles.</a>
-   *          </p>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The location of the source model to optimize with an optimization job.</p>
-   * @public
-   */
-  ModelSource: OptimizationJobModelSource | undefined;
-
-  /**
-   * <p>The type of instance that hosts the optimized model that you create with the optimization job.</p>
-   * @public
-   */
-  DeploymentInstanceType: OptimizationJobDeploymentInstanceType | undefined;
-
-  /**
-   * <p>The environment variables to set in the model container.</p>
-   * @public
-   */
-  OptimizationEnvironment?: Record<string, string> | undefined;
-
-  /**
-   * <p>Settings for each of the optimization techniques that the job applies.</p>
-   * @public
-   */
-  OptimizationConfigs: OptimizationConfig[] | undefined;
-
-  /**
-   * <p>Details for where to store the optimized model that you create with the optimization job.</p>
-   * @public
-   */
-  OutputConfig: OptimizationJobOutputConfig | undefined;
-
-  /**
-   * <p>Specifies a limit to how long a job can run. When the job reaches the time limit, SageMaker
-   *             ends the job. Use this API to cap costs.</p>
-   *          <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
-   *             which delays job termination for 120 seconds. Algorithms can use this 120-second window
-   *             to save the model artifacts, so the results of training are not lost. </p>
-   *          <p>The training algorithms provided by SageMaker automatically save the intermediate results
-   *             of a model training job when possible. This attempt to save artifacts is only a best
-   *             effort case as model might not be in a state from which it can be saved. For example, if
-   *             training has just started, the model might not be ready to save. When saved, this
-   *             intermediate data is a valid model artifact. You can use it to create a model with
-   *                 <code>CreateModel</code>.</p>
-   *          <note>
-   *             <p>The Neural Topic Model (NTM) currently does not support saving intermediate model
-   *                 artifacts. When training NTMs, make sure that the maximum runtime is sufficient for
-   *                 the training job to complete.</p>
-   *          </note>
-   * @public
-   */
-  StoppingCondition: StoppingCondition | undefined;
-
-  /**
-   * <p>A list of key-value pairs associated with the optimization job. For more information,
-   *          see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in the <i>Amazon Web Services General Reference
-   *             Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>A VPC in Amazon VPC that your optimized model has access to.</p>
-   * @public
-   */
-  VpcConfig?: OptimizationVpcConfig | undefined;
 }
 
 /**

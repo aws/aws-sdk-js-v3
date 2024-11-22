@@ -75,6 +75,12 @@ export interface DescribeOptimizationJobCommandOutput extends DescribeOptimizati
  * //           "<keys>": "STRING_VALUE",
  * //         },
  * //       },
+ * //       ModelShardingConfig: { // ModelShardingConfig
+ * //         Image: "STRING_VALUE",
+ * //         OverrideEnvironment: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   OutputConfig: { // OptimizationJobOutputConfig

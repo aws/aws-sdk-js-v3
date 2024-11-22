@@ -175,7 +175,6 @@ import {
   ProductionVariantSummary,
   ProfilerConfig,
   ProfilerRuleConfiguration,
-  RecommendationJobStatus,
   RecommendationMetrics,
   RemoteDebugConfig,
   RuleEvaluationStatus,
@@ -192,6 +191,26 @@ import {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationJobStatus = {
+  COMPLETED: "COMPLETED",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendationJobStatus = (typeof RecommendationJobStatus)[keyof typeof RecommendationJobStatus];
 
 /**
  * @public
@@ -11757,24 +11776,6 @@ export interface ListLineageGroupsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListLineageGroupsResponse {
-  /**
-   * <p>A list of lineage groups and their properties.</p>
-   * @public
-   */
-  LineageGroupSummaries?: LineageGroupSummary[] | undefined;
-
-  /**
-   * <p>If the response is truncated, SageMaker returns this token. To retrieve the next set of
-   *          algorithms, use it in the subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }
 
 /**

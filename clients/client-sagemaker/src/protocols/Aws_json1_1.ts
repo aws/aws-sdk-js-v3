@@ -1211,7 +1211,6 @@ import {
   CreateNotebookInstanceLifecycleConfigInput,
   CreateNotebookInstanceLifecycleConfigOutput,
   CreateNotebookInstanceOutput,
-  CreateOptimizationJobRequest,
   CustomFileSystemConfig,
   CustomPosixUserConfig,
   DataCaptureConfig,
@@ -1309,6 +1308,7 @@ import {
   ModelQualityBaselineConfig,
   ModelQualityJobInput,
   ModelQuantizationConfig,
+  ModelShardingConfig,
   ModelVariantConfig,
   MonitoringAppSpecification,
   MonitoringBaselineConfig,
@@ -1385,6 +1385,7 @@ import {
   UserSettings,
 } from "../models/models_1";
 import {
+  CreateOptimizationJobRequest,
   CreateOptimizationJobResponse,
   CreatePipelineRequest,
   CreatePipelineResponse,
@@ -1854,7 +1855,6 @@ import {
   ListLabelingJobsRequest,
   ListLabelingJobsResponse,
   ListLineageGroupsRequest,
-  ListLineageGroupsResponse,
   MetricData,
   MetricSpecification,
   ModelCardExportArtifacts,
@@ -1892,6 +1892,7 @@ import {
   Workteam,
 } from "../models/models_3";
 import {
+  ListLineageGroupsResponse,
   ListMlflowTrackingServersRequest,
   ListMlflowTrackingServersResponse,
   ListModelBiasJobDefinitionsRequest,
@@ -2148,7 +2149,6 @@ import {
   UpdateTrainingJobRequest,
   UpdateTrainingJobResponse,
   UpdateTrialComponentRequest,
-  UpdateTrialComponentResponse,
   UpdateTrialRequest,
   UpdateTrialResponse,
   UserProfileDetails,
@@ -2159,6 +2159,7 @@ import {
 import {
   SearchExpression,
   SearchRequest,
+  UpdateTrialComponentResponse,
   UpdateUserProfileRequest,
   UpdateUserProfileResponse,
   UpdateWorkforceRequest,
@@ -14445,6 +14446,7 @@ const se_InferenceComponentComputeResourceRequirements = (
  */
 const se_InferenceComponentSpecification = (input: InferenceComponentSpecification, context: __SerdeContext): any => {
   return take(input, {
+    BaseInferenceComponentName: [],
     ComputeResourceRequirements: (_) => se_InferenceComponentComputeResourceRequirements(_, context),
     Container: _json,
     ModelName: [],
@@ -15729,6 +15731,8 @@ const se_ModelQualityJobInput = (input: ModelQualityJobInput, context: __SerdeCo
 // se_ModelQuantizationConfig omitted.
 
 // se_ModelRegisterSettings omitted.
+
+// se_ModelShardingConfig omitted.
 
 // se_ModelVariantActionMap omitted.
 
@@ -18198,6 +18202,7 @@ const de_ClusterInstanceGroupDetails = (output: any, context: __SerdeContext): C
     InstanceType: __expectString,
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
     OnStartDeepHealthChecks: (_: any) => de_OnStartDeepHealthChecks(_, context),
+    OverrideVpcConfig: (_: any) => de_VpcConfig(_, context),
     TargetCount: __expectInt32,
     ThreadsPerCore: __expectInt32,
   }) as any;
@@ -18281,6 +18286,7 @@ const de_ClusterNodeDetails = (output: any, context: __SerdeContext): ClusterNod
     InstanceType: __expectString,
     LaunchTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LifeCycleConfig: (_: any) => de_ClusterLifeCycleConfig(_, context),
+    OverrideVpcConfig: (_: any) => de_VpcConfig(_, context),
     Placement: (_: any) => de_ClusterInstancePlacement(_, context),
     PrivateDnsHostname: __expectString,
     PrivatePrimaryIp: __expectString,
@@ -23418,6 +23424,7 @@ const de_InferenceComponentSpecificationSummary = (
   context: __SerdeContext
 ): InferenceComponentSpecificationSummary => {
   return take(output, {
+    BaseInferenceComponentName: __expectString,
     ComputeResourceRequirements: (_: any) => de_InferenceComponentComputeResourceRequirements(_, context),
     Container: (_: any) => de_InferenceComponentContainerSpecificationSummary(_, context),
     ModelName: __expectString,
@@ -25893,6 +25900,16 @@ const de_ModelRegisterSettings = (output: any, context: __SerdeContext): ModelRe
 };
 
 /**
+ * deserializeAws_json1_1ModelShardingConfig
+ */
+const de_ModelShardingConfig = (output: any, context: __SerdeContext): ModelShardingConfig => {
+  return take(output, {
+    Image: __expectString,
+    OverrideEnvironment: (_: any) => de_OptimizationJobEnvironmentVariables(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ModelStepMetadata
  */
 const de_ModelStepMetadata = (output: any, context: __SerdeContext): ModelStepMetadata => {
@@ -26636,6 +26653,11 @@ const de_OptimizationConfig = (output: any, context: __SerdeContext): Optimizati
   if (output.ModelQuantizationConfig != null) {
     return {
       ModelQuantizationConfig: de_ModelQuantizationConfig(output.ModelQuantizationConfig, context),
+    };
+  }
+  if (output.ModelShardingConfig != null) {
+    return {
+      ModelShardingConfig: de_ModelShardingConfig(output.ModelShardingConfig, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };

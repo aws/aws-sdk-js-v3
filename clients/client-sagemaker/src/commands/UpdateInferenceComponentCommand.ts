@@ -56,6 +56,7 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  *       MinMemoryRequiredInMb: Number("int"), // required
  *       MaxMemoryRequiredInMb: Number("int"),
  *     },
+ *     BaseInferenceComponentName: "STRING_VALUE",
  *   },
  *   RuntimeConfig: { // InferenceComponentRuntimeConfig
  *     CopyCount: Number("int"), // required

@@ -58,6 +58,14 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
  *       OnStartDeepHealthChecks: [ // OnStartDeepHealthChecks
  *         "InstanceStress" || "InstanceConnectivity",
  *       ],
+ *       OverrideVpcConfig: { // VpcConfig
+ *         SecurityGroupIds: [ // VpcSecurityGroupIds // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Subnets: [ // Subnets // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
  *     },
  *   ],
  *   NodeRecovery: "Automatic" || "None",

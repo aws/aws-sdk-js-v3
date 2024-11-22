@@ -664,6 +664,14 @@ export const ProductionVariantInstanceType = {
   ML_G5_4XLARGE: "ml.g5.4xlarge",
   ML_G5_8XLARGE: "ml.g5.8xlarge",
   ML_G5_XLARGE: "ml.g5.xlarge",
+  ML_G6E_12XLARGE: "ml.g6e.12xlarge",
+  ML_G6E_16XLARGE: "ml.g6e.16xlarge",
+  ML_G6E_24XLARGE: "ml.g6e.24xlarge",
+  ML_G6E_2XLARGE: "ml.g6e.2xlarge",
+  ML_G6E_48XLARGE: "ml.g6e.48xlarge",
+  ML_G6E_4XLARGE: "ml.g6e.4xlarge",
+  ML_G6E_8XLARGE: "ml.g6e.8xlarge",
+  ML_G6E_XLARGE: "ml.g6e.xlarge",
   ML_G6_12XLARGE: "ml.g6.12xlarge",
   ML_G6_16XLARGE: "ml.g6.16xlarge",
   ML_G6_24XLARGE: "ml.g6.24xlarge",
@@ -711,6 +719,15 @@ export const ProductionVariantInstanceType = {
   ML_M6G_8XLARGE: "ml.m6g.8xlarge",
   ML_M6G_LARGE: "ml.m6g.large",
   ML_M6G_XLARGE: "ml.m6g.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
   ML_M7I_12XLARGE: "ml.m7i.12xlarge",
   ML_M7I_16XLARGE: "ml.m7i.16xlarge",
   ML_M7I_24XLARGE: "ml.m7i.24xlarge",
@@ -728,6 +745,7 @@ export const ProductionVariantInstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5E_48XLARGE: "ml.p5e.48xlarge",
   ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5D_12XLARGE: "ml.r5d.12xlarge",
   ML_R5D_24XLARGE: "ml.r5d.24xlarge",
@@ -755,6 +773,15 @@ export const ProductionVariantInstanceType = {
   ML_R6G_8XLARGE: "ml.r6g.8xlarge",
   ML_R6G_LARGE: "ml.r6g.large",
   ML_R6G_XLARGE: "ml.r6g.xlarge",
+  ML_R6I_12XLARGE: "ml.r6i.12xlarge",
+  ML_R6I_16XLARGE: "ml.r6i.16xlarge",
+  ML_R6I_24XLARGE: "ml.r6i.24xlarge",
+  ML_R6I_2XLARGE: "ml.r6i.2xlarge",
+  ML_R6I_32XLARGE: "ml.r6i.32xlarge",
+  ML_R6I_4XLARGE: "ml.r6i.4xlarge",
+  ML_R6I_8XLARGE: "ml.r6i.8xlarge",
+  ML_R6I_LARGE: "ml.r6i.large",
+  ML_R6I_XLARGE: "ml.r6i.xlarge",
   ML_R7I_12XLARGE: "ml.r7i.12xlarge",
   ML_R7I_16XLARGE: "ml.r7i.16xlarge",
   ML_R7I_24XLARGE: "ml.r7i.24xlarge",
@@ -771,6 +798,7 @@ export const ProductionVariantInstanceType = {
   ML_TRN1N_32XLARGE: "ml.trn1n.32xlarge",
   ML_TRN1_2XLARGE: "ml.trn1.2xlarge",
   ML_TRN1_32XLARGE: "ml.trn1.32xlarge",
+  ML_TRN2_48XLARGE: "ml.trn2.48xlarge",
 } as const;
 
 /**
@@ -9496,6 +9524,15 @@ export interface ClusterInstanceGroupDetails {
    * @public
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+   *                 Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -9559,6 +9596,15 @@ export interface ClusterInstanceGroupSpecification {
    * @public
    */
   OnStartDeepHealthChecks?: DeepHealthCheckType[] | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+   *                 Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
 }
 
 /**
@@ -9658,6 +9704,15 @@ export interface ClusterNodeDetails {
    * @public
    */
   LifeCycleConfig?: ClusterLifeCycleConfig | undefined;
+
+  /**
+   * <p>Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources
+   *             have access to. You can control access to and from your resources by configuring a VPC.
+   *             For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/infrastructure-give-access.html">Give SageMaker Access to
+   *                 Resources in your Amazon VPC</a>. </p>
+   * @public
+   */
+  OverrideVpcConfig?: VpcConfig | undefined;
 
   /**
    * <p>The number of threads per CPU core you specified under

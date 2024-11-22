@@ -21,6 +21,17 @@ import { NestedFilters, SearchSortOrder, VisibilityConditions } from "./models_4
 /**
  * @public
  */
+export interface UpdateTrialComponentResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
+   * @public
+   */
+  TrialComponentArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateUserProfileRequest {
   /**
    * <p>The domain ID.</p>
