@@ -320,6 +320,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *       MaximumOnDemandCapacityUnits: Number("int"),
  *       MaximumCoreCapacityUnits: Number("int"),
  *     },
+ *     UtilizationPerformanceIndex: Number("int"),
+ *     ScalingStrategy: "DEFAULT" || "ADVANCED",
  *   },
  *   PlacementGroupConfigs: [ // PlacementGroupConfigList
  *     { // PlacementGroupConfig

@@ -49,6 +49,8 @@ export interface GetManagedScalingPolicyCommandOutput extends GetManagedScalingP
  * //       MaximumOnDemandCapacityUnits: Number("int"),
  * //       MaximumCoreCapacityUnits: Number("int"),
  * //     },
+ * //     UtilizationPerformanceIndex: Number("int"),
+ * //     ScalingStrategy: "DEFAULT" || "ADVANCED",
  * //   },
  * // };
  *

@@ -48,6 +48,8 @@ export interface PutManagedScalingPolicyCommandOutput extends PutManagedScalingP
  *       MaximumOnDemandCapacityUnits: Number("int"),
  *       MaximumCoreCapacityUnits: Number("int"),
  *     },
+ *     UtilizationPerformanceIndex: Number("int"),
+ *     ScalingStrategy: "DEFAULT" || "ADVANCED",
  *   },
  * };
  * const command = new PutManagedScalingPolicyCommand(input);
