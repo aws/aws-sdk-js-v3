@@ -225,6 +225,10 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *       "EventCount",
  *     ],
  *   },
+ *   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ *     MinimumPollers: Number("int"),
+ *     MaximumPollers: Number("int"),
+ *   },
  * };
  * const command = new CreateEventSourceMappingCommand(input);
  * const response = await client.send(command);
@@ -306,6 +310,10 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //     Metrics: [ // EventSourceMappingMetricList
  * //       "EventCount",
  * //     ],
+ * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
  * //   },
  * // };
  *

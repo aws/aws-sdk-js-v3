@@ -120,6 +120,10 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //       "EventCount",
  * //     ],
  * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
+ * //   },
  * // };
  *
  * ```

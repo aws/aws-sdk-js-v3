@@ -126,6 +126,10 @@ export interface ListEventSourceMappingsCommandOutput extends ListEventSourceMap
  * //           "EventCount",
  * //         ],
  * //       },
+ * //       ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //         MinimumPollers: Number("int"),
+ * //         MaximumPollers: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * // };

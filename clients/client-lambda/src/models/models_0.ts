@@ -925,6 +925,26 @@ export interface EventSourceMappingMetricsConfig {
 }
 
 /**
+ * <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">
+ *       Provisioned Mode</a> configuration for the event source. Use Provisioned Mode to customize the minimum and maximum number of event pollers
+ *       for your event source. An event poller is a compute unit that provides approximately 5 MBps of throughput.</p>
+ * @public
+ */
+export interface ProvisionedPollerConfig {
+  /**
+   * <p>The minimum number of event pollers this event source can scale down to.</p>
+   * @public
+   */
+  MinimumPollers?: number | undefined;
+
+  /**
+   * <p>The maximum number of event pollers this event source can scale up to.</p>
+   * @public
+   */
+  MaximumPollers?: number | undefined;
+}
+
+/**
  * <p>(Amazon SQS only) The scaling configuration for the event source. To remove the configuration, pass an empty value.</p>
  * @public
  */
@@ -1324,6 +1344,13 @@ export interface CreateEventSourceMappingRequest {
    * @public
    */
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
+
+  /**
+   * <p>(Amazon MSK and self-managed Apache Kafka only) The Provisioned Mode configuration for the event source.
+   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">Provisioned Mode</a>.</p>
+   * @public
+   */
+  ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
 }
 
 /**
@@ -1558,6 +1585,13 @@ export interface EventSourceMappingConfiguration {
    * @public
    */
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
+
+  /**
+   * <p>(Amazon MSK and self-managed Apache Kafka only) The Provisioned Mode configuration for the event source.
+   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">Provisioned Mode</a>.</p>
+   * @public
+   */
+  ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
 }
 
 /**
@@ -7221,6 +7255,13 @@ export interface UpdateEventSourceMappingRequest {
    * @public
    */
   MetricsConfig?: EventSourceMappingMetricsConfig | undefined;
+
+  /**
+   * <p>(Amazon MSK and self-managed Apache Kafka only) The Provisioned Mode configuration for the event source.
+   *   For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">Provisioned Mode</a>.</p>
+   * @public
+   */
+  ProvisionedPollerConfig?: ProvisionedPollerConfig | undefined;
 }
 
 /**

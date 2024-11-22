@@ -202,6 +202,10 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  *       "EventCount",
  *     ],
  *   },
+ *   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ *     MinimumPollers: Number("int"),
+ *     MaximumPollers: Number("int"),
+ *   },
  * };
  * const command = new UpdateEventSourceMappingCommand(input);
  * const response = await client.send(command);
@@ -283,6 +287,10 @@ export interface UpdateEventSourceMappingCommandOutput extends EventSourceMappin
  * //     Metrics: [ // EventSourceMappingMetricList
  * //       "EventCount",
  * //     ],
+ * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
  * //   },
  * // };
  *

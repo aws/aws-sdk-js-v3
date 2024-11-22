@@ -122,6 +122,10 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * //       "EventCount",
  * //     ],
  * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
+ * //   },
  * // };
  *
  * ```

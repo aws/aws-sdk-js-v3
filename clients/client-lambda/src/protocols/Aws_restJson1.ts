@@ -287,6 +287,7 @@ import {
   PolicyLengthExceededException,
   PreconditionFailedException,
   ProvisionedConcurrencyConfigNotFoundException,
+  ProvisionedPollerConfig,
   RecursiveInvocationException,
   RequestTooLargeException,
   ResourceConflictException,
@@ -456,6 +457,7 @@ export const se_CreateEventSourceMappingCommand = async (
       MaximumRetryAttempts: [],
       MetricsConfig: (_) => _json(_),
       ParallelizationFactor: [],
+      ProvisionedPollerConfig: (_) => _json(_),
       Queues: (_) => _json(_),
       ScalingConfig: (_) => _json(_),
       SelfManagedEventSource: (_) => _json(_),
@@ -1699,6 +1701,7 @@ export const se_UpdateEventSourceMappingCommand = async (
       MaximumRetryAttempts: [],
       MetricsConfig: (_) => _json(_),
       ParallelizationFactor: [],
+      ProvisionedPollerConfig: (_) => _json(_),
       ScalingConfig: (_) => _json(_),
       SourceAccessConfigurations: (_) => _json(_),
       TumblingWindowInSeconds: [],
@@ -1960,6 +1963,7 @@ export const de_CreateEventSourceMappingCommand = async (
     MaximumRetryAttempts: __expectInt32,
     MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
+    ProvisionedPollerConfig: _json,
     Queues: _json,
     ScalingConfig: _json,
     SelfManagedEventSource: _json,
@@ -2127,6 +2131,7 @@ export const de_DeleteEventSourceMappingCommand = async (
     MaximumRetryAttempts: __expectInt32,
     MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
+    ProvisionedPollerConfig: _json,
     Queues: _json,
     ScalingConfig: _json,
     SelfManagedEventSource: _json,
@@ -2366,6 +2371,7 @@ export const de_GetEventSourceMappingCommand = async (
     MaximumRetryAttempts: __expectInt32,
     MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
+    ProvisionedPollerConfig: _json,
     Queues: _json,
     ScalingConfig: _json,
     SelfManagedEventSource: _json,
@@ -3433,6 +3439,7 @@ export const de_UpdateEventSourceMappingCommand = async (
     MaximumRetryAttempts: __expectInt32,
     MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
+    ProvisionedPollerConfig: _json,
     Queues: _json,
     ScalingConfig: _json,
     SelfManagedEventSource: _json,
@@ -4690,6 +4697,8 @@ const se_LayerVersionContentInput = (input: LayerVersionContentInput, context: _
 
 // se_OnSuccess omitted.
 
+// se_ProvisionedPollerConfig omitted.
+
 // se_Queues omitted.
 
 // se_ScalingConfig omitted.
@@ -4838,6 +4847,7 @@ const de_EventSourceMappingConfiguration = (output: any, context: __SerdeContext
     MaximumRetryAttempts: __expectInt32,
     MetricsConfig: _json,
     ParallelizationFactor: __expectInt32,
+    ProvisionedPollerConfig: _json,
     Queues: _json,
     ScalingConfig: _json,
     SelfManagedEventSource: _json,
@@ -4953,6 +4963,8 @@ const de_FunctionEventInvokeConfigList = (output: any, context: __SerdeContext):
 // de_ProvisionedConcurrencyConfigList omitted.
 
 // de_ProvisionedConcurrencyConfigListItem omitted.
+
+// de_ProvisionedPollerConfig omitted.
 
 // de_Queues omitted.
 
