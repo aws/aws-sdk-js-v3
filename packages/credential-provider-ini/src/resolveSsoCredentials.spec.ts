@@ -56,4 +56,39 @@ describe(resolveSsoCredentials.name, () => {
       profile: mockProfileName,
     });
   });
+
+  it("passes through clientConfig and parentClientConfig to the fromSSO provider", async () => {
+    const mockProfileName = "mockProfileName";
+    const mockCreds: AwsCredentialIdentity = {
+      accessKeyId: "mockAccessKeyId",
+      secretAccessKey: "mockSecretAccessKey",
+    };
+    const requestHandler = vi.fn();
+    const logger = vi.fn();
+
+    vi.mocked(fromSSO).mockReturnValue(() => Promise.resolve(mockCreds));
+
+    const receivedCreds = await resolveSsoCredentials(
+      mockProfileName,
+      {},
+      {
+        clientConfig: {
+          requestHandler,
+        },
+        parentClientConfig: {
+          logger,
+        },
+      }
+    );
+    expect(receivedCreds).toStrictEqual(mockCreds);
+    expect(fromSSO).toHaveBeenCalledWith({
+      profile: mockProfileName,
+      clientConfig: {
+        requestHandler,
+      },
+      parentClientConfig: {
+        logger,
+      },
+    });
+  });
 });

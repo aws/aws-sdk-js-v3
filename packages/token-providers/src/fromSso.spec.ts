@@ -48,6 +48,7 @@ describe(fromSso.name, () => {
     accessToken: "mockNewAccessToken",
     expiresIn: 3600,
     refreshToken: "mockNewRefreshToken",
+    $metadata: {},
   };
   const mockNewToken = {
     token: mockNewTokenFromService.accessToken,
@@ -166,7 +167,7 @@ describe(fromSso.name, () => {
       const { fromSso } = await import("./fromSso");
       await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
       expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
 
       // Simulate token expiration.
       const ssoTokenExpiryError = new TokenProviderError(`SSO Token is expired. ${REFRESH_MESSAGE}`, false);
@@ -182,7 +183,7 @@ describe(fromSso.name, () => {
       const { fromSso } = await import("./fromSso");
       await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
       expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
 
       // Return a valid token for second call.
       const mockValidSsoToken = {
@@ -230,7 +231,11 @@ describe(fromSso.name, () => {
         token: mockValidSsoTokenInExpiryWindow.accessToken,
         expiration: new Date(mockValidSsoTokenInExpiryWindow.expiresAt),
       });
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockValidSsoTokenInExpiryWindow, mockSsoSession.sso_region);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(
+        mockValidSsoTokenInExpiryWindow,
+        mockSsoSession.sso_region,
+        mockInit
+      );
     };
 
     const throwErrorExpiredTokenTest = async (fromSsoImpl: typeof fromSso) => {
@@ -239,7 +244,7 @@ describe(fromSso.name, () => {
         throw ssoTokenExpiryError;
       });
       await expect(fromSsoImpl(mockInit)()).rejects.toStrictEqual(ssoTokenExpiryError);
-      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+      expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
     };
 
     afterEach(() => {
@@ -285,7 +290,7 @@ describe(fromSso.name, () => {
     const { fromSso } = await import("./fromSso");
     await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
     expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
-    expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region);
+    expect(getNewSsoOidcToken).toHaveBeenCalledWith(mockSsoToken, mockSsoSession.sso_region, mockInit);
 
     expect(writeSSOTokenToFile).toHaveBeenCalledWith(mockSsoSessionName, {
       ...mockSsoToken,

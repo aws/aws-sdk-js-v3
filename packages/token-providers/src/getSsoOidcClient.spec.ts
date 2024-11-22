@@ -5,6 +5,9 @@ vi.mock("@aws-sdk/client-sso-oidc");
 
 describe("getSsoOidcClient", () => {
   const mockSsoRegion = "mockSsoRegion";
+  const mockRequestHandler = {
+    protocol: "http",
+  };
   const getMockClient = (region: string) => ({ region });
 
   beforeEach(() => {
@@ -22,24 +25,22 @@ describe("getSsoOidcClient", () => {
     expect(SSOOIDCClient).toHaveBeenCalledTimes(1);
   });
 
-  it("returns SSOOIDC client from hash if already created", async () => {
-    const { getSsoOidcClient } = await import("./getSsoOidcClient");
-    expect(await getSsoOidcClient(mockSsoRegion)).toEqual(getMockClient(mockSsoRegion) as any);
-    expect(SSOOIDCClient).toHaveBeenCalledTimes(1);
-    expect(await getSsoOidcClient(mockSsoRegion)).toEqual(getMockClient(mockSsoRegion) as any);
-    expect(SSOOIDCClient).toHaveBeenCalledTimes(1);
-  });
-
-  it("creates new SSOOIDC client per region", async () => {
+  it("passes through clientConfig and parentClientConfig.logger", async () => {
     const { getSsoOidcClient } = await import("./getSsoOidcClient");
     const mockSsoRegion1 = `${mockSsoRegion}1`;
-    expect(await getSsoOidcClient(mockSsoRegion1)).toEqual(getMockClient(mockSsoRegion1) as any);
+    expect(
+      await getSsoOidcClient(mockSsoRegion1, {
+        clientConfig: { requestHandler: mockRequestHandler },
+        parentClientConfig: { logger: console },
+      })
+    ).toEqual({
+      region: mockSsoRegion1,
+    } as any);
     expect(SSOOIDCClient).toHaveBeenCalledTimes(1);
-    expect(SSOOIDCClient).toHaveBeenCalledWith({ region: mockSsoRegion1 });
-
-    const mockSsoRegion2 = `${mockSsoRegion}2`;
-    expect(await getSsoOidcClient(mockSsoRegion2)).toEqual(getMockClient(mockSsoRegion2) as any);
-    expect(SSOOIDCClient).toHaveBeenCalledTimes(2);
-    expect(SSOOIDCClient).toHaveBeenNthCalledWith(2, { region: mockSsoRegion2 });
+    expect(SSOOIDCClient).toHaveBeenCalledWith({
+      region: mockSsoRegion1,
+      requestHandler: mockRequestHandler,
+      logger: console,
+    });
   });
 });

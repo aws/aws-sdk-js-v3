@@ -133,6 +133,7 @@ export const fromSSO =
         ssoRoleName: sso_role_name,
         ssoClient: ssoClient,
         clientConfig: init.clientConfig,
+        parentClientConfig: init.parentClientConfig,
         profile: profileName,
       });
     } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
@@ -150,6 +151,7 @@ export const fromSSO =
         ssoRoleName,
         ssoClient,
         clientConfig: init.clientConfig,
+        parentClientConfig: init.parentClientConfig,
         profile: profileName,
       });
     }
