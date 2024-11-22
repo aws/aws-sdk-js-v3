@@ -515,8 +515,8 @@ export interface CreateTopicInput {
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
-   *          <p>The following lists names, descriptions, and values of the special request
-   *             parameters that the <code>CreateTopic</code> action uses:</p>
+   *          <p>The following lists names, descriptions, and values of the special request parameters
+   *             that the <code>CreateTopic</code> action uses:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -569,34 +569,30 @@ export interface CreateTopicInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ArchivePolicy</code> – Adds or updates an inline policy document
-   *                     to archive messages stored in the specified Amazon SNS topic.</p>
+   *                   <code>ArchivePolicy</code> – The policy that sets the retention period
+   *                         for messages stored in the message archive of an Amazon SNS FIFO
+   *                         topic.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>BeginningArchiveTime</code> – The earliest starting point at
-   *                     which a message in the topic’s archive can be replayed from. This point in time
-   *                     is based on the configured message retention period set by the topic’s message
-   *                     archiving policy.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication for
-   *                     FIFO topics.</p>
+   *                   <code>ContentBasedDeduplication</code> – Enables content-based
+   *                     deduplication for FIFO topics.</p>
    *                <ul>
    *                   <li>
-   *                      <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>.
-   *                             If you create a FIFO topic and this attribute is <code>false</code>, you must
-   *                             specify a value for the <code>MessageDeduplicationId</code> parameter for the
-   *                             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
+   *                      <p>By default, <code>ContentBasedDeduplication</code> is set to
+   *                         <code>false</code>. If you create a FIFO topic and this attribute is
+   *                         <code>false</code>, you must specify a value for the
+   *                         <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>
+   *                     action. </p>
    *                   </li>
    *                   <li>
    *                      <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
-   *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
-   *                             the body of the message (but not the attributes of the message).</p>
-   *                      <p>(Optional) To override the generated value, you can specify a value
-   *                             for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
-   *                             action.</p>
+   *                         Amazon SNS uses a SHA-256 hash to generate the
+   *                         <code>MessageDeduplicationId</code> using the body of the message (but not
+   *                     the attributes of the message).</p>
+   *                      <p>(Optional) To override the generated value, you can specify a value for the
+   *                         <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                     action.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -1255,29 +1251,43 @@ export interface GetTopicAttributesResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
-   *                 topic is created.</p>
+   *                   <code>ArchivePolicy</code> – The policy that sets the retention period
+   *                     for messages stored in the message archive of an Amazon SNS FIFO
+   *                     topic.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication for
-   *                     FIFO topics.</p>
+   *                   <code>BeginningArchiveTime</code> – The earliest starting point at
+   *                     which a message in the topic’s archive can be replayed from. This point in time
+   *                     is based on the configured message retention period set by the topic’s message
+   *                     archiving policy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContentBasedDeduplication</code> – Enables content-based
+   *                     deduplication for FIFO topics.</p>
    *                <ul>
    *                   <li>
-   *                      <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>.
-   *                             If you create a FIFO topic and this attribute is <code>false</code>, you must
-   *                             specify a value for the <code>MessageDeduplicationId</code> parameter for the
-   *                             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
+   *                      <p>By default, <code>ContentBasedDeduplication</code> is set to
+   *                                 <code>false</code>. If you create a FIFO topic and this attribute is
+   *                                 <code>false</code>, you must specify a value for the
+   *                                 <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
    *                   </li>
    *                   <li>
-   *                      <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
-   *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
-   *                             the body of the message (but not the attributes of the message).</p>
+   *                      <p>When you set <code>ContentBasedDeduplication</code> to
+   *                                 <code>true</code>, Amazon SNS uses a SHA-256 hash to
+   *                             generate the <code>MessageDeduplicationId</code> using the body of the
+   *                             message (but not the attributes of the message).</p>
    *                      <p>(Optional) To override the generated value, you can specify a value
-   *                             for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
-   *                             action.</p>
+   *                             for the <code>MessageDeduplicationId</code> parameter for the
+   *                                 <code>Publish</code> action.</p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
+   *                 topic is created.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3188,22 +3198,30 @@ export interface SetTopicAttributesInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ContentBasedDeduplication</code> – Enables content-based deduplication for
-   *                     FIFO topics.</p>
+   *                   <code>ArchivePolicy</code> – The policy that sets the retention period
+   *                         for messages stored in the message archive of an Amazon SNS FIFO
+   *                         topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ContentBasedDeduplication</code> – Enables content-based
+   *                     deduplication for FIFO topics.</p>
    *                <ul>
    *                   <li>
-   *                      <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>.
-   *                             If you create a FIFO topic and this attribute is <code>false</code>, you must
-   *                             specify a value for the <code>MessageDeduplicationId</code> parameter for the
-   *                             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
+   *                      <p>By default, <code>ContentBasedDeduplication</code> is set to
+   *                         <code>false</code>. If you create a FIFO topic and this attribute is
+   *                         <code>false</code>, you must specify a value for the
+   *                         <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a>
+   *                     action. </p>
    *                   </li>
    *                   <li>
    *                      <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
-   *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
-   *                             the body of the message (but not the attributes of the message).</p>
-   *                      <p>(Optional) To override the generated value, you can specify a value
-   *                             for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
-   *                             action.</p>
+   *                         Amazon SNS uses a SHA-256 hash to generate the
+   *                         <code>MessageDeduplicationId</code> using the body of the message (but not
+   *                     the attributes of the message).</p>
+   *                      <p>(Optional) To override the generated value, you can specify a value for the
+   *                         <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                     action.</p>
    *                   </li>
    *                </ul>
    *             </li>
