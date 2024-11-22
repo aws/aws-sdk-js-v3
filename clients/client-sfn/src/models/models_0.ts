@@ -135,7 +135,7 @@ export interface ActivityListItem {
 export interface HistoryEventExecutionDataDetails {
   /**
    * <p>Indicates whether input or output was truncated in the response. Always <code>false</code>
-   *       for API calls.</p>
+   *       for API calls. In CloudWatch logs, the value will be true if the data is truncated due to size limits.</p>
    * @public
    */
   truncated?: boolean | undefined;
@@ -265,6 +265,19 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
     });
     Object.setPrototypeOf(this, ActivityWorkerLimitExceeded.prototype);
   }
+}
+
+/**
+ * <p>Provides details about assigned variables in an execution history event.</p>
+ * @public
+ */
+export interface AssignedVariablesDetails {
+  /**
+   * <p>Indicates whether assigned variables were truncated in the response. Always <code>false</code>
+   *     for API calls. In CloudWatch logs, the value will be true if the data is truncated due to size limits.</p>
+   * @public
+   */
+  truncated?: boolean | undefined;
 }
 
 /**
@@ -1923,6 +1936,12 @@ export interface DescribeStateMachineOutput {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A map of <b>state name</b> to a list of variables referenced by that state. States that do not use variable references will not be shown in the response.</p>
+   * @public
+   */
+  variableReferences?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -2087,6 +2106,12 @@ export interface DescribeStateMachineForExecutionOutput {
    * @public
    */
   encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A map of <b>state name</b> to a list of variables referenced by that state. States that do not use variable references will not be shown in the response.</p>
+   * @public
+   */
+  variableReferences?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -2165,6 +2190,36 @@ export interface GetExecutionHistoryInput {
    * @public
    */
   includeExecutionData?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about an evaluation failure that occurred while processing a state, for example, when a JSONata expression throws an error. This event will only be present in state machines that have <b> QueryLanguage</b> set to JSONata, or individual states set to JSONata.</p>
+ * @public
+ */
+export interface EvaluationFailedEventDetails {
+  /**
+   * <p>The error code of the failure.</p>
+   * @public
+   */
+  error?: string | undefined;
+
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   * @public
+   */
+  cause?: string | undefined;
+
+  /**
+   * <p>The location of the field in the state in which the evaluation error occurred.</p>
+   * @public
+   */
+  location?: string | undefined;
+
+  /**
+   * <p>The name of the state in which the evaluation error occurred.</p>
+   * @public
+   */
+  state: string | undefined;
 }
 
 /**
@@ -2573,6 +2628,18 @@ export interface StateExitedEventDetails {
    * @public
    */
   outputDetails?: HistoryEventExecutionDataDetails | undefined;
+
+  /**
+   * <p>Map of variable name and value as a serialized JSON representation.</p>
+   * @public
+   */
+  assignedVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Provides details about input or output in an execution history event.</p>
+   * @public
+   */
+  assignedVariablesDetails?: AssignedVariablesDetails | undefined;
 }
 
 /**
@@ -2836,6 +2903,7 @@ export const HistoryEventType = {
   ActivityTimedOut: "ActivityTimedOut",
   ChoiceStateEntered: "ChoiceStateEntered",
   ChoiceStateExited: "ChoiceStateExited",
+  EvaluationFailed: "EvaluationFailed",
   ExecutionAborted: "ExecutionAborted",
   ExecutionFailed: "ExecutionFailed",
   ExecutionRedriven: "ExecutionRedriven",
@@ -3143,6 +3211,12 @@ export interface HistoryEvent {
    * @public
    */
   mapRunRedrivenEventDetails?: MapRunRedrivenEventDetails | undefined;
+
+  /**
+   * <p>Contains details about an evaluation failure that occurred while processing a state.</p>
+   * @public
+   */
+  evaluationFailedEventDetails?: EvaluationFailedEventDetails | undefined;
 }
 
 /**
@@ -4382,7 +4456,7 @@ export interface TestStateInput {
    * <p>The Amazon Resource Name (ARN) of the execution role with the required IAM permissions for the state.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string | undefined;
 
   /**
    * <p>A string that contains the JSON input data for the state.</p>
@@ -4418,6 +4492,12 @@ export interface TestStateInput {
    * @public
    */
   revealSecrets?: boolean | undefined;
+
+  /**
+   * <p>JSON object literal that sets variables used in the state under test. Object keys are the variable names and values are the variable values.</p>
+   * @public
+   */
+  variables?: string | undefined;
 }
 
 /**
@@ -4504,13 +4584,19 @@ export interface InspectionData {
   input?: string | undefined;
 
   /**
-   * <p>The input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">InputPath</a> filter.</p>
+   * <p>The input after Step Functions applies an Arguments filter. This event will only be present when QueryLanguage for the state machine or individual states is set to JSONata. For more info, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/data-transform.html">Transforming data with Step Functions</a>.</p>
+   * @public
+   */
+  afterArguments?: string | undefined;
+
+  /**
+   * <p>The input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">InputPath</a> filter. Not populated when QueryLanguage is JSONata.</p>
    * @public
    */
   afterInputPath?: string | undefined;
 
   /**
-   * <p>The effective input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">Parameters</a> filter.</p>
+   * <p>The effective input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">Parameters</a> filter. Not populated when QueryLanguage is JSONata.</p>
    * @public
    */
   afterParameters?: string | undefined;
@@ -4522,13 +4608,13 @@ export interface InspectionData {
   result?: string | undefined;
 
   /**
-   * <p>The effective result after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">ResultSelector</a> filter.</p>
+   * <p>The effective result after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">ResultSelector</a> filter. Not populated when QueryLanguage is JSONata.</p>
    * @public
    */
   afterResultSelector?: string | undefined;
 
   /**
-   * <p>The effective result combined with the raw state input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">ResultPath</a> filter.</p>
+   * <p>The effective result combined with the raw state input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">ResultPath</a> filter. Not populated when QueryLanguage is JSONata.</p>
    * @public
    */
   afterResultPath?: string | undefined;
@@ -4544,6 +4630,12 @@ export interface InspectionData {
    * @public
    */
   response?: InspectionDataResponse | undefined;
+
+  /**
+   * <p>JSON string that contains the set of workflow variables after execution of the state. The set will include variables assigned in the state and variables set up as test state input.</p>
+   * @public
+   */
+  variables?: string | undefined;
 }
 
 /**
@@ -4843,14 +4935,104 @@ export interface ValidateStateMachineDefinitionInput {
 }
 
 /**
- * <p>Describes an error found during validation. Validation errors found in the definition
- *             return in the response as <b>diagnostic elements</b>, rather
- *             than raise an exception.</p>
+ * <p>Describes potential issues found during state machine validation. Rather than raise an
+ *             exception, validation will return a list of <b>diagnostic
+ *             elements</b> containing diagnostic information. </p>
+ *          <note>
+ *             <p>The <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_ValidateStateMachineDefinition.html">ValidateStateMachineDefinitionlAPI</a> might add
+ *                 new diagnostics in the future, adjust diagnostic codes, or change the message
+ *                 wording. Your automated processes should only rely on the value of the <b>result</b> field value (OK, FAIL). Do <b>not</b> rely on the exact order, count, or
+ *                 wording of diagnostic messages.</p>
+ *          </note>
+ *          <p>
+ *             <b>List of warning codes</b>
+ *          </p>
+ *          <dl>
+ *             <dt>NO_DOLLAR</dt>
+ *             <dd>
+ *                <p>No <code>.$</code> on a field that appears to be a JSONPath or Intrinsic Function.</p>
+ *             </dd>
+ *             <dt>NO_PATH</dt>
+ *             <dd>
+ *                <p>Field value looks like a path, but field name does not end with 'Path'.</p>
+ *             </dd>
+ *             <dt>PASS_RESULT_IS_STATIC</dt>
+ *             <dd>
+ *                <p>Attempt to use a path in the result of a pass state.</p>
+ *             </dd>
+ *          </dl>
+ *          <p>
+ *             <b>List of error codes</b>
+ *          </p>
+ *          <dl>
+ *             <dt>INVALID_JSON_DESCRIPTION</dt>
+ *             <dd>
+ *                <p>JSON syntax problem found.</p>
+ *             </dd>
+ *             <dt>MISSING_DESCRIPTION</dt>
+ *             <dd>
+ *                <p>Received a null or empty workflow input.</p>
+ *             </dd>
+ *             <dt>SCHEMA_VALIDATION_FAILED</dt>
+ *             <dd>
+ *                <p>Schema validation reported errors.</p>
+ *             </dd>
+ *             <dt>INVALID_RESOURCE</dt>
+ *             <dd>
+ *                <p>The value of a Task-state resource field is invalid.</p>
+ *             </dd>
+ *             <dt>MISSING_END_STATE</dt>
+ *             <dd>
+ *                <p>The workflow does not have a terminal state.</p>
+ *             </dd>
+ *             <dt>DUPLICATE_STATE_NAME</dt>
+ *             <dd>
+ *                <p>The same state name appears more than once.</p>
+ *             </dd>
+ *             <dt>INVALID_STATE_NAME</dt>
+ *             <dd>
+ *                <p>The state name does not follow the naming convention.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_EMPTY</dt>
+ *             <dd>
+ *                <p>The state machine name has not been specified.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_INVALID</dt>
+ *             <dd>
+ *                <p>The state machine name does not follow the naming convention.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_TOO_LONG</dt>
+ *             <dd>
+ *                <p>The state name exceeds the allowed length.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_ALREADY_EXISTS</dt>
+ *             <dd>
+ *                <p>The state name already exists.</p>
+ *             </dd>
+ *             <dt>DUPLICATE_LABEL_NAME</dt>
+ *             <dd>
+ *                <p>A label name appears more than once.</p>
+ *             </dd>
+ *             <dt>INVALID_LABEL_NAME</dt>
+ *             <dd>
+ *                <p>You have provided an invalid label name.</p>
+ *             </dd>
+ *             <dt>MISSING_TRANSITION_TARGET</dt>
+ *             <dd>
+ *                <p>The value of "Next" field doesn't match a known state name.</p>
+ *             </dd>
+ *             <dt>TOO_DEEPLY_NESTED</dt>
+ *             <dd>
+ *                <p>The states are too deeply nested.</p>
+ *             </dd>
+ *          </dl>
  * @public
  */
 export interface ValidateStateMachineDefinitionDiagnostic {
   /**
    * <p>A value of <code>ERROR</code> means that you cannot create or update a state machine with this definition.</p>
+   *          <p>
+   *             <code>WARNING</code> level diagnostics alert you to potential issues, but they will not prevent you from creating or updating your state machine.</p>
    * @public
    */
   severity: ValidateStateMachineDefinitionSeverity | undefined;
@@ -4902,9 +5084,7 @@ export interface ValidateStateMachineDefinitionOutput {
   result: ValidateStateMachineDefinitionResultCode | undefined;
 
   /**
-   * <p>If the result is <code>OK</code>, this field will be empty. When there are errors,
-   *             this field will contain an array of <b>Diagnostic</b> objects
-   *             to help you troubleshoot.</p>
+   * <p>An array of diagnostic errors and warnings found during validation of the state machine definition. Since <b>warnings</b> do not prevent deploying your workflow definition, the <b>result</b> value could be <code>OK</code> even when warning diagnostics are present in the response.</p>
    * @public
    */
   diagnostics: ValidateStateMachineDefinitionDiagnostic[] | undefined;
@@ -4995,6 +5175,7 @@ export const DescribeStateMachineOutputFilterSensitiveLog = (obj: DescribeStateM
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.variableReferences && { variableReferences: SENSITIVE_STRING }),
 });
 
 /**
@@ -5013,6 +5194,7 @@ export const DescribeStateMachineForExecutionOutputFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.variableReferences && { variableReferences: SENSITIVE_STRING }),
 });
 
 /**
@@ -5021,6 +5203,16 @@ export const DescribeStateMachineForExecutionOutputFilterSensitiveLog = (
 export const GetActivityTaskOutputFilterSensitiveLog = (obj: GetActivityTaskOutput): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EvaluationFailedEventDetailsFilterSensitiveLog = (obj: EvaluationFailedEventDetails): any => ({
+  ...obj,
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
 });
 
 /**
@@ -5149,6 +5341,7 @@ export const StateEnteredEventDetailsFilterSensitiveLog = (obj: StateEnteredEven
 export const StateExitedEventDetailsFilterSensitiveLog = (obj: StateExitedEventDetails): any => ({
   ...obj,
   ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.assignedVariables && { assignedVariables: SENSITIVE_STRING }),
 });
 
 /**
@@ -5310,6 +5503,9 @@ export const HistoryEventFilterSensitiveLog = (obj: HistoryEvent): any => ({
   ...(obj.mapRunFailedEventDetails && {
     mapRunFailedEventDetails: MapRunFailedEventDetailsFilterSensitiveLog(obj.mapRunFailedEventDetails),
   }),
+  ...(obj.evaluationFailedEventDetails && {
+    evaluationFailedEventDetails: EvaluationFailedEventDetailsFilterSensitiveLog(obj.evaluationFailedEventDetails),
+  }),
 });
 
 /**
@@ -5388,6 +5584,7 @@ export const TestStateInputFilterSensitiveLog = (obj: TestStateInput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
   ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.variables && { variables: SENSITIVE_STRING }),
 });
 
 /**
@@ -5396,11 +5593,13 @@ export const TestStateInputFilterSensitiveLog = (obj: TestStateInput): any => ({
 export const InspectionDataFilterSensitiveLog = (obj: InspectionData): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.afterArguments && { afterArguments: SENSITIVE_STRING }),
   ...(obj.afterInputPath && { afterInputPath: SENSITIVE_STRING }),
   ...(obj.afterParameters && { afterParameters: SENSITIVE_STRING }),
   ...(obj.result && { result: SENSITIVE_STRING }),
   ...(obj.afterResultSelector && { afterResultSelector: SENSITIVE_STRING }),
   ...(obj.afterResultPath && { afterResultPath: SENSITIVE_STRING }),
+  ...(obj.variables && { variables: SENSITIVE_STRING }),
 });
 
 /**
@@ -5439,4 +5638,28 @@ export const ValidateStateMachineDefinitionInputFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateStateMachineDefinitionDiagnosticFilterSensitiveLog = (
+  obj: ValidateStateMachineDefinitionDiagnostic
+): any => ({
+  ...obj,
+  ...(obj.code && { code: SENSITIVE_STRING }),
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateStateMachineDefinitionOutputFilterSensitiveLog = (
+  obj: ValidateStateMachineDefinitionOutput
+): any => ({
+  ...obj,
+  ...(obj.diagnostics && {
+    diagnostics: obj.diagnostics.map((item) => ValidateStateMachineDefinitionDiagnosticFilterSensitiveLog(item)),
+  }),
 });

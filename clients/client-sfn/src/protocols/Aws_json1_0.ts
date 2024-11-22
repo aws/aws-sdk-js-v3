@@ -2221,6 +2221,10 @@ const de_ActivityListItem = (output: any, context: __SerdeContext): ActivityList
 
 // de_ActivityWorkerLimitExceeded omitted.
 
+// de_AssignedVariables omitted.
+
+// de_AssignedVariablesDetails omitted.
+
 // de_BillingDetails omitted.
 
 // de_CloudWatchEventsExecutionDataDetails omitted.
@@ -2361,6 +2365,7 @@ const de_DescribeStateMachineForExecutionOutput = (
     stateMachineArn: __expectString,
     tracingConfiguration: _json,
     updateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    variableReferences: _json,
   }) as any;
 };
 
@@ -2382,10 +2387,13 @@ const de_DescribeStateMachineOutput = (output: any, context: __SerdeContext): De
     status: __expectString,
     tracingConfiguration: _json,
     type: __expectString,
+    variableReferences: _json,
   }) as any;
 };
 
 // de_EncryptionConfiguration omitted.
+
+// de_EvaluationFailedEventDetails omitted.
 
 // de_ExecutionAbortedEventDetails omitted.
 
@@ -2462,6 +2470,7 @@ const de_HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => 
     activityStartedEventDetails: _json,
     activitySucceededEventDetails: _json,
     activityTimedOutEventDetails: _json,
+    evaluationFailedEventDetails: _json,
     executionAbortedEventDetails: _json,
     executionFailedEventDetails: _json,
     executionRedrivenEventDetails: _json,
@@ -2888,6 +2897,10 @@ const de_UpdateStateMachineOutput = (output: any, context: __SerdeContext): Upda
 // de_ValidateStateMachineDefinitionOutput omitted.
 
 // de_ValidationException omitted.
+
+// de_VariableNameList omitted.
+
+// de_VariableReferences omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

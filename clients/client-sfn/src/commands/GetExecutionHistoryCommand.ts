@@ -57,7 +57,7 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //   events: [ // HistoryEventList // required
  * //     { // HistoryEvent
  * //       timestamp: new Date("TIMESTAMP"), // required
- * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded" || "ExecutionRedriven" || "MapRunRedriven", // required
+ * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded" || "ExecutionRedriven" || "MapRunRedriven" || "EvaluationFailed", // required
  * //       id: Number("long"), // required
  * //       previousEventId: Number("long"),
  * //       activityFailedEventDetails: { // ActivityFailedEventDetails
@@ -230,6 +230,12 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //         name: "STRING_VALUE", // required
  * //         output: "STRING_VALUE",
  * //         outputDetails: "<HistoryEventExecutionDataDetails>",
+ * //         assignedVariables: { // AssignedVariables
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         assignedVariablesDetails: { // AssignedVariablesDetails
+ * //           truncated: true || false,
+ * //         },
  * //       },
  * //       mapRunStartedEventDetails: { // MapRunStartedEventDetails
  * //         mapRunArn: "STRING_VALUE",
@@ -241,6 +247,12 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //       mapRunRedrivenEventDetails: { // MapRunRedrivenEventDetails
  * //         mapRunArn: "STRING_VALUE",
  * //         redriveCount: Number("int"),
+ * //       },
+ * //       evaluationFailedEventDetails: { // EvaluationFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //         location: "STRING_VALUE",
+ * //         state: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],

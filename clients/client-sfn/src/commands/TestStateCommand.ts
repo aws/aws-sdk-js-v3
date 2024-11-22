@@ -91,10 +91,11 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * const client = new SFNClient(config);
  * const input = { // TestStateInput
  *   definition: "STRING_VALUE", // required
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
  *   input: "STRING_VALUE",
  *   inspectionLevel: "INFO" || "DEBUG" || "TRACE",
  *   revealSecrets: true || false,
+ *   variables: "STRING_VALUE",
  * };
  * const command = new TestStateCommand(input);
  * const response = await client.send(command);
@@ -104,6 +105,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * //   cause: "STRING_VALUE",
  * //   inspectionData: { // InspectionData
  * //     input: "STRING_VALUE",
+ * //     afterArguments: "STRING_VALUE",
  * //     afterInputPath: "STRING_VALUE",
  * //     afterParameters: "STRING_VALUE",
  * //     result: "STRING_VALUE",
@@ -123,6 +125,7 @@ export interface TestStateCommandOutput extends TestStateOutput, __MetadataBeare
  * //       headers: "STRING_VALUE",
  * //       body: "STRING_VALUE",
  * //     },
+ * //     variables: "STRING_VALUE",
  * //   },
  * //   nextState: "STRING_VALUE",
  * //   status: "SUCCEEDED" || "FAILED" || "RETRIABLE" || "CAUGHT_ERROR",

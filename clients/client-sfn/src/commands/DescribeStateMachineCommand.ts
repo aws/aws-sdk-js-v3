@@ -108,6 +108,11 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * //     kmsDataKeyReusePeriodSeconds: Number("int"),
  * //     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
  * //   },
+ * //   variableReferences: { // VariableReferences
+ * //     "<keys>": [ // VariableNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```
