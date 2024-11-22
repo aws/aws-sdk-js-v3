@@ -192,6 +192,12 @@ export interface UpdateRuleSetCommandOutput extends UpdateRuleSetResponse, __Met
  *             MailboxArn: "STRING_VALUE", // required
  *             RoleArn: "STRING_VALUE", // required
  *           },
+ *           DeliverToQBusiness: { // DeliverToQBusinessAction
+ *             ActionFailurePolicy: "CONTINUE" || "DROP",
+ *             ApplicationId: "STRING_VALUE", // required
+ *             IndexId: "STRING_VALUE", // required
+ *             RoleArn: "STRING_VALUE", // required
+ *           },
  *         },
  *       ],
  *     },

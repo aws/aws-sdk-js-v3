@@ -150,6 +150,7 @@ import {
   DeleteRuleSetRequest,
   DeleteTrafficPolicyRequest,
   DeliverToMailboxAction,
+  DeliverToQBusinessAction,
   DropAction,
   ExportDestinationConfiguration,
   ExportStatus,
@@ -2059,6 +2060,8 @@ const se_CreateTrafficPolicyRequest = (input: CreateTrafficPolicyRequest, contex
 
 // se_DeliverToMailboxAction omitted.
 
+// se_DeliverToQBusinessAction omitted.
+
 // se_DropAction omitted.
 
 // se_ExportDestinationConfiguration omitted.
@@ -2438,6 +2441,8 @@ const de_ArchivesList = (output: any, context: __SerdeContext): Archive[] => {
 // de_DeleteTrafficPolicyResponse omitted.
 
 // de_DeliverToMailboxAction omitted.
+
+// de_DeliverToQBusinessAction omitted.
 
 // de_DropAction omitted.
 

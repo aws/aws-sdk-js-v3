@@ -1422,6 +1422,41 @@ export interface DeliverToMailboxAction {
 }
 
 /**
+ * <p>The action to deliver incoming emails to an Amazon Q Business application for indexing.</p>
+ * @public
+ */
+export interface DeliverToQBusinessAction {
+  /**
+   * <p>A policy that states what to do in the case of failure. The action will fail if there are
+   *             configuration errors. For example, the specified application has been deleted or the role lacks
+   *             necessary permissions to call the qbusiness:BatchPutDocument API.</p>
+   * @public
+   */
+  ActionFailurePolicy?: ActionFailurePolicy | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q Business application instance where the email
+   *             content will be delivered.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The identifier of the knowledge base index within the Amazon Q Business application
+   *             where the email content will be stored and indexed.</p>
+   * @public
+   */
+  IndexId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Role to use while delivering to Amazon Q Business. This role must have access
+   *             to the qbusiness:BatchPutDocument API for the given application and index.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
  * <p>This action causes processing to stop and the email to be dropped. If the action
  *             applies only to certain recipients, only those recipients are dropped, and processing
  *             continues for other recipients.</p>
@@ -1552,6 +1587,7 @@ export type RuleAction =
   | RuleAction.AddHeaderMember
   | RuleAction.ArchiveMember
   | RuleAction.DeliverToMailboxMember
+  | RuleAction.DeliverToQBusinessMember
   | RuleAction.DropMember
   | RuleAction.RelayMember
   | RuleAction.ReplaceRecipientMember
@@ -1576,6 +1612,7 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown?: never;
   }
 
@@ -1592,6 +1629,7 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown?: never;
   }
 
@@ -1609,6 +1647,7 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown?: never;
   }
 
@@ -1625,6 +1664,7 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown?: never;
   }
 
@@ -1641,6 +1681,7 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown?: never;
   }
 
@@ -1657,6 +1698,7 @@ export namespace RuleAction {
     AddHeader: AddHeaderAction;
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown?: never;
   }
 
@@ -1674,6 +1716,7 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient: ReplaceRecipientAction;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown?: never;
   }
 
@@ -1690,6 +1733,25 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient?: never;
     DeliverToMailbox: DeliverToMailboxAction;
+    DeliverToQBusiness?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>This action delivers an email to an Amazon Q Business application for ingestion into
+   *             its knowledge base.</p>
+   * @public
+   */
+  export interface DeliverToQBusinessMember {
+    Drop?: never;
+    Relay?: never;
+    Archive?: never;
+    WriteToS3?: never;
+    Send?: never;
+    AddHeader?: never;
+    ReplaceRecipient?: never;
+    DeliverToMailbox?: never;
+    DeliverToQBusiness: DeliverToQBusinessAction;
     $unknown?: never;
   }
 
@@ -1705,6 +1767,7 @@ export namespace RuleAction {
     AddHeader?: never;
     ReplaceRecipient?: never;
     DeliverToMailbox?: never;
+    DeliverToQBusiness?: never;
     $unknown: [string, any];
   }
 
@@ -1717,6 +1780,7 @@ export namespace RuleAction {
     AddHeader: (value: AddHeaderAction) => T;
     ReplaceRecipient: (value: ReplaceRecipientAction) => T;
     DeliverToMailbox: (value: DeliverToMailboxAction) => T;
+    DeliverToQBusiness: (value: DeliverToQBusinessAction) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1729,6 +1793,7 @@ export namespace RuleAction {
     if (value.AddHeader !== undefined) return visitor.AddHeader(value.AddHeader);
     if (value.ReplaceRecipient !== undefined) return visitor.ReplaceRecipient(value.ReplaceRecipient);
     if (value.DeliverToMailbox !== undefined) return visitor.DeliverToMailbox(value.DeliverToMailbox);
+    if (value.DeliverToQBusiness !== undefined) return visitor.DeliverToQBusiness(value.DeliverToQBusiness);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -4888,6 +4953,7 @@ export const RuleActionFilterSensitiveLog = (obj: RuleAction): any => {
   if (obj.ReplaceRecipient !== undefined)
     return { ReplaceRecipient: ReplaceRecipientActionFilterSensitiveLog(obj.ReplaceRecipient) };
   if (obj.DeliverToMailbox !== undefined) return { DeliverToMailbox: obj.DeliverToMailbox };
+  if (obj.DeliverToQBusiness !== undefined) return { DeliverToQBusiness: obj.DeliverToQBusiness };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
