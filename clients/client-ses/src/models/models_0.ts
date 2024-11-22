@@ -913,6 +913,36 @@ export class ConfigurationSetSendingPausedException extends __BaseException {
 }
 
 /**
+ * <p>When included in a receipt rule, this action parses the received message and
+ *             starts an email contact in Amazon Connect on your behalf.</p>
+ *          <note>
+ *             <p>When you receive emails, the maximum email size (including headers) is 40 MB.
+ *                 Additionally, emails may only have up to 10 attachments.
+ *                 Emails larger than 40 MB or with more than 10 attachments will be bounced.</p>
+ *          </note>
+ *          <p>We recommend that you configure this action via Amazon Connect.</p>
+ * @public
+ */
+export interface ConnectAction {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon Connect instance that Amazon SES integrates with for starting
+   *             email contacts.</p>
+   *          <p>For more information about Amazon Connect instances, see the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html">Amazon Connect Administrator Guide</a>
+   *          </p>
+   * @public
+   */
+  InstanceARN: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the IAM role to be used by Amazon Simple Email Service while starting email contacts
+   *             to the Amazon Connect instance. This role should have permission to invoke <code>connect:StartEmailContact</code>
+   *             for the given Amazon Connect instance.</p>
+   * @public
+   */
+  IAMRoleARN: string | undefined;
+}
+
+/**
  * <p>Represents a request to create a configuration set. Configuration sets enable you to
  *             publish email sending events. For information about using configuration sets, see the
  *                 <a href="https://docs.aws.amazon.com/ses/latest/dg/monitor-sending-activity.html">Amazon SES
@@ -1722,28 +1752,28 @@ export interface S3Action {
 
   /**
    * <p>The customer managed key that Amazon SES should use to encrypt your emails before saving
-   *             them to the Amazon S3 bucket. You can use the default managed key or a custom managed key that
-   *             you created in Amazon Web Services KMS as follows:</p>
+   *             them to the Amazon S3 bucket. You can use the Amazon Web Services managed key or a customer managed key
+   *             that you created in Amazon Web Services KMS as follows:</p>
    *          <ul>
    *             <li>
-   *                <p>To use the default managed key, provide an ARN in the form of
+   *                <p>To use the Amazon Web Services managed key, provide an ARN in the form of
    *                         <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>.
    *                     For example, if your Amazon Web Services account ID is 123456789012 and you want to use the
-   *                     default managed key in the US West (Oregon) Region, the ARN of the default master
+   *                     Amazon Web Services managed key in the US West (Oregon) Region, the ARN of the Amazon Web Services managed
    *                     key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If
-   *                     you use the default managed key, you don't need to perform any extra steps to
-   *                     give Amazon SES permission to use the key.</p>
+   *                     you use the Amazon Web Services managed key, you don't need to perform any extra steps to give
+   *                     Amazon SES permission to use the key.</p>
    *             </li>
    *             <li>
-   *                <p>To use a custom managed key that you created in Amazon Web Services KMS, provide the ARN of
-   *                     the managed key and ensure that you add a statement to your key's policy to give
-   *                     Amazon SES permission to use it. For more information about giving permissions, see
-   *                     the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-permissions.html">Amazon SES Developer
+   *                <p>To use a customer managed key that you created in Amazon Web Services KMS, provide the ARN
+   *                     of the customer managed key and ensure that you add a statement to your key's
+   *                     policy to give Amazon SES permission to use it. For more information about giving
+   *                     permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/receiving-email-permissions.html">Amazon SES Developer
    *                         Guide</a>.</p>
    *             </li>
    *          </ul>
    *          <p>For more information about key policies, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">Amazon Web Services KMS Developer Guide</a>. If
-   *             you do not specify a managed key, Amazon SES does not encrypt your emails.</p>
+   *             you do not specify an Amazon Web Services KMS key, Amazon SES does not encrypt your emails.</p>
    *          <important>
    *             <p>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail
    *                 is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side
@@ -1762,14 +1792,12 @@ export interface S3Action {
   /**
    * <p> The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket,
    *             optionally encrypting your mail via the provided customer managed key, and publishing to
-   *             the Amazon SNS topic.
-   *             This role should have access to the following APIs:
-   *         </p>
+   *             the Amazon SNS topic. This role should have access to the following APIs: </p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>s3:PutObject</code>, <code>kms:Encrypt</code> and
-   *                     <code>kms:GenerateDataKey</code> for the given Amazon S3 bucket.</p>
+   *                         <code>kms:GenerateDataKey</code> for the given Amazon S3 bucket.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1967,6 +1995,12 @@ export interface ReceiptAction {
    * @public
    */
   SNSAction?: SNSAction | undefined;
+
+  /**
+   * <p>Parses the received message and starts an email contact in Amazon Connect on your behalf.</p>
+   * @public
+   */
+  ConnectAction?: ConnectAction | undefined;
 }
 
 /**

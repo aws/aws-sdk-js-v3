@@ -93,6 +93,10 @@ export interface DescribeReceiptRuleSetCommandOutput extends DescribeReceiptRule
  * //             TopicArn: "STRING_VALUE", // required
  * //             Encoding: "UTF-8" || "Base64",
  * //           },
+ * //           ConnectAction: { // ConnectAction
+ * //             InstanceARN: "STRING_VALUE", // required
+ * //             IAMRoleARN: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //       ],
  * //       ScanEnabled: true || false,

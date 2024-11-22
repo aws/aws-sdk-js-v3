@@ -262,6 +262,7 @@ import {
   ConfigurationSetAttribute,
   ConfigurationSetDoesNotExistException,
   ConfigurationSetSendingPausedException,
+  ConnectAction,
   Content,
   CreateConfigurationSetEventDestinationRequest,
   CreateConfigurationSetEventDestinationResponse,
@@ -3997,6 +3998,20 @@ const se_ConfigurationSetAttributeList = (input: ConfigurationSetAttribute[], co
 };
 
 /**
+ * serializeAws_queryConnectAction
+ */
+const se_ConnectAction = (input: ConnectAction, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IARN] != null) {
+    entries[_IARN] = input[_IARN];
+  }
+  if (input[_IAMRARN] != null) {
+    entries[_IAMRARN] = input[_IAMRARN];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryContent
  */
 const se_Content = (input: Content, context: __SerdeContext): any => {
@@ -4961,6 +4976,13 @@ const se_ReceiptAction = (input: ReceiptAction, context: __SerdeContext): any =>
     const memberEntries = se_SNSAction(input[_SNSA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SNSAction.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CAo] != null) {
+    const memberEntries = se_ConnectAction(input[_CAo], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConnectAction.${key}`;
       entries[loc] = value;
     });
   }
@@ -6104,6 +6126,20 @@ const de_ConfigurationSetSendingPausedException = (
   }
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryConnectAction
+ */
+const de_ConnectAction = (output: any, context: __SerdeContext): ConnectAction => {
+  const contents: any = {};
+  if (output[_IARN] != null) {
+    contents[_IARN] = __expectString(output[_IARN]);
+  }
+  if (output[_IAMRARN] != null) {
+    contents[_IAMRARN] = __expectString(output[_IAMRARN]);
   }
   return contents;
 };
@@ -7293,6 +7329,9 @@ const de_ReceiptAction = (output: any, context: __SerdeContext): ReceiptAction =
   if (output[_SNSA] != null) {
     contents[_SNSA] = de_SNSAction(output[_SNSA], context);
   }
+  if (output[_CAo] != null) {
+    contents[_CAo] = de_ConnectAction(output[_CAo], context);
+  }
   return contents;
 };
 
@@ -7998,6 +8037,7 @@ const _Bo = "Bounces";
 const _Bu = "Bucket";
 const _C = "Charset";
 const _CA = "CcAddresses";
+const _CAo = "ConnectAction";
 const _CCS = "CreateConfigurationSet";
 const _CCSED = "CreateConfigurationSetEventDestination";
 const _CCSTO = "CreateConfigurationSetTrackingOptions";
@@ -8090,6 +8130,7 @@ const _HP = "HtmlPart";
 const _HV = "HeaderValue";
 const _I = "Identity";
 const _IAMRARN = "IAMRoleARN";
+const _IARN = "InstanceARN";
 const _IF = "IpFilter";
 const _IRA = "IamRoleArn";
 const _IT = "InvocationType";
