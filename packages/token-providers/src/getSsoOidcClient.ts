@@ -10,7 +10,7 @@ export const getSsoOidcClient = async (ssoRegion: string, init: FromSsoInit = {}
 
   const ssoOidcClient = new SSOOIDCClient(
     Object.assign({}, init.clientConfig ?? {}, {
-      region: ssoRegion ?? init.clientConfig.region,
+      region: ssoRegion ?? init.clientConfig?.region,
       logger: init.clientConfig?.logger ?? init.parentClientConfig?.logger,
     })
   );
