@@ -42,6 +42,9 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  *     name: "STRING_VALUE",
  *     createdAfter: new Date("TIMESTAMP"),
  *     createdBefore: new Date("TIMESTAMP"),
+ *     status: "STRING_VALUE",
+ *     updatedAfter: new Date("TIMESTAMP"),
+ *     updatedBefore: new Date("TIMESTAMP"),
  *   },
  * };
  * const command = new ListSequenceStoresCommand(input);
@@ -61,6 +64,9 @@ export interface ListSequenceStoresCommandOutput extends ListSequenceStoresRespo
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       fallbackLocation: "STRING_VALUE",
  * //       eTagAlgorithmFamily: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       statusMessage: "STRING_VALUE",
+ * //       updateTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * // };

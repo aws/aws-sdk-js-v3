@@ -1,5 +1,8 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@smithy/smithy-client";
 
 import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
@@ -2930,6 +2933,18 @@ export const ETagAlgorithmFamily = {
 export type ETagAlgorithmFamily = (typeof ETagAlgorithmFamily)[keyof typeof ETagAlgorithmFamily];
 
 /**
+ * <p>S3 access configuration parameters.</p>
+ * @public
+ */
+export interface S3AccessConfig {
+  /**
+   * <p>Location of the access logs.</p>
+   * @public
+   */
+  accessLogLocation?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateSequenceStoreRequest {
@@ -2974,7 +2989,60 @@ export interface CreateSequenceStoreRequest {
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>S3 access configuration parameters</p>
+   * @public
+   */
+  s3AccessConfig?: S3AccessConfig | undefined;
 }
+
+/**
+ * <p>The S3 access metadata of the sequence store.</p>
+ * @public
+ */
+export interface SequenceStoreS3Access {
+  /**
+   * <p>The S3 URI of the sequence store.</p>
+   * @public
+   */
+  s3Uri?: string | undefined;
+
+  /**
+   * <p>This is ARN of the access point associated with the S3 bucket storing read sets.</p>
+   * @public
+   */
+  s3AccessPointArn?: string | undefined;
+
+  /**
+   * <p>Location of the access logs.</p>
+   * @public
+   */
+  accessLogLocation?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SequenceStoreStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type SequenceStoreStatus = (typeof SequenceStoreStatus)[keyof typeof SequenceStoreStatus];
 
 /**
  * @public
@@ -3027,6 +3095,30 @@ export interface CreateSequenceStoreResponse {
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
+
+  /**
+   * <p>The status of the sequence store.</p>
+   * @public
+   */
+  status?: SequenceStoreStatus | undefined;
+
+  /**
+   * <p>The status message of the sequence store.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>The S3 access metadata of the sequence store.</p>
+   * @public
+   */
+  s3Access?: SequenceStoreS3Access | undefined;
 }
 
 /**
@@ -3380,6 +3472,22 @@ export interface DeleteRunGroupRequest {
    */
   id: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteS3AccessPolicyRequest {
+  /**
+   * <p>The S3 access point ARN that has the access policy.</p>
+   * @public
+   */
+  s3AccessPointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteS3AccessPolicyResponse {}
 
 /**
  * @public
@@ -5364,30 +5472,72 @@ export interface GetRunTaskResponse {
 /**
  * @public
  */
+export interface GetS3AccessPolicyRequest {
+  /**
+   * <p>The S3 access point ARN that has the access policy.</p>
+   * @public
+   */
+  s3AccessPointArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StoreType = {
+  REFERENCE_STORE: "REFERENCE_STORE",
+  SEQUENCE_STORE: "SEQUENCE_STORE",
+} as const;
+
+/**
+ * @public
+ */
+export type StoreType = (typeof StoreType)[keyof typeof StoreType];
+
+/**
+ * @public
+ */
+export interface GetS3AccessPolicyResponse {
+  /**
+   * <p>The S3 access point ARN that has the access policy.</p>
+   * @public
+   */
+  s3AccessPointArn?: string | undefined;
+
+  /**
+   * <p>The AWS-generated Sequence Store or Reference Store ID.</p>
+   * @public
+   */
+  storeId?: string | undefined;
+
+  /**
+   * <p>The type of store associated with the access point.</p>
+   * @public
+   */
+  storeType?: StoreType | undefined;
+
+  /**
+   * <p>The time when the policy was last updated.</p>
+   * @public
+   */
+  updateTime?: Date | undefined;
+
+  /**
+   * <p>The current resource policy that controls S3 access on the store.</p>
+   * @public
+   */
+  s3AccessPolicy: __LazyJsonString | string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetSequenceStoreRequest {
   /**
    * <p>The store's ID.</p>
    * @public
    */
   id: string | undefined;
-}
-
-/**
- * <p>The S3 access metadata of the sequence store.</p>
- * @public
- */
-export interface SequenceStoreS3Access {
-  /**
-   * <p>The S3 URI of the sequence store.</p>
-   * @public
-   */
-  s3Uri?: string | undefined;
-
-  /**
-   * <p>This is ARN of the access point associated with the S3 bucket storing read sets.</p>
-   * @public
-   */
-  s3AccessPointArn?: string | undefined;
 }
 
 /**
@@ -5447,6 +5597,30 @@ export interface GetSequenceStoreResponse {
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
+
+  /**
+   * <p>The status of the sequence store.</p>
+   * @public
+   */
+  status?: SequenceStoreStatus | undefined;
+
+  /**
+   * <p>The status message of the sequence store.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>The last-updated time of the sequence store.</p>
+   * @public
+   */
+  updateTime?: Date | undefined;
 }
 
 /**
@@ -7383,6 +7557,24 @@ export interface SequenceStoreFilter {
    * @public
    */
   createdBefore?: Date | undefined;
+
+  /**
+   * <p>Filter results based on status.</p>
+   * @public
+   */
+  status?: SequenceStoreStatus | undefined;
+
+  /**
+   * <p>Filter results based on stores updated after the specified time.</p>
+   * @public
+   */
+  updatedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter results based on stores updated before the specified time.</p>
+   * @public
+   */
+  updatedBefore?: Date | undefined;
 }
 
 /**
@@ -7462,6 +7654,24 @@ export interface SequenceStoreDetail {
    * @public
    */
   eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
+
+  /**
+   * <p>Status of the sequence store.</p>
+   * @public
+   */
+  status?: SequenceStoreStatus | undefined;
+
+  /**
+   * <p>The status message of the sequence store.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The last-updated time of the Sequence Store.</p>
+   * @public
+   */
+  updateTime?: Date | undefined;
 }
 
 /**
@@ -7928,6 +8138,46 @@ export interface ListWorkflowsResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutS3AccessPolicyRequest {
+  /**
+   * <p>The S3 access point ARN where you want to put the access policy.</p>
+   * @public
+   */
+  s3AccessPointArn: string | undefined;
+
+  /**
+   * <p>The resource policy that controls S3 access to the store.</p>
+   * @public
+   */
+  s3AccessPolicy: __LazyJsonString | string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutS3AccessPolicyResponse {
+  /**
+   * <p>The S3 access point ARN that now has the access policy.</p>
+   * @public
+   */
+  s3AccessPointArn?: string | undefined;
+
+  /**
+   * <p>The AWS-generated Sequence Store or Reference Store ID.</p>
+   * @public
+   */
+  storeId?: string | undefined;
+
+  /**
+   * <p>The type of store associated with the access point.</p>
+   * @public
+   */
+  storeType?: StoreType | undefined;
 }
 
 /**
@@ -8517,6 +8767,136 @@ export interface StartReadSetImportJobResponse {
    * @public
    */
   creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSequenceStoreRequest {
+  /**
+   * <p>The ID of the sequence store.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>A name for the sequence store.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description for the sequence store.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>To ensure that requests don't run multiple times, specify a unique token for each request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * @public
+   */
+  fallbackLocation?: string | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>S3 access configuration parameters.</p>
+   * @public
+   */
+  s3AccessConfig?: S3AccessConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSequenceStoreResponse {
+  /**
+   * <p>The ID of the sequence store.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The ARN of the sequence store.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the sequence store.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description of the sequence store.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Server-side encryption (SSE) settings for a store.</p>
+   * @public
+   */
+  sseConfig?: SseConfig | undefined;
+
+  /**
+   * <p>The time when the store was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+
+  /**
+   * <p>The last-updated time of the Sequence Store.</p>
+   * @public
+   */
+  updateTime?: Date | undefined;
+
+  /**
+   * <p>The tags keys to propagate to the S3 objects associated with read sets in the sequence store.</p>
+   * @public
+   */
+  propagatedSetLevelTags?: string[] | undefined;
+
+  /**
+   * <p>The status of the sequence store.</p>
+   * @public
+   */
+  status?: SequenceStoreStatus | undefined;
+
+  /**
+   * <p>The status message of the sequence store.</p>
+   * @public
+   */
+  statusMessage?: string | undefined;
+
+  /**
+   * <p>The S3 URI of a bucket and folder to store Read Sets that fail to upload.</p>
+   * @public
+   */
+  fallbackLocation?: string | undefined;
+
+  /**
+   * <p>The S3 access metadata of the sequence store.</p>
+   * @public
+   */
+  s3Access?: SequenceStoreS3Access | undefined;
+
+  /**
+   * <p>The ETag algorithm family to use on ingested read sets.</p>
+   * @public
+   */
+  eTagAlgorithmFamily?: ETagAlgorithmFamily | undefined;
 }
 
 /**

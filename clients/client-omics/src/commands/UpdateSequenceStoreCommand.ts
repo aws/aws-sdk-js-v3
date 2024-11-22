@@ -5,9 +5,9 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSequenceStoreRequest, GetSequenceStoreResponse } from "../models/models_0";
+import { UpdateSequenceStoreRequest, UpdateSequenceStoreResponse } from "../models/models_0";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
-import { de_GetSequenceStoreCommand, se_GetSequenceStoreCommand } from "../protocols/Aws_restJson1";
+import { de_UpdateSequenceStoreCommand, se_UpdateSequenceStoreCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,30 +17,40 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link GetSequenceStoreCommand}.
+ * The input for {@link UpdateSequenceStoreCommand}.
  */
-export interface GetSequenceStoreCommandInput extends GetSequenceStoreRequest {}
+export interface UpdateSequenceStoreCommandInput extends UpdateSequenceStoreRequest {}
 /**
  * @public
  *
- * The output of {@link GetSequenceStoreCommand}.
+ * The output of {@link UpdateSequenceStoreCommand}.
  */
-export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse, __MetadataBearer {}
+export interface UpdateSequenceStoreCommandOutput extends UpdateSequenceStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a sequence store.</p>
+ * <p>Update one or more parameters for the sequence store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OmicsClient, GetSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
- * // const { OmicsClient, GetSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
+ * import { OmicsClient, UpdateSequenceStoreCommand } from "@aws-sdk/client-omics"; // ES Modules import
+ * // const { OmicsClient, UpdateSequenceStoreCommand } = require("@aws-sdk/client-omics"); // CommonJS import
  * const client = new OmicsClient(config);
- * const input = { // GetSequenceStoreRequest
+ * const input = { // UpdateSequenceStoreRequest
  *   id: "STRING_VALUE", // required
+ *   name: "STRING_VALUE",
+ *   description: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
+ *   fallbackLocation: "STRING_VALUE",
+ *   propagatedSetLevelTags: [ // PropagatedSetLevelTags
+ *     "STRING_VALUE",
+ *   ],
+ *   s3AccessConfig: { // S3AccessConfig
+ *     accessLogLocation: "STRING_VALUE",
+ *   },
  * };
- * const command = new GetSequenceStoreCommand(input);
+ * const command = new UpdateSequenceStoreCommand(input);
  * const response = await client.send(command);
- * // { // GetSequenceStoreResponse
+ * // { // UpdateSequenceStoreResponse
  * //   id: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
  * //   name: "STRING_VALUE",
@@ -50,6 +60,12 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * //     keyArn: "STRING_VALUE",
  * //   },
  * //   creationTime: new Date("TIMESTAMP"), // required
+ * //   updateTime: new Date("TIMESTAMP"),
+ * //   propagatedSetLevelTags: [ // PropagatedSetLevelTags
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
  * //   fallbackLocation: "STRING_VALUE",
  * //   s3Access: { // SequenceStoreS3Access
  * //     s3Uri: "STRING_VALUE",
@@ -57,24 +73,21 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * //     accessLogLocation: "STRING_VALUE",
  * //   },
  * //   eTagAlgorithmFamily: "STRING_VALUE",
- * //   status: "STRING_VALUE",
- * //   statusMessage: "STRING_VALUE",
- * //   propagatedSetLevelTags: [ // PropagatedSetLevelTags
- * //     "STRING_VALUE",
- * //   ],
- * //   updateTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
  *
- * @param GetSequenceStoreCommandInput - {@link GetSequenceStoreCommandInput}
- * @returns {@link GetSequenceStoreCommandOutput}
- * @see {@link GetSequenceStoreCommandInput} for command's `input` shape.
- * @see {@link GetSequenceStoreCommandOutput} for command's `response` shape.
+ * @param UpdateSequenceStoreCommandInput - {@link UpdateSequenceStoreCommandInput}
+ * @returns {@link UpdateSequenceStoreCommandOutput}
+ * @see {@link UpdateSequenceStoreCommandInput} for command's `input` shape.
+ * @see {@link UpdateSequenceStoreCommandOutput} for command's `response` shape.
  * @see {@link OmicsClientResolvedConfig | config} for OmicsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request cannot be applied to the target resource in its current state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred. Try the request again.</p>
@@ -96,10 +109,10 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  *
  * @public
  */
-export class GetSequenceStoreCommand extends $Command
+export class UpdateSequenceStoreCommand extends $Command
   .classBuilder<
-    GetSequenceStoreCommandInput,
-    GetSequenceStoreCommandOutput,
+    UpdateSequenceStoreCommandInput,
+    UpdateSequenceStoreCommandOutput,
     OmicsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +124,21 @@ export class GetSequenceStoreCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("Omics", "GetSequenceStore", {})
-  .n("OmicsClient", "GetSequenceStoreCommand")
+  .s("Omics", "UpdateSequenceStore", {})
+  .n("OmicsClient", "UpdateSequenceStoreCommand")
   .f(void 0, void 0)
-  .ser(se_GetSequenceStoreCommand)
-  .de(de_GetSequenceStoreCommand)
+  .ser(se_UpdateSequenceStoreCommand)
+  .de(de_UpdateSequenceStoreCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetSequenceStoreRequest;
-      output: GetSequenceStoreResponse;
+      input: UpdateSequenceStoreRequest;
+      output: UpdateSequenceStoreResponse;
     };
     sdk: {
-      input: GetSequenceStoreCommandInput;
-      output: GetSequenceStoreCommandOutput;
+      input: UpdateSequenceStoreCommandInput;
+      output: UpdateSequenceStoreCommandOutput;
     };
   };
 }

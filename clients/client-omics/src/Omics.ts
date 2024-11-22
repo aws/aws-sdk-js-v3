@@ -107,6 +107,11 @@ import {
   DeleteRunGroupCommandOutput,
 } from "./commands/DeleteRunGroupCommand";
 import {
+  DeleteS3AccessPolicyCommand,
+  DeleteS3AccessPolicyCommandInput,
+  DeleteS3AccessPolicyCommandOutput,
+} from "./commands/DeleteS3AccessPolicyCommand";
+import {
   DeleteSequenceStoreCommand,
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
@@ -182,6 +187,11 @@ import { GetRunCacheCommand, GetRunCacheCommandInput, GetRunCacheCommandOutput }
 import { GetRunCommand, GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
 import { GetRunGroupCommand, GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
 import { GetRunTaskCommand, GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
+import {
+  GetS3AccessPolicyCommand,
+  GetS3AccessPolicyCommandInput,
+  GetS3AccessPolicyCommandOutput,
+} from "./commands/GetS3AccessPolicyCommand";
 import {
   GetSequenceStoreCommand,
   GetSequenceStoreCommandInput,
@@ -302,6 +312,11 @@ import {
   ListWorkflowsCommandOutput,
 } from "./commands/ListWorkflowsCommand";
 import {
+  PutS3AccessPolicyCommand,
+  PutS3AccessPolicyCommandInput,
+  PutS3AccessPolicyCommandOutput,
+} from "./commands/PutS3AccessPolicyCommand";
+import {
   StartAnnotationImportJobCommand,
   StartAnnotationImportJobCommandInput,
   StartAnnotationImportJobCommandOutput,
@@ -359,6 +374,11 @@ import {
   UpdateRunGroupCommandOutput,
 } from "./commands/UpdateRunGroupCommand";
 import {
+  UpdateSequenceStoreCommand,
+  UpdateSequenceStoreCommandInput,
+  UpdateSequenceStoreCommandOutput,
+} from "./commands/UpdateSequenceStoreCommand";
+import {
   UpdateVariantStoreCommand,
   UpdateVariantStoreCommandInput,
   UpdateVariantStoreCommandOutput,
@@ -400,6 +420,7 @@ const commands = {
   DeleteRunCommand,
   DeleteRunCacheCommand,
   DeleteRunGroupCommand,
+  DeleteS3AccessPolicyCommand,
   DeleteSequenceStoreCommand,
   DeleteShareCommand,
   DeleteVariantStoreCommand,
@@ -420,6 +441,7 @@ const commands = {
   GetRunCacheCommand,
   GetRunGroupCommand,
   GetRunTaskCommand,
+  GetS3AccessPolicyCommand,
   GetSequenceStoreCommand,
   GetShareCommand,
   GetVariantImportJobCommand,
@@ -447,6 +469,7 @@ const commands = {
   ListVariantImportJobsCommand,
   ListVariantStoresCommand,
   ListWorkflowsCommand,
+  PutS3AccessPolicyCommand,
   StartAnnotationImportJobCommand,
   StartReadSetActivationJobCommand,
   StartReadSetExportJobCommand,
@@ -460,6 +483,7 @@ const commands = {
   UpdateAnnotationStoreVersionCommand,
   UpdateRunCacheCommand,
   UpdateRunGroupCommand,
+  UpdateSequenceStoreCommand,
   UpdateVariantStoreCommand,
   UpdateWorkflowCommand,
   UploadReadSetPartCommand,
@@ -833,6 +857,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link DeleteS3AccessPolicyCommand}
+   */
+  deleteS3AccessPolicy(
+    args: DeleteS3AccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteS3AccessPolicyCommandOutput>;
+  deleteS3AccessPolicy(
+    args: DeleteS3AccessPolicyCommandInput,
+    cb: (err: any, data?: DeleteS3AccessPolicyCommandOutput) => void
+  ): void;
+  deleteS3AccessPolicy(
+    args: DeleteS3AccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteS3AccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteSequenceStoreCommand}
    */
   deleteSequenceStore(
@@ -1125,6 +1166,23 @@ export interface Omics {
     args: GetRunTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRunTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetS3AccessPolicyCommand}
+   */
+  getS3AccessPolicy(
+    args: GetS3AccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetS3AccessPolicyCommandOutput>;
+  getS3AccessPolicy(
+    args: GetS3AccessPolicyCommandInput,
+    cb: (err: any, data?: GetS3AccessPolicyCommandOutput) => void
+  ): void;
+  getS3AccessPolicy(
+    args: GetS3AccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetS3AccessPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1537,6 +1595,23 @@ export interface Omics {
   ): void;
 
   /**
+   * @see {@link PutS3AccessPolicyCommand}
+   */
+  putS3AccessPolicy(
+    args: PutS3AccessPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutS3AccessPolicyCommandOutput>;
+  putS3AccessPolicy(
+    args: PutS3AccessPolicyCommandInput,
+    cb: (err: any, data?: PutS3AccessPolicyCommandOutput) => void
+  ): void;
+  putS3AccessPolicy(
+    args: PutS3AccessPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutS3AccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartAnnotationImportJobCommand}
    */
   startAnnotationImportJob(
@@ -1731,6 +1806,23 @@ export interface Omics {
     args: UpdateRunGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateRunGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateSequenceStoreCommand}
+   */
+  updateSequenceStore(
+    args: UpdateSequenceStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSequenceStoreCommandOutput>;
+  updateSequenceStore(
+    args: UpdateSequenceStoreCommandInput,
+    cb: (err: any, data?: UpdateSequenceStoreCommandOutput) => void
+  ): void;
+  updateSequenceStore(
+    args: UpdateSequenceStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSequenceStoreCommandOutput) => void
   ): void;
 
   /**

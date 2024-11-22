@@ -398,6 +398,14 @@ DeleteRunGroup
 </details>
 <details>
 <summary>
+DeleteS3AccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteS3AccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteS3AccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteS3AccessPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteSequenceStore
 </summary>
 
@@ -554,6 +562,14 @@ GetRunTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetRunTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetS3AccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetS3AccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetS3AccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetS3AccessPolicyCommandOutput/)
 
 </details>
 <details>
@@ -774,6 +790,14 @@ ListWorkflows
 </details>
 <details>
 <summary>
+PutS3AccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/PutS3AccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/PutS3AccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/PutS3AccessPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartAnnotationImportJob
 </summary>
 
@@ -874,6 +898,14 @@ UpdateRunGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateRunGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSequenceStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateSequenceStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateSequenceStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateSequenceStoreCommandOutput/)
 
 </details>
 <details>

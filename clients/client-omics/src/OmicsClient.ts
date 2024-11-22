@@ -115,6 +115,10 @@ import { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "./comma
 import { DeleteRunCommandInput, DeleteRunCommandOutput } from "./commands/DeleteRunCommand";
 import { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "./commands/DeleteRunGroupCommand";
 import {
+  DeleteS3AccessPolicyCommandInput,
+  DeleteS3AccessPolicyCommandOutput,
+} from "./commands/DeleteS3AccessPolicyCommand";
+import {
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
 } from "./commands/DeleteSequenceStoreCommand";
@@ -158,6 +162,7 @@ import { GetRunCacheCommandInput, GetRunCacheCommandOutput } from "./commands/Ge
 import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand";
 import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "./commands/GetRunGroupCommand";
 import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "./commands/GetRunTaskCommand";
+import { GetS3AccessPolicyCommandInput, GetS3AccessPolicyCommandOutput } from "./commands/GetS3AccessPolicyCommand";
 import { GetSequenceStoreCommandInput, GetSequenceStoreCommandOutput } from "./commands/GetSequenceStoreCommand";
 import { GetShareCommandInput, GetShareCommandOutput } from "./commands/GetShareCommand";
 import {
@@ -224,6 +229,7 @@ import {
 } from "./commands/ListVariantImportJobsCommand";
 import { ListVariantStoresCommandInput, ListVariantStoresCommandOutput } from "./commands/ListVariantStoresCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
+import { PutS3AccessPolicyCommandInput, PutS3AccessPolicyCommandOutput } from "./commands/PutS3AccessPolicyCommand";
 import {
   StartAnnotationImportJobCommandInput,
   StartAnnotationImportJobCommandOutput,
@@ -261,6 +267,10 @@ import {
 } from "./commands/UpdateAnnotationStoreVersionCommand";
 import { UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput } from "./commands/UpdateRunCacheCommand";
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "./commands/UpdateRunGroupCommand";
+import {
+  UpdateSequenceStoreCommandInput,
+  UpdateSequenceStoreCommandOutput,
+} from "./commands/UpdateSequenceStoreCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "./commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
 import { UploadReadSetPartCommandInput, UploadReadSetPartCommandOutput } from "./commands/UploadReadSetPartCommand";
@@ -303,6 +313,7 @@ export type ServiceInputTypes =
   | DeleteRunCacheCommandInput
   | DeleteRunCommandInput
   | DeleteRunGroupCommandInput
+  | DeleteS3AccessPolicyCommandInput
   | DeleteSequenceStoreCommandInput
   | DeleteShareCommandInput
   | DeleteVariantStoreCommandInput
@@ -323,6 +334,7 @@ export type ServiceInputTypes =
   | GetRunCommandInput
   | GetRunGroupCommandInput
   | GetRunTaskCommandInput
+  | GetS3AccessPolicyCommandInput
   | GetSequenceStoreCommandInput
   | GetShareCommandInput
   | GetVariantImportJobCommandInput
@@ -350,6 +362,7 @@ export type ServiceInputTypes =
   | ListVariantImportJobsCommandInput
   | ListVariantStoresCommandInput
   | ListWorkflowsCommandInput
+  | PutS3AccessPolicyCommandInput
   | StartAnnotationImportJobCommandInput
   | StartReadSetActivationJobCommandInput
   | StartReadSetExportJobCommandInput
@@ -363,6 +376,7 @@ export type ServiceInputTypes =
   | UpdateAnnotationStoreVersionCommandInput
   | UpdateRunCacheCommandInput
   | UpdateRunGroupCommandInput
+  | UpdateSequenceStoreCommandInput
   | UpdateVariantStoreCommandInput
   | UpdateWorkflowCommandInput
   | UploadReadSetPartCommandInput;
@@ -395,6 +409,7 @@ export type ServiceOutputTypes =
   | DeleteRunCacheCommandOutput
   | DeleteRunCommandOutput
   | DeleteRunGroupCommandOutput
+  | DeleteS3AccessPolicyCommandOutput
   | DeleteSequenceStoreCommandOutput
   | DeleteShareCommandOutput
   | DeleteVariantStoreCommandOutput
@@ -415,6 +430,7 @@ export type ServiceOutputTypes =
   | GetRunCommandOutput
   | GetRunGroupCommandOutput
   | GetRunTaskCommandOutput
+  | GetS3AccessPolicyCommandOutput
   | GetSequenceStoreCommandOutput
   | GetShareCommandOutput
   | GetVariantImportJobCommandOutput
@@ -442,6 +458,7 @@ export type ServiceOutputTypes =
   | ListVariantImportJobsCommandOutput
   | ListVariantStoresCommandOutput
   | ListWorkflowsCommandOutput
+  | PutS3AccessPolicyCommandOutput
   | StartAnnotationImportJobCommandOutput
   | StartReadSetActivationJobCommandOutput
   | StartReadSetExportJobCommandOutput
@@ -455,6 +472,7 @@ export type ServiceOutputTypes =
   | UpdateAnnotationStoreVersionCommandOutput
   | UpdateRunCacheCommandOutput
   | UpdateRunGroupCommandOutput
+  | UpdateSequenceStoreCommandOutput
   | UpdateVariantStoreCommandOutput
   | UpdateWorkflowCommandOutput
   | UploadReadSetPartCommandOutput;
