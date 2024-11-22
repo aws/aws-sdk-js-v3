@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release adds support for advertising trusted CA certificate names in associated trust stores. ([5e46efc](https://github.com/aws/aws-sdk-js-v3/commit/5e46efc4ecd8ae46f897d7948deb2048128f2e03))
+
+
+
+
+
 # [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

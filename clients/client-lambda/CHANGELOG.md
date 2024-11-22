@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-lambda:** Add ProvisionedPollerConfig to Lambda event-source-mapping API. ([511ab41](https://github.com/aws/aws-sdk-js-v3/commit/511ab41c23c3212ab802b5026958c4d12dd9195d))
+
+
+
+
+
 # [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
 
 

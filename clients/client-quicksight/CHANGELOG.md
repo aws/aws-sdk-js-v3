@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-quicksight:** This release includes: Update APIs to support Image, Layer Map, font customization, and Plugin Visual. Add Identity center related information in ListNamsespace API. Update API for restrictedFolder support in topics and add API for SearchTopics, Describe/Update DashboardsQA Configration. ([df75ca5](https://github.com/aws/aws-sdk-js-v3/commit/df75ca51f2eb797ebabba6b751d0ef7c92724654))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

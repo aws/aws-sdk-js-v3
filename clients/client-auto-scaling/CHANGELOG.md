@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-auto-scaling:** Now, Amazon EC2 Auto Scaling customers can enable target tracking policies to take quicker scaling decisions, enhancing their application performance and EC2 utilization. To get started, specify target tracking to monitor a metric that is available on Amazon CloudWatch at seconds-level interval. ([26d5f85](https://github.com/aws/aws-sdk-js-v3/commit/26d5f8521b28811ff7e53c08009e486b67b6698c))
+
+
+
+
+
 # [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
 
 

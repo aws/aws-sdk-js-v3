@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-omics:** This release adds support for resource policy based cross account S3 access to sequence store read sets. ([dbe3f07](https://github.com/aws/aws-sdk-js-v3/commit/dbe3f07738b6e00fd0e32f7750e188e245ba51bb))
+
+
+
+
+
 # [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
 
 

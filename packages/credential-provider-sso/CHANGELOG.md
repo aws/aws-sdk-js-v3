@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Bug Fixes
+
+* **credential-provider-ini:** pass clientConfig to sso and sso-oidc inner clients ([#6688](https://github.com/aws/aws-sdk-js-v3/issues/6688)) ([0ca3da3](https://github.com/aws/aws-sdk-js-v3/commit/0ca3da3378044fbb521ed9621acca4cca65c965e))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-sso

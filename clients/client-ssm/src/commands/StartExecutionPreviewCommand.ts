@@ -126,6 +126,22 @@ export interface StartExecutionPreviewCommandOutput extends StartExecutionPrevie
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  * @public
+ * @example StartExecutionPreview
+ * ```javascript
+ * // This example illustrates one usage of StartExecutionPreview
+ * const input = {
+ *   "DocumentName": "AWS-StartEC2Instance"
+ * };
+ * const command = new StartExecutionPreviewCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ExecutionPreviewId": "2f27d6e5-9676-4708-b8bd-aef0ab47bb26"
+ * }
+ * *\/
+ * // example id: startexecutionpreview-7a6b962646a9
+ * ```
+ *
  */
 export class StartExecutionPreviewCommand extends $Command
   .classBuilder<

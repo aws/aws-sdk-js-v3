@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-cost-explorer:** This release adds the Impact field(contains Contribution field) to the GetAnomalies API response under RootCause ([af7c9b2](https://github.com/aws/aws-sdk-js-v3/commit/af7c9b2b6b58a1eaf8e89c4183845b23a12c8dc7))
+
+
+
+
+
 # [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
 
 

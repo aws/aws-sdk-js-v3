@@ -108,6 +108,49 @@ export interface ListNodesSummaryCommandOutput extends ListNodesSummaryResult, _
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  * @public
+ * @example ListNodesSummary
+ * ```javascript
+ * // This example illustrates one usage of ListNodesSummary
+ * const input = {
+ *   "Aggregators": [
+ *     {
+ *       "AggregatorType": "Count",
+ *       "AttributeName": "Region",
+ *       "TypeName": "Instance"
+ *     }
+ *   ],
+ *   "Filters": [
+ *     {
+ *       "Key": "InstanceStatus",
+ *       "Type": "Equal",
+ *       "Values": [
+ *         "Active"
+ *       ]
+ *     }
+ *   ],
+ *   "MaxResults": 2,
+ *   "NextToken": "A9lT8CAxj9aDFRi+MNAoFq08I---EXAMPLE",
+ *   "SyncName": "AWS-QuickSetup-ManagedNode"
+ * };
+ * const command = new ListNodesSummaryCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Summary": [
+ *     {
+ *       "Count": "26",
+ *       "Region": "us-east-1"
+ *     },
+ *     {
+ *       "Count": "7",
+ *       "Region": "us-east-2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: listnodessummary-9a63f9e71ee0
+ * ```
+ *
  */
 export class ListNodesSummaryCommand extends $Command
   .classBuilder<

@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Bug Fixes
+
+* **credential-provider-ini:** pass clientConfig to sso and sso-oidc inner clients ([#6688](https://github.com/aws/aws-sdk-js-v3/issues/6688)) ([0ca3da3](https://github.com/aws/aws-sdk-js-v3/commit/0ca3da3378044fbb521ed9621acca4cca65c965e))
+
+
+### Features
+
+* **client-auto-scaling:** Now, Amazon EC2 Auto Scaling customers can enable target tracking policies to take quicker scaling decisions, enhancing their application performance and EC2 utilization. To get started, specify target tracking to monitor a metric that is available on Amazon CloudWatch at seconds-level interval. ([26d5f85](https://github.com/aws/aws-sdk-js-v3/commit/26d5f8521b28811ff7e53c08009e486b67b6698c))
+* **client-bcm-pricing-calculator:** Initial release of the AWS Billing and Cost Management Pricing Calculator API. ([13fd8a4](https://github.com/aws/aws-sdk-js-v3/commit/13fd8a46855bfc44f7a166556498c3c3835f6935))
+* **client-bedrock-agent-runtime:** InvokeInlineAgent API release to help invoke runtime agents without any dependency on preconfigured agents. ([372482a](https://github.com/aws/aws-sdk-js-v3/commit/372482ae71069f9b48a9c3cbcbee38bd3312204d))
+* **client-chatbot:** Adds support for programmatic management of custom actions and aliases which can be associated with channel configurations. ([acdb624](https://github.com/aws/aws-sdk-js-v3/commit/acdb624fadc89f6543ec7c7436cbc1388a44acf4))
+* **client-codepipeline:** AWS CodePipeline V2 type pipelines now support ECRBuildAndPublish and InspectorScan actions. ([cce4188](https://github.com/aws/aws-sdk-js-v3/commit/cce4188c245a51049fb6392f13e38e1c1afc4efd))
+* **client-cognito-identity-provider:** Add support for users to sign up and sign in without passwords, using email and SMS OTPs and Passkeys. Add support for Passkeys based on WebAuthn. Add support for enhanced branding customization for hosted authentication pages with Amazon Cognito Managed Login. Add feature tiers with new pricing. ([3ef966f](https://github.com/aws/aws-sdk-js-v3/commit/3ef966f648e52ce2abdfc99f06af0f8e49a60e08))
+* **client-connect:** Amazon Connect Service Feature: Add APIs for Amazon Connect Email Channel ([a83926c](https://github.com/aws/aws-sdk-js-v3/commit/a83926c90ed8eb4608f987faa9803e805f5ea5ff))
+* **client-cost-explorer:** This release adds the Impact field(contains Contribution field) to the GetAnomalies API response under RootCause ([af7c9b2](https://github.com/aws/aws-sdk-js-v3/commit/af7c9b2b6b58a1eaf8e89c4183845b23a12c8dc7))
+* **client-elastic-load-balancing-v2:** This release adds support for advertising trusted CA certificate names in associated trust stores. ([5e46efc](https://github.com/aws/aws-sdk-js-v3/commit/5e46efc4ecd8ae46f897d7948deb2048128f2e03))
+* **client-emr:** Advanced Scaling in Amazon EMR Managed Scaling ([4092279](https://github.com/aws/aws-sdk-js-v3/commit/4092279f0940ee2f7feb96567b3120bac6f87ac5))
+* **client-inspector2:** Extend inspector2 service model to include ServiceQuotaExceededException. ([dc13e07](https://github.com/aws/aws-sdk-js-v3/commit/dc13e071266d8b202fcfd2766f3ae05536a98c95))
+* **client-lambda:** Add ProvisionedPollerConfig to Lambda event-source-mapping API. ([511ab41](https://github.com/aws/aws-sdk-js-v3/commit/511ab41c23c3212ab802b5026958c4d12dd9195d))
+* **client-mailmanager:** Added new "DeliverToQBusiness" rule action to MailManager RulesSet for ingesting email data into Amazon Q Business customer applications ([048d165](https://github.com/aws/aws-sdk-js-v3/commit/048d16555e3f52534ead6efe9fe54c19881bd8f0))
+* **client-neptune-graph:** Add 4 new APIs to support new Export features, allowing Parquet and CSV formats. Add new arguments in Import APIs to support Parquet import. Add a new query "neptune.read" to run algorithms without loading data into database ([48054dc](https://github.com/aws/aws-sdk-js-v3/commit/48054dc37495437203eaeacad6f00501cecdc503))
+* **client-omics:** This release adds support for resource policy based cross account S3 access to sequence store read sets. ([dbe3f07](https://github.com/aws/aws-sdk-js-v3/commit/dbe3f07738b6e00fd0e32f7750e188e245ba51bb))
+* **client-quicksight:** This release includes: Update APIs to support Image, Layer Map, font customization, and Plugin Visual. Add Identity center related information in ListNamsespace API. Update API for restrictedFolder support in topics and add API for SearchTopics, Describe/Update DashboardsQA Configration. ([df75ca5](https://github.com/aws/aws-sdk-js-v3/commit/df75ca51f2eb797ebabba6b751d0ef7c92724654))
+* **client-sagemaker:** This release adds APIs for new features for SageMaker endpoint to scale down to zero instances, native support for multi-adapter inference, and endpoint scaling improvements. ([f082da5](https://github.com/aws/aws-sdk-js-v3/commit/f082da5c732fdac857e7e85bce8b26844959c63c))
+* **client-ses:** This release adds support for starting email contacts in your Amazon Connect instance as an email receiving action. ([14fc94c](https://github.com/aws/aws-sdk-js-v3/commit/14fc94cdbd3a649d144f06a8d7f220b5890906bc))
+* **client-sfn:** Add support for variables and JSONata in TestState, GetExecutionHistory, DescribeStateMachine, and DescribeStateMachineForExecution ([c9c278a](https://github.com/aws/aws-sdk-js-v3/commit/c9c278a4aa0f6dcaf8116651fd423eb48ff3d034))
+* **clients:** update client endpoints as of 2024-11-22 ([bcd27a2](https://github.com/aws/aws-sdk-js-v3/commit/bcd27a2e9a902e9e8fac51eb8d40e33f49639aa1))
+
+
+
+
+
 # [3.698.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.697.0...v3.698.0) (2024-11-21)
 
 

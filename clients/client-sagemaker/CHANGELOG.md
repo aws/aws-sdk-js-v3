@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-sagemaker:** This release adds APIs for new features for SageMaker endpoint to scale down to zero instances, native support for multi-adapter inference, and endpoint scaling improvements. ([f082da5](https://github.com/aws/aws-sdk-js-v3/commit/f082da5c732fdac857e7e85bce8b26844959c63c))
+
+
+
+
+
 # [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

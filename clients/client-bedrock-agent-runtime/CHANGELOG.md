@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** InvokeInlineAgent API release to help invoke runtime agents without any dependency on preconfigured agents. ([372482a](https://github.com/aws/aws-sdk-js-v3/commit/372482ae71069f9b48a9c3cbcbee38bd3312204d))
+
+
+
+
+
 # [3.697.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.696.0...v3.697.0) (2024-11-20)
 
 
