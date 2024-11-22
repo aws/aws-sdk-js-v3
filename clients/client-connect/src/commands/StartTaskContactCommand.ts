@@ -99,8 +99,11 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *   Name: "STRING_VALUE", // required
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *       Value: "STRING_VALUE",
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *       Arn: "STRING_VALUE",
+ *       StatusReason: "STRING_VALUE",
  *     },
  *   },
  *   Description: "STRING_VALUE",
@@ -109,6 +112,11 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *   TaskTemplateId: "STRING_VALUE",
  *   QuickConnectId: "STRING_VALUE",
  *   RelatedContactId: "STRING_VALUE",
+ *   SegmentAttributes: { // SegmentAttributes
+ *     "<keys>": { // SegmentAttributeValue
+ *       ValueString: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);

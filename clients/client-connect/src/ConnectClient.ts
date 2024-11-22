@@ -127,6 +127,7 @@ import {
   CompleteAttachedFileUploadCommandOutput,
 } from "./commands/CompleteAttachedFileUploadCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "./commands/CreateAgentStatusCommand";
+import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
 import {
   CreateContactFlowModuleCommandInput,
@@ -136,6 +137,7 @@ import {
   CreateContactFlowVersionCommandInput,
   CreateContactFlowVersionCommandOutput,
 } from "./commands/CreateContactFlowVersionCommand";
+import { CreateEmailAddressCommandInput, CreateEmailAddressCommandOutput } from "./commands/CreateEmailAddressCommand";
 import {
   CreateEvaluationFormCommandInput,
   CreateEvaluationFormCommandOutput,
@@ -198,6 +200,7 @@ import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
+import { DeleteEmailAddressCommandInput, DeleteEmailAddressCommandOutput } from "./commands/DeleteEmailAddressCommand";
 import {
   DeleteEvaluationFormCommandInput,
   DeleteEvaluationFormCommandOutput,
@@ -262,6 +265,10 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "./commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeEmailAddressCommandInput,
+  DescribeEmailAddressCommandOutput,
+} from "./commands/DescribeEmailAddressCommand";
 import {
   DescribeEvaluationFormCommandInput,
   DescribeEvaluationFormCommandOutput,
@@ -391,6 +398,10 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
+import {
+  ListAssociatedContactsCommandInput,
+  ListAssociatedContactsCommandOutput,
+} from "./commands/ListAssociatedContactsCommand";
 import {
   ListAuthenticationProfilesCommandInput,
   ListAuthenticationProfilesCommandOutput,
@@ -540,6 +551,10 @@ import {
 import { SearchContactFlowsCommandInput, SearchContactFlowsCommandOutput } from "./commands/SearchContactFlowsCommand";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand";
 import {
+  SearchEmailAddressesCommandInput,
+  SearchEmailAddressesCommandOutput,
+} from "./commands/SearchEmailAddressesCommand";
+import {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
 } from "./commands/SearchHoursOfOperationsCommand";
@@ -572,6 +587,7 @@ import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
 } from "./commands/SendChatIntegrationEventCommand";
+import { SendOutboundEmailCommandInput, SendOutboundEmailCommandOutput } from "./commands/SendOutboundEmailCommand";
 import {
   StartAttachedFileUploadCommandInput,
   StartAttachedFileUploadCommandOutput,
@@ -589,10 +605,15 @@ import {
   StartContactStreamingCommandInput,
   StartContactStreamingCommandOutput,
 } from "./commands/StartContactStreamingCommand";
+import { StartEmailContactCommandInput, StartEmailContactCommandOutput } from "./commands/StartEmailContactCommand";
 import {
   StartOutboundChatContactCommandInput,
   StartOutboundChatContactCommandOutput,
 } from "./commands/StartOutboundChatContactCommand";
+import {
+  StartOutboundEmailContactCommandInput,
+  StartOutboundEmailContactCommandOutput,
+} from "./commands/StartOutboundEmailContactCommand";
 import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
@@ -665,6 +686,10 @@ import {
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
 import {
+  UpdateEmailAddressMetadataCommandInput,
+  UpdateEmailAddressMetadataCommandOutput,
+} from "./commands/UpdateEmailAddressMetadataCommand";
+import {
   UpdateEvaluationFormCommandInput,
   UpdateEvaluationFormCommandOutput,
 } from "./commands/UpdateEvaluationFormCommand";
@@ -707,6 +732,10 @@ import {
   UpdateQueueOutboundCallerConfigCommandInput,
   UpdateQueueOutboundCallerConfigCommandOutput,
 } from "./commands/UpdateQueueOutboundCallerConfigCommand";
+import {
+  UpdateQueueOutboundEmailConfigCommandInput,
+  UpdateQueueOutboundEmailConfigCommandOutput,
+} from "./commands/UpdateQueueOutboundEmailConfigCommand";
 import { UpdateQueueStatusCommandInput, UpdateQueueStatusCommandOutput } from "./commands/UpdateQueueStatusCommand";
 import {
   UpdateQuickConnectConfigCommandInput,
@@ -818,9 +847,11 @@ export type ServiceInputTypes =
   | ClaimPhoneNumberCommandInput
   | CompleteAttachedFileUploadCommandInput
   | CreateAgentStatusCommandInput
+  | CreateContactCommandInput
   | CreateContactFlowCommandInput
   | CreateContactFlowModuleCommandInput
   | CreateContactFlowVersionCommandInput
+  | CreateEmailAddressCommandInput
   | CreateEvaluationFormCommandInput
   | CreateHoursOfOperationCommandInput
   | CreateInstanceCommandInput
@@ -847,6 +878,7 @@ export type ServiceInputTypes =
   | DeleteContactEvaluationCommandInput
   | DeleteContactFlowCommandInput
   | DeleteContactFlowModuleCommandInput
+  | DeleteEmailAddressCommandInput
   | DeleteEvaluationFormCommandInput
   | DeleteHoursOfOperationCommandInput
   | DeleteInstanceCommandInput
@@ -872,6 +904,7 @@ export type ServiceInputTypes =
   | DescribeContactEvaluationCommandInput
   | DescribeContactFlowCommandInput
   | DescribeContactFlowModuleCommandInput
+  | DescribeEmailAddressCommandInput
   | DescribeEvaluationFormCommandInput
   | DescribeHoursOfOperationCommandInput
   | DescribeInstanceAttributeCommandInput
@@ -920,6 +953,7 @@ export type ServiceInputTypes =
   | ListAgentStatusesCommandInput
   | ListAnalyticsDataAssociationsCommandInput
   | ListApprovedOriginsCommandInput
+  | ListAssociatedContactsCommandInput
   | ListAuthenticationProfilesCommandInput
   | ListBotsCommandInput
   | ListContactEvaluationsCommandInput
@@ -975,6 +1009,7 @@ export type ServiceInputTypes =
   | SearchContactFlowModulesCommandInput
   | SearchContactFlowsCommandInput
   | SearchContactsCommandInput
+  | SearchEmailAddressesCommandInput
   | SearchHoursOfOperationsCommandInput
   | SearchPredefinedAttributesCommandInput
   | SearchPromptsCommandInput
@@ -987,12 +1022,15 @@ export type ServiceInputTypes =
   | SearchUsersCommandInput
   | SearchVocabulariesCommandInput
   | SendChatIntegrationEventCommandInput
+  | SendOutboundEmailCommandInput
   | StartAttachedFileUploadCommandInput
   | StartChatContactCommandInput
   | StartContactEvaluationCommandInput
   | StartContactRecordingCommandInput
   | StartContactStreamingCommandInput
+  | StartEmailContactCommandInput
   | StartOutboundChatContactCommandInput
+  | StartOutboundEmailContactCommandInput
   | StartOutboundVoiceContactCommandInput
   | StartScreenSharingCommandInput
   | StartTaskContactCommandInput
@@ -1019,6 +1057,7 @@ export type ServiceInputTypes =
   | UpdateContactFlowNameCommandInput
   | UpdateContactRoutingDataCommandInput
   | UpdateContactScheduleCommandInput
+  | UpdateEmailAddressMetadataCommandInput
   | UpdateEvaluationFormCommandInput
   | UpdateHoursOfOperationCommandInput
   | UpdateInstanceAttributeCommandInput
@@ -1032,6 +1071,7 @@ export type ServiceInputTypes =
   | UpdateQueueMaxContactsCommandInput
   | UpdateQueueNameCommandInput
   | UpdateQueueOutboundCallerConfigCommandInput
+  | UpdateQueueOutboundEmailConfigCommandInput
   | UpdateQueueStatusCommandInput
   | UpdateQuickConnectConfigCommandInput
   | UpdateQuickConnectNameCommandInput
@@ -1082,9 +1122,11 @@ export type ServiceOutputTypes =
   | ClaimPhoneNumberCommandOutput
   | CompleteAttachedFileUploadCommandOutput
   | CreateAgentStatusCommandOutput
+  | CreateContactCommandOutput
   | CreateContactFlowCommandOutput
   | CreateContactFlowModuleCommandOutput
   | CreateContactFlowVersionCommandOutput
+  | CreateEmailAddressCommandOutput
   | CreateEvaluationFormCommandOutput
   | CreateHoursOfOperationCommandOutput
   | CreateInstanceCommandOutput
@@ -1111,6 +1153,7 @@ export type ServiceOutputTypes =
   | DeleteContactEvaluationCommandOutput
   | DeleteContactFlowCommandOutput
   | DeleteContactFlowModuleCommandOutput
+  | DeleteEmailAddressCommandOutput
   | DeleteEvaluationFormCommandOutput
   | DeleteHoursOfOperationCommandOutput
   | DeleteInstanceCommandOutput
@@ -1136,6 +1179,7 @@ export type ServiceOutputTypes =
   | DescribeContactEvaluationCommandOutput
   | DescribeContactFlowCommandOutput
   | DescribeContactFlowModuleCommandOutput
+  | DescribeEmailAddressCommandOutput
   | DescribeEvaluationFormCommandOutput
   | DescribeHoursOfOperationCommandOutput
   | DescribeInstanceAttributeCommandOutput
@@ -1184,6 +1228,7 @@ export type ServiceOutputTypes =
   | ListAgentStatusesCommandOutput
   | ListAnalyticsDataAssociationsCommandOutput
   | ListApprovedOriginsCommandOutput
+  | ListAssociatedContactsCommandOutput
   | ListAuthenticationProfilesCommandOutput
   | ListBotsCommandOutput
   | ListContactEvaluationsCommandOutput
@@ -1239,6 +1284,7 @@ export type ServiceOutputTypes =
   | SearchContactFlowModulesCommandOutput
   | SearchContactFlowsCommandOutput
   | SearchContactsCommandOutput
+  | SearchEmailAddressesCommandOutput
   | SearchHoursOfOperationsCommandOutput
   | SearchPredefinedAttributesCommandOutput
   | SearchPromptsCommandOutput
@@ -1251,12 +1297,15 @@ export type ServiceOutputTypes =
   | SearchUsersCommandOutput
   | SearchVocabulariesCommandOutput
   | SendChatIntegrationEventCommandOutput
+  | SendOutboundEmailCommandOutput
   | StartAttachedFileUploadCommandOutput
   | StartChatContactCommandOutput
   | StartContactEvaluationCommandOutput
   | StartContactRecordingCommandOutput
   | StartContactStreamingCommandOutput
+  | StartEmailContactCommandOutput
   | StartOutboundChatContactCommandOutput
+  | StartOutboundEmailContactCommandOutput
   | StartOutboundVoiceContactCommandOutput
   | StartScreenSharingCommandOutput
   | StartTaskContactCommandOutput
@@ -1283,6 +1332,7 @@ export type ServiceOutputTypes =
   | UpdateContactFlowNameCommandOutput
   | UpdateContactRoutingDataCommandOutput
   | UpdateContactScheduleCommandOutput
+  | UpdateEmailAddressMetadataCommandOutput
   | UpdateEvaluationFormCommandOutput
   | UpdateHoursOfOperationCommandOutput
   | UpdateInstanceAttributeCommandOutput
@@ -1296,6 +1346,7 @@ export type ServiceOutputTypes =
   | UpdateQueueMaxContactsCommandOutput
   | UpdateQueueNameCommandOutput
   | UpdateQueueOutboundCallerConfigCommandOutput
+  | UpdateQueueOutboundEmailConfigCommandOutput
   | UpdateQueueStatusCommandOutput
   | UpdateQuickConnectConfigCommandOutput
   | UpdateQuickConnectNameCommandOutput

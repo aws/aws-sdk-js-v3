@@ -227,6 +227,42 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
+ * <p></p>
+ * @public
+ */
+export interface EmailRecipient {
+  /**
+   * <p></p>
+   * @public
+   */
+  Address?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface AdditionalEmailRecipients {
+  /**
+   * <p></p>
+   * @public
+   */
+  ToList?: EmailRecipient[] | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  CcList?: EmailRecipient[] | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -297,6 +333,7 @@ export type ContactState = (typeof ContactState)[keyof typeof ContactState];
  */
 export const Channel = {
   CHAT: "CHAT",
+  EMAIL: "EMAIL",
   TASK: "TASK",
   VOICE: "VOICE",
 } as const;
@@ -311,15 +348,18 @@ export type Channel = (typeof Channel)[keyof typeof Channel];
  * @enum
  */
 export const ContactInitiationMethod = {
+  AGENT_REPLY: "AGENT_REPLY",
   API: "API",
   CALLBACK: "CALLBACK",
   DISCONNECT: "DISCONNECT",
   EXTERNAL_OUTBOUND: "EXTERNAL_OUTBOUND",
+  FLOW: "FLOW",
   INBOUND: "INBOUND",
   MONITOR: "MONITOR",
   OUTBOUND: "OUTBOUND",
   QUEUE_TRANSFER: "QUEUE_TRANSFER",
   TRANSFER: "TRANSFER",
+  WEBRTC_API: "WEBRTC_API",
 } as const;
 
 /**
@@ -1136,6 +1176,64 @@ export interface AssociateApprovedOriginRequest {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AttachedFileServiceQuotaExceededExceptionReason = {
+  TOTAL_FILE_COUNT_EXCEEDED: "TOTAL_FILE_COUNT_EXCEEDED",
+  TOTAL_FILE_SIZE_EXCEEDED: "TOTAL_FILE_SIZE_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachedFileServiceQuotaExceededExceptionReason =
+  (typeof AttachedFileServiceQuotaExceededExceptionReason)[keyof typeof AttachedFileServiceQuotaExceededExceptionReason];
+
+/**
+ * <p></p>
+ * @public
+ */
+export type ServiceQuotaExceededExceptionReason =
+  | ServiceQuotaExceededExceptionReason.AttachedFileServiceQuotaExceededExceptionReasonMember
+  | ServiceQuotaExceededExceptionReason.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ServiceQuotaExceededExceptionReason {
+  /**
+   * <p></p>
+   * @public
+   */
+  export interface AttachedFileServiceQuotaExceededExceptionReasonMember {
+    AttachedFileServiceQuotaExceededExceptionReason: AttachedFileServiceQuotaExceededExceptionReason;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AttachedFileServiceQuotaExceededExceptionReason?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AttachedFileServiceQuotaExceededExceptionReason: (value: AttachedFileServiceQuotaExceededExceptionReason) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ServiceQuotaExceededExceptionReason, visitor: Visitor<T>): T => {
+    if (value.AttachedFileServiceQuotaExceededExceptionReason !== undefined)
+      return visitor.AttachedFileServiceQuotaExceededExceptionReason(
+        value.AttachedFileServiceQuotaExceededExceptionReason
+      );
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>The service quota has been exceeded.</p>
  * @public
  */
@@ -1143,6 +1241,11 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
   Message?: string | undefined;
+  /**
+   * <p></p>
+   * @public
+   */
+  Reason?: ServiceQuotaExceededExceptionReason | undefined;
   /**
    * @internal
    */
@@ -1154,6 +1257,7 @@ export class ServiceQuotaExceededException extends __BaseException {
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
     this.Message = opts.Message;
+    this.Reason = opts.Reason;
   }
 }
 
@@ -1316,6 +1420,8 @@ export interface AssociateDefaultVocabularyResponse {}
  * @enum
  */
 export const FlowAssociationResourceType = {
+  INBOUND_EMAIL: "INBOUND_EMAIL",
+  OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
   SMS_PHONE_NUMBER: "SMS_PHONE_NUMBER",
 } as const;
 
@@ -1370,6 +1476,7 @@ export const InstanceStorageResourceType = {
   CHAT_TRANSCRIPTS: "CHAT_TRANSCRIPTS",
   CONTACT_EVALUATIONS: "CONTACT_EVALUATIONS",
   CONTACT_TRACE_RECORDS: "CONTACT_TRACE_RECORDS",
+  EMAIL_MESSAGES: "EMAIL_MESSAGES",
   MEDIA_STREAMS: "MEDIA_STREAMS",
   REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS",
   REAL_TIME_CONTACT_ANALYSIS_SEGMENTS: "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS",
@@ -2134,6 +2241,7 @@ export type FileStatusType = (typeof FileStatusType)[keyof typeof FileStatusType
  */
 export const FileUseCaseType = {
   ATTACHMENT: "ATTACHMENT",
+  EMAIL_MESSAGE: "EMAIL_MESSAGE",
 } as const;
 
 /**
@@ -2236,6 +2344,8 @@ export interface BatchGetAttachedFileMetadataResponse {
  * @enum
  */
 export const ListFlowAssociationResourceType = {
+  INBOUND_EMAIL: "INBOUND_EMAIL",
+  OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
   VOICE_PHONE_NUMBER: "VOICE_PHONE_NUMBER",
 } as const;
 
@@ -2322,6 +2432,7 @@ export interface Campaign {
 export const EndpointType = {
   CONNECT_PHONENUMBER_ARN: "CONNECT_PHONENUMBER_ARN",
   CONTACT_FLOW: "CONTACT_FLOW",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
   TELEPHONE_NUMBER: "TELEPHONE_NUMBER",
   VOIP: "VOIP",
 } as const;
@@ -2705,6 +2816,244 @@ export class DuplicateResourceException extends __BaseException {
 }
 
 /**
+ * <p>Operation cannot be performed at this time as there is a conflict with another operation or
+ *    contact state.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InitiateAs = {
+  CONNECTED_TO_USER: "CONNECTED_TO_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type InitiateAs = (typeof InitiateAs)[keyof typeof InitiateAs];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceStatus = {
+  APPROVED: "APPROVED",
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  PROCESSING: "PROCESSING",
+  REJECTED: "REJECTED",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceStatus = (typeof ReferenceStatus)[keyof typeof ReferenceStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferenceType = {
+  ATTACHMENT: "ATTACHMENT",
+  CONTACT_ANALYSIS: "CONTACT_ANALYSIS",
+  DATE: "DATE",
+  EMAIL: "EMAIL",
+  EMAIL_MESSAGE: "EMAIL_MESSAGE",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
+
+/**
+ * <p>Well-formed data on a contact, used by agents to complete a contact request. You can have up
+ *    to 4,096 UTF-8 bytes across all references for a contact.</p>
+ * @public
+ */
+export interface Reference {
+  /**
+   * <p>A valid value for the reference. For example, for a URL reference, a formatted URL that is
+   *    displayed to an agent in the Contact Control Panel (CCP).</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The type of the reference. <code>DATE</code> must be of type Epoch timestamp.
+   *    </p>
+   * @public
+   */
+  Type: ReferenceType | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Status?: ReferenceStatus | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  StatusReason?: string | undefined;
+}
+
+/**
+ * <p>A value for a segment attribute. This is structured as a map where the key is
+ *     <code>valueString</code> and the value is a string.</p>
+ * @public
+ */
+export interface SegmentAttributeValue {
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueString?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface UserInfo {
+  /**
+   * <p></p>
+   * @public
+   */
+  UserId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactRequest {
+  /**
+   * <p></p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  RelatedContactId?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  References?: Record<string, Reference> | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Channel: Channel | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  InitiationMethod: ContactInitiationMethod | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  ExpiryDurationInMinutes?: number | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  UserInfo?: UserInfo | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  InitiateAs?: InitiateAs | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactResponse {
+  /**
+   * <p></p>
+   * @public
+   */
+  ContactId?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  ContactArn?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -2993,6 +3342,64 @@ export interface CreateContactFlowVersionResponse {
    * @public
    */
   Version?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEmailAddressRequest {
+  /**
+   * <p></p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  EmailAddress: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEmailAddressResponse {
+  /**
+   * <p></p>
+   * @public
+   */
+  EmailAddressId?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  EmailAddressArn?: string | undefined;
 }
 
 /**
@@ -3718,6 +4125,7 @@ export const IntegrationType = {
   FILE_SCANNER: "FILE_SCANNER",
   PINPOINT_APP: "PINPOINT_APP",
   Q_MESSAGE_TEMPLATES: "Q_MESSAGE_TEMPLATES",
+  SES_IDENTITY: "SES_IDENTITY",
   VOICE_ID: "VOICE_ID",
   WISDOM_ASSISTANT: "WISDOM_ASSISTANT",
   WISDOM_KNOWLEDGE_BASE: "WISDOM_KNOWLEDGE_BASE",
@@ -4223,6 +4631,18 @@ export interface OutboundCallerConfig {
 }
 
 /**
+ * <p></p>
+ * @public
+ */
+export interface OutboundEmailConfig {
+  /**
+   * <p></p>
+   * @public
+   */
+  OutboundEmailAddressId?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateQueueRequest {
@@ -4249,6 +4669,12 @@ export interface CreateQueueRequest {
    * @public
    */
   OutboundCallerConfig?: OutboundCallerConfig | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  OutboundEmailConfig?: OutboundEmailConfig | undefined;
 
   /**
    * <p>The identifier for the hours of operation.</p>
@@ -4776,45 +5202,6 @@ export interface SubmitAutoEvaluationActionDefinition {
 }
 
 /**
- * @public
- * @enum
- */
-export const ReferenceType = {
-  ATTACHMENT: "ATTACHMENT",
-  DATE: "DATE",
-  EMAIL: "EMAIL",
-  NUMBER: "NUMBER",
-  STRING: "STRING",
-  URL: "URL",
-} as const;
-
-/**
- * @public
- */
-export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
-
-/**
- * <p>Well-formed data on a contact, used by agents to complete a contact request. You can have up
- *    to 4,096 UTF-8 bytes across all references for a contact.</p>
- * @public
- */
-export interface Reference {
-  /**
-   * <p>A valid value for the reference. For example, for a URL reference, a formatted URL that is
-   *    displayed to an agent in the Contact Control Panel (CCP).</p>
-   * @public
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>The type of the reference. <code>DATE</code> must be of type Epoch timestamp.
-   *    </p>
-   * @public
-   */
-  Type: ReferenceType | undefined;
-}
-
-/**
  * <p>Information about the task action.</p>
  * @public
  */
@@ -5287,10 +5674,12 @@ export const TaskTemplateFieldType = {
   DATE_TIME: "DATE_TIME",
   DESCRIPTION: "DESCRIPTION",
   EMAIL: "EMAIL",
+  EXPIRY_DURATION: "EXPIRY_DURATION",
   NAME: "NAME",
   NUMBER: "NUMBER",
   QUICK_CONNECT: "QUICK_CONNECT",
   SCHEDULED_TIME: "SCHEDULED_TIME",
+  SELF_ASSIGN: "SELF_ASSIGN",
   SINGLE_SELECT: "SINGLE_SELECT",
   TEXT: "TEXT",
   TEXT_AREA: "TEXT_AREA",
@@ -5373,6 +5762,12 @@ export interface CreateTaskTemplateRequest {
    * @public
    */
   ContactFlowId?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  SelfAssignFlowId?: string | undefined;
 
   /**
    * <p>Constraints that are applicable to the fields listed.</p>
@@ -6467,6 +6862,28 @@ export interface DeleteContactFlowModuleResponse {}
 /**
  * @public
  */
+export interface DeleteEmailAddressRequest {
+  /**
+   * <p></p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  EmailAddressId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteEmailAddressResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteEvaluationFormRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -6798,346 +7215,23 @@ export interface DeleteViewVersionRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteViewVersionResponse {}
+export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DeleteVocabularyRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteVocabularyResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyArn: string | undefined;
-
-  /**
-   * <p>The identifier of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyId: string | undefined;
-
-  /**
-   * <p>The current state of the custom vocabulary.</p>
-   * @public
-   */
-  State: VocabularyState | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAgentStatusRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the agent status.</p>
-   * @public
-   */
-  AgentStatusId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAgentStatusResponse {
-  /**
-   * <p>The agent status.</p>
-   * @public
-   */
-  AgentStatus?: AgentStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAuthenticationProfileRequest {
-  /**
-   * <p>A unique identifier for the authentication profile. </p>
-   * @public
-   */
-  AuthenticationProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-}
-
-/**
- * <p>This API is in preview release for Amazon Connect and is subject to change. To
- * request access to this API, contact Amazon Web Services Support.</p>
- *          <p>Information about an authentication profile. An authentication profile is a resource that
- *    stores the authentication settings for users in your contact center. You use authentication
- *    profiles to set up IP address range restrictions and session timeouts. For more information, see
- *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html">Set IP
- *     address restrictions or session timeouts</a>. </p>
- * @public
- */
-export interface AuthenticationProfile {
-  /**
-   * <p>A unique identifier for the authentication profile. </p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the authentication profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The name for the authentication profile.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description for the authentication profile.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A list of IP address range strings that are allowed to access the Amazon Connect
-   *    instance. For more information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure IP
-   *     address based access control</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
-   * @public
-   */
-  AllowedIps?: string[] | undefined;
-
-  /**
-   * <p>A list of IP address range strings that are blocked from accessing the Amazon Connect
-   *    instance. For more information about how to configure IP addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-ip-based-ac">Configure IP
-   *     address based access control</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
-   * @public
-   */
-  BlockedIps?: string[] | undefined;
-
-  /**
-   * <p>Shows whether the authentication profile is the default authentication profile for the
-   *     Amazon Connect instance. The default authentication profile applies to all agents in an
-   *     Amazon Connect instance, unless overridden by another authentication profile.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
-   * <p>The timestamp when the authentication profile was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the authentication profile was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where the authentication profile was last modified.</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-
-  /**
-   * <p>The short lived session duration configuration for users logged in to Amazon Connect, in
-   *    minutes. This value determines the maximum possible time before an agent is authenticated. For
-   *    more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
-   * @public
-   */
-  PeriodicSessionDuration?: number | undefined;
-
-  /**
-   * <p>The long lived session duration for users logged in to Amazon Connect, in minutes. After
-   *    this time period, users must log in again. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/authentication-profiles.html#configure-session-timeouts">Configure the session duration</a> in the <i>Amazon Connect Administrator
-   *     Guide</i>.</p>
-   * @public
-   */
-  MaxSessionDuration?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAuthenticationProfileResponse {
-  /**
-   * <p>The authentication profile object being described.</p>
-   * @public
-   */
-  AuthenticationProfile?: AuthenticationProfile | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AnsweringMachineDetectionStatus = {
-  AMD_ERROR: "AMD_ERROR",
-  AMD_NOT_APPLICABLE: "AMD_NOT_APPLICABLE",
-  AMD_UNANSWERED: "AMD_UNANSWERED",
-  AMD_UNRESOLVED: "AMD_UNRESOLVED",
-  ANSWERED: "ANSWERED",
-  ERROR: "ERROR",
-  FAX_MACHINE_DETECTED: "FAX_MACHINE_DETECTED",
-  HUMAN_ANSWERED: "HUMAN_ANSWERED",
-  SIT_TONE_BUSY: "SIT_TONE_BUSY",
-  SIT_TONE_DETECTED: "SIT_TONE_DETECTED",
-  SIT_TONE_INVALID_NUMBER: "SIT_TONE_INVALID_NUMBER",
-  UNDETECTED: "UNDETECTED",
-  VOICEMAIL_BEEP: "VOICEMAIL_BEEP",
-  VOICEMAIL_NO_BEEP: "VOICEMAIL_NO_BEEP",
-} as const;
-
-/**
- * @public
- */
-export type AnsweringMachineDetectionStatus =
-  (typeof AnsweringMachineDetectionStatus)[keyof typeof AnsweringMachineDetectionStatus];
-
-/**
- * <p>Information about the Customer on the contact.</p>
- * @public
- */
-export interface Customer {
-  /**
-   * <p>Information regarding Customer’s device.</p>
-   * @public
-   */
-  DeviceInfo?: DeviceInfo | undefined;
-
-  /**
-   * <p>The configuration for the allowed video and screen sharing capabilities for participants
-   *    present over the call. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/inapp-calling.html">Set up in-app, web, video calling, and screen
-   *     sharing capabilities</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
-   * @public
-   */
-  Capabilities?: ParticipantCapabilities | undefined;
-}
-
-/**
- * <p>Information about customer’s voice activity.</p>
- * @public
- */
-export interface CustomerVoiceActivity {
-  /**
-   * <p>Timestamp that measures the beginning of the customer greeting from an outbound voice
-   *    call.</p>
-   * @public
-   */
-  GreetingStartTimestamp?: Date | undefined;
-
-  /**
-   * <p>Timestamp that measures the end of the customer greeting from an outbound voice call.</p>
-   * @public
-   */
-  GreetingEndTimestamp?: Date | undefined;
-}
-
-/**
- * <p>Information about the call disconnect experience.</p>
- * @public
- */
-export interface DisconnectDetails {
-  /**
-   * <p>Indicates the potential disconnection issues for a call. This field is not populated if the
-   *    service does not detect potential issues.</p>
-   * @public
-   */
-  PotentialDisconnectIssue?: string | undefined;
-}
-
-/**
- * <p>Information about the quality of the Customer's media connection</p>
- * @public
- */
-export interface CustomerQualityMetrics {
-  /**
-   * <p>Information about the audio quality of the Customer</p>
-   * @public
-   */
-  Audio?: AudioQualityMetricsInfo | undefined;
-}
-
-/**
- * <p>Information about the quality of the participant's media connection.</p>
- * @public
- */
-export interface QualityMetrics {
-  /**
-   * <p>Information about the quality of Agent media connection.</p>
-   * @public
-   */
-  Agent?: AgentQualityMetrics | undefined;
-
-  /**
-   * <p>Information about the quality of Customer media connection.</p>
-   * @public
-   */
-  Customer?: CustomerQualityMetrics | undefined;
-}
-
-/**
- * <p>If this contact was queued, this contains information about the queue. </p>
- * @public
- */
-export interface QueueInfo {
-  /**
-   * <p>The unique identifier for the queue.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The timestamp when the contact was added to the queue.</p>
-   * @public
-   */
-  EnqueueTimestamp?: Date | undefined;
-}
+export const CreateEmailAddressRequestFilterSensitiveLog = (obj: CreateEmailAddressRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.DisplayName && { DisplayName: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

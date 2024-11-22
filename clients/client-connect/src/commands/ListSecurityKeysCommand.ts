@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_1";
+import { ListSecurityKeysRequest, ListSecurityKeysResponse } from "../models/models_2";
 import { de_ListSecurityKeysCommand, se_ListSecurityKeysCommand } from "../protocols/Aws_restJson1";
 
 /**

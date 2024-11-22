@@ -53,6 +53,9 @@ export interface DescribeQueueCommandOutput extends DescribeQueueResponse, __Met
  * //       OutboundCallerIdNumberId: "STRING_VALUE",
  * //       OutboundFlowId: "STRING_VALUE",
  * //     },
+ * //     OutboundEmailConfig: { // OutboundEmailConfig
+ * //       OutboundEmailAddressId: "STRING_VALUE",
+ * //     },
  * //     HoursOfOperationId: "STRING_VALUE",
  * //     MaxContacts: Number("int"),
  * //     Status: "ENABLED" || "DISABLED",

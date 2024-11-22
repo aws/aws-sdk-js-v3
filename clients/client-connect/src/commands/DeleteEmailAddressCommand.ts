@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchGetFlowAssociationRequest, BatchGetFlowAssociationResponse } from "../models/models_0";
-import { de_BatchGetFlowAssociationCommand, se_BatchGetFlowAssociationCommand } from "../protocols/Aws_restJson1";
+import { DeleteEmailAddressRequest, DeleteEmailAddressResponse } from "../models/models_0";
+import { de_DeleteEmailAddressCommand, se_DeleteEmailAddressCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,49 +17,38 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link BatchGetFlowAssociationCommand}.
+ * The input for {@link DeleteEmailAddressCommand}.
  */
-export interface BatchGetFlowAssociationCommandInput extends BatchGetFlowAssociationRequest {}
+export interface DeleteEmailAddressCommandInput extends DeleteEmailAddressRequest {}
 /**
  * @public
  *
- * The output of {@link BatchGetFlowAssociationCommand}.
+ * The output of {@link DeleteEmailAddressCommand}.
  */
-export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssociationResponse, __MetadataBearer {}
+export interface DeleteEmailAddressCommandOutput extends DeleteEmailAddressResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve the flow associations for the given resources.</p>
+ * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, BatchGetFlowAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, BatchGetFlowAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DeleteEmailAddressCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DeleteEmailAddressCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // BatchGetFlowAssociationRequest
+ * const input = { // DeleteEmailAddressRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ResourceIds: [ // resourceArnListMaxLimit100 // required
- *     "STRING_VALUE",
- *   ],
- *   ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
+ *   EmailAddressId: "STRING_VALUE", // required
  * };
- * const command = new BatchGetFlowAssociationCommand(input);
+ * const command = new DeleteEmailAddressCommand(input);
  * const response = await client.send(command);
- * // { // BatchGetFlowAssociationResponse
- * //   FlowAssociationSummaryList: [ // FlowAssociationSummaryList
- * //     { // FlowAssociationSummary
- * //       ResourceId: "STRING_VALUE",
- * //       FlowId: "STRING_VALUE",
- * //       ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
- * //     },
- * //   ],
- * // };
+ * // {};
  *
  * ```
  *
- * @param BatchGetFlowAssociationCommandInput - {@link BatchGetFlowAssociationCommandInput}
- * @returns {@link BatchGetFlowAssociationCommandOutput}
- * @see {@link BatchGetFlowAssociationCommandInput} for command's `input` shape.
- * @see {@link BatchGetFlowAssociationCommandOutput} for command's `response` shape.
+ * @param DeleteEmailAddressCommandInput - {@link DeleteEmailAddressCommandInput}
+ * @returns {@link DeleteEmailAddressCommandOutput}
+ * @see {@link DeleteEmailAddressCommandInput} for command's `input` shape.
+ * @see {@link DeleteEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -74,6 +63,9 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request is not valid.</p>
  *
+ * @throws {@link ResourceConflictException} (client fault)
+ *  <p>A resource already has that name.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
  *
@@ -85,10 +77,10 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  *
  * @public
  */
-export class BatchGetFlowAssociationCommand extends $Command
+export class DeleteEmailAddressCommand extends $Command
   .classBuilder<
-    BatchGetFlowAssociationCommandInput,
-    BatchGetFlowAssociationCommandOutput,
+    DeleteEmailAddressCommandInput,
+    DeleteEmailAddressCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,21 +92,21 @@ export class BatchGetFlowAssociationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "BatchGetFlowAssociation", {})
-  .n("ConnectClient", "BatchGetFlowAssociationCommand")
+  .s("AmazonConnectService", "DeleteEmailAddress", {})
+  .n("ConnectClient", "DeleteEmailAddressCommand")
   .f(void 0, void 0)
-  .ser(se_BatchGetFlowAssociationCommand)
-  .de(de_BatchGetFlowAssociationCommand)
+  .ser(se_DeleteEmailAddressCommand)
+  .de(de_DeleteEmailAddressCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: BatchGetFlowAssociationRequest;
-      output: BatchGetFlowAssociationResponse;
+      input: DeleteEmailAddressRequest;
+      output: {};
     };
     sdk: {
-      input: BatchGetFlowAssociationCommandInput;
-      output: BatchGetFlowAssociationCommandOutput;
+      input: DeleteEmailAddressCommandInput;
+      output: DeleteEmailAddressCommandOutput;
     };
   };
 }

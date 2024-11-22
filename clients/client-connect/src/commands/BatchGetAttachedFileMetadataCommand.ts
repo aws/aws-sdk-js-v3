@@ -64,7 +64,7 @@ export interface BatchGetAttachedFileMetadataCommandOutput
  * //         ConnectUserArn: "STRING_VALUE",
  * //         AWSIdentityArn: "STRING_VALUE",
  * //       },
- * //       FileUseCaseType: "ATTACHMENT",
+ * //       FileUseCaseType: "EMAIL_MESSAGE" || "ATTACHMENT",
  * //       AssociatedResourceArn: "STRING_VALUE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",

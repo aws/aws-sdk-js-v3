@@ -68,7 +68,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *       ],
  *     },
  *     Channels: [ // ChannelList
- *       "VOICE" || "CHAT" || "TASK",
+ *       "VOICE" || "CHAT" || "TASK" || "EMAIL",
  *     ],
  *     ContactAnalysis: { // ContactAnalysis
  *       Transcript: { // Transcript
@@ -85,7 +85,7 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *       },
  *     },
  *     InitiationMethods: [ // InitiationMethodList
- *       "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND",
+ *       "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND" || "WEBRTC_API" || "AGENT_REPLY" || "FLOW",
  *     ],
  *     QueueIds: [ // QueueIdList
  *       "STRING_VALUE",
@@ -95,6 +95,17 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  *         { // SearchableContactAttributesCriteria
  *           Key: "STRING_VALUE", // required
  *           Values: [ // SearchableContactAttributeValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       MatchType: "MATCH_ALL" || "MATCH_ANY",
+ *     },
+ *     SearchableSegmentAttributes: { // SearchableSegmentAttributes
+ *       Criteria: [ // SearchableSegmentAttributesCriteriaList // required
+ *         { // SearchableSegmentAttributesCriteria
+ *           Key: "STRING_VALUE", // required
+ *           Values: [ // SearchableSegmentAttributeValueList // required
  *             "STRING_VALUE",
  *           ],
  *         },
@@ -118,8 +129,8 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * //       Id: "STRING_VALUE",
  * //       InitialContactId: "STRING_VALUE",
  * //       PreviousContactId: "STRING_VALUE",
- * //       InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND",
- * //       Channel: "VOICE" || "CHAT" || "TASK",
+ * //       InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND" || "WEBRTC_API" || "AGENT_REPLY" || "FLOW",
+ * //       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
  * //       QueueInfo: { // ContactSearchSummaryQueueInfo
  * //         Id: "STRING_VALUE",
  * //         EnqueueTimestamp: new Date("TIMESTAMP"),
@@ -131,6 +142,11 @@ export interface SearchContactsCommandOutput extends SearchContactsResponse, __M
  * //       InitiationTimestamp: new Date("TIMESTAMP"),
  * //       DisconnectTimestamp: new Date("TIMESTAMP"),
  * //       ScheduledTimestamp: new Date("TIMESTAMP"),
+ * //       SegmentAttributes: { // ContactSearchSummarySegmentAttributes
+ * //         "<keys>": { // ContactSearchSummarySegmentAttributeValue
+ * //           ValueString: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

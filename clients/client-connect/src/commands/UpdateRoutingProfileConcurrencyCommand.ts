@@ -44,7 +44,7 @@ export interface UpdateRoutingProfileConcurrencyCommandOutput extends __Metadata
  *   RoutingProfileId: "STRING_VALUE", // required
  *   MediaConcurrencies: [ // MediaConcurrencies // required
  *     { // MediaConcurrency
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *       Concurrency: Number("int"), // required
  *       CrossChannelBehavior: { // CrossChannelBehavior
  *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required

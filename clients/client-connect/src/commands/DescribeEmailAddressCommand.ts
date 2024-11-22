@@ -6,8 +6,12 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { BatchGetFlowAssociationRequest, BatchGetFlowAssociationResponse } from "../models/models_0";
-import { de_BatchGetFlowAssociationCommand, se_BatchGetFlowAssociationCommand } from "../protocols/Aws_restJson1";
+import {
+  DescribeEmailAddressRequest,
+  DescribeEmailAddressResponse,
+  DescribeEmailAddressResponseFilterSensitiveLog,
+} from "../models/models_1";
+import { de_DescribeEmailAddressCommand, se_DescribeEmailAddressCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,49 +21,49 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link BatchGetFlowAssociationCommand}.
+ * The input for {@link DescribeEmailAddressCommand}.
  */
-export interface BatchGetFlowAssociationCommandInput extends BatchGetFlowAssociationRequest {}
+export interface DescribeEmailAddressCommandInput extends DescribeEmailAddressRequest {}
 /**
  * @public
  *
- * The output of {@link BatchGetFlowAssociationCommand}.
+ * The output of {@link DescribeEmailAddressCommand}.
  */
-export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssociationResponse, __MetadataBearer {}
+export interface DescribeEmailAddressCommandOutput extends DescribeEmailAddressResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieve the flow associations for the given resources.</p>
+ * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, BatchGetFlowAssociationCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, BatchGetFlowAssociationCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, DescribeEmailAddressCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, DescribeEmailAddressCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // BatchGetFlowAssociationRequest
+ * const input = { // DescribeEmailAddressRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ResourceIds: [ // resourceArnListMaxLimit100 // required
- *     "STRING_VALUE",
- *   ],
- *   ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
+ *   EmailAddressId: "STRING_VALUE", // required
  * };
- * const command = new BatchGetFlowAssociationCommand(input);
+ * const command = new DescribeEmailAddressCommand(input);
  * const response = await client.send(command);
- * // { // BatchGetFlowAssociationResponse
- * //   FlowAssociationSummaryList: [ // FlowAssociationSummaryList
- * //     { // FlowAssociationSummary
- * //       ResourceId: "STRING_VALUE",
- * //       FlowId: "STRING_VALUE",
- * //       ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
- * //     },
- * //   ],
+ * // { // DescribeEmailAddressResponse
+ * //   EmailAddressId: "STRING_VALUE",
+ * //   EmailAddressArn: "STRING_VALUE",
+ * //   EmailAddress: "STRING_VALUE",
+ * //   DisplayName: "STRING_VALUE",
+ * //   Description: "STRING_VALUE",
+ * //   CreateTimestamp: "STRING_VALUE",
+ * //   ModifiedTimestamp: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
  *
- * @param BatchGetFlowAssociationCommandInput - {@link BatchGetFlowAssociationCommandInput}
- * @returns {@link BatchGetFlowAssociationCommandOutput}
- * @see {@link BatchGetFlowAssociationCommandInput} for command's `input` shape.
- * @see {@link BatchGetFlowAssociationCommandOutput} for command's `response` shape.
+ * @param DescribeEmailAddressCommandInput - {@link DescribeEmailAddressCommandInput}
+ * @returns {@link DescribeEmailAddressCommandOutput}
+ * @see {@link DescribeEmailAddressCommandInput} for command's `input` shape.
+ * @see {@link DescribeEmailAddressCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -85,10 +89,10 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  *
  * @public
  */
-export class BatchGetFlowAssociationCommand extends $Command
+export class DescribeEmailAddressCommand extends $Command
   .classBuilder<
-    BatchGetFlowAssociationCommandInput,
-    BatchGetFlowAssociationCommandOutput,
+    DescribeEmailAddressCommandInput,
+    DescribeEmailAddressCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -100,21 +104,21 @@ export class BatchGetFlowAssociationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "BatchGetFlowAssociation", {})
-  .n("ConnectClient", "BatchGetFlowAssociationCommand")
-  .f(void 0, void 0)
-  .ser(se_BatchGetFlowAssociationCommand)
-  .de(de_BatchGetFlowAssociationCommand)
+  .s("AmazonConnectService", "DescribeEmailAddress", {})
+  .n("ConnectClient", "DescribeEmailAddressCommand")
+  .f(void 0, DescribeEmailAddressResponseFilterSensitiveLog)
+  .ser(se_DescribeEmailAddressCommand)
+  .de(de_DescribeEmailAddressCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: BatchGetFlowAssociationRequest;
-      output: BatchGetFlowAssociationResponse;
+      input: DescribeEmailAddressRequest;
+      output: DescribeEmailAddressResponse;
     };
     sdk: {
-      input: BatchGetFlowAssociationCommandInput;
-      output: BatchGetFlowAssociationCommandOutput;
+      input: DescribeEmailAddressCommandInput;
+      output: DescribeEmailAddressCommandOutput;
     };
   };
 }

@@ -44,7 +44,7 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *     { // RoutingProfileQueueConfig
  *       QueueReference: { // RoutingProfileQueueReference
  *         QueueId: "STRING_VALUE", // required
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *       },
  *       Priority: Number("int"), // required
  *       Delay: Number("int"), // required
@@ -52,7 +52,7 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *   ],
  *   MediaConcurrencies: [ // MediaConcurrencies // required
  *     { // MediaConcurrency
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *       Concurrency: Number("int"), // required
  *       CrossChannelBehavior: { // CrossChannelBehavior
  *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required

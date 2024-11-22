@@ -44,7 +44,7 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  *   FileName: "STRING_VALUE", // required
  *   FileSizeInBytes: Number("long"), // required
  *   UrlExpiryInSeconds: Number("int"),
- *   FileUseCaseType: "ATTACHMENT", // required
+ *   FileUseCaseType: "EMAIL_MESSAGE" || "ATTACHMENT", // required
  *   AssociatedResourceArn: "STRING_VALUE", // required
  *   CreatedBy: { // CreatedByInfo Union: only one key present
  *     ConnectUserArn: "STRING_VALUE",

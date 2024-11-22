@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeContactRequest } from "../models/models_0";
-import { DescribeContactResponse, DescribeContactResponseFilterSensitiveLog } from "../models/models_2";
+import { DescribeContactRequest } from "../models/models_1";
+import { DescribeContactResponse, DescribeContactResponseFilterSensitiveLog } from "../models/models_3";
 import { de_DescribeContactCommand, se_DescribeContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -54,10 +54,11 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     Id: "STRING_VALUE",
  * //     InitialContactId: "STRING_VALUE",
  * //     PreviousContactId: "STRING_VALUE",
- * //     InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND",
+ * //     ContactAssociationId: "STRING_VALUE",
+ * //     InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND" || "WEBRTC_API" || "AGENT_REPLY" || "FLOW",
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     Channel: "VOICE" || "CHAT" || "TASK",
+ * //     Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
  * //     QueueInfo: { // QueueInfo
  * //       Id: "STRING_VALUE",
  * //       EnqueueTimestamp: new Date("TIMESTAMP"),
@@ -104,6 +105,16 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     RelatedContactId: "STRING_VALUE",
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
+ * //     },
+ * //     CustomerEndpoint: { // EndpointInfo
+ * //       Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ * //       Address: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //     },
+ * //     SystemEndpoint: {
+ * //       Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ * //       Address: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
  * //     },
  * //     QueueTimeAdjustmentSeconds: Number("int"),
  * //     QueuePriority: Number("long"),
@@ -204,6 +215,20 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     },
  * //     DisconnectDetails: { // DisconnectDetails
  * //       PotentialDisconnectIssue: "STRING_VALUE",
+ * //     },
+ * //     AdditionalEmailRecipients: { // AdditionalEmailRecipients
+ * //       ToList: [ // EmailRecipientsList
+ * //         { // EmailRecipient
+ * //           Address: "STRING_VALUE",
+ * //           DisplayName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CcList: [
+ * //         {
+ * //           Address: "STRING_VALUE",
+ * //           DisplayName: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     SegmentAttributes: { // SegmentAttributes
  * //       "<keys>": { // SegmentAttributeValue

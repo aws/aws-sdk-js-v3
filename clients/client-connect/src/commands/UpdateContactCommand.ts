@@ -52,8 +52,16 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *   Description: "STRING_VALUE",
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *       Value: "STRING_VALUE",
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *       Arn: "STRING_VALUE",
+ *       StatusReason: "STRING_VALUE",
+ *     },
+ *   },
+ *   SegmentAttributes: { // SegmentAttributes
+ *     "<keys>": { // SegmentAttributeValue
+ *       ValueString: "STRING_VALUE",
  *     },
  *   },
  * };

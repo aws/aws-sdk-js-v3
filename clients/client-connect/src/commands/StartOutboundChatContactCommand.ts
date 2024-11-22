@@ -61,11 +61,11 @@ export interface StartOutboundChatContactCommandOutput extends StartOutboundChat
  * const client = new ConnectClient(config);
  * const input = { // StartOutboundChatContactRequest
  *   SourceEndpoint: { // Endpoint
- *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN",
+ *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  *     Address: "STRING_VALUE",
  *   },
  *   DestinationEndpoint: {
- *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN",
+ *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  *     Address: "STRING_VALUE",
  *   },
  *   InstanceId: "STRING_VALUE", // required

@@ -39,7 +39,7 @@ export interface AssociateFlowCommandOutput extends AssociateFlowResponse, __Met
  *   InstanceId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
  *   FlowId: "STRING_VALUE", // required
- *   ResourceType: "SMS_PHONE_NUMBER", // required
+ *   ResourceType: "SMS_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL", // required
  * };
  * const command = new AssociateFlowCommand(input);
  * const response = await client.send(command);

@@ -49,11 +49,11 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  *   ContactDataRequestList: [ // ContactDataRequestList // required
  *     { // ContactDataRequest
  *       SystemEndpoint: { // Endpoint
- *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN",
+ *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  *         Address: "STRING_VALUE",
  *       },
  *       CustomerEndpoint: {
- *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN",
+ *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  *         Address: "STRING_VALUE",
  *       },
  *       RequestIdentifier: "STRING_VALUE",

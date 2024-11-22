@@ -42,7 +42,7 @@ export interface UpdateRoutingProfileQueuesCommandOutput extends __MetadataBeare
  *     { // RoutingProfileQueueConfig
  *       QueueReference: { // RoutingProfileQueueReference
  *         QueueId: "STRING_VALUE", // required
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *       },
  *       Priority: Number("int"), // required
  *       Delay: Number("int"), // required

@@ -55,7 +55,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *       "STRING_VALUE",
  *     ],
  *     Channels: [ // Channels
- *       "VOICE" || "CHAT" || "TASK",
+ *       "VOICE" || "CHAT" || "TASK" || "EMAIL",
  *     ],
  *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
@@ -92,7 +92,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
  * //         },
- * //         Channel: "VOICE" || "CHAT" || "TASK",
+ * //         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
  * //         RoutingProfile: { // RoutingProfileReference
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",

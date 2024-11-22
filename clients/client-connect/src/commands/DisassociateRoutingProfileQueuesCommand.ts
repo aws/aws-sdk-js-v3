@@ -44,7 +44,7 @@ export interface DisassociateRoutingProfileQueuesCommandOutput extends __Metadat
  *   QueueReferences: [ // RoutingProfileQueueReferenceList // required
  *     { // RoutingProfileQueueReference
  *       QueueId: "STRING_VALUE", // required
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *     },
  *   ],
  * };

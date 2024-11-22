@@ -6,9 +6,9 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchSecurityProfilesResponse } from "../models/models_2";
-import { SearchSecurityProfilesRequest } from "../models/models_3";
-import { de_SearchSecurityProfilesCommand, se_SearchSecurityProfilesCommand } from "../protocols/Aws_restJson1";
+import { SearchEmailAddressesResponse, SearchEmailAddressesResponseFilterSensitiveLog } from "../models/models_2";
+import { SearchEmailAddressesRequest } from "../models/models_3";
+import { de_SearchEmailAddressesCommand, se_SearchEmailAddressesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -18,41 +18,36 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link SearchSecurityProfilesCommand}.
+ * The input for {@link SearchEmailAddressesCommand}.
  */
-export interface SearchSecurityProfilesCommandInput extends SearchSecurityProfilesRequest {}
+export interface SearchEmailAddressesCommandInput extends SearchEmailAddressesRequest {}
 /**
  * @public
  *
- * The output of {@link SearchSecurityProfilesCommand}.
+ * The output of {@link SearchEmailAddressesCommand}.
  */
-export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfilesResponse, __MetadataBearer {}
+export interface SearchEmailAddressesCommandOutput extends SearchEmailAddressesResponse, __MetadataBearer {}
 
 /**
- * <p>Searches security profiles in an Amazon Connect instance, with optional
- *    filtering.</p>
- *          <p>For information about security profiles, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html">Security Profiles</a> in the
- *      <i>Amazon Connect Administrator Guide</i>. For a mapping of the API name and
- *    user interface name of the security profile permissions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-list.html">List of security profile
- *     permissions</a>. </p>
+ * <p></p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, SearchSecurityProfilesCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, SearchSecurityProfilesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, SearchEmailAddressesCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, SearchEmailAddressesCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const input = { // SearchSecurityProfilesRequest
+ * const input = { // SearchEmailAddressesRequest
  *   InstanceId: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   SearchCriteria: { // SecurityProfileSearchCriteria
- *     OrConditions: [ // SecurityProfileSearchConditionList
+ *   NextToken: "STRING_VALUE",
+ *   SearchCriteria: { // EmailAddressSearchCriteria
+ *     OrConditions: [ // EmailAddressSearchConditionList
  *       {
  *         OrConditions: [
- *           "<SecurityProfileSearchCriteria>",
+ *           "<EmailAddressSearchCriteria>",
  *         ],
  *         AndConditions: [
- *           "<SecurityProfileSearchCriteria>",
+ *           "<EmailAddressSearchCriteria>",
  *         ],
  *         StringCondition: { // StringCondition
  *           FieldName: "STRING_VALUE",
@@ -62,7 +57,7 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *       },
  *     ],
  *     AndConditions: [
- *       "<SecurityProfileSearchCriteria>",
+ *       "<EmailAddressSearchCriteria>",
  *     ],
  *     StringCondition: {
  *       FieldName: "STRING_VALUE",
@@ -70,7 +65,7 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *     },
  *   },
- *   SearchFilter: { // SecurityProfilesSearchFilter
+ *   SearchFilter: { // EmailAddressSearchFilter
  *     TagFilter: { // ControlPlaneTagFilter
  *       OrConditions: [ // TagOrConditionList
  *         [ // TagAndConditionList
@@ -90,32 +85,32 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *     },
  *   },
  * };
- * const command = new SearchSecurityProfilesCommand(input);
+ * const command = new SearchEmailAddressesCommand(input);
  * const response = await client.send(command);
- * // { // SearchSecurityProfilesResponse
- * //   SecurityProfiles: [ // SecurityProfilesSearchSummaryList
- * //     { // SecurityProfileSearchSummary
- * //       Id: "STRING_VALUE",
- * //       OrganizationResourceId: "STRING_VALUE",
- * //       Arn: "STRING_VALUE",
- * //       SecurityProfileName: "STRING_VALUE",
+ * // { // SearchEmailAddressesResponse
+ * //   NextToken: "STRING_VALUE",
+ * //   EmailAddresses: [ // EmailAddressList
+ * //     { // EmailAddressMetadata
+ * //       EmailAddressId: "STRING_VALUE",
+ * //       EmailAddressArn: "STRING_VALUE",
+ * //       EmailAddress: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Tags: { // TagMap
- * //         "<keys>": "STRING_VALUE",
- * //       },
+ * //       DisplayName: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * //   ApproximateTotalCount: Number("long"),
  * // };
  *
  * ```
  *
- * @param SearchSecurityProfilesCommandInput - {@link SearchSecurityProfilesCommandInput}
- * @returns {@link SearchSecurityProfilesCommandOutput}
- * @see {@link SearchSecurityProfilesCommandInput} for command's `input` shape.
- * @see {@link SearchSecurityProfilesCommandOutput} for command's `response` shape.
+ * @param SearchEmailAddressesCommandInput - {@link SearchEmailAddressesCommandInput}
+ * @returns {@link SearchEmailAddressesCommandOutput}
+ * @see {@link SearchEmailAddressesCommandInput} for command's `input` shape.
+ * @see {@link SearchEmailAddressesCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -137,10 +132,10 @@ export interface SearchSecurityProfilesCommandOutput extends SearchSecurityProfi
  *
  * @public
  */
-export class SearchSecurityProfilesCommand extends $Command
+export class SearchEmailAddressesCommand extends $Command
   .classBuilder<
-    SearchSecurityProfilesCommandInput,
-    SearchSecurityProfilesCommandOutput,
+    SearchEmailAddressesCommandInput,
+    SearchEmailAddressesCommandOutput,
     ConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -152,21 +147,21 @@ export class SearchSecurityProfilesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonConnectService", "SearchSecurityProfiles", {})
-  .n("ConnectClient", "SearchSecurityProfilesCommand")
-  .f(void 0, void 0)
-  .ser(se_SearchSecurityProfilesCommand)
-  .de(de_SearchSecurityProfilesCommand)
+  .s("AmazonConnectService", "SearchEmailAddresses", {})
+  .n("ConnectClient", "SearchEmailAddressesCommand")
+  .f(void 0, SearchEmailAddressesResponseFilterSensitiveLog)
+  .ser(se_SearchEmailAddressesCommand)
+  .de(de_SearchEmailAddressesCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: SearchSecurityProfilesRequest;
-      output: SearchSecurityProfilesResponse;
+      input: SearchEmailAddressesRequest;
+      output: SearchEmailAddressesResponse;
     };
     sdk: {
-      input: SearchSecurityProfilesCommandInput;
-      output: SearchSecurityProfilesCommandOutput;
+      input: SearchEmailAddressesCommandInput;
+      output: SearchEmailAddressesCommandOutput;
     };
   };
 }

@@ -43,6 +43,7 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  *   Name: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   ContactFlowId: "STRING_VALUE",
+ *   SelfAssignFlowId: "STRING_VALUE",
  *   Constraints: { // TaskTemplateConstraints
  *     RequiredFields: [ // RequiredTaskTemplateFields
  *       { // RequiredFieldInfo
@@ -83,7 +84,7 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  *         Name: "STRING_VALUE",
  *       },
  *       Description: "STRING_VALUE",
- *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ *       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL" || "SELF_ASSIGN" || "EXPIRY_DURATION",
  *       SingleSelectOptions: [ // SingleSelectOptions
  *         "STRING_VALUE",
  *       ],
@@ -99,6 +100,7 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
  * //   ContactFlowId: "STRING_VALUE",
+ * //   SelfAssignFlowId: "STRING_VALUE",
  * //   Constraints: { // TaskTemplateConstraints
  * //     RequiredFields: [ // RequiredTaskTemplateFields
  * //       { // RequiredFieldInfo
@@ -138,7 +140,7 @@ export interface UpdateTaskTemplateCommandOutput extends UpdateTaskTemplateRespo
  * //         Name: "STRING_VALUE",
  * //       },
  * //       Description: "STRING_VALUE",
- * //       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ * //       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL" || "SELF_ASSIGN" || "EXPIRY_DURATION",
  * //       SingleSelectOptions: [ // SingleSelectOptions
  * //         "STRING_VALUE",
  * //       ],

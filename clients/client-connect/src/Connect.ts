@@ -118,6 +118,11 @@ import {
   CreateAgentStatusCommandOutput,
 } from "./commands/CreateAgentStatusCommand";
 import {
+  CreateContactCommand,
+  CreateContactCommandInput,
+  CreateContactCommandOutput,
+} from "./commands/CreateContactCommand";
+import {
   CreateContactFlowCommand,
   CreateContactFlowCommandInput,
   CreateContactFlowCommandOutput,
@@ -132,6 +137,11 @@ import {
   CreateContactFlowVersionCommandInput,
   CreateContactFlowVersionCommandOutput,
 } from "./commands/CreateContactFlowVersionCommand";
+import {
+  CreateEmailAddressCommand,
+  CreateEmailAddressCommandInput,
+  CreateEmailAddressCommandOutput,
+} from "./commands/CreateEmailAddressCommand";
 import {
   CreateEvaluationFormCommand,
   CreateEvaluationFormCommandInput,
@@ -247,6 +257,11 @@ import {
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
 import {
+  DeleteEmailAddressCommand,
+  DeleteEmailAddressCommandInput,
+  DeleteEmailAddressCommandOutput,
+} from "./commands/DeleteEmailAddressCommand";
+import {
   DeleteEvaluationFormCommand,
   DeleteEvaluationFormCommandInput,
   DeleteEvaluationFormCommandOutput,
@@ -355,6 +370,11 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "./commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeEmailAddressCommand,
+  DescribeEmailAddressCommandInput,
+  DescribeEmailAddressCommandOutput,
+} from "./commands/DescribeEmailAddressCommand";
 import {
   DescribeEvaluationFormCommand,
   DescribeEvaluationFormCommandInput,
@@ -595,6 +615,11 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
+import {
+  ListAssociatedContactsCommand,
+  ListAssociatedContactsCommandInput,
+  ListAssociatedContactsCommandOutput,
+} from "./commands/ListAssociatedContactsCommand";
 import {
   ListAuthenticationProfilesCommand,
   ListAuthenticationProfilesCommandInput,
@@ -843,6 +868,11 @@ import {
   SearchContactsCommandOutput,
 } from "./commands/SearchContactsCommand";
 import {
+  SearchEmailAddressesCommand,
+  SearchEmailAddressesCommandInput,
+  SearchEmailAddressesCommandOutput,
+} from "./commands/SearchEmailAddressesCommand";
+import {
   SearchHoursOfOperationsCommand,
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
@@ -899,6 +929,11 @@ import {
   SendChatIntegrationEventCommandOutput,
 } from "./commands/SendChatIntegrationEventCommand";
 import {
+  SendOutboundEmailCommand,
+  SendOutboundEmailCommandInput,
+  SendOutboundEmailCommandOutput,
+} from "./commands/SendOutboundEmailCommand";
+import {
   StartAttachedFileUploadCommand,
   StartAttachedFileUploadCommandInput,
   StartAttachedFileUploadCommandOutput,
@@ -924,10 +959,20 @@ import {
   StartContactStreamingCommandOutput,
 } from "./commands/StartContactStreamingCommand";
 import {
+  StartEmailContactCommand,
+  StartEmailContactCommandInput,
+  StartEmailContactCommandOutput,
+} from "./commands/StartEmailContactCommand";
+import {
   StartOutboundChatContactCommand,
   StartOutboundChatContactCommandInput,
   StartOutboundChatContactCommandOutput,
 } from "./commands/StartOutboundChatContactCommand";
+import {
+  StartOutboundEmailContactCommand,
+  StartOutboundEmailContactCommandInput,
+  StartOutboundEmailContactCommandOutput,
+} from "./commands/StartOutboundEmailContactCommand";
 import {
   StartOutboundVoiceContactCommand,
   StartOutboundVoiceContactCommandInput,
@@ -1047,6 +1092,11 @@ import {
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
 import {
+  UpdateEmailAddressMetadataCommand,
+  UpdateEmailAddressMetadataCommandInput,
+  UpdateEmailAddressMetadataCommandOutput,
+} from "./commands/UpdateEmailAddressMetadataCommand";
+import {
   UpdateEvaluationFormCommand,
   UpdateEvaluationFormCommandInput,
   UpdateEvaluationFormCommandOutput,
@@ -1111,6 +1161,11 @@ import {
   UpdateQueueOutboundCallerConfigCommandInput,
   UpdateQueueOutboundCallerConfigCommandOutput,
 } from "./commands/UpdateQueueOutboundCallerConfigCommand";
+import {
+  UpdateQueueOutboundEmailConfigCommand,
+  UpdateQueueOutboundEmailConfigCommandInput,
+  UpdateQueueOutboundEmailConfigCommandOutput,
+} from "./commands/UpdateQueueOutboundEmailConfigCommand";
 import {
   UpdateQueueStatusCommand,
   UpdateQueueStatusCommandInput,
@@ -1243,9 +1298,11 @@ const commands = {
   ClaimPhoneNumberCommand,
   CompleteAttachedFileUploadCommand,
   CreateAgentStatusCommand,
+  CreateContactCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
   CreateContactFlowVersionCommand,
+  CreateEmailAddressCommand,
   CreateEvaluationFormCommand,
   CreateHoursOfOperationCommand,
   CreateInstanceCommand,
@@ -1272,6 +1329,7 @@ const commands = {
   DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
+  DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
   DeleteHoursOfOperationCommand,
   DeleteInstanceCommand,
@@ -1297,6 +1355,7 @@ const commands = {
   DescribeContactEvaluationCommand,
   DescribeContactFlowCommand,
   DescribeContactFlowModuleCommand,
+  DescribeEmailAddressCommand,
   DescribeEvaluationFormCommand,
   DescribeHoursOfOperationCommand,
   DescribeInstanceCommand,
@@ -1345,6 +1404,7 @@ const commands = {
   ListAgentStatusesCommand,
   ListAnalyticsDataAssociationsCommand,
   ListApprovedOriginsCommand,
+  ListAssociatedContactsCommand,
   ListAuthenticationProfilesCommand,
   ListBotsCommand,
   ListContactEvaluationsCommand,
@@ -1400,6 +1460,7 @@ const commands = {
   SearchContactFlowModulesCommand,
   SearchContactFlowsCommand,
   SearchContactsCommand,
+  SearchEmailAddressesCommand,
   SearchHoursOfOperationsCommand,
   SearchPredefinedAttributesCommand,
   SearchPromptsCommand,
@@ -1412,12 +1473,15 @@ const commands = {
   SearchUsersCommand,
   SearchVocabulariesCommand,
   SendChatIntegrationEventCommand,
+  SendOutboundEmailCommand,
   StartAttachedFileUploadCommand,
   StartChatContactCommand,
   StartContactEvaluationCommand,
   StartContactRecordingCommand,
   StartContactStreamingCommand,
+  StartEmailContactCommand,
   StartOutboundChatContactCommand,
+  StartOutboundEmailContactCommand,
   StartOutboundVoiceContactCommand,
   StartScreenSharingCommand,
   StartTaskContactCommand,
@@ -1444,6 +1508,7 @@ const commands = {
   UpdateContactFlowNameCommand,
   UpdateContactRoutingDataCommand,
   UpdateContactScheduleCommand,
+  UpdateEmailAddressMetadataCommand,
   UpdateEvaluationFormCommand,
   UpdateHoursOfOperationCommand,
   UpdateInstanceAttributeCommand,
@@ -1457,6 +1522,7 @@ const commands = {
   UpdateQueueMaxContactsCommand,
   UpdateQueueNameCommand,
   UpdateQueueOutboundCallerConfigCommand,
+  UpdateQueueOutboundEmailConfigCommand,
   UpdateQueueStatusCommand,
   UpdateQuickConnectConfigCommand,
   UpdateQuickConnectNameCommand,
@@ -1856,6 +1922,17 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateContactCommand}
+   */
+  createContact(args: CreateContactCommandInput, options?: __HttpHandlerOptions): Promise<CreateContactCommandOutput>;
+  createContact(args: CreateContactCommandInput, cb: (err: any, data?: CreateContactCommandOutput) => void): void;
+  createContact(
+    args: CreateContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateContactFlowCommand}
    */
   createContactFlow(
@@ -1904,6 +1981,23 @@ export interface Connect {
     args: CreateContactFlowVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateContactFlowVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEmailAddressCommand}
+   */
+  createEmailAddress(
+    args: CreateEmailAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEmailAddressCommandOutput>;
+  createEmailAddress(
+    args: CreateEmailAddressCommandInput,
+    cb: (err: any, data?: CreateEmailAddressCommandOutput) => void
+  ): void;
+  createEmailAddress(
+    args: CreateEmailAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEmailAddressCommandOutput) => void
   ): void;
 
   /**
@@ -2310,6 +2404,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteEmailAddressCommand}
+   */
+  deleteEmailAddress(
+    args: DeleteEmailAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEmailAddressCommandOutput>;
+  deleteEmailAddress(
+    args: DeleteEmailAddressCommandInput,
+    cb: (err: any, data?: DeleteEmailAddressCommandOutput) => void
+  ): void;
+  deleteEmailAddress(
+    args: DeleteEmailAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEmailAddressCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEvaluationFormCommand}
    */
   deleteEvaluationForm(
@@ -2690,6 +2801,23 @@ export interface Connect {
     args: DescribeContactFlowModuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeContactFlowModuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEmailAddressCommand}
+   */
+  describeEmailAddress(
+    args: DescribeEmailAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEmailAddressCommandOutput>;
+  describeEmailAddress(
+    args: DescribeEmailAddressCommandInput,
+    cb: (err: any, data?: DescribeEmailAddressCommandOutput) => void
+  ): void;
+  describeEmailAddress(
+    args: DescribeEmailAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEmailAddressCommandOutput) => void
   ): void;
 
   /**
@@ -3455,6 +3583,23 @@ export interface Connect {
     args: ListApprovedOriginsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApprovedOriginsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociatedContactsCommand}
+   */
+  listAssociatedContacts(
+    args: ListAssociatedContactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociatedContactsCommandOutput>;
+  listAssociatedContacts(
+    args: ListAssociatedContactsCommandInput,
+    cb: (err: any, data?: ListAssociatedContactsCommandOutput) => void
+  ): void;
+  listAssociatedContacts(
+    args: ListAssociatedContactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociatedContactsCommandOutput) => void
   ): void;
 
   /**
@@ -4318,6 +4463,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchEmailAddressesCommand}
+   */
+  searchEmailAddresses(
+    args: SearchEmailAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchEmailAddressesCommandOutput>;
+  searchEmailAddresses(
+    args: SearchEmailAddressesCommandInput,
+    cb: (err: any, data?: SearchEmailAddressesCommandOutput) => void
+  ): void;
+  searchEmailAddresses(
+    args: SearchEmailAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchEmailAddressesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchHoursOfOperationsCommand}
    */
   searchHoursOfOperations(
@@ -4504,6 +4666,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SendOutboundEmailCommand}
+   */
+  sendOutboundEmail(
+    args: SendOutboundEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendOutboundEmailCommandOutput>;
+  sendOutboundEmail(
+    args: SendOutboundEmailCommandInput,
+    cb: (err: any, data?: SendOutboundEmailCommandOutput) => void
+  ): void;
+  sendOutboundEmail(
+    args: SendOutboundEmailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendOutboundEmailCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartAttachedFileUploadCommand}
    */
   startAttachedFileUpload(
@@ -4589,6 +4768,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link StartEmailContactCommand}
+   */
+  startEmailContact(
+    args: StartEmailContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartEmailContactCommandOutput>;
+  startEmailContact(
+    args: StartEmailContactCommandInput,
+    cb: (err: any, data?: StartEmailContactCommandOutput) => void
+  ): void;
+  startEmailContact(
+    args: StartEmailContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartEmailContactCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartOutboundChatContactCommand}
    */
   startOutboundChatContact(
@@ -4603,6 +4799,23 @@ export interface Connect {
     args: StartOutboundChatContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartOutboundChatContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartOutboundEmailContactCommand}
+   */
+  startOutboundEmailContact(
+    args: StartOutboundEmailContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOutboundEmailContactCommandOutput>;
+  startOutboundEmailContact(
+    args: StartOutboundEmailContactCommandInput,
+    cb: (err: any, data?: StartOutboundEmailContactCommandOutput) => void
+  ): void;
+  startOutboundEmailContact(
+    args: StartOutboundEmailContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOutboundEmailContactCommandOutput) => void
   ): void;
 
   /**
@@ -5009,6 +5222,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateEmailAddressMetadataCommand}
+   */
+  updateEmailAddressMetadata(
+    args: UpdateEmailAddressMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEmailAddressMetadataCommandOutput>;
+  updateEmailAddressMetadata(
+    args: UpdateEmailAddressMetadataCommandInput,
+    cb: (err: any, data?: UpdateEmailAddressMetadataCommandOutput) => void
+  ): void;
+  updateEmailAddressMetadata(
+    args: UpdateEmailAddressMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEmailAddressMetadataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEvaluationFormCommand}
    */
   updateEvaluationForm(
@@ -5218,6 +5448,23 @@ export interface Connect {
     args: UpdateQueueOutboundCallerConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQueueOutboundCallerConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQueueOutboundEmailConfigCommand}
+   */
+  updateQueueOutboundEmailConfig(
+    args: UpdateQueueOutboundEmailConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueOutboundEmailConfigCommandOutput>;
+  updateQueueOutboundEmailConfig(
+    args: UpdateQueueOutboundEmailConfigCommandInput,
+    cb: (err: any, data?: UpdateQueueOutboundEmailConfigCommandOutput) => void
+  ): void;
+  updateQueueOutboundEmailConfig(
+    args: UpdateQueueOutboundEmailConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueOutboundEmailConfigCommandOutput) => void
   ): void;
 
   /**

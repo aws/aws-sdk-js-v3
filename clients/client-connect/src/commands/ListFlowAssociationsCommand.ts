@@ -37,7 +37,7 @@ export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsR
  * const client = new ConnectClient(config);
  * const input = { // ListFlowAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ResourceType: "VOICE_PHONE_NUMBER",
+ *   ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -48,7 +48,7 @@ export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsR
  * //     { // FlowAssociationSummary
  * //       ResourceId: "STRING_VALUE",
  * //       FlowId: "STRING_VALUE",
- * //       ResourceType: "VOICE_PHONE_NUMBER",
+ * //       ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

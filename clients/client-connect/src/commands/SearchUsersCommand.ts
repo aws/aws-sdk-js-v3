@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchUsersRequest, SearchUsersResponse, SearchUsersResponseFilterSensitiveLog } from "../models/models_2";
+import { SearchUsersResponse, SearchUsersResponseFilterSensitiveLog } from "../models/models_2";
+import { SearchUsersRequest } from "../models/models_3";
 import { de_SearchUsersCommand, se_SearchUsersCommand } from "../protocols/Aws_restJson1";
 
 /**

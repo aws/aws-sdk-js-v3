@@ -6,10 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  ListRealtimeContactAnalysisSegmentsV2Request,
-  ListRealtimeContactAnalysisSegmentsV2Response,
-} from "../models/models_1";
+import { ListRealtimeContactAnalysisSegmentsV2Request } from "../models/models_1";
+import { ListRealtimeContactAnalysisSegmentsV2Response } from "../models/models_2";
 import {
   de_ListRealtimeContactAnalysisSegmentsV2Command,
   se_ListRealtimeContactAnalysisSegmentsV2Command,

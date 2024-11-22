@@ -110,6 +110,7 @@ import {
   CompleteAttachedFileUploadCommandOutput,
 } from "../commands/CompleteAttachedFileUploadCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "../commands/CreateAgentStatusCommand";
+import { CreateContactCommandInput, CreateContactCommandOutput } from "../commands/CreateContactCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
 import {
   CreateContactFlowModuleCommandInput,
@@ -119,6 +120,7 @@ import {
   CreateContactFlowVersionCommandInput,
   CreateContactFlowVersionCommandOutput,
 } from "../commands/CreateContactFlowVersionCommand";
+import { CreateEmailAddressCommandInput, CreateEmailAddressCommandOutput } from "../commands/CreateEmailAddressCommand";
 import {
   CreateEvaluationFormCommandInput,
   CreateEvaluationFormCommandOutput,
@@ -181,6 +183,7 @@ import {
   DeleteContactFlowModuleCommandInput,
   DeleteContactFlowModuleCommandOutput,
 } from "../commands/DeleteContactFlowModuleCommand";
+import { DeleteEmailAddressCommandInput, DeleteEmailAddressCommandOutput } from "../commands/DeleteEmailAddressCommand";
 import {
   DeleteEvaluationFormCommandInput,
   DeleteEvaluationFormCommandOutput,
@@ -245,6 +248,10 @@ import {
   DescribeContactFlowModuleCommandInput,
   DescribeContactFlowModuleCommandOutput,
 } from "../commands/DescribeContactFlowModuleCommand";
+import {
+  DescribeEmailAddressCommandInput,
+  DescribeEmailAddressCommandOutput,
+} from "../commands/DescribeEmailAddressCommand";
 import {
   DescribeEvaluationFormCommandInput,
   DescribeEvaluationFormCommandOutput,
@@ -374,6 +381,10 @@ import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "../commands/ListApprovedOriginsCommand";
+import {
+  ListAssociatedContactsCommandInput,
+  ListAssociatedContactsCommandOutput,
+} from "../commands/ListAssociatedContactsCommand";
 import {
   ListAuthenticationProfilesCommandInput,
   ListAuthenticationProfilesCommandOutput,
@@ -523,6 +534,10 @@ import {
 import { SearchContactFlowsCommandInput, SearchContactFlowsCommandOutput } from "../commands/SearchContactFlowsCommand";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "../commands/SearchContactsCommand";
 import {
+  SearchEmailAddressesCommandInput,
+  SearchEmailAddressesCommandOutput,
+} from "../commands/SearchEmailAddressesCommand";
+import {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
 } from "../commands/SearchHoursOfOperationsCommand";
@@ -555,6 +570,7 @@ import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
 } from "../commands/SendChatIntegrationEventCommand";
+import { SendOutboundEmailCommandInput, SendOutboundEmailCommandOutput } from "../commands/SendOutboundEmailCommand";
 import {
   StartAttachedFileUploadCommandInput,
   StartAttachedFileUploadCommandOutput,
@@ -572,10 +588,15 @@ import {
   StartContactStreamingCommandInput,
   StartContactStreamingCommandOutput,
 } from "../commands/StartContactStreamingCommand";
+import { StartEmailContactCommandInput, StartEmailContactCommandOutput } from "../commands/StartEmailContactCommand";
 import {
   StartOutboundChatContactCommandInput,
   StartOutboundChatContactCommandOutput,
 } from "../commands/StartOutboundChatContactCommand";
+import {
+  StartOutboundEmailContactCommandInput,
+  StartOutboundEmailContactCommandOutput,
+} from "../commands/StartOutboundEmailContactCommand";
 import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
@@ -648,6 +669,10 @@ import {
   UpdateContactScheduleCommandOutput,
 } from "../commands/UpdateContactScheduleCommand";
 import {
+  UpdateEmailAddressMetadataCommandInput,
+  UpdateEmailAddressMetadataCommandOutput,
+} from "../commands/UpdateEmailAddressMetadataCommand";
+import {
   UpdateEvaluationFormCommandInput,
   UpdateEvaluationFormCommandOutput,
 } from "../commands/UpdateEvaluationFormCommand";
@@ -690,6 +715,10 @@ import {
   UpdateQueueOutboundCallerConfigCommandInput,
   UpdateQueueOutboundCallerConfigCommandOutput,
 } from "../commands/UpdateQueueOutboundCallerConfigCommand";
+import {
+  UpdateQueueOutboundEmailConfigCommandInput,
+  UpdateQueueOutboundEmailConfigCommandOutput,
+} from "../commands/UpdateQueueOutboundEmailConfigCommand";
 import { UpdateQueueStatusCommandInput, UpdateQueueStatusCommandOutput } from "../commands/UpdateQueueStatusCommand";
 import {
   UpdateQuickConnectConfigCommandInput,
@@ -780,10 +809,10 @@ import {
   Application,
   AssignContactCategoryActionDefinition,
   AudioQualityMetricsInfo,
-  AuthenticationProfile,
   Campaign,
   Channel,
   CommonAttributeAndCondition,
+  ConflictException,
   ContactDataRequest,
   ContactInitiationMethod,
   ContactState,
@@ -791,8 +820,6 @@ import {
   CreateCaseActionDefinition,
   CreatedByInfo,
   CrossChannelBehavior,
-  CustomerQualityMetrics,
-  CustomerVoiceActivity,
   Distribution,
   DuplicateResourceException,
   EmptyFieldValue,
@@ -833,13 +860,12 @@ import {
   NotificationRecipientType,
   NumericQuestionPropertyValueAutomation,
   OutboundCallerConfig,
+  OutboundEmailConfig,
   ParticipantCapabilities,
   ParticipantDetailsToAdd,
   PhoneNumberQuickConnectConfig,
   PredefinedAttributeValues,
   PropertyValidationException,
-  QualityMetrics,
-  QueueInfo,
   QueueQuickConnectConfig,
   QuickConnectConfig,
   ReadOnlyFieldInfo,
@@ -854,6 +880,7 @@ import {
   RuleAction,
   RuleTriggerEventSource,
   S3Config,
+  SegmentAttributeValue,
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
@@ -870,6 +897,7 @@ import {
   TooManyRequestsException,
   UpdateCaseActionDefinition,
   UserIdentityInfo,
+  UserInfo,
   UserPhoneConfig,
   UserProficiency,
   UserQuickConnectConfig,
@@ -877,7 +905,9 @@ import {
   ViewInputContent,
 } from "../models/models_0";
 import {
+  AssociatedContactSummary,
   AttributeCondition,
+  AuthenticationProfile,
   AuthenticationProfileSummary,
   ContactFilter,
   ContactFlow,
@@ -887,6 +917,8 @@ import {
   CurrentMetricData,
   CurrentMetricResult,
   CurrentMetricSortCriteria,
+  CustomerQualityMetrics,
+  CustomerVoiceActivity,
   Evaluation,
   EvaluationAnswerData,
   EvaluationAnswerOutput,
@@ -919,30 +951,25 @@ import {
   MetricInterval,
   MetricResultV2,
   MetricV2,
-  OutputTypeNotFoundException,
   PhoneNumberCountryCode,
   PhoneNumberType,
   PredefinedAttribute,
   PredefinedAttributeSummary,
   Prompt,
   PromptSummary,
+  QualityMetrics,
   Queue,
+  QueueInfo,
   QueueSummary,
   QuickConnect,
   QuickConnectSummary,
-  RealtimeContactAnalysisSegment,
   RealTimeContactAnalysisSegmentAttachments,
   RealTimeContactAnalysisSegmentEvent,
-  RealTimeContactAnalysisSegmentTranscript,
   RealTimeContactAnalysisSegmentType,
   RealTimeContactAnalysisTimeData,
   RoutingProfile,
-  RoutingProfileSummary,
   Rule,
-  RuleSummary,
-  SecurityKey,
   SecurityProfile,
-  SegmentAttributeValue,
   SignInConfig,
   SignInDistribution,
   TelephonyConfig,
@@ -964,12 +991,10 @@ import {
   ChatParticipantRoleConfig,
   ChatStreamingConfiguration,
   Condition,
-  ConflictException,
-  Contact,
+  ConditionalOperationFailedException,
   ContactAnalysis,
   ContactFlowModuleSearchCriteria,
   ContactFlowModuleSearchFilter,
-  ContactFlowSearchCriteria,
   ContactFlowSearchFilter,
   ContactNotFoundException,
   ContactSearchSummary,
@@ -979,62 +1004,88 @@ import {
   ControlPlaneUserAttributeFilter,
   DestinationNotAllowedException,
   DisconnectReason,
+  EmailAddressInfo,
+  EmailAddressSearchFilter,
+  EmailAttachment,
+  EmailHeaderType,
   EvaluationAnswerInput,
-  EvaluationForm,
-  EvaluationFormContent,
   EvaluationFormItem,
   EvaluationFormSection,
-  Expression,
   HierarchyGroupCondition,
   HierarchyLevelUpdate,
   HierarchyStructureUpdate,
-  HoursOfOperationSearchCriteria,
   HoursOfOperationSearchFilter,
+  InboundAdditionalRecipients,
+  InboundEmailContent,
+  InboundRawMessage,
   ListCondition,
   MaximumResultReturnedException,
   NewSessionDetails,
   NumberCondition,
+  OutboundAdditionalRecipients,
   OutboundContactNotPermittedException,
+  OutboundEmailContent,
+  OutboundRawMessage,
+  OutputTypeNotFoundException,
   ParticipantDetails,
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PersistentChat,
-  PredefinedAttributeSearchCriteria,
-  PromptSearchCriteria,
   PromptSearchFilter,
-  QueueSearchCriteria,
   QueueSearchFilter,
-  QuickConnectSearchCriteria,
   QuickConnectSearchFilter,
+  RealtimeContactAnalysisSegment,
+  RealTimeContactAnalysisSegmentTranscript,
   ResourceTagsSearchCriteria,
-  RoutingCriteria,
-  RoutingCriteriaInput,
-  RoutingCriteriaInputStep,
   RoutingCriteriaInputStepExpiry,
-  RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
+  RoutingProfileSummary,
+  RuleSummary,
   SearchableContactAttributes,
   SearchableContactAttributesCriteria,
+  SearchableSegmentAttributes,
+  SearchableSegmentAttributesCriteria,
   SearchContactsTimeRange,
   SearchCriteria,
-  SecurityProfileSearchCriteria,
+  SecurityKey,
   SecurityProfilesSearchFilter,
   SecurityProfileSummary,
   Sort,
-  Step,
+  SourceCampaign,
   TagSearchCondition,
   TaskTemplateMetadata,
+  TemplateAttributes,
+  TemplatedMessageConfig,
   Transcript,
   TranscriptCriteria,
   UpdateParticipantRoleConfigChannelInfo,
-  UserHierarchyGroupSearchCriteria,
   UserHierarchyGroupSearchFilter,
-  UserSearchCriteria,
   UserSearchFilter,
   UserSummary,
   VocabularySummary,
   VoiceRecordingConfiguration,
 } from "../models/models_2";
+import {
+  Contact,
+  ContactFlowSearchCriteria,
+  EmailAddressSearchCriteria,
+  EvaluationForm,
+  EvaluationFormContent,
+  Expression,
+  HoursOfOperationSearchCriteria,
+  PredefinedAttributeSearchCriteria,
+  PromptSearchCriteria,
+  QueueSearchCriteria,
+  QuickConnectSearchCriteria,
+  RoutingCriteria,
+  RoutingCriteriaInput,
+  RoutingCriteriaInputStep,
+  RoutingProfileSearchCriteria,
+  SecurityProfileSearchCriteria,
+  Step,
+  UserHierarchyGroupSearchCriteria,
+  UserSearchCriteria,
+} from "../models/models_3";
 
 /**
  * serializeAws_restJson1ActivateEvaluationFormCommand
@@ -1590,6 +1641,40 @@ export const se_CreateAgentStatusCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateContactCommand
+ */
+export const se_CreateContactCommand = async (
+  input: CreateContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/create-contact");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Attributes: (_) => _json(_),
+      Channel: [],
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Description: [],
+      ExpiryDurationInMinutes: [],
+      InitiateAs: [],
+      InitiationMethod: [],
+      InstanceId: [],
+      Name: [],
+      References: (_) => _json(_),
+      RelatedContactId: [],
+      SegmentAttributes: (_) => _json(_),
+      UserInfo: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateContactFlowCommand
  */
 export const se_CreateContactFlowCommand = async (
@@ -1665,6 +1750,33 @@ export const se_CreateContactFlowVersionCommand = async (
       FlowContentSha256: [],
       LastModifiedRegion: [],
       LastModifiedTime: (_) => _.getTime() / 1_000,
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateEmailAddressCommand
+ */
+export const se_CreateEmailAddressCommand = async (
+  input: CreateEmailAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/email-addresses/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      Description: [],
+      DisplayName: [],
+      EmailAddress: [],
+      Tags: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -1903,6 +2015,7 @@ export const se_CreateQueueCommand = async (
       MaxContacts: [],
       Name: [],
       OutboundCallerConfig: (_) => _json(_),
+      OutboundEmailConfig: (_) => _json(_),
       QuickConnectIds: (_) => _json(_),
       Tags: (_) => _json(_),
     })
@@ -2048,6 +2161,7 @@ export const se_CreateTaskTemplateCommand = async (
       Description: [],
       Fields: (_) => _json(_),
       Name: [],
+      SelfAssignFlowId: [],
       Status: [],
     })
   );
@@ -2332,6 +2446,23 @@ export const se_DeleteContactFlowModuleCommand = async (
   b.bp("/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   b.p("ContactFlowModuleId", () => input.ContactFlowModuleId!, "{ContactFlowModuleId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteEmailAddressCommand
+ */
+export const se_DeleteEmailAddressCommand = async (
+  input: DeleteEmailAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/email-addresses/{InstanceId}/{EmailAddressId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EmailAddressId", () => input.EmailAddressId!, "{EmailAddressId}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -2760,6 +2891,23 @@ export const se_DescribeContactFlowModuleCommand = async (
   b.bp("/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}");
   b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   b.p("ContactFlowModuleId", () => input.ContactFlowModuleId!, "{ContactFlowModuleId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeEmailAddressCommand
+ */
+export const se_DescribeEmailAddressCommand = async (
+  input: DescribeEmailAddressCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/email-addresses/{InstanceId}/{EmailAddressId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EmailAddressId", () => input.EmailAddressId!, "{EmailAddressId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -3705,6 +3853,27 @@ export const se_ListApprovedOriginsCommand = async (
   const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAssociatedContactsCommand
+ */
+export const se_ListAssociatedContactsCommand = async (
+  input: ListAssociatedContactsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/contact/associated/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_cI]: [, __expectNonNull(input[_CI]!, `ContactId`)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -4912,6 +5081,32 @@ export const se_SearchContactsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchEmailAddressesCommand
+ */
+export const se_SearchEmailAddressesCommand = async (
+  input: SearchEmailAddressesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-email-addresses");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_EmailAddressSearchCriteria(_, context),
+      SearchFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1SearchHoursOfOperationsCommand
  */
 export const se_SearchHoursOfOperationsCommand = async (
@@ -5224,6 +5419,35 @@ export const se_SendChatIntegrationEventCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SendOutboundEmailCommand
+ */
+export const se_SendOutboundEmailCommand = async (
+  input: SendOutboundEmailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/instance/{InstanceId}/outbound-email");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AdditionalRecipients: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      DestinationEmailAddress: (_) => _json(_),
+      EmailMessage: (_) => _json(_),
+      FromEmailAddress: (_) => _json(_),
+      SourceCampaign: (_) => _json(_),
+      TrafficType: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartAttachedFileUploadCommand
  */
 export const se_StartAttachedFileUploadCommand = async (
@@ -5363,6 +5587,41 @@ export const se_StartContactStreamingCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartEmailContactCommand
+ */
+export const se_StartEmailContactCommand = async (
+  input: StartEmailContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/email");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AdditionalRecipients: (_) => _json(_),
+      Attachments: (_) => _json(_),
+      Attributes: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactFlowId: [],
+      Description: [],
+      DestinationEmailAddress: [],
+      EmailMessage: (_) => _json(_),
+      FromEmailAddress: (_) => _json(_),
+      InstanceId: [],
+      Name: [],
+      References: (_) => _json(_),
+      RelatedContactId: [],
+      SegmentAttributes: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartOutboundChatContactCommand
  */
 export const se_StartOutboundChatContactCommand = async (
@@ -5389,6 +5648,34 @@ export const se_StartOutboundChatContactCommand = async (
       SegmentAttributes: (_) => _json(_),
       SourceEndpoint: (_) => _json(_),
       SupportedMessagingContentTypes: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartOutboundEmailContactCommand
+ */
+export const se_StartOutboundEmailContactCommand = async (
+  input: StartOutboundEmailContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/outbound-email");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AdditionalRecipients: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactId: [],
+      DestinationEmailAddress: (_) => _json(_),
+      EmailMessage: (_) => _json(_),
+      FromEmailAddress: (_) => _json(_),
+      InstanceId: [],
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -5480,6 +5767,7 @@ export const se_StartTaskContactCommand = async (
       References: (_) => _json(_),
       RelatedContactId: [],
       ScheduledTime: (_) => _.getTime() / 1_000,
+      SegmentAttributes: (_) => _json(_),
       TaskTemplateId: [],
     })
   );
@@ -5827,6 +6115,7 @@ export const se_UpdateContactCommand = async (
       Description: [],
       Name: [],
       References: (_) => _json(_),
+      SegmentAttributes: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -6051,6 +6340,32 @@ export const se_UpdateContactScheduleCommand = async (
       ContactId: [],
       InstanceId: [],
       ScheduledTime: (_) => _.getTime() / 1_000,
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateEmailAddressMetadataCommand
+ */
+export const se_UpdateEmailAddressMetadataCommand = async (
+  input: UpdateEmailAddressMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/email-addresses/{InstanceId}/{EmailAddressId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EmailAddressId", () => input.EmailAddressId!, "{EmailAddressId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      Description: [],
+      DisplayName: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -6386,6 +6701,30 @@ export const se_UpdateQueueOutboundCallerConfigCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateQueueOutboundEmailConfigCommand
+ */
+export const se_UpdateQueueOutboundEmailConfigCommand = async (
+  input: UpdateQueueOutboundEmailConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/queues/{InstanceId}/{QueueId}/outbound-email-config");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      OutboundEmailConfig: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateQueueStatusCommand
  */
 export const se_UpdateQueueStatusCommand = async (
@@ -6659,6 +6998,7 @@ export const se_UpdateTaskTemplateCommand = async (
       Description: [],
       Fields: (_) => _json(_),
       Name: [],
+      SelfAssignFlowId: [],
       Status: [],
     })
   );
@@ -7379,6 +7719,28 @@ export const de_CreateAgentStatusCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateContactCommand
+ */
+export const de_CreateContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContactArn: __expectString,
+    ContactId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateContactFlowCommand
  */
 export const de_CreateContactFlowCommand = async (
@@ -7440,6 +7802,28 @@ export const de_CreateContactFlowVersionCommand = async (
   const doc = take(data, {
     ContactFlowArn: __expectString,
     Version: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateEmailAddressCommand
+ */
+export const de_CreateEmailAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEmailAddressCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EmailAddressArn: __expectString,
+    EmailAddressId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -7992,6 +8376,23 @@ export const de_DeleteContactFlowModuleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteEmailAddressCommand
+ */
+export const de_DeleteEmailAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEmailAddressCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteEvaluationFormCommand
  */
 export const de_DeleteEvaluationFormCommand = async (
@@ -8442,6 +8843,34 @@ export const de_DescribeContactFlowModuleCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ContactFlowModule: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeEmailAddressCommand
+ */
+export const de_DescribeEmailAddressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEmailAddressCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreateTimestamp: __expectString,
+    Description: __expectString,
+    DisplayName: __expectString,
+    EmailAddress: __expectString,
+    EmailAddressArn: __expectString,
+    EmailAddressId: __expectString,
+    ModifiedTimestamp: __expectString,
+    Tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -9324,6 +9753,7 @@ export const de_GetTaskTemplateCommand = async (
     InstanceId: __expectString,
     LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    SelfAssignFlowId: __expectString,
     Status: __expectString,
     Tags: _json,
   });
@@ -9439,6 +9869,28 @@ export const de_ListApprovedOriginsCommand = async (
   const doc = take(data, {
     NextToken: __expectString,
     Origins: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssociatedContactsCommand
+ */
+export const de_ListAssociatedContactsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociatedContactsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContactSummaryList: (_) => de_AssociatedContactSummaryList(_, context),
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -10645,6 +11097,29 @@ export const de_SearchContactsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchEmailAddressesCommand
+ */
+export const de_SearchEmailAddressesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchEmailAddressesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    EmailAddresses: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1SearchHoursOfOperationsCommand
  */
 export const de_SearchHoursOfOperationsCommand = async (
@@ -10918,6 +11393,23 @@ export const de_SendChatIntegrationEventCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SendOutboundEmailCommand
+ */
+export const de_SendOutboundEmailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendOutboundEmailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartAttachedFileUploadCommand
  */
 export const de_StartAttachedFileUploadCommand = async (
@@ -11028,12 +11520,54 @@ export const de_StartContactStreamingCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartEmailContactCommand
+ */
+export const de_StartEmailContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEmailContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContactId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartOutboundChatContactCommand
  */
 export const de_StartOutboundChatContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartOutboundChatContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContactId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartOutboundEmailContactCommand
+ */
+export const de_StartOutboundEmailContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartOutboundEmailContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -11521,6 +12055,28 @@ export const de_UpdateContactScheduleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateEmailAddressMetadataCommand
+ */
+export const de_UpdateEmailAddressMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEmailAddressMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EmailAddressArn: __expectString,
+    EmailAddressId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateEvaluationFormCommand
  */
 export const de_UpdateEvaluationFormCommand = async (
@@ -11758,6 +12314,23 @@ export const de_UpdateQueueOutboundCallerConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateQueueOutboundEmailConfigCommand
+ */
+export const de_UpdateQueueOutboundEmailConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQueueOutboundEmailConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateQueueStatusCommand
  */
 export const de_UpdateQueueStatusCommand = async (
@@ -11953,6 +12526,7 @@ export const de_UpdateTaskTemplateCommand = async (
     InstanceId: __expectString,
     LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
+    SelfAssignFlowId: __expectString,
     Status: __expectString,
   });
   Object.assign(contents, doc);
@@ -12193,6 +12767,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DuplicateResourceException":
     case "com.amazonaws.connect#DuplicateResourceException":
       throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidContactFlowException":
     case "com.amazonaws.connect#InvalidContactFlowException":
       throw await de_InvalidContactFlowExceptionRes(parsedOutput, context);
@@ -12220,9 +12797,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "OutputTypeNotFoundException":
     case "com.amazonaws.connect#OutputTypeNotFoundException":
       throw await de_OutputTypeNotFoundExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.connect#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "MaximumResultReturnedException":
     case "com.amazonaws.connect#MaximumResultReturnedException":
       throw await de_MaximumResultReturnedExceptionRes(parsedOutput, context);
@@ -12235,6 +12809,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ContactNotFoundException":
     case "com.amazonaws.connect#ContactNotFoundException":
       throw await de_ContactNotFoundExceptionRes(parsedOutput, context);
+    case "ConditionalOperationFailedException":
+    case "com.amazonaws.connect#ConditionalOperationFailedException":
+      throw await de_ConditionalOperationFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -12260,6 +12837,26 @@ const de_AccessDeniedExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConditionalOperationFailedExceptionRes
+ */
+const de_ConditionalOperationFailedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConditionalOperationFailedException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConditionalOperationFailedException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -12678,6 +13275,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     Message: __expectString,
+    Reason: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   const exception = new ServiceQuotaExceededException({
@@ -12941,6 +13539,40 @@ const se_CreateCaseActionDefinition = (input: CreateCaseActionDefinition, contex
 
 // se_DistributionList omitted.
 
+// se_EmailAddressInfo omitted.
+
+// se_EmailAddressRecipientList omitted.
+
+/**
+ * serializeAws_restJson1EmailAddressSearchConditionList
+ */
+const se_EmailAddressSearchConditionList = (input: EmailAddressSearchCriteria[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EmailAddressSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1EmailAddressSearchCriteria
+ */
+const se_EmailAddressSearchCriteria = (input: EmailAddressSearchCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    AndConditions: (_) => se_EmailAddressSearchConditionList(_, context),
+    OrConditions: (_) => se_EmailAddressSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_EmailAddressSearchFilter omitted.
+
+// se_EmailAttachment omitted.
+
+// se_EmailAttachments omitted.
+
+// se_EmailHeaders omitted.
+
 // se_EmptyFieldValue omitted.
 
 // se_EncryptionConfig omitted.
@@ -13198,6 +13830,12 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 
 // se_HoursOfOperationTimeSlice omitted.
 
+// se_InboundAdditionalRecipients omitted.
+
+// se_InboundEmailContent omitted.
+
+// se_InboundRawMessage omitted.
+
 // se_InitiationMethodList omitted.
 
 // se_InstanceStorageConfig omitted.
@@ -13264,7 +13902,15 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 
 // se_NumericQuestionPropertyValueAutomation omitted.
 
+// se_OutboundAdditionalRecipients omitted.
+
 // se_OutboundCallerConfig omitted.
+
+// se_OutboundEmailConfig omitted.
+
+// se_OutboundEmailContent omitted.
+
+// se_OutboundRawMessage omitted.
 
 // se_ParticipantCapabilities omitted.
 
@@ -13529,6 +14175,14 @@ const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
 
 // se_SearchableContactAttributeValueList omitted.
 
+// se_SearchableSegmentAttributes omitted.
+
+// se_SearchableSegmentAttributesCriteria omitted.
+
+// se_SearchableSegmentAttributesCriteriaList omitted.
+
+// se_SearchableSegmentAttributeValueList omitted.
+
 /**
  * serializeAws_restJson1SearchContactsTimeRange
  */
@@ -13591,6 +14245,8 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 
 // se_Sort omitted.
 
+// se_SourceCampaign omitted.
+
 // se_StringCondition omitted.
 
 // se_SubmitAutoEvaluationActionDefinition omitted.
@@ -13626,6 +14282,10 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 // se_TaskTemplateFields omitted.
 
 // se_TelephonyConfig omitted.
+
+// se_TemplateAttributes omitted.
+
+// se_TemplatedMessageConfig omitted.
 
 /**
  * serializeAws_restJson1Threshold
@@ -13710,6 +14370,8 @@ const se_UserHierarchyGroupSearchCriteria = (input: UserHierarchyGroupSearchCrit
 
 // se_UserIdList omitted.
 
+// se_UserInfo omitted.
+
 // se_UserPhoneConfig omitted.
 
 /**
@@ -13777,6 +14439,8 @@ const se_UserSearchCriteria = (input: UserSearchCriteria, context: __SerdeContex
 // de_ActionSummaries omitted.
 
 // de_ActionSummary omitted.
+
+// de_AdditionalEmailRecipients omitted.
 
 // de_AgentConfig omitted.
 
@@ -13917,6 +14581,35 @@ const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentS
 
 // de_AssignContactCategoryActionDefinition omitted.
 
+/**
+ * deserializeAws_restJson1AssociatedContactSummary
+ */
+const de_AssociatedContactSummary = (output: any, context: __SerdeContext): AssociatedContactSummary => {
+  return take(output, {
+    Channel: __expectString,
+    ContactArn: __expectString,
+    ContactId: __expectString,
+    DisconnectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    InitialContactId: __expectString,
+    InitiationMethod: __expectString,
+    InitiationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PreviousContactId: __expectString,
+    RelatedContactId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AssociatedContactSummaryList
+ */
+const de_AssociatedContactSummaryList = (output: any, context: __SerdeContext): AssociatedContactSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AssociatedContactSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_AssociatedQueueIdList omitted.
 
 // de_AttachedFile omitted.
@@ -14025,13 +14718,16 @@ const de_AuthenticationProfileSummaryList = (output: any, context: __SerdeContex
  */
 const de_Contact = (output: any, context: __SerdeContext): Contact => {
   return take(output, {
+    AdditionalEmailRecipients: _json,
     AgentInfo: (_: any) => de_AgentInfo(_, context),
     AnsweringMachineDetectionStatus: __expectString,
     Arn: __expectString,
     Campaign: _json,
     Channel: __expectString,
     ConnectedToSystemTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ContactAssociationId: __expectString,
     Customer: _json,
+    CustomerEndpoint: _json,
     CustomerVoiceActivity: (_: any) => de_CustomerVoiceActivity(_, context),
     Description: __expectString,
     DisconnectDetails: _json,
@@ -14053,6 +14749,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     RoutingCriteria: (_: any) => de_RoutingCriteria(_, context),
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SegmentAttributes: _json,
+    SystemEndpoint: _json,
     Tags: _json,
     TotalPauseCount: __expectInt32,
     TotalPauseDurationInSeconds: __expectInt32,
@@ -14141,6 +14838,7 @@ const de_ContactSearchSummary = (output: any, context: __SerdeContext): ContactS
     PreviousContactId: __expectString,
     QueueInfo: (_: any) => de_ContactSearchSummaryQueueInfo(_, context),
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SegmentAttributes: _json,
   }) as any;
 };
 
@@ -14163,6 +14861,10 @@ const de_ContactSearchSummaryQueueInfo = (output: any, context: __SerdeContext):
     Id: __expectString,
   }) as any;
 };
+
+// de_ContactSearchSummarySegmentAttributes omitted.
+
+// de_ContactSearchSummarySegmentAttributeValue omitted.
 
 // de_ContactTagMap omitted.
 
@@ -14281,6 +14983,16 @@ const de_CustomerVoiceActivity = (output: any, context: __SerdeContext): Custome
 
 // de_DownloadUrlMetadata omitted.
 
+// de_EmailAddressList omitted.
+
+// de_EmailAddressMetadata omitted.
+
+// de_EmailMessageReference omitted.
+
+// de_EmailRecipient omitted.
+
+// de_EmailRecipientsList omitted.
+
 // de_EmailReference omitted.
 
 // de_EmptyFieldValue omitted.
@@ -14288,6 +15000,8 @@ const de_CustomerVoiceActivity = (output: any, context: __SerdeContext): Custome
 // de_EncryptionConfig omitted.
 
 // de_EndAssociatedTasksActionDefinition omitted.
+
+// de_EndpointInfo omitted.
 
 // de_ErrorResult omitted.
 
@@ -15066,6 +15780,8 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_OutboundCallerConfig omitted.
 
+// de_OutboundEmailConfig omitted.
+
 // de_ParticipantCapabilities omitted.
 
 // de_ParticipantTokenCredentials omitted.
@@ -15215,6 +15931,7 @@ const de_Queue = (output: any, context: __SerdeContext): Queue => {
     MaxContacts: __expectInt32,
     Name: __expectString,
     OutboundCallerConfig: _json,
+    OutboundEmailConfig: _json,
     QueueArn: __expectString,
     QueueId: __expectString,
     Status: __expectString,
@@ -15737,6 +16454,8 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
 // de_SegmentAttributeValue omitted.
 
 // de_SendNotificationActionDefinition omitted.
+
+// de_ServiceQuotaExceededExceptionReason omitted.
 
 // de_SignInConfig omitted.
 

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRoutingProfileQueuesRequest, ListRoutingProfileQueuesResponse } from "../models/models_1";
+import { ListRoutingProfileQueuesRequest, ListRoutingProfileQueuesResponse } from "../models/models_2";
 import { de_ListRoutingProfileQueuesCommand, se_ListRoutingProfileQueuesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -52,7 +52,7 @@ export interface ListRoutingProfileQueuesCommandOutput extends ListRoutingProfil
  * //       QueueName: "STRING_VALUE", // required
  * //       Priority: Number("int"), // required
  * //       Delay: Number("int"), // required
- * //       Channel: "VOICE" || "CHAT" || "TASK", // required
+ * //       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  * //     },
  * //   ],
  * //   LastModifiedTime: new Date("TIMESTAMP"),

@@ -112,8 +112,8 @@ export interface GetCurrentUserDataCommandOutput extends GetCurrentUserDataRespo
  * //       Contacts: [ // AgentContactReferenceList
  * //         { // AgentContactReference
  * //           ContactId: "STRING_VALUE",
- * //           Channel: "VOICE" || "CHAT" || "TASK",
- * //           InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND",
+ * //           Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
+ * //           InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND" || "WEBRTC_API" || "AGENT_REPLY" || "FLOW",
  * //           AgentContactState: "INCOMING" || "PENDING" || "CONNECTING" || "CONNECTED" || "CONNECTED_ONHOLD" || "MISSED" || "ERROR" || "ENDED" || "REJECTED",
  * //           StateStartTimestamp: new Date("TIMESTAMP"),
  * //           ConnectedToAgentTimestamp: new Date("TIMESTAMP"),

@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_2";
+import { SearchRoutingProfilesResponse } from "../models/models_2";
+import { SearchRoutingProfilesRequest } from "../models/models_3";
 import { de_SearchRoutingProfilesCommand, se_SearchRoutingProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -96,7 +97,7 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * //       Description: "STRING_VALUE",
  * //       MediaConcurrencies: [ // MediaConcurrencies
  * //         { // MediaConcurrency
- * //           Channel: "VOICE" || "CHAT" || "TASK", // required
+ * //           Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  * //           Concurrency: Number("int"), // required
  * //           CrossChannelBehavior: { // CrossChannelBehavior
  * //             BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required

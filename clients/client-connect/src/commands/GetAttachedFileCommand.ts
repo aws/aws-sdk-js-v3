@@ -53,7 +53,7 @@ export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, _
  * //   FileName: "STRING_VALUE",
  * //   FileSizeInBytes: Number("long"), // required
  * //   AssociatedResourceArn: "STRING_VALUE",
- * //   FileUseCaseType: "ATTACHMENT",
+ * //   FileUseCaseType: "EMAIL_MESSAGE" || "ATTACHMENT",
  * //   CreatedBy: { // CreatedByInfo Union: only one key present
  * //     ConnectUserArn: "STRING_VALUE",
  * //     AWSIdentityArn: "STRING_VALUE",

@@ -67,6 +67,9 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *     OutboundCallerIdNumberId: "STRING_VALUE",
  *     OutboundFlowId: "STRING_VALUE",
  *   },
+ *   OutboundEmailConfig: { // OutboundEmailConfig
+ *     OutboundEmailAddressId: "STRING_VALUE",
+ *   },
  *   HoursOfOperationId: "STRING_VALUE", // required
  *   MaxContacts: Number("int"),
  *   QuickConnectIds: [ // QuickConnectsList
