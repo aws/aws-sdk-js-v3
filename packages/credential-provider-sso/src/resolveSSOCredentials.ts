@@ -20,6 +20,7 @@ export const resolveSSOCredentials = async ({
   ssoRoleName,
   ssoClient,
   clientConfig,
+  parentClientConfig,
   profile,
   logger,
 }: FromSSOInit & SsoCredentialsParameters): Promise<AwsCredentialIdentity> => {
@@ -65,6 +66,7 @@ export const resolveSSOCredentials = async ({
     ssoClient ||
     new SSOClient(
       Object.assign({}, clientConfig ?? {}, {
+        logger: clientConfig?.logger ?? parentClientConfig?.logger,
         region: clientConfig?.region ?? ssoRegion,
       })
     );

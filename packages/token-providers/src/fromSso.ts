@@ -20,7 +20,12 @@ import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
  */
 const lastRefreshAttemptTime = new Date(0);
 
-export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {}
+export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {
+  /**
+   * @see SSOOIDCClientConfig in \@aws-sdk/client-sso-oidc.
+   */
+  clientConfig?: any;
+}
 
 /**
  * Creates a token provider that will read from SSO token cache or ssoOidc.createToken() call.
@@ -101,7 +106,7 @@ export const fromSso =
 
     try {
       lastRefreshAttemptTime.setTime(Date.now());
-      const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion);
+      const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init);
       validateTokenKey("accessToken", newSsoOidcToken.accessToken);
       validateTokenKey("expiresIn", newSsoOidcToken.expiresIn);
       const newTokenExpiration = new Date(Date.now() + newSsoOidcToken.expiresIn! * 1000);

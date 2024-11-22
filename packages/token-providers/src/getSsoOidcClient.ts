@@ -1,23 +1,18 @@
-const ssoOidcClientsHash: Record<string, any> = {};
+import { FromSsoInit } from "./fromSso";
 
 /**
- * Returns a SSOOIDC client for the given region. If the client has already been created,
- * it will be returned from the hash.
+ * Returns a SSOOIDC client for the given region.
  * @internal
  */
-export const getSsoOidcClient = async (ssoRegion: string) => {
+export const getSsoOidcClient = async (ssoRegion: string, init: FromSsoInit = {}) => {
   // @ts-ignore Cannot find module '@aws-sdk/client-sso-oidc'
   const { SSOOIDCClient } = await import("@aws-sdk/client-sso-oidc");
 
-  // return ssoOidsClient if already created.
-  if (ssoOidcClientsHash[ssoRegion]) {
-    return ssoOidcClientsHash[ssoRegion];
-  }
-
-  // Create new SSOOIDC client, and store is in hash.
-  // If we need to support configuration of SsoOidc client in future through code,
-  // the provision to pass region from client configuration needs to be added.
-  const ssoOidcClient = new SSOOIDCClient({ region: ssoRegion });
-  ssoOidcClientsHash[ssoRegion] = ssoOidcClient;
+  const ssoOidcClient = new SSOOIDCClient(
+    Object.assign({}, init.clientConfig ?? {}, {
+      region: ssoRegion ?? init.clientConfig?.region,
+      logger: init.clientConfig?.logger ?? init.parentClientConfig?.logger,
+    })
+  );
   return ssoOidcClient;
 };
