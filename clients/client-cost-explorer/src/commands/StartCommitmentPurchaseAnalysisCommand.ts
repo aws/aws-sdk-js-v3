@@ -35,8 +35,7 @@ export interface StartCommitmentPurchaseAnalysisCommandOutput
 /**
  * <p>Specifies the parameters of a planned commitment purchase and starts the generation of the
  *       analysis. This enables you to estimate the cost, coverage, and utilization impact of your
- *       planned commitment purchases. You can request up to 20 analysis runs per
- *       day.</p>
+ *       planned commitment purchases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,7 +89,7 @@ export interface StartCommitmentPurchaseAnalysisCommandOutput
  *  <p>The requested data is unavailable.</p>
  *
  * @throws {@link GenerationExistsException} (client fault)
- *  <p>A request to generate a recommendation is already in progress.</p>
+ *  <p>A request to generate a recommendation or analysis is already in progress.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>

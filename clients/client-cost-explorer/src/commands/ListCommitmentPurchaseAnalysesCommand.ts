@@ -33,8 +33,7 @@ export interface ListCommitmentPurchaseAnalysesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the commitment purchase analyses for your account based on the last 30
- *       days.</p>
+ * <p>Lists the commitment purchase analyses for your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

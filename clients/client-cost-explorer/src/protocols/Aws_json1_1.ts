@@ -240,6 +240,8 @@ import {
   ResourceNotFoundException,
   ResourceTag,
   RightsizingRecommendationConfiguration,
+  RootCause,
+  RootCauseImpact,
   SavingsPlans,
   SavingsPlansDataType,
   SavingsPlansPurchaseAnalysisConfiguration,
@@ -2655,7 +2657,7 @@ const de_Anomaly = (output: any, context: __SerdeContext): Anomaly => {
     Feedback: __expectString,
     Impact: (_: any) => de_Impact(_, context),
     MonitorArn: __expectString,
-    RootCauses: _json,
+    RootCauses: (_: any) => de_RootCauses(_, context),
   }) as any;
 };
 
@@ -3140,9 +3142,40 @@ const de_ListCommitmentPurchaseAnalysesResponse = (
 
 // de_RightsizingRecommendationSummary omitted.
 
-// de_RootCause omitted.
+/**
+ * deserializeAws_json1_1RootCause
+ */
+const de_RootCause = (output: any, context: __SerdeContext): RootCause => {
+  return take(output, {
+    Impact: (_: any) => de_RootCauseImpact(_, context),
+    LinkedAccount: __expectString,
+    LinkedAccountName: __expectString,
+    Region: __expectString,
+    Service: __expectString,
+    UsageType: __expectString,
+  }) as any;
+};
 
-// de_RootCauses omitted.
+/**
+ * deserializeAws_json1_1RootCauseImpact
+ */
+const de_RootCauseImpact = (output: any, context: __SerdeContext): RootCauseImpact => {
+  return take(output, {
+    Contribution: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1RootCauses
+ */
+const de_RootCauses = (output: any, context: __SerdeContext): RootCause[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RootCause(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_json1_1SavingsPlans

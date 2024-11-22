@@ -66,8 +66,11 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * //           Service: "STRING_VALUE",
  * //           Region: "STRING_VALUE",
  * //           LinkedAccount: "STRING_VALUE",
- * //           UsageType: "STRING_VALUE",
  * //           LinkedAccountName: "STRING_VALUE",
+ * //           UsageType: "STRING_VALUE",
+ * //           Impact: { // RootCauseImpact
+ * //             Contribution: Number("double"), // required
+ * //           },
  * //         },
  * //       ],
  * //       AnomalyScore: { // AnomalyScore

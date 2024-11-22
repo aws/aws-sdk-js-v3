@@ -123,8 +123,7 @@ export interface GetCommitmentPurchaseAnalysisCommandOutput
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  * @throws {@link AnalysisNotFoundException} (client fault)
- *  <p>The requested analysis can't be
- *             found.</p>
+ *  <p>The requested analysis can't be found.</p>
  *
  * @throws {@link DataUnavailableException} (client fault)
  *  <p>The requested data is unavailable.</p>

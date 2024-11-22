@@ -57,121 +57,106 @@ export interface RecommendationDetailHourlyMetrics {
 }
 
 /**
- * <p>Details about the Savings Plans purchase
- *             analysis.</p>
+ * <p>Details about the Savings Plans purchase analysis.</p>
  * @public
  */
 export interface SavingsPlansPurchaseAnalysisDetails {
   /**
-   * <p>The currency code used for the
-   *             analysis.</p>
+   * <p>The currency code used for the analysis.</p>
    * @public
    */
   CurrencyCode?: string | undefined;
 
   /**
-   * <p>The lookback period in hours that's used to generate the
-   *             analysis.</p>
+   * <p>The lookback period in hours that's used to generate the analysis.</p>
    * @public
    */
   LookbackPeriodInHours?: string | undefined;
 
   /**
-   * <p>The average value of hourly coverage over the lookback
-   *             period.</p>
+   * <p>The average value of hourly coverage over the lookback period.</p>
    * @public
    */
   CurrentAverageCoverage?: string | undefined;
 
   /**
-   * <p>The average value of hourly On-Demand spend over the lookback
-   *             period.</p>
+   * <p>The average value of hourly On-Demand spend over the lookback period.</p>
    * @public
    */
   CurrentAverageHourlyOnDemandSpend?: string | undefined;
 
   /**
-   * <p>The highest value of hourly On-Demand spend over the lookback
-   *             period.</p>
+   * <p>The highest value of hourly On-Demand spend over the lookback period.</p>
    * @public
    */
   CurrentMaximumHourlyOnDemandSpend?: string | undefined;
 
   /**
-   * <p>The lowest value of hourly On-Demand spend over the lookback
-   *             period.</p>
+   * <p>The lowest value of hourly On-Demand spend over the lookback period.</p>
    * @public
    */
   CurrentMinimumHourlyOnDemandSpend?: string | undefined;
 
   /**
-   * <p>The current total On-Demand spend over the lookback
-   *             period.</p>
+   * <p>The current total On-Demand spend over the lookback period.</p>
    * @public
    */
   CurrentOnDemandSpend?: string | undefined;
 
   /**
-   * <p>The existing hourly commitment for the Savings Plan
-   *             type.</p>
+   * <p>The existing hourly commitment for the Savings Plan type.</p>
    * @public
    */
   ExistingHourlyCommitment?: string | undefined;
 
   /**
-   * <p>The recommended or custom hourly
-   *             commitment.</p>
+   * <p>The recommended or custom hourly commitment.</p>
    * @public
    */
   HourlyCommitmentToPurchase?: string | undefined;
 
   /**
-   * <p>The estimated coverage of the Savings
-   *             Plan.</p>
+   * <p>The estimated coverage of the Savings Plan.</p>
    * @public
    */
   EstimatedAverageCoverage?: string | undefined;
 
   /**
-   * <p>The estimated utilization of the Savings
-   *             Plan.</p>
+   * <p>The estimated utilization of the Savings Plan.</p>
    * @public
    */
   EstimatedAverageUtilization?: string | undefined;
 
   /**
-   * <p>The estimated monthly savings amount based on the Savings
-   *             Plan.</p>
+   * <p>The estimated monthly savings amount based on the Savings Plan.</p>
    * @public
    */
   EstimatedMonthlySavingsAmount?: string | undefined;
 
   /**
-   * <p>The remaining On-Demand cost estimated to not be covered by the commitment, over the
+   * <p>The remaining On-Demand cost estimated to not be covered by the Savings Plan over the
    *             length of the lookback period.</p>
    * @public
    */
   EstimatedOnDemandCost?: string | undefined;
 
   /**
-   * <p>The estimated On-Demand cost you expect with no additional commitment, based on your
-   *             usage of the selected time period and the Savings Plan you
-   *             own.</p>
+   * <p>The estimated On-Demand cost you expect with no additional commitment based on your
+   *             usage of the selected time period and the Savings Plan you own.</p>
    * @public
    */
   EstimatedOnDemandCostWithCurrentCommitment?: string | undefined;
 
   /**
-   * <p>The estimated return on investment that's based on the purchase commitment and
-   *             estimated savings. This is calculated as
-   *             estimatedSavingsAmount/estimatedSPCost*100.</p>
+   * <p>The estimated return on investment that's based on the Savings Plan and estimated
+   *             savings. This is calculated as estimatedSavingsAmount/estimatedSPCost*100.</p>
    * @public
    */
   EstimatedROI?: string | undefined;
 
   /**
-   * <p>The estimated savings amount that's based on the purchase commitment over the length
-   *             of the lookback period.</p>
+   * <p>The estimated savings amount that's based on the Savings Plan over the length of the
+   *             lookback period.</p>
    * @public
    */
   EstimatedSavingsAmount?: string | undefined;
@@ -184,29 +169,25 @@ export interface SavingsPlansPurchaseAnalysisDetails {
   EstimatedSavingsPercentage?: string | undefined;
 
   /**
-   * <p>The estimated cost of the purchase commitment over the length of the lookback
-   *             period.</p>
+   * <p>The estimated cost of the Savings Plan over the length of the lookback period.</p>
    * @public
    */
   EstimatedCommitmentCost?: string | undefined;
 
   /**
-   * <p>The date and time of the last hour that went into the
-   *             analysis.</p>
+   * <p>The date and time of the last hour that went into the analysis.</p>
    * @public
    */
   LatestUsageTimestamp?: string | undefined;
 
   /**
-   * <p>The upfront cost of the Savings Plan, based on the selected payment
-   *             option.</p>
+   * <p>The upfront cost of the Savings Plan based on the selected payment option.</p>
    * @public
    */
   UpfrontCost?: string | undefined;
 
   /**
-   * <p>Additional metadata that might be applicable to the
-   *             commitment.</p>
+   * <p>Additional metadata that might be applicable to the commitment.</p>
    * @public
    */
   AdditionalMetadata?: string | undefined;
@@ -225,16 +206,14 @@ export interface SavingsPlansPurchaseAnalysisDetails {
  */
 export interface AnalysisDetails {
   /**
-   * <p>Details about the Savings Plans purchase
-   *             analysis.</p>
+   * <p>Details about the Savings Plans purchase analysis.</p>
    * @public
    */
   SavingsPlansPurchaseAnalysisDetails?: SavingsPlansPurchaseAnalysisDetails | undefined;
 }
 
 /**
- * <p>The requested analysis can't be
- *             found.</p>
+ * <p>The requested analysis can't be found.</p>
  * @public
  */
 export class AnalysisNotFoundException extends __BaseException {
@@ -355,14 +334,12 @@ export const TermInYears = {
 export type TermInYears = (typeof TermInYears)[keyof typeof TermInYears];
 
 /**
- * <p>The Savings Plans commitment
- *             details.</p>
+ * <p>The Savings Plans commitment details.</p>
  * @public
  */
 export interface SavingsPlans {
   /**
-   * <p>The payment option for the Savings Plans
-   *             commitment.</p>
+   * <p>The payment option for the Savings Plans commitment.</p>
    * @public
    */
   PaymentOption?: PaymentOption | undefined;
@@ -374,22 +351,19 @@ export interface SavingsPlans {
   SavingsPlansType?: SupportedSavingsPlansType | undefined;
 
   /**
-   * <p>The Region associated with the Savings Plans
-   *             commitment.</p>
+   * <p>The Region associated with the Savings Plans commitment.</p>
    * @public
    */
   Region?: string | undefined;
 
   /**
-   * <p>The instance family of the Savings Plans
-   *             commitment.</p>
+   * <p>The instance family of the Savings Plans commitment.</p>
    * @public
    */
   InstanceFamily?: string | undefined;
 
   /**
-   * <p>The term that you want the Savings Plans commitment
-   *             for.</p>
+   * <p>The term that you want the Savings Plans commitment for.</p>
    * @public
    */
   TermInYears?: TermInYears | undefined;
@@ -401,7 +375,7 @@ export interface SavingsPlans {
   SavingsPlansCommitment?: number | undefined;
 
   /**
-   * <p>The unique ID that's used to distinguish commitments from one
+   * <p>The unique ID that's used to distinguish Savings Plans commitments from one
    *             another.</p>
    * @public
    */
@@ -409,21 +383,18 @@ export interface SavingsPlans {
 }
 
 /**
- * <p>The configuration for the Savings Plans purchase
- *             analysis.</p>
+ * <p>The configuration for the Savings Plans purchase analysis.</p>
  * @public
  */
 export interface SavingsPlansPurchaseAnalysisConfiguration {
   /**
-   * <p>The account scope that you want your analysis
-   *             for.</p>
+   * <p>The account scope that you want your analysis for.</p>
    * @public
    */
   AccountScope?: AccountScope | undefined;
 
   /**
-   * <p>The account that the analysis is
-   *             for.</p>
+   * <p>The account that the analysis is for.</p>
    * @public
    */
   AccountId?: string | undefined;
@@ -435,36 +406,31 @@ export interface SavingsPlansPurchaseAnalysisConfiguration {
   AnalysisType: AnalysisType | undefined;
 
   /**
-   * <p>Savings Plans to include in the
-   *             analysis.</p>
+   * <p>Savings Plans to include in the analysis.</p>
    * @public
    */
   SavingsPlansToAdd: SavingsPlans[] | undefined;
 
   /**
-   * <p>Savings Plans to exclude from the
-   *             analysis.</p>
+   * <p>Savings Plans to exclude from the analysis.</p>
    * @public
    */
   SavingsPlansToExclude?: string[] | undefined;
 
   /**
-   * <p>The time period associated with the
-   *             analysis.</p>
+   * <p>The time period associated with the analysis.</p>
    * @public
    */
   LookBackTimePeriod: DateInterval | undefined;
 }
 
 /**
- * <p>The configuration for the commitment purchase
- *             analysis.</p>
+ * <p>The configuration for the commitment purchase analysis.</p>
  * @public
  */
 export interface CommitmentPurchaseAnalysisConfiguration {
   /**
-   * <p>The configuration for the Savings Plans purchase
-   *             analysis.</p>
+   * <p>The configuration for the Savings Plans purchase analysis.</p>
    * @public
    */
   SavingsPlansPurchaseAnalysisConfiguration?: SavingsPlansPurchaseAnalysisConfiguration | undefined;
@@ -493,8 +459,7 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
  */
 export interface AnalysisSummary {
   /**
-   * <p>The estimated time for when the analysis will
-   *             complete.</p>
+   * <p>The estimated time for when the analysis will complete.</p>
    * @public
    */
   EstimatedCompletionTime?: string | undefined;
@@ -518,22 +483,19 @@ export interface AnalysisSummary {
   AnalysisStatus?: AnalysisStatus | undefined;
 
   /**
-   * <p>The error code used for the
-   *             analysis.</p>
+   * <p>The error code used for the analysis.</p>
    * @public
    */
   ErrorCode?: ErrorCode | undefined;
 
   /**
-   * <p>The analysis ID that's associated with the commitment
-   *             purchase.</p>
+   * <p>The analysis ID that's associated with the commitment purchase analysis.</p>
    * @public
    */
   AnalysisId?: string | undefined;
 
   /**
-   * <p>The analysis configuration for the commitment purchase
-   *             analysis.</p>
+   * <p>The configuration for the commitment purchase analysis.</p>
    * @public
    */
   CommitmentPurchaseAnalysisConfiguration?: CommitmentPurchaseAnalysisConfiguration | undefined;
@@ -615,9 +577,23 @@ export interface Impact {
 }
 
 /**
+ * <p>The dollar value of the root cause.</p>
+ * @public
+ */
+export interface RootCauseImpact {
+  /**
+   * <p>The dollar amount that this root cause contributed to the anomaly's
+   *             TotalImpact.</p>
+   * @public
+   */
+  Contribution: number | undefined;
+}
+
+/**
  * <p>The combination of Amazon Web Services service, linked account, linked account name,
- *             Region, and usage type where a cost anomaly is observed. The linked account name will
- *             only be available when the account name can be identified.</p>
+ *             Region, and usage type where a cost anomaly is observed, along with the dollar and
+ *             percentage amount of the anomaly impact. The linked account name will only be available
+ *             when the account name can be identified.</p>
  * @public
  */
 export interface RootCause {
@@ -640,16 +616,22 @@ export interface RootCause {
   LinkedAccount?: string | undefined;
 
   /**
+   * <p>The member account name value that's associated with the cost anomaly.</p>
+   * @public
+   */
+  LinkedAccountName?: string | undefined;
+
+  /**
    * <p>The <code>UsageType</code> value that's associated with the cost anomaly. </p>
    * @public
    */
   UsageType?: string | undefined;
 
   /**
-   * <p>The member account name value that's associated with the cost anomaly.</p>
+   * <p>The dollar impact for the root cause.</p>
    * @public
    */
-  LinkedAccountName?: string | undefined;
+  Impact?: RootCauseImpact | undefined;
 }
 
 /**
@@ -1756,8 +1738,7 @@ export interface GetApproximateUsageRecordsResponse {
  */
 export interface GetCommitmentPurchaseAnalysisRequest {
   /**
-   * <p>The analysis ID that's associated with the commitment purchase
-   *       analysis.</p>
+   * <p>The analysis ID that's associated with the commitment purchase analysis.</p>
    * @public
    */
   AnalysisId: string | undefined;
@@ -1768,8 +1749,7 @@ export interface GetCommitmentPurchaseAnalysisRequest {
  */
 export interface GetCommitmentPurchaseAnalysisResponse {
   /**
-   * <p>The estimated time for when the analysis will
-   *       complete.</p>
+   * <p>The estimated time for when the analysis will complete.</p>
    * @public
    */
   EstimatedCompletionTime: string | undefined;
@@ -1787,8 +1767,7 @@ export interface GetCommitmentPurchaseAnalysisResponse {
   AnalysisStartedTime: string | undefined;
 
   /**
-   * <p>The analysis ID that's associated with the commitment purchase
-   *       analysis.</p>
+   * <p>The analysis ID that's associated with the commitment purchase analysis.</p>
    * @public
    */
   AnalysisId: string | undefined;
@@ -1812,8 +1791,7 @@ export interface GetCommitmentPurchaseAnalysisResponse {
   AnalysisDetails?: AnalysisDetails | undefined;
 
   /**
-   * <p>The configuration for the commitment purchase
-   *       analysis.</p>
+   * <p>The configuration for the commitment purchase analysis.</p>
    * @public
    */
   CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfiguration | undefined;
@@ -2952,6 +2930,7 @@ export interface DynamoDBCapacityDetails {
 
 /**
  * <p>Details about the reservations that Amazon Web Services recommends that you
+ *
  *             purchase.</p>
  * @public
  */
@@ -3043,22 +3022,22 @@ export interface ReservationPurchaseRecommendationDetail {
   AverageNormalizedUnitsUsedPerHour?: string | undefined;
 
   /**
-   * <p>The average utilization of your recommendations. Amazon Web Services uses this to
-   *             calculate your recommended reservation purchases.</p>
+   * <p>The average utilization of your instances. Amazon Web Services uses this to calculate
+   *             your recommended reservation purchases.</p>
    * @public
    */
   AverageUtilization?: string | undefined;
 
   /**
-   * <p>How long Amazon Web Services estimates that it takes for this recommendation to start
-   *             saving you money, in months.</p>
+   * <p>How long Amazon Web Services estimates that it takes for this instance to start saving
+   *             you money, in months.</p>
    * @public
    */
   EstimatedBreakEvenInMonths?: string | undefined;
 
   /**
    * <p>The currency code that Amazon Web Services used to calculate the costs for this
-   *             recommendation.</p>
+   *             instance.</p>
    * @public
    */
   CurrencyCode?: string | undefined;
@@ -3092,19 +3071,20 @@ export interface ReservationPurchaseRecommendationDetail {
   EstimatedReservationCostForLookbackPeriod?: string | undefined;
 
   /**
-   * <p>How much purchasing this recommendation costs you upfront.</p>
+   * <p>How much purchasing this instance costs you upfront.</p>
    * @public
    */
   UpfrontCost?: string | undefined;
 
   /**
-   * <p>How much purchasing this recommendation costs you on a monthly basis.</p>
+   * <p>How much purchasing this instance costs you on a monthly basis.</p>
    * @public
    */
   RecurringStandardMonthlyCost?: string | undefined;
 
   /**
    * <p>Details about the reservations that Amazon Web Services recommends that you
+   *
    *             purchase.</p>
    * @public
    */
@@ -3112,6 +3092,7 @@ export interface ReservationPurchaseRecommendationDetail {
 
   /**
    * <p>The number of reserved capacity units that Amazon Web Services recommends that you
+   *
    *             purchase.</p>
    * @public
    */
@@ -3119,7 +3100,9 @@ export interface ReservationPurchaseRecommendationDetail {
 
   /**
    * <p>The minimum number of provisioned capacity units that you used in an hour during the
+   *
    *             historical period. Amazon Web Services uses this to calculate your recommended
+   *
    *             reservation purchases.</p>
    * @public
    */
@@ -3127,7 +3110,9 @@ export interface ReservationPurchaseRecommendationDetail {
 
   /**
    * <p>The maximum number of provisioned capacity units that you used in an hour during the
+   *
    *             historical period. Amazon Web Services uses this to calculate your recommended
+   *
    *             reservation purchases.</p>
    * @public
    */
@@ -3135,7 +3120,9 @@ export interface ReservationPurchaseRecommendationDetail {
 
   /**
    * <p>The average number of provisioned capacity units that you used in an hour during the
+   *
    *             historical period. Amazon Web Services uses this to calculate your recommended
+   *
    *             reservation purchases.</p>
    * @public
    */
@@ -5041,22 +5028,19 @@ export interface ListCommitmentPurchaseAnalysesRequest {
   AnalysisStatus?: AnalysisStatus | undefined;
 
   /**
-   * <p>The token to retrieve the next set of
-   *       results.</p>
+   * <p>The token to retrieve the next set of results.</p>
    * @public
    */
   NextPageToken?: string | undefined;
 
   /**
-   * <p>The number of analyses that you want returned in a single response
-   *       object.</p>
+   * <p>The number of analyses that you want returned in a single response object.</p>
    * @public
    */
   PageSize?: number | undefined;
 
   /**
-   * <p>The analysis IDs associated with the commitment purchase
-   *       analyses.</p>
+   * <p>The analysis IDs associated with the commitment purchase analyses.</p>
    * @public
    */
   AnalysisIds?: string[] | undefined;
@@ -5073,8 +5057,7 @@ export interface ListCommitmentPurchaseAnalysesResponse {
   AnalysisSummaryList?: AnalysisSummary[] | undefined;
 
   /**
-   * <p>The token to retrieve the next set of
-   *       results.</p>
+   * <p>The token to retrieve the next set of results.</p>
    * @public
    */
   NextPageToken?: string | undefined;
@@ -5567,7 +5550,7 @@ export interface ProvideAnomalyFeedbackResponse {
 }
 
 /**
- * <p>A request to generate a recommendation is already in progress.</p>
+ * <p>A request to generate a recommendation or analysis is already in progress.</p>
  * @public
  */
 export class GenerationExistsException extends __BaseException {
@@ -5593,8 +5576,7 @@ export class GenerationExistsException extends __BaseException {
  */
 export interface StartCommitmentPurchaseAnalysisRequest {
   /**
-   * <p>The configuration for the commitment purchase
-   *       analysis.</p>
+   * <p>The configuration for the commitment purchase analysis.</p>
    * @public
    */
   CommitmentPurchaseAnalysisConfiguration: CommitmentPurchaseAnalysisConfiguration | undefined;
@@ -5605,8 +5587,7 @@ export interface StartCommitmentPurchaseAnalysisRequest {
  */
 export interface StartCommitmentPurchaseAnalysisResponse {
   /**
-   * <p>The analysis ID that's associated with the commitment purchase
-   *       analysis.</p>
+   * <p>The analysis ID that's associated with the commitment purchase analysis.</p>
    * @public
    */
   AnalysisId: string | undefined;
@@ -5618,8 +5599,7 @@ export interface StartCommitmentPurchaseAnalysisResponse {
   AnalysisStartedTime: string | undefined;
 
   /**
-   * <p>The estimated time for when the analysis will
-   *       complete.</p>
+   * <p>The estimated time for when the analysis will complete.</p>
    * @public
    */
   EstimatedCompletionTime: string | undefined;
@@ -6420,7 +6400,7 @@ export interface CostCategoryRule {
    *             object used to categorize costs. This supports dimensions, tags, and nested expressions.
    *             Currently the only dimensions supported are <code>LINKED_ACCOUNT</code>,
    *
-   *             <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, <code>LINKED_ACCOUNT_NAME</code>, <code>REGION</code>, <code>USAGE_TYPE</code>, and <code>BILLING_ENTITY</code>.</p>
+   *             <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, <code>LINKED_ACCOUNT_NAME</code>, <code>REGION</code>, and <code>USAGE_TYPE</code>.</p>
    *          <p>
    *             <code>RECORD_TYPE</code> is a dimension used for Cost Explorer APIs, and is also
    *             supported for Cost Category expressions. This dimension uses different terms, depending

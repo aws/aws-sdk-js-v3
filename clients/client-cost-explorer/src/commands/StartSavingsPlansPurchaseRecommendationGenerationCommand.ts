@@ -73,7 +73,7 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  *  <p>The requested data is unavailable.</p>
  *
  * @throws {@link GenerationExistsException} (client fault)
- *  <p>A request to generate a recommendation is already in progress.</p>
+ *  <p>A request to generate a recommendation or analysis is already in progress.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
