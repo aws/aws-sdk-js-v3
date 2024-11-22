@@ -802,6 +802,14 @@ DescribeDashboardSnapshotJobResult
 </details>
 <details>
 <summary>
+DescribeDashboardsQAConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeDashboardsQAConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDashboardsQAConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDashboardsQAConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDataSet
 </summary>
 
@@ -1426,6 +1434,14 @@ SearchGroups
 </details>
 <details>
 <summary>
+SearchTopics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/SearchTopicsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/SearchTopicsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/SearchTopicsCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartAssetBundleExportJob
 </summary>
 
@@ -1566,6 +1582,14 @@ UpdateDashboardPublishedVersion
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateDashboardPublishedVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardPublishedVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardPublishedVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDashboardsQAConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateDashboardsQAConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardsQAConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardsQAConfigurationCommandOutput/)
 
 </details>
 <details>

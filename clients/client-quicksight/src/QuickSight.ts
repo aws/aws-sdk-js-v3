@@ -337,6 +337,11 @@ import {
   DescribeDashboardSnapshotJobResultCommandOutput,
 } from "./commands/DescribeDashboardSnapshotJobResultCommand";
 import {
+  DescribeDashboardsQAConfigurationCommand,
+  DescribeDashboardsQAConfigurationCommandInput,
+  DescribeDashboardsQAConfigurationCommandOutput,
+} from "./commands/DescribeDashboardsQAConfigurationCommand";
+import {
   DescribeDataSetCommand,
   DescribeDataSetCommandInput,
   DescribeDataSetCommandOutput,
@@ -703,6 +708,11 @@ import {
   SearchGroupsCommandOutput,
 } from "./commands/SearchGroupsCommand";
 import {
+  SearchTopicsCommand,
+  SearchTopicsCommandInput,
+  SearchTopicsCommandOutput,
+} from "./commands/SearchTopicsCommand";
+import {
   StartAssetBundleExportJobCommand,
   StartAssetBundleExportJobCommandInput,
   StartAssetBundleExportJobCommandOutput,
@@ -784,6 +794,11 @@ import {
   UpdateDashboardPublishedVersionCommandInput,
   UpdateDashboardPublishedVersionCommandOutput,
 } from "./commands/UpdateDashboardPublishedVersionCommand";
+import {
+  UpdateDashboardsQAConfigurationCommand,
+  UpdateDashboardsQAConfigurationCommandInput,
+  UpdateDashboardsQAConfigurationCommandOutput,
+} from "./commands/UpdateDashboardsQAConfigurationCommand";
 import {
   UpdateDataSetCommand,
   UpdateDataSetCommandInput,
@@ -985,6 +1000,7 @@ const commands = {
   DescribeDashboardPermissionsCommand,
   DescribeDashboardSnapshotJobCommand,
   DescribeDashboardSnapshotJobResultCommand,
+  DescribeDashboardsQAConfigurationCommand,
   DescribeDataSetCommand,
   DescribeDataSetPermissionsCommand,
   DescribeDataSetRefreshPropertiesCommand,
@@ -1063,6 +1079,7 @@ const commands = {
   SearchDataSourcesCommand,
   SearchFoldersCommand,
   SearchGroupsCommand,
+  SearchTopicsCommand,
   StartAssetBundleExportJobCommand,
   StartAssetBundleImportJobCommand,
   StartDashboardSnapshotJobCommand,
@@ -1081,6 +1098,7 @@ const commands = {
   UpdateDashboardLinksCommand,
   UpdateDashboardPermissionsCommand,
   UpdateDashboardPublishedVersionCommand,
+  UpdateDashboardsQAConfigurationCommand,
   UpdateDataSetCommand,
   UpdateDataSetPermissionsCommand,
   UpdateDataSourceCommand,
@@ -2254,6 +2272,23 @@ export interface QuickSight {
     args: DescribeDashboardSnapshotJobResultCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDashboardSnapshotJobResultCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDashboardsQAConfigurationCommand}
+   */
+  describeDashboardsQAConfiguration(
+    args: DescribeDashboardsQAConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDashboardsQAConfigurationCommandOutput>;
+  describeDashboardsQAConfiguration(
+    args: DescribeDashboardsQAConfigurationCommandInput,
+    cb: (err: any, data?: DescribeDashboardsQAConfigurationCommandOutput) => void
+  ): void;
+  describeDashboardsQAConfiguration(
+    args: DescribeDashboardsQAConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDashboardsQAConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -3457,6 +3492,17 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link SearchTopicsCommand}
+   */
+  searchTopics(args: SearchTopicsCommandInput, options?: __HttpHandlerOptions): Promise<SearchTopicsCommandOutput>;
+  searchTopics(args: SearchTopicsCommandInput, cb: (err: any, data?: SearchTopicsCommandOutput) => void): void;
+  searchTopics(
+    args: SearchTopicsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchTopicsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartAssetBundleExportJobCommand}
    */
   startAssetBundleExportJob(
@@ -3736,6 +3782,23 @@ export interface QuickSight {
     args: UpdateDashboardPublishedVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDashboardPublishedVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDashboardsQAConfigurationCommand}
+   */
+  updateDashboardsQAConfiguration(
+    args: UpdateDashboardsQAConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDashboardsQAConfigurationCommandOutput>;
+  updateDashboardsQAConfiguration(
+    args: UpdateDashboardsQAConfigurationCommandInput,
+    cb: (err: any, data?: UpdateDashboardsQAConfigurationCommandOutput) => void
+  ): void;
+  updateDashboardsQAConfiguration(
+    args: UpdateDashboardsQAConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDashboardsQAConfigurationCommandOutput) => void
   ): void;
 
   /**

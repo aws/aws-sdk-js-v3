@@ -9,7 +9,7 @@ import {
   UpdateDataSourceRequest,
   UpdateDataSourceRequestFilterSensitiveLog,
   UpdateDataSourceResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

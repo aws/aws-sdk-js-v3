@@ -37,3 +37,4 @@ export * from "./SearchDataSetsPaginator";
 export * from "./SearchDataSourcesPaginator";
 export * from "./SearchFoldersPaginator";
 export * from "./SearchGroupsPaginator";
+export * from "./SearchTopicsPaginator";

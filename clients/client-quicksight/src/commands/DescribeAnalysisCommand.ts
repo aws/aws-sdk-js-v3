@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeAnalysisRequest, DescribeAnalysisResponse } from "../models/models_3";
+import {
+  DescribeAnalysisRequest,
+  DescribeAnalysisResponse,
+  DescribeAnalysisResponseFilterSensitiveLog,
+} from "../models/models_3";
 import { de_DescribeAnalysisCommand, se_DescribeAnalysisCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -68,6 +72,85 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  * //       { // Sheet
  * //         SheetId: "STRING_VALUE",
  * //         Name: "STRING_VALUE",
+ * //         Images: [ // SheetImageList
+ * //           { // SheetImage
+ * //             SheetImageId: "STRING_VALUE", // required
+ * //             Source: { // SheetImageSource
+ * //               SheetImageStaticFileSource: { // SheetImageStaticFileSource
+ * //                 StaticFileId: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //             Scaling: { // SheetImageScalingConfiguration
+ * //               ScalingType: "SCALE_TO_WIDTH" || "SCALE_TO_HEIGHT" || "SCALE_TO_CONTAINER" || "SCALE_NONE",
+ * //             },
+ * //             Tooltip: { // SheetImageTooltipConfiguration
+ * //               TooltipText: { // SheetImageTooltipText
+ * //                 PlainText: "STRING_VALUE",
+ * //               },
+ * //               Visibility: "HIDDEN" || "VISIBLE",
+ * //             },
+ * //             ImageContentAltText: "STRING_VALUE",
+ * //             Interactions: { // ImageInteractionOptions
+ * //               ImageMenuOption: { // ImageMenuOption
+ * //                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //               },
+ * //             },
+ * //             Actions: [ // ImageCustomActionList
+ * //               { // ImageCustomAction
+ * //                 CustomActionId: "STRING_VALUE", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Status: "ENABLED" || "DISABLED",
+ * //                 Trigger: "CLICK" || "MENU", // required
+ * //                 ActionOperations: [ // ImageCustomActionOperationList // required
+ * //                   { // ImageCustomActionOperation
+ * //                     NavigationOperation: { // CustomActionNavigationOperation
+ * //                       LocalNavigationConfiguration: { // LocalNavigationConfiguration
+ * //                         TargetSheetId: "STRING_VALUE", // required
+ * //                       },
+ * //                     },
+ * //                     URLOperation: { // CustomActionURLOperation
+ * //                       URLTemplate: "STRING_VALUE", // required
+ * //                       URLTarget: "NEW_TAB" || "NEW_WINDOW" || "SAME_TAB", // required
+ * //                     },
+ * //                     SetParametersOperation: { // CustomActionSetParametersOperation
+ * //                       ParameterValueConfigurations: [ // SetParameterValueConfigurationList // required
+ * //                         { // SetParameterValueConfiguration
+ * //                           DestinationParameterName: "STRING_VALUE", // required
+ * //                           Value: { // DestinationParameterValueConfiguration
+ * //                             CustomValuesConfiguration: { // CustomValuesConfiguration
+ * //                               IncludeNullValue: true || false,
+ * //                               CustomValues: { // CustomParameterValues
+ * //                                 StringValues: [ // StringDefaultValueList
+ * //                                   "STRING_VALUE",
+ * //                                 ],
+ * //                                 IntegerValues: [ // IntegerDefaultValueList
+ * //                                   Number("long"),
+ * //                                 ],
+ * //                                 DecimalValues: [ // DecimalDefaultValueList
+ * //                                   Number("double"),
+ * //                                 ],
+ * //                                 DateTimeValues: [ // DateTimeDefaultValueList
+ * //                                   new Date("TIMESTAMP"),
+ * //                                 ],
+ * //                               },
+ * //                             },
+ * //                             SelectAllValueOptions: "ALL_VALUES",
+ * //                             SourceParameterName: "STRING_VALUE",
+ * //                             SourceField: "STRING_VALUE",
+ * //                             SourceColumn: { // ColumnIdentifier
+ * //                               DataSetIdentifier: "STRING_VALUE", // required
+ * //                               ColumnName: "STRING_VALUE", // required
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //   },
@@ -129,7 +212,7 @@ export class DescribeAnalysisCommand extends $Command
   })
   .s("QuickSight_20180401", "DescribeAnalysis", {})
   .n("QuickSightClient", "DescribeAnalysisCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeAnalysisResponseFilterSensitiveLog)
   .ser(se_DescribeAnalysisCommand)
   .de(de_DescribeAnalysisCommand)
   .build() {

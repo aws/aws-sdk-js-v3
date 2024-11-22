@@ -239,6 +239,10 @@ import {
   DescribeDashboardSnapshotJobResultCommandInput,
   DescribeDashboardSnapshotJobResultCommandOutput,
 } from "../commands/DescribeDashboardSnapshotJobResultCommand";
+import {
+  DescribeDashboardsQAConfigurationCommandInput,
+  DescribeDashboardsQAConfigurationCommandOutput,
+} from "../commands/DescribeDashboardsQAConfigurationCommand";
 import { DescribeDataSetCommandInput, DescribeDataSetCommandOutput } from "../commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommandInput,
@@ -437,6 +441,7 @@ import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "../comm
 import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "../commands/SearchDataSourcesCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "../commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "../commands/SearchGroupsCommand";
+import { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "../commands/SearchTopicsCommand";
 import {
   StartAssetBundleExportJobCommandInput,
   StartAssetBundleExportJobCommandOutput,
@@ -494,6 +499,10 @@ import {
   UpdateDashboardPublishedVersionCommandInput,
   UpdateDashboardPublishedVersionCommandOutput,
 } from "../commands/UpdateDashboardPublishedVersionCommand";
+import {
+  UpdateDashboardsQAConfigurationCommandInput,
+  UpdateDashboardsQAConfigurationCommandOutput,
+} from "../commands/UpdateDashboardsQAConfigurationCommand";
 import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "../commands/UpdateDataSetCommand";
 import {
   UpdateDataSetPermissionsCommandInput,
@@ -710,6 +719,10 @@ import {
   GridLayoutElement,
   GridLayoutScreenCanvasSizeOptions,
   HeaderFooterSectionConfiguration,
+  ImageCustomAction,
+  ImageCustomActionOperation,
+  ImageInteractionOptions,
+  ImageMenuOption,
   InnerFilter,
   IntegerDefaultValues,
   IntegerParameterDeclaration,
@@ -741,8 +754,6 @@ import {
   NumericRangeFilter,
   NumericRangeFilterValue,
   NumericSeparatorConfiguration,
-  PanelConfiguration,
-  PanelTitleOptions,
   ParameterControl,
   ParameterDateTimePickerControl,
   ParameterDeclaration,
@@ -757,13 +768,10 @@ import {
   PercentVisibleRange,
   QueryExecutionOptions,
   RangeEndsLabelType,
-  ReferenceLine,
   ReferenceLineCustomLabelConfiguration,
   ReferenceLineDataConfiguration,
   ReferenceLineDynamicDataConfiguration,
-  ReferenceLineLabelConfiguration,
   ReferenceLineStaticDataConfiguration,
-  ReferenceLineStyleConfiguration,
   ReferenceLineValueLabelConfiguration,
   RelativeDatesFilter,
   RelativeDateTimeControlDisplayOptions,
@@ -779,16 +787,21 @@ import {
   SectionStyle,
   SelectedSheetsFilterScopeConfiguration,
   SetParameterValueConfiguration,
+  Sheet,
   SheetControlInfoIconLabelOptions,
   SheetControlLayout,
   SheetControlLayoutConfiguration,
   SheetElementConfigurationOverrides,
   SheetElementRenderingRule,
+  SheetImage,
+  SheetImageScalingConfiguration,
+  SheetImageSource,
+  SheetImageStaticFileSource,
+  SheetImageTooltipConfiguration,
+  SheetImageTooltipText,
   SheetTextBox,
   SheetVisualScopingConfiguration,
   SliderControlDisplayOptions,
-  SmallMultiplesAxisProperties,
-  SmallMultiplesOptions,
   Spacing,
   StringDefaultValues,
   StringFormatConfiguration,
@@ -850,7 +863,6 @@ import {
   CustomContentConfiguration,
   CustomContentVisual,
   CustomNarrativeOptions,
-  DataBarsOptions,
   DataColor,
   DataFieldSeriesItem,
   DataPathColor,
@@ -894,16 +906,44 @@ import {
   GaugeChartOptions,
   GaugeChartPrimaryValueConditionalFormatting,
   GaugeChartVisual,
+  GeospatialCategoricalColor,
+  GeospatialCategoricalDataColor,
+  GeospatialCircleRadius,
+  GeospatialCircleSymbolStyle,
+  GeospatialColor,
   GeospatialCoordinateBounds,
+  GeospatialDataSourceItem,
+  GeospatialGradientColor,
+  GeospatialGradientStepColor,
   GeospatialHeatmapColorScale,
   GeospatialHeatmapConfiguration,
   GeospatialHeatmapDataColor,
+  GeospatialLayerColorField,
+  GeospatialLayerDefinition,
+  GeospatialLayerItem,
+  GeospatialLayerJoinDefinition,
+  GeospatialLayerMapConfiguration,
+  GeospatialLineLayer,
+  GeospatialLineStyle,
+  GeospatialLineSymbolStyle,
+  GeospatialLineWidth,
   GeospatialMapAggregatedFieldWells,
   GeospatialMapConfiguration,
   GeospatialMapFieldWells,
+  GeospatialMapState,
+  GeospatialMapStyle,
   GeospatialMapStyleOptions,
   GeospatialMapVisual,
+  GeospatialNullDataSettings,
+  GeospatialNullSymbolStyle,
+  GeospatialPointLayer,
+  GeospatialPointStyle,
   GeospatialPointStyleOptions,
+  GeospatialPolygonLayer,
+  GeospatialPolygonStyle,
+  GeospatialPolygonSymbolStyle,
+  GeospatialSolidColor,
+  GeospatialStaticFileSource,
   GeospatialWindowOptions,
   GlobalTableBorderOptions,
   GradientColor,
@@ -936,6 +976,9 @@ import {
   KPIVisual,
   KPIVisualLayoutOptions,
   KPIVisualStandardLayout,
+  LayerCustomAction,
+  LayerCustomActionOperation,
+  LayerMapVisual,
   LineChartAggregatedFieldWells,
   LineChartConfiguration,
   LineChartDefaultSeriesSettings,
@@ -952,6 +995,8 @@ import {
   MissingDataConfiguration,
   NumericEqualityDrillDownFilter,
   PaginationConfiguration,
+  PanelConfiguration,
+  PanelTitleOptions,
   PeriodOverPeriodComputation,
   PeriodToDateComputation,
   PieChartAggregatedFieldWells,
@@ -981,61 +1026,28 @@ import {
   PivotTableTotalOptions,
   PivotTableVisual,
   PivotTotalOptions,
+  PluginVisualFieldWell,
+  PluginVisualItemsLimitConfiguration,
+  PluginVisualTableQuerySort,
   PredefinedHierarchy,
   ProgressBarOptions,
-  RadarChartAggregatedFieldWells,
-  RadarChartAreaStyleSettings,
-  RadarChartConfiguration,
-  RadarChartFieldWells,
-  RadarChartSeriesSettings,
-  RadarChartSortConfiguration,
-  RadarChartVisual,
+  ReferenceLine,
+  ReferenceLineLabelConfiguration,
+  ReferenceLineStyleConfiguration,
   RowAlternateColorOptions,
-  SankeyDiagramAggregatedFieldWells,
-  SankeyDiagramChartConfiguration,
-  SankeyDiagramFieldWells,
-  SankeyDiagramSortConfiguration,
-  SankeyDiagramVisual,
-  ScatterPlotCategoricallyAggregatedFieldWells,
-  ScatterPlotConfiguration,
-  ScatterPlotFieldWells,
-  ScatterPlotSortConfiguration,
-  ScatterPlotUnaggregatedFieldWells,
-  ScatterPlotVisual,
   SecondaryValueOptions,
   SeriesItem,
   ShapeConditionalFormat,
   ShortFormatText,
   SimpleClusterMarker,
   SingleAxisOptions,
+  SmallMultiplesAxisProperties,
+  SmallMultiplesOptions,
   SubtotalOptions,
-  TableAggregatedFieldWells,
   TableBorderOptions,
-  TableCellConditionalFormatting,
-  TableCellImageSizingConfiguration,
   TableCellStyle,
-  TableConditionalFormatting,
-  TableConditionalFormattingOption,
-  TableConfiguration,
-  TableFieldCustomIconContent,
-  TableFieldCustomTextContent,
-  TableFieldImageConfiguration,
-  TableFieldLinkConfiguration,
-  TableFieldLinkContentConfiguration,
-  TableFieldOption,
-  TableFieldOptions,
-  TableFieldURLConfiguration,
-  TableFieldWells,
-  TableInlineVisualization,
-  TableOptions,
-  TablePaginatedReportOptions,
-  TablePinnedFieldOptions,
-  TableRowConditionalFormatting,
   TableSideBorderOptions,
-  TableSortConfiguration,
   TableStyleTarget,
-  TableUnaggregatedFieldWells,
-  TableVisual,
   TextConditionalFormat,
   TimeBasedForecastProperties,
   TimeRangeDrillDownFilter,
@@ -1046,10 +1058,6 @@ import {
   TotalAggregationComputation,
   TotalAggregationFunction,
   TotalAggregationOption,
-  TotalOptions,
-  TreeMapAggregatedFieldWells,
-  TreeMapFieldWells,
-  TreeMapSortConfiguration,
   TrendArrowOptions,
   UnaggregatedField,
   UniqueValuesComputation,
@@ -1061,7 +1069,6 @@ import {
   YAxisOptions,
 } from "../models/models_1";
 import {
-  _Parameters,
   AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
@@ -1153,39 +1160,16 @@ import {
   ColumnGroupColumnSchema,
   ColumnGroupSchema,
   ColumnLevelPermissionRule,
-  ColumnSchema,
-  ColumnTag,
-  ColumnTagName,
-  ComparativeOrder,
-  ConcurrentUpdatingException,
   ConflictException,
   ContributionAnalysisFactor,
   ContributionAnalysisTimeRanges,
-  CreateColumnsOperation,
-  DashboardPublishOptions,
-  DashboardSourceEntity,
-  DashboardSourceTemplate,
-  DashboardVersionDefinition,
   DashboardVisualId,
-  DashboardVisualPublishOptions,
+  DataBarsOptions,
   DatabricksParameters,
-  DataPointDrillUpDownOption,
-  DataPointMenuLabelOption,
-  DataPointTooltipOption,
-  DatasetParameter,
   DataSetReference,
   DataSourceParameters,
-  DateTimeDatasetParameter,
-  DateTimeDatasetParameterDefaultValues,
-  DateTimeParameter,
-  DecimalDatasetParameter,
-  DecimalDatasetParameterDefaultValues,
-  DecimalParameter,
   DisplayFormatOptions,
   ExasolParameters,
-  ExportHiddenFieldsOption,
-  ExportToCSVOption,
-  ExportWithHiddenFieldsOption,
   FilterAggMetrics,
   GeoSpatialColumnGroup,
   Identifier,
@@ -1193,16 +1177,10 @@ import {
   ImageConfiguration,
   ImageSetConfiguration,
   ImageSource,
-  IntegerDatasetParameter,
-  IntegerDatasetParameterDefaultValues,
-  IntegerParameter,
+  ImageStaticFile,
   InternalFailureException,
-  InternalServerException,
   InvalidParameterValueException,
-  InvalidRequestException,
   JiraParameters,
-  LimitExceededException,
-  LinkSharingConfiguration,
   LogoConfiguration,
   LogoSetConfiguration,
   ManifestFileLocation,
@@ -1214,35 +1192,78 @@ import {
   OAuthParameters,
   OracleParameters,
   Palette,
+  PluginVisual,
+  PluginVisualConfiguration,
+  PluginVisualOptions,
+  PluginVisualProperty,
+  PluginVisualSortConfiguration,
   PostgreSqlParameters,
-  PreconditionNotMetException,
   PrestoParameters,
+  RadarChartAggregatedFieldWells,
+  RadarChartAreaStyleSettings,
+  RadarChartConfiguration,
+  RadarChartFieldWells,
+  RadarChartSeriesSettings,
+  RadarChartSortConfiguration,
+  RadarChartVisual,
   RdsParameters,
   RedshiftIAMParameters,
   RedshiftParameters,
   ResourceExistsException,
   ResourceNotFoundException,
-  ResourcePermission,
-  ResourceUnavailableException,
   S3BucketConfiguration,
   S3Parameters,
+  SankeyDiagramAggregatedFieldWells,
+  SankeyDiagramChartConfiguration,
+  SankeyDiagramFieldWells,
+  SankeyDiagramSortConfiguration,
+  SankeyDiagramVisual,
+  ScatterPlotCategoricallyAggregatedFieldWells,
+  ScatterPlotConfiguration,
+  ScatterPlotFieldWells,
+  ScatterPlotSortConfiguration,
+  ScatterPlotUnaggregatedFieldWells,
+  ScatterPlotVisual,
   ServiceNowParameters,
   SharedViewConfigurations,
-  SheetControlsOption,
   SheetDefinition,
-  SheetLayoutElementMaximizationOption,
   Slot,
   SnapshotFile,
   SnapshotFileSheetSelection,
   SnapshotS3DestinationConfiguration,
   SnowflakeParameters,
   SparkParameters,
+  SpatialStaticFile,
   SqlServerParameters,
   SslProperties,
   StarburstParameters,
-  StringDatasetParameter,
-  StringDatasetParameterDefaultValues,
-  StringParameter,
+  StaticFile,
+  StaticFileS3SourceOptions,
+  StaticFileSource,
+  StaticFileUrlSourceOptions,
+  TableAggregatedFieldWells,
+  TableCellConditionalFormatting,
+  TableCellImageSizingConfiguration,
+  TableConditionalFormatting,
+  TableConditionalFormattingOption,
+  TableConfiguration,
+  TableFieldCustomIconContent,
+  TableFieldCustomTextContent,
+  TableFieldImageConfiguration,
+  TableFieldLinkConfiguration,
+  TableFieldLinkContentConfiguration,
+  TableFieldOption,
+  TableFieldOptions,
+  TableFieldURLConfiguration,
+  TableFieldWells,
+  TableInlineVisualization,
+  TableOptions,
+  TablePaginatedReportOptions,
+  TablePinnedFieldOptions,
+  TableRowConditionalFormatting,
+  TableSortConfiguration,
+  TableUnaggregatedFieldWells,
+  TableVisual,
   Tag,
   TeradataParameters,
   ThrottlingException,
@@ -1255,14 +1276,15 @@ import {
   TopicIRMetric,
   TopicSortClause,
   TopicTemplate,
+  TotalOptions,
+  TreeMapAggregatedFieldWells,
   TreeMapConfiguration,
+  TreeMapFieldWells,
+  TreeMapSortConfiguration,
   TreeMapVisual,
   TrinoParameters,
   TwitterParameters,
-  UnsupportedUserEditionException,
-  ValidationStrategy,
   Visual,
-  VisualAxisSortOption,
   VisualOptions,
   VpcConnectionProperties,
   WaterfallChartAggregatedFieldWells,
@@ -1281,19 +1303,35 @@ import {
   WordCloudVisual,
 } from "../models/models_2";
 import {
+  _Parameters,
+  ColumnSchema,
+  ColumnTag,
+  ColumnTagName,
+  ComparativeOrder,
+  ConcurrentUpdatingException,
+  CreateColumnsOperation,
   CredentialPair,
   CustomerManagedKeyUnavailableException,
   CustomSql,
   Dashboard,
+  DashboardPublishOptions,
   DashboardSearchFilter,
+  DashboardSourceEntity,
+  DashboardSourceTemplate,
   DashboardSummary,
   DashboardVersion,
+  DashboardVersionDefinition,
   DashboardVersionSummary,
+  DashboardVisualPublishOptions,
   DataAggregation,
   DataColorPalette,
+  DataPointDrillUpDownOption,
+  DataPointMenuLabelOption,
+  DataPointTooltipOption,
   DataSet,
   DataSetConfiguration,
   DatasetMetadata,
+  DatasetParameter,
   DataSetRefreshProperties,
   DataSetSchema,
   DataSetSearchFilter,
@@ -1303,18 +1341,31 @@ import {
   DataSourceCredentials,
   DataSourceSearchFilter,
   DataSourceSummary,
+  DateTimeDatasetParameter,
+  DateTimeDatasetParameterDefaultValues,
+  DateTimeParameter,
+  DecimalDatasetParameter,
+  DecimalDatasetParameterDefaultValues,
+  DecimalParameter,
   DefaultFormatting,
+  ExportHiddenFieldsOption,
+  ExportToCSVOption,
+  ExportWithHiddenFieldsOption,
   FieldFolder,
   FilterOperation,
-  Folder,
   Font,
   GutterStyle,
   IncrementalRefresh,
-  Ingestion,
   InputColumn,
-  InvalidNextTokenException,
+  IntegerDatasetParameter,
+  IntegerDatasetParameterDefaultValues,
+  IntegerParameter,
+  InternalServerException,
+  InvalidRequestException,
   JoinInstruction,
   JoinKeyProperties,
+  LimitExceededException,
+  LinkSharingConfiguration,
   LogicalTable,
   LogicalTableSource,
   LookbackWindow,
@@ -1324,6 +1375,7 @@ import {
   NewDefaultValues,
   OverrideDatasetParameterOperation,
   PhysicalTable,
+  PreconditionNotMetException,
   ProjectOperation,
   RangeConstant,
   RefreshConfiguration,
@@ -1331,6 +1383,8 @@ import {
   RefreshSchedule,
   RelationalTable,
   RenameColumnOperation,
+  ResourcePermission,
+  ResourceUnavailableException,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagRule,
@@ -1338,10 +1392,12 @@ import {
   ScheduleRefreshOnEntity,
   SemanticEntityType,
   SemanticType,
+  SheetControlsOption,
+  SheetLayoutElementMaximizationOption,
   SheetStyle,
-  SnapshotConfiguration,
-  SnapshotDestinationConfiguration,
-  SnapshotFileGroup,
+  StringDatasetParameter,
+  StringDatasetParameterDefaultValues,
+  StringParameter,
   TagColumnOperation,
   TemplateSourceAnalysis,
   TemplateSourceEntity,
@@ -1368,16 +1424,21 @@ import {
   TransformOperation,
   Typography,
   UIColorPalette,
+  UnsupportedUserEditionException,
   UntagColumnOperation,
   UploadSettings,
+  ValidationStrategy,
+  VisualAxisSortOption,
 } from "../models/models_3";
 import {
-  CreateTopicReviewedAnswer,
   DomainNotWhitelistedException,
+  Folder,
   FolderSearchFilter,
   FolderSummary,
   GroupSearchFilter,
   IdentityTypeNotSupportedException,
+  Ingestion,
+  InvalidNextTokenException,
   QuickSightUserNotFoundException,
   RegisteredCustomerManagedKey,
   RegisteredUserConsoleFeatureConfigurations,
@@ -1391,6 +1452,9 @@ import {
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
   SnapshotAnonymousUser,
+  SnapshotConfiguration,
+  SnapshotDestinationConfiguration,
+  SnapshotFileGroup,
   SnapshotUserConfiguration,
   StatePersistenceConfigurations,
   Template,
@@ -1402,12 +1466,12 @@ import {
   ThemeVersion,
   ThemeVersionSummary,
   TopicRefreshScheduleSummary,
-  TopicReviewedAnswer,
-  TopicVisual,
+  TopicSearchFilter,
   UnsupportedPricingPlanException,
   VPCConnection,
   VPCConnectionSummary,
 } from "../models/models_4";
+import { CreateTopicReviewedAnswer, TopicReviewedAnswer, TopicVisual } from "../models/models_5";
 import { QuickSightServiceException as __BaseException } from "../models/QuickSightServiceException";
 
 /**
@@ -2067,6 +2131,7 @@ export const se_CreateTopicCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      FolderArns: (_) => _json(_),
       Tags: (_) => _json(_),
       Topic: (_) => _json(_),
       TopicId: [],
@@ -2967,6 +3032,22 @@ export const se_DescribeDashboardSnapshotJobResultCommand = async (
   b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   b.p("SnapshotJobId", () => input.SnapshotJobId!, "{SnapshotJobId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeDashboardsQAConfigurationCommand
+ */
+export const se_DescribeDashboardsQAConfigurationCommand = async (
+  input: DescribeDashboardsQAConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/accounts/{AwsAccountId}/dashboards-qa-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -4555,6 +4636,31 @@ export const se_SearchGroupsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1SearchTopicsCommand
+ */
+export const se_SearchTopicsCommand = async (
+  input: SearchTopicsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/search/topics");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartAssetBundleExportJobCommand
  */
 export const se_StartAssetBundleExportJobCommand = async (
@@ -4997,6 +5103,29 @@ export const se_UpdateDashboardPublishedVersionCommand = async (
   b.p("DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateDashboardsQAConfigurationCommand
+ */
+export const se_UpdateDashboardsQAConfigurationCommand = async (
+  input: UpdateDashboardsQAConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/accounts/{AwsAccountId}/dashboards-qa-configuration");
+  b.p("AwsAccountId", () => input.AwsAccountId!, "{AwsAccountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DashboardsQAStatus: [],
+    })
+  );
   b.m("PUT").h(headers).b(body);
   return b.build();
 };
@@ -7649,6 +7778,31 @@ export const de_DescribeDashboardSnapshotJobResultCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeDashboardsQAConfigurationCommand
+ */
+export const de_DescribeDashboardsQAConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDashboardsQAConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DashboardsQAStatus: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeDataSetCommand
  */
 export const de_DescribeDataSetCommand = async (
@@ -9664,6 +9818,32 @@ export const de_SearchGroupsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchTopicsCommand
+ */
+export const de_SearchTopicsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchTopicsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RequestId: __expectString,
+    TopicSummaryList: _json,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartAssetBundleExportJobCommand
  */
 export const de_StartAssetBundleExportJobCommand = async (
@@ -10106,6 +10286,31 @@ export const de_UpdateDashboardPublishedVersionCommand = async (
   const doc = take(data, {
     DashboardArn: __expectString,
     DashboardId: __expectString,
+    RequestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDashboardsQAConfigurationCommand
+ */
+export const de_UpdateDashboardsQAConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDashboardsQAConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DashboardsQAStatus: __expectString,
     RequestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -11432,6 +11637,7 @@ const se_AnalysisDefinition = (input: AnalysisDefinition, context: __SerdeContex
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     QueryExecutionOptions: _json,
     Sheets: (_) => se_SheetDefinitionList(_, context),
+    StaticFiles: _json,
   });
 };
 
@@ -11892,6 +12098,7 @@ const se_BarChartVisual = (input: BarChartVisual, context: __SerdeContext): any 
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -12095,6 +12302,7 @@ const se_BoxPlotVisual = (input: BoxPlotVisual, context: __SerdeContext): any =>
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -12355,6 +12563,7 @@ const se_ComboChartVisual = (input: ComboChartVisual, context: __SerdeContext): 
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -12510,6 +12719,7 @@ const se_CustomContentVisual = (input: CustomContentVisual, context: __SerdeCont
     DataSetIdentifier: [],
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -12567,6 +12777,7 @@ const se_DashboardVersionDefinition = (input: DashboardVersionDefinition, contex
     Options: _json,
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     Sheets: (_) => se_SheetDefinitionList(_, context),
+    StaticFiles: _json,
   });
 };
 
@@ -13227,6 +13438,7 @@ const se_FilledMapVisual = (input: FilledMapVisual, context: __SerdeContext): an
     ConditionalFormatting: (_) => se_FilledMapConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -13513,6 +13725,7 @@ const se_FunnelChartVisual = (input: FunnelChartVisual, context: __SerdeContext)
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -13628,7 +13841,56 @@ const se_GaugeChartVisual = (input: GaugeChartVisual, context: __SerdeContext): 
     ConditionalFormatting: (_) => se_GaugeChartConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialCategoricalColor
+ */
+const se_GeospatialCategoricalColor = (input: GeospatialCategoricalColor, context: __SerdeContext): any => {
+  return take(input, {
+    CategoryDataColors: _json,
+    DefaultOpacity: __serializeFloat,
+    NullDataSettings: (_) => se_GeospatialNullDataSettings(_, context),
+    NullDataVisibility: [],
+  });
+};
+
+// se_GeospatialCategoricalDataColor omitted.
+
+// se_GeospatialCategoricalDataColorList omitted.
+
+/**
+ * serializeAws_restJson1GeospatialCircleRadius
+ */
+const se_GeospatialCircleRadius = (input: GeospatialCircleRadius, context: __SerdeContext): any => {
+  return take(input, {
+    Radius: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialCircleSymbolStyle
+ */
+const se_GeospatialCircleSymbolStyle = (input: GeospatialCircleSymbolStyle, context: __SerdeContext): any => {
+  return take(input, {
+    CircleRadius: (_) => se_GeospatialCircleRadius(_, context),
+    FillColor: (_) => se_GeospatialColor(_, context),
+    StrokeColor: (_) => se_GeospatialColor(_, context),
+    StrokeWidth: (_) => se_GeospatialLineWidth(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialColor
+ */
+const se_GeospatialColor = (input: GeospatialColor, context: __SerdeContext): any => {
+  return take(input, {
+    Categorical: (_) => se_GeospatialCategoricalColor(_, context),
+    Gradient: (_) => se_GeospatialGradientColor(_, context),
+    Solid: _json,
   });
 };
 
@@ -13646,6 +13908,41 @@ const se_GeospatialCoordinateBounds = (input: GeospatialCoordinateBounds, contex
   });
 };
 
+// se_GeospatialDataSourceItem omitted.
+
+/**
+ * serializeAws_restJson1GeospatialGradientColor
+ */
+const se_GeospatialGradientColor = (input: GeospatialGradientColor, context: __SerdeContext): any => {
+  return take(input, {
+    DefaultOpacity: __serializeFloat,
+    NullDataSettings: (_) => se_GeospatialNullDataSettings(_, context),
+    NullDataVisibility: [],
+    StepColors: (_) => se_GeospatialGradientStepColorList(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialGradientStepColor
+ */
+const se_GeospatialGradientStepColor = (input: GeospatialGradientStepColor, context: __SerdeContext): any => {
+  return take(input, {
+    Color: [],
+    DataValue: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialGradientStepColorList
+ */
+const se_GeospatialGradientStepColorList = (input: GeospatialGradientStepColor[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_GeospatialGradientStepColor(entry, context);
+    });
+};
+
 // se_GeospatialHeatmapColorScale omitted.
 
 // se_GeospatialHeatmapConfiguration omitted.
@@ -13653,6 +13950,118 @@ const se_GeospatialCoordinateBounds = (input: GeospatialCoordinateBounds, contex
 // se_GeospatialHeatmapDataColor omitted.
 
 // se_GeospatialHeatmapDataColorList omitted.
+
+/**
+ * serializeAws_restJson1GeospatialLayerColorField
+ */
+const se_GeospatialLayerColorField = (input: GeospatialLayerColorField, context: __SerdeContext): any => {
+  return take(input, {
+    ColorDimensionsFields: _json,
+    ColorValuesFields: (_) => se_GeospatialLayerMeasureFieldList(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLayerDefinition
+ */
+const se_GeospatialLayerDefinition = (input: GeospatialLayerDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    LineLayer: (_) => se_GeospatialLineLayer(_, context),
+    PointLayer: (_) => se_GeospatialPointLayer(_, context),
+    PolygonLayer: (_) => se_GeospatialPolygonLayer(_, context),
+  });
+};
+
+// se_GeospatialLayerDimensionFieldList omitted.
+
+/**
+ * serializeAws_restJson1GeospatialLayerItem
+ */
+const se_GeospatialLayerItem = (input: GeospatialLayerItem, context: __SerdeContext): any => {
+  return take(input, {
+    Actions: (_) => se_LayerCustomActionList(_, context),
+    DataSource: _json,
+    JoinDefinition: (_) => se_GeospatialLayerJoinDefinition(_, context),
+    Label: [],
+    LayerDefinition: (_) => se_GeospatialLayerDefinition(_, context),
+    LayerId: [],
+    LayerType: [],
+    Tooltip: (_) => se_TooltipOptions(_, context),
+    Visibility: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLayerJoinDefinition
+ */
+const se_GeospatialLayerJoinDefinition = (input: GeospatialLayerJoinDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    ColorField: (_) => se_GeospatialLayerColorField(_, context),
+    DatasetKeyField: _json,
+    ShapeKeyField: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLayerMapConfiguration
+ */
+const se_GeospatialLayerMapConfiguration = (input: GeospatialLayerMapConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    Interactions: _json,
+    Legend: _json,
+    MapLayers: (_) => se_GeospatialMapLayerList(_, context),
+    MapState: (_) => se_GeospatialMapState(_, context),
+    MapStyle: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLayerMeasureFieldList
+ */
+const se_GeospatialLayerMeasureFieldList = (input: MeasureField[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_MeasureField(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLineLayer
+ */
+const se_GeospatialLineLayer = (input: GeospatialLineLayer, context: __SerdeContext): any => {
+  return take(input, {
+    Style: (_) => se_GeospatialLineStyle(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLineStyle
+ */
+const se_GeospatialLineStyle = (input: GeospatialLineStyle, context: __SerdeContext): any => {
+  return take(input, {
+    LineSymbolStyle: (_) => se_GeospatialLineSymbolStyle(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLineSymbolStyle
+ */
+const se_GeospatialLineSymbolStyle = (input: GeospatialLineSymbolStyle, context: __SerdeContext): any => {
+  return take(input, {
+    FillColor: (_) => se_GeospatialColor(_, context),
+    LineWidth: (_) => se_GeospatialLineWidth(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialLineWidth
+ */
+const se_GeospatialLineWidth = (input: GeospatialLineWidth, context: __SerdeContext): any => {
+  return take(input, {
+    LineWidth: __serializeFloat,
+  });
+};
 
 /**
  * serializeAws_restJson1GeospatialMapAggregatedFieldWells
@@ -13693,6 +14102,29 @@ const se_GeospatialMapFieldWells = (input: GeospatialMapFieldWells, context: __S
   });
 };
 
+/**
+ * serializeAws_restJson1GeospatialMapLayerList
+ */
+const se_GeospatialMapLayerList = (input: GeospatialLayerItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_GeospatialLayerItem(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1GeospatialMapState
+ */
+const se_GeospatialMapState = (input: GeospatialMapState, context: __SerdeContext): any => {
+  return take(input, {
+    Bounds: (_) => se_GeospatialCoordinateBounds(_, context),
+    MapNavigation: [],
+  });
+};
+
+// se_GeospatialMapStyle omitted.
+
 // se_GeospatialMapStyleOptions omitted.
 
 /**
@@ -13705,11 +14137,83 @@ const se_GeospatialMapVisual = (input: GeospatialMapVisual, context: __SerdeCont
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
 
+/**
+ * serializeAws_restJson1GeospatialNullDataSettings
+ */
+const se_GeospatialNullDataSettings = (input: GeospatialNullDataSettings, context: __SerdeContext): any => {
+  return take(input, {
+    SymbolStyle: (_) => se_GeospatialNullSymbolStyle(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialNullSymbolStyle
+ */
+const se_GeospatialNullSymbolStyle = (input: GeospatialNullSymbolStyle, context: __SerdeContext): any => {
+  return take(input, {
+    FillColor: [],
+    StrokeColor: [],
+    StrokeWidth: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialPointLayer
+ */
+const se_GeospatialPointLayer = (input: GeospatialPointLayer, context: __SerdeContext): any => {
+  return take(input, {
+    Style: (_) => se_GeospatialPointStyle(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialPointStyle
+ */
+const se_GeospatialPointStyle = (input: GeospatialPointStyle, context: __SerdeContext): any => {
+  return take(input, {
+    CircleSymbolStyle: (_) => se_GeospatialCircleSymbolStyle(_, context),
+  });
+};
+
 // se_GeospatialPointStyleOptions omitted.
+
+/**
+ * serializeAws_restJson1GeospatialPolygonLayer
+ */
+const se_GeospatialPolygonLayer = (input: GeospatialPolygonLayer, context: __SerdeContext): any => {
+  return take(input, {
+    Style: (_) => se_GeospatialPolygonStyle(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialPolygonStyle
+ */
+const se_GeospatialPolygonStyle = (input: GeospatialPolygonStyle, context: __SerdeContext): any => {
+  return take(input, {
+    PolygonSymbolStyle: (_) => se_GeospatialPolygonSymbolStyle(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1GeospatialPolygonSymbolStyle
+ */
+const se_GeospatialPolygonSymbolStyle = (input: GeospatialPolygonSymbolStyle, context: __SerdeContext): any => {
+  return take(input, {
+    FillColor: (_) => se_GeospatialColor(_, context),
+    StrokeColor: (_) => se_GeospatialColor(_, context),
+    StrokeWidth: (_) => se_GeospatialLineWidth(_, context),
+  });
+};
+
+// se_GeospatialSolidColor omitted.
+
+// se_GeospatialStaticFileSource omitted.
 
 /**
  * serializeAws_restJson1GeospatialWindowOptions
@@ -13861,6 +14365,7 @@ const se_HeatMapVisual = (input: HeatMapVisual, context: __SerdeContext): any =>
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -13932,6 +14437,7 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
     ChartConfiguration: (_) => se_HistogramConfiguration(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -13946,9 +14452,61 @@ const se_HistogramVisual = (input: HistogramVisual, context: __SerdeContext): an
 
 // se_ImageConfiguration omitted.
 
+/**
+ * serializeAws_restJson1ImageCustomAction
+ */
+const se_ImageCustomAction = (input: ImageCustomAction, context: __SerdeContext): any => {
+  return take(input, {
+    ActionOperations: (_) => se_ImageCustomActionOperationList(_, context),
+    CustomActionId: [],
+    Name: [],
+    Status: [],
+    Trigger: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ImageCustomActionList
+ */
+const se_ImageCustomActionList = (input: ImageCustomAction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ImageCustomAction(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ImageCustomActionOperation
+ */
+const se_ImageCustomActionOperation = (input: ImageCustomActionOperation, context: __SerdeContext): any => {
+  return take(input, {
+    NavigationOperation: _json,
+    SetParametersOperation: (_) => se_CustomActionSetParametersOperation(_, context),
+    URLOperation: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1ImageCustomActionOperationList
+ */
+const se_ImageCustomActionOperationList = (input: ImageCustomActionOperation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ImageCustomActionOperation(entry, context);
+    });
+};
+
+// se_ImageInteractionOptions omitted.
+
+// se_ImageMenuOption omitted.
+
 // se_ImageSetConfiguration omitted.
 
 // se_ImageSource omitted.
+
+// se_ImageStaticFile omitted.
 
 // se_IncrementalRefresh omitted.
 
@@ -13986,6 +14544,7 @@ const se_InsightVisual = (input: InsightVisual, context: __SerdeContext): any =>
     InsightConfiguration: (_) => se_InsightConfiguration(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -14153,6 +14712,7 @@ const se_KPIVisual = (input: KPIVisual, context: __SerdeContext): any => {
     ConditionalFormatting: (_) => se_KPIConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -14162,6 +14722,67 @@ const se_KPIVisual = (input: KPIVisual, context: __SerdeContext): any => {
 // se_KPIVisualStandardLayout omitted.
 
 // se_LabelOptions omitted.
+
+/**
+ * serializeAws_restJson1LayerCustomAction
+ */
+const se_LayerCustomAction = (input: LayerCustomAction, context: __SerdeContext): any => {
+  return take(input, {
+    ActionOperations: (_) => se_LayerCustomActionOperationList(_, context),
+    CustomActionId: [],
+    Name: [],
+    Status: [],
+    Trigger: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1LayerCustomActionList
+ */
+const se_LayerCustomActionList = (input: LayerCustomAction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_LayerCustomAction(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1LayerCustomActionOperation
+ */
+const se_LayerCustomActionOperation = (input: LayerCustomActionOperation, context: __SerdeContext): any => {
+  return take(input, {
+    FilterOperation: _json,
+    NavigationOperation: _json,
+    SetParametersOperation: (_) => se_CustomActionSetParametersOperation(_, context),
+    URLOperation: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1LayerCustomActionOperationList
+ */
+const se_LayerCustomActionOperationList = (input: LayerCustomActionOperation[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_LayerCustomActionOperation(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1LayerMapVisual
+ */
+const se_LayerMapVisual = (input: LayerMapVisual, context: __SerdeContext): any => {
+  return take(input, {
+    ChartConfiguration: (_) => se_GeospatialLayerMapConfiguration(_, context),
+    DataSetIdentifier: [],
+    Subtitle: _json,
+    Title: _json,
+    VisualContentAltText: [],
+    VisualId: [],
+  });
+};
 
 /**
  * serializeAws_restJson1Layout
@@ -14277,6 +14898,7 @@ const se_LineChartVisual = (input: LineChartVisual, context: __SerdeContext): an
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -14776,6 +15398,7 @@ const se_PieChartVisual = (input: PieChartVisual, context: __SerdeContext): any 
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -14961,11 +15584,87 @@ const se_PivotTableVisual = (input: PivotTableVisual, context: __SerdeContext): 
     ConditionalFormatting: (_) => se_PivotTableConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
 
 // se_PivotTotalOptions omitted.
+
+/**
+ * serializeAws_restJson1PluginVisual
+ */
+const se_PluginVisual = (input: PluginVisual, context: __SerdeContext): any => {
+  return take(input, {
+    ChartConfiguration: (_) => se_PluginVisualConfiguration(_, context),
+    PluginArn: [],
+    Subtitle: _json,
+    Title: _json,
+    VisualContentAltText: [],
+    VisualId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1PluginVisualConfiguration
+ */
+const se_PluginVisualConfiguration = (input: PluginVisualConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    FieldWells: (_) => se_PluginVisualFieldWells(_, context),
+    SortConfiguration: (_) => se_PluginVisualSortConfiguration(_, context),
+    VisualOptions: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1PluginVisualFieldWell
+ */
+const se_PluginVisualFieldWell = (input: PluginVisualFieldWell, context: __SerdeContext): any => {
+  return take(input, {
+    AxisName: [],
+    Dimensions: _json,
+    Measures: (_) => se_MeasureFieldList(_, context),
+    Unaggregated: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1PluginVisualFieldWells
+ */
+const se_PluginVisualFieldWells = (input: PluginVisualFieldWell[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_PluginVisualFieldWell(entry, context);
+    });
+};
+
+// se_PluginVisualItemsLimitConfiguration omitted.
+
+// se_PluginVisualOptions omitted.
+
+// se_PluginVisualPropertiesList omitted.
+
+// se_PluginVisualProperty omitted.
+
+/**
+ * serializeAws_restJson1PluginVisualSortConfiguration
+ */
+const se_PluginVisualSortConfiguration = (input: PluginVisualSortConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    PluginVisualTableQuerySort: (_) => se_PluginVisualTableQuerySort(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1PluginVisualTableQuerySort
+ */
+const se_PluginVisualTableQuerySort = (input: PluginVisualTableQuerySort, context: __SerdeContext): any => {
+  return take(input, {
+    ItemsLimitConfiguration: _json,
+    RowSort: (_) => se_RowSortList(_, context),
+  });
+};
 
 // se_PostgreSqlParameters omitted.
 
@@ -15079,6 +15778,7 @@ const se_RadarChartVisual = (input: RadarChartVisual, context: __SerdeContext): 
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -15318,6 +16018,7 @@ const se_SankeyDiagramVisual = (input: SankeyDiagramVisual, context: __SerdeCont
     ChartConfiguration: (_) => se_SankeyDiagramChartConfiguration(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -15395,6 +16096,7 @@ const se_ScatterPlotVisual = (input: ScatterPlotVisual, context: __SerdeContext)
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -15536,6 +16238,7 @@ const se_SheetDefinition = (input: SheetDefinition, context: __SerdeContext): an
     ContentType: [],
     Description: [],
     FilterControls: (_) => se_FilterControlList(_, context),
+    Images: (_) => se_SheetImageList(_, context),
     Layouts: (_) => se_LayoutList(_, context),
     Name: [],
     ParameterControls: (_) => se_ParameterControlList(_, context),
@@ -15563,6 +16266,42 @@ const se_SheetDefinitionList = (input: SheetDefinition[], context: __SerdeContex
 // se_SheetElementRenderingRule omitted.
 
 // se_SheetElementRenderingRuleList omitted.
+
+/**
+ * serializeAws_restJson1SheetImage
+ */
+const se_SheetImage = (input: SheetImage, context: __SerdeContext): any => {
+  return take(input, {
+    Actions: (_) => se_ImageCustomActionList(_, context),
+    ImageContentAltText: [],
+    Interactions: _json,
+    Scaling: _json,
+    SheetImageId: [],
+    Source: _json,
+    Tooltip: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1SheetImageList
+ */
+const se_SheetImageList = (input: SheetImage[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SheetImage(entry, context);
+    });
+};
+
+// se_SheetImageScalingConfiguration omitted.
+
+// se_SheetImageSource omitted.
+
+// se_SheetImageStaticFileSource omitted.
+
+// se_SheetImageTooltipConfiguration omitted.
+
+// se_SheetImageTooltipText omitted.
 
 // se_SheetLayoutElementMaximizationOption omitted.
 
@@ -15637,6 +16376,8 @@ const se_SnapshotConfiguration = (input: SnapshotConfiguration, context: __Serde
 
 // se_SparkParameters omitted.
 
+// se_SpatialStaticFile omitted.
+
 // se_SqlServerParameters omitted.
 
 // se_SslProperties omitted.
@@ -15644,6 +16385,16 @@ const se_SnapshotConfiguration = (input: SnapshotConfiguration, context: __Serde
 // se_StarburstParameters omitted.
 
 // se_StatePersistenceConfigurations omitted.
+
+// se_StaticFile omitted.
+
+// se_StaticFileList omitted.
+
+// se_StaticFileS3SourceOptions omitted.
+
+// se_StaticFileSource omitted.
+
+// se_StaticFileUrlSourceOptions omitted.
 
 // se_StringDatasetParameter omitted.
 
@@ -15826,6 +16577,7 @@ const se_TableVisual = (input: TableVisual, context: __SerdeContext): any => {
     ConditionalFormatting: (_) => se_TableConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -15858,6 +16610,7 @@ const se_TemplateVersionDefinition = (input: TemplateVersionDefinition, context:
     ParameterDeclarations: (_) => se_ParameterDeclarationList(_, context),
     QueryExecutionOptions: _json,
     Sheets: (_) => se_SheetDefinitionList(_, context),
+    StaticFiles: _json,
   });
 };
 
@@ -16105,6 +16858,10 @@ const se_TopicRefreshSchedule = (input: TopicRefreshSchedule, context: __SerdeCo
 
 // se_TopicRelativeDateFilter omitted.
 
+// se_TopicSearchFilter omitted.
+
+// se_TopicSearchFilterList omitted.
+
 // se_TopicSingularFilterConstant omitted.
 
 // se_TopicSortClause omitted.
@@ -16254,6 +17011,7 @@ const se_TreeMapVisual = (input: TreeMapVisual, context: __SerdeContext): any =>
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -16313,9 +17071,11 @@ const se_Visual = (input: Visual, context: __SerdeContext): any => {
     HistogramVisual: (_) => se_HistogramVisual(_, context),
     InsightVisual: (_) => se_InsightVisual(_, context),
     KPIVisual: (_) => se_KPIVisual(_, context),
+    LayerMapVisual: (_) => se_LayerMapVisual(_, context),
     LineChartVisual: (_) => se_LineChartVisual(_, context),
     PieChartVisual: (_) => se_PieChartVisual(_, context),
     PivotTableVisual: (_) => se_PivotTableVisual(_, context),
+    PluginVisual: (_) => se_PluginVisual(_, context),
     RadarChartVisual: (_) => se_RadarChartVisual(_, context),
     SankeyDiagramVisual: (_) => se_SankeyDiagramVisual(_, context),
     ScatterPlotVisual: (_) => se_ScatterPlotVisual(_, context),
@@ -16473,6 +17233,7 @@ const se_WaterfallVisual = (input: WaterfallVisual, context: __SerdeContext): an
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -16565,6 +17326,7 @@ const se_WordCloudVisual = (input: WordCloudVisual, context: __SerdeContext): an
     ColumnHierarchies: (_) => se_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: [],
     VisualId: [],
   });
 };
@@ -16648,7 +17410,7 @@ const de_Analysis = (output: any, context: __SerdeContext): Analysis => {
     Errors: _json,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
-    Sheets: _json,
+    Sheets: (_: any) => de_SheetList(_, context),
     Status: __expectString,
     ThemeArn: __expectString,
   }) as any;
@@ -16670,6 +17432,7 @@ const de_AnalysisDefinition = (output: any, context: __SerdeContext): AnalysisDe
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
     QueryExecutionOptions: _json,
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
+    StaticFiles: _json,
   }) as any;
 };
 
@@ -17202,6 +17965,7 @@ const de_BarChartVisual = (output: any, context: __SerdeContext): BarChartVisual
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -17407,6 +18171,7 @@ const de_BoxPlotVisual = (output: any, context: __SerdeContext): BoxPlotVisual =
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -17713,6 +18478,7 @@ const de_ComboChartVisual = (output: any, context: __SerdeContext): ComboChartVi
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -17842,6 +18608,7 @@ const de_CustomContentVisual = (output: any, context: __SerdeContext): CustomCon
     DataSetIdentifier: __expectString,
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -17939,7 +18706,7 @@ const de_DashboardVersion = (output: any, context: __SerdeContext): DashboardVer
     DataSetArns: _json,
     Description: __expectString,
     Errors: _json,
-    Sheets: _json,
+    Sheets: (_: any) => de_SheetList(_, context),
     SourceEntityArn: __expectString,
     Status: __expectString,
     ThemeArn: __expectString,
@@ -17960,6 +18727,7 @@ const de_DashboardVersionDefinition = (output: any, context: __SerdeContext): Da
     Options: _json,
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
+    StaticFiles: _json,
   }) as any;
 };
 
@@ -18770,6 +19538,7 @@ const de_FilledMapVisual = (output: any, context: __SerdeContext): FilledMapVisu
     ConditionalFormatting: (_: any) => de_FilledMapConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -19106,6 +19875,7 @@ const de_FunnelChartVisual = (output: any, context: __SerdeContext): FunnelChart
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -19222,7 +19992,56 @@ const de_GaugeChartVisual = (output: any, context: __SerdeContext): GaugeChartVi
     ConditionalFormatting: (_: any) => de_GaugeChartConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialCategoricalColor
+ */
+const de_GeospatialCategoricalColor = (output: any, context: __SerdeContext): GeospatialCategoricalColor => {
+  return take(output, {
+    CategoryDataColors: _json,
+    DefaultOpacity: __limitedParseDouble,
+    NullDataSettings: (_: any) => de_GeospatialNullDataSettings(_, context),
+    NullDataVisibility: __expectString,
+  }) as any;
+};
+
+// de_GeospatialCategoricalDataColor omitted.
+
+// de_GeospatialCategoricalDataColorList omitted.
+
+/**
+ * deserializeAws_restJson1GeospatialCircleRadius
+ */
+const de_GeospatialCircleRadius = (output: any, context: __SerdeContext): GeospatialCircleRadius => {
+  return take(output, {
+    Radius: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialCircleSymbolStyle
+ */
+const de_GeospatialCircleSymbolStyle = (output: any, context: __SerdeContext): GeospatialCircleSymbolStyle => {
+  return take(output, {
+    CircleRadius: (_: any) => de_GeospatialCircleRadius(_, context),
+    FillColor: (_: any) => de_GeospatialColor(_, context),
+    StrokeColor: (_: any) => de_GeospatialColor(_, context),
+    StrokeWidth: (_: any) => de_GeospatialLineWidth(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialColor
+ */
+const de_GeospatialColor = (output: any, context: __SerdeContext): GeospatialColor => {
+  return take(output, {
+    Categorical: (_: any) => de_GeospatialCategoricalColor(_, context),
+    Gradient: (_: any) => de_GeospatialGradientColor(_, context),
+    Solid: _json,
   }) as any;
 };
 
@@ -19240,6 +20059,42 @@ const de_GeospatialCoordinateBounds = (output: any, context: __SerdeContext): Ge
   }) as any;
 };
 
+// de_GeospatialDataSourceItem omitted.
+
+/**
+ * deserializeAws_restJson1GeospatialGradientColor
+ */
+const de_GeospatialGradientColor = (output: any, context: __SerdeContext): GeospatialGradientColor => {
+  return take(output, {
+    DefaultOpacity: __limitedParseDouble,
+    NullDataSettings: (_: any) => de_GeospatialNullDataSettings(_, context),
+    NullDataVisibility: __expectString,
+    StepColors: (_: any) => de_GeospatialGradientStepColorList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialGradientStepColor
+ */
+const de_GeospatialGradientStepColor = (output: any, context: __SerdeContext): GeospatialGradientStepColor => {
+  return take(output, {
+    Color: __expectString,
+    DataValue: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialGradientStepColorList
+ */
+const de_GeospatialGradientStepColorList = (output: any, context: __SerdeContext): GeospatialGradientStepColor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GeospatialGradientStepColor(entry, context);
+    });
+  return retVal;
+};
+
 // de_GeospatialHeatmapColorScale omitted.
 
 // de_GeospatialHeatmapConfiguration omitted.
@@ -19247,6 +20102,119 @@ const de_GeospatialCoordinateBounds = (output: any, context: __SerdeContext): Ge
 // de_GeospatialHeatmapDataColor omitted.
 
 // de_GeospatialHeatmapDataColorList omitted.
+
+/**
+ * deserializeAws_restJson1GeospatialLayerColorField
+ */
+const de_GeospatialLayerColorField = (output: any, context: __SerdeContext): GeospatialLayerColorField => {
+  return take(output, {
+    ColorDimensionsFields: _json,
+    ColorValuesFields: (_: any) => de_GeospatialLayerMeasureFieldList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLayerDefinition
+ */
+const de_GeospatialLayerDefinition = (output: any, context: __SerdeContext): GeospatialLayerDefinition => {
+  return take(output, {
+    LineLayer: (_: any) => de_GeospatialLineLayer(_, context),
+    PointLayer: (_: any) => de_GeospatialPointLayer(_, context),
+    PolygonLayer: (_: any) => de_GeospatialPolygonLayer(_, context),
+  }) as any;
+};
+
+// de_GeospatialLayerDimensionFieldList omitted.
+
+/**
+ * deserializeAws_restJson1GeospatialLayerItem
+ */
+const de_GeospatialLayerItem = (output: any, context: __SerdeContext): GeospatialLayerItem => {
+  return take(output, {
+    Actions: (_: any) => de_LayerCustomActionList(_, context),
+    DataSource: _json,
+    JoinDefinition: (_: any) => de_GeospatialLayerJoinDefinition(_, context),
+    Label: __expectString,
+    LayerDefinition: (_: any) => de_GeospatialLayerDefinition(_, context),
+    LayerId: __expectString,
+    LayerType: __expectString,
+    Tooltip: (_: any) => de_TooltipOptions(_, context),
+    Visibility: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLayerJoinDefinition
+ */
+const de_GeospatialLayerJoinDefinition = (output: any, context: __SerdeContext): GeospatialLayerJoinDefinition => {
+  return take(output, {
+    ColorField: (_: any) => de_GeospatialLayerColorField(_, context),
+    DatasetKeyField: _json,
+    ShapeKeyField: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLayerMapConfiguration
+ */
+const de_GeospatialLayerMapConfiguration = (output: any, context: __SerdeContext): GeospatialLayerMapConfiguration => {
+  return take(output, {
+    Interactions: _json,
+    Legend: _json,
+    MapLayers: (_: any) => de_GeospatialMapLayerList(_, context),
+    MapState: (_: any) => de_GeospatialMapState(_, context),
+    MapStyle: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLayerMeasureFieldList
+ */
+const de_GeospatialLayerMeasureFieldList = (output: any, context: __SerdeContext): MeasureField[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MeasureField(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLineLayer
+ */
+const de_GeospatialLineLayer = (output: any, context: __SerdeContext): GeospatialLineLayer => {
+  return take(output, {
+    Style: (_: any) => de_GeospatialLineStyle(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLineStyle
+ */
+const de_GeospatialLineStyle = (output: any, context: __SerdeContext): GeospatialLineStyle => {
+  return take(output, {
+    LineSymbolStyle: (_: any) => de_GeospatialLineSymbolStyle(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLineSymbolStyle
+ */
+const de_GeospatialLineSymbolStyle = (output: any, context: __SerdeContext): GeospatialLineSymbolStyle => {
+  return take(output, {
+    FillColor: (_: any) => de_GeospatialColor(_, context),
+    LineWidth: (_: any) => de_GeospatialLineWidth(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialLineWidth
+ */
+const de_GeospatialLineWidth = (output: any, context: __SerdeContext): GeospatialLineWidth => {
+  return take(output, {
+    LineWidth: __limitedParseDouble,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1GeospatialMapAggregatedFieldWells
@@ -19287,6 +20255,30 @@ const de_GeospatialMapFieldWells = (output: any, context: __SerdeContext): Geosp
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1GeospatialMapLayerList
+ */
+const de_GeospatialMapLayerList = (output: any, context: __SerdeContext): GeospatialLayerItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_GeospatialLayerItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialMapState
+ */
+const de_GeospatialMapState = (output: any, context: __SerdeContext): GeospatialMapState => {
+  return take(output, {
+    Bounds: (_: any) => de_GeospatialCoordinateBounds(_, context),
+    MapNavigation: __expectString,
+  }) as any;
+};
+
+// de_GeospatialMapStyle omitted.
+
 // de_GeospatialMapStyleOptions omitted.
 
 /**
@@ -19299,11 +20291,83 @@ const de_GeospatialMapVisual = (output: any, context: __SerdeContext): Geospatia
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1GeospatialNullDataSettings
+ */
+const de_GeospatialNullDataSettings = (output: any, context: __SerdeContext): GeospatialNullDataSettings => {
+  return take(output, {
+    SymbolStyle: (_: any) => de_GeospatialNullSymbolStyle(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialNullSymbolStyle
+ */
+const de_GeospatialNullSymbolStyle = (output: any, context: __SerdeContext): GeospatialNullSymbolStyle => {
+  return take(output, {
+    FillColor: __expectString,
+    StrokeColor: __expectString,
+    StrokeWidth: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialPointLayer
+ */
+const de_GeospatialPointLayer = (output: any, context: __SerdeContext): GeospatialPointLayer => {
+  return take(output, {
+    Style: (_: any) => de_GeospatialPointStyle(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialPointStyle
+ */
+const de_GeospatialPointStyle = (output: any, context: __SerdeContext): GeospatialPointStyle => {
+  return take(output, {
+    CircleSymbolStyle: (_: any) => de_GeospatialCircleSymbolStyle(_, context),
+  }) as any;
+};
+
 // de_GeospatialPointStyleOptions omitted.
+
+/**
+ * deserializeAws_restJson1GeospatialPolygonLayer
+ */
+const de_GeospatialPolygonLayer = (output: any, context: __SerdeContext): GeospatialPolygonLayer => {
+  return take(output, {
+    Style: (_: any) => de_GeospatialPolygonStyle(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialPolygonStyle
+ */
+const de_GeospatialPolygonStyle = (output: any, context: __SerdeContext): GeospatialPolygonStyle => {
+  return take(output, {
+    PolygonSymbolStyle: (_: any) => de_GeospatialPolygonSymbolStyle(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1GeospatialPolygonSymbolStyle
+ */
+const de_GeospatialPolygonSymbolStyle = (output: any, context: __SerdeContext): GeospatialPolygonSymbolStyle => {
+  return take(output, {
+    FillColor: (_: any) => de_GeospatialColor(_, context),
+    StrokeColor: (_: any) => de_GeospatialColor(_, context),
+    StrokeWidth: (_: any) => de_GeospatialLineWidth(_, context),
+  }) as any;
+};
+
+// de_GeospatialSolidColor omitted.
+
+// de_GeospatialStaticFileSource omitted.
 
 /**
  * deserializeAws_restJson1GeospatialWindowOptions
@@ -19461,6 +20525,7 @@ const de_HeatMapVisual = (output: any, context: __SerdeContext): HeatMapVisual =
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -19533,6 +20598,7 @@ const de_HistogramVisual = (output: any, context: __SerdeContext): HistogramVisu
     ChartConfiguration: (_: any) => de_HistogramConfiguration(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -19555,11 +20621,65 @@ const de_HistogramVisual = (output: any, context: __SerdeContext): HistogramVisu
 
 // de_ImageConfiguration omitted.
 
+/**
+ * deserializeAws_restJson1ImageCustomAction
+ */
+const de_ImageCustomAction = (output: any, context: __SerdeContext): ImageCustomAction => {
+  return take(output, {
+    ActionOperations: (_: any) => de_ImageCustomActionOperationList(_, context),
+    CustomActionId: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+    Trigger: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImageCustomActionList
+ */
+const de_ImageCustomActionList = (output: any, context: __SerdeContext): ImageCustomAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageCustomAction(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ImageCustomActionOperation
+ */
+const de_ImageCustomActionOperation = (output: any, context: __SerdeContext): ImageCustomActionOperation => {
+  return take(output, {
+    NavigationOperation: _json,
+    SetParametersOperation: (_: any) => de_CustomActionSetParametersOperation(_, context),
+    URLOperation: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImageCustomActionOperationList
+ */
+const de_ImageCustomActionOperationList = (output: any, context: __SerdeContext): ImageCustomActionOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageCustomActionOperation(entry, context);
+    });
+  return retVal;
+};
+
+// de_ImageInteractionOptions omitted.
+
+// de_ImageMenuOption omitted.
+
 // de_ImageSet omitted.
 
 // de_ImageSetConfiguration omitted.
 
 // de_ImageSource omitted.
+
+// de_ImageStaticFile omitted.
 
 // de_IncrementalRefresh omitted.
 
@@ -19628,6 +20748,7 @@ const de_InsightVisual = (output: any, context: __SerdeContext): InsightVisual =
     InsightConfiguration: (_: any) => de_InsightConfiguration(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -19800,6 +20921,7 @@ const de_KPIVisual = (output: any, context: __SerdeContext): KPIVisual => {
     ConditionalFormatting: (_: any) => de_KPIConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -19809,6 +20931,69 @@ const de_KPIVisual = (output: any, context: __SerdeContext): KPIVisual => {
 // de_KPIVisualStandardLayout omitted.
 
 // de_LabelOptions omitted.
+
+/**
+ * deserializeAws_restJson1LayerCustomAction
+ */
+const de_LayerCustomAction = (output: any, context: __SerdeContext): LayerCustomAction => {
+  return take(output, {
+    ActionOperations: (_: any) => de_LayerCustomActionOperationList(_, context),
+    CustomActionId: __expectString,
+    Name: __expectString,
+    Status: __expectString,
+    Trigger: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LayerCustomActionList
+ */
+const de_LayerCustomActionList = (output: any, context: __SerdeContext): LayerCustomAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LayerCustomAction(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1LayerCustomActionOperation
+ */
+const de_LayerCustomActionOperation = (output: any, context: __SerdeContext): LayerCustomActionOperation => {
+  return take(output, {
+    FilterOperation: _json,
+    NavigationOperation: _json,
+    SetParametersOperation: (_: any) => de_CustomActionSetParametersOperation(_, context),
+    URLOperation: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LayerCustomActionOperationList
+ */
+const de_LayerCustomActionOperationList = (output: any, context: __SerdeContext): LayerCustomActionOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LayerCustomActionOperation(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1LayerMapVisual
+ */
+const de_LayerMapVisual = (output: any, context: __SerdeContext): LayerMapVisual => {
+  return take(output, {
+    ChartConfiguration: (_: any) => de_GeospatialLayerMapConfiguration(_, context),
+    DataSetIdentifier: __expectString,
+    Subtitle: _json,
+    Title: _json,
+    VisualContentAltText: __expectString,
+    VisualId: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Layout
@@ -19925,6 +21110,7 @@ const de_LineChartVisual = (output: any, context: __SerdeContext): LineChartVisu
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -20449,6 +21635,7 @@ const de_PieChartVisual = (output: any, context: __SerdeContext): PieChartVisual
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -20637,11 +21824,88 @@ const de_PivotTableVisual = (output: any, context: __SerdeContext): PivotTableVi
     ConditionalFormatting: (_: any) => de_PivotTableConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
 
 // de_PivotTotalOptions omitted.
+
+/**
+ * deserializeAws_restJson1PluginVisual
+ */
+const de_PluginVisual = (output: any, context: __SerdeContext): PluginVisual => {
+  return take(output, {
+    ChartConfiguration: (_: any) => de_PluginVisualConfiguration(_, context),
+    PluginArn: __expectString,
+    Subtitle: _json,
+    Title: _json,
+    VisualContentAltText: __expectString,
+    VisualId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PluginVisualConfiguration
+ */
+const de_PluginVisualConfiguration = (output: any, context: __SerdeContext): PluginVisualConfiguration => {
+  return take(output, {
+    FieldWells: (_: any) => de_PluginVisualFieldWells(_, context),
+    SortConfiguration: (_: any) => de_PluginVisualSortConfiguration(_, context),
+    VisualOptions: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PluginVisualFieldWell
+ */
+const de_PluginVisualFieldWell = (output: any, context: __SerdeContext): PluginVisualFieldWell => {
+  return take(output, {
+    AxisName: __expectString,
+    Dimensions: _json,
+    Measures: (_: any) => de_MeasureFieldList(_, context),
+    Unaggregated: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PluginVisualFieldWells
+ */
+const de_PluginVisualFieldWells = (output: any, context: __SerdeContext): PluginVisualFieldWell[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PluginVisualFieldWell(entry, context);
+    });
+  return retVal;
+};
+
+// de_PluginVisualItemsLimitConfiguration omitted.
+
+// de_PluginVisualOptions omitted.
+
+// de_PluginVisualPropertiesList omitted.
+
+// de_PluginVisualProperty omitted.
+
+/**
+ * deserializeAws_restJson1PluginVisualSortConfiguration
+ */
+const de_PluginVisualSortConfiguration = (output: any, context: __SerdeContext): PluginVisualSortConfiguration => {
+  return take(output, {
+    PluginVisualTableQuerySort: (_: any) => de_PluginVisualTableQuerySort(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PluginVisualTableQuerySort
+ */
+const de_PluginVisualTableQuerySort = (output: any, context: __SerdeContext): PluginVisualTableQuerySort => {
+  return take(output, {
+    ItemsLimitConfiguration: _json,
+    RowSort: (_: any) => de_RowSortList(_, context),
+  }) as any;
+};
 
 // de_PostgreSqlParameters omitted.
 
@@ -20758,6 +22022,7 @@ const de_RadarChartVisual = (output: any, context: __SerdeContext): RadarChartVi
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -20997,6 +22262,7 @@ const de_SankeyDiagramVisual = (output: any, context: __SerdeContext): SankeyDia
     ChartConfiguration: (_: any) => de_SankeyDiagramChartConfiguration(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -21075,6 +22341,7 @@ const de_ScatterPlotVisual = (output: any, context: __SerdeContext): ScatterPlot
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -21197,7 +22464,16 @@ const de_ShapeConditionalFormat = (output: any, context: __SerdeContext): ShapeC
   }) as any;
 };
 
-// de_Sheet omitted.
+/**
+ * deserializeAws_restJson1Sheet
+ */
+const de_Sheet = (output: any, context: __SerdeContext): Sheet => {
+  return take(output, {
+    Images: (_: any) => de_SheetImageList(_, context),
+    Name: __expectString,
+    SheetId: __expectString,
+  }) as any;
+};
 
 // de_SheetControlInfoIconLabelOptions omitted.
 
@@ -21217,6 +22493,7 @@ const de_SheetDefinition = (output: any, context: __SerdeContext): SheetDefiniti
     ContentType: __expectString,
     Description: __expectString,
     FilterControls: (_: any) => de_FilterControlList(_, context),
+    Images: (_: any) => de_SheetImageList(_, context),
     Layouts: (_: any) => de_LayoutList(_, context),
     Name: __expectString,
     ParameterControls: (_: any) => de_ParameterControlList(_, context),
@@ -21246,9 +22523,56 @@ const de_SheetDefinitionList = (output: any, context: __SerdeContext): SheetDefi
 
 // de_SheetElementRenderingRuleList omitted.
 
+/**
+ * deserializeAws_restJson1SheetImage
+ */
+const de_SheetImage = (output: any, context: __SerdeContext): SheetImage => {
+  return take(output, {
+    Actions: (_: any) => de_ImageCustomActionList(_, context),
+    ImageContentAltText: __expectString,
+    Interactions: _json,
+    Scaling: _json,
+    SheetImageId: __expectString,
+    Source: _json,
+    Tooltip: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SheetImageList
+ */
+const de_SheetImageList = (output: any, context: __SerdeContext): SheetImage[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SheetImage(entry, context);
+    });
+  return retVal;
+};
+
+// de_SheetImageScalingConfiguration omitted.
+
+// de_SheetImageSource omitted.
+
+// de_SheetImageStaticFileSource omitted.
+
+// de_SheetImageTooltipConfiguration omitted.
+
+// de_SheetImageTooltipText omitted.
+
 // de_SheetLayoutElementMaximizationOption omitted.
 
-// de_SheetList omitted.
+/**
+ * deserializeAws_restJson1SheetList
+ */
+const de_SheetList = (output: any, context: __SerdeContext): Sheet[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Sheet(entry, context);
+    });
+  return retVal;
+};
 
 // de_SheetStyle omitted.
 
@@ -21339,11 +22663,23 @@ const de_SnapshotConfiguration = (output: any, context: __SerdeContext): Snapsho
 
 // de_SparkParameters omitted.
 
+// de_SpatialStaticFile omitted.
+
 // de_SqlServerParameters omitted.
 
 // de_SslProperties omitted.
 
 // de_StarburstParameters omitted.
+
+// de_StaticFile omitted.
+
+// de_StaticFileList omitted.
+
+// de_StaticFileS3SourceOptions omitted.
+
+// de_StaticFileSource omitted.
+
+// de_StaticFileUrlSourceOptions omitted.
 
 // de_StringDatasetParameter omitted.
 
@@ -21538,6 +22874,7 @@ const de_TableVisual = (output: any, context: __SerdeContext): TableVisual => {
     ConditionalFormatting: (_: any) => de_TableConditionalFormatting(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -21607,7 +22944,7 @@ const de_TemplateVersion = (output: any, context: __SerdeContext): TemplateVersi
     DataSetConfigurations: _json,
     Description: __expectString,
     Errors: _json,
-    Sheets: _json,
+    Sheets: (_: any) => de_SheetList(_, context),
     SourceEntityArn: __expectString,
     Status: __expectString,
     ThemeArn: __expectString,
@@ -21629,6 +22966,7 @@ const de_TemplateVersionDefinition = (output: any, context: __SerdeContext): Tem
     ParameterDeclarations: (_: any) => de_ParameterDeclarationList(_, context),
     QueryExecutionOptions: _json,
     Sheets: (_: any) => de_SheetDefinitionList(_, context),
+    StaticFiles: _json,
   }) as any;
 };
 
@@ -22232,6 +23570,7 @@ const de_TreeMapVisual = (output: any, context: __SerdeContext): TreeMapVisual =
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -22291,9 +23630,11 @@ const de_Visual = (output: any, context: __SerdeContext): Visual => {
     HistogramVisual: (_: any) => de_HistogramVisual(_, context),
     InsightVisual: (_: any) => de_InsightVisual(_, context),
     KPIVisual: (_: any) => de_KPIVisual(_, context),
+    LayerMapVisual: (_: any) => de_LayerMapVisual(_, context),
     LineChartVisual: (_: any) => de_LineChartVisual(_, context),
     PieChartVisual: (_: any) => de_PieChartVisual(_, context),
     PivotTableVisual: (_: any) => de_PivotTableVisual(_, context),
+    PluginVisual: (_: any) => de_PluginVisual(_, context),
     RadarChartVisual: (_: any) => de_RadarChartVisual(_, context),
     SankeyDiagramVisual: (_: any) => de_SankeyDiagramVisual(_, context),
     ScatterPlotVisual: (_: any) => de_ScatterPlotVisual(_, context),
@@ -22506,6 +23847,7 @@ const de_WaterfallVisual = (output: any, context: __SerdeContext): WaterfallVisu
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };
@@ -22599,6 +23941,7 @@ const de_WordCloudVisual = (output: any, context: __SerdeContext): WordCloudVisu
     ColumnHierarchies: (_: any) => de_ColumnHierarchyList(_, context),
     Subtitle: _json,
     Title: _json,
+    VisualContentAltText: __expectString,
     VisualId: __expectString,
   }) as any;
 };

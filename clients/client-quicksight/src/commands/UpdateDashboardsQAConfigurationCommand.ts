@@ -5,8 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeGroupMembershipRequest, DescribeGroupMembershipResponse } from "../models/models_4";
-import { de_DescribeGroupMembershipCommand, se_DescribeGroupMembershipCommand } from "../protocols/Aws_restJson1";
+import { UpdateDashboardsQAConfigurationRequest, UpdateDashboardsQAConfigurationResponse } from "../models/models_4";
+import {
+  de_UpdateDashboardsQAConfigurationCommand,
+  se_UpdateDashboardsQAConfigurationCommand,
+} from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
@@ -17,49 +20,44 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DescribeGroupMembershipCommand}.
+ * The input for {@link UpdateDashboardsQAConfigurationCommand}.
  */
-export interface DescribeGroupMembershipCommandInput extends DescribeGroupMembershipRequest {}
+export interface UpdateDashboardsQAConfigurationCommandInput extends UpdateDashboardsQAConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeGroupMembershipCommand}.
+ * The output of {@link UpdateDashboardsQAConfigurationCommand}.
  */
-export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembershipResponse, __MetadataBearer {}
+export interface UpdateDashboardsQAConfigurationCommandOutput
+  extends UpdateDashboardsQAConfigurationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Use the <code>DescribeGroupMembership</code> operation to determine if a user is a
- * 			member of the specified group. If the user exists and is a member of the specified
- * 			group, an associated <code>GroupMember</code> object is returned.</p>
+ * <p>Updates a Dashboard QA configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeGroupMembershipCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeGroupMembershipCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, UpdateDashboardsQAConfigurationCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, UpdateDashboardsQAConfigurationCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const input = { // DescribeGroupMembershipRequest
- *   MemberName: "STRING_VALUE", // required
- *   GroupName: "STRING_VALUE", // required
+ * const input = { // UpdateDashboardsQAConfigurationRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Namespace: "STRING_VALUE", // required
+ *   DashboardsQAStatus: "ENABLED" || "DISABLED", // required
  * };
- * const command = new DescribeGroupMembershipCommand(input);
+ * const command = new UpdateDashboardsQAConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // DescribeGroupMembershipResponse
- * //   GroupMember: { // GroupMember
- * //     Arn: "STRING_VALUE",
- * //     MemberName: "STRING_VALUE",
- * //   },
+ * // { // UpdateDashboardsQAConfigurationResponse
+ * //   DashboardsQAStatus: "ENABLED" || "DISABLED",
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
  * // };
  *
  * ```
  *
- * @param DescribeGroupMembershipCommandInput - {@link DescribeGroupMembershipCommandInput}
- * @returns {@link DescribeGroupMembershipCommandOutput}
- * @see {@link DescribeGroupMembershipCommandInput} for command's `input` shape.
- * @see {@link DescribeGroupMembershipCommandOutput} for command's `response` shape.
+ * @param UpdateDashboardsQAConfigurationCommandInput - {@link UpdateDashboardsQAConfigurationCommandInput}
+ * @returns {@link UpdateDashboardsQAConfigurationCommandOutput}
+ * @see {@link UpdateDashboardsQAConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateDashboardsQAConfigurationCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -68,20 +66,17 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  * 			account is authorized to use the Amazon QuickSight service, that your policies have the
  * 			correct permissions, and that you are using the correct credentials.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
  *
- * @throws {@link PreconditionNotMetException} (client fault)
- *  <p>One or more preconditions aren't met.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
- *
- * @throws {@link ResourceUnavailableException} (server fault)
- *  <p>This resource is currently unavailable.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
@@ -91,10 +86,10 @@ export interface DescribeGroupMembershipCommandOutput extends DescribeGroupMembe
  *
  * @public
  */
-export class DescribeGroupMembershipCommand extends $Command
+export class UpdateDashboardsQAConfigurationCommand extends $Command
   .classBuilder<
-    DescribeGroupMembershipCommandInput,
-    DescribeGroupMembershipCommandOutput,
+    UpdateDashboardsQAConfigurationCommandInput,
+    UpdateDashboardsQAConfigurationCommandOutput,
     QuickSightClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -106,21 +101,21 @@ export class DescribeGroupMembershipCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QuickSight_20180401", "DescribeGroupMembership", {})
-  .n("QuickSightClient", "DescribeGroupMembershipCommand")
+  .s("QuickSight_20180401", "UpdateDashboardsQAConfiguration", {})
+  .n("QuickSightClient", "UpdateDashboardsQAConfigurationCommand")
   .f(void 0, void 0)
-  .ser(se_DescribeGroupMembershipCommand)
-  .de(de_DescribeGroupMembershipCommand)
+  .ser(se_UpdateDashboardsQAConfigurationCommand)
+  .de(de_UpdateDashboardsQAConfigurationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeGroupMembershipRequest;
-      output: DescribeGroupMembershipResponse;
+      input: UpdateDashboardsQAConfigurationRequest;
+      output: UpdateDashboardsQAConfigurationResponse;
     };
     sdk: {
-      input: DescribeGroupMembershipCommandInput;
-      output: DescribeGroupMembershipCommandOutput;
+      input: UpdateDashboardsQAConfigurationCommandInput;
+      output: UpdateDashboardsQAConfigurationCommandOutput;
     };
   };
 }

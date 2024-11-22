@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDataSetRefreshPropertiesRequest, DescribeDataSetRefreshPropertiesResponse } from "../models/models_3";
+import { DescribeDataSetRefreshPropertiesRequest, DescribeDataSetRefreshPropertiesResponse } from "../models/models_4";
 import {
   de_DescribeDataSetRefreshPropertiesCommand,
   se_DescribeDataSetRefreshPropertiesCommand,

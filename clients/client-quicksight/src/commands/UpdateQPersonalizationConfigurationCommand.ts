@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateQPersonalizationConfigurationRequest,
   UpdateQPersonalizationConfigurationResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_UpdateQPersonalizationConfigurationCommand,
   se_UpdateQPersonalizationConfigurationCommand,

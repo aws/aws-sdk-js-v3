@@ -94,6 +94,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   FontConfiguration: { // FontConfiguration
  * //                     FontSize: { // FontSize
  * //                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ * //                       Absolute: "STRING_VALUE",
  * //                     },
  * //                     FontDecoration: "UNDERLINE" || "NONE",
  * //                     FontColor: "STRING_VALUE",
@@ -101,6 +102,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       Name: "NORMAL" || "BOLD",
  * //                     },
  * //                     FontStyle: "NORMAL" || "ITALIC",
+ * //                     FontFamily: "STRING_VALUE",
  * //                   },
  * //                   CustomLabel: "STRING_VALUE",
  * //                 },
@@ -129,6 +131,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   FontConfiguration: {
  * //                     FontSize: {
  * //                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ * //                       Absolute: "STRING_VALUE",
  * //                     },
  * //                     FontDecoration: "UNDERLINE" || "NONE",
  * //                     FontColor: "STRING_VALUE",
@@ -136,6 +139,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       Name: "NORMAL" || "BOLD",
  * //                     },
  * //                     FontStyle: "NORMAL" || "ITALIC",
+ * //                     FontFamily: "STRING_VALUE",
  * //                   },
  * //                   CustomLabel: "STRING_VALUE",
  * //                 },
@@ -179,6 +183,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   FontConfiguration: {
  * //                     FontSize: {
  * //                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ * //                       Absolute: "STRING_VALUE",
  * //                     },
  * //                     FontDecoration: "UNDERLINE" || "NONE",
  * //                     FontColor: "STRING_VALUE",
@@ -186,6 +191,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       Name: "NORMAL" || "BOLD",
  * //                     },
  * //                     FontStyle: "NORMAL" || "ITALIC",
+ * //                     FontFamily: "STRING_VALUE",
  * //                   },
  * //                   CustomLabel: "STRING_VALUE",
  * //                 },
@@ -227,6 +233,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   FontConfiguration: {
  * //                     FontSize: {
  * //                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ * //                       Absolute: "STRING_VALUE",
  * //                     },
  * //                     FontDecoration: "UNDERLINE" || "NONE",
  * //                     FontColor: "STRING_VALUE",
@@ -234,6 +241,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       Name: "NORMAL" || "BOLD",
  * //                     },
  * //                     FontStyle: "NORMAL" || "ITALIC",
+ * //                     FontFamily: "STRING_VALUE",
  * //                   },
  * //                   CustomLabel: "STRING_VALUE",
  * //                 },
@@ -257,6 +265,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   FontConfiguration: {
  * //                     FontSize: {
  * //                       Relative: "EXTRA_SMALL" || "SMALL" || "MEDIUM" || "LARGE" || "EXTRA_LARGE",
+ * //                       Absolute: "STRING_VALUE",
  * //                     },
  * //                     FontDecoration: "UNDERLINE" || "NONE",
  * //                     FontColor: "STRING_VALUE",
@@ -264,6 +273,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       Name: "NORMAL" || "BOLD",
  * //                     },
  * //                     FontStyle: "NORMAL" || "ITALIC",
+ * //                     FontFamily: "STRING_VALUE",
  * //                   },
  * //                   CustomLabel: "STRING_VALUE",
  * //                 },
@@ -1112,6 +1122,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   ],
  * //                 },
  * //               ],
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             PivotTableVisual: { // PivotTableVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -1576,6 +1587,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   ],
  * //                 },
  * //               ],
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             BarChartVisual: { // BarChartVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -1924,6 +1936,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  * //                   Width: "STRING_VALUE",
  * //                   Height: "STRING_VALUE",
+ * //                   ValueFontConfiguration: "<FontConfiguration>",
  * //                 },
  * //                 DataLabels: { // DataLabelOptions
  * //                   Visibility: "HIDDEN" || "VISIBLE",
@@ -2183,6 +2196,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             KPIVisual: { // KPIVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -2506,6 +2520,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             PieChartVisual: { // PieChartVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -2620,6 +2635,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  * //                   Width: "STRING_VALUE",
  * //                   Height: "STRING_VALUE",
+ * //                   ValueFontConfiguration: "<FontConfiguration>",
  * //                 },
  * //                 DataLabels: {
  * //                   Visibility: "HIDDEN" || "VISIBLE",
@@ -2798,6 +2814,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             GaugeChartVisual: { // GaugeChartVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -2918,6 +2935,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 ],
  * //               },
  * //               Actions: "<VisualCustomActionList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             LineChartVisual: { // LineChartVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3196,6 +3214,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  * //                   Width: "STRING_VALUE",
  * //                   Height: "STRING_VALUE",
+ * //                   ValueFontConfiguration: "<FontConfiguration>",
  * //                 },
  * //                 DataLabels: {
  * //                   Visibility: "HIDDEN" || "VISIBLE",
@@ -3332,6 +3351,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 },
  * //               ],
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             HeatMapVisual: { // HeatMapVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3378,6 +3398,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  * //                   Width: "STRING_VALUE",
  * //                   Height: "STRING_VALUE",
+ * //                   ValueFontConfiguration: "<FontConfiguration>",
  * //                 },
  * //                 DataLabels: {
  * //                   Visibility: "HIDDEN" || "VISIBLE",
@@ -3462,6 +3483,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 },
  * //               ],
  * //               Actions: "<VisualCustomActionList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             TreeMapVisual: { // TreeMapVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3507,6 +3529,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   Position: "AUTO" || "RIGHT" || "BOTTOM" || "TOP",
  * //                   Width: "STRING_VALUE",
  * //                   Height: "STRING_VALUE",
+ * //                   ValueFontConfiguration: "<FontConfiguration>",
  * //                 },
  * //                 DataLabels: "<DataLabelOptions>",
  * //                 Tooltip: "<TooltipOptions>",
@@ -3514,6 +3537,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             GeospatialMapVisual: { // GeospatialMapVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3574,6 +3598,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
  * //               Actions: "<VisualCustomActionList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             FilledMapVisual: { // FilledMapVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3623,6 +3648,284 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
  * //               Actions: "<VisualCustomActionList>",
+ * //               VisualContentAltText: "STRING_VALUE",
+ * //             },
+ * //             LayerMapVisual: { // LayerMapVisual
+ * //               VisualId: "STRING_VALUE", // required
+ * //               Title: "<VisualTitleLabelOptions>",
+ * //               Subtitle: "<VisualSubtitleLabelOptions>",
+ * //               ChartConfiguration: { // GeospatialLayerMapConfiguration
+ * //                 Legend: "<LegendOptions>",
+ * //                 MapLayers: [ // GeospatialMapLayerList
+ * //                   { // GeospatialLayerItem
+ * //                     LayerId: "STRING_VALUE", // required
+ * //                     LayerType: "POINT" || "LINE" || "POLYGON",
+ * //                     DataSource: { // GeospatialDataSourceItem
+ * //                       StaticFileDataSource: { // GeospatialStaticFileSource
+ * //                         StaticFileId: "STRING_VALUE", // required
+ * //                       },
+ * //                     },
+ * //                     Label: "STRING_VALUE",
+ * //                     Visibility: "HIDDEN" || "VISIBLE",
+ * //                     LayerDefinition: { // GeospatialLayerDefinition
+ * //                       PointLayer: { // GeospatialPointLayer
+ * //                         Style: { // GeospatialPointStyle
+ * //                           CircleSymbolStyle: { // GeospatialCircleSymbolStyle
+ * //                             FillColor: { // GeospatialColor
+ * //                               Solid: { // GeospatialSolidColor
+ * //                                 Color: "STRING_VALUE", // required
+ * //                                 State: "ENABLED" || "DISABLED",
+ * //                               },
+ * //                               Gradient: { // GeospatialGradientColor
+ * //                                 StepColors: [ // GeospatialGradientStepColorList // required
+ * //                                   { // GeospatialGradientStepColor
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: Number("double"), // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: { // GeospatialNullDataSettings
+ * //                                   SymbolStyle: { // GeospatialNullSymbolStyle
+ * //                                     FillColor: "STRING_VALUE",
+ * //                                     StrokeColor: "STRING_VALUE",
+ * //                                     StrokeWidth: Number("double"),
+ * //                                   },
+ * //                                 },
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                               Categorical: { // GeospatialCategoricalColor
+ * //                                 CategoryDataColors: [ // GeospatialCategoricalDataColorList // required
+ * //                                   { // GeospatialCategoricalDataColor
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: "STRING_VALUE", // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: {
+ * //                                   SymbolStyle: {
+ * //                                     FillColor: "STRING_VALUE",
+ * //                                     StrokeColor: "STRING_VALUE",
+ * //                                     StrokeWidth: Number("double"),
+ * //                                   },
+ * //                                 },
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                             },
+ * //                             StrokeColor: {
+ * //                               Solid: {
+ * //                                 Color: "STRING_VALUE", // required
+ * //                                 State: "ENABLED" || "DISABLED",
+ * //                               },
+ * //                               Gradient: {
+ * //                                 StepColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: Number("double"), // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: {
+ * //                                   SymbolStyle: {
+ * //                                     FillColor: "STRING_VALUE",
+ * //                                     StrokeColor: "STRING_VALUE",
+ * //                                     StrokeWidth: Number("double"),
+ * //                                   },
+ * //                                 },
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                               Categorical: {
+ * //                                 CategoryDataColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: "STRING_VALUE", // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: {
+ * //                                   SymbolStyle: {
+ * //                                     FillColor: "STRING_VALUE",
+ * //                                     StrokeColor: "STRING_VALUE",
+ * //                                     StrokeWidth: Number("double"),
+ * //                                   },
+ * //                                 },
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                             },
+ * //                             StrokeWidth: { // GeospatialLineWidth
+ * //                               LineWidth: Number("double"),
+ * //                             },
+ * //                             CircleRadius: { // GeospatialCircleRadius
+ * //                               Radius: Number("double"),
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                       },
+ * //                       LineLayer: { // GeospatialLineLayer
+ * //                         Style: { // GeospatialLineStyle
+ * //                           LineSymbolStyle: { // GeospatialLineSymbolStyle
+ * //                             FillColor: {
+ * //                               Solid: {
+ * //                                 Color: "STRING_VALUE", // required
+ * //                                 State: "ENABLED" || "DISABLED",
+ * //                               },
+ * //                               Gradient: {
+ * //                                 StepColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: Number("double"), // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: {
+ * //                                   SymbolStyle: {
+ * //                                     FillColor: "STRING_VALUE",
+ * //                                     StrokeColor: "STRING_VALUE",
+ * //                                     StrokeWidth: Number("double"),
+ * //                                   },
+ * //                                 },
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                               Categorical: {
+ * //                                 CategoryDataColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: "STRING_VALUE", // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                             },
+ * //                             LineWidth: {
+ * //                               LineWidth: Number("double"),
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                       },
+ * //                       PolygonLayer: { // GeospatialPolygonLayer
+ * //                         Style: { // GeospatialPolygonStyle
+ * //                           PolygonSymbolStyle: { // GeospatialPolygonSymbolStyle
+ * //                             FillColor: {
+ * //                               Solid: {
+ * //                                 Color: "STRING_VALUE", // required
+ * //                                 State: "ENABLED" || "DISABLED",
+ * //                               },
+ * //                               Gradient: {
+ * //                                 StepColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: Number("double"), // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                               Categorical: {
+ * //                                 CategoryDataColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: "STRING_VALUE", // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                             },
+ * //                             StrokeColor: {
+ * //                               Solid: {
+ * //                                 Color: "STRING_VALUE", // required
+ * //                                 State: "ENABLED" || "DISABLED",
+ * //                               },
+ * //                               Gradient: {
+ * //                                 StepColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: Number("double"), // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                               Categorical: {
+ * //                                 CategoryDataColors: [ // required
+ * //                                   {
+ * //                                     Color: "STRING_VALUE", // required
+ * //                                     DataValue: "STRING_VALUE", // required
+ * //                                   },
+ * //                                 ],
+ * //                                 NullDataVisibility: "HIDDEN" || "VISIBLE",
+ * //                                 NullDataSettings: "<GeospatialNullDataSettings>",
+ * //                                 DefaultOpacity: Number("double"),
+ * //                               },
+ * //                             },
+ * //                             StrokeWidth: {
+ * //                               LineWidth: Number("double"),
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                     Tooltip: "<TooltipOptions>",
+ * //                     JoinDefinition: { // GeospatialLayerJoinDefinition
+ * //                       ShapeKeyField: "STRING_VALUE",
+ * //                       DatasetKeyField: {
+ * //                         FieldId: "STRING_VALUE", // required
+ * //                         Column: "<ColumnIdentifier>", // required
+ * //                         FormatConfiguration: {
+ * //                           StringFormatConfiguration: "<StringFormatConfiguration>",
+ * //                           NumberFormatConfiguration: "<NumberFormatConfiguration>",
+ * //                           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
+ * //                         },
+ * //                       },
+ * //                       ColorField: { // GeospatialLayerColorField
+ * //                         ColorDimensionsFields: [ // GeospatialLayerDimensionFieldList
+ * //                           "<DimensionField>",
+ * //                         ],
+ * //                         ColorValuesFields: [ // GeospatialLayerMeasureFieldList
+ * //                           "<MeasureField>",
+ * //                         ],
+ * //                       },
+ * //                     },
+ * //                     Actions: [ // LayerCustomActionList
+ * //                       { // LayerCustomAction
+ * //                         CustomActionId: "STRING_VALUE", // required
+ * //                         Name: "STRING_VALUE", // required
+ * //                         Status: "ENABLED" || "DISABLED",
+ * //                         Trigger: "DATA_POINT_CLICK" || "DATA_POINT_MENU", // required
+ * //                         ActionOperations: [ // LayerCustomActionOperationList // required
+ * //                           { // LayerCustomActionOperation
+ * //                             FilterOperation: "<CustomActionFilterOperation>",
+ * //                             NavigationOperation: "<CustomActionNavigationOperation>",
+ * //                             URLOperation: "<CustomActionURLOperation>",
+ * //                             SetParametersOperation: "<CustomActionSetParametersOperation>",
+ * //                           },
+ * //                         ],
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 ],
+ * //                 MapState: { // GeospatialMapState
+ * //                   Bounds: {
+ * //                     North: Number("double"), // required
+ * //                     South: Number("double"), // required
+ * //                     West: Number("double"), // required
+ * //                     East: Number("double"), // required
+ * //                   },
+ * //                   MapNavigation: "ENABLED" || "DISABLED",
+ * //                 },
+ * //                 MapStyle: { // GeospatialMapStyle
+ * //                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
+ * //                   BackgroundColor: "STRING_VALUE",
+ * //                   BaseMapVisibility: "HIDDEN" || "VISIBLE",
+ * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
+ * //               },
+ * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             FunnelChartVisual: { // FunnelChartVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3660,6 +3963,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             ScatterPlotVisual: { // ScatterPlotVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3697,6 +4001,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             ComboChartVisual: { // ComboChartVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3773,6 +4078,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             BoxPlotVisual: { // BoxPlotVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3848,6 +4154,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             WaterfallVisual: { // WaterfallVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3886,6 +4193,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             HistogramVisual: { // HistogramVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3919,6 +4227,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             WordCloudVisual: { // WordCloudVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -3952,6 +4261,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             InsightVisual: { // InsightVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -4044,6 +4354,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             SankeyDiagramVisual: { // SankeyDiagramVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -4066,6 +4377,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             CustomContentVisual: { // CustomContentVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -4079,6 +4391,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             EmptyVisual: { // EmptyVisual
  * //               VisualId: "STRING_VALUE", // required
@@ -4130,6 +4443,52 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
+ * //               VisualContentAltText: "STRING_VALUE",
+ * //             },
+ * //             PluginVisual: { // PluginVisual
+ * //               VisualId: "STRING_VALUE", // required
+ * //               PluginArn: "STRING_VALUE", // required
+ * //               Title: "<VisualTitleLabelOptions>",
+ * //               Subtitle: "<VisualSubtitleLabelOptions>",
+ * //               ChartConfiguration: { // PluginVisualConfiguration
+ * //                 FieldWells: [ // PluginVisualFieldWells
+ * //                   { // PluginVisualFieldWell
+ * //                     AxisName: "GROUP_BY" || "VALUE",
+ * //                     Dimensions: "<DimensionFieldList>",
+ * //                     Measures: "<MeasureFieldList>",
+ * //                     Unaggregated: [
+ * //                       {
+ * //                         FieldId: "STRING_VALUE", // required
+ * //                         Column: "<ColumnIdentifier>", // required
+ * //                         FormatConfiguration: {
+ * //                           StringFormatConfiguration: "<StringFormatConfiguration>",
+ * //                           NumberFormatConfiguration: "<NumberFormatConfiguration>",
+ * //                           DateTimeFormatConfiguration: "<DateTimeFormatConfiguration>",
+ * //                         },
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                 ],
+ * //                 VisualOptions: { // PluginVisualOptions
+ * //                   VisualProperties: [ // PluginVisualPropertiesList
+ * //                     { // PluginVisualProperty
+ * //                       Name: "STRING_VALUE",
+ * //                       Value: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //                 SortConfiguration: { // PluginVisualSortConfiguration
+ * //                   PluginVisualTableQuerySort: { // PluginVisualTableQuerySort
+ * //                     RowSort: [
+ * //                       "<FieldSortOptions>",
+ * //                     ],
+ * //                     ItemsLimitConfiguration: { // PluginVisualItemsLimitConfiguration
+ * //                       ItemsLimit: Number("long"),
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               },
+ * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //           },
  * //         ],
@@ -4139,6 +4498,46 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //             Content: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         Images: [ // SheetImageList
+ * //           { // SheetImage
+ * //             SheetImageId: "STRING_VALUE", // required
+ * //             Source: { // SheetImageSource
+ * //               SheetImageStaticFileSource: { // SheetImageStaticFileSource
+ * //                 StaticFileId: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //             Scaling: { // SheetImageScalingConfiguration
+ * //               ScalingType: "SCALE_TO_WIDTH" || "SCALE_TO_HEIGHT" || "SCALE_TO_CONTAINER" || "SCALE_NONE",
+ * //             },
+ * //             Tooltip: { // SheetImageTooltipConfiguration
+ * //               TooltipText: { // SheetImageTooltipText
+ * //                 PlainText: "STRING_VALUE",
+ * //               },
+ * //               Visibility: "HIDDEN" || "VISIBLE",
+ * //             },
+ * //             ImageContentAltText: "STRING_VALUE",
+ * //             Interactions: { // ImageInteractionOptions
+ * //               ImageMenuOption: { // ImageMenuOption
+ * //                 AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //               },
+ * //             },
+ * //             Actions: [ // ImageCustomActionList
+ * //               { // ImageCustomAction
+ * //                 CustomActionId: "STRING_VALUE", // required
+ * //                 Name: "STRING_VALUE", // required
+ * //                 Status: "ENABLED" || "DISABLED",
+ * //                 Trigger: "CLICK" || "MENU", // required
+ * //                 ActionOperations: [ // ImageCustomActionOperationList // required
+ * //                   { // ImageCustomActionOperation
+ * //                     NavigationOperation: "<CustomActionNavigationOperation>",
+ * //                     URLOperation: "<CustomActionURLOperation>",
+ * //                     SetParametersOperation: "<CustomActionSetParametersOperation>",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
  * //         Layouts: [ // LayoutList
  * //           { // Layout
  * //             Configuration: { // LayoutConfiguration
@@ -4146,7 +4545,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 Elements: [ // GridLayoutElementList // required
  * //                   { // GridLayoutElement
  * //                     ElementId: "STRING_VALUE", // required
- * //                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ * //                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  * //                     ColumnIndex: Number("int"),
  * //                     ColumnSpan: Number("int"), // required
  * //                     RowIndex: Number("int"),
@@ -4164,7 +4563,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 Elements: [ // FreeFromLayoutElementList // required
  * //                   { // FreeFormLayoutElement
  * //                     ElementId: "STRING_VALUE", // required
- * //                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ * //                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  * //                     XAxisLocation: "STRING_VALUE", // required
  * //                     YAxisLocation: "STRING_VALUE", // required
  * //                     Width: "STRING_VALUE", // required
@@ -4210,7 +4609,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                         Elements: [ // required
  * //                           {
  * //                             ElementId: "STRING_VALUE", // required
- * //                             ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ * //                             ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  * //                             XAxisLocation: "STRING_VALUE", // required
  * //                             YAxisLocation: "STRING_VALUE", // required
  * //                             Width: "STRING_VALUE", // required
@@ -4350,7 +4749,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 Elements: [ // required
  * //                   {
  * //                     ElementId: "STRING_VALUE", // required
- * //                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX", // required
+ * //                     ElementType: "VISUAL" || "FILTER_CONTROL" || "PARAMETER_CONTROL" || "TEXT_BOX" || "IMAGE", // required
  * //                     ColumnIndex: Number("int"),
  * //                     ColumnSpan: Number("int"), // required
  * //                     RowIndex: Number("int"),
@@ -5018,6 +5417,36 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //     QueryExecutionOptions: { // QueryExecutionOptions
  * //       QueryExecutionMode: "AUTO" || "MANUAL",
  * //     },
+ * //     StaticFiles: [ // StaticFileList
+ * //       { // StaticFile
+ * //         ImageStaticFile: { // ImageStaticFile
+ * //           StaticFileId: "STRING_VALUE", // required
+ * //           Source: { // StaticFileSource
+ * //             UrlOptions: { // StaticFileUrlSourceOptions
+ * //               Url: "STRING_VALUE", // required
+ * //             },
+ * //             S3Options: { // StaticFileS3SourceOptions
+ * //               BucketName: "STRING_VALUE", // required
+ * //               ObjectKey: "STRING_VALUE", // required
+ * //               Region: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //         SpatialStaticFile: { // SpatialStaticFile
+ * //           StaticFileId: "STRING_VALUE", // required
+ * //           Source: {
+ * //             UrlOptions: {
+ * //               Url: "STRING_VALUE", // required
+ * //             },
+ * //             S3Options: {
+ * //               BucketName: "STRING_VALUE", // required
+ * //               ObjectKey: "STRING_VALUE", // required
+ * //               Region: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //     ],
  * //   },
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",

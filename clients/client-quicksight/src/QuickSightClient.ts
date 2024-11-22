@@ -259,6 +259,10 @@ import {
   DescribeDashboardSnapshotJobResultCommandInput,
   DescribeDashboardSnapshotJobResultCommandOutput,
 } from "./commands/DescribeDashboardSnapshotJobResultCommand";
+import {
+  DescribeDashboardsQAConfigurationCommandInput,
+  DescribeDashboardsQAConfigurationCommandOutput,
+} from "./commands/DescribeDashboardsQAConfigurationCommand";
 import { DescribeDataSetCommandInput, DescribeDataSetCommandOutput } from "./commands/DescribeDataSetCommand";
 import {
   DescribeDataSetPermissionsCommandInput,
@@ -457,6 +461,7 @@ import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "./comma
 import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "./commands/SearchDataSourcesCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
+import { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "./commands/SearchTopicsCommand";
 import {
   StartAssetBundleExportJobCommandInput,
   StartAssetBundleExportJobCommandOutput,
@@ -514,6 +519,10 @@ import {
   UpdateDashboardPublishedVersionCommandInput,
   UpdateDashboardPublishedVersionCommandOutput,
 } from "./commands/UpdateDashboardPublishedVersionCommand";
+import {
+  UpdateDashboardsQAConfigurationCommandInput,
+  UpdateDashboardsQAConfigurationCommandOutput,
+} from "./commands/UpdateDashboardsQAConfigurationCommand";
 import { UpdateDataSetCommandInput, UpdateDataSetCommandOutput } from "./commands/UpdateDataSetCommand";
 import {
   UpdateDataSetPermissionsCommandInput,
@@ -688,6 +697,7 @@ export type ServiceInputTypes =
   | DescribeDashboardPermissionsCommandInput
   | DescribeDashboardSnapshotJobCommandInput
   | DescribeDashboardSnapshotJobResultCommandInput
+  | DescribeDashboardsQAConfigurationCommandInput
   | DescribeDataSetCommandInput
   | DescribeDataSetPermissionsCommandInput
   | DescribeDataSetRefreshPropertiesCommandInput
@@ -766,6 +776,7 @@ export type ServiceInputTypes =
   | SearchDataSourcesCommandInput
   | SearchFoldersCommandInput
   | SearchGroupsCommandInput
+  | SearchTopicsCommandInput
   | StartAssetBundleExportJobCommandInput
   | StartAssetBundleImportJobCommandInput
   | StartDashboardSnapshotJobCommandInput
@@ -784,6 +795,7 @@ export type ServiceInputTypes =
   | UpdateDashboardLinksCommandInput
   | UpdateDashboardPermissionsCommandInput
   | UpdateDashboardPublishedVersionCommandInput
+  | UpdateDashboardsQAConfigurationCommandInput
   | UpdateDataSetCommandInput
   | UpdateDataSetPermissionsCommandInput
   | UpdateDataSourceCommandInput
@@ -891,6 +903,7 @@ export type ServiceOutputTypes =
   | DescribeDashboardPermissionsCommandOutput
   | DescribeDashboardSnapshotJobCommandOutput
   | DescribeDashboardSnapshotJobResultCommandOutput
+  | DescribeDashboardsQAConfigurationCommandOutput
   | DescribeDataSetCommandOutput
   | DescribeDataSetPermissionsCommandOutput
   | DescribeDataSetRefreshPropertiesCommandOutput
@@ -969,6 +982,7 @@ export type ServiceOutputTypes =
   | SearchDataSourcesCommandOutput
   | SearchFoldersCommandOutput
   | SearchGroupsCommandOutput
+  | SearchTopicsCommandOutput
   | StartAssetBundleExportJobCommandOutput
   | StartAssetBundleImportJobCommandOutput
   | StartDashboardSnapshotJobCommandOutput
@@ -987,6 +1001,7 @@ export type ServiceOutputTypes =
   | UpdateDashboardLinksCommandOutput
   | UpdateDashboardPermissionsCommandOutput
   | UpdateDashboardPublishedVersionCommandOutput
+  | UpdateDashboardsQAConfigurationCommandOutput
   | UpdateDataSetCommandOutput
   | UpdateDataSetPermissionsCommandOutput
   | UpdateDataSourceCommandOutput

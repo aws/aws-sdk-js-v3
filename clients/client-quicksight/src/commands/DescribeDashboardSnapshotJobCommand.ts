@@ -9,7 +9,7 @@ import {
   DescribeDashboardSnapshotJobRequest,
   DescribeDashboardSnapshotJobResponse,
   DescribeDashboardSnapshotJobResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeDashboardSnapshotJobCommand,
   se_DescribeDashboardSnapshotJobCommand,

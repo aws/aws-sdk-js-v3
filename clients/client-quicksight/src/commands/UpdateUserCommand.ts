@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserRequest, UpdateUserResponse } from "../models/models_4";
+import { UpdateUserRequest, UpdateUserResponse } from "../models/models_5";
 import { de_UpdateUserCommand, se_UpdateUserCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

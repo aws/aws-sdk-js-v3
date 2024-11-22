@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFolderRequest, DescribeFolderResponse } from "../models/models_3";
+import { DescribeFolderRequest, DescribeFolderResponse } from "../models/models_4";
 import { de_DescribeFolderCommand, se_DescribeFolderCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 

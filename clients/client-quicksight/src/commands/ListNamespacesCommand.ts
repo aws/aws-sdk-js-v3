@@ -54,6 +54,8 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * //         Type: "PERMISSION_DENIED" || "INTERNAL_SERVICE_ERROR",
  * //         Message: "STRING_VALUE",
  * //       },
+ * //       IamIdentityCenterApplicationArn: "STRING_VALUE",
+ * //       IamIdentityCenterInstanceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

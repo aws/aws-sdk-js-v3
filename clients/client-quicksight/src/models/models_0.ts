@@ -724,6 +724,499 @@ export interface AnalysisError {
 }
 
 /**
+ * <p>The navigation configuration for <code>CustomActionNavigationOperation</code>.</p>
+ * @public
+ */
+export interface LocalNavigationConfiguration {
+  /**
+   * <p>The sheet that is targeted for navigation in the same analysis.</p>
+   * @public
+   */
+  TargetSheetId: string | undefined;
+}
+
+/**
+ * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface CustomActionNavigationOperation {
+  /**
+   * <p>The configuration that chooses the navigation target.</p>
+   * @public
+   */
+  LocalNavigationConfiguration?: LocalNavigationConfiguration | undefined;
+}
+
+/**
+ * <p>The customized parameter values.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface CustomParameterValues {
+  /**
+   * <p>A list of string-type parameter values.</p>
+   * @public
+   */
+  StringValues?: string[] | undefined;
+
+  /**
+   * <p>A list of integer-type parameter values.</p>
+   * @public
+   */
+  IntegerValues?: number[] | undefined;
+
+  /**
+   * <p>A list of decimal-type parameter values.</p>
+   * @public
+   */
+  DecimalValues?: number[] | undefined;
+
+  /**
+   * <p>A list of datetime-type parameter values.</p>
+   * @public
+   */
+  DateTimeValues?: Date[] | undefined;
+}
+
+/**
+ * <p>The configuration of custom values for the destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
+ * @public
+ */
+export interface CustomValuesConfiguration {
+  /**
+   * <p>Includes the null value in custom action parameter values.</p>
+   * @public
+   */
+  IncludeNullValue?: boolean | undefined;
+
+  /**
+   * <p>The customized parameter values.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  CustomValues: CustomParameterValues | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SelectAllValueOptions = {
+  ALL_VALUES: "ALL_VALUES",
+} as const;
+
+/**
+ * @public
+ */
+export type SelectAllValueOptions = (typeof SelectAllValueOptions)[keyof typeof SelectAllValueOptions];
+
+/**
+ * <p>The configuration of destination parameter values.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface DestinationParameterValueConfiguration {
+  /**
+   * <p>The configuration of custom values for destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
+   * @public
+   */
+  CustomValuesConfiguration?: CustomValuesConfiguration | undefined;
+
+  /**
+   * <p>The configuration that selects all options.</p>
+   * @public
+   */
+  SelectAllValueOptions?: SelectAllValueOptions | undefined;
+
+  /**
+   * <p>The source parameter name of the destination parameter.</p>
+   * @public
+   */
+  SourceParameterName?: string | undefined;
+
+  /**
+   * <p>The source field ID of the destination parameter.</p>
+   * @public
+   */
+  SourceField?: string | undefined;
+
+  /**
+   * <p>A column of a data set.</p>
+   * @public
+   */
+  SourceColumn?: ColumnIdentifier | undefined;
+}
+
+/**
+ * <p>The configuration of adding parameters in action.</p>
+ * @public
+ */
+export interface SetParameterValueConfiguration {
+  /**
+   * <p>The destination parameter name of the <code>SetParameterValueConfiguration</code>.</p>
+   * @public
+   */
+  DestinationParameterName: string | undefined;
+
+  /**
+   * <p>The configuration of destination parameter values.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  Value: DestinationParameterValueConfiguration | undefined;
+}
+
+/**
+ * <p>The set parameter operation that sets parameters in custom action.</p>
+ * @public
+ */
+export interface CustomActionSetParametersOperation {
+  /**
+   * <p>The parameter that determines the value configuration.</p>
+   * @public
+   */
+  ParameterValueConfigurations: SetParameterValueConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const URLTargetConfiguration = {
+  NEW_TAB: "NEW_TAB",
+  NEW_WINDOW: "NEW_WINDOW",
+  SAME_TAB: "SAME_TAB",
+} as const;
+
+/**
+ * @public
+ */
+export type URLTargetConfiguration = (typeof URLTargetConfiguration)[keyof typeof URLTargetConfiguration];
+
+/**
+ * <p>The URL operation that opens a link to another webpage.</p>
+ * @public
+ */
+export interface CustomActionURLOperation {
+  /**
+   * <p>THe URL link of the <code>CustomActionURLOperation</code>.</p>
+   * @public
+   */
+  URLTemplate: string | undefined;
+
+  /**
+   * <p>The target of the <code>CustomActionURLOperation</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW_TAB</code>: Opens the target URL in a new browser tab.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NEW_WINDOW</code>: Opens the target URL in a new browser window.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAME_TAB</code>: Opens the target URL in the same browser tab.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  URLTarget: URLTargetConfiguration | undefined;
+}
+
+/**
+ * <p>The operation that is defined by the custom action.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export interface ImageCustomActionOperation {
+  /**
+   * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  NavigationOperation?: CustomActionNavigationOperation | undefined;
+
+  /**
+   * <p>The URL operation that opens a link to another webpage.</p>
+   * @public
+   */
+  URLOperation?: CustomActionURLOperation | undefined;
+
+  /**
+   * <p>The set parameter operation that sets parameters in custom action.</p>
+   * @public
+   */
+  SetParametersOperation?: CustomActionSetParametersOperation | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WidgetStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type WidgetStatus = (typeof WidgetStatus)[keyof typeof WidgetStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImageCustomActionTrigger = {
+  CLICK: "CLICK",
+  MENU: "MENU",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageCustomActionTrigger = (typeof ImageCustomActionTrigger)[keyof typeof ImageCustomActionTrigger];
+
+/**
+ * <p>A custom action defined on an image.</p>
+ * @public
+ */
+export interface ImageCustomAction {
+  /**
+   * <p>The ID of the custom action.</p>
+   * @public
+   */
+  CustomActionId: string | undefined;
+
+  /**
+   * <p>The name of the custom action.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The status of the custom action.</p>
+   * @public
+   */
+  Status?: WidgetStatus | undefined;
+
+  /**
+   * <p>The trigger of the <code>VisualCustomAction</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLICK</code>: Initiates a custom action by a left pointer click on a data point.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MENU</code>: Initiates a custom action by right pointer click from the menu.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Trigger: ImageCustomActionTrigger | undefined;
+
+  /**
+   * <p>A list of <code>ImageCustomActionOperations</code>.</p>
+   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  ActionOperations: ImageCustomActionOperation[] | undefined;
+}
+
+/**
+ * <p>The menu options for the interactions of an image.</p>
+ * @public
+ */
+export interface ImageMenuOption {
+  /**
+   * <p>The availability status of the image menu. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the image menu.</p>
+   * @public
+   */
+  AvailabilityStatus?: DashboardBehavior | undefined;
+}
+
+/**
+ * <p>The general image interactions setup for image publish options.</p>
+ * @public
+ */
+export interface ImageInteractionOptions {
+  /**
+   * <p>The menu options for the image.</p>
+   * @public
+   */
+  ImageMenuOption?: ImageMenuOption | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SheetImageScalingType = {
+  SCALE_NONE: "SCALE_NONE",
+  SCALE_TO_CONTAINER: "SCALE_TO_CONTAINER",
+  SCALE_TO_HEIGHT: "SCALE_TO_HEIGHT",
+  SCALE_TO_WIDTH: "SCALE_TO_WIDTH",
+} as const;
+
+/**
+ * @public
+ */
+export type SheetImageScalingType = (typeof SheetImageScalingType)[keyof typeof SheetImageScalingType];
+
+/**
+ * <p>Determines how the image is scaled</p>
+ * @public
+ */
+export interface SheetImageScalingConfiguration {
+  /**
+   * <p>The scaling option to use when fitting the image inside the container.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SCALE_TO_WIDTH</code>: The image takes up the entire width of the container. The image aspect ratio is preserved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SCALE_TO_HEIGHT</code>: The image takes up the entire height of the container. The image aspect ratio is preserved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SCALE_TO_CONTAINER</code>: The image takes up the entire width and height of the container. The image aspect ratio is not preserved.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SCALE_NONE</code>: The image is displayed in its original size and is not scaled to the container.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ScalingType?: SheetImageScalingType | undefined;
+}
+
+/**
+ * <p>The source of the static file that contains the image.</p>
+ * @public
+ */
+export interface SheetImageStaticFileSource {
+  /**
+   * <p>The ID of the static file that contains the image.</p>
+   * @public
+   */
+  StaticFileId: string | undefined;
+}
+
+/**
+ * <p>The source of the image.</p>
+ * @public
+ */
+export interface SheetImageSource {
+  /**
+   * <p>The source of the static file that contains the image.</p>
+   * @public
+   */
+  SheetImageStaticFileSource?: SheetImageStaticFileSource | undefined;
+}
+
+/**
+ * <p>The text that appears in the sheet image tooltip.</p>
+ * @public
+ */
+export interface SheetImageTooltipText {
+  /**
+   * <p>The plain text format.</p>
+   * @public
+   */
+  PlainText?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Visibility = {
+  HIDDEN: "HIDDEN",
+  VISIBLE: "VISIBLE",
+} as const;
+
+/**
+ * @public
+ */
+export type Visibility = (typeof Visibility)[keyof typeof Visibility];
+
+/**
+ * <p>The tooltip configuration for a sheet image.</p>
+ * @public
+ */
+export interface SheetImageTooltipConfiguration {
+  /**
+   * <p>The text that appears in the tooltip.</p>
+   * @public
+   */
+  TooltipText?: SheetImageTooltipText | undefined;
+
+  /**
+   * <p>The visibility of the tooltip.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+}
+
+/**
+ * <p>An image that is located on a sheet.</p>
+ * @public
+ */
+export interface SheetImage {
+  /**
+   * <p>The ID of the sheet image.</p>
+   * @public
+   */
+  SheetImageId: string | undefined;
+
+  /**
+   * <p>The source of the image.</p>
+   * @public
+   */
+  Source: SheetImageSource | undefined;
+
+  /**
+   * <p>Determines how the image is scaled.</p>
+   * @public
+   */
+  Scaling?: SheetImageScalingConfiguration | undefined;
+
+  /**
+   * <p>The tooltip to be shown when hovering over the image.</p>
+   * @public
+   */
+  Tooltip?: SheetImageTooltipConfiguration | undefined;
+
+  /**
+   * <p>The alt text for the image.</p>
+   * @public
+   */
+  ImageContentAltText?: string | undefined;
+
+  /**
+   * <p>The general image interactions setup for an image.</p>
+   * @public
+   */
+  Interactions?: ImageInteractionOptions | undefined;
+
+  /**
+   * <p>A list of custom actions that are configured for an image.</p>
+   * @public
+   */
+  Actions?: ImageCustomAction[] | undefined;
+}
+
+/**
  * <p>A <i>sheet</i>, which is an object that contains a set of visuals that
  *             are viewed together on one page in Amazon QuickSight. Every analysis and dashboard
  *             contains at least one sheet. Each sheet contains at least one visualization widget, for
@@ -744,6 +1237,12 @@ export interface Sheet {
    * @public
    */
   Name?: string | undefined;
+
+  /**
+   * <p>A list of images on a sheet.</p>
+   * @public
+   */
+  Images?: SheetImage[] | undefined;
 }
 
 /**
@@ -1297,20 +1796,6 @@ export const NumericSeparatorSymbol = {
  * @public
  */
 export type NumericSeparatorSymbol = (typeof NumericSeparatorSymbol)[keyof typeof NumericSeparatorSymbol];
-
-/**
- * @public
- * @enum
- */
-export const Visibility = {
-  HIDDEN: "HIDDEN",
-  VISIBLE: "VISIBLE",
-} as const;
-
-/**
- * @public
- */
-export type Visibility = (typeof Visibility)[keyof typeof Visibility];
 
 /**
  * <p>The options that determine the thousands separator configuration.</p>
@@ -1978,6 +2463,12 @@ export interface FontSize {
    * @public
    */
   Relative?: RelativeFontSize | undefined;
+
+  /**
+   * <p>The font size that you want to use in px.</p>
+   * @public
+   */
+  Absolute?: string | undefined;
 }
 
 /**
@@ -2054,6 +2545,12 @@ export interface FontConfiguration {
    * @public
    */
   FontStyle?: FontStyle | undefined;
+
+  /**
+   * <p>The font family that you want to use.</p>
+   * @public
+   */
+  FontFamily?: string | undefined;
 }
 
 /**
@@ -2970,20 +3467,6 @@ export interface AnchorDateConfiguration {
    */
   ParameterName?: string | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const WidgetStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-
-/**
- * @public
- */
-export type WidgetStatus = (typeof WidgetStatus)[keyof typeof WidgetStatus];
 
 /**
  * <p>The exclude period of <code>TimeRangeFilter</code> or <code>RelativeDatesFilter</code>.</p>
@@ -4553,6 +5036,7 @@ export interface FreeFormLayoutElementBorderStyle {
  */
 export const LayoutElementType = {
   FILTER_CONTROL: "FILTER_CONTROL",
+  IMAGE: "IMAGE",
   PARAMETER_CONTROL: "PARAMETER_CONTROL",
   TEXT_BOX: "TEXT_BOX",
   VISUAL: "VISUAL",
@@ -5586,210 +6070,6 @@ export interface CustomActionFilterOperation {
    * @public
    */
   TargetVisualsConfiguration: FilterOperationTargetVisualsConfiguration | undefined;
-}
-
-/**
- * <p>The navigation configuration for <code>CustomActionNavigationOperation</code>.</p>
- * @public
- */
-export interface LocalNavigationConfiguration {
-  /**
-   * <p>The sheet that is targeted for navigation in the same analysis.</p>
-   * @public
-   */
-  TargetSheetId: string | undefined;
-}
-
-/**
- * <p>The navigation operation that navigates between different sheets in the same analysis.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface CustomActionNavigationOperation {
-  /**
-   * <p>The configuration that chooses the navigation target.</p>
-   * @public
-   */
-  LocalNavigationConfiguration?: LocalNavigationConfiguration | undefined;
-}
-
-/**
- * <p>The customized parameter values.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface CustomParameterValues {
-  /**
-   * <p>A list of string-type parameter values.</p>
-   * @public
-   */
-  StringValues?: string[] | undefined;
-
-  /**
-   * <p>A list of integer-type parameter values.</p>
-   * @public
-   */
-  IntegerValues?: number[] | undefined;
-
-  /**
-   * <p>A list of decimal-type parameter values.</p>
-   * @public
-   */
-  DecimalValues?: number[] | undefined;
-
-  /**
-   * <p>A list of datetime-type parameter values.</p>
-   * @public
-   */
-  DateTimeValues?: Date[] | undefined;
-}
-
-/**
- * <p>The configuration of custom values for the destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
- * @public
- */
-export interface CustomValuesConfiguration {
-  /**
-   * <p>Includes the null value in custom action parameter values.</p>
-   * @public
-   */
-  IncludeNullValue?: boolean | undefined;
-
-  /**
-   * <p>The customized parameter values.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
-   * @public
-   */
-  CustomValues: CustomParameterValues | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SelectAllValueOptions = {
-  ALL_VALUES: "ALL_VALUES",
-} as const;
-
-/**
- * @public
- */
-export type SelectAllValueOptions = (typeof SelectAllValueOptions)[keyof typeof SelectAllValueOptions];
-
-/**
- * <p>The configuration of destination parameter values.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- * @public
- */
-export interface DestinationParameterValueConfiguration {
-  /**
-   * <p>The configuration of custom values for destination parameter in <code>DestinationParameterValueConfiguration</code>.</p>
-   * @public
-   */
-  CustomValuesConfiguration?: CustomValuesConfiguration | undefined;
-
-  /**
-   * <p>The configuration that selects all options.</p>
-   * @public
-   */
-  SelectAllValueOptions?: SelectAllValueOptions | undefined;
-
-  /**
-   * <p>The source parameter name of the destination parameter.</p>
-   * @public
-   */
-  SourceParameterName?: string | undefined;
-
-  /**
-   * <p>The source field ID of the destination parameter.</p>
-   * @public
-   */
-  SourceField?: string | undefined;
-
-  /**
-   * <p>A column of a data set.</p>
-   * @public
-   */
-  SourceColumn?: ColumnIdentifier | undefined;
-}
-
-/**
- * <p>The configuration of adding parameters in action.</p>
- * @public
- */
-export interface SetParameterValueConfiguration {
-  /**
-   * <p>The destination parameter name of the <code>SetParameterValueConfiguration</code>.</p>
-   * @public
-   */
-  DestinationParameterName: string | undefined;
-
-  /**
-   * <p>The configuration of destination parameter values.</p>
-   *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
-   * @public
-   */
-  Value: DestinationParameterValueConfiguration | undefined;
-}
-
-/**
- * <p>The set parameter operation that sets parameters in custom action.</p>
- * @public
- */
-export interface CustomActionSetParametersOperation {
-  /**
-   * <p>The parameter that determines the value configuration.</p>
-   * @public
-   */
-  ParameterValueConfigurations: SetParameterValueConfiguration[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const URLTargetConfiguration = {
-  NEW_TAB: "NEW_TAB",
-  NEW_WINDOW: "NEW_WINDOW",
-  SAME_TAB: "SAME_TAB",
-} as const;
-
-/**
- * @public
- */
-export type URLTargetConfiguration = (typeof URLTargetConfiguration)[keyof typeof URLTargetConfiguration];
-
-/**
- * <p>The URL operation that opens a link to another webpage.</p>
- * @public
- */
-export interface CustomActionURLOperation {
-  /**
-   * <p>THe URL link of the <code>CustomActionURLOperation</code>.</p>
-   * @public
-   */
-  URLTemplate: string | undefined;
-
-  /**
-   * <p>The target of the <code>CustomActionURLOperation</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_TAB</code>: Opens the target URL in a new browser tab.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NEW_WINDOW</code>: Opens the target URL in a new browser window.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SAME_TAB</code>: Opens the target URL in the same browser tab.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  URLTarget: URLTargetConfiguration | undefined;
 }
 
 /**
@@ -6940,6 +7220,12 @@ export interface LegendOptions {
    * @public
    */
   Height?: string | undefined;
+
+  /**
+   * <p>Configures the display properties of the given text.</p>
+   * @public
+   */
+  ValueFontConfiguration?: FontConfiguration | undefined;
 }
 
 /**
@@ -7163,372 +7449,93 @@ export type ReferenceLineLabelVerticalPosition =
   (typeof ReferenceLineLabelVerticalPosition)[keyof typeof ReferenceLineLabelVerticalPosition];
 
 /**
- * <p>The label configuration of a reference line.</p>
- * @public
+ * @internal
  */
-export interface ReferenceLineLabelConfiguration {
-  /**
-   * <p>The value label configuration of the label in a reference line.</p>
-   * @public
-   */
-  ValueLabelConfiguration?: ReferenceLineValueLabelConfiguration | undefined;
-
-  /**
-   * <p>The custom label configuration of the label in a reference line.</p>
-   * @public
-   */
-  CustomLabelConfiguration?: ReferenceLineCustomLabelConfiguration | undefined;
-
-  /**
-   * <p>The font configuration of the label in a reference line.</p>
-   * @public
-   */
-  FontConfiguration?: FontConfiguration | undefined;
-
-  /**
-   * <p>The font color configuration of the label in a reference line.</p>
-   * @public
-   */
-  FontColor?: string | undefined;
-
-  /**
-   * <p>The horizontal position configuration of the label in a reference line. Choose one of
-   *             the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LEFT</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CENTER</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RIGHT</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  HorizontalPosition?: ReferenceLineLabelHorizontalPosition | undefined;
-
-  /**
-   * <p>The vertical position configuration of the label in a reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ABOVE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BELOW</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  VerticalPosition?: ReferenceLineLabelVerticalPosition | undefined;
-}
+export const CustomParameterValuesFilterSensitiveLog = (obj: CustomParameterValues): any => ({
+  ...obj,
+  ...(obj.StringValues && { StringValues: SENSITIVE_STRING }),
+  ...(obj.IntegerValues && { IntegerValues: SENSITIVE_STRING }),
+  ...(obj.DecimalValues && { DecimalValues: SENSITIVE_STRING }),
+  ...(obj.DateTimeValues && { DateTimeValues: SENSITIVE_STRING }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const ReferenceLinePatternType = {
-  DASHED: "DASHED",
-  DOTTED: "DOTTED",
-  SOLID: "SOLID",
-} as const;
+export const CustomValuesConfigurationFilterSensitiveLog = (obj: CustomValuesConfiguration): any => ({
+  ...obj,
+  ...(obj.CustomValues && { CustomValues: CustomParameterValuesFilterSensitiveLog(obj.CustomValues) }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type ReferenceLinePatternType = (typeof ReferenceLinePatternType)[keyof typeof ReferenceLinePatternType];
+export const DestinationParameterValueConfigurationFilterSensitiveLog = (
+  obj: DestinationParameterValueConfiguration
+): any => ({
+  ...obj,
+  ...(obj.CustomValuesConfiguration && {
+    CustomValuesConfiguration: CustomValuesConfigurationFilterSensitiveLog(obj.CustomValuesConfiguration),
+  }),
+});
 
 /**
- * <p>The style configuration of the reference
- *             line.</p>
- * @public
+ * @internal
  */
-export interface ReferenceLineStyleConfiguration {
-  /**
-   * <p>The pattern type of the line style. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SOLID</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DASHED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DOTTED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Pattern?: ReferenceLinePatternType | undefined;
-
-  /**
-   * <p>The hex color of the reference line.</p>
-   * @public
-   */
-  Color?: string | undefined;
-}
+export const SetParameterValueConfigurationFilterSensitiveLog = (obj: SetParameterValueConfiguration): any => ({
+  ...obj,
+  ...(obj.Value && { Value: DestinationParameterValueConfigurationFilterSensitiveLog(obj.Value) }),
+});
 
 /**
- * <p>The reference line visual display options.</p>
- * @public
+ * @internal
  */
-export interface ReferenceLine {
-  /**
-   * <p>The status of the reference line. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLE</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLE</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Status?: WidgetStatus | undefined;
-
-  /**
-   * <p>The data configuration of the reference line.</p>
-   * @public
-   */
-  DataConfiguration: ReferenceLineDataConfiguration | undefined;
-
-  /**
-   * <p>The style configuration of the reference line.</p>
-   * @public
-   */
-  StyleConfiguration?: ReferenceLineStyleConfiguration | undefined;
-
-  /**
-   * <p>The label configuration of the reference line.</p>
-   * @public
-   */
-  LabelConfiguration?: ReferenceLineLabelConfiguration | undefined;
-}
+export const CustomActionSetParametersOperationFilterSensitiveLog = (obj: CustomActionSetParametersOperation): any => ({
+  ...obj,
+  ...(obj.ParameterValueConfigurations && {
+    ParameterValueConfigurations: obj.ParameterValueConfigurations.map((item) =>
+      SetParameterValueConfigurationFilterSensitiveLog(item)
+    ),
+  }),
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const PanelBorderStyle = {
-  DASHED: "DASHED",
-  DOTTED: "DOTTED",
-  SOLID: "SOLID",
-} as const;
+export const ImageCustomActionOperationFilterSensitiveLog = (obj: ImageCustomActionOperation): any => ({
+  ...obj,
+  ...(obj.SetParametersOperation && {
+    SetParametersOperation: CustomActionSetParametersOperationFilterSensitiveLog(obj.SetParametersOperation),
+  }),
+});
 
 /**
- * @public
+ * @internal
  */
-export type PanelBorderStyle = (typeof PanelBorderStyle)[keyof typeof PanelBorderStyle];
+export const ImageCustomActionFilterSensitiveLog = (obj: ImageCustomAction): any => ({
+  ...obj,
+});
 
 /**
- * @public
- * @enum
+ * @internal
  */
-export const HorizontalTextAlignment = {
-  AUTO: "AUTO",
-  CENTER: "CENTER",
-  LEFT: "LEFT",
-  RIGHT: "RIGHT",
-} as const;
+export const SheetImageFilterSensitiveLog = (obj: SheetImage): any => ({
+  ...obj,
+});
 
 /**
- * @public
+ * @internal
  */
-export type HorizontalTextAlignment = (typeof HorizontalTextAlignment)[keyof typeof HorizontalTextAlignment];
+export const SheetFilterSensitiveLog = (obj: Sheet): any => ({
+  ...obj,
+});
 
 /**
- * <p>The options that determine the title styles for each small multiples
- *             panel.</p>
- * @public
+ * @internal
  */
-export interface PanelTitleOptions {
-  /**
-   * <p>Determines whether or not panel titles are displayed.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>Configures the display properties of the given text.</p>
-   * @public
-   */
-  FontConfiguration?: FontConfiguration | undefined;
-
-  /**
-   * <p>Sets the horizontal text alignment of the title within each panel.</p>
-   * @public
-   */
-  HorizontalTextAlignment?: HorizontalTextAlignment | undefined;
-}
-
-/**
- * <p>A collection of options that configure how each panel displays in a small multiples chart.</p>
- * @public
- */
-export interface PanelConfiguration {
-  /**
-   * <p>Configures the title display within each small multiples panel.</p>
-   * @public
-   */
-  Title?: PanelTitleOptions | undefined;
-
-  /**
-   * <p>Determines whether or not each panel displays a border.</p>
-   * @public
-   */
-  BorderVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Sets the line thickness of panel borders.</p>
-   * @public
-   */
-  BorderThickness?: string | undefined;
-
-  /**
-   * <p>Sets the line style of panel borders.</p>
-   * @public
-   */
-  BorderStyle?: PanelBorderStyle | undefined;
-
-  /**
-   * <p>Sets the line color of panel borders.</p>
-   * @public
-   */
-  BorderColor?: string | undefined;
-
-  /**
-   * <p>Determines whether or not negative space between sibling panels is rendered.</p>
-   * @public
-   */
-  GutterVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Sets the total amount of negative space to display between sibling panels.</p>
-   * @public
-   */
-  GutterSpacing?: string | undefined;
-
-  /**
-   * <p>Determines whether or not a background for each small multiples panel is rendered.</p>
-   * @public
-   */
-  BackgroundVisibility?: Visibility | undefined;
-
-  /**
-   * <p>Sets the background color for each panel.</p>
-   * @public
-   */
-  BackgroundColor?: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const SmallMultiplesAxisPlacement = {
-  INSIDE: "INSIDE",
-  OUTSIDE: "OUTSIDE",
-} as const;
-
-/**
- * @public
- */
-export type SmallMultiplesAxisPlacement =
-  (typeof SmallMultiplesAxisPlacement)[keyof typeof SmallMultiplesAxisPlacement];
-
-/**
- * @public
- * @enum
- */
-export const SmallMultiplesAxisScale = {
-  INDEPENDENT: "INDEPENDENT",
-  SHARED: "SHARED",
-} as const;
-
-/**
- * @public
- */
-export type SmallMultiplesAxisScale = (typeof SmallMultiplesAxisScale)[keyof typeof SmallMultiplesAxisScale];
-
-/**
- * <p>Configures the properties of a chart's axes that are used by small multiples panels.</p>
- * @public
- */
-export interface SmallMultiplesAxisProperties {
-  /**
-   * <p>Determines whether scale of the axes are shared or independent. The default value is <code>SHARED</code>.</p>
-   * @public
-   */
-  Scale?: SmallMultiplesAxisScale | undefined;
-
-  /**
-   * <p>Defines the placement of the axis. By default, axes are rendered <code>OUTSIDE</code> of the panels. Axes with <code>INDEPENDENT</code> scale are rendered <code>INSIDE</code> the panels.</p>
-   * @public
-   */
-  Placement?: SmallMultiplesAxisPlacement | undefined;
-}
-
-/**
- * <p>Options that determine the layout and display options of a chart's small multiples.</p>
- * @public
- */
-export interface SmallMultiplesOptions {
-  /**
-   * <p>Sets the maximum number of visible rows to display in the grid of small multiples panels.</p>
-   *          <p>The default value is <code>Auto</code>,
-   *             which automatically adjusts the rows in the grid
-   *             to fit the overall layout and size of the given chart.</p>
-   * @public
-   */
-  MaxVisibleRows?: number | undefined;
-
-  /**
-   * <p>Sets the maximum number of visible columns to display in the grid of small multiples panels.</p>
-   *          <p>The default is <code>Auto</code>, which automatically adjusts the columns in the grid to fit the overall layout and size of the given chart.</p>
-   * @public
-   */
-  MaxVisibleColumns?: number | undefined;
-
-  /**
-   * <p>Configures the display options for each small multiples panel.</p>
-   * @public
-   */
-  PanelConfiguration?: PanelConfiguration | undefined;
-
-  /**
-   * <p>The properties of a small multiples X axis.</p>
-   * @public
-   */
-  XAxis?: SmallMultiplesAxisProperties | undefined;
-
-  /**
-   * <p>The properties of a small multiples Y axis.</p>
-   * @public
-   */
-  YAxis?: SmallMultiplesAxisProperties | undefined;
-}
+export const AnalysisFilterSensitiveLog = (obj: Analysis): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7951,57 +7958,6 @@ export const LayoutFilterSensitiveLog = (obj: Layout): any => ({
 /**
  * @internal
  */
-export const CustomParameterValuesFilterSensitiveLog = (obj: CustomParameterValues): any => ({
-  ...obj,
-  ...(obj.StringValues && { StringValues: SENSITIVE_STRING }),
-  ...(obj.IntegerValues && { IntegerValues: SENSITIVE_STRING }),
-  ...(obj.DecimalValues && { DecimalValues: SENSITIVE_STRING }),
-  ...(obj.DateTimeValues && { DateTimeValues: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const CustomValuesConfigurationFilterSensitiveLog = (obj: CustomValuesConfiguration): any => ({
-  ...obj,
-  ...(obj.CustomValues && { CustomValues: CustomParameterValuesFilterSensitiveLog(obj.CustomValues) }),
-});
-
-/**
- * @internal
- */
-export const DestinationParameterValueConfigurationFilterSensitiveLog = (
-  obj: DestinationParameterValueConfiguration
-): any => ({
-  ...obj,
-  ...(obj.CustomValuesConfiguration && {
-    CustomValuesConfiguration: CustomValuesConfigurationFilterSensitiveLog(obj.CustomValuesConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const SetParameterValueConfigurationFilterSensitiveLog = (obj: SetParameterValueConfiguration): any => ({
-  ...obj,
-  ...(obj.Value && { Value: DestinationParameterValueConfigurationFilterSensitiveLog(obj.Value) }),
-});
-
-/**
- * @internal
- */
-export const CustomActionSetParametersOperationFilterSensitiveLog = (obj: CustomActionSetParametersOperation): any => ({
-  ...obj,
-  ...(obj.ParameterValueConfigurations && {
-    ParameterValueConfigurations: obj.ParameterValueConfigurations.map((item) =>
-      SetParameterValueConfigurationFilterSensitiveLog(item)
-    ),
-  }),
-});
-
-/**
- * @internal
- */
 export const VisualCustomActionOperationFilterSensitiveLog = (obj: VisualCustomActionOperation): any => ({
   ...obj,
   ...(obj.SetParametersOperation && {
@@ -8173,28 +8129,5 @@ export const ReferenceLineValueLabelConfigurationFilterSensitiveLog = (
   ...obj,
   ...(obj.FormatConfiguration && {
     FormatConfiguration: NumericFormatConfigurationFilterSensitiveLog(obj.FormatConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const ReferenceLineLabelConfigurationFilterSensitiveLog = (obj: ReferenceLineLabelConfiguration): any => ({
-  ...obj,
-  ...(obj.ValueLabelConfiguration && {
-    ValueLabelConfiguration: ReferenceLineValueLabelConfigurationFilterSensitiveLog(obj.ValueLabelConfiguration),
-  }),
-});
-
-/**
- * @internal
- */
-export const ReferenceLineFilterSensitiveLog = (obj: ReferenceLine): any => ({
-  ...obj,
-  ...(obj.DataConfiguration && {
-    DataConfiguration: ReferenceLineDataConfigurationFilterSensitiveLog(obj.DataConfiguration),
-  }),
-  ...(obj.LabelConfiguration && {
-    LabelConfiguration: ReferenceLineLabelConfigurationFilterSensitiveLog(obj.LabelConfiguration),
   }),
 });

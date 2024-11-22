@@ -9,7 +9,7 @@ import { BatchCreateTopicReviewedAnswerResponse } from "../models/models_2";
 import {
   BatchCreateTopicReviewedAnswerRequest,
   BatchCreateTopicReviewedAnswerRequestFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_BatchCreateTopicReviewedAnswerCommand,
   se_BatchCreateTopicReviewedAnswerCommand,

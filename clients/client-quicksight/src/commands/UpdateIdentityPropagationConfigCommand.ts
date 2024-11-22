@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateIdentityPropagationConfigRequest, UpdateIdentityPropagationConfigResponse } from "../models/models_4";
+import { UpdateIdentityPropagationConfigRequest, UpdateIdentityPropagationConfigResponse } from "../models/models_5";
 import {
   de_UpdateIdentityPropagationConfigCommand,
   se_UpdateIdentityPropagationConfigCommand,
