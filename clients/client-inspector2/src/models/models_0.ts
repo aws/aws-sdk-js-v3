@@ -1991,6 +1991,34 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>You have exceeded your service quota. To perform the requested action, remove some of
+ *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The ID of the resource that exceeds a service quota.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.resourceId = opts.resourceId;
+  }
+}
+
+/**
  * <p>The limit on the number of requests per second was exceeded.</p>
  * @public
  */
@@ -5582,34 +5610,6 @@ export interface CreateFilterResponse {
    * @public
    */
   arn: string | undefined;
-}
-
-/**
- * <p>You have exceeded your service quota. To perform the requested action, remove some of
- *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>The ID of the resource that exceeds a service quota.</p>
-   * @public
-   */
-  resourceId: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.resourceId = opts.resourceId;
-  }
 }
 
 /**

@@ -28,7 +28,13 @@ export interface AssociateMemberCommandInput extends AssociateMemberRequest {}
 export interface AssociateMemberCommandOutput extends AssociateMemberResponse, __MetadataBearer {}
 
 /**
- * <p>Associates an Amazon Web Services account with an Amazon Inspector delegated administrator.   An HTTP 200 response indicates the association was successfully started, but doesn’t indicate whether it was completed. You can check if the association completed by using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html">ListMembers</a> for multiple accounts or <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html">GetMembers</a> for a single account.</p>
+ * <p>
+ *          Associates an Amazon Web Services account with an Amazon Inspector delegated administrator.
+ *          An HTTP 200 response indicates the association was started but doesn’t indicate whether it completed.
+ *          You can check if the association completed using <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_ListMembers.html">ListMembers</a> for multiple accounts or <a href="https://docs.aws.amazon.com/inspector/v2/APIReference/API_GetMember.html">GetMembers</a> for a single account.
+ *          An HTTP 402 response indicates the association failed because the organization size exceeded its limit.
+ *          For information on limits, see <a href="https://docs.aws.amazon.com/inspector/latest/user/quotas.html">Amazon Inspector quotas</a>.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +63,10 @@ export interface AssociateMemberCommandOutput extends AssociateMemberResponse, _
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>You have exceeded your service quota. To perform the requested action, remove some of
+ *          the relevant resources, or use Service Quotas to request a service quota increase.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>

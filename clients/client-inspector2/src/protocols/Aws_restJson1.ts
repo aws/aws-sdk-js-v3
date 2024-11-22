@@ -2910,6 +2910,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.inspector2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.inspector2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.inspector2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2922,9 +2925,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "BadRequestException":
     case "com.amazonaws.inspector2#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.inspector2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.inspector2#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
