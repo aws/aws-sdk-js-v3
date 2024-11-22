@@ -148,6 +148,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *     TrustStoreArn: "STRING_VALUE",
  *     IgnoreClientCertificateExpiry: true || false,
  *     TrustStoreAssociationStatus: "active" || "removed",
+ *     AdvertiseTrustStoreCaNames: "on" || "off",
  *   },
  * };
  * const command = new CreateListenerCommand(input);
@@ -234,6 +235,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * //         TrustStoreArn: "STRING_VALUE",
  * //         IgnoreClientCertificateExpiry: true || false,
  * //         TrustStoreAssociationStatus: "active" || "removed",
+ * //         AdvertiseTrustStoreCaNames: "on" || "off",
  * //       },
  * //     },
  * //   ],

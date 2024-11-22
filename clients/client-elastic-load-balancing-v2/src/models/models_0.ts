@@ -981,6 +981,21 @@ export interface AdministrativeOverride {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const AdvertiseTrustStoreCaNamesEnum = {
+  off: "off",
+  on: "on",
+} as const;
+
+/**
+ * @public
+ */
+export type AdvertiseTrustStoreCaNamesEnum =
+  (typeof AdvertiseTrustStoreCaNamesEnum)[keyof typeof AdvertiseTrustStoreCaNamesEnum];
+
+/**
  * <p>The specified allocation ID does not exist.</p>
  * @public
  */
@@ -1351,6 +1366,12 @@ export interface MutualAuthenticationAttributes {
    * @public
    */
   TrustStoreAssociationStatus?: TrustStoreAssociationStatusEnum | undefined;
+
+  /**
+   * <p>Indicates whether trust store CA certificate names are advertised.</p>
+   * @public
+   */
+  AdvertiseTrustStoreCaNames?: AdvertiseTrustStoreCaNamesEnum | undefined;
 }
 
 /**

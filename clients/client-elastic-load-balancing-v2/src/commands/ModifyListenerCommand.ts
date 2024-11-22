@@ -125,6 +125,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  *     TrustStoreArn: "STRING_VALUE",
  *     IgnoreClientCertificateExpiry: true || false,
  *     TrustStoreAssociationStatus: "active" || "removed",
+ *     AdvertiseTrustStoreCaNames: "on" || "off",
  *   },
  * };
  * const command = new ModifyListenerCommand(input);
@@ -211,6 +212,7 @@ export interface ModifyListenerCommandOutput extends ModifyListenerOutput, __Met
  * //         TrustStoreArn: "STRING_VALUE",
  * //         IgnoreClientCertificateExpiry: true || false,
  * //         TrustStoreAssociationStatus: "active" || "removed",
+ * //         AdvertiseTrustStoreCaNames: "on" || "off",
  * //       },
  * //     },
  * //   ],

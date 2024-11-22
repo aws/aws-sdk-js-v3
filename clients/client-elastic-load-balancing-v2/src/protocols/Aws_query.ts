@@ -4908,6 +4908,9 @@ const se_MutualAuthenticationAttributes = (input: MutualAuthenticationAttributes
   if (input[_TSAS] != null) {
     entries[_TSAS] = input[_TSAS];
   }
+  if (input[_ATSCN] != null) {
+    entries[_ATSCN] = input[_ATSCN];
+  }
   return entries;
 };
 
@@ -7370,6 +7373,9 @@ const de_MutualAuthenticationAttributes = (output: any, context: __SerdeContext)
   if (output[_TSAS] != null) {
     contents[_TSAS] = __expectString(output[_TSAS]);
   }
+  if (output[_ATSCN] != null) {
+    contents[_ATSCN] = __expectString(output[_ATSCN]);
+  }
   return contents;
 };
 
@@ -8480,6 +8486,7 @@ const _AOC = "AuthenticateOidcConfig";
 const _AP = "AlpnPolicy";
 const _AREP = "AuthenticationRequestExtraParams";
 const _AT = "AddTags";
+const _ATSCN = "AdvertiseTrustStoreCaNames";
 const _ATSR = "AddTrustStoreRevocations";
 const _AZ = "AvailabilityZone";
 const _AZv = "AvailabilityZones";
