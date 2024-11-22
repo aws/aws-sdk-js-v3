@@ -11,10 +11,11 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm, RequestChecksumCalculation } from "./constants";
+import { ChecksumAlgorithm } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
+import { hasHeaderWithPrefix } from "./hasHeaderWithPrefix";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
@@ -59,10 +60,8 @@ export const flexibleChecksumsMiddleware =
       return next(args);
     }
 
-    for (const header of Object.keys(args.request.headers)) {
-      if (header.toLowerCase().startsWith("x-amz-checksum-")) {
-        return next(args);
-      }
+    if (hasHeaderWithPrefix("x-amz-checksum-", args.request.headers)) {
+      return next(args);
     }
 
     const { request, input } = args;

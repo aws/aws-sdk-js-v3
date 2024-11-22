@@ -1,4 +1,3 @@
-import { setFeature } from "@aws-sdk/core";
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildHandlerArguments } from "@smithy/types";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
@@ -9,6 +8,7 @@ import { flexibleChecksumsMiddleware } from "./flexibleChecksumsMiddleware";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
+import { hasHeaderWithPrefix } from "./hasHeaderWithPrefix";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
@@ -18,6 +18,7 @@ vi.mock("@smithy/protocol-http");
 vi.mock("./getChecksumAlgorithmForRequest");
 vi.mock("./getChecksumLocationName");
 vi.mock("./hasHeader");
+vi.mock("./hasHeaderWithPrefix");
 vi.mock("./isStreaming");
 vi.mock("./selectChecksumAlgorithmFunction");
 vi.mock("./stringHasher");
@@ -43,11 +44,11 @@ describe(flexibleChecksumsMiddleware.name, () => {
 
   beforeEach(() => {
     mockNext.mockResolvedValueOnce(mockResult);
-    const { isInstance } = HttpRequest;
-    (isInstance as unknown as any).mockReturnValue(true);
+    vi.mocked(HttpRequest.isInstance).mockReturnValue(true);
     vi.mocked(getChecksumAlgorithmForRequest).mockReturnValue(ChecksumAlgorithm.CRC32);
     vi.mocked(getChecksumLocationName).mockReturnValue(mockChecksumLocationName);
     vi.mocked(hasHeader).mockReturnValue(true);
+    vi.mocked(hasHeaderWithPrefix).mockReturnValue(false);
     vi.mocked(isStreaming).mockReturnValue(false);
     vi.mocked(selectChecksumAlgorithmFunction).mockReturnValue(mockChecksumAlgorithmFunction);
   });
@@ -59,8 +60,7 @@ describe(flexibleChecksumsMiddleware.name, () => {
 
   describe("skips", () => {
     it("if not an instance of HttpRequest", async () => {
-      const { isInstance } = HttpRequest;
-      (isInstance as unknown as any).mockReturnValue(false);
+      vi.mocked(HttpRequest.isInstance).mockReturnValue(false);
       const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
       await handler(mockArgs);
       expect(getChecksumAlgorithmForRequest).not.toHaveBeenCalled();
@@ -71,35 +71,32 @@ describe(flexibleChecksumsMiddleware.name, () => {
         vi.mocked(getChecksumAlgorithmForRequest).mockReturnValue(undefined);
         const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
         await handler(mockArgs);
+        expect(hasHeaderWithPrefix).toHaveBeenCalledTimes(1);
         expect(getChecksumLocationName).not.toHaveBeenCalled();
         expect(mockNext).toHaveBeenCalledWith(mockArgs);
         expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
         expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
       });
 
-      it.each([
-        ...Object.values(ChecksumAlgorithm).map((val) => `x-amz-checksum-${val.toLowerCase()}`), // all current checksum locations
-        ...Object.values(ChecksumAlgorithm).map((val) => `X-AMZ-CHECKSUM-${val}`), // all current checksum locations in uppercase
-        `x-amz-checksum-emoji`, // any checksum post prefix
-        `X-AMZ-CHECKSUM-EMOJI`, // any checksum post prefix in uppercase
-      ])("skip if header '%s' is already present", async (headerName) => {
+      it("skip if header is already present", async () => {
         const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
-        const mockHeadersWithChecksumHeader = { ...mockHeaders, [headerName]: "mockHeaderValue" };
-        const mockArgsWithChecksumHeader = {
-          ...mockArgs,
-          request: { ...mockRequest, headers: mockHeadersWithChecksumHeader },
-        };
-        await handler(mockArgsWithChecksumHeader);
+        vi.mocked(hasHeaderWithPrefix).mockReturnValue(true);
+
+        await handler(mockArgs);
+
+        expect(hasHeaderWithPrefix).toHaveBeenCalledTimes(1);
         expect(getChecksumLocationName).not.toHaveBeenCalled();
         expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
         expect(hasHeader).not.toHaveBeenCalled();
-        expect(mockNext).toHaveBeenCalledWith(mockArgsWithChecksumHeader);
+        expect(mockNext).toHaveBeenCalledWith(mockArgs);
       });
     });
   });
 
   describe("adds checksum in the request header", () => {
     afterEach(() => {
+      expect(HttpRequest.isInstance).toHaveBeenCalledTimes(1);
+      expect(hasHeaderWithPrefix).toHaveBeenCalledTimes(1);
       expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
       expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
       expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
