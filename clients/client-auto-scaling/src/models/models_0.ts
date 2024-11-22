@@ -6010,6 +6010,15 @@ export interface TargetTrackingMetricStat {
    * @public
    */
   Unit?: string | undefined;
+
+  /**
+   * <p>
+   *             The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html">Create a target tracking policy using high-resolution metrics for faster response</a>.
+   *         </p>
+   * @public
+   */
+  Period?: number | undefined;
 }
 
 /**
@@ -6056,6 +6065,15 @@ export interface TargetTrackingMetricDataQuery {
    * @public
    */
   Label?: string | undefined;
+
+  /**
+   * <p>
+   *         The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see
+   *         <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html">Create a target tracking policy using high-resolution metrics for faster response</a>.
+   *     </p>
+   * @public
+   */
+  Period?: number | undefined;
 
   /**
    * <p>Indicates whether to return the timestamps and raw data values of this metric. </p>
@@ -6152,6 +6170,15 @@ export interface CustomizedMetricSpecification {
    * @public
    */
   Unit?: string | undefined;
+
+  /**
+   * <p>
+   *             The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see
+   *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html">Create a target tracking policy using high-resolution metrics for faster response</a>.
+   *         </p>
+   * @public
+   */
+  Period?: number | undefined;
 
   /**
    * <p>The metrics to include in the target tracking scaling policy, as a metric data query.

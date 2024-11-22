@@ -79,6 +79,7 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *       ],
  *       Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
  *       Unit: "STRING_VALUE",
+ *       Period: Number("int"),
  *       Metrics: [ // TargetTrackingMetricDataQueries
  *         { // TargetTrackingMetricDataQuery
  *           Id: "STRING_VALUE", // required
@@ -96,8 +97,10 @@ export interface PutScalingPolicyCommandOutput extends PolicyARNType, __Metadata
  *             },
  *             Stat: "STRING_VALUE", // required
  *             Unit: "STRING_VALUE",
+ *             Period: Number("int"),
  *           },
  *           Label: "STRING_VALUE",
+ *           Period: Number("int"),
  *           ReturnData: true || false,
  *         },
  *       ],

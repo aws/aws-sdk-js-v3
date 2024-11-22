@@ -91,6 +91,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * //           ],
  * //           Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
  * //           Unit: "STRING_VALUE",
+ * //           Period: Number("int"),
  * //           Metrics: [ // TargetTrackingMetricDataQueries
  * //             { // TargetTrackingMetricDataQuery
  * //               Id: "STRING_VALUE", // required
@@ -108,8 +109,10 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * //                 },
  * //                 Stat: "STRING_VALUE", // required
  * //                 Unit: "STRING_VALUE",
+ * //                 Period: Number("int"),
  * //               },
  * //               Label: "STRING_VALUE",
+ * //               Period: Number("int"),
  * //               ReturnData: true || false,
  * //             },
  * //           ],

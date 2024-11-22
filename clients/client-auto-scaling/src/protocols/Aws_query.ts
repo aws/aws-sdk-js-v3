@@ -3913,6 +3913,9 @@ const se_CustomizedMetricSpecification = (input: CustomizedMetricSpecification, 
   if (input[_U] != null) {
     entries[_U] = input[_U];
   }
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
+  }
   if (input[_Me] != null) {
     const memberEntries = se_TargetTrackingMetricDataQueries(input[_Me], context);
     if (input[_Me]?.length === 0) {
@@ -6199,8 +6202,8 @@ const se_StartInstanceRefreshType = (input: StartInstanceRefreshType, context: _
       entries[loc] = value;
     });
   }
-  if (input[_P] != null) {
-    const memberEntries = se_RefreshPreferences(input[_P], context);
+  if (input[_Pr] != null) {
+    const memberEntries = se_RefreshPreferences(input[_Pr], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Preferences.${key}`;
       entries[loc] = value;
@@ -6371,6 +6374,9 @@ const se_TargetTrackingMetricDataQuery = (input: TargetTrackingMetricDataQuery, 
   if (input[_L] != null) {
     entries[_L] = input[_L];
   }
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
+  }
   if (input[_RD] != null) {
     entries[_RD] = input[_RD];
   }
@@ -6394,6 +6400,9 @@ const se_TargetTrackingMetricStat = (input: TargetTrackingMetricStat, context: _
   }
   if (input[_U] != null) {
     entries[_U] = input[_U];
+  }
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
   return entries;
 };
@@ -6766,8 +6775,8 @@ const de_Activity = (output: any, context: __SerdeContext): Activity => {
   if (output[_SMt] != null) {
     contents[_SMt] = __expectString(output[_SMt]);
   }
-  if (output[_Pr] != null) {
-    contents[_Pr] = __strictParseInt32(output[_Pr]) as number;
+  if (output[_Pro] != null) {
+    contents[_Pro] = __strictParseInt32(output[_Pro]) as number;
   }
   if (output[_Det] != null) {
     contents[_Det] = __expectString(output[_Det]);
@@ -7450,6 +7459,9 @@ const de_CustomizedMetricSpecification = (output: any, context: __SerdeContext):
   if (output[_U] != null) {
     contents[_U] = __expectString(output[_U]);
   }
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
+  }
   if (output.Metrics === "") {
     contents[_Me] = [];
   } else if (output[_Me] != null && output[_Me][_me] != null) {
@@ -8015,8 +8027,8 @@ const de_InstanceRefresh = (output: any, context: __SerdeContext): InstanceRefre
   if (output[_PD] != null) {
     contents[_PD] = de_InstanceRefreshProgressDetails(output[_PD], context);
   }
-  if (output[_P] != null) {
-    contents[_P] = de_RefreshPreferences(output[_P], context);
+  if (output[_Pr] != null) {
+    contents[_Pr] = de_RefreshPreferences(output[_Pr], context);
   }
   if (output[_DCes] != null) {
     contents[_DCes] = de_DesiredConfiguration(output[_DCes], context);
@@ -9109,9 +9121,9 @@ const de_Processes = (output: any, context: __SerdeContext): ProcessType[] => {
 const de_ProcessesType = (output: any, context: __SerdeContext): ProcessesType => {
   const contents: any = {};
   if (output.Processes === "") {
-    contents[_Pro] = [];
-  } else if (output[_Pro] != null && output[_Pro][_me] != null) {
-    contents[_Pro] = de_Processes(__getArrayIfSingleItem(output[_Pro][_me]), context);
+    contents[_Proc] = [];
+  } else if (output[_Proc] != null && output[_Proc][_me] != null) {
+    contents[_Proc] = de_Processes(__getArrayIfSingleItem(output[_Proc][_me]), context);
   }
   return contents;
 };
@@ -9606,6 +9618,9 @@ const de_TargetTrackingMetricDataQuery = (output: any, context: __SerdeContext):
   if (output[_L] != null) {
     contents[_L] = __expectString(output[_L]);
   }
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
+  }
   if (output[_RD] != null) {
     contents[_RD] = __parseBoolean(output[_RD]);
   }
@@ -9625,6 +9640,9 @@ const de_TargetTrackingMetricStat = (output: any, context: __SerdeContext): Targ
   }
   if (output[_U] != null) {
     contents[_U] = __expectString(output[_U]);
+  }
+  if (output[_P] != null) {
+    contents[_P] = __strictParseInt32(output[_P]) as number;
   }
   return contents;
 };
@@ -10041,7 +10059,7 @@ const _ODAS = "OnDemandAllocationStrategy";
 const _ODBC = "OnDemandBaseCapacity";
 const _ODMPPOLP = "OnDemandMaxPricePercentageOverLowestPrice";
 const _ODPABC = "OnDemandPercentageAboveBaseCapacity";
-const _P = "Preferences";
+const _P = "Period";
 const _PAL = "PropagateAtLaunch";
 const _PARN = "PolicyARN";
 const _PC = "PredictedCapacity";
@@ -10069,8 +10087,9 @@ const _PT = "PlacementTenancy";
 const _PTo = "PolicyTypes";
 const _PTol = "PolicyType";
 const _PWP = "PutWarmPool";
-const _Pr = "Progress";
-const _Pro = "Processes";
+const _Pr = "Preferences";
+const _Pro = "Progress";
+const _Proc = "Processes";
 const _R = "References";
 const _RARN = "RoleARN";
 const _RD = "ReturnData";
