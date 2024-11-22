@@ -1,4 +1,5 @@
 import { setFeature } from "@aws-sdk/core";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   HandlerExecutionContext,
   MetadataBearer,
@@ -11,6 +12,7 @@ import {
 
 import { PreviouslyResolved } from "./configuration";
 import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
+import { hasHeaderWithPrefix } from "./hasHeaderWithPrefix";
 
 export interface FlexibleChecksumsInputMiddlewareConfig {
   /**
@@ -82,10 +84,13 @@ export const flexibleChecksumsInputMiddleware =
 
     // The value for input member to configure flexible checksum is not set.
     if (requestAlgorithmMember && !input[requestAlgorithmMember]) {
-      // Set requestAlgorithmMember as default checksum algorithm only if request checksum calculation is supported
-      // or request checksum is required.
+      // Set requestAlgorithmMember as default checksum algorithm only if request checksum algorithm is not supported,
+      // and either request checksumcalculation is supported or request checksum is required.
       if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired) {
-        input[requestAlgorithmMember] = DEFAULT_CHECKSUM_ALGORITHM;
+        const request = args.request as HttpRequest;
+        if (!request.headers || hasHeaderWithPrefix("x-amz-checksum-", request.headers)) {
+          input[requestAlgorithmMember] = DEFAULT_CHECKSUM_ALGORITHM;
+        }
       }
     }
 
