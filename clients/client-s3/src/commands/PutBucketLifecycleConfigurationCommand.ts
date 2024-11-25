@@ -300,6 +300,7 @@ export class PutBucketLifecycleConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMemberHttpHeader: "x-amz-sdk-checksum-algorithm",
         requestChecksumRequired: true,
       }),
       getThrow200ExceptionsPlugin(config),

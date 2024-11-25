@@ -250,6 +250,7 @@ export class PutBucketWebsiteCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
         requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMemberHttpHeader: "x-amz-sdk-checksum-algorithm",
         requestChecksumRequired: true,
       }),
     ];
