@@ -70,6 +70,11 @@ export interface DeleteDirectConnectGatewayAssociationCommandOutput
  * //         cidr: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     associatedCoreNetwork: { // AssociatedCoreNetwork
+ * //       id: "STRING_VALUE",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       attachmentId: "STRING_VALUE",
+ * //     },
  * //     virtualGatewayId: "STRING_VALUE",
  * //     virtualGatewayRegion: "STRING_VALUE",
  * //     virtualGatewayOwnerAccount: "STRING_VALUE",

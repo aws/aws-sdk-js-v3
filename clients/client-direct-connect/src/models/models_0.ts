@@ -47,6 +47,30 @@ export interface AcceptDirectConnectGatewayAssociationProposalRequest {
 }
 
 /**
+ * <p>The Amazon Web Services Cloud WAN core network that the Direct Connect attachment is associated with.</p>
+ * @public
+ */
+export interface AssociatedCoreNetwork {
+  /**
+   * <p>The ID of the Cloud WAN core network.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The account owner of the Cloud WAN core network.</p>
+   * @public
+   */
+  ownerAccount?: string | undefined;
+
+  /**
+   * <p>the ID of the Direct Connect attachment</p>
+   * @public
+   */
+  attachmentId?: string | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -177,6 +201,12 @@ export interface DirectConnectGatewayAssociation {
    * @public
    */
   allowedPrefixesToDirectConnectGateway?: RouteFilterPrefix[] | undefined;
+
+  /**
+   * <p>The ID of the Cloud WAN core network associated with the Direct Connect attachment.</p>
+   * @public
+   */
+  associatedCoreNetwork?: AssociatedCoreNetwork | undefined;
 
   /**
    * <p>The ID of the virtual private gateway. Applies only to private virtual interfaces.</p>

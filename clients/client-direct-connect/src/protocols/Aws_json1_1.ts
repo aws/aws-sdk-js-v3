@@ -2635,6 +2635,8 @@ const de_TooManyTagsExceptionRes = async (
 
 // de_AllocateTransitVirtualInterfaceResult omitted.
 
+// de_AssociatedCoreNetwork omitted.
+
 // de_AssociatedGateway omitted.
 
 // de_AssociateMacSecKeyResponse omitted.
