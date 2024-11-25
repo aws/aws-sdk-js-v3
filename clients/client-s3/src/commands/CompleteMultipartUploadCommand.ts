@@ -232,6 +232,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *   ChecksumSHA256: "STRING_VALUE",
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   IfMatch: "STRING_VALUE",
  *   IfNoneMatch: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSECustomerKey: "STRING_VALUE",
