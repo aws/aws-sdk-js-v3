@@ -262,15 +262,31 @@ new S3Client({
 });
 ```
 
-A note on **socket exhaustion**: if you encounter an error that indicates
+A note on **socket exhaustion**: 
+
+The SDK may emit the following warning when detecting socket exhaustion:
+
+```
+@smithy/node-http-handler:WARN - socket usage at capacity=${socketsInUse} and ${requestsEnqueued} additional requests are enqueued.
+```
+
+Socket exhaustion detection is not an exact determination. 
+We only warn on this when there is a high count of `requestsEnqueued`, 
+because running at socket capacity may be intentional and normal in your application.
+
+If you encounter the above warning or an error that indicates
 you have run out of sockets due to a high volume of requests flowing through
 your SDK Client, there are two things to check:
 
 1. Ensure that the number value of `maxSockets` is high enough for your
    throughput needs.
 2. Because `keepAlive` is defaulted to `true`, if you acquire a streaming response,
-   such as `S3::getObject`'s `Body` field. You must read the stream to completion
-   in order for the socket to close naturally.
+   such as `S3::getObject`'s `Body` field, you must read the stream to completion
+   in order for the socket to close naturally. You can also destroy the stream in Node.js with
+   e.g. `(await s3.getObject(...)).Body.destroy()` if it is a Node.js Readable stream.
+   Specifically in the case of S3, if you don't need the object body,
+   consider whether the object metadata can be retrieved with another operation such as
+   `HeadObject` or `GetObjectMetadata`.
 
 ```ts
 // Example: reading a stream to allow socket closure.
