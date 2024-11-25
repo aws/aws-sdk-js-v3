@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.700.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.699.0...v3.700.0) (2024-11-25)
+
+
+### Features
+
+* **clients:** update command documentation examples as of 2024-11-25 ([21b5399](https://github.com/aws/aws-sdk-js-v3/commit/21b5399b5cc7f035702227da10b7a495e57f6a75))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 

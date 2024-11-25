@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.700.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.699.0...v3.700.0) (2024-11-25)
+
+
+### Features
+
+* **client-networkmanager:** This release adds native Direct Connect integration on Cloud WAN enabling customers to directly attach their Direct Connect gateways to Cloud WAN without the need for an intermediate Transit Gateway. ([4a7eea0](https://github.com/aws/aws-sdk-js-v3/commit/4a7eea0b722488615d7d9002f9f9702841e0fd9f))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-networkmanager

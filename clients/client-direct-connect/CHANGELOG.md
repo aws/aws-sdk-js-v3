@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.700.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.699.0...v3.700.0) (2024-11-25)
+
+
+### Features
+
+* **client-direct-connect:** Update DescribeDirectConnectGatewayAssociations API to return associated core network information if a Direct Connect gateway is attached to a Cloud WAN core network. ([26dccd9](https://github.com/aws/aws-sdk-js-v3/commit/26dccd9fd39e428927cb02127705014ca4f63006))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-direct-connect

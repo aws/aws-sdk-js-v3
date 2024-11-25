@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.700.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.699.0...v3.700.0) (2024-11-25)
+
+
+### Features
+
+* **client-direct-connect:** Update DescribeDirectConnectGatewayAssociations API to return associated core network information if a Direct Connect gateway is attached to a Cloud WAN core network. ([26dccd9](https://github.com/aws/aws-sdk-js-v3/commit/26dccd9fd39e428927cb02127705014ca4f63006))
+* **client-networkmanager:** This release adds native Direct Connect integration on Cloud WAN enabling customers to directly attach their Direct Connect gateways to Cloud WAN without the need for an intermediate Transit Gateway. ([4a7eea0](https://github.com/aws/aws-sdk-js-v3/commit/4a7eea0b722488615d7d9002f9f9702841e0fd9f))
+* **client-s3:** Amazon Simple Storage Service / Features: Add support for ETag based conditional writes in PutObject and CompleteMultiPartUpload APIs to prevent unintended object modifications. ([453f462](https://github.com/aws/aws-sdk-js-v3/commit/453f4624c0a696c5ace8158348cb4e1d29dbace9))
+* **clients:** update command documentation examples as of 2024-11-25 ([21b5399](https://github.com/aws/aws-sdk-js-v3/commit/21b5399b5cc7f035702227da10b7a495e57f6a75))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 
