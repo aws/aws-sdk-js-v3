@@ -282,7 +282,11 @@ your SDK Client, there are two things to check:
    throughput needs.
 2. Because `keepAlive` is defaulted to `true`, if you acquire a streaming response,
    such as `S3::getObject`'s `Body` field. You must read the stream to completion
-   in order for the socket to close naturally.
+   in order for the socket to close naturally. You can also destroy the stream in Node.js with
+   e.g. `(await s3.getObject(...)).Body.destroy()` if it is a Node.js Readable stream.
+   Specifically in the case of S3, if you don't need the object body,
+   consider whether the object metadata can be retrieved with another operation such as
+   `HeadObject` or `GetObjectMetadata`.
 
 ```ts
 // Example: reading a stream to allow socket closure.
