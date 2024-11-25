@@ -11,7 +11,7 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm } from "./constants";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
@@ -65,15 +65,25 @@ export const flexibleChecksumsMiddleware =
       return next(args);
     }
 
-    if (hasHeaderWithPrefix("x-amz-checksum-", args.request.headers)) {
+    const { request, input } = args;
+    const { body: requestBody, headers } = request;
+    const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
+
+    if (hasHeaderWithPrefix("x-amz-checksum-", headers)) {
+      // Remove input[requestAlgorithmMember] and header, if it was added by flexibleChecksumsInputMiddleware
+      if (
+        requestAlgorithmMember &&
+        input[requestAlgorithmMember] === DEFAULT_CHECKSUM_ALGORITHM &&
+        !headers[`x-amz-checksum-${DEFAULT_CHECKSUM_ALGORITHM.toLowerCase()}`]
+      ) {
+        delete input[requestAlgorithmMember];
+        delete headers["x-amz-sdk-checksum-algorithm"];
+      }
       return next(args);
     }
 
-    const { request, input } = args;
-    const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
     const requestChecksumCalculation = await config.requestChecksumCalculation();
-    const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
       requestChecksumRequired,
