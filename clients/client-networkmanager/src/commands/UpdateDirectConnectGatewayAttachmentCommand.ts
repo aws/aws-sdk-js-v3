@@ -5,9 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateVpcAttachmentRequest, UpdateVpcAttachmentResponse } from "../models/models_0";
+import {
+  UpdateDirectConnectGatewayAttachmentRequest,
+  UpdateDirectConnectGatewayAttachmentResponse,
+} from "../models/models_0";
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient";
-import { de_UpdateVpcAttachmentCommand, se_UpdateVpcAttachmentCommand } from "../protocols/Aws_restJson1";
+import {
+  de_UpdateDirectConnectGatewayAttachmentCommand,
+  se_UpdateDirectConnectGatewayAttachmentCommand,
+} from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,41 +23,36 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateVpcAttachmentCommand}.
+ * The input for {@link UpdateDirectConnectGatewayAttachmentCommand}.
  */
-export interface UpdateVpcAttachmentCommandInput extends UpdateVpcAttachmentRequest {}
+export interface UpdateDirectConnectGatewayAttachmentCommandInput extends UpdateDirectConnectGatewayAttachmentRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateVpcAttachmentCommand}.
+ * The output of {@link UpdateDirectConnectGatewayAttachmentCommand}.
  */
-export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentResponse, __MetadataBearer {}
+export interface UpdateDirectConnectGatewayAttachmentCommandOutput
+  extends UpdateDirectConnectGatewayAttachmentResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Updates a VPC attachment.</p>
+ * <p>Updates the edge locations associated with an Amazon Web Services Direct Connect gateway attachment. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NetworkManagerClient, UpdateVpcAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
- * // const { NetworkManagerClient, UpdateVpcAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
+ * import { NetworkManagerClient, UpdateDirectConnectGatewayAttachmentCommand } from "@aws-sdk/client-networkmanager"; // ES Modules import
+ * // const { NetworkManagerClient, UpdateDirectConnectGatewayAttachmentCommand } = require("@aws-sdk/client-networkmanager"); // CommonJS import
  * const client = new NetworkManagerClient(config);
- * const input = { // UpdateVpcAttachmentRequest
+ * const input = { // UpdateDirectConnectGatewayAttachmentRequest
  *   AttachmentId: "STRING_VALUE", // required
- *   AddSubnetArns: [ // SubnetArnList
+ *   EdgeLocations: [ // ExternalRegionCodeList
  *     "STRING_VALUE",
  *   ],
- *   RemoveSubnetArns: [
- *     "STRING_VALUE",
- *   ],
- *   Options: { // VpcOptions
- *     Ipv6Support: true || false,
- *     ApplianceModeSupport: true || false,
- *   },
  * };
- * const command = new UpdateVpcAttachmentCommand(input);
+ * const command = new UpdateDirectConnectGatewayAttachmentCommand(input);
  * const response = await client.send(command);
- * // { // UpdateVpcAttachmentResponse
- * //   VpcAttachment: { // VpcAttachment
+ * // { // UpdateDirectConnectGatewayAttachmentResponse
+ * //   DirectConnectGatewayAttachment: { // DirectConnectGatewayAttachment
  * //     Attachment: { // Attachment
  * //       CoreNetworkId: "STRING_VALUE",
  * //       CoreNetworkArn: "STRING_VALUE",
@@ -104,22 +105,16 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  * //         },
  * //       ],
  * //     },
- * //     SubnetArns: [ // SubnetArnList
- * //       "STRING_VALUE",
- * //     ],
- * //     Options: { // VpcOptions
- * //       Ipv6Support: true || false,
- * //       ApplianceModeSupport: true || false,
- * //     },
+ * //     DirectConnectGatewayArn: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param UpdateVpcAttachmentCommandInput - {@link UpdateVpcAttachmentCommandInput}
- * @returns {@link UpdateVpcAttachmentCommandOutput}
- * @see {@link UpdateVpcAttachmentCommandInput} for command's `input` shape.
- * @see {@link UpdateVpcAttachmentCommandOutput} for command's `response` shape.
+ * @param UpdateDirectConnectGatewayAttachmentCommandInput - {@link UpdateDirectConnectGatewayAttachmentCommandInput}
+ * @returns {@link UpdateDirectConnectGatewayAttachmentCommandOutput}
+ * @see {@link UpdateDirectConnectGatewayAttachmentCommandInput} for command's `input` shape.
+ * @see {@link UpdateDirectConnectGatewayAttachmentCommandOutput} for command's `response` shape.
  * @see {@link NetworkManagerClientResolvedConfig | config} for NetworkManagerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -146,10 +141,10 @@ export interface UpdateVpcAttachmentCommandOutput extends UpdateVpcAttachmentRes
  *
  * @public
  */
-export class UpdateVpcAttachmentCommand extends $Command
+export class UpdateDirectConnectGatewayAttachmentCommand extends $Command
   .classBuilder<
-    UpdateVpcAttachmentCommandInput,
-    UpdateVpcAttachmentCommandOutput,
+    UpdateDirectConnectGatewayAttachmentCommandInput,
+    UpdateDirectConnectGatewayAttachmentCommandOutput,
     NetworkManagerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -161,21 +156,21 @@ export class UpdateVpcAttachmentCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("NetworkManager", "UpdateVpcAttachment", {})
-  .n("NetworkManagerClient", "UpdateVpcAttachmentCommand")
+  .s("NetworkManager", "UpdateDirectConnectGatewayAttachment", {})
+  .n("NetworkManagerClient", "UpdateDirectConnectGatewayAttachmentCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateVpcAttachmentCommand)
-  .de(de_UpdateVpcAttachmentCommand)
+  .ser(se_UpdateDirectConnectGatewayAttachmentCommand)
+  .de(de_UpdateDirectConnectGatewayAttachmentCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateVpcAttachmentRequest;
-      output: UpdateVpcAttachmentResponse;
+      input: UpdateDirectConnectGatewayAttachmentRequest;
+      output: UpdateDirectConnectGatewayAttachmentResponse;
     };
     sdk: {
-      input: UpdateVpcAttachmentCommandInput;
-      output: UpdateVpcAttachmentCommandOutput;
+      input: UpdateDirectConnectGatewayAttachmentCommandInput;
+      output: UpdateDirectConnectGatewayAttachmentCommandOutput;
     };
   };
 }

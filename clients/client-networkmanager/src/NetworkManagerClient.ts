@@ -76,6 +76,10 @@ import { CreateConnectPeerCommandInput, CreateConnectPeerCommandOutput } from ".
 import { CreateCoreNetworkCommandInput, CreateCoreNetworkCommandOutput } from "./commands/CreateCoreNetworkCommand";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "./commands/CreateDeviceCommand";
 import {
+  CreateDirectConnectGatewayAttachmentCommandInput,
+  CreateDirectConnectGatewayAttachmentCommandOutput,
+} from "./commands/CreateDirectConnectGatewayAttachmentCommand";
+import {
   CreateGlobalNetworkCommandInput,
   CreateGlobalNetworkCommandOutput,
 } from "./commands/CreateGlobalNetworkCommand";
@@ -171,6 +175,10 @@ import {
 } from "./commands/GetCustomerGatewayAssociationsCommand";
 import { GetDevicesCommandInput, GetDevicesCommandOutput } from "./commands/GetDevicesCommand";
 import {
+  GetDirectConnectGatewayAttachmentCommandInput,
+  GetDirectConnectGatewayAttachmentCommandOutput,
+} from "./commands/GetDirectConnectGatewayAttachmentCommand";
+import {
   GetLinkAssociationsCommandInput,
   GetLinkAssociationsCommandOutput,
 } from "./commands/GetLinkAssociationsCommand";
@@ -257,6 +265,10 @@ import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "./c
 import { UpdateCoreNetworkCommandInput, UpdateCoreNetworkCommandOutput } from "./commands/UpdateCoreNetworkCommand";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand";
 import {
+  UpdateDirectConnectGatewayAttachmentCommandInput,
+  UpdateDirectConnectGatewayAttachmentCommandOutput,
+} from "./commands/UpdateDirectConnectGatewayAttachmentCommand";
+import {
   UpdateGlobalNetworkCommandInput,
   UpdateGlobalNetworkCommandOutput,
 } from "./commands/UpdateGlobalNetworkCommand";
@@ -295,6 +307,7 @@ export type ServiceInputTypes =
   | CreateConnectionCommandInput
   | CreateCoreNetworkCommandInput
   | CreateDeviceCommandInput
+  | CreateDirectConnectGatewayAttachmentCommandInput
   | CreateGlobalNetworkCommandInput
   | CreateLinkCommandInput
   | CreateSiteCommandInput
@@ -330,6 +343,7 @@ export type ServiceInputTypes =
   | GetCoreNetworkPolicyCommandInput
   | GetCustomerGatewayAssociationsCommandInput
   | GetDevicesCommandInput
+  | GetDirectConnectGatewayAttachmentCommandInput
   | GetLinkAssociationsCommandInput
   | GetLinksCommandInput
   | GetNetworkResourceCountsCommandInput
@@ -365,6 +379,7 @@ export type ServiceInputTypes =
   | UpdateConnectionCommandInput
   | UpdateCoreNetworkCommandInput
   | UpdateDeviceCommandInput
+  | UpdateDirectConnectGatewayAttachmentCommandInput
   | UpdateGlobalNetworkCommandInput
   | UpdateLinkCommandInput
   | UpdateNetworkResourceMetadataCommandInput
@@ -385,6 +400,7 @@ export type ServiceOutputTypes =
   | CreateConnectionCommandOutput
   | CreateCoreNetworkCommandOutput
   | CreateDeviceCommandOutput
+  | CreateDirectConnectGatewayAttachmentCommandOutput
   | CreateGlobalNetworkCommandOutput
   | CreateLinkCommandOutput
   | CreateSiteCommandOutput
@@ -420,6 +436,7 @@ export type ServiceOutputTypes =
   | GetCoreNetworkPolicyCommandOutput
   | GetCustomerGatewayAssociationsCommandOutput
   | GetDevicesCommandOutput
+  | GetDirectConnectGatewayAttachmentCommandOutput
   | GetLinkAssociationsCommandOutput
   | GetLinksCommandOutput
   | GetNetworkResourceCountsCommandOutput
@@ -455,6 +472,7 @@ export type ServiceOutputTypes =
   | UpdateConnectionCommandOutput
   | UpdateCoreNetworkCommandOutput
   | UpdateDeviceCommandOutput
+  | UpdateDirectConnectGatewayAttachmentCommandOutput
   | UpdateGlobalNetworkCommandOutput
   | UpdateLinkCommandOutput
   | UpdateNetworkResourceMetadataCommandOutput

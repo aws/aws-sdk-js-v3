@@ -24,6 +24,7 @@ export interface AcceptAttachmentRequest {
  */
 export const AttachmentType = {
   CONNECT: "CONNECT",
+  DIRECT_CONNECT_GATEWAY: "DIRECT_CONNECT_GATEWAY",
   SITE_TO_SITE_VPN: "SITE_TO_SITE_VPN",
   TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
   VPC: "VPC",
@@ -39,6 +40,9 @@ export type AttachmentType = (typeof AttachmentType)[keyof typeof AttachmentType
  * @enum
  */
 export const AttachmentErrorCode = {
+  DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS: "DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS",
+  DIRECT_CONNECT_GATEWAY_NOT_FOUND: "DIRECT_CONNECT_GATEWAY_NOT_FOUND",
+  DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF: "DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF",
   MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED: "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
   SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE: "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE",
   SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
@@ -215,10 +219,16 @@ export interface Attachment {
   State?: AttachmentState | undefined;
 
   /**
-   * <p>The Region where the edge is located.</p>
+   * <p>The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns <code>EdgeLocations</code>.</p>
    * @public
    */
   EdgeLocation?: string | undefined;
+
+  /**
+   * <p>The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types retrun <code>EdgeLocation</code>.</p>
+   * @public
+   */
+  EdgeLocations?: string[] | undefined;
 
   /**
    * <p>The attachment resource ARN.</p>
@@ -2679,6 +2689,70 @@ export interface CreateDeviceResponse {
 /**
  * @public
  */
+export interface CreateDirectConnectGatewayAttachmentRequest {
+  /**
+   * <p>The ID of the Cloud WAN core network that the Direct Connect gateway attachment should be attached to.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the Direct Connect gateway attachment.</p>
+   * @public
+   */
+  DirectConnectGatewayArn: string | undefined;
+
+  /**
+   * <p>One or more core network edge locations that the Direct Connect gateway attachment is associated with. </p>
+   * @public
+   */
+  EdgeLocations: string[] | undefined;
+
+  /**
+   * <p>The key value tags to apply to the Direct Connect gateway attachment during creation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>client token</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a Direct Connect gateway attachment.</p>
+ * @public
+ */
+export interface DirectConnectGatewayAttachment {
+  /**
+   * <p>Describes a core network attachment.</p>
+   * @public
+   */
+  Attachment?: Attachment | undefined;
+
+  /**
+   * <p>The Direct Connect gateway attachment ARN.</p>
+   * @public
+   */
+  DirectConnectGatewayArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDirectConnectGatewayAttachmentResponse {
+  /**
+   * <p>Describes the details of a <code>CreateDirectConnectGatewayAttachment</code> request.</p>
+   * @public
+   */
+  DirectConnectGatewayAttachment?: DirectConnectGatewayAttachment | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateGlobalNetworkRequest {
   /**
    * <p>A description of the global network.</p>
@@ -4405,6 +4479,28 @@ export interface GetDevicesResponse {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDirectConnectGatewayAttachmentRequest {
+  /**
+   * <p>The ID of the Direct Connect gateway attachment that you want to see details about.</p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDirectConnectGatewayAttachmentResponse {
+  /**
+   * <p>Shows details about the Direct Connect gateway attachment. </p>
+   * @public
+   */
+  DirectConnectGatewayAttachment?: DirectConnectGatewayAttachment | undefined;
 }
 
 /**
@@ -6936,6 +7032,34 @@ export interface UpdateDeviceResponse {
    * @public
    */
   Device?: Device | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDirectConnectGatewayAttachmentRequest {
+  /**
+   * <p>The ID of the Direct Connect gateway attachment for the updated edge locations. </p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+
+  /**
+   * <p>One or more edge locations to update for the Direct Connect gateway attachment. The updated array of edge locations overwrites the previous array of locations. <code>EdgeLocations</code> is only used for Direct Connect gateway attachments. Do</p>
+   * @public
+   */
+  EdgeLocations?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDirectConnectGatewayAttachmentResponse {
+  /**
+   * <p>Returns details of the Direct Connect gateway attachment with the updated edge locations.</p>
+   * @public
+   */
+  DirectConnectGatewayAttachment?: DirectConnectGatewayAttachment | undefined;
 }
 
 /**

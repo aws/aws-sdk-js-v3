@@ -51,6 +51,10 @@ import { CreateConnectPeerCommandInput, CreateConnectPeerCommandOutput } from ".
 import { CreateCoreNetworkCommandInput, CreateCoreNetworkCommandOutput } from "../commands/CreateCoreNetworkCommand";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "../commands/CreateDeviceCommand";
 import {
+  CreateDirectConnectGatewayAttachmentCommandInput,
+  CreateDirectConnectGatewayAttachmentCommandOutput,
+} from "../commands/CreateDirectConnectGatewayAttachmentCommand";
+import {
   CreateGlobalNetworkCommandInput,
   CreateGlobalNetworkCommandOutput,
 } from "../commands/CreateGlobalNetworkCommand";
@@ -146,6 +150,10 @@ import {
 } from "../commands/GetCustomerGatewayAssociationsCommand";
 import { GetDevicesCommandInput, GetDevicesCommandOutput } from "../commands/GetDevicesCommand";
 import {
+  GetDirectConnectGatewayAttachmentCommandInput,
+  GetDirectConnectGatewayAttachmentCommandOutput,
+} from "../commands/GetDirectConnectGatewayAttachmentCommand";
+import {
   GetLinkAssociationsCommandInput,
   GetLinkAssociationsCommandOutput,
 } from "../commands/GetLinkAssociationsCommand";
@@ -232,6 +240,10 @@ import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../
 import { UpdateCoreNetworkCommandInput, UpdateCoreNetworkCommandOutput } from "../commands/UpdateCoreNetworkCommand";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "../commands/UpdateDeviceCommand";
 import {
+  UpdateDirectConnectGatewayAttachmentCommandInput,
+  UpdateDirectConnectGatewayAttachmentCommandOutput,
+} from "../commands/UpdateDirectConnectGatewayAttachmentCommand";
+import {
   UpdateGlobalNetworkCommandInput,
   UpdateGlobalNetworkCommandOutput,
 } from "../commands/UpdateGlobalNetworkCommand";
@@ -266,6 +278,7 @@ import {
   CoreNetworkPolicyVersion,
   CoreNetworkSegmentEdgeIdentifier,
   Device,
+  DirectConnectGatewayAttachment,
   GlobalNetwork,
   InternalServerException,
   Link,
@@ -542,6 +555,32 @@ export const se_CreateDeviceCommand = async (
       Tags: (_) => _json(_),
       Type: [],
       Vendor: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDirectConnectGatewayAttachmentCommand
+ */
+export const se_CreateDirectConnectGatewayAttachmentCommand = async (
+  input: CreateDirectConnectGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/direct-connect-gateway-attachments");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      CoreNetworkId: [],
+      DirectConnectGatewayArn: [],
+      EdgeLocations: (_) => _json(_),
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1230,6 +1269,22 @@ export const se_GetDevicesCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDirectConnectGatewayAttachmentCommand
+ */
+export const se_GetDirectConnectGatewayAttachmentCommand = async (
+  input: GetDirectConnectGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/direct-connect-gateway-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1986,6 +2041,29 @@ export const se_UpdateDeviceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDirectConnectGatewayAttachmentCommand
+ */
+export const se_UpdateDirectConnectGatewayAttachmentCommand = async (
+  input: UpdateDirectConnectGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/direct-connect-gateway-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EdgeLocations: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateGlobalNetworkCommand
  */
 export const se_UpdateGlobalNetworkCommand = async (
@@ -2314,6 +2392,27 @@ export const de_CreateDeviceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Device: (_) => de_Device(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDirectConnectGatewayAttachmentCommand
+ */
+export const de_CreateDirectConnectGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDirectConnectGatewayAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectConnectGatewayAttachment: (_) => de_DirectConnectGatewayAttachment(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3048,6 +3147,27 @@ export const de_GetDevicesCommand = async (
   const doc = take(data, {
     Devices: (_) => de_DeviceList(_, context),
     NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDirectConnectGatewayAttachmentCommand
+ */
+export const de_GetDirectConnectGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDirectConnectGatewayAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectConnectGatewayAttachment: (_) => de_DirectConnectGatewayAttachment(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3796,6 +3916,27 @@ export const de_UpdateDeviceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateDirectConnectGatewayAttachmentCommand
+ */
+export const de_UpdateDirectConnectGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectConnectGatewayAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectConnectGatewayAttachment: (_) => de_DirectConnectGatewayAttachment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateGlobalNetworkCommand
  */
 export const de_UpdateGlobalNetworkCommand = async (
@@ -4127,6 +4268,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CoreNetworkSegmentEdgeIdentifier omitted.
 
+// se_ExternalRegionCodeList omitted.
+
 // se_FilterMap omitted.
 
 // se_FilterValues omitted.
@@ -4167,6 +4310,7 @@ const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    EdgeLocations: _json,
     LastModificationErrors: _json,
     NetworkFunctionGroupName: __expectString,
     OwnerAccountId: __expectString,
@@ -4469,6 +4613,16 @@ const de_DeviceList = (output: any, context: __SerdeContext): Device[] => {
       return de_Device(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DirectConnectGatewayAttachment
+ */
+const de_DirectConnectGatewayAttachment = (output: any, context: __SerdeContext): DirectConnectGatewayAttachment => {
+  return take(output, {
+    Attachment: (_: any) => de_Attachment(_, context),
+    DirectConnectGatewayArn: __expectString,
+  }) as any;
 };
 
 // de_EdgeOverride omitted.
