@@ -262,7 +262,19 @@ new S3Client({
 });
 ```
 
-A note on **socket exhaustion**: if you encounter an error that indicates
+A note on **socket exhaustion**: 
+
+The SDK may emit the following warning when detecting socket exhaustion:
+
+```
+@smithy/node-http-handler:WARN - socket usage at capacity=${socketsInUse} and ${requestsEnqueued} additional requests are enqueued.
+```
+
+Socket exhaustion detection is not an exact determination. 
+We only warn on this when there is a high count of `requestsEnqueued`, 
+because running at socket capacity may be intentional and normal in your application.
+
+If you encounter the above warning or an error that indicates
 you have run out of sockets due to a high volume of requests flowing through
 your SDK Client, there are two things to check:
 
