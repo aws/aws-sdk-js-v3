@@ -66,6 +66,17 @@ export interface DeleteCustomActionCommandOutput extends DeleteCustomActionResul
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
  * @public
+ * @example Delete a custom action
+ * ```javascript
+ * //
+ * const input = {
+ *   "CustomActionArn": "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
+ * };
+ * const command = new DeleteCustomActionCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class DeleteCustomActionCommand extends $Command
   .classBuilder<

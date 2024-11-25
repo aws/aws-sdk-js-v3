@@ -64,6 +64,18 @@ export interface AssociateToConfigurationCommandOutput extends AssociateToConfig
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
  *
  * @public
+ * @example Associate a custom action to a configuration
+ * ```javascript
+ * // Associate a custom action to a channel configuration, allowing it to be used in that channel
+ * const input = {
+ *   "ChatConfiguration": "arn:aws:chatbot::1234567890:chat-configuration/slack-channel/my-channel",
+ *   "Resource": "arn:aws:chatbot::1234567890:custom-action/my-custom-action"
+ * };
+ * const command = new AssociateToConfigurationCommand(input);
+ * await client.send(command);
+ * // example id: example-1
+ * ```
+ *
  */
 export class AssociateToConfigurationCommand extends $Command
   .classBuilder<
