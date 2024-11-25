@@ -1,13 +1,11 @@
 import { setFeature } from "@aws-sdk/core";
-import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { PreviouslyResolved } from "./configuration";
 import { DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation, ResponseChecksumValidation } from "./constants";
 import { flexibleChecksumsInputMiddleware } from "./flexibleChecksumsInputMiddleware";
-import { hasHeaderWithPrefix } from "./hasHeaderWithPrefix";
 
 vi.mock("@aws-sdk/core");
-vi.mock("./hasHeaderWithPrefix");
 
 describe(flexibleChecksumsInputMiddleware.name, () => {
   const mockNext = vi.fn();
@@ -20,10 +18,6 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
     requestChecksumCalculation: () => Promise.resolve(RequestChecksumCalculation.WHEN_SUPPORTED),
     responseChecksumValidation: () => Promise.resolve(ResponseChecksumValidation.WHEN_SUPPORTED),
   } as PreviouslyResolved;
-
-  beforeEach(() => {
-    vi.mocked(hasHeaderWithPrefix).mockReturnValue(false);
-  });
 
   afterEach(() => {
     expect(mockNext).toHaveBeenCalledTimes(1);
@@ -42,11 +36,8 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
           mockNext,
           {}
         );
-        await handler({ input: {}, request: {} });
-        expect(mockNext).toHaveBeenCalledWith({
-          input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM },
-          request: {},
-        });
+        await handler({ input: {} });
+        expect(mockNext).toHaveBeenCalledWith({ input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM } });
       });
 
       it("requestChecksumRequired is set to true", async () => {
@@ -60,11 +51,8 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
           requestChecksumRequired: true,
         })(mockNext, {});
 
-        await handler({ input: {}, request: {} });
-        expect(mockNext).toHaveBeenCalledWith({
-          input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM },
-          request: {},
-        });
+        await handler({ input: {} });
+        expect(mockNext).toHaveBeenCalledWith({ input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM } });
       });
     });
   });
@@ -94,21 +82,8 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
         mockConfigReqChecksumCalculationWhenRequired,
         mockMiddlewareConfigWithRequestAlgorithmMember
       )(mockNext, {});
-      await handler({ input: {}, request: {} });
-      expect(mockNext).toHaveBeenCalledWith({ input: {}, request: {} });
-    });
-
-    it("if checksum header is set", async () => {
-      const mockArgs = { input: {}, request: { key: "value" } };
-      vi.mocked(hasHeaderWithPrefix).mockReturnValue(true);
-
-      const handler = flexibleChecksumsInputMiddleware(mockConfig, {
-        ...mockMiddlewareConfigWithRequestAlgorithmMember,
-        requestChecksumRequired: true,
-      })(mockNext, {});
-
-      await handler(mockArgs);
-      expect(mockNext).toHaveBeenCalledWith(mockArgs);
+      await handler({ input: {} });
+      expect(mockNext).toHaveBeenCalledWith({ input: {} });
     });
   });
 
@@ -122,13 +97,13 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
         mockConfig,
         mockMiddlewareConfigWithMockRequestValidationModeMember
       )(mockNext, {});
-      await handler({ input: {}, request: {} });
-      expect(mockNext).toHaveBeenCalledWith({ input: { [mockRequestValidationModeMember]: "ENABLED" }, request: {} });
+      await handler({ input: {} });
+      expect(mockNext).toHaveBeenCalledWith({ input: { [mockRequestValidationModeMember]: "ENABLED" } });
     });
   });
 
   describe("leaves input.requestValidationModeMember", () => {
-    const mockArgs = { input: {}, request: {} };
+    const mockArgs = { input: {} };
 
     it("when requestValidationModeMember is not defined", async () => {
       const handler = flexibleChecksumsInputMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
@@ -182,7 +157,7 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
       } as PreviouslyResolved;
 
       const handler = flexibleChecksumsInputMiddleware(mockConfigOverride, mockMiddlewareConfig)(mockNext, {});
-      await handler({ input: {}, request: {} });
+      await handler({ input: {} });
 
       expect(setFeature).toHaveBeenCalledTimes(2);
       if (configKey === "requestChecksumCalculation") {
