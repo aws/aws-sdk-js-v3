@@ -281,7 +281,7 @@ your SDK Client, there are two things to check:
 1. Ensure that the number value of `maxSockets` is high enough for your
    throughput needs.
 2. Because `keepAlive` is defaulted to `true`, if you acquire a streaming response,
-   such as `S3::getObject`'s `Body` field. You must read the stream to completion
+   such as `S3::getObject`'s `Body` field, you must read the stream to completion
    in order for the socket to close naturally. You can also destroy the stream in Node.js with
    e.g. `(await s3.getObject(...)).Body.destroy()` if it is a Node.js Readable stream.
    Specifically in the case of S3, if you don't need the object body,
