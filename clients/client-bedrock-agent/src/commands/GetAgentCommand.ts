@@ -51,6 +51,12 @@ export interface GetAgentCommandOutput extends GetAgentResponse, __MetadataBeare
  * //     agentStatus: "CREATING" || "PREPARING" || "PREPARED" || "NOT_PREPARED" || "DELETING" || "FAILED" || "VERSIONING" || "UPDATING", // required
  * //     foundationModel: "STRING_VALUE",
  * //     description: "STRING_VALUE",
+ * //     orchestrationType: "DEFAULT" || "CUSTOM_ORCHESTRATION",
+ * //     customOrchestration: { // CustomOrchestration
+ * //       executor: { // OrchestrationExecutor Union: only one key present
+ * //         lambda: "STRING_VALUE",
+ * //       },
+ * //     },
  * //     idleSessionTTLInSeconds: Number("int"), // required
  * //     agentResourceRoleArn: "STRING_VALUE", // required
  * //     customerEncryptionKeyArn: "STRING_VALUE",

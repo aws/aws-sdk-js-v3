@@ -175,6 +175,7 @@ import {
   ConfluenceSourceConfiguration,
   ContentBlock,
   CrawlFilterConfiguration,
+  CustomOrchestration,
   CustomTransformationConfiguration,
   DataSource,
   DataSourceConfiguration,
@@ -221,6 +222,7 @@ import {
   MongoDbAtlasFieldMapping,
   OpenSearchServerlessConfiguration,
   OpenSearchServerlessFieldMapping,
+  OrchestrationExecutor,
   OutputFlowNodeConfiguration,
   ParameterDetail,
   ParsingConfiguration,
@@ -338,6 +340,7 @@ export const se_CreateAgentCommand = async (
       agentName: [],
       agentResourceRoleArn: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      customOrchestration: (_) => _json(_),
       customerEncryptionKeyArn: [],
       description: [],
       foundationModel: [],
@@ -345,6 +348,7 @@ export const se_CreateAgentCommand = async (
       idleSessionTTLInSeconds: [],
       instruction: [],
       memoryConfiguration: (_) => _json(_),
+      orchestrationType: [],
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
       tags: (_) => _json(_),
     })
@@ -1434,6 +1438,7 @@ export const se_UpdateAgentCommand = async (
     take(input, {
       agentName: [],
       agentResourceRoleArn: [],
+      customOrchestration: (_) => _json(_),
       customerEncryptionKeyArn: [],
       description: [],
       foundationModel: [],
@@ -1441,6 +1446,7 @@ export const se_UpdateAgentCommand = async (
       idleSessionTTLInSeconds: [],
       instruction: [],
       memoryConfiguration: (_) => _json(_),
+      orchestrationType: [],
       promptOverrideConfiguration: (_) => se_PromptOverrideConfiguration(_, context),
     })
   );
@@ -3351,6 +3357,8 @@ const se_ChatPromptTemplateConfiguration = (input: ChatPromptTemplateConfigurati
 
 // se_CrawlFilterConfiguration omitted.
 
+// se_CustomOrchestration omitted.
+
 // se_CustomTransformationConfiguration omitted.
 
 // se_DataSourceConfiguration omitted.
@@ -3506,6 +3514,8 @@ const se_InferenceConfiguration = (input: InferenceConfiguration, context: __Ser
 // se_OpenSearchServerlessConfiguration omitted.
 
 // se_OpenSearchServerlessFieldMapping omitted.
+
+// se_OrchestrationExecutor omitted.
 
 // se_OutputFlowNodeConfiguration omitted.
 
@@ -3866,6 +3876,7 @@ const de_Agent = (output: any, context: __SerdeContext): Agent => {
     agentVersion: __expectString,
     clientToken: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customOrchestration: _json,
     customerEncryptionKeyArn: __expectString,
     description: __expectString,
     failureReasons: _json,
@@ -3874,6 +3885,7 @@ const de_Agent = (output: any, context: __SerdeContext): Agent => {
     idleSessionTTLInSeconds: __expectInt32,
     instruction: __expectString,
     memoryConfiguration: _json,
+    orchestrationType: __expectString,
     preparedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     promptOverrideConfiguration: (_: any) => de_PromptOverrideConfiguration(_, context),
     recommendedActions: _json,
@@ -4136,6 +4148,8 @@ const de_ChatPromptTemplateConfiguration = (output: any, context: __SerdeContext
 // de_ContentBlocks omitted.
 
 // de_CrawlFilterConfiguration omitted.
+
+// de_CustomOrchestration omitted.
 
 // de_CustomTransformationConfiguration omitted.
 
@@ -4589,6 +4603,8 @@ const de_KnowledgeBaseSummary = (output: any, context: __SerdeContext): Knowledg
 // de_OpenSearchServerlessConfiguration omitted.
 
 // de_OpenSearchServerlessFieldMapping omitted.
+
+// de_OrchestrationExecutor omitted.
 
 // de_OutputFlowNodeConfiguration omitted.
 

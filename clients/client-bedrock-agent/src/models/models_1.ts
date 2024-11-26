@@ -27,6 +27,39 @@ import {
 /**
  * @public
  */
+export interface GetAgentKnowledgeBaseResponse {
+  /**
+   * <p>Contains details about a knowledge base attached to an agent.</p>
+   * @public
+   */
+  agentKnowledgeBase: AgentKnowledgeBase | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseRequest {
+  /**
+   * <p>The unique identifier of the knowledge base you want to get information on.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetKnowledgeBaseResponse {
+  /**
+   * <p>Contains details about the knowledge base.</p>
+   * @public
+   */
+  knowledgeBase: KnowledgeBase | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListAgentKnowledgeBasesRequest {
   /**
    * <p>The unique identifier of the agent for which to return information about knowledge bases associated with it.</p>

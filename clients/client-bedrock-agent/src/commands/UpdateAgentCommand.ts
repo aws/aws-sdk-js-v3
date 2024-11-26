@@ -46,6 +46,12 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *   instruction: "STRING_VALUE",
  *   foundationModel: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   orchestrationType: "DEFAULT" || "CUSTOM_ORCHESTRATION",
+ *   customOrchestration: { // CustomOrchestration
+ *     executor: { // OrchestrationExecutor Union: only one key present
+ *       lambda: "STRING_VALUE",
+ *     },
+ *   },
  *   idleSessionTTLInSeconds: Number("int"),
  *   agentResourceRoleArn: "STRING_VALUE", // required
  *   customerEncryptionKeyArn: "STRING_VALUE",
@@ -94,6 +100,12 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //     agentStatus: "CREATING" || "PREPARING" || "PREPARED" || "NOT_PREPARED" || "DELETING" || "FAILED" || "VERSIONING" || "UPDATING", // required
  * //     foundationModel: "STRING_VALUE",
  * //     description: "STRING_VALUE",
+ * //     orchestrationType: "DEFAULT" || "CUSTOM_ORCHESTRATION",
+ * //     customOrchestration: { // CustomOrchestration
+ * //       executor: { // OrchestrationExecutor Union: only one key present
+ * //         lambda: "STRING_VALUE",
+ * //       },
+ * //     },
  * //     idleSessionTTLInSeconds: Number("int"), // required
  * //     agentResourceRoleArn: "STRING_VALUE", // required
  * //     customerEncryptionKeyArn: "STRING_VALUE",

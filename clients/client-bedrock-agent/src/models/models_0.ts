@@ -958,6 +958,64 @@ export const AgentStatus = {
 export type AgentStatus = (typeof AgentStatus)[keyof typeof AgentStatus];
 
 /**
+ * <p>
+ *       Contains details about the Lambda function containing the orchestration logic carried out upon invoking the custom orchestration.
+ *     </p>
+ * @public
+ */
+export type OrchestrationExecutor = OrchestrationExecutor.LambdaMember | OrchestrationExecutor.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OrchestrationExecutor {
+  /**
+   * <p>
+   *       The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action.
+   *     </p>
+   * @public
+   */
+  export interface LambdaMember {
+    lambda: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    lambda?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    lambda: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OrchestrationExecutor, visitor: Visitor<T>): T => {
+    if (value.lambda !== undefined) return visitor.lambda(value.lambda);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>
+ *      Details of custom orchestration.
+ *     </p>
+ * @public
+ */
+export interface CustomOrchestration {
+  /**
+   * <p>
+   *       The structure of the executor invoking the actions in custom orchestration.
+   *     </p>
+   * @public
+   */
+  executor?: OrchestrationExecutor | undefined;
+}
+
+/**
  * <p>Details about a guardrail associated with a resource.</p>
  * @public
  */
@@ -1005,6 +1063,20 @@ export interface MemoryConfiguration {
    */
   storageDays?: number | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const OrchestrationType = {
+  CUSTOM_ORCHESTRATION: "CUSTOM_ORCHESTRATION",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type OrchestrationType = (typeof OrchestrationType)[keyof typeof OrchestrationType];
 
 /**
  * <p>Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the <code>promptType</code>. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters for foundation models</a>.</p>
@@ -1250,6 +1322,22 @@ export interface Agent {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>
+   *       Specifies the orchestration strategy for the agent.
+   *     </p>
+   * @public
+   */
+  orchestrationType?: OrchestrationType | undefined;
+
+  /**
+   * <p>
+   *       Contains custom orchestration configurations for the agent.
+   *     </p>
+   * @public
+   */
+  customOrchestration?: CustomOrchestration | undefined;
 
   /**
    * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
@@ -1680,6 +1768,22 @@ export interface CreateAgentRequest {
   description?: string | undefined;
 
   /**
+   * <p>
+   *       Specifies the type of orchestration strategy for the agent. This is set to <code>DEFAULT</code> orchestration type, by default.
+   *     </p>
+   * @public
+   */
+  orchestrationType?: OrchestrationType | undefined;
+
+  /**
+   * <p>
+   *       Contains details of the custom orchestration configured for the agent.
+   *     </p>
+   * @public
+   */
+  customOrchestration?: CustomOrchestration | undefined;
+
+  /**
    * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
    *          <p>A user interaction remains active for the amount of time specified. If no conversation occurs during this time, the session expires and Amazon Bedrock deletes any data provided before the timeout.</p>
    * @public
@@ -1963,6 +2067,22 @@ export interface UpdateAgentRequest {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>
+   *       Specifies the type of orchestration strategy for the agent. This is set to <code>DEFAULT</code> orchestration type, by default.
+   *     </p>
+   * @public
+   */
+  orchestrationType?: OrchestrationType | undefined;
+
+  /**
+   * <p>
+   *       Contains details of the custom orchestration configured for the agent.
+   *     </p>
+   * @public
+   */
+  customOrchestration?: CustomOrchestration | undefined;
 
   /**
    * <p>The number of seconds for which Amazon Bedrock keeps information about a user's conversation with the agent.</p>
@@ -9030,39 +9150,6 @@ export interface GetAgentKnowledgeBaseRequest {
 }
 
 /**
- * @public
- */
-export interface GetAgentKnowledgeBaseResponse {
-  /**
-   * <p>Contains details about a knowledge base attached to an agent.</p>
-   * @public
-   */
-  agentKnowledgeBase: AgentKnowledgeBase | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseRequest {
-  /**
-   * <p>The unique identifier of the knowledge base you want to get information on.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetKnowledgeBaseResponse {
-  /**
-   * <p>Contains details about the knowledge base.</p>
-   * @public
-   */
-  knowledgeBase: KnowledgeBase | undefined;
-}
-
-/**
  * @internal
  */
 export const APISchemaFilterSensitiveLog = (obj: APISchema): any => {
@@ -9149,6 +9236,7 @@ export const PromptOverrideConfigurationFilterSensitiveLog = (obj: PromptOverrid
 export const AgentFilterSensitiveLog = (obj: Agent): any => ({
   ...obj,
   ...(obj.instruction && { instruction: SENSITIVE_STRING }),
+  ...(obj.customOrchestration && { customOrchestration: obj.customOrchestration }),
   ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
 });
 
@@ -9158,6 +9246,7 @@ export const AgentFilterSensitiveLog = (obj: Agent): any => ({
 export const CreateAgentRequestFilterSensitiveLog = (obj: CreateAgentRequest): any => ({
   ...obj,
   ...(obj.instruction && { instruction: SENSITIVE_STRING }),
+  ...(obj.customOrchestration && { customOrchestration: obj.customOrchestration }),
   ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
 });
 
@@ -9183,6 +9272,7 @@ export const GetAgentResponseFilterSensitiveLog = (obj: GetAgentResponse): any =
 export const UpdateAgentRequestFilterSensitiveLog = (obj: UpdateAgentRequest): any => ({
   ...obj,
   ...(obj.instruction && { instruction: SENSITIVE_STRING }),
+  ...(obj.customOrchestration && { customOrchestration: obj.customOrchestration }),
   ...(obj.promptOverrideConfiguration && { promptOverrideConfiguration: SENSITIVE_STRING }),
 });
 
