@@ -32,7 +32,8 @@ export interface StartOutboundEmailContactCommandInput extends StartOutboundEmai
 export interface StartOutboundEmailContactCommandOutput extends StartOutboundEmailContactResponse, __MetadataBearer {}
 
 /**
- * <p></p>
+ * <p>Initiates a flow to send an agent reply or outbound email contact (created from the
+ *    CreateContact API) to a customer.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

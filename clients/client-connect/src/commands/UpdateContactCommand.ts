@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  UpdateContactRequest,
-  UpdateContactRequestFilterSensitiveLog,
-  UpdateContactResponse,
-} from "../models/models_2";
+import { UpdateContactResponse } from "../models/models_2";
+import { UpdateContactRequest, UpdateContactRequestFilterSensitiveLog } from "../models/models_3";
 import { de_UpdateContactCommand, se_UpdateContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -62,6 +59,16 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *   SegmentAttributes: { // SegmentAttributes
  *     "<keys>": { // SegmentAttributeValue
  *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
  *     },
  *   },
  * };

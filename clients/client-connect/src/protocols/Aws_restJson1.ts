@@ -880,7 +880,6 @@ import {
   RuleAction,
   RuleTriggerEventSource,
   S3Config,
-  SegmentAttributeValue,
   SendNotificationActionDefinition,
   ServiceQuotaExceededException,
   SingleSelectQuestionRuleCategoryAutomation,
@@ -965,6 +964,7 @@ import {
   QuickConnectSummary,
   RealTimeContactAnalysisSegmentAttachments,
   RealTimeContactAnalysisSegmentEvent,
+  RealTimeContactAnalysisSegmentTranscript,
   RealTimeContactAnalysisSegmentType,
   RealTimeContactAnalysisTimeData,
   RoutingProfile,
@@ -995,6 +995,7 @@ import {
   ContactAnalysis,
   ContactFlowModuleSearchCriteria,
   ContactFlowModuleSearchFilter,
+  ContactFlowSearchCriteria,
   ContactFlowSearchFilter,
   ContactNotFoundException,
   ContactSearchSummary,
@@ -1005,10 +1006,13 @@ import {
   DestinationNotAllowedException,
   DisconnectReason,
   EmailAddressInfo,
+  EmailAddressSearchCriteria,
   EmailAddressSearchFilter,
   EmailAttachment,
   EmailHeaderType,
   EvaluationAnswerInput,
+  EvaluationForm,
+  EvaluationFormContent,
   EvaluationFormItem,
   EvaluationFormSection,
   HierarchyGroupCondition,
@@ -1035,7 +1039,6 @@ import {
   QueueSearchFilter,
   QuickConnectSearchFilter,
   RealtimeContactAnalysisSegment,
-  RealTimeContactAnalysisSegmentTranscript,
   ResourceTagsSearchCriteria,
   RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchFilter,
@@ -1050,6 +1053,7 @@ import {
   SecurityKey,
   SecurityProfilesSearchFilter,
   SecurityProfileSummary,
+  SegmentAttributeValue,
   Sort,
   SourceCampaign,
   TagSearchCondition,
@@ -1067,10 +1071,6 @@ import {
 } from "../models/models_2";
 import {
   Contact,
-  ContactFlowSearchCriteria,
-  EmailAddressSearchCriteria,
-  EvaluationForm,
-  EvaluationFormContent,
   Expression,
   HoursOfOperationSearchCriteria,
   PredefinedAttributeSearchCriteria,
@@ -1666,7 +1666,7 @@ export const se_CreateContactCommand = async (
       Name: [],
       References: (_) => _json(_),
       RelatedContactId: [],
-      SegmentAttributes: (_) => _json(_),
+      SegmentAttributes: (_) => se_SegmentAttributes(_, context),
       UserInfo: (_) => _json(_),
     })
   );
@@ -5503,7 +5503,7 @@ export const se_StartChatContactCommand = async (
       ParticipantDetails: (_) => _json(_),
       PersistentChat: (_) => _json(_),
       RelatedContactId: [],
-      SegmentAttributes: (_) => _json(_),
+      SegmentAttributes: (_) => se_SegmentAttributes(_, context),
       SupportedMessagingContentTypes: (_) => _json(_),
     })
   );
@@ -5614,7 +5614,7 @@ export const se_StartEmailContactCommand = async (
       Name: [],
       References: (_) => _json(_),
       RelatedContactId: [],
-      SegmentAttributes: (_) => _json(_),
+      SegmentAttributes: (_) => se_SegmentAttributes(_, context),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -5645,7 +5645,7 @@ export const se_StartOutboundChatContactCommand = async (
       InstanceId: [],
       ParticipantDetails: (_) => _json(_),
       RelatedContactId: [],
-      SegmentAttributes: (_) => _json(_),
+      SegmentAttributes: (_) => se_SegmentAttributes(_, context),
       SourceEndpoint: (_) => _json(_),
       SupportedMessagingContentTypes: (_) => _json(_),
     })
@@ -5767,7 +5767,7 @@ export const se_StartTaskContactCommand = async (
       References: (_) => _json(_),
       RelatedContactId: [],
       ScheduledTime: (_) => _.getTime() / 1_000,
-      SegmentAttributes: (_) => _json(_),
+      SegmentAttributes: (_) => se_SegmentAttributes(_, context),
       TaskTemplateId: [],
     })
   );
@@ -6115,7 +6115,7 @@ export const se_UpdateContactCommand = async (
       Description: [],
       Name: [],
       References: (_) => _json(_),
-      SegmentAttributes: (_) => _json(_),
+      SegmentAttributes: (_) => se_SegmentAttributes(_, context),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -14227,9 +14227,42 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 
 // se_SecurityProfilesSearchFilter omitted.
 
-// se_SegmentAttributes omitted.
+/**
+ * serializeAws_restJson1SegmentAttributes
+ */
+const se_SegmentAttributes = (input: Record<string, SegmentAttributeValue>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_SegmentAttributeValue(value, context);
+    return acc;
+  }, {});
+};
 
-// se_SegmentAttributeValue omitted.
+/**
+ * serializeAws_restJson1SegmentAttributeValue
+ */
+const se_SegmentAttributeValue = (input: SegmentAttributeValue, context: __SerdeContext): any => {
+  return take(input, {
+    ValueInteger: [],
+    ValueMap: (_) => se_SegmentAttributeValueMap(_, context),
+    ValueString: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SegmentAttributeValueMap
+ */
+const se_SegmentAttributeValueMap = (input: Record<string, SegmentAttributeValue>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_SegmentAttributeValue(value, context);
+    return acc;
+  }, {});
+};
 
 // se_SendNotificationActionDefinition omitted.
 
@@ -14748,7 +14781,7 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     RelatedContactId: __expectString,
     RoutingCriteria: (_: any) => de_RoutingCriteria(_, context),
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    SegmentAttributes: _json,
+    SegmentAttributes: (_: any) => de_SegmentAttributes(_, context),
     SystemEndpoint: _json,
     Tags: _json,
     TotalPauseCount: __expectInt32,
@@ -14767,7 +14800,6 @@ const de_ContactFlow = (output: any, context: __SerdeContext): ContactFlow => {
     Description: __expectString,
     FlowContentSha256: __expectString,
     Id: __expectString,
-    IsDefault: __expectBoolean,
     LastModifiedRegion: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
@@ -16449,9 +16481,42 @@ const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): Se
   return retVal;
 };
 
-// de_SegmentAttributes omitted.
+/**
+ * deserializeAws_restJson1SegmentAttributes
+ */
+const de_SegmentAttributes = (output: any, context: __SerdeContext): Record<string, SegmentAttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, SegmentAttributeValue>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_SegmentAttributeValue(value, context);
+    return acc;
+  }, {} as Record<string, SegmentAttributeValue>);
+};
 
-// de_SegmentAttributeValue omitted.
+/**
+ * deserializeAws_restJson1SegmentAttributeValue
+ */
+const de_SegmentAttributeValue = (output: any, context: __SerdeContext): SegmentAttributeValue => {
+  return take(output, {
+    ValueInteger: __expectInt32,
+    ValueMap: (_: any) => de_SegmentAttributeValueMap(_, context),
+    ValueString: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SegmentAttributeValueMap
+ */
+const de_SegmentAttributeValueMap = (output: any, context: __SerdeContext): Record<string, SegmentAttributeValue> => {
+  return Object.entries(output).reduce((acc: Record<string, SegmentAttributeValue>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_SegmentAttributeValue(value, context);
+    return acc;
+  }, {} as Record<string, SegmentAttributeValue>);
+};
 
 // de_SendNotificationActionDefinition omitted.
 

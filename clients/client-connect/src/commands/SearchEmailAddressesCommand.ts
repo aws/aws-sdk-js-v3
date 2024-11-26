@@ -29,7 +29,7 @@ export interface SearchEmailAddressesCommandInput extends SearchEmailAddressesRe
 export interface SearchEmailAddressesCommandOutput extends SearchEmailAddressesResponse, __MetadataBearer {}
 
 /**
- * <p></p>
+ * <p>Searches email address in an instance, with optional filtering.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

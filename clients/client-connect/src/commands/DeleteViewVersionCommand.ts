@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteViewVersionRequest } from "../models/models_0";
-import { DeleteViewVersionResponse } from "../models/models_1";
+import { DeleteViewVersionRequest, DeleteViewVersionResponse } from "../models/models_0";
 import { de_DeleteViewVersionCommand, se_DeleteViewVersionCommand } from "../protocols/Aws_restJson1";
 
 /**

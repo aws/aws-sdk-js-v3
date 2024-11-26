@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartTaskContactRequest,
-  StartTaskContactRequestFilterSensitiveLog,
-  StartTaskContactResponse,
-} from "../models/models_2";
+import { StartTaskContactResponse } from "../models/models_2";
+import { StartTaskContactRequest, StartTaskContactRequestFilterSensitiveLog } from "../models/models_3";
 import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -115,6 +112,16 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *   SegmentAttributes: { // SegmentAttributes
  *     "<keys>": { // SegmentAttributeValue
  *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
  *     },
  *   },
  * };

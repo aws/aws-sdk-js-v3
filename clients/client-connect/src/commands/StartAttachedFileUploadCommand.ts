@@ -30,7 +30,9 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
 /**
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading your content.</p>
  *          <important>
- *             <p>You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Amazon Connect Case</a>.</p>
+ *             <p>You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Amazon Connect Case</a> or
+ *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Amazon Connect
+ *      Email</a>. </p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

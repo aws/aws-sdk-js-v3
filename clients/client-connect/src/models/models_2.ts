@@ -13,15 +13,18 @@ import {
   AllowedCapabilities,
   Application,
   Channel,
+  ContactFlowStatus,
+  ContactFlowType,
   ContactInitiationMethod,
   ControlPlaneAttributeFilter,
   CreatedByInfo,
-  Endpoint,
   EvaluationFormQuestion,
+  EvaluationFormScoringStrategy,
   EventSourceName,
   FileStatusType,
   FileUseCaseType,
   HoursOfOperationConfig,
+  InitiateAs,
   InstanceStorageConfig,
   InstanceStorageResourceType,
   MediaConcurrency,
@@ -36,7 +39,6 @@ import {
   RoutingProfileQueueConfig,
   RuleAction,
   RulePublishStatus,
-  SegmentAttributeValue,
   StringComparisonType,
   StringCondition,
   TagCondition,
@@ -47,6 +49,7 @@ import {
   UseCaseType,
   UserIdentityInfo,
   UserIdentityInfoFilterSensitiveLog,
+  UserInfo,
   UserPhoneConfig,
   UserProficiency,
   View,
@@ -65,6 +68,7 @@ import {
   ContactFlowModuleState,
   ContactFlowState,
   EvaluationAnswerData,
+  EvaluationFormVersionStatus,
   EvaluationNote,
   HierarchyGroup,
   HierarchyGroupSummary,
@@ -82,92 +86,14 @@ import {
   RealTimeContactAnalysisSegmentEvent,
   RealTimeContactAnalysisSegmentIssues,
   RealTimeContactAnalysisSegmentPostContactSummary,
+  RealTimeContactAnalysisSegmentTranscript,
   RealTimeContactAnalysisSupportedChannel,
-  RealTimeContactAnalysisTimeData,
-  RealTimeContactAnalysisTranscriptItemRedaction,
   RoutingProfile,
   SignInConfig,
   SortOrder,
   TelephonyConfig,
   TrafficDistributionGroupStatus,
 } from "./models_1";
-
-/**
- * @public
- * @enum
- */
-export const RealTimeContactAnalysisSentimentLabel = {
-  NEGATIVE: "NEGATIVE",
-  NEUTRAL: "NEUTRAL",
-  POSITIVE: "POSITIVE",
-} as const;
-
-/**
- * @public
- */
-export type RealTimeContactAnalysisSentimentLabel =
-  (typeof RealTimeContactAnalysisSentimentLabel)[keyof typeof RealTimeContactAnalysisSentimentLabel];
-
-/**
- * <p>The analyzed transcript segment.</p>
- * @public
- */
-export interface RealTimeContactAnalysisSegmentTranscript {
-  /**
-   * <p>The identifier of the transcript.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The identifier of the participant.</p>
-   * @public
-   */
-  ParticipantId: string | undefined;
-
-  /**
-   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
-   * @public
-   */
-  ParticipantRole: ParticipantRole | undefined;
-
-  /**
-   * <p>The display name of the participant.</p>
-   * @public
-   */
-  DisplayName?: string | undefined;
-
-  /**
-   * <p>The content of the transcript. Can be redacted.</p>
-   * @public
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>The type of content of the item. For example, <code>text/plain</code>.</p>
-   * @public
-   */
-  ContentType?: string | undefined;
-
-  /**
-   * <p>Field describing the time of the event. It can have different representations of time.</p>
-   * @public
-   */
-  Time: RealTimeContactAnalysisTimeData | undefined;
-
-  /**
-   * <p>Object describing redaction that was applied to the transcript. If transcript has the field
-   *    it means part of the transcript was redacted.</p>
-   * @public
-   */
-  Redaction?: RealTimeContactAnalysisTranscriptItemRedaction | undefined;
-
-  /**
-   * <p>The sentiment detected for this piece of transcript.</p>
-   * @public
-   */
-  Sentiment?: RealTimeContactAnalysisSentimentLabel | undefined;
-}
 
 /**
  * <p>An analyzed segment for a real-time analysis session.</p>
@@ -352,7 +278,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2Response {
 /**
  * <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact.
  *    For example, if an OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction
- *    policy set in Contact flow.</p>
+ *    policy set in the flow.</p>
  * @public
  */
 export class OutputTypeNotFoundException extends __BaseException {
@@ -2101,7 +2027,7 @@ export interface ContactFlowModuleSearchFilter {
  */
 export interface SearchContactFlowModulesResponse {
   /**
-   * <p>The search criteria to be used to return contact flow modules.</p>
+   * <p>The search criteria to be used to return flow modules.</p>
    * @public
    */
   ContactFlowModules?: ContactFlowModule[] | undefined;
@@ -2113,7 +2039,7 @@ export interface SearchContactFlowModulesResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of contact flows which matched your search query.</p>
+   * <p>The total number of flows which matched your search query.</p>
    * @public
    */
   ApproximateTotalCount?: number | undefined;
@@ -2159,7 +2085,7 @@ export interface SearchContactFlowsResponse {
   NextToken?: string | undefined;
 
   /**
-   * <p>The total number of contact flows which matched your search query.</p>
+   * <p>The total number of flows which matched your search query.</p>
    * @public
    */
   ApproximateTotalCount?: number | undefined;
@@ -2226,8 +2152,7 @@ export interface Transcript {
 }
 
 /**
- * <p>A structure that defines search criteria for contacts using analysis outputs from Amazon
- *    Connect Contact Lens.</p>
+ * <p>A structure that defines search criteria for contacts using analysis outputs from Amazon Connect Contact Lens.</p>
  * @public
  */
 export interface ContactAnalysis {
@@ -2239,7 +2164,7 @@ export interface ContactAnalysis {
 }
 
 /**
- * <p>The search criteria based on user-defned contact attribute key and values to search
+ * <p>The search criteria based on user-defined contact attribute key and values to search
  *    on.</p>
  * @public
  */
@@ -2279,36 +2204,38 @@ export interface SearchableContactAttributes {
 }
 
 /**
- * <p></p>
+ * <p>The search criteria based on searchable segment attribute key and values to search
+ *    on.</p>
  * @public
  */
 export interface SearchableSegmentAttributesCriteria {
   /**
-   * <p></p>
+   * <p>The key containing a searchable segment attribute.</p>
    * @public
    */
   Key: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The list of values to search for within a searchable segment attribute.</p>
    * @public
    */
   Values: string[] | undefined;
 }
 
 /**
- * <p></p>
+ * <p>The search criteria based on searchable segment attributes of a contact</p>
  * @public
  */
 export interface SearchableSegmentAttributes {
   /**
-   * <p></p>
+   * <p>The list of criteria based on searchable segment attributes.</p>
    * @public
    */
   Criteria: SearchableSegmentAttributesCriteria[] | undefined;
 
   /**
-   * <p></p>
+   * <p>The match type combining search criteria using multiple searchable segment
+   *    attributes.</p>
    * @public
    */
   MatchType?: SearchContactsMatchType | undefined;
@@ -2369,7 +2296,7 @@ export interface SearchCriteria {
   SearchableContactAttributes?: SearchableContactAttributes | undefined;
 
   /**
-   * <p></p>
+   * <p>The search criteria based on searchable segment attributes of a contact.</p>
    * @public
    */
   SearchableSegmentAttributes?: SearchableSegmentAttributes | undefined;
@@ -2532,12 +2459,14 @@ export interface ContactSearchSummaryQueueInfo {
 }
 
 /**
- * <p></p>
+ * <p>The value of a segment attribute. This is structured as a map with a single key-value pair.
+ *    The key 'valueString' indicates that the attribute type is a string, and its corresponding value
+ *    is the actual string value of the segment attribute.</p>
  * @public
  */
 export interface ContactSearchSummarySegmentAttributeValue {
   /**
-   * <p></p>
+   * <p>The value of a segment attribute represented as a string.</p>
    * @public
    */
   ValueString?: string | undefined;
@@ -2621,7 +2550,7 @@ export interface ContactSearchSummary {
   ScheduledTimestamp?: Date | undefined;
 
   /**
-   * <p></p>
+   * <p>Set of segment attributes for a contact.</p>
    * @public
    */
   SegmentAttributes?: Record<string, ContactSearchSummarySegmentAttributeValue> | undefined;
@@ -2651,7 +2580,7 @@ export interface SearchContactsResponse {
 }
 
 /**
- * <p></p>
+ * <p>Filters to be applied to search results.</p>
  * @public
  */
 export interface EmailAddressSearchFilter {
@@ -2674,36 +2603,36 @@ export interface EmailAddressSearchFilter {
 }
 
 /**
- * <p></p>
+ * <p>Contains information about an email address for a contact center.</p>
  * @public
  */
 export interface EmailAddressMetadata {
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   EmailAddressId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the email address.</p>
    * @public
    */
   EmailAddressArn?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</p>
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The description of the email address.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The display name of email address.</p>
    * @public
    */
   DisplayName?: string | undefined;
@@ -2714,19 +2643,19 @@ export interface EmailAddressMetadata {
  */
 export interface SearchEmailAddressesResponse {
   /**
-   * <p></p>
+   * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>List of email addresses matching SearchFilter and SearchCriteria </p>
    * @public
    */
   EmailAddresses?: EmailAddressMetadata[] | undefined;
 
   /**
-   * <p></p>
+   * <p>The total number of email addresses which matched your search query.</p>
    * @public
    */
   ApproximateTotalCount?: number | undefined;
@@ -3974,30 +3903,30 @@ export interface SendChatIntegrationEventResponse {
 }
 
 /**
- * <p></p>
+ * <p>Contains information about a source or destination email address</p>
  * @public
  */
 export interface EmailAddressInfo {
   /**
-   * <p></p>
+   * <p>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</p>
    * @public
    */
   EmailAddress: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The display name of email address.</p>
    * @public
    */
   DisplayName?: string | undefined;
 }
 
 /**
- * <p></p>
+ * <p>The additional recipients information of outbound email.</p>
  * @public
  */
 export interface OutboundAdditionalRecipients {
   /**
-   * <p></p>
+   * <p>The additional CC email address recipients information.</p>
    * @public
    */
   CcEmailAddresses?: EmailAddressInfo[] | undefined;
@@ -4018,108 +3947,114 @@ export const OutboundMessageSourceType = {
 export type OutboundMessageSourceType = (typeof OutboundMessageSourceType)[keyof typeof OutboundMessageSourceType];
 
 /**
- * <p></p>
+ * <p>Information about the raw email body content.</p>
  * @public
  */
 export interface OutboundRawMessage {
   /**
-   * <p></p>
+   * <p>The email subject.</p>
    * @public
    */
   Subject: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email message body.</p>
    * @public
    */
   Body: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Type of content, that is, <code>text/plain</code> or <code>text/html</code>.</p>
    * @public
    */
   ContentType: string | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Information about the template attributes.</p>
  * @public
  */
 export interface TemplateAttributes {
   /**
-   * <p></p>
+   * <p>An object that specifies the custom attributes values to use for variables in the message
+   *    template. This object contains different categories of key-value pairs. Each key defines a
+   *    variable or placeholder in the message template. </p>
    * @public
    */
   CustomAttributes?: Record<string, string> | undefined;
 
   /**
-   * <p></p>
+   * <p>An object that specifies the customer profile attributes values to use for variables in the
+   *    message template. This object contains different categories of key-value pairs. Each key defines
+   *    a variable or placeholder in the message template. </p>
    * @public
    */
   CustomerProfileAttributes?: string | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Information about template message configuration.</p>
  * @public
  */
 export interface TemplatedMessageConfig {
   /**
-   * <p></p>
+   * <p>The identifier of the knowledge base. Can be either the ID or the ARN. URLs cannot contain
+   *    the ARN.</p>
    * @public
    */
   KnowledgeBaseId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier of the message template Id.</p>
    * @public
    */
   MessageTemplateId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Information about template attributes, that is, CustomAttributes or
+   *    CustomerProfileAttributes.</p>
    * @public
    */
   TemplateAttributes: TemplateAttributes | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Information about email body content.</p>
  * @public
  */
 export interface OutboundEmailContent {
   /**
-   * <p></p>
+   * <p>The message source type, that is, <code>RAW</code> or <code>TEMPLATE</code>.</p>
    * @public
    */
   MessageSourceType: OutboundMessageSourceType | undefined;
 
   /**
-   * <p></p>
+   * <p>Information about template message configuration.</p>
    * @public
    */
   TemplatedMessageConfig?: TemplatedMessageConfig | undefined;
 
   /**
-   * <p></p>
+   * <p>The raw email body content.</p>
    * @public
    */
   RawMessage?: OutboundRawMessage | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Information about the campaign.</p>
  * @public
  */
 export interface SourceCampaign {
   /**
-   * <p></p>
+   * <p>A unique identifier for a campaign.</p>
    * @public
    */
   CampaignId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>A unique identifier for a each request part of same campaign.</p>
    * @public
    */
   OutboundRequestId?: string | undefined;
@@ -4144,49 +4079,52 @@ export type TrafficType = (typeof TrafficType)[keyof typeof TrafficType];
  */
 export interface SendOutboundEmailRequest {
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address to be used for sending email.</p>
    * @public
    */
   FromEmailAddress: EmailAddressInfo | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address to send the email to.</p>
    * @public
    */
   DestinationEmailAddress: EmailAddressInfo | undefined;
 
   /**
-   * <p></p>
+   * <p>The additional recipients address of the email in CC.</p>
    * @public
    */
   AdditionalRecipients?: OutboundAdditionalRecipients | undefined;
 
   /**
-   * <p></p>
+   * <p>The email message body to be sent to the newly created email.</p>
    * @public
    */
   EmailMessage: OutboundEmailContent | undefined;
 
   /**
-   * <p></p>
+   * <p>Denotes the class of traffic.</p>
    * @public
    */
   TrafficType: TrafficType | undefined;
 
   /**
-   * <p></p>
+   * <p>A Campaign object need for Campaign traffic type.</p>
    * @public
    */
   SourceCampaign?: SourceCampaign | undefined;
 
   /**
-   * <p></p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -4237,13 +4175,16 @@ export interface StartAttachedFileUploadRequest {
 
   /**
    * <p>The use case for the file.</p>
+   *          <important>
+   *             <p> Only <code>ATTACHMENTS</code> are supported.</p>
+   *          </important>
    * @public
    */
   FileUseCaseType: FileUseCaseType | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
-   *    current supported resource.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</p>
    *          <note>
    *             <p>This value must be a valid ARN.</p>
    *          </note>
@@ -4404,120 +4345,6 @@ export interface PersistentChat {
    * @public
    */
   SourceContactId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartChatContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the flow for initiating the chat.
-   *    To
-   *    see the ContactFlowId in the Amazon Connect admin website, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On the
-   *    flow page, under the name of the flow, choose <b>Show additional flow
-   *     information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in flows just like any other contact attributes. </p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>Information identifying the participant.</p>
-   * @public
-   */
-  ParticipantDetails: ParticipantDetails | undefined;
-
-  /**
-   * <p>The initial message to be sent to the newly created chat. If you have a Lex bot in your
-   *    flow, the initial message is not delivered to the Lex bot.</p>
-   * @public
-   */
-  InitialMessage?: ChatMessage | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The total duration of the newly started chat session. If not specified, the chat session
-   *    duration defaults to 25 hour. The minimum configurable time is 60 minutes. The maximum
-   *    configurable time is 10,080 minutes (7 days).</p>
-   * @public
-   */
-  ChatDurationInMinutes?: number | undefined;
-
-  /**
-   * <p>The supported chat message content types. Supported types are <code>text/plain</code>,
-   *     <code>text/markdown</code>, <code>application/json</code>,
-   *     <code>application/vnd.amazonaws.connect.message.interactive</code>, and
-   *     <code>application/vnd.amazonaws.connect.message.interactive.response</code>. </p>
-   *          <p>Content types must always contain <code>text/plain</code>. You can then put any other
-   *    supported type in the list. For example, all the following lists are valid because they contain
-   *     <code>text/plain</code>: <code>[text/plain, text/markdown, application/json]</code>,
-   *     <code>[text/markdown, text/plain]</code>, <code>[text/plain, application/json,
-   *     application/vnd.amazonaws.connect.message.interactive.response]</code>. </p>
-   *          <note>
-   *             <p>The type <code>application/vnd.amazonaws.connect.message.interactive</code> is required to
-   *     use the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/show-view-block.html">Show
-   *      view</a> flow block.</p>
-   *          </note>
-   * @public
-   */
-  SupportedMessagingContentTypes?: string[] | undefined;
-
-  /**
-   * <p>Enable persistent chats. For more information about enabling persistent chat, and for
-   *    example use cases and how to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent chat</a>.</p>
-   * @public
-   */
-  PersistentChat?: PersistentChat | undefined;
-
-  /**
-   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
-   *    chat starting.</p>
-   *          <note>
-   *             <p>You cannot provide data for both RelatedContactId and PersistentChat. </p>
-   *          </note>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments using an
-   *    attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in
-   *    flows.</p>
-   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
-   *          <p>This field can be used to show channel subtype, such as <code>connect:Guide</code>.</p>
-   *          <note>
-   *             <p>The types <code>application/vnd.amazonaws.connect.message.interactive</code> and
-   *      <code>application/vnd.amazonaws.connect.message.interactive.response</code> must be present in
-   *     the SupportedMessagingContentTypes field of this API in order to set
-   *      <code>SegmentAttributes</code> as \{<code> "connect:Subtype": \{"valueString" : "connect:Guide"
-   *      \}\}</code>.</p>
-   *          </note>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
 }
 
 /**
@@ -4708,36 +4535,36 @@ export interface StartContactStreamingResponse {
 }
 
 /**
- * <p></p>
+ * <p>The additional TO CC recipients information of inbound email.</p>
  * @public
  */
 export interface InboundAdditionalRecipients {
   /**
-   * <p></p>
+   * <p>The additional recipients information present in to list.</p>
    * @public
    */
   ToAddresses?: EmailAddressInfo[] | undefined;
 
   /**
-   * <p></p>
+   * <p>The additional recipients information present in cc list.</p>
    * @public
    */
   CcAddresses?: EmailAddressInfo[] | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Information about the email attachment files.</p>
  * @public
  */
 export interface EmailAttachment {
   /**
-   * <p></p>
+   * <p>A case-sensitive name of the attached file being uploaded.</p>
    * @public
    */
   FileName: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The pre-signed URLs for the S3 bucket where the email attachment is stored.</p>
    * @public
    */
   S3Url: string | undefined;
@@ -4774,48 +4601,48 @@ export const EmailHeaderType = {
 export type EmailHeaderType = (typeof EmailHeaderType)[keyof typeof EmailHeaderType];
 
 /**
- * <p></p>
+ * <p>Information about the raw email body content.</p>
  * @public
  */
 export interface InboundRawMessage {
   /**
-   * <p></p>
+   * <p>The email subject.</p>
    * @public
    */
   Subject: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email message body.</p>
    * @public
    */
   Body: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Type of content, that is, <code>text/plain</code> or <code>text/html</code>.</p>
    * @public
    */
   ContentType: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Headers present in inbound email.</p>
    * @public
    */
   Headers?: Partial<Record<EmailHeaderType, string>> | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Information about email body content.</p>
  * @public
  */
 export interface InboundEmailContent {
   /**
-   * <p></p>
+   * <p>The message source type, that is, <code>RAW</code>.</p>
    * @public
    */
   MessageSourceType: InboundMessageSourceType | undefined;
 
   /**
-   * <p></p>
+   * <p>The raw email body content.</p>
    * @public
    */
   RawMessage?: InboundRawMessage | undefined;
@@ -4824,251 +4651,12 @@ export interface InboundEmailContent {
 /**
  * @public
  */
-export interface StartEmailContactRequest {
-  /**
-   * <p></p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  FromEmailAddress: EmailAddressInfo | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  DestinationEmailAddress: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  EmailMessage: InboundEmailContent | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  AdditionalRecipients?: InboundAdditionalRecipients | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Attachments?: EmailAttachment[] | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface StartEmailContactResponse {
   /**
-   * <p></p>
+   * <p>The identifier of this contact within the Amazon Connect instance.</p>
    * @public
    */
   ContactId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartOutboundChatContactRequest {
-  /**
-   * <p>Information about the endpoint.</p>
-   * @public
-   */
-  SourceEndpoint: Endpoint | undefined;
-
-  /**
-   * <p>Information about the endpoint.</p>
-   * @public
-   */
-  DestinationEndpoint: Endpoint | undefined;
-
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instance ID in the
-   *    Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A set of system defined key-value pairs stored on individual contact segments using an
-   *    attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in
-   *    flows.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Attribute keys can include only alphanumeric, <code>-</code>, and <code>_</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>This field can be used to show channel subtype, such as <code>connect:Guide</code> and
-   *       <code>connect:SMS</code>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SegmentAttributes: Record<string, SegmentAttributeValue> | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>The identifier of the flow for the call. To see the ContactFlowId in the Amazon Connect
-   *    console user interface, on the navigation menu go to <b>Routing, Contact
-   *     Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose
-   *     <b>Show additional flow information</b>. The ContactFlowId is the last
-   *    part of the ARN, shown here in bold:</p>
-   *          <ul>
-   *             <li>
-   *                <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>123ec456-a007-89c0-1234-xxxxxxxxxxxx</b>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The total duration of the newly started chat session. If not specified, the chat session
-   *    duration defaults to 25 hour. The minimum configurable time is 60 minutes. The maximum
-   *    configurable time is 10,080 minutes (7 days).</p>
-   * @public
-   */
-  ChatDurationInMinutes?: number | undefined;
-
-  /**
-   * <p>The customer's details.</p>
-   * @public
-   */
-  ParticipantDetails?: ParticipantDetails | undefined;
-
-  /**
-   * <p>A chat message.</p>
-   * @public
-   */
-  InitialSystemMessage?: ChatMessage | undefined;
-
-  /**
-   * <p>The unique identifier for an Amazon Connect contact. This identifier is related to the
-   *    contact starting.</p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>The supported chat message content types. Supported types are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>text/plain</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>text/markdown</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>application/json,
-   *      application/vnd.amazonaws.connect.message.interactive</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>application/vnd.amazonaws.connect.message.interactive.response</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>Content types must always contain <code>text/plain</code>. You can then put any other
-   *    supported type in the list. For example, all the following lists are valid because they contain
-   *     <code>text/plain</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>[text/plain, text/markdown, application/json]</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>[text/markdown, text/plain]</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>[text/plain, application/json,
-   *       application/vnd.amazonaws.connect.message.interactive.response]</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SupportedMessagingContentTypes?: string[] | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *    request. If not provided, the AWS SDK populates this field. For more information about
-   *    idempotency, see <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making
-   *     retries safe with idempotent APIs</a>. The token is valid for 7 days after creation. If a
-   *    contact is already started, the contact ID is returned.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }
 
 /**
@@ -5087,43 +4675,46 @@ export interface StartOutboundChatContactResponse {
  */
 export interface StartOutboundEmailContactRequest {
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
   ContactId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address associated with the instance.</p>
    * @public
    */
   FromEmailAddress?: EmailAddressInfo | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address of the customer.</p>
    * @public
    */
   DestinationEmailAddress: EmailAddressInfo | undefined;
 
   /**
-   * <p></p>
+   * <p>The addtional recipients address of email in CC.</p>
    * @public
    */
   AdditionalRecipients?: OutboundAdditionalRecipients | undefined;
 
   /**
-   * <p></p>
+   * <p>The email message body to be sent to the newly created email.</p>
    * @public
    */
   EmailMessage: OutboundEmailContent | undefined;
 
   /**
-   * <p></p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -5134,7 +4725,7 @@ export interface StartOutboundEmailContactRequest {
  */
 export interface StartOutboundEmailContactResponse {
   /**
-   * <p></p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
   ContactId?: string | undefined;
@@ -5371,114 +4962,6 @@ export interface StartScreenSharingRequest {
  * @public
  */
 export interface StartScreenSharingResponse {}
-
-/**
- * @public
- */
-export interface StartTaskContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the previous chat, voice, or task contact. Any updates to user-defined
-   *    attributes to task contacts linked using the same <code>PreviousContactID</code> will affect
-   *    every contact in the chain. There can be a maximum of 12 linked task contacts in a chain.</p>
-   * @public
-   */
-  PreviousContactId?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect admin website,
-   *    on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the flow. On the flow page, under the name of the flow, choose
-   *     <b>Show additional flow information</b>. The ContactFlowId is the last
-   *    part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId?: string | undefined;
-
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
-   *    can include only alphanumeric, dash, and underscore characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
-   *    the following reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> |
-   *     <code>STRING</code> | <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a
-   *    supported reference type during task creation.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>A description of the task that is shown to an agent in the Contact Control Panel
-   *    (CCP).</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The timestamp, in Unix Epoch seconds format, at which to start running the inbound flow. The scheduled time cannot be in the past. It must be within up to 6 days in future. </p>
-   * @public
-   */
-  ScheduledTime?: Date | undefined;
-
-  /**
-   * <p>A unique identifier for the task template. For more information about task templates, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html">Create task templates</a> in the
-   *      <i>Amazon Connect Administrator Guide</i>. </p>
-   * @public
-   */
-  TaskTemplateId?: string | undefined;
-
-  /**
-   * <p>The identifier for the quick connect. Tasks that are created by using <code>QuickConnectId</code> will use the
-   *    flow that is defined on agent or queue quick connect. For more information about quick connects,
-   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/quick-connects.html">Create quick
-   *     connects</a>.</p>
-   * @public
-   */
-  QuickConnectId?: string | undefined;
-
-  /**
-   * <p>The contactId that is <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html#linked-tasks">related</a> to this contact. Linking
-   *    tasks together by using <code>RelatedContactID</code> copies over contact attributes from the
-   *    related task contact to the new task contact. All updates to user-defined attributes in the new
-   *    task contact are limited to the individual contact ID, unlike what happens when tasks are linked
-   *    by using <code>PreviousContactID</code>. There are no limits to the number of contacts that can
-   *    be linked by using <code>RelatedContactId</code>. </p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-}
 
 /**
  * @public
@@ -6216,48 +5699,6 @@ export interface UpdateAuthenticationProfileRequest {
 /**
  * @public
  */
-export interface UpdateContactRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the contact. This is the identifier of the contact associated with the
-   *    first interaction with your contact center.</p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The name of the contact.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the contact.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Well-formed data on contact, shown to agents on Contact Control Panel (CCP).</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-}
-
-/**
- * @public
- */
 export interface UpdateContactResponse {}
 
 /**
@@ -6577,31 +6018,34 @@ export interface UpdateContactScheduleResponse {}
  */
 export interface UpdateEmailAddressMetadataRequest {
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   EmailAddressId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The description of the email address.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The display name of email address.</p>
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -6612,13 +6056,13 @@ export interface UpdateEmailAddressMetadataRequest {
  */
 export interface UpdateEmailAddressMetadataResponse {
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   EmailAddressId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the email address.</p>
    * @public
    */
   EmailAddressArn?: string | undefined;
@@ -7212,7 +6656,7 @@ export interface UpdateQueueOutboundCallerConfigRequest {
 }
 
 /**
- * <p></p>
+ * <p>A conditional check failed.</p>
  * @public
  */
 export class ConditionalOperationFailedException extends __BaseException {
@@ -7238,19 +6682,19 @@ export class ConditionalOperationFailedException extends __BaseException {
  */
 export interface UpdateQueueOutboundEmailConfigRequest {
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier for the queue.</p>
    * @public
    */
   QueueId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The outbound email address ID for a specified queue.</p>
    * @public
    */
   OutboundEmailConfig: OutboundEmailConfig | undefined;
@@ -7596,7 +7040,8 @@ export interface UpdateTaskTemplateRequest {
   ContactFlowId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a
+   *    self-assigned task.</p>
    * @public
    */
   SelfAssignFlowId?: string | undefined;
@@ -7669,7 +7114,8 @@ export interface UpdateTaskTemplateResponse {
   ContactFlowId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a
+   *    self-assigned task.</p>
    * @public
    */
   SelfAssignFlowId?: string | undefined;
@@ -8062,6 +7508,31 @@ export interface UpdateViewMetadataRequest {
 export interface UpdateViewMetadataResponse {}
 
 /**
+ * <p>A value for a segment attribute. This is structured as a map where the key is
+ *     <code>valueString</code> and the value is a string.</p>
+ * @public
+ */
+export interface SegmentAttributeValue {
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueString?: string | undefined;
+
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueMap?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueInteger?: number | undefined;
+}
+
+/**
  * <p>Information about an item from an evaluation form. The item must be either a section or a
  *    question.</p>
  * @public
@@ -8214,6 +7685,356 @@ export interface ContactFlowModuleSearchCriteria {
    * @public
    */
   StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return flows.</p>
+ * @public
+ */
+export interface ContactFlowSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *    condition.</p>
+   * @public
+   */
+  OrConditions?: ContactFlowSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
+   * @public
+   */
+  AndConditions?: ContactFlowSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>The type of flow.</p>
+   * @public
+   */
+  TypeCondition?: ContactFlowType | undefined;
+
+  /**
+   * <p>The state of the flow.</p>
+   * @public
+   */
+  StateCondition?: ContactFlowState | undefined;
+
+  /**
+   * <p>The status of the flow.</p>
+   * @public
+   */
+  StatusCondition?: ContactFlowStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
+   * @public
+   */
+  RelatedContactId?: string | undefined;
+
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys
+   *    can include only alphanumeric, dash, and underscore characters.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have
+   *    the following reference types at the time of creation: URL | NUMBER | STRING | DATE | EMAIL |
+   *    ATTACHMENT.</p>
+   * @public
+   */
+  References?: Record<string, Reference> | undefined;
+
+  /**
+   * <p>The channel for the contact</p>
+   * @public
+   */
+  Channel: Channel | undefined;
+
+  /**
+   * <p>Indicates how the contact was initiated.</p>
+   * @public
+   */
+  InitiationMethod: ContactInitiationMethod | undefined;
+
+  /**
+   * <p>Number of minutes the contact will be active for before expiring</p>
+   * @public
+   */
+  ExpiryDurationInMinutes?: number | undefined;
+
+  /**
+   * <p>User details for the contact</p>
+   * @public
+   */
+  UserInfo?: UserInfo | undefined;
+
+  /**
+   * <p>Initial state of the contact when it's created</p>
+   * @public
+   */
+  InitiateAs?: InitiateAs | undefined;
+
+  /**
+   * <p>The name of a the contact.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the contact.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A set of system defined key-value pairs stored on individual contact segments (unique
+   *    contact ID) using an attribute map. The attributes are standard Amazon Connect attributes.
+   *    They can be accessed in flows.</p>
+   *          <p>Attribute keys can include only alphanumeric, -, and _.</p>
+   *          <p>This field can be used to set Segment Contact Expiry as a duration in minutes.</p>
+   *          <note>
+   *             <p>To set contact expiry, a ValueMap must be specified containing the integer number of
+   *     minutes the contact will be active for before expiring, with <code>SegmentAttributes</code> like
+   *     \{ <code> "connect:ContactExpiry": \{"ValueMap" : \{ "ExpiryDuration": \{ "ValueInteger":
+   *      135\}\}\}\}</code>. </p>
+   *          </note>
+   * @public
+   */
+  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEvaluationFormRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return email addresses.</p>
+ * @public
+ */
+export interface EmailAddressSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: EmailAddressSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: EmailAddressSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>Information about the evaluation form.</p>
+ * @public
+ */
+export interface EvaluationForm {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>The flag indicating whether the evaluation form is locked for changes.</p>
+   * @public
+   */
+  Locked: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The status of the evaluation form.</p>
+   * @public
+   */
+  Status: EvaluationFormVersionStatus | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+   * @public
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+   * @public
+   */
+  LastModifiedBy: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Information about an evaluation form used in a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationFormContent {
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
 }
 
 /**
@@ -8473,22 +8294,6 @@ export const InboundEmailContentFilterSensitiveLog = (obj: InboundEmailContent):
 /**
  * @internal
  */
-export const StartEmailContactRequestFilterSensitiveLog = (obj: StartEmailContactRequest): any => ({
-  ...obj,
-  ...(obj.FromEmailAddress && { FromEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.FromEmailAddress) }),
-  ...(obj.DestinationEmailAddress && { DestinationEmailAddress: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.EmailMessage && { EmailMessage: InboundEmailContentFilterSensitiveLog(obj.EmailMessage) }),
-  ...(obj.AdditionalRecipients && {
-    AdditionalRecipients: InboundAdditionalRecipientsFilterSensitiveLog(obj.AdditionalRecipients),
-  }),
-  ...(obj.Attachments && { Attachments: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
 export const StartOutboundEmailContactRequestFilterSensitiveLog = (obj: StartOutboundEmailContactRequest): any => ({
   ...obj,
   ...(obj.FromEmailAddress && { FromEmailAddress: EmailAddressInfoFilterSensitiveLog(obj.FromEmailAddress) }),
@@ -8505,15 +8310,6 @@ export const StartOutboundEmailContactRequestFilterSensitiveLog = (obj: StartOut
  * @internal
  */
 export const StartOutboundVoiceContactRequestFilterSensitiveLog = (obj: StartOutboundVoiceContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const StartTaskContactRequestFilterSensitiveLog = (obj: StartTaskContactRequest): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
   ...(obj.Description && { Description: SENSITIVE_STRING }),
@@ -8549,15 +8345,6 @@ export const ConnectionDataFilterSensitiveLog = (obj: ConnectionData): any => ({
 export const StartWebRTCContactResponseFilterSensitiveLog = (obj: StartWebRTCContactResponse): any => ({
   ...obj,
   ...(obj.ConnectionData && { ConnectionData: ConnectionDataFilterSensitiveLog(obj.ConnectionData) }),
-});
-
-/**
- * @internal
- */
-export const UpdateContactRequestFilterSensitiveLog = (obj: UpdateContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });
 
 /**
@@ -8599,4 +8386,13 @@ export const UpdateViewContentResponseFilterSensitiveLog = (obj: UpdateViewConte
 export const UpdateViewMetadataRequestFilterSensitiveLog = (obj: UpdateViewMetadataRequest): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
 });

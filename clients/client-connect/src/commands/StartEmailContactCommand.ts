@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartEmailContactRequest,
-  StartEmailContactRequestFilterSensitiveLog,
-  StartEmailContactResponse,
-} from "../models/models_2";
+import { StartEmailContactResponse } from "../models/models_2";
+import { StartEmailContactRequest, StartEmailContactRequestFilterSensitiveLog } from "../models/models_3";
 import { de_StartEmailContactCommand, se_StartEmailContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -32,7 +29,8 @@ export interface StartEmailContactCommandInput extends StartEmailContactRequest 
 export interface StartEmailContactCommandOutput extends StartEmailContactResponse, __MetadataBearer {}
 
 /**
- * <p></p>
+ * <p>Creates an inbound email contact and initiates a flow to start the email contact for the
+ *    customer. Response of this API provides the ContactId of the email contact created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +94,16 @@ export interface StartEmailContactCommandOutput extends StartEmailContactRespons
  *   SegmentAttributes: { // SegmentAttributes
  *     "<keys>": { // SegmentAttributeValue
  *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
  *     },
  *   },
  *   ClientToken: "STRING_VALUE",

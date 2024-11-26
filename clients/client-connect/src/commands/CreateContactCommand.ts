@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateContactRequest,
-  CreateContactRequestFilterSensitiveLog,
-  CreateContactResponse,
-} from "../models/models_0";
+import { CreateContactResponse } from "../models/models_0";
+import { CreateContactRequest, CreateContactRequestFilterSensitiveLog } from "../models/models_2";
 import { de_CreateContactCommand, se_CreateContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -32,7 +29,7 @@ export interface CreateContactCommandInput extends CreateContactRequest {}
 export interface CreateContactCommandOutput extends CreateContactResponse, __MetadataBearer {}
 
 /**
- * <p></p>
+ * <p>Creates a new contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +64,16 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
  *   SegmentAttributes: { // SegmentAttributes
  *     "<keys>": { // SegmentAttributeValue
  *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
  *     },
  *   },
  * };

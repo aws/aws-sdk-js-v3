@@ -31,7 +31,7 @@ export interface UpdateQueueOutboundEmailConfigCommandInput extends UpdateQueueO
 export interface UpdateQueueOutboundEmailConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p></p>
+ * <p>Updates the outbound email address Id for a specified queue.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +61,7 @@ export interface UpdateQueueOutboundEmailConfigCommandOutput extends __MetadataB
  *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link ConditionalOperationFailedException} (client fault)
- *  <p></p>
+ *  <p>A conditional check failed.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

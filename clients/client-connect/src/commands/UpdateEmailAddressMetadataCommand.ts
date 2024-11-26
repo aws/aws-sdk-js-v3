@@ -32,7 +32,8 @@ export interface UpdateEmailAddressMetadataCommandInput extends UpdateEmailAddre
 export interface UpdateEmailAddressMetadataCommandOutput extends UpdateEmailAddressMetadataResponse, __MetadataBearer {}
 
 /**
- * <p></p>
+ * <p>Updates an email address metadata. For more information about email addresses, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-email-address1.html">Create email
+ *     addresses</a> in the Amazon Connect Administrator Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

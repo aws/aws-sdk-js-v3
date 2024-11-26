@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartChatContactRequest, StartChatContactResponse } from "../models/models_2";
+import { StartChatContactResponse } from "../models/models_2";
+import { StartChatContactRequest } from "../models/models_3";
 import { de_StartChatContactCommand, se_StartChatContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -93,6 +94,16 @@ export interface StartChatContactCommandOutput extends StartChatContactResponse,
  *   SegmentAttributes: { // SegmentAttributes
  *     "<keys>": { // SegmentAttributeValue
  *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
  *     },
  *   },
  * };

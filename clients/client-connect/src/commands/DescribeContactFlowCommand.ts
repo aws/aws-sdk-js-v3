@@ -32,7 +32,7 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. Once a contact flow is
+ *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
  *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
  *    published.</p>
  *          <p>In the response, <b>Status</b> indicates the flow status as either
@@ -65,7 +65,6 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
- * //     IsDefault: true || false,
  * //     FlowContentSha256: "STRING_VALUE",
  * //     Version: Number("long"),
  * //     VersionDescription: "STRING_VALUE",

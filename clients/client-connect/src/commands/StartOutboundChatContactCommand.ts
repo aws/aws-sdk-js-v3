@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartOutboundChatContactRequest, StartOutboundChatContactResponse } from "../models/models_2";
+import { StartOutboundChatContactResponse } from "../models/models_2";
+import { StartOutboundChatContactRequest } from "../models/models_3";
 import { de_StartOutboundChatContactCommand, se_StartOutboundChatContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -72,6 +73,16 @@ export interface StartOutboundChatContactCommandOutput extends StartOutboundChat
  *   SegmentAttributes: { // SegmentAttributes // required
  *     "<keys>": { // SegmentAttributeValue
  *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
  *     },
  *   },
  *   Attributes: { // Attributes

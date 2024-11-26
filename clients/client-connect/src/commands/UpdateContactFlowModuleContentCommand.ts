@@ -35,7 +35,7 @@ export interface UpdateContactFlowModuleContentCommandOutput
 /**
  * <p>Updates specified flow module for the specified Amazon Connect instance. </p>
  *          <p>Use the <code>$SAVED</code> alias in the request to describe the <code>SAVED</code> content
- *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. Once a contact flow is
+ *    of a Flow. For example, <code>arn:aws:.../contact-flow/\{id\}:$SAVED</code>. After a flow is
  *    published, <code>$SAVED</code> needs to be supplied to view saved content that has not been
  *    published.</p>
  * @example

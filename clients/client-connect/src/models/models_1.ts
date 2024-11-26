@@ -68,28 +68,6 @@ import {
 /**
  * @public
  */
-export interface DeleteViewVersionResponse {}
-
-/**
- * @public
- */
-export interface DeleteVocabularyRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the custom vocabulary.</p>
-   * @public
-   */
-  VocabularyId: string | undefined;
-}
-
-/**
- * @public
- */
 export interface DeleteVocabularyResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the custom vocabulary.</p>
@@ -328,24 +306,24 @@ export interface Customer {
 }
 
 /**
- * <p></p>
+ * <p>Information about the endpoint.</p>
  * @public
  */
 export interface EndpointInfo {
   /**
-   * <p></p>
+   * <p>Type of endpoint.</p>
    * @public
    */
   Type?: EndpointType | undefined;
 
   /**
-   * <p></p>
+   * <p>Address of the endpoint.</p>
    * @public
    */
   Address?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Display name of the endpoint.</p>
    * @public
    */
   DisplayName?: string | undefined;
@@ -876,7 +854,7 @@ export interface ContactFlow {
   State?: ContactFlowState | undefined;
 
   /**
-   * <p>The status of the contact flow.</p>
+   * <p>The status of the flow.</p>
    * @public
    */
   Status?: ContactFlowStatus | undefined;
@@ -902,13 +880,6 @@ export interface ContactFlow {
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p>Amazon Connect includes a set of default flows that have already been published. It uses
-   *    them to power your contact center.</p>
-   * @public
-   */
-  IsDefault?: boolean | undefined;
-
-  /**
    * <p>Indicates the checksum value of the flow content.</p>
    * @public
    */
@@ -927,13 +898,13 @@ export interface ContactFlow {
   VersionDescription?: string | undefined;
 
   /**
-   * <p>The time at which the contact flow was last modified.</p>
+   * <p>The time at which the flow was last modified.</p>
    * @public
    */
   LastModifiedTime?: Date | undefined;
 
   /**
-   * <p>The region in which the contact flow was last modified</p>
+   * <p>The region in which the flow was last modified</p>
    * @public
    */
   LastModifiedRegion?: string | undefined;
@@ -1066,13 +1037,13 @@ export interface DescribeContactFlowModuleResponse {
  */
 export interface DescribeEmailAddressRequest {
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   EmailAddressId: string | undefined;
@@ -1083,49 +1054,49 @@ export interface DescribeEmailAddressRequest {
  */
 export interface DescribeEmailAddressResponse {
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   EmailAddressId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the email address.</p>
    * @public
    */
   EmailAddressArn?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</p>
    * @public
    */
   EmailAddress?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The display name of email address</p>
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The description of the email address.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address creation timestamp in ISO 8601 Datetime.</p>
    * @public
    */
   CreateTimestamp?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address last modification timestamp in ISO 8601 Datetime.</p>
    * @public
    */
   ModifiedTimestamp?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
@@ -2235,7 +2206,7 @@ export interface Queue {
   OutboundCallerConfig?: OutboundCallerConfig | undefined;
 
   /**
-   * <p></p>
+   * <p>The outbound email address ID for a specified queue.</p>
    * @public
    */
   OutboundEmailConfig?: OutboundEmailConfig | undefined;
@@ -3664,7 +3635,7 @@ export interface DismissUserContactResponse {}
  */
 export interface GetAttachedFileRequest {
   /**
-   * <p>The unique identifier of the Connect instance.</p>
+   * <p>The unique identifier of the Amazon Connect instance.</p>
    * @public
    */
   InstanceId: string | undefined;
@@ -3683,8 +3654,8 @@ export interface GetAttachedFileRequest {
   UrlExpiryInSeconds?: number | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
-   *    current supported resource.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</p>
    *          <note>
    *             <p>This value must be a valid ARN.</p>
    *          </note>
@@ -6567,7 +6538,8 @@ export interface GetTaskTemplateResponse {
   ContactFlowId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>ContactFlowId for the flow that will be run if this template is used to create a
+   *    self-assigned task</p>
    * @public
    */
   SelfAssignFlowId?: string | undefined;
@@ -6909,85 +6881,88 @@ export interface ListApprovedOriginsResponse {
  */
 export interface ListAssociatedContactsRequest {
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
   ContactId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The maximum number of results to return per page.</p>
+   *          <p>The maximum number of results to return per page. The default MaxResult size is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 100.</p>
    * @public
    */
   MaxResults?: number | undefined;
 
   /**
-   * <p></p>
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
 }
 
 /**
- * <p></p>
+ * <p>Contact summary of a contact in contact tree associated with unique identifier.</p>
  * @public
  */
 export interface AssociatedContactSummary {
   /**
-   * <p></p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
   ContactId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the contact</p>
    * @public
    */
   ContactArn?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The date and time this contact was initiated, in UTC time.</p>
    * @public
    */
   InitiationTimestamp?: Date | undefined;
 
   /**
-   * <p></p>
+   * <p>The timestamp when the customer endpoint disconnected from Amazon Connect.</p>
    * @public
    */
   DisconnectTimestamp?: Date | undefined;
 
   /**
-   * <p></p>
+   * <p>If this contact is related to other contacts, this is the ID of the initial contact.</p>
    * @public
    */
   InitialContactId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>If this contact is not the first contact, this is the ID of the previous contact.</p>
    * @public
    */
   PreviousContactId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The contactId that is related to this contact.</p>
    * @public
    */
   RelatedContactId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Indicates how the contact was initiated.</p>
    * @public
    */
   InitiationMethod?: ContactInitiationMethod | undefined;
 
   /**
-   * <p></p>
+   * <p>How the contact reached your contact center.</p>
    * @public
    */
   Channel?: Channel | undefined;
@@ -6998,13 +6973,14 @@ export interface AssociatedContactSummary {
  */
 export interface ListAssociatedContactsResponse {
   /**
-   * <p></p>
+   * <p>List of the contact summary for all the contacts in contact tree associated with unique
+   *    identifier.</p>
    * @public
    */
   ContactSummaryList?: AssociatedContactSummary[] | undefined;
 
   /**
-   * <p></p>
+   * <p>If there are additional results, this is the token for the next set of results.</p>
    * @public
    */
   NextToken?: string | undefined;
@@ -7431,7 +7407,7 @@ export interface ContactFlowSummary {
   ContactFlowState?: ContactFlowState | undefined;
 
   /**
-   * <p>The status of the contact flow.</p>
+   * <p>The status of the flow.</p>
    * @public
    */
   ContactFlowStatus?: ContactFlowStatus | undefined;
@@ -7485,7 +7461,7 @@ export interface ListContactFlowVersionsRequest {
 }
 
 /**
- * <p>A summary of a contact flow version's metadata.</p>
+ * <p>A summary of a flow version's metadata.</p>
  * @public
  */
 export interface ContactFlowVersionSummary {
@@ -7584,7 +7560,7 @@ export interface AttachmentReference {
   Status?: ReferenceStatus | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the attachment reference.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -7629,18 +7605,19 @@ export interface EmailReference {
 }
 
 /**
- * <p></p>
+ * <p>Information about the reference when the referenceType is <code>EMAIL_MESSAGE</code>.
+ *    Otherwise, null.</p>
  * @public
  */
 export interface EmailMessageReference {
   /**
-   * <p></p>
+   * <p>The name of the email message reference</p>
    * @public
    */
   Name?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the email message reference</p>
    * @public
    */
   Arn?: string | undefined;
@@ -7754,7 +7731,8 @@ export namespace ReferenceSummary {
   }
 
   /**
-   * <p></p>
+   * <p>Information about the reference when the referenceType is <code>EMAIL_MESSAGE</code>.
+   *    Otherwise, null.</p>
    * @public
    */
   export interface EmailMessageMember {
@@ -9814,6 +9792,83 @@ export interface RealTimeContactAnalysisTranscriptItemRedaction {
    * @public
    */
   CharacterOffsets?: RealTimeContactAnalysisCharacterInterval[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisSentimentLabel = {
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisSentimentLabel =
+  (typeof RealTimeContactAnalysisSentimentLabel)[keyof typeof RealTimeContactAnalysisSentimentLabel];
+
+/**
+ * <p>The analyzed transcript segment.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentTranscript {
+  /**
+   * <p>The identifier of the transcript.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The identifier of the participant.</p>
+   * @public
+   */
+  ParticipantId: string | undefined;
+
+  /**
+   * <p>The role of the participant. For example, is it a customer, agent, or system.</p>
+   * @public
+   */
+  ParticipantRole: ParticipantRole | undefined;
+
+  /**
+   * <p>The display name of the participant.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The content of the transcript. Can be redacted.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The type of content of the item. For example, <code>text/plain</code>.</p>
+   * @public
+   */
+  ContentType?: string | undefined;
+
+  /**
+   * <p>Field describing the time of the event. It can have different representations of time.</p>
+   * @public
+   */
+  Time: RealTimeContactAnalysisTimeData | undefined;
+
+  /**
+   * <p>Object describing redaction that was applied to the transcript. If transcript has the field
+   *    it means part of the transcript was redacted.</p>
+   * @public
+   */
+  Redaction?: RealTimeContactAnalysisTranscriptItemRedaction | undefined;
+
+  /**
+   * <p>The sentiment detected for this piece of transcript.</p>
+   * @public
+   */
+  Sentiment?: RealTimeContactAnalysisSentimentLabel | undefined;
 }
 
 /**

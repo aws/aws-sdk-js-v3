@@ -227,36 +227,40 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>Information about the email recipient</p>
  * @public
  */
 export interface EmailRecipient {
   /**
-   * <p></p>
+   * <p>Address of the email recipient.</p>
+   *          <p>Type: String</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   Address?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Display name of the email recipient.</p>
+   *          <p>Type: String</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum length of 256.</p>
    * @public
    */
   DisplayName?: string | undefined;
 }
 
 /**
- * <p></p>
+ * <p>List of additional email addresses for an email contact.</p>
  * @public
  */
 export interface AdditionalEmailRecipients {
   /**
-   * <p></p>
+   * <p>List of additional TO email recipients for an email contact.</p>
    * @public
    */
   ToList?: EmailRecipient[] | undefined;
 
   /**
-   * <p></p>
+   * <p>List of additional CC email recipients for an email contact.</p>
    * @public
    */
   CcList?: EmailRecipient[] | undefined;
@@ -1191,7 +1195,7 @@ export type AttachedFileServiceQuotaExceededExceptionReason =
   (typeof AttachedFileServiceQuotaExceededExceptionReason)[keyof typeof AttachedFileServiceQuotaExceededExceptionReason];
 
 /**
- * <p></p>
+ * <p>The reason for the exception.</p>
  * @public
  */
 export type ServiceQuotaExceededExceptionReason =
@@ -1203,7 +1207,7 @@ export type ServiceQuotaExceededExceptionReason =
  */
 export namespace ServiceQuotaExceededExceptionReason {
   /**
-   * <p></p>
+   * <p>Total file size of all files or total number of files exceeds the service quota</p>
    * @public
    */
   export interface AttachedFileServiceQuotaExceededExceptionReasonMember {
@@ -1242,7 +1246,7 @@ export class ServiceQuotaExceededException extends __BaseException {
   readonly $fault: "client" = "client";
   Message?: string | undefined;
   /**
-   * <p></p>
+   * <p>The reason for the exception.</p>
    * @public
    */
   Reason?: ServiceQuotaExceededExceptionReason | undefined;
@@ -2128,8 +2132,8 @@ export interface BatchGetAttachedFileMetadataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
-   *    current supported resource.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</p>
    *          <note>
    *             <p>This value must be a valid ARN.</p>
    *          </note>
@@ -2719,8 +2723,8 @@ export interface CompleteAttachedFileUploadRequest {
   FileId: string | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only
-   *    current supported resource.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are
+   *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</p>
    *          <note>
    *             <p>This value must be a valid ARN.</p>
    *          </note>
@@ -2910,44 +2914,31 @@ export interface Reference {
   Type: ReferenceType | undefined;
 
   /**
-   * <p></p>
+   * <p>Status of the attachment reference type.</p>
    * @public
    */
   Status?: ReferenceStatus | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the reference</p>
    * @public
    */
   Arn?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Relevant details why the reference was not successfully created.</p>
    * @public
    */
   StatusReason?: string | undefined;
 }
 
 /**
- * <p>A value for a segment attribute. This is structured as a map where the key is
- *     <code>valueString</code> and the value is a string.</p>
- * @public
- */
-export interface SegmentAttributeValue {
-  /**
-   * <p>The value of a segment attribute.</p>
-   * @public
-   */
-  ValueString?: string | undefined;
-}
-
-/**
- * <p></p>
+ * <p>The user details for the contact.</p>
  * @public
  */
 export interface UserInfo {
   /**
-   * <p></p>
+   * <p>The user identifier for the contact.</p>
    * @public
    */
   UserId?: string | undefined;
@@ -2956,98 +2947,15 @@ export interface UserInfo {
 /**
  * @public
  */
-export interface CreateContactRequest {
-  /**
-   * <p></p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Channel: Channel | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  InitiationMethod: ContactInitiationMethod | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  ExpiryDurationInMinutes?: number | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  UserInfo?: UserInfo | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  InitiateAs?: InitiateAs | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p></p>
-   * @public
-   */
-  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
-}
-
-/**
- * @public
- */
 export interface CreateContactResponse {
   /**
-   * <p></p>
+   * <p>The identifier of the contact in this instance of Amazon Connect. </p>
    * @public
    */
   ContactId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the created contact.</p>
    * @public
    */
   ContactArn?: string | undefined;
@@ -3349,37 +3257,40 @@ export interface CreateContactFlowVersionResponse {
  */
 export interface CreateEmailAddressRequest {
   /**
-   * <p></p>
+   * <p>The description of the email address.</p>
    * @public
    */
   Description?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The email address with the instance, in [^\s@]+@[^\s@]+\.[^\s@]+ format.</p>
    * @public
    */
   EmailAddress: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The display name of email address</p>
    * @public
    */
   DisplayName?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;
 
   /**
-   * <p></p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
   ClientToken?: string | undefined;
@@ -3390,13 +3301,13 @@ export interface CreateEmailAddressRequest {
  */
 export interface CreateEmailAddressResponse {
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   EmailAddressId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The Amazon Resource Name (ARN) of the email address.</p>
    * @public
    */
   EmailAddressArn?: string | undefined;
@@ -4631,12 +4542,12 @@ export interface OutboundCallerConfig {
 }
 
 /**
- * <p></p>
+ * <p>The outbound email address Id.</p>
  * @public
  */
 export interface OutboundEmailConfig {
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   OutboundEmailAddressId?: string | undefined;
@@ -4671,7 +4582,7 @@ export interface CreateQueueRequest {
   OutboundCallerConfig?: OutboundCallerConfig | undefined;
 
   /**
-   * <p></p>
+   * <p>The outbound email address ID for a specified queue.</p>
    * @public
    */
   OutboundEmailConfig?: OutboundEmailConfig | undefined;
@@ -5764,7 +5675,8 @@ export interface CreateTaskTemplateRequest {
   ContactFlowId?: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The ContactFlowId for the flow that will be run if this template is used to create a
+   *    self-assigned task.</p>
    * @public
    */
   SelfAssignFlowId?: string | undefined;
@@ -6864,13 +6776,13 @@ export interface DeleteContactFlowModuleResponse {}
  */
 export interface DeleteEmailAddressRequest {
   /**
-   * <p></p>
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
    * @public
    */
   InstanceId: string | undefined;
 
   /**
-   * <p></p>
+   * <p>The identifier of the email address.</p>
    * @public
    */
   EmailAddressId: string | undefined;
@@ -7215,13 +7127,26 @@ export interface DeleteViewVersionRequest {
 }
 
 /**
- * @internal
+ * @public
  */
-export const CreateContactRequestFilterSensitiveLog = (obj: CreateContactRequest): any => ({
-  ...obj,
-  ...(obj.Name && { Name: SENSITIVE_STRING }),
-  ...(obj.Description && { Description: SENSITIVE_STRING }),
-});
+export interface DeleteViewVersionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteVocabularyRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   * @public
+   */
+  VocabularyId: string | undefined;
+}
 
 /**
  * @internal

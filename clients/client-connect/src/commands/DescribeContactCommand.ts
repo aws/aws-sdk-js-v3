@@ -233,6 +233,16 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     SegmentAttributes: { // SegmentAttributes
  * //       "<keys>": { // SegmentAttributeValue
  * //         ValueString: "STRING_VALUE",
+ * //         ValueMap: { // SegmentAttributeValueMap
+ * //           "<keys>": {
+ * //             ValueString: "STRING_VALUE",
+ * //             ValueMap: {
+ * //               "<keys>": "<SegmentAttributeValue>",
+ * //             },
+ * //             ValueInteger: Number("int"),
+ * //           },
+ * //         },
+ * //         ValueInteger: Number("int"),
  * //       },
  * //     },
  * //   },
