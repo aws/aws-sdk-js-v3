@@ -29,12 +29,14 @@ describe(flexibleChecksumsMiddleware.name, () => {
   const mockChecksum = "mockChecksum";
   const mockChecksumAlgorithmFunction = vi.fn();
   const mockChecksumLocationName = "mock-checksum-location-name";
+  const mockRequestAlgorithmMember = "mockRequestAlgorithmMember";
+  const mockRequestAlgorithmMemberHttpHeader = "mock-request-algorithm-member-http-header";
 
   const mockInput = {};
   const mockConfig = {
     requestChecksumCalculation: () => Promise.resolve(RequestChecksumCalculation.WHEN_REQUIRED),
   } as PreviouslyResolved;
-  const mockMiddlewareConfig = { requestChecksumRequired: false };
+  const mockMiddlewareConfig = { input: mockInput, requestChecksumRequired: false };
 
   const mockBody = { body: "mockRequestBody" };
   const mockHeaders = { "content-length": 100, "content-encoding": "gzip" };
@@ -78,66 +80,17 @@ describe(flexibleChecksumsMiddleware.name, () => {
         expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
       });
 
-      describe("skip if header is already present", async () => {
-        beforeEach(() => {
-          vi.mocked(hasHeaderWithPrefix).mockReturnValue(true);
-        });
+      it("skip if header is already present", async () => {
+        const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
+        vi.mocked(hasHeaderWithPrefix).mockReturnValue(true);
 
-        afterEach(() => {
-          expect(hasHeaderWithPrefix).toHaveBeenCalledTimes(1);
-          expect(getChecksumLocationName).not.toHaveBeenCalled();
-          expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
-          expect(hasHeader).not.toHaveBeenCalled();
-        });
+        await handler(mockArgs);
 
-        it("with no changes input", async () => {
-          const handler = flexibleChecksumsMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {});
-
-          await handler(mockArgs);
-          expect(mockNext).toHaveBeenCalledWith(mockArgs);
-        });
-
-        describe("handles input[requestAlgorithmMember]", () => {
-          it("removes if respective checksum header is not present", async () => {
-            const mockRequestAlgorithmMember = "mockRequestAlgorithmMember";
-            const handler = flexibleChecksumsMiddleware(mockConfig, {
-              ...mockMiddlewareConfig,
-              requestAlgorithmMember: mockRequestAlgorithmMember,
-            })(mockNext, {});
-
-            const mockArgsWithInput = {
-              ...mockArgs,
-              input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM },
-            };
-            await handler(mockArgsWithInput);
-            expect(mockNext).toHaveBeenCalledWith(mockArgs);
-            expect(mockNext.mock.calls[0][0].input[mockRequestAlgorithmMember]).toBeUndefined();
-          });
-
-          // This means user set the checksum algorithm, as well as the actual checksum.
-          it("retains if respective checksum header is present", async () => {
-            const mockRequestAlgorithmMember = "mockRequestAlgorithmMember";
-            const handler = flexibleChecksumsMiddleware(mockConfig, {
-              ...mockMiddlewareConfig,
-              requestAlgorithmMember: mockRequestAlgorithmMember,
-            })(mockNext, {});
-
-            const mockArgsWithInputAndRequest = {
-              ...mockArgs,
-              input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM },
-              request: {
-                ...mockRequest,
-                headers: {
-                  ...mockHeaders,
-                  [`x-amz-checksum-${DEFAULT_CHECKSUM_ALGORITHM.toLowerCase()}`]: mockChecksum,
-                },
-              },
-            };
-            await handler(mockArgsWithInputAndRequest);
-            expect(mockNext).toHaveBeenCalledWith(mockArgsWithInputAndRequest);
-            expect(mockNext.mock.calls[0][0].input[mockRequestAlgorithmMember]).toBe(DEFAULT_CHECKSUM_ALGORITHM);
-          });
-        });
+        expect(hasHeaderWithPrefix).toHaveBeenCalledTimes(1);
+        expect(getChecksumLocationName).not.toHaveBeenCalled();
+        expect(selectChecksumAlgorithmFunction).not.toHaveBeenCalled();
+        expect(hasHeader).not.toHaveBeenCalled();
+        expect(mockNext).toHaveBeenCalledWith(mockArgs);
       });
     });
   });
@@ -149,6 +102,44 @@ describe(flexibleChecksumsMiddleware.name, () => {
       expect(getChecksumAlgorithmForRequest).toHaveBeenCalledTimes(1);
       expect(getChecksumLocationName).toHaveBeenCalledTimes(1);
       expect(selectChecksumAlgorithmFunction).toHaveBeenCalledTimes(1);
+    });
+
+    describe("if input.requestAlgorithmMember can be set", () => {
+      describe("input[requestAlgorithmMember] is not defined and", () => {
+        const mockMwConfigWithReqAlgoMember = {
+          ...mockMiddlewareConfig,
+          requestAlgorithmMember: mockRequestAlgorithmMember,
+          requestAlgorithmMemberHttpHeader: mockRequestAlgorithmMemberHttpHeader,
+        };
+
+        it("requestChecksumCalculation is supported", async () => {
+          const handler = flexibleChecksumsMiddleware(
+            {
+              ...mockConfig,
+              requestChecksumCalculation: () => Promise.resolve(RequestChecksumCalculation.WHEN_SUPPORTED),
+            },
+            mockMwConfigWithReqAlgoMember
+          )(mockNext, {});
+          await handler(mockArgs);
+          expect(mockNext.mock.calls[0][0].input[mockRequestAlgorithmMember]).toEqual(DEFAULT_CHECKSUM_ALGORITHM);
+          expect(mockNext.mock.calls[0][0].request.headers[mockRequestAlgorithmMemberHttpHeader]).toEqual(
+            DEFAULT_CHECKSUM_ALGORITHM
+          );
+        });
+
+        it("requestChecksumRequired is set to true", async () => {
+          const handler = flexibleChecksumsMiddleware(mockConfig, {
+            ...mockMwConfigWithReqAlgoMember,
+            requestChecksumRequired: true,
+          })(mockNext, {});
+
+          await handler(mockArgs);
+          expect(mockNext.mock.calls[0][0].input[mockRequestAlgorithmMember]).toEqual(DEFAULT_CHECKSUM_ALGORITHM);
+          expect(mockNext.mock.calls[0][0].request.headers[mockRequestAlgorithmMemberHttpHeader]).toEqual(
+            DEFAULT_CHECKSUM_ALGORITHM
+          );
+        });
+      });
     });
 
     it("for streaming body", async () => {

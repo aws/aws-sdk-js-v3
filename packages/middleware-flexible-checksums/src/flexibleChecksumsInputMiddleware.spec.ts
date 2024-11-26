@@ -24,69 +24,6 @@ describe(flexibleChecksumsInputMiddleware.name, () => {
     vi.clearAllMocks();
   });
 
-  describe("sets input.requestAlgorithmMember", () => {
-    describe("input[requestAlgorithmMember] is not defined and", () => {
-      const mockMiddlewareConfigWithRequestAlgorithmMember = {
-        ...mockMiddlewareConfig,
-        requestAlgorithmMember: mockRequestAlgorithmMember,
-      };
-
-      it("requestChecksumCalculation is supported", async () => {
-        const handler = flexibleChecksumsInputMiddleware(mockConfig, mockMiddlewareConfigWithRequestAlgorithmMember)(
-          mockNext,
-          {}
-        );
-        await handler({ input: {} });
-        expect(mockNext).toHaveBeenCalledWith({ input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM } });
-      });
-
-      it("requestChecksumRequired is set to true", async () => {
-        const mockConfigWithReqChecksumCalculationWhenRequired = {
-          ...mockConfig,
-          requestChecksumCalculation: () => Promise.resolve(RequestChecksumCalculation.WHEN_REQUIRED),
-        };
-
-        const handler = flexibleChecksumsInputMiddleware(mockConfigWithReqChecksumCalculationWhenRequired, {
-          ...mockMiddlewareConfigWithRequestAlgorithmMember,
-          requestChecksumRequired: true,
-        })(mockNext, {});
-
-        await handler({ input: {} });
-        expect(mockNext).toHaveBeenCalledWith({ input: { [mockRequestAlgorithmMember]: DEFAULT_CHECKSUM_ALGORITHM } });
-      });
-    });
-  });
-
-  describe("leaves input.requestAlgorithmMember", () => {
-    const mockMiddlewareConfigWithRequestAlgorithmMember = {
-      ...mockMiddlewareConfig,
-      requestAlgorithmMember: mockRequestAlgorithmMember,
-    };
-
-    it("when input[requestAlgorithmMember] is defined", async () => {
-      const handler = flexibleChecksumsInputMiddleware(mockConfig, mockMiddlewareConfigWithRequestAlgorithmMember)(
-        mockNext,
-        {}
-      );
-      await handler({ input: { [mockRequestAlgorithmMember]: "SHA256" } });
-      expect(mockNext).toHaveBeenCalledWith({ input: { [mockRequestAlgorithmMember]: "SHA256" } });
-    });
-
-    it("if requestChecksumCalculation is required and requestChecksumRequired is false", async () => {
-      const mockConfigReqChecksumCalculationWhenRequired = {
-        ...mockConfig,
-        requestChecksumCalculation: () => Promise.resolve(RequestChecksumCalculation.WHEN_REQUIRED),
-      } as PreviouslyResolved;
-
-      const handler = flexibleChecksumsInputMiddleware(
-        mockConfigReqChecksumCalculationWhenRequired,
-        mockMiddlewareConfigWithRequestAlgorithmMember
-      )(mockNext, {});
-      await handler({ input: {} });
-      expect(mockNext).toHaveBeenCalledWith({ input: {} });
-    });
-  });
-
   describe("sets input.requestValidationModeMember", () => {
     it("when requestValidationModeMember is defined and responseChecksumValidation is supported", async () => {
       const mockMiddlewareConfigWithMockRequestValidationModeMember = {

@@ -11,7 +11,7 @@ import {
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
-import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM } from "./constants";
+import { ChecksumAlgorithm, DEFAULT_CHECKSUM_ALGORITHM, RequestChecksumCalculation } from "./constants";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
 import { hasHeader } from "./hasHeader";
@@ -65,25 +65,27 @@ export const flexibleChecksumsMiddleware =
       return next(args);
     }
 
-    const { request, input } = args;
-    const { body: requestBody, headers } = request;
-    const { requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
-
-    if (hasHeaderWithPrefix("x-amz-checksum-", headers)) {
-      // Remove input[requestAlgorithmMember] and header, if it was added by flexibleChecksumsInputMiddleware
-      if (
-        requestAlgorithmMember &&
-        input[requestAlgorithmMember] === DEFAULT_CHECKSUM_ALGORITHM &&
-        !headers[`x-amz-checksum-${DEFAULT_CHECKSUM_ALGORITHM.toLowerCase()}`]
-      ) {
-        delete input[requestAlgorithmMember];
-        delete headers["x-amz-sdk-checksum-algorithm"];
-      }
+    if (hasHeaderWithPrefix("x-amz-checksum-", args.request.headers)) {
       return next(args);
     }
 
+    const { request, input } = args;
+    const { body: requestBody, headers } = request;
     const { base64Encoder, streamHasher } = config;
+    const { requestChecksumRequired, requestAlgorithmMember, requestAlgorithmMemberHttpHeader } = middlewareConfig;
     const requestChecksumCalculation = await config.requestChecksumCalculation();
+
+    // The value for input member to configure flexible checksum is not set.
+    if (requestAlgorithmMember && !input[requestAlgorithmMember]) {
+      // Set requestAlgorithmMember as default checksum algorithm only if request checksum calculation is supported
+      // or request checksum is required.
+      if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired) {
+        input[requestAlgorithmMember] = DEFAULT_CHECKSUM_ALGORITHM;
+        if (requestAlgorithmMemberHttpHeader) {
+          headers[requestAlgorithmMemberHttpHeader] = DEFAULT_CHECKSUM_ALGORITHM;
+        }
+      }
+    }
 
     const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
       requestChecksumRequired,
