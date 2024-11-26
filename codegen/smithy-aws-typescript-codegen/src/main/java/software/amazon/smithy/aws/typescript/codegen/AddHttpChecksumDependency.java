@@ -203,7 +203,8 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         HttpChecksumTrait httpChecksumTrait = operation.expectTrait(HttpChecksumTrait.class);
         params.put("requestChecksumRequired", httpChecksumTrait.isRequestChecksumRequired());
         httpChecksumTrait.getRequestAlgorithmMember().ifPresent(requestAlgorithmMember -> {
-            params.put("requestAlgorithmMember", requestAlgorithmMember);
+            Map<String, String> requestAlgorithmMemberMap = new TreeMap<String, String>();
+            requestAlgorithmMemberMap.put("name", requestAlgorithmMember);
 
             // We know that input shape is structure, and contains requestAlgorithmMember.
             StructureShape inputShape =  model.expectShape(operation.getInput().get(), StructureShape.class);
@@ -211,8 +212,10 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
 
             // Set requestAlgorithmMemberHttpHeader if HttpHeaderTrait is present.
             requestAlgorithmMemberShape.getTrait(HttpHeaderTrait.class).ifPresent(httpHeaderTrait -> {
-                params.put("requestAlgorithmMemberHttpHeader", httpHeaderTrait.getValue());
+                requestAlgorithmMemberMap.put("httpHeader", httpHeaderTrait.getValue());
             });
+
+            params.put("requestAlgorithmMember", requestAlgorithmMemberMap);
         });
         httpChecksumTrait.getRequestValidationModeMember().ifPresent(requestValidationModeMember -> {
             params.put("requestValidationModeMember", requestValidationModeMember);
