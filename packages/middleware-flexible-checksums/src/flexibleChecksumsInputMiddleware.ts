@@ -80,15 +80,6 @@ export const flexibleChecksumsInputMiddleware =
         break;
     }
 
-    // The value for input member to configure flexible checksum is not set.
-    if (requestAlgorithmMember && !input[requestAlgorithmMember]) {
-      // Set requestAlgorithmMember as default checksum algorithm only if request checksum calculation is supported
-      // or request checksum is required.
-      if (requestChecksumCalculation === RequestChecksumCalculation.WHEN_SUPPORTED || requestChecksumRequired) {
-        input[requestAlgorithmMember] = DEFAULT_CHECKSUM_ALGORITHM;
-      }
-    }
-
     // The value for input member to opt-in to best-effort validation of a checksum returned in the HTTP response is not set.
     if (requestValidationModeMember && !input[requestValidationModeMember]) {
       // Set requestValidationModeMember as ENABLED only if response checksum validation is supported.
