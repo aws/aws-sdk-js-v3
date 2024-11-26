@@ -28,8 +28,11 @@ import software.amazon.smithy.aws.traits.HttpChecksumTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -201,6 +204,15 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         params.put("requestChecksumRequired", httpChecksumTrait.isRequestChecksumRequired());
         httpChecksumTrait.getRequestAlgorithmMember().ifPresent(requestAlgorithmMember -> {
             params.put("requestAlgorithmMember", requestAlgorithmMember);
+
+            // We know that input shape is structure, and contains requestAlgorithmMember.
+            StructureShape inputShape =  model.expectShape(operation.getInput().get(), StructureShape.class);
+            MemberShape requestAlgorithmMemberShape = inputShape.getAllMembers().get(requestAlgorithmMember);
+
+            // Set requestAlgorithmMemberHttpHeader if HttpHeaderTrait is present.
+            requestAlgorithmMemberShape.getTrait(HttpHeaderTrait.class).ifPresent(httpHeaderTrait -> {
+                params.put("requestAlgorithmMemberHttpHeader", httpHeaderTrait.getValue());
+            });
         });
         httpChecksumTrait.getRequestValidationModeMember().ifPresent(requestValidationModeMember -> {
             params.put("requestValidationModeMember", requestValidationModeMember);

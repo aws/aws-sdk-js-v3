@@ -30,6 +30,12 @@ export interface FlexibleChecksumsRequestMiddlewareConfig {
    * Defines a top-level operation input member that is used to configure request checksum behavior.
    */
   requestAlgorithmMember?: string;
+
+  /**
+   * The {@link httpHeader} value for {@link requestAlgorithmMember}, if present.
+   * {@link https://smithy.io/2.0/spec/http-bindings.html#httpheader-trait httpHeader}
+   */
+  requestAlgorithmMemberHttpHeader?: string;
 }
 
 export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
