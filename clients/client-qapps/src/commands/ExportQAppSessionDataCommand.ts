@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateQAppSessionInput, UpdateQAppSessionOutput } from "../models/models_0";
-import { de_UpdateQAppSessionCommand, se_UpdateQAppSessionCommand } from "../protocols/Aws_restJson1";
+import { ExportQAppSessionDataInput, ExportQAppSessionDataOutput } from "../models/models_0";
+import { de_ExportQAppSessionDataCommand, se_ExportQAppSessionDataCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 
 /**
@@ -17,59 +17,50 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateQAppSessionCommand}.
+ * The input for {@link ExportQAppSessionDataCommand}.
  */
-export interface UpdateQAppSessionCommandInput extends UpdateQAppSessionInput {}
+export interface ExportQAppSessionDataCommandInput extends ExportQAppSessionDataInput {}
 /**
  * @public
  *
- * The output of {@link UpdateQAppSessionCommand}.
+ * The output of {@link ExportQAppSessionDataCommand}.
  */
-export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput, __MetadataBearer {}
+export interface ExportQAppSessionDataCommandOutput extends ExportQAppSessionDataOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the session for a given Q App <code>sessionId</code>. This is only
- *       valid when at least one card of the session is in the <code>WAITING</code> state.
- *       Data for each <code>WAITING</code> card can be provided as input. If inputs
- *       are not provided, the call will be accepted but session will not move forward.
- *       Inputs for cards that are not in the <code>WAITING</code> status will be ignored.</p>
+ * <p>Exports the collected data of a Q App data collection session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QAppsClient, UpdateQAppSessionCommand } from "@aws-sdk/client-qapps"; // ES Modules import
- * // const { QAppsClient, UpdateQAppSessionCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * import { QAppsClient, ExportQAppSessionDataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
+ * // const { QAppsClient, ExportQAppSessionDataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
  * const client = new QAppsClient(config);
- * const input = { // UpdateQAppSessionInput
+ * const input = { // ExportQAppSessionDataInput
  *   instanceId: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
- *   values: [ // CardValueList
- *     { // CardValue
- *       cardId: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
- *       submissionMutation: { // SubmissionMutation
- *         submissionId: "STRING_VALUE", // required
- *         mutationType: "edit" || "delete" || "add", // required
- *       },
- *     },
- *   ],
  * };
- * const command = new UpdateQAppSessionCommand(input);
+ * const command = new ExportQAppSessionDataCommand(input);
  * const response = await client.send(command);
- * // { // UpdateQAppSessionOutput
- * //   sessionId: "STRING_VALUE", // required
+ * // { // ExportQAppSessionDataOutput
+ * //   csvFileLink: "STRING_VALUE", // required
+ * //   expiresAt: new Date("TIMESTAMP"), // required
  * //   sessionArn: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param UpdateQAppSessionCommandInput - {@link UpdateQAppSessionCommandInput}
- * @returns {@link UpdateQAppSessionCommandOutput}
- * @see {@link UpdateQAppSessionCommandInput} for command's `input` shape.
- * @see {@link UpdateQAppSessionCommandOutput} for command's `response` shape.
+ * @param ExportQAppSessionDataCommandInput - {@link ExportQAppSessionDataCommandInput}
+ * @returns {@link ExportQAppSessionDataCommandOutput}
+ * @see {@link ExportQAppSessionDataCommandInput} for command's `input` shape.
+ * @see {@link ExportQAppSessionDataCommandOutput} for command's `response` shape.
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The client is not authorized to perform the requested operation.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation could not be completed due to a
+ *       conflict with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred while processing the request.</p>
@@ -96,10 +87,10 @@ export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput,
  *
  * @public
  */
-export class UpdateQAppSessionCommand extends $Command
+export class ExportQAppSessionDataCommand extends $Command
   .classBuilder<
-    UpdateQAppSessionCommandInput,
-    UpdateQAppSessionCommandOutput,
+    ExportQAppSessionDataCommandInput,
+    ExportQAppSessionDataCommandOutput,
     QAppsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +102,21 @@ export class UpdateQAppSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QAppsService", "UpdateQAppSession", {})
-  .n("QAppsClient", "UpdateQAppSessionCommand")
+  .s("QAppsService", "ExportQAppSessionData", {})
+  .n("QAppsClient", "ExportQAppSessionDataCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateQAppSessionCommand)
-  .de(de_UpdateQAppSessionCommand)
+  .ser(se_ExportQAppSessionDataCommand)
+  .de(de_ExportQAppSessionDataCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateQAppSessionInput;
-      output: UpdateQAppSessionOutput;
+      input: ExportQAppSessionDataInput;
+      output: ExportQAppSessionDataOutput;
     };
     sdk: {
-      input: UpdateQAppSessionCommandInput;
-      output: UpdateQAppSessionCommandOutput;
+      input: ExportQAppSessionDataCommandInput;
+      output: ExportQAppSessionDataCommandOutput;
     };
   };
 }

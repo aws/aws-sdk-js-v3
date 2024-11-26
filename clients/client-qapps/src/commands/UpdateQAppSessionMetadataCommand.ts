@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateQAppSessionInput, UpdateQAppSessionOutput } from "../models/models_0";
-import { de_UpdateQAppSessionCommand, se_UpdateQAppSessionCommand } from "../protocols/Aws_restJson1";
+import { UpdateQAppSessionMetadataInput, UpdateQAppSessionMetadataOutput } from "../models/models_0";
+import { de_UpdateQAppSessionMetadataCommand, se_UpdateQAppSessionMetadataCommand } from "../protocols/Aws_restJson1";
 import { QAppsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QAppsClient";
 
 /**
@@ -17,55 +17,53 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateQAppSessionCommand}.
+ * The input for {@link UpdateQAppSessionMetadataCommand}.
  */
-export interface UpdateQAppSessionCommandInput extends UpdateQAppSessionInput {}
+export interface UpdateQAppSessionMetadataCommandInput extends UpdateQAppSessionMetadataInput {}
 /**
  * @public
  *
- * The output of {@link UpdateQAppSessionCommand}.
+ * The output of {@link UpdateQAppSessionMetadataCommand}.
  */
-export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput, __MetadataBearer {}
+export interface UpdateQAppSessionMetadataCommandOutput extends UpdateQAppSessionMetadataOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the session for a given Q App <code>sessionId</code>. This is only
- *       valid when at least one card of the session is in the <code>WAITING</code> state.
- *       Data for each <code>WAITING</code> card can be provided as input. If inputs
- *       are not provided, the call will be accepted but session will not move forward.
- *       Inputs for cards that are not in the <code>WAITING</code> status will be ignored.</p>
+ * <p>Updates the configuration metadata of a session for a given Q App <code>sessionId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QAppsClient, UpdateQAppSessionCommand } from "@aws-sdk/client-qapps"; // ES Modules import
- * // const { QAppsClient, UpdateQAppSessionCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
+ * import { QAppsClient, UpdateQAppSessionMetadataCommand } from "@aws-sdk/client-qapps"; // ES Modules import
+ * // const { QAppsClient, UpdateQAppSessionMetadataCommand } = require("@aws-sdk/client-qapps"); // CommonJS import
  * const client = new QAppsClient(config);
- * const input = { // UpdateQAppSessionInput
+ * const input = { // UpdateQAppSessionMetadataInput
  *   instanceId: "STRING_VALUE", // required
  *   sessionId: "STRING_VALUE", // required
- *   values: [ // CardValueList
- *     { // CardValue
- *       cardId: "STRING_VALUE", // required
- *       value: "STRING_VALUE", // required
- *       submissionMutation: { // SubmissionMutation
- *         submissionId: "STRING_VALUE", // required
- *         mutationType: "edit" || "delete" || "add", // required
- *       },
- *     },
- *   ],
+ *   sessionName: "STRING_VALUE",
+ *   sharingConfiguration: { // SessionSharingConfiguration
+ *     enabled: true || false, // required
+ *     acceptResponses: true || false,
+ *     revealCards: true || false,
+ *   },
  * };
- * const command = new UpdateQAppSessionCommand(input);
+ * const command = new UpdateQAppSessionMetadataCommand(input);
  * const response = await client.send(command);
- * // { // UpdateQAppSessionOutput
+ * // { // UpdateQAppSessionMetadataOutput
  * //   sessionId: "STRING_VALUE", // required
  * //   sessionArn: "STRING_VALUE", // required
+ * //   sessionName: "STRING_VALUE",
+ * //   sharingConfiguration: { // SessionSharingConfiguration
+ * //     enabled: true || false, // required
+ * //     acceptResponses: true || false,
+ * //     revealCards: true || false,
+ * //   },
  * // };
  *
  * ```
  *
- * @param UpdateQAppSessionCommandInput - {@link UpdateQAppSessionCommandInput}
- * @returns {@link UpdateQAppSessionCommandOutput}
- * @see {@link UpdateQAppSessionCommandInput} for command's `input` shape.
- * @see {@link UpdateQAppSessionCommandOutput} for command's `response` shape.
+ * @param UpdateQAppSessionMetadataCommandInput - {@link UpdateQAppSessionMetadataCommandInput}
+ * @returns {@link UpdateQAppSessionMetadataCommandOutput}
+ * @see {@link UpdateQAppSessionMetadataCommandInput} for command's `input` shape.
+ * @see {@link UpdateQAppSessionMetadataCommandOutput} for command's `response` shape.
  * @see {@link QAppsClientResolvedConfig | config} for QAppsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,10 +94,10 @@ export interface UpdateQAppSessionCommandOutput extends UpdateQAppSessionOutput,
  *
  * @public
  */
-export class UpdateQAppSessionCommand extends $Command
+export class UpdateQAppSessionMetadataCommand extends $Command
   .classBuilder<
-    UpdateQAppSessionCommandInput,
-    UpdateQAppSessionCommandOutput,
+    UpdateQAppSessionMetadataCommandInput,
+    UpdateQAppSessionMetadataCommandOutput,
     QAppsClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -111,21 +109,21 @@ export class UpdateQAppSessionCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("QAppsService", "UpdateQAppSession", {})
-  .n("QAppsClient", "UpdateQAppSessionCommand")
+  .s("QAppsService", "UpdateQAppSessionMetadata", {})
+  .n("QAppsClient", "UpdateQAppSessionMetadataCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateQAppSessionCommand)
-  .de(de_UpdateQAppSessionCommand)
+  .ser(se_UpdateQAppSessionMetadataCommand)
+  .de(de_UpdateQAppSessionMetadataCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateQAppSessionInput;
-      output: UpdateQAppSessionOutput;
+      input: UpdateQAppSessionMetadataInput;
+      output: UpdateQAppSessionMetadataOutput;
     };
     sdk: {
-      input: UpdateQAppSessionCommandInput;
-      output: UpdateQAppSessionCommandOutput;
+      input: UpdateQAppSessionMetadataCommandInput;
+      output: UpdateQAppSessionMetadataCommandOutput;
     };
   };
 }

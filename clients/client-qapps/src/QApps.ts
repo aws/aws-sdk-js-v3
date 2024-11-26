@@ -32,6 +32,11 @@ import {
   CreateLibraryItemCommandInput,
   CreateLibraryItemCommandOutput,
 } from "./commands/CreateLibraryItemCommand";
+import {
+  CreatePresignedUrlCommand,
+  CreatePresignedUrlCommandInput,
+  CreatePresignedUrlCommandOutput,
+} from "./commands/CreatePresignedUrlCommand";
 import { CreateQAppCommand, CreateQAppCommandInput, CreateQAppCommandOutput } from "./commands/CreateQAppCommand";
 import {
   DeleteLibraryItemCommand,
@@ -39,6 +44,11 @@ import {
   DeleteLibraryItemCommandOutput,
 } from "./commands/DeleteLibraryItemCommand";
 import { DeleteQAppCommand, DeleteQAppCommandInput, DeleteQAppCommandOutput } from "./commands/DeleteQAppCommand";
+import {
+  DescribeQAppPermissionsCommand,
+  DescribeQAppPermissionsCommandInput,
+  DescribeQAppPermissionsCommandOutput,
+} from "./commands/DescribeQAppPermissionsCommand";
 import {
   DisassociateLibraryItemReviewCommand,
   DisassociateLibraryItemReviewCommandInput,
@@ -50,6 +60,11 @@ import {
   DisassociateQAppFromUserCommandOutput,
 } from "./commands/DisassociateQAppFromUserCommand";
 import {
+  ExportQAppSessionDataCommand,
+  ExportQAppSessionDataCommandInput,
+  ExportQAppSessionDataCommandOutput,
+} from "./commands/ExportQAppSessionDataCommand";
+import {
   GetLibraryItemCommand,
   GetLibraryItemCommandInput,
   GetLibraryItemCommandOutput,
@@ -60,6 +75,11 @@ import {
   GetQAppSessionCommandInput,
   GetQAppSessionCommandOutput,
 } from "./commands/GetQAppSessionCommand";
+import {
+  GetQAppSessionMetadataCommand,
+  GetQAppSessionMetadataCommandInput,
+  GetQAppSessionMetadataCommandOutput,
+} from "./commands/GetQAppSessionMetadataCommand";
 import {
   ImportDocumentCommand,
   ImportDocumentCommandInput,
@@ -76,6 +96,11 @@ import {
   ListLibraryItemsCommandOutput,
 } from "./commands/ListLibraryItemsCommand";
 import { ListQAppsCommand, ListQAppsCommandInput, ListQAppsCommandOutput } from "./commands/ListQAppsCommand";
+import {
+  ListQAppSessionDataCommand,
+  ListQAppSessionDataCommandInput,
+  ListQAppSessionDataCommandOutput,
+} from "./commands/ListQAppSessionDataCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -110,10 +135,20 @@ import {
 } from "./commands/UpdateLibraryItemMetadataCommand";
 import { UpdateQAppCommand, UpdateQAppCommandInput, UpdateQAppCommandOutput } from "./commands/UpdateQAppCommand";
 import {
+  UpdateQAppPermissionsCommand,
+  UpdateQAppPermissionsCommandInput,
+  UpdateQAppPermissionsCommandOutput,
+} from "./commands/UpdateQAppPermissionsCommand";
+import {
   UpdateQAppSessionCommand,
   UpdateQAppSessionCommandInput,
   UpdateQAppSessionCommandOutput,
 } from "./commands/UpdateQAppSessionCommand";
+import {
+  UpdateQAppSessionMetadataCommand,
+  UpdateQAppSessionMetadataCommandInput,
+  UpdateQAppSessionMetadataCommandOutput,
+} from "./commands/UpdateQAppSessionMetadataCommand";
 import { QAppsClient, QAppsClientConfig } from "./QAppsClient";
 
 const commands = {
@@ -123,18 +158,23 @@ const commands = {
   BatchDeleteCategoryCommand,
   BatchUpdateCategoryCommand,
   CreateLibraryItemCommand,
+  CreatePresignedUrlCommand,
   CreateQAppCommand,
   DeleteLibraryItemCommand,
   DeleteQAppCommand,
+  DescribeQAppPermissionsCommand,
   DisassociateLibraryItemReviewCommand,
   DisassociateQAppFromUserCommand,
+  ExportQAppSessionDataCommand,
   GetLibraryItemCommand,
   GetQAppCommand,
   GetQAppSessionCommand,
+  GetQAppSessionMetadataCommand,
   ImportDocumentCommand,
   ListCategoriesCommand,
   ListLibraryItemsCommand,
   ListQAppsCommand,
+  ListQAppSessionDataCommand,
   ListTagsForResourceCommand,
   PredictQAppCommand,
   StartQAppSessionCommand,
@@ -144,7 +184,9 @@ const commands = {
   UpdateLibraryItemCommand,
   UpdateLibraryItemMetadataCommand,
   UpdateQAppCommand,
+  UpdateQAppPermissionsCommand,
   UpdateQAppSessionCommand,
+  UpdateQAppSessionMetadataCommand,
 };
 
 export interface QApps {
@@ -251,6 +293,23 @@ export interface QApps {
   ): void;
 
   /**
+   * @see {@link CreatePresignedUrlCommand}
+   */
+  createPresignedUrl(
+    args: CreatePresignedUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresignedUrlCommandOutput>;
+  createPresignedUrl(
+    args: CreatePresignedUrlCommandInput,
+    cb: (err: any, data?: CreatePresignedUrlCommandOutput) => void
+  ): void;
+  createPresignedUrl(
+    args: CreatePresignedUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresignedUrlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateQAppCommand}
    */
   createQApp(args: CreateQAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateQAppCommandOutput>;
@@ -290,6 +349,23 @@ export interface QApps {
   ): void;
 
   /**
+   * @see {@link DescribeQAppPermissionsCommand}
+   */
+  describeQAppPermissions(
+    args: DescribeQAppPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQAppPermissionsCommandOutput>;
+  describeQAppPermissions(
+    args: DescribeQAppPermissionsCommandInput,
+    cb: (err: any, data?: DescribeQAppPermissionsCommandOutput) => void
+  ): void;
+  describeQAppPermissions(
+    args: DescribeQAppPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQAppPermissionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateLibraryItemReviewCommand}
    */
   disassociateLibraryItemReview(
@@ -321,6 +397,23 @@ export interface QApps {
     args: DisassociateQAppFromUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateQAppFromUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportQAppSessionDataCommand}
+   */
+  exportQAppSessionData(
+    args: ExportQAppSessionDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportQAppSessionDataCommandOutput>;
+  exportQAppSessionData(
+    args: ExportQAppSessionDataCommandInput,
+    cb: (err: any, data?: ExportQAppSessionDataCommandOutput) => void
+  ): void;
+  exportQAppSessionData(
+    args: ExportQAppSessionDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportQAppSessionDataCommandOutput) => void
   ): void;
 
   /**
@@ -360,6 +453,23 @@ export interface QApps {
     args: GetQAppSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetQAppSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQAppSessionMetadataCommand}
+   */
+  getQAppSessionMetadata(
+    args: GetQAppSessionMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQAppSessionMetadataCommandOutput>;
+  getQAppSessionMetadata(
+    args: GetQAppSessionMetadataCommandInput,
+    cb: (err: any, data?: GetQAppSessionMetadataCommandOutput) => void
+  ): void;
+  getQAppSessionMetadata(
+    args: GetQAppSessionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQAppSessionMetadataCommandOutput) => void
   ): void;
 
   /**
@@ -416,6 +526,23 @@ export interface QApps {
     args: ListQAppsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListQAppsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListQAppSessionDataCommand}
+   */
+  listQAppSessionData(
+    args: ListQAppSessionDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQAppSessionDataCommandOutput>;
+  listQAppSessionData(
+    args: ListQAppSessionDataCommandInput,
+    cb: (err: any, data?: ListQAppSessionDataCommandOutput) => void
+  ): void;
+  listQAppSessionData(
+    args: ListQAppSessionDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQAppSessionDataCommandOutput) => void
   ): void;
 
   /**
@@ -545,6 +672,23 @@ export interface QApps {
   ): void;
 
   /**
+   * @see {@link UpdateQAppPermissionsCommand}
+   */
+  updateQAppPermissions(
+    args: UpdateQAppPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQAppPermissionsCommandOutput>;
+  updateQAppPermissions(
+    args: UpdateQAppPermissionsCommandInput,
+    cb: (err: any, data?: UpdateQAppPermissionsCommandOutput) => void
+  ): void;
+  updateQAppPermissions(
+    args: UpdateQAppPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQAppPermissionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateQAppSessionCommand}
    */
   updateQAppSession(
@@ -559,6 +703,23 @@ export interface QApps {
     args: UpdateQAppSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQAppSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQAppSessionMetadataCommand}
+   */
+  updateQAppSessionMetadata(
+    args: UpdateQAppSessionMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQAppSessionMetadataCommandOutput>;
+  updateQAppSessionMetadata(
+    args: UpdateQAppSessionMetadataCommandInput,
+    cb: (err: any, data?: UpdateQAppSessionMetadataCommandOutput) => void
+  ): void;
+  updateQAppSessionMetadata(
+    args: UpdateQAppSessionMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQAppSessionMetadataCommandOutput) => void
   ): void;
 }
 

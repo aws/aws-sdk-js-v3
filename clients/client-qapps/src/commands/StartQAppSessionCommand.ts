@@ -48,8 +48,13 @@ export interface StartQAppSessionCommandOutput extends StartQAppSessionOutput, _
  *     { // CardValue
  *       cardId: "STRING_VALUE", // required
  *       value: "STRING_VALUE", // required
+ *       submissionMutation: { // SubmissionMutation
+ *         submissionId: "STRING_VALUE", // required
+ *         mutationType: "edit" || "delete" || "add", // required
+ *       },
  *     },
  *   ],
+ *   sessionId: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },

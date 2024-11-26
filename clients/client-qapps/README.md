@@ -266,6 +266,14 @@ CreateLibraryItem
 </details>
 <details>
 <summary>
+CreatePresignedUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/CreatePresignedUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/CreatePresignedUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/CreatePresignedUrlCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateQApp
 </summary>
 
@@ -290,6 +298,14 @@ DeleteQApp
 </details>
 <details>
 <summary>
+DescribeQAppPermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/DescribeQAppPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/DescribeQAppPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/DescribeQAppPermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisassociateLibraryItemReview
 </summary>
 
@@ -302,6 +318,14 @@ DisassociateQAppFromUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/DisassociateQAppFromUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/DisassociateQAppFromUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/DisassociateQAppFromUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+ExportQAppSessionData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/ExportQAppSessionDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ExportQAppSessionDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ExportQAppSessionDataCommandOutput/)
 
 </details>
 <details>
@@ -326,6 +350,14 @@ GetQAppSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/GetQAppSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/GetQAppSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/GetQAppSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetQAppSessionMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/GetQAppSessionMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/GetQAppSessionMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/GetQAppSessionMetadataCommandOutput/)
 
 </details>
 <details>
@@ -358,6 +390,14 @@ ListQApps
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/ListQAppsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ListQAppsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ListQAppsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListQAppSessionData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/ListQAppSessionDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ListQAppSessionDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/ListQAppSessionDataCommandOutput/)
 
 </details>
 <details>
@@ -434,9 +474,25 @@ UpdateQApp
 </details>
 <details>
 <summary>
+UpdateQAppPermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/UpdateQAppPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateQAppPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateQAppPermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateQAppSession
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/UpdateQAppSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateQAppSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateQAppSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateQAppSessionMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qapps/command/UpdateQAppSessionMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateQAppSessionMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qapps/Interface/UpdateQAppSessionMetadataCommandOutput/)
 
 </details>

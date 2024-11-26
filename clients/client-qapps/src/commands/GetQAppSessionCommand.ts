@@ -44,13 +44,24 @@ export interface GetQAppSessionCommandOutput extends GetQAppSessionOutput, __Met
  * // { // GetQAppSessionOutput
  * //   sessionId: "STRING_VALUE", // required
  * //   sessionArn: "STRING_VALUE", // required
- * //   status: "IN_PROGRESS" || "WAITING" || "COMPLETED", // required
+ * //   sessionName: "STRING_VALUE",
+ * //   appVersion: Number("int"),
+ * //   latestPublishedAppVersion: Number("int"),
+ * //   status: "IN_PROGRESS" || "WAITING" || "COMPLETED" || "ERROR", // required
  * //   cardStatus: { // CardStatusMap // required
  * //     "<keys>": { // CardStatus
- * //       currentState: "IN_PROGRESS" || "WAITING" || "COMPLETED", // required
+ * //       currentState: "IN_PROGRESS" || "WAITING" || "COMPLETED" || "ERROR", // required
  * //       currentValue: "STRING_VALUE", // required
+ * //       submissions: [ // SubmissionList
+ * //         { // Submission
+ * //           value: "DOCUMENT_VALUE",
+ * //           submissionId: "STRING_VALUE",
+ * //           timestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
  * //     },
  * //   },
+ * //   userIsHost: true || false,
  * // };
  *
  * ```

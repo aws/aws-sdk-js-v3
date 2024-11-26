@@ -29,6 +29,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -55,9 +56,14 @@ import {
   BatchUpdateCategoryCommandOutput,
 } from "../commands/BatchUpdateCategoryCommand";
 import { CreateLibraryItemCommandInput, CreateLibraryItemCommandOutput } from "../commands/CreateLibraryItemCommand";
+import { CreatePresignedUrlCommandInput, CreatePresignedUrlCommandOutput } from "../commands/CreatePresignedUrlCommand";
 import { CreateQAppCommandInput, CreateQAppCommandOutput } from "../commands/CreateQAppCommand";
 import { DeleteLibraryItemCommandInput, DeleteLibraryItemCommandOutput } from "../commands/DeleteLibraryItemCommand";
 import { DeleteQAppCommandInput, DeleteQAppCommandOutput } from "../commands/DeleteQAppCommand";
+import {
+  DescribeQAppPermissionsCommandInput,
+  DescribeQAppPermissionsCommandOutput,
+} from "../commands/DescribeQAppPermissionsCommand";
 import {
   DisassociateLibraryItemReviewCommandInput,
   DisassociateLibraryItemReviewCommandOutput,
@@ -66,13 +72,25 @@ import {
   DisassociateQAppFromUserCommandInput,
   DisassociateQAppFromUserCommandOutput,
 } from "../commands/DisassociateQAppFromUserCommand";
+import {
+  ExportQAppSessionDataCommandInput,
+  ExportQAppSessionDataCommandOutput,
+} from "../commands/ExportQAppSessionDataCommand";
 import { GetLibraryItemCommandInput, GetLibraryItemCommandOutput } from "../commands/GetLibraryItemCommand";
 import { GetQAppCommandInput, GetQAppCommandOutput } from "../commands/GetQAppCommand";
 import { GetQAppSessionCommandInput, GetQAppSessionCommandOutput } from "../commands/GetQAppSessionCommand";
+import {
+  GetQAppSessionMetadataCommandInput,
+  GetQAppSessionMetadataCommandOutput,
+} from "../commands/GetQAppSessionMetadataCommand";
 import { ImportDocumentCommandInput, ImportDocumentCommandOutput } from "../commands/ImportDocumentCommand";
 import { ListCategoriesCommandInput, ListCategoriesCommandOutput } from "../commands/ListCategoriesCommand";
 import { ListLibraryItemsCommandInput, ListLibraryItemsCommandOutput } from "../commands/ListLibraryItemsCommand";
 import { ListQAppsCommandInput, ListQAppsCommandOutput } from "../commands/ListQAppsCommand";
+import {
+  ListQAppSessionDataCommandInput,
+  ListQAppSessionDataCommandOutput,
+} from "../commands/ListQAppSessionDataCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -88,7 +106,15 @@ import {
   UpdateLibraryItemMetadataCommandOutput,
 } from "../commands/UpdateLibraryItemMetadataCommand";
 import { UpdateQAppCommandInput, UpdateQAppCommandOutput } from "../commands/UpdateQAppCommand";
+import {
+  UpdateQAppPermissionsCommandInput,
+  UpdateQAppPermissionsCommandOutput,
+} from "../commands/UpdateQAppPermissionsCommand";
 import { UpdateQAppSessionCommandInput, UpdateQAppSessionCommandOutput } from "../commands/UpdateQAppSessionCommand";
+import {
+  UpdateQAppSessionMetadataCommandInput,
+  UpdateQAppSessionMetadataCommandOutput,
+} from "../commands/UpdateQAppSessionMetadataCommand";
 import {
   AccessDeniedException,
   AppDefinition,
@@ -97,6 +123,7 @@ import {
   BatchCreateCategoryInputCategory,
   Card,
   CardInput,
+  CardStatus,
   CardValue,
   CategoryInput,
   ConflictException,
@@ -105,15 +132,23 @@ import {
   DocumentAttribute,
   DocumentAttributeValue,
   FileUploadCardInput,
+  FormInputCard,
+  FormInputCardInput,
+  FormInputCardMetadata,
   InternalServerException,
   LibraryItemMember,
+  PermissionInput,
   PredictAppDefinition,
   PredictQAppInputOptions,
+  QAppSessionData,
   QPluginCardInput,
   QQueryCard,
   QQueryCardInput,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SessionSharingConfiguration,
+  Submission,
+  SubmissionMutation,
   TextInputCardInput,
   ThrottlingException,
   UnauthorizedException,
@@ -263,6 +298,34 @@ export const se_CreateLibraryItemCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreatePresignedUrlCommand
+ */
+export const se_CreatePresignedUrlCommand = async (
+  input: CreatePresignedUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/apps.createPresignedUrl");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appId: [],
+      cardId: [],
+      fileContentsSha256: [],
+      fileName: [],
+      scope: [],
+      sessionId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateQAppCommand
  */
 export const se_CreateQAppCommand = async (
@@ -335,6 +398,26 @@ export const se_DeleteQAppCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeQAppPermissionsCommand
+ */
+export const se_DescribeQAppPermissionsCommand = async (
+  input: DescribeQAppPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/apps.describeQAppPermissions");
+  const query: any = map({
+    [_aI]: [, __expectNonNull(input[_aI]!, `appId`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DisassociateLibraryItemReviewCommand
  */
 export const se_DisassociateLibraryItemReviewCommand = async (
@@ -381,6 +464,29 @@ export const se_DisassociateQAppFromUserCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ExportQAppSessionDataCommand
+ */
+export const se_ExportQAppSessionDataCommand = async (
+  input: ExportQAppSessionDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/runtime.exportQAppSessionData");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sessionId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetLibraryItemCommand
  */
 export const se_GetLibraryItemCommand = async (
@@ -415,6 +521,7 @@ export const se_GetQAppCommand = async (
   b.bp("/apps.get");
   const query: any = map({
     [_aI]: [, __expectNonNull(input[_aI]!, `appId`)],
+    [_aV]: [() => input.appVersion !== void 0, () => input[_aV]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -433,6 +540,26 @@ export const se_GetQAppSessionCommand = async (
     [_ii]: input[_iI]!,
   });
   b.bp("/runtime.getQAppSession");
+  const query: any = map({
+    [_sI]: [, __expectNonNull(input[_sI]!, `sessionId`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetQAppSessionMetadataCommand
+ */
+export const se_GetQAppSessionMetadataCommand = async (
+  input: GetQAppSessionMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/runtime.getQAppSessionMetadata");
   const query: any = map({
     [_sI]: [, __expectNonNull(input[_sI]!, `sessionId`)],
   });
@@ -530,6 +657,26 @@ export const se_ListQAppsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListQAppSessionDataCommand
+ */
+export const se_ListQAppSessionDataCommand = async (
+  input: ListQAppSessionDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/runtime.listQAppSessionData");
+  const query: any = map({
+    [_sI]: [, __expectNonNull(input[_sI]!, `sessionId`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -587,6 +734,7 @@ export const se_StartQAppSessionCommand = async (
       appId: [],
       appVersion: [],
       initialValues: (_) => _json(_),
+      sessionId: [],
       tags: (_) => _json(_),
     })
   );
@@ -735,6 +883,31 @@ export const se_UpdateQAppCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateQAppPermissionsCommand
+ */
+export const se_UpdateQAppPermissionsCommand = async (
+  input: UpdateQAppPermissionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/apps.updateQAppPermissions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appId: [],
+      grantPermissions: (_) => _json(_),
+      revokePermissions: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateQAppSessionCommand
  */
 export const se_UpdateQAppSessionCommand = async (
@@ -752,6 +925,31 @@ export const se_UpdateQAppSessionCommand = async (
     take(input, {
       sessionId: [],
       values: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateQAppSessionMetadataCommand
+ */
+export const se_UpdateQAppSessionMetadataCommand = async (
+  input: UpdateQAppSessionMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_ii]: input[_iI]!,
+  });
+  b.bp("/runtime.updateQAppSessionMetadata");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      sessionId: [],
+      sessionName: [],
+      sharingConfiguration: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -872,6 +1070,30 @@ export const de_CreateLibraryItemCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePresignedUrlCommand
+ */
+export const de_CreatePresignedUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    fileId: __expectString,
+    presignedUrl: __expectString,
+    presignedUrlExpiration: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    presignedUrlFields: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateQAppCommand
  */
 export const de_CreateQAppCommand = async (
@@ -938,6 +1160,29 @@ export const de_DeleteQAppCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeQAppPermissionsCommand
+ */
+export const de_DescribeQAppPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQAppPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appId: __expectString,
+    permissions: _json,
+    resourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DisassociateLibraryItemReviewCommand
  */
 export const de_DisassociateLibraryItemReviewCommand = async (
@@ -968,6 +1213,29 @@ export const de_DisassociateQAppFromUserCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ExportQAppSessionDataCommand
+ */
+export const de_ExportQAppSessionDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExportQAppSessionDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    csvFileLink: __expectString,
+    expiresAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    sessionArn: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1052,10 +1320,39 @@ export const de_GetQAppSessionCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    cardStatus: _json,
+    appVersion: __expectInt32,
+    cardStatus: (_) => de_CardStatusMap(_, context),
+    latestPublishedAppVersion: __expectInt32,
     sessionArn: __expectString,
     sessionId: __expectString,
+    sessionName: __expectString,
     status: __expectString,
+    userIsHost: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetQAppSessionMetadataCommand
+ */
+export const de_GetQAppSessionMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQAppSessionMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sessionArn: __expectString,
+    sessionId: __expectString,
+    sessionName: __expectString,
+    sessionOwner: __expectBoolean,
+    sharingConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1142,6 +1439,30 @@ export const de_ListQAppsCommand = async (
   const doc = take(data, {
     apps: (_) => de_UserAppsList(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListQAppSessionDataCommand
+ */
+export const de_ListQAppSessionDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQAppSessionDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    sessionArn: __expectString,
+    sessionData: (_) => de_QAppSessionDataList(_, context),
+    sessionId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1346,6 +1667,29 @@ export const de_UpdateQAppCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateQAppPermissionsCommand
+ */
+export const de_UpdateQAppPermissionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQAppPermissionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appId: __expectString,
+    permissions: _json,
+    resourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateQAppSessionCommand
  */
 export const de_UpdateQAppSessionCommand = async (
@@ -1362,6 +1706,30 @@ export const de_UpdateQAppSessionCommand = async (
   const doc = take(data, {
     sessionArn: __expectString,
     sessionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateQAppSessionMetadataCommand
+ */
+export const de_UpdateQAppSessionMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQAppSessionMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    sessionArn: __expectString,
+    sessionId: __expectString,
+    sessionName: __expectString,
+    sharingConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1651,6 +2019,7 @@ const se_AttributeFilters = (input: AttributeFilter[], context: __SerdeContext):
 const se_CardInput = (input: CardInput, context: __SerdeContext): any => {
   return CardInput.visit(input, {
     fileUpload: (value) => ({ fileUpload: _json(value) }),
+    formInput: (value) => ({ formInput: se_FormInputCardInput(value, context) }),
     qPlugin: (value) => ({ qPlugin: _json(value) }),
     qQuery: (value) => ({ qQuery: se_QQueryCardInput(value, context) }),
     textInput: (value) => ({ textInput: _json(value) }),
@@ -1710,7 +2079,40 @@ const se_DocumentAttributeValue = (input: DocumentAttributeValue, context: __Ser
 
 // se_FileUploadCardInput omitted.
 
+/**
+ * serializeAws_restJson1FormInputCardInput
+ */
+const se_FormInputCardInput = (input: FormInputCardInput, context: __SerdeContext): any => {
+  return take(input, {
+    computeMode: [],
+    id: [],
+    metadata: (_) => se_FormInputCardMetadata(_, context),
+    title: [],
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1FormInputCardMetadata
+ */
+const se_FormInputCardMetadata = (input: FormInputCardMetadata, context: __SerdeContext): any => {
+  return take(input, {
+    schema: (_) => se_FormInputCardMetadataSchema(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1FormInputCardMetadataSchema
+ */
+const se_FormInputCardMetadataSchema = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_MessageList omitted.
+
+// se_PermissionInput omitted.
+
+// se_PermissionsInputList omitted.
 
 // se_PredictQAppInputOptions omitted.
 
@@ -1729,6 +2131,10 @@ const se_QQueryCardInput = (input: QQueryCardInput, context: __SerdeContext): an
     type: [],
   });
 };
+
+// se_SessionSharingConfiguration omitted.
+
+// se_SubmissionMutation omitted.
 
 // se_TagMap omitted.
 
@@ -1798,6 +2204,11 @@ const de_Card = (output: any, context: __SerdeContext): Card => {
       fileUpload: _json(output.fileUpload),
     };
   }
+  if (output.formInput != null) {
+    return {
+      formInput: de_FormInputCard(output.formInput, context),
+    };
+  }
   if (output.qPlugin != null) {
     return {
       qPlugin: _json(output.qPlugin),
@@ -1823,6 +2234,11 @@ const de_CardInput = (output: any, context: __SerdeContext): CardInput => {
   if (output.fileUpload != null) {
     return {
       fileUpload: _json(output.fileUpload),
+    };
+  }
+  if (output.formInput != null) {
+    return {
+      formInput: de_FormInputCardInput(output.formInput, context),
     };
   }
   if (output.qPlugin != null) {
@@ -1867,9 +2283,29 @@ const de_CardModelList = (output: any, context: __SerdeContext): Card[] => {
   return retVal;
 };
 
-// de_CardStatus omitted.
+/**
+ * deserializeAws_restJson1CardStatus
+ */
+const de_CardStatus = (output: any, context: __SerdeContext): CardStatus => {
+  return take(output, {
+    currentState: __expectString,
+    currentValue: __expectString,
+    submissions: (_: any) => de_SubmissionList(_, context),
+  }) as any;
+};
 
-// de_CardStatusMap omitted.
+/**
+ * deserializeAws_restJson1CardStatusMap
+ */
+const de_CardStatusMap = (output: any, context: __SerdeContext): Record<string, CardStatus> => {
+  return Object.entries(output).reduce((acc: Record<string, CardStatus>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_CardStatus(value, context);
+    return acc;
+  }, {} as Record<string, CardStatus>);
+};
 
 // de_CategoriesList omitted.
 
@@ -1919,6 +2355,49 @@ const de_DocumentAttributeValue = (output: any, context: __SerdeContext): Docume
 // de_FileUploadCardInput omitted.
 
 /**
+ * deserializeAws_restJson1FormInputCard
+ */
+const de_FormInputCard = (output: any, context: __SerdeContext): FormInputCard => {
+  return take(output, {
+    computeMode: __expectString,
+    dependencies: _json,
+    id: __expectString,
+    metadata: (_: any) => de_FormInputCardMetadata(_, context),
+    title: __expectString,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FormInputCardInput
+ */
+const de_FormInputCardInput = (output: any, context: __SerdeContext): FormInputCardInput => {
+  return take(output, {
+    computeMode: __expectString,
+    id: __expectString,
+    metadata: (_: any) => de_FormInputCardMetadata(_, context),
+    title: __expectString,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FormInputCardMetadata
+ */
+const de_FormInputCardMetadata = (output: any, context: __SerdeContext): FormInputCardMetadata => {
+  return take(output, {
+    schema: (_: any) => de_FormInputCardMetadataSchema(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FormInputCardMetadataSchema
+ */
+const de_FormInputCardMetadataSchema = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
+/**
  * deserializeAws_restJson1LibraryItemList
  */
 const de_LibraryItemList = (output: any, context: __SerdeContext): LibraryItemMember[] => {
@@ -1951,6 +2430,12 @@ const de_LibraryItemMember = (output: any, context: __SerdeContext): LibraryItem
   }) as any;
 };
 
+// de_MemoryReferenceList omitted.
+
+// de_PermissionOutput omitted.
+
+// de_PermissionsOutputList omitted.
+
 /**
  * deserializeAws_restJson1PredictAppDefinition
  */
@@ -1960,6 +2445,35 @@ const de_PredictAppDefinition = (output: any, context: __SerdeContext): PredictA
     description: __expectString,
     title: __expectString,
   }) as any;
+};
+
+// de_PresignedUrlFields omitted.
+
+// de_PrincipalOutput omitted.
+
+/**
+ * deserializeAws_restJson1QAppSessionData
+ */
+const de_QAppSessionData = (output: any, context: __SerdeContext): QAppSessionData => {
+  return take(output, {
+    cardId: __expectString,
+    submissionId: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    user: _json,
+    value: (_: any) => de_Document(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1QAppSessionDataList
+ */
+const de_QAppSessionDataList = (output: any, context: __SerdeContext): QAppSessionData[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QAppSessionData(entry, context);
+    });
+  return retVal;
 };
 
 // de_QPluginCard omitted.
@@ -1974,6 +2488,7 @@ const de_QQueryCard = (output: any, context: __SerdeContext): QQueryCard => {
     attributeFilter: (_: any) => de_AttributeFilter(_, context),
     dependencies: _json,
     id: __expectString,
+    memoryReferences: _json,
     outputSource: __expectString,
     prompt: __expectString,
     title: __expectString,
@@ -1995,11 +2510,38 @@ const de_QQueryCardInput = (output: any, context: __SerdeContext): QQueryCardInp
   }) as any;
 };
 
+// de_SessionSharingConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1Submission
+ */
+const de_Submission = (output: any, context: __SerdeContext): Submission => {
+  return take(output, {
+    submissionId: __expectString,
+    timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    value: (_: any) => de_Document(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SubmissionList
+ */
+const de_SubmissionList = (output: any, context: __SerdeContext): Submission[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Submission(entry, context);
+    });
+  return retVal;
+};
+
 // de_Tags omitted.
 
 // de_TextInputCard omitted.
 
 // de_TextInputCardInput omitted.
+
+// de_User omitted.
 
 /**
  * deserializeAws_restJson1UserAppItem
@@ -2029,6 +2571,13 @@ const de_UserAppsList = (output: any, context: __SerdeContext): UserAppItem[] =>
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -2042,6 +2591,7 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
 const _aI = "appId";
+const _aV = "appVersion";
 const _cI = "categoryId";
 const _iI = "instanceId";
 const _ii = "instance-id";

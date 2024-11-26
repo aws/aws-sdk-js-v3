@@ -74,9 +74,14 @@ import {
   BatchUpdateCategoryCommandOutput,
 } from "./commands/BatchUpdateCategoryCommand";
 import { CreateLibraryItemCommandInput, CreateLibraryItemCommandOutput } from "./commands/CreateLibraryItemCommand";
+import { CreatePresignedUrlCommandInput, CreatePresignedUrlCommandOutput } from "./commands/CreatePresignedUrlCommand";
 import { CreateQAppCommandInput, CreateQAppCommandOutput } from "./commands/CreateQAppCommand";
 import { DeleteLibraryItemCommandInput, DeleteLibraryItemCommandOutput } from "./commands/DeleteLibraryItemCommand";
 import { DeleteQAppCommandInput, DeleteQAppCommandOutput } from "./commands/DeleteQAppCommand";
+import {
+  DescribeQAppPermissionsCommandInput,
+  DescribeQAppPermissionsCommandOutput,
+} from "./commands/DescribeQAppPermissionsCommand";
 import {
   DisassociateLibraryItemReviewCommandInput,
   DisassociateLibraryItemReviewCommandOutput,
@@ -85,13 +90,25 @@ import {
   DisassociateQAppFromUserCommandInput,
   DisassociateQAppFromUserCommandOutput,
 } from "./commands/DisassociateQAppFromUserCommand";
+import {
+  ExportQAppSessionDataCommandInput,
+  ExportQAppSessionDataCommandOutput,
+} from "./commands/ExportQAppSessionDataCommand";
 import { GetLibraryItemCommandInput, GetLibraryItemCommandOutput } from "./commands/GetLibraryItemCommand";
 import { GetQAppCommandInput, GetQAppCommandOutput } from "./commands/GetQAppCommand";
 import { GetQAppSessionCommandInput, GetQAppSessionCommandOutput } from "./commands/GetQAppSessionCommand";
+import {
+  GetQAppSessionMetadataCommandInput,
+  GetQAppSessionMetadataCommandOutput,
+} from "./commands/GetQAppSessionMetadataCommand";
 import { ImportDocumentCommandInput, ImportDocumentCommandOutput } from "./commands/ImportDocumentCommand";
 import { ListCategoriesCommandInput, ListCategoriesCommandOutput } from "./commands/ListCategoriesCommand";
 import { ListLibraryItemsCommandInput, ListLibraryItemsCommandOutput } from "./commands/ListLibraryItemsCommand";
 import { ListQAppsCommandInput, ListQAppsCommandOutput } from "./commands/ListQAppsCommand";
+import {
+  ListQAppSessionDataCommandInput,
+  ListQAppSessionDataCommandOutput,
+} from "./commands/ListQAppSessionDataCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -107,7 +124,15 @@ import {
   UpdateLibraryItemMetadataCommandOutput,
 } from "./commands/UpdateLibraryItemMetadataCommand";
 import { UpdateQAppCommandInput, UpdateQAppCommandOutput } from "./commands/UpdateQAppCommand";
+import {
+  UpdateQAppPermissionsCommandInput,
+  UpdateQAppPermissionsCommandOutput,
+} from "./commands/UpdateQAppPermissionsCommand";
 import { UpdateQAppSessionCommandInput, UpdateQAppSessionCommandOutput } from "./commands/UpdateQAppSessionCommand";
+import {
+  UpdateQAppSessionMetadataCommandInput,
+  UpdateQAppSessionMetadataCommandOutput,
+} from "./commands/UpdateQAppSessionMetadataCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -129,17 +154,22 @@ export type ServiceInputTypes =
   | BatchDeleteCategoryCommandInput
   | BatchUpdateCategoryCommandInput
   | CreateLibraryItemCommandInput
+  | CreatePresignedUrlCommandInput
   | CreateQAppCommandInput
   | DeleteLibraryItemCommandInput
   | DeleteQAppCommandInput
+  | DescribeQAppPermissionsCommandInput
   | DisassociateLibraryItemReviewCommandInput
   | DisassociateQAppFromUserCommandInput
+  | ExportQAppSessionDataCommandInput
   | GetLibraryItemCommandInput
   | GetQAppCommandInput
   | GetQAppSessionCommandInput
+  | GetQAppSessionMetadataCommandInput
   | ImportDocumentCommandInput
   | ListCategoriesCommandInput
   | ListLibraryItemsCommandInput
+  | ListQAppSessionDataCommandInput
   | ListQAppsCommandInput
   | ListTagsForResourceCommandInput
   | PredictQAppCommandInput
@@ -150,7 +180,9 @@ export type ServiceInputTypes =
   | UpdateLibraryItemCommandInput
   | UpdateLibraryItemMetadataCommandInput
   | UpdateQAppCommandInput
-  | UpdateQAppSessionCommandInput;
+  | UpdateQAppPermissionsCommandInput
+  | UpdateQAppSessionCommandInput
+  | UpdateQAppSessionMetadataCommandInput;
 
 /**
  * @public
@@ -162,17 +194,22 @@ export type ServiceOutputTypes =
   | BatchDeleteCategoryCommandOutput
   | BatchUpdateCategoryCommandOutput
   | CreateLibraryItemCommandOutput
+  | CreatePresignedUrlCommandOutput
   | CreateQAppCommandOutput
   | DeleteLibraryItemCommandOutput
   | DeleteQAppCommandOutput
+  | DescribeQAppPermissionsCommandOutput
   | DisassociateLibraryItemReviewCommandOutput
   | DisassociateQAppFromUserCommandOutput
+  | ExportQAppSessionDataCommandOutput
   | GetLibraryItemCommandOutput
   | GetQAppCommandOutput
   | GetQAppSessionCommandOutput
+  | GetQAppSessionMetadataCommandOutput
   | ImportDocumentCommandOutput
   | ListCategoriesCommandOutput
   | ListLibraryItemsCommandOutput
+  | ListQAppSessionDataCommandOutput
   | ListQAppsCommandOutput
   | ListTagsForResourceCommandOutput
   | PredictQAppCommandOutput
@@ -183,7 +220,9 @@ export type ServiceOutputTypes =
   | UpdateLibraryItemCommandOutput
   | UpdateLibraryItemMetadataCommandOutput
   | UpdateQAppCommandOutput
-  | UpdateQAppSessionCommandOutput;
+  | UpdateQAppPermissionsCommandOutput
+  | UpdateQAppSessionCommandOutput
+  | UpdateQAppSessionMetadataCommandOutput;
 
 /**
  * @public

@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
+import { DocumentType as __DocumentType } from "@smithy/types";
+
 import { QAppsServiceException as __BaseException } from "./QAppsServiceException";
 
 /**
@@ -27,8 +29,23 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const Action = {
+  READ: "read",
+  WRITE: "write",
+} as const;
+
+/**
+ * @public
+ */
+export type Action = (typeof Action)[keyof typeof Action];
+
+/**
+ * @public
+ * @enum
+ */
 export const CardType = {
   FILE_UPLOAD: "file-upload",
+  FORM_INPUT: "form-input",
   Q_PLUGIN: "q-plugin",
   Q_QUERY: "q-query",
   TEXT_INPUT: "text-input",
@@ -85,6 +102,80 @@ export interface FileUploadCard {
    * @public
    */
   allowOverride?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InputCardComputeMode = {
+  APPEND: "append",
+  REPLACE: "replace",
+} as const;
+
+/**
+ * @public
+ */
+export type InputCardComputeMode = (typeof InputCardComputeMode)[keyof typeof InputCardComputeMode];
+
+/**
+ * <p>The metadata of the form input card.</p>
+ * @public
+ */
+export interface FormInputCardMetadata {
+  /**
+   * <p>The JSON schema that defines the shape of the response data.</p>
+   * @public
+   */
+  schema: __DocumentType | undefined;
+}
+
+/**
+ * <p>A card in an Amazon Q App that allows the user to submit a response.</p>
+ * @public
+ */
+export interface FormInputCard {
+  /**
+   * <p>The unique identifier of the form input card.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The title of the form input card.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>Any dependencies or requirements for the form input card.</p>
+   * @public
+   */
+  dependencies: string[] | undefined;
+
+  /**
+   * <p>The type of the card.</p>
+   * @public
+   */
+  type: CardType | undefined;
+
+  /**
+   * <p>The metadata that defines the form input card data.</p>
+   * @public
+   */
+  metadata: FormInputCardMetadata | undefined;
+
+  /**
+   * <p>The compute mode of the form input card.
+   *       This property determines whether individual participants of a
+   *       data collection session can submit multiple response or one response.
+   *       A compute mode of <code>append</code> shall allow participants
+   *       to submit the same form multiple times with different values.
+   *       A compute mode of <code>replace</code>code&gt; shall overwrite
+   *       the current value for each participant.</p>
+   * @public
+   */
+  computeMode?: InputCardComputeMode | undefined;
 }
 
 /**
@@ -364,6 +455,48 @@ export interface FileUploadCardInput {
    * @public
    */
   allowOverride?: boolean | undefined;
+}
+
+/**
+ * <p>Represents a form input card for an Amazon Q App.</p>
+ * @public
+ */
+export interface FormInputCardInput {
+  /**
+   * <p>The title or label of the form input card.</p>
+   * @public
+   */
+  title: string | undefined;
+
+  /**
+   * <p>The unique identifier of the form input card.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The type of the card.</p>
+   * @public
+   */
+  type: CardType | undefined;
+
+  /**
+   * <p>The metadata that defines the form input card data.</p>
+   * @public
+   */
+  metadata: FormInputCardMetadata | undefined;
+
+  /**
+   * <p>The compute mode of the form input card.
+   *       This property determines whether individual participants of a
+   *       data collection session can submit multiple response or one response.
+   *       A compute mode of <code>append</code> shall allow participants
+   *       to submit the same form multiple times with different values.
+   *       A compute mode of <code>replace</code>code&gt; shall overwrite
+   *       the current value for each participant.</p>
+   * @public
+   */
+  computeMode?: InputCardComputeMode | undefined;
 }
 
 /**
@@ -839,6 +972,7 @@ export interface BatchUpdateCategoryInput {
  */
 export const ExecutionStatus = {
   COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
   IN_PROGRESS: "IN_PROGRESS",
   WAITING: "WAITING",
 } as const;
@@ -847,6 +981,30 @@ export const ExecutionStatus = {
  * @public
  */
 export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * <p>A record created when a user submits a form card.</p>
+ * @public
+ */
+export interface Submission {
+  /**
+   * <p>The data submitted by the user.</p>
+   * @public
+   */
+  value?: __DocumentType | undefined;
+
+  /**
+   * <p>The unique identifier of the submission.</p>
+   * @public
+   */
+  submissionId?: string | undefined;
+
+  /**
+   * <p>The date and time when the card is submitted.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
+}
 
 /**
  * <p>The current status and value of a card in an active Amazon Q App session.</p>
@@ -864,6 +1022,45 @@ export interface CardStatus {
    * @public
    */
   currentValue: string | undefined;
+
+  /**
+   * <p>A list of previous submissions, if the card is a form card.</p>
+   * @public
+   */
+  submissions?: Submission[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SubmissionMutationKind = {
+  add: "add",
+  delete: "delete",
+  edit: "edit",
+} as const;
+
+/**
+ * @public
+ */
+export type SubmissionMutationKind = (typeof SubmissionMutationKind)[keyof typeof SubmissionMutationKind];
+
+/**
+ * <p>Represents an action performed on a submission.</p>
+ * @public
+ */
+export interface SubmissionMutation {
+  /**
+   * <p>The unique identifier of the submission.</p>
+   * @public
+   */
+  submissionId: string | undefined;
+
+  /**
+   * <p>The operation that is performed on a submission.</p>
+   * @public
+   */
+  mutationType: SubmissionMutationKind | undefined;
 }
 
 /**
@@ -882,6 +1079,13 @@ export interface CardValue {
    * @public
    */
   value: string | undefined;
+
+  /**
+   * <p>The structure that describes how the current form card value is mutated.
+   *       Only applies for form cards when multiple responses are allowed.</p>
+   * @public
+   */
+  submissionMutation?: SubmissionMutation | undefined;
 }
 
 /**
@@ -1065,6 +1269,96 @@ export interface CreateLibraryItemOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const DocumentScope = {
+  APPLICATION: "APPLICATION",
+  SESSION: "SESSION",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentScope = (typeof DocumentScope)[keyof typeof DocumentScope];
+
+/**
+ * @public
+ */
+export interface CreatePresignedUrlInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the card the file is associated with.</p>
+   * @public
+   */
+  cardId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Q App the file is associated with.</p>
+   * @public
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The Base64-encoded SHA-256 digest of the contents of the file to be uploaded.</p>
+   * @public
+   */
+  fileContentsSha256: string | undefined;
+
+  /**
+   * <p>The name of the file to be uploaded.</p>
+   * @public
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>Whether the file is associated with a Q App definition or a specific Q App session.</p>
+   * @public
+   */
+  scope: DocumentScope | undefined;
+
+  /**
+   * <p>The unique identifier of the Q App session the file is associated with, if applicable.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePresignedUrlOutput {
+  /**
+   * <p>The unique identifier assigned to the file to be uploaded.</p>
+   * @public
+   */
+  fileId: string | undefined;
+
+  /**
+   * <p>The URL for a presigned S3 POST operation used to upload a file.</p>
+   * @public
+   */
+  presignedUrl: string | undefined;
+
+  /**
+   * <p>The form fields to include in the presigned S3 POST operation used to upload a file.</p>
+   * @public
+   */
+  presignedUrlFields: Record<string, string> | undefined;
+
+  /**
+   * <p>The date and time that the presigned URL will expire in ISO 8601 format.</p>
+   * @public
+   */
+  presignedUrlExpiration: Date | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateQAppOutput {
   /**
@@ -1177,6 +1471,102 @@ export interface DeleteQAppInput {
 /**
  * @public
  */
+export interface DescribeQAppPermissionsInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q App for which to retrieve permissions.</p>
+   * @public
+   */
+  appId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UserType = {
+  OWNER: "owner",
+  USER: "user",
+} as const;
+
+/**
+ * @public
+ */
+export type UserType = (typeof UserType)[keyof typeof UserType];
+
+/**
+ * <p>The principal for which the permission applies.</p>
+ * @public
+ */
+export interface PrincipalOutput {
+  /**
+   * <p>The unique identifier of the user.</p>
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * <p>The type of the user.</p>
+   * @public
+   */
+  userType?: UserType | undefined;
+
+  /**
+   * <p>The email address associated with the user.</p>
+   * @public
+   */
+  email?: string | undefined;
+}
+
+/**
+ * <p>The permission granted to the Amazon Q App.</p>
+ * @public
+ */
+export interface PermissionOutput {
+  /**
+   * <p>The action associated with the permission.</p>
+   * @public
+   */
+  action: Action | undefined;
+
+  /**
+   * <p>The principal user to which the permission applies.</p>
+   * @public
+   */
+  principal: PrincipalOutput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQAppPermissionsOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q App for which permissions are returned.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q App for which permissions are returned.</p>
+   * @public
+   */
+  appId?: string | undefined;
+
+  /**
+   * <p>The list of permissions granted for the Amazon Q App.</p>
+   * @public
+   */
+  permissions?: PermissionOutput[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DisassociateLibraryItemReviewInput {
   /**
    * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
@@ -1210,17 +1600,43 @@ export interface DisassociateQAppFromUserInput {
 
 /**
  * @public
- * @enum
  */
-export const DocumentScope = {
-  APPLICATION: "APPLICATION",
-  SESSION: "SESSION",
-} as const;
+export interface ExportQAppSessionDataInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Q App data collection session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
 
 /**
  * @public
  */
-export type DocumentScope = (typeof DocumentScope)[keyof typeof DocumentScope];
+export interface ExportQAppSessionDataOutput {
+  /**
+   * <p>The link where the exported Q App session data can be downloaded from.</p>
+   * @public
+   */
+  csvFileLink: string | undefined;
+
+  /**
+   * <p>The date and time when the link for the exported Q App session data expires.</p>
+   * @public
+   */
+  expiresAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Q App data collection session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+}
 
 /**
  * @public
@@ -1343,6 +1759,12 @@ export interface GetQAppInput {
    * @public
    */
   appId: string | undefined;
+
+  /**
+   * <p>The version of the Q App.</p>
+   * @public
+   */
+  appVersion?: number | undefined;
 }
 
 /**
@@ -1379,6 +1801,24 @@ export interface GetQAppSessionOutput {
   sessionArn: string | undefined;
 
   /**
+   * <p>The name of the Q App session.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
+
+  /**
+   * <p>The version of the Q App used for the session.</p>
+   * @public
+   */
+  appVersion?: number | undefined;
+
+  /**
+   * <p>The latest published version of the Q App used for the session.</p>
+   * @public
+   */
+  latestPublishedAppVersion?: number | undefined;
+
+  /**
    * <p>The current status of the Q App session.</p>
    * @public
    */
@@ -1389,6 +1829,88 @@ export interface GetQAppSessionOutput {
    * @public
    */
   cardStatus: Record<string, CardStatus> | undefined;
+
+  /**
+   * <p>Indicates whether the current user is the owner of the Q App data collection session.</p>
+   * @public
+   */
+  userIsHost?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQAppSessionMetadataInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Q App session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * <p>The sharing configuration of an Amazon Q App data collection session.</p>
+ * @public
+ */
+export interface SessionSharingConfiguration {
+  /**
+   * <p>Indicates whether an Q App session is shareable with other users.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>Indicates whether an Q App session can accept responses from users.</p>
+   * @public
+   */
+  acceptResponses?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether collected responses for an Q App session are revealed for all users.</p>
+   * @public
+   */
+  revealCards?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQAppSessionMetadataOutput {
+  /**
+   * <p>The unique identifier of the Q App session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Q App session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The name of the Q App session.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
+
+  /**
+   * <p>The sharing configuration of the Q App data collection session.</p>
+   * @public
+   */
+  sharingConfiguration: SessionSharingConfiguration | undefined;
+
+  /**
+   * <p>Indicates whether the current user is the owner of the Q App session.</p>
+   * @public
+   */
+  sessionOwner?: boolean | undefined;
 }
 
 /**
@@ -1402,7 +1924,7 @@ export interface ImportDocumentInput {
   instanceId: string | undefined;
 
   /**
-   * <p>The unique identifier of the card the file is associated with, if applicable.</p>
+   * <p>The unique identifier of the card the file is associated with.</p>
    * @public
    */
   cardId: string | undefined;
@@ -1426,7 +1948,7 @@ export interface ImportDocumentInput {
   fileName: string | undefined;
 
   /**
-   * <p>Whether the file is associated with an Q App definition or a specific Q App session.</p>
+   * <p>Whether the file is associated with a Q App definition or a specific Q App session.</p>
    * @public
    */
   scope: DocumentScope | undefined;
@@ -1714,6 +2236,101 @@ export interface ListQAppsOutput {
 /**
  * @public
  */
+export interface ListQAppSessionDataInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Q App data collection session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * <p>A user of an Amazon Q App.</p>
+ * @public
+ */
+export interface User {
+  /**
+   * <p>The unique identifier of a user.</p>
+   * @public
+   */
+  userId?: string | undefined;
+}
+
+/**
+ * <p>The response collected for a Amazon Q App session.
+ *       This container represents a single response to a Q App session.</p>
+ * @public
+ */
+export interface QAppSessionData {
+  /**
+   * <p>The card Id associated with the response submitted for a Q App session.</p>
+   * @public
+   */
+  cardId: string | undefined;
+
+  /**
+   * <p>The response submitted for a Q App session.</p>
+   * @public
+   */
+  value?: __DocumentType | undefined;
+
+  /**
+   * <p>The user who submitted the response for a Q App session.</p>
+   * @public
+   */
+  user: User | undefined;
+
+  /**
+   * <p>The unique identifier of the submission.</p>
+   * @public
+   */
+  submissionId?: string | undefined;
+
+  /**
+   * <p>The date and time when the session data is submitted.</p>
+   * @public
+   */
+  timestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListQAppSessionDataOutput {
+  /**
+   * <p>The unique identifier of the Q App data collection session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Q App data collection session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The collected responses of a Q App session.</p>
+   * @public
+   */
+  sessionData?: QAppSessionData[] | undefined;
+
+  /**
+   * <p> The pagination token that indicates the next set of results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose tags should be listed.</p>
@@ -1731,6 +2348,24 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The permission to grant or revoke for a Amazon Q App.</p>
+ * @public
+ */
+export interface PermissionInput {
+  /**
+   * <p>The action associated with the permission.</p>
+   * @public
+   */
+  action: Action | undefined;
+
+  /**
+   * <p>The principal user to which the permission applies.</p>
+   * @public
+   */
+  principal: string | undefined;
 }
 
 /**
@@ -1834,6 +2469,12 @@ export interface StartQAppSessionInput {
   initialValues?: CardValue[] | undefined;
 
   /**
+   * <p>The unique identifier of the a Q App session.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
    * <p>Optional tags to associate with the new Q App session.</p>
    * @public
    */
@@ -1845,7 +2486,7 @@ export interface StartQAppSessionInput {
  */
 export interface StartQAppSessionOutput {
   /**
-   * <p>The unique identifier of the new Q App session.</p>
+   * <p>The unique identifier of the new or retrieved Q App session.</p>
    * @public
    */
   sessionId: string | undefined;
@@ -2133,6 +2774,58 @@ export interface UpdateQAppOutput {
 /**
  * @public
  */
+export interface UpdateQAppPermissionsInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q App for which permissions are being updated.</p>
+   * @public
+   */
+  appId: string | undefined;
+
+  /**
+   * <p>The list of permissions to grant for the Amazon Q App.</p>
+   * @public
+   */
+  grantPermissions?: PermissionInput[] | undefined;
+
+  /**
+   * <p>The list of permissions to revoke for the Amazon Q App.</p>
+   * @public
+   */
+  revokePermissions?: PermissionInput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQAppPermissionsOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Q App for which permissions were updated.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Amazon Q App for which permissions were updated.</p>
+   * @public
+   */
+  appId?: string | undefined;
+
+  /**
+   * <p>The updated list of permissions for the Amazon Q App.</p>
+   * @public
+   */
+  permissions?: PermissionOutput[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateQAppSessionInput {
   /**
    * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
@@ -2168,6 +2861,64 @@ export interface UpdateQAppSessionOutput {
    * @public
    */
   sessionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQAppSessionMetadataInput {
+  /**
+   * <p>The unique identifier of the Amazon Q Business application environment instance.</p>
+   * @public
+   */
+  instanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Q App session to update configuration for.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The new name for the Q App session.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
+
+  /**
+   * <p>The new sharing configuration for the Q App data collection session.</p>
+   * @public
+   */
+  sharingConfiguration: SessionSharingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateQAppSessionMetadataOutput {
+  /**
+   * <p>The unique identifier of the updated Q App session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated Q App session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The new name of the updated Q App session.</p>
+   * @public
+   */
+  sessionName?: string | undefined;
+
+  /**
+   * <p>The new sharing configuration of the updated Q App data collection session.</p>
+   * @public
+   */
+  sharingConfiguration: SessionSharingConfiguration | undefined;
 }
 
 /**
@@ -2298,6 +3049,12 @@ export interface QQueryCard {
    * @public
    */
   attributeFilter?: AttributeFilter | undefined;
+
+  /**
+   * <p>Any dependencies for the query card, where the dependencies are references to the collected responses.</p>
+   * @public
+   */
+  memoryReferences?: string[] | undefined;
 }
 
 /**
@@ -2348,6 +3105,7 @@ export interface QQueryCardInput {
  */
 export type Card =
   | Card.FileUploadMember
+  | Card.FormInputMember
   | Card.QPluginMember
   | Card.QQueryMember
   | Card.TextInputMember
@@ -2366,6 +3124,7 @@ export namespace Card {
     qQuery?: never;
     qPlugin?: never;
     fileUpload?: never;
+    formInput?: never;
     $unknown?: never;
   }
 
@@ -2378,6 +3137,7 @@ export namespace Card {
     qQuery: QQueryCard;
     qPlugin?: never;
     fileUpload?: never;
+    formInput?: never;
     $unknown?: never;
   }
 
@@ -2390,6 +3150,7 @@ export namespace Card {
     qQuery?: never;
     qPlugin: QPluginCard;
     fileUpload?: never;
+    formInput?: never;
     $unknown?: never;
   }
 
@@ -2402,6 +3163,20 @@ export namespace Card {
     qQuery?: never;
     qPlugin?: never;
     fileUpload: FileUploadCard;
+    formInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A container for the properties of the form input card.</p>
+   * @public
+   */
+  export interface FormInputMember {
+    textInput?: never;
+    qQuery?: never;
+    qPlugin?: never;
+    fileUpload?: never;
+    formInput: FormInputCard;
     $unknown?: never;
   }
 
@@ -2413,6 +3188,7 @@ export namespace Card {
     qQuery?: never;
     qPlugin?: never;
     fileUpload?: never;
+    formInput?: never;
     $unknown: [string, any];
   }
 
@@ -2421,6 +3197,7 @@ export namespace Card {
     qQuery: (value: QQueryCard) => T;
     qPlugin: (value: QPluginCard) => T;
     fileUpload: (value: FileUploadCard) => T;
+    formInput: (value: FormInputCard) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2429,6 +3206,7 @@ export namespace Card {
     if (value.qQuery !== undefined) return visitor.qQuery(value.qQuery);
     if (value.qPlugin !== undefined) return visitor.qPlugin(value.qPlugin);
     if (value.fileUpload !== undefined) return visitor.fileUpload(value.fileUpload);
+    if (value.formInput !== undefined) return visitor.formInput(value.formInput);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2439,6 +3217,7 @@ export namespace Card {
  */
 export type CardInput =
   | CardInput.FileUploadMember
+  | CardInput.FormInputMember
   | CardInput.QPluginMember
   | CardInput.QQueryMember
   | CardInput.TextInputMember
@@ -2457,6 +3236,7 @@ export namespace CardInput {
     qQuery?: never;
     qPlugin?: never;
     fileUpload?: never;
+    formInput?: never;
     $unknown?: never;
   }
 
@@ -2469,6 +3249,7 @@ export namespace CardInput {
     qQuery: QQueryCardInput;
     qPlugin?: never;
     fileUpload?: never;
+    formInput?: never;
     $unknown?: never;
   }
 
@@ -2481,6 +3262,7 @@ export namespace CardInput {
     qQuery?: never;
     qPlugin: QPluginCardInput;
     fileUpload?: never;
+    formInput?: never;
     $unknown?: never;
   }
 
@@ -2493,6 +3275,20 @@ export namespace CardInput {
     qQuery?: never;
     qPlugin?: never;
     fileUpload: FileUploadCardInput;
+    formInput?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A container for the properties of the form input card.</p>
+   * @public
+   */
+  export interface FormInputMember {
+    textInput?: never;
+    qQuery?: never;
+    qPlugin?: never;
+    fileUpload?: never;
+    formInput: FormInputCardInput;
     $unknown?: never;
   }
 
@@ -2504,6 +3300,7 @@ export namespace CardInput {
     qQuery?: never;
     qPlugin?: never;
     fileUpload?: never;
+    formInput?: never;
     $unknown: [string, any];
   }
 
@@ -2512,6 +3309,7 @@ export namespace CardInput {
     qQuery: (value: QQueryCardInput) => T;
     qPlugin: (value: QPluginCardInput) => T;
     fileUpload: (value: FileUploadCardInput) => T;
+    formInput: (value: FormInputCardInput) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2520,6 +3318,7 @@ export namespace CardInput {
     if (value.qQuery !== undefined) return visitor.qQuery(value.qQuery);
     if (value.qPlugin !== undefined) return visitor.qPlugin(value.qPlugin);
     if (value.fileUpload !== undefined) return visitor.fileUpload(value.fileUpload);
+    if (value.formInput !== undefined) return visitor.formInput(value.formInput);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

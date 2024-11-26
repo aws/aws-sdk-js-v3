@@ -38,6 +38,7 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * const input = { // GetQAppInput
  *   instanceId: "STRING_VALUE", // required
  *   appId: "STRING_VALUE", // required
+ *   appVersion: Number("int"),
  * };
  * const command = new GetQAppCommand(input);
  * const response = await client.send(command);
@@ -66,7 +67,7 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * //           dependencies: [ // DependencyList // required
  * //             "STRING_VALUE",
  * //           ],
- * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //           placeholder: "STRING_VALUE",
  * //           defaultValue: "STRING_VALUE",
  * //         },
@@ -76,7 +77,7 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * //           dependencies: [ // required
  * //             "STRING_VALUE",
  * //           ],
- * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //           prompt: "STRING_VALUE", // required
  * //           outputSource: "approved-sources" || "llm", // required
  * //           attributeFilter: { // AttributeFilter
@@ -160,6 +161,9 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * //             lessThan: "<DocumentAttribute>",
  * //             lessThanOrEquals: "<DocumentAttribute>",
  * //           },
+ * //           memoryReferences: [ // MemoryReferenceList
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //         qPlugin: { // QPluginCard
  * //           id: "STRING_VALUE", // required
@@ -167,7 +171,7 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * //           dependencies: [ // required
  * //             "STRING_VALUE",
  * //           ],
- * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //           prompt: "STRING_VALUE", // required
  * //           pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM", // required
  * //           pluginId: "STRING_VALUE", // required
@@ -178,10 +182,22 @@ export interface GetQAppCommandOutput extends GetQAppOutput, __MetadataBearer {}
  * //           dependencies: [ // required
  * //             "STRING_VALUE",
  * //           ],
- * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //           filename: "STRING_VALUE",
  * //           fileId: "STRING_VALUE",
  * //           allowOverride: true || false,
+ * //         },
+ * //         formInput: { // FormInputCard
+ * //           id: "STRING_VALUE", // required
+ * //           title: "STRING_VALUE", // required
+ * //           dependencies: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
+ * //           metadata: { // FormInputCardMetadata
+ * //             schema: "DOCUMENT_VALUE", // required
+ * //           },
+ * //           computeMode: "append" || "replace",
  * //         },
  * //       },
  * //     ],

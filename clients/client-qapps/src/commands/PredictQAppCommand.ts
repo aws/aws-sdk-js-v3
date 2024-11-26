@@ -62,14 +62,14 @@ export interface PredictQAppCommandOutput extends PredictQAppOutput, __MetadataB
  * //           textInput: { // TextInputCardInput
  * //             title: "STRING_VALUE", // required
  * //             id: "STRING_VALUE", // required
- * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //             placeholder: "STRING_VALUE",
  * //             defaultValue: "STRING_VALUE",
  * //           },
  * //           qQuery: { // QQueryCardInput
  * //             title: "STRING_VALUE", // required
  * //             id: "STRING_VALUE", // required
- * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //             prompt: "STRING_VALUE", // required
  * //             outputSource: "approved-sources" || "llm",
  * //             attributeFilter: { // AttributeFilter
@@ -157,17 +157,26 @@ export interface PredictQAppCommandOutput extends PredictQAppOutput, __MetadataB
  * //           qPlugin: { // QPluginCardInput
  * //             title: "STRING_VALUE", // required
  * //             id: "STRING_VALUE", // required
- * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //             prompt: "STRING_VALUE", // required
  * //             pluginId: "STRING_VALUE", // required
  * //           },
  * //           fileUpload: { // FileUploadCardInput
  * //             title: "STRING_VALUE", // required
  * //             id: "STRING_VALUE", // required
- * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin", // required
+ * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
  * //             filename: "STRING_VALUE",
  * //             fileId: "STRING_VALUE",
  * //             allowOverride: true || false,
+ * //           },
+ * //           formInput: { // FormInputCardInput
+ * //             title: "STRING_VALUE", // required
+ * //             id: "STRING_VALUE", // required
+ * //             type: "text-input" || "q-query" || "file-upload" || "q-plugin" || "form-input", // required
+ * //             metadata: { // FormInputCardMetadata
+ * //               schema: "DOCUMENT_VALUE", // required
+ * //             },
+ * //             computeMode: "append" || "replace",
  * //           },
  * //         },
  * //       ],
