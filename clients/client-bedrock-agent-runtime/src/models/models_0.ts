@@ -1877,6 +1877,30 @@ export namespace InvocationResultMember {
 }
 
 /**
+ * <p>
+ *             Configurations for streaming.
+ *         </p>
+ * @public
+ */
+export interface StreamingConfigurations {
+  /**
+   * <p>
+   *             Specifies whether to enable streaming for the final response. This is set to <code>false</code> by default.
+   *         </p>
+   * @public
+   */
+  streamFinalResponse?: boolean | undefined;
+
+  /**
+   * <p>
+   *             The guardrail interval to apply as response is generated.
+   *         </p>
+   * @public
+   */
+  applyGuardrailInterval?: number | undefined;
+}
+
+/**
  * <p>Contains information about where the text with a citation begins and ends in the generated output.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -2532,6 +2556,46 @@ export interface ReturnControlPayload {
    * @public
    */
   invocationId?: string | undefined;
+}
+
+/**
+ * <p>
+ *            The event in the custom orchestration sequence.
+ *         </p>
+ * @public
+ */
+export interface CustomOrchestrationTraceEvent {
+  /**
+   * <p>
+   *             The text that prompted the event at this step.
+   *         </p>
+   * @public
+   */
+  text?: string | undefined;
+}
+
+/**
+ * <p>
+ *             The trace behavior for the custom orchestration.
+ *         </p>
+ * @public
+ */
+export interface CustomOrchestrationTrace {
+  /**
+   * <p>
+   *             The unique identifier of the trace.
+   *         </p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>
+   *             The trace event details used with the custom orchestration.
+   *         </p>
+   * @public
+   */
+  event?: CustomOrchestrationTraceEvent | undefined;
 }
 
 /**
@@ -3819,6 +3883,7 @@ export namespace PreProcessingTrace {
  * @public
  */
 export type Trace =
+  | Trace.CustomOrchestrationTraceMember
   | Trace.FailureTraceMember
   | Trace.GuardrailTraceMember
   | Trace.OrchestrationTraceMember
@@ -3840,6 +3905,7 @@ export namespace Trace {
     orchestrationTrace?: never;
     postProcessingTrace?: never;
     failureTrace?: never;
+    customOrchestrationTrace?: never;
     $unknown?: never;
   }
 
@@ -3853,6 +3919,7 @@ export namespace Trace {
     orchestrationTrace?: never;
     postProcessingTrace?: never;
     failureTrace?: never;
+    customOrchestrationTrace?: never;
     $unknown?: never;
   }
 
@@ -3866,6 +3933,7 @@ export namespace Trace {
     orchestrationTrace: OrchestrationTrace;
     postProcessingTrace?: never;
     failureTrace?: never;
+    customOrchestrationTrace?: never;
     $unknown?: never;
   }
 
@@ -3879,6 +3947,7 @@ export namespace Trace {
     orchestrationTrace?: never;
     postProcessingTrace: PostProcessingTrace;
     failureTrace?: never;
+    customOrchestrationTrace?: never;
     $unknown?: never;
   }
 
@@ -3892,6 +3961,23 @@ export namespace Trace {
     orchestrationTrace?: never;
     postProcessingTrace?: never;
     failureTrace: FailureTrace;
+    customOrchestrationTrace?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>
+   *             Details about the custom orchestration step in which the agent determines the order in which actions are executed.
+   *         </p>
+   * @public
+   */
+  export interface CustomOrchestrationTraceMember {
+    guardrailTrace?: never;
+    preProcessingTrace?: never;
+    orchestrationTrace?: never;
+    postProcessingTrace?: never;
+    failureTrace?: never;
+    customOrchestrationTrace: CustomOrchestrationTrace;
     $unknown?: never;
   }
 
@@ -3904,6 +3990,7 @@ export namespace Trace {
     orchestrationTrace?: never;
     postProcessingTrace?: never;
     failureTrace?: never;
+    customOrchestrationTrace?: never;
     $unknown: [string, any];
   }
 
@@ -3913,6 +4000,7 @@ export namespace Trace {
     orchestrationTrace: (value: OrchestrationTrace) => T;
     postProcessingTrace: (value: PostProcessingTrace) => T;
     failureTrace: (value: FailureTrace) => T;
+    customOrchestrationTrace: (value: CustomOrchestrationTrace) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3922,6 +4010,8 @@ export namespace Trace {
     if (value.orchestrationTrace !== undefined) return visitor.orchestrationTrace(value.orchestrationTrace);
     if (value.postProcessingTrace !== undefined) return visitor.postProcessingTrace(value.postProcessingTrace);
     if (value.failureTrace !== undefined) return visitor.failureTrace(value.failureTrace);
+    if (value.customOrchestrationTrace !== undefined)
+      return visitor.customOrchestrationTrace(value.customOrchestrationTrace);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -6893,6 +6983,14 @@ export interface InvokeAgentRequest {
    * @public
    */
   memoryId?: string | undefined;
+
+  /**
+   * <p>
+   *            Specifies the configurations for streaming.
+   *         </p>
+   * @public
+   */
+  streamingConfigurations?: StreamingConfigurations | undefined;
 }
 
 /**
@@ -7249,6 +7347,21 @@ export const ReturnControlPayloadFilterSensitiveLog = (obj: ReturnControlPayload
 /**
  * @internal
  */
+export const CustomOrchestrationTraceEventFilterSensitiveLog = (obj: CustomOrchestrationTraceEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomOrchestrationTraceFilterSensitiveLog = (obj: CustomOrchestrationTrace): any => ({
+  ...obj,
+  ...(obj.event && { event: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const FailureTraceFilterSensitiveLog = (obj: FailureTrace): any => ({
   ...obj,
   ...(obj.failureReason && { failureReason: SENSITIVE_STRING }),
@@ -7539,6 +7652,7 @@ export const TraceFilterSensitiveLog = (obj: Trace): any => {
   if (obj.orchestrationTrace !== undefined) return { orchestrationTrace: SENSITIVE_STRING };
   if (obj.postProcessingTrace !== undefined) return { postProcessingTrace: SENSITIVE_STRING };
   if (obj.failureTrace !== undefined) return { failureTrace: SENSITIVE_STRING };
+  if (obj.customOrchestrationTrace !== undefined) return { customOrchestrationTrace: SENSITIVE_STRING };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

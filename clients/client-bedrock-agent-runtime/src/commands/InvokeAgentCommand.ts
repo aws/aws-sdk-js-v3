@@ -200,6 +200,10 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *   enableTrace: true || false,
  *   inputText: "STRING_VALUE",
  *   memoryId: "STRING_VALUE",
+ *   streamingConfigurations: { // StreamingConfigurations
+ *     streamFinalResponse: true || false,
+ *     applyGuardrailInterval: Number("int"),
+ *   },
  * };
  * const command = new InvokeAgentCommand(input);
  * const response = await client.send(command);
@@ -565,6 +569,12 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //         failureTrace: { // FailureTrace
  * //           traceId: "STRING_VALUE",
  * //           failureReason: "STRING_VALUE",
+ * //         },
+ * //         customOrchestrationTrace: { // CustomOrchestrationTrace
+ * //           traceId: "STRING_VALUE",
+ * //           event: { // CustomOrchestrationTraceEvent
+ * //             text: "STRING_VALUE",
+ * //           },
  * //         },
  * //       },
  * //       agentId: "STRING_VALUE",

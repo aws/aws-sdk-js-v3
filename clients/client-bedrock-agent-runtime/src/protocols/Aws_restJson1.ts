@@ -137,6 +137,7 @@ import {
   S3ObjectFile,
   ServiceQuotaExceededException,
   SessionState,
+  StreamingConfigurations,
   TextInferenceConfig,
   TextPrompt,
   ThrottlingException,
@@ -211,6 +212,7 @@ export const se_InvokeAgentCommand = async (
       inputText: [],
       memoryId: [],
       sessionState: (_) => se_SessionState(_, context),
+      streamingConfigurations: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1663,6 +1665,8 @@ const se_SessionState = (input: SessionState, context: __SerdeContext): any => {
 
 // se_StopSequences omitted.
 
+// se_StreamingConfigurations omitted.
+
 /**
  * serializeAws_restJson1TextInferenceConfig
  */
@@ -1736,6 +1740,10 @@ const de_Citations = (output: any, context: __SerdeContext): Citation[] => {
 // de_CodeInterpreterInvocationOutput omitted.
 
 // de_ContentMap omitted.
+
+// de_CustomOrchestrationTrace omitted.
+
+// de_CustomOrchestrationTraceEvent omitted.
 
 // de_FailureTrace omitted.
 
@@ -2318,6 +2326,11 @@ const de_RetrievedReferences = (output: any, context: __SerdeContext): Retrieved
  * deserializeAws_restJson1Trace
  */
 const de_Trace = (output: any, context: __SerdeContext): Trace => {
+  if (output.customOrchestrationTrace != null) {
+    return {
+      customOrchestrationTrace: _json(output.customOrchestrationTrace),
+    };
+  }
   if (output.failureTrace != null) {
     return {
       failureTrace: _json(output.failureTrace),

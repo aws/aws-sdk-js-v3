@@ -620,6 +620,12 @@ export interface InvokeInlineAgentCommandOutput extends InvokeInlineAgentRespons
  * //           traceId: "STRING_VALUE",
  * //           failureReason: "STRING_VALUE",
  * //         },
+ * //         customOrchestrationTrace: { // CustomOrchestrationTrace
+ * //           traceId: "STRING_VALUE",
+ * //           event: { // CustomOrchestrationTraceEvent
+ * //             text: "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //     },
  * //     returnControl: { // InlineAgentReturnControlPayload
