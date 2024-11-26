@@ -73,6 +73,7 @@ export interface DescribeVpcEndpointConnectionNotificationsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       ConnectionNotificationState: "Enabled" || "Disabled",
+ * //       ServiceRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

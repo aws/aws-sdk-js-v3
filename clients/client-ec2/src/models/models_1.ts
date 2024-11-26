@@ -3672,6 +3672,9 @@ export interface InstanceRequirementsRequest {
    *             <li>
    *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>For instance types with Apple CPUs, specify <code>apple</code>.</p>
+   *             </li>
    *          </ul>
    *          <note>
    *             <p>Don't confuse the CPU manufacturer with the CPU architecture. Instances will
@@ -4963,9 +4966,9 @@ export interface PerformanceFactorReference {
    *             <p>Ensure that you specify the correct value for the instance family. The instance
    *             family is everything before the period (<code>.</code>) in the instance type name. For
    *             example, in the instance type <code>c6i.large</code>, the instance family is
-   *                <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
+   *             <code>c6i</code>, not <code>c6</code>. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-type-names.html">Amazon EC2
    *                instance type naming conventions</a> in <i>Amazon EC2 Instance
-   *             Types</i>.</p>
+   *                   Types</i>.</p>
    *          </note>
    *          <p>The following instance families are <i>not supported</i> for performance
    *          protection:</p>
@@ -5248,6 +5251,9 @@ export interface InstanceRequirements {
    *             </li>
    *             <li>
    *                <p>For instance types with Amazon Web Services CPUs, specify <code>amazon-web-services</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Apple CPUs, specify <code>apple</code>.</p>
    *             </li>
    *          </ul>
    *          <note>
@@ -8715,9 +8721,15 @@ export interface LaunchTemplateCapacityReservationSpecificationRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>capacity-reservations-only</code> - The instance will only run in a
+   *                     Capacity Reservation or Capacity Reservation group. If capacity isn't available,
+   *                     the instance will fail to launch.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>open</code> - The instance can run in any <code>open</code> Capacity
    *                     Reservation that has matching attributes (instance type, platform, Availability
-   *                     Zone).</p>
+   *                     Zone, tenancy).</p>
    *             </li>
    *             <li>
    *                <p>

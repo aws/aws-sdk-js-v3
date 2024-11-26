@@ -8338,6 +8338,17 @@ export interface CopySnapshotRequest {
   TagSpecifications?: TagSpecification[] | undefined;
 
   /**
+   * <p>Specify a completion duration, in 15 minute increments, to initiate a time-based snapshot
+   *       copy. Time-based snapshot copy operations complete within the specified duration. For more
+   *       information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/time-based-copies.html">
+   *         Time-based copies</a>.</p>
+   *          <p>If you do not specify a value, the snapshot copy operation is completed on a
+   *       best-effort basis.</p>
+   * @public
+   */
+  CompletionDurationMinutes?: number | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>

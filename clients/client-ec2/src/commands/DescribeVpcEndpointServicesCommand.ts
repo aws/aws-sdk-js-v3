@@ -57,6 +57,9 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   ServiceRegions: [
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DescribeVpcEndpointServicesCommand(input);
  * const response = await client.send(command);
@@ -73,6 +76,7 @@ export interface DescribeVpcEndpointServicesCommandOutput extends DescribeVpcEnd
  * //           ServiceType: "Interface" || "Gateway" || "GatewayLoadBalancer",
  * //         },
  * //       ],
+ * //       ServiceRegion: "STRING_VALUE",
  * //       AvailabilityZones: [
  * //         "STRING_VALUE",
  * //       ],

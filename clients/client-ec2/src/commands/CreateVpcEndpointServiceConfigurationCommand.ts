@@ -73,6 +73,9 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  *   SupportedIpAddressTypes: [
  *     "STRING_VALUE",
  *   ],
+ *   SupportedRegions: [
+ *     "STRING_VALUE",
+ *   ],
  *   ClientToken: "STRING_VALUE",
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
@@ -129,6 +132,13 @@ export interface CreateVpcEndpointServiceConfigurationCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SupportedRegions: [ // SupportedRegionSet
+ * //       { // SupportedRegionDetail
+ * //         Region: "STRING_VALUE",
+ * //         ServiceState: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     RemoteAccessEnabled: true || false,
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };

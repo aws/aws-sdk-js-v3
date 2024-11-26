@@ -84,6 +84,7 @@ export interface DescribeVpcEndpointConnectionsCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       VpcEndpointRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

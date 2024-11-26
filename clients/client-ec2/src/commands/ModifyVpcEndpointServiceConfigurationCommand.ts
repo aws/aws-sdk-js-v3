@@ -37,10 +37,7 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Modifies the attributes of your VPC endpoint service configuration. You can change the
- *             Network Load Balancers or Gateway Load Balancers for your service, and you can specify whether acceptance is
- *             required for requests to connect to your endpoint service through an interface VPC
- *             endpoint.</p>
+ * <p>Modifies the attributes of the specified VPC endpoint service configuration.</p>
  *          <p>If you set or modify the private DNS name, you must prove that you own the private DNS
  *             domain name.</p>
  * @example
@@ -71,6 +68,8 @@ export interface ModifyVpcEndpointServiceConfigurationCommandOutput
  *     "STRING_VALUE",
  *   ],
  *   RemoveSupportedIpAddressTypes: "<ValueStringList>",
+ *   AddSupportedRegions: "<ValueStringList>",
+ *   RemoveSupportedRegions: "<ValueStringList>",
  * };
  * const command = new ModifyVpcEndpointServiceConfigurationCommand(input);
  * const response = await client.send(command);

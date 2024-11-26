@@ -2827,8 +2827,6 @@ import {
   DeleteFleetsResult,
   DeleteFleetSuccessItem,
   DeleteFlowLogsRequest,
-  DeleteFlowLogsResult,
-  DeleteFpgaImageRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2888,6 +2886,7 @@ import {
   SpotInstanceStateFault,
   SubnetCidrReservation,
   SubnetConfiguration,
+  SupportedRegionDetail,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
   TrafficMirrorNetworkService,
@@ -2958,6 +2957,8 @@ import {
   ClientVpnRoute,
   ConnectionLogResponseOptions,
   ConversionTask,
+  DeleteFlowLogsResult,
+  DeleteFpgaImageRequest,
   DeleteFpgaImageResult,
   DeleteInstanceConnectEndpointRequest,
   DeleteInstanceConnectEndpointResult,
@@ -3196,7 +3197,6 @@ import {
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
   IpamPoolCidrFailureReason,
-  LoadPermission,
   OnDemandOptions,
   ResponseError,
   SpotOptions,
@@ -3342,7 +3342,6 @@ import {
   DescribeReservedInstancesResult,
   DescribeRouteTablesRequest,
   DescribeRouteTablesResult,
-  DescribeScheduledInstanceAvailabilityRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3406,6 +3405,7 @@ import {
   KeyPairInfo,
   LaunchPermission,
   LicenseConfiguration,
+  LoadPermission,
   LocalGateway,
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
@@ -3448,7 +3448,6 @@ import {
   ReservedInstancesModificationResult,
   ReservedInstancesOffering,
   RootDeviceType,
-  ScheduledInstanceRecurrence,
   ScheduledInstanceRecurrenceRequest,
   SlotDateTimeRangeRequest,
   SnapshotDetail,
@@ -3464,6 +3463,7 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeScheduledInstanceAvailabilityRequest,
   DescribeScheduledInstanceAvailabilityResult,
   DescribeScheduledInstancesRequest,
   DescribeScheduledInstancesResult,
@@ -3684,8 +3684,6 @@ import {
   EnableSerialConsoleAccessResult,
   EnableSnapshotBlockPublicAccessRequest,
   EnableSnapshotBlockPublicAccessResult,
-  EnableTransitGatewayRouteTablePropagationRequest,
-  EnableTransitGatewayRouteTablePropagationResult,
   FastLaunchLaunchTemplateSpecificationRequest,
   FastLaunchSnapshotConfigurationRequest,
   HistoryRecord,
@@ -3699,6 +3697,7 @@ import {
   RunInstancesMonitoringEnabled,
   ScheduledInstance,
   ScheduledInstanceAvailability,
+  ScheduledInstanceRecurrence,
   SecurityGroup,
   SecurityGroupReference,
   SecurityGroupVpcAssociation,
@@ -3758,6 +3757,8 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  EnableTransitGatewayRouteTablePropagationRequest,
+  EnableTransitGatewayRouteTablePropagationResult,
   EnableVgwRoutePropagationRequest,
   EnableVolumeIORequest,
   EnableVpcClassicLinkDnsSupportRequest,
@@ -3985,8 +3986,6 @@ import {
   ModifySnapshotTierRequest,
   ModifySnapshotTierResult,
   ModifySpotFleetRequestRequest,
-  ModifySpotFleetRequestResponse,
-  ModifySubnetAttributeRequest,
   NetworkInterfaceAttachmentChanges,
   PrefixListAssociation,
   PrefixListEntry,
@@ -4034,6 +4033,8 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifySpotFleetRequestResponse,
+  ModifySubnetAttributeRequest,
   ModifyTrafficMirrorFilterNetworkServicesRequest,
   ModifyTrafficMirrorFilterNetworkServicesResult,
   ModifyTrafficMirrorFilterRuleRequest,
@@ -30502,6 +30503,9 @@ const se_CopySnapshotRequest = (input: CopySnapshotRequest, context: __SerdeCont
       entries[loc] = value;
     });
   }
+  if (input[_CDM] != null) {
+    entries[_CDM] = input[_CDM];
+  }
   if (input[_DRr] != null) {
     entries[_DRr] = input[_DRr];
   }
@@ -33806,6 +33810,9 @@ const se_CreateVpcEndpointRequest = (input: CreateVpcEndpointRequest, context: _
       entries[loc] = value;
     });
   }
+  if (input[_SRe] != null) {
+    entries[_SRe] = input[_SRe];
+  }
   return entries;
 };
 
@@ -33844,6 +33851,13 @@ const se_CreateVpcEndpointServiceConfigurationRequest = (
     const memberEntries = se_ValueStringList(input[_SIAT], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_SRu] != null) {
+    const memberEntries = se_ValueStringList(input[_SRu], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SupportedRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -40348,6 +40362,13 @@ const se_DescribeVpcEndpointServicesRequest = (
   }
   if (input[_NT] != null) {
     entries[_NT] = input[_NT];
+  }
+  if (input[_SRer] != null) {
+    const memberEntries = se_ValueStringList(input[_SRer], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ServiceRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -48973,6 +48994,20 @@ const se_ModifyVpcEndpointServiceConfigurationRequest = (
     const memberEntries = se_ValueStringList(input[_RSIAT], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `RemoveSupportedIpAddressType.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_ASR] != null) {
+    const memberEntries = se_ValueStringList(input[_ASR], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AddSupportedRegion.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_RSR] != null) {
+    const memberEntries = se_ValueStringList(input[_RSR], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `RemoveSupportedRegion.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -59156,6 +59191,9 @@ const de_ConnectionNotification = (output: any, context: __SerdeContext): Connec
   if (output[_cNS] != null) {
     contents[_CNS] = __expectString(output[_cNS]);
   }
+  if (output[_sR] != null) {
+    contents[_SRe] = __expectString(output[_sR]);
+  }
   return contents;
 };
 
@@ -68915,8 +68953,8 @@ const de_Image = (output: any, context: __SerdeContext): Image => {
   if (output[_sNSr] != null) {
     contents[_SNS] = __expectString(output[_sNSr]);
   }
-  if (output[_sR] != null) {
-    contents[_SRt] = de_StateReason(output[_sR], context);
+  if (output[_sRt] != null) {
+    contents[_SRt] = de_StateReason(output[_sRt], context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -69632,8 +69670,8 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
   if (output[_sNSr] != null) {
     contents[_SNS] = __expectString(output[_sNSr]);
   }
-  if (output[_sR] != null) {
-    contents[_SRt] = de_StateReason(output[_sR], context);
+  if (output[_sRt] != null) {
+    contents[_SRt] = de_StateReason(output[_sRt], context);
   }
   if (output.tagSet === "") {
     contents[_Ta] = [];
@@ -71468,7 +71506,7 @@ const de_IpamDiscoveredPublicAddress = (output: any, context: __SerdeContext): I
     contents[_Se] = __expectString(output[_se]);
   }
   if (output[_sRe] != null) {
-    contents[_SRe] = __expectString(output[_sRe]);
+    contents[_SRerv] = __expectString(output[_sRe]);
   }
   if (output[_vI] != null) {
     contents[_VI] = __expectString(output[_vI]);
@@ -73658,8 +73696,8 @@ const de_LocalGatewayRouteTable = (output: any, context: __SerdeContext): LocalG
   if (output[_mod] != null) {
     contents[_Mo] = __expectString(output[_mod]);
   }
-  if (output[_sR] != null) {
-    contents[_SRt] = de_StateReason(output[_sR], context);
+  if (output[_sRt] != null) {
+    contents[_SRt] = de_StateReason(output[_sRt], context);
   }
   return contents;
 };
@@ -79439,8 +79477,8 @@ const de_SecurityGroupVpcAssociation = (output: any, context: __SerdeContext): S
   if (output[_st] != null) {
     contents[_Stat] = __expectString(output[_st]);
   }
-  if (output[_sR] != null) {
-    contents[_SRt] = __expectString(output[_sR]);
+  if (output[_sRt] != null) {
+    contents[_SRt] = __expectString(output[_sRt]);
   }
   return contents;
 };
@@ -79520,6 +79558,14 @@ const de_ServiceConfiguration = (output: any, context: __SerdeContext): ServiceC
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
   }
+  if (output.supportedRegionSet === "") {
+    contents[_SRu] = [];
+  } else if (output[_sRS] != null && output[_sRS][_i] != null) {
+    contents[_SRu] = de_SupportedRegionSet(__getArrayIfSingleItem(output[_sRS][_i]), context);
+  }
+  if (output[_rAE] != null) {
+    contents[_RAE] = __parseBoolean(output[_rAE]);
+  }
   return contents;
 };
 
@@ -79549,6 +79595,9 @@ const de_ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail =
     contents[_STe] = [];
   } else if (output[_sTe] != null && output[_sTe][_i] != null) {
     contents[_STe] = de_ServiceTypeDetailSet(__getArrayIfSingleItem(output[_sTe][_i]), context);
+  }
+  if (output[_sR] != null) {
+    contents[_SRe] = __expectString(output[_sR]);
   }
   if (output.availabilityZoneSet === "") {
     contents[_AZv] = [];
@@ -79656,6 +79705,15 @@ const de_Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   }
   if (output[_sTs] != null) {
     contents[_STs] = __expectString(output[_sTs]);
+  }
+  if (output[_tTr] != null) {
+    contents[_TTr] = __expectString(output[_tTr]);
+  }
+  if (output[_cDM] != null) {
+    contents[_CDM] = __strictParseInt32(output[_cDM]) as number;
+  }
+  if (output[_cTomp] != null) {
+    contents[_CTomp] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_cTomp]));
   }
   if (output[_sIn] != null) {
     contents[_SIn] = __expectString(output[_sIn]);
@@ -81002,6 +81060,31 @@ const de_SupportedIpAddressTypes = (output: any, context: __SerdeContext): Servi
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+};
+
+/**
+ * deserializeAws_ec2SupportedRegionDetail
+ */
+const de_SupportedRegionDetail = (output: any, context: __SerdeContext): SupportedRegionDetail => {
+  const contents: any = {};
+  if (output[_reg] != null) {
+    contents[_Regi] = __expectString(output[_reg]);
+  }
+  if (output[_sSer] != null) {
+    contents[_SSe] = __expectString(output[_sSer]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2SupportedRegionSet
+ */
+const de_SupportedRegionSet = (output: any, context: __SerdeContext): SupportedRegionDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SupportedRegionDetail(entry, context);
     });
 };
 
@@ -84557,6 +84640,9 @@ const de_VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   if (output[_lEa] != null) {
     contents[_LEa] = de_LastError(output[_lEa], context);
   }
+  if (output[_sR] != null) {
+    contents[_SRe] = __expectString(output[_sR]);
+  }
   return contents;
 };
 
@@ -84605,6 +84691,9 @@ const de_VpcEndpointConnection = (output: any, context: __SerdeContext): VpcEndp
     contents[_Ta] = [];
   } else if (output[_tS] != null && output[_tS][_i] != null) {
     contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_tS][_i]), context);
+  }
+  if (output[_vER] != null) {
+    contents[_VER] = __expectString(output[_vER]);
   }
   return contents;
 };
@@ -85207,6 +85296,7 @@ const _ASGTCVTN = "ApplySecurityGroupsToClientVpnTargetNetwork";
 const _ASGV = "AssociateSecurityGroupVpc";
 const _ASI = "AddSubnetIds";
 const _ASIAT = "AddSupportedIpAddressTypes";
+const _ASR = "AddSupportedRegions";
 const _ASS = "AmdSevSnp";
 const _AST = "AnalysisStartTime";
 const _ASTB = "AnalysisStartTimeBegin";
@@ -85363,6 +85453,7 @@ const _CCp = "CpuCredits";
 const _CCu = "CurrencyCode";
 const _CD = "CommitmentDuration";
 const _CDH = "CapacityDurationHours";
+const _CDM = "CompletionDurationMinutes";
 const _CDO = "CreateDhcpOptions";
 const _CDS = "CreateDefaultSubnet";
 const _CDSDA = "ConfigDeliveryS3DestinationArn";
@@ -85545,6 +85636,7 @@ const _CTS = "ConnectionTrackingSpecification";
 const _CTl = "ClientToken";
 const _CTo = "ConnectivityType";
 const _CTom = "CompleteTime";
+const _CTomp = "CompletionTime";
 const _CTon = "ConversionTasks";
 const _CTonv = "ConversionTask";
 const _CTr = "CreateTime";
@@ -87029,6 +87121,7 @@ const _Q = "Quantity";
 const _R = "References";
 const _RA = "ReleaseAddress";
 const _RAA = "ResetAddressAttribute";
+const _RAE = "RemoteAccessEnabled";
 const _RAG = "RevokeAllGroups";
 const _RAP = "RemoveAllowedPrincipals";
 const _RART = "RemoveAllocationResourceTags";
@@ -87151,6 +87244,7 @@ const _RSI = "RequestSpotInstances";
 const _RSIAT = "RemoveSupportedIpAddressTypes";
 const _RSIe = "RemoveSubnetIds";
 const _RSIu = "RunScheduledInstances";
+const _RSR = "RemoveSupportedRegions";
 const _RST = "RestoreSnapshotTier";
 const _RSTe = "RestoreStartTime";
 const _RSe = "ResourceStatement";
@@ -87336,9 +87430,12 @@ const _SR = "SourceRegion";
 const _SRDT = "SupportedRootDeviceTypes";
 const _SRO = "StaticRoutesOnly";
 const _SRT = "SubnetRouteTable";
-const _SRe = "ServiceResource";
+const _SRe = "ServiceRegion";
+const _SRer = "ServiceRegions";
+const _SRerv = "ServiceResource";
 const _SRo = "SourceResource";
 const _SRt = "StateReason";
+const _SRu = "SupportedRegions";
 const _SS = "SseSpecification";
 const _SSGN = "SourceSecurityGroupName";
 const _SSGOI = "SourceSecurityGroupOwnerId";
@@ -87538,6 +87635,7 @@ const _TT = "TrafficType";
 const _TTC = "TotalTargetCapacity";
 const _TTGAI = "TransportTransitGatewayAttachmentId";
 const _TTa = "TargetThroughput";
+const _TTr = "TransferType";
 const _TUP = "TotalUpfrontPrice";
 const _TV = "TargetVersion";
 const _TVC = "TotalVCpus";
@@ -87639,6 +87737,7 @@ const _VEI = "VpcEndpointIds";
 const _VEIp = "VpcEndpointId";
 const _VEO = "VpcEndpointOwner";
 const _VEPS = "VpcEndpointPolicySupported";
+const _VER = "VpcEndpointRegion";
 const _VES = "VpnEcmpSupport";
 const _VESp = "VpcEndpointService";
 const _VESpc = "VpcEndpointState";
@@ -87900,6 +87999,7 @@ const _cCo = "coreCount";
 const _cCoi = "coipCidr";
 const _cCp = "cpuCredits";
 const _cD = "createDate";
+const _cDM = "completionDurationMinutes";
 const _cDr = "creationDate";
 const _cDre = "createdDate";
 const _cE = "connectionEvents";
@@ -87993,6 +88093,7 @@ const _cTI = "conversionTaskId";
 const _cTS = "connectionTrackingSpecification";
 const _cTo = "conversionTasks";
 const _cTom = "completeTime";
+const _cTomp = "completionTime";
 const _cTon = "conversionTask";
 const _cTonn = "connectivityType";
 const _cTr = "createTime";
@@ -88876,6 +88977,7 @@ const _pu = "public";
 const _pur = "purchase";
 const _r = "return";
 const _rA = "ruleAction";
+const _rAE = "remoteAccessEnabled";
 const _rAe = "resourceArn";
 const _rB = "requestedBy";
 const _rBET = "recycleBinEnterTime";
@@ -89087,12 +89189,14 @@ const _sPS = "sourcePortSet";
 const _sPSS = "spotPlacementScoreSet";
 const _sPp = "spotPrice";
 const _sQPDS = "successfulQueuedPurchaseDeletionSet";
-const _sR = "stateReason";
+const _sR = "serviceRegion";
 const _sRDT = "supportedRootDeviceTypes";
 const _sRO = "staticRoutesOnly";
+const _sRS = "supportedRegionSet";
 const _sRT = "subnetRouteTable";
 const _sRe = "serviceResource";
 const _sRo = "sourceResource";
+const _sRt = "stateReason";
 const _sS = "snapshotSet";
 const _sSGS = "staleSecurityGroupSet";
 const _sSPU = "selfServicePortalUrl";
@@ -89261,6 +89365,7 @@ const _tT = "trafficType";
 const _tTC = "totalTargetCapacity";
 const _tTGAI = "transportTransitGatewayAttachmentId";
 const _tTa = "targetThroughput";
+const _tTr = "transferType";
 const _tUP = "totalUpfrontPrice";
 const _tV = "tokenValue";
 const _tVC = "totalVCpus";
@@ -89339,6 +89444,7 @@ const _vECS = "vpcEndpointConnectionSet";
 const _vEI = "vpcEndpointId";
 const _vEO = "vpcEndpointOwner";
 const _vEPS = "vpcEndpointPolicySupported";
+const _vER = "vpcEndpointRegion";
 const _vES = "vpcEndpointService";
 const _vESp = "vpcEndpointSet";
 const _vESpc = "vpcEndpointState";

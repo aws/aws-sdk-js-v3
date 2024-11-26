@@ -139,6 +139,117 @@ import {
 import { CapacityReservationSpecification, Purchase } from "./models_6";
 
 /**
+ * <p>Contains the output of ModifySpotFleetRequest.</p>
+ * @public
+ */
+export interface ModifySpotFleetRequestResponse {
+  /**
+   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
+   *             no response is returned, and instead an error message is returned.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifySubnetAttributeRequest {
+  /**
+   * <p>Specify <code>true</code> to indicate that network interfaces created in the
+   *             specified subnet should be assigned an IPv6 address. This includes a network interface
+   *             that's created when launching an instance into the subnet (the instance therefore
+   *             receives an IPv6 address). </p>
+   *          <p>If you enable the IPv6 addressing feature for your subnet, your network interface
+   *             or instance only receives an IPv6 address if it's created using version
+   *                 <code>2016-11-15</code> or later of the Amazon EC2 API.</p>
+   * @public
+   */
+  AssignIpv6AddressOnCreation?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the
+   *             specified subnet should be assigned a public IPv4 address.</p>
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
+   * @public
+   */
+  MapPublicIpOnLaunch?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to indicate that network interfaces  attached to instances created in the
+   *             specified subnet should be assigned a customer-owned IPv4 address.</p>
+   *          <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
+   * @public
+   */
+  MapCustomerOwnedIpOnLaunch?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+   *          <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
+   * @public
+   */
+  CustomerOwnedIpv4Pool?: string | undefined;
+
+  /**
+   * <p>Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet
+   *             should return synthetic IPv6 addresses for IPv4-only destinations.</p>
+   *          <p>You must first configure a NAT gateway in a public subnet (separate from the subnet
+   *            containing the IPv6-only workloads). For example, the subnet containing the NAT gateway
+   *            should have a <code>0.0.0.0/0</code> route pointing to the internet gateway. For more
+   *            information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-nat64-dns64.html#nat-gateway-nat64-dns64-walkthrough">Configure DNS64 and NAT64</a> in the <i>Amazon VPC User Guide</i>.</p>
+   * @public
+   */
+  EnableDns64?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>The type of hostname to assign to instances in the subnet at launch. For IPv4-only and dual-stack (IPv4 and IPv6) subnets, an
+   *             instance DNS name can be based on the instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6 only subnets, an instance
+   *             DNS name must be based on the instance ID (resource-name).</p>
+   * @public
+   */
+  PrivateDnsHostnameTypeOnLaunch?: HostnameType | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A records.</p>
+   * @public
+   */
+  EnableResourceNameDnsARecordOnLaunch?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.</p>
+   * @public
+   */
+  EnableResourceNameDnsAAAARecordOnLaunch?: AttributeBooleanValue | undefined;
+
+  /**
+   * <p>
+   *             Indicates the device position for local network interfaces in this subnet. For example,
+   *             <code>1</code> indicates local network interfaces in this subnet are the secondary
+   *             network interface (eth1). A local network interface cannot be the primary network
+   *             interface (eth0).
+   *         </p>
+   * @public
+   */
+  EnableLniAtDeviceIndex?: number | undefined;
+
+  /**
+   * <p>
+   *             Specify <code>true</code> to indicate that local network interfaces at the current
+   *             position should be disabled.
+   *         </p>
+   * @public
+   */
+  DisableLniAtDeviceIndex?: AttributeBooleanValue | undefined;
+}
+
+/**
  * @public
  */
 export interface ModifyTrafficMirrorFilterNetworkServicesRequest {
@@ -1693,50 +1804,60 @@ export interface ModifyVpcEndpointServiceConfigurationRequest {
   RemovePrivateDnsName?: boolean | undefined;
 
   /**
-   * <p>Indicates whether requests to create an endpoint to your service must be accepted.</p>
+   * <p>Indicates whether requests to create an endpoint to the service must be accepted.</p>
    * @public
    */
   AcceptanceRequired?: boolean | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to the service
    *             configuration.</p>
    * @public
    */
   AddNetworkLoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service
+   * <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from the service
    *             configuration.</p>
    * @public
    */
   RemoveNetworkLoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service
-   *             configuration.</p>
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to the service configuration.</p>
    * @public
    */
   AddGatewayLoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service
-   *             configuration.</p>
+   * <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from the service configuration.</p>
    * @public
    */
   RemoveGatewayLoadBalancerArns?: string[] | undefined;
 
   /**
-   * <p>The IP address types to add to your service configuration.</p>
+   * <p>The IP address types to add to the service configuration.</p>
    * @public
    */
   AddSupportedIpAddressTypes?: string[] | undefined;
 
   /**
-   * <p>The IP address types to remove from your service configuration.</p>
+   * <p>The IP address types to remove from the service configuration.</p>
    * @public
    */
   RemoveSupportedIpAddressTypes?: string[] | undefined;
+
+  /**
+   * <p>The supported Regions to add to the service configuration.</p>
+   * @public
+   */
+  AddSupportedRegions?: string[] | undefined;
+
+  /**
+   * <p>The supported Regions to remove from the service configuration.</p>
+   * @public
+   */
+  RemoveSupportedRegions?: string[] | undefined;
 }
 
 /**

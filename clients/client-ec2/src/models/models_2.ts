@@ -25,7 +25,6 @@ import {
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
   TrustProviderType,
-  UnsuccessfulItem,
   UserTrustProviderType,
   VerifiedAccessInstance,
   VerifiedAccessSseSpecificationResponse,
@@ -2808,6 +2807,20 @@ export const StorageTier = {
 export type StorageTier = (typeof StorageTier)[keyof typeof StorageTier];
 
 /**
+ * @public
+ * @enum
+ */
+export const TransferType = {
+  standard: "standard",
+  time_based: "time-based",
+} as const;
+
+/**
+ * @public
+ */
+export type TransferType = (typeof TransferType)[keyof typeof TransferType];
+
+/**
  * <p>Describes a snapshot.</p>
  * @public
  */
@@ -2853,6 +2866,45 @@ export interface Snapshot {
    * @public
    */
   SseType?: SSEType | undefined;
+
+  /**
+   * <note>
+   *             <p>Only for snapshot copies.</p>
+   *          </note>
+   *          <p>Indicates whether the snapshot copy was created with a standard or time-based
+   *       snapshot copy operation. Time-based snapshot copy operations complete within the
+   *       completion duration specified in the request. Standard snapshot copy operations
+   *       are completed on a best-effort basis.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code> - The snapshot copy was created with a standard
+   *           snapshot copy operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>time-based</code> - The snapshot copy was created with a time-based
+   *           snapshot copy operation.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TransferType?: TransferType | undefined;
+
+  /**
+   * <note>
+   *             <p>Only for snapshot copies created with time-based snapshot copy operations.</p>
+   *          </note>
+   *          <p>The completion duration requested for the time-based snapshot copy operation.</p>
+   * @public
+   */
+  CompletionDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The time stamp when the snapshot was completed.</p>
+   * @public
+   */
+  CompletionTime?: Date | undefined;
 
   /**
    * <p>The ID of the snapshot. Each snapshot receives a unique identifier when it is
@@ -7495,6 +7547,12 @@ export interface CreateVpcEndpointRequest {
    * @public
    */
   SubnetConfigurations?: SubnetConfiguration[] | undefined;
+
+  /**
+   * <p>The Region where the service is hosted. The default is the current Region.</p>
+   * @public
+   */
+  ServiceRegion?: string | undefined;
 }
 
 /**
@@ -7708,6 +7766,12 @@ export interface VpcEndpoint {
    * @public
    */
   LastError?: LastError | undefined;
+
+  /**
+   * <p>The Region where the service is hosted.</p>
+   * @public
+   */
+  ServiceRegion?: string | undefined;
 }
 
 /**
@@ -7841,7 +7905,7 @@ export interface ConnectionNotification {
 
   /**
    * <p>The events for the notification. Valid values are <code>Accept</code>,
-   *                 <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
+   *             <code>Connect</code>, <code>Delete</code>, and <code>Reject</code>.</p>
    * @public
    */
   ConnectionEvents?: string[] | undefined;
@@ -7851,6 +7915,12 @@ export interface ConnectionNotification {
    * @public
    */
   ConnectionNotificationState?: ConnectionNotificationState | undefined;
+
+  /**
+   * <p>The Region for the endpoint service.</p>
+   * @public
+   */
+  ServiceRegion?: string | undefined;
 }
 
 /**
@@ -7913,6 +7983,12 @@ export interface CreateVpcEndpointServiceConfigurationRequest {
    * @public
    */
   SupportedIpAddressTypes?: string[] | undefined;
+
+  /**
+   * <p>The Regions from which service consumers can access the service.</p>
+   * @public
+   */
+  SupportedRegions?: string[] | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
@@ -8049,6 +8125,25 @@ export const ServiceConnectivityType = {
 export type ServiceConnectivityType = (typeof ServiceConnectivityType)[keyof typeof ServiceConnectivityType];
 
 /**
+ * <p>Describes a supported Region.</p>
+ * @public
+ */
+export interface SupportedRegionDetail {
+  /**
+   * <p>The Region code.</p>
+   * @public
+   */
+  Region?: string | undefined;
+
+  /**
+   * <p>The service state. The possible values are <code>Pending</code>, <code>Available</code>,
+   *             <code>Deleting</code>, <code>Deleted</code>, <code>Failed</code>, and <code>Closed</code>.</p>
+   * @public
+   */
+  ServiceState?: string | undefined;
+}
+
+/**
  * <p>Describes a service configuration for a VPC endpoint service.</p>
  * @public
  */
@@ -8143,6 +8238,19 @@ export interface ServiceConfiguration {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The supported Regions.</p>
+   * @public
+   */
+  SupportedRegions?: SupportedRegionDetail[] | undefined;
+
+  /**
+   * <p>Indicates whether consumers can access the service from a Region other than the
+   *             Region where the service is hosted.</p>
+   * @public
+   */
+  RemoteAccessEnabled?: boolean | undefined;
 }
 
 /**
@@ -9840,36 +9948,6 @@ export interface DeleteFlowLogsRequest {
    * @public
    */
   FlowLogIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFlowLogsResult {
-  /**
-   * <p>Information about the flow logs that could not be deleted successfully.</p>
-   * @public
-   */
-  Unsuccessful?: UnsuccessfulItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFpgaImageRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   * @public
-   */
-  FpgaImageId: string | undefined;
 }
 
 /**

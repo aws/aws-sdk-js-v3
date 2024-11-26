@@ -104,6 +104,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * //         Message: "STRING_VALUE",
  * //         Code: "STRING_VALUE",
  * //       },
+ * //       ServiceRegion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

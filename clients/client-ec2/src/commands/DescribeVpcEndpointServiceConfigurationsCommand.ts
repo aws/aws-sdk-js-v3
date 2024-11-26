@@ -104,6 +104,13 @@ export interface DescribeVpcEndpointServiceConfigurationsCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       SupportedRegions: [ // SupportedRegionSet
+ * //         { // SupportedRegionDetail
+ * //           Region: "STRING_VALUE",
+ * //           ServiceState: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       RemoteAccessEnabled: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

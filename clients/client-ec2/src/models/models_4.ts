@@ -66,15 +66,39 @@ import {
   RouteTable,
 } from "./models_2";
 
-import {
-  Byoasn,
-  Filter,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-  LoadPermission,
-  PermissionGroup,
-  ProductCodeValues,
-} from "./models_3";
+import { Byoasn, Filter, IdFormat, InstanceTagNotificationAttribute, PermissionGroup } from "./models_3";
+
+/**
+ * <p>Describes a load permission.</p>
+ * @public
+ */
+export interface LoadPermission {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+
+  /**
+   * <p>The name of the group.</p>
+   * @public
+   */
+  Group?: PermissionGroup | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProductCodeValues = {
+  devpay: "devpay",
+  marketplace: "marketplace",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductCodeValues = (typeof ProductCodeValues)[keyof typeof ProductCodeValues];
 
 /**
  * <p>Describes a product code.</p>
@@ -3846,6 +3870,17 @@ export interface DescribeInstancesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>network-interface.operator.managed</code> - A Boolean that indicates
+   *                     whether the instance has a managed network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface.operator.principal</code> - The principal that manages
+   *                     the network interface. Only valid for instances with managed network interfaces,
+   *                     where <code>managed</code> is <code>true</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>network-interface.outpost-arn</code> - The ARN of the Outpost.</p>
    *             </li>
    *             <li>
@@ -3906,6 +3941,17 @@ export interface DescribeInstancesRequest {
    *                <p>
    *                   <code>network-interface.vpc-id</code> - The ID of the VPC for the network
    *                     interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a
+   *                     managed instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.principal</code> - The principal that manages the instance.
+   *                     Only valid for managed instances, where <code>managed</code> is
+   *                         <code>true</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5431,6 +5477,17 @@ export interface DescribeInstanceStatusRequest {
    *                   <code>instance-status.status</code> - The status of the instance
    *                         (<code>ok</code> | <code>impaired</code> | <code>initializing</code> |
    *                         <code>insufficient-data</code> | <code>not-applicable</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a
+   *                     managed instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.principal</code> - The principal that manages the instance.
+   *                     Only valid for managed instances, where <code>managed</code> is
+   *                         <code>true</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10560,6 +10617,17 @@ export interface DescribeNetworkInterfacesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a
+   *                     managed network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.principal</code> - The principal that manages the network
+   *                     interface. Only valid for managed network interfaces, where <code>managed</code>
+   *                     is <code>true</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>owner-id</code> - The Amazon Web Services account ID of the network interface owner.</p>
    *             </li>
    *             <li>
@@ -12319,117 +12387,6 @@ export interface ScheduledInstanceRecurrenceRequest {
    *         This value is required for a monthly schedule.
    *         You can't specify <code>DayOfWeek</code> with a weekly schedule.
    *         You can't specify this value with a daily schedule.</p>
-   * @public
-   */
-  OccurrenceUnit?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
- * @public
- */
-export interface DescribeScheduledInstanceAvailabilityRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The time period for the first schedule to start.</p>
-   * @public
-   */
-  FirstSlotStartTimeRange: SlotDateTimeRangeRequest | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.
-   *          This value can be between 5 and 300. The default value is 300.
-   *          To retrieve the remaining results, make another call with the returned
-   *          <code>NextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The maximum available duration, in hours. This value must be greater than <code>MinSlotDurationInHours</code>
-   *          and less than 1,720.</p>
-   * @public
-   */
-  MaxSlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
-   * @public
-   */
-  MinSlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   * @public
-   */
-  Recurrence: ScheduledInstanceRecurrenceRequest | undefined;
-}
-
-/**
- * <p>Describes the recurring schedule for a Scheduled Instance.</p>
- * @public
- */
-export interface ScheduledInstanceRecurrence {
-  /**
-   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
-   * @public
-   */
-  Frequency?: string | undefined;
-
-  /**
-   * <p>The interval quantity. The interval unit depends on the value of <code>frequency</code>. For example, every 2
-   *          weeks or every 2 months.</p>
-   * @public
-   */
-  Interval?: number | undefined;
-
-  /**
-   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).</p>
-   * @public
-   */
-  OccurrenceDaySet?: number[] | undefined;
-
-  /**
-   * <p>Indicates whether the occurrence is relative to the end of the specified week or month.</p>
-   * @public
-   */
-  OccurrenceRelativeToEnd?: boolean | undefined;
-
-  /**
-   * <p>The unit for <code>occurrenceDaySet</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).</p>
    * @public
    */
   OccurrenceUnit?: string | undefined;

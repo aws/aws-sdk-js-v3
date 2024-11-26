@@ -78,6 +78,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  *       Ipv6: "STRING_VALUE",
  *     },
  *   ],
+ *   ServiceRegion: "STRING_VALUE",
  * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
@@ -129,6 +130,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * //       Message: "STRING_VALUE",
  * //       Code: "STRING_VALUE",
  * //     },
+ * //     ServiceRegion: "STRING_VALUE",
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };

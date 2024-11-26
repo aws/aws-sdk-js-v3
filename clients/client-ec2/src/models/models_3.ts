@@ -95,6 +95,36 @@ import {
 /**
  * @public
  */
+export interface DeleteFlowLogsResult {
+  /**
+   * <p>Information about the flow logs that could not be deleted successfully.</p>
+   * @public
+   */
+  Unsuccessful?: UnsuccessfulItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFpgaImageRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the AFI.</p>
+   * @public
+   */
+  FpgaImageId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteFpgaImageResult {
   /**
    * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
@@ -8453,38 +8483,6 @@ export const PermissionGroup = {
  * @public
  */
 export type PermissionGroup = (typeof PermissionGroup)[keyof typeof PermissionGroup];
-
-/**
- * <p>Describes a load permission.</p>
- * @public
- */
-export interface LoadPermission {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  UserId?: string | undefined;
-
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  Group?: PermissionGroup | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const ProductCodeValues = {
-  devpay: "devpay",
-  marketplace: "marketplace",
-} as const;
-
-/**
- * @public
- */
-export type ProductCodeValues = (typeof ProductCodeValues)[keyof typeof ProductCodeValues];
 
 /**
  * @internal

@@ -75,6 +75,7 @@ export interface CopySnapshotCommandOutput extends CopySnapshotResult, __Metadat
  *       ],
  *     },
  *   ],
+ *   CompletionDurationMinutes: Number("int"),
  *   DryRun: true || false,
  * };
  * const command = new CopySnapshotCommand(input);

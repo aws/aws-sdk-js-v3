@@ -111,7 +111,124 @@ import {
   StatisticType,
 } from "./models_3";
 
-import { AttributeBooleanValue, ProductCode, RIProductDescription, ScheduledInstanceRecurrence } from "./models_4";
+import {
+  AttributeBooleanValue,
+  ProductCode,
+  RIProductDescription,
+  ScheduledInstanceRecurrenceRequest,
+  SlotDateTimeRangeRequest,
+} from "./models_4";
+
+/**
+ * <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
+ * @public
+ */
+export interface DescribeScheduledInstanceAvailabilityRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The time period for the first schedule to start.</p>
+   * @public
+   */
+  FirstSlotStartTimeRange: SlotDateTimeRangeRequest | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.
+   *          This value can be between 5 and 300. The default value is 300.
+   *          To retrieve the remaining results, make another call with the returned
+   *          <code>NextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The maximum available duration, in hours. This value must be greater than <code>MinSlotDurationInHours</code>
+   *          and less than 1,720.</p>
+   * @public
+   */
+  MaxSlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
+   * @public
+   */
+  MinSlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   * @public
+   */
+  Recurrence: ScheduledInstanceRecurrenceRequest | undefined;
+}
+
+/**
+ * <p>Describes the recurring schedule for a Scheduled Instance.</p>
+ * @public
+ */
+export interface ScheduledInstanceRecurrence {
+  /**
+   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
+   * @public
+   */
+  Frequency?: string | undefined;
+
+  /**
+   * <p>The interval quantity. The interval unit depends on the value of <code>frequency</code>. For example, every 2
+   *          weeks or every 2 months.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).</p>
+   * @public
+   */
+  OccurrenceDaySet?: number[] | undefined;
+
+  /**
+   * <p>Indicates whether the occurrence is relative to the end of the specified week or month.</p>
+   * @public
+   */
+  OccurrenceRelativeToEnd?: boolean | undefined;
+
+  /**
+   * <p>The unit for <code>occurrenceDaySet</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).</p>
+   * @public
+   */
+  OccurrenceUnit?: string | undefined;
+}
 
 /**
  * <p>Describes a schedule that is available for your Scheduled Instances.</p>
@@ -5755,14 +5872,24 @@ export interface DescribeVolumesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
+   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
+   *           <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>multi-attach-enabled</code> - Indicates whether the volume is enabled for Multi-Attach (<code>true</code>
    *     			| <code>false</code>)</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>fast-restored</code> - Indicates whether the volume was created from a
-   *           snapshot that is enabled for fast snapshot restore (<code>true</code> |
-   *           <code>false</code>).</p>
+   *                   <code>operator.managed</code> - A Boolean that indicates whether this is a managed
+   *           volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>operator.principal</code> - The principal that manages the volume. Only valid
+   *           for managed volumes, where <code>managed</code> is <code>true</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6904,7 +7031,12 @@ export interface DescribeVpcEndpointConnectionsRequest {
    *             <li>
    *                <p>
    *                   <code>vpc-endpoint-owner</code> - The ID of the Amazon Web Services account ID
-   * 		        that owns the endpoint.</p>
+   * 		            that owns the endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-endpoint-region</code> - The Region of the endpoint or <code>cross-region</code>
+   * 		            to find endpoints for other Regions.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7009,6 +7141,12 @@ export interface VpcEndpointConnection {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Region of the endpoint.</p>
+   * @public
+   */
+  VpcEndpointRegion?: string | undefined;
 }
 
 /**
@@ -7056,6 +7194,10 @@ export interface DescribeVpcEndpointsRequest {
    *             <li>
    *                <p>
    *                   <code>service-name</code> - The name of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>service-region</code> - The Region of the service.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -7308,6 +7450,10 @@ export interface DescribeVpcEndpointServicesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>service-region</code> - The Region of the service.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>service-type</code> - The type of service (<code>Interface</code> |
    *                         <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
    *             </li>
@@ -7340,6 +7486,12 @@ export interface DescribeVpcEndpointServicesRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>The service Regions.</p>
+   * @public
+   */
+  ServiceRegions?: string[] | undefined;
 }
 
 /**
@@ -7376,6 +7528,12 @@ export interface ServiceDetail {
    * @public
    */
   ServiceType?: ServiceTypeDetail[] | undefined;
+
+  /**
+   * <p>The Region where the service is hosted.</p>
+   * @public
+   */
+  ServiceRegion?: string | undefined;
 
   /**
    * <p>The Availability Zones in which the service is available.</p>
@@ -10243,48 +10401,6 @@ export interface EnableSnapshotBlockPublicAccessResult {
    * @public
    */
   State?: SnapshotBlockPublicAccessState | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableTransitGatewayRouteTablePropagationRequest {
-  /**
-   * <p>The ID of the propagation route table.</p>
-   * @public
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   * @public
-   */
-  TransitGatewayAttachmentId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the transit gateway route table announcement.</p>
-   * @public
-   */
-  TransitGatewayRouteTableAnnouncementId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableTransitGatewayRouteTablePropagationResult {
-  /**
-   * <p>Information about route propagation.</p>
-   * @public
-   */
-  Propagation?: TransitGatewayPropagation | undefined;
 }
 
 /**

@@ -71,6 +71,7 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     ConnectionNotificationState: "Enabled" || "Disabled",
+ * //     ServiceRegion: "STRING_VALUE",
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };
