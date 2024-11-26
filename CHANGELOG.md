@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.701.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.700.0...v3.701.0) (2024-11-26)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Custom Orchestration and Streaming configurations API release for AWSBedrockAgents. ([c69abf3](https://github.com/aws/aws-sdk-js-v3/commit/c69abf38dca247ea90834a732a612bea5d70ab0a))
+* **client-bedrock-agent:** Custom Orchestration API release for AWSBedrockAgents. ([9f83f11](https://github.com/aws/aws-sdk-js-v3/commit/9f83f11f6b716fb9e73ed8ff36028e56c4cc5b00))
+* **client-connect:** Enables access to ValueMap and ValueInteger types for SegmentAttributes and fixes deserialization bug for DescribeContactFlow in AmazonConnect Public API ([b8975e6](https://github.com/aws/aws-sdk-js-v3/commit/b8975e69d1512c1232ad28e7e5126e4fd5cd029a))
+* **client-ec2:** Adds support for Time-based Copy for EBS Snapshots and Cross Region PrivateLink. Time-based Copy ensures that EBS Snapshots are copied within and across AWS Regions in a specified timeframe. Cross Region PrivateLink enables customers to connect to VPC endpoint services hosted in other AWS Regions. ([a370f24](https://github.com/aws/aws-sdk-js-v3/commit/a370f241842b10a3cff90de23a697026638af7bb))
+* **client-qapps:** Private sharing, file upload and data collection feature support for Q Apps ([c1ea3a8](https://github.com/aws/aws-sdk-js-v3/commit/c1ea3a8e709db9d9f85c5ccb1f4b81a4fd19961b))
+
+
+
+
+
 # [3.700.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.699.0...v3.700.0) (2024-11-25)
 
 

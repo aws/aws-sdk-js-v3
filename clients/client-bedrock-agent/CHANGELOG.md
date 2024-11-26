@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.701.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.700.0...v3.701.0) (2024-11-26)
+
+
+### Features
+
+* **client-bedrock-agent:** Custom Orchestration API release for AWSBedrockAgents. ([9f83f11](https://github.com/aws/aws-sdk-js-v3/commit/9f83f11f6b716fb9e73ed8ff36028e56c4cc5b00))
+
+
+
+
+
 # [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent
