@@ -450,6 +450,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //         Iops: Number("int"),
  * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //       },
+ * //       EfaEnabled: true || false,
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
@@ -557,6 +558,7 @@ export interface UpdateFileSystemCommandOutput extends UpdateFileSystemResponse,
  * //               Iops: Number("int"),
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
+ * //             EfaEnabled: true || false,
  * //           },
  * //           AdministrativeActions: [
  * //             {

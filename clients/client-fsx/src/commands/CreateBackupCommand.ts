@@ -221,6 +221,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //           Iops: Number("int"),
  * //           Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //         },
+ * //         EfaEnabled: true || false,
  * //       },
  * //       AdministrativeActions: [ // AdministrativeActions
  * //         { // AdministrativeAction
@@ -323,6 +324,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //                 Iops: Number("int"),
  * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //               },
+ * //               EfaEnabled: true || false,
  * //             },
  * //             AdministrativeActions: [
  * //               {

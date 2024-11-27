@@ -177,6 +177,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //           Iops: Number("int"),
  * //           Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //         },
+ * //         EfaEnabled: true || false,
  * //       },
  * //       AdministrativeActions: [ // AdministrativeActions
  * //         { // AdministrativeAction
@@ -284,6 +285,7 @@ export interface DescribeFileSystemsCommandOutput extends DescribeFileSystemsRes
  * //                 Iops: Number("int"),
  * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //               },
+ * //               EfaEnabled: true || false,
  * //             },
  * //             AdministrativeActions: [
  * //               {

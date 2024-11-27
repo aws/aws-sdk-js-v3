@@ -231,6 +231,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                 Iops: Number("int"),
  * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //               },
+ * //               EfaEnabled: true || false,
  * //             },
  * //             AdministrativeActions: [
  * //               {
@@ -333,6 +334,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResponse, _
  * //                       Iops: Number("int"),
  * //                       Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                     },
+ * //                     EfaEnabled: true || false,
  * //                   },
  * //                   AdministrativeActions: "<AdministrativeActions>",
  * //                   OntapConfiguration: { // OntapFileSystemConfiguration

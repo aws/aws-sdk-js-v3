@@ -159,6 +159,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //             Iops: Number("int"),
  * //             Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //           },
+ * //           EfaEnabled: true || false,
  * //         },
  * //         AdministrativeActions: [
  * //           {
@@ -266,6 +267,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
  * //                   Iops: Number("int"),
  * //                   Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                 },
+ * //                 EfaEnabled: true || false,
  * //               },
  * //               AdministrativeActions: "<AdministrativeActions>",
  * //               OntapConfiguration: { // OntapFileSystemConfiguration

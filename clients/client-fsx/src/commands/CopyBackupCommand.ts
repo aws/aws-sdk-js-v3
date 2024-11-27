@@ -188,6 +188,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //           Iops: Number("int"),
  * //           Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //         },
+ * //         EfaEnabled: true || false,
  * //       },
  * //       AdministrativeActions: [ // AdministrativeActions
  * //         { // AdministrativeAction
@@ -290,6 +291,7 @@ export interface CopyBackupCommandOutput extends CopyBackupResponse, __MetadataB
  * //                 Iops: Number("int"),
  * //                 Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //               },
+ * //               EfaEnabled: true || false,
  * //             },
  * //             AdministrativeActions: [
  * //               {

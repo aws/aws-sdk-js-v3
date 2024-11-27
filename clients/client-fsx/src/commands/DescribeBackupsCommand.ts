@@ -200,6 +200,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //             Iops: Number("int"),
  * //             Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //           },
+ * //           EfaEnabled: true || false,
  * //         },
  * //         AdministrativeActions: [ // AdministrativeActions
  * //           { // AdministrativeAction
@@ -302,6 +303,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //                   Iops: Number("int"),
  * //                   Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                 },
+ * //                 EfaEnabled: true || false,
  * //               },
  * //               AdministrativeActions: [
  * //                 {

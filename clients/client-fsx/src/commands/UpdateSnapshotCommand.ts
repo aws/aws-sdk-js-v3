@@ -169,6 +169,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * //               Iops: Number("int"),
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
+ * //             EfaEnabled: true || false,
  * //           },
  * //           AdministrativeActions: [
  * //             {
@@ -271,6 +272,7 @@ export interface UpdateSnapshotCommandOutput extends UpdateSnapshotResponse, __M
  * //                     Iops: Number("int"),
  * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                   },
+ * //                   EfaEnabled: true || false,
  * //                 },
  * //                 AdministrativeActions: "<AdministrativeActions>",
  * //                 OntapConfiguration: { // OntapFileSystemConfiguration

@@ -715,6 +715,13 @@ export interface LustreFileSystemConfiguration {
    * @public
    */
   MetadataConfiguration?: FileSystemLustreMetadataConfiguration | undefined;
+
+  /**
+   * <p>Specifies whether Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS)
+   *             support is enabled for the Amazon FSx for Lustre file system.</p>
+   * @public
+   */
+  EfaEnabled?: boolean | undefined;
 }
 
 /**
@@ -5529,6 +5536,14 @@ export interface CreateFileSystemLustreConfiguration {
    * @public
    */
   DataCompressionType?: DataCompressionType | undefined;
+
+  /**
+   * <p>(Optional) Specifies whether Elastic Fabric Adapter (EFA) and GPUDirect Storage (GDS)
+   *             support is enabled for the Amazon FSx for Lustre file system.</p>
+   *          <p>(Default = <code>false</code>)</p>
+   * @public
+   */
+  EfaEnabled?: boolean | undefined;
 
   /**
    * <p>The Lustre logging configuration used when creating an Amazon FSx for Lustre

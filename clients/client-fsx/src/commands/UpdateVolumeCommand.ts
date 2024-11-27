@@ -277,6 +277,7 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * //               Iops: Number("int"),
  * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //             },
+ * //             EfaEnabled: true || false,
  * //           },
  * //           AdministrativeActions: [
  * //             {
@@ -379,6 +380,7 @@ export interface UpdateVolumeCommandOutput extends UpdateVolumeResponse, __Metad
  * //                     Iops: Number("int"),
  * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
  * //                   },
+ * //                   EfaEnabled: true || false,
  * //                 },
  * //                 AdministrativeActions: "<AdministrativeActions>",
  * //                 OntapConfiguration: { // OntapFileSystemConfiguration
