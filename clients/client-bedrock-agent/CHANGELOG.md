@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.702.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.701.0...v3.702.0) (2024-11-27)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support for specifying embeddingDataType, either FLOAT32 or BINARY ([51994e4](https://github.com/aws/aws-sdk-js-v3/commit/51994e4fba8643e4d048515e0435bec5ff8f2ca8))
+
+
+
+
+
 # [3.701.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.700.0...v3.701.0) (2024-11-26)
 
 

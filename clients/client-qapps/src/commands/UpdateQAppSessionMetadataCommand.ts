@@ -93,6 +93,36 @@ export interface UpdateQAppSessionMetadataCommandOutput extends UpdateQAppSessio
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
  * @public
+ * @example Updates an existing session metadata for an Amazon Q App
+ * ```javascript
+ * //
+ * const input = {
+ *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   "sessionId": "56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb",
+ *   "sessionName": "Trip itinerary collection session",
+ *   "sharingConfiguration": {
+ *     "acceptResponses": true,
+ *     "enabled": true,
+ *     "revealCards": false
+ *   }
+ * };
+ * const command = new UpdateQAppSessionMetadataCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "sessionArn": "arn:aws:qapps:us-west-2:0123456789012:application/cbea8329-41c0-4566-a112-19250921a220/qapp/387ccac9-4717-489f-841f-729b7d7de355/session/56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb",
+ *   "sessionId": "56ae47c3-10bc-4c2c-8b27-9b9fe23b3edb",
+ *   "sessionName": "Trip itinerary collection session",
+ *   "sharingConfiguration": {
+ *     "acceptResponses": true,
+ *     "enabled": true,
+ *     "revealCards": false
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
  */
 export class UpdateQAppSessionMetadataCommand extends $Command
   .classBuilder<

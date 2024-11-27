@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.702.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.701.0...v3.702.0) (2024-11-27)
+
+
+### Features
+
+* **client-bedrock-agent:** Add support for specifying embeddingDataType, either FLOAT32 or BINARY ([51994e4](https://github.com/aws/aws-sdk-js-v3/commit/51994e4fba8643e4d048515e0435bec5ff8f2ca8))
+* **client-config-service:** AWS Config adds support for service-linked recorders, a new type of Config recorder managed by AWS services to record specific subsets of resource configuration data and functioning independently from customer managed AWS Config recorders. ([e45c2ec](https://github.com/aws/aws-sdk-js-v3/commit/e45c2eced94d5b20e0c1e04e2c3301585ad9f9fe))
+* **client-fsx:** This release adds EFA support to increase FSx for Lustre file systems' throughput performance to a single client instance. This can be done by specifying EfaEnabled=true at the time of creation of Persistent_2 file systems. ([a562586](https://github.com/aws/aws-sdk-js-v3/commit/a562586d35340297875b9338e44034d70bf40f82))
+* **client-observabilityadmin:** Amazon CloudWatch Observability Admin adds the ability to audit telemetry configuration for AWS resources in customers AWS Accounts and Organizations. The release introduces new APIs to turn on/off the new experience, which supports discovering supported AWS resources and their state of telemetry. ([3800d89](https://github.com/aws/aws-sdk-js-v3/commit/3800d89720fa4ce348ee2799a5d5583e305b3499))
+* **clients:** update client endpoints as of 2024-11-27 ([a36eab2](https://github.com/aws/aws-sdk-js-v3/commit/a36eab2fbda7f86bad157451c46160a20f92f63d))
+
+
+
+
+
 # [3.701.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.700.0...v3.701.0) (2024-11-26)
 
 

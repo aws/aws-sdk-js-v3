@@ -87,6 +87,65 @@ export interface CreatePresignedUrlCommandOutput extends CreatePresignedUrlOutpu
  * <p>Base exception class for all service exceptions from QApps service.</p>
  *
  * @public
+ * @example Upload a file to a specific session
+ * ```javascript
+ * //
+ * const input = {
+ *   "appId": "4263767c-d889-4cb2-a8f6-8b649bc66af0",
+ *   "cardId": "82f69028-22a9-4bea-8727-0eabf58e9fed",
+ *   "fileContentsSha256": "myMXwslBoXkTDQ0olhq1QsiHRWWL4yj1V0IuoK+PYOg=",
+ *   "fileName": "myFile.txt",
+ *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   "scope": "SESSION",
+ *   "sessionId": "4f0e5b87-9d38-41cd-9eb4-ebce2f2917cc"
+ * };
+ * const command = new CreatePresignedUrlCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "fileId": "412aa1b4-341c-45af-936d-da52f8a1a3b4",
+ *   "presignedUrl": "https://presign-test-omg-6f98533b-3f9f-4e8a-8183-63793b9ffef0.s3.us-west-2.amazonaws.com/",
+ *   "presignedUrlExpiration": "2024-09-14T00:11:54.232Z",
+ *   "presignedUrlFields": {
+ *     "x-amz-checksum-sha256": "fmHCdgdPjOGub9TVZ4NIOpAYP4UlIOaPRUwHw8nihR4=",
+ *     "x-amz-server-side-encryption": "aws:kms",
+ *     "x-amz-server-side-encryption-aws-kms-key-id": "0a6a474b-f2ca-46ea-9e72-deea9077d92f",
+ *     "x-amz-server-side-encryption-context": "eyJzb21ldGhpbmciOiJ0aGVyZSJ9"
+ *   }
+ * }
+ * *\/
+ * // example id: example-1
+ * ```
+ *
+ * @example Upload a file into a application
+ * ```javascript
+ * //
+ * const input = {
+ *   "appId": "4263767c-d889-4cb2-a8f6-8b649bc66af0",
+ *   "cardId": "7a11f34b-42d4-4bc8-b668-ae4a788dae1e",
+ *   "fileContentsSha256": "myMXwslBoXkTDQ0olhq1QsiHRWWL4yj1V0IuoK+PYOg=",
+ *   "fileName": "anApplicationFile.txt",
+ *   "instanceId": "0b95c9c4-89cc-4aa8-9aae-aa91cbec699f",
+ *   "scope": "APPLICATION"
+ * };
+ * const command = new CreatePresignedUrlCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "fileId": "412aa1b4-341c-45af-936d-da52f8a1a3b4",
+ *   "presignedUrl": "https://presign-test-omg-6f98533b-3f9f-4e8a-8183-63793b9ffef0.s3.us-west-2.amazonaws.com/",
+ *   "presignedUrlExpiration": "2024-09-14T00:11:54.232Z",
+ *   "presignedUrlFields": {
+ *     "x-amz-checksum-sha256": "fmHCdgdPjOGub9TVZ4NIOpAYP4UlIOaPRUwHw8nihR4=",
+ *     "x-amz-server-side-encryption": "aws:kms",
+ *     "x-amz-server-side-encryption-aws-kms-key-id": "0a6a474b-f2ca-46ea-9e72-deea9077d92f",
+ *     "x-amz-server-side-encryption-context": "eyJzb21ldGhpbmciOiJ0aGVyZSJ9"
+ *   }
+ * }
+ * *\/
+ * // example id: example-2
+ * ```
+ *
  */
 export class CreatePresignedUrlCommand extends $Command
   .classBuilder<
