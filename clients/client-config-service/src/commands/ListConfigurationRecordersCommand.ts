@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteStoredQueryRequest, DeleteStoredQueryResponse } from "../models/models_0";
-import { de_DeleteStoredQueryCommand, se_DeleteStoredQueryCommand } from "../protocols/Aws_json1_1";
+import { ListConfigurationRecordersRequest, ListConfigurationRecordersResponse } from "../models/models_1";
+import { de_ListConfigurationRecordersCommand, se_ListConfigurationRecordersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
@@ -17,41 +17,57 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link DeleteStoredQueryCommand}.
+ * The input for {@link ListConfigurationRecordersCommand}.
  */
-export interface DeleteStoredQueryCommandInput extends DeleteStoredQueryRequest {}
+export interface ListConfigurationRecordersCommandInput extends ListConfigurationRecordersRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteStoredQueryCommand}.
+ * The output of {@link ListConfigurationRecordersCommand}.
  */
-export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryResponse, __MetadataBearer {}
+export interface ListConfigurationRecordersCommandOutput extends ListConfigurationRecordersResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the stored query for a single Amazon Web Services account and a single Amazon Web Services Region.</p>
+ * <p>Returns a list of configuration recorders depending on the filters you specify.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, DeleteStoredQueryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, DeleteStoredQueryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, ListConfigurationRecordersCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, ListConfigurationRecordersCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const input = { // DeleteStoredQueryRequest
- *   QueryName: "STRING_VALUE", // required
+ * const input = { // ListConfigurationRecordersRequest
+ *   Filters: [ // ConfigurationRecorderFilterList
+ *     { // ConfigurationRecorderFilter
+ *       filterName: "recordingScope",
+ *       filterValue: [ // ConfigurationRecorderFilterValues
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
- * const command = new DeleteStoredQueryCommand(input);
+ * const command = new ListConfigurationRecordersCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ListConfigurationRecordersResponse
+ * //   ConfigurationRecorderSummaries: [ // ConfigurationRecorderSummaries // required
+ * //     { // ConfigurationRecorderSummary
+ * //       arn: "STRING_VALUE", // required
+ * //       name: "STRING_VALUE", // required
+ * //       servicePrincipal: "STRING_VALUE",
+ * //       recordingScope: "INTERNAL" || "PAID", // required
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
  *
  * ```
  *
- * @param DeleteStoredQueryCommandInput - {@link DeleteStoredQueryCommandInput}
- * @returns {@link DeleteStoredQueryCommandOutput}
- * @see {@link DeleteStoredQueryCommandInput} for command's `input` shape.
- * @see {@link DeleteStoredQueryCommandOutput} for command's `response` shape.
+ * @param ListConfigurationRecordersCommandInput - {@link ListConfigurationRecordersCommandInput}
+ * @returns {@link ListConfigurationRecordersCommandOutput}
+ * @see {@link ListConfigurationRecordersCommandInput} for command's `input` shape.
+ * @see {@link ListConfigurationRecordersCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>You have specified a resource that does not exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
@@ -94,10 +110,10 @@ export interface DeleteStoredQueryCommandOutput extends DeleteStoredQueryRespons
  *
  * @public
  */
-export class DeleteStoredQueryCommand extends $Command
+export class ListConfigurationRecordersCommand extends $Command
   .classBuilder<
-    DeleteStoredQueryCommandInput,
-    DeleteStoredQueryCommandOutput,
+    ListConfigurationRecordersCommandInput,
+    ListConfigurationRecordersCommandOutput,
     ConfigServiceClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -109,21 +125,21 @@ export class DeleteStoredQueryCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("StarlingDoveService", "DeleteStoredQuery", {})
-  .n("ConfigServiceClient", "DeleteStoredQueryCommand")
+  .s("StarlingDoveService", "ListConfigurationRecorders", {})
+  .n("ConfigServiceClient", "ListConfigurationRecordersCommand")
   .f(void 0, void 0)
-  .ser(se_DeleteStoredQueryCommand)
-  .de(de_DeleteStoredQueryCommand)
+  .ser(se_ListConfigurationRecordersCommand)
+  .de(de_ListConfigurationRecordersCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteStoredQueryRequest;
-      output: {};
+      input: ListConfigurationRecordersRequest;
+      output: ListConfigurationRecordersResponse;
     };
     sdk: {
-      input: DeleteStoredQueryCommandInput;
-      output: DeleteStoredQueryCommandOutput;
+      input: ListConfigurationRecordersCommandInput;
+      output: ListConfigurationRecordersCommandOutput;
     };
   };
 }

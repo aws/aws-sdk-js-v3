@@ -28,18 +28,30 @@ export interface PutConfigurationRecorderCommandInput extends PutConfigurationRe
 export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a new configuration recorder to record configuration changes for specified resource types.</p>
- *          <p>You can also use this action to change the <code>roleARN</code>
- * 			or the <code>recordingGroup</code> of an existing recorder.
- * 			For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
- *                <b>Managing the Configuration Recorder</b>
+ * <p>Creates or updates the customer managed configuration recorder.</p>
+ *          <p>You can use this operation to create a new customer managed configuration recorder or to update the <code>roleARN</code> and the <code>recordingGroup</code> for an existing customer managed configuration recorder.</p>
+ *          <p>To start the customer managed configuration recorder and begin recording configuration changes for the resource types you specify,
+ * 			use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html">StartConfigurationRecorder</a> operation.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
+ *                <b>Working with the Configuration Recorder</b>
  *             </a> in the <i>Config Developer Guide</i>.</p>
  *          <note>
- *             <p>You can specify only one configuration recorder for each Amazon Web Services Region for each account.</p>
- *             <p>If the configuration recorder does not have the
- * 					<code>recordingGroup</code> field
- * 				specified, the default is to record all supported resource
- * 				types.</p>
+ *             <p>
+ *                <b>One customer managed configuration recorder per account per Region</b>
+ *             </p>
+ *             <p>You can create only one customer managed configuration recorder for each account for each Amazon Web Services Region.</p>
+ *             <p>
+ *                <b>Default is to record all supported resource types, excluding the global IAM resource types</b>
+ *             </p>
+ *             <p>If you have not specified values for the <code>recordingGroup</code> field, the default for the customer managed configuration recorder is to record all supported resource
+ * 				types, excluding the global IAM resource types: <code>AWS::IAM::Group</code>, <code>AWS::IAM::Policy</code>, <code>AWS::IAM::Role</code>, and <code>AWS::IAM::User</code>.</p>
+ *             <p>
+ *                <b>Tags are added at creation and cannot be updated</b>
+ *             </p>
+ *             <p>
+ *                <code>PutConfigurationRecorder</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different tags values,
+ * 				Config will ignore these differences and treat it as an idempotent request of the previous. In this case, tags will not be updated, even if they are different.</p>
+ *             <p>Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a> to update tags after creation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,6 +61,7 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * const client = new ConfigServiceClient(config);
  * const input = { // PutConfigurationRecorderRequest
  *   ConfigurationRecorder: { // ConfigurationRecorder
+ *     arn: "STRING_VALUE",
  *     name: "STRING_VALUE",
  *     roleARN: "STRING_VALUE",
  *     recordingGroup: { // RecordingGroup
@@ -78,7 +91,15 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  *         },
  *       ],
  *     },
+ *     recordingScope: "INTERNAL" || "PAID",
+ *     servicePrincipal: "STRING_VALUE",
  *   },
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new PutConfigurationRecorderCommand(input);
  * const response = await client.send(command);
@@ -93,11 +114,11 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InvalidConfigurationRecorderNameException} (client fault)
- *  <p>You have provided a name for the configuration recorder that is not
+ *  <p>You have provided a name for the customer managed configuration recorder that is not
  * 			valid.</p>
  *
  * @throws {@link InvalidRecordingGroupException} (client fault)
- *  <p>Indicates one of the following errors:</p>
+ *  <p>One of the following errors:</p>
  *          <ul>
  *             <li>
  *                <p>You have provided a combination of parameter values that is not valid. For example:</p>
@@ -123,16 +144,58 @@ export interface PutConfigurationRecorderCommandOutput extends __MetadataBearer 
  *          </ul>
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the configuration recorder.</p>
+ *  <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
  *
  * @throws {@link MaxNumberOfConfigurationRecordersExceededException} (client fault)
  *  <p>You have reached the limit of the number of configuration recorders you can
  * 			create.</p>
  *
+ * @throws {@link UnmodifiableEntityException} (client fault)
+ *  <p>The requested operation is not valid.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a>,
+ * 			you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration
+ * 			recorder.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration
+ * 			recorder.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html">StartConfigurationRecorder</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders.
+ * 			Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration
+ * 			recorder.</p>
+ *
  * @throws {@link ValidationException} (client fault)
- *  <p>The requested action is not valid.</p>
- *          <p>For PutStoredQuery, you will see this exception if there are missing required fields or if the input value fails the validation, or if you are trying to create more than 300 queries.</p>
- *          <p>For GetStoredQuery, ListStoredQuery, and DeleteStoredQuery you will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>There are missing required fields.</p>
+ *             </li>
+ *             <li>
+ *                <p>The input value fails the validation.</p>
+ *             </li>
+ *             <li>
+ *                <p>You are trying to create more than 300 queries.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You have specified more than one configuration recorder.</p>
+ *             </li>
+ *             <li>
+ *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">AssociateResourceTypes</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">DisassociateResourceTypes</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p>
+ *             </li>
+ *             <li>
+ *                <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p>
+ *             </li>
+ *             <li>
+ *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>

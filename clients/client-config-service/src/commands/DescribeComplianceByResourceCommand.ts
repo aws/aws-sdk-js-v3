@@ -34,7 +34,7 @@ export interface DescribeComplianceByResourceCommandOutput
 
 /**
  * <p>Indicates whether the specified Amazon Web Services resources are compliant. If
- * 			a resource is noncompliant, this action returns the number of Config rules that the resource does not comply with.</p>
+ * 			a resource is noncompliant, this operation returns the number of Config rules that the resource does not comply with.</p>
  *          <p>A resource is compliant if it complies with all the Config
  * 			rules that evaluate it. It is noncompliant if it does not comply
  * 			with one or more of these rules.</p>

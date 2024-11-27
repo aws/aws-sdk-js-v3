@@ -6,9 +6,14 @@ import { ConfigServiceServiceException as __BaseException } from "./ConfigServic
 import {
   AccountAggregationSource,
   AggregationAuthorization,
+  AggregatorFilters,
   ConfigRule,
   ConfigurationAggregator,
   ConfigurationRecorder,
+  ConfigurationRecorderFilter,
+  ConfigurationRecorderSummary,
+  ConformancePackComplianceScore,
+  ConformancePackComplianceScoresFilters,
   ConformancePackInputParameter,
   DeliveryChannel,
   Evaluation,
@@ -27,10 +32,479 @@ import {
   RemediationExceptionResourceKey,
   ResourceDetails,
   ResourceKey,
+  ResourceType,
   RetentionConfiguration,
   StoredQuery,
   TemplateSSMDocumentDetails,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListConfigurationRecordersRequest {
+  /**
+   * <p>Filters the results based on a list of <code>ConfigurationRecorderFilter</code> objects that you specify.</p>
+   * @public
+   */
+  Filters?: ConfigurationRecorderFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to include in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationRecordersResponse {
+  /**
+   * <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
+   * @public
+   */
+  ConfigurationRecorderSummaries: ConfigurationRecorderSummary[] | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SortBy = {
+  SCORE: "SCORE",
+} as const;
+
+/**
+ * @public
+ */
+export type SortBy = (typeof SortBy)[keyof typeof SortBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASCENDING: "ASCENDING",
+  DESCENDING: "DESCENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ */
+export interface ListConformancePackComplianceScoresRequest {
+  /**
+   * <p>Filters the results based on the <code>ConformancePackComplianceScoresFilters</code>.</p>
+   * @public
+   */
+  Filters?: ConformancePackComplianceScoresFilters | undefined;
+
+  /**
+   * <p>Determines the order in which conformance pack compliance scores are sorted. Either in ascending or descending order.</p>
+   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
+   *          <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>Sorts your conformance pack compliance scores in either ascending or descending order, depending on <code>SortOrder</code>.</p>
+   *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
+   * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
+   * @public
+   */
+  SortBy?: SortBy | undefined;
+
+  /**
+   * <p>The maximum number of conformance pack compliance scores returned on each page.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string in a prior request that you can use to get the paginated response for the next set of conformance pack compliance scores.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConformancePackComplianceScoresResponse {
+  /**
+   * <p>The <code>nextToken</code> string that you can use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
+   * @public
+   */
+  ConformancePackComplianceScores: ConformancePackComplianceScore[] | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListDiscoveredResourcesRequest {
+  /**
+   * <p>The type of resources that you want Config to list in the
+   * 			response.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * <p>The IDs of only those resources that you want Config to
+   * 			list in the response. If you do not specify this parameter, Config lists all resources of the specified type that it has
+   * 			discovered. You can list a minimum of 1 resourceID and a maximum of 20 resourceIds.</p>
+   * @public
+   */
+  resourceIds?: string[] | undefined;
+
+  /**
+   * <p>The custom name of only those resources that you want Config to list in the response. If you do not specify this
+   * 			parameter, Config lists all resources of the specified type that
+   * 			it has discovered.</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * <p>The maximum number of resource identifiers returned on each
+   * 			page. The default is 100. You cannot specify a number greater than
+   * 			100. If you specify 0, Config uses the default.</p>
+   * @public
+   */
+  limit?: number | undefined;
+
+  /**
+   * <p>Specifies whether Config includes deleted resources in the
+   * 			results. By default, deleted resources are not included.</p>
+   * @public
+   */
+  includeDeletedResources?: boolean | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page
+   * 			that you use to get the next page of results in a paginated
+   * 			response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the
+ * 			custom resource name.</p>
+ * @public
+ */
+export interface ResourceIdentifier {
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The ID of the resource (for example,
+   * 			<code>sg-xxxxxx</code>).</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The custom name of the resource (if available).</p>
+   * @public
+   */
+  resourceName?: string | undefined;
+
+  /**
+   * <p>The time that the resource was deleted.</p>
+   * @public
+   */
+  resourceDeletionTime?: Date | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ListDiscoveredResourcesResponse {
+  /**
+   * <p>The details that identify a resource that is discovered by Config, including the resource type, ID, and (if available) the
+   * 			custom resource name.</p>
+   * @public
+   */
+  resourceIdentifiers?: ResourceIdentifier[] | undefined;
+
+  /**
+   * <p>The string that you use in a subsequent request to get the next
+   * 			page of results in a paginated response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters evaluation results based on start and end times.</p>
+ * @public
+ */
+export interface TimeWindow {
+  /**
+   * <p>The start time of an execution.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The end time of an execution. The end time must be after the start date.</p>
+   * @public
+   */
+  EndTime?: Date | undefined;
+}
+
+/**
+ * <p>Returns details of a resource evaluation based on the selected filter.</p>
+ * @public
+ */
+export interface ResourceEvaluationFilters {
+  /**
+   * <p>Filters all resource evaluations results based on an evaluation mode.</p>
+   *          <important>
+   *             <p>Currently, <code>DECTECTIVE</code> is not supported as a valid value. Ignore other documentation stating otherwise.</p>
+   *          </important>
+   * @public
+   */
+  EvaluationMode?: EvaluationMode | undefined;
+
+  /**
+   * <p>Returns a <code>TimeWindow</code> object.</p>
+   * @public
+   */
+  TimeWindow?: TimeWindow | undefined;
+
+  /**
+   * <p>Filters evaluations for a given infrastructure deployment. For example: CFN Stack.</p>
+   * @public
+   */
+  EvaluationContextIdentifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceEvaluationsRequest {
+  /**
+   * <p>Returns a <code>ResourceEvaluationFilters</code> object.</p>
+   * @public
+   */
+  Filters?: ResourceEvaluationFilters | undefined;
+
+  /**
+   * <p>The maximum number of evaluations returned on each page. The default is 10.
+   * 			You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Returns details of a resource evaluation.</p>
+ * @public
+ */
+export interface ResourceEvaluation {
+  /**
+   * <p>The ResourceEvaluationId of a evaluation.</p>
+   * @public
+   */
+  ResourceEvaluationId?: string | undefined;
+
+  /**
+   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   * @public
+   */
+  EvaluationMode?: EvaluationMode | undefined;
+
+  /**
+   * <p>The starting time of an execution.</p>
+   * @public
+   */
+  EvaluationStartTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResourceEvaluationsResponse {
+  /**
+   * <p>Returns a <code>ResourceEvaluations</code> object.</p>
+   * @public
+   */
+  ResourceEvaluations?: ResourceEvaluation[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStoredQueriesRequest {
+  /**
+   * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Returns details of a specific query. </p>
+ * @public
+ */
+export interface StoredQueryMetadata {
+  /**
+   * <p>The ID of the query. </p>
+   * @public
+   */
+  QueryId: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the query. For example, arn:partition:service:region:account-id:resource-type/resource-name/resource-id.</p>
+   * @public
+   */
+  QueryArn: string | undefined;
+
+  /**
+   * <p>The name of the query.</p>
+   * @public
+   */
+  QueryName: string | undefined;
+
+  /**
+   * <p>A unique description for the query.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStoredQueriesResponse {
+  /**
+   * <p>A list of <code>StoredQueryMetadata</code> objects.</p>
+   * @public
+   */
+  StoredQueryMetadata?: StoredQueryMetadata[] | undefined;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token.
+   * 			To retrieve the next set of results, call this operation again and assign that token to the request object's <code>NextToken</code> parameter.
+   * 			If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationRecorder</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationAggregator</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AggregationAuthorization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The maximum number of tags returned on each page. The limit maximum is 50. You cannot specify a number greater than 50. If you specify 0, Config uses the default. </p>
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
@@ -521,6 +995,12 @@ export interface PutConfigurationAggregatorRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>An object to filter configuration recorders in an aggregator. Either <code>ResourceType</code> or <code>ServicePrincipal</code> is required.</p>
+   * @public
+   */
+  AggregatorFilters?: AggregatorFilters | undefined;
 }
 
 /**
@@ -541,10 +1021,16 @@ export interface PutConfigurationAggregatorResponse {
  */
 export interface PutConfigurationRecorderRequest {
   /**
-   * <p>An object for the configuration recorder to record configuration changes for specified resource types.</p>
+   * <p>An object for the configuration recorder. A configuration recorder records configuration changes for the resource types in scope.</p>
    * @public
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
+
+  /**
+   * <p>The tags for the customer managed configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -625,9 +1111,8 @@ export interface PutConformancePackResponse {
  */
 export interface PutDeliveryChannelRequest {
   /**
-   * <p>The configuration delivery channel object that delivers the
-   * 			configuration information to an Amazon S3 bucket and to an Amazon
-   * 			SNS topic.</p>
+   * <p>An object for the delivery channel. A delivery channel sends notifications and updated configuration states.
+   * 		</p>
    * @public
    */
   DeliveryChannel: DeliveryChannel | undefined;
@@ -970,6 +1455,41 @@ export interface PutRetentionConfigurationResponse {
 /**
  * @public
  */
+export interface PutServiceLinkedConfigurationRecorderRequest {
+  /**
+   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
+   * @public
+   */
+  ServicePrincipal: string | undefined;
+
+  /**
+   * <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutServiceLinkedConfigurationRecorderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the specified configuration recorder.</p>
+   *          <p>For service-linked configuration recorders, Config automatically assigns a name that has the prefix "<code>AWS</code>" to the new service-linked configuration recorder.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutStoredQueryRequest {
   /**
    * <p>A list of <code>StoredQuery</code> objects.
@@ -1181,13 +1701,12 @@ export interface StartConfigRulesEvaluationResponse {}
 
 /**
  * <p>The input for the <a>StartConfigurationRecorder</a>
- * 			action.</p>
+ * 			operation.</p>
  * @public
  */
 export interface StartConfigurationRecorderRequest {
   /**
-   * <p>The name of the recorder object that records each configuration
-   * 			change made to the resources.</p>
+   * <p>The name of the customer managed configuration recorder that you want to start.</p>
    * @public
    */
   ConfigurationRecorderName: string | undefined;
@@ -1284,12 +1803,12 @@ export interface StartResourceEvaluationResponse {
 }
 
 /**
- * <p>The input for the <a>StopConfigurationRecorder</a> action.</p>
+ * <p>The input for the <a>StopConfigurationRecorder</a> operation.</p>
  * @public
  */
 export interface StopConfigurationRecorderRequest {
   /**
-   * <p>The name of the recorder object that records each configuration change made to the resources.</p>
+   * <p>The name of the customer managed configuration recorder that you want to stop.</p>
    * @public
    */
   ConfigurationRecorderName: string | undefined;
@@ -1300,7 +1819,49 @@ export interface StopConfigurationRecorderRequest {
  */
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationRecorder</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationAggregator</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AggregationAuthorization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceArn: string | undefined;
@@ -1317,7 +1878,49 @@ export interface TagResourceRequest {
  */
 export interface UntagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. Currently, the supported resources are <code>ConfigRule</code>, <code>ConfigurationAggregator</code> and <code>AggregatorAuthorization</code>.</p>
+   * <p>The Amazon Resource Name (ARN) that identifies the resource for which to list the tags. The following resources are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationRecorder</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConfigRule</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OrganizationConformancePack</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationAggregator</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AggregationAuthorization</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceArn: string | undefined;

@@ -102,7 +102,9 @@ export interface StartConfigRulesEvaluationCommandOutput extends StartConfigRule
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>For <code>StartConfigRulesEvaluation</code> API, this exception
+ *  <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception
+ * 			is thrown if the number of service-linked roles in the account exceeds the limit.</p>
+ *          <p>For <code>StartConfigRulesEvaluation</code> API, this exception
  * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
  * 			minute.</p>
  *          <p>For <code>PutConfigurationAggregator</code> API, this exception

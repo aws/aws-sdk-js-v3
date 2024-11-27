@@ -34,7 +34,7 @@ export interface DescribeDeliveryChannelStatusCommandOutput
 
 /**
  * <p>Returns the current status of the specified delivery channel.
- * 			If a delivery channel is not specified, this action returns the
+ * 			If a delivery channel is not specified, this operation returns the
  * 			current status of all delivery channels associated with the
  * 			account.</p>
  *          <note>

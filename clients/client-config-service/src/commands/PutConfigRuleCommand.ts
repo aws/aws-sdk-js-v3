@@ -68,8 +68,12 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * 			in the <i>Config Developer Guide</i>.</p>
  *          <note>
  *             <p>
+ *                <b>Tags are added at creation and cannot be updated with this operation</b>
+ *             </p>
+ *             <p>
  *                <code>PutConfigRule</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different <code>tags</code> values,
  * 			Config will ignore these differences and treat it as an idempotent request of the previous. In this case, <code>tags</code> will not be updated, even if they are different.</p>
+ *             <p>Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a> to update tags after creation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -140,16 +144,16 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *  <p>Indicates one of the following errors:</p>
  *          <ul>
  *             <li>
- *                <p>For PutConfigRule, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the rule cannot be created because the IAM role assigned to Config lacks permissions to perform the config:Put* action.</p>
  *             </li>
  *             <li>
- *                <p>For PutConfigRule, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigRule.html">PutConfigRule</a>, the Lambda function cannot be invoked. Check the function ARN, and check the function's permissions.</p>
  *             </li>
  *             <li>
- *                <p>For PutOrganizationConfigRule, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConfigRule.html">PutOrganizationConfigRule</a>, organization Config rule cannot be created because you do not have permissions to call IAM <code>GetRole</code> action or create a service-linked role.</p>
  *             </li>
  *             <li>
- *                <p>For PutConformancePack and PutOrganizationConformancePack, a conformance pack cannot be created because you do not have the following permissions: </p>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConformancePack.html">PutConformancePack</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutOrganizationConformancePack.html">PutOrganizationConformancePack</a>, a conformance pack cannot be created because you do not have the following permissions: </p>
  *                <ul>
  *                   <li>
  *                      <p>You do not have permission to call IAM <code>GetRole</code> action or create a service-linked role.</p>
@@ -158,6 +162,9 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  *                      <p>You do not have permission to read Amazon S3 bucket or call SSM:GetDocument.</p>
  *                   </li>
  *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
  *             </li>
  *          </ul>
  *
@@ -171,8 +178,7 @@ export interface PutConfigRuleCommandOutput extends __MetadataBearer {}
  * 			deactivated rules before you add new rules.</p>
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
- *  <p>There are no configuration recorders available to provide the
- * 			role needed to describe your resources. Create a configuration
+ *  <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
  * 			recorder.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)

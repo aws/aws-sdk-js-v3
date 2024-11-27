@@ -226,6 +226,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateResourceTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/AssociateResourceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/AssociateResourceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/AssociateResourceTypesCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchGetAggregateResourceConfig
 </summary>
 
@@ -350,6 +358,14 @@ DeleteRetentionConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteRetentionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRetentionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteRetentionConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteServiceLinkedConfigurationRecorder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteServiceLinkedConfigurationRecorderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteServiceLinkedConfigurationRecorderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteServiceLinkedConfigurationRecorderCommandOutput/)
 
 </details>
 <details>
@@ -570,6 +586,14 @@ DescribeRetentionConfigurations
 </details>
 <details>
 <summary>
+DisassociateResourceTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DisassociateResourceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DisassociateResourceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DisassociateResourceTypesCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAggregateComplianceDetailsByConfigRule
 </summary>
 
@@ -730,6 +754,14 @@ ListAggregateDiscoveredResources
 </details>
 <details>
 <summary>
+ListConfigurationRecorders
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListConfigurationRecordersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListConfigurationRecordersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListConfigurationRecordersCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListConformancePackComplianceScores
 </summary>
 
@@ -878,6 +910,14 @@ PutRetentionConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutRetentionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRetentionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutRetentionConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutServiceLinkedConfigurationRecorder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutServiceLinkedConfigurationRecorderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutServiceLinkedConfigurationRecorderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutServiceLinkedConfigurationRecorderCommandOutput/)
 
 </details>
 <details>

@@ -34,7 +34,7 @@ export interface DescribeConfigurationAggregatorsCommandOutput
 
 /**
  * <p>Returns the details of one or more configuration aggregators.
- * 			If the configuration aggregator is not specified, this action
+ * 			If the configuration aggregator is not specified, this operation
  * 			returns the details for all the configuration aggregators associated
  * 			with the account. </p>
  * @example
@@ -78,6 +78,20 @@ export interface DescribeConfigurationAggregatorsCommandOutput
  * //       CreationTime: new Date("TIMESTAMP"),
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       CreatedBy: "STRING_VALUE",
+ * //       AggregatorFilters: { // AggregatorFilters
+ * //         ResourceType: { // AggregatorFilterResourceType
+ * //           Type: "INCLUDE",
+ * //           Value: [ // ResourceTypeValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         ServicePrincipal: { // AggregatorFilterServicePrincipal
+ * //           Type: "INCLUDE",
+ * //           Value: [ // ServicePrincipalValueList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

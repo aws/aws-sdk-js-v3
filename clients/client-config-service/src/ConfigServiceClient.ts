@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  AssociateResourceTypesCommandInput,
+  AssociateResourceTypesCommandOutput,
+} from "./commands/AssociateResourceTypesCommand";
+import {
   BatchGetAggregateResourceConfigCommandInput,
   BatchGetAggregateResourceConfigCommandOutput,
 } from "./commands/BatchGetAggregateResourceConfigCommand";
@@ -114,6 +118,10 @@ import {
   DeleteRetentionConfigurationCommandInput,
   DeleteRetentionConfigurationCommandOutput,
 } from "./commands/DeleteRetentionConfigurationCommand";
+import {
+  DeleteServiceLinkedConfigurationRecorderCommandInput,
+  DeleteServiceLinkedConfigurationRecorderCommandOutput,
+} from "./commands/DeleteServiceLinkedConfigurationRecorderCommand";
 import { DeleteStoredQueryCommandInput, DeleteStoredQueryCommandOutput } from "./commands/DeleteStoredQueryCommand";
 import {
   DeliverConfigSnapshotCommandInput,
@@ -220,6 +228,10 @@ import {
   DescribeRetentionConfigurationsCommandOutput,
 } from "./commands/DescribeRetentionConfigurationsCommand";
 import {
+  DisassociateResourceTypesCommandInput,
+  DisassociateResourceTypesCommandOutput,
+} from "./commands/DisassociateResourceTypesCommand";
+import {
   GetAggregateComplianceDetailsByConfigRuleCommandInput,
   GetAggregateComplianceDetailsByConfigRuleCommandOutput,
 } from "./commands/GetAggregateComplianceDetailsByConfigRuleCommand";
@@ -297,6 +309,10 @@ import {
   ListAggregateDiscoveredResourcesCommandOutput,
 } from "./commands/ListAggregateDiscoveredResourcesCommand";
 import {
+  ListConfigurationRecordersCommandInput,
+  ListConfigurationRecordersCommandOutput,
+} from "./commands/ListConfigurationRecordersCommand";
+import {
   ListConformancePackComplianceScoresCommandInput,
   ListConformancePackComplianceScoresCommandOutput,
 } from "./commands/ListConformancePackComplianceScoresCommand";
@@ -354,6 +370,10 @@ import {
   PutRetentionConfigurationCommandInput,
   PutRetentionConfigurationCommandOutput,
 } from "./commands/PutRetentionConfigurationCommand";
+import {
+  PutServiceLinkedConfigurationRecorderCommandInput,
+  PutServiceLinkedConfigurationRecorderCommandOutput,
+} from "./commands/PutServiceLinkedConfigurationRecorderCommand";
 import { PutStoredQueryCommandInput, PutStoredQueryCommandOutput } from "./commands/PutStoredQueryCommand";
 import {
   SelectAggregateResourceConfigCommandInput,
@@ -400,6 +420,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateResourceTypesCommandInput
   | BatchGetAggregateResourceConfigCommandInput
   | BatchGetResourceConfigCommandInput
   | DeleteAggregationAuthorizationCommandInput
@@ -416,6 +437,7 @@ export type ServiceInputTypes =
   | DeleteRemediationExceptionsCommandInput
   | DeleteResourceConfigCommandInput
   | DeleteRetentionConfigurationCommandInput
+  | DeleteServiceLinkedConfigurationRecorderCommandInput
   | DeleteStoredQueryCommandInput
   | DeliverConfigSnapshotCommandInput
   | DescribeAggregateComplianceByConfigRulesCommandInput
@@ -443,6 +465,7 @@ export type ServiceInputTypes =
   | DescribeRemediationExceptionsCommandInput
   | DescribeRemediationExecutionStatusCommandInput
   | DescribeRetentionConfigurationsCommandInput
+  | DisassociateResourceTypesCommandInput
   | GetAggregateComplianceDetailsByConfigRuleCommandInput
   | GetAggregateConfigRuleComplianceSummaryCommandInput
   | GetAggregateConformancePackComplianceSummaryCommandInput
@@ -463,6 +486,7 @@ export type ServiceInputTypes =
   | GetResourceEvaluationSummaryCommandInput
   | GetStoredQueryCommandInput
   | ListAggregateDiscoveredResourcesCommandInput
+  | ListConfigurationRecordersCommandInput
   | ListConformancePackComplianceScoresCommandInput
   | ListDiscoveredResourcesCommandInput
   | ListResourceEvaluationsCommandInput
@@ -482,6 +506,7 @@ export type ServiceInputTypes =
   | PutRemediationExceptionsCommandInput
   | PutResourceConfigCommandInput
   | PutRetentionConfigurationCommandInput
+  | PutServiceLinkedConfigurationRecorderCommandInput
   | PutStoredQueryCommandInput
   | SelectAggregateResourceConfigCommandInput
   | SelectResourceConfigCommandInput
@@ -497,6 +522,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateResourceTypesCommandOutput
   | BatchGetAggregateResourceConfigCommandOutput
   | BatchGetResourceConfigCommandOutput
   | DeleteAggregationAuthorizationCommandOutput
@@ -513,6 +539,7 @@ export type ServiceOutputTypes =
   | DeleteRemediationExceptionsCommandOutput
   | DeleteResourceConfigCommandOutput
   | DeleteRetentionConfigurationCommandOutput
+  | DeleteServiceLinkedConfigurationRecorderCommandOutput
   | DeleteStoredQueryCommandOutput
   | DeliverConfigSnapshotCommandOutput
   | DescribeAggregateComplianceByConfigRulesCommandOutput
@@ -540,6 +567,7 @@ export type ServiceOutputTypes =
   | DescribeRemediationExceptionsCommandOutput
   | DescribeRemediationExecutionStatusCommandOutput
   | DescribeRetentionConfigurationsCommandOutput
+  | DisassociateResourceTypesCommandOutput
   | GetAggregateComplianceDetailsByConfigRuleCommandOutput
   | GetAggregateConfigRuleComplianceSummaryCommandOutput
   | GetAggregateConformancePackComplianceSummaryCommandOutput
@@ -560,6 +588,7 @@ export type ServiceOutputTypes =
   | GetResourceEvaluationSummaryCommandOutput
   | GetStoredQueryCommandOutput
   | ListAggregateDiscoveredResourcesCommandOutput
+  | ListConfigurationRecordersCommandOutput
   | ListConformancePackComplianceScoresCommandOutput
   | ListDiscoveredResourcesCommandOutput
   | ListResourceEvaluationsCommandOutput
@@ -579,6 +608,7 @@ export type ServiceOutputTypes =
   | PutRemediationExceptionsCommandOutput
   | PutResourceConfigCommandOutput
   | PutRetentionConfigurationCommandOutput
+  | PutServiceLinkedConfigurationRecorderCommandOutput
   | PutStoredQueryCommandOutput
   | SelectAggregateResourceConfigCommandOutput
   | SelectResourceConfigCommandOutput

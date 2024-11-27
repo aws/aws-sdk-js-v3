@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListResourceEvaluationsRequest, ListResourceEvaluationsResponse } from "../models/models_0";
+import { ListResourceEvaluationsRequest, ListResourceEvaluationsResponse } from "../models/models_1";
 import { de_ListResourceEvaluationsCommand, se_ListResourceEvaluationsCommand } from "../protocols/Aws_json1_1";
 
 /**

@@ -28,22 +28,19 @@ export interface PutDeliveryChannelCommandInput extends PutDeliveryChannelReques
 export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a delivery channel object to deliver configuration
- * 			information and other compliance information to an Amazon S3 bucket and Amazon SNS topic.
- * 			For more information,
- * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/notifications-for-AWS-Config.html">Notifications that Config Sends to an Amazon SNS topic</a>.</p>
- *          <p>Before you can create a delivery channel, you must create a
- * 			configuration recorder.</p>
- *          <p>You can use this action to change the Amazon S3 bucket or an
- * 			Amazon SNS topic of the existing delivery channel. To change the
- * 			Amazon S3 bucket or an Amazon SNS topic, call this action and
- * 			specify the changed values for the S3 bucket and the SNS topic. If
- * 			you specify a different value for either the S3 bucket or the SNS
- * 			topic, this action will keep the existing value for the parameter
- * 			that is not changed.</p>
+ * <p>Creates or updates a delivery channel to deliver configuration
+ * 			information and other compliance information.</p>
+ *          <p>You can use this operation to create a new delivery channel or to update the Amazon S3 bucket and the
+ * 			Amazon SNS topic of an existing delivery channel.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html">
+ *                <b>Working with the Delivery Channel</b>
+ *             </a> in the <i>Config Developer Guide.</i>
+ *          </p>
  *          <note>
- *             <p>You can have only one delivery channel per region in your
- * 				account.</p>
+ *             <p>
+ *                <b>One delivery channel per account per Region</b>
+ *             </p>
+ *             <p>You can have only one delivery channel for each account for each Amazon Web Services Region.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,7 +73,7 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link InsufficientDeliveryPolicyException} (client fault)
- *  <p>Your Amazon S3 bucket policy does not permit Config to
+ *  <p>Your Amazon S3 bucket policy does not allow Config to
  * 			write to it.</p>
  *
  * @throws {@link InvalidDeliveryChannelNameException} (client fault)
@@ -96,8 +93,7 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * 			you can create.</p>
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
- *  <p>There are no configuration recorders available to provide the
- * 			role needed to describe your resources. Create a configuration
+ *  <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
  * 			recorder.</p>
  *
  * @throws {@link NoSuchBucketException} (client fault)

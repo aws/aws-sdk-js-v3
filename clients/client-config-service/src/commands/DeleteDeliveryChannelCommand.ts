@@ -29,8 +29,7 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the delivery channel.</p>
- *          <p>Before you can delete the delivery channel, you must stop the
- * 			configuration recorder by using the <a>StopConfigurationRecorder</a> action.</p>
+ *          <p>Before you can delete the delivery channel, you must stop the customer managed configuration recorder. You can use the <a>StopConfigurationRecorder</a> operation to stop the customer managed configuration recorder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +52,7 @@ export interface DeleteDeliveryChannelCommandOutput extends __MetadataBearer {}
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link LastDeliveryChannelDeleteFailedException} (client fault)
- *  <p>You cannot delete the delivery channel you specified because
- * 			the configuration recorder is running.</p>
+ *  <p>You cannot delete the delivery channel you specified because the customer managed configuration recorder is running.</p>
  *
  * @throws {@link NoSuchDeliveryChannelException} (client fault)
  *  <p>You have specified a delivery channel that does not

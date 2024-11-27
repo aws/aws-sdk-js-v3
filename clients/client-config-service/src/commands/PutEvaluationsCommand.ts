@@ -29,7 +29,7 @@ export interface PutEvaluationsCommandOutput extends PutEvaluationsResponse, __M
 
 /**
  * <p>Used by an Lambda function to deliver evaluation results to
- * 			Config. This action is required in every Lambda function
+ * 			Config. This operation is required in every Lambda function
  * 			that is invoked by an Config rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -44,8 +44,12 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  *          </note>
  *          <note>
  *             <p>
+ *                <b>Tags are added at creation and cannot be updated with this operation</b>
+ *             </p>
+ *             <p>
  *                <code>PutConfigurationAggregator</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different <code>tags</code> values,
  * 			Config will ignore these differences and treat it as an idempotent request of the previous. In this case, <code>tags</code> will not be updated, even if they are different.</p>
+ *             <p>Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a> to update tags after creation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +83,20 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   AggregatorFilters: { // AggregatorFilters
+ *     ResourceType: { // AggregatorFilterResourceType
+ *       Type: "INCLUDE",
+ *       Value: [ // ResourceTypeValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ServicePrincipal: { // AggregatorFilterServicePrincipal
+ *       Type: "INCLUDE",
+ *       Value: [ // ServicePrincipalValueList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new PutConfigurationAggregatorCommand(input);
  * const response = await client.send(command);
@@ -107,6 +125,20 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //     CreatedBy: "STRING_VALUE",
+ * //     AggregatorFilters: { // AggregatorFilters
+ * //       ResourceType: { // AggregatorFilterResourceType
+ * //         Type: "INCLUDE",
+ * //         Value: [ // ResourceTypeValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       ServicePrincipal: { // AggregatorFilterServicePrincipal
+ * //         Type: "INCLUDE",
+ * //         Value: [ // ServicePrincipalValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -123,10 +155,12 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  * 			that your parameters are valid and try again.</p>
  *
  * @throws {@link InvalidRoleException} (client fault)
- *  <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the configuration recorder.</p>
+ *  <p>You have provided a null or empty Amazon Resource Name (ARN) for the IAM role assumed by Config and used by the customer managed configuration recorder.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>For <code>StartConfigRulesEvaluation</code> API, this exception
+ *  <p>For <code>PutServiceLinkedConfigurationRecorder</code> API, this exception
+ * 			is thrown if the number of service-linked roles in the account exceeds the limit.</p>
+ *          <p>For <code>StartConfigRulesEvaluation</code> API, this exception
  * 			is thrown if an evaluation is in progress or if you call the <a>StartConfigRulesEvaluation</a> API more than once per
  * 			minute.</p>
  *          <p>For <code>PutConfigurationAggregator</code> API, this exception
@@ -152,7 +186,7 @@ export interface PutConfigurationAggregatorCommandOutput extends PutConfiguratio
  *             </li>
  *             <li>
  *                <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API.
- * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
+ * 			Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>

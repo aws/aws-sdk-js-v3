@@ -69,8 +69,7 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
- *  <p>There are no configuration recorders available to provide the
- * 			role needed to describe your resources. Create a configuration
+ *  <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
  * 			recorder.</p>
  *
  * @throws {@link NoRunningConfigurationRecorderException} (client fault)

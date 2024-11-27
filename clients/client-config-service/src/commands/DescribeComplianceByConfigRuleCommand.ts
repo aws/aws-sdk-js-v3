@@ -34,7 +34,7 @@ export interface DescribeComplianceByConfigRuleCommandOutput
 
 /**
  * <p>Indicates whether the specified Config rules are compliant.
- * 			If a rule is noncompliant, this action returns the number of Amazon Web Services
+ * 			If a rule is noncompliant, this operation returns the number of Amazon Web Services
  * 			resources that do not comply with the rule.</p>
  *          <p>A rule is compliant if all of the evaluated resources comply
  * 			with it. It is noncompliant if any of these resources do not
