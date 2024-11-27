@@ -66,6 +66,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  *       embeddingModelConfiguration: { // EmbeddingModelConfiguration
  *         bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  *           dimensions: Number("int"),
+ *           embeddingDataType: "FLOAT32" || "BINARY",
  *         },
  *       },
  *     },
@@ -143,6 +144,7 @@ export interface UpdateKnowledgeBaseCommandOutput extends UpdateKnowledgeBaseRes
  * //         embeddingModelConfiguration: { // EmbeddingModelConfiguration
  * //           bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  * //             dimensions: Number("int"),
+ * //             embeddingDataType: "FLOAT32" || "BINARY",
  * //           },
  * //         },
  * //       },

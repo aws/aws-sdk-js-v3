@@ -8498,6 +8498,20 @@ export const KnowledgeBaseType = {
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
 
 /**
+ * @public
+ * @enum
+ */
+export const EmbeddingDataType = {
+  BINARY: "BINARY",
+  FLOAT32: "FLOAT32",
+} as const;
+
+/**
+ * @public
+ */
+export type EmbeddingDataType = (typeof EmbeddingDataType)[keyof typeof EmbeddingDataType];
+
+/**
  * <p>The vector configuration details for the Bedrock embeddings model.</p>
  * @public
  */
@@ -8507,6 +8521,16 @@ export interface BedrockEmbeddingModelConfiguration {
    * @public
    */
   dimensions?: number | undefined;
+
+  /**
+   * <p>The data type for the vectors when using a model to convert text into vector
+   *       embeddings. The model must support the specified data type for vector embeddings.
+   *       Floating-point (float32) is the default data type, and is supported by most models
+   *       for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings
+   *         models</a> for information on the available models and their vector data types.</p>
+   * @public
+   */
+  embeddingDataType?: EmbeddingDataType | undefined;
 }
 
 /**
@@ -9125,29 +9149,6 @@ export interface DisassociateAgentKnowledgeBaseRequest {
  * @public
  */
 export interface DisassociateAgentKnowledgeBaseResponse {}
-
-/**
- * @public
- */
-export interface GetAgentKnowledgeBaseRequest {
-  /**
-   * <p>The unique identifier of the agent with which the knowledge base is associated.</p>
-   * @public
-   */
-  agentId: string | undefined;
-
-  /**
-   * <p>The version of the agent with which the knowledge base is associated.</p>
-   * @public
-   */
-  agentVersion: string | undefined;
-
-  /**
-   * <p>The unique identifier of the knowledge base associated with the agent.</p>
-   * @public
-   */
-  knowledgeBaseId: string | undefined;
-}
 
 /**
  * @internal

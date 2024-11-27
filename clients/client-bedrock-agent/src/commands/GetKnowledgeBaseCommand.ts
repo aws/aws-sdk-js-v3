@@ -54,6 +54,7 @@ export interface GetKnowledgeBaseCommandOutput extends GetKnowledgeBaseResponse,
  * //         embeddingModelConfiguration: { // EmbeddingModelConfiguration
  * //           bedrockEmbeddingModelConfiguration: { // BedrockEmbeddingModelConfiguration
  * //             dimensions: Number("int"),
+ * //             embeddingDataType: "FLOAT32" || "BINARY",
  * //           },
  * //         },
  * //       },
