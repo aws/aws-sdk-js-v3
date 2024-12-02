@@ -55,7 +55,7 @@ export interface ListComponentBuildVersionsCommandOutput extends ListComponentBu
  * //         "STRING_VALUE",
  * //       ],
  * //       state: { // ComponentState
- * //         status: "DEPRECATED",
+ * //         status: "DEPRECATED" || "DISABLED" || "ACTIVE",
  * //         reason: "STRING_VALUE",
  * //       },
  * //       type: "BUILD" || "TEST",

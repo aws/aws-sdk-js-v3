@@ -583,8 +583,44 @@ export type Platform = (typeof Platform)[keyof typeof Platform];
  * @public
  * @enum
  */
+export const ProductCodeType = {
+  MARKETPLACE: "marketplace",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductCodeType = (typeof ProductCodeType)[keyof typeof ProductCodeType];
+
+/**
+ * <p>Information about a single product code.</p>
+ * @public
+ */
+export interface ProductCodeListItem {
+  /**
+   * <p>For Amazon Web Services Marketplace components, this contains the product code ID that can be stamped onto
+   * 			an EC2 AMI to ensure that components are billed correctly. If this property is empty,
+   * 			it might mean that the component is not published.</p>
+   * @public
+   */
+  productCodeId: string | undefined;
+
+  /**
+   * <p>The owner of the product code that's billed. If this property is
+   * 			empty, it might mean that the component is not published.</p>
+   * @public
+   */
+  productCodeType: ProductCodeType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const ComponentStatus = {
+  ACTIVE: "ACTIVE",
   DEPRECATED: "DEPRECATED",
+  DISABLED: "DISABLED",
 } as const;
 
 /**
@@ -682,8 +718,7 @@ export interface Component {
   supportedOsVersions?: string[] | undefined;
 
   /**
-   * <p>Describes the current status of the component. This is used for components that are no
-   * 			longer active.</p>
+   * <p>Describes the current status of the component.</p>
    * @public
    */
   state?: ComponentState | undefined;
@@ -744,6 +779,12 @@ export interface Component {
    * @public
    */
   obfuscate?: boolean | undefined;
+
+  /**
+   * <p>Contains product codes that are used for billing purposes for Amazon Web Services Marketplace components.</p>
+   * @public
+   */
+  productCodes?: ProductCodeListItem[] | undefined;
 }
 
 /**
@@ -884,8 +925,8 @@ export interface ComponentSummary {
   publisher?: string | undefined;
 
   /**
-   * <p>Indicates whether component source is hidden from view in the console,
-   * 			and from component detail results for API, CLI, or SDK operations.</p>
+   * <p>Indicates whether component source is hidden from view in the console, and from
+   * 			component detail results for API, CLI, or SDK operations.</p>
    * @public
    */
   obfuscate?: boolean | undefined;
@@ -985,6 +1026,18 @@ export interface ComponentVersion {
    * @public
    */
   dateCreated?: string | undefined;
+
+  /**
+   * <p>Describes the current status of the component version.</p>
+   * @public
+   */
+  status?: ComponentStatus | undefined;
+
+  /**
+   * <p>Contains product codes that are used for billing purposes for Amazon Web Services Marketplace components.</p>
+   * @public
+   */
+  productCodes?: ProductCodeListItem[] | undefined;
 }
 
 /**
@@ -1031,8 +1084,9 @@ export interface TargetContainerRepository {
   service: ContainerRepositoryService | undefined;
 
   /**
-   * <p>The name of the container repository where the output container image is stored. This
-   * 			name is prefixed by the repository location.</p>
+   * <p>The name of the container repository where the output container image is stored.
+   * 			This name is prefixed by the repository location. For example,
+   * 			<code><repository location url>/repository_name</code>.</p>
    * @public
    */
   repositoryName: string | undefined;
@@ -2098,7 +2152,7 @@ export interface ImageTestsConfiguration {
   /**
    * <p>The maximum time in minutes that tests are permitted to run.</p>
    *          <note>
-   *             <p>The timeoutMinutes attribute is not currently active. This value is
+   *             <p>The timeout attribute is not currently active. This value is
    * 				ignored.</p>
    *          </note>
    * @public
@@ -5038,6 +5092,66 @@ export interface GetLifecyclePolicyResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const MarketplaceResourceType = {
+  COMPONENT_ARTIFACT: "COMPONENT_ARTIFACT",
+  COMPONENT_DATA: "COMPONENT_DATA",
+} as const;
+
+/**
+ * @public
+ */
+export type MarketplaceResourceType = (typeof MarketplaceResourceType)[keyof typeof MarketplaceResourceType];
+
+/**
+ * @public
+ */
+export interface GetMarketplaceResourceRequest {
+  /**
+   * <p>Specifies which type of Amazon Web Services Marketplace resource Image Builder retrieves.</p>
+   * @public
+   */
+  resourceType: MarketplaceResourceType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies an Amazon Web Services Marketplace resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>The bucket path that you can specify to download the resource from Amazon S3.</p>
+   * @public
+   */
+  resourceLocation?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMarketplaceResourceResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon Web Services Marketplace resource that was requested.</p>
+   * @public
+   */
+  resourceArn?: string | undefined;
+
+  /**
+   * <p>The obfuscated S3 URL to download the component artifact from.</p>
+   * @public
+   */
+  url?: string | undefined;
+
+  /**
+   * <p>Returns obfuscated data that contains the YAML content of the component.</p>
+   * @public
+   */
+  data?: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetWorkflowRequest {
   /**
@@ -5810,6 +5924,7 @@ export interface ListComponentBuildVersionsResponse {
  */
 export const Ownership = {
   AMAZON: "Amazon",
+  AWS_MARKETPLACE: "AWSMarketplace",
   SELF: "Self",
   SHARED: "Shared",
   THIRDPARTY: "ThirdParty",
@@ -6271,18 +6386,21 @@ export interface ListImagePackagesRequest {
 }
 
 /**
- * <p>Represents a package installed on an Image Builder image.</p>
+ * <p>A software package that's installed on top of the base image to create a
+ * 			customized image.</p>
  * @public
  */
 export interface ImagePackage {
   /**
-   * <p>The name of the package as reported to the operating system package manager.</p>
+   * <p>The name of the package that's reported to the operating system package
+   * 			manager.</p>
    * @public
    */
   packageName?: string | undefined;
 
   /**
-   * <p>The version of the package as reported to the operating system package manager.</p>
+   * <p>The version of the package that's reported to the operating system package
+   * 			manager.</p>
    * @public
    */
   packageVersion?: string | undefined;

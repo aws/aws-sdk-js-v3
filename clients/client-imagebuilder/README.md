@@ -472,6 +472,14 @@ GetLifecyclePolicy
 </details>
 <details>
 <summary>
+GetMarketplaceResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/imagebuilder/command/GetMarketplaceResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetMarketplaceResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-imagebuilder/Interface/GetMarketplaceResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetWorkflow
 </summary>
 

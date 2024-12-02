@@ -37,7 +37,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * // const { ImagebuilderClient, ListImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImagesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",

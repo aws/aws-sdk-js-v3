@@ -36,7 +36,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * // const { ImagebuilderClient, ListContainerRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListContainerRecipesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",

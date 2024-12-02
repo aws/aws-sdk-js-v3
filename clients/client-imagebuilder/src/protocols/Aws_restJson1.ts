@@ -111,6 +111,10 @@ import {
   GetLifecycleExecutionCommandOutput,
 } from "../commands/GetLifecycleExecutionCommand";
 import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand";
+import {
+  GetMarketplaceResourceCommandInput,
+  GetMarketplaceResourceCommandOutput,
+} from "../commands/GetMarketplaceResourceCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommandInput,
@@ -1035,6 +1039,30 @@ export const se_GetLifecyclePolicyCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMarketplaceResourceCommand
+ */
+export const se_GetMarketplaceResourceCommand = async (
+  input: GetMarketplaceResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetMarketplaceResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      resourceLocation: [],
+      resourceType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2743,6 +2771,29 @@ export const de_GetLifecyclePolicyCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     lifecyclePolicy: (_) => de_LifecyclePolicy(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMarketplaceResourceCommand
+ */
+export const de_GetMarketplaceResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMarketplaceResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    data: __expectString,
+    resourceArn: __expectString,
+    url: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4664,6 +4715,10 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 };
 
 // de_Placement omitted.
+
+// de_ProductCodeList omitted.
+
+// de_ProductCodeListItem omitted.
 
 // de_RegionList omitted.
 

@@ -137,6 +137,10 @@ import {
   GetLifecycleExecutionCommandOutput,
 } from "./commands/GetLifecycleExecutionCommand";
 import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "./commands/GetLifecyclePolicyCommand";
+import {
+  GetMarketplaceResourceCommandInput,
+  GetMarketplaceResourceCommandOutput,
+} from "./commands/GetMarketplaceResourceCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommandInput,
@@ -306,6 +310,7 @@ export type ServiceInputTypes =
   | GetInfrastructureConfigurationCommandInput
   | GetLifecycleExecutionCommandInput
   | GetLifecyclePolicyCommandInput
+  | GetMarketplaceResourceCommandInput
   | GetWorkflowCommandInput
   | GetWorkflowExecutionCommandInput
   | GetWorkflowStepExecutionCommandInput
@@ -384,6 +389,7 @@ export type ServiceOutputTypes =
   | GetInfrastructureConfigurationCommandOutput
   | GetLifecycleExecutionCommandOutput
   | GetLifecyclePolicyCommandOutput
+  | GetMarketplaceResourceCommandOutput
   | GetWorkflowCommandOutput
   | GetWorkflowExecutionCommandOutput
   | GetWorkflowStepExecutionCommandOutput

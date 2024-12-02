@@ -32,6 +32,7 @@ export * from "./GetImageRecipePolicyCommand";
 export * from "./GetInfrastructureConfigurationCommand";
 export * from "./GetLifecycleExecutionCommand";
 export * from "./GetLifecyclePolicyCommand";
+export * from "./GetMarketplaceResourceCommand";
 export * from "./GetWorkflowCommand";
 export * from "./GetWorkflowExecutionCommand";
 export * from "./GetWorkflowStepExecutionCommand";

@@ -36,7 +36,7 @@ export interface ListImageRecipesCommandOutput extends ListImageRecipesResponse,
  * // const { ImagebuilderClient, ListImageRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImageRecipesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",

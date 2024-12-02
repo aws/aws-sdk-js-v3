@@ -155,6 +155,11 @@ import {
   GetLifecyclePolicyCommandInput,
   GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
+import {
+  GetMarketplaceResourceCommand,
+  GetMarketplaceResourceCommandInput,
+  GetMarketplaceResourceCommandOutput,
+} from "./commands/GetMarketplaceResourceCommand";
 import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommand,
@@ -379,6 +384,7 @@ const commands = {
   GetInfrastructureConfigurationCommand,
   GetLifecycleExecutionCommand,
   GetLifecyclePolicyCommand,
+  GetMarketplaceResourceCommand,
   GetWorkflowCommand,
   GetWorkflowExecutionCommand,
   GetWorkflowStepExecutionCommand,
@@ -939,6 +945,23 @@ export interface Imagebuilder {
     args: GetLifecyclePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLifecyclePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMarketplaceResourceCommand}
+   */
+  getMarketplaceResource(
+    args: GetMarketplaceResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMarketplaceResourceCommandOutput>;
+  getMarketplaceResource(
+    args: GetMarketplaceResourceCommandInput,
+    cb: (err: any, data?: GetMarketplaceResourceCommandOutput) => void
+  ): void;
+  getMarketplaceResource(
+    args: GetMarketplaceResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMarketplaceResourceCommandOutput) => void
   ): void;
 
   /**

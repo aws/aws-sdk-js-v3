@@ -54,7 +54,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * //       "STRING_VALUE",
  * //     ],
  * //     state: { // ComponentState
- * //       status: "DEPRECATED",
+ * //       status: "DEPRECATED" || "DISABLED" || "ACTIVE",
  * //       reason: "STRING_VALUE",
  * //     },
  * //     parameters: [ // ComponentParameterDetailList
@@ -77,6 +77,12 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * //     },
  * //     publisher: "STRING_VALUE",
  * //     obfuscate: true || false,
+ * //     productCodes: [ // ProductCodeList
+ * //       { // ProductCodeListItem
+ * //         productCodeId: "STRING_VALUE", // required
+ * //         productCodeType: "marketplace", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
-import { ListWorkflowsRequest, ListWorkflowsResponse } from "../models/models_0";
-import { de_ListWorkflowsCommand, se_ListWorkflowsCommand } from "../protocols/Aws_restJson1";
+import { GetMarketplaceResourceRequest, GetMarketplaceResourceResponse } from "../models/models_0";
+import { de_GetMarketplaceResourceCommand, se_GetMarketplaceResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -17,61 +17,45 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListWorkflowsCommand}.
+ * The input for {@link GetMarketplaceResourceCommand}.
  */
-export interface ListWorkflowsCommandInput extends ListWorkflowsRequest {}
+export interface GetMarketplaceResourceCommandInput extends GetMarketplaceResourceRequest {}
 /**
  * @public
  *
- * The output of {@link ListWorkflowsCommand}.
+ * The output of {@link GetMarketplaceResourceCommand}.
  */
-export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __MetadataBearer {}
+export interface GetMarketplaceResourceCommandOutput extends GetMarketplaceResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists workflow build versions based on filtering parameters.</p>
+ * <p>Verify the subscription and perform resource dependency checks on the requested
+ * 			Amazon Web Services Marketplace resource. For Amazon Web Services Marketplace components, the response contains fields to download the
+ * 			components and their artifacts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ImagebuilderClient, ListWorkflowsCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
- * // const { ImagebuilderClient, ListWorkflowsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
+ * import { ImagebuilderClient, GetMarketplaceResourceCommand } from "@aws-sdk/client-imagebuilder"; // ES Modules import
+ * // const { ImagebuilderClient, GetMarketplaceResourceCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
- * const input = { // ListWorkflowsRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
- *   filters: [ // FilterList
- *     { // Filter
- *       name: "STRING_VALUE",
- *       values: [ // FilterValues
- *         "STRING_VALUE",
- *       ],
- *     },
- *   ],
- *   byName: true || false,
- *   maxResults: Number("int"),
- *   nextToken: "STRING_VALUE",
+ * const input = { // GetMarketplaceResourceRequest
+ *   resourceType: "COMPONENT_DATA" || "COMPONENT_ARTIFACT", // required
+ *   resourceArn: "STRING_VALUE", // required
+ *   resourceLocation: "STRING_VALUE",
  * };
- * const command = new ListWorkflowsCommand(input);
+ * const command = new GetMarketplaceResourceCommand(input);
  * const response = await client.send(command);
- * // { // ListWorkflowsResponse
- * //   workflowVersionList: [ // WorkflowVersionList
- * //     { // WorkflowVersion
- * //       arn: "STRING_VALUE",
- * //       name: "STRING_VALUE",
- * //       version: "STRING_VALUE",
- * //       description: "STRING_VALUE",
- * //       type: "BUILD" || "TEST" || "DISTRIBUTION",
- * //       owner: "STRING_VALUE",
- * //       dateCreated: "STRING_VALUE",
- * //     },
- * //   ],
- * //   nextToken: "STRING_VALUE",
+ * // { // GetMarketplaceResourceResponse
+ * //   resourceArn: "STRING_VALUE",
+ * //   url: "STRING_VALUE",
+ * //   data: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param ListWorkflowsCommandInput - {@link ListWorkflowsCommandInput}
- * @returns {@link ListWorkflowsCommandOutput}
- * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
- * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
+ * @param GetMarketplaceResourceCommandInput - {@link GetMarketplaceResourceCommandInput}
+ * @returns {@link GetMarketplaceResourceCommandOutput}
+ * @see {@link GetMarketplaceResourceCommandInput} for command's `input` shape.
+ * @see {@link GetMarketplaceResourceCommandOutput} for command's `response` shape.
  * @see {@link ImagebuilderClientResolvedConfig | config} for ImagebuilderClient's `config` shape.
  *
  * @throws {@link CallRateLimitExceededException} (client fault)
@@ -84,9 +68,6 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>You are not authorized to perform the requested operation.</p>
- *
- * @throws {@link InvalidPaginationTokenException} (client fault)
- *  <p>You have provided an invalid pagination token in your request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>You have requested an action that that the service doesn't support.</p>
@@ -103,10 +84,10 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  *
  * @public
  */
-export class ListWorkflowsCommand extends $Command
+export class GetMarketplaceResourceCommand extends $Command
   .classBuilder<
-    ListWorkflowsCommandInput,
-    ListWorkflowsCommandOutput,
+    GetMarketplaceResourceCommandInput,
+    GetMarketplaceResourceCommandOutput,
     ImagebuilderClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -118,21 +99,21 @@ export class ListWorkflowsCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("imagebuilder", "ListWorkflows", {})
-  .n("ImagebuilderClient", "ListWorkflowsCommand")
+  .s("imagebuilder", "GetMarketplaceResource", {})
+  .n("ImagebuilderClient", "GetMarketplaceResourceCommand")
   .f(void 0, void 0)
-  .ser(se_ListWorkflowsCommand)
-  .de(de_ListWorkflowsCommand)
+  .ser(se_GetMarketplaceResourceCommand)
+  .de(de_GetMarketplaceResourceCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListWorkflowsRequest;
-      output: ListWorkflowsResponse;
+      input: GetMarketplaceResourceRequest;
+      output: GetMarketplaceResourceResponse;
     };
     sdk: {
-      input: ListWorkflowsCommandInput;
-      output: ListWorkflowsCommandOutput;
+      input: GetMarketplaceResourceCommandInput;
+      output: GetMarketplaceResourceCommandOutput;
     };
   };
 }

@@ -47,7 +47,7 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * // const { ImagebuilderClient, ListComponentsCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListComponentsRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",
@@ -77,6 +77,13 @@ export interface ListComponentsCommandOutput extends ListComponentsResponse, __M
  * //       type: "BUILD" || "TEST",
  * //       owner: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",
+ * //       status: "DEPRECATED" || "DISABLED" || "ACTIVE",
+ * //       productCodes: [ // ProductCodeList
+ * //         { // ProductCodeListItem
+ * //           productCodeId: "STRING_VALUE", // required
+ * //           productCodeType: "marketplace", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
