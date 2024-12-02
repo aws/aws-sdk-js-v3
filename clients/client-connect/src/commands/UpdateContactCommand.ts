@@ -71,6 +71,20 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  *       ValueInteger: Number("int"),
  *     },
  *   },
+ *   QueueInfo: { // QueueInfoInput
+ *     Id: "STRING_VALUE",
+ *   },
+ *   UserInfo: { // UserInfo
+ *     UserId: "STRING_VALUE",
+ *   },
+ *   CustomerEndpoint: { // Endpoint
+ *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ *     Address: "STRING_VALUE",
+ *   },
+ *   SystemEndpoint: {
+ *     Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ *     Address: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateContactCommand(input);
  * const response = await client.send(command);
@@ -83,6 +97,13 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
  * @see {@link UpdateContactCommandInput} for command's `input` shape.
  * @see {@link UpdateContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Operation cannot be performed at this time as there is a conflict with another operation or
+ *    contact state.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

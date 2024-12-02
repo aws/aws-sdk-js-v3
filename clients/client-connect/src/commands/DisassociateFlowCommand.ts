@@ -38,7 +38,7 @@ export interface DisassociateFlowCommandOutput extends DisassociateFlowResponse,
  * const input = { // DisassociateFlowRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
- *   ResourceType: "SMS_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL", // required
+ *   ResourceType: "SMS_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL" || "ANALYTICS_CONNECTOR" || "WHATSAPP_MESSAGING_PHONE_NUMBER", // required
  * };
  * const command = new DisassociateFlowCommand(input);
  * const response = await client.send(command);

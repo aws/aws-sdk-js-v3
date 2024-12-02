@@ -40,7 +40,7 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  *   ResourceIds: [ // resourceArnListMaxLimit100 // required
  *     "STRING_VALUE",
  *   ],
- *   ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
+ *   ResourceType: "WHATSAPP_MESSAGING_PHONE_NUMBER" || "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL" || "ANALYTICS_CONNECTOR",
  * };
  * const command = new BatchGetFlowAssociationCommand(input);
  * const response = await client.send(command);
@@ -49,7 +49,7 @@ export interface BatchGetFlowAssociationCommandOutput extends BatchGetFlowAssoci
  * //     { // FlowAssociationSummary
  * //       ResourceId: "STRING_VALUE",
  * //       FlowId: "STRING_VALUE",
- * //       ResourceType: "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL",
+ * //       ResourceType: "WHATSAPP_MESSAGING_PHONE_NUMBER" || "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL" || "ANALYTICS_CONNECTOR",
  * //     },
  * //   ],
  * // };

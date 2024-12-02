@@ -1985,8 +1985,8 @@ export interface ClaimedPhoneNumberSummary {
 
   /**
    * <p>The claimed phone number ARN that was previously imported from the external service, such as
-   *     Amazon Pinpoint. If it is from Amazon Pinpoint, it looks like the ARN of the phone number
-   *    that was imported from Amazon Pinpoint.</p>
+   *    Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it looks like the ARN of the phone number
+   *    that was imported from Amazon Web Services End User Messaging.</p>
    * @public
    */
   SourcePhoneNumberArn?: string | undefined;
@@ -2603,7 +2603,7 @@ export interface SecurityProfile {
   OrganizationResourceId?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the secruity profile.</p>
+   * <p>The Amazon Resource Name (ARN) for the security profile.</p>
    * @public
    */
   Arn?: string | undefined;
@@ -3370,6 +3370,16 @@ export interface DisassociateFlowRequest {
 
   /**
    * <p>The identifier of the resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceId: string | undefined;
@@ -4610,6 +4620,16 @@ export interface GetFlowAssociationRequest {
 
   /**
    * <p>The identifier of the resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceId: string | undefined;
@@ -5174,6 +5194,18 @@ export interface MetricFilterV2 {
    *          <p>For valid values of the metric-level filter <code>FLOWS_OUTCOME_TYPE</code>, see the
    *    description for the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#flows-outcome-historical">Flow outcome</a> metric in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
+   *          <p>For valid values of the metric-level filter <code>BOT_CONVERSATION_OUTCOME_TYPE</code>, see the
+   *    description for the
+   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed-metric">Bot conversations completed</a>
+   *
+   *    in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
+   *          <p>For valid values of the metric-level filter <code>BOT_INTENT_OUTCOME_TYPE</code>, see the description for
+   *    the
+   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-intents-completed-metric">Bot intents completed</a>
+   *
+   *     metric in the <i>Amazon Connect Administrator
+   *     Guide</i>.</p>
    * @public
    */
   MetricFilterValues?: string[] | undefined;
@@ -5361,15 +5393,19 @@ export interface GetMetricDataV2Request {
    *       <code>AGENT_HIERARCHY_LEVEL_ONE</code> | <code>AGENT_HIERARCHY_LEVEL_TWO</code> |
    *       <code>AGENT_HIERARCHY_LEVEL_THREE</code> | <code>AGENT_HIERARCHY_LEVEL_FOUR</code> |
    *       <code>AGENT_HIERARCHY_LEVEL_FIVE</code> | <code>ANSWERING_MACHINE_DETECTION_STATUS</code> |
-   *       <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code>
-   *       |<code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> |
+   *       <code> BOT_ID</code> | <code>BOT_ALIAS</code> | <code>BOT_VERSION</code> |
+   *       <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> | <code>CAMPAIGN</code> |
+   *       <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> |<code>CASE_TEMPLATE_ARN</code> |
+   *       <code>CASE_STATUS</code> | <code>CHANNEL</code> |
    *       <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> |
-   *       <code>FEATURE</code> | <code>FLOW_TYPE</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> |
+   *       <code>FEATURE</code> | <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> |
+   *       <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOWS_NEXT_RESOURCE_ID</code> |
    *       <code>FLOWS_NEXT_RESOURCE_QUEUE_ID</code> | <code>FLOWS_OUTCOME_TYPE</code> |
    *       <code>FLOWS_RESOURCE_ID</code> | <code>INITIATION_METHOD</code> |
-   *       <code>RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>ROUTING_PROFILE</code> |
-   *       <code>ROUTING_STEP_EXPRESSION</code> | <code>QUEUE</code> | <code>Q_CONNECT_ENABLED</code> |
-   *     </p>
+   *       <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> | <code>INVOKING_RESOURCE_TYPE</code> |
+   *       <code>PARENT_FLOWS_RESOURCE_ID</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code> |
+   *       <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code> | <code>QUEUE</code> |
+   *       <code>Q_CONNECT_ENABLED</code> | </p>
    *             </li>
    *             <li>
    *                <p>
@@ -5419,12 +5455,15 @@ export interface GetMetricDataV2Request {
    *          <p>Valid grouping keys: <code>AGENT</code> | <code>AGENT_HIERARCHY_LEVEL_ONE</code> |
    *     <code>AGENT_HIERARCHY_LEVEL_TWO</code> | <code>AGENT_HIERARCHY_LEVEL_THREE</code> |
    *     <code>AGENT_HIERARCHY_LEVEL_FOUR</code> | <code>AGENT_HIERARCHY_LEVEL_FIVE</code> |
-   *     <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>CAMPAIGN</code> |
-   *     <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> | <code>CASE_TEMPLATE_ARN</code> |
-   *     <code>CASE_STATUS</code> | <code>CHANNEL</code> |
+   *     <code>ANSWERING_MACHINE_DETECTION_STATUS</code> | <code>BOT_ID</code> | <code>BOT_ALIAS</code> |
+   *     <code>BOT_VERSION</code> | <code>BOT_LOCALE</code> | <code>BOT_INTENT_NAME</code> |
+   *     <code>CAMPAIGN</code> | <code>CAMPAIGN_DELIVERY_EVENT_TYPE</code> |
+   *     <code>CASE_TEMPLATE_ARN</code> | <code>CASE_STATUS</code> | <code>CHANNEL</code> |
    *     <code>contact/segmentAttributes/connect:Subtype</code> | <code>DISCONNECT_REASON</code> |
-   *     <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> | <code>FLOW_TYPE</code>
-   *    | <code>FLOWS_OUTCOME_TYPE</code> | <code>INITIATION_METHOD</code> |
+   *     <code>FLOWS_RESOURCE_ID</code> | <code>FLOWS_MODULE_RESOURCE_ID</code> |
+   *     <code>FLOW_ACTION_ID</code> | <code>FLOW_TYPE</code> | <code>FLOWS_OUTCOME_TYPE</code> |
+   *     <code>INITIATION_METHOD</code> | <code>INVOKING_RESOURCE_PUBLISHED_TIMESTAMP</code> |
+   *     <code>INVOKING_RESOURCE_TYPE</code> | <code>PARENT_FLOWS_RESOURCE_ID</code> |
    *     <code>Q_CONNECT_ENABLED</code> | <code>QUEUE</code> | <code>RESOURCE_PUBLISHED_TIMESTAMP</code>
    *    | <code>ROUTING_PROFILE</code> | <code>ROUTING_STEP_EXPRESSION</code>
    *          </p>
@@ -5554,6 +5593,27 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Queue, Channel, Routing Profile, Agent, Agent Hierarchy, Q in Connect</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-agent-pause-time-historical">Average agent pause time</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AVG_BOT_CONVERSATION_TIME</dt>
+   *             <dd>
+   *                <p>Unit: Seconds</p>
+   *                <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot
+   *       version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID,
+   *       Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows
+   *       resource ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#average-bot-conversation-time-metric">Average
+   *        bot conversation time</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AVG_BOT_CONVERSATION_TURNS</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot
+   *       version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID,
+   *       Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows
+   *       resource ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#average-bot-conversation-turns-metric">Average bot conversation turns</a>
    *                </p>
    *             </dd>
    *             <dt>AVG_CASE_RELATED_CONTACTS</dt>
@@ -5767,6 +5827,28 @@ export interface GetMetricDataV2Request {
    *                <p>Unit: Seconds</p>
    *                <p>Valid groupings and filters: Campaign</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#average-wait-time-historical">Average wait time after customer connection</a>
+   *                </p>
+   *             </dd>
+   *             <dt>BOT_CONVERSATIONS_COMPLETED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot
+   *       version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID,
+   *       Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows
+   *       resource ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-conversations-completed-metric">Bot
+   *        conversations</a>
+   *                </p>
+   *             </dd>
+   *             <dt>BOT_INTENTS_COMPLETED</dt>
+   *             <dd>
+   *                <p>Unit: Count</p>
+   *                <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot
+   *       version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type,
+   *       Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource
+   *       type, Parent flows resource ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#bot-intents-completed-metric">Bot intents
+   *        completed</a>
    *                </p>
    *             </dd>
    *             <dt>CAMPAIGN_CONTACTS_ABANDONED_AFTER_X</dt>
@@ -6060,6 +6142,27 @@ export interface GetMetricDataV2Request {
    *       resource ID, Flows next resource ID, Flows next resource queue ID, Flows outcome type, Flows
    *       resource ID, Initiation method, Resource published timestamp</p>
    *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html#minimum-flow-time-historical">Minimum flow time</a>
+   *                </p>
+   *             </dd>
+   *             <dt>PERCENT_BOT_CONVERSATIONS_OUTCOME</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot
+   *       version, Bot locale, Flows resource ID, Flows module resource ID, Flow type, Flow action ID,
+   *       Invoking resource published timestamp, Initiation method, Invoking resource type, Parent flows
+   *       resource ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#percent-bot-conversations-outcome-metric">Percent bot conversations outcome</a>
+   *                </p>
+   *             </dd>
+   *             <dt>PERCENT_BOT_INTENTS_OUTCOME</dt>
+   *             <dd>
+   *                <p>Unit: Percent</p>
+   *                <p>Valid groupings and filters: Channel, contact/segmentAttributes/connect:Subtype, Bot ID, Bot alias, Bot
+   *       version, Bot locale, Bot intent name, Flows resource ID, Flows module resource ID, Flow type,
+   *       Flow action ID, Invoking resource published timestamp, Initiation method, Invoking resource
+   *       type, Parent flows resource ID</p>
+   *                <p>UI name: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/bot-metrics.html#percent-bot-intents-outcome-metric">Percent
+   *        bot intents outcome</a>
    *                </p>
    *             </dd>
    *             <dt>PERCENT_CASES_FIRST_CONTACT_RESOLVED</dt>
@@ -6694,8 +6797,8 @@ export interface ImportPhoneNumberRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The claimed phone number ARN being imported from the external service, such as Amazon Pinpoint. If it is from Amazon Pinpoint, it looks like the ARN of the phone number to
-   *    import from Amazon Pinpoint.</p>
+   * <p>The claimed phone number ARN being imported from the external service, such as Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it looks like the ARN of the phone number to
+   *    import from Amazon Web Services End User Messaging.</p>
    * @public
    */
   SourcePhoneNumberArn: string | undefined;
@@ -8879,8 +8982,8 @@ export interface ListPhoneNumbersSummary {
 
   /**
    * <p>The claimed phone number ARN that was previously imported from the external service, such as
-   *     Amazon Pinpoint. If it is from Amazon Pinpoint, it looks like the ARN of the phone number
-   *    that was imported from Amazon Pinpoint.</p>
+   *    Amazon Web Services End User Messaging. If it is from Amazon Web Services End User Messaging, it looks like the ARN of the phone number
+   *    that was imported from Amazon Web Services End User Messaging.</p>
    * @public
    */
   SourcePhoneNumberArn?: string | undefined;

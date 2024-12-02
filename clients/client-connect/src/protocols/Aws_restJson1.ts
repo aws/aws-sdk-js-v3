@@ -1006,13 +1006,10 @@ import {
   DestinationNotAllowedException,
   DisconnectReason,
   EmailAddressInfo,
-  EmailAddressSearchCriteria,
   EmailAddressSearchFilter,
   EmailAttachment,
   EmailHeaderType,
   EvaluationAnswerInput,
-  EvaluationForm,
-  EvaluationFormContent,
   EvaluationFormItem,
   EvaluationFormSection,
   HierarchyGroupCondition,
@@ -1036,6 +1033,7 @@ import {
   ParticipantTimerValue,
   PersistentChat,
   PromptSearchFilter,
+  QueueInfoInput,
   QueueSearchFilter,
   QuickConnectSearchFilter,
   RealtimeContactAnalysisSegment,
@@ -1071,6 +1069,9 @@ import {
 } from "../models/models_2";
 import {
   Contact,
+  EmailAddressSearchCriteria,
+  EvaluationForm,
+  EvaluationFormContent,
   Expression,
   HoursOfOperationSearchCriteria,
   PredefinedAttributeSearchCriteria,
@@ -4939,6 +4940,7 @@ export const se_ResumeContactRecordingCommand = async (
   body = JSON.stringify(
     take(input, {
       ContactId: [],
+      ContactRecordingType: [],
       InitialContactId: [],
       InstanceId: [],
     })
@@ -5845,6 +5847,7 @@ export const se_StopContactRecordingCommand = async (
   body = JSON.stringify(
     take(input, {
       ContactId: [],
+      ContactRecordingType: [],
       InitialContactId: [],
       InstanceId: [],
     })
@@ -5918,6 +5921,7 @@ export const se_SuspendContactRecordingCommand = async (
   body = JSON.stringify(
     take(input, {
       ContactId: [],
+      ContactRecordingType: [],
       InitialContactId: [],
       InstanceId: [],
     })
@@ -6112,10 +6116,14 @@ export const se_UpdateContactCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      CustomerEndpoint: (_) => _json(_),
       Description: [],
       Name: [],
+      QueueInfo: (_) => _json(_),
       References: (_) => _json(_),
       SegmentAttributes: (_) => se_SegmentAttributes(_, context),
+      SystemEndpoint: (_) => _json(_),
+      UserInfo: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -13991,6 +13999,8 @@ const se_PromptSearchCriteria = (input: PromptSearchCriteria, context: __SerdeCo
 // se_PromptSearchFilter omitted.
 
 // se_QueueIdList omitted.
+
+// se_QueueInfoInput omitted.
 
 // se_QueueQuickConnectConfig omitted.
 

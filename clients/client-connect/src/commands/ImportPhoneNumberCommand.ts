@@ -28,7 +28,7 @@ export interface ImportPhoneNumberCommandInput extends ImportPhoneNumberRequest 
 export interface ImportPhoneNumberCommandOutput extends ImportPhoneNumberResponse, __MetadataBearer {}
 
 /**
- * <p>Imports a claimed phone number from an external service, such as Amazon Pinpoint, into an
+ * <p>Imports a claimed phone number from an external service, such as Amazon Web Services End User Messaging, into an
  *     Amazon Connect instance. You can call this API only in the same Amazon Web Services Region
  *    where the Amazon Connect instance was created.</p>
  *          <important>

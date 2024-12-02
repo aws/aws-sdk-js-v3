@@ -12,6 +12,7 @@ import {
   EvaluationFormScoringStrategy,
   Reference,
   StringCondition,
+  UserInfo,
 } from "./models_0";
 
 import {
@@ -22,6 +23,7 @@ import {
   DisconnectDetails,
   EndpointInfo,
   Evaluation,
+  EvaluationFormVersionStatus,
   Expiry,
   QualityMetrics,
   QueueInfo,
@@ -38,11 +40,8 @@ import {
   ContactFlowSearchFilter,
   EmailAddressInfo,
   EmailAddressInfoFilterSensitiveLog,
-  EmailAddressSearchCriteria,
   EmailAddressSearchFilter,
   EmailAttachment,
-  EvaluationForm,
-  EvaluationFormContent,
   EvaluationFormItem,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
@@ -54,6 +53,7 @@ import {
   ParticipantDetails,
   PersistentChat,
   PromptSearchFilter,
+  QueueInfoInput,
   QueueSearchFilter,
   QuickConnectSearchFilter,
   RoutingCriteriaInputStepExpiry,
@@ -64,6 +64,168 @@ import {
   UserHierarchyGroupSearchFilter,
   UserSearchFilter,
 } from "./models_2";
+
+/**
+ * <p>The search criteria to be used to return email addresses.</p>
+ * @public
+ */
+export interface EmailAddressSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: EmailAddressSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: EmailAddressSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>Information about the evaluation form.</p>
+ * @public
+ */
+export interface EvaluationForm {
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>The flag indicating whether the evaluation form is locked for changes.</p>
+   * @public
+   */
+  Locked: boolean | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The status of the evaluation form.</p>
+   * @public
+   */
+  Status: EvaluationFormVersionStatus | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
+   * @public
+   */
+  CreatedBy: string | undefined;
+
+  /**
+   * <p>The timestamp for when the evaluation form was last updated.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
+   * @public
+   */
+  LastModifiedBy: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Information about an evaluation form used in a contact evaluation.</p>
+ * @public
+ */
+export interface EvaluationFormContent {
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
+   * @public
+   */
+  EvaluationFormArn: string | undefined;
+
+  /**
+   * <p>A title of the evaluation form.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The description of the evaluation form.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
+   * @public
+   */
+  Items: EvaluationFormItem[] | undefined;
+
+  /**
+   * <p>A scoring strategy of the evaluation form.</p>
+   * @public
+   */
+  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
+}
 
 /**
  * <p>A tagged union to specify expression for a routing step.</p>
@@ -851,6 +1013,44 @@ export interface UpdateContactRequest {
    * @public
    */
   SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p> Information about the queue associated with a contact. This parameter can only be updated
+   *    for external audio contacts. It is used when you integrate third-party systems with Contact Lens for
+   *    analytics. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Amazon Connect Contact Lens integration</a> in
+   *    the <i>
+   *     Amazon Connect Administrator Guide</i>.</p>
+   * @public
+   */
+  QueueInfo?: QueueInfoInput | undefined;
+
+  /**
+   * <p>Information about the agent associated with a contact. This parameter can only be updated
+   *    for external audio contacts. It is used when you integrate third-party systems with Contact Lens for
+   *    analytics. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Amazon Connect Contact Lens integration</a> in
+   *    the <i>
+   *     Amazon Connect Administrator Guide</i>.</p>
+   * @public
+   */
+  UserInfo?: UserInfo | undefined;
+
+  /**
+   * <p>The endpoint of the customer for which the contact was initiated. For external audio
+   *    contacts, this is usually the end customer's phone number. This value can only be updated for
+   *    external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Amazon Connect
+   *     Contact Lens integration</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * @public
+   */
+  CustomerEndpoint?: Endpoint | undefined;
+
+  /**
+   * <p>External system endpoint for the contact was initiated. For external audio contacts, this is
+   *    the phone number of the external system such as the contact center. This value can only be
+   *    updated for external audio contacts. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-integration.html">Amazon Connect
+   *     Contact Lens integration</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+   * @public
+   */
+  SystemEndpoint?: Endpoint | undefined;
 }
 
 /**

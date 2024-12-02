@@ -44,6 +44,7 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
+ *   ContactRecordingType: "AGENT" || "IVR" || "SCREEN",
  * };
  * const command = new StopContactRecordingCommand(input);
  * const response = await client.send(command);

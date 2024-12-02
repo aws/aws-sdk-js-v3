@@ -1424,9 +1424,11 @@ export interface AssociateDefaultVocabularyResponse {}
  * @enum
  */
 export const FlowAssociationResourceType = {
+  ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
   INBOUND_EMAIL: "INBOUND_EMAIL",
   OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
   SMS_PHONE_NUMBER: "SMS_PHONE_NUMBER",
+  WHATSAPP_MESSAGING_PHONE_NUMBER: "WHATSAPP_MESSAGING_PHONE_NUMBER",
 } as const;
 
 /**
@@ -1447,6 +1449,16 @@ export interface AssociateFlowRequest {
 
   /**
    * <p>The identifier of the resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceId: string | undefined;
@@ -2348,9 +2360,11 @@ export interface BatchGetAttachedFileMetadataResponse {
  * @enum
  */
 export const ListFlowAssociationResourceType = {
+  ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
   INBOUND_EMAIL: "INBOUND_EMAIL",
   OUTBOUND_EMAIL: "OUTBOUND_EMAIL",
   VOICE_PHONE_NUMBER: "VOICE_PHONE_NUMBER",
+  WHATSAPP_MESSAGING_PHONE_NUMBER: "WHATSAPP_MESSAGING_PHONE_NUMBER",
 } as const;
 
 /**
@@ -2371,6 +2385,16 @@ export interface BatchGetFlowAssociationRequest {
 
   /**
    * <p>A list of resource identifiers to retrieve flow associations.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging SMS phone number ARN when using <code>SMS_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Amazon Web Services End User Messaging Social phone number ARN when using <code>WHATSAPP_MESSAGING_PHONE_NUMBER</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ResourceIds: string[] | undefined;
@@ -4030,7 +4054,9 @@ export interface CreateInstanceResponse {
  * @enum
  */
 export const IntegrationType = {
+  ANALYTICS_CONNECTOR: "ANALYTICS_CONNECTOR",
   APPLICATION: "APPLICATION",
+  CALL_TRANSFER_CONNECTOR: "CALL_TRANSFER_CONNECTOR",
   CASES_DOMAIN: "CASES_DOMAIN",
   EVENT: "EVENT",
   FILE_SCANNER: "FILE_SCANNER",
@@ -4082,7 +4108,7 @@ export interface CreateIntegrationAssociationRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the integration.</p>
    *          <note>
-   *             <p>When integrating with Amazon Pinpoint, the Amazon Connect and Amazon Pinpoint
+   *             <p>When integrating with Amazon Web Services End User Messaging, the Amazon Connect and Amazon Web Services End User Messaging
    *     instances must be in the same account.</p>
    *          </note>
    * @public

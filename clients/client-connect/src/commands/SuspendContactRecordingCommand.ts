@@ -46,6 +46,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
+ *   ContactRecordingType: "AGENT" || "IVR" || "SCREEN",
  * };
  * const command = new SuspendContactRecordingCommand(input);
  * const response = await client.send(command);

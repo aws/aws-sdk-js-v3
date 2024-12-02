@@ -59,6 +59,7 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  *   InitialContactId: "STRING_VALUE", // required
  *   VoiceRecordingConfiguration: { // VoiceRecordingConfiguration
  *     VoiceRecordingTrack: "FROM_AGENT" || "TO_AGENT" || "ALL",
+ *     IvrRecordingTrack: "ALL",
  *   },
  * };
  * const command = new StartContactRecordingCommand(input);

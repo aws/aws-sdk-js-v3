@@ -68,7 +68,6 @@ import {
   ContactFlowModuleState,
   ContactFlowState,
   EvaluationAnswerData,
-  EvaluationFormVersionStatus,
   EvaluationNote,
   HierarchyGroup,
   HierarchyGroupSummary,
@@ -1821,6 +1820,21 @@ export interface ResumeContactResponse {}
 
 /**
  * @public
+ * @enum
+ */
+export const ContactRecordingType = {
+  AGENT: "AGENT",
+  IVR: "IVR",
+  SCREEN: "SCREEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ContactRecordingType = (typeof ContactRecordingType)[keyof typeof ContactRecordingType];
+
+/**
+ * @public
  */
 export interface ResumeContactRecordingRequest {
   /**
@@ -1841,6 +1855,12 @@ export interface ResumeContactRecordingRequest {
    * @public
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The type of recording being operated on.</p>
+   * @public
+   */
+  ContactRecordingType?: ContactRecordingType | undefined;
 }
 
 /**
@@ -3022,7 +3042,7 @@ export interface SearchResourceTagsRequest {
  */
 export interface TagSet {
   /**
-   * <p>The tag key in the tagSet.</p>
+   * <p>The tag key in the TagSet.</p>
    * @public
    */
   key?: string | undefined;
@@ -3854,8 +3874,8 @@ export interface SendChatIntegrationEventRequest {
 
   /**
    * <p>Chat system identifier, used in part to uniquely identify chat. This is associated with the
-   *     Amazon Connect instance and flow to be used to start chats. For SMS, this is the phone
-   *    number destination of inbound SMS messages represented by an Amazon Pinpoint phone number
+   *     Amazon Connect instance and flow to be used to start chats. For Server Migration Service, this is the phone
+   *    number destination of inbound Server Migration Service messages represented by an Amazon Web Services End User Messaging phone number
    *    ARN.</p>
    * @public
    */
@@ -3863,7 +3883,7 @@ export interface SendChatIntegrationEventRequest {
 
   /**
    * <p>Classification of a channel. This is used in part to uniquely identify chat. </p>
-   *          <p>Valid value: <code>["connect:sms"]</code>
+   *          <p>Valid value: <code>["connect:sms", connect:"WhatsApp"]</code>
    *          </p>
    * @public
    */
@@ -4432,6 +4452,19 @@ export interface StartContactEvaluationResponse {
  * @public
  * @enum
  */
+export const IvrRecordingTrack = {
+  ALL: "ALL",
+} as const;
+
+/**
+ * @public
+ */
+export type IvrRecordingTrack = (typeof IvrRecordingTrack)[keyof typeof IvrRecordingTrack];
+
+/**
+ * @public
+ * @enum
+ */
 export const VoiceRecordingTrack = {
   ALL: "ALL",
   FROM_AGENT: "FROM_AGENT",
@@ -4453,6 +4486,12 @@ export interface VoiceRecordingConfiguration {
    * @public
    */
   VoiceRecordingTrack?: VoiceRecordingTrack | undefined;
+
+  /**
+   * <p>Identifies which IVR track is being recorded.</p>
+   * @public
+   */
+  IvrRecordingTrack?: IvrRecordingTrack | undefined;
 }
 
 /**
@@ -5314,6 +5353,12 @@ export interface StopContactRecordingRequest {
    * @public
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The type of recording being operated on.</p>
+   * @public
+   */
+  ContactRecordingType?: ContactRecordingType | undefined;
 }
 
 /**
@@ -5430,6 +5475,12 @@ export interface SuspendContactRecordingRequest {
    * @public
    */
   InitialContactId: string | undefined;
+
+  /**
+   * <p>The type of recording being operated on.</p>
+   * @public
+   */
+  ContactRecordingType?: ContactRecordingType | undefined;
 }
 
 /**
@@ -5694,6 +5745,18 @@ export interface UpdateAuthenticationProfileRequest {
    * @public
    */
   PeriodicSessionDuration?: number | undefined;
+}
+
+/**
+ * <p>Information about a queue.</p>
+ * @public
+ */
+export interface QueueInfoInput {
+  /**
+   * <p>The identifier of the queue.</p>
+   * @public
+   */
+  Id?: string | undefined;
 }
 
 /**
@@ -7873,168 +7936,6 @@ export interface CreateEvaluationFormRequest {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return email addresses.</p>
- * @public
- */
-export interface EmailAddressSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   * @public
-   */
-  OrConditions?: EmailAddressSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   * @public
-   */
-  AndConditions?: EmailAddressSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-}
-
-/**
- * <p>Information about the evaluation form.</p>
- * @public
- */
-export interface EvaluationForm {
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * <p>The flag indicating whether the evaluation form is locked for changes.</p>
-   * @public
-   */
-  Locked: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The status of the evaluation form.</p>
-   * @public
-   */
-  Status: EvaluationFormVersionStatus | undefined;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   * @public
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation form was created.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who created the evaluation form.</p>
-   * @public
-   */
-  CreatedBy: string | undefined;
-
-  /**
-   * <p>The timestamp for when the evaluation form was last updated.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user who last updated the evaluation form.</p>
-   * @public
-   */
-  LastModifiedBy: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Information about an evaluation form used in a contact evaluation.</p>
- * @public
- */
-export interface EvaluationFormContent {
-  /**
-   * <p>A version of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the evaluation form resource.</p>
-   * @public
-   */
-  EvaluationFormArn: string | undefined;
-
-  /**
-   * <p>A title of the evaluation form.</p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p>The description of the evaluation form.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Items that are part of the evaluation form.  The total number of sections and questions must not exceed 100 each.  Questions must be contained in a section.</p>
-   * @public
-   */
-  Items: EvaluationFormItem[] | undefined;
-
-  /**
-   * <p>A scoring strategy of the evaluation form.</p>
-   * @public
-   */
-  ScoringStrategy?: EvaluationFormScoringStrategy | undefined;
 }
 
 /**

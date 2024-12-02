@@ -43,6 +43,7 @@ export interface ResumeContactRecordingCommandOutput extends ResumeContactRecord
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
+ *   ContactRecordingType: "AGENT" || "IVR" || "SCREEN",
  * };
  * const command = new ResumeContactRecordingCommand(input);
  * const response = await client.send(command);
