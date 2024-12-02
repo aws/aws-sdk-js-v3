@@ -28,7 +28,7 @@ export interface ListAccessLogSubscriptionsCommandInput extends ListAccessLogSub
 export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSubscriptionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all access log subscriptions for the specified service network or service.</p>
+ * <p>Lists the access log subscriptions for the specified service network or service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,7 @@ export interface ListAccessLogSubscriptionsCommandOutput extends ListAccessLogSu
  * //       resourceId: "STRING_VALUE", // required
  * //       resourceArn: "STRING_VALUE", // required
  * //       destinationArn: "STRING_VALUE", // required
+ * //       serviceNetworkLogType: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
  * //     },

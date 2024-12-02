@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
-import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_restJson1";
+import { DeleteResourceGatewayRequest, DeleteResourceGatewayResponse } from "../models/models_0";
+import { de_DeleteResourceGatewayCommand, se_DeleteResourceGatewayCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -17,46 +17,42 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateServiceCommand}.
+ * The input for {@link DeleteResourceGatewayCommand}.
  */
-export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
+export interface DeleteResourceGatewayCommandInput extends DeleteResourceGatewayRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateServiceCommand}.
+ * The output of {@link DeleteResourceGatewayCommand}.
  */
-export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
+export interface DeleteResourceGatewayCommandOutput extends DeleteResourceGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified service.</p>
+ * <p>Deletes the specified resource gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, UpdateServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, UpdateServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, DeleteResourceGatewayCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
+ * // const { VPCLatticeClient, DeleteResourceGatewayCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
  * const client = new VPCLatticeClient(config);
- * const input = { // UpdateServiceRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   certificateArn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
+ * const input = { // DeleteResourceGatewayRequest
+ *   resourceGatewayIdentifier: "STRING_VALUE", // required
  * };
- * const command = new UpdateServiceCommand(input);
+ * const command = new DeleteResourceGatewayCommand(input);
  * const response = await client.send(command);
- * // { // UpdateServiceResponse
+ * // { // DeleteResourceGatewayResponse
  * //   id: "STRING_VALUE",
  * //   arn: "STRING_VALUE",
  * //   name: "STRING_VALUE",
- * //   customDomainName: "STRING_VALUE",
- * //   certificateArn: "STRING_VALUE",
- * //   authType: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
- * @returns {@link UpdateServiceCommandOutput}
- * @see {@link UpdateServiceCommandInput} for command's `input` shape.
- * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
+ * @param DeleteResourceGatewayCommandInput - {@link DeleteResourceGatewayCommandInput}
+ * @returns {@link DeleteResourceGatewayCommandOutput}
+ * @see {@link DeleteResourceGatewayCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourceGatewayCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -72,9 +68,6 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
- *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
@@ -87,10 +80,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * @public
  */
-export class UpdateServiceCommand extends $Command
+export class DeleteResourceGatewayCommand extends $Command
   .classBuilder<
-    UpdateServiceCommandInput,
-    UpdateServiceCommandOutput,
+    DeleteResourceGatewayCommandInput,
+    DeleteResourceGatewayCommandOutput,
     VPCLatticeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,21 +95,21 @@ export class UpdateServiceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MercuryControlPlane", "UpdateService", {})
-  .n("VPCLatticeClient", "UpdateServiceCommand")
+  .s("MercuryControlPlane", "DeleteResourceGateway", {})
+  .n("VPCLatticeClient", "DeleteResourceGatewayCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateServiceCommand)
-  .de(de_UpdateServiceCommand)
+  .ser(se_DeleteResourceGatewayCommand)
+  .de(de_DeleteResourceGatewayCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateServiceRequest;
-      output: UpdateServiceResponse;
+      input: DeleteResourceGatewayRequest;
+      output: DeleteResourceGatewayResponse;
     };
     sdk: {
-      input: UpdateServiceCommandInput;
-      output: UpdateServiceCommandOutput;
+      input: DeleteResourceGatewayCommandInput;
+      output: DeleteResourceGatewayCommandOutput;
     };
   };
 }

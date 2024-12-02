@@ -28,7 +28,7 @@ export interface GetResourcePolicyCommandInput extends GetResourcePolicyRequest 
 export interface GetResourcePolicyCommandOutput extends GetResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the resource policy. The resource policy is an IAM policy
+ * <p>Retrieves information about the specified resource policy. The resource policy is an IAM policy
  *    created on behalf of the resource owner when they share a resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

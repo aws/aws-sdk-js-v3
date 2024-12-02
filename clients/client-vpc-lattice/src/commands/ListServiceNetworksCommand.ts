@@ -28,8 +28,8 @@ export interface ListServiceNetworksCommandInput extends ListServiceNetworksRequ
 export interface ListServiceNetworksCommandOutput extends ListServiceNetworksResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the service networks owned by the caller account or shared with the caller account.
- *    Also includes the account ID in the ARN to show which account owns the service network.</p>
+ * <p>Lists the service networks owned by or shared with this account. The account ID in the ARN
+ *    shows which account owns the service network.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +52,7 @@ export interface ListServiceNetworksCommandOutput extends ListServiceNetworksRes
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //       numberOfAssociatedVPCs: Number("long"),
  * //       numberOfAssociatedServices: Number("long"),
+ * //       numberOfAssociatedResourceConfigurations: Number("long"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

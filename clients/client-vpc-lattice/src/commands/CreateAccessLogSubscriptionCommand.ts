@@ -49,6 +49,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
  *   clientToken: "STRING_VALUE",
  *   resourceIdentifier: "STRING_VALUE", // required
  *   destinationArn: "STRING_VALUE", // required
+ *   serviceNetworkLogType: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -60,6 +61,7 @@ export interface CreateAccessLogSubscriptionCommandOutput
  * //   arn: "STRING_VALUE", // required
  * //   resourceId: "STRING_VALUE", // required
  * //   resourceArn: "STRING_VALUE", // required
+ * //   serviceNetworkLogType: "STRING_VALUE",
  * //   destinationArn: "STRING_VALUE", // required
  * // };
  *

@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
-import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_restJson1";
+import { UpdateResourceGatewayRequest, UpdateResourceGatewayResponse } from "../models/models_0";
+import { de_UpdateResourceGatewayCommand, se_UpdateResourceGatewayCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -17,63 +17,63 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateServiceCommand}.
+ * The input for {@link UpdateResourceGatewayCommand}.
  */
-export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
+export interface UpdateResourceGatewayCommandInput extends UpdateResourceGatewayRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateServiceCommand}.
+ * The output of {@link UpdateResourceGatewayCommand}.
  */
-export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
+export interface UpdateResourceGatewayCommandOutput extends UpdateResourceGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified service.</p>
+ * <p>Updates the specified resource gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, UpdateServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, UpdateServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, UpdateResourceGatewayCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
+ * // const { VPCLatticeClient, UpdateResourceGatewayCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
  * const client = new VPCLatticeClient(config);
- * const input = { // UpdateServiceRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   certificateArn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
+ * const input = { // UpdateResourceGatewayRequest
+ *   resourceGatewayIdentifier: "STRING_VALUE", // required
+ *   securityGroupIds: [ // SecurityGroupList
+ *     "STRING_VALUE",
+ *   ],
  * };
- * const command = new UpdateServiceCommand(input);
+ * const command = new UpdateResourceGatewayCommand(input);
  * const response = await client.send(command);
- * // { // UpdateServiceResponse
+ * // { // UpdateResourceGatewayResponse
+ * //   name: "STRING_VALUE",
  * //   id: "STRING_VALUE",
  * //   arn: "STRING_VALUE",
- * //   name: "STRING_VALUE",
- * //   customDomainName: "STRING_VALUE",
- * //   certificateArn: "STRING_VALUE",
- * //   authType: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   vpcId: "STRING_VALUE",
+ * //   subnetIds: [ // SubnetList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   securityGroupIds: [ // SecurityGroupList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ipAddressType: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
- * @returns {@link UpdateServiceCommandOutput}
- * @see {@link UpdateServiceCommandInput} for command's `input` shape.
- * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
+ * @param UpdateResourceGatewayCommandInput - {@link UpdateResourceGatewayCommandInput}
+ * @returns {@link UpdateResourceGatewayCommandOutput}
+ * @see {@link UpdateResourceGatewayCommandInput} for command's `input` shape.
+ * @see {@link UpdateResourceGatewayCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user does not have sufficient access to perform this action.</p>
- *
- * @throws {@link ConflictException} (client fault)
- *  <p>The request conflicts with the current state of the resource. Updating or deleting a
- *    resource can cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
- *
- * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
@@ -87,10 +87,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * @public
  */
-export class UpdateServiceCommand extends $Command
+export class UpdateResourceGatewayCommand extends $Command
   .classBuilder<
-    UpdateServiceCommandInput,
-    UpdateServiceCommandOutput,
+    UpdateResourceGatewayCommandInput,
+    UpdateResourceGatewayCommandOutput,
     VPCLatticeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,21 +102,21 @@ export class UpdateServiceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MercuryControlPlane", "UpdateService", {})
-  .n("VPCLatticeClient", "UpdateServiceCommand")
+  .s("MercuryControlPlane", "UpdateResourceGateway", {})
+  .n("VPCLatticeClient", "UpdateResourceGatewayCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateServiceCommand)
-  .de(de_UpdateServiceCommand)
+  .ser(se_UpdateResourceGatewayCommand)
+  .de(de_UpdateResourceGatewayCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateServiceRequest;
-      output: UpdateServiceResponse;
+      input: UpdateResourceGatewayRequest;
+      output: UpdateResourceGatewayResponse;
     };
     sdk: {
-      input: UpdateServiceCommandInput;
-      output: UpdateServiceCommandOutput;
+      input: UpdateResourceGatewayCommandInput;
+      output: UpdateResourceGatewayCommandOutput;
     };
   };
 }

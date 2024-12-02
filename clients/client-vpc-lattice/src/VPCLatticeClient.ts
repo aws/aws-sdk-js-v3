@@ -59,12 +59,24 @@ import {
   CreateAccessLogSubscriptionCommandOutput,
 } from "./commands/CreateAccessLogSubscriptionCommand";
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
+import {
+  CreateResourceConfigurationCommandInput,
+  CreateResourceConfigurationCommandOutput,
+} from "./commands/CreateResourceConfigurationCommand";
+import {
+  CreateResourceGatewayCommandInput,
+  CreateResourceGatewayCommandOutput,
+} from "./commands/CreateResourceGatewayCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "./commands/CreateServiceCommand";
 import {
   CreateServiceNetworkCommandInput,
   CreateServiceNetworkCommandOutput,
 } from "./commands/CreateServiceNetworkCommand";
+import {
+  CreateServiceNetworkResourceAssociationCommandInput,
+  CreateServiceNetworkResourceAssociationCommandOutput,
+} from "./commands/CreateServiceNetworkResourceAssociationCommand";
 import {
   CreateServiceNetworkServiceAssociationCommandInput,
   CreateServiceNetworkServiceAssociationCommandOutput,
@@ -81,6 +93,18 @@ import {
 import { DeleteAuthPolicyCommandInput, DeleteAuthPolicyCommandOutput } from "./commands/DeleteAuthPolicyCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
 import {
+  DeleteResourceConfigurationCommandInput,
+  DeleteResourceConfigurationCommandOutput,
+} from "./commands/DeleteResourceConfigurationCommand";
+import {
+  DeleteResourceEndpointAssociationCommandInput,
+  DeleteResourceEndpointAssociationCommandOutput,
+} from "./commands/DeleteResourceEndpointAssociationCommand";
+import {
+  DeleteResourceGatewayCommandInput,
+  DeleteResourceGatewayCommandOutput,
+} from "./commands/DeleteResourceGatewayCommand";
+import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
@@ -90,6 +114,10 @@ import {
   DeleteServiceNetworkCommandInput,
   DeleteServiceNetworkCommandOutput,
 } from "./commands/DeleteServiceNetworkCommand";
+import {
+  DeleteServiceNetworkResourceAssociationCommandInput,
+  DeleteServiceNetworkResourceAssociationCommandOutput,
+} from "./commands/DeleteServiceNetworkResourceAssociationCommand";
 import {
   DeleteServiceNetworkServiceAssociationCommandInput,
   DeleteServiceNetworkServiceAssociationCommandOutput,
@@ -106,10 +134,19 @@ import {
 } from "./commands/GetAccessLogSubscriptionCommand";
 import { GetAuthPolicyCommandInput, GetAuthPolicyCommandOutput } from "./commands/GetAuthPolicyCommand";
 import { GetListenerCommandInput, GetListenerCommandOutput } from "./commands/GetListenerCommand";
+import {
+  GetResourceConfigurationCommandInput,
+  GetResourceConfigurationCommandOutput,
+} from "./commands/GetResourceConfigurationCommand";
+import { GetResourceGatewayCommandInput, GetResourceGatewayCommandOutput } from "./commands/GetResourceGatewayCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { GetRuleCommandInput, GetRuleCommandOutput } from "./commands/GetRuleCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import { GetServiceNetworkCommandInput, GetServiceNetworkCommandOutput } from "./commands/GetServiceNetworkCommand";
+import {
+  GetServiceNetworkResourceAssociationCommandInput,
+  GetServiceNetworkResourceAssociationCommandOutput,
+} from "./commands/GetServiceNetworkResourceAssociationCommand";
 import {
   GetServiceNetworkServiceAssociationCommandInput,
   GetServiceNetworkServiceAssociationCommandOutput,
@@ -124,7 +161,23 @@ import {
   ListAccessLogSubscriptionsCommandOutput,
 } from "./commands/ListAccessLogSubscriptionsCommand";
 import { ListListenersCommandInput, ListListenersCommandOutput } from "./commands/ListListenersCommand";
+import {
+  ListResourceConfigurationsCommandInput,
+  ListResourceConfigurationsCommandOutput,
+} from "./commands/ListResourceConfigurationsCommand";
+import {
+  ListResourceEndpointAssociationsCommandInput,
+  ListResourceEndpointAssociationsCommandOutput,
+} from "./commands/ListResourceEndpointAssociationsCommand";
+import {
+  ListResourceGatewaysCommandInput,
+  ListResourceGatewaysCommandOutput,
+} from "./commands/ListResourceGatewaysCommand";
 import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import {
+  ListServiceNetworkResourceAssociationsCommandInput,
+  ListServiceNetworkResourceAssociationsCommandOutput,
+} from "./commands/ListServiceNetworkResourceAssociationsCommand";
 import {
   ListServiceNetworksCommandInput,
   ListServiceNetworksCommandOutput,
@@ -137,6 +190,10 @@ import {
   ListServiceNetworkVpcAssociationsCommandInput,
   ListServiceNetworkVpcAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkVpcAssociationsCommand";
+import {
+  ListServiceNetworkVpcEndpointAssociationsCommandInput,
+  ListServiceNetworkVpcEndpointAssociationsCommandOutput,
+} from "./commands/ListServiceNetworkVpcEndpointAssociationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -154,6 +211,14 @@ import {
   UpdateAccessLogSubscriptionCommandOutput,
 } from "./commands/UpdateAccessLogSubscriptionCommand";
 import { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "./commands/UpdateListenerCommand";
+import {
+  UpdateResourceConfigurationCommandInput,
+  UpdateResourceConfigurationCommandOutput,
+} from "./commands/UpdateResourceConfigurationCommand";
+import {
+  UpdateResourceGatewayCommandInput,
+  UpdateResourceGatewayCommandOutput,
+} from "./commands/UpdateResourceGatewayCommand";
 import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "./commands/UpdateServiceCommand";
 import {
@@ -183,19 +248,26 @@ export type ServiceInputTypes =
   | BatchUpdateRuleCommandInput
   | CreateAccessLogSubscriptionCommandInput
   | CreateListenerCommandInput
+  | CreateResourceConfigurationCommandInput
+  | CreateResourceGatewayCommandInput
   | CreateRuleCommandInput
   | CreateServiceCommandInput
   | CreateServiceNetworkCommandInput
+  | CreateServiceNetworkResourceAssociationCommandInput
   | CreateServiceNetworkServiceAssociationCommandInput
   | CreateServiceNetworkVpcAssociationCommandInput
   | CreateTargetGroupCommandInput
   | DeleteAccessLogSubscriptionCommandInput
   | DeleteAuthPolicyCommandInput
   | DeleteListenerCommandInput
+  | DeleteResourceConfigurationCommandInput
+  | DeleteResourceEndpointAssociationCommandInput
+  | DeleteResourceGatewayCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteRuleCommandInput
   | DeleteServiceCommandInput
   | DeleteServiceNetworkCommandInput
+  | DeleteServiceNetworkResourceAssociationCommandInput
   | DeleteServiceNetworkServiceAssociationCommandInput
   | DeleteServiceNetworkVpcAssociationCommandInput
   | DeleteTargetGroupCommandInput
@@ -203,18 +275,26 @@ export type ServiceInputTypes =
   | GetAccessLogSubscriptionCommandInput
   | GetAuthPolicyCommandInput
   | GetListenerCommandInput
+  | GetResourceConfigurationCommandInput
+  | GetResourceGatewayCommandInput
   | GetResourcePolicyCommandInput
   | GetRuleCommandInput
   | GetServiceCommandInput
   | GetServiceNetworkCommandInput
+  | GetServiceNetworkResourceAssociationCommandInput
   | GetServiceNetworkServiceAssociationCommandInput
   | GetServiceNetworkVpcAssociationCommandInput
   | GetTargetGroupCommandInput
   | ListAccessLogSubscriptionsCommandInput
   | ListListenersCommandInput
+  | ListResourceConfigurationsCommandInput
+  | ListResourceEndpointAssociationsCommandInput
+  | ListResourceGatewaysCommandInput
   | ListRulesCommandInput
+  | ListServiceNetworkResourceAssociationsCommandInput
   | ListServiceNetworkServiceAssociationsCommandInput
   | ListServiceNetworkVpcAssociationsCommandInput
+  | ListServiceNetworkVpcEndpointAssociationsCommandInput
   | ListServiceNetworksCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
@@ -227,6 +307,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAccessLogSubscriptionCommandInput
   | UpdateListenerCommandInput
+  | UpdateResourceConfigurationCommandInput
+  | UpdateResourceGatewayCommandInput
   | UpdateRuleCommandInput
   | UpdateServiceCommandInput
   | UpdateServiceNetworkCommandInput
@@ -240,19 +322,26 @@ export type ServiceOutputTypes =
   | BatchUpdateRuleCommandOutput
   | CreateAccessLogSubscriptionCommandOutput
   | CreateListenerCommandOutput
+  | CreateResourceConfigurationCommandOutput
+  | CreateResourceGatewayCommandOutput
   | CreateRuleCommandOutput
   | CreateServiceCommandOutput
   | CreateServiceNetworkCommandOutput
+  | CreateServiceNetworkResourceAssociationCommandOutput
   | CreateServiceNetworkServiceAssociationCommandOutput
   | CreateServiceNetworkVpcAssociationCommandOutput
   | CreateTargetGroupCommandOutput
   | DeleteAccessLogSubscriptionCommandOutput
   | DeleteAuthPolicyCommandOutput
   | DeleteListenerCommandOutput
+  | DeleteResourceConfigurationCommandOutput
+  | DeleteResourceEndpointAssociationCommandOutput
+  | DeleteResourceGatewayCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteRuleCommandOutput
   | DeleteServiceCommandOutput
   | DeleteServiceNetworkCommandOutput
+  | DeleteServiceNetworkResourceAssociationCommandOutput
   | DeleteServiceNetworkServiceAssociationCommandOutput
   | DeleteServiceNetworkVpcAssociationCommandOutput
   | DeleteTargetGroupCommandOutput
@@ -260,18 +349,26 @@ export type ServiceOutputTypes =
   | GetAccessLogSubscriptionCommandOutput
   | GetAuthPolicyCommandOutput
   | GetListenerCommandOutput
+  | GetResourceConfigurationCommandOutput
+  | GetResourceGatewayCommandOutput
   | GetResourcePolicyCommandOutput
   | GetRuleCommandOutput
   | GetServiceCommandOutput
   | GetServiceNetworkCommandOutput
+  | GetServiceNetworkResourceAssociationCommandOutput
   | GetServiceNetworkServiceAssociationCommandOutput
   | GetServiceNetworkVpcAssociationCommandOutput
   | GetTargetGroupCommandOutput
   | ListAccessLogSubscriptionsCommandOutput
   | ListListenersCommandOutput
+  | ListResourceConfigurationsCommandOutput
+  | ListResourceEndpointAssociationsCommandOutput
+  | ListResourceGatewaysCommandOutput
   | ListRulesCommandOutput
+  | ListServiceNetworkResourceAssociationsCommandOutput
   | ListServiceNetworkServiceAssociationsCommandOutput
   | ListServiceNetworkVpcAssociationsCommandOutput
+  | ListServiceNetworkVpcEndpointAssociationsCommandOutput
   | ListServiceNetworksCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -284,6 +381,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAccessLogSubscriptionCommandOutput
   | UpdateListenerCommandOutput
+  | UpdateResourceConfigurationCommandOutput
+  | UpdateResourceGatewayCommandOutput
   | UpdateRuleCommandOutput
   | UpdateServiceCommandOutput
   | UpdateServiceNetworkCommandOutput

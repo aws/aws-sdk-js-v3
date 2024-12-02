@@ -5,8 +5,14 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateServiceNetworkRequest, CreateServiceNetworkResponse } from "../models/models_0";
-import { de_CreateServiceNetworkCommand, se_CreateServiceNetworkCommand } from "../protocols/Aws_restJson1";
+import {
+  CreateServiceNetworkResourceAssociationRequest,
+  CreateServiceNetworkResourceAssociationResponse,
+} from "../models/models_0";
+import {
+  de_CreateServiceNetworkResourceAssociationCommand,
+  se_CreateServiceNetworkResourceAssociationCommand,
+} from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -17,56 +23,52 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link CreateServiceNetworkCommand}.
+ * The input for {@link CreateServiceNetworkResourceAssociationCommand}.
  */
-export interface CreateServiceNetworkCommandInput extends CreateServiceNetworkRequest {}
+export interface CreateServiceNetworkResourceAssociationCommandInput
+  extends CreateServiceNetworkResourceAssociationRequest {}
 /**
  * @public
  *
- * The output of {@link CreateServiceNetworkCommand}.
+ * The output of {@link CreateServiceNetworkResourceAssociationCommand}.
  */
-export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkResponse, __MetadataBearer {}
+export interface CreateServiceNetworkResourceAssociationCommandOutput
+  extends CreateServiceNetworkResourceAssociationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Creates a service network. A service network is a logical boundary for a collection of
- *    services. You can associate services and VPCs with a service network.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-networks.html">Service networks</a> in the
- *     <i>Amazon VPC Lattice User Guide</i>.</p>
+ * <p>Associates the specified service network with the specified resource configuration.
+ *    This allows the resource configuration to receive connections through the service network,
+ *    including through a service network VPC endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, CreateServiceNetworkCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, CreateServiceNetworkCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, CreateServiceNetworkResourceAssociationCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
+ * // const { VPCLatticeClient, CreateServiceNetworkResourceAssociationCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
  * const client = new VPCLatticeClient(config);
- * const input = { // CreateServiceNetworkRequest
+ * const input = { // CreateServiceNetworkResourceAssociationRequest
  *   clientToken: "STRING_VALUE",
- *   name: "STRING_VALUE", // required
- *   authType: "STRING_VALUE",
+ *   resourceConfigurationIdentifier: "STRING_VALUE", // required
+ *   serviceNetworkIdentifier: "STRING_VALUE", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   sharingConfig: { // SharingConfig
- *     enabled: true || false,
- *   },
  * };
- * const command = new CreateServiceNetworkCommand(input);
+ * const command = new CreateServiceNetworkResourceAssociationCommand(input);
  * const response = await client.send(command);
- * // { // CreateServiceNetworkResponse
+ * // { // CreateServiceNetworkResourceAssociationResponse
  * //   id: "STRING_VALUE",
- * //   name: "STRING_VALUE",
  * //   arn: "STRING_VALUE",
- * //   sharingConfig: { // SharingConfig
- * //     enabled: true || false,
- * //   },
- * //   authType: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   createdBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param CreateServiceNetworkCommandInput - {@link CreateServiceNetworkCommandInput}
- * @returns {@link CreateServiceNetworkCommandOutput}
- * @see {@link CreateServiceNetworkCommandInput} for command's `input` shape.
- * @see {@link CreateServiceNetworkCommandOutput} for command's `response` shape.
+ * @param CreateServiceNetworkResourceAssociationCommandInput - {@link CreateServiceNetworkResourceAssociationCommandInput}
+ * @returns {@link CreateServiceNetworkResourceAssociationCommandOutput}
+ * @see {@link CreateServiceNetworkResourceAssociationCommandInput} for command's `input` shape.
+ * @see {@link CreateServiceNetworkResourceAssociationCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -97,10 +99,10 @@ export interface CreateServiceNetworkCommandOutput extends CreateServiceNetworkR
  *
  * @public
  */
-export class CreateServiceNetworkCommand extends $Command
+export class CreateServiceNetworkResourceAssociationCommand extends $Command
   .classBuilder<
-    CreateServiceNetworkCommandInput,
-    CreateServiceNetworkCommandOutput,
+    CreateServiceNetworkResourceAssociationCommandInput,
+    CreateServiceNetworkResourceAssociationCommandOutput,
     VPCLatticeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,21 +114,21 @@ export class CreateServiceNetworkCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MercuryControlPlane", "CreateServiceNetwork", {})
-  .n("VPCLatticeClient", "CreateServiceNetworkCommand")
+  .s("MercuryControlPlane", "CreateServiceNetworkResourceAssociation", {})
+  .n("VPCLatticeClient", "CreateServiceNetworkResourceAssociationCommand")
   .f(void 0, void 0)
-  .ser(se_CreateServiceNetworkCommand)
-  .de(de_CreateServiceNetworkCommand)
+  .ser(se_CreateServiceNetworkResourceAssociationCommand)
+  .de(de_CreateServiceNetworkResourceAssociationCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateServiceNetworkRequest;
-      output: CreateServiceNetworkResponse;
+      input: CreateServiceNetworkResourceAssociationRequest;
+      output: CreateServiceNetworkResourceAssociationResponse;
     };
     sdk: {
-      input: CreateServiceNetworkCommandInput;
-      output: CreateServiceNetworkCommandOutput;
+      input: CreateServiceNetworkResourceAssociationCommandInput;
+      output: CreateServiceNetworkResourceAssociationCommandOutput;
     };
   };
 }

@@ -47,6 +47,9 @@ export interface GetServiceNetworkCommandOutput extends GetServiceNetworkRespons
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
  * //   arn: "STRING_VALUE",
  * //   authType: "STRING_VALUE",
+ * //   sharingConfig: { // SharingConfig
+ * //     enabled: true || false,
+ * //   },
  * //   numberOfAssociatedVPCs: Number("long"),
  * //   numberOfAssociatedServices: Number("long"),
  * // };

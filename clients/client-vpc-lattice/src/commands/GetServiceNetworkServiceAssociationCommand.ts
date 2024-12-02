@@ -36,8 +36,7 @@ export interface GetServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified association between a service network and a
- *    service.</p>
+ * <p>Retrieves information about the specified association between a service network and a service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

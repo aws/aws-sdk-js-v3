@@ -28,7 +28,7 @@ export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a rule for the listener. You can't modify a default listener rule. To modify a
+ * <p>Updates a specified rule for the listener. You can't modify a default listener rule. To modify a
  *    default listener rule, use <code>UpdateListener</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +144,9 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>

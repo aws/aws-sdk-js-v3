@@ -46,6 +46,7 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  * //   resourceId: "STRING_VALUE", // required
  * //   resourceArn: "STRING_VALUE", // required
  * //   destinationArn: "STRING_VALUE", // required
+ * //   serviceNetworkLogType: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * // };

@@ -17,6 +17,16 @@ import {
   CreateListenerCommandInput,
   CreateListenerCommandOutput,
 } from "./commands/CreateListenerCommand";
+import {
+  CreateResourceConfigurationCommand,
+  CreateResourceConfigurationCommandInput,
+  CreateResourceConfigurationCommandOutput,
+} from "./commands/CreateResourceConfigurationCommand";
+import {
+  CreateResourceGatewayCommand,
+  CreateResourceGatewayCommandInput,
+  CreateResourceGatewayCommandOutput,
+} from "./commands/CreateResourceGatewayCommand";
 import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateServiceCommand,
@@ -28,6 +38,11 @@ import {
   CreateServiceNetworkCommandInput,
   CreateServiceNetworkCommandOutput,
 } from "./commands/CreateServiceNetworkCommand";
+import {
+  CreateServiceNetworkResourceAssociationCommand,
+  CreateServiceNetworkResourceAssociationCommandInput,
+  CreateServiceNetworkResourceAssociationCommandOutput,
+} from "./commands/CreateServiceNetworkResourceAssociationCommand";
 import {
   CreateServiceNetworkServiceAssociationCommand,
   CreateServiceNetworkServiceAssociationCommandInput,
@@ -59,6 +74,21 @@ import {
   DeleteListenerCommandOutput,
 } from "./commands/DeleteListenerCommand";
 import {
+  DeleteResourceConfigurationCommand,
+  DeleteResourceConfigurationCommandInput,
+  DeleteResourceConfigurationCommandOutput,
+} from "./commands/DeleteResourceConfigurationCommand";
+import {
+  DeleteResourceEndpointAssociationCommand,
+  DeleteResourceEndpointAssociationCommandInput,
+  DeleteResourceEndpointAssociationCommandOutput,
+} from "./commands/DeleteResourceEndpointAssociationCommand";
+import {
+  DeleteResourceGatewayCommand,
+  DeleteResourceGatewayCommandInput,
+  DeleteResourceGatewayCommandOutput,
+} from "./commands/DeleteResourceGatewayCommand";
+import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -74,6 +104,11 @@ import {
   DeleteServiceNetworkCommandInput,
   DeleteServiceNetworkCommandOutput,
 } from "./commands/DeleteServiceNetworkCommand";
+import {
+  DeleteServiceNetworkResourceAssociationCommand,
+  DeleteServiceNetworkResourceAssociationCommandInput,
+  DeleteServiceNetworkResourceAssociationCommandOutput,
+} from "./commands/DeleteServiceNetworkResourceAssociationCommand";
 import {
   DeleteServiceNetworkServiceAssociationCommand,
   DeleteServiceNetworkServiceAssociationCommandInput,
@@ -106,6 +141,16 @@ import {
 } from "./commands/GetAuthPolicyCommand";
 import { GetListenerCommand, GetListenerCommandInput, GetListenerCommandOutput } from "./commands/GetListenerCommand";
 import {
+  GetResourceConfigurationCommand,
+  GetResourceConfigurationCommandInput,
+  GetResourceConfigurationCommandOutput,
+} from "./commands/GetResourceConfigurationCommand";
+import {
+  GetResourceGatewayCommand,
+  GetResourceGatewayCommandInput,
+  GetResourceGatewayCommandOutput,
+} from "./commands/GetResourceGatewayCommand";
+import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -117,6 +162,11 @@ import {
   GetServiceNetworkCommandInput,
   GetServiceNetworkCommandOutput,
 } from "./commands/GetServiceNetworkCommand";
+import {
+  GetServiceNetworkResourceAssociationCommand,
+  GetServiceNetworkResourceAssociationCommandInput,
+  GetServiceNetworkResourceAssociationCommandOutput,
+} from "./commands/GetServiceNetworkResourceAssociationCommand";
 import {
   GetServiceNetworkServiceAssociationCommand,
   GetServiceNetworkServiceAssociationCommandInput,
@@ -142,7 +192,27 @@ import {
   ListListenersCommandInput,
   ListListenersCommandOutput,
 } from "./commands/ListListenersCommand";
+import {
+  ListResourceConfigurationsCommand,
+  ListResourceConfigurationsCommandInput,
+  ListResourceConfigurationsCommandOutput,
+} from "./commands/ListResourceConfigurationsCommand";
+import {
+  ListResourceEndpointAssociationsCommand,
+  ListResourceEndpointAssociationsCommandInput,
+  ListResourceEndpointAssociationsCommandOutput,
+} from "./commands/ListResourceEndpointAssociationsCommand";
+import {
+  ListResourceGatewaysCommand,
+  ListResourceGatewaysCommandInput,
+  ListResourceGatewaysCommandOutput,
+} from "./commands/ListResourceGatewaysCommand";
 import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
+import {
+  ListServiceNetworkResourceAssociationsCommand,
+  ListServiceNetworkResourceAssociationsCommandInput,
+  ListServiceNetworkResourceAssociationsCommandOutput,
+} from "./commands/ListServiceNetworkResourceAssociationsCommand";
 import {
   ListServiceNetworksCommand,
   ListServiceNetworksCommandInput,
@@ -158,6 +228,11 @@ import {
   ListServiceNetworkVpcAssociationsCommandInput,
   ListServiceNetworkVpcAssociationsCommandOutput,
 } from "./commands/ListServiceNetworkVpcAssociationsCommand";
+import {
+  ListServiceNetworkVpcEndpointAssociationsCommand,
+  ListServiceNetworkVpcEndpointAssociationsCommandInput,
+  ListServiceNetworkVpcEndpointAssociationsCommandOutput,
+} from "./commands/ListServiceNetworkVpcEndpointAssociationsCommand";
 import {
   ListServicesCommand,
   ListServicesCommandInput,
@@ -205,6 +280,16 @@ import {
   UpdateListenerCommandInput,
   UpdateListenerCommandOutput,
 } from "./commands/UpdateListenerCommand";
+import {
+  UpdateResourceConfigurationCommand,
+  UpdateResourceConfigurationCommandInput,
+  UpdateResourceConfigurationCommandOutput,
+} from "./commands/UpdateResourceConfigurationCommand";
+import {
+  UpdateResourceGatewayCommand,
+  UpdateResourceGatewayCommandInput,
+  UpdateResourceGatewayCommandOutput,
+} from "./commands/UpdateResourceGatewayCommand";
 import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateServiceCommand,
@@ -232,19 +317,26 @@ const commands = {
   BatchUpdateRuleCommand,
   CreateAccessLogSubscriptionCommand,
   CreateListenerCommand,
+  CreateResourceConfigurationCommand,
+  CreateResourceGatewayCommand,
   CreateRuleCommand,
   CreateServiceCommand,
   CreateServiceNetworkCommand,
+  CreateServiceNetworkResourceAssociationCommand,
   CreateServiceNetworkServiceAssociationCommand,
   CreateServiceNetworkVpcAssociationCommand,
   CreateTargetGroupCommand,
   DeleteAccessLogSubscriptionCommand,
   DeleteAuthPolicyCommand,
   DeleteListenerCommand,
+  DeleteResourceConfigurationCommand,
+  DeleteResourceEndpointAssociationCommand,
+  DeleteResourceGatewayCommand,
   DeleteResourcePolicyCommand,
   DeleteRuleCommand,
   DeleteServiceCommand,
   DeleteServiceNetworkCommand,
+  DeleteServiceNetworkResourceAssociationCommand,
   DeleteServiceNetworkServiceAssociationCommand,
   DeleteServiceNetworkVpcAssociationCommand,
   DeleteTargetGroupCommand,
@@ -252,19 +344,27 @@ const commands = {
   GetAccessLogSubscriptionCommand,
   GetAuthPolicyCommand,
   GetListenerCommand,
+  GetResourceConfigurationCommand,
+  GetResourceGatewayCommand,
   GetResourcePolicyCommand,
   GetRuleCommand,
   GetServiceCommand,
   GetServiceNetworkCommand,
+  GetServiceNetworkResourceAssociationCommand,
   GetServiceNetworkServiceAssociationCommand,
   GetServiceNetworkVpcAssociationCommand,
   GetTargetGroupCommand,
   ListAccessLogSubscriptionsCommand,
   ListListenersCommand,
+  ListResourceConfigurationsCommand,
+  ListResourceEndpointAssociationsCommand,
+  ListResourceGatewaysCommand,
   ListRulesCommand,
+  ListServiceNetworkResourceAssociationsCommand,
   ListServiceNetworksCommand,
   ListServiceNetworkServiceAssociationsCommand,
   ListServiceNetworkVpcAssociationsCommand,
+  ListServiceNetworkVpcEndpointAssociationsCommand,
   ListServicesCommand,
   ListTagsForResourceCommand,
   ListTargetGroupsCommand,
@@ -276,6 +376,8 @@ const commands = {
   UntagResourceCommand,
   UpdateAccessLogSubscriptionCommand,
   UpdateListenerCommand,
+  UpdateResourceConfigurationCommand,
+  UpdateResourceGatewayCommand,
   UpdateRuleCommand,
   UpdateServiceCommand,
   UpdateServiceNetworkCommand,
@@ -330,6 +432,40 @@ export interface VPCLattice {
   ): void;
 
   /**
+   * @see {@link CreateResourceConfigurationCommand}
+   */
+  createResourceConfiguration(
+    args: CreateResourceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResourceConfigurationCommandOutput>;
+  createResourceConfiguration(
+    args: CreateResourceConfigurationCommandInput,
+    cb: (err: any, data?: CreateResourceConfigurationCommandOutput) => void
+  ): void;
+  createResourceConfiguration(
+    args: CreateResourceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResourceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateResourceGatewayCommand}
+   */
+  createResourceGateway(
+    args: CreateResourceGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateResourceGatewayCommandOutput>;
+  createResourceGateway(
+    args: CreateResourceGatewayCommandInput,
+    cb: (err: any, data?: CreateResourceGatewayCommandOutput) => void
+  ): void;
+  createResourceGateway(
+    args: CreateResourceGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateResourceGatewayCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRuleCommand}
    */
   createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
@@ -366,6 +502,23 @@ export interface VPCLattice {
     args: CreateServiceNetworkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateServiceNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateServiceNetworkResourceAssociationCommand}
+   */
+  createServiceNetworkResourceAssociation(
+    args: CreateServiceNetworkResourceAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateServiceNetworkResourceAssociationCommandOutput>;
+  createServiceNetworkResourceAssociation(
+    args: CreateServiceNetworkResourceAssociationCommandInput,
+    cb: (err: any, data?: CreateServiceNetworkResourceAssociationCommandOutput) => void
+  ): void;
+  createServiceNetworkResourceAssociation(
+    args: CreateServiceNetworkResourceAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateServiceNetworkResourceAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -468,6 +621,57 @@ export interface VPCLattice {
   ): void;
 
   /**
+   * @see {@link DeleteResourceConfigurationCommand}
+   */
+  deleteResourceConfiguration(
+    args: DeleteResourceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourceConfigurationCommandOutput>;
+  deleteResourceConfiguration(
+    args: DeleteResourceConfigurationCommandInput,
+    cb: (err: any, data?: DeleteResourceConfigurationCommandOutput) => void
+  ): void;
+  deleteResourceConfiguration(
+    args: DeleteResourceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourceEndpointAssociationCommand}
+   */
+  deleteResourceEndpointAssociation(
+    args: DeleteResourceEndpointAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourceEndpointAssociationCommandOutput>;
+  deleteResourceEndpointAssociation(
+    args: DeleteResourceEndpointAssociationCommandInput,
+    cb: (err: any, data?: DeleteResourceEndpointAssociationCommandOutput) => void
+  ): void;
+  deleteResourceEndpointAssociation(
+    args: DeleteResourceEndpointAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourceEndpointAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourceGatewayCommand}
+   */
+  deleteResourceGateway(
+    args: DeleteResourceGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourceGatewayCommandOutput>;
+  deleteResourceGateway(
+    args: DeleteResourceGatewayCommandInput,
+    cb: (err: any, data?: DeleteResourceGatewayCommandOutput) => void
+  ): void;
+  deleteResourceGateway(
+    args: DeleteResourceGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourceGatewayCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteResourcePolicyCommand}
    */
   deleteResourcePolicy(
@@ -521,6 +725,23 @@ export interface VPCLattice {
     args: DeleteServiceNetworkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteServiceNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServiceNetworkResourceAssociationCommand}
+   */
+  deleteServiceNetworkResourceAssociation(
+    args: DeleteServiceNetworkResourceAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceNetworkResourceAssociationCommandOutput>;
+  deleteServiceNetworkResourceAssociation(
+    args: DeleteServiceNetworkResourceAssociationCommandInput,
+    cb: (err: any, data?: DeleteServiceNetworkResourceAssociationCommandOutput) => void
+  ): void;
+  deleteServiceNetworkResourceAssociation(
+    args: DeleteServiceNetworkResourceAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServiceNetworkResourceAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -631,6 +852,40 @@ export interface VPCLattice {
   ): void;
 
   /**
+   * @see {@link GetResourceConfigurationCommand}
+   */
+  getResourceConfiguration(
+    args: GetResourceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceConfigurationCommandOutput>;
+  getResourceConfiguration(
+    args: GetResourceConfigurationCommandInput,
+    cb: (err: any, data?: GetResourceConfigurationCommandOutput) => void
+  ): void;
+  getResourceConfiguration(
+    args: GetResourceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourceGatewayCommand}
+   */
+  getResourceGateway(
+    args: GetResourceGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceGatewayCommandOutput>;
+  getResourceGateway(
+    args: GetResourceGatewayCommandInput,
+    cb: (err: any, data?: GetResourceGatewayCommandOutput) => void
+  ): void;
+  getResourceGateway(
+    args: GetResourceGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceGatewayCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetResourcePolicyCommand}
    */
   getResourcePolicy(
@@ -684,6 +939,23 @@ export interface VPCLattice {
     args: GetServiceNetworkCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceNetworkCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceNetworkResourceAssociationCommand}
+   */
+  getServiceNetworkResourceAssociation(
+    args: GetServiceNetworkResourceAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceNetworkResourceAssociationCommandOutput>;
+  getServiceNetworkResourceAssociation(
+    args: GetServiceNetworkResourceAssociationCommandInput,
+    cb: (err: any, data?: GetServiceNetworkResourceAssociationCommandOutput) => void
+  ): void;
+  getServiceNetworkResourceAssociation(
+    args: GetServiceNetworkResourceAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceNetworkResourceAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -763,6 +1035,59 @@ export interface VPCLattice {
   ): void;
 
   /**
+   * @see {@link ListResourceConfigurationsCommand}
+   */
+  listResourceConfigurations(): Promise<ListResourceConfigurationsCommandOutput>;
+  listResourceConfigurations(
+    args: ListResourceConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceConfigurationsCommandOutput>;
+  listResourceConfigurations(
+    args: ListResourceConfigurationsCommandInput,
+    cb: (err: any, data?: ListResourceConfigurationsCommandOutput) => void
+  ): void;
+  listResourceConfigurations(
+    args: ListResourceConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceEndpointAssociationsCommand}
+   */
+  listResourceEndpointAssociations(
+    args: ListResourceEndpointAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceEndpointAssociationsCommandOutput>;
+  listResourceEndpointAssociations(
+    args: ListResourceEndpointAssociationsCommandInput,
+    cb: (err: any, data?: ListResourceEndpointAssociationsCommandOutput) => void
+  ): void;
+  listResourceEndpointAssociations(
+    args: ListResourceEndpointAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceEndpointAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListResourceGatewaysCommand}
+   */
+  listResourceGateways(): Promise<ListResourceGatewaysCommandOutput>;
+  listResourceGateways(
+    args: ListResourceGatewaysCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceGatewaysCommandOutput>;
+  listResourceGateways(
+    args: ListResourceGatewaysCommandInput,
+    cb: (err: any, data?: ListResourceGatewaysCommandOutput) => void
+  ): void;
+  listResourceGateways(
+    args: ListResourceGatewaysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceGatewaysCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRulesCommand}
    */
   listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
@@ -771,6 +1096,24 @@ export interface VPCLattice {
     args: ListRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceNetworkResourceAssociationsCommand}
+   */
+  listServiceNetworkResourceAssociations(): Promise<ListServiceNetworkResourceAssociationsCommandOutput>;
+  listServiceNetworkResourceAssociations(
+    args: ListServiceNetworkResourceAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceNetworkResourceAssociationsCommandOutput>;
+  listServiceNetworkResourceAssociations(
+    args: ListServiceNetworkResourceAssociationsCommandInput,
+    cb: (err: any, data?: ListServiceNetworkResourceAssociationsCommandOutput) => void
+  ): void;
+  listServiceNetworkResourceAssociations(
+    args: ListServiceNetworkResourceAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceNetworkResourceAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -825,6 +1168,23 @@ export interface VPCLattice {
     args: ListServiceNetworkVpcAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListServiceNetworkVpcAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceNetworkVpcEndpointAssociationsCommand}
+   */
+  listServiceNetworkVpcEndpointAssociations(
+    args: ListServiceNetworkVpcEndpointAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceNetworkVpcEndpointAssociationsCommandOutput>;
+  listServiceNetworkVpcEndpointAssociations(
+    args: ListServiceNetworkVpcEndpointAssociationsCommandInput,
+    cb: (err: any, data?: ListServiceNetworkVpcEndpointAssociationsCommandOutput) => void
+  ): void;
+  listServiceNetworkVpcEndpointAssociations(
+    args: ListServiceNetworkVpcEndpointAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceNetworkVpcEndpointAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -978,6 +1338,40 @@ export interface VPCLattice {
     args: UpdateListenerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateListenerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResourceConfigurationCommand}
+   */
+  updateResourceConfiguration(
+    args: UpdateResourceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourceConfigurationCommandOutput>;
+  updateResourceConfiguration(
+    args: UpdateResourceConfigurationCommandInput,
+    cb: (err: any, data?: UpdateResourceConfigurationCommandOutput) => void
+  ): void;
+  updateResourceConfiguration(
+    args: UpdateResourceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourceConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateResourceGatewayCommand}
+   */
+  updateResourceGateway(
+    args: UpdateResourceGatewayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourceGatewayCommandOutput>;
+  updateResourceGateway(
+    args: UpdateResourceGatewayCommandInput,
+    cb: (err: any, data?: UpdateResourceGatewayCommandOutput) => void
+  ): void;
+  updateResourceGateway(
+    args: UpdateResourceGatewayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourceGatewayCommandOutput) => void
   ): void;
 
   /**

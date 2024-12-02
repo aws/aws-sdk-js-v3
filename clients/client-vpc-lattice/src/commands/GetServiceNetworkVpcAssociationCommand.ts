@@ -33,7 +33,7 @@ export interface GetServiceNetworkVpcAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the association between a service network and a VPC.</p>
+ * <p>Retrieves information about the specified association between a service network and a VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

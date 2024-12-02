@@ -36,9 +36,8 @@ export interface ListServiceNetworkVpcAssociationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the service network and VPC associations. You can filter the list either by VPC or
- *    service network. You must provide either the service network identifier or the VPC
- *    identifier.</p>
+ * <p>Lists the associations between a service network and a VPC. You can filter the list either by VPC or
+ *    service network. You must provide either the ID of the service network identifier or the ID of the VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

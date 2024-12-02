@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
-import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_restJson1";
+import { CreateResourceGatewayRequest, CreateResourceGatewayResponse } from "../models/models_0";
+import { de_CreateResourceGatewayCommand, se_CreateResourceGatewayCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -17,46 +17,62 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link UpdateServiceCommand}.
+ * The input for {@link CreateResourceGatewayCommand}.
  */
-export interface UpdateServiceCommandInput extends UpdateServiceRequest {}
+export interface CreateResourceGatewayCommandInput extends CreateResourceGatewayRequest {}
 /**
  * @public
  *
- * The output of {@link UpdateServiceCommand}.
+ * The output of {@link CreateResourceGatewayCommand}.
  */
-export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __MetadataBearer {}
+export interface CreateResourceGatewayCommandOutput extends CreateResourceGatewayResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified service.</p>
+ * <p>Creates a resource gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, UpdateServiceCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, UpdateServiceCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, CreateResourceGatewayCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
+ * // const { VPCLatticeClient, CreateResourceGatewayCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
  * const client = new VPCLatticeClient(config);
- * const input = { // UpdateServiceRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   certificateArn: "STRING_VALUE",
- *   authType: "STRING_VALUE",
+ * const input = { // CreateResourceGatewayRequest
+ *   clientToken: "STRING_VALUE",
+ *   name: "STRING_VALUE", // required
+ *   vpcIdentifier: "STRING_VALUE", // required
+ *   subnetIds: [ // SubnetList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   securityGroupIds: [ // SecurityGroupList
+ *     "STRING_VALUE",
+ *   ],
+ *   ipAddressType: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new UpdateServiceCommand(input);
+ * const command = new CreateResourceGatewayCommand(input);
  * const response = await client.send(command);
- * // { // UpdateServiceResponse
+ * // { // CreateResourceGatewayResponse
+ * //   name: "STRING_VALUE",
  * //   id: "STRING_VALUE",
  * //   arn: "STRING_VALUE",
- * //   name: "STRING_VALUE",
- * //   customDomainName: "STRING_VALUE",
- * //   certificateArn: "STRING_VALUE",
- * //   authType: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   vpcIdentifier: "STRING_VALUE",
+ * //   subnetIds: [ // SubnetList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   securityGroupIds: [ // SecurityGroupList
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   ipAddressType: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param UpdateServiceCommandInput - {@link UpdateServiceCommandInput}
- * @returns {@link UpdateServiceCommandOutput}
- * @see {@link UpdateServiceCommandInput} for command's `input` shape.
- * @see {@link UpdateServiceCommandOutput} for command's `response` shape.
+ * @param CreateResourceGatewayCommandInput - {@link CreateResourceGatewayCommandInput}
+ * @returns {@link CreateResourceGatewayCommandOutput}
+ * @see {@link CreateResourceGatewayCommandInput} for command's `input` shape.
+ * @see {@link CreateResourceGatewayCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -87,10 +103,10 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *
  * @public
  */
-export class UpdateServiceCommand extends $Command
+export class CreateResourceGatewayCommand extends $Command
   .classBuilder<
-    UpdateServiceCommandInput,
-    UpdateServiceCommandOutput,
+    CreateResourceGatewayCommandInput,
+    CreateResourceGatewayCommandOutput,
     VPCLatticeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,21 +118,21 @@ export class UpdateServiceCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MercuryControlPlane", "UpdateService", {})
-  .n("VPCLatticeClient", "UpdateServiceCommand")
+  .s("MercuryControlPlane", "CreateResourceGateway", {})
+  .n("VPCLatticeClient", "CreateResourceGatewayCommand")
   .f(void 0, void 0)
-  .ser(se_UpdateServiceCommand)
-  .de(de_UpdateServiceCommand)
+  .ser(se_CreateResourceGatewayCommand)
+  .de(de_CreateResourceGatewayCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: UpdateServiceRequest;
-      output: UpdateServiceResponse;
+      input: CreateResourceGatewayRequest;
+      output: CreateResourceGatewayResponse;
     };
     sdk: {
-      input: UpdateServiceCommandInput;
-      output: UpdateServiceCommandOutput;
+      input: CreateResourceGatewayCommandInput;
+      output: CreateResourceGatewayCommandOutput;
     };
   };
 }

@@ -37,7 +37,7 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the association between a specified service and the specific service network. This
+ * <p>Deletes the association between a service and a service network. This
  *    operation fails if an association is still in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -105,6 +105,9 @@ export interface UpdateTargetGroupCommandOutput extends UpdateTargetGroupRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *

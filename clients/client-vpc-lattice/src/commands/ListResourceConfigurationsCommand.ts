@@ -5,8 +5,8 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRulesRequest, ListRulesResponse } from "../models/models_0";
-import { de_ListRulesCommand, se_ListRulesCommand } from "../protocols/Aws_restJson1";
+import { ListResourceConfigurationsRequest, ListResourceConfigurationsResponse } from "../models/models_0";
+import { de_ListResourceConfigurationsCommand, se_ListResourceConfigurationsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
 
 /**
@@ -17,40 +17,43 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link ListRulesCommand}.
+ * The input for {@link ListResourceConfigurationsCommand}.
  */
-export interface ListRulesCommandInput extends ListRulesRequest {}
+export interface ListResourceConfigurationsCommandInput extends ListResourceConfigurationsRequest {}
 /**
  * @public
  *
- * The output of {@link ListRulesCommand}.
+ * The output of {@link ListResourceConfigurationsCommand}.
  */
-export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBearer {}
+export interface ListResourceConfigurationsCommandOutput extends ListResourceConfigurationsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the rules for the specified listener.</p>
+ * <p>Lists the resource configurations owned by or shared with this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { VPCLatticeClient, ListRulesCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
- * // const { VPCLatticeClient, ListRulesCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
+ * import { VPCLatticeClient, ListResourceConfigurationsCommand } from "@aws-sdk/client-vpc-lattice"; // ES Modules import
+ * // const { VPCLatticeClient, ListResourceConfigurationsCommand } = require("@aws-sdk/client-vpc-lattice"); // CommonJS import
  * const client = new VPCLatticeClient(config);
- * const input = { // ListRulesRequest
- *   serviceIdentifier: "STRING_VALUE", // required
- *   listenerIdentifier: "STRING_VALUE", // required
+ * const input = { // ListResourceConfigurationsRequest
+ *   resourceGatewayIdentifier: "STRING_VALUE",
+ *   resourceConfigurationGroupIdentifier: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
- * const command = new ListRulesCommand(input);
+ * const command = new ListResourceConfigurationsCommand(input);
  * const response = await client.send(command);
- * // { // ListRulesResponse
- * //   items: [ // RuleSummaryList // required
- * //     { // RuleSummary
- * //       arn: "STRING_VALUE",
+ * // { // ListResourceConfigurationsResponse
+ * //   items: [ // ResourceConfigurationSummaryList
+ * //     { // ResourceConfigurationSummary
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       isDefault: true || false,
- * //       priority: Number("int"),
+ * //       arn: "STRING_VALUE",
+ * //       resourceGatewayId: "STRING_VALUE",
+ * //       resourceConfigurationGroupId: "STRING_VALUE",
+ * //       type: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       amazonManaged: true || false,
  * //       createdAt: new Date("TIMESTAMP"),
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
  * //     },
@@ -60,10 +63,10 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * ```
  *
- * @param ListRulesCommandInput - {@link ListRulesCommandInput}
- * @returns {@link ListRulesCommandOutput}
- * @see {@link ListRulesCommandInput} for command's `input` shape.
- * @see {@link ListRulesCommandOutput} for command's `response` shape.
+ * @param ListResourceConfigurationsCommandInput - {@link ListResourceConfigurationsCommandInput}
+ * @returns {@link ListResourceConfigurationsCommandOutput}
+ * @see {@link ListResourceConfigurationsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link VPCLatticeClientResolvedConfig | config} for VPCLatticeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -71,9 +74,6 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred while processing the request.</p>
- *
- * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
@@ -87,10 +87,10 @@ export interface ListRulesCommandOutput extends ListRulesResponse, __MetadataBea
  *
  * @public
  */
-export class ListRulesCommand extends $Command
+export class ListResourceConfigurationsCommand extends $Command
   .classBuilder<
-    ListRulesCommandInput,
-    ListRulesCommandOutput,
+    ListResourceConfigurationsCommandInput,
+    ListResourceConfigurationsCommandOutput,
     VPCLatticeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -102,21 +102,21 @@ export class ListRulesCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("MercuryControlPlane", "ListRules", {})
-  .n("VPCLatticeClient", "ListRulesCommand")
+  .s("MercuryControlPlane", "ListResourceConfigurations", {})
+  .n("VPCLatticeClient", "ListResourceConfigurationsCommand")
   .f(void 0, void 0)
-  .ser(se_ListRulesCommand)
-  .de(de_ListRulesCommand)
+  .ser(se_ListResourceConfigurationsCommand)
+  .de(de_ListResourceConfigurationsCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: ListRulesRequest;
-      output: ListRulesResponse;
+      input: ListResourceConfigurationsRequest;
+      output: ListResourceConfigurationsResponse;
     };
     sdk: {
-      input: ListRulesCommandInput;
-      output: ListRulesCommandOutput;
+      input: ListResourceConfigurationsCommandInput;
+      output: ListResourceConfigurationsCommandOutput;
     };
   };
 }

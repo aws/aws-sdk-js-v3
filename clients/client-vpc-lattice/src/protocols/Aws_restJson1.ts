@@ -38,12 +38,24 @@ import {
   CreateAccessLogSubscriptionCommandOutput,
 } from "../commands/CreateAccessLogSubscriptionCommand";
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "../commands/CreateListenerCommand";
+import {
+  CreateResourceConfigurationCommandInput,
+  CreateResourceConfigurationCommandOutput,
+} from "../commands/CreateResourceConfigurationCommand";
+import {
+  CreateResourceGatewayCommandInput,
+  CreateResourceGatewayCommandOutput,
+} from "../commands/CreateResourceGatewayCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand";
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "../commands/CreateServiceCommand";
 import {
   CreateServiceNetworkCommandInput,
   CreateServiceNetworkCommandOutput,
 } from "../commands/CreateServiceNetworkCommand";
+import {
+  CreateServiceNetworkResourceAssociationCommandInput,
+  CreateServiceNetworkResourceAssociationCommandOutput,
+} from "../commands/CreateServiceNetworkResourceAssociationCommand";
 import {
   CreateServiceNetworkServiceAssociationCommandInput,
   CreateServiceNetworkServiceAssociationCommandOutput,
@@ -60,6 +72,18 @@ import {
 import { DeleteAuthPolicyCommandInput, DeleteAuthPolicyCommandOutput } from "../commands/DeleteAuthPolicyCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand";
 import {
+  DeleteResourceConfigurationCommandInput,
+  DeleteResourceConfigurationCommandOutput,
+} from "../commands/DeleteResourceConfigurationCommand";
+import {
+  DeleteResourceEndpointAssociationCommandInput,
+  DeleteResourceEndpointAssociationCommandOutput,
+} from "../commands/DeleteResourceEndpointAssociationCommand";
+import {
+  DeleteResourceGatewayCommandInput,
+  DeleteResourceGatewayCommandOutput,
+} from "../commands/DeleteResourceGatewayCommand";
+import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "../commands/DeleteResourcePolicyCommand";
@@ -69,6 +93,10 @@ import {
   DeleteServiceNetworkCommandInput,
   DeleteServiceNetworkCommandOutput,
 } from "../commands/DeleteServiceNetworkCommand";
+import {
+  DeleteServiceNetworkResourceAssociationCommandInput,
+  DeleteServiceNetworkResourceAssociationCommandOutput,
+} from "../commands/DeleteServiceNetworkResourceAssociationCommand";
 import {
   DeleteServiceNetworkServiceAssociationCommandInput,
   DeleteServiceNetworkServiceAssociationCommandOutput,
@@ -85,10 +113,19 @@ import {
 } from "../commands/GetAccessLogSubscriptionCommand";
 import { GetAuthPolicyCommandInput, GetAuthPolicyCommandOutput } from "../commands/GetAuthPolicyCommand";
 import { GetListenerCommandInput, GetListenerCommandOutput } from "../commands/GetListenerCommand";
+import {
+  GetResourceConfigurationCommandInput,
+  GetResourceConfigurationCommandOutput,
+} from "../commands/GetResourceConfigurationCommand";
+import { GetResourceGatewayCommandInput, GetResourceGatewayCommandOutput } from "../commands/GetResourceGatewayCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { GetRuleCommandInput, GetRuleCommandOutput } from "../commands/GetRuleCommand";
 import { GetServiceCommandInput, GetServiceCommandOutput } from "../commands/GetServiceCommand";
 import { GetServiceNetworkCommandInput, GetServiceNetworkCommandOutput } from "../commands/GetServiceNetworkCommand";
+import {
+  GetServiceNetworkResourceAssociationCommandInput,
+  GetServiceNetworkResourceAssociationCommandOutput,
+} from "../commands/GetServiceNetworkResourceAssociationCommand";
 import {
   GetServiceNetworkServiceAssociationCommandInput,
   GetServiceNetworkServiceAssociationCommandOutput,
@@ -103,7 +140,23 @@ import {
   ListAccessLogSubscriptionsCommandOutput,
 } from "../commands/ListAccessLogSubscriptionsCommand";
 import { ListListenersCommandInput, ListListenersCommandOutput } from "../commands/ListListenersCommand";
+import {
+  ListResourceConfigurationsCommandInput,
+  ListResourceConfigurationsCommandOutput,
+} from "../commands/ListResourceConfigurationsCommand";
+import {
+  ListResourceEndpointAssociationsCommandInput,
+  ListResourceEndpointAssociationsCommandOutput,
+} from "../commands/ListResourceEndpointAssociationsCommand";
+import {
+  ListResourceGatewaysCommandInput,
+  ListResourceGatewaysCommandOutput,
+} from "../commands/ListResourceGatewaysCommand";
 import { ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
+import {
+  ListServiceNetworkResourceAssociationsCommandInput,
+  ListServiceNetworkResourceAssociationsCommandOutput,
+} from "../commands/ListServiceNetworkResourceAssociationsCommand";
 import {
   ListServiceNetworksCommandInput,
   ListServiceNetworksCommandOutput,
@@ -116,6 +169,10 @@ import {
   ListServiceNetworkVpcAssociationsCommandInput,
   ListServiceNetworkVpcAssociationsCommandOutput,
 } from "../commands/ListServiceNetworkVpcAssociationsCommand";
+import {
+  ListServiceNetworkVpcEndpointAssociationsCommandInput,
+  ListServiceNetworkVpcEndpointAssociationsCommandOutput,
+} from "../commands/ListServiceNetworkVpcEndpointAssociationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "../commands/ListServicesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -133,6 +190,14 @@ import {
   UpdateAccessLogSubscriptionCommandOutput,
 } from "../commands/UpdateAccessLogSubscriptionCommand";
 import { UpdateListenerCommandInput, UpdateListenerCommandOutput } from "../commands/UpdateListenerCommand";
+import {
+  UpdateResourceConfigurationCommandInput,
+  UpdateResourceConfigurationCommandOutput,
+} from "../commands/UpdateResourceConfigurationCommand";
+import {
+  UpdateResourceGatewayCommandInput,
+  UpdateResourceGatewayCommandOutput,
+} from "../commands/UpdateResourceGatewayCommand";
 import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "../commands/UpdateRuleCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "../commands/UpdateServiceCommand";
 import {
@@ -147,7 +212,9 @@ import { UpdateTargetGroupCommandInput, UpdateTargetGroupCommandOutput } from ".
 import {
   AccessDeniedException,
   AccessLogSubscriptionSummary,
+  ArnResource,
   ConflictException,
+  DnsResource,
   FixedResponseAction,
   ForwardAction,
   HeaderMatch,
@@ -155,20 +222,28 @@ import {
   HealthCheckConfig,
   HttpMatch,
   InternalServerException,
+  IpResource,
   ListenerSummary,
   Matcher,
   PathMatch,
   PathMatchType,
+  ResourceConfigurationDefinition,
+  ResourceConfigurationSummary,
+  ResourceEndpointAssociationSummary,
+  ResourceGatewaySummary,
   ResourceNotFoundException,
   RuleAction,
   RuleMatch,
   RuleSummary,
   RuleUpdate,
+  ServiceNetworkEndpointAssociation,
+  ServiceNetworkResourceAssociationSummary,
   ServiceNetworkServiceAssociationSummary,
   ServiceNetworkSummary,
   ServiceNetworkVpcAssociationSummary,
   ServiceQuotaExceededException,
   ServiceSummary,
+  SharingConfig,
   Target,
   TargetGroupConfig,
   TargetGroupSummary,
@@ -220,6 +295,7 @@ export const se_CreateAccessLogSubscriptionCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destinationArn: [],
       resourceIdentifier: [],
+      serviceNetworkLogType: [],
       tags: (_) => _json(_),
     })
   );
@@ -249,6 +325,65 @@ export const se_CreateListenerCommand = async (
       port: [],
       protocol: [],
       tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateResourceConfigurationCommand
+ */
+export const se_CreateResourceConfigurationCommand = async (
+  input: CreateResourceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/resourceconfigurations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      allowAssociationToShareableServiceNetwork: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      name: [],
+      portRanges: (_) => _json(_),
+      protocol: [],
+      resourceConfigurationDefinition: (_) => _json(_),
+      resourceConfigurationGroupIdentifier: [],
+      resourceGatewayIdentifier: [],
+      tags: (_) => _json(_),
+      type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateResourceGatewayCommand
+ */
+export const se_CreateResourceGatewayCommand = async (
+  input: CreateResourceGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/resourcegateways");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ipAddressType: [],
+      name: [],
+      securityGroupIds: (_) => _json(_),
+      subnetIds: (_) => _json(_),
+      tags: (_) => _json(_),
+      vpcIdentifier: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -329,6 +464,32 @@ export const se_CreateServiceNetworkCommand = async (
       authType: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       name: [],
+      sharingConfig: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateServiceNetworkResourceAssociationCommand
+ */
+export const se_CreateServiceNetworkResourceAssociationCommand = async (
+  input: CreateServiceNetworkResourceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/servicenetworkresourceassociations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      resourceConfigurationIdentifier: [],
+      serviceNetworkIdentifier: [],
       tags: (_) => _json(_),
     })
   );
@@ -468,6 +629,64 @@ export const se_DeleteListenerCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteResourceConfigurationCommand
+ */
+export const se_DeleteResourceConfigurationCommand = async (
+  input: DeleteResourceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourceconfigurations/{resourceConfigurationIdentifier}");
+  b.p(
+    "resourceConfigurationIdentifier",
+    () => input.resourceConfigurationIdentifier!,
+    "{resourceConfigurationIdentifier}",
+    false
+  );
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteResourceEndpointAssociationCommand
+ */
+export const se_DeleteResourceEndpointAssociationCommand = async (
+  input: DeleteResourceEndpointAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourceendpointassociations/{resourceEndpointAssociationIdentifier}");
+  b.p(
+    "resourceEndpointAssociationIdentifier",
+    () => input.resourceEndpointAssociationIdentifier!,
+    "{resourceEndpointAssociationIdentifier}",
+    false
+  );
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteResourceGatewayCommand
+ */
+export const se_DeleteResourceGatewayCommand = async (
+  input: DeleteResourceGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourcegateways/{resourceGatewayIdentifier}");
+  b.p("resourceGatewayIdentifier", () => input.resourceGatewayIdentifier!, "{resourceGatewayIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteResourcePolicyCommand
  */
 export const se_DeleteResourcePolicyCommand = async (
@@ -528,6 +747,27 @@ export const se_DeleteServiceNetworkCommand = async (
   const headers: any = {};
   b.bp("/servicenetworks/{serviceNetworkIdentifier}");
   b.p("serviceNetworkIdentifier", () => input.serviceNetworkIdentifier!, "{serviceNetworkIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteServiceNetworkResourceAssociationCommand
+ */
+export const se_DeleteServiceNetworkResourceAssociationCommand = async (
+  input: DeleteServiceNetworkResourceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/servicenetworkresourceassociations/{serviceNetworkResourceAssociationIdentifier}");
+  b.p(
+    "serviceNetworkResourceAssociationIdentifier",
+    () => input.serviceNetworkResourceAssociationIdentifier!,
+    "{serviceNetworkResourceAssociationIdentifier}",
+    false
+  );
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -669,6 +909,43 @@ export const se_GetListenerCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetResourceConfigurationCommand
+ */
+export const se_GetResourceConfigurationCommand = async (
+  input: GetResourceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourceconfigurations/{resourceConfigurationIdentifier}");
+  b.p(
+    "resourceConfigurationIdentifier",
+    () => input.resourceConfigurationIdentifier!,
+    "{resourceConfigurationIdentifier}",
+    false
+  );
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetResourceGatewayCommand
+ */
+export const se_GetResourceGatewayCommand = async (
+  input: GetResourceGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourcegateways/{resourceGatewayIdentifier}");
+  b.p("resourceGatewayIdentifier", () => input.resourceGatewayIdentifier!, "{resourceGatewayIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetResourcePolicyCommand
  */
 export const se_GetResourcePolicyCommand = async (
@@ -729,6 +1006,27 @@ export const se_GetServiceNetworkCommand = async (
   const headers: any = {};
   b.bp("/servicenetworks/{serviceNetworkIdentifier}");
   b.p("serviceNetworkIdentifier", () => input.serviceNetworkIdentifier!, "{serviceNetworkIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetServiceNetworkResourceAssociationCommand
+ */
+export const se_GetServiceNetworkResourceAssociationCommand = async (
+  input: GetServiceNetworkResourceAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/servicenetworkresourceassociations/{serviceNetworkResourceAssociationIdentifier}");
+  b.p(
+    "serviceNetworkResourceAssociationIdentifier",
+    () => input.serviceNetworkResourceAssociationIdentifier!,
+    "{serviceNetworkResourceAssociationIdentifier}",
+    false
+  );
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -833,6 +1131,69 @@ export const se_ListListenersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListResourceConfigurationsCommand
+ */
+export const se_ListResourceConfigurationsCommand = async (
+  input: ListResourceConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourceconfigurations");
+  const query: any = map({
+    [_rGI]: [, input[_rGI]!],
+    [_rCGI]: [, input[_rCGI]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListResourceEndpointAssociationsCommand
+ */
+export const se_ListResourceEndpointAssociationsCommand = async (
+  input: ListResourceEndpointAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourceendpointassociations");
+  const query: any = map({
+    [_rCI]: [, __expectNonNull(input[_rCI]!, `resourceConfigurationIdentifier`)],
+    [_rEAI]: [, input[_rEAI]!],
+    [_vEI]: [, input[_vEI]!],
+    [_vEO]: [, input[_vEO]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListResourceGatewaysCommand
+ */
+export const se_ListResourceGatewaysCommand = async (
+  input: ListResourceGatewaysCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resourcegateways");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRulesCommand
  */
 export const se_ListRulesCommand = async (
@@ -845,6 +1206,27 @@ export const se_ListRulesCommand = async (
   b.p("serviceIdentifier", () => input.serviceIdentifier!, "{serviceIdentifier}", false);
   b.p("listenerIdentifier", () => input.listenerIdentifier!, "{listenerIdentifier}", false);
   const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListServiceNetworkResourceAssociationsCommand
+ */
+export const se_ListServiceNetworkResourceAssociationsCommand = async (
+  input: ListServiceNetworkResourceAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/servicenetworkresourceassociations");
+  const query: any = map({
+    [_sNI]: [, input[_sNI]!],
+    [_rCI]: [, input[_rCI]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -906,6 +1288,26 @@ export const se_ListServiceNetworkVpcAssociationsCommand = async (
   const query: any = map({
     [_sNI]: [, input[_sNI]!],
     [_vI]: [, input[_vI]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListServiceNetworkVpcEndpointAssociationsCommand
+ */
+export const se_ListServiceNetworkVpcEndpointAssociationsCommand = async (
+  input: ListServiceNetworkVpcEndpointAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/servicenetworkvpcendpointassociations");
+  const query: any = map({
+    [_sNI]: [, __expectNonNull(input[_sNI]!, `serviceNetworkIdentifier`)],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -1161,6 +1563,59 @@ export const se_UpdateListenerCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateResourceConfigurationCommand
+ */
+export const se_UpdateResourceConfigurationCommand = async (
+  input: UpdateResourceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/resourceconfigurations/{resourceConfigurationIdentifier}");
+  b.p(
+    "resourceConfigurationIdentifier",
+    () => input.resourceConfigurationIdentifier!,
+    "{resourceConfigurationIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      allowAssociationToShareableServiceNetwork: [],
+      portRanges: (_) => _json(_),
+      resourceConfigurationDefinition: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateResourceGatewayCommand
+ */
+export const se_UpdateResourceGatewayCommand = async (
+  input: UpdateResourceGatewayCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/resourcegateways/{resourceGatewayIdentifier}");
+  b.p("resourceGatewayIdentifier", () => input.resourceGatewayIdentifier!, "{resourceGatewayIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      securityGroupIds: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateRuleCommand
  */
 export const se_UpdateRuleCommand = async (
@@ -1327,6 +1782,7 @@ export const de_CreateAccessLogSubscriptionCommand = async (
     id: __expectString,
     resourceArn: __expectString,
     resourceId: __expectString,
+    serviceNetworkLogType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1355,6 +1811,67 @@ export const de_CreateListenerCommand = async (
     protocol: __expectString,
     serviceArn: __expectString,
     serviceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateResourceConfigurationCommand
+ */
+export const de_CreateResourceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResourceConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    allowAssociationToShareableServiceNetwork: __expectBoolean,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureReason: __expectString,
+    id: __expectString,
+    name: __expectString,
+    portRanges: _json,
+    protocol: __expectString,
+    resourceConfigurationDefinition: (_) => _json(__expectUnion(_)),
+    resourceConfigurationGroupId: __expectString,
+    resourceGatewayId: __expectString,
+    status: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateResourceGatewayCommand
+ */
+export const de_CreateResourceGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResourceGatewayCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    ipAddressType: __expectString,
+    name: __expectString,
+    securityGroupIds: _json,
+    status: __expectString,
+    subnetIds: _json,
+    vpcIdentifier: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1433,6 +1950,31 @@ export const de_CreateServiceNetworkCommand = async (
     authType: __expectString,
     id: __expectString,
     name: __expectString,
+    sharingConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateServiceNetworkResourceAssociationCommand
+ */
+export const de_CreateServiceNetworkResourceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateServiceNetworkResourceAssociationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    createdBy: __expectString,
+    id: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1567,6 +2109,72 @@ export const de_DeleteListenerCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteResourceConfigurationCommand
+ */
+export const de_DeleteResourceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceConfigurationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteResourceEndpointAssociationCommand
+ */
+export const de_DeleteResourceEndpointAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceEndpointAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    resourceConfigurationArn: __expectString,
+    resourceConfigurationId: __expectString,
+    vpcEndpointId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteResourceGatewayCommand
+ */
+export const de_DeleteResourceGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
@@ -1638,6 +2246,29 @@ export const de_DeleteServiceNetworkCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteServiceNetworkResourceAssociationCommand
+ */
+export const de_DeleteServiceNetworkResourceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceNetworkResourceAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1754,6 +2385,7 @@ export const de_GetAccessLogSubscriptionCommand = async (
     lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     resourceArn: __expectString,
     resourceId: __expectString,
+    serviceNetworkLogType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1808,6 +2440,72 @@ export const de_GetListenerCommand = async (
     protocol: __expectString,
     serviceArn: __expectString,
     serviceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetResourceConfigurationCommand
+ */
+export const de_GetResourceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    allowAssociationToShareableServiceNetwork: __expectBoolean,
+    amazonManaged: __expectBoolean,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    customDomainName: __expectString,
+    failureReason: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    portRanges: _json,
+    protocol: __expectString,
+    resourceConfigurationDefinition: (_) => _json(__expectUnion(_)),
+    resourceConfigurationGroupId: __expectString,
+    resourceGatewayId: __expectString,
+    status: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetResourceGatewayCommand
+ */
+export const de_GetResourceGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    ipAddressType: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    securityGroupIds: _json,
+    status: __expectString,
+    subnetIds: _json,
+    vpcId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1918,6 +2616,44 @@ export const de_GetServiceNetworkCommand = async (
     name: __expectString,
     numberOfAssociatedServices: __expectLong,
     numberOfAssociatedVPCs: __expectLong,
+    sharingConfig: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetServiceNetworkResourceAssociationCommand
+ */
+export const de_GetServiceNetworkResourceAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceNetworkResourceAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    dnsEntry: _json,
+    failureCode: __expectString,
+    failureReason: __expectString,
+    id: __expectString,
+    isManagedAssociation: __expectBoolean,
+    lastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    privateDnsEntry: _json,
+    resourceConfigurationArn: __expectString,
+    resourceConfigurationId: __expectString,
+    resourceConfigurationName: __expectString,
+    serviceNetworkArn: __expectString,
+    serviceNetworkId: __expectString,
+    serviceNetworkName: __expectString,
+    status: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2067,6 +2803,72 @@ export const de_ListListenersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListResourceConfigurationsCommand
+ */
+export const de_ListResourceConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_ResourceConfigurationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListResourceEndpointAssociationsCommand
+ */
+export const de_ListResourceEndpointAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceEndpointAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_ResourceEndpointAssociationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListResourceGatewaysCommand
+ */
+export const de_ListResourceGatewaysCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceGatewaysCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_ResourceGatewayList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListRulesCommand
  */
 export const de_ListRulesCommand = async (
@@ -2082,6 +2884,28 @@ export const de_ListRulesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     items: (_) => de_RuleSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListServiceNetworkResourceAssociationsCommand
+ */
+export const de_ListServiceNetworkResourceAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceNetworkResourceAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_ServiceNetworkResourceAssociationList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2148,6 +2972,28 @@ export const de_ListServiceNetworkVpcAssociationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     items: (_) => de_ServiceNetworkVpcAssociationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListServiceNetworkVpcEndpointAssociationsCommand
+ */
+export const de_ListServiceNetworkVpcEndpointAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceNetworkVpcEndpointAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_ServiceNetworkVpcEndpointAssociationList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -2384,6 +3230,65 @@ export const de_UpdateListenerCommand = async (
     protocol: __expectString,
     serviceArn: __expectString,
     serviceId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateResourceConfigurationCommand
+ */
+export const de_UpdateResourceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    allowAssociationToShareableServiceNetwork: __expectBoolean,
+    arn: __expectString,
+    id: __expectString,
+    name: __expectString,
+    portRanges: _json,
+    protocol: __expectString,
+    resourceConfigurationDefinition: (_) => _json(__expectUnion(_)),
+    resourceConfigurationGroupId: __expectString,
+    resourceGatewayId: __expectString,
+    status: __expectString,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateResourceGatewayCommand
+ */
+export const de_UpdateResourceGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceGatewayCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    ipAddressType: __expectString,
+    name: __expectString,
+    securityGroupIds: _json,
+    status: __expectString,
+    subnetIds: _json,
+    vpcId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2706,6 +3611,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_ArnResource omitted.
+
+// se_DnsResource omitted.
+
 // se_FixedResponseAction omitted.
 
 // se_ForwardAction omitted.
@@ -2720,11 +3629,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_HttpMatch omitted.
 
+// se_IpResource omitted.
+
 // se_Matcher omitted.
 
 // se_PathMatch omitted.
 
 // se_PathMatchType omitted.
+
+// se_PortRangeList omitted.
+
+// se_ResourceConfigurationDefinition omitted.
 
 // se_RuleAction omitted.
 
@@ -2735,6 +3650,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_RuleUpdateList omitted.
 
 // se_SecurityGroupList omitted.
+
+// se_SharingConfig omitted.
+
+// se_SubnetList omitted.
 
 // se_TagMap omitted.
 
@@ -2772,10 +3691,15 @@ const de_AccessLogSubscriptionSummary = (output: any, context: __SerdeContext): 
     lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     resourceArn: __expectString,
     resourceId: __expectString,
+    serviceNetworkLogType: __expectString,
   }) as any;
 };
 
+// de_ArnResource omitted.
+
 // de_DnsEntry omitted.
+
+// de_DnsResource omitted.
 
 // de_FixedResponseAction omitted.
 
@@ -2790,6 +3714,8 @@ const de_AccessLogSubscriptionSummary = (output: any, context: __SerdeContext): 
 // de_HealthCheckConfig omitted.
 
 // de_HttpMatch omitted.
+
+// de_IpResource omitted.
 
 /**
  * deserializeAws_restJson1ListenerSummary
@@ -2823,6 +3749,105 @@ const de_ListenerSummaryList = (output: any, context: __SerdeContext): ListenerS
 // de_PathMatch omitted.
 
 // de_PathMatchType omitted.
+
+// de_PortRangeList omitted.
+
+// de_ResourceConfigurationDefinition omitted.
+
+/**
+ * deserializeAws_restJson1ResourceConfigurationSummary
+ */
+const de_ResourceConfigurationSummary = (output: any, context: __SerdeContext): ResourceConfigurationSummary => {
+  return take(output, {
+    amazonManaged: __expectBoolean,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    resourceConfigurationGroupId: __expectString,
+    resourceGatewayId: __expectString,
+    status: __expectString,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ResourceConfigurationSummaryList
+ */
+const de_ResourceConfigurationSummaryList = (output: any, context: __SerdeContext): ResourceConfigurationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceConfigurationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ResourceEndpointAssociationList
+ */
+const de_ResourceEndpointAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ResourceEndpointAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceEndpointAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ResourceEndpointAssociationSummary
+ */
+const de_ResourceEndpointAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): ResourceEndpointAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    id: __expectString,
+    resourceConfigurationArn: __expectString,
+    resourceConfigurationId: __expectString,
+    resourceConfigurationName: __expectString,
+    vpcEndpointId: __expectString,
+    vpcEndpointOwner: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ResourceGatewayList
+ */
+const de_ResourceGatewayList = (output: any, context: __SerdeContext): ResourceGatewaySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceGatewaySummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ResourceGatewaySummary
+ */
+const de_ResourceGatewaySummary = (output: any, context: __SerdeContext): ResourceGatewaySummary => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    ipAddressType: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    name: __expectString,
+    securityGroupIds: _json,
+    status: __expectString,
+    subnetIds: _json,
+    vpcIdentifier: __expectString,
+  }) as any;
+};
 
 // de_RuleAction omitted.
 
@@ -2880,6 +3905,24 @@ const de_ServiceList = (output: any, context: __SerdeContext): ServiceSummary[] 
 };
 
 /**
+ * deserializeAws_restJson1ServiceNetworkEndpointAssociation
+ */
+const de_ServiceNetworkEndpointAssociation = (
+  output: any,
+  context: __SerdeContext
+): ServiceNetworkEndpointAssociation => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    serviceNetworkArn: __expectString,
+    state: __expectString,
+    vpcEndpointId: __expectString,
+    vpcEndpointOwnerId: __expectString,
+    vpcId: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ServiceNetworkList
  */
 const de_ServiceNetworkList = (output: any, context: __SerdeContext): ServiceNetworkSummary[] => {
@@ -2889,6 +3932,47 @@ const de_ServiceNetworkList = (output: any, context: __SerdeContext): ServiceNet
       return de_ServiceNetworkSummary(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ServiceNetworkResourceAssociationList
+ */
+const de_ServiceNetworkResourceAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ServiceNetworkResourceAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceNetworkResourceAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ServiceNetworkResourceAssociationSummary
+ */
+const de_ServiceNetworkResourceAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): ServiceNetworkResourceAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdBy: __expectString,
+    dnsEntry: _json,
+    failureCode: __expectString,
+    id: __expectString,
+    isManagedAssociation: __expectBoolean,
+    privateDnsEntry: _json,
+    resourceConfigurationArn: __expectString,
+    resourceConfigurationId: __expectString,
+    resourceConfigurationName: __expectString,
+    serviceNetworkArn: __expectString,
+    serviceNetworkId: __expectString,
+    serviceNetworkName: __expectString,
+    status: __expectString,
+  }) as any;
 };
 
 /**
@@ -2940,6 +4024,7 @@ const de_ServiceNetworkSummary = (output: any, context: __SerdeContext): Service
     id: __expectString,
     lastUpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     name: __expectString,
+    numberOfAssociatedResourceConfigurations: __expectLong,
     numberOfAssociatedServices: __expectLong,
     numberOfAssociatedVPCs: __expectLong,
   }) as any;
@@ -2982,6 +4067,21 @@ const de_ServiceNetworkVpcAssociationSummary = (
 };
 
 /**
+ * deserializeAws_restJson1ServiceNetworkVpcEndpointAssociationList
+ */
+const de_ServiceNetworkVpcEndpointAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ServiceNetworkEndpointAssociation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceNetworkEndpointAssociation(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1ServiceSummary
  */
 const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
@@ -2996,6 +4096,10 @@ const de_ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary
     status: __expectString,
   }) as any;
 };
+
+// de_SharingConfig omitted.
+
+// de_SubnetList omitted.
 
 // de_TagMap omitted.
 
@@ -3069,10 +4173,16 @@ const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<st
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";
+const _rCGI = "resourceConfigurationGroupIdentifier";
+const _rCI = "resourceConfigurationIdentifier";
+const _rEAI = "resourceEndpointAssociationIdentifier";
+const _rGI = "resourceGatewayIdentifier";
 const _rI = "resourceIdentifier";
 const _ra = "retry-after";
 const _sI = "serviceIdentifier";
 const _sNI = "serviceNetworkIdentifier";
 const _tGT = "targetGroupType";
 const _tK = "tagKeys";
+const _vEI = "vpcEndpointId";
+const _vEO = "vpcEndpointOwner";
 const _vI = "vpcIdentifier";

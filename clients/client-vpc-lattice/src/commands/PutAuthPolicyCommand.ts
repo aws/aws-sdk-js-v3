@@ -30,8 +30,8 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
 /**
  * <p>Creates or updates the auth policy. The policy string in JSON must not contain newlines or
  *    blank lines.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth policies</a>
- *    in the <i>Amazon VPC Lattice User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth policies</a> in the <i>Amazon VPC
+ *     Lattice User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

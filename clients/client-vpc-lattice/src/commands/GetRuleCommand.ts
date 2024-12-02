@@ -28,7 +28,7 @@ export interface GetRuleCommandInput extends GetRuleRequest {}
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about listener rules. You can also retrieve information about the
+ * <p>Retrieves information about the specified listener rules. You can also retrieve information about the
  *    default listener rule. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules">Listener rules</a> in the
  *     <i>Amazon VPC Lattice User Guide</i>.</p>
  * @example
