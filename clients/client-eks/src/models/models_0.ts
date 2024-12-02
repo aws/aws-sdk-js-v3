@@ -438,6 +438,12 @@ export interface AddonVersionInfo {
   architecture?: string[] | undefined;
 
   /**
+   * <p>Indicates the compute type of the addon version.</p>
+   * @public
+   */
+  computeTypes?: string[] | undefined;
+
+  /**
    * <p>An object representing the compatibilities of a version.</p>
    * @public
    */
@@ -1025,12 +1031,14 @@ export const UpdateParamType = {
   ADDON_VERSION: "AddonVersion",
   AUTHENTICATION_MODE: "AuthenticationMode",
   CLUSTER_LOGGING: "ClusterLogging",
+  COMPUTE_CONFIG: "ComputeConfig",
   CONFIGURATION_VALUES: "ConfigurationValues",
   DESIRED_SIZE: "DesiredSize",
   ENCRYPTION_CONFIG: "EncryptionConfig",
   ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
   ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",
   IDENTITY_PROVIDER_CONFIG: "IdentityProviderConfig",
+  KUBERNETES_NETWORK_CONFIG: "KubernetesNetworkConfig",
   LABELS_TO_ADD: "LabelsToAdd",
   LABELS_TO_REMOVE: "LabelsToRemove",
   LAUNCH_TEMPLATE_NAME: "LaunchTemplateName",
@@ -1046,6 +1054,7 @@ export const UpdateParamType = {
   RESOLVE_CONFLICTS: "ResolveConflicts",
   SECURITY_GROUPS: "SecurityGroups",
   SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
+  STORAGE_CONFIG: "StorageConfig",
   SUBNETS: "Subnets",
   TAINTS_TO_ADD: "TaintsToAdd",
   TAINTS_TO_REMOVE: "TaintsToRemove",
@@ -1102,6 +1111,7 @@ export const UpdateType = {
   ADDON_UPDATE: "AddonUpdate",
   ASSOCIATE_ENCRYPTION_CONFIG: "AssociateEncryptionConfig",
   ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
+  AUTO_MODE_UPDATE: "AutoModeUpdate",
   CONFIG_UPDATE: "ConfigUpdate",
   DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
   ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
@@ -1710,6 +1720,42 @@ export interface CreateAccessConfigRequest {
 }
 
 /**
+ * <p>Request to update the configuration of the compute capability of your EKS Auto Mode cluster. For example, enable the capability. For more information, see EKS Auto Mode compute capability in the EKS User Guide.</p>
+ * @public
+ */
+export interface ComputeConfigRequest {
+  /**
+   * <p>Request to enable or disable the compute capability on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>Configuration for node pools that defines the compute resources for your EKS Auto Mode cluster. For more information, see EKS Auto Mode Node Pools in the EKS User Guide.</p>
+   * @public
+   */
+  nodePools?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster. This value cannot be changed after the compute capability of EKS Auto Mode is enabled. For more information, see the IAM Reference in the EKS User Guide.</p>
+   * @public
+   */
+  nodeRoleArn?: string | undefined;
+}
+
+/**
+ * <p>Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. For more information, see EKS Auto Mode load balancing capability in the EKS User Guide.</p>
+ * @public
+ */
+export interface ElasticLoadBalancing {
+  /**
+   * <p>Indicates if the load balancing capability is enabled on your EKS Auto Mode cluster. If the load balancing capability is enabled, EKS Auto Mode will create and delete load balancers in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
  * @public
  * @enum
  */
@@ -1775,6 +1821,12 @@ export interface KubernetesNetworkConfigRequest {
    * @public
    */
   ipFamily?: IpFamily | undefined;
+
+  /**
+   * <p>Request to enable or disable the load balancing capability on your EKS Auto Mode cluster. For more information, see EKS Auto Mode load balancing capability in the EKS User Guide.</p>
+   * @public
+   */
+  elasticLoadBalancing?: ElasticLoadBalancing | undefined;
 }
 
 /**
@@ -1878,6 +1930,49 @@ export interface OutpostConfigRequest {
 }
 
 /**
+ * <p>A network CIDR that can contain hybrid nodes.</p>
+ * @public
+ */
+export interface RemoteNodeNetwork {
+  /**
+   * <p>A network CIDR that can contain hybrid nodes.</p>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+}
+
+/**
+ * <p>A network CIDR that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+ * @public
+ */
+export interface RemotePodNetwork {
+  /**
+   * <p>A network CIDR that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+}
+
+/**
+ * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+ *             configuration after the cluster is created.</p>
+ * @public
+ */
+export interface RemoteNetworkConfigRequest {
+  /**
+   * <p>The list of network CIDRs that can contain hybrid nodes.</p>
+   * @public
+   */
+  remoteNodeNetworks?: RemoteNodeNetwork[] | undefined;
+
+  /**
+   * <p>The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+   * @public
+   */
+  remotePodNetworks?: RemotePodNetwork[] | undefined;
+}
+
+/**
  * <p>An object representing the VPC configuration to use for an Amazon EKS
  *             cluster.</p>
  * @public
@@ -1946,6 +2041,30 @@ export interface VpcConfigRequest {
    * @public
    */
   publicAccessCidrs?: string[] | undefined;
+}
+
+/**
+ * <p>Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your Amazon Web Services account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.</p>
+ * @public
+ */
+export interface BlockStorage {
+  /**
+   * <p>Indicates if the block storage capability is enabled on your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+}
+
+/**
+ * <p>Request to update the configuration of the storage capability of your EKS Auto Mode cluster. For example, enable the capability. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.</p>
+ * @public
+ */
+export interface StorageConfigRequest {
+  /**
+   * <p>Request to configure EBS Block Storage settings for your EKS Auto Mode cluster.</p>
+   * @public
+   */
+  blockStorage?: BlockStorage | undefined;
 }
 
 /**
@@ -2129,6 +2248,25 @@ export interface CreateClusterRequest {
    * @public
    */
   zonalShiftConfig?: ZonalShiftConfigRequest | undefined;
+
+  /**
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+   *             configuration after the cluster is created.</p>
+   * @public
+   */
+  remoteNetworkConfig?: RemoteNetworkConfigRequest | undefined;
+
+  /**
+   * <p>Enable or disable the compute capability of EKS Auto Mode when creating your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account</p>
+   * @public
+   */
+  computeConfig?: ComputeConfigRequest | undefined;
+
+  /**
+   * <p>Enable or disable the block storage capability of EKS Auto Mode when creating your EKS Auto Mode cluster. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your Amazon Web Services account.</p>
+   * @public
+   */
+  storageConfig?: StorageConfigRequest | undefined;
 }
 
 /**
@@ -2144,6 +2282,30 @@ export interface Certificate {
    * @public
    */
   data?: string | undefined;
+}
+
+/**
+ * <p>Indicates the status of the request to update the compute capability of your EKS Auto Mode cluster.</p>
+ * @public
+ */
+export interface ComputeConfigResponse {
+  /**
+   * <p>Indicates if the compute capability is enabled on your EKS Auto Mode cluster. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account.</p>
+   * @public
+   */
+  enabled?: boolean | undefined;
+
+  /**
+   * <p>Indicates the current configuration of node pools in your EKS Auto Mode cluster. For more information, see EKS Auto Mode Node Pools in the EKS User Guide.</p>
+   * @public
+   */
+  nodePools?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the IAM Role EKS will assign to EC2 Managed Instances in your EKS Auto Mode cluster.</p>
+   * @public
+   */
+  nodeRoleArn?: string | undefined;
 }
 
 /**
@@ -2315,6 +2477,12 @@ export interface KubernetesNetworkConfigResponse {
    * @public
    */
   ipFamily?: IpFamily | undefined;
+
+  /**
+   * <p>Indicates the current configuration of the load balancing capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.</p>
+   * @public
+   */
+  elasticLoadBalancing?: ElasticLoadBalancing | undefined;
 }
 
 /**
@@ -2359,6 +2527,25 @@ export interface OutpostConfigResponse {
    * @public
    */
   controlPlanePlacement?: ControlPlanePlacementResponse | undefined;
+}
+
+/**
+ * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+ *             configuration after the cluster is created.</p>
+ * @public
+ */
+export interface RemoteNetworkConfigResponse {
+  /**
+   * <p>The list of network CIDRs that can contain hybrid nodes.</p>
+   * @public
+   */
+  remoteNodeNetworks?: RemoteNodeNetwork[] | undefined;
+
+  /**
+   * <p>The list of network CIDRs that can contain pods that run Kubernetes webhooks on hybrid nodes.</p>
+   * @public
+   */
+  remotePodNetworks?: RemotePodNetwork[] | undefined;
 }
 
 /**
@@ -2440,6 +2627,18 @@ export const ClusterStatus = {
  * @public
  */
 export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
+
+/**
+ * <p>Indicates the status of the request to update the block storage capability of your EKS Auto Mode cluster.</p>
+ * @public
+ */
+export interface StorageConfigResponse {
+  /**
+   * <p>Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled.</p>
+   * @public
+   */
+  blockStorage?: BlockStorage | undefined;
+}
 
 /**
  * <p>This value indicates if extended support is enabled or disabled for the cluster.</p>
@@ -2635,6 +2834,25 @@ export interface Cluster {
    * @public
    */
   zonalShiftConfig?: ZonalShiftConfigResponse | undefined;
+
+  /**
+   * <p>The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this
+   *             configuration after the cluster is created.</p>
+   * @public
+   */
+  remoteNetworkConfig?: RemoteNetworkConfigResponse | undefined;
+
+  /**
+   * <p>Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your Amazon Web Services account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.</p>
+   * @public
+   */
+  computeConfig?: ComputeConfigResponse | undefined;
+
+  /**
+   * <p>Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your Amazon Web Services account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.</p>
+   * @public
+   */
+  storageConfig?: StorageConfigResponse | undefined;
 }
 
 /**
@@ -6611,6 +6829,24 @@ export interface UpdateClusterConfigRequest {
    * @public
    */
   zonalShiftConfig?: ZonalShiftConfigRequest | undefined;
+
+  /**
+   * <p>Update the configuration of the compute capability of your EKS Auto Mode cluster. For example, enable the capability.</p>
+   * @public
+   */
+  computeConfig?: ComputeConfigRequest | undefined;
+
+  /**
+   * <p>The Kubernetes network configuration for the cluster.</p>
+   * @public
+   */
+  kubernetesNetworkConfig?: KubernetesNetworkConfigRequest | undefined;
+
+  /**
+   * <p>Update the configuration of the block storage capability of your EKS Auto Mode cluster. For example, enable the capability.</p>
+   * @public
+   */
+  storageConfig?: StorageConfigRequest | undefined;
 }
 
 /**

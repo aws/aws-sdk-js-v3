@@ -181,10 +181,12 @@ import {
   AddonPodIdentityAssociations,
   AssociatedAccessPolicy,
   BadRequestException,
+  BlockStorage,
   Category,
   ClientException,
   ClientStat,
   Cluster,
+  ComputeConfigRequest,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
   ControlPlanePlacementRequest,
@@ -192,6 +194,7 @@ import {
   DeprecationDetail,
   EksAnywhereSubscription,
   EksAnywhereSubscriptionTerm,
+  ElasticLoadBalancing,
   EncryptionConfig,
   FargateProfile,
   FargateProfileSelector,
@@ -217,12 +220,16 @@ import {
   PodIdentityAssociation,
   Provider,
   RemoteAccessConfig,
+  RemoteNetworkConfigRequest,
+  RemoteNodeNetwork,
+  RemotePodNetwork,
   ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
   ResourcePropagationDelayException,
   ServerException,
   ServiceUnavailableException,
+  StorageConfigRequest,
   Taint,
   UnsupportedAvailabilityZoneException,
   Update,
@@ -384,13 +391,16 @@ export const se_CreateClusterCommand = async (
       accessConfig: (_) => _json(_),
       bootstrapSelfManagedAddons: [],
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      computeConfig: (_) => _json(_),
       encryptionConfig: (_) => _json(_),
       kubernetesNetworkConfig: (_) => _json(_),
       logging: (_) => _json(_),
       name: [],
       outpostConfig: (_) => _json(_),
+      remoteNetworkConfig: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
       roleArn: [],
+      storageConfig: (_) => _json(_),
       tags: (_) => _json(_),
       upgradePolicy: (_) => _json(_),
       version: [],
@@ -1328,8 +1338,11 @@ export const se_UpdateClusterConfigCommand = async (
     take(input, {
       accessConfig: (_) => _json(_),
       clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      computeConfig: (_) => _json(_),
+      kubernetesNetworkConfig: (_) => _json(_),
       logging: (_) => _json(_),
       resourcesVpcConfig: (_) => _json(_),
+      storageConfig: (_) => _json(_),
       upgradePolicy: (_) => _json(_),
       zonalShiftConfig: (_) => _json(_),
     })
@@ -2993,7 +3006,11 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_AddonPodIdentityAssociationsList omitted.
 
+// se_BlockStorage omitted.
+
 // se_CategoryList omitted.
+
+// se_ComputeConfigRequest omitted.
 
 // se_ConnectorConfigRequest omitted.
 
@@ -3002,6 +3019,8 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 // se_CreateAccessConfigRequest omitted.
 
 // se_EksAnywhereSubscriptionTerm omitted.
+
+// se_ElasticLoadBalancing omitted.
 
 // se_EncryptionConfig omitted.
 
@@ -3047,7 +3066,19 @@ const de_UnsupportedAvailabilityZoneExceptionRes = async (
 
 // se_RemoteAccessConfig omitted.
 
+// se_RemoteNetworkConfigRequest omitted.
+
+// se_RemoteNodeNetwork omitted.
+
+// se_RemoteNodeNetworkList omitted.
+
+// se_RemotePodNetwork omitted.
+
+// se_RemotePodNetworkList omitted.
+
 // se_requiredClaimsMap omitted.
+
+// se_StorageConfigRequest omitted.
 
 // se_StringList omitted.
 
@@ -3165,6 +3196,8 @@ const de_AssociatedAccessPolicy = (output: any, context: __SerdeContext): Associ
 
 // de_AutoScalingGroupList omitted.
 
+// de_BlockStorage omitted.
+
 // de_Certificate omitted.
 
 /**
@@ -3199,6 +3232,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     arn: __expectString,
     certificateAuthority: _json,
     clientRequestToken: __expectString,
+    computeConfig: _json,
     connectorConfig: (_: any) => de_ConnectorConfigResponse(_, context),
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     encryptionConfig: _json,
@@ -3211,9 +3245,11 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     name: __expectString,
     outpostConfig: _json,
     platformVersion: __expectString,
+    remoteNetworkConfig: _json,
     resourcesVpcConfig: _json,
     roleArn: __expectString,
     status: __expectString,
+    storageConfig: _json,
     tags: _json,
     upgradePolicy: _json,
     version: __expectString,
@@ -3230,6 +3266,8 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
 // de_Compatibilities omitted.
 
 // de_Compatibility omitted.
+
+// de_ComputeConfigResponse omitted.
 
 /**
  * deserializeAws_restJson1ConnectorConfigResponse
@@ -3304,6 +3342,8 @@ const de_EksAnywhereSubscriptionList = (output: any, context: __SerdeContext): E
 };
 
 // de_EksAnywhereSubscriptionTerm omitted.
+
+// de_ElasticLoadBalancing omitted.
 
 // de_EncryptionConfig omitted.
 
@@ -3505,7 +3545,19 @@ const de_PodIdentityAssociation = (output: any, context: __SerdeContext): PodIde
 
 // de_RemoteAccessConfig omitted.
 
+// de_RemoteNetworkConfigResponse omitted.
+
+// de_RemoteNodeNetwork omitted.
+
+// de_RemoteNodeNetworkList omitted.
+
+// de_RemotePodNetwork omitted.
+
+// de_RemotePodNetworkList omitted.
+
 // de_requiredClaimsMap omitted.
+
+// de_StorageConfigResponse omitted.
 
 // de_StringList omitted.
 

@@ -66,6 +66,9 @@ export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersion
  * //           architecture: [ // StringList
  * //             "STRING_VALUE",
  * //           ],
+ * //           computeTypes: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //           compatibilities: [ // Compatibilities
  * //             { // Compatibility
  * //               clusterVersion: "STRING_VALUE",

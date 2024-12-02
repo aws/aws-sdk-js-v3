@@ -75,6 +75,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       serviceIpv4Cidr: "STRING_VALUE",
  * //       serviceIpv6Cidr: "STRING_VALUE",
  * //       ipFamily: "ipv4" || "ipv6",
+ * //       elasticLoadBalancing: { // ElasticLoadBalancing
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //     logging: { // Logging
  * //       clusterLogging: [ // LogSetups
@@ -143,6 +146,28 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //     },
  * //     zonalShiftConfig: { // ZonalShiftConfigResponse
  * //       enabled: true || false,
+ * //     },
+ * //     remoteNetworkConfig: { // RemoteNetworkConfigResponse
+ * //       remoteNodeNetworks: [ // RemoteNodeNetworkList
+ * //         { // RemoteNodeNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //       remotePodNetworks: [ // RemotePodNetworkList
+ * //         { // RemotePodNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     computeConfig: { // ComputeConfigResponse
+ * //       enabled: true || false,
+ * //       nodePools: "<StringList>",
+ * //       nodeRoleArn: "STRING_VALUE",
+ * //     },
+ * //     storageConfig: { // StorageConfigResponse
+ * //       blockStorage: { // BlockStorage
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //   },
  * // };

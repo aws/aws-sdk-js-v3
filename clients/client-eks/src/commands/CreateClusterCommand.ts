@@ -92,6 +92,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   kubernetesNetworkConfig: { // KubernetesNetworkConfigRequest
  *     serviceIpv4Cidr: "STRING_VALUE",
  *     ipFamily: "ipv4" || "ipv6",
+ *     elasticLoadBalancing: { // ElasticLoadBalancing
+ *       enabled: true || false,
+ *     },
  *   },
  *   logging: { // Logging
  *     clusterLogging: [ // LogSetups
@@ -137,6 +140,28 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   zonalShiftConfig: { // ZonalShiftConfigRequest
  *     enabled: true || false,
  *   },
+ *   remoteNetworkConfig: { // RemoteNetworkConfigRequest
+ *     remoteNodeNetworks: [ // RemoteNodeNetworkList
+ *       { // RemoteNodeNetwork
+ *         cidrs: "<StringList>",
+ *       },
+ *     ],
+ *     remotePodNetworks: [ // RemotePodNetworkList
+ *       { // RemotePodNetwork
+ *         cidrs: "<StringList>",
+ *       },
+ *     ],
+ *   },
+ *   computeConfig: { // ComputeConfigRequest
+ *     enabled: true || false,
+ *     nodePools: "<StringList>",
+ *     nodeRoleArn: "STRING_VALUE",
+ *   },
+ *   storageConfig: { // StorageConfigRequest
+ *     blockStorage: { // BlockStorage
+ *       enabled: true || false,
+ *     },
+ *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -167,6 +192,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       serviceIpv4Cidr: "STRING_VALUE",
  * //       serviceIpv6Cidr: "STRING_VALUE",
  * //       ipFamily: "ipv4" || "ipv6",
+ * //       elasticLoadBalancing: { // ElasticLoadBalancing
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //     logging: { // Logging
  * //       clusterLogging: [ // LogSetups
@@ -235,6 +263,28 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     },
  * //     zonalShiftConfig: { // ZonalShiftConfigResponse
  * //       enabled: true || false,
+ * //     },
+ * //     remoteNetworkConfig: { // RemoteNetworkConfigResponse
+ * //       remoteNodeNetworks: [ // RemoteNodeNetworkList
+ * //         { // RemoteNodeNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //       remotePodNetworks: [ // RemotePodNetworkList
+ * //         { // RemotePodNetwork
+ * //           cidrs: "<StringList>",
+ * //         },
+ * //       ],
+ * //     },
+ * //     computeConfig: { // ComputeConfigResponse
+ * //       enabled: true || false,
+ * //       nodePools: "<StringList>",
+ * //       nodeRoleArn: "STRING_VALUE",
+ * //     },
+ * //     storageConfig: { // StorageConfigResponse
+ * //       blockStorage: { // BlockStorage
+ * //         enabled: true || false,
+ * //       },
  * //     },
  * //   },
  * // };
