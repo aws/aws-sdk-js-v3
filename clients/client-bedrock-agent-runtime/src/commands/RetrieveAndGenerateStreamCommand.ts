@@ -11,12 +11,12 @@ import {
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
-  RetrieveAndGenerateRequest,
-  RetrieveAndGenerateRequestFilterSensitiveLog,
-  RetrieveAndGenerateResponse,
-  RetrieveAndGenerateResponseFilterSensitiveLog,
+  RetrieveAndGenerateStreamRequest,
+  RetrieveAndGenerateStreamRequestFilterSensitiveLog,
+  RetrieveAndGenerateStreamResponse,
+  RetrieveAndGenerateStreamResponseFilterSensitiveLog,
 } from "../models/models_0";
-import { de_RetrieveAndGenerateCommand, se_RetrieveAndGenerateCommand } from "../protocols/Aws_restJson1";
+import { de_RetrieveAndGenerateStreamCommand, se_RetrieveAndGenerateStreamCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -26,25 +26,28 @@ export { $Command };
 /**
  * @public
  *
- * The input for {@link RetrieveAndGenerateCommand}.
+ * The input for {@link RetrieveAndGenerateStreamCommand}.
  */
-export interface RetrieveAndGenerateCommandInput extends RetrieveAndGenerateRequest {}
+export interface RetrieveAndGenerateStreamCommandInput extends RetrieveAndGenerateStreamRequest {}
 /**
  * @public
  *
- * The output of {@link RetrieveAndGenerateCommand}.
+ * The output of {@link RetrieveAndGenerateStreamCommand}.
  */
-export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateResponse, __MetadataBearer {}
+export interface RetrieveAndGenerateStreamCommandOutput extends RetrieveAndGenerateStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Queries a knowledge base and generates responses based on the retrieved results and using the specified foundation model or <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html">inference profile</a>. The response only cites sources that are relevant to the query.</p>
+ * <p>Queries a knowledge base and generates responses based on the retrieved results, with output in streaming format.</p>
+ *          <note>
+ *             <p>The CLI doesn't support streaming operations in Amazon Bedrock, including <code>InvokeModelWithResponseStream</code>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
- * // const { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
+ * import { BedrockAgentRuntimeClient, RetrieveAndGenerateStreamCommand } from "@aws-sdk/client-bedrock-agent-runtime"; // ES Modules import
+ * // const { BedrockAgentRuntimeClient, RetrieveAndGenerateStreamCommand } = require("@aws-sdk/client-bedrock-agent-runtime"); // CommonJS import
  * const client = new BedrockAgentRuntimeClient(config);
- * const input = { // RetrieveAndGenerateRequest
+ * const input = { // RetrieveAndGenerateStreamRequest
  *   sessionId: "STRING_VALUE",
  *   input: { // RetrieveAndGenerateInput
  *     text: "STRING_VALUE", // required
@@ -236,66 +239,99 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *     kmsKeyArn: "STRING_VALUE", // required
  *   },
  * };
- * const command = new RetrieveAndGenerateCommand(input);
+ * const command = new RetrieveAndGenerateStreamCommand(input);
  * const response = await client.send(command);
- * // { // RetrieveAndGenerateResponse
- * //   sessionId: "STRING_VALUE", // required
- * //   output: { // RetrieveAndGenerateOutput
- * //     text: "STRING_VALUE", // required
- * //   },
- * //   citations: [ // Citations
- * //     { // Citation
- * //       generatedResponsePart: { // GeneratedResponsePart
- * //         textResponsePart: { // TextResponsePart
- * //           text: "STRING_VALUE",
- * //           span: { // Span
- * //             start: Number("int"),
- * //             end: Number("int"),
- * //           },
- * //         },
- * //       },
- * //       retrievedReferences: [ // RetrievedReferences
- * //         { // RetrievedReference
- * //           content: { // RetrievalResultContent
- * //             text: "STRING_VALUE", // required
- * //           },
- * //           location: { // RetrievalResultLocation
- * //             type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
- * //             s3Location: { // RetrievalResultS3Location
- * //               uri: "STRING_VALUE",
- * //             },
- * //             webLocation: { // RetrievalResultWebLocation
- * //               url: "STRING_VALUE",
- * //             },
- * //             confluenceLocation: { // RetrievalResultConfluenceLocation
- * //               url: "STRING_VALUE",
- * //             },
- * //             salesforceLocation: { // RetrievalResultSalesforceLocation
- * //               url: "STRING_VALUE",
- * //             },
- * //             sharePointLocation: { // RetrievalResultSharePointLocation
- * //               url: "STRING_VALUE",
- * //             },
- * //             customDocumentLocation: { // RetrievalResultCustomDocumentLocation
- * //               id: "STRING_VALUE",
- * //             },
- * //           },
- * //           metadata: { // RetrievalResultMetadata
- * //             "<keys>": "DOCUMENT_VALUE",
- * //           },
- * //         },
- * //       ],
+ * // { // RetrieveAndGenerateStreamResponse
+ * //   stream: { // RetrieveAndGenerateStreamResponseOutput Union: only one key present
+ * //     output: { // RetrieveAndGenerateOutputEvent
+ * //       text: "STRING_VALUE", // required
  * //     },
- * //   ],
- * //   guardrailAction: "INTERVENED" || "NONE",
+ * //     citation: { // CitationEvent
+ * //       citation: { // Citation
+ * //         generatedResponsePart: { // GeneratedResponsePart
+ * //           textResponsePart: { // TextResponsePart
+ * //             text: "STRING_VALUE",
+ * //             span: { // Span
+ * //               start: Number("int"),
+ * //               end: Number("int"),
+ * //             },
+ * //           },
+ * //         },
+ * //         retrievedReferences: [ // RetrievedReferences
+ * //           { // RetrievedReference
+ * //             content: { // RetrievalResultContent
+ * //               text: "STRING_VALUE", // required
+ * //             },
+ * //             location: { // RetrievalResultLocation
+ * //               type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
+ * //               s3Location: { // RetrievalResultS3Location
+ * //                 uri: "STRING_VALUE",
+ * //               },
+ * //               webLocation: { // RetrievalResultWebLocation
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //               confluenceLocation: { // RetrievalResultConfluenceLocation
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //               salesforceLocation: { // RetrievalResultSalesforceLocation
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //               sharePointLocation: { // RetrievalResultSharePointLocation
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //               customDocumentLocation: { // RetrievalResultCustomDocumentLocation
+ * //                 id: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             metadata: { // RetrievalResultMetadata
+ * //               "<keys>": "DOCUMENT_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
+ * //     guardrail: { // GuardrailEvent
+ * //       action: "INTERVENED" || "NONE",
+ * //     },
+ * //     internalServerException: { // InternalServerException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     validationException: { // ValidationException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     resourceNotFoundException: { // ResourceNotFoundException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     serviceQuotaExceededException: { // ServiceQuotaExceededException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     throttlingException: { // ThrottlingException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     accessDeniedException: { // AccessDeniedException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     conflictException: { // ConflictException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     dependencyFailedException: { // DependencyFailedException
+ * //       message: "STRING_VALUE",
+ * //       resourceName: "STRING_VALUE",
+ * //     },
+ * //     badGatewayException: { // BadGatewayException
+ * //       message: "STRING_VALUE",
+ * //       resourceName: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   sessionId: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param RetrieveAndGenerateCommandInput - {@link RetrieveAndGenerateCommandInput}
- * @returns {@link RetrieveAndGenerateCommandOutput}
- * @see {@link RetrieveAndGenerateCommandInput} for command's `input` shape.
- * @see {@link RetrieveAndGenerateCommandOutput} for command's `response` shape.
+ * @param RetrieveAndGenerateStreamCommandInput - {@link RetrieveAndGenerateStreamCommandInput}
+ * @returns {@link RetrieveAndGenerateStreamCommandOutput}
+ * @see {@link RetrieveAndGenerateStreamCommandInput} for command's `input` shape.
+ * @see {@link RetrieveAndGenerateStreamCommandOutput} for command's `response` shape.
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -330,10 +366,10 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *
  * @public
  */
-export class RetrieveAndGenerateCommand extends $Command
+export class RetrieveAndGenerateStreamCommand extends $Command
   .classBuilder<
-    RetrieveAndGenerateCommandInput,
-    RetrieveAndGenerateCommandOutput,
+    RetrieveAndGenerateStreamCommandInput,
+    RetrieveAndGenerateStreamCommandOutput,
     BedrockAgentRuntimeClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -345,21 +381,28 @@ export class RetrieveAndGenerateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AmazonBedrockAgentRunTimeService", "RetrieveAndGenerate", {})
-  .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateCommand")
-  .f(RetrieveAndGenerateRequestFilterSensitiveLog, RetrieveAndGenerateResponseFilterSensitiveLog)
-  .ser(se_RetrieveAndGenerateCommand)
-  .de(de_RetrieveAndGenerateCommand)
+  .s("AmazonBedrockAgentRunTimeService", "RetrieveAndGenerateStream", {
+    /**
+     * @internal
+     */
+    eventStream: {
+      output: true,
+    },
+  })
+  .n("BedrockAgentRuntimeClient", "RetrieveAndGenerateStreamCommand")
+  .f(RetrieveAndGenerateStreamRequestFilterSensitiveLog, RetrieveAndGenerateStreamResponseFilterSensitiveLog)
+  .ser(se_RetrieveAndGenerateStreamCommand)
+  .de(de_RetrieveAndGenerateStreamCommand)
   .build() {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: RetrieveAndGenerateRequest;
-      output: RetrieveAndGenerateResponse;
+      input: RetrieveAndGenerateStreamRequest;
+      output: RetrieveAndGenerateStreamResponse;
     };
     sdk: {
-      input: RetrieveAndGenerateCommandInput;
-      output: RetrieveAndGenerateCommandOutput;
+      input: RetrieveAndGenerateStreamCommandInput;
+      output: RetrieveAndGenerateStreamCommandOutput;
     };
   };
 }

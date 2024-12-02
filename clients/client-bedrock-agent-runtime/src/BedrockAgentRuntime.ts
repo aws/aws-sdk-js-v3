@@ -25,11 +25,17 @@ import {
   OptimizePromptCommandInput,
   OptimizePromptCommandOutput,
 } from "./commands/OptimizePromptCommand";
+import { RerankCommand, RerankCommandInput, RerankCommandOutput } from "./commands/RerankCommand";
 import {
   RetrieveAndGenerateCommand,
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
 } from "./commands/RetrieveAndGenerateCommand";
+import {
+  RetrieveAndGenerateStreamCommand,
+  RetrieveAndGenerateStreamCommandInput,
+  RetrieveAndGenerateStreamCommandOutput,
+} from "./commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommand, RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
 
 const commands = {
@@ -39,8 +45,10 @@ const commands = {
   InvokeFlowCommand,
   InvokeInlineAgentCommand,
   OptimizePromptCommand,
+  RerankCommand,
   RetrieveCommand,
   RetrieveAndGenerateCommand,
+  RetrieveAndGenerateStreamCommand,
 };
 
 export interface BedrockAgentRuntime {
@@ -129,6 +137,17 @@ export interface BedrockAgentRuntime {
   ): void;
 
   /**
+   * @see {@link RerankCommand}
+   */
+  rerank(args: RerankCommandInput, options?: __HttpHandlerOptions): Promise<RerankCommandOutput>;
+  rerank(args: RerankCommandInput, cb: (err: any, data?: RerankCommandOutput) => void): void;
+  rerank(
+    args: RerankCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RerankCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RetrieveCommand}
    */
   retrieve(args: RetrieveCommandInput, options?: __HttpHandlerOptions): Promise<RetrieveCommandOutput>;
@@ -154,6 +173,23 @@ export interface BedrockAgentRuntime {
     args: RetrieveAndGenerateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetrieveAndGenerateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RetrieveAndGenerateStreamCommand}
+   */
+  retrieveAndGenerateStream(
+    args: RetrieveAndGenerateStreamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetrieveAndGenerateStreamCommandOutput>;
+  retrieveAndGenerateStream(
+    args: RetrieveAndGenerateStreamCommandInput,
+    cb: (err: any, data?: RetrieveAndGenerateStreamCommandOutput) => void
+  ): void;
+  retrieveAndGenerateStream(
+    args: RetrieveAndGenerateStreamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetrieveAndGenerateStreamCommandOutput) => void
   ): void;
 }
 

@@ -105,7 +105,48 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *           "<RetrievalFilter>",
  *         ],
  *       },
+ *       rerankingConfiguration: { // VectorSearchRerankingConfiguration
+ *         type: "BEDROCK_RERANKING_MODEL", // required
+ *         bedrockRerankingConfiguration: { // VectorSearchBedrockRerankingConfiguration
+ *           modelConfiguration: { // VectorSearchBedrockRerankingModelConfiguration
+ *             modelArn: "STRING_VALUE", // required
+ *             additionalModelRequestFields: { // AdditionalModelRequestFields
+ *               "<keys>": "DOCUMENT_VALUE",
+ *             },
+ *           },
+ *           numberOfRerankedResults: Number("int"),
+ *           metadataConfiguration: { // MetadataConfigurationForReranking
+ *             selectionMode: "SELECTIVE" || "ALL", // required
+ *             selectiveModeConfiguration: { // RerankingMetadataSelectiveModeConfiguration Union: only one key present
+ *               fieldsToInclude: [ // FieldsForReranking
+ *                 { // FieldForReranking
+ *                   fieldName: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               fieldsToExclude: [
+ *                 {
+ *                   fieldName: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
+ *       implicitFilterConfiguration: { // ImplicitFilterConfiguration
+ *         metadataAttributes: [ // MetadataAttributeSchemaList // required
+ *           { // MetadataAttributeSchema
+ *             key: "STRING_VALUE", // required
+ *             type: "STRING" || "NUMBER" || "BOOLEAN" || "STRING_LIST", // required
+ *             description: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         modelArn: "STRING_VALUE", // required
+ *       },
  *     },
+ *   },
+ *   guardrailConfiguration: { // GuardrailConfiguration
+ *     guardrailId: "STRING_VALUE", // required
+ *     guardrailVersion: "STRING_VALUE", // required
  *   },
  *   nextToken: "STRING_VALUE",
  * };
@@ -118,7 +159,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //         text: "STRING_VALUE", // required
  * //       },
  * //       location: { // RetrievalResultLocation
- * //         type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT", // required
+ * //         type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
  * //         s3Location: { // RetrievalResultS3Location
  * //           uri: "STRING_VALUE",
  * //         },
@@ -134,6 +175,9 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //         sharePointLocation: { // RetrievalResultSharePointLocation
  * //           url: "STRING_VALUE",
  * //         },
+ * //         customDocumentLocation: { // RetrievalResultCustomDocumentLocation
+ * //           id: "STRING_VALUE",
+ * //         },
  * //       },
  * //       score: Number("double"),
  * //       metadata: { // RetrievalResultMetadata
@@ -141,6 +185,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //       },
  * //     },
  * //   ],
+ * //   guardrailAction: "INTERVENED" || "NONE",
  * //   nextToken: "STRING_VALUE",
  * // };
  *

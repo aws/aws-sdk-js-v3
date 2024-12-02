@@ -39,10 +39,15 @@ import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "../commands/I
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "../commands/InvokeFlowCommand";
 import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "../commands/InvokeInlineAgentCommand";
 import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "../commands/OptimizePromptCommand";
+import { RerankCommandInput, RerankCommandOutput } from "../commands/RerankCommand";
 import {
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
 } from "../commands/RetrieveAndGenerateCommand";
+import {
+  RetrieveAndGenerateStreamCommandInput,
+  RetrieveAndGenerateStreamCommandOutput,
+} from "../commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommandInput, RetrieveCommandOutput } from "../commands/RetrieveCommand";
 import { BedrockAgentRuntimeServiceException as __BaseException } from "../models/BedrockAgentRuntimeServiceException";
 import {
@@ -54,15 +59,19 @@ import {
   APISchema,
   Attribution,
   BadGatewayException,
+  BedrockRerankingConfiguration,
+  BedrockRerankingModelConfiguration,
   ByteContentDoc,
   ByteContentFile,
   Citation,
+  CitationEvent,
   ConflictException,
   ContentBody,
   DependencyFailedException,
   ExternalSource,
   ExternalSourcesGenerationConfiguration,
   ExternalSourcesRetrieveAndGenerateConfiguration,
+  FieldForReranking,
   FilePart,
   FileSource,
   FilterAttribute,
@@ -87,6 +96,8 @@ import {
   GenerationConfiguration,
   GuardrailConfiguration,
   GuardrailConfigurationWithArn,
+  GuardrailEvent,
+  ImplicitFilterConfiguration,
   InferenceConfig,
   InferenceConfiguration,
   InlineAgentFilePart,
@@ -109,6 +120,8 @@ import {
   KnowledgeBaseVectorSearchConfiguration,
   Memory,
   MemorySessionSummary,
+  MetadataAttributeSchema,
+  MetadataConfigurationForReranking,
   ModelInvocationInput,
   Observation,
   OptimizedPromptEvent,
@@ -124,12 +137,21 @@ import {
   PromptOverrideConfiguration,
   PromptTemplate,
   QueryTransformationConfiguration,
+  RerankDocument,
+  RerankingConfiguration,
+  RerankingMetadataSelectiveModeConfiguration,
+  RerankQuery,
+  RerankResult,
+  RerankSource,
+  RerankTextDocument,
   ResourceNotFoundException,
   ResponseStream,
   RetrievalFilter,
   RetrieveAndGenerateConfiguration,
   RetrieveAndGenerateInput,
+  RetrieveAndGenerateOutputEvent,
   RetrieveAndGenerateSessionConfiguration,
+  RetrieveAndGenerateStreamResponseOutput,
   RetrievedReference,
   ReturnControlPayload,
   S3Identifier,
@@ -144,6 +166,9 @@ import {
   Trace,
   TracePart,
   ValidationException,
+  VectorSearchBedrockRerankingConfiguration,
+  VectorSearchBedrockRerankingModelConfiguration,
+  VectorSearchRerankingConfiguration,
 } from "../models/models_0";
 
 /**
@@ -302,6 +327,28 @@ export const se_OptimizePromptCommand = async (
 };
 
 /**
+ * serializeAws_restJson1RerankCommand
+ */
+export const se_RerankCommand = async (input: RerankCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/rerank");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      nextToken: [],
+      queries: (_) => _json(_),
+      rerankingConfiguration: (_) => se_RerankingConfiguration(_, context),
+      sources: (_) => se_RerankSourcesList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1RetrieveCommand
  */
 export const se_RetrieveCommand = async (
@@ -317,6 +364,7 @@ export const se_RetrieveCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      guardrailConfiguration: (_) => _json(_),
       nextToken: [],
       retrievalConfiguration: (_) => se_KnowledgeBaseRetrievalConfiguration(_, context),
       retrievalQuery: (_) => _json(_),
@@ -338,6 +386,31 @@ export const se_RetrieveAndGenerateCommand = async (
     "content-type": "application/json",
   };
   b.bp("/retrieveAndGenerate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      input: (_) => _json(_),
+      retrieveAndGenerateConfiguration: (_) => se_RetrieveAndGenerateConfiguration(_, context),
+      sessionConfiguration: (_) => _json(_),
+      sessionId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RetrieveAndGenerateStreamCommand
+ */
+export const se_RetrieveAndGenerateStreamCommand = async (
+  input: RetrieveAndGenerateStreamCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/retrieveAndGenerateStream");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -468,6 +541,28 @@ export const de_OptimizePromptCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1RerankCommand
+ */
+export const de_RerankCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RerankCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: (_) => de_RerankResultsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1RetrieveCommand
  */
 export const de_RetrieveCommand = async (
@@ -482,6 +577,7 @@ export const de_RetrieveCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    guardrailAction: __expectString,
     nextToken: __expectString,
     retrievalResults: (_) => de_KnowledgeBaseRetrievalResults(_, context),
   });
@@ -510,6 +606,25 @@ export const de_RetrieveAndGenerateCommand = async (
     sessionId: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RetrieveAndGenerateStreamCommand
+ */
+export const de_RetrieveAndGenerateStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<RetrieveAndGenerateStreamCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_sI]: [, output.headers[_xabkbsi]],
+  });
+  const data: any = output.body;
+  contents.stream = de_RetrieveAndGenerateStreamResponseOutput(data, context);
   return contents;
 };
 
@@ -1035,6 +1150,86 @@ const de_ResponseStream = (
     return { $unknown: output };
   });
 };
+/**
+ * deserializeAws_restJson1RetrieveAndGenerateStreamResponseOutput
+ */
+const de_RetrieveAndGenerateStreamResponseOutput = (
+  output: any,
+  context: __SerdeContext & __EventStreamSerdeContext
+): AsyncIterable<RetrieveAndGenerateStreamResponseOutput> => {
+  return context.eventStreamMarshaller.deserialize(output, async (event) => {
+    if (event["output"] != null) {
+      return {
+        output: await de_RetrieveAndGenerateOutputEvent_event(event["output"], context),
+      };
+    }
+    if (event["citation"] != null) {
+      return {
+        citation: await de_CitationEvent_event(event["citation"], context),
+      };
+    }
+    if (event["guardrail"] != null) {
+      return {
+        guardrail: await de_GuardrailEvent_event(event["guardrail"], context),
+      };
+    }
+    if (event["internalServerException"] != null) {
+      return {
+        internalServerException: await de_InternalServerException_event(event["internalServerException"], context),
+      };
+    }
+    if (event["validationException"] != null) {
+      return {
+        validationException: await de_ValidationException_event(event["validationException"], context),
+      };
+    }
+    if (event["resourceNotFoundException"] != null) {
+      return {
+        resourceNotFoundException: await de_ResourceNotFoundException_event(
+          event["resourceNotFoundException"],
+          context
+        ),
+      };
+    }
+    if (event["serviceQuotaExceededException"] != null) {
+      return {
+        serviceQuotaExceededException: await de_ServiceQuotaExceededException_event(
+          event["serviceQuotaExceededException"],
+          context
+        ),
+      };
+    }
+    if (event["throttlingException"] != null) {
+      return {
+        throttlingException: await de_ThrottlingException_event(event["throttlingException"], context),
+      };
+    }
+    if (event["accessDeniedException"] != null) {
+      return {
+        accessDeniedException: await de_AccessDeniedException_event(event["accessDeniedException"], context),
+      };
+    }
+    if (event["conflictException"] != null) {
+      return {
+        conflictException: await de_ConflictException_event(event["conflictException"], context),
+      };
+    }
+    if (event["dependencyFailedException"] != null) {
+      return {
+        dependencyFailedException: await de_DependencyFailedException_event(
+          event["dependencyFailedException"],
+          context
+        ),
+      };
+    }
+    if (event["badGatewayException"] != null) {
+      return {
+        badGatewayException: await de_BadGatewayException_event(event["badGatewayException"], context),
+      };
+    }
+    return { $unknown: output };
+  });
+};
 const de_AccessDeniedException_event = async (output: any, context: __SerdeContext): Promise<AccessDeniedException> => {
   const parsedOutput: any = {
     ...output,
@@ -1054,6 +1249,12 @@ const de_BadGatewayException_event = async (output: any, context: __SerdeContext
     body: await parseBody(output.body, context),
   };
   return de_BadGatewayExceptionRes(parsedOutput, context);
+};
+const de_CitationEvent_event = async (output: any, context: __SerdeContext): Promise<CitationEvent> => {
+  const contents: CitationEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, de_CitationEvent(data, context));
+  return contents;
 };
 const de_ConflictException_event = async (output: any, context: __SerdeContext): Promise<ConflictException> => {
   const parsedOutput: any = {
@@ -1094,6 +1295,12 @@ const de_FlowTraceEvent_event = async (output: any, context: __SerdeContext): Pr
   const contents: FlowTraceEvent = {} as any;
   const data: any = await parseBody(output.body, context);
   Object.assign(contents, de_FlowTraceEvent(data, context));
+  return contents;
+};
+const de_GuardrailEvent_event = async (output: any, context: __SerdeContext): Promise<GuardrailEvent> => {
+  const contents: GuardrailEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
   return contents;
 };
 const de_InlineAgentFilePart_event = async (output: any, context: __SerdeContext): Promise<InlineAgentFilePart> => {
@@ -1157,6 +1364,15 @@ const de_ResourceNotFoundException_event = async (
     body: await parseBody(output.body, context),
   };
   return de_ResourceNotFoundExceptionRes(parsedOutput, context);
+};
+const de_RetrieveAndGenerateOutputEvent_event = async (
+  output: any,
+  context: __SerdeContext
+): Promise<RetrieveAndGenerateOutputEvent> => {
+  const contents: RetrieveAndGenerateOutputEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
 };
 const de_ReturnControlPayload_event = async (output: any, context: __SerdeContext): Promise<ReturnControlPayload> => {
   const contents: ReturnControlPayload = {} as any;
@@ -1223,6 +1439,29 @@ const se_AdditionalModelRequestFieldsValue = (input: __DocumentType, context: __
 // se_ApiResult omitted.
 
 // se_APISchema omitted.
+
+/**
+ * serializeAws_restJson1BedrockRerankingConfiguration
+ */
+const se_BedrockRerankingConfiguration = (input: BedrockRerankingConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    modelConfiguration: (_) => se_BedrockRerankingModelConfiguration(_, context),
+    numberOfResults: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1BedrockRerankingModelConfiguration
+ */
+const se_BedrockRerankingModelConfiguration = (
+  input: BedrockRerankingModelConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    modelArn: [],
+  });
+};
 
 /**
  * serializeAws_restJson1ByteContentDoc
@@ -1297,6 +1536,10 @@ const se_ExternalSourcesRetrieveAndGenerateConfiguration = (
     sources: (_) => se_ExternalSources(_, context),
   });
 };
+
+// se_FieldForReranking omitted.
+
+// se_FieldsForReranking omitted.
 
 /**
  * serializeAws_restJson1FileSource
@@ -1381,6 +1624,8 @@ const se_GenerationConfiguration = (input: GenerationConfiguration, context: __S
 // se_GuardrailConfiguration omitted.
 
 // se_GuardrailConfigurationWithArn omitted.
+
+// se_ImplicitFilterConfiguration omitted.
 
 /**
  * serializeAws_restJson1InferenceConfig
@@ -1525,10 +1770,18 @@ const se_KnowledgeBaseVectorSearchConfiguration = (
 ): any => {
   return take(input, {
     filter: (_) => se_RetrievalFilter(_, context),
+    implicitFilterConfiguration: _json,
     numberOfResults: [],
     overrideSearchType: [],
+    rerankingConfiguration: (_) => se_VectorSearchRerankingConfiguration(_, context),
   });
 };
+
+// se_MetadataAttributeSchema omitted.
+
+// se_MetadataAttributeSchemaList omitted.
+
+// se_MetadataConfigurationForReranking omitted.
 
 /**
  * serializeAws_restJson1OrchestrationConfiguration
@@ -1588,6 +1841,56 @@ const se_PromptOverrideConfiguration = (input: PromptOverrideConfiguration, cont
 // se_QueryTransformationConfiguration omitted.
 
 // se_RAGStopSequences omitted.
+
+/**
+ * serializeAws_restJson1RerankDocument
+ */
+const se_RerankDocument = (input: RerankDocument, context: __SerdeContext): any => {
+  return take(input, {
+    jsonDocument: (_) => se_Document(_, context),
+    textDocument: _json,
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1RerankingConfiguration
+ */
+const se_RerankingConfiguration = (input: RerankingConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    bedrockRerankingConfiguration: (_) => se_BedrockRerankingConfiguration(_, context),
+    type: [],
+  });
+};
+
+// se_RerankingMetadataSelectiveModeConfiguration omitted.
+
+// se_RerankQueriesList omitted.
+
+// se_RerankQuery omitted.
+
+/**
+ * serializeAws_restJson1RerankSource
+ */
+const se_RerankSource = (input: RerankSource, context: __SerdeContext): any => {
+  return take(input, {
+    inlineDocumentSource: (_) => se_RerankDocument(_, context),
+    type: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1RerankSourcesList
+ */
+const se_RerankSourcesList = (input: RerankSource[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RerankSource(entry, context);
+    });
+};
+
+// se_RerankTextDocument omitted.
 
 // se_ResponseBody omitted.
 
@@ -1682,6 +1985,46 @@ const se_TextInferenceConfig = (input: TextInferenceConfig, context: __SerdeCont
 // se_TextPrompt omitted.
 
 /**
+ * serializeAws_restJson1VectorSearchBedrockRerankingConfiguration
+ */
+const se_VectorSearchBedrockRerankingConfiguration = (
+  input: VectorSearchBedrockRerankingConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    metadataConfiguration: _json,
+    modelConfiguration: (_) => se_VectorSearchBedrockRerankingModelConfiguration(_, context),
+    numberOfRerankedResults: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1VectorSearchBedrockRerankingModelConfiguration
+ */
+const se_VectorSearchBedrockRerankingModelConfiguration = (
+  input: VectorSearchBedrockRerankingModelConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    additionalModelRequestFields: (_) => se_AdditionalModelRequestFields(_, context),
+    modelArn: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1VectorSearchRerankingConfiguration
+ */
+const se_VectorSearchRerankingConfiguration = (
+  input: VectorSearchRerankingConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    bedrockRerankingConfiguration: (_) => se_VectorSearchBedrockRerankingConfiguration(_, context),
+    type: [],
+  });
+};
+
+/**
  * serializeAws_restJson1Document
  */
 const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
@@ -1720,6 +2063,15 @@ const de_Citation = (output: any, context: __SerdeContext): Citation => {
   return take(output, {
     generatedResponsePart: _json,
     retrievedReferences: (_: any) => de_RetrievedReferences(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CitationEvent
+ */
+const de_CitationEvent = (output: any, context: __SerdeContext): CitationEvent => {
+  return take(output, {
+    citation: (_: any) => de_Citation(_, context),
   }) as any;
 };
 
@@ -1945,6 +2297,8 @@ const de_FlowTraceNodeOutputFields = (output: any, context: __SerdeContext): Flo
 // de_GuardrailCustomWord omitted.
 
 // de_GuardrailCustomWordList omitted.
+
+// de_GuardrailEvent omitted.
 
 // de_GuardrailManagedWord omitted.
 
@@ -2253,9 +2607,47 @@ const de_PreProcessingTrace = (output: any, context: __SerdeContext): PreProcess
 
 // de_RequestBody omitted.
 
+/**
+ * deserializeAws_restJson1RerankDocument
+ */
+const de_RerankDocument = (output: any, context: __SerdeContext): RerankDocument => {
+  return take(output, {
+    jsonDocument: (_: any) => de_Document(_, context),
+    textDocument: _json,
+    type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RerankResult
+ */
+const de_RerankResult = (output: any, context: __SerdeContext): RerankResult => {
+  return take(output, {
+    document: (_: any) => de_RerankDocument(_, context),
+    index: __expectInt32,
+    relevanceScore: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RerankResultsList
+ */
+const de_RerankResultsList = (output: any, context: __SerdeContext): RerankResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RerankResult(entry, context);
+    });
+  return retVal;
+};
+
+// de_RerankTextDocument omitted.
+
 // de_RetrievalResultConfluenceLocation omitted.
 
 // de_RetrievalResultContent omitted.
+
+// de_RetrievalResultCustomDocumentLocation omitted.
 
 // de_RetrievalResultLocation omitted.
 
@@ -2288,6 +2680,8 @@ const de_RetrievalResultMetadataValue = (output: any, context: __SerdeContext): 
 // de_RetrievalResultWebLocation omitted.
 
 // de_RetrieveAndGenerateOutput omitted.
+
+// de_RetrieveAndGenerateOutputEvent omitted.
 
 /**
  * deserializeAws_restJson1RetrievedReference
@@ -2402,3 +2796,4 @@ const _sI = "sessionId";
 const _xabact = "x-amzn-bedrock-agent-content-type";
 const _xabami = "x-amz-bedrock-agent-memory-id";
 const _xabasi = "x-amz-bedrock-agent-session-id";
+const _xabkbsi = "x-amzn-bedrock-knowledge-base-session-id";

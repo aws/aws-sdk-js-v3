@@ -65,10 +65,15 @@ import { InvokeAgentCommandInput, InvokeAgentCommandOutput } from "./commands/In
 import { InvokeFlowCommandInput, InvokeFlowCommandOutput } from "./commands/InvokeFlowCommand";
 import { InvokeInlineAgentCommandInput, InvokeInlineAgentCommandOutput } from "./commands/InvokeInlineAgentCommand";
 import { OptimizePromptCommandInput, OptimizePromptCommandOutput } from "./commands/OptimizePromptCommand";
+import { RerankCommandInput, RerankCommandOutput } from "./commands/RerankCommand";
 import {
   RetrieveAndGenerateCommandInput,
   RetrieveAndGenerateCommandOutput,
 } from "./commands/RetrieveAndGenerateCommand";
+import {
+  RetrieveAndGenerateStreamCommandInput,
+  RetrieveAndGenerateStreamCommandOutput,
+} from "./commands/RetrieveAndGenerateStreamCommand";
 import { RetrieveCommandInput, RetrieveCommandOutput } from "./commands/RetrieveCommand";
 import {
   ClientInputEndpointParameters,
@@ -91,7 +96,9 @@ export type ServiceInputTypes =
   | InvokeFlowCommandInput
   | InvokeInlineAgentCommandInput
   | OptimizePromptCommandInput
+  | RerankCommandInput
   | RetrieveAndGenerateCommandInput
+  | RetrieveAndGenerateStreamCommandInput
   | RetrieveCommandInput;
 
 /**
@@ -104,7 +111,9 @@ export type ServiceOutputTypes =
   | InvokeFlowCommandOutput
   | InvokeInlineAgentCommandOutput
   | OptimizePromptCommandOutput
+  | RerankCommandOutput
   | RetrieveAndGenerateCommandOutput
+  | RetrieveAndGenerateStreamCommandOutput
   | RetrieveCommandOutput;
 
 /**

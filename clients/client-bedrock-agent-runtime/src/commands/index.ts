@@ -5,5 +5,7 @@ export * from "./InvokeAgentCommand";
 export * from "./InvokeFlowCommand";
 export * from "./InvokeInlineAgentCommand";
 export * from "./OptimizePromptCommand";
+export * from "./RerankCommand";
 export * from "./RetrieveAndGenerateCommand";
+export * from "./RetrieveAndGenerateStreamCommand";
 export * from "./RetrieveCommand";

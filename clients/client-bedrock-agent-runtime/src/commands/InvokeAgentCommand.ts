@@ -188,6 +188,43 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *                 "<RetrievalFilter>",
  *               ],
  *             },
+ *             rerankingConfiguration: { // VectorSearchRerankingConfiguration
+ *               type: "BEDROCK_RERANKING_MODEL", // required
+ *               bedrockRerankingConfiguration: { // VectorSearchBedrockRerankingConfiguration
+ *                 modelConfiguration: { // VectorSearchBedrockRerankingModelConfiguration
+ *                   modelArn: "STRING_VALUE", // required
+ *                   additionalModelRequestFields: { // AdditionalModelRequestFields
+ *                     "<keys>": "DOCUMENT_VALUE",
+ *                   },
+ *                 },
+ *                 numberOfRerankedResults: Number("int"),
+ *                 metadataConfiguration: { // MetadataConfigurationForReranking
+ *                   selectionMode: "SELECTIVE" || "ALL", // required
+ *                   selectiveModeConfiguration: { // RerankingMetadataSelectiveModeConfiguration Union: only one key present
+ *                     fieldsToInclude: [ // FieldsForReranking
+ *                       { // FieldForReranking
+ *                         fieldName: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                     fieldsToExclude: [
+ *                       {
+ *                         fieldName: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *             implicitFilterConfiguration: { // ImplicitFilterConfiguration
+ *               metadataAttributes: [ // MetadataAttributeSchemaList // required
+ *                 { // MetadataAttributeSchema
+ *                   key: "STRING_VALUE", // required
+ *                   type: "STRING" || "NUMBER" || "BOOLEAN" || "STRING_LIST", // required
+ *                   description: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               modelArn: "STRING_VALUE", // required
+ *             },
  *           },
  *         },
  *       },
@@ -229,7 +266,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                   text: "STRING_VALUE", // required
  * //                 },
  * //                 location: { // RetrievalResultLocation
- * //                   type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT", // required
+ * //                   type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
  * //                   s3Location: { // RetrievalResultS3Location
  * //                     uri: "STRING_VALUE",
  * //                   },
@@ -244,6 +281,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                   },
  * //                   sharePointLocation: { // RetrievalResultSharePointLocation
  * //                     url: "STRING_VALUE",
+ * //                   },
+ * //                   customDocumentLocation: { // RetrievalResultCustomDocumentLocation
+ * //                     id: "STRING_VALUE",
  * //                   },
  * //                 },
  * //                 metadata: { // RetrievalResultMetadata
@@ -463,7 +503,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     text: "STRING_VALUE", // required
  * //                   },
  * //                   location: {
- * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT", // required
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM", // required
  * //                     s3Location: {
  * //                       uri: "STRING_VALUE",
  * //                     },
@@ -478,6 +518,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                     },
  * //                     sharePointLocation: {
  * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     customDocumentLocation: {
+ * //                       id: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                   metadata: {

@@ -1658,6 +1658,64 @@ export interface FilterAttribute {
  * @public
  * @enum
  */
+export const AttributeType = {
+  BOOLEAN: "BOOLEAN",
+  NUMBER: "NUMBER",
+  STRING: "STRING",
+  STRING_LIST: "STRING_LIST",
+} as const;
+
+/**
+ * @public
+ */
+export type AttributeType = (typeof AttributeType)[keyof typeof AttributeType];
+
+/**
+ * <p>Details about a metadata attribute.</p>
+ * @public
+ */
+export interface MetadataAttributeSchema {
+  /**
+   * <p>The attribute's key.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The attribute's type.</p>
+   * @public
+   */
+  type: AttributeType | undefined;
+
+  /**
+   * <p>The attribute's description.</p>
+   * @public
+   */
+  description: string | undefined;
+}
+
+/**
+ * <p>Settings for implicit filtering, where a model generates a metadata filter based on the prompt.</p>
+ * @public
+ */
+export interface ImplicitFilterConfiguration {
+  /**
+   * <p>Metadata that can be used in a filter.</p>
+   * @public
+   */
+  metadataAttributes: MetadataAttributeSchema[] | undefined;
+
+  /**
+   * <p>The model that generates the filter.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const SearchType = {
   HYBRID: "HYBRID",
   SEMANTIC: "SEMANTIC",
@@ -1667,6 +1725,180 @@ export const SearchType = {
  * @public
  */
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankingMetadataSelectionMode = {
+  ALL: "ALL",
+  SELECTIVE: "SELECTIVE",
+} as const;
+
+/**
+ * @public
+ */
+export type RerankingMetadataSelectionMode =
+  (typeof RerankingMetadataSelectionMode)[keyof typeof RerankingMetadataSelectionMode];
+
+/**
+ * <p>Contains information for a metadata field to include in or exclude from consideration when reranking.</p>
+ * @public
+ */
+export interface FieldForReranking {
+  /**
+   * <p>The name of a metadata field to include in or exclude from consideration when reranking.</p>
+   * @public
+   */
+  fieldName: string | undefined;
+}
+
+/**
+ * <p>Contains configurations for the metadata fields to include or exclude when considering reranking. If you include the <code>fieldsToExclude</code> field, the reranker ignores all the metadata fields that you specify. If you include the <code>fieldsToInclude</code> field, the reranker uses only the metadata fields that you specify and ignores all others. You can include only one of these fields.</p>
+ * @public
+ */
+export type RerankingMetadataSelectiveModeConfiguration =
+  | RerankingMetadataSelectiveModeConfiguration.FieldsToExcludeMember
+  | RerankingMetadataSelectiveModeConfiguration.FieldsToIncludeMember
+  | RerankingMetadataSelectiveModeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RerankingMetadataSelectiveModeConfiguration {
+  /**
+   * <p>An array of objects, each of which specifies a metadata field to include in consideration when reranking. The remaining metadata fields are ignored.</p>
+   * @public
+   */
+  export interface FieldsToIncludeMember {
+    fieldsToInclude: FieldForReranking[];
+    fieldsToExclude?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An array of objects, each of which specifies a metadata field to exclude from consideration when reranking.</p>
+   * @public
+   */
+  export interface FieldsToExcludeMember {
+    fieldsToInclude?: never;
+    fieldsToExclude: FieldForReranking[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fieldsToInclude?: never;
+    fieldsToExclude?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fieldsToInclude: (value: FieldForReranking[]) => T;
+    fieldsToExclude: (value: FieldForReranking[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RerankingMetadataSelectiveModeConfiguration, visitor: Visitor<T>): T => {
+    if (value.fieldsToInclude !== undefined) return visitor.fieldsToInclude(value.fieldsToInclude);
+    if (value.fieldsToExclude !== undefined) return visitor.fieldsToExclude(value.fieldsToExclude);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Contains configurations for the metadata to use in reranking.</p>
+ * @public
+ */
+export interface MetadataConfigurationForReranking {
+  /**
+   * <p>Specifies whether to consider all metadata when reranking, or only the metadata that you select. If you specify <code>SELECTIVE</code>, include the <code>selectiveModeConfiguration</code> field.</p>
+   * @public
+   */
+  selectionMode: RerankingMetadataSelectionMode | undefined;
+
+  /**
+   * <p>Contains configurations for the metadata fields to include or exclude when considering reranking.</p>
+   * @public
+   */
+  selectiveModeConfiguration?: RerankingMetadataSelectiveModeConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for an Amazon Bedrock reranker model.</p>
+ * @public
+ */
+export interface VectorSearchBedrockRerankingModelConfiguration {
+  /**
+   * <p>The ARN of the reranker model to use.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>A JSON object whose keys are request fields for the model and whose values are values for those fields.</p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * <p>Contains configurations for reranking with an Amazon Bedrock reranker model.</p>
+ * @public
+ */
+export interface VectorSearchBedrockRerankingConfiguration {
+  /**
+   * <p>Contains configurations for the reranker model.</p>
+   * @public
+   */
+  modelConfiguration: VectorSearchBedrockRerankingModelConfiguration | undefined;
+
+  /**
+   * <p>The number of results to return after reranking.</p>
+   * @public
+   */
+  numberOfRerankedResults?: number | undefined;
+
+  /**
+   * <p>Contains configurations for the metadata to use in reranking.</p>
+   * @public
+   */
+  metadataConfiguration?: MetadataConfigurationForReranking | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VectorSearchRerankingConfigurationType = {
+  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type VectorSearchRerankingConfigurationType =
+  (typeof VectorSearchRerankingConfigurationType)[keyof typeof VectorSearchRerankingConfigurationType];
+
+/**
+ * <p>Contains configurations for reranking the retrieved results.</p>
+ * @public
+ */
+export interface VectorSearchRerankingConfiguration {
+  /**
+   * <p>The type of reranker model.</p>
+   * @public
+   */
+  type: VectorSearchRerankingConfigurationType | undefined;
+
+  /**
+   * <p>Contains configurations for an Amazon Bedrock reranker model.</p>
+   * @public
+   */
+  bedrockRerankingConfiguration?: VectorSearchBedrockRerankingConfiguration | undefined;
+}
 
 /**
  * @public
@@ -2021,6 +2253,18 @@ export interface RetrievalResultConfluenceLocation {
 }
 
 /**
+ * <p>Contains information about the location of a document in a custom data source.</p>
+ * @public
+ */
+export interface RetrievalResultCustomDocumentLocation {
+  /**
+   * <p>The ID of the document.</p>
+   * @public
+   */
+  id?: string | undefined;
+}
+
+/**
  * <p>The S3 data source location.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -2077,6 +2321,7 @@ export interface RetrievalResultSharePointLocation {
  */
 export const RetrievalResultLocationType = {
   CONFLUENCE: "CONFLUENCE",
+  CUSTOM: "CUSTOM",
   S3: "S3",
   SALESFORCE: "SALESFORCE",
   SHAREPOINT: "SHAREPOINT",
@@ -2156,6 +2401,12 @@ export interface RetrievalResultLocation {
    * @public
    */
   sharePointLocation?: RetrievalResultSharePointLocation | undefined;
+
+  /**
+   * <p>Specifies the location of a document in a custom data source.</p>
+   * @public
+   */
+  customDocumentLocation?: RetrievalResultCustomDocumentLocation | undefined;
 }
 
 /**
@@ -2560,7 +2811,7 @@ export interface ReturnControlPayload {
 
 /**
  * <p>
- *            The event in the custom orchestration sequence.
+ *            The event in the custom orchestration sequence. Events are the responses which the custom orchestration Lambda function sends as response to the agent.
  *         </p>
  * @public
  */
@@ -2591,7 +2842,7 @@ export interface CustomOrchestrationTrace {
 
   /**
    * <p>
-   *             The trace event details used with the custom orchestration.
+   *             The event details used with the custom orchestration.
    *         </p>
    * @public
    */
@@ -5587,6 +5838,255 @@ export interface OptimizePromptResponse {
 }
 
 /**
+ * <p>Contains information about a text document to rerank.</p>
+ * @public
+ */
+export interface RerankTextDocument {
+  /**
+   * <p>The text of the document.</p>
+   * @public
+   */
+  text?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankQueryContentType = {
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type RerankQueryContentType = (typeof RerankQueryContentType)[keyof typeof RerankQueryContentType];
+
+/**
+ * <p>Contains information about a query to submit to the reranker model.</p>
+ * @public
+ */
+export interface RerankQuery {
+  /**
+   * <p>The type of the query.</p>
+   * @public
+   */
+  type: RerankQueryContentType | undefined;
+
+  /**
+   * <p>Contains information about a text query.</p>
+   * @public
+   */
+  textQuery: RerankTextDocument | undefined;
+}
+
+/**
+ * <p>Contains configurations for a reranker model.</p>
+ * @public
+ */
+export interface BedrockRerankingModelConfiguration {
+  /**
+   * <p>The ARN of the reranker model.</p>
+   * @public
+   */
+  modelArn: string | undefined;
+
+  /**
+   * <p>A JSON object whose keys are request fields for the model and whose values are values for those fields.</p>
+   * @public
+   */
+  additionalModelRequestFields?: Record<string, __DocumentType> | undefined;
+}
+
+/**
+ * <p>Contains configurations for an Amazon Bedrock reranker model.</p>
+ * @public
+ */
+export interface BedrockRerankingConfiguration {
+  /**
+   * <p>The number of results to return after reranking.</p>
+   * @public
+   */
+  numberOfResults?: number | undefined;
+
+  /**
+   * <p>Contains configurations for a reranker model.</p>
+   * @public
+   */
+  modelConfiguration: BedrockRerankingModelConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankingConfigurationType = {
+  BEDROCK_RERANKING_MODEL: "BEDROCK_RERANKING_MODEL",
+} as const;
+
+/**
+ * @public
+ */
+export type RerankingConfigurationType = (typeof RerankingConfigurationType)[keyof typeof RerankingConfigurationType];
+
+/**
+ * <p>Contains configurations for reranking.</p>
+ * @public
+ */
+export interface RerankingConfiguration {
+  /**
+   * <p>The type of reranker that the configurations apply to.</p>
+   * @public
+   */
+  type: RerankingConfigurationType | undefined;
+
+  /**
+   * <p>Contains configurations for an Amazon Bedrock reranker.</p>
+   * @public
+   */
+  bedrockRerankingConfiguration: BedrockRerankingConfiguration | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankDocumentType = {
+  JSON: "JSON",
+  TEXT: "TEXT",
+} as const;
+
+/**
+ * @public
+ */
+export type RerankDocumentType = (typeof RerankDocumentType)[keyof typeof RerankDocumentType];
+
+/**
+ * <p>Contains information about a document to rerank. Choose the <code>type</code> to define and include the field that corresponds to the type.</p>
+ * @public
+ */
+export interface RerankDocument {
+  /**
+   * <p>The type of document to rerank.</p>
+   * @public
+   */
+  type: RerankDocumentType | undefined;
+
+  /**
+   * <p>Contains information about a text document to rerank.</p>
+   * @public
+   */
+  textDocument?: RerankTextDocument | undefined;
+
+  /**
+   * <p>Contains a JSON document to rerank.</p>
+   * @public
+   */
+  jsonDocument?: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RerankSourceType = {
+  INLINE: "INLINE",
+} as const;
+
+/**
+ * @public
+ */
+export type RerankSourceType = (typeof RerankSourceType)[keyof typeof RerankSourceType];
+
+/**
+ * <p>Contains information about a source for reranking.</p>
+ * @public
+ */
+export interface RerankSource {
+  /**
+   * <p>The type of the source.</p>
+   * @public
+   */
+  type: RerankSourceType | undefined;
+
+  /**
+   * <p>Contains an inline definition of a source for reranking.</p>
+   * @public
+   */
+  inlineDocumentSource: RerankDocument | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RerankRequest {
+  /**
+   * <p>An array of objects, each of which contains information about a query to submit to the reranker model.</p>
+   * @public
+   */
+  queries: RerankQuery[] | undefined;
+
+  /**
+   * <p>An array of objects, each of which contains information about the sources to rerank.</p>
+   * @public
+   */
+  sources: RerankSource[] | undefined;
+
+  /**
+   * <p>Contains configurations for reranking.</p>
+   * @public
+   */
+  rerankingConfiguration: RerankingConfiguration | undefined;
+
+  /**
+   * <p>If the total number of results was greater than could fit in a response, a token is returned in the <code>nextToken</code> field. You can enter that token in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a document that was reranked.</p>
+ * @public
+ */
+export interface RerankResult {
+  /**
+   * <p>The ranking of the document. The lower a number, the higher the document is ranked.</p>
+   * @public
+   */
+  index: number | undefined;
+
+  /**
+   * <p>The relevance score of the document.</p>
+   * @public
+   */
+  relevanceScore: number | undefined;
+
+  /**
+   * <p>Contains information about the document.</p>
+   * @public
+   */
+  document?: RerankDocument | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RerankResponse {
+  /**
+   * <p>An array of objects, each of which contains information about the results of reranking.</p>
+   * @public
+   */
+  results: RerankResult[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than can fit in the response, use this token in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * <p>Contains the query made to the knowledge base.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -6029,6 +6529,382 @@ export interface RetrieveAndGenerateResponse {
 }
 
 /**
+ * <p>A citation event.</p>
+ * @public
+ */
+export interface CitationEvent {
+  /**
+   * <p>The citation.</p>
+   * @public
+   */
+  citation?: Citation | undefined;
+}
+
+/**
+ * <p>A guardrail event.</p>
+ * @public
+ */
+export interface GuardrailEvent {
+  /**
+   * <p>The guardrail action.</p>
+   * @public
+   */
+  action?: GuadrailAction | undefined;
+}
+
+/**
+ * <p>A retrieve and generate output event.</p>
+ * @public
+ */
+export interface RetrieveAndGenerateOutputEvent {
+  /**
+   * <p>A text response.</p>
+   * @public
+   */
+  text: string | undefined;
+}
+
+/**
+ * <p>A retrieve and generate stream response output.</p>
+ * @public
+ */
+export type RetrieveAndGenerateStreamResponseOutput =
+  | RetrieveAndGenerateStreamResponseOutput.AccessDeniedExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.BadGatewayExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.CitationMember
+  | RetrieveAndGenerateStreamResponseOutput.ConflictExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.DependencyFailedExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.GuardrailMember
+  | RetrieveAndGenerateStreamResponseOutput.InternalServerExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.OutputMember
+  | RetrieveAndGenerateStreamResponseOutput.ResourceNotFoundExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.ServiceQuotaExceededExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.ThrottlingExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.ValidationExceptionMember
+  | RetrieveAndGenerateStreamResponseOutput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RetrieveAndGenerateStreamResponseOutput {
+  /**
+   * <p>An output event.</p>
+   * @public
+   */
+  export interface OutputMember {
+    output: RetrieveAndGenerateOutputEvent;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A citation event.</p>
+   * @public
+   */
+  export interface CitationMember {
+    output?: never;
+    citation: CitationEvent;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A guardrail event.</p>
+   * @public
+   */
+  export interface GuardrailMember {
+    output?: never;
+    citation?: never;
+    guardrail: GuardrailEvent;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An internal server error occurred. Retry your request.</p>
+   * @public
+   */
+  export interface InternalServerExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException: InternalServerException;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error,
+   *           see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface ValidationExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException: ValidationException;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The specified resource ARN was not found. For troubleshooting this error,
+   *         see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface ResourceNotFoundExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException: ResourceNotFoundException;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
+   * @public
+   */
+  export interface ServiceQuotaExceededExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException: ServiceQuotaExceededException;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For
+   *         troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface ThrottlingExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException: ThrottlingException;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error,
+   *         see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide.</p>
+   * @public
+   */
+  export interface AccessDeniedExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException: AccessDeniedException;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Error occurred because of a conflict while performing an operation.</p>
+   * @public
+   */
+  export interface ConflictExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException: ConflictException;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request failed due to a dependency error.</p>
+   * @public
+   */
+  export interface DependencyFailedExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException: DependencyFailedException;
+    badGatewayException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The request failed due to a bad gateway error.</p>
+   * @public
+   */
+  export interface BadGatewayExceptionMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException: BadGatewayException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    output?: never;
+    citation?: never;
+    guardrail?: never;
+    internalServerException?: never;
+    validationException?: never;
+    resourceNotFoundException?: never;
+    serviceQuotaExceededException?: never;
+    throttlingException?: never;
+    accessDeniedException?: never;
+    conflictException?: never;
+    dependencyFailedException?: never;
+    badGatewayException?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    output: (value: RetrieveAndGenerateOutputEvent) => T;
+    citation: (value: CitationEvent) => T;
+    guardrail: (value: GuardrailEvent) => T;
+    internalServerException: (value: InternalServerException) => T;
+    validationException: (value: ValidationException) => T;
+    resourceNotFoundException: (value: ResourceNotFoundException) => T;
+    serviceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
+    throttlingException: (value: ThrottlingException) => T;
+    accessDeniedException: (value: AccessDeniedException) => T;
+    conflictException: (value: ConflictException) => T;
+    dependencyFailedException: (value: DependencyFailedException) => T;
+    badGatewayException: (value: BadGatewayException) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: RetrieveAndGenerateStreamResponseOutput, visitor: Visitor<T>): T => {
+    if (value.output !== undefined) return visitor.output(value.output);
+    if (value.citation !== undefined) return visitor.citation(value.citation);
+    if (value.guardrail !== undefined) return visitor.guardrail(value.guardrail);
+    if (value.internalServerException !== undefined)
+      return visitor.internalServerException(value.internalServerException);
+    if (value.validationException !== undefined) return visitor.validationException(value.validationException);
+    if (value.resourceNotFoundException !== undefined)
+      return visitor.resourceNotFoundException(value.resourceNotFoundException);
+    if (value.serviceQuotaExceededException !== undefined)
+      return visitor.serviceQuotaExceededException(value.serviceQuotaExceededException);
+    if (value.throttlingException !== undefined) return visitor.throttlingException(value.throttlingException);
+    if (value.accessDeniedException !== undefined) return visitor.accessDeniedException(value.accessDeniedException);
+    if (value.conflictException !== undefined) return visitor.conflictException(value.conflictException);
+    if (value.dependencyFailedException !== undefined)
+      return visitor.dependencyFailedException(value.dependencyFailedException);
+    if (value.badGatewayException !== undefined) return visitor.badGatewayException(value.badGatewayException);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateStreamResponse {
+  /**
+   * <p>A stream of events from the model.</p>
+   * @public
+   */
+  stream: AsyncIterable<RetrieveAndGenerateStreamResponseOutput> | undefined;
+
+  /**
+   * <p>The session ID.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
  * <p>Contains the query made to the knowledge base.</p>
  *          <p>This data type is used in the following API operations:</p>
  *          <ul>
@@ -6093,6 +6969,12 @@ export interface RetrieveResponse {
    * @public
    */
   retrievalResults: KnowledgeBaseRetrievalResult[] | undefined;
+
+  /**
+   * <p>Specifies if there is a guardrail intervention in the response.</p>
+   * @public
+   */
+  guardrailAction?: GuadrailAction | undefined;
 
   /**
    * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
@@ -6551,6 +7433,18 @@ export interface KnowledgeBaseVectorSearchConfiguration {
    * @public
    */
   filter?: RetrievalFilter | undefined;
+
+  /**
+   * <p>Contains configurations for reranking the retrieved results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/rerank.html">Improve the relevance of query responses with a reranker model</a>.</p>
+   * @public
+   */
+  rerankingConfiguration?: VectorSearchRerankingConfiguration | undefined;
+
+  /**
+   * <p>Settings for implicit filtering.</p>
+   * @public
+   */
+  implicitFilterConfiguration?: ImplicitFilterConfiguration | undefined;
 }
 
 /**
@@ -6694,6 +7588,12 @@ export interface RetrieveRequest {
    * @public
    */
   retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration | undefined;
+
+  /**
+   * <p>Guardrail settings.</p>
+   * @public
+   */
+  guardrailConfiguration?: GuardrailConfiguration | undefined;
 
   /**
    * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
@@ -6856,6 +7756,35 @@ export interface InvokeInlineAgentRequest {
  * @public
  */
 export interface RetrieveAndGenerateRequest {
+  /**
+   * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>Contains the query to be made to the knowledge base.</p>
+   * @public
+   */
+  input: RetrieveAndGenerateInput | undefined;
+
+  /**
+   * <p>Contains configurations for the knowledge base query and retrieval process. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>.</p>
+   * @public
+   */
+  retrieveAndGenerateConfiguration?: RetrieveAndGenerateConfiguration | undefined;
+
+  /**
+   * <p>Contains details about the session with the knowledge base.</p>
+   * @public
+   */
+  sessionConfiguration?: RetrieveAndGenerateSessionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetrieveAndGenerateStreamRequest {
   /**
    * <p>The unique identifier of the session. When you first make a <code>RetrieveAndGenerate</code> request, Amazon Bedrock automatically generates this value. You must reuse this value for all subsequent requests in the same conversational session. This value allows Amazon Bedrock to maintain context and knowledge from previous interactions. You can't explicitly set the <code>sessionId</code> yourself.</p>
    * @public
@@ -7212,6 +8141,68 @@ export const FileSourceFilterSensitiveLog = (obj: FileSource): any => ({
 export const InputFileFilterSensitiveLog = (obj: InputFile): any => ({
   ...obj,
   ...(obj.source && { source: FileSourceFilterSensitiveLog(obj.source) }),
+});
+
+/**
+ * @internal
+ */
+export const MetadataAttributeSchemaFilterSensitiveLog = (obj: MetadataAttributeSchema): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ImplicitFilterConfigurationFilterSensitiveLog = (obj: ImplicitFilterConfiguration): any => ({
+  ...obj,
+  ...(obj.metadataAttributes && { metadataAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog = (
+  obj: RerankingMetadataSelectiveModeConfiguration
+): any => {
+  if (obj.fieldsToInclude !== undefined) return { fieldsToInclude: SENSITIVE_STRING };
+  if (obj.fieldsToExclude !== undefined) return { fieldsToExclude: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const MetadataConfigurationForRerankingFilterSensitiveLog = (obj: MetadataConfigurationForReranking): any => ({
+  ...obj,
+  ...(obj.selectiveModeConfiguration && {
+    selectiveModeConfiguration: RerankingMetadataSelectiveModeConfigurationFilterSensitiveLog(
+      obj.selectiveModeConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchBedrockRerankingConfigurationFilterSensitiveLog = (
+  obj: VectorSearchBedrockRerankingConfiguration
+): any => ({
+  ...obj,
+  ...(obj.metadataConfiguration && {
+    metadataConfiguration: MetadataConfigurationForRerankingFilterSensitiveLog(obj.metadataConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const VectorSearchRerankingConfigurationFilterSensitiveLog = (obj: VectorSearchRerankingConfiguration): any => ({
+  ...obj,
+  ...(obj.bedrockRerankingConfiguration && {
+    bedrockRerankingConfiguration: VectorSearchBedrockRerankingConfigurationFilterSensitiveLog(
+      obj.bedrockRerankingConfiguration
+    ),
+  }),
 });
 
 /**
@@ -7860,6 +8851,62 @@ export const OptimizePromptResponseFilterSensitiveLog = (obj: OptimizePromptResp
 /**
  * @internal
  */
+export const RerankTextDocumentFilterSensitiveLog = (obj: RerankTextDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RerankQueryFilterSensitiveLog = (obj: RerankQuery): any => ({
+  ...obj,
+  ...(obj.textQuery && { textQuery: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankDocumentFilterSensitiveLog = (obj: RerankDocument): any => ({
+  ...obj,
+  ...(obj.textDocument && { textDocument: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankSourceFilterSensitiveLog = (obj: RerankSource): any => ({
+  ...obj,
+  ...(obj.inlineDocumentSource && { inlineDocumentSource: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankRequestFilterSensitiveLog = (obj: RerankRequest): any => ({
+  ...obj,
+  ...(obj.queries && { queries: SENSITIVE_STRING }),
+  ...(obj.sources && { sources: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankResultFilterSensitiveLog = (obj: RerankResult): any => ({
+  ...obj,
+  ...(obj.document && { document: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RerankResponseFilterSensitiveLog = (obj: RerankResponse): any => ({
+  ...obj,
+  ...(obj.results && { results: obj.results.map((item) => RerankResultFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const RetrieveAndGenerateInputFilterSensitiveLog = (obj: RetrieveAndGenerateInput): any => ({
   ...obj,
 });
@@ -7947,6 +8994,51 @@ export const RetrieveAndGenerateResponseFilterSensitiveLog = (obj: RetrieveAndGe
 /**
  * @internal
  */
+export const CitationEventFilterSensitiveLog = (obj: CitationEvent): any => ({
+  ...obj,
+  ...(obj.citation && { citation: CitationFilterSensitiveLog(obj.citation) }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateOutputEventFilterSensitiveLog = (obj: RetrieveAndGenerateOutputEvent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateStreamResponseOutputFilterSensitiveLog = (
+  obj: RetrieveAndGenerateStreamResponseOutput
+): any => {
+  if (obj.output !== undefined) return { output: SENSITIVE_STRING };
+  if (obj.citation !== undefined) return { citation: CitationEventFilterSensitiveLog(obj.citation) };
+  if (obj.guardrail !== undefined) return { guardrail: obj.guardrail };
+  if (obj.internalServerException !== undefined) return { internalServerException: obj.internalServerException };
+  if (obj.validationException !== undefined) return { validationException: obj.validationException };
+  if (obj.resourceNotFoundException !== undefined) return { resourceNotFoundException: obj.resourceNotFoundException };
+  if (obj.serviceQuotaExceededException !== undefined)
+    return { serviceQuotaExceededException: obj.serviceQuotaExceededException };
+  if (obj.throttlingException !== undefined) return { throttlingException: obj.throttlingException };
+  if (obj.accessDeniedException !== undefined) return { accessDeniedException: obj.accessDeniedException };
+  if (obj.conflictException !== undefined) return { conflictException: obj.conflictException };
+  if (obj.dependencyFailedException !== undefined) return { dependencyFailedException: obj.dependencyFailedException };
+  if (obj.badGatewayException !== undefined) return { badGatewayException: obj.badGatewayException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateStreamResponseFilterSensitiveLog = (obj: RetrieveAndGenerateStreamResponse): any => ({
+  ...obj,
+  ...(obj.stream && { stream: "STREAMING_CONTENT" }),
+});
+
+/**
+ * @internal
+ */
 export const KnowledgeBaseQueryFilterSensitiveLog = (obj: KnowledgeBaseQuery): any => ({
   ...obj,
 });
@@ -7997,6 +9089,12 @@ export const KnowledgeBaseVectorSearchConfigurationFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.filter && { filter: SENSITIVE_STRING }),
+  ...(obj.rerankingConfiguration && {
+    rerankingConfiguration: VectorSearchRerankingConfigurationFilterSensitiveLog(obj.rerankingConfiguration),
+  }),
+  ...(obj.implicitFilterConfiguration && {
+    implicitFilterConfiguration: ImplicitFilterConfigurationFilterSensitiveLog(obj.implicitFilterConfiguration),
+  }),
 });
 
 /**
@@ -8097,6 +9195,19 @@ export const InvokeInlineAgentRequestFilterSensitiveLog = (obj: InvokeInlineAgen
  * @internal
  */
 export const RetrieveAndGenerateRequestFilterSensitiveLog = (obj: RetrieveAndGenerateRequest): any => ({
+  ...obj,
+  ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.retrieveAndGenerateConfiguration && {
+    retrieveAndGenerateConfiguration: RetrieveAndGenerateConfigurationFilterSensitiveLog(
+      obj.retrieveAndGenerateConfiguration
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RetrieveAndGenerateStreamRequestFilterSensitiveLog = (obj: RetrieveAndGenerateStreamRequest): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
   ...(obj.retrieveAndGenerateConfiguration && {
